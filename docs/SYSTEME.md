@@ -204,3 +204,4 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - Das Gold des Runs ist das Material `gold` (`loot.json`, Stapel bis 999 über `stack`) in der Tasche: fallen lassen, umsortieren, in den sicheren Platz legen wie alles andere. `RunState.coins` zählt nur das Gold in der Tasche (eine Quelle); `add_coins` legt hinein (gibt zurück, was nicht passt), `spend` nimmt heraus (`Bag.remove`, normale Plätze zuerst). Das Geldbündel-Feld im Tab-Fenster ist weg.
 - Münzen auf dem Boden werden beim Anfassen zu 8–12 Gold für die Tasche; ist sie voll, bleibt das Gold liegen („Inventar voll!“).
 - Run-Ende: Gold aus der Tasche geht in die Geldbörse zu Hause (`MetaState.end_run`), nicht ins Inventar. Beim Tod nur das Gold im sicheren Platz.
+- **End-Bildschirm** (2026-11-26): keine Knöpfe mehr. Nach 0,6 s blinkt „Klicken, um weiterzumachen“; ein Klick oder eine Taste, und man wacht vor Egon auf (`Game.to_shop`). Ins Hauptmenü geht es aus dem Laden.

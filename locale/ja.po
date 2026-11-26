@@ -924,6 +924,9 @@ msgstr "小さく速くなり、時々回避"
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "キーをクリックして新しいキーを押す。Esc＝キャンセル。"
 
+msgid "Klicken, um weiterzumachen"
+msgstr "クリックで続ける"
+
 msgid "Klingenstern"
 msgstr "刃の星"
 

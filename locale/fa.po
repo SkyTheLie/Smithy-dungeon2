@@ -924,6 +924,9 @@ msgstr "کوچک‌تر، سریع‌تر و گاهی جاخالی"
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "روی یک کلید کلیک کن، بعد کلید جدید را بزن. Esc = لغو."
 
+msgid "Klicken, um weiterzumachen"
+msgstr "برای ادامه کلیک کن"
+
 msgid "Klingenstern"
 msgstr "ستاره تیغه"
 

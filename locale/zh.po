@@ -924,6 +924,9 @@ msgstr "更小、更快，有时闪避"
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "点击一个按键，再按下新按键。Esc = 取消。"
 
+msgid "Klicken, um weiterzumachen"
+msgstr "点击继续"
+
 msgid "Klingenstern"
 msgstr "刃之星"
 

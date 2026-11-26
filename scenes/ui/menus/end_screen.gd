@@ -2,18 +2,22 @@ class_name EndScreen
 extends CanvasLayer
 ## End of a run: "Du bist gefallen" (dead), "Geschafft!" (last boss beaten) or "Geflüchtet!"
 ## (out through the ladder in a start room), with the floor,
-## kills, the run's values and its items. Zum Laden (the next day at Egon's) / Hauptmenü.
+## kills, the run's values and its items. No buttons: a click or a key (after a short moment, so
+## nothing is clicked by mistake) and you wake up in front of Egon (Game.to_shop, the next day).
 
 @onready var _title: Label = %Title
 @onready var _summary: Label = %Summary
 @onready var _summary_right: Label = %SummaryRight
 @onready var _items: HFlowContainer = %Items
+@onready var _hint: Label = %Hint
+
+## Seconds before a click counts.
+const WAIT_TIME: float = 0.6
+var _can_go_on: bool = false
 
 
 func _ready() -> void:
 	hide()
-	%Again.pressed.connect(Game.to_shop)
-	%Menu.pressed.connect(Game.to_main_menu)
 
 
 func open(run: RunState, won: bool, fled: bool = false) -> void:
@@ -50,9 +54,34 @@ func open(run: RunState, won: bool, fled: bool = false) -> void:
 		_items.add_child(icon)
 	show()
 	get_tree().paused = true
+	_can_go_on = false
+	_hint.modulate.a = 0.0
+	# The end screen works while the game is paused, so this timer must run then too.
+	await get_tree().create_timer(WAIT_TIME, true).timeout
+	if not is_inside_tree():
+		return
+	_can_go_on = true
+	var blink := create_tween().set_loops()
+	blink.tween_property(_hint, "modulate:a", 1.0, 0.5)
+	blink.tween_property(_hint, "modulate:a", 0.35, 0.5)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if won:
 		AudioManager.play_music("victory")
+
+
+## Any click or key: wake up in front of Egon.
+func _input(event: InputEvent) -> void:
+	if not visible or not _can_go_on:
+		return
+	var is_button: bool = event is InputEventMouseButton or event is InputEventKey or event is InputEventJoypadButton
+	if is_button and event.is_pressed() and not event.is_echo():
+		get_viewport().set_input_as_handled()
+		_can_go_on = false
+		Game.to_shop()
+
+
+func can_go_on() -> bool:
+	return _can_go_on
 
 
 ## Pieces of loot (without the gold).

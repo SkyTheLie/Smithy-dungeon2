@@ -924,6 +924,9 @@ msgstr "Menor, mais rápido e às vezes esquiva"
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "Clique numa tecla e aperte a nova. Esc = cancelar."
 
+msgid "Klicken, um weiterzumachen"
+msgstr "Clique para continuar"
+
 msgid "Klingenstern"
 msgstr "Estrela de lâminas"
 

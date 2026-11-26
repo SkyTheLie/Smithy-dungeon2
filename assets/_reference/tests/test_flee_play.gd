@@ -94,4 +94,12 @@ func _flee() -> void:
 	var stash: Array = meta.call("stash")
 	check(stash.any(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur" and int(place.get("count")) == 3), "the whole bag comes home")
 	check_eq(meta.call("day"), day + 1, "a new day")
+	# No buttons: a click (after a moment) wakes you up in front of Egon.
+	check(not end_screen.call("can_go_on"), "a click right away does nothing")
+	check(await wait_until(func() -> bool: return end_screen.call("can_go_on"), 2.0), "after a moment a click counts")
+	var click := InputEventMouseButton.new()
+	click.button_index = MOUSE_BUTTON_LEFT
+	click.pressed = true
+	Input.parse_input_event(click)
+	check(await wait_until(func() -> bool: return current_scene != null and current_scene.name == "Shop", 2.0), "a click anywhere: in front of Egon")
 	paused = false

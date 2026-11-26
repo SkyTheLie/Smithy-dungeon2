@@ -924,6 +924,9 @@ msgstr "Plus petit, plus rapide et parfois esquiver"
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "Clique sur une touche, puis appuie sur la nouvelle. Échap = annuler."
 
+msgid "Klicken, um weiterzumachen"
+msgstr "Clique pour continuer"
+
 msgid "Klingenstern"
 msgstr "Étoile de lames"
 

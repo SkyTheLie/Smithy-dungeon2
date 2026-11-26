@@ -924,6 +924,9 @@ msgstr "Smaller, faster and sometimes dodge"
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "Click a key, then press the new one. Esc = cancel."
 
+msgid "Klicken, um weiterzumachen"
+msgstr "Click to continue"
+
 msgid "Klingenstern"
 msgstr "Blade Star"
 

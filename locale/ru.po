@@ -924,6 +924,9 @@ msgstr "Меньше, быстрее и иногда уклонение"
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "Нажми на клавишу, затем на новую. Esc = отмена."
 
+msgid "Klicken, um weiterzumachen"
+msgstr "Нажми, чтобы продолжить"
+
 msgid "Klingenstern"
 msgstr "Звезда клинков"
 
