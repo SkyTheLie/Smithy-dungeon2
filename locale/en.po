@@ -180,6 +180,9 @@ msgstr "That costs too much life"
 msgid "Defensiv"
 msgstr "Defensive"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "Your gold. Safe in the money box at home; in the dungeon it is lost when you die, except in the safe slot."
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Your relic gave up the ghost. Happens. I just happen to have a new one… friendship price!"
 
@@ -227,6 +230,15 @@ msgstr "Double shot"
 
 msgid "Dornenpanzer"
 msgstr "Thorn Armor"
+
+msgid "Dose"
+msgstr "Money box"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "Money box: %d gold. Safe up to %d."
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "Money box: drag gold here"
 
 msgid "Drachenatem"
 msgstr "Dragon Breath"
@@ -350,6 +362,9 @@ msgstr "Effects"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "Egon Honest, pleased to meet you. Honest is my name, honest is my business. Honestly!"
+
+msgid "Egon könnte klauen!"
+msgstr "Egon might steal!"
 
 msgid "Egons Laden"
 msgstr "Egon's Shop"
@@ -1217,6 +1232,9 @@ msgstr "Mythic"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Coins and hearts fly to you"
+
+msgid "Münzsack"
+msgstr "Coin bag"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "Well, partner? New here? Anyone can tell."
@@ -2228,6 +2246,9 @@ msgstr "max."
 
 msgid "oder Leertaste"
 msgstr "or press Space"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "Over the limit: Egon is eyeing your money box!"
 
 msgid "Überschreiben"
 msgstr "Overwrite"

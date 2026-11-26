@@ -180,6 +180,9 @@ msgstr "این زندگی زیادی می‌گیرد"
 msgid "Defensiv"
 msgstr "دفاعی"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "طلای تو. در خانه داخل قوطی امن است؛ در سیاه‌چال با مرگ از دست می‌رود، مگر در خانه‌ی امن."
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "یادگارت جان داد. پیش میاد. اتفاقاً یه دونه‌ی نو دارم… قیمت دوستانه!"
 
@@ -227,6 +230,15 @@ msgstr "شلیک دوتایی"
 
 msgid "Dornenpanzer"
 msgstr "زره خاردار"
+
+msgid "Dose"
+msgstr "قوطی"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "قوطی: %d طلا. تا %d امن است."
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "قوطی: طلا را اینجا بکش"
 
 msgid "Drachenatem"
 msgstr "نفس اژدها"
@@ -350,6 +362,9 @@ msgstr "افکت‌ها"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "اگون صادق، خوشوقتم. صادق اسم منه، صادق کسب‌وکار من. صادقانه!"
+
+msgid "Egon könnte klauen!"
+msgstr "اگون ممکن است بدزدد!"
 
 msgid "Egons Laden"
 msgstr "مغازهٔ اگون"
@@ -1217,6 +1232,9 @@ msgstr "اسطوره‌ای"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "سکه‌ها و قلب‌ها به سمتت پرواز می‌کنند"
+
+msgid "Münzsack"
+msgstr "کیسه‌ی سکه"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "خب، رفیق؟ تازه اومدی؟ از قیافه‌ات معلومه."
@@ -2228,6 +2246,9 @@ msgstr "حداکثر"
 
 msgid "oder Leertaste"
 msgstr "یا کلید فاصله"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "بیش از حد: اگون به قوطی‌ات چشم دوخته!"
 
 msgid "Überschreiben"
 msgstr "بازنویسی"

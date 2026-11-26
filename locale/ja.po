@@ -180,6 +180,9 @@ msgstr "体力を払いすぎる"
 msgid "Defensiv"
 msgstr "防御"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "君の金。家ではカンの中で安全。ダンジョンで死ぬと失う（安全枠は除く）。"
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "レリックが壊れちまったな。よくあることだ。偶然新しいのがあるんだが…友達価格でな！"
 
@@ -227,6 +230,15 @@ msgstr "ダブルショット"
 
 msgid "Dornenpanzer"
 msgstr "棘の鎧"
+
+msgid "Dose"
+msgstr "カン"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "カン：%dゴールド。%dまでは安全。"
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "カン：金をここへドラッグ"
 
 msgid "Drachenatem"
 msgstr "ドラゴンブレス"
@@ -350,6 +362,9 @@ msgstr "効果音"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "エゴン・オネスト、よろしくな。正直が俺の名前で、正直が俺の商売。正直に！"
+
+msgid "Egon könnte klauen!"
+msgstr "エゴンが盗むかも！"
 
 msgid "Egons Laden"
 msgstr "エゴンの店"
@@ -1217,6 +1232,9 @@ msgstr "ミシック"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "コインとハートが飛んでくる"
+
+msgid "Münzsack"
+msgstr "コイン袋"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "よう、相棒。ここは初めてか？すぐわかるぜ。"
@@ -2228,6 +2246,9 @@ msgstr "最大"
 
 msgid "oder Leertaste"
 msgstr "またはスペースキー"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "上限超え：エゴンがカンを狙ってる！"
 
 msgid "Überschreiben"
 msgstr "上書き"

@@ -180,6 +180,9 @@ msgstr "Isso custa vida demais"
 msgid "Defensiv"
 msgstr "Defensivo"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "Seu ouro. Em casa, seguro na lata; na masmorra se perde ao morrer, exceto no espaço seguro."
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Sua relíquia bateu as botas. Acontece. Por acaso eu tenho uma nova… preço de amigo!"
 
@@ -227,6 +230,15 @@ msgstr "Tiro duplo"
 
 msgid "Dornenpanzer"
 msgstr "Armadura de espinhos"
+
+msgid "Dose"
+msgstr "Lata"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "Lata: %d de ouro. Seguro até %d."
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "Lata: arraste o ouro para cá"
 
 msgid "Drachenatem"
 msgstr "Bafo de dragão"
@@ -350,6 +362,9 @@ msgstr "Efeitos"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "Egon Honesto, muito prazer. Honesto é meu nome, honesto é meu negócio. Sério!"
+
+msgid "Egon könnte klauen!"
+msgstr "O Egon pode roubar!"
 
 msgid "Egons Laden"
 msgstr "A loja do Egon"
@@ -1217,6 +1232,9 @@ msgstr "Mítico"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Moedas e corações voam até você"
+
+msgid "Münzsack"
+msgstr "Saco de moedas"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "E aí, parceiro? Novo por aqui? Dá pra ver na hora."
@@ -2228,6 +2246,9 @@ msgstr "máx."
 
 msgid "oder Leertaste"
 msgstr "ou aperte Espaço"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "Acima do limite: o Egon está de olho na sua lata!"
 
 msgid "Überschreiben"
 msgstr "Sobrescrever"

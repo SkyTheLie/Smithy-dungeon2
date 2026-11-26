@@ -22,6 +22,8 @@ var entry: Dictionary = {}
 ## Faint picture while empty (hero slots) and its name as tooltip.
 var hint: Texture2D
 var hint_name: String = ""
+## How strong the empty picture shows (the money box shows its can fully).
+var hint_alpha: float = HINT_ALPHA
 var show_price: bool = false
 
 var _icon: TextureRect
@@ -109,7 +111,7 @@ func _gui_input(event: InputEvent) -> void:
 func _refresh() -> void:
 	if entry.is_empty():
 		_icon.texture = hint
-		_icon.modulate = Color(1, 1, 1, HINT_ALPHA)
+		_icon.modulate = Color(1, 1, 1, hint_alpha)
 		_count.text = ""
 		tooltip_text = hint_name
 		add_theme_stylebox_override("panel", box(SLOT_COLOR, EMPTY_BORDER, 2))

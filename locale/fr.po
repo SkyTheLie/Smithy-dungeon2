@@ -180,6 +180,9 @@ msgstr "Cela coûte trop de vie"
 msgid "Defensiv"
 msgstr "Défensif"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "Ton or. À la maison, en sécurité dans la boîte ; au donjon, il est perdu à ta mort, sauf dans l'emplacement sûr."
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Ta relique a rendu l'âme. Ça arrive. J'en aurais justement une neuve… prix d'ami !"
 
@@ -227,6 +230,15 @@ msgstr "Tir double"
 
 msgid "Dornenpanzer"
 msgstr "Armure d'épines"
+
+msgid "Dose"
+msgstr "Boîte"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "Boîte : %d or. En sécurité jusqu'à %d."
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "Boîte : glisse l'or ici"
 
 msgid "Drachenatem"
 msgstr "Souffle du dragon"
@@ -350,6 +362,9 @@ msgstr "Effets"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "Egon Honnête, enchanté. Honnête est mon nom, honnête est mon commerce. Honnêtement !"
+
+msgid "Egon könnte klauen!"
+msgstr "Egon pourrait voler !"
 
 msgid "Egons Laden"
 msgstr "La boutique d'Egon"
@@ -1217,6 +1232,9 @@ msgstr "Mythique"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Les pièces et les cœurs volent vers toi"
+
+msgid "Münzsack"
+msgstr "Bourse"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "Alors, partenaire ? Nouveau ici ? Ça se voit tout de suite."
@@ -2228,6 +2246,9 @@ msgstr "max."
 
 msgid "oder Leertaste"
 msgstr "ou appuyez sur Espace"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "Au-dessus de la limite : Egon lorgne ta boîte !"
 
 msgid "Überschreiben"
 msgstr "Écraser"

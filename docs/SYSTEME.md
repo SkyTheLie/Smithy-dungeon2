@@ -224,3 +224,8 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 ## Verkaufen bei Egon – 2026-11-26, `feature/verkaufen`
 
 - Oben rechts im Laden der Ankauf-Platz: Rechtsklick auf ein Ding im Inventar legt es dorthin (im Inventar abgedunkelt), „Verkaufen: N Gold“ verkauft den ganzen Stapel (`MetaState.sell`), Klick auf den Ankauf-Platz legt es zurück. Preis (`ShopGoods.sell_price`): Beute = `loot.json` `value` × Anzahl; Ausrüstung und Relikte = `shop.json` `sell_share` (30 %) des Kaufpreises.
+
+## Münzsack und Dose im Laden – 2026-11-26, `feature/dose`
+
+- Das Gold zu Hause ist der **Münzsack** im Inventar (Eintrag `gold` im `stash`, immer am Ende; `MetaState.purse` zählt ihn, `_set_purse` schreibt ihn; alte Spielstände mit Zahl „purse“ werden mitgezählt). Er kann nicht verkauft oder angezogen werden.
+- **Dose** unten rechts im Laden (`MetaState.box`, Limit `meta.json` `money_box.limit`): darüber „Dose 120/200“, grün bis zum Limit, rot darüber mit „Egon könnte klauen!“ (die Diebstahl-Regel `roll_theft` gab es schon). Münzsack auf die Dose ziehen = alles hinein, Dose ins Inventar ziehen oder anklicken = alles heraus, „+10“ / „−10“.

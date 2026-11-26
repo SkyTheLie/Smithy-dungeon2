@@ -56,8 +56,11 @@ static func peek(id: String) -> Dictionary:
 		return {}
 	var config := ConfigFile.new()
 	config.load(path_of(id))
-	return {"day": int(config.get_value(SECTION, "day", 1)),
-			"gold": int(config.get_value(SECTION, "purse", 0)) + int(config.get_value(SECTION, "box", 0))}
+	var gold: int = int(config.get_value(SECTION, "purse", 0)) + int(config.get_value(SECTION, "box", 0))
+	for entry: Variant in config.get_value(SECTION, "stash", []):
+		if entry is Dictionary and String((entry as Dictionary).get("id", "")) == Bag.GOLD:
+			gold += int((entry as Dictionary).get("count", 0))
+	return {"day": int(config.get_value(SECTION, "day", 1)), "gold": gold}
 
 
 ## Deletes the save of slot `id` for good (the slot choice asks first). false if it had none.
@@ -125,7 +128,7 @@ static func buy_skill(id: String) -> bool:
 		return false
 	var gold: int = Skills.next_gold(id)
 	var points: int = Skills.next_points(id)
-	_write("purse", purse() - gold)
+	_set_purse(purse() - gold)
 	_write("skill_points", skill_points() - points)
 	var learned: Dictionary = (_read("skills", {}) as Dictionary).duplicate()
 	learned[id] = skill_level(id) + 1
@@ -144,8 +147,26 @@ static func relic_slot_names() -> Array[String]:
 	return names
 
 
+## The gold at home: the coin bag in the inventory (stash entry "gold", Bag.GOLD); one source.
+## Older saves kept it as a number ("purse"), counted too until the next change.
 static func purse() -> int:
-	return int(_read("purse", 0))
+	var gold: int = int(_read("purse", 0))
+	for entry: Dictionary in stash():
+		if String(entry.get("id", "")) == Bag.GOLD and not ShopGoods.is_relic(entry):
+			gold += int(entry.get("count", 0))
+	return gold
+
+
+## Sets the coin bag to `amount` (at the end of the inventory; none at 0). Callers check the amount.
+static func _set_purse(amount: int) -> void:
+	var own: Array[Dictionary] = []
+	for entry: Dictionary in stash():
+		if String(entry.get("id", "")) != Bag.GOLD or ShopGoods.is_relic(entry):
+			own.append(entry)
+	if amount > 0:
+		own.append({"id": Bag.GOLD, "count": amount})
+	_write("stash", own)
+	_write("purse", 0)
 
 
 static func box() -> int:
@@ -201,7 +222,7 @@ static func pull_lever(rng: RandomNumberGenerator) -> bool:
 	var price: int = lever_price()
 	if price > purse():
 		return false
-	_write("purse", purse() - price)
+	_set_purse(purse() - price)
 	_write("table", ShopGoods.roll(rng))
 	_write("pulls_today", pulls_today() + 1)
 	_save()
@@ -218,12 +239,14 @@ static func buy(index: int, free: bool = false) -> bool:
 	var price: int = 0 if free else int(piece.get("price", 0))
 	if price < 0 or price > purse():
 		return false
-	_write("purse", purse() - price)
+	var gold: int = purse() - price
 	list[index] = {}
 	_write("table", list)
 	var own: Array[Dictionary] = stash()
 	own.append(_owned(piece))
 	_write("stash", own)
+	# After the new piece, so the coin bag stays the last place.
+	_set_purse(gold)
 	_save()
 	return true
 
@@ -258,12 +281,12 @@ static func slot_of(piece: Dictionary) -> String:
 ## purse. Returns the gold (0 = nothing sold).
 static func sell(index: int) -> int:
 	var own: Array[Dictionary] = stash()
-	if index < 0 or index >= own.size():
+	if index < 0 or index >= own.size() or String(own[index].get("id", "")) == Bag.GOLD:
 		return 0
 	var gold: int = ShopGoods.sell_price(own[index])
 	own.remove_at(index)
 	_write("stash", own)
-	_write("purse", purse() + gold)
+	_set_purse(purse() + gold)
 	_save()
 	return gold
 
@@ -349,7 +372,7 @@ static func finish_tutorial() -> void:
 static func deposit(amount: int) -> bool:
 	if amount <= 0 or amount > purse():
 		return false
-	_write("purse", purse() - amount)
+	_set_purse(purse() - amount)
 	_write("box", box() + amount)
 	_save()
 	return true
@@ -360,7 +383,7 @@ static func withdraw(amount: int) -> bool:
 	if amount <= 0 or amount > box():
 		return false
 	_write("box", box() - amount)
-	_write("purse", purse() + amount)
+	_set_purse(purse() + amount)
 	_save()
 	return true
 
@@ -369,7 +392,7 @@ static func withdraw(amount: int) -> bool:
 static func take_purse_for_run() -> int:
 	var gold: int = purse()
 	if gold > 0:
-		_write("purse", 0)
+		_set_purse(0)
 		_save()
 	return gold
 
@@ -378,8 +401,7 @@ static func take_purse_for_run() -> int:
 ## {id, count}) into the stash (its gold into the purse), then the merchant may help himself from the box.
 ## Death: coins 0 and only the safe places. Returns the gold stolen from the box.
 static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenerator) -> int:
-	if coins > 0:
-		_write("purse", purse() + coins)
+	var gold_home: int = maxi(0, coins)
 	var list: Array[Dictionary] = stash()
 	for entry: Dictionary in kept:
 		var id: String = String(entry.get("id", ""))
@@ -388,7 +410,7 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 			continue
 		# The gold of the bag goes into the purse, not into the inventory.
 		if id == Bag.GOLD:
-			_write("purse", purse() + count)
+			gold_home += count
 			continue
 		var merged: bool = false
 		for own: Dictionary in list:
@@ -399,6 +421,8 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 		if not merged:
 			list.append({"id": id, "count": count})
 	_write("stash", list)
+	if gold_home > 0:
+		_set_purse(purse() + gold_home)
 	_wear_relic()
 	_write("day", day() + 1)
 	_write("pulls_today", 0)

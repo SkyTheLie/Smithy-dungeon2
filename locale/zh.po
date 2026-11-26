@@ -180,6 +180,9 @@ msgstr "这会消耗太多生命"
 msgid "Defensiv"
 msgstr "防御"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "你的金币。在家放进罐子里很安全；在地牢中死亡会丢失，安全格中的除外。"
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "你的圣物报废了。常有的事。我这儿碰巧有个新的…友情价！"
 
@@ -227,6 +230,15 @@ msgstr "双发"
 
 msgid "Dornenpanzer"
 msgstr "荆棘铠甲"
+
+msgid "Dose"
+msgstr "罐子"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "罐子：%d金币。%d以内是安全的。"
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "罐子：把金币拖到这里"
 
 msgid "Drachenatem"
 msgstr "龙息"
@@ -350,6 +362,9 @@ msgstr "音效"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "埃贡·诚实，幸会。诚实是我的名字，诚实是我的生意。真的！"
+
+msgid "Egon könnte klauen!"
+msgstr "埃贡可能会偷！"
 
 msgid "Egons Laden"
 msgstr "埃贡的商店"
@@ -1217,6 +1232,9 @@ msgstr "神话"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "硬币和心会飞向你"
+
+msgid "Münzsack"
+msgstr "钱袋"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "怎么样，伙计？新来的？一眼就看出来了。"
@@ -2228,6 +2246,9 @@ msgstr "满级"
 
 msgid "oder Leertaste"
 msgstr "或按空格键"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "超过上限：埃贡正盯着你的罐子！"
 
 msgid "Überschreiben"
 msgstr "覆盖"

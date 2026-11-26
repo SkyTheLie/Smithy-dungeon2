@@ -172,7 +172,7 @@ func _relics() -> void:
 	check_eq(meta.call("broken_relic"), "dreizack", "Egon knows which one")
 	meta.call("_write", "table", [goods.call("make_relic", "moorherz")])
 	meta.call("buy", 0)
-	meta.call("equip", (meta.call("stash") as Array).size() - 1)
+	meta.call("equip", (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "moorherz"))
 	for i in 5:
 		meta.call("end_run", 0, [] as Array[Dictionary], RandomNumberGenerator.new())
 	check_eq(String((meta.call("equipment") as Dictionary).get("relic_1", {}).get("id", "")), "moorherz", "a weak relic stays for ever")
@@ -191,5 +191,7 @@ func _selling() -> void:
 	check_eq(goods.call("sell_price", own[1]), 9, "the copper staff (30): 30 % = 9 gold")
 	check_eq(meta.call("sell", 0), 6, "sold")
 	check_eq(meta.call("purse"), 6, "the gold is in the purse")
-	check_eq((meta.call("stash") as Array).size(), 1, "the furs are gone")
+	check(not (meta.call("stash") as Array).any(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur"), "the furs are gone")
+	check_eq((meta.call("stash") as Array).back().get("id"), "gold", "the gold lies in the inventory as a coin bag")
+	check_eq(meta.call("sell", (meta.call("stash") as Array).size() - 1), 0, "the coin bag cannot be sold")
 	check_eq(meta.call("sell", 5), 0, "a place that does not exist sells nothing")

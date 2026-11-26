@@ -180,6 +180,9 @@ msgstr "Это стоит слишком много жизни"
 msgid "Defensiv"
 msgstr "Защита"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "Твоё золото. Дома — в банке в безопасности; в подземелье при смерти пропадает, кроме надёжной ячейки."
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Твоя реликвия приказала долго жить. Бывает. У меня случайно есть новая… цена для друзей!"
 
@@ -227,6 +230,15 @@ msgstr "Двойной выстрел"
 
 msgid "Dornenpanzer"
 msgstr "Шипастая броня"
+
+msgid "Dose"
+msgstr "Банка"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "Банка: %d золота. До %d в безопасности."
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "Банка: перетащи золото сюда"
 
 msgid "Drachenatem"
 msgstr "Дыхание дракона"
@@ -350,6 +362,9 @@ msgstr "Эффекты"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "Эгон Честный, очень приятно. Честный — моё имя, честный — мой бизнес. Честно!"
+
+msgid "Egon könnte klauen!"
+msgstr "Эгон может стащить!"
 
 msgid "Egons Laden"
 msgstr "Лавка Эгона"
@@ -1217,6 +1232,9 @@ msgstr "Мифический"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Монеты и сердца летят к тебе"
+
+msgid "Münzsack"
+msgstr "Мешочек монет"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "Ну что, партнёр? Новенький? Сразу видно."
@@ -2228,6 +2246,9 @@ msgstr "макс."
 
 msgid "oder Leertaste"
 msgstr "или пробел"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "Сверх лимита: Эгон косится на твою банку!"
 
 msgid "Überschreiben"
 msgstr "Перезаписать"

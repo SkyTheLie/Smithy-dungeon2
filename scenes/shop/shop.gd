@@ -7,6 +7,9 @@ extends Control
 ##   Lever: MetaState.pull_lever (first pull of a day free, then dearer); the table flips over.
 ##   Click on goods: buy (MetaState.buy). Click on gear in the inventory: put it on (equip),
 ##   click on a hero place: take it off (unequip).
+##   The money box (Dose, bottom right): "120/200" above it, green up to the limit, red above it
+##   (then Egon may help himself, MetaState.roll_theft). Drag the coin bag (gold at home) onto it =
+##   all in, drag it back or click it = all out; "+10" / "−10" move 10 gold.
 ##   Right click on the inventory: onto Egon's sell place (top right); "Verkaufen: N Gold" sells it
 ##   (MetaState.sell), a click on the sell place gives it back.
 ##   "Skills" (bottom right): the skill tree (SkillTreeWindow); the day, the player level and the
@@ -23,6 +26,10 @@ const MERCHANT: Texture2D = preload("res://assets/sprites/npcs/black_market_deal
 const LEVER_UP: Texture2D = preload("res://assets/sprites/fortress/lever_up.png")
 const LEVER_DOWN: Texture2D = preload("res://assets/sprites/fortress/lever_down.png")
 const COIN: Texture2D = preload("res://assets/ui/icon_coin.png")
+const BOX_ICON: String = "res://assets/sprites/props/chest.png"
+const BOX_STEP: int = 10
+const BOX_SAFE := Color(0.45, 0.9, 0.45)
+const BOX_DANGER := Color(1.0, 0.4, 0.35)
 const CAVE_SHADE := Color(0.45, 0.4, 0.4)
 const GOLD_COLOR := Color(1, 0.86, 0.35)
 const SCREEN := Vector2(640, 360)
@@ -49,6 +56,9 @@ var _menu_button: Button
 var _dungeons_button: Button
 var _board: DungeonBoard
 var _skills_button: Button
+var _box_slot: ShopSlot
+var _box_label: Label
+var _box_warning: Label
 var _sell_slot: ShopSlot
 var _sell_button: Button
 ## Inventory place waiting on the sell place (-1 = none). Only shown; sold on the button.
@@ -100,7 +110,7 @@ func _build() -> void:
 	merchant.texture = MERCHANT
 	merchant.size = MERCHANT.get_size()
 	merchant.scale = Vector2.ONE * MERCHANT_SCALE
-	merchant.position = Vector2(500, 108)
+	merchant.position = Vector2(500, 84)
 	merchant.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_frame.add_child(merchant)
 
@@ -154,6 +164,7 @@ func _build() -> void:
 	_lever_price.size = Vector2(88, 16)
 	_frame.add_child(_lever_price)
 	_build_sell_place()
+	_build_money_box()
 
 	var inventory_panel := _panel(Vector2(170, 252))
 	var inventory_scroll := ScrollContainer.new()
@@ -264,6 +275,7 @@ func _refresh_inventory() -> void:
 		var place := ShopSlot.new()
 		place.clicked.connect(_on_inventory_clicked.bind(_inventory_slots.size()))
 		place.right_clicked.connect(_put_on_sell_place.bind(_inventory_slots.size()))
+		place.set_drag_forwarding(_drag_from_inventory.bind(_inventory_slots.size()), _can_drop_on_inventory, _drop_on_inventory)
 		_inventory_grid.add_child(place)
 		_inventory_slots.append(place)
 	if _sell_index >= own.size():
@@ -272,6 +284,7 @@ func _refresh_inventory() -> void:
 		_inventory_slots[i].show_entry(own[i] if i < own.size() else {})
 		_inventory_slots[i].modulate.a = 0.35 if i == _sell_index else 1.0
 	_refresh_sell_place(own)
+	_refresh_money_box()
 
 
 # --- Selling (Egon's sell place) ---------------------------------------------------
@@ -314,6 +327,8 @@ func _refresh_sell_place(own: Array[Dictionary]) -> void:
 func _put_on_sell_place(index: int) -> void:
 	if _locked or index >= MetaState.stash().size():
 		return
+	if String(MetaState.stash()[index].get("id", "")) == Bag.GOLD:
+		return
 	_sell_index = index
 	AudioManager.play_sound("pickup")
 	_refresh()
@@ -340,6 +355,138 @@ func _sell() -> void:
 
 func get_sell_button() -> Button:
 	return _sell_button
+
+
+# --- The money box (Dose) ------------------------------------------------------------
+
+func _build_money_box() -> void:
+	var panel := _panel(Vector2(500, 226))
+	var column := VBoxContainer.new()
+	column.add_theme_constant_override("separation", 2)
+	panel.add_child(column)
+	_box_label = _label("", 12, BOX_SAFE)
+	_box_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	column.add_child(_box_label)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 4)
+	column.add_child(row)
+	_box_slot = ShopSlot.new()
+	_box_slot.name = "MoneyBox"
+	var icon: Texture2D = load(BOX_ICON) as Texture2D
+	_box_slot.hint = icon
+	_box_slot.hint_alpha = 1.0
+	_box_slot.hint_name = Language.translate("Dose: Gold hierher ziehen")
+	_box_slot.clicked.connect(_withdraw.bind(-1))
+	_box_slot.set_drag_forwarding(_drag_from_box, _can_drop_on_box, _drop_on_box)
+	row.add_child(_box_slot)
+	var buttons := VBoxContainer.new()
+	buttons.add_theme_constant_override("separation", 2)
+	row.add_child(buttons)
+	var put_in := _small_button("+%d" % BOX_STEP)
+	put_in.name = "BoxIn"
+	put_in.pressed.connect(_deposit.bind(BOX_STEP))
+	buttons.add_child(put_in)
+	var take_out := _small_button("−%d" % BOX_STEP)
+	take_out.name = "BoxOut"
+	take_out.pressed.connect(_withdraw.bind(BOX_STEP))
+	buttons.add_child(take_out)
+	_box_warning = _label(Language.translate("Egon könnte klauen!"), 9, BOX_DANGER)
+	_box_warning.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_box_warning.tooltip_text = Language.translate("Über dem Limit: Egon schielt auf deine Dose!")
+	_box_warning.mouse_filter = Control.MOUSE_FILTER_STOP
+	column.add_child(_box_warning)
+
+
+func _small_button(text: String) -> Button:
+	var button := Button.new()
+	button.text = text
+	button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	button.focus_mode = Control.FOCUS_NONE
+	button.add_theme_font_size_override("font_size", 9)
+	button.custom_minimum_size = Vector2(40, 15)
+	return button
+
+
+## "120/200" over the box: green up to the limit, red above it (with Egon's warning).
+func _refresh_money_box() -> void:
+	var gold: int = MetaState.box()
+	var limit: int = MetaState.box_limit()
+	_box_label.text = "%s %d/%d" % [Language.translate("Dose"), gold, limit]
+	var over: bool = gold > limit
+	_box_label.add_theme_color_override("font_color", BOX_DANGER if over else BOX_SAFE)
+	_box_warning.visible = over
+	# Always the can; how much is in it stands above.
+	_box_slot.show_entry({})
+	_box_slot.tooltip_text = Language.translate("Dose: %d Gold. Bis %d ist es sicher.") % [gold, limit]
+
+
+func get_money_box() -> ShopSlot:
+	return _box_slot
+
+
+## `amount` gold from the coin bag into the box (-1 = all of it, at most what there is).
+func _deposit(amount: int) -> void:
+	if _locked:
+		return
+	var gold: int = MetaState.purse() if amount < 0 else mini(amount, MetaState.purse())
+	if MetaState.deposit(gold):
+		AudioManager.play_sound("coin")
+	_sell_index = -1
+	_refresh()
+
+
+## `amount` gold from the box back into the coin bag (-1 = all).
+func _withdraw(amount: int) -> void:
+	if _locked:
+		return
+	var gold: int = MetaState.box() if amount < 0 else mini(amount, MetaState.box())
+	if MetaState.withdraw(gold):
+		AudioManager.play_sound("coin")
+	_sell_index = -1
+	_refresh()
+
+
+## Drag the coin bag out of the inventory (only the gold can go into the box).
+func _drag_from_inventory(_at: Vector2, index: int) -> Variant:
+	var own: Array[Dictionary] = MetaState.stash()
+	if _locked or index >= own.size() or String(own[index].get("id", "")) != Bag.GOLD:
+		return null
+	_set_drag_picture(_inventory_slots[index].get_icon())
+	return {"home_gold": true}
+
+
+func _drag_from_box(_at: Vector2) -> Variant:
+	if _locked or MetaState.box() <= 0:
+		return null
+	_set_drag_picture(ShopSlot.icon_of(Bag.GOLD))
+	return {"box_gold": true}
+
+
+func _set_drag_picture(icon: Texture2D) -> void:
+	var picture := TextureRect.new()
+	picture.texture = icon
+	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	picture.size = ShopSlot.ICON_SIZE
+	picture.position = -ShopSlot.ICON_SIZE / 2.0
+	var holder := Control.new()
+	holder.add_child(picture)
+	set_drag_preview(holder)
+
+
+func _can_drop_on_box(_at: Vector2, data: Variant) -> bool:
+	return data is Dictionary and (data as Dictionary).has("home_gold")
+
+
+func _drop_on_box(_at: Vector2, _data: Variant) -> void:
+	_deposit(-1)
+
+
+func _can_drop_on_inventory(_at: Vector2, data: Variant) -> bool:
+	return data is Dictionary and (data as Dictionary).has("box_gold")
+
+
+func _drop_on_inventory(_at: Vector2, _data: Variant) -> void:
+	_withdraw(-1)
 
 
 func _bark(key: String) -> void:
