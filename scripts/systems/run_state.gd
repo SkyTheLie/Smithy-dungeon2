@@ -8,7 +8,8 @@ extends RefCounted
 ## Blue hearts (`blue`, also in halves) come on top: hits take them first, they cannot be healed.
 ## White shield hearts (`shield`, halves) come from the equipment (use_gear, gear.json
 ## shield_hearts): they go before the blue ones, cannot be healed and are not refilled.
-## The equipment's other stats (e.g. the weapon's damage) count like an item for the whole run.
+## The equipment's other stats (e.g. the weapon's damage) count like an item for the whole run;
+## the relic on the hero is added as its item.
 ## Picked-up items are remembered between runs (Progress: Lexikon, unlocks).
 ## Item flags handled here: damage_cap (a hit takes at most half a heart), extra_life (the item is
 ## used up instead of dying), desperate / fury (more damage at low life / after hits on this
@@ -364,6 +365,10 @@ func use_gear(worn: Dictionary) -> void:
 	shield = 0
 	for slot: Variant in worn:
 		var piece: Dictionary = worn[slot]
+		# The relic works like the item itself (synergies too).
+		if ShopGoods.is_relic(piece):
+			add_item(String(piece.get("id", "")))
+			continue
 		var values: Dictionary = ShopGoods.stats(String(piece.get("id", "")), int(piece.get("rarity", 1)))
 		shield += roundi(float(values.get("shield_hearts", 0.0)) * 2.0)
 		values.erase("shield_hearts")

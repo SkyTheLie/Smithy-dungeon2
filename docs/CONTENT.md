@@ -97,3 +97,9 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 ## Münzwert (`data/player.json`)
 
 - `coin_pickup`: [min, max] Münzen je aufgehobener Münze (bisher [8, 12]). Preise im Run-Shop (`floors.json` `shop`) passen dazu.
+
+## Relikte (`data/relics.json`)
+
+- `items`: `"item_id": Stufe` (1 schwach … 4 stark). Neues Item als Relikt erlauben = Zeile hinzufügen.
+- `tiers`: `"1": {"dungeons": 0, "price": 40, "rarity": 2, "weight": 4}` … (`dungeons` 0 = hält für immer).
+- `table_chance`: Chance je Hebel-Zug, dass ein Relikt auf dem Tisch liegt.

@@ -174,6 +174,9 @@ msgstr "Это стоит слишком много жизни"
 msgid "Defensiv"
 msgstr "Защита"
 
+msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
+msgstr "Твоя реликвия приказала долго жить. Бывает. У меня случайно есть новая… цена для друзей!"
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "Твои огненные шары уничтожают выстрелы врагов"
 
@@ -852,6 +855,12 @@ msgstr "Деревянный посох"
 msgid "Hydraschuppe"
 msgstr "Чешуя гидры"
 
+msgid "Hält für immer"
+msgstr "Навсегда"
+
+msgid "Hält noch %d Dungeons"
+msgstr "Ещё %d подземелий"
+
 msgid "Hände"
 msgstr "Руки"
 
@@ -1313,6 +1322,9 @@ msgstr "Дальность: %s м"
 
 msgid "Reine Fassung"
 msgstr "Чистая оправа"
+
+msgid "Relikt"
+msgstr "Реликвия"
 
 msgid "Riesenratte"
 msgstr "Гигантская крыса"

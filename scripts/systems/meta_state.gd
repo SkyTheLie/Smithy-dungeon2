@@ -155,10 +155,31 @@ static func buy(index: int, free: bool = false) -> bool:
 	list[index] = {}
 	_write("table", list)
 	var own: Array[Dictionary] = stash()
-	own.append({"id": String(piece["id"]), "count": 1, "rarity": int(piece.get("rarity", 1))})
+	own.append(_owned(piece))
 	_write("stash", own)
 	_save()
 	return true
+
+
+## A piece as it lies in the inventory: gear {id, count 1, rarity}, relic {id, count 1, relic, left}.
+static func _owned(piece: Dictionary) -> Dictionary:
+	if ShopGoods.is_relic(piece):
+		return {"id": String(piece["id"]), "count": 1, "relic": true, "left": int(piece.get("left", -1))}
+	return {"id": String(piece["id"]), "count": 1, "rarity": int(piece.get("rarity", 1))}
+
+
+## As it is worn: the same without the count.
+static func _worn(piece: Dictionary) -> Dictionary:
+	var worn: Dictionary = _owned(piece)
+	worn.erase("count")
+	return worn
+
+
+## The slot a piece goes into: "relic" for relics, else gear.json "slot" ("" = cannot be worn).
+static func slot_of(piece: Dictionary) -> String:
+	if ShopGoods.is_relic(piece):
+		return "relic"
+	return String(Content.gear_item(String(piece.get("id", ""))).get("slot", ""))
 
 
 ## The hero's equipment: slot (data/gear.json slots) -> {id, rarity}.
@@ -179,15 +200,14 @@ static func equip(index: int) -> bool:
 	if index < 0 or index >= own.size():
 		return false
 	var entry: Dictionary = own[index]
-	var slot: String = String(Content.gear_item(String(entry.get("id", ""))).get("slot", ""))
+	var slot: String = slot_of(entry)
 	if slot.is_empty() or not Content.gear_slots().has(slot):
 		return false
 	var worn: Dictionary = equipment()
 	own.remove_at(index)
 	if worn.has(slot):
-		var old: Dictionary = worn[slot]
-		own.insert(index, {"id": String(old["id"]), "count": 1, "rarity": int(old.get("rarity", 1))})
-	worn[slot] = {"id": String(entry["id"]), "rarity": int(entry.get("rarity", 1))}
+		own.insert(index, _owned(worn[slot]))
+	worn[slot] = _worn(entry)
 	_write("stash", own)
 	_write("equipment", worn)
 	_save()
@@ -202,7 +222,7 @@ static func unequip(slot: String) -> bool:
 	var old: Dictionary = worn[slot]
 	worn.erase(slot)
 	var own: Array[Dictionary] = stash()
-	own.append({"id": String(old["id"]), "count": 1, "rarity": int(old.get("rarity", 1))})
+	own.append(_owned(old))
 	_write("stash", own)
 	_write("equipment", worn)
 	_save()
@@ -292,6 +312,7 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 		if not merged:
 			list.append({"id": id, "count": count})
 	_write("stash", list)
+	_wear_relic()
 	_write("day", day() + 1)
 	_write("pulls_today", 0)
 	var stolen: int = roll_theft(rng)
@@ -299,6 +320,35 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 	_write("last_theft", stolen)
 	_save()
 	return stolen
+
+
+## A run with the relic on: one run less; at 0 it is broken and gone (broken_relic = its id, for
+## Egon's comment). Relics for ever (left -1) stay.
+static func _wear_relic() -> void:
+	var worn: Dictionary = equipment()
+	var relic: Dictionary = worn.get("relic", {})
+	_write("broken_relic", "")
+	if relic.is_empty() or int(relic.get("left", -1)) < 0:
+		return
+	relic["left"] = int(relic["left"]) - 1
+	if int(relic["left"]) <= 0:
+		worn.erase("relic")
+		_write("broken_relic", String(relic["id"]))
+	else:
+		worn["relic"] = relic
+	_write("equipment", worn)
+
+
+## The relic that broke at the end of the last run ("" = none).
+static func broken_relic() -> String:
+	return String(_read("broken_relic", ""))
+
+
+## Egon said it: no more comment about it.
+static func clear_broken_relic() -> void:
+	if not broken_relic().is_empty():
+		_write("broken_relic", "")
+		_save()
 
 
 ## How much the merchant steals from the box today (does not take it; end_run does).

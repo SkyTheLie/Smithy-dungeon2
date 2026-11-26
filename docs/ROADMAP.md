@@ -49,7 +49,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 1. ✅ (2026-11-26, teils) Ausrüstung gibt Startwerte für `RunState`: Rüstung = weiße Schild-Herzen, Waffe = Schaden. Offen: Die Hauptwaffe ist die ausgerüstete Waffe statt `start_items`.
 2. Trank-Slot: 1 Platz, Taste Q trinkt, heilt 2 Herzen.
 3. Run-Ende: Gold und Materialien wandern in den Spielstand, Run-Items verfallen.
-4. **Relikt-Slot** (1 Platz): Relikte als Daten (`data/relics.json`: Wirkung wie Item-`flags`/`stats`, `durability` in Dungeons, `permanent`). Ausgerüstetes Relikt wirkt im Run wie ein Item (zählt für Synergien). Nach jedem Dungeon −1 Haltbarkeit, bei 0 kaputt.
+4. ✅ (2026-11-26) **Relikt-Slot** (1 Platz; Haltbarkeit je Stufe statt immer 2, schwache für immer; Daten in `data/relics.json`): Relikte als Daten (`data/relics.json`: Wirkung wie Item-`flags`/`stats`, `durability` in Dungeons, `permanent`). Ausgerüstetes Relikt wirkt im Run wie ein Item (zählt für Synergien). Nach jedem Dungeon −1 Haltbarkeit, bei 0 kaputt.
 5. Erstes Relikt: Tod im zweiten Run → Händler verkauft Dreifach-Schuss (2 Dungeons) und erklärt den Slot.
 6. Relikte auf dem Glücksspiel-Tisch: sehr selten, anfangs nur 3 (Dreifach-Schuss, Suchend, Abprallen); später alle und dauerhafte.
 7. **10 Relikt-Stufen** als Pools (`tier` 1–10), jede Stufe mit starken und schwächeren Relikten; Stufe 1 offen, die anderen per Dungeon-Sieg, Abgabe beim Händler oder Quest freischalten.

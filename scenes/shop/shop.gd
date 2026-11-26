@@ -60,6 +60,9 @@ func _ready() -> void:
 	create_tween().tween_property(_black, "modulate:a", 0.0, FADE_TIME)
 	if not MetaState.tutorial_done():
 		_run_tutorial()
+	elif not MetaState.broken_relic().is_empty():
+		_bark("relic_broken")
+		MetaState.clear_broken_relic()
 
 
 # --- Building ---------------------------------------------------------------------
@@ -276,8 +279,7 @@ func _on_inventory_clicked(index: int) -> void:
 	var own: Array[Dictionary] = MetaState.stash()
 	if _locked or index >= own.size():
 		return
-	var id: String = String(own[index].get("id", ""))
-	var slot: String = String(Content.gear_item(id).get("slot", ""))
+	var slot: String = MetaState.slot_of(own[index])
 	if slot.is_empty():
 		_bark("no_slot")
 		AudioManager.play_sound("denied")
@@ -325,8 +327,7 @@ func _pull_lever(tutorial: bool) -> bool:
 
 ## Puts inventory place `index` on the hero, with the picture flying there.
 func _equip_animated(index: int) -> void:
-	var id: String = String(MetaState.stash()[index].get("id", ""))
-	var slot: String = String(Content.gear_item(id).get("slot", ""))
+	var slot: String = MetaState.slot_of(MetaState.stash()[index])
 	var from: ShopSlot = _inventory_slots[index]
 	var icon: Texture2D = from.get_icon()
 	if not MetaState.equip(index):

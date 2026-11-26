@@ -174,6 +174,9 @@ msgstr "این زندگی زیادی می‌گیرد"
 msgid "Defensiv"
 msgstr "دفاعی"
 
+msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
+msgstr "یادگارت جان داد. پیش میاد. اتفاقاً یه دونه‌ی نو دارم… قیمت دوستانه!"
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "گلوله‌های آتشین تو تیرهای دشمن را نابود می‌کنند"
 
@@ -852,6 +855,12 @@ msgstr "عصای چوبی"
 msgid "Hydraschuppe"
 msgstr "فلس هیدرا"
 
+msgid "Hält für immer"
+msgstr "برای همیشه می‌ماند"
+
+msgid "Hält noch %d Dungeons"
+msgstr "%d سیاه‌چال دیگر دوام می‌آورد"
+
 msgid "Hände"
 msgstr "دست‌ها"
 
@@ -1313,6 +1322,9 @@ msgstr "برد: %s متر"
 
 msgid "Reine Fassung"
 msgstr "قاب ناب"
+
+msgid "Relikt"
+msgstr "یادگار"
 
 msgid "Riesenratte"
 msgstr "موش غول‌پیکر"

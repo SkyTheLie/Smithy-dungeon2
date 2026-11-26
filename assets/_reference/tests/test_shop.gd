@@ -16,6 +16,7 @@ func run() -> void:
 	_buy_and_equip()
 	_tutorial_and_new_day()
 	_gear_in_run()
+	_relics()
 
 
 func _data() -> void:
@@ -132,3 +133,45 @@ func _gear_in_run() -> void:
 	check_eq(dressed.get("shield"), 0, "the last half shield heart is gone")
 	check_eq(dressed.get("health"), health - 1, "the rest of the hit goes to the red hearts")
 	check(not dressed.call("heal", 0) and dressed.get("shield") == 0, "shield hearts are not healed")
+
+
+## Relics (data/relics.json): only found items come on the table; bought they go into the relic
+## slot, work in the run like the item, weak ones hold for ever, strong ones break after their runs.
+func _relics() -> void:
+	var progress: Script = script("res://scripts/systems/progress.gd")
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 8
+	check_eq(goods.call("pick_relic", rng), "", "nothing found yet: no relics")
+	check(goods.call("relic_tier", "moorherz") == 1 and goods.call("relic_runs", "moorherz") == -1, "Moorherz (+1 heart) is weak and holds for ever")
+	check(goods.call("relic_tier", "dreizack") == 4 and goods.call("relic_runs", "dreizack") == 1, "Dreifachschuss is strong and holds one dungeon")
+	check_eq(goods.call("relic_tier", "glutstab"), 0, "the start weapons are no relics")
+	progress.call("discover", "dreizack")
+	check_eq(goods.call("pick_relic", rng), "dreizack", "a found item can come as a relic")
+	var found: bool = false
+	for i in 60:
+		var table: Array = goods.call("roll", rng)
+		if table.any(func(place: Dictionary) -> bool: return place.get("relic", false)):
+			found = true
+			break
+	check(found, "now and then a relic lies on the table")
+	meta.call("start_new")
+	meta.call("end_run", 500, [] as Array[Dictionary], RandomNumberGenerator.new())
+	meta.call("_write", "table", [goods.call("make_relic", "dreizack")])
+	check(meta.call("buy", 0), "a relic can be bought")
+	check_eq(meta.call("purse"), 250, "tier 4 costs 250")
+	var own: Array = meta.call("stash")
+	check(own[0].get("relic") and own[0].get("left") == 1, "it lies in the inventory, one dungeon left")
+	check(meta.call("equip", 0), "it goes into the relic slot")
+	check((meta.call("equipment") as Dictionary).has("relic"), "on the hero")
+	var run: Object = script("res://scripts/systems/run_state.gd").new(4)
+	run.call("use_gear", meta.call("equipment"))
+	check((run.get("items") as Array).has("dreizack"), "in the run it works like the item")
+	meta.call("end_run", 0, [] as Array[Dictionary], RandomNumberGenerator.new())
+	check(not (meta.call("equipment") as Dictionary).has("relic"), "after its dungeon it is broken")
+	check_eq(meta.call("broken_relic"), "dreizack", "Egon knows which one")
+	meta.call("_write", "table", [goods.call("make_relic", "moorherz")])
+	meta.call("buy", 0)
+	meta.call("equip", (meta.call("stash") as Array).size() - 1)
+	for i in 5:
+		meta.call("end_run", 0, [] as Array[Dictionary], RandomNumberGenerator.new())
+	check_eq(String((meta.call("equipment") as Dictionary).get("relic", {}).get("id", "")), "moorherz", "a weak relic stays for ever")

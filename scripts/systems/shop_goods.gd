@@ -4,6 +4,8 @@ extends RefCounted
 ## piece costs and what it gives. Only rules, no screen; MetaState keeps the table, the shop shows it.
 ## A piece of gear (on the table, in the inventory, on the hero) is {id, rarity} (+ price on the
 ## table, + count 1 in the inventory).
+## A relic (data/relics.json) is {id (an item of items.json), relic: true, left} (+ price on the
+## table): left = runs it still holds (-1 = for ever). Only items picked up once (Progress) come.
 
 
 ## A new table: data/shop.json table_slots places, goods_count pieces on random places, the rest {}.
@@ -19,7 +21,53 @@ static func roll(rng: RandomNumberGenerator) -> Array[Dictionary]:
 		var cell: int = cells.pop_at(rng.randi_range(0, cells.size() - 1))
 		var id: String = Content.pick_weighted(rules.get("pool", []), rng)
 		table[cell] = make_piece(id, _pick_rarity(rules.get("rarity_weights", [[1, 1]]), rng))
+	# Sometimes a relic: an item the player has found, on a free place.
+	var relic: String = pick_relic(rng)
+	cells = []
+	for i in table.size():
+		if table[i].is_empty():
+			cells.append(i)
+	if not relic.is_empty() and not cells.is_empty() and rng.randf() < float(Content.relics().get("table_chance", 0.0)):
+		table[cells[rng.randi_range(0, cells.size() - 1)]] = make_relic(relic)
 	return table
+
+
+## A random relic among the items found so far (stronger tiers rarer, relics.json weight); "" if
+## none was found yet.
+static func pick_relic(rng: RandomNumberGenerator) -> String:
+	var choices: Array = []
+	for id: Variant in Progress.discovered():
+		var tier: int = relic_tier(String(id))
+		if tier > 0:
+			choices.append([String(id), float(_tier(tier).get("weight", 1))])
+	return Content.pick_weighted(choices, rng) if not choices.is_empty() else ""
+
+
+## 0 = this item cannot be a relic.
+static func relic_tier(id: String) -> int:
+	return int((Content.relics().get("items", {}) as Dictionary).get(id, 0))
+
+
+static func _tier(tier: int) -> Dictionary:
+	return (Content.relics().get("tiers", {}) as Dictionary).get(str(tier), {})
+
+
+## Runs a new relic holds: tier "dungeons" (0 = for ever, then -1).
+static func relic_runs(id: String) -> int:
+	var runs: int = int(_tier(relic_tier(id)).get("dungeons", 0))
+	return -1 if runs <= 0 else runs
+
+
+static func relic_rarity(id: String) -> int:
+	return int(_tier(relic_tier(id)).get("rarity", 1))
+
+
+static func make_relic(id: String) -> Dictionary:
+	return {"id": id, "relic": true, "left": relic_runs(id), "price": int(_tier(relic_tier(id)).get("price", 0))}
+
+
+static func is_relic(piece: Dictionary) -> bool:
+	return bool(piece.get("relic", false))
 
 
 ## [rarity, weight] pairs; JSON numbers are floats, so they become "1", "2" … before picking.

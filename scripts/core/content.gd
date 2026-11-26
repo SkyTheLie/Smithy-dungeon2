@@ -111,6 +111,11 @@ static func gear_slots() -> Dictionary:
 	return get_file("gear").get("slots", {})
 
 
+## Relics (data/relics.json): table_chance, tiers, items (item id -> tier).
+static func relics() -> Dictionary:
+	return get_file("relics")
+
+
 ## Egon's shop rules (data/shop.json).
 static func shop() -> Dictionary:
 	return get_file("shop")

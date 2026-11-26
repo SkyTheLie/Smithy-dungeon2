@@ -109,8 +109,7 @@ func _refresh() -> void:
 		tooltip_text = hint_name
 		add_theme_stylebox_override("panel", box(SLOT_COLOR, EMPTY_BORDER, 2))
 		return
-	var id: String = String(entry.get("id", ""))
-	_icon.texture = icon_of(id)
+	_icon.texture = icon_of_piece(entry)
 	_icon.modulate = Color.WHITE
 	if show_price:
 		_count.text = str(int(entry.get("price", 0)))
@@ -124,6 +123,14 @@ func _refresh() -> void:
 
 # --- Texts and pictures (also for the hero panel) ----------------------------------------
 
+## The picture of a piece: a relic shows its item.
+static func icon_of_piece(piece: Dictionary) -> Texture2D:
+	if ShopGoods.is_relic(piece):
+		var path: String = String(Content.item(String(piece.get("id", ""))).get("icon", ""))
+		return load(path) as Texture2D if ResourceLoader.exists(path) else null
+	return icon_of(String(piece.get("id", "")))
+
+
 static func icon_of(id: String) -> Texture2D:
 	var data: Dictionary = Content.gear_item(id) if ShopGoods.is_gear(id) else Content.material(id)
 	var path: String = String(data.get("icon", ""))
@@ -133,6 +140,8 @@ static func icon_of(id: String) -> Texture2D:
 ## Gear has its own rarity; loot the one of its material (data/loot.json).
 static func rarity_of(piece: Dictionary) -> int:
 	var id: String = String(piece.get("id", ""))
+	if ShopGoods.is_relic(piece):
+		return ShopGoods.relic_rarity(id)
 	if ShopGoods.is_gear(id):
 		return int(piece.get("rarity", 1))
 	return int(Content.material(id).get("rarity", 1))
@@ -141,6 +150,8 @@ static func rarity_of(piece: Dictionary) -> int:
 ## Tooltip: name, rarity, values, for whom, price, description.
 static func describe(piece: Dictionary, with_price: bool) -> String:
 	var id: String = String(piece.get("id", ""))
+	if ShopGoods.is_relic(piece):
+		return _describe_relic(piece, with_price)
 	var gear: bool = ShopGoods.is_gear(id)
 	var data: Dictionary = Content.gear_item(id) if gear else Content.material(id)
 	var lines: Array[String] = [Language.translate(String(data.get("name", id))), Rarity.label(rarity_of(piece))]
@@ -159,6 +170,19 @@ static func describe(piece: Dictionary, with_price: bool) -> String:
 	if not desc.is_empty():
 		lines.append(Language.translate(desc))
 	return "\n".join(lines)
+
+
+## Relic: item name, "Relikt", how long it holds, price, the item's description.
+static func _describe_relic(piece: Dictionary, with_price: bool) -> String:
+	var data: Dictionary = Content.item(String(piece.get("id", "")))
+	var lines: Array[String] = [Language.translate(String(data.get("name", ""))), Language.translate("Relikt") + " · " + Rarity.label(rarity_of(piece))]
+	var left: int = int(piece.get("left", -1))
+	lines.append(Language.translate("Hält für immer") if left < 0 else Language.translate("Hält noch %d Dungeons") % left)
+	if with_price:
+		lines.append(Language.translate("Preis: %d Gold") % int(piece.get("price", 0)))
+	lines.append(Language.translate(String(data.get("desc", ""))))
+	return "
+".join(lines)
 
 
 ## The name of a value from player.json stats (written out for the translation script).

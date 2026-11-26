@@ -206,3 +206,11 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - Run-Ende: Gold aus der Tasche geht in die Geldbörse zu Hause (`MetaState.end_run`), nicht ins Inventar. Beim Tod nur das Gold im sicheren Platz.
 - **End-Bildschirm** (2026-11-26): keine Knöpfe mehr. Nach 0,6 s blinkt „Klicken, um weiterzumachen“; ein Klick oder eine Taste, und man wacht vor Egon auf (`Game.to_shop`). Ins Hauptmenü geht es aus dem Laden.
 - **Kleiner Rucksack** (2026-11-26): im Run nur 4 Plätze plus sicherer Platz (`meta.json` `bag.slots` 4), Beute stapelt nicht (`bag.stack` 1), nur Gold stapelt (bis 999). Zu Hause im Laden ist das Inventar weiter groß und wächst mit.
+
+## Relikte – 2026-11-26, `feature/relikte`
+
+- **Daten:** `data/relics.json`: `items` (Item-Id → Stufe 1–4; nur gelistete Items können Relikte werden, die Startwaffen nicht), `tiers` (je Stufe `dungeons` = Runs Haltbarkeit, 0 = für immer, `price`, `rarity` = Rahmenfarbe, `weight` = wie oft auf dem Tisch), `table_chance` (je Hebel-Zug). Erste Stufen per Faustregel aus den Item-Werten vergeben (schwach = +Herz/Tempo/Reichweite → 1, Schaden → 2, Flags/Multiplikatoren → 3, Mehrfachschuss/Modus/geheim → 4).
+- **Freischalten:** ein Item, das einmal aufgehoben wurde (`Progress.discover`, steht im Lexikon), kann ab dann als Relikt auf Egons Tisch liegen (`ShopGoods.pick_relic`).
+- **Kaufen und Anlegen:** wie Ausrüstung (`MetaState.buy` / `equip`); Relikte gehen in den Platz `relic` (`gear.json` slots). Im Inventar und am Helden `{id, relic: true, left}` (`left` -1 = für immer).
+- **Im Run:** `RunState.use_gear` fügt das Relikt als sein Item hinzu (zählt für Synergien, steht in der Item-Leiste).
+- **Haltbarkeit:** `MetaState.end_run` zieht dem angelegten Relikt einen Run ab; bei 0 ist es kaputt (`broken_relic`), Egon sagt es beim nächsten Laden-Besuch (`story.json` `barks.relic_broken`).

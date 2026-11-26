@@ -174,6 +174,9 @@ msgstr "这会消耗太多生命"
 msgid "Defensiv"
 msgstr "防御"
 
+msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
+msgstr "你的圣物报废了。常有的事。我这儿碰巧有个新的…友情价！"
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "你的火球会摧毁敌人的子弹"
 
@@ -852,6 +855,12 @@ msgstr "木杖"
 msgid "Hydraschuppe"
 msgstr "九头蛇鳞"
 
+msgid "Hält für immer"
+msgstr "永久有效"
+
+msgid "Hält noch %d Dungeons"
+msgstr "还能用%d个地牢"
+
 msgid "Hände"
 msgstr "手部"
 
@@ -1313,6 +1322,9 @@ msgstr "射程：%s 米"
 
 msgid "Reine Fassung"
 msgstr "纯净镶座"
+
+msgid "Relikt"
+msgstr "圣物"
 
 msgid "Riesenratte"
 msgstr "巨鼠"
