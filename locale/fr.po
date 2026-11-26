@@ -123,6 +123,9 @@ msgstr "Ceinture de bombes"
 msgid "Brandöl"
 msgstr "Huile de feu"
 
+msgid "Braucht: %s"
+msgstr "Nécessite : %s"
+
 msgid "Brennend und langsam: mehr Schaden"
 msgstr "En feu et ralenti : plus de dégâts"
 
@@ -197,6 +200,9 @@ msgstr "Le chemin vers le bas est ouvert !"
 
 msgid "Diamantherz"
 msgstr "Cœur de diamant"
+
+msgid "Dicke Haut"
+msgstr "Peau épaisse"
 
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "La taille de la fenêtre ne s'applique qu'en mode fenêtré."
@@ -273,6 +279,9 @@ msgstr "Tu tires des miches de pain. Les ennemis touchés t'oublient et s'enfuie
 msgid "Du schießt auch nach hinten"
 msgstr "Tu tires aussi vers l'arrière"
 
+msgid "Du schießt etwas schneller."
+msgstr "Tu tires un peu plus vite."
+
 msgid "Du schießt schneller"
 msgstr "Tu tires plus vite"
 
@@ -323,6 +332,9 @@ msgstr "Fine peau d'une aile de chauve-souris."
 
 msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
 msgstr "E : bombe · Tab : inventaire · M : carte · Échap : pause"
+
+msgid "EXP: +%d"
+msgstr "EXP : +%d"
 
 msgid "Ebene %d"
 msgstr "Étage %d"
@@ -381,6 +393,12 @@ msgstr "Un cœur, une pièce, une bombe et une clé"
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "Un cœur, deux cœurs bleus, dégâts en hausse"
 
+msgid "Ein Platz mehr im Rucksack."
+msgstr "Un emplacement de plus dans le sac."
+
+msgid "Ein Relikt-Platz mehr an deiner Figur."
+msgstr "Un emplacement de relique de plus sur ton héros."
+
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "Un sanctuaire s'est ouvert"
 
@@ -410,6 +428,15 @@ msgstr "Un arc simple. Pour les archers."
 
 msgid "Ein geheimer Raum!"
 msgstr "Une salle secrète !"
+
+msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
+msgstr "Un demi-cœur-bouclier blanc de plus au début de chaque partie."
+
+msgid "Ein rotes Herz mehr."
+msgstr "Un cœur rouge de plus."
+
+msgid "Ein sicherer Platz mehr im Rucksack."
+msgstr "Un emplacement sûr de plus dans le sac."
 
 msgid "Ein zweites Leben"
 msgstr "Une seconde vie"
@@ -465,6 +492,9 @@ msgstr "Bâton de terre"
 msgid "Erreiche Ebene %d"
 msgstr "Atteins l'étage %d"
 
+msgid "Erst den Skill davor lernen"
+msgstr "Apprends d'abord la compétence précédente"
+
 msgid "Erstglut"
 msgstr "Braise première"
 
@@ -515,6 +545,9 @@ msgstr "Cape de lichen"
 
 msgid "Fledermaus"
 msgstr "Chauve-souris"
+
+msgid "Flinke Hände"
+msgstr "Mains agiles"
 
 msgid "Flipper"
 msgstr "Flipper"
@@ -599,6 +632,9 @@ msgstr "Les ennemis ralentissent, portée en hausse"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "Les ennemis qui te touchent subissent des dégâts"
+
+msgid "Geheimtasche"
+msgstr "Poche secrète"
 
 msgid "Geist"
 msgstr "Fantôme"
@@ -711,6 +747,9 @@ msgstr "Brille d'un éclat verdâtre. Le marchand adore."
 msgid "Glück"
 msgstr "Chance"
 
+msgid "Glück +0,5: öfter Beute."
+msgstr "Chance +0,5 : plus de butin."
+
 msgid "Glück hoch"
 msgstr "Chance en hausse"
 
@@ -722,6 +761,9 @@ msgstr "Beaucoup plus de chance"
 
 msgid "Glücksflachs"
 msgstr "Lin porte-bonheur"
+
+msgid "Glückspilz"
+msgstr "Veinard"
 
 msgid "Glühender Schlüssel"
 msgstr "Clé ardente"
@@ -768,6 +810,9 @@ msgstr "Casque d'or"
 msgid "Goldklinge"
 msgstr "Lame d'or"
 
+msgid "Goldnase"
+msgstr "Flair pour l'or"
+
 msgid "Goldstiefel"
 msgstr "Bottes d'or"
 
@@ -803,6 +848,9 @@ msgstr "Des bombes plus grosses, et aucune ne te blesse"
 
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "Boules de feu plus grosses, plus de dégâts"
+
+msgid "Größerer Rucksack"
+msgstr "Sac plus grand"
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "Bon choix ! Une pièce de collection. Honnêtement !"
@@ -897,6 +945,9 @@ msgstr "Arc de chasse"
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "Plus le tir va loin, plus il fait de dégâts"
 
+msgid "Jede Münze gibt 2 Gold mehr."
+msgstr "Chaque pièce donne 2 or de plus."
+
 msgid "Jeder Treffer jagt Gegnern Angst ein"
 msgstr "Chaque coup effraie les ennemis"
 
@@ -959,6 +1010,9 @@ msgstr "Aiguille de boussole"
 
 msgid "Kopf"
 msgstr "Tête"
+
+msgid "Kraft"
+msgstr "Force"
 
 msgid "Krieger"
 msgstr "Guerrier"
@@ -1058,6 +1112,9 @@ msgstr "Légères et rapides."
 
 msgid "Leichte Feder"
 msgstr "Plume légère"
+
+msgid "Leichtfuß"
+msgstr "Pied léger"
 
 msgid "Letzte Glut"
 msgstr "Dernière braise"
@@ -1167,6 +1224,9 @@ msgstr "Morelle"
 msgid "Nachtschattensamen"
 msgstr "Graines de morelle"
 
+msgid "Neue Relikte halten einen Dungeon länger."
+msgstr "Les nouvelles reliques durent un donjon de plus."
+
 msgid "Neuer Run"
 msgstr "Nouvelle tentative"
 
@@ -1202,6 +1262,9 @@ msgstr "Seulement pour : %s"
 
 msgid "Nächste Seite"
 msgstr "Page suivante"
+
+msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
+msgstr "Niveau suivant : %d or, %d points, à partir du niveau %d"
 
 msgid "Offensiv"
 msgstr "Offensif"
@@ -1305,6 +1368,9 @@ msgstr "Droite"
 msgid "Reichweite"
 msgstr "Portée"
 
+msgid "Reichweite +0,5 m."
+msgstr "Portée +0,5 m."
+
 msgid "Reichweite +2 m, schnellere Schüsse"
 msgstr "Portée +2 m, tirs plus rapides"
 
@@ -1325,6 +1391,15 @@ msgstr "Monture pure"
 
 msgid "Relikt"
 msgstr "Relique"
+
+msgid "Relikt-Platz"
+msgstr "Emplacement de relique"
+
+msgid "Relikte"
+msgstr "Reliques"
+
+msgid "Reliktpflege"
+msgstr "Soin des reliques"
 
 msgid "Riesenratte"
 msgstr "Rat géant"
@@ -1382,6 +1457,9 @@ msgstr "Joyau de saphir"
 
 msgid "Schaden"
 msgstr "Dégâts"
+
+msgid "Schaden +0,5."
+msgstr "Dégâts +0,5."
 
 msgid "Schaden für jede Münze, Glück hoch"
 msgstr "Dégâts pour chaque pièce, chance en hausse"
@@ -1650,6 +1728,12 @@ msgstr "Squelette"
 msgid "Skelettritter"
 msgstr "Chevalier squelette"
 
+msgid "Skillbaum"
+msgstr "Arbre de compétences"
+
+msgid "Skills"
+msgstr "Compétences"
+
 msgid "Smaragd"
 msgstr "Émeraude"
 
@@ -1761,8 +1845,23 @@ msgstr "Bombe à fragmentation"
 msgid "Struppig und leicht angekaut."
 msgstr "Hirsute et un peu mâchouillée."
 
+msgid "Stufe %d"
+msgstr "Niveau %d"
+
+msgid "Stufe %d erreicht! +%d Skillpunkte"
+msgstr "Niveau %d atteint ! +%d points"
+
 msgid "Stufe %d · %d Ebenen"
 msgstr "Niveau %d · %d étages"
+
+msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
+msgstr "Niveau %d · EXP %s · Points : %d · Or : %d"
+
+msgid "Stufe %d/%d"
+msgstr "Niveau %d/%d"
+
+msgid "Stufe zu niedrig"
+msgstr "Niveau trop bas"
 
 msgid "Sturmessenz"
 msgstr "Essence de tempête"
@@ -1835,6 +1934,9 @@ msgstr "Lame des mille"
 
 msgid "Tempo"
 msgstr "Vitesse"
+
+msgid "Tempo +0,2."
+msgstr "Vitesse +0,2."
 
 msgid "Tempo: %s"
 msgstr "Vitesse : %s"
@@ -1929,6 +2031,9 @@ msgstr "Plein d'étincelles chercheuses d'un coup"
 msgid "Vier Schlüssel"
 msgstr "Quatre clés"
 
+msgid "Voll ausgebaut"
+msgstr "Au maximum"
+
 msgid "Vollbild"
 msgstr "Plein écran"
 
@@ -1952,6 +2057,9 @@ msgstr "Ce qui est ici n'est pas perdu si tu meurs."
 
 msgid "Wasserstab"
 msgstr "Bâton d'eau"
+
+msgid "Weitblick"
+msgstr "Vue perçante"
 
 msgid "Weiter"
 msgstr "Reprendre"
@@ -2025,11 +2133,20 @@ msgstr "Dix pièces, chance en hausse"
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "Glisser : trier · Glisser hors de la fenêtre : lâcher · Tab : fermer"
 
+msgid "Ziehen: verschieben · Mausrad: zoomen · Goldener Rahmen: lernen"
+msgstr "Glisser : déplacer · Molette : zoom · Cadre doré : apprendre"
+
 msgid "Zombie"
 msgstr "Zombie"
 
+msgid "Zu wenig Gold"
+msgstr "Pas assez d'or"
+
 msgid "Zu wenig Münzen"
 msgstr "Pas assez de pièces"
+
+msgid "Zu wenig Skillpunkte"
+msgstr "Pas assez de points"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "Poison, peur ou titubement au hasard"
@@ -2087,6 +2204,12 @@ msgstr "Deux cœurs bleus ; en perdre un frappe tous les ennemis"
 
 msgid "Zwillingshandschuhe"
 msgstr "Gants jumeaux"
+
+msgid "Zähigkeit"
+msgstr "Ténacité"
+
+msgid "max."
+msgstr "max."
 
 msgid "oder Leertaste"
 msgstr "ou appuyez sur Espace"

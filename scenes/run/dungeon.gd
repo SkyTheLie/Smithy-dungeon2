@@ -450,6 +450,7 @@ func summon(id: String, at: Vector3) -> void:
 func _on_enemy_died(enemy: Enemy) -> void:
 	enemies.erase(enemy)
 	run.kills += 1
+	run.add_kill_exp(enemy.is_boss)
 	run.on_kill()
 	if run.record_progress:
 		run.announce(Progress.add_kills(1))

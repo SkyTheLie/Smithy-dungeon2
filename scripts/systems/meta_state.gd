@@ -74,7 +74,74 @@ static func delete_slot(id: String) -> bool:
 static func start_new() -> void:
 	_config = ConfigFile.new()
 	_write("day", 1)
+	_write("level", 1)
+	_write("skill_points", int(Skills.levels().get("start_points", 1)))
 	_save()
+
+
+# --- Player level, EXP, skills (Skills, data/levels.json, data/skills.json) ----------
+
+static func level() -> int:
+	return int(_read("level", 1))
+
+
+## EXP collected towards the next level.
+static func exp_points() -> int:
+	return int(_read("exp", 0))
+
+
+static func skill_points() -> int:
+	return int(_read("skill_points", int(Skills.levels().get("start_points", 1))))
+
+
+## Adds the EXP of a run; every level reached gives skill points. Returns the levels gained.
+static func add_exp(amount: int) -> int:
+	if amount <= 0:
+		return 0
+	var current: int = exp_points() + amount
+	var lvl: int = level()
+	var gained: int = 0
+	while Skills.exp_to_next(lvl) > 0 and current >= Skills.exp_to_next(lvl):
+		current -= Skills.exp_to_next(lvl)
+		lvl += 1
+		gained += 1
+	if Skills.exp_to_next(lvl) == 0:
+		current = 0
+	_write("level", lvl)
+	_write("exp", current)
+	_write("skill_points", skill_points() + gained * int(Skills.levels().get("points_per_level", 1)))
+	_save()
+	return gained
+
+
+static func skill_level(id: String) -> int:
+	return int((_read("skills", {}) as Dictionary).get(id, 0))
+
+
+## Learns the next level of skill `id`: pays gold (purse) and skill points. false (nothing
+## changes) if Skills.problem says why not.
+static func buy_skill(id: String) -> bool:
+	if not Skills.problem(id).is_empty():
+		return false
+	var gold: int = Skills.next_gold(id)
+	var points: int = Skills.next_points(id)
+	_write("purse", purse() - gold)
+	_write("skill_points", skill_points() - points)
+	var learned: Dictionary = (_read("skills", {}) as Dictionary).duplicate()
+	learned[id] = skill_level(id) + 1
+	_write("skills", learned)
+	_save()
+	return true
+
+
+## The relic places on the hero now: "relic_1" and one more per skill level (data/skills.json
+## relic_slots, at most relic_slots_max).
+static func relic_slot_names() -> Array[String]:
+	var count: int = clampi(1 + int(Skills.bonus("relic_slots")), 1, int(Content.get_file("skills").get("relic_slots_max", 3)))
+	var names: Array[String] = []
+	for i in count:
+		names.append("relic_%d" % (i + 1))
+	return names
 
 
 static func purse() -> int:
@@ -175,10 +242,15 @@ static func _worn(piece: Dictionary) -> Dictionary:
 	return worn
 
 
-## The slot a piece goes into: "relic" for relics, else gear.json "slot" ("" = cannot be worn).
+## The slot a piece goes into: the first free relic place for relics (all full: the first one),
+## else gear.json "slot" ("" = cannot be worn).
 static func slot_of(piece: Dictionary) -> String:
 	if ShopGoods.is_relic(piece):
-		return "relic"
+		var worn: Dictionary = equipment()
+		for name: String in relic_slot_names():
+			if not worn.has(name):
+				return name
+		return relic_slot_names()[0]
 	return String(Content.gear_item(String(piece.get("id", ""))).get("slot", ""))
 
 
@@ -189,7 +261,8 @@ static func equipment() -> Dictionary:
 	if saved is Dictionary:
 		for slot: String in saved:
 			if saved[slot] is Dictionary and not (saved[slot] as Dictionary).is_empty():
-				result[slot] = (saved[slot] as Dictionary).duplicate()
+				# Older saves had one place "relic".
+				result["relic_1" if slot == "relic" else slot] = (saved[slot] as Dictionary).duplicate()
 	return result
 
 
@@ -201,7 +274,7 @@ static func equip(index: int) -> bool:
 		return false
 	var entry: Dictionary = own[index]
 	var slot: String = slot_of(entry)
-	if slot.is_empty() or not Content.gear_slots().has(slot):
+	if slot.is_empty() or not (Content.gear_slots().has(slot) or relic_slot_names().has(slot)):
 		return false
 	var worn: Dictionary = equipment()
 	own.remove_at(index)
@@ -326,16 +399,17 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 ## Egon's comment). Relics for ever (left -1) stay.
 static func _wear_relic() -> void:
 	var worn: Dictionary = equipment()
-	var relic: Dictionary = worn.get("relic", {})
 	_write("broken_relic", "")
-	if relic.is_empty() or int(relic.get("left", -1)) < 0:
-		return
-	relic["left"] = int(relic["left"]) - 1
-	if int(relic["left"]) <= 0:
-		worn.erase("relic")
-		_write("broken_relic", String(relic["id"]))
-	else:
-		worn["relic"] = relic
+	for slot: String in worn.keys():
+		var relic: Dictionary = worn[slot]
+		if not ShopGoods.is_relic(relic) or int(relic.get("left", -1)) < 0:
+			continue
+		relic["left"] = int(relic["left"]) - 1
+		if int(relic["left"]) <= 0:
+			worn.erase(slot)
+			_write("broken_relic", String(relic["id"]))
+		else:
+			worn[slot] = relic
 	_write("equipment", worn)
 
 

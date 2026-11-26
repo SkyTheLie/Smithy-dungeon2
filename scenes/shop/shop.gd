@@ -7,6 +7,8 @@ extends Control
 ##   Lever: MetaState.pull_lever (first pull of a day free, then dearer); the table flips over.
 ##   Click on goods: buy (MetaState.buy). Click on gear in the inventory: put it on (equip),
 ##   click on a hero place: take it off (unequip).
+##   "Skills" (bottom right): the skill tree (SkillTreeWindow); the day, the player level and the
+##   EXP at the top left.
 ##   "Dungeons" (bottom right): the dungeon board; "Betreten" starts the run at once, as the
 ##   character of the weapon on the hero (MetaState.run_character), no choice window.
 ## First visit (MetaState.tutorial_done false): Egon shows everything himself: he pulls the lever,
@@ -44,6 +46,8 @@ var _dialog: DialogBox
 var _menu_button: Button
 var _dungeons_button: Button
 var _board: DungeonBoard
+var _skills_button: Button
+var _skill_window: SkillTreeWindow
 var _black: ColorRect
 ## true while Egon does something by himself (tutorial, lever): clicks are ignored.
 var _locked: bool = false
@@ -170,6 +174,10 @@ func _build() -> void:
 	_dungeons_button.add_theme_font_size_override("font_size", 18)
 	_dungeons_button.pressed.connect(_open_board)
 	_dungeons_button.position.x = SCREEN.x - 8 - _dungeons_button.get_combined_minimum_size().x
+	_skills_button = _button(Language.translate("Skills"), Vector2(0, 322))
+	_skills_button.name = "SkillsButton"
+	_skills_button.add_theme_font_size_override("font_size", 18)
+	_skills_button.pressed.connect(_open_skills)
 
 	var windows := CanvasLayer.new()
 	add_child(windows)
@@ -177,6 +185,10 @@ func _build() -> void:
 	_board.hide()
 	_board.entered.connect(_on_dungeon_entered)
 	windows.add_child(_board)
+	_skill_window = SkillTreeWindow.new()
+	_skill_window.hide()
+	_skill_window.learned.connect(func(_id: String) -> void: _refresh())
+	windows.add_child(_skill_window)
 	var fade_layer := CanvasLayer.new()
 	fade_layer.layer = 10
 	add_child(fade_layer)
@@ -220,7 +232,14 @@ func _label(text: String, font_size: int, color: Color) -> Label:
 # --- Showing ----------------------------------------------------------------------
 
 func _refresh() -> void:
-	_day.text = Language.translate("Tag %d") % MetaState.day()
+	var to_next: int = Skills.exp_to_next(MetaState.level())
+	var exp_text: String = "" if to_next == 0 else " (%d/%d EXP)" % [MetaState.exp_points(), to_next]
+	_day.text = Language.translate("Tag %d") % MetaState.day() + " · " + Language.translate("Stufe %d") % MetaState.level() + exp_text
+	# "Skills (2)" while skill points wait; it stays left of "Dungeons".
+	var points: int = MetaState.skill_points()
+	_skills_button.text = Language.translate("Skills") + (" (%d)" % points if points > 0 else "")
+	_skills_button.reset_size()
+	_skills_button.position.x = _dungeons_button.position.x - 6 - _skills_button.get_combined_minimum_size().x
 	_gold.text = str(MetaState.purse())
 	var price: int = MetaState.lever_price()
 	_lever_price.text = Language.translate("Gratis") if price == 0 else Language.translate("%d Gold") % price
@@ -368,6 +387,7 @@ func _run_tutorial() -> void:
 	_locked = true
 	_menu_button.hide()
 	_dungeons_button.hide()
+	_skills_button.hide()
 	await get_tree().create_timer(FADE_TIME, false).timeout
 	if not await _say("tutorial_welcome"):
 		return
@@ -422,6 +442,7 @@ func _run_tutorial() -> void:
 	_locked = false
 	_menu_button.show()
 	_dungeons_button.show()
+	_skills_button.show()
 	# Off you go: the board opens and stays open.
 	_board.open(true)
 
@@ -450,9 +471,21 @@ func get_dialog() -> DialogBox:
 	return _dialog
 
 
+func get_skill_window() -> SkillTreeWindow:
+	return _skill_window
+
+
+func _open_skills() -> void:
+	if _locked:
+		return
+	_board.hide()
+	_skill_window.open()
+
+
 func _open_board() -> void:
 	if _locked:
 		return
+	_skill_window.hide()
 	_board.open()
 
 

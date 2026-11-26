@@ -123,6 +123,9 @@ msgstr "Cinturón de bombas"
 msgid "Brandöl"
 msgstr "Aceite ardiente"
 
+msgid "Braucht: %s"
+msgstr "Necesita: %s"
+
 msgid "Brennend und langsam: mehr Schaden"
 msgstr "Ardiendo y lento: más daño"
 
@@ -197,6 +200,9 @@ msgstr "¡El camino hacia abajo está libre!"
 
 msgid "Diamantherz"
 msgstr "Corazón de diamante"
+
+msgid "Dicke Haut"
+msgstr "Piel gruesa"
 
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "El tamaño de ventana solo se aplica en modo ventana."
@@ -273,6 +279,9 @@ msgstr "Disparas hogazas de pan. Los enemigos alcanzados te olvidan y huyen"
 msgid "Du schießt auch nach hinten"
 msgstr "También disparas hacia atrás"
 
+msgid "Du schießt etwas schneller."
+msgstr "Disparas un poco más rápido."
+
 msgid "Du schießt schneller"
 msgstr "Disparas más rápido"
 
@@ -323,6 +332,9 @@ msgstr "Piel fina del ala de un murciélago."
 
 msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
 msgstr "E: bomba · Tab: inventario · M: mapa · Esc: pausa"
+
+msgid "EXP: +%d"
+msgstr "EXP: +%d"
 
 msgid "Ebene %d"
 msgstr "Piso %d"
@@ -381,6 +393,12 @@ msgstr "Un corazón, una moneda, una bomba y una llave"
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "Un corazón, dos corazones azules, más daño"
 
+msgid "Ein Platz mehr im Rucksack."
+msgstr "Un espacio más en la mochila."
+
+msgid "Ein Relikt-Platz mehr an deiner Figur."
+msgstr "Un espacio de reliquia más en tu héroe."
+
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "Se ha abierto un santuario"
 
@@ -410,6 +428,15 @@ msgstr "Un arco sencillo. Para arqueros."
 
 msgid "Ein geheimer Raum!"
 msgstr "¡Una sala secreta!"
+
+msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
+msgstr "Medio corazón de escudo blanco más al empezar cada partida."
+
+msgid "Ein rotes Herz mehr."
+msgstr "Un corazón rojo más."
+
+msgid "Ein sicherer Platz mehr im Rucksack."
+msgstr "Un espacio seguro más en la mochila."
 
 msgid "Ein zweites Leben"
 msgstr "Una segunda vida"
@@ -465,6 +492,9 @@ msgstr "Bastón de tierra"
 msgid "Erreiche Ebene %d"
 msgstr "Llega al piso %d"
 
+msgid "Erst den Skill davor lernen"
+msgstr "Aprende antes la habilidad anterior"
+
 msgid "Erstglut"
 msgstr "Brasa primera"
 
@@ -515,6 +545,9 @@ msgstr "Capa de liquen"
 
 msgid "Fledermaus"
 msgstr "Murciélago"
+
+msgid "Flinke Hände"
+msgstr "Manos rápidas"
 
 msgid "Flipper"
 msgstr "Pinball"
@@ -599,6 +632,9 @@ msgstr "Los enemigos se ralentizan, más alcance"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "Los enemigos que te tocan reciben daño"
+
+msgid "Geheimtasche"
+msgstr "Bolsillo secreto"
 
 msgid "Geist"
 msgstr "Fantasma"
@@ -711,6 +747,9 @@ msgstr "Brilla verdoso. Al mercader le gusta."
 msgid "Glück"
 msgstr "Suerte"
 
+msgid "Glück +0,5: öfter Beute."
+msgstr "Suerte +0,5: más botín."
+
 msgid "Glück hoch"
 msgstr "Más suerte"
 
@@ -722,6 +761,9 @@ msgstr "Mucha más suerte"
 
 msgid "Glücksflachs"
 msgstr "Lino de la suerte"
+
+msgid "Glückspilz"
+msgstr "Afortunado"
 
 msgid "Glühender Schlüssel"
 msgstr "Llave ardiente"
@@ -768,6 +810,9 @@ msgstr "Yelmo de oro"
 msgid "Goldklinge"
 msgstr "Hoja de oro"
 
+msgid "Goldnase"
+msgstr "Olfato de oro"
+
 msgid "Goldstiefel"
 msgstr "Botas de oro"
 
@@ -803,6 +848,9 @@ msgstr "Bombas más grandes, y ninguna te hace daño"
 
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "Bolas de fuego más grandes, más daño"
+
+msgid "Größerer Rucksack"
+msgstr "Mochila más grande"
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "¡Buena elección! Una pieza de colección. ¡De verdad!"
@@ -897,6 +945,9 @@ msgstr "Arco de Caza"
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "Cuanto más lejos vuela el disparo, más daño"
 
+msgid "Jede Münze gibt 2 Gold mehr."
+msgstr "Cada moneda da 2 de oro más."
+
 msgid "Jeder Treffer jagt Gegnern Angst ein"
 msgstr "Cada golpe asusta a los enemigos"
 
@@ -959,6 +1010,9 @@ msgstr "Aguja de brújula"
 
 msgid "Kopf"
 msgstr "Cabeza"
+
+msgid "Kraft"
+msgstr "Fuerza"
 
 msgid "Krieger"
 msgstr "Guerrero"
@@ -1058,6 +1112,9 @@ msgstr "Ligeras y rápidas."
 
 msgid "Leichte Feder"
 msgstr "Pluma ligera"
+
+msgid "Leichtfuß"
+msgstr "Pies ligeros"
 
 msgid "Letzte Glut"
 msgstr "Última brasa"
@@ -1167,6 +1224,9 @@ msgstr "Belladona"
 msgid "Nachtschattensamen"
 msgstr "Semillas de belladona"
 
+msgid "Neue Relikte halten einen Dungeon länger."
+msgstr "Las nuevas reliquias duran una mazmorra más."
+
 msgid "Neuer Run"
 msgstr "Nueva partida"
 
@@ -1202,6 +1262,9 @@ msgstr "Solo para: %s"
 
 msgid "Nächste Seite"
 msgstr "Página siguiente"
+
+msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
+msgstr "Siguiente nivel: %d de oro, %d puntos, desde el nivel %d"
 
 msgid "Offensiv"
 msgstr "Ofensivo"
@@ -1305,6 +1368,9 @@ msgstr "Derecha"
 msgid "Reichweite"
 msgstr "Alcance"
 
+msgid "Reichweite +0,5 m."
+msgstr "Alcance +0,5 m."
+
 msgid "Reichweite +2 m, schnellere Schüsse"
 msgstr "Alcance +2 m, disparos más veloces"
 
@@ -1325,6 +1391,15 @@ msgstr "Engaste puro"
 
 msgid "Relikt"
 msgstr "Reliquia"
+
+msgid "Relikt-Platz"
+msgstr "Espacio de reliquia"
+
+msgid "Relikte"
+msgstr "Reliquias"
+
+msgid "Reliktpflege"
+msgstr "Cuidado de reliquias"
 
 msgid "Riesenratte"
 msgstr "Rata gigante"
@@ -1382,6 +1457,9 @@ msgstr "Joya de zafiro"
 
 msgid "Schaden"
 msgstr "Daño"
+
+msgid "Schaden +0,5."
+msgstr "Daño +0,5."
 
 msgid "Schaden für jede Münze, Glück hoch"
 msgstr "Daño por cada moneda, más suerte"
@@ -1650,6 +1728,12 @@ msgstr "Esqueleto"
 msgid "Skelettritter"
 msgstr "Caballero esqueleto"
 
+msgid "Skillbaum"
+msgstr "Árbol de habilidades"
+
+msgid "Skills"
+msgstr "Habilidades"
+
 msgid "Smaragd"
 msgstr "Esmeralda"
 
@@ -1761,8 +1845,23 @@ msgstr "Bomba de racimo"
 msgid "Struppig und leicht angekaut."
 msgstr "Desgreñada y algo mordisqueada."
 
+msgid "Stufe %d"
+msgstr "Nivel %d"
+
+msgid "Stufe %d erreicht! +%d Skillpunkte"
+msgstr "¡Nivel %d alcanzado! +%d puntos"
+
 msgid "Stufe %d · %d Ebenen"
 msgstr "Nivel %d · %d pisos"
+
+msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
+msgstr "Nivel %d · EXP %s · Puntos: %d · Oro: %d"
+
+msgid "Stufe %d/%d"
+msgstr "Nivel %d/%d"
+
+msgid "Stufe zu niedrig"
+msgstr "Nivel demasiado bajo"
 
 msgid "Sturmessenz"
 msgstr "Esencia de tormenta"
@@ -1835,6 +1934,9 @@ msgstr "Hoja de los mil"
 
 msgid "Tempo"
 msgstr "Velocidad"
+
+msgid "Tempo +0,2."
+msgstr "Velocidad +0,2."
 
 msgid "Tempo: %s"
 msgstr "Velocidad: %s"
@@ -1929,6 +2031,9 @@ msgstr "Muchas chispas rastreadoras a la vez"
 msgid "Vier Schlüssel"
 msgstr "Cuatro llaves"
 
+msgid "Voll ausgebaut"
+msgstr "Al máximo"
+
 msgid "Vollbild"
 msgstr "Pantalla completa"
 
@@ -1952,6 +2057,9 @@ msgstr "Lo que está aquí no se pierde al morir."
 
 msgid "Wasserstab"
 msgstr "Bastón de agua"
+
+msgid "Weitblick"
+msgstr "Vista lejana"
 
 msgid "Weiter"
 msgstr "Continuar"
@@ -2025,11 +2133,20 @@ msgstr "Diez monedas, más suerte"
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "Arrastrar: ordenar · Sacar de la ventana: soltar · Tab: cerrar"
 
+msgid "Ziehen: verschieben · Mausrad: zoomen · Goldener Rahmen: lernen"
+msgstr "Arrastrar: mover · Rueda: zoom · Marco dorado: aprender"
+
 msgid "Zombie"
 msgstr "Zombi"
 
+msgid "Zu wenig Gold"
+msgstr "No tienes suficiente oro"
+
 msgid "Zu wenig Münzen"
 msgstr "No tienes suficientes monedas"
+
+msgid "Zu wenig Skillpunkte"
+msgstr "No tienes suficientes puntos"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "Veneno, miedo o tambaleo al azar"
@@ -2087,6 +2204,12 @@ msgstr "Dos corazones azules; perder uno golpea a todos los enemigos"
 
 msgid "Zwillingshandschuhe"
 msgstr "Guantes gemelos"
+
+msgid "Zähigkeit"
+msgstr "Dureza"
+
+msgid "max."
+msgstr "máx."
 
 msgid "oder Leertaste"
 msgstr "o pulsa Espacio"

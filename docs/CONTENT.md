@@ -103,3 +103,8 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - `items`: `"item_id": Stufe` (1 schwach … 4 stark). Neues Item als Relikt erlauben = Zeile hinzufügen.
 - `tiers`: `"1": {"dungeons": 0, "price": 40, "rarity": 2, "weight": 4}` … (`dungeons` 0 = hält für immer).
 - `table_chance`: Chance je Hebel-Zug, dass ein Relikt auf dem Tisch liegt.
+
+## Stufen (`data/levels.json`) und Skills (`data/skills.json`)
+
+- `levels.json`: `exp_per_kill`, `exp_per_boss`, `first_level_exp`, `growth`, `max_level`, `points_per_level`, `start_points`.
+- `skills.json` je Skill: `name`, `desc`, `icon`, `pos` [Spalte, Zeile], `requires`, `max_level`, `gold` [je Stufe], `points` [je Stufe], `min_level` [Spielerstufe je Stufe], `effect` (`stats`, `shield_halves`, `hearts`, `bag_slots`, `safe_slots`, `relic_slots`, `relic_runs`, `coin_bonus`). Neuer Skill = neuer Eintrag; Texte danach übersetzen.

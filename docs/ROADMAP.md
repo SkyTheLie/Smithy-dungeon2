@@ -54,6 +54,12 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 6. Relikte auf dem Glücksspiel-Tisch: sehr selten, anfangs nur 3 (Dreifach-Schuss, Suchend, Abprallen); später alle und dauerhafte.
 7. **10 Relikt-Stufen** als Pools (`tier` 1–10), jede Stufe mit starken und schwächeren Relikten; Stufe 1 offen, die anderen per Dungeon-Sieg, Abgabe beim Händler oder Quest freischalten.
 
+### Stufen und Skillbaum (2026-11-26, `feature/level-skillbaum`)
+
+- ✅ EXP pro Kill, Stufen bis 30, Skillpunkte.
+- ✅ Skillbaum wie Smithy Defense (12 Skills), Relikt-Plätze unter der Ausrüstung.
+- Offen: Tränke (Trank-Platz, Q trinkt) und die Skills „Mehr Tränke“, „Stärkere Tränke“.
+
 ## Phase 4 – Fortschritt
 
 1. Gegner und Bosse lassen Materialien und Gussformen fallen (`data/enemies.json` `loot`).

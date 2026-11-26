@@ -9,7 +9,7 @@ Texts it finds by itself:
   - Language.translate("...") in .gd files
   - "name" and "desc" in data/items.json, data/synergies.json, data/enemies.json, data/characters.json, materials in data/loot.json, theme "name" in floors.json,
     "name"/"region"/"desc" in data/dungeons.json, gear and slot names in data/gear.json,
-    every line in data/story.json
+    every line in data/story.json, skill names in data/skills.json
 """
 import json
 import os
@@ -62,6 +62,11 @@ def find_texts():
             for field in ("name", "desc"):
                 if entry.get(field):
                     texts.add(entry[field])
+    skills = json.load(open(os.path.join(data, "skills.json"), encoding="utf-8"))
+    for entry in skills["skills"].values():
+        for field in ("name", "desc"):
+            if entry.get(field):
+                texts.add(entry[field])
     story = json.load(open(os.path.join(data, "story.json"), encoding="utf-8"))
     for key, value in story.items():
         if key.startswith("_") or key in ("speaker", "portrait"):

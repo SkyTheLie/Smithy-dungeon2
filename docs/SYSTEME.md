@@ -214,3 +214,9 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - **Kaufen und Anlegen:** wie Ausrüstung (`MetaState.buy` / `equip`); Relikte gehen in den Platz `relic` (`gear.json` slots). Im Inventar und am Helden `{id, relic: true, left}` (`left` -1 = für immer).
 - **Im Run:** `RunState.use_gear` fügt das Relikt als sein Item hinzu (zählt für Synergien, steht in der Item-Leiste).
 - **Haltbarkeit:** `MetaState.end_run` zieht dem angelegten Relikt einen Run ab; bei 0 ist es kaputt (`broken_relic`), Egon sagt es beim nächsten Laden-Besuch (`story.json` `barks.relic_broken`).
+
+## Stufen und Skillbaum – 2026-11-26, `feature/level-skillbaum`
+
+- **Stufen** (`data/levels.json`, `Skills`, `MetaState.level/exp_points/skill_points/add_exp`): jeder Kill gibt EXP (`RunState.add_kill_exp`, Boss mehr), gutgeschrieben am Ende jedes Runs (Tod, Flucht, Sieg; `RunScene`). Stufe 2 braucht 30 EXP, jede weitere ×1,3, bis Stufe 30. Jede Stufe +1 Skillpunkt, Start mit 1. Laden oben links: Tag, Stufe, EXP; End-Bildschirm: EXP und neue Stufe.
+- **Skillbaum** (`data/skills.json`, `scenes/shop/skill_tree.gd`, `skill_tree_window.gd`, `scenes/ui/common/pan_zoom_view.gd` aus Smithy Defense): Knopf „Skills (N)“ im Laden. Jeder Skill: Position, Vorgänger, Stufen mit Gold-, Skillpunkt-Preis und Mindest-Spielerstufe. Ziehen in alle Richtungen, Mausrad zoomt, goldener Rahmen = lernbar (`MetaState.buy_skill`, prüft `Skills.problem`).
+- **Wirkung im Run** (`RunState.use_skills`, von `Game.start_new_run`): Rucksack-Plätze und sichere Plätze (`Bag.grow`), weiße Schild-Herzen, rote Herzen, Werte (eine Quelle wie ein Item), Gold je Münze. Relikt-Plätze: Reihe unter der Figur (`MetaState.relic_slot_names`, relic_1 … bis 3), Reliktpflege: neue Relikte halten länger (`ShopGoods.make_relic`).

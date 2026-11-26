@@ -123,6 +123,9 @@ msgstr "炸弹腰带"
 msgid "Brandöl"
 msgstr "燃油"
 
+msgid "Braucht: %s"
+msgstr "需要：%s"
+
 msgid "Brennend und langsam: mehr Schaden"
 msgstr "燃烧又减速：伤害更高"
 
@@ -197,6 +200,9 @@ msgstr "通往下层的路已打开！"
 
 msgid "Diamantherz"
 msgstr "钻石之心"
+
+msgid "Dicke Haut"
+msgstr "厚皮"
 
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "窗口大小仅在窗口模式下生效。"
@@ -273,6 +279,9 @@ msgstr "你发射面包。被击中的敌人会忘了你并逃跑"
 msgid "Du schießt auch nach hinten"
 msgstr "你也会向后射击"
 
+msgid "Du schießt etwas schneller."
+msgstr "射击稍快一些。"
+
 msgid "Du schießt schneller"
 msgstr "射速更快"
 
@@ -323,6 +332,9 @@ msgstr "蝙蝠翅膀上的薄皮。"
 
 msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
 msgstr "E:炸弹 · Tab:背包 · M:地图 · Esc:暂停"
+
+msgid "EXP: +%d"
+msgstr "经验：+%d"
 
 msgid "Ebene %d"
 msgstr "第%d层"
@@ -381,6 +393,12 @@ msgstr "一颗心、一枚硬币、一枚炸弹和一把钥匙"
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "一颗心、两颗蓝心，伤害提升"
 
+msgid "Ein Platz mehr im Rucksack."
+msgstr "背包多一个格子。"
+
+msgid "Ein Relikt-Platz mehr an deiner Figur."
+msgstr "角色多一个圣物格。"
+
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "圣坛已开启"
 
@@ -410,6 +428,15 @@ msgstr "一把简单的弓。弓箭手专用。"
 
 msgid "Ein geheimer Raum!"
 msgstr "一个秘密房间！"
+
+msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
+msgstr "每次冒险开始时多半颗白色护盾之心。"
+
+msgid "Ein rotes Herz mehr."
+msgstr "多一颗红心。"
+
+msgid "Ein sicherer Platz mehr im Rucksack."
+msgstr "背包多一个安全格。"
 
 msgid "Ein zweites Leben"
 msgstr "第二条命"
@@ -465,6 +492,9 @@ msgstr "大地之杖"
 msgid "Erreiche Ebene %d"
 msgstr "到达第%d层"
 
+msgid "Erst den Skill davor lernen"
+msgstr "先学习前一个技能"
+
 msgid "Erstglut"
 msgstr "初始余烬"
 
@@ -515,6 +545,9 @@ msgstr "地衣斗篷"
 
 msgid "Fledermaus"
 msgstr "蝙蝠"
+
+msgid "Flinke Hände"
+msgstr "快手"
 
 msgid "Flipper"
 msgstr "弹珠台"
@@ -599,6 +632,9 @@ msgstr "敌人减速，射程提升"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "碰到你的敌人会受伤"
+
+msgid "Geheimtasche"
+msgstr "暗袋"
 
 msgid "Geist"
 msgstr "幽灵"
@@ -711,6 +747,9 @@ msgstr "泛着绿光。商人很喜欢。"
 msgid "Glück"
 msgstr "幸运"
 
+msgid "Glück +0,5: öfter Beute."
+msgstr "幸运+0.5：更多战利品。"
+
 msgid "Glück hoch"
 msgstr "幸运提升"
 
@@ -722,6 +761,9 @@ msgstr "幸运大幅提升"
 
 msgid "Glücksflachs"
 msgstr "幸运亚麻"
+
+msgid "Glückspilz"
+msgstr "幸运儿"
 
 msgid "Glühender Schlüssel"
 msgstr "炽热钥匙"
@@ -768,6 +810,9 @@ msgstr "黄金头盔"
 msgid "Goldklinge"
 msgstr "黄金之刃"
 
+msgid "Goldnase"
+msgstr "寻金鼻"
+
 msgid "Goldstiefel"
 msgstr "黄金靴"
 
@@ -803,6 +848,9 @@ msgstr "炸弹更大，而且不会伤到你"
 
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "火球更大，伤害更高"
+
+msgid "Größerer Rucksack"
+msgstr "更大的背包"
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "好眼光！收藏级好货。真的！"
@@ -897,6 +945,9 @@ msgstr "狩猎弓"
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "射击飞得越远，伤害越高"
 
+msgid "Jede Münze gibt 2 Gold mehr."
+msgstr "每枚硬币多得2金币。"
+
 msgid "Jeder Treffer jagt Gegnern Angst ein"
 msgstr "每次命中都让敌人恐惧"
 
@@ -959,6 +1010,9 @@ msgstr "罗盘指针"
 
 msgid "Kopf"
 msgstr "头部"
+
+msgid "Kraft"
+msgstr "力量"
 
 msgid "Krieger"
 msgstr "战士"
@@ -1058,6 +1112,9 @@ msgstr "轻便又快速。"
 
 msgid "Leichte Feder"
 msgstr "轻羽"
+
+msgid "Leichtfuß"
+msgstr "轻步"
 
 msgid "Letzte Glut"
 msgstr "最后的余烬"
@@ -1167,6 +1224,9 @@ msgstr "颠茄"
 msgid "Nachtschattensamen"
 msgstr "颠茄种子"
 
+msgid "Neue Relikte halten einen Dungeon länger."
+msgstr "新圣物多撑一个地牢。"
+
 msgid "Neuer Run"
 msgstr "再来一局"
 
@@ -1202,6 +1262,9 @@ msgstr "仅限：%s"
 
 msgid "Nächste Seite"
 msgstr "下一页"
+
+msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
+msgstr "下一级：%d金币，%d技能点，玩家等级%d起"
 
 msgid "Offensiv"
 msgstr "进攻"
@@ -1305,6 +1368,9 @@ msgstr "右"
 msgid "Reichweite"
 msgstr "射程"
 
+msgid "Reichweite +0,5 m."
+msgstr "射程+0.5米。"
+
 msgid "Reichweite +2 m, schnellere Schüsse"
 msgstr "射程+2米，弹速更快"
 
@@ -1325,6 +1391,15 @@ msgstr "纯净镶座"
 
 msgid "Relikt"
 msgstr "圣物"
+
+msgid "Relikt-Platz"
+msgstr "圣物格"
+
+msgid "Relikte"
+msgstr "圣物"
+
+msgid "Reliktpflege"
+msgstr "圣物保养"
 
 msgid "Riesenratte"
 msgstr "巨鼠"
@@ -1382,6 +1457,9 @@ msgstr "蓝宝石珠宝"
 
 msgid "Schaden"
 msgstr "伤害"
+
+msgid "Schaden +0,5."
+msgstr "伤害+0.5。"
 
 msgid "Schaden für jede Münze, Glück hoch"
 msgstr "每枚硬币增加伤害，幸运提升"
@@ -1650,6 +1728,12 @@ msgstr "骷髅"
 msgid "Skelettritter"
 msgstr "骷髅骑士"
 
+msgid "Skillbaum"
+msgstr "技能树"
+
+msgid "Skills"
+msgstr "技能"
+
 msgid "Smaragd"
 msgstr "祖母绿"
 
@@ -1761,8 +1845,23 @@ msgstr "集束炸弹"
 msgid "Struppig und leicht angekaut."
 msgstr "乱糟糟的,还被啃过一点。"
 
+msgid "Stufe %d"
+msgstr "等级%d"
+
+msgid "Stufe %d erreicht! +%d Skillpunkte"
+msgstr "达到等级%d！+%d技能点"
+
 msgid "Stufe %d · %d Ebenen"
 msgstr "等级 %d · %d层"
+
+msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
+msgstr "等级%d · 经验 %s · 技能点：%d · 金币：%d"
+
+msgid "Stufe %d/%d"
+msgstr "等级 %d/%d"
+
+msgid "Stufe zu niedrig"
+msgstr "等级太低"
 
 msgid "Sturmessenz"
 msgstr "风暴精华"
@@ -1835,6 +1934,9 @@ msgstr "千刃"
 
 msgid "Tempo"
 msgstr "速度"
+
+msgid "Tempo +0,2."
+msgstr "速度+0.2。"
 
 msgid "Tempo: %s"
 msgstr "速度：%s"
@@ -1929,6 +2031,9 @@ msgstr "同时射出大量追踪火花"
 msgid "Vier Schlüssel"
 msgstr "四把钥匙"
 
+msgid "Voll ausgebaut"
+msgstr "已满级"
+
 msgid "Vollbild"
 msgstr "全屏"
 
@@ -1952,6 +2057,9 @@ msgstr "放在这里的东西死后也不会丢。"
 
 msgid "Wasserstab"
 msgstr "水之杖"
+
+msgid "Weitblick"
+msgstr "远见"
 
 msgid "Weiter"
 msgstr "继续"
@@ -2025,11 +2133,20 @@ msgstr "十枚硬币，幸运提升"
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "拖动:整理 · 拖出窗口:丢弃 · Tab:关闭"
 
+msgid "Ziehen: verschieben · Mausrad: zoomen · Goldener Rahmen: lernen"
+msgstr "拖动：移动 · 滚轮：缩放 · 金框：学习"
+
 msgid "Zombie"
 msgstr "僵尸"
 
+msgid "Zu wenig Gold"
+msgstr "金币不足"
+
 msgid "Zu wenig Münzen"
 msgstr "金币不足"
+
+msgid "Zu wenig Skillpunkte"
+msgstr "技能点不足"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "随机中毒、恐惧或蹒跚"
@@ -2087,6 +2204,12 @@ msgstr "两颗蓝心；失去一颗时攻击所有敌人"
 
 msgid "Zwillingshandschuhe"
 msgstr "双子手套"
+
+msgid "Zähigkeit"
+msgstr "坚韧"
+
+msgid "max."
+msgstr "满级"
 
 msgid "oder Leertaste"
 msgstr "或按空格键"

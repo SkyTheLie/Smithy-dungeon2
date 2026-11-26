@@ -34,8 +34,14 @@ var health: int = 6
 var max_hearts: int = 3
 ## Blue hearts in halves (on top of the red ones).
 var blue: int = 0
-## White shield hearts (halves) from the equipment.
+## White shield hearts (halves) from the equipment and the skills.
 var shield: int = 0
+## EXP of this run (kills, Skills.kill_exp); MetaState.add_exp at the end of the run.
+var exp_earned: int = 0
+## Levels the player reached at the end of this run (for the end screen).
+var levels_gained: int = 0
+## Extra gold per picked-up coin (skill Goldnase).
+var coin_bonus: int = 0
 ## The stats of the equipment worn at the start (one source per piece, without shield_hearts).
 var gear_sources: Array[Dictionary] = []
 ## The gold of the run: what lies in the bag as "gold" (Bag.GOLD). Only counted here, so there is
@@ -263,7 +269,29 @@ func heal(halves: int) -> bool:
 ## then goes into the bag as gold, Pickup).
 func roll_coin_value() -> int:
 	var worth: Array = Content.player().get("coin_pickup", [1, 1])
-	return _coin_rng.randi_range(int(worth[0]), int(worth[1]))
+	return _coin_rng.randi_range(int(worth[0]), int(worth[1])) + coin_bonus
+
+
+## A kill: its EXP (a boss more, data/levels.json).
+func add_kill_exp(boss: bool) -> void:
+	exp_earned += Skills.kill_exp(boss)
+
+
+## The skills learned at home (Skills, MetaState): more places in the bag, shield hearts, red
+## hearts, the stats (one source, like an item) and more gold per coin. Called once at the start.
+func use_skills() -> void:
+	bag.grow(int(Skills.bonus("bag_slots")), int(Skills.bonus("safe_slots")))
+	shield += int(Skills.bonus("shield_halves"))
+	var hearts: int = int(Skills.bonus("hearts"))
+	if hearts > 0:
+		max_hearts = mini(MAX_HEARTS_LIMIT, max_hearts + hearts)
+		health = max_hearts * 2
+	coin_bonus = int(Skills.bonus("coin_bonus"))
+	var stats: Dictionary = Skills.run_stats()
+	if not stats.is_empty():
+		gear_sources.append({"stats": stats})
+	compute_stats()
+	changed.emit()
 
 
 ## Puts `amount` gold into the bag. Returns what did not fit (full bag).

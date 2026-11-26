@@ -84,6 +84,7 @@ func _on_died() -> void:
 	# Dead: the coins and everything outside the safe places are lost.
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
+	Game.run.levels_gained = MetaState.add_exp(Game.run.exp_earned)
 	MetaState.end_run(0, Game.run.bag.lose_unsafe(), rng)
 	await get_tree().create_timer(DEATH_DELAY, false).timeout
 	end_screen.open(Game.run, false)
@@ -120,6 +121,7 @@ func _flee() -> void:
 	player.controls_enabled = false
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
+	Game.run.levels_gained = MetaState.add_exp(Game.run.exp_earned)
 	MetaState.end_run(0, Game.run.bag.contents(), rng)
 	end_screen.open(Game.run, false, true)
 
@@ -139,6 +141,7 @@ func _on_trapdoor_entered(final: bool) -> void:
 		# Made it out: the coins and the whole bag come home.
 		var rng := RandomNumberGenerator.new()
 		rng.randomize()
+		Game.run.levels_gained = MetaState.add_exp(Game.run.exp_earned)
 		MetaState.end_run(0, Game.run.bag.contents(), rng)
 		end_screen.open(Game.run, true)
 		return

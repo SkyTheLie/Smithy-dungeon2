@@ -31,7 +31,10 @@ func open(run: RunState, won: bool, fled: bool = false) -> void:
 	var lines: Array[String] = [
 		Language.translate("Ebene: %d") % (run.floor_index + 1),
 		Language.translate("Besiegte Gegner: %d") % run.kills,
+		Language.translate("EXP: +%d") % run.exp_earned,
 	]
+	if run.levels_gained > 0:
+		lines.append(Language.translate("Stufe %d erreicht! +%d Skillpunkte") % [MetaState.level(), run.levels_gained * int(Skills.levels().get("points_per_level", 1))])
 	# What comes home (MetaState.end_run already ran in RunScene).
 	if won or fled:
 		lines.append(Language.translate("Mit nach Hause: %d Gold, %d Beute") % [run.coins, _count(run.bag.contents())])

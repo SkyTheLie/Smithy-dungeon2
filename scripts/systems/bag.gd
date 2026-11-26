@@ -28,6 +28,16 @@ func _init() -> void:
 		places.append({})
 
 
+## More places (skills: Größerer Rucksack, Geheimtasche): normal ones before the safe ones.
+func grow(extra_normal: int, extra_safe: int) -> void:
+	for i in maxi(0, extra_normal):
+		places.insert(normal_count, {})
+		normal_count += 1
+	for i in maxi(0, extra_safe):
+		places.append({})
+	changed.emit()
+
+
 func size() -> int:
 	return places.size()
 

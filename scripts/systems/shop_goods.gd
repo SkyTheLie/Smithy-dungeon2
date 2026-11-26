@@ -62,8 +62,12 @@ static func relic_rarity(id: String) -> int:
 	return int(_tier(relic_tier(id)).get("rarity", 1))
 
 
+## A relic for the table; the skill Reliktpflege (relic_runs) makes new ones hold longer.
 static func make_relic(id: String) -> Dictionary:
-	return {"id": id, "relic": true, "left": relic_runs(id), "price": int(_tier(relic_tier(id)).get("price", 0))}
+	var runs: int = relic_runs(id)
+	if runs > 0:
+		runs += int(Skills.bonus("relic_runs"))
+	return {"id": id, "relic": true, "left": runs, "price": int(_tier(relic_tier(id)).get("price", 0))}
 
 
 static func is_relic(piece: Dictionary) -> bool:
