@@ -17,6 +17,7 @@ func run() -> void:
 	_tutorial_and_new_day()
 	_gear_in_run()
 	_relics()
+	_selling()
 
 
 func _data() -> void:
@@ -175,3 +176,20 @@ func _relics() -> void:
 	for i in 5:
 		meta.call("end_run", 0, [] as Array[Dictionary], RandomNumberGenerator.new())
 	check_eq(String((meta.call("equipment") as Dictionary).get("relic_1", {}).get("id", "")), "moorherz", "a weak relic stays for ever")
+
+
+## Selling to Egon: loot for its loot.json value (the whole stack), gear and relics for
+## shop.json sell_share of their price; the gold goes into the purse.
+func _selling() -> void:
+	meta.call("start_new")
+	meta.call("end_run", 0, [{"id": "rat_fur", "count": 3}] as Array[Dictionary], RandomNumberGenerator.new())
+	meta.call("lay_tutorial_table")
+	var table: Array = meta.call("table")
+	meta.call("buy", table.find_custom(func(place: Dictionary) -> bool: return place.get("id") == "copper_staff"), true)
+	var own: Array = meta.call("stash")
+	check_eq(goods.call("sell_price", own[0]), 6, "3 rat furs: 3 x 2 gold")
+	check_eq(goods.call("sell_price", own[1]), 9, "the copper staff (30): 30 % = 9 gold")
+	check_eq(meta.call("sell", 0), 6, "sold")
+	check_eq(meta.call("purse"), 6, "the gold is in the purse")
+	check_eq((meta.call("stash") as Array).size(), 1, "the furs are gone")
+	check_eq(meta.call("sell", 5), 0, "a place that does not exist sells nothing")

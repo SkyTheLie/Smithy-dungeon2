@@ -42,6 +42,9 @@ msgstr "آمتیست"
 msgid "Angriffstempo"
 msgstr "سرعت حمله"
 
+msgid "Ankauf"
+msgstr "خرید"
+
 msgid "Anzeige"
 msgstr "نمایش"
 
@@ -398,6 +401,9 @@ msgstr "یک خانه‌ی بیشتر در کوله."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "یک خانه‌ی یادگار بیشتر روی قهرمانت."
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "یه معامله‌ی خوب! برای من. اِه… برای تو! صادقانه!"
 
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "یک زیارتگاه باز شد"
@@ -1365,6 +1371,9 @@ msgstr "شاه موش‌ها"
 msgid "Rechts"
 msgstr "راست"
 
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "روی چیزی در کوله راست‌کلیک کن تا اینجا گذاشته شود."
+
 msgid "Reichweite"
 msgstr "برد"
 
@@ -1994,6 +2003,12 @@ msgstr "خون‌آشام"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "دشمنان را مسموم می‌کند، کمی آسیب بیشتر"
+
+msgid "Verkaufen"
+msgstr "فروش"
+
+msgid "Verkaufen: %d Gold"
+msgstr "فروش: %d طلا"
 
 msgid "Viel größere Bomben"
 msgstr "بمب‌های خیلی بزرگ‌تر"

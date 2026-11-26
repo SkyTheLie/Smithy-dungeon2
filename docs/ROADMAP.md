@@ -20,7 +20,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 2. ✅ (2026-11-26) **Ausrüstungs-Items als Daten** (`data/gear.json`): Kupfer-Zauberstab, -Bogen, -Schwert, Kupfer-Rüstungsteile, mit Seltenheit R1–R8 und Werten. Seltenheitsfarben aus Smithy (`Rarity`).
 3. ✅ (2026-11-26) **Laden-Bildschirm** (2D, 640×360, Skizze `vorlagen/laden_skizze.png`): Tisch mit Ware oben, Hebel rechts, Inventar unten, Ausrüstung links, Item-Rahmen in Seltenheitsfarbe, Tooltip, Kaufen und Anlegen per Klick. Fehlt: 3 Verkaufs-/Verlaufsplätze.
 4. ✅ (2026-11-26) **Würfeln:** einmal pro Tag frei, danach kostet es Gold, jedes Mal mehr (`data/shop.json`: Preis, Anzahl Items 1–3, Pool nach Freischaltung). Tisch-Dreh-Animation.
-5. **Verkaufen:** Item auf einen der 3 Plätze ziehen → Gold (Händler zahlt wenig = „Betrug“). Mitgebrachte Beute (`MetaState.stash`) verkaufen.
+5. ✅ (2026-11-26, ein Ankauf-Platz statt 3, Rechtsklick) **Verkaufen:** Item auf einen der 3 Plätze ziehen → Gold (Händler zahlt wenig = „Betrug“). Mitgebrachte Beute (`MetaState.stash`) verkaufen.
 5a. **Dose:** Geld einzahlen/abheben (`MetaState.deposit/withdraw`); Egon kommentiert `last_theft` (Ausreden aus `docs/figuren/EGON_EHRLICH.md`).
 6. **Animierter Hintergrund:** Glut, Fackelflackern, Staub; Übergänge weich.
 7. ✅ (2026-11-26) Hauptmenü „Neues Spiel“ → Intro → Laden; „Dungeons“ unten rechts → Dungeon-Brett (`data/dungeons.json`) → „Betreten“ → Charakter → Run; nach dem Run „Zum Laden“.

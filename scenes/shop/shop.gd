@@ -7,6 +7,8 @@ extends Control
 ##   Lever: MetaState.pull_lever (first pull of a day free, then dearer); the table flips over.
 ##   Click on goods: buy (MetaState.buy). Click on gear in the inventory: put it on (equip),
 ##   click on a hero place: take it off (unequip).
+##   Right click on the inventory: onto Egon's sell place (top right); "Verkaufen: N Gold" sells it
+##   (MetaState.sell), a click on the sell place gives it back.
 ##   "Skills" (bottom right): the skill tree (SkillTreeWindow); the day, the player level and the
 ##   EXP at the top left.
 ##   "Dungeons" (bottom right): the dungeon board; "Betreten" starts the run at once, as the
@@ -47,6 +49,10 @@ var _menu_button: Button
 var _dungeons_button: Button
 var _board: DungeonBoard
 var _skills_button: Button
+var _sell_slot: ShopSlot
+var _sell_button: Button
+## Inventory place waiting on the sell place (-1 = none). Only shown; sold on the button.
+var _sell_index: int = -1
 var _skill_window: SkillTreeWindow
 var _black: ColorRect
 ## true while Egon does something by himself (tutorial, lever): clicks are ignored.
@@ -147,6 +153,7 @@ func _build() -> void:
 	_lever_price.position = Vector2(392, 98)
 	_lever_price.size = Vector2(88, 16)
 	_frame.add_child(_lever_price)
+	_build_sell_place()
 
 	var inventory_panel := _panel(Vector2(170, 252))
 	var inventory_scroll := ScrollContainer.new()
@@ -256,10 +263,83 @@ func _refresh_inventory() -> void:
 	while _inventory_slots.size() < places:
 		var place := ShopSlot.new()
 		place.clicked.connect(_on_inventory_clicked.bind(_inventory_slots.size()))
+		place.right_clicked.connect(_put_on_sell_place.bind(_inventory_slots.size()))
 		_inventory_grid.add_child(place)
 		_inventory_slots.append(place)
+	if _sell_index >= own.size():
+		_sell_index = -1
 	for i in _inventory_slots.size():
 		_inventory_slots[i].show_entry(own[i] if i < own.size() else {})
+		_inventory_slots[i].modulate.a = 0.35 if i == _sell_index else 1.0
+	_refresh_sell_place(own)
+
+
+# --- Selling (Egon's sell place) ---------------------------------------------------
+
+func _build_sell_place() -> void:
+	var panel := _panel(Vector2(486, 10))
+	var column := VBoxContainer.new()
+	column.add_theme_constant_override("separation", 4)
+	panel.add_child(column)
+	var title := _label(Language.translate("Ankauf"), 12, GOLD_COLOR)
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	column.add_child(title)
+	_sell_slot = ShopSlot.new()
+	_sell_slot.name = "SellSlot"
+	_sell_slot.hint_name = Language.translate("Rechtsklick auf etwas im Inventar legt es hierher.")
+	_sell_slot.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	_sell_slot.clicked.connect(_take_back_from_sell_place)
+	_sell_slot.right_clicked.connect(_take_back_from_sell_place)
+	column.add_child(_sell_slot)
+	_sell_button = Button.new()
+	_sell_button.name = "SellButton"
+	_sell_button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_sell_button.focus_mode = Control.FOCUS_NONE
+	_sell_button.add_theme_font_size_override("font_size", 11)
+	_sell_button.custom_minimum_size = Vector2(110, 0)
+	_sell_button.pressed.connect(_sell)
+	column.add_child(_sell_button)
+
+
+func _refresh_sell_place(own: Array[Dictionary]) -> void:
+	var piece: Dictionary = own[_sell_index] if _sell_index >= 0 else {}
+	_sell_slot.show_entry(piece)
+	_sell_button.disabled = piece.is_empty()
+	if piece.is_empty():
+		_sell_button.text = Language.translate("Verkaufen")
+	else:
+		_sell_button.text = Language.translate("Verkaufen: %d Gold") % ShopGoods.sell_price(piece)
+
+
+func _put_on_sell_place(index: int) -> void:
+	if _locked or index >= MetaState.stash().size():
+		return
+	_sell_index = index
+	AudioManager.play_sound("pickup")
+	_refresh()
+
+
+func _take_back_from_sell_place() -> void:
+	if _sell_index < 0:
+		return
+	_sell_index = -1
+	_refresh()
+
+
+func _sell() -> void:
+	if _locked or _sell_index < 0:
+		return
+	var gold: int = MetaState.sell(_sell_index)
+	_sell_index = -1
+	AudioManager.play_sound("coin")
+	_bark("sold")
+	_refresh()
+	if gold > 0:
+		_sell_button.text = "+%d Gold" % gold
+
+
+func get_sell_button() -> Button:
+	return _sell_button
 
 
 func _bark(key: String) -> void:
@@ -279,6 +359,7 @@ func _on_lever_pressed() -> void:
 
 
 func _on_table_clicked(index: int) -> void:
+	_sell_index = -1
 	if _locked or _table_slots[index].is_empty():
 		return
 	var from: ShopSlot = _table_slots[index]
@@ -295,6 +376,7 @@ func _on_table_clicked(index: int) -> void:
 
 
 func _on_inventory_clicked(index: int) -> void:
+	_sell_index = -1
 	var own: Array[Dictionary] = MetaState.stash()
 	if _locked or index >= own.size():
 		return
@@ -307,6 +389,7 @@ func _on_inventory_clicked(index: int) -> void:
 
 
 func _on_hero_slot_clicked(slot: String) -> void:
+	_sell_index = -1
 	if _locked or not MetaState.unequip(slot):
 		return
 	AudioManager.play_sound("pickup")

@@ -70,6 +70,19 @@ static func make_relic(id: String) -> Dictionary:
 	return {"id": id, "relic": true, "left": runs, "price": int(_tier(relic_tier(id)).get("price", 0))}
 
 
+## What Egon pays for a piece of the inventory: loot = loot.json value × count; gear and relics =
+## shop.json sell_share of their price (at least 1).
+static func sell_price(piece: Dictionary) -> int:
+	var id: String = String(piece.get("id", ""))
+	var count: int = maxi(1, int(piece.get("count", 1)))
+	var share: float = float(Content.shop().get("sell_share", 0.3))
+	if is_relic(piece):
+		return maxi(1, roundi(float(_tier(relic_tier(id)).get("price", 0)) * share))
+	if is_gear(id):
+		return maxi(1, roundi(price(id, int(piece.get("rarity", 1))) * share))
+	return int(Content.material(id).get("value", 0)) * count
+
+
 static func is_relic(piece: Dictionary) -> bool:
 	return bool(piece.get("relic", false))
 

@@ -42,6 +42,9 @@ msgstr "Ametista"
 msgid "Angriffstempo"
 msgstr "Velocidade de ataque"
 
+msgid "Ankauf"
+msgstr "Compra"
+
 msgid "Anzeige"
 msgstr "Tela"
 
@@ -398,6 +401,9 @@ msgstr "Mais um espaço na mochila."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Mais um espaço de relíquia no seu herói."
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "Uma pechincha! Pra mim. É… pra você! Sério!"
 
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "Um santuário se abriu"
@@ -1365,6 +1371,9 @@ msgstr "Rei dos Ratos"
 msgid "Rechts"
 msgstr "Direita"
 
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "Clique com o botão direito em algo do inventário para colocá-lo aqui."
+
 msgid "Reichweite"
 msgstr "Alcance"
 
@@ -1994,6 +2003,12 @@ msgstr "Vampiro"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "Envenena inimigos, um pouco mais de dano"
+
+msgid "Verkaufen"
+msgstr "Vender"
+
+msgid "Verkaufen: %d Gold"
+msgstr "Vender: %d de ouro"
 
 msgid "Viel größere Bomben"
 msgstr "Bombas muito maiores"

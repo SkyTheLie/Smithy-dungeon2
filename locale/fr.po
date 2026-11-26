@@ -42,6 +42,9 @@ msgstr "Améthyste"
 msgid "Angriffstempo"
 msgstr "Vitesse d'attaque"
 
+msgid "Ankauf"
+msgstr "Rachat"
+
 msgid "Anzeige"
 msgstr "Affichage"
 
@@ -398,6 +401,9 @@ msgstr "Un emplacement de plus dans le sac."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Un emplacement de relique de plus sur ton héros."
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "Une affaire ! Pour moi. Euh… pour toi ! Honnêtement !"
 
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "Un sanctuaire s'est ouvert"
@@ -1365,6 +1371,9 @@ msgstr "Roi des Rats"
 msgid "Rechts"
 msgstr "Droite"
 
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "Clic droit sur un objet de l'inventaire pour le poser ici."
+
 msgid "Reichweite"
 msgstr "Portée"
 
@@ -1994,6 +2003,12 @@ msgstr "Vampire"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "Empoisonne les ennemis, dégâts un peu en hausse"
+
+msgid "Verkaufen"
+msgstr "Vendre"
+
+msgid "Verkaufen: %d Gold"
+msgstr "Vendre : %d or"
 
 msgid "Viel größere Bomben"
 msgstr "Bombes bien plus grosses"

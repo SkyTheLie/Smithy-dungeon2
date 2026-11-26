@@ -42,6 +42,9 @@ msgstr "Аметист"
 msgid "Angriffstempo"
 msgstr "Скорость атаки"
 
+msgid "Ankauf"
+msgstr "Скупка"
+
 msgid "Anzeige"
 msgstr "Экран"
 
@@ -398,6 +401,9 @@ msgstr "Ещё одна ячейка в рюкзаке."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Ещё одна ячейка реликвии у героя."
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "Выгодная сделка! Для меня. Э-э… для тебя! Честно!"
 
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "Открылось святилище"
@@ -1365,6 +1371,9 @@ msgstr "Крысиный король"
 msgid "Rechts"
 msgstr "Вправо"
 
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "ПКМ по предмету в инвентаре кладёт его сюда."
+
 msgid "Reichweite"
 msgstr "Дальность"
 
@@ -1994,6 +2003,12 @@ msgstr "Вампир"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "Отравляет врагов, урон чуть выше"
+
+msgid "Verkaufen"
+msgstr "Продать"
+
+msgid "Verkaufen: %d Gold"
+msgstr "Продать: %d золота"
 
 msgid "Viel größere Bomben"
 msgstr "Намного большие бомбы"

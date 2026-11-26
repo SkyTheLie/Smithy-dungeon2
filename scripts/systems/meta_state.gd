@@ -254,6 +254,20 @@ static func slot_of(piece: Dictionary) -> String:
 	return String(Content.gear_item(String(piece.get("id", ""))).get("slot", ""))
 
 
+## Sells inventory place `index` (the whole stack) to Egon: ShopGoods.sell_price goes into the
+## purse. Returns the gold (0 = nothing sold).
+static func sell(index: int) -> int:
+	var own: Array[Dictionary] = stash()
+	if index < 0 or index >= own.size():
+		return 0
+	var gold: int = ShopGoods.sell_price(own[index])
+	own.remove_at(index)
+	_write("stash", own)
+	_write("purse", purse() + gold)
+	_save()
+	return gold
+
+
 ## The hero's equipment: slot (data/gear.json slots) -> {id, rarity}.
 static func equipment() -> Dictionary:
 	var result: Dictionary = {}

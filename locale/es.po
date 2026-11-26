@@ -42,6 +42,9 @@ msgstr "Amatista"
 msgid "Angriffstempo"
 msgstr "Velocidad de ataque"
 
+msgid "Ankauf"
+msgstr "Compra"
+
 msgid "Anzeige"
 msgstr "Pantalla"
 
@@ -398,6 +401,9 @@ msgstr "Un espacio más en la mochila."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Un espacio de reliquia más en tu héroe."
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "¡Una ganga! Para mí. Eh… ¡para ti! ¡De verdad!"
 
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "Se ha abierto un santuario"
@@ -1365,6 +1371,9 @@ msgstr "Rey de las Ratas"
 msgid "Rechts"
 msgstr "Derecha"
 
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "Clic derecho en algo del inventario para ponerlo aquí."
+
 msgid "Reichweite"
 msgstr "Alcance"
 
@@ -1994,6 +2003,12 @@ msgstr "Vampiro"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "Envenena enemigos, algo más de daño"
+
+msgid "Verkaufen"
+msgstr "Vender"
+
+msgid "Verkaufen: %d Gold"
+msgstr "Vender: %d de oro"
 
 msgid "Viel größere Bomben"
 msgstr "Bombas mucho más grandes"

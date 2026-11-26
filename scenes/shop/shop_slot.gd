@@ -6,6 +6,8 @@ extends Panel
 ## The shop decides what a click does (signal clicked).
 
 signal clicked
+## Right mouse button (inventory: put it on Egon's sell place).
+signal right_clicked
 
 const SIZE := Vector2(34, 34)
 const ICON_SIZE := Vector2(26, 26)
@@ -99,6 +101,9 @@ func _gui_input(event: InputEvent) -> void:
 	if click and click.pressed and click.button_index == MOUSE_BUTTON_LEFT:
 		accept_event()
 		clicked.emit()
+	elif click and click.pressed and click.button_index == MOUSE_BUTTON_RIGHT:
+		accept_event()
+		right_clicked.emit()
 
 
 func _refresh() -> void:

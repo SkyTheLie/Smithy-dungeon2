@@ -42,6 +42,9 @@ msgstr "Amethyst"
 msgid "Angriffstempo"
 msgstr "Attack speed"
 
+msgid "Ankauf"
+msgstr "Buying"
+
 msgid "Anzeige"
 msgstr "Display"
 
@@ -398,6 +401,9 @@ msgstr "One more backpack slot."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "One more relic slot on your hero."
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "A bargain! For me. Er… for you! Honestly!"
 
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "A shrine has opened"
@@ -1365,6 +1371,9 @@ msgstr "Rat King"
 msgid "Rechts"
 msgstr "Right"
 
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "Right-click something in the inventory to put it here."
+
 msgid "Reichweite"
 msgstr "Range"
 
@@ -1994,6 +2003,12 @@ msgstr "Vampire"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "Poisons enemies, damage a bit up"
+
+msgid "Verkaufen"
+msgstr "Sell"
+
+msgid "Verkaufen: %d Gold"
+msgstr "Sell: %d gold"
 
 msgid "Viel größere Bomben"
 msgstr "Much bigger bombs"

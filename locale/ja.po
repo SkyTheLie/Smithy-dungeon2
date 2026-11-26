@@ -42,6 +42,9 @@ msgstr "アメジスト"
 msgid "Angriffstempo"
 msgstr "攻撃速度"
 
+msgid "Ankauf"
+msgstr "買い取り"
+
 msgid "Anzeige"
 msgstr "表示"
 
@@ -398,6 +401,9 @@ msgstr "リュックの枠が1つ増える。"
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "キャラのレリック枠が1つ増える。"
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "掘り出し物だ！俺にとって。いや…君にとって！正直に！"
 
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "祠が開いた"
@@ -1365,6 +1371,9 @@ msgstr "ネズミの王"
 msgid "Rechts"
 msgstr "右"
 
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "インベントリの物を右クリックするとここに置ける。"
+
 msgid "Reichweite"
 msgstr "射程"
 
@@ -1994,6 +2003,12 @@ msgstr "吸血鬼"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "敵に毒、ダメージ少し上昇"
+
+msgid "Verkaufen"
+msgstr "売る"
+
+msgid "Verkaufen: %d Gold"
+msgstr "売る：%dゴールド"
 
 msgid "Viel größere Bomben"
 msgstr "爆弾が大幅に大きい"

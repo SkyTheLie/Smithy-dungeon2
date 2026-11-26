@@ -42,6 +42,9 @@ msgstr "紫水晶"
 msgid "Angriffstempo"
 msgstr "攻击速度"
 
+msgid "Ankauf"
+msgstr "收购"
+
 msgid "Anzeige"
 msgstr "显示"
 
@@ -398,6 +401,9 @@ msgstr "背包多一个格子。"
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "角色多一个圣物格。"
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "真划算！对我来说。呃…对你来说！真的！"
 
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "圣坛已开启"
@@ -1365,6 +1371,9 @@ msgstr "鼠王"
 msgid "Rechts"
 msgstr "右"
 
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "右键点击背包中的物品放到这里。"
+
 msgid "Reichweite"
 msgstr "射程"
 
@@ -1994,6 +2003,12 @@ msgstr "吸血鬼"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "使敌人中毒，伤害略高"
+
+msgid "Verkaufen"
+msgstr "出售"
+
+msgid "Verkaufen: %d Gold"
+msgstr "出售：%d金币"
 
 msgid "Viel größere Bomben"
 msgstr "炸弹大得多"
