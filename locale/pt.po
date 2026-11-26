@@ -981,6 +981,9 @@ msgstr "A cada dois tiros, um é muito mais forte"
 msgid "Kamille"
 msgstr "Camomila"
 
+msgid "Kampf"
+msgstr "Combate"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Agora pode aparecer na masmorra"
 
@@ -1425,6 +1428,9 @@ msgstr "Espaço de relíquia"
 msgid "Relikte"
 msgstr "Relíquias"
 
+msgid "Relikte & Überleben"
+msgstr "Relíquias e sobrevivência"
+
 msgid "Reliktpflege"
 msgstr "Cuidado de relíquias"
 
@@ -1457,6 +1463,9 @@ msgstr "Vermelho como brasa."
 
 msgid "Rubin"
 msgstr "Rubi"
+
+msgid "Rucksack"
+msgstr "Mochila"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "Mãos firmes, disparos mais rápidos."

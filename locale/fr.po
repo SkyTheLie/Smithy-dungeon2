@@ -981,6 +981,9 @@ msgstr "Un tir sur deux est bien plus fort"
 msgid "Kamille"
 msgstr "Camomille"
 
+msgid "Kampf"
+msgstr "Combat"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Peut maintenant apparaître dans le donjon"
 
@@ -1425,6 +1428,9 @@ msgstr "Emplacement de relique"
 msgid "Relikte"
 msgstr "Reliques"
 
+msgid "Relikte & Überleben"
+msgstr "Reliques et survie"
+
 msgid "Reliktpflege"
 msgstr "Soin des reliques"
 
@@ -1457,6 +1463,9 @@ msgstr "Rouge comme la braise."
 
 msgid "Rubin"
 msgstr "Rubis"
+
+msgid "Rucksack"
+msgstr "Sac à dos"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "Mains sûres, tirs plus rapides."

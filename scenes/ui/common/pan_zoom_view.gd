@@ -85,6 +85,18 @@ func reset_view() -> void:
 	_apply()
 
 
+## The whole picture in view: zoomed out as needed (never in, at least ZOOM_MIN), centred.
+func fit_view() -> void:
+	var picture: Control = content()
+	if picture == null or size.x <= 0.0:
+		return
+	var picture_size: Vector2 = picture.get_combined_minimum_size()
+	zoom = clampf(minf(size.x / picture_size.x, size.y / picture_size.y), ZOOM_MIN, 1.0)
+	pan = (size - picture_size * zoom) / 2.0
+	_placed = true
+	_apply()
+
+
 func _draw() -> void:
 	if backdrop != null:
 		draw_style_box(backdrop, Rect2(Vector2.ZERO, size))

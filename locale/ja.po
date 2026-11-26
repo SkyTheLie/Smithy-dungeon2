@@ -981,6 +981,9 @@ msgstr "2発に1発がとても強い"
 msgid "Kamille"
 msgstr "カモミール"
 
+msgid "Kampf"
+msgstr "戦闘"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "これからダンジョンに出現する"
 
@@ -1425,6 +1428,9 @@ msgstr "レリック枠"
 msgid "Relikte"
 msgstr "レリック"
 
+msgid "Relikte & Überleben"
+msgstr "レリックと生存"
+
 msgid "Reliktpflege"
 msgstr "レリックの手入れ"
 
@@ -1457,6 +1463,9 @@ msgstr "残り火のように赤い。"
 
 msgid "Rubin"
 msgstr "ルビー"
+
+msgid "Rucksack"
+msgstr "リュック"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "手が安定し、射撃が速くなる。"

@@ -29,10 +29,10 @@ func _data_check() -> void:
 
 func _levels() -> void:
 	_data_check()
-	check_eq(meta.call("level"), 1, "a new game starts at level 1")
-	check_eq(meta.call("skill_points"), 1, "with one skill point")
-	check_eq(skills.call("exp_to_next", 1), 30, "30 EXP to level 2")
-	check_eq(skills.call("exp_to_next", 2), 39, "then 30 x 1.3")
+	check_eq(meta.call("level"), 0, "a new game starts at level 0")
+	check_eq(meta.call("skill_points"), 0, "without skill points")
+	check_eq(skills.call("exp_to_next", 0), 30, "30 EXP to level 1")
+	check_eq(skills.call("exp_to_next", 1), 39, "then 30 x 1.3")
 	check_eq(skills.call("kill_exp", false), 2, "a kill gives 2 EXP")
 	check_eq(skills.call("kill_exp", true), 25, "a boss 25")
 	var run: Object = script("res://scripts/systems/run_state.gd").new(1)
@@ -40,22 +40,24 @@ func _levels() -> void:
 		run.call("add_kill_exp", false)
 	run.call("add_kill_exp", true)
 	check_eq(run.get("exp_earned"), 45, "10 kills and a boss: 45 EXP in the run")
-	check_eq(meta.call("add_exp", 45), 1, "at the end of the run: level 2")
+	check_eq(meta.call("add_exp", 45), 1, "at the end of the run: level 1")
 	check_eq(meta.call("exp_points"), 15, "15 EXP left over")
-	check_eq(meta.call("skill_points"), 2, "one skill point more")
+	check_eq(meta.call("skill_points"), 1, "level 1: the first skill point")
 	check_eq(meta.call("add_exp", 500), 6, "lots of EXP: several levels at once")
-	check_eq(meta.call("level"), 8, "level 8")
+	check_eq(meta.call("level"), 7, "level 7")
 
 
 func _learning() -> void:
-	check_eq(skills.call("problem", "kraft"), "Erst den Skill davor lernen", "Kraft needs the backpack first")
+	check_eq(skills.call("problem", "leichtfuss"), "Erst den Skill davor lernen", "Leichtfuß needs Kraft first (same group)")
 	check_eq(skills.call("problem", "rucksack"), "Zu wenig Gold", "no gold yet")
+	var starts: Array = (skills.call("all") as Dictionary).keys().filter(func(id: String) -> bool: return not (skills.call("data", id) as Dictionary).has("requires"))
+	check_eq(starts.size(), 3, "three groups, each with its own start")
 	meta.call("end_run", 1000, [] as Array[Dictionary], RandomNumberGenerator.new())
 	var points: int = meta.call("skill_points")
 	check(meta.call("buy_skill", "rucksack"), "the backpack can be learned at level 1")
 	check_eq(meta.call("purse"), 970, "it cost 30 gold")
 	check_eq(meta.call("skill_points"), points - 1, "and one skill point")
-	check(meta.call("buy_skill", "rucksack"), "second level (needs level 5: we are 8)")
+	check(meta.call("buy_skill", "rucksack"), "second level (needs level 5: we are 7)")
 	check_eq(skills.call("problem", "rucksack"), "Stufe zu niedrig", "the third level needs level 15")
 	check(not meta.call("buy_skill", "rucksack"), "so it cannot be learned")
 	check_eq(skills.call("problem", "reliktplatz"), "Erst den Skill davor lernen", "Relikt-Platz needs Zähigkeit")
@@ -63,7 +65,7 @@ func _learning() -> void:
 	check_eq(skills.call("problem", "reliktplatz"), "Stufe zu niedrig", "Relikt-Platz needs level 10")
 	meta.call("add_exp", 2000)
 	check(meta.call("level") >= 10, "level %d now" % meta.call("level"))
-	for id: String in ["reliktplatz", "kraft", "kraft", "goldnase", "reliktpflege"]:
+	for id: String in ["reliktplatz", "reliktpflege", "kraft", "kraft", "goldnase"]:
 		check(meta.call("buy_skill", id), "learn %s" % id)
 	check_eq(meta.call("skill_level", "kraft"), 2, "Kraft level 2")
 	meta.call("reload")

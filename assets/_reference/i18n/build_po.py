@@ -63,6 +63,8 @@ def find_texts():
                 if entry.get(field):
                     texts.add(entry[field])
     skills = json.load(open(os.path.join(data, "skills.json"), encoding="utf-8"))
+    for entry in skills.get("groups", {}).values():
+        texts.add(entry["name"])
     for entry in skills["skills"].values():
         for field in ("name", "desc"):
             if entry.get(field):

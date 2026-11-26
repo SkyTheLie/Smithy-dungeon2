@@ -77,15 +77,16 @@ static func delete_slot(id: String) -> bool:
 static func start_new() -> void:
 	_config = ConfigFile.new()
 	_write("day", 1)
-	_write("level", 1)
-	_write("skill_points", int(Skills.levels().get("start_points", 1)))
+	_write("level", 0)
+	_write("skill_points", int(Skills.levels().get("start_points", 0)))
 	_save()
 
 
 # --- Player level, EXP, skills (Skills, data/levels.json, data/skills.json) ----------
 
+## The player level: a new game starts at 0, level 1 brings the first skill point.
 static func level() -> int:
-	return int(_read("level", 1))
+	return int(_read("level", 0))
 
 
 ## EXP collected towards the next level.
@@ -94,7 +95,7 @@ static func exp_points() -> int:
 
 
 static func skill_points() -> int:
-	return int(_read("skill_points", int(Skills.levels().get("start_points", 1))))
+	return int(_read("skill_points", int(Skills.levels().get("start_points", 0))))
 
 
 ## Adds the EXP of a run; every level reached gives skill points. Returns the levels gained.

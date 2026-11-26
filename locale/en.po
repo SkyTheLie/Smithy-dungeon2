@@ -981,6 +981,9 @@ msgstr "Every second shot is much stronger"
 msgid "Kamille"
 msgstr "Chamomile"
 
+msgid "Kampf"
+msgstr "Combat"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Can now appear in the dungeon"
 
@@ -1425,6 +1428,9 @@ msgstr "Relic slot"
 msgid "Relikte"
 msgstr "Relics"
 
+msgid "Relikte & Überleben"
+msgstr "Relics & survival"
+
 msgid "Reliktpflege"
 msgstr "Relic care"
 
@@ -1457,6 +1463,9 @@ msgstr "Red as embers."
 
 msgid "Rubin"
 msgstr "Ruby"
+
+msgid "Rucksack"
+msgstr "Backpack"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "Steady hands, faster shots."

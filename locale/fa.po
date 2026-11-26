@@ -981,6 +981,9 @@ msgstr "هر تیر دوم خیلی قوی‌تر است"
 msgid "Kamille"
 msgstr "بابونه"
 
+msgid "Kampf"
+msgstr "نبرد"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "از حالا ممکن است در سیاه‌چال پیدا شود"
 
@@ -1425,6 +1428,9 @@ msgstr "خانه‌ی یادگار"
 msgid "Relikte"
 msgstr "یادگارها"
 
+msgid "Relikte & Überleben"
+msgstr "یادگارها و بقا"
+
 msgid "Reliktpflege"
 msgstr "نگهداری یادگار"
 
@@ -1457,6 +1463,9 @@ msgstr "سرخ مثل اخگر."
 
 msgid "Rubin"
 msgstr "یاقوت"
+
+msgid "Rucksack"
+msgstr "کوله‌پشتی"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "دست‌های آرام، شلیک‌های سریع‌تر."

@@ -981,6 +981,9 @@ msgstr "Каждый второй выстрел намного сильнее"
 msgid "Kamille"
 msgstr "Ромашка"
 
+msgid "Kampf"
+msgstr "Бой"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Теперь может появиться в подземелье"
 
@@ -1425,6 +1428,9 @@ msgstr "Ячейка реликвии"
 msgid "Relikte"
 msgstr "Реликвии"
 
+msgid "Relikte & Überleben"
+msgstr "Реликвии и выживание"
+
 msgid "Reliktpflege"
 msgstr "Уход за реликвиями"
 
@@ -1457,6 +1463,9 @@ msgstr "Красный, как угли."
 
 msgid "Rubin"
 msgstr "Рубин"
+
+msgid "Rucksack"
+msgstr "Рюкзак"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "Твёрдая рука, быстрее выстрелы."

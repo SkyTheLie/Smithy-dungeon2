@@ -981,6 +981,9 @@ msgstr "每第二发射击强得多"
 msgid "Kamille"
 msgstr "洋甘菊"
 
+msgid "Kampf"
+msgstr "战斗"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "现在可以在地牢中出现"
 
@@ -1425,6 +1428,9 @@ msgstr "圣物格"
 msgid "Relikte"
 msgstr "圣物"
 
+msgid "Relikte & Überleben"
+msgstr "圣物与生存"
+
 msgid "Reliktpflege"
 msgstr "圣物保养"
 
@@ -1457,6 +1463,9 @@ msgstr "红得像余烬。"
 
 msgid "Rubin"
 msgstr "红宝石"
+
+msgid "Rucksack"
+msgstr "背包"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "手稳，射得更快。"

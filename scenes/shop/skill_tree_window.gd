@@ -64,8 +64,8 @@ func _ready() -> void:
 func open() -> void:
 	_refresh()
 	show()
-	# Centred on the tree once it has its size (after this frame).
-	_view.reset_view.call_deferred()
+	# The whole tree in view once it has its size (after this frame).
+	_view.fit_view.call_deferred()
 
 
 func get_tree_view() -> SkillTree:

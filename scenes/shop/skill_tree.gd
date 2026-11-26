@@ -6,6 +6,7 @@ extends Control
 ## price. The frame shows the state: gold (pulsing) = can be learned now, green = fully learned,
 ## grey = too dear / level too low, dark = the skill before is missing. The tooltip says everything
 ## (what it does, level, gold, skill points, needed player level, what is missing).
+## Groups (skills.json "groups"): a title over each column (Kampf, Rucksack, Relikte & Überleben).
 ## A click sends learn_requested (the window learns it through MetaState). Lies in a PanZoomView
 ## (pull in every direction, wheel zooms): a click that was a drag learns nothing.
 
@@ -42,8 +43,14 @@ func build() -> void:
 	var skills: Dictionary = Skills.all()
 	var first := Vector2(INF, INF)
 	var last := Vector2(-INF, -INF)
+	var groups: Dictionary = Content.get_file("skills").get("groups", {})
 	for id: String in skills:
 		var cell: Vector2 = _cell(id)
+		first = first.min(cell)
+		last = last.max(cell)
+	for group: String in groups:
+		var pos: Array = (groups[group] as Dictionary).get("pos", [0, 0])
+		var cell := Vector2(float(pos[0]), float(pos[1]))
 		first = first.min(cell)
 		last = last.max(cell)
 	if skills.is_empty():
@@ -57,6 +64,20 @@ func build() -> void:
 		if centers.has(needed):
 			_lines.append([centers[needed], centers[id], MetaState.skill_level(needed) > 0])
 		_add_node(id, centers[id])
+	for group: String in groups:
+		var data: Dictionary = groups[group]
+		var pos: Array = data.get("pos", [0, 0])
+		var center: Vector2 = MARGIN + (Vector2(float(pos[0]), float(pos[1])) - first) * CELL + NODE_SIZE / 2.0
+		var title := Label.new()
+		title.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		title.text = Language.translate(String(data.get("name", group)))
+		title.add_theme_font_size_override("font_size", 12)
+		title.add_theme_color_override("font_color", LINE_LIT)
+		title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		title.size = Vector2(CELL.x * 2.0, 16)
+		title.position = center - Vector2(CELL.x, 4)
+		title.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(title)
 	custom_minimum_size = MARGIN * 2.0 + (last - first + Vector2.ONE) * CELL
 	queue_redraw()
 
