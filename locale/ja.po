@@ -102,6 +102,9 @@ msgstr "倒した敵: %d"
 msgid "Betreten"
 msgstr "入る"
 
+msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
+msgstr "戦利品は買い取るぜ：インベントリで右クリックすれば上の買い取りに置かれる。適正価格だ。正直に！"
+
 msgid "Blasebalg"
 msgstr "ふいご"
 
@@ -159,6 +162,9 @@ msgstr "胴"
 msgid "Bumerang-Haken"
 msgstr "ブーメランフック"
 
+msgid "Chancen auf dem Tisch:"
+msgstr "テーブルの確率："
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "あっちが残り火のダンジョンの入口だ。戻ってくる奴もいるんだぜ！"
 
@@ -167,6 +173,9 @@ msgstr "それには金が足りないな、相棒。残念、残念。"
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "中に小さな虫が閉じ込められている。"
+
+msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
+msgstr "それ以上は…まあ、ここにはネズミがいるんだ。でかいネズミが。手のあるやつ。"
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "この探索の金。死ぬと失う。安全枠に入れた分は残る。"
@@ -180,6 +189,9 @@ msgstr "体力を払いすぎる"
 msgid "Defensiv"
 msgstr "防御"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "君の金。家ではカンの中で安全。ダンジョンで死ぬと失う（安全枠は除く）。"
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "レリックが壊れちまったな。よくあることだ。偶然新しいのがあるんだが…友達価格でな！"
 
@@ -191,6 +203,9 @@ msgstr "所持アイテム"
 
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "弾が敵を追いかける"
+
+msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
+msgstr "レバーの上のバーで何が出るか分かる：灰色は普通、緑は良品、とかな。経験を積むほど色とりどりになる。"
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "火炎ビームが敵へ曲がる"
@@ -227,6 +242,15 @@ msgstr "ダブルショット"
 
 msgid "Dornenpanzer"
 msgstr "棘の鎧"
+
+msgid "Dose"
+msgstr "カン"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "カン：%dゴールド。%dまでは安全。"
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "カン：金をここへドラッグ"
 
 msgid "Drachenatem"
 msgstr "ドラゴンブレス"
@@ -350,6 +374,9 @@ msgstr "効果音"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "エゴン・オネスト、よろしくな。正直が俺の名前で、正直が俺の商売。正直に！"
+
+msgid "Egon könnte klauen!"
+msgstr "エゴンが盗むかも！"
 
 msgid "Egons Laden"
 msgstr "エゴンの店"
@@ -924,6 +951,9 @@ msgstr "被弾は最大ハート半分、ただし遅くなる"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "被弾は最大ハート半分、無敵が長い"
 
+msgid "Höhere Stufen kommen mit deiner Spielerstufe."
+msgstr "高い段階はプレイヤーLvで解放される。"
+
 msgid "Höhlentroll"
 msgstr "洞窟トロール"
 
@@ -966,6 +996,9 @@ msgstr "2発に1発がとても強い"
 msgid "Kamille"
 msgstr "カモミール"
 
+msgid "Kampf"
+msgstr "戦闘"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "これからダンジョンに出現する"
 
@@ -974,6 +1007,9 @@ msgstr "隊商の背嚢"
 
 msgid "Karte"
 msgstr "マップ"
+
+msgid "Kein Relikt"
+msgstr "レリックではない"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "被弾は最大でもハート半分"
@@ -989,6 +1025,9 @@ msgstr "小さく速くなり、時々回避"
 
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "キーをクリックして新しいキーを押す。Esc＝キャンセル。"
+
+msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
+msgstr "インベントリの物をクリックで装備。キャラをクリックで外す。"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "クリックで続ける"
@@ -1218,6 +1257,9 @@ msgstr "ミシック"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "コインとハートが飛んでくる"
 
+msgid "Münzsack"
+msgstr "コイン袋"
+
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "よう、相棒。ここは初めてか？すぐわかるぜ。"
 
@@ -1371,6 +1413,9 @@ msgstr "ネズミの王"
 msgid "Rechts"
 msgstr "右"
 
+msgid "Rechts steht deine Dose. Zieh den Münzsack drauf, bis 200 Gold ist es da sicher."
+msgstr "右にあるのが君のカンだ。コイン袋をドラッグしな。200ゴールドまでは安全だ。"
+
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "インベントリの物を右クリックするとここに置ける。"
 
@@ -1407,6 +1452,12 @@ msgstr "レリック枠"
 msgid "Relikte"
 msgstr "レリック"
 
+msgid "Relikte & Überleben"
+msgstr "レリックと生存"
+
+msgid "Relikte: %d %% pro Hebel, Stufen %s"
+msgstr "レリック：レバー1回%d %%、段階 %s"
+
 msgid "Reliktpflege"
 msgstr "レリックの手入れ"
 
@@ -1439,6 +1490,9 @@ msgstr "残り火のように赤い。"
 
 msgid "Rubin"
 msgstr "ルビー"
+
+msgid "Rucksack"
+msgstr "リュック"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "手が安定し、射撃が速くなる。"
@@ -1806,6 +1860,9 @@ msgstr "俊足の背嚢"
 msgid "Standard wiederherstellen"
 msgstr "初期設定に戻す"
 
+msgid "Steht dir! Fast so gut wie mir."
+msgstr "似合ってるぜ！俺ほどじゃないがな。"
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "似合ってるぜ！俺ほどじゃないがな。明日からは何でもちょっとした手数料がかかる、当然な。"
 
@@ -1983,6 +2040,9 @@ msgstr "周辺"
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "そしてこれが俺のレバー。自慢の品だ。見てな！"
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
+msgstr "ほら、ちょっとした前金だ：50ゴールド。金はインベントリにコイン袋として入ってる。"
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "さあ、ダンジョンへ行ってこい！いい物を持ってきてくれ。俺はここで待ってる。念のためな。"
 
@@ -2084,6 +2144,9 @@ msgstr "戦い続ける"
 
 msgid "Weltenstab"
 msgstr "世界の杖"
+
+msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
+msgstr "強くなったらここでスキルを覚えな。ちょっとした手数料でな、当然。"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "倒した弾は残りの威力で飛び続ける"
@@ -2228,6 +2291,9 @@ msgstr "最大"
 
 msgid "oder Leertaste"
 msgstr "またはスペースキー"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "上限超え：エゴンがカンを狙ってる！"
 
 msgid "Überschreiben"
 msgstr "上書き"

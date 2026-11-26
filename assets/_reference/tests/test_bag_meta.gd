@@ -171,4 +171,4 @@ func _gold_in_bag() -> void:
 	check_eq(wallet.get("coins"), 979, "death: the gold in the safe place stays")
 	meta.call("end_run", 0, kept, RandomNumberGenerator.new())
 	check_eq(meta.call("purse"), 979, "and goes into the purse at home")
-	check(not (meta.call("stash") as Array).any(func(place: Dictionary) -> bool: return place.get("id") == "gold"), "not into the inventory")
+	check((meta.call("stash") as Array).any(func(place: Dictionary) -> bool: return place.get("id") == "gold" and place.get("count") == 979), "at home it is the coin bag in the inventory")

@@ -102,6 +102,9 @@ msgstr "Inimigos derrotados: %d"
 msgid "Betreten"
 msgstr "Entrar"
 
+msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
+msgstr "Eu compro seu saque: clique com o botão direito no inventário e ele vai para a minha compra lá em cima. Preços justos. Sério!"
+
 msgid "Blasebalg"
 msgstr "Fole"
 
@@ -159,6 +162,9 @@ msgstr "Peito"
 msgid "Bumerang-Haken"
 msgstr "Gancho bumerangue"
 
+msgid "Chancen auf dem Tisch:"
+msgstr "Chances na mesa:"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Ali atrás fica a entrada da Masmorra das Brasas. Alguns até saem de volta!"
 
@@ -167,6 +173,9 @@ msgstr "Seu ouro não dá pra isso, parceiro. Que pena, que pena."
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Tem um bichinho preso dentro."
+
+msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
+msgstr "Acima disso… digamos que aqui tem ratos. Ratos grandes. Com mãos."
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "O ouro desta partida. Se você morrer, ele some, exceto no espaço seguro."
@@ -180,6 +189,9 @@ msgstr "Isso custa vida demais"
 msgid "Defensiv"
 msgstr "Defensivo"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "Seu ouro. Em casa, seguro na lata; na masmorra se perde ao morrer, exceto no espaço seguro."
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Sua relíquia bateu as botas. Acontece. Por acaso eu tenho uma nova… preço de amigo!"
 
@@ -191,6 +203,9 @@ msgstr "Seus itens"
 
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Seus tiros perseguem inimigos"
+
+msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
+msgstr "A barra acima da alavanca mostra o que pode vir: cinza é comum, verde sólido e assim por diante. Quanto mais experiente, mais colorido."
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "O raio de fogo se curva até o inimigo"
@@ -227,6 +242,15 @@ msgstr "Tiro duplo"
 
 msgid "Dornenpanzer"
 msgstr "Armadura de espinhos"
+
+msgid "Dose"
+msgstr "Lata"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "Lata: %d de ouro. Seguro até %d."
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "Lata: arraste o ouro para cá"
 
 msgid "Drachenatem"
 msgstr "Bafo de dragão"
@@ -350,6 +374,9 @@ msgstr "Efeitos"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "Egon Honesto, muito prazer. Honesto é meu nome, honesto é meu negócio. Sério!"
+
+msgid "Egon könnte klauen!"
+msgstr "O Egon pode roubar!"
 
 msgid "Egons Laden"
 msgstr "A loja do Egon"
@@ -924,6 +951,9 @@ msgstr "No máximo meio coração por golpe, porém mais lento"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "No máximo meio coração por golpe, mais tempo seguro"
 
+msgid "Höhere Stufen kommen mit deiner Spielerstufe."
+msgstr "Níveis mais altos vêm com seu nível de jogador."
+
 msgid "Höhlentroll"
 msgstr "Troll das cavernas"
 
@@ -966,6 +996,9 @@ msgstr "A cada dois tiros, um é muito mais forte"
 msgid "Kamille"
 msgstr "Camomila"
 
+msgid "Kampf"
+msgstr "Combate"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Agora pode aparecer na masmorra"
 
@@ -974,6 +1007,9 @@ msgstr "Mochila de caravana"
 
 msgid "Karte"
 msgstr "Mapa"
+
+msgid "Kein Relikt"
+msgstr "Não é relíquia"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Nenhum golpe tira mais de meio coração"
@@ -989,6 +1025,9 @@ msgstr "Menor, mais rápido e às vezes esquiva"
 
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "Clique numa tecla e aperte a nova. Esc = cancelar."
+
+msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
+msgstr "Clique em algo do inventário para vestir. Clique na sua figura para tirar de novo."
 
 msgid "Klicken, um weiterzumachen"
 msgstr "Clique para continuar"
@@ -1218,6 +1257,9 @@ msgstr "Mítico"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Moedas e corações voam até você"
 
+msgid "Münzsack"
+msgstr "Saco de moedas"
+
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "E aí, parceiro? Novo por aqui? Dá pra ver na hora."
 
@@ -1371,6 +1413,9 @@ msgstr "Rei dos Ratos"
 msgid "Rechts"
 msgstr "Direita"
 
+msgid "Rechts steht deine Dose. Zieh den Münzsack drauf, bis 200 Gold ist es da sicher."
+msgstr "À direita está sua lata. Arraste o saco de moedas para ela; até 200 de ouro fica seguro."
+
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "Clique com o botão direito em algo do inventário para colocá-lo aqui."
 
@@ -1407,6 +1452,12 @@ msgstr "Espaço de relíquia"
 msgid "Relikte"
 msgstr "Relíquias"
 
+msgid "Relikte & Überleben"
+msgstr "Relíquias e sobrevivência"
+
+msgid "Relikte: %d %% pro Hebel, Stufen %s"
+msgstr "Relíquias: %d %% por alavanca, níveis %s"
+
 msgid "Reliktpflege"
 msgstr "Cuidado de relíquias"
 
@@ -1439,6 +1490,9 @@ msgstr "Vermelho como brasa."
 
 msgid "Rubin"
 msgstr "Rubi"
+
+msgid "Rucksack"
+msgstr "Mochila"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "Mãos firmes, disparos mais rápidos."
@@ -1806,6 +1860,9 @@ msgstr "Mochila de velocista"
 msgid "Standard wiederherstellen"
 msgstr "Restaurar padrão"
 
+msgid "Steht dir! Fast so gut wie mir."
+msgstr "Ficou bem em você! Quase tão bem quanto em mim."
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "Ficou bem em você! Quase tão bem quanto em mim. A partir de amanhã tudo custa uma pequena gorjeta, claro."
 
@@ -1983,6 +2040,9 @@ msgstr "Arredores"
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "E esta é a minha alavanca. Meu maior orgulho. Olha só!"
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
+msgstr "E aqui, um pequeno adiantamento: 50 de ouro. Seu ouro fica no inventário como saco de moedas."
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "E agora, pra masmorra! Me traz algo bonito. Eu espero aqui. Seguro morreu de velho."
 
@@ -2084,6 +2144,9 @@ msgstr "Continuar lutando"
 
 msgid "Weltenstab"
 msgstr "Cajado dos mundos"
+
+msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
+msgstr "Quando ficar mais forte, aprende habilidades aqui. Por uma pequena gorjeta, claro."
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Um tiro que mata segue com o que sobra"
@@ -2228,6 +2291,9 @@ msgstr "máx."
 
 msgid "oder Leertaste"
 msgstr "ou aperte Espaço"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "Acima do limite: o Egon está de olho na sua lata!"
 
 msgid "Überschreiben"
 msgstr "Sobrescrever"

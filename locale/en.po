@@ -102,6 +102,9 @@ msgstr "Enemies defeated: %d"
 msgid "Betreten"
 msgstr "Enter"
 
+msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
+msgstr "I buy your loot: right-click it in the inventory and it lands up at my buying spot. Fair prices. Honestly!"
+
 msgid "Blasebalg"
 msgstr "Bellows"
 
@@ -159,6 +162,9 @@ msgstr "Chest"
 msgid "Bumerang-Haken"
 msgstr "Boomerang Hook"
 
+msgid "Chancen auf dem Tisch:"
+msgstr "Chances on the table:"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Back there is the way into the Dungeon of Embers. Some even come back out!"
 
@@ -167,6 +173,9 @@ msgstr "You don't have enough gold for that, partner. Such a shame."
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "There is a tiny bug stuck inside."
+
+msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
+msgstr "Above that… let's say there are rats here. Big rats. With hands."
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "The gold of this run. If you die it is gone, unless it is in the safe slot."
@@ -180,6 +189,9 @@ msgstr "That costs too much life"
 msgid "Defensiv"
 msgstr "Defensive"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "Your gold. Safe in the money box at home; in the dungeon it is lost when you die, except in the safe slot."
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Your relic gave up the ghost. Happens. I just happen to have a new one… friendship price!"
 
@@ -191,6 +203,9 @@ msgstr "Your items"
 
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Your shots chase enemies"
+
+msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
+msgstr "The bar above the lever shows what can come: grey is common, green solid and so on. The more experienced you are, the more colourful it gets."
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "The fire beam bends toward enemies"
@@ -227,6 +242,15 @@ msgstr "Double shot"
 
 msgid "Dornenpanzer"
 msgstr "Thorn Armor"
+
+msgid "Dose"
+msgstr "Money box"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "Money box: %d gold. Safe up to %d."
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "Money box: drag gold here"
 
 msgid "Drachenatem"
 msgstr "Dragon Breath"
@@ -350,6 +374,9 @@ msgstr "Effects"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "Egon Honest, pleased to meet you. Honest is my name, honest is my business. Honestly!"
+
+msgid "Egon könnte klauen!"
+msgstr "Egon might steal!"
 
 msgid "Egons Laden"
 msgstr "Egon's Shop"
@@ -924,6 +951,9 @@ msgstr "At most half a heart per hit, but slower"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "At most half a heart per hit, safe longer"
 
+msgid "Höhere Stufen kommen mit deiner Spielerstufe."
+msgstr "Higher tiers come with your player level."
+
 msgid "Höhlentroll"
 msgstr "Cave Troll"
 
@@ -966,6 +996,9 @@ msgstr "Every second shot is much stronger"
 msgid "Kamille"
 msgstr "Chamomile"
 
+msgid "Kampf"
+msgstr "Combat"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Can now appear in the dungeon"
 
@@ -974,6 +1007,9 @@ msgstr "Caravan Pack"
 
 msgid "Karte"
 msgstr "Map"
+
+msgid "Kein Relikt"
+msgstr "No relic"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "No hit takes more than half a heart"
@@ -989,6 +1025,9 @@ msgstr "Smaller, faster and sometimes dodge"
 
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "Click a key, then press the new one. Esc = cancel."
+
+msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
+msgstr "Click something in the inventory to put it on. Click your figure to take it off again."
 
 msgid "Klicken, um weiterzumachen"
 msgstr "Click to continue"
@@ -1218,6 +1257,9 @@ msgstr "Mythic"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Coins and hearts fly to you"
 
+msgid "Münzsack"
+msgstr "Coin bag"
+
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "Well, partner? New here? Anyone can tell."
 
@@ -1371,6 +1413,9 @@ msgstr "Rat King"
 msgid "Rechts"
 msgstr "Right"
 
+msgid "Rechts steht deine Dose. Zieh den Münzsack drauf, bis 200 Gold ist es da sicher."
+msgstr "On the right is your money box. Drag the coin bag onto it; up to 200 gold it is safe there."
+
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "Right-click something in the inventory to put it here."
 
@@ -1407,6 +1452,12 @@ msgstr "Relic slot"
 msgid "Relikte"
 msgstr "Relics"
 
+msgid "Relikte & Überleben"
+msgstr "Relics & survival"
+
+msgid "Relikte: %d %% pro Hebel, Stufen %s"
+msgstr "Relics: %d %% per pull, tiers %s"
+
 msgid "Reliktpflege"
 msgstr "Relic care"
 
@@ -1439,6 +1490,9 @@ msgstr "Red as embers."
 
 msgid "Rubin"
 msgstr "Ruby"
+
+msgid "Rucksack"
+msgstr "Backpack"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "Steady hands, faster shots."
@@ -1806,6 +1860,9 @@ msgstr "Sprinter's Pack"
 msgid "Standard wiederherstellen"
 msgstr "Restore defaults"
 
+msgid "Steht dir! Fast so gut wie mir."
+msgstr "Suits you! Almost as well as me."
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "Suits you! Almost as well as me. From tomorrow on, everything costs a small fee, of course."
 
@@ -1983,6 +2040,9 @@ msgstr "Surroundings"
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "And this is my lever. My pride and joy. Watch this!"
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
+msgstr "And here, a little advance: 50 gold. Your gold lies in the inventory as a coin bag."
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "And now off into the dungeon! Bring me something nice. I'll wait here. Better safe than sorry."
 
@@ -2084,6 +2144,9 @@ msgstr "Keep fighting"
 
 msgid "Weltenstab"
 msgstr "World Staff"
+
+msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
+msgstr "When you get stronger, you learn skills here. For a small fee, of course."
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "A killing shot flies on with what is left"
@@ -2228,6 +2291,9 @@ msgstr "max."
 
 msgid "oder Leertaste"
 msgstr "or press Space"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "Over the limit: Egon is eyeing your money box!"
 
 msgid "Überschreiben"
 msgstr "Overwrite"

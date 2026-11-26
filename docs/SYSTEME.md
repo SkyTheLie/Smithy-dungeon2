@@ -217,10 +217,23 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 
 ## Stufen und Skillbaum – 2026-11-26, `feature/level-skillbaum`
 
-- **Stufen** (`data/levels.json`, `Skills`, `MetaState.level/exp_points/skill_points/add_exp`): jeder Kill gibt EXP (`RunState.add_kill_exp`, Boss mehr), gutgeschrieben am Ende jedes Runs (Tod, Flucht, Sieg; `RunScene`). Stufe 2 braucht 30 EXP, jede weitere ×1,3, bis Stufe 30. Jede Stufe +1 Skillpunkt, Start mit 1. Laden oben links: Tag, Stufe, EXP; End-Bildschirm: EXP und neue Stufe.
+- **Stufen** (`data/levels.json`, `Skills`, `MetaState.level/exp_points/skill_points/add_exp`): jeder Kill gibt EXP (`RunState.add_kill_exp`, Boss mehr), gutgeschrieben am Ende jedes Runs (Tod, Flucht, Sieg; `RunScene`). Start mit Stufe 0 und 0 Skillpunkten; Stufe 1 braucht 30 EXP, jede weitere ×1,3, bis Stufe 30. Jede Stufe +1 Skillpunkt. Laden oben links: Tag, Stufe, EXP; End-Bildschirm: EXP und neue Stufe.
 - **Skillbaum** (`data/skills.json`, `scenes/shop/skill_tree.gd`, `skill_tree_window.gd`, `scenes/ui/common/pan_zoom_view.gd` aus Smithy Defense): Knopf „Skills (N)“ im Laden. Jeder Skill: Position, Vorgänger, Stufen mit Gold-, Skillpunkt-Preis und Mindest-Spielerstufe. Ziehen in alle Richtungen, Mausrad zoomt, goldener Rahmen = lernbar (`MetaState.buy_skill`, prüft `Skills.problem`).
 - **Wirkung im Run** (`RunState.use_skills`, von `Game.start_new_run`): Rucksack-Plätze und sichere Plätze (`Bag.grow`), weiße Schild-Herzen, rote Herzen, Werte (eine Quelle wie ein Item), Gold je Münze. Relikt-Plätze: Reihe unter der Figur (`MetaState.relic_slot_names`, relic_1 … bis 3), Reliktpflege: neue Relikte halten länger (`ShopGoods.make_relic`).
 
 ## Verkaufen bei Egon – 2026-11-26, `feature/verkaufen`
 
 - Oben rechts im Laden der Ankauf-Platz: Rechtsklick auf ein Ding im Inventar legt es dorthin (im Inventar abgedunkelt), „Verkaufen: N Gold“ verkauft den ganzen Stapel (`MetaState.sell`), Klick auf den Ankauf-Platz legt es zurück. Preis (`ShopGoods.sell_price`): Beute = `loot.json` `value` × Anzahl; Ausrüstung und Relikte = `shop.json` `sell_share` (30 %) des Kaufpreises.
+
+## Münzsack und Dose im Laden – 2026-11-26, `feature/dose`
+
+- Das Gold zu Hause ist der **Münzsack** im Inventar (Eintrag `gold` im `stash`, immer am Ende; `MetaState.purse` zählt ihn, `_set_purse` schreibt ihn; alte Spielstände mit Zahl „purse“ werden mitgezählt). Er kann nicht verkauft oder angezogen werden.
+- **Dose** unten rechts im Laden (`MetaState.box`, Limit `meta.json` `money_box.limit`): darüber „Dose 120/200“, grün bis zum Limit, rot darüber mit „Egon könnte klauen!“ (die Diebstahl-Regel `roll_theft` gab es schon). Münzsack auf die Dose ziehen = alles hinein, Dose ins Inventar ziehen oder anklicken = alles heraus, „+10“ / „−10“.
+- **Skillbaum in Gruppen** (2026-11-26, Skizze des Entwicklers): drei Gruppen ohne gemeinsame Wurzel, je mit Überschrift (`skills.json` `groups`): Kampf (Kraft → Leichtfuß → Flinke Hände → Weitblick / Glückspilz), Rucksack (Größerer Rucksack → Geheimtasche), Relikte & Überleben (Zähigkeit → Relikt-Platz → Reliktpflege → Dicke Haut / Goldnase). Beim Öffnen ist der ganze Baum zu sehen (`PanZoomView.fit_view`).
+
+## Laden-Tour mit Leuchten, Chancen-Balken, Lexikon nach Stufen – 2026-11-26, `feature/laden-erklaerung`
+
+- **Tour:** was Egon erklärt, leuchtet (goldene, pulsierende Rahmen, `MerchantShop._explain` / `_spotlight`): Tisch, Hebel, Ware, Chancen-Balken, Hebel-Preis (Neu-Würfeln), Geschenke, Inventar, Figur, Anziehen/Ausziehen, Münzsack + Goldanzeige (Egon schenkt `shop.json` `tutorial.gold` = 50), Dose, Ankauf, Skills, Dungeons. Texte `story.json` `tutorial_*`.
+- **Chancen-Balken** über dem Hebel (`scenes/shop/chance_bar.gd`): Abschnitte je Seltenheit in ihrer Farbe mit „R1 85 % · R2 15 %“, Tooltip mit Relikt-Chance und offenen Relikt-Stufen. Die Chancen hängen von der Spielerstufe ab (`shop.json` `rarity_by_level`, `ShopGoods.rarity_weights/rarity_chances`); am Anfang nur R1 (Kupfer).
+- **Relikt-Stufen nach Spielerstufe** (`relics.json` tiers `level`: R1 ab 0, R2 ab 5, R3 ab 10, R4 ab 20; Rahmenfarbe = Stufe). `ShopGoods.pick_relic` nimmt nur offene Stufen.
+- **Lexikon** gruppiert nach Relikt-Stufe (R1 … R4 mit Haltbarkeit, dann „Kein Relikt“).

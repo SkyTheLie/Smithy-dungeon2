@@ -1,5 +1,5 @@
 {
-	"_info": "Texte der Figuren (deutsch = Übersetzungs-Schlüssel), jeder Eintrag eine Sprechblase (höchstens zwei Sätze). Egon wird aus docs/figuren/EGON_EHRLICH.md gebaut. intro_call: ruft dich vor dem Dungeon zu sich; intro: Vorstellung, wenn du bei ihm bist; tutorial_*: erster Besuch im Laden (welcome, lever = vor dem Hebel, goods = nach dem Hebel, gifts = die Geschenke leuchten, bag = sie liegen in der Tasche, dress = er zieht dich an, dungeon = er schickt dich los); barks: kurze Sätze im Laden.",
+	"_info": "Texte der Figuren (deutsch = Übersetzungs-Schlüssel), jeder Eintrag eine Sprechblase (höchstens zwei Sätze). Egon wird aus docs/figuren/EGON_EHRLICH.md gebaut. intro_call: ruft dich vor dem Dungeon zu sich; intro: Vorstellung, wenn du bei ihm bist; tutorial_*: erster Besuch im Laden, der Reihe nach; was Egon erklärt, leuchtet (welcome Tisch, lever Hebel, goods Ware, chances Chancen-Balken, reroll Hebel-Preis, gifts Geschenke, bag Inventar, dress Figur, equip Anziehen, money Münzsack, box Dose, sell Ankauf, skills Skill-Knopf, dungeon Dungeons-Knopf); barks: kurze Sätze im Laden.",
 	"speaker": "Egon Ehrlich",
 	"portrait": "res://assets/sprites/npcs/black_market_dealer.png",
 	"intro_call": ["Psst! Hey, du! Ja, du mit den Augen! Komm mal her!"],
@@ -16,11 +16,20 @@
 	"tutorial_gifts": ["Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"],
 	"tutorial_bag": ["Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."],
 	"tutorial_dress": ["Und links bist du. Halt still, ich zieh dich an…"],
-	"tutorial_dungeon": [
-		"Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich.",
-		"Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher.",
-		"Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
+	"tutorial_chances": ["Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."],
+	"tutorial_reroll": ["Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."],
+	"tutorial_equip": [
+		"Steht dir! Fast so gut wie mir.",
+		"Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
 	],
+	"tutorial_money": ["Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."],
+	"tutorial_box": [
+		"Rechts steht deine Dose. Zieh den Münzsack drauf, bis 200 Gold ist es da sicher.",
+		"Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
+	],
+	"tutorial_sell": ["Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"],
+	"tutorial_skills": ["Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."],
+	"tutorial_dungeon": ["Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."],
 	"barks": {
 		"too_poor": "Dafür reicht dein Gold nicht, Partner. Leider, leider.",
 		"bought": "Gute Wahl! Ein Sammlerstück. Ehrlich!",

@@ -102,6 +102,9 @@ msgstr "击败敌人：%d"
 msgid "Betreten"
 msgstr "进入"
 
+msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
+msgstr "战利品我收：在背包里右键点击，它就到上面我的收购处。公道价格。真的！"
+
 msgid "Blasebalg"
 msgstr "风箱"
 
@@ -159,6 +162,9 @@ msgstr "胸部"
 msgid "Bumerang-Haken"
 msgstr "回旋钩"
 
+msgid "Chancen auf dem Tisch:"
+msgstr "桌上的概率："
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "那边就是余烬地牢的入口。有些人甚至还能出来！"
 
@@ -167,6 +173,9 @@ msgstr "你的金币不够，伙计。可惜，可惜。"
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "里面封着一只小虫子。"
+
+msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
+msgstr "超过的话……这么说吧，这里有老鼠。大老鼠。带手的那种。"
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "本次冒险的金币。死亡后会丢失，安全格中的除外。"
@@ -180,6 +189,9 @@ msgstr "这会消耗太多生命"
 msgid "Defensiv"
 msgstr "防御"
 
+msgid "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz."
+msgstr "你的金币。在家放进罐子里很安全；在地牢中死亡会丢失，安全格中的除外。"
+
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "你的圣物报废了。常有的事。我这儿碰巧有个新的…友情价！"
 
@@ -191,6 +203,9 @@ msgstr "你的物品"
 
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "子弹会追踪敌人"
+
+msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
+msgstr "拉杆上方的条显示可能出现什么：灰色普通，绿色结实，依此类推。你越有经验，颜色越丰富。"
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "火焰光束会弯向敌人"
@@ -227,6 +242,15 @@ msgstr "双发"
 
 msgid "Dornenpanzer"
 msgstr "荆棘铠甲"
+
+msgid "Dose"
+msgstr "罐子"
+
+msgid "Dose: %d Gold. Bis %d ist es sicher."
+msgstr "罐子：%d金币。%d以内是安全的。"
+
+msgid "Dose: Gold hierher ziehen"
+msgstr "罐子：把金币拖到这里"
 
 msgid "Drachenatem"
 msgstr "龙息"
@@ -350,6 +374,9 @@ msgstr "音效"
 
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "埃贡·诚实，幸会。诚实是我的名字，诚实是我的生意。真的！"
+
+msgid "Egon könnte klauen!"
+msgstr "埃贡可能会偷！"
 
 msgid "Egons Laden"
 msgstr "埃贡的商店"
@@ -924,6 +951,9 @@ msgstr "每次受击最多半颗心，但更慢"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "每次受击最多半颗心，安全时间更长"
 
+msgid "Höhere Stufen kommen mit deiner Spielerstufe."
+msgstr "更高的等级随玩家等级解锁。"
+
 msgid "Höhlentroll"
 msgstr "洞穴巨魔"
 
@@ -966,6 +996,9 @@ msgstr "每第二发射击强得多"
 msgid "Kamille"
 msgstr "洋甘菊"
 
+msgid "Kampf"
+msgstr "战斗"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "现在可以在地牢中出现"
 
@@ -974,6 +1007,9 @@ msgstr "商队背包"
 
 msgid "Karte"
 msgstr "地图"
+
+msgid "Kein Relikt"
+msgstr "不是圣物"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "任何攻击最多只扣半颗心"
@@ -989,6 +1025,9 @@ msgstr "更小、更快，有时闪避"
 
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "点击一个按键，再按下新按键。Esc = 取消。"
+
+msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
+msgstr "点击背包里的物品就能穿上，点击角色就能脱下。"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "点击继续"
@@ -1218,6 +1257,9 @@ msgstr "神话"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "硬币和心会飞向你"
 
+msgid "Münzsack"
+msgstr "钱袋"
+
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "怎么样，伙计？新来的？一眼就看出来了。"
 
@@ -1371,6 +1413,9 @@ msgstr "鼠王"
 msgid "Rechts"
 msgstr "右"
 
+msgid "Rechts steht deine Dose. Zieh den Münzsack drauf, bis 200 Gold ist es da sicher."
+msgstr "右边是你的罐子。把钱袋拖上去，200金币以内都很安全。"
+
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "右键点击背包中的物品放到这里。"
 
@@ -1407,6 +1452,12 @@ msgstr "圣物格"
 msgid "Relikte"
 msgstr "圣物"
 
+msgid "Relikte & Überleben"
+msgstr "圣物与生存"
+
+msgid "Relikte: %d %% pro Hebel, Stufen %s"
+msgstr "圣物：每拉一次%d %%，等级 %s"
+
 msgid "Reliktpflege"
 msgstr "圣物保养"
 
@@ -1439,6 +1490,9 @@ msgstr "红得像余烬。"
 
 msgid "Rubin"
 msgstr "红宝石"
+
+msgid "Rucksack"
+msgstr "背包"
 
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "手稳，射得更快。"
@@ -1806,6 +1860,9 @@ msgstr "疾跑者背包"
 msgid "Standard wiederherstellen"
 msgstr "恢复默认"
 
+msgid "Steht dir! Fast so gut wie mir."
+msgstr "挺合身！差不多跟我一样帅。"
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "挺合身！差不多跟我一样帅。从明天起，一切都要收点小费，当然啦。"
 
@@ -1983,6 +2040,9 @@ msgstr "周边"
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "这是我的拉杆。我的骄傲。看好了！"
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
+msgstr "给，一点预付款：50金币。你的金币以钱袋的形式放在背包里。"
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "现在就去地牢吧！给我带点好东西回来。我在这儿等。安全第一。"
 
@@ -2084,6 +2144,9 @@ msgstr "继续战斗"
 
 msgid "Weltenstab"
 msgstr "世界之杖"
+
+msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
+msgstr "等你变强了，就来这里学技能。当然要收点小费。"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "击杀后射击带着剩余伤害继续飞行"
@@ -2228,6 +2291,9 @@ msgstr "满级"
 
 msgid "oder Leertaste"
 msgstr "或按空格键"
+
+msgid "Über dem Limit: Egon schielt auf deine Dose!"
+msgstr "超过上限：埃贡正盯着你的罐子！"
 
 msgid "Überschreiben"
 msgstr "覆盖"

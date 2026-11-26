@@ -2,7 +2,7 @@
 	"_info": "Beute aus dem Dungeon, die man ins Inventar (Tab) aufhebt und beim Händler verkauft. materials: name, desc (Deutsch = Übersetzungs-Schlüssel), icon, rarity 1-8 (Rahmenfarbe), value = Gold beim Verkauf, stack = so viele passen auf einen Platz (fehlt = meta.json bag.stack). gold ist das Gold des Runs (zählt als Münzen). enemies: Gegner-Id (data/enemies.json) -> Liste von {id, chance 0-1, amount [min, max]}; jeder Eintrag wird einzeln gewürfelt. Glück erhöht die Chance (luck_bonus je Punkt). Siehe docs/CONTENT.md.",
 	"luck_bonus": 0.03,
 	"materials": {
-		"gold": {"name": "Gold", "desc": "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz.", "icon": "res://assets/sprites/items/coin_purse.png", "rarity": 1, "value": 1, "stack": 999},
+		"gold": {"name": "Münzsack", "desc": "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz.", "icon": "res://assets/sprites/items/coin_purse.png", "rarity": 1, "value": 1, "stack": 999},
 		"rat_fur": {"name": "Rattenfell", "desc": "Struppig und leicht angekaut.", "icon": "res://assets/sprites/items/rat_fur.png", "rarity": 1, "value": 2},
 		"rat_venom_fang": {"name": "Giftzahn", "desc": "Nicht ablecken.", "icon": "res://assets/sprites/items/rat_venom_fang.png", "rarity": 1, "value": 4},
 		"bat_skin": {"name": "Flughaut", "desc": "Dünne Haut aus einem Fledermausflügel.", "icon": "res://assets/sprites/items/leather.png", "rarity": 1, "value": 3},

@@ -14,6 +14,7 @@ func run() -> void:
 	await _intro_skipped()
 	await _intro_and_tour()
 	await _board()
+	await _money_box()
 
 
 func _slots() -> void:
@@ -84,8 +85,9 @@ func _intro_and_tour() -> void:
 	var worn: Dictionary = meta.call("equipment")
 	check_eq([String(worn.get("weapon", {}).get("id")), String(worn.get("head", {}).get("id")), String(worn.get("chest", {}).get("id"))],
 			["copper_staff", "copper_helmet", "copper_chest"], "Egon put his three gifts on you")
-	check((meta.call("stash") as Array).is_empty(), "nothing left in the inventory")
-	check_eq(meta.call("purse"), 0, "the gifts were free")
+	var left: Array = meta.call("stash")
+	check(left.size() == 1 and left[0].get("id") == "gold", "only Egon's start money is left in the inventory (coin bag)")
+	check_eq(meta.call("purse"), 50, "the gifts were free, and 50 gold start money")
 	check(board.get("forced"), "the board cannot be closed: off into the dungeon")
 	var escape := InputEventAction.new()
 	escape.action = "ui_cancel"
@@ -109,3 +111,33 @@ func _board() -> void:
 	board.emit_signal("entered", "glut")
 	check(await wait_until(_in_scene.bind("Run"), 3.0), "Betreten goes straight into the dungeon (no character window)")
 	check_eq(String((game.get("run") as Object).get("character")), "magier", "as the Magier (Egon's staff)")
+
+
+## The money box (Dose) in the shop: "Dose 0/200" green, over the limit red with Egon's warning;
+## the coin bag dragged onto it = all in, dragged back = all out, +10 / −10.
+func _money_box() -> void:
+	meta.call("end_run", 250, [] as Array[Dictionary], RandomNumberGenerator.new())
+	game.call("to_shop")
+	check(await wait_until(func() -> bool: return _in_scene("Shop") and current_scene.is_node_ready(), 2.0), "the shop again")
+	await process_frame
+	var shop: Node = current_scene
+	var label: Label = shop.get("_box_label")
+	var warning: Label = shop.get("_box_warning")
+	check(label.text.ends_with("0/200"), "an empty box: 0/200 (%s)" % label.text)
+	check(not warning.visible, "no warning")
+	var own: Array = meta.call("stash")
+	var bag_index: int = own.find_custom(func(place: Dictionary) -> bool: return place.get("id") == "gold")
+	check(bag_index >= 0, "the gold at home is a coin bag in the inventory")
+	var data: Variant = shop.call("_drag_from_inventory", Vector2.ZERO, bag_index)
+	check(shop.call("_can_drop_on_box", Vector2.ZERO, data), "the coin bag can be dragged onto the box")
+	shop.call("_drop_on_box", Vector2.ZERO, data)
+	check_eq(meta.call("box"), 250, "all gold in the box")
+	check(label.text.ends_with("250/200"), "250/200")
+	check(warning.visible and label.get_theme_color("font_color").r > 0.9 and label.get_theme_color("font_color").g < 0.5, "over the limit: red with Egon's warning")
+	(shop.find_child("BoxOut", true, false) as Button).pressed.emit()
+	check_eq(meta.call("box"), 240, "−10")
+	shop.call("_drop_on_inventory", Vector2.ZERO, shop.call("_drag_from_box", Vector2.ZERO))
+	check_eq(meta.call("box"), 0, "dragged back: all out")
+	(shop.find_child("BoxIn", true, false) as Button).pressed.emit()
+	check_eq(meta.call("box"), 10, "+10")
+	check(not warning.visible and label.get_theme_color("font_color").g > 0.8, "up to the limit: green")

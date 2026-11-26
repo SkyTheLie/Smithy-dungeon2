@@ -20,7 +20,7 @@ static func roll(rng: RandomNumberGenerator) -> Array[Dictionary]:
 	for n in count:
 		var cell: int = cells.pop_at(rng.randi_range(0, cells.size() - 1))
 		var id: String = Content.pick_weighted(rules.get("pool", []), rng)
-		table[cell] = make_piece(id, _pick_rarity(rules.get("rarity_weights", [[1, 1]]), rng))
+		table[cell] = make_piece(id, _pick_rarity(rarity_weights(), rng))
 	# Sometimes a relic: an item the player has found, on a free place.
 	var relic: String = pick_relic(rng)
 	cells = []
@@ -38,9 +38,47 @@ static func pick_relic(rng: RandomNumberGenerator) -> String:
 	var choices: Array = []
 	for id: Variant in Progress.discovered():
 		var tier: int = relic_tier(String(id))
-		if tier > 0:
+		if tier > 0 and is_tier_open(tier):
 			choices.append([String(id), float(_tier(tier).get("weight", 1))])
 	return Content.pick_weighted(choices, rng) if not choices.is_empty() else ""
+
+
+## [rarity, weight] pairs for the player level now (shop.json rarity_by_level: the last entry whose
+## level is reached).
+static func rarity_weights() -> Array:
+	var weights: Array = [[1, 1]]
+	for entry: Dictionary in Content.shop().get("rarity_by_level", []):
+		if MetaState.level() >= int(entry.get("level", 0)):
+			weights = entry.get("weights", weights)
+	return weights
+
+
+## The chance of every rarity on the table now, in percent: [[rarity, percent], …] (the bar over
+## the lever shows it).
+static func rarity_chances() -> Array:
+	var weights: Array = rarity_weights()
+	var total: float = 0.0
+	for entry: Array in weights:
+		total += float(entry[1])
+	var result: Array = []
+	for entry: Array in weights:
+		result.append([int(entry[0]), float(entry[1]) / total * 100.0 if total > 0.0 else 0.0])
+	return result
+
+
+## A relic tier can come on the table from its player level on (relics.json tiers level).
+static func is_tier_open(tier: int) -> bool:
+	return MetaState.level() >= int(_tier(tier).get("level", 0))
+
+
+## The relic tiers that can come now (1, 2 …).
+static func open_relic_tiers() -> Array[int]:
+	var tiers: Array[int] = []
+	for key: String in (Content.relics().get("tiers", {}) as Dictionary):
+		if is_tier_open(int(key)):
+			tiers.append(int(key))
+	tiers.sort()
+	return tiers
 
 
 ## 0 = this item cannot be a relic.

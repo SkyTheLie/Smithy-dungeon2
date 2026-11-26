@@ -1,11 +1,11 @@
 {
-	"_info": "Relikte: Items, die man im Dungeon schon einmal aufgehoben hat (Lexikon), tauchen danach bei Egon auf dem Glücksspiel-Tisch auf (table_chance je Hebel-Zug, eins pro Zug). Gekauft kommen sie ins Inventar, angelegt in den Relikt-Platz an der Figur; im Run wirken sie wie das Item (zählen auch für Synergien). tiers: je Stufe dungeons = so viele Runs hält es (0 = für immer), price = Gold, rarity = Rahmenfarbe R1..R8, weight = wie oft diese Stufe auf dem Tisch kommt. items: Item-Id -> Stufe (nur Items, die hier stehen, können Relikte werden; schwach = 1, stark = 4).",
+	"_info": "Relikte: Items, die man im Dungeon schon einmal aufgehoben hat (Lexikon), tauchen danach bei Egon auf dem Glücksspiel-Tisch auf (table_chance je Hebel-Zug, eins pro Zug). Gekauft kommen sie ins Inventar, angelegt in den Relikt-Platz an der Figur; im Run wirken sie wie das Item (zählen auch für Synergien). tiers: je Stufe dungeons = so viele Runs hält es (0 = für immer), price = Gold, rarity = Rahmenfarbe (Stufe 1 = R1 …), weight = wie oft diese Stufe auf dem Tisch kommt, level = ab dieser Spielerstufe kann sie kommen (am Anfang nur Stufe 1). items: Item-Id -> Stufe (nur Items, die hier stehen, können Relikte werden; schwach = 1, stark = 4).",
 	"table_chance": 0.25,
 	"tiers": {
-		"1": {"dungeons": 0, "price": 40, "rarity": 2, "weight": 4},
-		"2": {"dungeons": 3, "price": 80, "rarity": 3, "weight": 3},
-		"3": {"dungeons": 2, "price": 150, "rarity": 4, "weight": 2},
-		"4": {"dungeons": 1, "price": 250, "rarity": 5, "weight": 1}
+		"1": {"dungeons": 0, "price": 40, "rarity": 1, "weight": 4, "level": 0},
+		"2": {"dungeons": 3, "price": 80, "rarity": 2, "weight": 3, "level": 5},
+		"3": {"dungeons": 2, "price": 150, "rarity": 3, "weight": 2, "level": 10},
+		"4": {"dungeons": 1, "price": 250, "rarity": 4, "weight": 1, "level": 20}
 	},
 	"items": {
 		"glutkern": 2,
