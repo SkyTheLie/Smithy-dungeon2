@@ -145,7 +145,8 @@ func _check_loot(content: Script, enemies: Dictionary) -> void:
 	for enemy_id: String in enemies:
 		check(tables.has(enemy_id), "enemy %s drops something (loot.json)" % enemy_id)
 	var bag: Dictionary = content.call("meta", "bag")
-	check(int(bag.get("slots", 0)) > 0 and int(bag.get("safe_slots", 0)) >= 1 and int(bag.get("stack", 0)) > 1, "bag sizes in meta.json")
+	check(int(bag.get("slots", 0)) > 0 and int(bag.get("safe_slots", 0)) >= 1 and int(bag.get("stack", 0)) >= 1, "bag sizes in meta.json")
+	check(int((content.call("material", "gold") as Dictionary).get("stack", 0)) > 1, "gold stacks (loot.json)")
 	var box: Dictionary = content.call("meta", "money_box")
 	check(int(box.get("limit", 0)) > 0, "money box limit")
 	check(float(box.get("steal_all_chance", 1.0)) + float(box.get("steal_part_chance", 1.0)) < 1.0, "theft chances below 100 %")
