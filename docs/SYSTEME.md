@@ -194,3 +194,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
   - Grafik: Anzeige Fenster / Rahmenlos / Vollbild, Fenstergröße (nur im Fenster), VSync, Sichtfeld 60–100° (`DisplaySettings`, `scripts/core/display_settings.gd`; der Spieler hört auf `Game.fov_changed`), Sprache (nur Hauptmenü).
   - Audio: Lautstärke, Musik, Effekte.
   - Steuerung: Maus und die erste Taste jeder Aktion in `Controls.REBINDABLE` (Taste anklicken, neue drücken, Esc bricht ab); eine Taste, die schon eine andere Aktion hat, wird dort weggenommen (die bekommt ihren Standard zurück); „Standard wiederherstellen“. Gespeichert in `settings.cfg` Abschnitt `keys`; Pfeiltasten und Maustasten bleiben fest.
+
+## Item-Raum nur mit Schlüssel – 2026-11-26, `feature/item-raum-schluessel`
+
+- Ebene 1 hat keinen Item-Raum (`floors.json` `"item_room": false` → `FloorLayout.remove_item_room`, der Raum wird ein normaler Raum; die Karte bleibt für denselben Seed gleich). Ab Ebene 2 steht `item` in `key_doors`: die Tür geht nur mit einem Schlüssel auf, drin liegt ein zufälliges Item aus dem Item-Pool auf einem Sockel.

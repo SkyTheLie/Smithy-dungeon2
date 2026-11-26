@@ -84,6 +84,8 @@ func build(run_state: RunState, the_player: Player, index: int) -> void:
 	floor_data = Content.floor_data(index)
 	_rng.seed = hash(run.seed_value + index * 7919)
 	layout = FloorLayout.generate(_rng, int(floor_data.get("rooms", 7)))
+	if not bool(floor_data.get("item_room", true)):
+		layout.remove_item_room()
 	# Extra rooms with their own random numbers: the normal rooms stay the same for a seed.
 	var extra_rng := RandomNumberGenerator.new()
 	extra_rng.seed = hash(run.seed_value * 31 + index * 104729)

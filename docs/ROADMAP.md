@@ -41,7 +41,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 2. ✅ (2026-11-26) Dialog-Fenster (`DialogBox`, Texte in `data/story.json`, übersetzt) mit dem Vorstellungs-Witz; Intro jetzt draußen vor dem Dungeon-Eingang (Skizze `vorlagen/intro_skizze.png`).
 3. ✅ (2026-11-26) Geführte Laden-Erklärung: Egon zieht den Hebel, Geschenke leuchten, er kauft sie, zieht dich an und schickt dich in den Dungeon (Brett lässt sich nicht schließen).
 4. Klassen-Frage → Kupfer-Startwaffe der Klasse (bisher schenkt Egon immer den Kupfer-Zauberstab).
-5. Erster Dungeon ohne Item-Raum und Shop-Raum (`data/floors.json` je Ebene abschaltbar).
+5. ✅ (2026-11-26, teils) Ebene 1 ohne Item-Raum (`item_room` in `floors.json`), ab Ebene 2 Item-Raum hinter Schlüssel-Tür. Offen: Shop-Raum je Ebene abschaltbar.
 6. Nach dem ersten Run: Händler erklärt Tränke und den Trank-Slot.
 
 ## Phase 3 – Ausrüstung im Run

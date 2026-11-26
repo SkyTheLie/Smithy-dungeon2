@@ -100,6 +100,13 @@ static func _try(rng: RandomNumberGenerator, total: int) -> FloorLayout:
 	return layout
 
 
+## Floors without an item room (floors.json "item_room": false): it becomes a normal room.
+func remove_item_room() -> void:
+	for cell: Vector2i in rooms:
+		if rooms[cell] == ITEM:
+			rooms[cell] = NORMAL
+
+
 static func _fallback(normal_rooms: int) -> FloorLayout:
 	var layout := FloorLayout.new()
 	layout.rooms[START] = START_ROOM

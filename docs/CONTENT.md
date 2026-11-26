@@ -56,6 +56,8 @@ Gilt, wenn aus **jeder** Gruppe in `requires` mindestens ein Item da ist. `stats
 
 ## Ebene (`data/floors.json`)
 
+- `item_room: false` = diese Ebene hat keinen Item-Raum; `key_doors: ["shop", "item"]` = diese Räume brauchen einen Schlüssel.
+
 Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` (32×48), `rooms` (normale Räume), `enemies` ([Id, Gewicht]), `enemy_count`, `first_room_enemies`, `boss`, `music` (Id aus `audio.json`), `light` (Farbe), `key_doors` (Raumarten mit Schlüssel-Tür). Die letzte Ebene endet mit dem Sieg. Dazu `room_styles`, `shop` (Preise, Händler-Bild), `room_drops`, `rocks`.
 
 ## Beute (`data/loot.json`)
