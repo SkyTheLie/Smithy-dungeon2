@@ -9,6 +9,12 @@ msgstr "%d or"
 msgid "%d Herzen"
 msgstr "%d cœurs"
 
+msgid "3 % Chance auf R3 bei Egon."
+msgstr "3 % de chance d'avoir du R3 chez Egon."
+
+msgid "5 % mehr Chance auf R2 bei Egon."
+msgstr "5 % de chance en plus d'avoir du R2 chez Egon."
+
 msgid "Abbrechen"
 msgstr "Annuler"
 
@@ -173,6 +179,9 @@ msgstr "Là-derrière, c'est l'entrée du Donjon des Braises. Certains en ressor
 
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "Ton or ne suffit pas pour ça, partenaire. Hélas, hélas."
+
+msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
+msgstr "Mais la marchandise s'améliore à chaque tour. C'est écrit sur la barre, honnêtement !"
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Une petite bestiole est coincée dedans."
@@ -513,6 +522,9 @@ msgstr "Une seconde vie et une étincelle"
 msgid "Ein zweites Leben!"
 msgstr "Une seconde vie !"
 
+msgid "Eine Sache mehr auf Egons Tisch."
+msgstr "Un objet de plus sur la table d'Egon."
+
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "Une boulangerie entière d'un coup"
 
@@ -828,6 +840,9 @@ msgstr "Chance et dégâts en hausse"
 msgid "Glück viel höher"
 msgstr "Beaucoup plus de chance"
 
+msgid "Glückliches Händchen"
+msgstr "Main chanceuse"
+
 msgid "Glücksflachs"
 msgstr "Lin porte-bonheur"
 
@@ -1035,6 +1050,9 @@ msgstr "Chaque coup effraie les ennemis"
 msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
 msgstr "Chaque coup reçu te rend plus fort à cet étage"
 
+msgid "Jeder weitere Dreh heute: %d %% von R1 zu den selteneren Stufen (höchstens %d %%)."
+msgstr "Chaque tour de plus aujourd'hui : %d %% de R1 vers les niveaux plus rares (au plus %d %%)."
+
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "Un tir sur deux est bien plus fort"
 
@@ -1158,6 +1176,9 @@ msgstr "Lettre royale"
 msgid "Labyrinthaxt"
 msgstr "Hache du labyrinthe"
 
+msgid "Laden"
+msgstr "Boutique"
+
 msgid "Ladenschild"
 msgstr "Enseigne de boutique"
 
@@ -1271,6 +1292,9 @@ msgstr "Plus de recul et de dégâts"
 
 msgid "Mehr Schaden für jede Münze, die du hast"
 msgstr "Plus de dégâts pour chaque pièce que tu possèdes"
+
+msgid "Mehr Ware"
+msgstr "Plus de marchandise"
 
 msgid "Meteor"
 msgstr "Météore"
@@ -1799,6 +1823,9 @@ msgstr "Page %d sur %d"
 
 msgid "Selten"
 msgstr "Rare"
+
+msgid "Seltene Ware"
+msgstr "Marchandise rare"
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Maj : tu sautes là où tu vises"

@@ -9,6 +9,12 @@ msgstr "%d金币"
 msgid "%d Herzen"
 msgstr "%d颗心"
 
+msgid "3 % Chance auf R3 bei Egon."
+msgstr "在埃贡那里有3 %的几率出现R3。"
+
+msgid "5 % mehr Chance auf R2 bei Egon."
+msgstr "在埃贡那里出现R2的几率提高5 %。"
+
 msgid "Abbrechen"
 msgstr "取消"
 
@@ -173,6 +179,9 @@ msgstr "那边就是余烬地牢的入口。有些人甚至还能出来！"
 
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "你的金币不够，伙计。可惜，可惜。"
+
+msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
+msgstr "不过每转一次货就更好。条上写着呢，真的！"
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "里面封着一只小虫子。"
@@ -513,6 +522,9 @@ msgstr "第二条命和一个火花"
 msgid "Ein zweites Leben!"
 msgstr "第二条命！"
 
+msgid "Eine Sache mehr auf Egons Tisch."
+msgstr "埃贡的桌上多一件货物。"
+
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "一次射出整间面包店"
 
@@ -828,6 +840,9 @@ msgstr "幸运和伤害提升"
 msgid "Glück viel höher"
 msgstr "幸运大幅提升"
 
+msgid "Glückliches Händchen"
+msgstr "幸运之手"
+
 msgid "Glücksflachs"
 msgstr "幸运亚麻"
 
@@ -1035,6 +1050,9 @@ msgstr "每次命中都让敌人恐惧"
 msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
 msgstr "每次受击都会让你在本层变得更强"
 
+msgid "Jeder weitere Dreh heute: %d %% von R1 zu den selteneren Stufen (höchstens %d %%)."
+msgstr "今天每多转一次：%d %%从R1移到更稀有的等级（最多%d %%）。"
+
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "每第二发射击强得多"
 
@@ -1158,6 +1176,9 @@ msgstr "王室信函"
 msgid "Labyrinthaxt"
 msgstr "迷宫之斧"
 
+msgid "Laden"
+msgstr "商店"
+
 msgid "Ladenschild"
 msgstr "商店招牌"
 
@@ -1271,6 +1292,9 @@ msgstr "击退和伤害提升"
 
 msgid "Mehr Schaden für jede Münze, die du hast"
 msgstr "你每有一枚硬币，伤害就更高"
+
+msgid "Mehr Ware"
+msgstr "更多货物"
 
 msgid "Meteor"
 msgstr "流星"
@@ -1799,6 +1823,9 @@ msgstr "第%d页，共%d页"
 
 msgid "Selten"
 msgstr "稀有"
+
+msgid "Seltene Ware"
+msgstr "稀有货物"
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift：瞬移到你瞄准的位置"

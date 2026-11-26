@@ -1,7 +1,7 @@
 class_name ChanceBar
 extends Control
-## Over Egon's lever: how likely each rarity is on the table now (ShopGoods.rarity_chances, by the
-## player level): one coloured part per rarity (Rarity colours, as wide as its chance), below it
+## Over Egon's lever: how likely each rarity is on the next pull (ShopGoods.rarity_chances: the
+## player level, the shop skills and every pull today make rarer goods likelier): one coloured part per rarity (Rarity colours, as wide as its chance), below it
 ## "R1 85 % · R2 15 %". The tooltip lists every rarity and which relic tiers can come.
 ## refresh() after a level change; drawing reads only the stored parts.
 
@@ -41,6 +41,7 @@ func refresh() -> void:
 		tiers.append("R%d" % tier)
 	lines.append(Language.translate("Relikte: %d %% pro Hebel, Stufen %s") % [roundi(float(Content.relics().get("table_chance", 0.0)) * 100.0), ", ".join(tiers)])
 	lines.append(Language.translate("Höhere Stufen kommen mit deiner Spielerstufe."))
+	lines.append(Language.translate("Jeder weitere Dreh heute: %d %% von R1 zu den selteneren Stufen (höchstens %d %%).") % [roundi(float(Content.shop().get("reroll_shift", 0.0))), roundi(float(Content.shop().get("reroll_shift_max", 0.0)))])
 	tooltip_text = "\n".join(lines)
 	queue_redraw()
 

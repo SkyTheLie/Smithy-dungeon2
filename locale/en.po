@@ -9,6 +9,12 @@ msgstr "%d gold"
 msgid "%d Herzen"
 msgstr "%d hearts"
 
+msgid "3 % Chance auf R3 bei Egon."
+msgstr "3 % chance of R3 at Egon's."
+
+msgid "5 % mehr Chance auf R2 bei Egon."
+msgstr "5 % more chance of R2 at Egon's."
+
 msgid "Abbrechen"
 msgstr "Cancel"
 
@@ -173,6 +179,9 @@ msgstr "Back there is the way into the Dungeon of Embers. Some even come back ou
 
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "You don't have enough gold for that, partner. Such a shame."
+
+msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
+msgstr "But the goods get better with every spin. It says so on the bar, honest!"
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "There is a tiny bug stuck inside."
@@ -513,6 +522,9 @@ msgstr "A second life and a spark"
 msgid "Ein zweites Leben!"
 msgstr "A second life!"
 
+msgid "Eine Sache mehr auf Egons Tisch."
+msgstr "One more item on Egon's table."
+
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "A whole bakery at once"
 
@@ -828,6 +840,9 @@ msgstr "Luck and damage up"
 msgid "Glück viel höher"
 msgstr "Much more luck"
 
+msgid "Glückliches Händchen"
+msgstr "Lucky Touch"
+
 msgid "Glücksflachs"
 msgstr "Lucky Flax"
 
@@ -1035,6 +1050,9 @@ msgstr "Every hit frightens enemies"
 msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
 msgstr "Every hit you take makes you stronger on this floor"
 
+msgid "Jeder weitere Dreh heute: %d %% von R1 zu den selteneren Stufen (höchstens %d %%)."
+msgstr "Every further spin today: %d %% from R1 to the rarer tiers (at most %d %%)."
+
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "Every second shot is much stronger"
 
@@ -1158,6 +1176,9 @@ msgstr "Royal Letter"
 msgid "Labyrinthaxt"
 msgstr "Labyrinth Axe"
 
+msgid "Laden"
+msgstr "Shop"
+
 msgid "Ladenschild"
 msgstr "Shop Sign"
 
@@ -1271,6 +1292,9 @@ msgstr "More knockback and damage"
 
 msgid "Mehr Schaden für jede Münze, die du hast"
 msgstr "More damage for every coin you have"
+
+msgid "Mehr Ware"
+msgstr "More Goods"
 
 msgid "Meteor"
 msgstr "Meteor"
@@ -1799,6 +1823,9 @@ msgstr "Page %d of %d"
 
 msgid "Selten"
 msgstr "Rare"
+
+msgid "Seltene Ware"
+msgstr "Rare Goods"
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: you jump to where you aim"

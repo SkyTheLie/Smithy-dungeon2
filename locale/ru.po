@@ -9,6 +9,12 @@ msgstr "%d золота"
 msgid "%d Herzen"
 msgstr "%d сердец"
 
+msgid "3 % Chance auf R3 bei Egon."
+msgstr "3 % шанс на R3 у Эгона."
+
+msgid "5 % mehr Chance auf R2 bei Egon."
+msgstr "На 5 % больше шанс на R2 у Эгона."
+
 msgid "Abbrechen"
 msgstr "Отмена"
 
@@ -173,6 +179,9 @@ msgstr "Вон там вход в Подземелье углей. Некото�
 
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "На это золота не хватит, партнёр. Увы, увы."
+
+msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
+msgstr "Зато товар с каждым поворотом лучше. Так на полоске написано, честно!"
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Внутри застрял маленький жучок."
@@ -513,6 +522,9 @@ msgstr "Вторая жизнь и искра"
 msgid "Ein zweites Leben!"
 msgstr "Вторая жизнь!"
 
+msgid "Eine Sache mehr auf Egons Tisch."
+msgstr "На столе Эгона на одну вещь больше."
+
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "Целая пекарня разом"
 
@@ -828,6 +840,9 @@ msgstr "Удача и урон выше"
 msgid "Glück viel höher"
 msgstr "Намного больше удачи"
 
+msgid "Glückliches Händchen"
+msgstr "Счастливая рука"
+
 msgid "Glücksflachs"
 msgstr "Счастливый лён"
 
@@ -1035,6 +1050,9 @@ msgstr "Каждый удар пугает врагов"
 msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
 msgstr "Каждый полученный удар усиливает тебя на этом уровне"
 
+msgid "Jeder weitere Dreh heute: %d %% von R1 zu den selteneren Stufen (höchstens %d %%)."
+msgstr "Каждый следующий поворот сегодня: %d %% от R1 к более редким уровням (не больше %d %%)."
+
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "Каждый второй выстрел намного сильнее"
 
@@ -1158,6 +1176,9 @@ msgstr "Королевское письмо"
 msgid "Labyrinthaxt"
 msgstr "Топор лабиринта"
 
+msgid "Laden"
+msgstr "Лавка"
+
 msgid "Ladenschild"
 msgstr "Вывеска лавки"
 
@@ -1271,6 +1292,9 @@ msgstr "Больше отдачи и урона"
 
 msgid "Mehr Schaden für jede Münze, die du hast"
 msgstr "Больше урона за каждую монету"
+
+msgid "Mehr Ware"
+msgstr "Больше товара"
 
 msgid "Meteor"
 msgstr "Метеор"
@@ -1799,6 +1823,9 @@ msgstr "Страница %d из %d"
 
 msgid "Selten"
 msgstr "Редкий"
+
+msgid "Seltene Ware"
+msgstr "Редкий товар"
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: прыжок туда, куда целишься"

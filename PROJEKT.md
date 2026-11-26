@@ -79,9 +79,9 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 
 ## 8. Aktuelle Aufgabe
 
-**Zuletzt gebaut (2026-11-26):** `feature/geld-schatulle`: Im Dungeon gibt es kein Geld mehr, nur Beute und Items. Alles Gold zu Hause liegt in der Dose (über 200 kann Egon klauen). Der Händler im Dungeon-Shop kauft Beute an (Tab, Rechtsklick), übriges Gold kommt nach dem Run in die Dose. Münz-Items geben Beute, Goldnase = mehr Gold beim Händler. Bosse rufen höchstens 5 Helfer gleichzeitig. Im Spiel testen: Neues Spiel → Tour (50 Gold landen in der Dose, kein Münzsack) → Dungeon: keine Münzen in Steinen/Räumen → Beute sammeln → Shop-Raum: Hinweis, Tab, Rechtsklick auf Beute → Gold in der Tasche → Item kaufen → flüchten → Rest in der Dose. Boss mit Helfern (Rattenkönig, Ork-Häuptling): nie mehr als 5 auf einmal.
+**Zuletzt gebaut (2026-11-26):** `feature/laden-skills`: Bei Egon wird jeder weitere Hebel-Zug am selben Tag besser (5 % von R1 zu den selteneren Stufen, höchstens 25 %, R1 nie unter 10 %). Neue Skill-Gruppe „Laden“: Mehr Ware, Glückliches Händchen (R2), Seltene Ware (R3). Davor `feature/geld-schatulle`: kein Geld im Dungeon, alles Gold in der Dose, Händler im Dungeon-Shop kauft Beute (Tab, Rechtsklick), Bosse höchstens 5 Helfer. Im Spiel testen: Laden mit Spielerstufe 5+ → Chancen-Balken ansehen → Hebel mehrmals ziehen, R2-Anteil steigt → nächster Tag wieder 85/15. Skills → Spalte „Laden“ lernen → Balken und Anzahl der Ware ändern sich.
 
-**Nächster Schritt:** Laden-Skills (mehr Ware, bessere Chancen auf R2/R3, Chancen steigen mit jedem Neu-Würfeln, `docs/IDEEN.md`); Run-Shop-Preise im Spiel prüfen; Tränke (Phase 3).
+**Nächster Schritt:** Run-Shop- und Laden-Preise im Spiel prüfen; Tränke (Phase 3).
 
 **Entschieden (2026-11-26):** Ein Tag = ein Run · neu würfeln wird teurer · Ausrüstung bleibt beim Tod, Tasche und Dungeon-Gold sind weg · Gold zu Hause nur in der Dose, im Dungeon kein Geld zu finden · Händler = Egon Ehrlich · Dungeon 1 : 1 wie Dungeon Smithy.
 

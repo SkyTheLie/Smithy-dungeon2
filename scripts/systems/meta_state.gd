@@ -220,7 +220,7 @@ static func pull_lever(rng: RandomNumberGenerator) -> bool:
 	if price > box():
 		return false
 	_write("box", box() - price)
-	_write("table", ShopGoods.roll(rng))
+	_write("table", ShopGoods.roll(rng, pulls_today()))
 	_write("pulls_today", pulls_today() + 1)
 	_save()
 	return true

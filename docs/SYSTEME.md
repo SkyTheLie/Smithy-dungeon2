@@ -253,3 +253,10 @@ Gilt ab jetzt statt der älteren Abschnitte über Geldbörse, Münzsack und Mün
 ## Bosse: höchstens 5 Helfer – 2026-11-26, `feature/geld-schatulle`
 
 - `Dungeon.summon` ruft nur, solange weniger als `enemies.json` `summon_max` (5) Helfer gleichzeitig leben (`Dungeon.helper_count` = Gegner außer dem Boss). Gilt für alle Bosse und alle Ruf-Angriffe (`summon`, `rat_wave`).
+
+## Laden-Skills und bessere Chancen beim Neu-Würfeln – 2026-11-26, `feature/laden-skills`
+
+- **Chancen** (`ShopGoods.rarity_weights(pulls_today)`, Prozent je Seltenheit): Grundwerte nach Spielerstufe (`shop.json` `rarity_by_level`), dann die Skills (`effect` `rarity`: so viele Prozent von R1 zur Seltenheit, `Skills.rarity_bonus`), dann das Neu-Würfeln: jeder frühere Zug heute schiebt `reroll_shift` (5) Prozent von R1 zu den selteneren Stufen, die es gerade gibt, verteilt nach deren Chancen (höchstens `reroll_shift_max` 25). R1 bleibt mindestens `r1_min` (10 %). Nur R1 (Stufe 0, ohne Skills): Neu-Würfeln ändert nichts.
+- `MetaState.pull_lever` würfelt mit den Chancen des aktuellen Zugs (`ShopGoods.roll(rng, pulls_today)`); der Chancen-Balken zeigt den nächsten Zug (Tooltip nennt die Verschiebung). Neuer Tag = wieder Grundwerte.
+- **Skill-Gruppe „Laden“** (`skills.json`, Spalte 6): Mehr Ware (+1 Sache auf dem Tisch je Stufe, `goods_extra`, 3 Stufen) → Glückliches Händchen (+5 % R2 je Stufe, 3 Stufen) → Seltene Ware (+3 % R3 je Stufe, 2 Stufen; R3 also schon vor Spielerstufe 10).
+- Egons Tour: neuer Satz beim Neu-Würfeln („Dafür wird die Ware mit jedem Dreh besser.“).

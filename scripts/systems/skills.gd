@@ -74,6 +74,21 @@ static func bonus(kind: String) -> float:
 	return total
 
 
+## The "rarity" effects of every bought level: {rarity: percent} that move from R1 to that
+## rarity on Egon's table (ShopGoods.rarity_weights), times the level.
+static func rarity_bonus() -> Dictionary:
+	var result: Dictionary = {}
+	for id: String in all():
+		var level: int = MetaState.skill_level(id)
+		if level <= 0:
+			continue
+		var rarity: Dictionary = (data(id).get("effect", {}) as Dictionary).get("rarity", {})
+		for key: Variant in rarity:
+			var tier: int = int(key)
+			result[tier] = float(result.get(tier, 0.0)) + float(rarity[key]) * level
+	return result
+
+
 ## The "stats" of every bought level, as one source for RunState (_mult values multiplied per
 ## level, the others added).
 static func run_stats() -> Dictionary:

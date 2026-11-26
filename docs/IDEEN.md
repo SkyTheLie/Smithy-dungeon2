@@ -135,7 +135,7 @@ Beantwortet am 2026-11-26: Dungeon bleibt 1 : 1 wie Dungeon Smithy (3D), ein Tag
 3. Zählt ein Relikt für Synergien mit Run-Items? *(Vorschlag: ja.)*
 4. Wie viel steigt der Preis fürs erneute Würfeln? *(Vorschlag: 10, 20, 40, 80 … Gold, am nächsten Tag wieder 10.)*
 
-## Laden-Skills (Nachricht vom 2026-11-26)
+## Laden-Skills (Nachricht vom 2026-11-26) – ✅ gebaut (`feature/laden-skills`)
 
 - Skills, die man bei Egon kaufen kann und die den Laden verbessern, z. B. **mehr Ware auf dem Tisch**, **bessere Chance auf R2**, **Chance auf R3**.
 - **Mit jedem Neu-Würfeln am selben Tag** steigt die Chance auf seltenere Stufen, die Chance auf R1 sinkt (zusätzlich zum steigenden Preis).

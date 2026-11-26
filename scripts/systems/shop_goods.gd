@@ -8,19 +8,23 @@ extends RefCounted
 ## table): left = runs it still holds (-1 = for ever). Only items picked up once (Progress) come.
 
 
-## A new table: data/shop.json table_slots places, goods_count pieces on random places, the rest {}.
-static func roll(rng: RandomNumberGenerator) -> Array[Dictionary]:
+## A new table: data/shop.json table_slots places, goods_count pieces (+ skill Mehr Ware,
+## effect goods_extra) on random places, the rest {}. The rarities use the chances of pull number
+## `pulls_today` (0 = the first pull today; every further pull is better, rarity_weights).
+static func roll(rng: RandomNumberGenerator, pulls_today: int = 0) -> Array[Dictionary]:
 	var rules: Dictionary = Content.shop()
 	var table: Array[Dictionary] = empty_table()
 	var range_count: Array = rules.get("goods_count", [1, 3])
-	var count: int = mini(rng.randi_range(int(range_count[0]), int(range_count[1])), table.size())
+	var extra: int = goods_extra()
+	var count: int = mini(rng.randi_range(int(range_count[0]) + extra, int(range_count[1]) + extra), table.size())
+	var weights: Array = rarity_weights(pulls_today)
 	var cells: Array[int] = []
 	for i in table.size():
 		cells.append(i)
 	for n in count:
 		var cell: int = cells.pop_at(rng.randi_range(0, cells.size() - 1))
 		var id: String = Content.pick_weighted(rules.get("pool", []), rng)
-		table[cell] = make_piece(id, _pick_rarity(rarity_weights(), rng))
+		table[cell] = make_piece(id, _pick_rarity(weights, rng))
 	# Sometimes a relic: an item the player has found, on a free place.
 	var relic: String = pick_relic(rng)
 	cells = []
@@ -43,9 +47,14 @@ static func pick_relic(rng: RandomNumberGenerator) -> String:
 	return Content.pick_weighted(choices, rng) if not choices.is_empty() else ""
 
 
-## [rarity, weight] pairs for the player level now (shop.json rarity_by_level: the last entry whose
-## level is reached).
-static func rarity_weights() -> Array:
+## More goods on the table from the skills (skills.json effect goods_extra).
+static func goods_extra() -> int:
+	return maxi(0, int(Skills.bonus("goods_extra")))
+
+
+## [rarity, weight] pairs for the player level (shop.json rarity_by_level: the last entry whose
+## level is reached), without skills and pulls.
+static func base_weights() -> Array:
 	var weights: Array = [[1, 1]]
 	for entry: Dictionary in Content.shop().get("rarity_by_level", []):
 		if MetaState.level() >= int(entry.get("level", 0)):
@@ -53,7 +62,58 @@ static func rarity_weights() -> Array:
 	return weights
 
 
-## The chance of every rarity on the table now, in percent: [[rarity, percent], …] (the bar over
+## How many percent the pull number `pulls_today` (0 = the first today) moves from R1 to the
+## higher rarities: shop.json reroll_shift per earlier pull today, at most reroll_shift_max.
+static func reroll_shift(pulls_today: int) -> float:
+	var rules: Dictionary = Content.shop()
+	return clampf(float(rules.get("reroll_shift", 0.0)) * maxi(0, pulls_today), 0.0, float(rules.get("reroll_shift_max", 0.0)))
+
+
+## [rarity, percent] pairs for pull number `pulls_today` (0 = the first today; -1 = the next pull,
+## MetaState.pulls_today). Starts from base_weights (in percent), then:
+##   - skills (effect "rarity": {"2": 5}): that many percent per level from R1 to that rarity;
+##   - every earlier pull today: reroll_shift percent from R1 to the higher rarities there are,
+##     shared out like their chances (nothing to share at a level with only R1).
+## R1 never drops below shop.json r1_min percent.
+static func rarity_weights(pulls_today: int = -1) -> Array:
+	if pulls_today < 0:
+		pulls_today = MetaState.pulls_today()
+	var percent: Dictionary = {}
+	var total: float = 0.0
+	for entry: Array in base_weights():
+		total += float(entry[1])
+	for entry: Array in base_weights():
+		percent[int(entry[0])] = float(entry[1]) / total * 100.0 if total > 0.0 else 0.0
+	if not percent.has(1):
+		percent[1] = 0.0
+	var r1_min: float = float(Content.shop().get("r1_min", 0.0))
+	var bonus: Dictionary = Skills.rarity_bonus()
+	for tier: int in bonus:
+		var moved: float = minf(float(bonus[tier]), maxf(0.0, percent[1] - r1_min))
+		if tier <= 1 or moved <= 0.0:
+			continue
+		percent[1] -= moved
+		percent[tier] = float(percent.get(tier, 0.0)) + moved
+	var higher: float = 0.0
+	for tier: int in percent:
+		if tier > 1:
+			higher += percent[tier]
+	var shift: float = minf(reroll_shift(pulls_today), maxf(0.0, percent[1] - r1_min))
+	if higher > 0.0 and shift > 0.0:
+		for tier: int in percent.keys():
+			if tier > 1:
+				percent[tier] += shift * percent[tier] / higher
+		percent[1] -= shift
+	var tiers: Array = percent.keys()
+	tiers.sort()
+	var result: Array = []
+	for tier: int in tiers:
+		if percent[tier] > 0.0:
+			result.append([tier, percent[tier]])
+	return result
+
+
+## The chance of every rarity on the next pull, in percent: [[rarity, percent], …] (the bar over
 ## the lever shows it).
 static func rarity_chances() -> Array:
 	var weights: Array = rarity_weights()

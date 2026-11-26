@@ -51,7 +51,7 @@ func _learning() -> void:
 	check_eq(skills.call("problem", "leichtfuss"), "Erst den Skill davor lernen", "Leichtfuß needs Kraft first (same group)")
 	check_eq(skills.call("problem", "rucksack"), "Zu wenig Gold", "no gold yet")
 	var starts: Array = (skills.call("all") as Dictionary).keys().filter(func(id: String) -> bool: return not (skills.call("data", id) as Dictionary).has("requires"))
-	check_eq(starts.size(), 3, "three groups, each with its own start")
+	check_eq(starts.size(), 4, "four groups, each with its own start")
 	# Straight into the box (an end_run above the limit could let Egon steal that night).
 	meta.call("gift_gold", 1000)
 	var points: int = meta.call("skill_points")

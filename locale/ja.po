@@ -9,6 +9,12 @@ msgstr "%dゴールド"
 msgid "%d Herzen"
 msgstr "ハート%d個"
 
+msgid "3 % Chance auf R3 bei Egon."
+msgstr "エゴンの店でR3が出る確率3 %。"
+
+msgid "5 % mehr Chance auf R2 bei Egon."
+msgstr "エゴンの店でR2が出る確率が5 %アップ。"
+
 msgid "Abbrechen"
 msgstr "キャンセル"
 
@@ -173,6 +179,9 @@ msgstr "あっちが残り火のダンジョンの入口だ。戻ってくる奴
 
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "それには金が足りないな、相棒。残念、残念。"
+
+msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
+msgstr "その代わり、回すたびに品物が良くなる。バーに書いてあるだろ、正直に！"
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "中に小さな虫が閉じ込められている。"
@@ -513,6 +522,9 @@ msgstr "2つ目の命と火花"
 msgid "Ein zweites Leben!"
 msgstr "2つ目の命！"
 
+msgid "Eine Sache mehr auf Egons Tisch."
+msgstr "エゴンのテーブルの品物が1つ増える。"
+
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "パン屋まるごと一斉発射"
 
@@ -828,6 +840,9 @@ msgstr "運とダメージ上昇"
 msgid "Glück viel höher"
 msgstr "運が大幅に上昇"
 
+msgid "Glückliches Händchen"
+msgstr "幸運の手"
+
 msgid "Glücksflachs"
 msgstr "幸運の亜麻"
 
@@ -1035,6 +1050,9 @@ msgstr "当たるたびに敵が怯える"
 msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
 msgstr "被弾するたびにこの階で強くなる"
 
+msgid "Jeder weitere Dreh heute: %d %% von R1 zu den selteneren Stufen (höchstens %d %%)."
+msgstr "今日さらに回すたびに：R1から%d %%がよりレアな段階へ（最大%d %%）。"
+
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "2発に1発がとても強い"
 
@@ -1158,6 +1176,9 @@ msgstr "王の手紙"
 msgid "Labyrinthaxt"
 msgstr "迷宮の斧"
 
+msgid "Laden"
+msgstr "店"
+
 msgid "Ladenschild"
 msgstr "店の看板"
 
@@ -1271,6 +1292,9 @@ msgstr "ノックバックとダメージ上昇"
 
 msgid "Mehr Schaden für jede Münze, die du hast"
 msgstr "持っているコイン1枚ごとにダメージ上昇"
+
+msgid "Mehr Ware"
+msgstr "品ぞろえ増加"
 
 msgid "Meteor"
 msgstr "メテオ"
@@ -1799,6 +1823,9 @@ msgstr "%d / %d ページ"
 
 msgid "Selten"
 msgstr "レア"
+
+msgid "Seltene Ware"
+msgstr "レアな品"
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift：狙った場所へ瞬間移動"

@@ -9,6 +9,12 @@ msgstr "%d طلا"
 msgid "%d Herzen"
 msgstr "%d قلب"
 
+msgid "3 % Chance auf R3 bei Egon."
+msgstr "۳٪ شانس R3 پیش اگون."
+
+msgid "5 % mehr Chance auf R2 bei Egon."
+msgstr "۵٪ شانس بیشتر برای R2 پیش اگون."
+
 msgid "Abbrechen"
 msgstr "لغو"
 
@@ -173,6 +179,9 @@ msgstr "اون پشت راه سیاه‌چال اخگره. بعضی‌ها حت�
 
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "طلات برای این کافی نیست، رفیق. حیف، حیف."
+
+msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
+msgstr "در عوض، کالا با هر چرخش بهتر می‌شود. روی نوار نوشته، راست می‌گویم!"
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "یک حشره‌ی کوچک داخلش گیر افتاده."
@@ -513,6 +522,9 @@ msgstr "زندگی دوم و یک جرقه"
 msgid "Ein zweites Leben!"
 msgstr "زندگی دوم!"
 
+msgid "Eine Sache mehr auf Egons Tisch."
+msgstr "یک کالای بیشتر روی میز اگون."
+
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "یک نانوایی کامل یک‌جا"
 
@@ -828,6 +840,9 @@ msgstr "شانس و آسیب بالاتر"
 msgid "Glück viel höher"
 msgstr "شانس خیلی بیشتر"
 
+msgid "Glückliches Händchen"
+msgstr "دست خوش‌شانس"
+
 msgid "Glücksflachs"
 msgstr "کتان شانس"
 
@@ -1035,6 +1050,9 @@ msgstr "هر ضربه دشمنان را می‌ترساند"
 msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
 msgstr "هر ضربه‌ای که می‌خوری تو را در این طبقه قوی‌تر می‌کند"
 
+msgid "Jeder weitere Dreh heute: %d %% von R1 zu den selteneren Stufen (höchstens %d %%)."
+msgstr "هر چرخش بیشتر امروز: %d %% از R1 به سطح‌های کمیاب‌تر (حداکثر %d %%)."
+
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "هر تیر دوم خیلی قوی‌تر است"
 
@@ -1158,6 +1176,9 @@ msgstr "نامه سلطنتی"
 msgid "Labyrinthaxt"
 msgstr "تبر هزارتو"
 
+msgid "Laden"
+msgstr "مغازه"
+
 msgid "Ladenschild"
 msgstr "تابلو مغازه"
 
@@ -1271,6 +1292,9 @@ msgstr "پس‌زنی و آسیب بیشتر"
 
 msgid "Mehr Schaden für jede Münze, die du hast"
 msgstr "آسیب بیشتر برای هر سکه‌ای که داری"
+
+msgid "Mehr Ware"
+msgstr "کالای بیشتر"
 
 msgid "Meteor"
 msgstr "شهاب"
@@ -1799,6 +1823,9 @@ msgstr "صفحه %d از %d"
 
 msgid "Selten"
 msgstr "کمیاب"
+
+msgid "Seltene Ware"
+msgstr "کالای کمیاب"
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: به جایی که نشانه می‌گیری می‌پری"

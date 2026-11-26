@@ -86,7 +86,7 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 
 ## Egons Laden (`data/shop.json`)
 
-- `table_slots`, `goods_count` [min, max], `roll_prices` (1., 2., 3. … Hebel-Zug am Tag), `pool` [[id, Gewicht]], `rarity_weights` [[Seltenheit, Gewicht]], `rarity_price` (Preis-Faktor R1..R8).
+- `table_slots`, `goods_count` [min, max], `roll_prices` (1., 2., 3. … Hebel-Zug am Tag), `reroll_shift` (so viele Prozent wandern mit jedem weiteren Zug am Tag von R1 zu den selteneren Stufen), `reroll_shift_max`, `r1_min` (R1 nie darunter), `pool` [[id, Gewicht]], `rarity_weights` [[Seltenheit, Gewicht]], `rarity_price` (Preis-Faktor R1..R8).
 - `tutorial.goods` [{id, rarity, cell}] = Egons erster Tisch, `tutorial.gifts` = was davon geschenkt und angelegt wird.
 
 ## Texte der Figuren (`data/story.json`)
@@ -109,4 +109,4 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 ## Stufen (`data/levels.json`) und Skills (`data/skills.json`)
 
 - `levels.json`: `exp_per_kill`, `exp_per_boss`, `first_level_exp`, `growth`, `max_level`, `points_per_level`, `start_points`.
-- `skills.json` je Skill: `name`, `desc`, `icon`, `pos` [Spalte, Zeile], `requires`, `max_level`, `gold` [je Stufe], `points` [je Stufe], `min_level` [Spielerstufe je Stufe], `effect` (`stats`, `shield_halves`, `hearts`, `bag_slots`, `safe_slots`, `relic_slots`, `relic_runs`, `coin_bonus`). Neuer Skill = neuer Eintrag; Texte danach übersetzen.
+- `skills.json` je Skill: `name`, `desc`, `icon`, `pos` [Spalte, Zeile], `requires`, `max_level`, `gold` [je Stufe], `points` [je Stufe], `min_level` [Spielerstufe je Stufe], `effect` (`stats`, `shield_halves`, `hearts`, `bag_slots`, `safe_slots`, `relic_slots`, `relic_runs`, `sell_bonus`, `goods_extra` (mehr Ware auf Egons Tisch), `rarity` (`{"2": 5}` = 5 % von R1 zu R2 je Stufe)). Neuer Skill = neuer Eintrag; Texte danach übersetzen.

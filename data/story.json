@@ -17,7 +17,10 @@
 	"tutorial_bag": ["Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."],
 	"tutorial_dress": ["Und links bist du. Halt still, ich zieh dich an…"],
 	"tutorial_chances": ["Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."],
-	"tutorial_reroll": ["Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."],
+	"tutorial_reroll": [
+		"Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher.",
+		"Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
+	],
 	"tutorial_equip": [
 		"Steht dir! Fast so gut wie mir.",
 		"Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."

@@ -9,6 +9,12 @@ msgstr "%d de oro"
 msgid "%d Herzen"
 msgstr "%d corazones"
 
+msgid "3 % Chance auf R3 bei Egon."
+msgstr "3 % de probabilidad de R3 donde Egon."
+
+msgid "5 % mehr Chance auf R2 bei Egon."
+msgstr "5 % más de probabilidad de R2 donde Egon."
+
 msgid "Abbrechen"
 msgstr "Cancelar"
 
@@ -173,6 +179,9 @@ msgstr "Ahí detrás se entra a la Mazmorra de las Brasas. ¡Algunos hasta salen
 
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "No te alcanza el oro, socio. Qué pena, qué pena."
+
+msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
+msgstr "Pero la mercancía mejora con cada giro. Lo pone en la barra, ¡de verdad!"
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Dentro hay un bichito atrapado."
@@ -513,6 +522,9 @@ msgstr "Una segunda vida y una chispa"
 msgid "Ein zweites Leben!"
 msgstr "¡Una segunda vida!"
 
+msgid "Eine Sache mehr auf Egons Tisch."
+msgstr "Un objeto más en la mesa de Egon."
+
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "Una panadería entera de golpe"
 
@@ -828,6 +840,9 @@ msgstr "Más suerte y daño"
 msgid "Glück viel höher"
 msgstr "Mucha más suerte"
 
+msgid "Glückliches Händchen"
+msgstr "Mano afortunada"
+
 msgid "Glücksflachs"
 msgstr "Lino de la suerte"
 
@@ -1035,6 +1050,9 @@ msgstr "Cada golpe asusta a los enemigos"
 msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
 msgstr "Cada golpe recibido te hace más fuerte en este piso"
 
+msgid "Jeder weitere Dreh heute: %d %% von R1 zu den selteneren Stufen (höchstens %d %%)."
+msgstr "Cada giro más hoy: %d %% de R1 pasa a los niveles más raros (como máximo %d %%)."
+
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "Cada segundo disparo es mucho más fuerte"
 
@@ -1158,6 +1176,9 @@ msgstr "Carta real"
 msgid "Labyrinthaxt"
 msgstr "Hacha del laberinto"
 
+msgid "Laden"
+msgstr "Tienda"
+
 msgid "Ladenschild"
 msgstr "Letrero de tienda"
 
@@ -1271,6 +1292,9 @@ msgstr "Más retroceso y daño"
 
 msgid "Mehr Schaden für jede Münze, die du hast"
 msgstr "Más daño por cada moneda que tengas"
+
+msgid "Mehr Ware"
+msgstr "Más mercancía"
 
 msgid "Meteor"
 msgstr "Meteoro"
@@ -1799,6 +1823,9 @@ msgstr "Página %d de %d"
 
 msgid "Selten"
 msgstr "Raro"
+
+msgid "Seltene Ware"
+msgstr "Mercancía rara"
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: saltas a donde apuntas"
