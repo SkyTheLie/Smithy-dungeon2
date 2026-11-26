@@ -1,0 +1,287 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-wind-einschlag 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 21
+   },
+   "pivot": {
+    "x": 0.52,
+    "y": 0.5714285714285714
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-wind-einschlag 1.png",
+   "frame": {
+    "x": 25,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 21
+   },
+   "pivot": {
+    "x": 0.52,
+    "y": 0.5714285714285714
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-wind-einschlag 2.png",
+   "frame": {
+    "x": 50,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 21
+   },
+   "pivot": {
+    "x": 0.52,
+    "y": 0.5714285714285714
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-wind-einschlag 3.png",
+   "frame": {
+    "x": 75,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 21
+   },
+   "pivot": {
+    "x": 0.52,
+    "y": 0.5714285714285714
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-wind-einschlag 4.png",
+   "frame": {
+    "x": 0,
+    "y": 21,
+    "w": 25,
+    "h": 21
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 21
+   },
+   "pivot": {
+    "x": 0.52,
+    "y": 0.5714285714285714
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-wind-einschlag 5.png",
+   "frame": {
+    "x": 25,
+    "y": 21,
+    "w": 25,
+    "h": 21
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 21
+   },
+   "pivot": {
+    "x": 0.52,
+    "y": 0.5714285714285714
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-wind-einschlag 6.png",
+   "frame": {
+    "x": 50,
+    "y": 21,
+    "w": 25,
+    "h": 21
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 21
+   },
+   "pivot": {
+    "x": 0.52,
+    "y": 0.5714285714285714
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-wind-einschlag 7.png",
+   "frame": {
+    "x": 75,
+    "y": 21,
+    "w": 25,
+    "h": 21
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 21
+   },
+   "pivot": {
+    "x": 0.52,
+    "y": 0.5714285714285714
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-wind-einschlag 8.png",
+   "frame": {
+    "x": 0,
+    "y": 42,
+    "w": 25,
+    "h": 21
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 21
+   },
+   "pivot": {
+    "x": 0.52,
+    "y": 0.5714285714285714
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-wind-einschlag 9.png",
+   "frame": {
+    "x": 25,
+    "y": 42,
+    "w": 25,
+    "h": 21
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 21
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 21
+   },
+   "pivot": {
+    "x": 0.52,
+    "y": 0.5714285714285714
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-wind-einschlag.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 100,
+   "h": 63
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 13,
+   "y": 12
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-wind-einschlag",
+    "from": 0,
+    "to": 9,
+    "direction": "forward"
+   }
+  ]
+ }
+}

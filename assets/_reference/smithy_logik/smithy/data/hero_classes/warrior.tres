@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HeroClass" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/hero_class.gd" id="1_class"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/skill_trees/warrior.png" id="2_tree"]
+
+[resource]
+script = ExtResource("1_class")
+id = &"warrior"
+display_name = "Krieger"
+color = Color(0.92, 0.38, 0.32, 1)
+description = "Kämpft in vorderster Reihe mit Schwert und Schild."
+skill_ids = Array[String]([])
+skill_background = ExtResource("2_tree")
+attribute_bonuses = {0: 3}

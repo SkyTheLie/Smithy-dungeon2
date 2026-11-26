@@ -1,0 +1,391 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 1.png",
+   "frame": {
+    "x": 42,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 2.png",
+   "frame": {
+    "x": 84,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 3.png",
+   "frame": {
+    "x": 126,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 4.png",
+   "frame": {
+    "x": 0,
+    "y": 70,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 5.png",
+   "frame": {
+    "x": 42,
+    "y": 70,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 6.png",
+   "frame": {
+    "x": 84,
+    "y": 70,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 7.png",
+   "frame": {
+    "x": 126,
+    "y": 70,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 8.png",
+   "frame": {
+    "x": 0,
+    "y": 140,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 9.png",
+   "frame": {
+    "x": 42,
+    "y": 140,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 10.png",
+   "frame": {
+    "x": 84,
+    "y": 140,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 11.png",
+   "frame": {
+    "x": 126,
+    "y": 140,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 12.png",
+   "frame": {
+    "x": 0,
+    "y": 210,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-lichtstrahl 13.png",
+   "frame": {
+    "x": 42,
+    "y": 210,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-flaeche-lichtstrahl.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 168,
+   "h": 280
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 21,
+   "y": 59
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-flaeche-lichtstrahl",
+    "from": 0,
+    "to": 13,
+    "direction": "forward"
+   }
+  ]
+ }
+}

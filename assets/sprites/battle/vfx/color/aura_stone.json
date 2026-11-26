@@ -1,0 +1,441 @@
+{
+ "frames": [
+  {
+   "filename": "aura_stone 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 1.png",
+   "frame": {
+    "x": 53,
+    "y": 0,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 2.png",
+   "frame": {
+    "x": 106,
+    "y": 0,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 3.png",
+   "frame": {
+    "x": 159,
+    "y": 0,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 4.png",
+   "frame": {
+    "x": 212,
+    "y": 0,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 5.png",
+   "frame": {
+    "x": 0,
+    "y": 24,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 6.png",
+   "frame": {
+    "x": 53,
+    "y": 24,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 7.png",
+   "frame": {
+    "x": 106,
+    "y": 24,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 8.png",
+   "frame": {
+    "x": 159,
+    "y": 24,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 9.png",
+   "frame": {
+    "x": 212,
+    "y": 24,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 10.png",
+   "frame": {
+    "x": 0,
+    "y": 48,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 11.png",
+   "frame": {
+    "x": 53,
+    "y": 48,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 12.png",
+   "frame": {
+    "x": 106,
+    "y": 48,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 13.png",
+   "frame": {
+    "x": 159,
+    "y": 48,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 14.png",
+   "frame": {
+    "x": 212,
+    "y": 48,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 15.png",
+   "frame": {
+    "x": 0,
+    "y": 72,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 16.png",
+   "frame": {
+    "x": 53,
+    "y": 72,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 17.png",
+   "frame": {
+    "x": 106,
+    "y": 72,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 18.png",
+   "frame": {
+    "x": 159,
+    "y": 72,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 19.png",
+   "frame": {
+    "x": 212,
+    "y": 72,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 20.png",
+   "frame": {
+    "x": 0,
+    "y": 96,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 21.png",
+   "frame": {
+    "x": 53,
+    "y": 96,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 22.png",
+   "frame": {
+    "x": 106,
+    "y": 96,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_stone 23.png",
+   "frame": {
+    "x": 159,
+    "y": 96,
+    "w": 53,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 53,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.49056603773584906,
+    "y": 1.25
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "behind"
+ }
+}

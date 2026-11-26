@@ -1,0 +1,287 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-tod 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 26
+   },
+   "pivot": {
+    "x": 0.53125,
+    "y": 0.5769230769230769
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-tod 1.png",
+   "frame": {
+    "x": 32,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 26
+   },
+   "pivot": {
+    "x": 0.53125,
+    "y": 0.5769230769230769
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-tod 2.png",
+   "frame": {
+    "x": 64,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 26
+   },
+   "pivot": {
+    "x": 0.53125,
+    "y": 0.5769230769230769
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-tod 3.png",
+   "frame": {
+    "x": 96,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 26
+   },
+   "pivot": {
+    "x": 0.53125,
+    "y": 0.5769230769230769
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-tod 4.png",
+   "frame": {
+    "x": 0,
+    "y": 26,
+    "w": 32,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 26
+   },
+   "pivot": {
+    "x": 0.53125,
+    "y": 0.5769230769230769
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-tod 5.png",
+   "frame": {
+    "x": 32,
+    "y": 26,
+    "w": 32,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 26
+   },
+   "pivot": {
+    "x": 0.53125,
+    "y": 0.5769230769230769
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-tod 6.png",
+   "frame": {
+    "x": 64,
+    "y": 26,
+    "w": 32,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 26
+   },
+   "pivot": {
+    "x": 0.53125,
+    "y": 0.5769230769230769
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-tod 7.png",
+   "frame": {
+    "x": 96,
+    "y": 26,
+    "w": 32,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 26
+   },
+   "pivot": {
+    "x": 0.53125,
+    "y": 0.5769230769230769
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-tod 8.png",
+   "frame": {
+    "x": 0,
+    "y": 52,
+    "w": 32,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 26
+   },
+   "pivot": {
+    "x": 0.53125,
+    "y": 0.5769230769230769
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-tod 9.png",
+   "frame": {
+    "x": 32,
+    "y": 52,
+    "w": 32,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 26
+   },
+   "pivot": {
+    "x": 0.53125,
+    "y": 0.5769230769230769
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-tod.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 128,
+   "h": 78
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 17,
+   "y": 15
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-tod",
+    "from": 0,
+    "to": 9,
+    "direction": "forward"
+   }
+  ]
+ }
+}

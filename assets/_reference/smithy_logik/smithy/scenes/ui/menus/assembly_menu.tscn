@@ -1,0 +1,248 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/assembly_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory/item_slot.tscn" id="2_slot"]
+[ext_resource type="PackedScene" path="res://scenes/ui/minigames/workbench_minigame.tscn" id="3_minigame"]
+[ext_resource type="PackedScene" path="res://scenes/ui/minigames/riveting_minigame.tscn" id="4_riveting"]
+[ext_resource type="PackedScene" path="res://scenes/ui/minigames/stirring_minigame.tscn" id="5_stirring"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+
+[node name="AssemblyMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("90_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TabBar" type="TabBar" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+
+[node name="Columns" type="HBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="CategoryColumn" type="HBoxContainer" parent="Panel/VBox/Columns"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="CategoryScroll" type="ScrollContainer" parent="Panel/VBox/Columns/CategoryColumn"]
+custom_minimum_size = Vector2(70, 100)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="CategoryList" type="VBoxContainer" parent="Panel/VBox/Columns/CategoryColumn/CategoryScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="CategorySeparator" type="VSeparator" parent="Panel/VBox/Columns/CategoryColumn"]
+layout_mode = 2
+
+[node name="TypeScroll" type="ScrollContainer" parent="Panel/VBox/Columns"]
+custom_minimum_size = Vector2(70, 100)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="TypeList" type="VBoxContainer" parent="Panel/VBox/Columns/TypeScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Separator" type="VSeparator" parent="Panel/VBox/Columns"]
+layout_mode = 2
+
+[node name="Details" type="VBoxContainer" parent="Panel/VBox/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="ComponentsLabel" type="Label" parent="Panel/VBox/Columns/Details"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Komponenten hineinziehen:"
+
+[node name="ComponentList" type="VBoxContainer" parent="Panel/VBox/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ResultLabel" type="Label" parent="Panel/VBox/Columns/Details"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Ergebnis:"
+
+[node name="ResultRow" type="HBoxContainer" parent="Panel/VBox/Columns/Details"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ResultSlot" parent="Panel/VBox/Columns/Details/ResultRow" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ResultName" type="Label" parent="Panel/VBox/Columns/Details/ResultRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 11
+
+[node name="AssembleButton" type="Button" parent="Panel/VBox/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Zusammenbauen"
+
+[node name="DustPanel" type="VBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="DustHint" type="Label" parent="Panel/VBox/DustPanel"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Eine Zutat allein zerkleinern, oder Kristall + Mondlilie + Phiole zu einem Trank mischen:"
+autowrap_mode = 3
+
+[node name="DustRow" type="HBoxContainer" parent="Panel/VBox/DustPanel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="DustSlots" type="HBoxContainer" parent="Panel/VBox/DustPanel/DustRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Slot1" parent="Panel/VBox/DustPanel/DustRow/DustSlots" instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="Slot2" parent="Panel/VBox/DustPanel/DustRow/DustSlots" instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="Slot3" parent="Panel/VBox/DustPanel/DustRow/DustSlots" instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="Plus" type="Label" parent="Panel/VBox/DustPanel/DustRow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "+"
+
+[node name="VialSlot" parent="Panel/VBox/DustPanel/DustRow" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Arrow" type="Label" parent="Panel/VBox/DustPanel/DustRow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "»"
+
+[node name="DustResultSlot" parent="Panel/VBox/DustPanel/DustRow" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DustResultName" type="Label" parent="Panel/VBox/DustPanel/DustRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+
+[node name="MixButton" type="Button" parent="Panel/VBox/DustPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Mörsern"
+
+[node name="DustRecipes" type="Label" parent="Panel/VBox/DustPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+theme_override_font_sizes/font_size = 11
+autowrap_mode = 3
+
+[node name="EnchantPanel" type="VBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="EnchantHint" type="Label" parent="Panel/VBox/EnchantPanel"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Links eine Waffe oder ein Rüstungsteil, rechts einen Verzauberungstrank. Eine neue Verzauberung ersetzt die alte."
+autowrap_mode = 3
+
+[node name="EnchantRow" type="HBoxContainer" parent="Panel/VBox/EnchantPanel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TargetSlot" parent="Panel/VBox/EnchantPanel/EnchantRow" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Plus" type="Label" parent="Panel/VBox/EnchantPanel/EnchantRow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "+"
+
+[node name="PotionSlot" parent="Panel/VBox/EnchantPanel/EnchantRow" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EnchantPreview" type="Label" parent="Panel/VBox/EnchantPanel/EnchantRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.6, 1, 1)
+theme_override_font_sizes/font_size = 11
+autowrap_mode = 3
+
+[node name="EnchantButton" type="Button" parent="Panel/VBox/EnchantPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Verzaubern"
+
+[node name="StatusLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.85, 0.45, 1)
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="WorkbenchMinigame" parent="." instance=ExtResource("3_minigame")]
+unique_name_in_owner = true
+visible = false
+
+[node name="RivetingMinigame" parent="." instance=ExtResource("4_riveting")]
+unique_name_in_owner = true
+visible = false
+
+[node name="StirringMinigame" parent="." instance=ExtResource("5_stirring")]
+unique_name_in_owner = true
+visible = false

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/reward_chest.gd" id="1_chest"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/chest.png" id="2_sprite"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chest"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(52, 40)
+
+[node name="RewardChest" type="StaticBody2D"]
+script = ExtResource("1_chest")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, -23)
+texture = ExtResource("2_sprite")
+centered = false
+
+[node name="Marker" type="Label" parent="."]
+offset_left = -6.0
+offset_top = -38.0
+offset_right = 6.0
+offset_bottom = -24.0
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+text = "!"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_chest")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_interaction")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

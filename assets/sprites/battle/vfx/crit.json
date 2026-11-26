@@ -1,0 +1,209 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-krit-weiss 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 31,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 31,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.4838709677419355,
+    "y": 0.5172413793103449
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-krit-weiss 1.png",
+   "frame": {
+    "x": 31,
+    "y": 0,
+    "w": 31,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 31,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.4838709677419355,
+    "y": 0.5172413793103449
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-krit-weiss 2.png",
+   "frame": {
+    "x": 62,
+    "y": 0,
+    "w": 31,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 31,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.4838709677419355,
+    "y": 0.5172413793103449
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-krit-weiss 3.png",
+   "frame": {
+    "x": 0,
+    "y": 29,
+    "w": 31,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 31,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.4838709677419355,
+    "y": 0.5172413793103449
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-krit-weiss 4.png",
+   "frame": {
+    "x": 31,
+    "y": 29,
+    "w": 31,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 31,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.4838709677419355,
+    "y": 0.5172413793103449
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-krit-weiss 5.png",
+   "frame": {
+    "x": 62,
+    "y": 29,
+    "w": 31,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 31,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.4838709677419355,
+    "y": 0.5172413793103449
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-krit-weiss 6.png",
+   "frame": {
+    "x": 0,
+    "y": 58,
+    "w": 31,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 31,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.4838709677419355,
+    "y": 0.5172413793103449
+   },
+   "duration": 63
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-krit-weiss.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 93,
+   "h": 87
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 15,
+   "y": 15
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-krit-weiss",
+    "from": 0,
+    "to": 6,
+    "direction": "forward"
+   }
+  ]
+ }
+}

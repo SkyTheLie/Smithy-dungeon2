@@ -1,0 +1,398 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/desert_smelter.png" id="dst_sm"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/desert_bench.png" id="dst_bench"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/desert_trough.png" id="dst_trough"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/desert_anvil.png" id="dst_anvil"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/desert_forge.png" id="dst_forge"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_0.png" id="wp_world_props_desert_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_12.png" id="wp_world_props_desert_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_13.png" id="wp_world_props_desert_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_11.png" id="wp_world_props_desert_11"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_storm.tscn" id="lamp_storm"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/desert/storm_temple.gd" id="3_storm_temple"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/storm_temple_ground.png" id="4_storm_temple"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/storm_temple.png" id="5_storm_temple"]
+[ext_resource type="PackedScene" path="res://scenes/stations/smelter.tscn" id="6_smelter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/smelter_menu.tscn" id="7_smelter_menu"]
+[ext_resource type="PackedScene" path="res://scenes/stations/forge.tscn" id="8_forge"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/crafting_menu.tscn" id="9_crafting_men"]
+[ext_resource type="PackedScene" path="res://scenes/stations/anvil.tscn" id="10_anvil"]
+[ext_resource type="PackedScene" path="res://scenes/stations/water_trough.tscn" id="11_water_trough"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/quench_menu.tscn" id="12_quench_menu"]
+[ext_resource type="PackedScene" path="res://scenes/stations/workbench.tscn" id="13_workbench"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/assembly_menu.tscn" id="14_assembly_men"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/pillar_broken.png" id="17_pillar_broke"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/rubble_a.png" id="18_rubble_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/stones_c.png" id="19_stones_c"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="20_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/temple_mural.png" id="21_temple_mural"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="22_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="23_hud"]
+
+[sub_resource type="RectangleShape2D" id="Rect_840x16"]
+size = Vector2(840, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x600"]
+size = Vector2(16, 600)
+
+[sub_resource type="RectangleShape2D" id="Rect_64x8"]
+size = Vector2(64, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_300x12"]
+size = Vector2(300, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="Rect_20x6"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_800x16"]
+size = Vector2(800, 16)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_27x6"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_15x6"]
+size = Vector2(15, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_16x6"]
+size = Vector2(16, 6)
+
+[node name="StormTemple" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("3_storm_temple")
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("2_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-400, -280)
+texture = ExtResource("4_storm_temple")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, -288)
+shape = SubResource("Rect_840x16")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, 288)
+shape = SubResource("Rect_840x16")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-408, 0)
+shape = SubResource("Rect_16x600")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(408, 0)
+shape = SubResource("Rect_16x600")
+
+[node name="Temple" type="StaticBody2D" parent="."]
+position = Vector2(0, -90)
+
+[node name="Sprite2D" type="Sprite2D" parent="Temple"]
+texture = ExtResource("5_storm_temple")
+offset = Vector2(0, -96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temple"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_300x12")
+
+[node name="OldForge" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Smelter" parent="OldForge" instance=ExtResource("6_smelter")]
+position = Vector2(-330, -90)
+skin = ExtResource("dst_sm")
+
+[node name="SmelterMenu" parent="." instance=ExtResource("7_smelter_menu")]
+title = "Schmelze"
+
+[node name="Forge" parent="OldForge" instance=ExtResource("8_forge")]
+position = Vector2(-270, -90)
+
+[node name="ForgeMenu" parent="." instance=ExtResource("9_crafting_men")]
+title = "Gussofen"
+uses_categories = true
+uses_heat = true
+station = &"forge"
+
+[node name="Anvil" parent="OldForge" instance=ExtResource("10_anvil")]
+position = Vector2(-330, -10)
+
+[node name="AnvilMenu" parent="." instance=ExtResource("9_crafting_men")]
+title = "Amboss"
+uses_categories = true
+station = &"anvil"
+uses_minigame = true
+only_with_ingredients = true
+
+[node name="WaterTrough" parent="OldForge" instance=ExtResource("11_water_trough")]
+position = Vector2(-260, -10)
+
+[node name="QuenchMenu" parent="." instance=ExtResource("12_quench_menu")]
+
+[node name="Workbench" parent="OldForge" instance=ExtResource("13_workbench")]
+position = Vector2(-300, 50)
+
+[node name="WorkbenchMenu" parent="." instance=ExtResource("14_assembly_men")]
+title = "Werkbank"
+uses_categories = true
+uses_minigame = true
+station = &"workbench"
+
+[node name="Decor" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Brazier1" parent="Decor" instance=ExtResource("lamp_storm")]
+position = Vector2(-208, -149)
+facing = "west"
+
+[node name="Brazier2" parent="Decor" instance=ExtResource("lamp_storm")]
+position = Vector2(236, -171)
+facing = "south"
+
+[node name="Brazier3" parent="Decor" instance=ExtResource("lamp_storm")]
+position = Vector2(-131, 189)
+facing = "north"
+
+[node name="Brazier4" parent="Decor" instance=ExtResource("lamp_storm")]
+position = Vector2(139, 157)
+facing = "north"
+
+[node name="PillarBroken" type="StaticBody2D" parent="Decor"]
+position = Vector2(260, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/PillarBroken"]
+texture = ExtResource("17_pillar_broke")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/PillarBroken"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_20x6")
+
+[node name="RubbleA" type="StaticBody2D" parent="Decor"]
+position = Vector2(-170, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/RubbleA"]
+texture = ExtResource("18_rubble_a")
+offset = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/RubbleA"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_20x6")
+
+[node name="Stones" type="StaticBody2D" parent="Decor"]
+position = Vector2(300, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Stones"]
+texture = ExtResource("19_stones_c")
+offset = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Stones"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_20x6")
+
+[node name="Talk" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Narrator" parent="Talk" instance=ExtResource("20_story_npc")]
+position = Vector2(0, 220)
+npc_id = "temple_narrator"
+narrator = true
+auto_talk = true
+talk_on_new_step = true
+talk_area_scale = Vector2(5, 3)
+
+[node name="Mural" parent="Talk" instance=ExtResource("20_story_npc")]
+position = Vector2(184, -60)
+npc_id = "temple_mural_gate"
+narrator = true
+talk_area_scale = Vector2(1.5, 1.5)
+
+[node name="Tablet" type="StaticBody2D" parent="."]
+position = Vector2(184, -71)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tablet"]
+texture = ExtResource("21_temple_mural")
+offset = Vector2(0, -41)
+
+[node name="Socket0" type="Sprite2D" parent="Tablet/Sprite2D"]
+visible = false
+position = Vector2(-20, -38)
+scale = Vector2(0.5, 0.5)
+
+[node name="Socket1" type="Sprite2D" parent="Tablet/Sprite2D"]
+visible = false
+position = Vector2(0, -38)
+scale = Vector2(0.5, 0.5)
+
+[node name="Socket2" type="Sprite2D" parent="Tablet/Sprite2D"]
+visible = false
+position = Vector2(20, -38)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tablet"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_64x8")
+
+[node name="ToHall" parent="." instance=ExtResource("22_door")]
+position = Vector2(0, -92)
+target_scene = "res://scenes/world/desert/storm_temple_hall.tscn"
+target_spawn_point = &"FromCourt"
+required_flag = "temple_gate_open"
+locked_text = "Das Tor ist fest verschlossen. Die drei Vertiefungen in der Steintafel daneben warten auf etwas."
+
+[node name="Visual" parent="ToHall" index="0"]
+visible = false
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="ExitSouth" type="Area2D" parent="Exits"]
+position = Vector2(0, 274)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/ExitSouth"]
+shape = SubResource("Rect_800x16")
+
+[node name="FromSouth" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 236)
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, -60)
+
+[node name="Ruins" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Ruins"]
+position = Vector2(-333, -167)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ruins/P1"]
+texture = ExtResource("wp_world_props_desert_11")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ruins/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P2" type="StaticBody2D" parent="Ruins"]
+position = Vector2(-304, 109)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ruins/P2"]
+texture = ExtResource("wp_world_props_desert_13")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ruins/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P3" type="StaticBody2D" parent="Ruins"]
+position = Vector2(326, 210)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ruins/P3"]
+texture = ExtResource("wp_world_props_desert_12")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ruins/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_24x6")
+
+[node name="P5" type="StaticBody2D" parent="Ruins"]
+position = Vector2(-262, 56)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ruins/P5"]
+texture = ExtResource("wp_world_props_desert_0")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ruins/P5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_16x6")
+
+[node name="P6" type="StaticBody2D" parent="Ruins"]
+position = Vector2(362, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ruins/P6"]
+texture = ExtResource("wp_world_props_desert_11")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ruins/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P8" type="StaticBody2D" parent="Ruins"]
+position = Vector2(274, 206)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ruins/P8"]
+texture = ExtResource("wp_world_props_desert_12")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ruins/P8"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_24x6")
+
+[node name="P10" type="StaticBody2D" parent="Ruins"]
+position = Vector2(-238, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ruins/P10"]
+texture = ExtResource("wp_world_props_desert_0")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ruins/P10"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_16x6")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 236)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -400
+limit_top = -280
+limit_right = 400
+limit_bottom = 280
+
+[node name="HUD" parent="." instance=ExtResource("23_hud")]
+
+[node name="Sprite2D" parent="OldForge/Forge"]
+position = Vector2(-26, -53)
+texture = ExtResource("dst_forge")
+
+[node name="Sprite2D" parent="OldForge/Anvil"]
+position = Vector2(-15, -26)
+texture = ExtResource("dst_anvil")
+
+[node name="Sprite2D" parent="OldForge/WaterTrough"]
+position = Vector2(-14, -20)
+texture = ExtResource("dst_trough")
+
+[node name="Sprite2D" parent="OldForge/Workbench"]
+position = Vector2(-29, -34)
+texture = ExtResource("dst_bench")
+
+[connection signal="interacted" from="OldForge/Smelter" to="SmelterMenu" method="toggle"]
+[connection signal="player_left" from="OldForge/Smelter" to="SmelterMenu" method="close"]
+[connection signal="interacted" from="OldForge/Forge" to="ForgeMenu" method="toggle"]
+[connection signal="player_left" from="OldForge/Forge" to="ForgeMenu" method="close"]
+[connection signal="interacted" from="OldForge/Anvil" to="AnvilMenu" method="toggle"]
+[connection signal="player_left" from="OldForge/Anvil" to="AnvilMenu" method="close"]
+[connection signal="interacted" from="OldForge/WaterTrough" to="QuenchMenu" method="toggle"]
+[connection signal="player_left" from="OldForge/WaterTrough" to="QuenchMenu" method="close"]
+[connection signal="interacted" from="OldForge/Workbench" to="WorkbenchMenu" method="toggle"]
+[connection signal="player_left" from="OldForge/Workbench" to="WorkbenchMenu" method="close"]
+
+[editable path="ToHall"]
+[editable path="Player"]
+[editable path="OldForge/Forge"]
+[editable path="OldForge/Anvil"]
+[editable path="OldForge/WaterTrough"]
+[editable path="OldForge/Workbench"]

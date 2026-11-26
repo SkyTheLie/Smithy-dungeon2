@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory/item_slot.tscn" id="1_slot"]
+[ext_resource type="Script" path="res://scenes/ui/inventory/trash_slot.gd" id="2_trash"]
+
+[node name="TrashSlot" instance=ExtResource("1_slot")]
+script = ExtResource("2_trash")

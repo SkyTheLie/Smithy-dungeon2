@@ -1,0 +1,236 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_bunk_bed.png" id="4_bunk"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="5_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/guild_dorm.png" id="6_bg"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_stairs_down.png" id="7_stairs"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="8_light"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="9_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_chest.png" id="10_chest"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_barrels.png" id="11_barrels"]
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_top"]
+size = Vector2(352, 48)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_side"]
+size = Vector2(16, 360)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_bottom"]
+size = Vector2(352, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_rail"]
+size = Vector2(6, 56)
+
+[sub_resource type="RectangleShape2D" id="Shape_bunk"]
+size = Vector2(50, 10)
+
+[sub_resource type="RectangleShape2D" id="Shape_26x8"]
+size = Vector2(26, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_44x10"]
+size = Vector2(44, 10)
+
+[node name="GuildDorm" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("5_day_tint")
+strength = 0.5
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-176, -135)
+texture = ExtResource("6_bg")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -87)
+shape = SubResource("Shape_wall_top")
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-176, 0)
+shape = SubResource("Shape_wall_side")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(176, 0)
+shape = SubResource("Shape_wall_side")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 98)
+shape = SubResource("Shape_wall_bottom")
+
+[node name="Torches" type="Node2D" parent="."]
+
+[node name="TorchLeft" parent="Torches" instance=ExtResource("8_light")]
+position = Vector2(-76, -96)
+night_energy = 0.8
+texture_scale = 1.2
+
+[node name="TorchRight" parent="Torches" instance=ExtResource("8_light")]
+position = Vector2(68, -96)
+night_energy = 0.8
+texture_scale = 1.2
+
+[node name="Stairs" type="StaticBody2D" parent="."]
+position = Vector2(-138, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stairs"]
+z_index = -1
+texture = ExtResource("7_stairs")
+offset = Vector2(0, -29)
+
+[node name="RailLeft" type="CollisionShape2D" parent="Stairs"]
+position = Vector2(-21, -29)
+shape = SubResource("Shape_rail")
+
+[node name="RailRight" type="CollisionShape2D" parent="Stairs"]
+position = Vector2(21, -29)
+shape = SubResource("Shape_rail")
+
+[node name="DoorToHall" parent="Stairs" instance=ExtResource("2_door")]
+position = Vector2(0, -22)
+target_scene = "res://scenes/world/village/guild_hall.tscn"
+target_spawn_point = &"FromDorm"
+
+[node name="Visual" parent="Stairs/DoorToHall" index="0"]
+visible = false
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-138, 16)
+
+[node name="Beds" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Level1" type="Node2D" parent="Beds"]
+y_sort_enabled = true
+script = ExtResource("9_prop")
+required_flag = "guild_level_1"
+
+[node name="BunkA" type="StaticBody2D" parent="Beds/Level1"]
+position = Vector2(-70, -11)
+
+[node name="Sprite2D" type="Sprite2D" parent="Beds/Level1/BunkA"]
+texture = ExtResource("4_bunk")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beds/Level1/BunkA"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_bunk")
+
+[node name="BunkB" type="StaticBody2D" parent="Beds/Level1"]
+position = Vector2(-10, -11)
+
+[node name="Sprite2D" type="Sprite2D" parent="Beds/Level1/BunkB"]
+texture = ExtResource("4_bunk")
+flip_h = true
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beds/Level1/BunkB"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_bunk")
+
+[node name="Level2" type="Node2D" parent="Beds"]
+y_sort_enabled = true
+script = ExtResource("9_prop")
+required_flag = "guild_level_2"
+
+[node name="BunkC" type="StaticBody2D" parent="Beds/Level2"]
+position = Vector2(50, -11)
+
+[node name="Sprite2D" type="Sprite2D" parent="Beds/Level2/BunkC"]
+texture = ExtResource("4_bunk")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beds/Level2/BunkC"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_bunk")
+
+[node name="BunkD" type="StaticBody2D" parent="Beds/Level2"]
+position = Vector2(110, -11)
+
+[node name="Sprite2D" type="Sprite2D" parent="Beds/Level2/BunkD"]
+texture = ExtResource("4_bunk")
+flip_h = true
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beds/Level2/BunkD"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_bunk")
+
+[node name="Level3" type="Node2D" parent="Beds"]
+y_sort_enabled = true
+script = ExtResource("9_prop")
+required_flag = "guild_level_3"
+
+[node name="BunkE" type="StaticBody2D" parent="Beds/Level3"]
+position = Vector2(-40, 92)
+
+[node name="Sprite2D" type="Sprite2D" parent="Beds/Level3/BunkE"]
+texture = ExtResource("4_bunk")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beds/Level3/BunkE"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_bunk")
+
+[node name="BunkF" type="StaticBody2D" parent="Beds/Level3"]
+position = Vector2(80, 92)
+
+[node name="Sprite2D" type="Sprite2D" parent="Beds/Level3/BunkF"]
+texture = ExtResource("4_bunk")
+flip_h = true
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beds/Level3/BunkF"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_bunk")
+
+[node name="Chest" type="StaticBody2D" parent="."]
+position = Vector2(150, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Chest"]
+texture = ExtResource("10_chest")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_26x8")
+
+[node name="Barrels" type="StaticBody2D" parent="."]
+position = Vector2(-146, 92)
+
+[node name="Sprite2D" type="Sprite2D" parent="Barrels"]
+texture = ExtResource("11_barrels")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrels"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_44x10")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-138, 16)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[editable path="Stairs/DoorToHall"]
+[editable path="Player"]

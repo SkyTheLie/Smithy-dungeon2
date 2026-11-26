@@ -1,0 +1,339 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-debuff 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 1.png",
+   "frame": {
+    "x": 35,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 2.png",
+   "frame": {
+    "x": 70,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 3.png",
+   "frame": {
+    "x": 105,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 4.png",
+   "frame": {
+    "x": 0,
+    "y": 31,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 5.png",
+   "frame": {
+    "x": 35,
+    "y": 31,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 6.png",
+   "frame": {
+    "x": 70,
+    "y": 31,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 7.png",
+   "frame": {
+    "x": 105,
+    "y": 31,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 8.png",
+   "frame": {
+    "x": 0,
+    "y": 62,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 9.png",
+   "frame": {
+    "x": 35,
+    "y": 62,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 10.png",
+   "frame": {
+    "x": 70,
+    "y": 62,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-debuff 11.png",
+   "frame": {
+    "x": 105,
+    "y": 62,
+    "w": 35,
+    "h": 31
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 31
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 31
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.8387096774193549
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-debuff.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 140,
+   "h": 93
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 17,
+   "y": 26
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-debuff",
+    "from": 0,
+    "to": 11,
+    "direction": "forward"
+   }
+  ]
+ }
+}

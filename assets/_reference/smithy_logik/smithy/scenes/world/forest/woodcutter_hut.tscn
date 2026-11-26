@@ -1,0 +1,124 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/hut_interior.png" id="4_background"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/fireplace.png" id="5_fireplace"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/firewood.png" id="6_firewood"]
+[ext_resource type="Texture2D" path="res://assets/sprites/residents/woodcutter.png" id="7_woodcutter"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="8_day_tint"]
+[ext_resource type="PackedScene" path="res://scenes/actors/quest_npc.tscn" id="9_quest_npc"]
+[ext_resource type="Resource" path="res://data/quests/woodcutter_axe.tres" id="10_quest"]
+[ext_resource type="Resource" path="res://data/quests/woodcutter_iron_axe.tres" id="11_iron_quest"]
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="12_quest_data"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal"]
+size = Vector2(187, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical"]
+size = Vector2(16, 149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fireplace"]
+size = Vector2(30, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_firewood"]
+size = Vector2(24, 6)
+
+[node name="WoodcutterHut" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-85, -74)
+texture = ExtResource("4_background")
+centered = false
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("8_day_tint")
+strength = 0.6
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="TopCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -34)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="BottomCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 75)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-85, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="RightCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(85, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Fireplace" type="StaticBody2D" parent="."]
+position = Vector2(44, -18)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fireplace"]
+position = Vector2(-24, -41)
+texture = ExtResource("5_fireplace")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fireplace"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_fireplace")
+
+[node name="Firewood" type="StaticBody2D" parent="."]
+position = Vector2(-56, -12)
+
+[node name="Sprite2D" type="Sprite2D" parent="Firewood"]
+position = Vector2(-16, -21)
+texture = ExtResource("6_firewood")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Firewood"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_firewood")
+
+[node name="Woodcutter" parent="." instance=ExtResource("9_quest_npc")]
+position = Vector2(-10, 18)
+required_flag = "axe_quest_accepted"
+npc_name = "Holger"
+sprite = ExtResource("7_woodcutter")
+greeting = "Na, Schmied? Das Holz liegt jeden Morgen in deiner Loot-Kiste."
+quest = ExtResource("10_quest")
+follow_up_quests = Array[ExtResource("12_quest_data")]([ExtResource("11_iron_quest")])
+
+[node name="DoorToForest" parent="." instance=ExtResource("2_door")]
+position = Vector2(1, 71)
+target_scene = "res://scenes/world/forest/forest_entrance.tscn"
+target_spawn_point = &"FromHut"
+
+[node name="Visual" parent="DoorToForest" index="0"]
+visible = false
+
+[node name="FromForest" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(1, 50)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(1, 50)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[editable path="DoorToForest"]
+[editable path="Player"]

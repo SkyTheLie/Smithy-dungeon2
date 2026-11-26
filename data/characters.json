@@ -1,0 +1,8 @@
+{
+	"_info": "Spielbare Charaktere (Auswahl bei „Neues Spiel“). hearts = Start-Herzen, start_items = Items, mit denen der Run beginnt (die Hauptwaffe ist ein ganz normales Item und kombiniert sich mit anderen). stats/flags wie bei Items gehen auch (gelten den ganzen Run). unlock wie bei Items (fehlt = von Anfang an da). Reihenfolge = Reihenfolge im Fenster.",
+	"characters": {
+		"magier": {"name": "Magier", "desc": "Schießt Feuerbälle", "icon": "res://assets/sprites/skills/fireball.png", "hearts": 3, "start_items": ["glutstab"]},
+		"bogenschuetze": {"name": "Bogenschütze", "desc": "Pfeile aufladen und loslassen: weit und stark", "icon": "res://assets/sprites/skills/aimed_shot.png", "hearts": 3, "start_items": ["jagdbogen"], "unlock": {"type": "wins", "count": 1}},
+		"krieger": {"name": "Krieger", "desc": "Schwertschwung: kurze Reichweite, trifft mehrere Gegner", "icon": "res://assets/sprites/skills/sword_strike.png", "hearts": 4, "start_items": ["kriegerschwert"], "unlock": {"type": "best", "key": "floor", "count": 3}}
+	}
+}

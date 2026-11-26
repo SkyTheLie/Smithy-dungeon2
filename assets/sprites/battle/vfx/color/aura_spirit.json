@@ -1,0 +1,441 @@
+{
+ "frames": [
+  {
+   "filename": "aura_spirit 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 1.png",
+   "frame": {
+    "x": 27,
+    "y": 0,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 2.png",
+   "frame": {
+    "x": 54,
+    "y": 0,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 3.png",
+   "frame": {
+    "x": 81,
+    "y": 0,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 4.png",
+   "frame": {
+    "x": 108,
+    "y": 0,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 5.png",
+   "frame": {
+    "x": 0,
+    "y": 14,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 6.png",
+   "frame": {
+    "x": 27,
+    "y": 14,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 7.png",
+   "frame": {
+    "x": 54,
+    "y": 14,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 8.png",
+   "frame": {
+    "x": 81,
+    "y": 14,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 9.png",
+   "frame": {
+    "x": 108,
+    "y": 14,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 10.png",
+   "frame": {
+    "x": 0,
+    "y": 28,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 11.png",
+   "frame": {
+    "x": 27,
+    "y": 28,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 12.png",
+   "frame": {
+    "x": 54,
+    "y": 28,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 13.png",
+   "frame": {
+    "x": 81,
+    "y": 28,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 14.png",
+   "frame": {
+    "x": 108,
+    "y": 28,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 15.png",
+   "frame": {
+    "x": 0,
+    "y": 42,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 16.png",
+   "frame": {
+    "x": 27,
+    "y": 42,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 17.png",
+   "frame": {
+    "x": 54,
+    "y": 42,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 18.png",
+   "frame": {
+    "x": 81,
+    "y": 42,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 19.png",
+   "frame": {
+    "x": 108,
+    "y": 42,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 20.png",
+   "frame": {
+    "x": 0,
+    "y": 56,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 21.png",
+   "frame": {
+    "x": 27,
+    "y": 56,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 22.png",
+   "frame": {
+    "x": 54,
+    "y": 56,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_spirit 23.png",
+   "frame": {
+    "x": 81,
+    "y": 56,
+    "w": 27,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 27,
+    "h": 14
+   },
+   "pivot": {
+    "x": 0.48148148148148145,
+    "y": 1.9285714285714286
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "behind"
+ }
+}

@@ -1,0 +1,339 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-erd-einschlag 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 1.png",
+   "frame": {
+    "x": 38,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 2.png",
+   "frame": {
+    "x": 76,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 3.png",
+   "frame": {
+    "x": 114,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 4.png",
+   "frame": {
+    "x": 0,
+    "y": 34,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 5.png",
+   "frame": {
+    "x": 38,
+    "y": 34,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 6.png",
+   "frame": {
+    "x": 76,
+    "y": 34,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 7.png",
+   "frame": {
+    "x": 114,
+    "y": 34,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 8.png",
+   "frame": {
+    "x": 0,
+    "y": 68,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 9.png",
+   "frame": {
+    "x": 38,
+    "y": 68,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 10.png",
+   "frame": {
+    "x": 76,
+    "y": 68,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-erd-einschlag 11.png",
+   "frame": {
+    "x": 114,
+    "y": 68,
+    "w": 38,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 38,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 38,
+    "h": 34
+   },
+   "pivot": {
+    "x": 0.39473684210526316,
+    "y": 0.29411764705882354
+   },
+   "duration": 71
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-erd-einschlag.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 152,
+   "h": 102
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 15,
+   "y": 10
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-erd-einschlag",
+    "from": 0,
+    "to": 11,
+    "direction": "forward"
+   }
+  ]
+ }
+}

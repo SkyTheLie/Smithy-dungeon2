@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HeroClass" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/hero_class.gd" id="1_class"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/skill_trees/paladin.png" id="2_tree"]
+
+[resource]
+script = ExtResource("1_class")
+id = &"paladin"
+display_name = "Paladin"
+color = Color(0.98, 0.8, 0.32, 1)
+description = "Heiliger Kämpfer mit Hammer und Schild: hält Schaden aus, schützt die Gruppe und straft mit Licht."
+skill_ids = Array[String]([])
+skill_background = ExtResource("2_tree")
+attribute_bonuses = {2: 2, 5: 1}

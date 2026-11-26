@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/furniture_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+
+[node name="FurnitureMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+title = "Einrichtung"
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 40.0
+offset_right = 90.0
+offset_bottom = 160.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("90_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 6
+
+[node name="PickButton" type="Button" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Möbel wegräumen"
+
+[node name="StatusLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+autowrap_mode = 3

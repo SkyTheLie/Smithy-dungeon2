@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="1_story_npc"]
+[ext_resource type="Script" path="res://scenes/actors/builder_npc.gd" id="2_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/house_menu.tscn" id="4_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/workshop_upgrade_menu.tscn" id="5_workshop"]
+
+[node name="BuilderNpc" instance=ExtResource("1_story_npc")]
+script = ExtResource("2_script")
+npc_id = "builder"
+resident = "builder"
+
+[node name="HouseMenu" parent="." instance=ExtResource("4_menu")]
+
+[node name="WorkshopUpgradeMenu" parent="." instance=ExtResource("5_workshop")]

@@ -1,0 +1,292 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/minigames/poker_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="2_title_bar"]
+[ext_resource type="PackedScene" path="res://scenes/ui/minigames/playing_card.tscn" id="3_card"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/slot/coin.png" id="4_coin"]
+
+[sub_resource type="StyleBoxFlat" id="Felt"]
+bg_color = Color(0.13, 0.3, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.36, 0.22, 0.12, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+
+[node name="PokerMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+title = "Pokertisch"
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 350.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("2_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InfoRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="Panel/VBox/InfoRow"]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinsLabel" type="Label" parent="Panel/VBox/InfoRow"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BlindsLabel" type="Label" parent="Panel/VBox/InfoRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+
+[node name="Table" type="PanelContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("Felt")
+
+[node name="Rows" type="VBoxContainer" parent="Panel/VBox/Table"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Seat2" type="VBoxContainer" parent="Panel/VBox/Table/Rows"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 1
+
+[node name="Name" type="Label" parent="Panel/VBox/Table/Rows/Seat2"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Cards" type="HBoxContainer" parent="Panel/VBox/Table/Rows/Seat2"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Card1" parent="Panel/VBox/Table/Rows/Seat2/Cards" instance=ExtResource("3_card")]
+layout_mode = 2
+small = true
+
+[node name="Card2" parent="Panel/VBox/Table/Rows/Seat2/Cards" instance=ExtResource("3_card")]
+layout_mode = 2
+small = true
+
+[node name="Status" type="Label" parent="Panel/VBox/Table/Rows/Seat2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.8, 1)
+horizontal_alignment = 1
+
+[node name="Middle" type="HBoxContainer" parent="Panel/VBox/Table/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Seat1" type="VBoxContainer" parent="Panel/VBox/Table/Rows/Middle"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 1
+
+[node name="Name" type="Label" parent="Panel/VBox/Table/Rows/Middle/Seat1"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Cards" type="HBoxContainer" parent="Panel/VBox/Table/Rows/Middle/Seat1"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Card1" parent="Panel/VBox/Table/Rows/Middle/Seat1/Cards" instance=ExtResource("3_card")]
+layout_mode = 2
+small = true
+
+[node name="Card2" parent="Panel/VBox/Table/Rows/Middle/Seat1/Cards" instance=ExtResource("3_card")]
+layout_mode = 2
+small = true
+
+[node name="Status" type="Label" parent="Panel/VBox/Table/Rows/Middle/Seat1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.8, 1)
+horizontal_alignment = 1
+
+[node name="Center" type="VBoxContainer" parent="Panel/VBox/Table/Rows/Middle"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="TableCards" type="HBoxContainer" parent="Panel/VBox/Table/Rows/Middle/Center"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Table1" parent="Panel/VBox/Table/Rows/Middle/Center/TableCards" instance=ExtResource("3_card")]
+layout_mode = 2
+
+[node name="Table2" parent="Panel/VBox/Table/Rows/Middle/Center/TableCards" instance=ExtResource("3_card")]
+layout_mode = 2
+
+[node name="Table3" parent="Panel/VBox/Table/Rows/Middle/Center/TableCards" instance=ExtResource("3_card")]
+layout_mode = 2
+
+[node name="Table4" parent="Panel/VBox/Table/Rows/Middle/Center/TableCards" instance=ExtResource("3_card")]
+layout_mode = 2
+
+[node name="Table5" parent="Panel/VBox/Table/Rows/Middle/Center/TableCards" instance=ExtResource("3_card")]
+layout_mode = 2
+
+[node name="PotLabel" type="Label" parent="Panel/VBox/Table/Rows/Middle/Center"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.8, 0.5, 1)
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Seat3" type="VBoxContainer" parent="Panel/VBox/Table/Rows/Middle"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 1
+
+[node name="Name" type="Label" parent="Panel/VBox/Table/Rows/Middle/Seat3"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Cards" type="HBoxContainer" parent="Panel/VBox/Table/Rows/Middle/Seat3"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Card1" parent="Panel/VBox/Table/Rows/Middle/Seat3/Cards" instance=ExtResource("3_card")]
+layout_mode = 2
+small = true
+
+[node name="Card2" parent="Panel/VBox/Table/Rows/Middle/Seat3/Cards" instance=ExtResource("3_card")]
+layout_mode = 2
+small = true
+
+[node name="Status" type="Label" parent="Panel/VBox/Table/Rows/Middle/Seat3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.8, 1)
+horizontal_alignment = 1
+
+[node name="Seat0" type="VBoxContainer" parent="Panel/VBox/Table/Rows"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 1
+
+[node name="Name" type="Label" parent="Panel/VBox/Table/Rows/Seat0"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Cards" type="HBoxContainer" parent="Panel/VBox/Table/Rows/Seat0"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Card1" parent="Panel/VBox/Table/Rows/Seat0/Cards" instance=ExtResource("3_card")]
+layout_mode = 2
+
+[node name="Card2" parent="Panel/VBox/Table/Rows/Seat0/Cards" instance=ExtResource("3_card")]
+layout_mode = 2
+
+[node name="Status" type="Label" parent="Panel/VBox/Table/Rows/Seat0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.8, 1)
+horizontal_alignment = 1
+
+[node name="HandLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="ActionRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="FoldButton" type="Button" parent="Panel/VBox/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+focus_mode = 0
+text = "Aussteigen"
+
+[node name="CallButton" type="Button" parent="Panel/VBox/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+focus_mode = 0
+text = "Mitgehen"
+
+[node name="RaiseButton" type="Button" parent="Panel/VBox/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+focus_mode = 0
+text = "Erhöhen"
+
+[node name="ResultLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="StartRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="BlindsText" type="Label" parent="Panel/VBox/StartRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+text = "Blinds:"
+
+[node name="Blinds" type="HBoxContainer" parent="Panel/VBox/StartRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="PlayButton" type="Button" parent="Panel/VBox/StartRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+focus_mode = 0
+text = "Spielen"

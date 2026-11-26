@@ -1,0 +1,287 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-reinigung-weiss 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.46153846153846156,
+    "y": 0.6206896551724138
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-reinigung-weiss 1.png",
+   "frame": {
+    "x": 26,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.46153846153846156,
+    "y": 0.6206896551724138
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-reinigung-weiss 2.png",
+   "frame": {
+    "x": 52,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.46153846153846156,
+    "y": 0.6206896551724138
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-reinigung-weiss 3.png",
+   "frame": {
+    "x": 78,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.46153846153846156,
+    "y": 0.6206896551724138
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-reinigung-weiss 4.png",
+   "frame": {
+    "x": 0,
+    "y": 29,
+    "w": 26,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.46153846153846156,
+    "y": 0.6206896551724138
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-reinigung-weiss 5.png",
+   "frame": {
+    "x": 26,
+    "y": 29,
+    "w": 26,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.46153846153846156,
+    "y": 0.6206896551724138
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-reinigung-weiss 6.png",
+   "frame": {
+    "x": 52,
+    "y": 29,
+    "w": 26,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.46153846153846156,
+    "y": 0.6206896551724138
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-reinigung-weiss 7.png",
+   "frame": {
+    "x": 78,
+    "y": 29,
+    "w": 26,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.46153846153846156,
+    "y": 0.6206896551724138
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-reinigung-weiss 8.png",
+   "frame": {
+    "x": 0,
+    "y": 58,
+    "w": 26,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.46153846153846156,
+    "y": 0.6206896551724138
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-reinigung-weiss 9.png",
+   "frame": {
+    "x": 26,
+    "y": 58,
+    "w": 26,
+    "h": 29
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 29
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 29
+   },
+   "pivot": {
+    "x": 0.46153846153846156,
+    "y": 0.6206896551724138
+   },
+   "duration": 67
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-reinigung-weiss.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 104,
+   "h": 87
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 12,
+   "y": 18
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-reinigung-weiss",
+    "from": 0,
+    "to": 9,
+    "direction": "forward"
+   }
+  ]
+ }
+}

@@ -1,0 +1,443 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 1.png",
+   "frame": {
+    "x": 35,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 2.png",
+   "frame": {
+    "x": 70,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 3.png",
+   "frame": {
+    "x": 105,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 4.png",
+   "frame": {
+    "x": 0,
+    "y": 49,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 5.png",
+   "frame": {
+    "x": 35,
+    "y": 49,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 6.png",
+   "frame": {
+    "x": 70,
+    "y": 49,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 7.png",
+   "frame": {
+    "x": 105,
+    "y": 49,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 8.png",
+   "frame": {
+    "x": 0,
+    "y": 98,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 9.png",
+   "frame": {
+    "x": 35,
+    "y": 98,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 10.png",
+   "frame": {
+    "x": 70,
+    "y": 98,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 11.png",
+   "frame": {
+    "x": 105,
+    "y": 98,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 12.png",
+   "frame": {
+    "x": 0,
+    "y": 147,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 13.png",
+   "frame": {
+    "x": 35,
+    "y": 147,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 14.png",
+   "frame": {
+    "x": 70,
+    "y": 147,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-giftwolke 15.png",
+   "frame": {
+    "x": 105,
+    "y": 147,
+    "w": 35,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.4857142857142857,
+    "y": 0.6122448979591837
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-flaeche-giftwolke.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 140,
+   "h": 196
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 17,
+   "y": 30
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-flaeche-giftwolke",
+    "from": 0,
+    "to": 15,
+    "direction": "forward"
+   }
+  ]
+ }
+}

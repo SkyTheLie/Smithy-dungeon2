@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/settings_window.gd" id="1_settings"]
+
+[node name="SettingsWindow" type="PanelContainer"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -105.0
+offset_right = 130.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_settings")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 22
+text = "Einstellungen"
+horizontal_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Lautstärke"
+
+[node name="Master" type="HSlider" parent="VBox/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="MusicLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Musik"
+
+[node name="Music" type="HSlider" parent="VBox/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SoundsLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Effekte"
+
+[node name="Sounds" type="HSlider" parent="VBox/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="MouseLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Maus"
+
+[node name="Mouse" type="HSlider" parent="VBox/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Fullscreen" type="CheckButton" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Vollbild"
+
+[node name="Language" type="Button" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Sprache"
+
+[node name="Close" type="Button" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Schließen"

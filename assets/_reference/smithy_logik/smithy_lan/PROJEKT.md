@@ -1,0 +1,180 @@
+# PROJEKT.md – Smithy
+
+> Diese Datei gehört in den Wurzelordner des Godot-Projekts. Sie wird jedem neuen KI-Chat bzw. jeder Claude-Code-Sitzung als Kontext mitgegeben (bei Claude Code kann sie zusätzlich als `CLAUDE.md` abgelegt oder von dort verlinkt werden).
+> Nach jedem abgeschlossenen Schritt aktualisieren: `docs/UEBERBLICK.md` (nur Name neuer Systeme), `docs/SYSTEME.md` (Kurzfassung oben + Details), Abschnitt 8 und `docs/ENTSCHEIDUNGEN.md` (neue Entscheidungen), `docs/PROBLEME.md` (bekannte Probleme).
+> Diese Datei kurz halten – sie wird bei jeder KI-Anfrage komplett mitgeschickt. Details gehören nach `docs/`. Abschnitt 8: nur die aktuelle Aufgabe und höchstens 5 Test-Einträge, Älteres nach `docs/VERLAUF.md`. Ordnerbaum und die Liste „Fertige Systeme“ stehen in `docs/UEBERBLICK.md`.
+
+---
+
+## 1. Projekt in Kürze
+
+- **Titel:** Smithy (Arbeitstitel)
+- **Was:** 2D-Pixel-Art-Schmiedespiel. Der Spieler ist ein Schmied in einem Dorf, schmiedet Waffen, Rüstungen und Zubehör, nimmt Aufträge an, zahlt Miete und schickt angeheuerte Helden in Dungeons.
+- **Plattform:** PC, zunächst Windows. Einzelspieler.
+- **Entwicklung:** Zu zweit (Informatikstudent als Hauptentwickler, **Anfänger in Spieleentwicklung und Godot**, plus ein Mitentwickler), ca. 10 Stunden pro Woche, mit KI-Unterstützung (Claude Code).
+- **Ausführliches Design:** siehe GDD (Game Design Document). Bei Widersprüchen gilt das GDD.
+- **Erfolgskriterium:** Eine andere Person kann das Spiel starten, verstehen und spielen.
+
+## 2. Technik
+
+- **Engine:** Godot 4.x (aktuelle stabile Version, Standard-Version, nicht .NET)
+- **Sprache:** GDScript (statisch typisiert)
+- **Renderer / Ansicht:** 2D, Pixel Art, Top-Down (entschieden, siehe Abschnitt 8); Basisauflösung 640×360, Stretch-Modus `canvas_items` (nicht ganzzahlig, wegen `HiResTexture` und 1600×900), Renderer GL Compatibility
+- **Daten:** Items, Materialien, Rezepte, Status-Effekte, Skills, Skillbäume, Beschwörungen, Gegner, Dungeons, Kampf-Formeln und Schmiede-Muster als JSON in `data/content/` (inkl. Sockel-Boni `sockets.json`; Anleitung: `docs/CONTENT.md`), übrige Daten (Aufträge, Steine, Helden, Klassen, Teleport-Ziele …) als Godot-Resources (`.tres`) – nie im Code hartkodiert
+- **Speichern:** Spielstand als Datei im Nutzerverzeichnis (`user://`), mehrere Speicherplätze
+- **Versionsverwaltung:** Git + GitHub (`SkyTheLie/Smithy`), Arbeit auf Branches, siehe Abschnitt 4a. Zu zweit entwickelt.
+- **Export:** Windows
+
+## 3. Ordnerstruktur
+
+```
+res://
+├── assets/        # audio/, fonts/, ui/ (Theme), sprites/ (alle Spielgrafiken), _reference/ (NICHT im Spiel: Tests, Back-Skripte, Vorlagen)
+├── data/          # content/ (JSON: Items, Rezepte, Gegner, Dungeons, Story …), dazu .tres: quests/, heroes/, hero_classes/, rocks/, destinations/, player_skills/
+├── docs/          # Doku (Liste: docs/UEBERBLICK.md)
+├── locale/        # Übersetzungen <sprache>.po (docs/SPRACHEN.md)
+├── scenes/        # actors/, stations/, ui/ (hud, menus, heroes, minigames …), story/, world/ (eine Karte je Szene, nach Gebiet)
+├── scripts/       # core/ (Autoloads Events, GameState und AudioManager, ContentDB, SaveData, DevTools, Language), resources/ (Resource-Klassen), systems/ (Logik ohne Szene)
+├── CLAUDE.md      # lädt PROJEKT.md und docs/FEHLERKLASSEN.md in jede Sitzung
+└── PROJEKT.md
+```
+
+Der vollständige Ordnerbaum mit Beschreibung jedes Ordners und die Liste aller Doku-Dateien stehen in `docs/UEBERBLICK.md` (bei Bedarf lesen; neue Ordner und Doku-Dateien dort eintragen).
+
+**Regeln:**
+
+- Skripte, die zu genau einer Szene gehören, liegen direkt neben ihrer Szene (z. B. `scenes/actors/player.gd`). `scripts/` ist für szenenunabhängigen Code (Autoloads, Systeme, Resource-Klassen).
+- Alles, was nicht ins Spiel gehört (Entwürfe, KI-Bilder, Rohdaten), kommt nach `assets/_reference/`. Die Datei `.gdignore` dort sorgt dafür, dass Godot den Ordner nicht importiert.
+- Dateien möglichst im Godot-Editor verschieben/umbenennen (FileSystem-Dock), damit Verweise automatisch angepasst werden.
+
+## 4. Konventionen
+
+- **Dateien und Ordner:** `snake_case` (`iron_sword.tres`, `forge_station.tscn`)
+- **Klassen (`class_name`):** `PascalCase` (`ItemData`)
+- **Variablen und Funktionen:** `snake_case`, Konstanten `GROSSBUCHSTABEN`
+- **Signale:** Vergangenheitsform, z. B. `item_crafted`, `rent_paid`
+- **Sprache im Code:** Bezeichner und Kommentare auf **Englisch** (festgelegt). Spieltexte werden auf Deutsch geschrieben (der deutsche Text ist der Schlüssel) und über `locale/<sprache>.po` übersetzt; jeder sichtbare Text läuft durch `Language.translate` (`docs/SPRACHEN.md`). Das Spiel startet ohne gewählte Sprache auf Englisch.
+- **Statische Typisierung:** `var gold: int = 0`, `func add_item(item: ItemData) -> void:`
+- **Grafiken für zusammengesetzte Items (Baukasten):** Alle Teile einer Waffenart (z. B. Klinge, Griff eines Schwerts) werden auf **derselben Leinwand** gezeichnet (Item-Icons: 24×24 px), jedes Teil an der Stelle, an der es im fertigen Item sitzt, der Rest transparent. Das fertige Icon entsteht automatisch durch Übereinanderlegen (`ItemIcons.compose`, Reihenfolge über `layer_order`, höher = oben). Fertige Kombinationen werden **nicht** gezeichnet. Tipp: In Aseprite eine Vorlage mit einer Ebene pro Teil anlegen und jede Ebene einzeln exportieren.
+- **Kommunikation zwischen Systemen:** über Signale bzw. einen zentralen Event-Bus, keine festen Pfadabhängigkeiten zwischen weit entfernten Nodes.
+
+## 4a. Zusammenarbeit mit Git (Branches)
+
+Wir arbeiten zu zweit. `main` ist der stabile Stand und muss immer starten und spielbar sein. **Niemand committet direkt auf `main`.**
+
+**Ablauf pro Aufgabe:**
+
+1. Aktuellen Stand holen: `git switch main` und `git pull`.
+2. Eigenen Branch anlegen: `git switch -c feature/kurze-beschreibung` (Fehlerbehebung: `fix/...`, nur Doku: `docs/...`). Namen klein, mit Bindestrichen, z. B. `feature/spitzhacken`.
+3. In kleinen Schritten committen, jeder Commit lauffähig. Commit-Nachricht kurz auf Deutsch: was und warum.
+4. Branch hochladen: `git push -u origin feature/kurze-beschreibung`.
+5. Auf GitHub einen **Pull Request** nach `main` öffnen. Der andere schaut drüber und testet kurz.
+6. Mergen (am besten „Squash and merge“), danach Branch löschen und lokal wieder bei Schritt 1 anfangen.
+
+**Godot-spezifisch:**
+
+- Nicht gleichzeitig dieselbe Szene (`.tscn`) bearbeiten. Konflikte in Szenen sind schwer aufzulösen. Vorher absprechen, wer welche Szene anfasst.
+- `.uid`- und `.import`-Dateien mit committen, den Ordner `.godot/` nicht (steht in `.gitignore`).
+- Vor dem Branch-Wechsel Godot-Szenen speichern oder schließen; nach dem Wechsel/Pull Godot das Projekt neu einlesen lassen.
+- Bei Merge-Konflikten in `PROJEKT.md` beide Änderungen übernehmen.
+
+## 5. Regeln für die KI
+
+1. **Godot 4 / GDScript 2.0.** Keine Godot-3-Syntax (z. B. kein `onready var` ohne `@`, kein `yield`, kein `KinematicBody2D`). Im Zweifel nachfragen oder die Version nennen.
+2. **Kleine Schritte.** Immer nur die aktuelle Aufgabe umsetzen. Keine zusätzlichen Features einbauen, die nicht angefragt wurden.
+3. **Erklären.** Kurz sagen, was der Code macht und welche Nodes bzw. Szenen angelegt werden müssen. Der Entwickler ist Anfänger in Godot, aber kann programmieren.
+4. **Vollständig und lauffähig.** Vollständigen Code liefern, keine Platzhalter wie `# hier Code einfügen`. Angeben, in welche Datei er gehört.
+5. **Szenenaufbau beschreiben.** Bei Szenen die Node-Hierarchie als Baum angeben, inklusive Node-Typen und benötigter Einstellungen.
+6. **Daten statt Code.** Items, Rezepte und Aufträge als Daten, damit neue Inhalte ohne Codeänderung möglich sind.
+7. **Bestehenden Code respektieren.** Vor Änderungen die vorhandenen Dateien lesen. Keine großen Umbauten ohne Rückfrage.
+8. **Fehlersuche.** Bei Fehlermeldungen zuerst die Ursache erklären, dann die Lösung. Bei Unsicherheit nachfragen statt raten.
+9. **Scope im Blick behalten.** Version-1-Umfang aus Abschnitt 6 gilt. Ideen für später in den Backlog, nicht sofort bauen.
+10. **Nach jeder Aufgabe:** kurz sagen, was getestet werden sollte, und die Doku aktualisieren: Details in `docs/SYSTEME.md`, Entscheidungen in `docs/ENTSCHEIDUNGEN.md`, bekannte Probleme in `docs/PROBLEME.md`, neue System-Namen in `docs/UEBERBLICK.md`, hier nur die aktuelle Aufgabe (8, ältere Test-Anleitungen nach `docs/VERLAUF.md`).
+11. **Git:** Vor jeder neuen Aufgabe einen Branch von aktuellem `main` anlegen (Abschnitt 4a). Nie direkt auf `main` committen, nicht ungefragt pushen oder mergen.
+12. **Tests:** Logik headless testen; keine Screenshots, außer der Entwickler meldet einen Fehler, der sich aus seiner Beschreibung nicht beheben lässt. Tests immer über `bash assets/_reference/run_tests.sh` starten (Claude-Skill `run-tests`, Anleitung `.claude/skills/run-tests/SKILL.md`): ohne Argumente laufen nur die Tests, die zu den Änderungen des Branches passen, plus ein Kompilier-Check; Ordner/Gruppen gezielt wählbar. Nie ungefragt alle Tests (`all`) laufen lassen, keine Test-Skripte einzeln mit Godot starten.
+13. **Grafiken und Karten:** Neue Karten im Stil von Schmiedeplatz, Marktplatz und Dorfplatz. Jede Lichtquelle leuchtet im Dunkeln (`NightLight`). Die Kamera bleibt am Kartenrand stehen (`limit_*` am `Camera2D` des Spielers), die Figur läuft dort gegen die Wand – die Leere außerhalb der Karte darf nie zu sehen sein. Vor jeder neuen Grafik in `docs/ASSET_KATALOG.md` nachsehen und Vorhandenes wiederverwenden – außer Häuser und Figuren: die immer neu erzeugen, keine zwei dürfen gleich aussehen. Neue Grafiken im Katalog eintragen. Referenzbilder nur beschreiben, nie hochladen. Jeder neue Platzhalter (Skript, umgefärbt, Standard-Bild) kommt in `docs/PIXELLAB_TODO.md`; was dort mit PixelLab erledigt ist, wird gelöscht.
+14. **Fehler nicht wiederholen:** Die Regeln in `docs/FEHLERKLASSEN.md` gelten für jede Aufgabe. Nach jeder Fehlerbehebung dort unter „Ursachen“ eine Zeile eintragen (Ursache + Regel-Nummer, oder eine neue Regel).
+
+## 6. Umfang Version 1 (Vertical Slice)
+
+> Stand 2026-11: Dies ist der ursprüngliche Plan. Das Spiel ist längst darüber hinaus (Story Teil 1–8, 52 Dungeons, Verzaubern, Zauberstäbe, Handel …); was gebaut ist, steht in `docs/UEBERBLICK.md`. Für neue Aufgaben gilt: nur bauen, was angefragt ist.
+
+**Enthalten:**
+
+- Spielfigur, kleines Dorf, Schmiede
+- Inventar, Geld, Miete
+- Ein kompletter Schmiedeablauf: Erz → Barren → Waffe (Rezept wählen → Form gießen → Amboss-Minispiel → im Wasser abkühlen → am Arbeitstisch zusammenbauen)
+- Brennstoff: Holz (1× schmieden), optional Steinkohle (5×)
+- Erze: Kupfer, Eisen, Silber (Vorschlag)
+- ca. 5–8 Gegenstände, ca. 5–10 Aufträge
+- Story-Einstieg: Schmiede mieten, Holzfäller (Holzaxt gratis, danach 1 Holz pro Tag), Betrunkener als erster Held
+- Ein Held, ein Dungeon (vereinfacht, läuft automatisch ab, Ergebnis nach Zeit)
+- Leveln, Rezepte freischalten
+- Speichern und Laden
+- Grundlegende Soundeffekte, einfache Hintergrundmusik
+
+**Nicht in Version 1 (Backlog):** Legieren (neu erhitzen → Öl → neu erhitzen → Wasser), Klingen schärfen, Verzaubern, Ausrüstung der Schmiede aufwerten/kaufen (Hammer, Ofen, Amboss), Handel, Dorfausbau, Feuerorb (20 Schmiedevorgänge, mit Magie auffüllbar), Zauberstäbe und Elementmagie, Bögen mit Pfeilarten, Zusatzstationen (Leder, Bogensehnen, Pflanzen), weitere Dungeons, Konkurrenz-Schmiede, Multiplayer, große offene Welt. Status jeder Idee: siehe `ideen.txt`.
+
+## 7. Fortschritt
+
+Roadmap-Phasen (Status bei Abschluss eintragen):
+
+| Phase | Inhalt | Status |
+|---|---|---|
+| 0 | Vorbereitung: Godot, Git, Tutorial, PROJEKT.md | erledigt |
+| 1 | Spielerfigur und Welt (Bewegung, Kamera, Tilemap) | erledigt (2026-10-13; Schmiede, Mine und Mine-Eingang komplett mit Grafik, Teile des Dorfs noch Platzhalter-Blöcke) |
+| 2 | Datenbasis: Items, Rezepte, Inventar | erledigt (2026-10-13) |
+| 3 | Schmiede-Kern: Schmelzen, Amboss, Minispiel, Waffe | umgesetzt inkl. Abkühlen (kompletter Ablauf), Test ausstehend |
+| 4 | Wirtschaft: Kunden, Aufträge, Geld, Miete, Level | teilweise: Tageszeit, Spieler-Level/Skills, Aufträge, Kunden, Ruf, Miete, Händler, Ninas Laden |
+| 5 | Held und Dungeon (vereinfacht) | umgesetzt (2026-10-13): Gilde, Ausrüstung, Level 1–100, Skillbäume für 6 Klassen, Idle-Kampf mit Skills |
+| 6 | Speichern/Laden, Menü, Tutorial, Sound, echte Grafik | teilweise: Hauptmenü, Story komplett: Teil 1–8 (Teil 3–8 mit Platzhalter-Grafik), Kalender, Speichern/Laden, Grafiken, selbst erzeugte Geräusche mit 5 Lautstärke-Reglern; Tutorial und eigene Musik offen |
+| 7 | Playtest und Veröffentlichung | offen |
+
+**Fertige Systeme:** Die Liste aller Namen steht in `docs/UEBERBLICK.md` (neue Namen dort hinten anhängen).
+
+Kurzbeschreibung jedes Systems: `docs/SYSTEME.md` (oben, „Kurzfassung“), Details darunter, JSON-Felder: `docs/CONTENT.md`.
+
+## 8. Aktuelle Aufgabe und Entscheidungen
+
+**Aktuelle Aufgabe:** LAN-Prototyp (2026-11-13, Branch `feature/lan-multiplayer`): zwei Spieler auf einer Karte. Zwei Fenster auf einem PC: Godot » Debug » „Run Multiple Instances“ » 2 (oder zweiter PC im selben Netz). Fenster 1: Spielstand laden, P » Reiter „LAN“ » „Spiel hosten“ (Windows-Firewall: private Netzwerke erlauben). Fenster 2: Hauptmenü » „LAN“: das Spiel steht in der Liste (Name – IP), anklicken; sonst IP eintippen (auf einem PC `127.0.0.1`) » „Beitreten“. Der Gast startet neben dem Host auf derselben Karte, mit eigenem Aussehen und Namen (aus seinem neuesten Spielstand), beide sehen sich laufen (Name über dem Kopf). Jeder kann Karten wechseln, Erz abbauen, schmieden, kaufen; der Gast spielt auf einer Kopie, die nicht gespeichert wird (F5 beim Gast: „Als Gast kann man nicht speichern.“). Uhr gleich? Host schläft » Gast bekommt auch den Morgen. Gast ins Bett: „Schlafen entscheidet der Host.“ Host geht ins Hauptmenü » Gast landet im Hauptmenü mit Meldung. Headless: `lan/test_lan_connect.gd` (Gruppe `lan`). Plan der nächsten Schritte: `MULTIPLAYER_PLAN.md` (nur lokal).
+
+**Außerdem testen:** Trailer-Testschnitt ansehen (2026-11-02, Branch `feature/trailer-aufnahme`): 3 Szenen werden per Skript im echten Spiel aufgenommen (Godot Movie Maker, 1920×1080, 60 fps, Texte Englisch, ohne HUD): Amboss-Minispiel mit perfekten Treffern, Bosskampf gegen den Glutdrachen (für die Aufnahme kürzere Lebensbalken), Kamerafahrt über den Markt. `make_test_cut.sh` schneidet sie mit Texten und Endtafel zu `trailer_test.mp4`. Passen Tempo, Bildausschnitt, Texte? Aufnehmen: `sh assets/_reference/trailer/record.sh <anvil|boss|market> <Ordner>`, dann `sh assets/_reference/trailer/make_test_cut.sh <Ordner>`. Musik fehlt noch (lizenziertes Stück nötig).
+
+**Außerdem testen:** Platin in Teil 8, Sternenerz nur vom Boss (2026-11-13, Branch `feature/sternenkrater-platin`): Dungeon-Brett » Reiter Sternenkrater (Admin-Panel » Schmiede » „Alle Dungeons auf dem Brett“): unter Belohnung Platinerz und eine Platin-Gussform (50 %), kein Sternenerz mehr. Gewinnen » in der Loot-Kiste genau 1 Sternenerz (vom Sternenkoloss am Ende), die Golems lassen keins fallen. Altar (Kriegstisch: Nord/Ost/Süd/West 60 %, See 70 %) und Unterwelt (Knochenweg 60 %, Turm der Toten 70 %) geben ebenso Platinerz und Platin-Gussformen. Reicht 1 Sternenerz pro Lauf für das, was man daraus schmieden will? Headless: `assets/_reference/ore_order/test_ore_order.gd`.
+
+**Außerdem testen:** Godot-Architektur (2026-11-13, Branch `feature/godot-architektur`): (1) **Renderer jetzt GL Compatibility** statt Forward+: Godot-Editor neu starten, ein paar Karten bei Nacht ansehen (Lampen, Fackeln, Feuer, Schmiede-Esse, Höhlen, Kampfbühne, Partikel). Sieht etwas anders aus als vorher? Zurück geht es in `project.godot` (`renderer/rendering_method`). (2) Esc » Einstellungen mitten in einer Cutscene: die Szene bleibt jetzt stehen und läuft nach dem Schließen weiter (vorher liefen Wartezeiten weiter, Bewegungen nicht). Ebenso beim Aufwach-Bericht am Morgen. (3) Pflanztopf: der Text zeigt „Heute gegossen.“ bzw. „Noch nicht gegossen …“ (vorher stand „Language.translate(“ darin). (4) Charakterfenster » Gussformen: nach Metall gruppiert mit Leerzeile. (5) Schlafen mit und ohne laufende Schmelze/Dungeons: am Morgen ist alles wie vorher fertig. (6) Baumeister kommt Di/Do, Lotte zieht umher, Goblinkönig schläft jeden zweiten Mittwoch, Erna/Gustav gehen zur Arbeit (Daten jetzt über `NpcInfo`). Neue Karten: von `scenes/world/_template/map_base.tscn` erben (`docs/ANLEITUNGEN.md` 1.2). Headless: `map_tools/test_map_setup.gd`, `residents/test_npc_info.gd`.
+
+**Außerdem testen:** Kleine Fehler aus dem Prüfbericht (2026-11-13, Branch `fix/kleine-fehler-review`, `docs/CODE_REVIEW_2026-11-12.md`): (1) Sprache auf Englisch stellen, Esc » Einstellungen » „Main Menu“: der erste Klick fragt jetzt nach („Really? …“), erst der zweite geht ins Hauptmenü (vorher ging der erste Klick sofort hinaus, außer auf Deutsch). (2) In einem Story-Gespräch Esc oder das X drücken: das Gespräch bleibt offen, solange noch etwas passieren muss (eine Aktion in einer späteren Zeile, das Ende des Gesprächs, eine laufende Szene mit verstecktem Textfeld); reines Geplauder und Gespräche mit Auswahl am Ende lassen sich weiter mit Esc verlassen. Bitte darauf achten, ob man irgendwo in einem Gespräch festhängt (E blättert immer weiter). (3) F5 oder Speichern mitten in einem Gespräch, während die Figur von selbst läuft oder in der Ankunfts-Szene: Meldung „Mitten im Gespräch kann man nicht speichern.“ (4) Der Knopf „Sofort“ im Dungeon-Kampf erscheint nur noch beim Start aus dem Godot-Editor (wie das Admin-Panel), nicht mehr in einem Debug-Export. Nicht im Spiel sichtbar: kein Autosave während des Schmiedeturniers, negative Preise schenken kein Gold, der Export lässt `docs/`, `assets/_reference/` und die Bilder im Projektstamm weg (beim nächsten Export prüfen, ob das Spiel startet und die Datei kleiner ist). Headless: `review_fixes/test_small_fixes.gd`. Dazu Speichern/Laden (Branch `fix/speichern-rundlauf`): mitten in einem Bosskampf mit mehreren Lebensbalken speichern (z. B. Glutdrache in Phase 2, oder Varrik im Krähennest, nachdem er Helfer gerufen hat) und laden: der Boss ist in derselben Phase mit demselben Balken, ruft die schon gerufenen Helfer nicht noch einmal, einmalige Skills der Helden bleiben verbraucht. Speichern, während ein Tipp-Fenster noch aussteht (z. B. direkt nach dem Aufwachen): nach dem Laden kommt der Tipp trotzdem. Während eines Kampfs im Heldenturnier laden: danach kann man sich wieder anmelden. Alte Spielstände laden wie bisher. Headless: `_lib/test_save_roundtrip.gd` (vergleicht einen ganzen Spielstand vor und nach dem Laden). Dazu Fenster (Branch `fix/fenster-nur-sichtbar-neu`): Amboss, Esse, Gussofen, Auftragsbuch (J), Auftrags-Details, Dungeon-Brett und Heldenfenster bauen sich nur noch neu auf, solange sie offen sind, und einmal beim Öffnen. Bitte prüfen, ob eines davon nach dem Öffnen einen alten Stand zeigt (z. B. Zutaten am Amboss nach dem Einsammeln von Erz, Heldenfenster nach einem Dungeon, laufende Abenteuer am Brett, Hitze der Esse). Headless: `review_fixes/test_closed_windows.gd`.
+
+**Außerdem testen:** Dietrich und Kletterhaken aus Gussformen (2026-11-11, Branch `feature/finsterstadt-platin`, Rohling-Bilder Platzhalter): Admin-Panel » Quests » „Werkzeug für den Einbruch“ (oder Nyra im Versteck): Meldungen „Neue Gussform: Dietrich aus Silber“ und „Kletterhaken“. Gussofen (Zubehör » Finsterstadt): Dietrich-Rohling aus 1 Silber- + 1 Eisenbarren, Kletterhaken-Rohling aus 2 Eisenbarren » Amboss » Wassertrog; Gussofen, Amboss, Trog leuchten golden der Reihe nach (erst Dietrich, dann Haken; nach dem ersten Haken leuchtet nichts mehr, den zweiten macht man genauso). Glühend nimmt Nyra nichts. Alter Spielstand mit den alten Amboss-Rezepten: Gussformen sind nach dem Laden da. Headless: `assets/_reference/finster_tools/test_finster_tools.gd`.
+
+Höchstens 5 „Außerdem testen“-Einträge (neueste oben). Kommt ein neuer dazu, wandert der älteste als Listenpunkt oben in `docs/VERLAUF.md`. Ältere Test-Anleitungen: dort.
+
+**Offene Entscheidungen:**
+
+- [x] Perspektive: Top-Down
+- [x] Sprache für Code und Kommentare: Englisch
+- [x] Basisauflösung für die Pixel-Art-Darstellung: 640×360
+- [x] Wie sieht das Schmiede-Minispiel konkret aus? → Takt-Klickspiel, siehe Abschnitt 7
+- [x] Gibt es in Version 1 ein Spielende? → Ja: Abspann nach Teil 8, Aufwachen in der Schmiede, danach geht das Spiel frei weiter
+- [x] Nicht gezahlte Miete: Oma versucht es jeden Morgen erneut, jeder Tag kostet Ruf (früher 10 Karma, siehe `docs/ENTSCHEIDUNGEN.md`)
+- [ ] Wie läuft der Wettbewerb um den Titel des Schmieds ab (Konkurrenten, Siegbedingung)?
+
+**Entscheidungslog:** steht in `docs/ENTSCHEIDUNGEN.md` (neue Entscheidungen dort unten anhängen).
+
+## 9. Bekannte Probleme
+
+Vollständige Liste: `docs/PROBLEME.md` (vor Änderungen an einem System dort nach dem Namen suchen; neue Probleme dort eintragen, erledigte löschen).
+
+Wichtig für jede Aufgabe:
+
+- Die Schrift Micro 5 hat keine Zeichen „→“ und „✓“ – in Spieltexten „»“ bzw. Wörter verwenden.
+- Viele Zahlen (Preise, Kampf-, Seltenheits- und Skillwerte) sind ein erster Vorschlag und nicht ausbalanciert.
+- Keine TileMap: Böden sind gebackene Bilder je Karte. Offene Grafiken: `docs/PIXELLAB_TODO.md`.
+
+## 10. Nützliche Quellen
+
+- Godot-Dokumentation: https://docs.godotengine.org
+- Tutorial „Your first 2D game“ (in der Dokumentation unter „Getting started“)
+- Asset-Quellen für Platzhalter und Grafik (Lizenz immer prüfen): Kenney.nl, itch.io, OpenGameArt.org
+- PixelLab (pixellab.ai): KI-Pixel-Art (Figuren, Stationen in 8 Rotationen). In Claude Code als MCP-Server einrichtbar: `claude mcp add pixellab https://api.pixellab.ai/mcp -t http -H "Authorization: Bearer <eigener-schlüssel>"` – jeder mit eigenem Schlüssel, Schlüssel nie ins Repository.

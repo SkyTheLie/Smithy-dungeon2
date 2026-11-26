@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Hero" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/hero.gd" id="1_hero"]
+[ext_resource type="Resource" path="res://data/hero_classes/paladin.tres" id="2_class"]
+
+[resource]
+script = ExtResource("1_hero")
+id = &"gerold"
+display_name = "Sir Gerold"
+hero_class = ExtResource("2_class")
+level = 1
+race = "human"
+hire_cost = 130
+strength = 6
+agility = 2
+constitution = 6
+intelligence = 1
+wisdom = 4
+resistance = 5

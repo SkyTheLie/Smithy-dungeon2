@@ -1,0 +1,672 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/water/ice_wall_cutscene.gd" id="94_wall_cut"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_1.png" id="wp_world_props_harbor_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_1.png" id="wp_world_props_harbor_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_1.png" id="wp_world_props_harbor_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/harbor_8.png" id="wp_world_props_harbor_8"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_ice.tscn" id="lamp_ice"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/ice_wall_crown_ground.png" id="3_ice_wall_cro"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="4_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/ice_wall_crown_mask.png" id="5_ice_wall_cro"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="6_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ice_wall/singing_wall.png" id="7_singing_wall"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_texture.gd" id="8_story_textur"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ice_wall/singing_wall_empty.png" id="9_singing_wall"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="10_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ice_wall/ice_pillar_1.png" id="11_ice_pillar_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ice_wall/ice_pillar_2.png" id="12_ice_pillar_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ice_wall/ice_pillar_3.png" id="13_ice_pillar_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ice_wall/ice_pillar_4.png" id="14_ice_pillar_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ice_wall/ice_pillar_5.png" id="15_ice_pillar_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ice_wall/mirror_socket.png" id="16_mirror_socke"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ice_wall/mirror_socket_filled.png" id="17_mirror_socke"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ice_wall/ice_relief.png" id="18_ice_relief"]
+[ext_resource type="Script" path="res://scenes/stations/story_station.gd" id="21_story_statio"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/war_table.png" id="22_war_table"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/dungeon_board_menu.tscn" id="23_dungeon_boar"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="24_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="25_hud"]
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("6_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("6_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("6_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_dark_lake"]
+script = ExtResource("6_appearance")
+race = "human"
+skin = "pale"
+hair_style = "short"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_lizard"]
+script = ExtResource("6_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_warden"]
+script = ExtResource("6_appearance")
+race = "half_demon"
+skin = "ash"
+eye_type = "glowing"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_warden2"]
+script = ExtResource("6_appearance")
+race = "half_demon"
+skin = "slate"
+eye_type = "glowing"
+eye_color = "green"
+hair_style = "spiky"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("6_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_halvard"]
+script = ExtResource("6_appearance")
+race = "human"
+skin = "tan"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "smith"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_nyra"]
+script = ExtResource("6_appearance")
+race = "half_demon"
+skin = "violet"
+hair_style = "long"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_corvin"]
+script = ExtResource("6_appearance")
+race = "half_demon"
+skin = "ash"
+hair_style = "bald"
+eye_type = "sleepy"
+eye_color = "grey"
+size = "tall"
+outfit = "vest"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_elder"]
+script = ExtResource("6_appearance")
+race = "elf"
+skin = "pale"
+hair_style = "long"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "grey"
+size = "tall"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_ssarok"]
+script = ExtResource("6_appearance")
+race = "beast_lizard"
+skin = "olive"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="RectangleShape2D" id="Rect_120x10"]
+size = Vector2(120, 10)
+
+[sub_resource type="RectangleShape2D" id="Rect_20x8"]
+size = Vector2(20, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="Rect_war_table"]
+size = Vector2(76, 46)
+
+[sub_resource type="RectangleShape2D" id="Rect_80x50"]
+size = Vector2(80, 50)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[node name="IceWallCrown" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("2_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-400, -240)
+texture = ExtResource("3_ice_wall_cro")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-400, -240)
+script = ExtResource("4_cave_walls")
+mask = ExtResource("5_ice_wall_cro")
+
+[node name="SingingWall" type="StaticBody2D" parent="."]
+position = Vector2(0, -150)
+
+[node name="Sprite2D" type="Sprite2D" parent="SingingWall"]
+texture = ExtResource("7_singing_wall")
+offset = Vector2(0, -45)
+script = ExtResource("8_story_textur")
+flag = "ice_crystal_taken"
+texture_after = ExtResource("9_singing_wall")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SingingWall"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_120x10")
+
+[node name="Talk" parent="SingingWall" instance=ExtResource("10_story_npc")]
+position = Vector2(0, 8)
+npc_id = "ice_singing_wall"
+narrator = true
+keep_dialogue_open = true
+talk_area_scale = Vector2(2.5, 1.5)
+
+[node name="Pillars" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Pillar1" type="StaticBody2D" parent="Pillars"]
+position = Vector2(-330, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pillars/Pillar1"]
+texture = ExtResource("11_ice_pillar_1")
+offset = Vector2(0, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillars/Pillar1"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="Talk" parent="Pillars/Pillar1" instance=ExtResource("10_story_npc")]
+position = Vector2(0, 6)
+npc_id = "ice_pillar_1"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Pillar2" type="StaticBody2D" parent="Pillars"]
+position = Vector2(-280, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pillars/Pillar2"]
+texture = ExtResource("12_ice_pillar_2")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillars/Pillar2"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="Talk" parent="Pillars/Pillar2" instance=ExtResource("10_story_npc")]
+position = Vector2(0, 6)
+npc_id = "ice_pillar_2"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Pillar3" type="StaticBody2D" parent="Pillars"]
+position = Vector2(-230, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pillars/Pillar3"]
+texture = ExtResource("13_ice_pillar_3")
+offset = Vector2(0, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillars/Pillar3"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="Talk" parent="Pillars/Pillar3" instance=ExtResource("10_story_npc")]
+position = Vector2(0, 6)
+npc_id = "ice_pillar_3"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Pillar4" type="StaticBody2D" parent="Pillars"]
+position = Vector2(-180, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pillars/Pillar4"]
+texture = ExtResource("14_ice_pillar_4")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillars/Pillar4"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="Talk" parent="Pillars/Pillar4" instance=ExtResource("10_story_npc")]
+position = Vector2(0, 6)
+npc_id = "ice_pillar_4"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Pillar5" type="StaticBody2D" parent="Pillars"]
+position = Vector2(-130, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pillars/Pillar5"]
+texture = ExtResource("15_ice_pillar_5")
+offset = Vector2(0, -29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillars/Pillar5"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="Talk" parent="Pillars/Pillar5" instance=ExtResource("10_story_npc")]
+position = Vector2(0, 6)
+npc_id = "ice_pillar_5"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Mirrors" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Socket1" type="StaticBody2D" parent="Mirrors"]
+position = Vector2(140, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Mirrors/Socket1"]
+texture = ExtResource("16_mirror_socke")
+offset = Vector2(0, -17)
+script = ExtResource("8_story_textur")
+flag = "ice_mirror_1"
+texture_after = ExtResource("17_mirror_socke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirrors/Socket1"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="Talk" parent="Mirrors/Socket1" instance=ExtResource("10_story_npc")]
+position = Vector2(0, 6)
+npc_id = "ice_mirror_socket_1"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Socket2" type="StaticBody2D" parent="Mirrors"]
+position = Vector2(240, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Mirrors/Socket2"]
+texture = ExtResource("16_mirror_socke")
+offset = Vector2(0, -17)
+script = ExtResource("8_story_textur")
+flag = "ice_mirror_2"
+texture_after = ExtResource("17_mirror_socke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirrors/Socket2"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="Talk" parent="Mirrors/Socket2" instance=ExtResource("10_story_npc")]
+position = Vector2(0, 6)
+npc_id = "ice_mirror_socket_2"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Socket3" type="StaticBody2D" parent="Mirrors"]
+position = Vector2(330, -70)
+
+[node name="Sprite2D" type="Sprite2D" parent="Mirrors/Socket3"]
+texture = ExtResource("16_mirror_socke")
+offset = Vector2(0, -17)
+script = ExtResource("8_story_textur")
+flag = "ice_mirror_3"
+texture_after = ExtResource("17_mirror_socke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirrors/Socket3"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="Talk" parent="Mirrors/Socket3" instance=ExtResource("10_story_npc")]
+position = Vector2(0, 6)
+npc_id = "ice_mirror_socket_3"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Lights" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Lantern1" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(-343, -122)
+
+[node name="Lantern2" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(361, -136)
+
+[node name="Lantern3" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(-355, 208)
+
+[node name="Lantern4" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(358, 192)
+
+[node name="Talk" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Relief" parent="Talk" instance=ExtResource("10_story_npc")]
+position = Vector2(240, -130)
+npc_id = "ice_relief"
+narrator = true
+talk_area_scale = Vector2(2, 1.5)
+
+[node name="ReliefPicture" type="Sprite2D" parent="Talk"]
+z_index = -1
+position = Vector2(240, -156)
+texture = ExtResource("18_ice_relief")
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Kahn" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(-60, 150)
+npc_id = "kahn"
+resident = "kahn"
+appearance = SubResource("Look_kahn")
+facing = "up"
+required_flag = "reached_wall_crown"
+
+[node name="Torgai" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(60, 150)
+npc_id = "kahn_son"
+resident = "kahn_son"
+appearance = SubResource("Look_torgai")
+facing = "up"
+required_flag = "reached_wall_crown"
+
+[node name="Subar" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(110, 165)
+npc_id = "kahn_right_hand"
+resident = "kahn_right_hand"
+appearance = SubResource("Look_subar")
+facing = "up"
+required_flag = "reached_wall_crown"
+hidden_when_flag = "subar_wounded"
+
+[node name="SubarDown" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(110, 165)
+npc_id = "kahn_right_hand"
+resident = "kahn_right_hand"
+appearance = SubResource("Look_subar")
+lying = true
+required_flag = "subar_wounded"
+
+[node name="King" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(-50, -100)
+npc_id = "king"
+resident = "king"
+required_flag = "king_on_wall"
+hidden_when_flag = "king_left_wall"
+vanish_on_leave = true
+
+[node name="DarkLake" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(40, -96)
+npc_id = "lake"
+appearance = SubResource("Look_dark_lake")
+resident = "lake_dark"
+required_flag = "king_on_wall"
+hidden_when_flag = "king_left_wall"
+vanish_on_leave = true
+
+[node name="Narrator" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(0, 200)
+npc_id = "ice_crown_narrator"
+narrator = true
+keep_dialogue_open = true
+auto_talk = true
+talk_on_new_step = true
+talk_area_scale = Vector2(5, 3)
+
+[node name="IceWallCutscene" type="Node2D" parent="."]
+script = ExtResource("94_wall_cut")
+king = NodePath("../People/King")
+dark_lake = NodePath("../People/DarkLake")
+subar = NodePath("../People/Subar")
+subar_down = NodePath("../People/SubarDown")
+torgai = NodePath("../People/Torgai")
+kahn = NodePath("../People/Kahn")
+singing_wall = NodePath("../SingingWall")
+
+[node name="WarTable" type="StaticBody2D" parent="."]
+position = Vector2(-200, 160)
+script = ExtResource("21_story_statio")
+open_flag = "reached_wall_battle"
+close_flag = "reached_wall_aftermath"
+
+[node name="Sprite2D" type="Sprite2D" parent="WarTable"]
+texture = ExtResource("22_war_table")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarTable"]
+position = Vector2(0, -25)
+shape = SubResource("Rect_war_table")
+
+[node name="InteractionArea" type="Area2D" parent="WarTable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarTable/InteractionArea"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_80x50")
+
+[node name="DungeonBoardMenu" parent="WarTable" instance=ExtResource("23_dungeon_boar")]
+only_dungeons = PackedStringArray("ice_wall_lake")
+
+[node name="ToEisquell" parent="." instance=ExtResource("24_door")]
+position = Vector2(0, 236)
+target_scene = "res://scenes/world/water/eisquell.tscn"
+target_spawn_point = &"FromWall"
+scale = Vector2(3, 1)
+
+[node name="Visual" parent="ToEisquell" index="0"]
+visible = false
+
+[node name="FromEisquell" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 200)
+
+[node name="Crown" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Crown"]
+position = Vector2(-227, 196)
+
+[node name="Sprite2D" type="Sprite2D" parent="Crown/P1"]
+texture = ExtResource("wp_world_props_harbor_8")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crown/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P2" type="StaticBody2D" parent="Crown"]
+position = Vector2(362, -14)
+
+[node name="Sprite2D" type="Sprite2D" parent="Crown/P2"]
+texture = ExtResource("wp_world_props_harbor_3")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crown/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P3" type="StaticBody2D" parent="Crown"]
+position = Vector2(-340, 114)
+
+[node name="Sprite2D" type="Sprite2D" parent="Crown/P3"]
+texture = ExtResource("wp_world_props_harbor_17")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crown/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P4" type="StaticBody2D" parent="Crown"]
+position = Vector2(-366, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="Crown/P4"]
+texture = ExtResource("wp_world_props_harbor_22")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crown/P4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P5" type="StaticBody2D" parent="Crown"]
+position = Vector2(340, 80)
+
+[node name="Sprite2D" type="Sprite2D" parent="Crown/P5"]
+texture = ExtResource("wp_world_props_harbor_8")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crown/P5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 200)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -400
+limit_top = -240
+limit_right = 400
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("25_hud")]
+
+[connection signal="body_entered" from="WarTable/InteractionArea" to="WarTable" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="WarTable/InteractionArea" to="WarTable" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="WarTable" to="WarTable/DungeonBoardMenu" method="toggle"]
+[connection signal="player_left" from="WarTable" to="WarTable/DungeonBoardMenu" method="close"]
+
+[editable path="ToEisquell"]
+[editable path="Player"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerSkillData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/player_skill_data.gd" id="1_skill"]
+[ext_resource type="Texture2D" path="res://assets/sprites/skills/keen_eye.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_skill")
+display_name = "Passgenau"
+description = "Beim Zusammenbauen an der Werkbank dürfen die Mitten der Teile pro Stufe etwas weiter auseinanderliegen, beim Nieten wird das grüne Feld breiter."
+icon = ExtResource("2_icon")
+stat = 5
+value_per_rank = 0.005
+max_rank = 5
+required_level = 2

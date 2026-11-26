@@ -1,0 +1,443 @@
+{
+	"hints": {
+		"lotte_errands": {"title": "Lotte kauft ein", "text": "Lotte wartet jeden Morgen bis 9 Uhr in deiner Werkstatt. Sprich mit ihr: Sie kauft auf dem Markt eine Ware für dich und bringt sie in die Werkstatt. Ein Zehntel des Preises behält sie als Lohn. Holst du die Ware bis zum Abend nicht ab, legt sie sie in die Loot-Kiste.\n\nSie verkauft auch für dich: In der Loot-Kiste auf „An Lotte verkaufen“ klicken und Sachen auswählen. Sie nimmt sie am nächsten Morgen mit, am Morgen danach liegen 80 % des Verkaufspreises als Gold in der Kiste. Neuer Skill: „Wie die Oma, so die Nichte“ (85 / 90 %)."},
+		"guild_level_1": {
+			"title": "Gilde ausgebaut: Stufe 1",
+			"text": "Hedwig hat angebaut: Wo die Kisten standen, stehen jetzt Etagenbetten.\n\n- 1 Heldenplatz mehr\n- In der Gilde warten Helden mit Level 8 bis 14\n- Deine Helden bekommen pro Stunde und pro Nacht 25 % mehr Ausdauer zurück\n- Neu am Tresen: Suchaufträge (Ware, Seltenheit bis Solide und Menge wählen, bezahlen, nach 1 bis 2 Tagen liegt alles morgens in der Loot-Kiste; 1 Suchtrupp gleichzeitig)"
+		},
+		"guild_level_2": {
+			"title": "Gilde ausgebaut: Stufe 2",
+			"text": "Die Gilde hat jetzt eine Übungsecke mit Zielscheibe und einer zweiten Waffenwand.\n\n- 1 Heldenplatz mehr\n- In der Gilde warten Helden mit Level 26 bis 34\n- Deine Helden bekommen 50 % mehr Ausdauer zurück\n- 2 Suchtrupps gleichzeitig, Ware bis Fein"
+		},
+		"guild_level_3": {
+			"title": "Gilde ausgebaut: Stufe 3",
+			"text": "Zwischen den Fenstern steht jetzt ein Pokalschrank. Mehr Ausbau gibt es nicht.\n\n- 1 Heldenplatz mehr\n- In der Gilde warten Helden mit Level 36 bis 44\n- Deine Helden bekommen 75 % mehr Ausdauer zurück\n- 3 Suchtrupps gleichzeitig, Ware bis Ungewöhnlich"
+		},
+		"bronze_found": {
+			"title": "Bronze?",
+			"text": "Du hast etwas aus Bronze bekommen. Was ist das eigentlich für ein Metall? Frag Gustav, den Bergmann vor der Mine (Dorfplatz » Süden » Dorftor » Südweg » Osten)."
+		},
+		"move_stations": {
+			"title": "Einrichten",
+			"text": "Der Wassertrog steht jetzt in deiner Schmiede. Drück im eigenen Haus {key_build}, dann kannst du Geräte und Möbel mit der Maus verschieben. Noch einmal {key_build} beendet den Umbau."
+		},
+		"capital_dungeons": {
+			"title": "Dungeons in Leonheim",
+			"text": "Auf dem Dungeon-Brett der Gilde von Leonheim gibt es den Reiter Leonheim. Zuerst die Kanalisation (Lv 12). Haben deine Helden einen Dungeon einmal geschafft, kommt der nächste dazu: die Katakomben (Lv 15), dann die Gruft der Könige (Lv 18). Neue Helden heuerst du bei Frieda am Tresen an. Auch das Brett im Dorf zeigt die neuen Dungeons."
+		},
+		"movement": {
+			"title": "Steuerung",
+			"text": "Laufen: {key_move}\nSprinten: {key_sprint} gedrückt halten\nBenutzen und Sprechen: {key_interact}\nInventar: {key_inventory}, Charakter: {key_character}\nMenü: Esc oder die Leiste rechts"
+		},
+		"quest_log": {
+			"title": "Aufgaben",
+			"text": "Deine aktuelle Aufgabe steht im Auftragsbuch (J oder Leiste rechts, Buch-Symbol) und mit ihren Zielen oben rechts im Bild."
+		},
+		"intro_help": {
+			"title": "Alles nachlesen",
+			"text": "Jeden Tipp kannst du später noch einmal lesen: Einstellungen (Esc oder Hammer und Schwert in der Leiste rechts) » Reiter Einleitung.",
+			"glow": ["menu:settings"]
+		},
+		"saving": {
+			"title": "Speichern und Laden",
+			"text": "Speichern und Laden kannst du über die beiden leuchtenden Knöpfe in der Leiste rechts, dort gibt es mehrere Speicherplätze. Schnell geht es mit F5 (speichern) und F7 (laden). Jedes Mal, wenn du dich schlafen legst, speichert das Spiel von selbst.",
+			"glow": ["menu:save", "menu:load"]
+		},
+		"guide_glow": {
+			"title": "Goldener Rahmen",
+			"text": "Was golden leuchtet, ist dein nächster Schritt: ein Händler, eine Ware, ein Gerät in der Schmiede oder ein Feld im Fenster. Beim ersten Mal führt dich das Leuchten durch alles Neue."
+		},
+		"rent": {
+			"title": "Miete",
+			"text": "Alle 14 Tage kassiert Oma Hilde {rent} Gold Miete. Hast du nicht genug Gold, ist sie verärgert und dein Ruf sinkt."
+		},
+		"cleaning": {
+			"title": "Aufräumen",
+			"text": "Geh zu den Spinnweben an den Stationen und drück {key_interact}, um sie zu entfernen."
+		},
+		"smelter": {
+			"title": "Schmelze",
+			"text": "Leg Erz und Brennstoff (Holz oder Kohle) hinein: aus dem Inventar ziehen oder Rechtsklick. Die Schmelze macht daraus nach und nach Barren."
+		},
+		"forge": {
+			"title": "Gussofen",
+			"text": "Heize den Gussofen mit Brennstoff (Holz = 1 Guss, Kohle = 5). Dann wähle eine Gussform und gieß aus einem Barren einen heißen Rohling."
+		},
+		"anvil": {
+			"title": "Amboss",
+			"text": "Wähle ein Rezept und schmiede den heißen Rohling: Klick auf die leuchtende Stelle, solange die Markierung im grünen Bereich ist. Grün gibt viel Qualität, Gelb etwas, daneben kostet Qualität. Über 100 Qualität steigt die Seltenheit (z. B. Gewöhnlich » Solide), unter 0 sinkt sie. Schwere Metalle sind für deinen Ruf schwieriger: schnellerer Takt, kleinere Zonen."
+		},
+		"workbench": {
+			"title": "Werkbank",
+			"text": "Hier setzt du abgekühlte Teile zusammen, z. B. Klinge + Griff = Schwert. Zieh die Teile aus dem Inventar in die Plätze. Beim Verbinden setzt du das obere Teil auf das untere: Je genauer sich die Mitten treffen, desto mehr Qualität. Liegen sie zu weit auseinander, verlieren die Teile Qualität. Rüstung wird genietet: Schlag zu, wenn der Hammer über dem grünen Feld am Loch ist."
+		},
+		"merchants": {
+			"title": "Händler",
+			"text": "Sprich Händler mit {key_interact} an. Klick auf ein Angebot kauft es. Jeder Händler hat jeden Tag neue Ware in begrenzter Stückzahl (die Zahl am Slot), was weg ist, gibt es erst morgen wieder. Verkaufen: Rechtsklick auf ein Item im Inventar (Strg = 1 Stück, Shift = die Hälfte); Verkauftes kannst du im Rückkauf-Slot zum selben Preis zurückholen. Händler zahlen für Selbstgeschmiedetes kaum mehr als das Material. Richtig Geld bringen Aufträge."
+		},
+		"sleep": {
+			"title": "Tageszeit",
+			"text": "Es wird Abend. Ein Tag endet erst, wenn du dich schlafen legst: Bett im Schlafzimmer der Schmiede. Nachts kannst du das Dorf nicht verlassen, und im Wald und in der Mine bleibt die Zeit am Abend stehen."
+		},
+		"equip_hero": {
+			"title": "Ausrüsten",
+			"text": "Öffne die Heldenliste (Leiste rechts, Helden-Symbol) und klick auf Bruno. Zieh das Schwert aus dem Inventar in seine rechte Hand oder mach einen Rechtsklick darauf."
+		},
+		"dungeon_board": {
+			"title": "Dungeon-Brett",
+			"text": "Klick links auf eine Gegend (z. B. Stadt) und wähle einen Dungeon. Klick auf einen Helden-Platz, um einen Helden in die Gruppe zu setzen, und schick sie los. Der Kampf läuft von allein; über Verfolgen siehst du zu. Die Beute landet in der Loot-Kiste."
+		},
+		"loot_chest": {
+			"title": "Loot-Kiste",
+			"text": "Die Loot-Kiste steht jetzt in deiner Werkstatt. Dort landen die Beute deiner Helden und Holgers tägliches Holz."
+		},
+		"shop": {
+			"title": "Ninas Laden",
+			"text": "Leg Waffen in Ninas Laden auf die Tische: {key_interact} an einem Tisch, dann hineinziehen oder Rechtsklick. Den Preis rechnet Nina aus Material, Seltenheit und ein wenig deinem Ruf. Verkauft wird zufällig zwischen 8 und 20 Uhr."
+		},
+		"pickaxe": {
+			"title": "Spitzhacke",
+			"text": "Leg die Spitzhacke im Charakter-Fenster (C) in den Spitzhacken-Slot: dann schlägst du Erz schneller ab."
+		},
+		"mine_empty": {
+			"title": "Mine leer",
+			"text": "Du hast alle Steine abgebaut. Über Nacht wachsen neue nach: leg dich schlafen und komm morgen wieder."
+		},
+		"tutorial_leather_armor": {
+			"title": "Rüstung bauen",
+			"text": "Eine Rüstung entsteht aus einer Platte und einem Stück Leder. Die Platte gießt du wie eine Klinge (Gussofen, Amboss, Wassertrog). Leder macht die Gerberbank aus Fell (Möbelhändlerin), Fell fällt bei Ratten und Wölfen. Zusammengebaut wird an der Werkbank. Was als Nächstes dran ist, leuchtet golden."
+		},
+		"tutorial_bow": {
+			"title": "Bogen und Pfeile",
+			"text": "Am Bogentisch schnitzt du einen Bogenrahmen aus Holz und spannst ihn mit einem Seil zum Bogen (Seil aus Hanf an der Werkbank oder beim Händler in Leonheim). Pfeile: Pfeilspitze, Pfeilschaft und eine Feder (fällt beim Holzfällen). Ein Köcher aus zwei Leder trägt die Pfeile. Was als Nächstes dran ist, leuchtet golden."
+		},
+		"tutorial_staff": {
+			"title": "Zauberstäbe",
+			"text": "Am Zaubertisch wird aus 3 Holz ein Holz-Zauberstab. Mit der Gussform eines Metallstabs gießt du einen Stab (Gussofen, Amboss, Wassertrog) und setzt am Zaubertisch einen Kristall ein: der Kristall bestimmt das Element. Was als Nächstes dran ist, leuchtet golden."
+		},
+		"order_board": {
+			"title": "Auftragsbrett",
+			"text": "Kundenaufträge stehen im Auftragsbuch. Abgegeben werden sie am Auftragsbrett rechts neben deiner Schmiede: der Gegenstand muss abgekühlt sein und mindestens die verlangte Seltenheit haben."
+		},
+		"customers": {
+			"title": "Kunden",
+			"text": "Zwischen 9 und 18 Uhr können Kunden vor deiner Schmiede warten. Sprich sie an, um ihren Auftrag zu sehen. Verpasste Fristen kosten Ruf."
+		},
+		"calendar": {
+			"title": "Kalender",
+			"text": "Der Kalender hängt in deinem Schlafzimmer: anklicken oder {key_interact} drücken. Dort stehen Miete, Fristen deiner Aufträge und der Sonntag, an dem der Reisende kommt."
+		},
+		"hero_level": {
+			"title": "Helden leveln",
+			"text": "Helden bekommen EXP nur für besiegte Monster. Einen Dungeon zu schaffen bringt dir als Schmied PEXP (Spieler-Erfahrung), wie Aufträge und Quests. Mit jedem Level gibt es Attributpunkte und alle 3 Level einen Skillpunkt: Leiste rechts » Helden » Held anklicken."
+		},
+		"rat_nest": {
+			"title": "Rattennest",
+			"text": "Das Rattennest ist schwer: Auf Stufe 5 wartet oft eine Riesenratte, auf Stufe 11 der Rattenkönig mit einem Leibwächter. Ein Held allein braucht etwa Level 7 und ein ganzes Kupferset (Helm, Rüstung, Schulterschutz, Handschuhe, Stiefel, Umhang, Schild)."
+		},
+		"armor_mold": {
+			"title": "Rüstungs-Gussform",
+			"text": "Du hast eine Gussform für ein Rüstungsteil. Hedwig, die Gildenmeisterin in der Abenteurergilde (Marktplatz, Osten), möchte dich deswegen sprechen."
+		},
+		"copper_set_complete": {
+			"title": "Kupferset komplett",
+			"text": "Du hast alle Teile des Kupfersets. Zeig es Hedwig in der Abenteurergilde."
+		},
+		"mine_rats": {
+			"title": "Kampf in der Mine",
+			"text": "Bruno kämpft in der Mine allein gegen drei Wellen Ratten. Rüste ihn vorher aus (Leiste rechts » Helden). Verliert er, flieht ihr aus der Mine: einfach wieder hineingehen und noch einmal versuchen."
+		},
+		"old_mine": {
+			"title": "Die nächste Ebene",
+			"text": "Gustav stützt den Gang hinter dem Rattenloch in der Mine ab, wenn du ihm 1000 Gold, eine Eisenspitzhacke, 40 Holzbalken und 40 Eisennägel bringst. Was du schon hast, zeigt das Auftragsbuch unter Geschichte."
+		},
+		"forest_dungeons": {
+			"title": "Dungeons im Wald",
+			"text": "Auf dem Dungeon-Brett gibt es jetzt den Reiter Wald. Die Wald-Dungeons sind schwerer als der Rattenkeller: Dort jagen Wölfe und Wildschweine. Schick mehrere Helden zusammen los."
+		},
+		"forest_den": {
+			"title": "Der Schwarze Wolf",
+			"text": "In der Wolfshöhle wartet auf der letzten Stufe der Schwarze Wolf mit zwei Wölfen. Rüste deine Helden gut aus."
+		},
+		"niece_found": {
+			"title": "Lotte gefunden",
+			"text": "Der Schwarze Wolf ist besiegt. Deine Helden sind weiter durch den Wald gelaufen und haben Lotte gefunden: Sie saß oben in einer alten Eiche und hat sich nicht heruntergetraut. Die Helden haben sie sicher nach Hause gebracht."
+		},
+		"enchanting_table": {
+			"title": "Zaubertisch",
+			"text": "In deiner Schmiede steht jetzt ein Zaubertisch. Wie man damit verzaubert, weißt du aber noch nicht."
+		},
+		"nina_expanded": {
+			"title": "Ninas neuer Laden",
+			"text": "In Ninas Laden stehen jetzt 6 Waffentische und eine Rüstungspuppe. Der Puppe kannst du Helm, Schulterschutz, Rüstung, Umhang, Handschuhe, Stiefel, Schild und Beinschutz anlegen, Nina verkauft sie wie die Waffen. Jeden Tag verkauft sie mindestens 2 Teile."
+		},
+		"nina_dummy_full": {
+			"title": "Die Puppe ist komplett",
+			"text": "Die Rüstungspuppe in Ninas Laden trägt ein Teil auf jedem Platz. Sprich mit Nina."
+		},
+		"child_shoes": {
+			"title": "Kinderschuhe",
+			"text": "Kinderschuhe = 1 Leder + 1 Seil (Werkbank » Zubehör » Zusatz). Leder: Rattenfell an der Gerberbank gerben (die Gerberbank verkauft die Möbelhändlerin auf dem Markt). Seil: 2 Hanf oder 2 Flachs (wachsen selten im tiefen Wald)."
+		},
+		"greenhouse": {
+			"title": "Ein Gewächshaus",
+			"text": "Baumeister Konrad baut dir links neben deiner Schmiede ein Gewächshaus: 20 Holzbalken, 20 Glas und 500 Gold. Er ist jeden Dienstag und Donnerstag von 8 bis 18 Uhr auf dem Marktplatz (Westeingang). Bei ihm baust du auch dein Haus aus. Holzbalken baust du an der Werkbank (2 Holz). Glas: Beim Abbau von Erzsteinen fällt manchmal Sand (15 %), den schmilzt du in der Schmelze zu Glas."
+		},
+		"mage_hemp": {
+			"title": "Hanf suchen",
+			"text": "Hanf wächst im tiefen Wald, aber nicht jeden Tag. Findest du heute keinen, schlaf eine Nacht und schau morgen wieder."
+		},
+		"planting": {
+			"title": "Pflanzen",
+			"text": "Samen pflanzt du im Gewächshaus links neben deiner Schmiede in einen Pflanztopf mit Erde: {key_interact} am Topf, dann ein Feld anklicken (oder Rechtsklick auf die Samen). Pflanzen wachsen über Nacht, jede Art unterschiedlich lange (Mondlilie: 7 Tage). Klick auf eine wachsende Pflanze mit Asche im Inventar düngt sie (sie wächst doppelt so schnell, die Ernte wird eine Seltenheitsstufe besser), Klick auf eine blühende erntet sie."
+		},
+		"greenhouse_pot": {
+			"title": "Pflanztöpfe",
+			"text": "Pflanztöpfe gibt es bei der Möbelhändlerin am Markt: 2×2 (4 Felder), 3×3 (9) und 4×4 (16). Im Gewächshaus drückst du {key_build}, wählst den Topf im Lager und stellst ihn mit einem Klick auf. {key_interact} am Topf öffnet ihn: zuerst Gartenerde einfüllen (sie bleibt im Topf, du kannst sie nur gegen andere Erde tauschen), dann Samen pflanzen. Einen Topf mit Pflanzen kann man verschieben, aber nicht einlagern."
+		},
+		"part1_end": {
+			"title": "Danke fürs Spielen",
+			"prefix": "",
+			"text": "Danke fürs Spielen bis hierher. Du kannst einfach weiterspielen: Am nächsten Morgen geht die Geschichte weiter."
+		},
+		"gutter": {
+			"title": "Die Gosse",
+			"text": "Auf dem Dungeon-Brett gibt es jetzt den Reiter Gosse. Banditen-Schützen stehen in der hinteren Reihe: Einzelangriffe treffen sie erst, wenn vorne niemand mehr steht, Flächenangriffe immer. Banditen lassen manchmal ihre Waffen fallen (selten aus Eisen) und oft einen Geldbeutel, der in der Loot-Kiste zu Gold wird."
+		},
+		"gutter_shield": {
+			"title": "Schildbanditen",
+			"text": "Ein Schildbandit kann herausfordern: Dann treffen deine Helden mit einzelnen Angriffen nur ihn, Flächenangriffe treffen trotzdem alle. Tipp: Mit Rechtsklick auf einen Skill im Heldenfenster schaltest du ihn ein oder aus, z. B. einen teuren Skill, der am Schild verpufft."
+		},
+		"gutter_nest": {
+			"title": "Das Krähennest",
+			"text": "Varrik ruft bei 75 %, 50 % und 25 % seines Lebens je zwei Banditen zu Hilfe. Flächenangriffe und Heilung helfen. Das Krähennest gibt es nur einmal: Nach dem Sieg ist es vom Brett verschwunden."
+		},
+		"teleporter": {
+			"title": "Teleporter",
+			"text": "Mit dem Portalkristall weckst du die alten Teleport-Kristalle: {key_interact} an einem Kristall. Vor deiner Schmiede und auf dem Platz der Einkaufsstraße in Leonheim geht es schon, andere wachen erst im Lauf der Geschichte auf. {key_interact} an einem erwachten Kristall öffnet die Weltkarte: Klick auf einen leuchtenden Kristall, und du reist sofort dorthin."
+		},
+		"mortar": {
+			"title": "Mörser und Tränke",
+			"text": "Am Zaubertisch im Reiter Mörser: Eine Zutat allein (Kristall oder Mondlilie) wird zu Staub zerkleinert. Kristall + Mondlilie (ganz oder als Staub) + Phiole ergeben einen Verzauberungstrank, die Seltenheit mischt sich aus Kristall und Pflanze. Jede andere Mischung mit Phiole gibt nur Asche (Dünger). Im Reiter Verzaubern gibst du den Trank auf eine Waffe oder Rüstung; eine neue Verzauberung ersetzt die alte."
+		},
+		"cursed_crypt": {
+			"title": "Die verzauberte Gruft",
+			"text": "Kastellan Morwald hat zwei Lebensbalken. Die Kästchen über seinem Balken zeigen, wie viele er noch hat. Ist einer leer, steht er stärker wieder auf. Gift wirkt nicht gegen Untote, Licht wirkt gut."
+		},
+		"crystal_map": {
+			"title": "Kristallkarte",
+			"text": "Rechtsklick auf die Kristallkarte im Inventar öffnet die Karte. Jedes gefundene Kartenteil füllt sie weiter."
+		},
+		"goblin_mine": {
+			"title": "Goblinmine",
+			"text": "In der Goblinmine wachsen jeden Tag neue Kupfer- und Eisensteine. Je ein Kupfer- und ein Eisenbarren werden in der Schmelze (Reiter Legieren) zu einem Bronzebarren."
+		},
+		"volcano_dungeons": {
+			"title": "Reiter Vulkan",
+			"text": "Fast alle Monster im Vulkan sind gegen Feuer gefeit. Waffen mit Eis oder Wasser wirken besser (Verzaubern am Zaubertisch). Die Magmahallen kommen aufs Brett, sobald deine Helden die Aschegänge einmal geschafft haben."
+		},
+		"elf_armory": {
+			"title": "Waffen für Sylvaris",
+			"text": "General Hadmar am Waldboden von Sylvaris nimmt Waffen und Rüstungsteile an (ansprechen, „Waffen abgeben“, per Rechtsklick hineinlegen, „Übergeben“). Jedes Teil hilft, besseres Metall und höhere Seltenheit mehr. Den Horst auf dem Sturmgipfel zu gewinnen hilft auch. „Wie steht es?“ verrät, ob es schon reicht. Erst wenn du „Mehr habe ich nicht“ sagst, geht es weiter. Was in dieser Nacht passiert, hängt davon ab."
+		},
+		"mountain_dungeons": {
+			"title": "Reiter Sturmgipfel",
+			"text": "Auf dem Dungeon-Brett gibt es den Sturmgipfel hinter Sylvaris: Bergfuß, Felsenhänge, Horst (nacheinander). Fast alles dort ist gegen Luft gefeit, Erde und Blitz wirken gut. Hippogreiffell wird an der Gerberbank zu Leder (so gut wie Silber). Harpyienfedern (bei der Bognerin von Sylvaris) sind die Silber-Stufe der Federn: am Bogentisch statt einer normalen Feder in die Pfeile (mehr Schaden), mit Mondlilie und Phiole im Mörser ein Federtrank (Waffen schlagen schneller). Sturmessenz + Mondlilie + Phiole = Trank der Stärkung (+1 Attributpunkt, höchstens 6 pro Held). Aus dem Vulkan: 2 Glutessenzen + Mondlilie + Phiole = Trank des Wissens (+1 Skillpunkt, höchstens 3 pro Held), Drachenhaut von Glutdrachlingen wird zu Drachenleder (so gut wie Bronze)."
+		},
+		"lava_golem": {
+			"title": "Der Lavagolem",
+			"text": "Feuer heilt den Lavagolem. Nimm deinen Helden Feuerwaffen ab, bevor sie gegen ihn kämpfen."
+		},
+		"silver_pickaxe": {
+			"title": "Bronzespitzhacke",
+			"text": "Die Felsbrocken vor der Goblinburg zerschlägt nur eine Spitzhacke mit mindestens einem Bronzekopf. Die Gussform gibt es bei Formenmacher Quentin in Leonheim (Bronze-Werkzeug)."
+		},
+		"dragon_fight": {
+			"title": "Der Drache",
+			"text": "Ignar hat drei Lebensbalken. Ist einer leer, beginnt die nächste Phase, und er wird stärker. Er heilt sich ständig, daher zählt viel Schaden in kurzer Zeit. Er ruft Glutgeister zu Hilfe."
+		},
+		"king_letter": {
+			"title": "Ein Brief vom König",
+			"text": "„Mein Schmied, Aurelius ist zurück, und er bringt schlechte Nachrichten. Komm in den Thronsaal, so schnell du kannst. Albrecht“"
+		},
+		"elf_lift": {
+			"title": "Die Plattformen von Sylvaris",
+			"text": "Stell dich auf eine leuchtende Plattform und drück {key_interact}: Sie trägt dich eine Ebene höher oder tiefer."
+		},
+		"smith_tournament": {
+			"title": "Das Schmiedeturnier",
+			"text": "Am Herold auf dem Turnierplatz meldest du dich an. Vier Runden, jede gegen einen anderen Schmied. Der Herold nennt die Aufgabe, das Material liegt in der Vorratstruhe. Gewertet werden Seltenheit und Qualität, dazu kommt ein Bonus für Schnelligkeit. Ein Rezept, das du noch nicht kennst, darfst du trotzdem benutzen, aber es kostet Punkte. Inventar und Lagertruhe bekommst du nach dem Turnier zurück."
+		},
+		"monthly_tournament": {
+			"title": "Die Schmiede-Ligen",
+			"text": "Jetzt gibt es die Ligen: Schmied gegen Schmied, jeden Tag, um Rangpunkte und Preise. Der Turnierbote auf der Einkaufsstraße bringt dich in die Turnierhalle, dort meldest du dich beim Turnierleiter an."
+		},
+		"crystal_map_2": {
+			"title": "Die Kristallkarte",
+			"text": "Die Kristallkarte hat jetzt zwei Stücke: dazu den Wald der Elfen mit Sylvaris östlich vom Land der Menschen. Rechtsklick auf die Karte im Inventar öffnet sie."
+		},
+		"desert_lost": {
+			"title": "Verlaufen",
+			"text": "In der Wüste sieht jede Düne gleich aus. Wer die falsche Richtung nimmt, landet wieder am Schild am Anfang. Meister Aurelius weiß vielleicht Rat: Er sucht auf seiner Lichtung im tiefen Wald nach Kräutern."
+		},
+		"compass_dungeons": {
+			"title": "Vier Gussformen",
+			"text": "Auf dem Dungeon-Brett stehen vier neue Dungeons: Die vergessene Gießerei (Leonheim), Die Obsidiankammer (Vulkan), Die Windhöhle (Sturmgipfel) und Der Wurzelhort (Wald). Jeder gibt beim Sieg die Gussform eines Kompassteils und Barren des passenden Metalls."
+		},
+		"desert_compass": {
+			"title": "Der Wüstenkompass",
+			"text": "Ein Rechtsklick im Inventar auf den Wüstenkompass nimmt ihn in die Hand oder steckt ihn weg. An Abzweigungen schwenkt er zwischen zwei Wegen hin und her. Die Nadel zeigt zur Stadt und zu Truhen, die noch niemand geöffnet hat."
+		},
+		"desert_map": {
+			"title": "Die Sandkarte",
+			"text": "Rechtsklick auf die Sandkarte im Inventar öffnet sie. Jeder Weg, den du in der Wüste gegangen bist, steht darauf als Reihe von Pfeilen."
+		},
+		"water_dungeons": {
+			"title": "Die Grotten von Eisquell",
+			"text": "Auf dem Dungeon-Brett findest du nun den Reiter „Eisquell“ mit vier neuen Grotten, die nacheinander freigeschaltet werden. Die Wassergeschöpfe dort unten sind gegen Wasserangriffe unempfindlich, nehmen durch Blitz aber schweren Schaden. Zauberer mit Blitzmagie und Waffen mit eingefassten Topasen verschaffen deiner Gruppe einen großen Vorteil."
+		},
+		"hero_tournament": {
+			"title": "Turnier in der Gezeitenarena",
+			"text": "Sprich in der Gezeitenarena mit dem Ausrufer, um einen einzelnen Helden für das Turnier anzumelden. Dein Streiter kämpft im Kampffenster allein gegen vier aufeinanderfolgende Gegner, deren Stärke sich deinem Helden anpasst. Fällt dein Held, scheidet er aus, doch du kannst das Turnier jederzeit von vorn beginnen."
+		},
+		"crystal_map_3": {
+			"title": "Das dritte Kartenstück",
+			"text": "Kahn hat dir das Kartenstück des Wasservolks gegeben: die Küste ganz im Osten mit Eisquell und der Eismauer. Rechtsklick auf die Kristallkarte im Inventar öffnet sie."
+		},
+		"storm_map": {
+			"title": "Karte der Sturmpfade",
+			"text": "Fürst Ssaroks Karte der Sturmpfade zeigt den sicheren Weg durch die Gewitter: Sahrim » Säulen » Süden. Der Weg steht jetzt auf deiner Sandkarte (Rechtsklick auf die Sandkarte), und der Wüstenkompass zeigt auch zum Sturmtempel."
+		},
+		"temple_forge": {
+			"title": "Die uralte Tempelschmiede",
+			"text": "Die alte Schmiede vor dem Sturmtempel lässt sich trotz ihres Alters wie deine gewohnte Werkstatt nutzen. Sobald du die Inschriften an der Tempelwand gelesen hast, erscheinen die Baupläne für die benötigten Siegel in deinem Rezeptbuch. Jedes Siegel entsteht wie eine Klinge: am Gussofen den Rohling gießen, am Amboss schmieden, im Wassertrog abkühlen. Die nötigen Metallbarren musst du selbst in deinem Gepäck mitbringen."
+		},
+		"water_morning": {
+			"title": "Eine Nachricht aus Leonheim",
+			"text": "„Mein Schmied, heute brechen wir nach Eisquell auf, zu Kahn und dem Wasservolk. Lake, Aurelius und ich warten mit der Kutsche im Schlossgarten. Albrecht“"
+		},
+		"king_answer": {
+			"title": "Die Antwort des Königs",
+			"text": "„An den Schmied des Dorfes. Bürgermeister Wendelin hat mir geschrieben, was bei euch geschehen ist. Ich will es von dir selbst hören. Komm zu mir nach Leonheim ins Schloss, eure Dorfkutsche bringt dich her. Albrecht, König von Leonheim“"
+		},
+		"swamp_dungeons": {
+			"title": "Gefahren im tiefen Sumpf",
+			"text": "Unter dem Reiter Sumpf erwarten deine Helden drei Gebiete nacheinander. Im Nebelmoor verschleiern sich die Irrlichter und sind dann nur noch mit Flächenangriffen zu treffen. Im Hydrateich wächst die Sumpfhydra zweimal nach, doch Feuer trifft sie hart, während Gift sie nur heilt. Im Knochensumpf heilen sich die Moorleichen ständig selbst, und ganz hinten versteckt sich der Nebelfürst hinter seinen Geistern: erst die Geister, dann er."
+		},
+		"witch_potion": {
+			"title": "Trank der tausend Augen",
+			"text": "Sobald deine Helden alle drei Sumpfgebiete gemeistert haben, kannst du den Trank an deinem Zaubertisch herstellen. Du benötigst dafür einmal Irrlichtglut, das Herz der Moormutter, eine Hydraschuppe sowie eine leere Phiole. Bring den fertigen Trank anschließend zu Muhme Grisla in den Sumpf."
+		},
+		"sneaking": {
+			"title": "Schleichen in der Finsterburg",
+			"text": "Die Knochenwachen sehen nur in einem Kegel direkt vor sich, den du als hellen Fleck auf dem Boden erkennst. Manche Wachen drehen sich auf der Stelle, andere gehen feste Wege auf und ab. Hinter Mauern, Kisten und Säulen bist du für ihre Augen unsichtbar. Wirst du entdeckt, fliehst du zurück zum Anfang des jeweiligen Abschnitts."
+		},
+		"sneak_escape": {
+			"title": "Raus aus der Burg",
+			"text": "Manche Wachen schauen abwechselnd in zwei Richtungen, andere drehen sich einmal im Kreis: Warte, bis der Kegel weg ist, dann lauf. Im Ringgang gehen zwei Wachen hintereinander im Kreis und schauen nur nach vorn. Lauf hinter einer her, im gleichen Takt und mit etwas Abstand, dann sieht dich keine."
+		},
+		"dark_keep": {
+			"title": "Erstürmung des Bergfrieds",
+			"text": "Vor dem Tor zum Bergfried steht der Knochengeneral. Sprich ihn an, dann kannst du bis zu drei deiner Helden auswählen und gemeinsam gegen ihn schicken. Erst wenn der Knochengeneral und seine Garde bezwungen sind, öffnet sich der Weg zum Thronsaal."
+		},
+		"starlight_tonic": {
+			"title": "Sternentau",
+			"text": "Das Rezept für den Sternentau steht jetzt in deinem Rezeptbuch. Du brauchst eine Mondlilie aus deinem Gewächshaus, Hanf, Kamille und eine Phiole. Braue ihn am Zaubertisch und bring ihn Aurelius auf die Lichtung im tiefen Wald."
+		},
+		"eisquell_again": {
+			"title": "Gesucht",
+			"text": "Der König hat dich und Aurelius in Leonheim zur Fahndung ausgeschrieben. Die Stadt kannst du weiter betreten, das Schloss nicht. Nach Eisquell kommst du mit der Kutsche links im Schlossgarten oder mit dem Teleporter."
+		},
+		"harbor_attack": {
+			"title": "Feuer im Hafen",
+			"text": "Finsterritter greifen Eisquell an. Am Dungeon-Brett neben der Kaserne steht unter dem Reiter Eisquell ein neuer Kampf: Eisquell in Flammen. Er ist nur einmal da."
+		},
+		"ice_wall_dungeons": {
+			"title": "Die Eismauer",
+			"text": "Auf dem Dungeon-Brett gibt es den Reiter Eismauer. Für den Weg nach oben brauchst du nur den Windbruch. Die gefrorenen Fälle und die Eisstege sind freiwillig. Frostgeister und Eisgolems vertragen kein Feuer."
+		},
+		"wall_battle": {
+			"title": "Kampf auf der Mauerkrone",
+			"text": "Auf der Mauerkrone steht ein Kriegstisch. Dort schickst du deine Helden gegen Lake. Licht trifft ihn hart, Gift kaum."
+		},
+		"finster_start": {
+			"title": "Neun Steine",
+			"text": "Der König hat alle neun Steine, aber ohne Halvard dreht sich der Schlüssel nicht. Aurelius wartet in Sylvaris unten am Waldboden, neben der Kutsche. Hinkommen: Teleporter oder Kutsche."
+		},
+		"finster_dungeons": {
+			"title": "Die Finsterstadt",
+			"text": "Die Wachstube ist das Haus nördlich des Platzes in der Finsterstadt. Schleich dich an den Wachen vorbei bis zum Tisch des Hauptmanns. Für Dietrich und Kletterhaken hast du Gussformen: Gussofen, Amboss, Wassertrog. Am Dungeon-Brett im Versteck gibt es den Reiter Finsterstadt: die Aschegassen, die Schattenkanäle und die Wachtürme, alle freiwillig. Der Teleporter in der Finsterstadt ist jetzt wach zu kriegen."
+		},
+		"finster_fog": {
+			"title": "Nebel in der Finsterstadt",
+			"text": "Im Nebel siehst du nur, was nah ist oder im Licht steht. Erloschene Laternen zündest du mit {key_interact} wieder an, auch der Laternenanzünder macht seine Runde. Geister meiden das Licht."
+		},
+		"sneak_castle": {
+			"title": "Der Weg in die Burg",
+			"text": "Am Nordende der Finsterstadt beginnt der Weg in die Burg. Wer gesehen wird, beginnt das Gebiet von vorn."
+		},
+		"open_shackle": {
+			"title": "Fessel aufschmieden",
+			"text": "Halvard hat seine gefesselten Hände auf den Amboss gelegt. Stell dich an den Amboss und drück E: dreimal genau ins Grüne schlagen, dann springt die Fessel auf. Geht ein Schlag daneben, versuch es noch einmal."
+		},
+		"grand_council": {
+			"title": "Der große Rat",
+			"text": "Alle Völker kommen in Sylvaris zusammen, am Ratstisch der Elfen ganz oben auf der Spitze. Fahr mit dem Teleporter oder der Kutsche nach Sylvaris und mit den Plattformen hinauf."
+		},
+		"alliance_forge": {
+			"title": "Der Schmied des Bündnisses",
+			"text": "Aurelius will fertige Waffen für jedes Volk, jede mindestens ungewöhnlich: Speere, Dolche, eine Axt, ein Schwert, ein Hammer und ein Helm aus Kupfer, Bronze, Silber und Gold. Halvard will 3 Sternenstahl: Auf dem Dungeon-Brett gibt es den Reiter Sternenkrater, dort gibt es Sternenerz, das in der Schmelze zu Sternenstahl wird. Behalte den Sternenstahl bei dir."
+		},
+		"altar_battle": {
+			"title": "Die Schlacht am Altar",
+			"text": "Im Altar kommen nacheinander drei Heerführer des Königs: aus dem Westen, aus dem Süden und aus dem Osten. Sprich jeden an und schick deine Helden gegen ihn, wie beim Drachen. Zuletzt stellt sich dir Lake in den Weg."
+		},
+		"true_setting": {
+			"title": "Die wahre Fassung",
+			"text": "Am Amboss in der Mitte des Altars steht das Rezept „Die wahre Fassung“: 3 Sternenstahl. Danach rede mit dem Altar."
+		},
+		"story_end": {
+			"title": "Ende",
+			"text": "Die Geschichte von Smithy ist erzählt. Danke fürs Spielen. Deine Schmiede, deine Helden und alle Orte bleiben: Schmiede weiter, gewinne Turniere und probiere aus, was du noch nicht kennst."
+		},
+		"carry_mage": {
+			"title": "Aurelius tragen",
+			"text": "Aurelius stützt sich auf dich und geht mit, so schnell er kann. Die Wachen sehen euch beide. Sieht dich eine Wache, rettet ihr euch zurück an den Anfang des Hofs."
+		},
+		"return_home": {
+			"title": "Nach Hause",
+			"text": "Aurelius schickt dich zuerst nach Hause ins Dorf. Vom tiefen Wald geht es über den Wald-Eingang und das Dorftor zum Dorfplatz."
+		},
+		"village_ruse": {
+			"title": "Die falsche Spur",
+			"text": "Gustav, Nina und Lotte warten in Omas Haus im Wohnviertel. Die Ritter stehen auf dem Dorfplatz, deine Schmiede kannst du nachts trotzdem benutzen. Bring Gustav 5 Kohle, Nina 3 Eisenbarren und Lotte ein Schwert."
+		},
+		"crystal_map_4": {
+			"title": "Das Kartenstück der Echsen",
+			"text": "Fürst Ssarok hat dir das Kartenstück des Echsenvolks gegeben: die Wüste im Süden mit Sahrim und dem Sturmtempel. Rechtsklick auf die Kristallkarte im Inventar öffnet sie."
+		},
+		"crystal_map_5": {
+			"title": "Grislas Kartenstück",
+			"text": "Muhme Grisla hat dir ein neues Kartenstück gemalt: den Sumpf und das Land der Halbdämonen mit der Finsterburg im Norden. Jetzt ist die ganze Kristallkarte zusammen."
+		}
+	},
+	"intro_hints": [
+		"movement",
+		"quest_log",
+		"saving",
+		"smelter",
+		"forge",
+		"anvil",
+		"workbench",
+		"merchants",
+		"sleep",
+		"equip_hero",
+		"dungeon_board",
+		"loot_chest",
+		"order_board",
+		"customers"
+	],
+	"purchase_hints": {
+		"station:water_trough": "move_stations"
+	}
+}

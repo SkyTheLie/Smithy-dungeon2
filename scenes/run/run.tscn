@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scenes/run/run.gd" id="1_run"]
+[ext_resource type="Script" path="res://scenes/run/dungeon.gd" id="2_dungeon"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="4_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/pause_menu.tscn" id="5_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/end_screen.tscn" id="6_end"]
+
+[sub_resource type="Environment" id="Environment_dungeon"]
+background_mode = 1
+background_color = Color(0.02, 0.015, 0.02, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.55, 0.48, 0.45, 1)
+ambient_light_energy = 0.55
+fog_enabled = true
+fog_light_color = Color(0.06, 0.04, 0.04, 1)
+fog_density = 0.035
+
+[node name="Run" type="Node"]
+process_mode = 3
+script = ExtResource("1_run")
+
+[node name="View" type="SubViewportContainer" parent="."]
+process_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="Viewport" type="SubViewport" parent="View"]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(640, 360)
+render_target_update_mode = 4
+
+[node name="World" type="Node3D" parent="View/Viewport"]
+
+[node name="Environment" type="WorldEnvironment" parent="View/Viewport/World"]
+environment = SubResource("Environment_dungeon")
+
+[node name="Dungeon" type="Node3D" parent="View/Viewport/World"]
+unique_name_in_owner = true
+script = ExtResource("2_dungeon")
+
+[node name="Player" parent="View/Viewport/World" instance=ExtResource("3_player")]
+unique_name_in_owner = true
+
+[node name="HUD" parent="." instance=ExtResource("4_hud")]
+process_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_pause")]
+
+[node name="EndScreen" parent="." instance=ExtResource("6_end")]

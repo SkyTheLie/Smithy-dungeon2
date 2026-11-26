@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="PlayerSkillTree" load_steps=22 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/player_skill_tree.gd" id="1_tree"]
+[ext_resource type="Script" path="res://scripts/resources/player_skill_data.gd" id="9_skill_script"]
+[ext_resource type="Resource" path="res://data/player_skills/steady_hand.tres" id="2_steady_hand"]
+[ext_resource type="Resource" path="res://data/player_skills/strong_swing.tres" id="5_strong_swing"]
+[ext_resource type="Resource" path="res://data/player_skills/precise_fit.tres" id="6_precise_fit"]
+[ext_resource type="Resource" path="res://data/player_skills/sales_talent.tres" id="7_sales_talent"]
+[ext_resource type="Resource" path="res://data/player_skills/following.tres" id="8_following"]
+[ext_resource type="Resource" path="res://data/player_skills/quick_hammer.tres" id="4_quick_hammer"]
+[ext_resource type="Resource" path="res://data/player_skills/master_hand.tres" id="10_master_hand"]
+[ext_resource type="Resource" path="res://data/player_skills/material_lore.tres" id="11_material_lore"]
+[ext_resource type="Resource" path="res://data/player_skills/lucky_find.tres" id="12_lucky_find"]
+[ext_resource type="Resource" path="res://data/player_skills/ember_keeper.tres" id="13_ember_keeper"]
+[ext_resource type="Resource" path="res://data/player_skills/plant_picking.tres" id="14_plant_picking"]
+[ext_resource type="Resource" path="res://data/player_skills/mold_maker.tres" id="15_mold_maker"]
+[ext_resource type="Resource" path="res://data/player_skills/fire_trial.tres" id="16_fire_trial"]
+[ext_resource type="Resource" path="res://data/player_skills/hardening.tres" id="17_hardening"]
+[ext_resource type="Resource" path="res://data/player_skills/golden_tongue.tres" id="18_golden_tongue"]
+[ext_resource type="Resource" path="res://data/player_skills/field_smith.tres" id="19_field_smith"]
+[ext_resource type="Resource" path="res://data/player_skills/tanner.tres" id="20_tanner"]
+[ext_resource type="Resource" path="res://data/player_skills/lotte_sale.tres" id="21_lotte_sale"]
+[ext_resource type="Resource" path="res://data/player_skills/masterwork.tres" id="22_masterwork"]
+
+[resource]
+script = ExtResource("1_tree")
+skills = Array[ExtResource("9_skill_script")]([ExtResource("2_steady_hand"), ExtResource("5_strong_swing"), ExtResource("6_precise_fit"), ExtResource("7_sales_talent"), ExtResource("8_following"), ExtResource("4_quick_hammer"), ExtResource("10_master_hand"), ExtResource("11_material_lore"), ExtResource("12_lucky_find"), ExtResource("13_ember_keeper"), ExtResource("14_plant_picking"), ExtResource("15_mold_maker"), ExtResource("16_fire_trial"), ExtResource("17_hardening"), ExtResource("18_golden_tongue"), ExtResource("19_field_smith"), ExtResource("20_tanner"), ExtResource("21_lotte_sale"), ExtResource("22_masterwork")])

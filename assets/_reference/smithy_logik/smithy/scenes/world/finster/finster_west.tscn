@@ -1,0 +1,975 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/_template/map_base.tscn" id="map_base"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/finster_west_ground.png" id="ground"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/finster_west_mask.png" id="mask"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="door"]
+[ext_resource type="PackedScene" path="res://scenes/world/finster/street_lantern.tscn" id="lamp_finster"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="night_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/west/house_1.png" id="t_house_1_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/west/house_2.png" id="t_house_2_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/west/house_3.png" id="t_house_3_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/west/house_4.png" id="t_house_4_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/west/house_5.png" id="t_house_5_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/west/house_6.png" id="t_house_6_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/west/house_7.png" id="t_house_7_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_10.png" id="t_finster_10_15"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_17.png" id="t_finster_17_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_24.png" id="t_finster_24_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_8.png" id="t_finster_8_18"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_18.png" id="t_finster_18_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_1.png" id="t_finster_1_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_21.png" id="t_finster_21_21"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_0.png" id="t_finster_0_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_4.png" id="t_finster_4_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_3.png" id="t_finster_3_24"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_11.png" id="t_finster_11_25"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_6.png" id="t_finster_6_26"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_2.png" id="t_finster_2_27"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_23.png" id="t_finster_23_28"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_5.png" id="t_finster_5_29"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_22.png" id="t_finster_22_30"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_7.png" id="t_finster_7_31"]
+[ext_resource type="Script" path="res://scenes/world/finster/finster_fog.gd" id="fog_script"]
+[ext_resource type="Shader" path="res://scenes/world/finster/finster_fog.gdshader" id="fog_shader"]
+[ext_resource type="Script" path="res://scenes/world/finster/fog_ghost.gd" id="ghost_script"]
+[ext_resource type="Script" path="res://scenes/world/finster/lamplighter.gd" id="lamplighter_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/crypt_wraith_walk.png" id="ghost_crypt_wraith"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/ghost_walk.png" id="ghost_ghost"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/swamp_ghost_walk.png" id="ghost_swamp_ghost"]
+[ext_resource type="Script" uid="uid://ds0hynlqqpeua" path="res://scenes/actors/village_roads.gd" id="crowd_roads"]
+[ext_resource type="Script" uid="uid://c0pf3sbup4rhn" path="res://scenes/actors/villager_spot.gd" id="crowd_spot"]
+[ext_resource type="PackedScene" path="res://scenes/actors/villager.tscn" id="crowd_villager"]
+
+[sub_resource type="RectangleShape2D" id="Rect_1064x16"]
+size = Vector2(1064, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x808"]
+size = Vector2(16, 808)
+
+[sub_resource type="RectangleShape2D" id="Rect_138x14"]
+size = Vector2(138, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_113x14"]
+size = Vector2(113, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_75x14"]
+size = Vector2(75, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_94x14"]
+size = Vector2(94, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_66x14"]
+size = Vector2(66, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_50x14"]
+size = Vector2(50, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_117x14"]
+size = Vector2(117, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_27x6"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_19x6"]
+size = Vector2(19, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_21x6"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="FastNoiseLite" id="fog_noise_gen"]
+frequency = 0.012
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="fog_noise"]
+width = 256
+height = 256
+seamless = true
+noise = SubResource("fog_noise_gen")
+
+[sub_resource type="ShaderMaterial" id="fog_material"]
+shader = ExtResource("fog_shader")
+shader_parameter/noise = SubResource("fog_noise")
+shader_parameter/clear_above_y = -10000.0
+
+[node name="FinsterWest" instance=ExtResource("map_base")]
+
+[node name="DayTint" parent="." index="0"]
+color = Color(0.62, 0.55, 0.68, 1)
+script = ExtResource("gloom")
+
+[node name="Ground" parent="." index="1"]
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("ground")
+
+[node name="Top" parent="Bounds" index="0"]
+position = Vector2(0, -392)
+shape = SubResource("Rect_1064x16")
+
+[node name="Bottom" parent="Bounds" index="1"]
+position = Vector2(0, 392)
+shape = SubResource("Rect_1064x16")
+
+[node name="Left" parent="Bounds" index="2"]
+position = Vector2(-520, 0)
+shape = SubResource("Rect_16x808")
+
+[node name="Right" parent="Bounds" index="3"]
+position = Vector2(520, 0)
+shape = SubResource("Rect_16x808")
+
+[node name="FromStart" parent="." index="5"]
+position = Vector2(440, 0)
+
+[node name="Player" parent="." index="6"]
+position = Vector2(440, 0)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -512
+limit_top = -384
+limit_right = 512
+limit_bottom = 384
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-512, -384)
+script = ExtResource("cave_walls")
+mask = ExtResource("mask")
+
+[node name="Houses" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="House1" type="StaticBody2D" parent="Houses"]
+position = Vector2(-170, -214)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House1"]
+texture = ExtResource("t_house_1_8")
+offset = Vector2(0, -43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House1"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_138x14")
+
+[node name="House2" type="StaticBody2D" parent="Houses"]
+position = Vector2(10, -214)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House2"]
+texture = ExtResource("t_house_2_9")
+offset = Vector2(0, -62.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House2"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_113x14")
+
+[node name="House3" type="StaticBody2D" parent="Houses"]
+position = Vector2(175, -214)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House3"]
+texture = ExtResource("t_house_3_10")
+offset = Vector2(0, -63.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House3"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_75x14")
+
+[node name="House4" type="StaticBody2D" parent="Houses"]
+position = Vector2(-60, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House4"]
+texture = ExtResource("t_house_4_11")
+offset = Vector2(0, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House4"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_94x14")
+
+[node name="House5" type="StaticBody2D" parent="Houses"]
+position = Vector2(120, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House5"]
+texture = ExtResource("t_house_5_12")
+offset = Vector2(0, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House5"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_66x14")
+
+[node name="House6" type="StaticBody2D" parent="Houses"]
+position = Vector2(-150, 246)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House6"]
+texture = ExtResource("t_house_6_13")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House6"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_50x14")
+
+[node name="House7" type="StaticBody2D" parent="Houses"]
+position = Vector2(180, 246)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House7"]
+texture = ExtResource("t_house_7_14")
+offset = Vector2(0, -58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House7"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_117x14")
+
+[node name="Town" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Town"]
+position = Vector2(-285, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P1"]
+texture = ExtResource("t_finster_10_15")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P1"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_14x6")
+
+[node name="P2" type="StaticBody2D" parent="Town"]
+position = Vector2(-330, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P2"]
+texture = ExtResource("t_finster_17_16")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P2"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_23x6")
+
+[node name="P3" type="StaticBody2D" parent="Town"]
+position = Vector2(-240, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P3"]
+texture = ExtResource("t_finster_17_16")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P3"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_23x6")
+
+[node name="P4" type="StaticBody2D" parent="Town"]
+position = Vector2(-360, 90)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P4"]
+texture = ExtResource("t_finster_24_17")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P4"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_27x6")
+
+[node name="P5" type="StaticBody2D" parent="Town"]
+position = Vector2(-205, 95)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P5"]
+texture = ExtResource("t_finster_8_18")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P5"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_19x6")
+
+[node name="P6" type="StaticBody2D" parent="Town"]
+position = Vector2(215, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P6"]
+texture = ExtResource("t_finster_18_19")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P6"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_28x6")
+
+[node name="P7" type="StaticBody2D" parent="Town"]
+position = Vector2(255, -42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P7"]
+texture = ExtResource("t_finster_1_20")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P7"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_25x6")
+
+[node name="P8" type="StaticBody2D" parent="Town"]
+position = Vector2(-10, 110)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P8"]
+texture = ExtResource("t_finster_21_21")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P8"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_21x6")
+
+[node name="P9" type="StaticBody2D" parent="Town"]
+position = Vector2(-60, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P9"]
+texture = ExtResource("t_finster_0_22")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P9"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_28x6")
+
+[node name="P10" type="StaticBody2D" parent="Town"]
+position = Vector2(-20, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P10"]
+texture = ExtResource("t_finster_0_22")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P10"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_28x6")
+
+[node name="P11" type="StaticBody2D" parent="Town"]
+position = Vector2(20, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P11"]
+texture = ExtResource("t_finster_0_22")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P11"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_28x6")
+
+[node name="P12" type="StaticBody2D" parent="Town"]
+position = Vector2(60, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P12"]
+texture = ExtResource("t_finster_0_22")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P12"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_28x6")
+
+[node name="P13" type="StaticBody2D" parent="Town"]
+position = Vector2(60, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P13"]
+texture = ExtResource("t_finster_1_20")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P13"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_25x6")
+
+[node name="P14" type="StaticBody2D" parent="Town"]
+position = Vector2(230, 90)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P14"]
+texture = ExtResource("t_finster_4_23")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P14"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_26x6")
+
+[node name="P15" type="Sprite2D" parent="Town"]
+position = Vector2(-400, 200)
+texture = ExtResource("t_finster_3_24")
+offset = Vector2(0, -12)
+
+[node name="P16" type="StaticBody2D" parent="Town"]
+position = Vector2(-420, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P16"]
+texture = ExtResource("t_finster_4_23")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P16"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_26x6")
+
+[node name="P18" type="StaticBody2D" parent="Town"]
+position = Vector2(-200, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P18"]
+texture = ExtResource("t_finster_11_25")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P18"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_27x6")
+
+[node name="P19" type="StaticBody2D" parent="Town"]
+position = Vector2(-430, -250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P19"]
+texture = ExtResource("t_finster_6_26")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P19"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_25x6")
+
+[node name="P20" type="StaticBody2D" parent="Town"]
+position = Vector2(-360, -290)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P20"]
+texture = ExtResource("t_finster_2_27")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P20"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_24x6")
+
+[node name="P21" type="Sprite2D" parent="Town"]
+position = Vector2(-440, -185)
+texture = ExtResource("t_finster_23_28")
+offset = Vector2(0, -18.5)
+
+[node name="P22" type="Sprite2D" parent="Town"]
+position = Vector2(-340, -230)
+texture = ExtResource("t_finster_5_29")
+offset = Vector2(0, -14)
+
+[node name="P28" type="StaticBody2D" parent="Town"]
+position = Vector2(460, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P28"]
+texture = ExtResource("t_finster_6_26")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P28"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_25x6")
+
+[node name="P29" type="StaticBody2D" parent="Town"]
+position = Vector2(400, -260)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P29"]
+texture = ExtResource("t_finster_2_27")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P29"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_24x6")
+
+[node name="P30" type="StaticBody2D" parent="Town"]
+position = Vector2(460, -300)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P30"]
+texture = ExtResource("t_finster_6_26")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P30"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_25x6")
+
+[node name="P31" type="StaticBody2D" parent="Town"]
+position = Vector2(420, 110)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P31"]
+texture = ExtResource("t_finster_22_30")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P31"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_22x6")
+
+[node name="P32" type="StaticBody2D" parent="Town"]
+position = Vector2(440, -42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P32"]
+texture = ExtResource("t_finster_7_31")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P32"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_19x6")
+
+[node name="Glow" parent="Town/P5" instance=ExtResource("night_light")]
+position = Vector2(0, -24)
+color = Color(1, 0.4, 0.2, 1)
+flicker = 0.12
+night_energy = 1.2
+texture_scale = 0.8
+
+[node name="Lantern1" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-410, -129)
+facing = "south"
+
+[node name="Lantern2" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-160, 133)
+facing = "north"
+
+[node name="Lantern3" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-120, -33)
+facing = "south"
+
+[node name="Lantern4" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(60, -33)
+facing = "south"
+
+[node name="Lantern5" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(230, 38)
+facing = "north"
+
+[node name="Lantern6" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-40, -164)
+facing = "north"
+
+[node name="Lantern7" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(250, -164)
+facing = "north"
+
+[node name="Lantern8" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-40, 298)
+facing = "north"
+
+[node name="Lantern9" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(250, 298)
+facing = "north"
+
+[node name="Lantern10" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(414, -33)
+facing = "south"
+
+[node name="Lantern11" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(336, 150)
+facing = "west"
+
+[node name="Lantern12" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(340, 38)
+facing = "north"
+
+[node name="LampBoy" type="Node2D" parent="."]
+script = ExtResource("lamplighter_script")
+resident = "finster_lamp_boy"
+route = PackedVector2Array(440, 0, -180, 0, -180, -110, -280, -110, -280, -192, 310, -192, 310, 270, -280, 270, -280, 110, -180, 110, -180, 0)
+
+[node name="Fog" type="Node2D" parent="."]
+z_index = 60
+material = SubResource("fog_material")
+script = ExtResource("fog_script")
+map_rect = Rect2(-512, -384, 1024, 768)
+
+[node name="Ghosts" type="Node2D" parent="."]
+z_index = 61
+
+[node name="CanalGhost" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_swamp_ghost")
+area = Rect2(-460, 320, 800, 30)
+speed = 10.0
+max_alpha = 0.55
+hide_time = Vector2(6, 16)
+
+[node name="EastGhost" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_swamp_ghost")
+area = Rect2(354, -320, 38, 640)
+speed = 9.0
+max_alpha = 0.5
+hide_time = Vector2(8, 18)
+
+[node name="CoalWraith" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_crypt_wraith")
+area = Rect2(-460, 140, 200, 160)
+speed = 10.0
+max_alpha = 0.55
+hide_time = Vector2(6, 15)
+
+[node name="SquareGhost" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_ghost")
+area = Rect2(-460, -300, 300, 200)
+speed = 11.0
+max_alpha = 0.55
+hide_time = Vector2(5, 14)
+
+[node name="YardGhost" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_ghost")
+area = Rect2(-200, 40, 460, 150)
+speed = 11.0
+max_alpha = 0.5
+hide_time = Vector2(8, 20)
+
+[node name="ToCity" parent="." instance=ExtResource("door")]
+position = Vector2(508, 0)
+scale = Vector2(1, 4)
+target_scene = "res://scenes/world/finster/finster_city.tscn"
+target_spawn_point = &"FromWest"
+
+[node name="Visual" parent="ToCity" index="0"]
+visible = false
+
+[node name="FromCity" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(470, 0)
+
+[node name="DoorToFwHouse1" parent="." instance=ExtResource("door")]
+position = Vector2(-194, -204)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/fw_house1.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToFwHouse1" index="0"]
+visible = false
+
+[node name="FromFwHouse1" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-194, -186)
+
+[node name="DoorToFwHouse2" parent="." instance=ExtResource("door")]
+position = Vector2(18, -204)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/fw_house2.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToFwHouse2" index="0"]
+visible = false
+
+[node name="FromFwHouse2" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(18, -186)
+
+[node name="DoorToFwHouse3" parent="." instance=ExtResource("door")]
+position = Vector2(173, -204)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/fw_house3.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToFwHouse3" index="0"]
+visible = false
+
+[node name="FromFwHouse3" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(173, -186)
+
+[node name="DoorToFwHouse4" parent="." instance=ExtResource("door")]
+position = Vector2(-49, -24)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/fw_house4.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToFwHouse4" index="0"]
+visible = false
+
+[node name="FromFwHouse4" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-49, -6)
+
+[node name="DoorToFwHouse5" parent="." instance=ExtResource("door")]
+position = Vector2(119, -24)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/fw_house5.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToFwHouse5" index="0"]
+visible = false
+
+[node name="FromFwHouse5" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(119, -6)
+
+[node name="DoorToFwHouse6" parent="." instance=ExtResource("door")]
+position = Vector2(-151, 256)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/fw_house6.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToFwHouse6" index="0"]
+visible = false
+
+[node name="FromFwHouse6" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-151, 274)
+
+[node name="DoorToFwHouse7" parent="." instance=ExtResource("door")]
+position = Vector2(177, 256)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/fw_house7.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToFwHouse7" index="0"]
+visible = false
+
+[node name="FromFwHouse7" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(177, 274)
+
+[editable path="Player"]
+[editable path="ToCity"]
+[node name="Crowd" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Roads" type="Node2D" parent="Crowd"]
+script = ExtResource("crowd_roads")
+area = Rect2(-480, -240, 990, 520)
+links = PackedStringArray("P-PN", "PN-NM", "NM-NE", "NE-ME", "P-M", "M-ME", "ME-EX", "ME-SE", "SE-SM", "SM-SW", "SW-P")
+
+[node name="P" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(-280, 0)
+
+[node name="PN" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(-275, -190)
+
+[node name="NM" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(0, -190)
+
+[node name="NE" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(303, -190)
+
+[node name="M" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(0, 0)
+
+[node name="ME" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(303, 0)
+
+[node name="EX" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(440, 0)
+
+[node name="SE" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(303, 263)
+
+[node name="SM" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(0, 263)
+
+[node name="SW" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(-275, 263)
+
+[node name="Spots" type="Node2D" parent="Crowd"]
+
+[node name="DoorLong" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-194, -210)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/PN")
+
+[node name="DoorChimney" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(18, -210)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/NM")
+
+[node name="DoorGolden" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(173, -210)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/NE")
+
+[node name="DoorStoneCot" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-49, -30)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/M")
+
+[node name="DoorViolet" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(119, -30)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/M")
+
+[node name="DoorEyeHut" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-151, 250)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/SW")
+
+[node name="DoorTavern" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(177, 250)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/SE")
+
+[node name="Statues" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-282, -5)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/P")
+
+[node name="Well" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-325, 71)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "left"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/P")
+
+[node name="Firewood" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(230, -25)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/ME")
+
+[node name="FireL" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-240, 80)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "right"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/P")
+partner = NodePath("../FireR")
+
+[node name="FireR" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-175, 80)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "left"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/P")
+partner = NodePath("../FireL")
+
+[node name="TalkSL" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(0, 250)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "right"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/SM")
+partner = NodePath("../TalkSR")
+
+[node name="TalkSR" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(30, 250)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "left"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/SM")
+partner = NodePath("../TalkSL")
+
+[node name="WalkEast" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(440, 0)
+script = ExtResource("crowd_spot")
+kind = 0
+facing = "left"
+duration = Vector2(3, 8)
+road = NodePath("../../Roads/EX")
+
+[node name="WalkNorthEast" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(300, -200)
+script = ExtResource("crowd_spot")
+kind = 0
+facing = "down"
+duration = Vector2(3, 8)
+road = NodePath("../../Roads/NE")
+
+[node name="WalkSouthWest" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-260, 250)
+script = ExtResource("crowd_spot")
+kind = 0
+facing = "right"
+duration = Vector2(3, 8)
+road = NodePath("../../Roads/SW")
+
+[node name="FinLong" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/DoorLong")
+position = Vector2(-190, -180)
+resident = "fin_res_b1"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(3, 8)
+goes_home_at_night = true
+
+[node name="FinChimney" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/DoorChimney")
+position = Vector2(20, -180)
+resident = "fin_res_farmer"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(3, 8)
+goes_home_at_night = true
+
+[node name="FinGolden" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/DoorGolden")
+position = Vector2(170, -180)
+resident = "fin_res_maid"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(3, 8)
+goes_home_at_night = true
+
+[node name="FinStoneCot" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/DoorStoneCot")
+position = Vector2(-50, 10)
+resident = "fin_res_monk"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(3, 8)
+goes_home_at_night = true
+
+[node name="FinViolet" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/DoorViolet")
+position = Vector2(120, 10)
+resident = "fin_res_ferryman"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(3, 8)
+goes_home_at_night = true
+
+[node name="FinTavern" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/DoorTavern")
+position = Vector2(180, 230)
+resident = "fin_res_a3"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(3, 8)
+goes_home_at_night = true
+
+[node name="FinEyeHut" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/DoorEyeHut")
+position = Vector2(-150, 230)
+resident = "fin_res_b3"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(3, 8)
+goes_home_at_night = true
+[editable path="DoorToFwHouse1"]
+[editable path="DoorToFwHouse2"]
+[editable path="DoorToFwHouse3"]
+[editable path="DoorToFwHouse4"]
+[editable path="DoorToFwHouse5"]
+[editable path="DoorToFwHouse6"]
+[editable path="DoorToFwHouse7"]

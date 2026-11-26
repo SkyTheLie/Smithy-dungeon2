@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/trees/apple_b.png" id="1_texture"]
+
+[sub_resource type="CircleShape2D" id="Shape_base"]
+radius = 7.0
+
+[node name="TreeAppleB" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_texture")
+offset = Vector2(0, -47)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("Shape_base")

@@ -1,0 +1,297 @@
+{
+ "frames": [
+  {
+   "filename": "aura_poison 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 1.png",
+   "frame": {
+    "x": 18,
+    "y": 0,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 2.png",
+   "frame": {
+    "x": 36,
+    "y": 0,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 3.png",
+   "frame": {
+    "x": 54,
+    "y": 0,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 4.png",
+   "frame": {
+    "x": 0,
+    "y": 25,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 5.png",
+   "frame": {
+    "x": 18,
+    "y": 25,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 6.png",
+   "frame": {
+    "x": 36,
+    "y": 25,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 7.png",
+   "frame": {
+    "x": 54,
+    "y": 25,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 8.png",
+   "frame": {
+    "x": 0,
+    "y": 50,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 9.png",
+   "frame": {
+    "x": 18,
+    "y": 50,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 10.png",
+   "frame": {
+    "x": 36,
+    "y": 50,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 11.png",
+   "frame": {
+    "x": 54,
+    "y": 50,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 12.png",
+   "frame": {
+    "x": 0,
+    "y": 75,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 13.png",
+   "frame": {
+    "x": 18,
+    "y": 75,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 14.png",
+   "frame": {
+    "x": 36,
+    "y": 75,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_poison 15.png",
+   "frame": {
+    "x": 54,
+    "y": 75,
+    "w": 18,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.3888888888888889,
+    "y": 1.4
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "front"
+ }
+}

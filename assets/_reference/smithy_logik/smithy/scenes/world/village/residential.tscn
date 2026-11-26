@@ -1,0 +1,898 @@
+[gd_scene format=3 uid="uid://bkfxo54j3eq87"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_cherry_a.tscn" id="tree_cherry_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_19.png" id="wp_world_props_village_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/front_21.png" id="wp_world_props_front_21"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/front_1.png" id="wp_world_props_front_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_21.png" id="wp_world_props_village_21"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_20.png" id="wp_world_props_village_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_2.png" id="wp_world_props_village_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_23.png" id="wp_world_props_village_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_22.png" id="wp_world_props_village_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_16.png" id="wp_world_props_village_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_14.png" id="wp_world_props_village_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_8.png" id="wp_world_props_village_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_6.png" id="wp_world_props_village_6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_5.png" id="wp_world_props_village_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_4.png" id="wp_world_props_village_4"]
+[ext_resource type="Script" path="res://scenes/world/objects/critter.gd" id="wp_scenes_world_objects_critte"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_village.tscn" id="lamp_village"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" uid="uid://cf1sv3tnfx82w" path="res://assets/sprites/maps/residential_ground.png" id="5_ground"]
+[ext_resource type="Texture2D" uid="uid://baefl404wlga4" path="res://assets/sprites/buildings/oma_cottage.png" id="10_oma"]
+[ext_resource type="Texture2D" uid="uid://dnbyj6qsrwndx" path="res://assets/sprites/buildings/res_weaver_house.png" id="11_weaver"]
+[ext_resource type="Texture2D" uid="uid://c6vgx3d4xnqpx" path="res://assets/sprites/buildings/res_stone_ivy.png" id="12_stone"]
+[ext_resource type="Texture2D" uid="uid://ddc14hjaso0c4" path="res://assets/sprites/buildings/res_red_timber.png" id="13_red"]
+[ext_resource type="Texture2D" uid="uid://elihq4rnpfec" path="res://assets/sprites/buildings/res_greenhouse_house.png" id="14_greenhouse"]
+[ext_resource type="Texture2D" uid="uid://dymyj6uhttybh" path="res://assets/sprites/buildings/res_row_houses.png" id="15_row"]
+[ext_resource type="Texture2D" uid="uid://g3swneepm7cp" path="res://assets/sprites/buildings/res_porch_house.png" id="16_porch"]
+[ext_resource type="Texture2D" uid="uid://cfy4t6ur5mer2" path="res://assets/sprites/furniture/vegetable_patch.png" id="20_veg"]
+[ext_resource type="Texture2D" uid="uid://xc155n47d5hu" path="res://assets/sprites/furniture/rose_bush.png" id="22_rose"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/fence_h.tscn" id="30_fence_h"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/fence_v.tscn" id="31_fence_v"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/fire_pole.tscn" id="33_fire_pole"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_maple_a.tscn" id="tree_maple_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_poplar_a.tscn" id="tree_poplar_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_apple_a.tscn" id="tree_apple_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/bush.tscn" id="35_bush"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/flower_bed.tscn" id="36_flower_bed"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/bench.tscn" id="37_bench"]
+[ext_resource type="Script" uid="uid://ds0hynlqqpeua" path="res://scenes/actors/village_roads.gd" id="80_roads"]
+[ext_resource type="Script" uid="uid://c0pf3sbup4rhn" path="res://scenes/actors/villager_spot.gd" id="81_spot"]
+[ext_resource type="PackedScene" path="res://scenes/actors/villager.tscn" id="82_villager"]
+[ext_resource type="Script" path="res://scenes/world/objects/window_lights.gd" id="window_lights"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal"]
+size = Vector2(1056, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical"]
+size = Vector2(16, 800)
+
+[sub_resource type="RectangleShape2D" id="Shape_OmaCottage"]
+size = Vector2(153, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_Weaver"]
+size = Vector2(92, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_StoneIvy"]
+size = Vector2(106, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_RedTimber"]
+size = Vector2(111, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_Greenhouse"]
+size = Vector2(156, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_RowHouses"]
+size = Vector2(161, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_PorchHouse"]
+size = Vector2(184, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_prop_veg"]
+size = Vector2(52, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_prop_rose"]
+size = Vector2(22, 8)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_12x6"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_17x6"]
+size = Vector2(17, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_13x6"]
+size = Vector2(13, 6)
+
+[node name="Residential" type="Node2D" unique_id=1496508198]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="." unique_id=1456641335]
+script = ExtResource("4_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=190402232]
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("5_ground")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="." unique_id=922652263]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds" unique_id=325917395]
+position = Vector2(0, -392)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds" unique_id=2002141083]
+position = Vector2(0, 392)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds" unique_id=519975427]
+position = Vector2(-520, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds" unique_id=1630242590]
+position = Vector2(520, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Buildings" type="Node2D" parent="." unique_id=486867283]
+y_sort_enabled = true
+
+[node name="OmaCottage" type="StaticBody2D" parent="Buildings" unique_id=859698912]
+position = Vector2(0, -152)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/OmaCottage" unique_id=1348290470]
+texture = ExtResource("10_oma")
+offset = Vector2(0, -77)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/OmaCottage" unique_id=1983284984]
+position = Vector2(0, -18)
+shape = SubResource("Shape_OmaCottage")
+
+[node name="Weaver" type="StaticBody2D" parent="Buildings" unique_id=308767181]
+position = Vector2(-389, -52)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Weaver" unique_id=604774089]
+texture = ExtResource("11_weaver")
+offset = Vector2(0, -84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Weaver" unique_id=1837223042]
+position = Vector2(0, -18)
+shape = SubResource("Shape_Weaver")
+
+[node name="StoneIvy" type="StaticBody2D" parent="Buildings" unique_id=1659086599]
+position = Vector2(-242, -45)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/StoneIvy" unique_id=518956603]
+texture = ExtResource("12_stone")
+offset = Vector2(0, -60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/StoneIvy" unique_id=877627465]
+position = Vector2(0, -18)
+shape = SubResource("Shape_StoneIvy")
+
+[node name="RedTimber" type="StaticBody2D" parent="Buildings" unique_id=520922676]
+position = Vector2(200, -53)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/RedTimber" unique_id=1901641946]
+texture = ExtResource("13_red")
+offset = Vector2(0, -73)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/RedTimber" unique_id=417007896]
+position = Vector2(0, -18)
+shape = SubResource("Shape_RedTimber")
+
+[node name="Greenhouse" type="StaticBody2D" parent="Buildings" unique_id=607338368]
+position = Vector2(364, -52)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Greenhouse" unique_id=960822277]
+texture = ExtResource("14_greenhouse")
+offset = Vector2(0, -68)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Greenhouse" unique_id=1317784987]
+position = Vector2(0, -18)
+shape = SubResource("Shape_Greenhouse")
+
+[node name="RowHouses" type="StaticBody2D" parent="Buildings" unique_id=127595503]
+position = Vector2(-262, 338)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/RowHouses" unique_id=1755992043]
+texture = ExtResource("15_row")
+offset = Vector2(0, -78)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/RowHouses" unique_id=1321025076]
+position = Vector2(0, -18)
+shape = SubResource("Shape_RowHouses")
+
+[node name="PorchHouse" type="StaticBody2D" parent="Buildings" unique_id=1371630383]
+position = Vector2(267, 274)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/PorchHouse" unique_id=567434141]
+texture = ExtResource("16_porch")
+offset = Vector2(0, -65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/PorchHouse" unique_id=391355749]
+position = Vector2(0, -18)
+shape = SubResource("Shape_PorchHouse")
+
+[node name="Garden" type="Node2D" parent="." unique_id=404037830]
+y_sort_enabled = true
+
+[node name="FenceLeft" parent="Garden" unique_id=1173188856 instance=ExtResource("30_fence_h")]
+position = Vector2(-92, -84)
+
+[node name="FenceRight" parent="Garden" unique_id=1319899678 instance=ExtResource("30_fence_h")]
+position = Vector2(92, -84)
+
+[node name="FenceSideLeft90" parent="Garden" unique_id=1790041202 instance=ExtResource("31_fence_v")]
+position = Vector2(-120, -90)
+
+[node name="FenceSideRight90" parent="Garden" unique_id=1670487697 instance=ExtResource("31_fence_v")]
+position = Vector2(120, -90)
+
+[node name="FenceSideLeft150" parent="Garden" unique_id=708447316 instance=ExtResource("31_fence_v")]
+position = Vector2(-120, -150)
+
+[node name="FenceSideRight150" parent="Garden" unique_id=1127511903 instance=ExtResource("31_fence_v")]
+position = Vector2(120, -150)
+
+[node name="FenceSideLeft210" parent="Garden" unique_id=1600365620 instance=ExtResource("31_fence_v")]
+position = Vector2(-120, -210)
+
+[node name="FenceSideRight210" parent="Garden" unique_id=1145822744 instance=ExtResource("31_fence_v")]
+position = Vector2(120, -210)
+
+[node name="FenceBack1" parent="Garden" unique_id=1086616591 instance=ExtResource("30_fence_h")]
+position = Vector2(-87, -262)
+
+[node name="FenceBack2" parent="Garden" unique_id=166025733 instance=ExtResource("30_fence_h")]
+position = Vector2(-29, -262)
+
+[node name="FenceBack3" parent="Garden" unique_id=459906155 instance=ExtResource("30_fence_h")]
+position = Vector2(29, -262)
+
+[node name="FenceBack4" parent="Garden" unique_id=1846553529 instance=ExtResource("30_fence_h")]
+position = Vector2(87, -262)
+
+[node name="VegetablesLeft" type="StaticBody2D" parent="Garden" unique_id=66745710]
+position = Vector2(-88, -98)
+
+[node name="Sprite2D" type="Sprite2D" parent="Garden/VegetablesLeft" unique_id=802577879]
+texture = ExtResource("20_veg")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/VegetablesLeft" unique_id=1676346402]
+position = Vector2(0, -5)
+shape = SubResource("Shape_prop_veg")
+
+[node name="VegetablesRight" type="StaticBody2D" parent="Garden" unique_id=315381291]
+position = Vector2(88, -98)
+
+[node name="Sprite2D" type="Sprite2D" parent="Garden/VegetablesRight" unique_id=999955288]
+texture = ExtResource("20_veg")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/VegetablesRight" unique_id=924900878]
+position = Vector2(0, -5)
+shape = SubResource("Shape_prop_veg")
+
+[node name="Rose1" type="StaticBody2D" parent="Garden" unique_id=388546451]
+position = Vector2(-100, -160)
+
+[node name="Sprite2D" type="Sprite2D" parent="Garden/Rose1" unique_id=1327349297]
+texture = ExtResource("22_rose")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Rose1" unique_id=1633315732]
+position = Vector2(0, -5)
+shape = SubResource("Shape_prop_rose")
+
+[node name="Rose2" type="StaticBody2D" parent="Garden" unique_id=857041641]
+position = Vector2(100, -160)
+
+[node name="Sprite2D" type="Sprite2D" parent="Garden/Rose2" unique_id=263917617]
+texture = ExtResource("22_rose")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Rose2" unique_id=1301858006]
+position = Vector2(0, -5)
+shape = SubResource("Shape_prop_rose")
+
+[node name="Rose3" type="StaticBody2D" parent="Garden" unique_id=1152182615]
+position = Vector2(-100, -214)
+
+[node name="Sprite2D" type="Sprite2D" parent="Garden/Rose3" unique_id=1548284267]
+texture = ExtResource("22_rose")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Rose3" unique_id=1570841512]
+position = Vector2(0, -5)
+shape = SubResource("Shape_prop_rose")
+
+[node name="Rose4" type="StaticBody2D" parent="Garden" unique_id=2001575201]
+position = Vector2(100, -214)
+
+[node name="Sprite2D" type="Sprite2D" parent="Garden/Rose4" unique_id=561319564]
+texture = ExtResource("22_rose")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Rose4" unique_id=830066713]
+position = Vector2(0, -5)
+shape = SubResource("Shape_prop_rose")
+
+[node name="GateLantern1" parent="Garden" unique_id=180734130 instance=ExtResource("lamp_village")]
+position = Vector2(-55, 110)
+facing = "east"
+
+[node name="GateLantern2" parent="Garden" unique_id=824689493 instance=ExtResource("lamp_village")]
+position = Vector2(54, 96)
+facing = "west"
+
+[node name="GateLantern3" parent="Garden" unique_id=1457244404 instance=ExtResource("lamp_village")]
+position = Vector2(-55, 300)
+facing = "east"
+
+[node name="GateLantern4" parent="Garden" unique_id=827793302 instance=ExtResource("lamp_village")]
+position = Vector2(54, 262)
+facing = "west"
+
+[node name="GateLantern5" parent="Garden" unique_id=655924856 instance=ExtResource("lamp_village")]
+position = Vector2(-60, -58)
+facing = "east"
+
+[node name="GateLantern6" parent="Garden" unique_id=750074466 instance=ExtResource("lamp_village")]
+position = Vector2(56, -66)
+facing = "west"
+
+[node name="GateLantern7" parent="Garden" unique_id=2119103951 instance=ExtResource("lamp_village")]
+position = Vector2(-319, -51)
+facing = "south"
+
+[node name="GateLantern8" parent="Garden" unique_id=1423128862 instance=ExtResource("lamp_village")]
+position = Vector2(405, -51)
+facing = "south"
+
+[node name="GateLantern9" parent="Garden" unique_id=1684664798 instance=ExtResource("lamp_village")]
+position = Vector2(292, -51)
+facing = "south"
+
+[node name="GateLantern10" parent="Garden" unique_id=875199267 instance=ExtResource("lamp_village")]
+position = Vector2(-280, 56)
+facing = "north"
+
+[node name="GateLantern11" parent="Garden" instance=ExtResource("lamp_village")]
+position = Vector2(190, 56)
+facing = "north"
+
+[node name="GateLantern12" parent="Garden" instance=ExtResource("lamp_village")]
+position = Vector2(372, 56)
+facing = "north"
+
+[node name="Decor" type="Node2D" parent="." unique_id=1022837599]
+y_sort_enabled = true
+
+[node name="Oak2" parent="Decor" unique_id=1778360231 instance=ExtResource("tree_cherry_a")]
+position = Vector2(-325, -241)
+scale = Vector2(-1, 1)
+
+[node name="Oak3" parent="Decor" unique_id=488340532 instance=ExtResource("tree_cherry_a")]
+position = Vector2(-224, -192)
+
+[node name="Oak5" parent="Decor" unique_id=1786333372 instance=ExtResource("tree_apple_a")]
+position = Vector2(243, -254)
+
+[node name="Oak6" parent="Decor" unique_id=1544333497 instance=ExtResource("tree_apple_a")]
+position = Vector2(411, -219)
+scale = Vector2(-1, 1)
+
+[node name="Oak7" parent="Decor" unique_id=1441468301 instance=ExtResource("tree_poplar_a")]
+position = Vector2(-430, 171)
+
+[node name="Oak10" parent="Decor" unique_id=1172246936 instance=ExtResource("tree_maple_a")]
+position = Vector2(445, 170)
+scale = Vector2(-1, 1)
+
+[node name="Oak11" parent="Decor" unique_id=1066223996 instance=ExtResource("tree_poplar_a")]
+position = Vector2(-453, 290)
+
+[node name="Bush1" parent="Decor" unique_id=605465790 instance=ExtResource("35_bush")]
+position = Vector2(-500, -100)
+
+[node name="Bush2" parent="Decor" unique_id=462986908 instance=ExtResource("35_bush")]
+position = Vector2(500, -100)
+
+[node name="Bush3" parent="Decor" unique_id=1222150681 instance=ExtResource("35_bush")]
+position = Vector2(-330, 230)
+
+[node name="Bush4" parent="Decor" unique_id=1390226973 instance=ExtResource("35_bush")]
+position = Vector2(400, 250)
+
+[node name="Bush5" parent="Decor" unique_id=1330705840 instance=ExtResource("35_bush")]
+position = Vector2(-170, -270)
+
+[node name="Bush6" parent="Decor" unique_id=822621381 instance=ExtResource("35_bush")]
+position = Vector2(170, -270)
+
+[node name="Bush7" parent="Decor" unique_id=2053878226 instance=ExtResource("35_bush")]
+position = Vector2(-91, 100)
+
+[node name="Bush8" parent="Decor" unique_id=1982039205 instance=ExtResource("35_bush")]
+position = Vector2(93, 99)
+
+[node name="FlowerBed1" parent="Decor" unique_id=693085018 instance=ExtResource("36_flower_bed")]
+position = Vector2(-120, 288)
+
+[node name="FlowerBed2" parent="Decor" unique_id=1316276359 instance=ExtResource("36_flower_bed")]
+position = Vector2(345, 300)
+
+[node name="FlowerBed3" parent="Decor" unique_id=1932061077 instance=ExtResource("36_flower_bed")]
+position = Vector2(-363, 306)
+
+[node name="Bench1" parent="Decor" unique_id=757767840 instance=ExtResource("37_bench")]
+position = Vector2(-230, 104)
+
+[node name="Bench2" parent="Decor" unique_id=922932823 instance=ExtResource("37_bench")]
+position = Vector2(230, 104)
+
+[node name="DoorToGrandma" parent="." unique_id=581486282 instance=ExtResource("2_door")]
+position = Vector2(0, -154)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/village/grandma_house.tscn"
+target_spawn_point = &"FromOutside"
+knock_step = "visit_landlady"
+
+[node name="Visual" parent="DoorToGrandma" index="0"]
+visible = false
+
+[node name="ExitSouth" parent="." unique_id=869646518 instance=ExtResource("2_door")]
+position = Vector2(0, 372)
+scale = Vector2(3, 1)
+target_scene = "res://scenes/world/village/village_center.tscn"
+target_spawn_point = &"FromNorth"
+
+[node name="Visual" parent="ExitSouth" index="0"]
+visible = false
+
+[node name="FromCenter" type="Marker2D" parent="." unique_id=1770273324 groups=["spawn_points"]]
+position = Vector2(0, 334)
+
+[node name="FromGrandma" type="Marker2D" parent="." unique_id=2144405239 groups=["spawn_points"]]
+position = Vector2(0, -126)
+
+[node name="Roads" type="Node2D" parent="." unique_id=1786575196]
+script = ExtResource("80_roads")
+
+[node name="Centre" type="Marker2D" parent="Roads" unique_id=1025892431]
+
+[node name="West2" type="Marker2D" parent="Roads" unique_id=1512951994]
+position = Vector2(-242, 0)
+
+[node name="West" type="Marker2D" parent="Roads" unique_id=435635380]
+position = Vector2(-402, 0)
+
+[node name="East2" type="Marker2D" parent="Roads" unique_id=739802082]
+position = Vector2(228, 0)
+
+[node name="East" type="Marker2D" parent="Roads" unique_id=31054406]
+position = Vector2(366, 0)
+
+[node name="OmaPath" type="Marker2D" parent="Roads" unique_id=675232858]
+position = Vector2(0, -100)
+
+[node name="South1" type="Marker2D" parent="Roads" unique_id=32229693]
+position = Vector2(0, 200)
+
+[node name="South2" type="Marker2D" parent="Roads" unique_id=949969725]
+position = Vector2(0, 336)
+
+[node name="LaneWest" type="Marker2D" parent="Roads" unique_id=1528997392]
+position = Vector2(-262, 352)
+
+[node name="LaneFarWest" type="Marker2D" parent="Roads" unique_id=380837490]
+position = Vector2(-325, 350)
+
+[node name="LaneEast" type="Marker2D" parent="Roads" unique_id=2079697487]
+position = Vector2(262, 334)
+
+[node name="BenchWestSide" type="Marker2D" parent="Roads" unique_id=1572674099]
+position = Vector2(-285, 125)
+
+[node name="BenchEastSide" type="Marker2D" parent="Roads" unique_id=1424836737]
+position = Vector2(285, 125)
+
+[node name="Spots" type="Node2D" parent="." unique_id=797187247]
+
+[node name="DoorWeaver" type="Marker2D" parent="Spots" unique_id=775000287 node_paths=PackedStringArray("road")]
+position = Vector2(-368, -49)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/West")
+
+[node name="DoorStoneIvy" type="Marker2D" parent="Spots" unique_id=1712703588 node_paths=PackedStringArray("road")]
+position = Vector2(-244, -42)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/West2")
+
+[node name="DoorRedTimber" type="Marker2D" parent="Spots" unique_id=1326194404 node_paths=PackedStringArray("road")]
+position = Vector2(196, -50)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/East2")
+
+[node name="DoorGreenhouse" type="Marker2D" parent="Spots" unique_id=989553850 node_paths=PackedStringArray("road")]
+position = Vector2(328, -49)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/East")
+
+[node name="DoorRowLeft" type="Marker2D" parent="Spots" unique_id=262521846 node_paths=PackedStringArray("road")]
+position = Vector2(-292, 342)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/LaneWest")
+
+[node name="DoorRowRight" type="Marker2D" parent="Spots" unique_id=1929208117 node_paths=PackedStringArray("road")]
+position = Vector2(-232, 342)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/LaneWest")
+
+[node name="DoorPorch" type="Marker2D" parent="Spots" unique_id=678326293 node_paths=PackedStringArray("road")]
+position = Vector2(261, 278)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/LaneEast")
+
+[node name="BenchWestA" type="Marker2D" parent="Spots" unique_id=1840911020 node_paths=PackedStringArray("road")]
+position = Vector2(-241, 106)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/BenchWestSide")
+
+[node name="BenchWestB" type="Marker2D" parent="Spots" unique_id=398894697 node_paths=PackedStringArray("road")]
+position = Vector2(-219, 106)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/BenchWestSide")
+
+[node name="BenchEastA" type="Marker2D" parent="Spots" unique_id=1523163617 node_paths=PackedStringArray("road")]
+position = Vector2(219, 106)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/BenchEastSide")
+
+[node name="BenchEastB" type="Marker2D" parent="Spots" unique_id=1274897255 node_paths=PackedStringArray("road")]
+position = Vector2(241, 106)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/BenchEastSide")
+
+[node name="FlowersSouthWest" type="Marker2D" parent="Spots" unique_id=1378150661 node_paths=PackedStringArray("road")]
+position = Vector2(-150, 350)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+duration = Vector2(4, 9)
+road = NodePath("../../Roads/LaneWest")
+
+[node name="FlowersSouthEast" type="Marker2D" parent="Spots" unique_id=1630451513 node_paths=PackedStringArray("road")]
+position = Vector2(150, 350)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+duration = Vector2(4, 9)
+road = NodePath("../../Roads/LaneEast")
+
+[node name="FlowersWest" type="Marker2D" parent="Spots" unique_id=1377382805 node_paths=PackedStringArray("road")]
+position = Vector2(-452, 34)
+script = ExtResource("81_spot")
+kind = 3
+facing = "left"
+duration = Vector2(4, 9)
+road = NodePath("../../Roads/West")
+
+[node name="OmaVegLeft" type="Marker2D" parent="Spots" unique_id=922010760 node_paths=PackedStringArray("road")]
+position = Vector2(-46, -104)
+script = ExtResource("81_spot")
+kind = 3
+facing = "left"
+duration = Vector2(4, 8)
+road = NodePath("../../Roads/OmaPath")
+
+[node name="OmaVegRight" type="Marker2D" parent="Spots" unique_id=443547240 node_paths=PackedStringArray("road")]
+position = Vector2(46, -104)
+script = ExtResource("81_spot")
+kind = 3
+facing = "right"
+duration = Vector2(4, 8)
+road = NodePath("../../Roads/OmaPath")
+
+[node name="OmaHouse" type="Marker2D" parent="Spots" unique_id=993056028 node_paths=PackedStringArray("road")]
+position = Vector2(0, -128)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+duration = Vector2(3, 6)
+road = NodePath("../../Roads/OmaPath")
+
+[node name="TalkStreetA" type="Marker2D" parent="Spots" unique_id=88251237 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-132, 8)
+script = ExtResource("81_spot")
+kind = 4
+facing = "right"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/Centre")
+partner = NodePath("../TalkStreetB")
+
+[node name="TalkStreetB" type="Marker2D" parent="Spots" unique_id=1818129473 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-104, 8)
+script = ExtResource("81_spot")
+kind = 4
+facing = "left"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/Centre")
+partner = NodePath("../TalkStreetA")
+
+[node name="TalkSouthA" type="Marker2D" parent="Spots" unique_id=338826820 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-16, 210)
+script = ExtResource("81_spot")
+kind = 4
+facing = "right"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/South1")
+partner = NodePath("../TalkSouthB")
+
+[node name="TalkSouthB" type="Marker2D" parent="Spots" unique_id=1640222429 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(16, 210)
+script = ExtResource("81_spot")
+kind = 4
+facing = "left"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/South1")
+partner = NodePath("../TalkSouthA")
+
+[node name="TalkLaneA" type="Marker2D" parent="Spots" unique_id=1874380876 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(330, 340)
+script = ExtResource("81_spot")
+kind = 4
+facing = "right"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/LaneEast")
+partner = NodePath("../TalkLaneB")
+
+[node name="TalkLaneB" type="Marker2D" parent="Spots" unique_id=531790966 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(358, 340)
+script = ExtResource("81_spot")
+kind = 4
+facing = "left"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/LaneEast")
+partner = NodePath("../TalkLaneA")
+
+[node name="StrollEast" type="Marker2D" parent="Spots" unique_id=121516830 node_paths=PackedStringArray("road")]
+position = Vector2(400, 8)
+script = ExtResource("81_spot")
+duration = Vector2(2, 5)
+road = NodePath("../../Roads/East")
+
+[node name="StrollLane" type="Marker2D" parent="Spots" unique_id=677869860 node_paths=PackedStringArray("road")]
+position = Vector2(-420, 340)
+script = ExtResource("81_spot")
+duration = Vector2(2, 5)
+road = NodePath("../../Roads/LaneFarWest")
+
+[node name="Resident1" parent="." unique_id=1337141431 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorGreenhouse")
+position = Vector2(-242, 10)
+resident = "farmer"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Resident2" parent="." unique_id=1403102771 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorStoneIvy")
+position = Vector2(227, 10)
+resident = "hunter"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Resident3" parent="." unique_id=1147121885 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorPorch")
+position = Vector2(267, 328)
+resident = "fisher"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Vignettes" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(146, 258)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P1"]
+texture = ExtResource("wp_world_props_front_1")
+offset = Vector2(0, -14.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P2" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(112, 262)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P2"]
+texture = ExtResource("wp_world_props_front_21")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P3" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-146, 212)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P3"]
+texture = ExtResource("wp_world_props_village_16")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P4" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-420, -226)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P4"]
+texture = ExtResource("wp_world_props_village_8")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P5" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-390, -232)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P5"]
+texture = ExtResource("wp_world_props_village_8")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P6" type="Sprite2D" parent="Vignettes"]
+position = Vector2(-52, -146)
+texture = ExtResource("wp_world_props_village_19")
+offset = Vector2(0, -9.5)
+
+[node name="Player" parent="." unique_id=1061309204 instance=ExtResource("1_player")]
+position = Vector2(0, 334)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -512
+limit_top = -384
+limit_right = 512
+limit_bottom = 384
+
+[node name="HUD" parent="." unique_id=1051772691 instance=ExtResource("3_hud")]
+
+[node name="WindowLights" type="Node" parent="."]
+script = ExtResource("window_lights")
+
+[node name="DoorToResWeaver" parent="." instance=ExtResource("2_door")]
+position = Vector2(-368, -43)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/res_weaver.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToResWeaver" index="0"]
+visible = false
+
+[node name="FromResWeaver" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-368, -25)
+
+[node name="DoorToResStoneIvy" parent="." instance=ExtResource("2_door")]
+position = Vector2(-244, -36)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/res_stone_ivy.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToResStoneIvy" index="0"]
+visible = false
+
+[node name="FromResStoneIvy" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-244, -18)
+
+[node name="DoorToResRedTimber" parent="." instance=ExtResource("2_door")]
+position = Vector2(196, -44)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/res_red_timber.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToResRedTimber" index="0"]
+visible = false
+
+[node name="FromResRedTimber" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(196, -26)
+
+[node name="DoorToResGreenhouse" parent="." instance=ExtResource("2_door")]
+position = Vector2(328, -43)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/res_greenhouse.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToResGreenhouse" index="0"]
+visible = false
+
+[node name="FromResGreenhouse" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(328, -25)
+
+[node name="DoorToResRowLeft" parent="." instance=ExtResource("2_door")]
+position = Vector2(-292, 348)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/res_row_left.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToResRowLeft" index="0"]
+visible = false
+
+[node name="FromResRowLeft" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-292, 366)
+
+[node name="DoorToResRowRight" parent="." instance=ExtResource("2_door")]
+position = Vector2(-232, 348)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/res_row_right.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToResRowRight" index="0"]
+visible = false
+
+[node name="FromResRowRight" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-232, 366)
+
+[node name="DoorToResPorch" parent="." instance=ExtResource("2_door")]
+position = Vector2(261, 284)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/res_porch.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToResPorch" index="0"]
+visible = false
+
+[node name="FromResPorch" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(261, 302)
+
+[editable path="DoorToGrandma"]
+[editable path="ExitSouth"]
+[editable path="Player"]
+[editable path="DoorToResWeaver"]
+[editable path="DoorToResStoneIvy"]
+[editable path="DoorToResRedTimber"]
+[editable path="DoorToResGreenhouse"]
+[editable path="DoorToResRowLeft"]
+[editable path="DoorToResRowRight"]
+[editable path="DoorToResPorch"]

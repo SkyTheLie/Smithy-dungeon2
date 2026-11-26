@@ -1,0 +1,278 @@
+{
+	"dialogues": {
+		"intro_arrival": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "So. Da wäre ich. Das Dorf des legendären Schmieds."
+				},
+				{
+					"speaker": "player",
+					"text": "Irgendwo im Westen soll eine alte Schmiede stehen. Kalte Esse, verstaubter Amboss ... perfekt."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich meine ... hoffentlich ist sie noch zu haben. Und hoffentlich reicht mein Gold."
+				}
+			]
+		},
+		"sign_read": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "ZU VERMIETEN\nAlte Schmiede, {rent} Gold alle zwei Wochen.\nAnfragen bei Oma Hilde im Wohnviertel (vom Dorfplatz nach Norden)."
+				},
+				{
+					"speaker": "player",
+					"text": "Eine eigene Schmiede. Mit Spinnweben, vermutlich. Egal: genau das, was ich suche!"
+				}
+			],
+			"on_end": "read_rent_sign"
+		},
+		"raid_heroes_busy": {
+			"lines": [
+				{
+					"speaker": "raid_heroes",
+					"text": "Nicht jetzt! Bring dich in Sicherheit!"
+				}
+			]
+		},
+		"builder_rebuild_check": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Na, Schmied? Hast du alles dabei? 20 Holzbretter, 20 Holzbalken, 20 Kupfernägel und 5 Kupferbarren."
+				}
+			],
+			"choices": [
+				{
+					"text": "Alles abgeben",
+					"action": "has_items:wooden_plank*20,wooden_beam*20,copper_nail*20,copper_ingot*5;take_items:wooden_plank*20,wooden_beam*20,copper_nail*20,copper_ingot*5;set_flag:rebuild_delivered;advance:rebuild_night",
+					"then": "builder_rebuild_delivered",
+					"else": "builder_rebuild_missing"
+				},
+				{
+					"text": "Noch nicht",
+					"action": ""
+				}
+			]
+		},
+		"builder_rebuild_missing": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Da fehlt noch was. Schau ins Auftragsbuch, da steht, was du schon hast."
+				}
+			]
+		},
+		"builder_rebuild_delivered": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Bei allen Göttern, das ist mehr, als ich zu hoffen gewagt hab! He, Leute, packt mit an!"
+				},
+				{
+					"speaker": "",
+					"text": "Von allen Seiten kommen Dorfbewohner, nehmen Bretter und Balken und tragen sie zu den Häusern.",
+					"action": "cutscene:rebuild_carry",
+					"hide_for": 3.4
+				},
+				{
+					"speaker": "builder",
+					"text": "Wir arbeiten die Nacht durch. Geh nach Hause und schlaf dich aus, Schmied. Morgen wirst du den Platz nicht wiedererkennen."
+				}
+			]
+		},
+		"builder_rebuild_working": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Wir sind dran! Geh schlafen, morgen ist alles fertig."
+				}
+			]
+		},
+		"builder_wait_mayor": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Der Bürgermeister will dir erst etwas sagen."
+				}
+			]
+		},
+		"builder_idle": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Na, Schmied? Was soll ich dir bauen? Du findest mich jeden Dienstag und Donnerstag hier."
+				}
+			],
+			"choices": [
+				{
+					"text": "Haus ausbauen",
+					"action": "open_menu:house"
+				},
+				{
+					"text": "Werkstatt aufrüsten",
+					"action": "open_menu:workshop"
+				},
+				{
+					"text": "Ruhmeshalle bauen",
+					"unless_flag": "hall_of_fame_paid",
+					"action": "has_items:wooden_beam*30,glass*10,silver_ingot*5;has_gold:15000;take_items:wooden_beam*30,glass*10,silver_ingot*5;pay_gold:15000;set_flag:hall_of_fame_paid",
+					"then": "builder_hall_done",
+					"else": "builder_hall_missing"
+				},
+				{
+					"text": "Gewächshaus bauen",
+					"unless_flag": "greenhouse_paid",
+					"action": "has_items:wooden_beam*20,glass*20;has_gold:500;take_items:wooden_beam*20,glass*20;pay_gold:500;set_flag:greenhouse_paid",
+					"then": "builder_greenhouse_done",
+					"else": "builder_greenhouse_missing"
+				},
+				{
+					"text": "Nichts, danke"
+				}
+			]
+		},
+		"builder_busy_house": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Na, Schmied? Meine Leute stecken noch bis zum Hals in deinem Hausausbau. Morgen früh ist er fertig."
+				},
+				{
+					"speaker": "builder",
+					"text": "Eins nach dem anderen! Danach bau ich dir gern das Nächste."
+				}
+			]
+		},
+		"builder_busy_hall": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Na, Schmied? Wir mauern noch an deiner Ruhmeshalle. Morgen früh ist sie fertig."
+				},
+				{
+					"speaker": "builder",
+					"text": "Eins nach dem anderen! Danach bau ich dir gern das Nächste."
+				}
+			]
+		},
+		"builder_busy_greenhouse": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Na, Schmied? Wir setzen noch das Glas in dein Gewächshaus. Morgen früh ist es fertig."
+				},
+				{
+					"speaker": "builder",
+					"text": "Eins nach dem anderen! Danach bau ich dir gern das Nächste."
+				}
+			]
+		},
+		"builder_greenhouse_done": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Gutes Glas! Morgen früh steht dein Gewächshaus links neben der Schmiede. Den Zaun setze ich ein Stück nach Westen, die Tür kommt vorne in die Mitte."
+				},
+				{
+					"speaker": "builder",
+					"text": "Pflanztöpfe und gute Erde kriegst du bei der Möbelhändlerin am Markt. Dann kann die Gärtnerei losgehen."
+				}
+			]
+		},
+		"builder_hall_done": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Eine Ruhmeshalle! Endlich mal was Ordentliches. Hinter deinem Schlafzimmer ist genug Platz für einen Anbau."
+				},
+				{
+					"speaker": "builder",
+					"text": "Morgen früh ist die Tür drin. Stell deine Pokale auf, dann kommen die Leute von selbst zum Staunen."
+				}
+			]
+		},
+		"builder_hall_missing": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Für die Halle brauch ich 30 Holzbalken, 10 Scheiben Glas, 5 Silberbarren und 15.000 Gold. Im Auftragsbuch steht, was du schon hast."
+				}
+			]
+		},
+		"builder_greenhouse_missing": {
+			"lines": [
+				{
+					"speaker": "builder",
+					"text": "Da fehlt noch was: 20 Holzbalken, 20 Scheiben Glas und 500 Gold. Im Auftragsbuch steht, was du schon hast."
+				}
+			]
+		},
+		"treasury_runes": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Kaum berührst du das Tor, glühen auf dem schwarzen Metall drei Zeichen auf, eins nach dem anderen."
+				},
+				{
+					"speaker": "player",
+					"text": "Huch. Das war ich? Ich hab doch nur angeklopft."
+				},
+				{
+					"speaker": "player",
+					"text": "Warum leuchtet ein Goblintor, wenn ich es anfasse? Das sollte es wirklich nicht tun."
+				},
+				{
+					"speaker": "player",
+					"text": "... Aber gut. Dann ist das halt so."
+				},
+				{
+					"speaker": "",
+					"text": "Unter den drei Zeichen sitzt ein Schlüsselloch, so groß wie eine Faust."
+				}
+			]
+		},
+		"temple_socket_open": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Vertiefungen sind leer. Die Siegel sind mit dem Tor im Stein verschwunden."
+				}
+			]
+		},
+		"temple_socket_filled_sun_seal": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "In der Vertiefung sitzt das Sonnensiegel."
+				}
+			]
+		},
+		"temple_socket_filled_moon_seal": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "In der Vertiefung sitzt das Mondsiegel."
+				}
+			]
+		},
+		"temple_socket_filled_storm_seal": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "In der Vertiefung sitzt das Sturmsiegel."
+				}
+			]
+		},
+		"fortress_lever_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der Hebel ist umgelegt. Draußen tobt die Schlacht."
+				}
+			]
+		}
+	}
+}

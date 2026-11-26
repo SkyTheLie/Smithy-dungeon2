@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerSkillData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/player_skill_data.gd" id="1_skill"]
+[ext_resource type="Texture2D" path="res://assets/sprites/skills/lucky_find.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_skill")
+display_name = "Glückshand"
+description = "Mehr Glückstreffer an der Werkbank: 2,5 / 3,5 / 4,5 % Chance statt 1,5 %, dass die Seltenheit um zwei Stufen springt oder das Stück einen Sockel mehr bekommt."
+icon = ExtResource("2_icon")
+stat = 21
+value_per_rank = 0.01
+max_rank = 3
+required_level = 15
+level_per_rank = 5
+required_flag = "lucky_strike_found"
+flag_hint = "Erst nach dem ersten Glückstreffer an der Werkbank"

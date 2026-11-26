@@ -1,0 +1,521 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_9.png" id="wp_world_props_grove_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_7.png" id="wp_world_props_grove_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_2.png" id="wp_world_props_grove_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_13.png" id="wp_world_props_grove_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_8.png" id="wp_world_props_grove_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_19.png" id="wp_world_props_elf_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_23.png" id="wp_world_props_elf_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_22.png" id="wp_world_props_elf_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_0.png" id="wp_world_props_elf_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_4.png" id="wp_world_props_elf_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_3.png" id="wp_world_props_elf_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_2.png" id="wp_world_props_elf_2"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_elf.tscn" id="lamp_elf"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="1_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_canopy_top.png" id="2_elf_canopy_t"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="3_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_canopy_top_mask.png" id="4_elf_canopy_t"]
+[ext_resource type="Script" path="res://scenes/world/volcano/depth_layer.gd" id="5_depth_layer"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_canopy_below.png" id="6_elf_canopy_b"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="Script" path="res://scenes/world/elves/elf_lift.gd" id="8_elf_lift"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="9_door"]
+[ext_resource type="PackedScene" path="res://scenes/actors/market_stall.tscn" id="11_market_stall"]
+[ext_resource type="Script" path="res://scenes/world/volcano/goblin_figure.gd" id="12_goblin_figur"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="13_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/raid_fire.png" id="14_raid_fire"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="15_sheet_animat"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="16_night_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/vine_block.png" id="17_vine_wall"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="18_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="19_hud"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_stall.png" id="elf_stall"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_stall_bow.png" id="elf_stall_bow"]
+
+[sub_resource type="Resource" id="Look_herbalist"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "long"
+hair_color = "brown"
+eye_type = "sleepy"
+eye_color = "green"
+size = "normal"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_bowyer"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "tan"
+hair_style = "ponytail"
+hair_color = "black"
+eye_type = "narrow"
+eye_color = "brown"
+size = "tall"
+outfit = "vest"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_citizen_a"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "long"
+hair_color = "red"
+eye_type = "normal"
+eye_color = "green"
+size = "normal"
+outfit = "tunic"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_citizen_c"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pale"
+hair_style = "ponytail"
+hair_color = "white"
+eye_type = "sleepy"
+eye_color = "blue"
+size = "normal"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_fighter"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "tan"
+hair_style = "ponytail"
+hair_color = "brown"
+eye_type = "narrow"
+eye_color = "green"
+size = "normal"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_fighter2"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "short"
+hair_color = "black"
+eye_type = "normal"
+eye_color = "grey"
+size = "tall"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="RectangleShape2D" id="Rect_48x40"]
+size = Vector2(48, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_vine_block"]
+size = Vector2(24, 46)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_17x6"]
+size = Vector2(17, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[node name="ElfCanopyTop" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -40
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2120.0
+offset_bottom = 1640.0
+mouse_filter = 2
+color = Color(0.06, 0.09, 0.07, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("1_day_tint")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("2_elf_canopy_t")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource("3_cave_walls")
+mask = ExtResource("4_elf_canopy_t")
+
+[node name="Depth" type="Node2D" parent="."]
+z_index = -30
+script = ExtResource("5_depth_layer")
+factor = 0.55
+anchor = Vector2(560, 320)
+
+[node name="Below" type="Sprite2D" parent="Depth"]
+modulate = Color(0.7, 0.75, 0.72, 1)
+position = Vector2(-40, -80)
+texture = ExtResource("6_elf_canopy_b")
+centered = false
+
+[node name="LiftUp" type="StaticBody2D" parent="."]
+position = Vector2(610, 132)
+script = ExtResource("8_elf_lift")
+target_scene = "res://scenes/world/elves/elf_summit.tscn"
+target_spawn_point = &"FromCanopy"
+text = "Hinauf zur Spitze"
+ropes = true
+
+[node name="FromSummit" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(610, 170)
+
+[node name="ExitSouth" parent="." instance=ExtResource("9_door")]
+position = Vector2(610, 632)
+target_scene = "res://scenes/world/elves/elf_canopy.tscn"
+target_spawn_point = &"FromNorth"
+scale = Vector2(2, 1)
+
+[node name="Visual" parent="ExitSouth" index="0"]
+visible = false
+
+[node name="ExitSouthWest" parent="." instance=ExtResource("9_door")]
+position = Vector2(230, 632)
+target_scene = "res://scenes/world/elves/elf_canopy.tscn"
+target_spawn_point = &"FromNorthWest"
+scale = Vector2(2, 1)
+blocked_flag = "elf_attack_started"
+unblocked_flag = "reached_crisis_council"
+blocked_text = "Überall Feuer und Untote. Erst muss der Älteste in Sicherheit sein."
+
+[node name="Visual" parent="ExitSouthWest" index="0"]
+visible = false
+
+[node name="ExitSouthEast" parent="." instance=ExtResource("9_door")]
+position = Vector2(915, 632)
+target_scene = "res://scenes/world/elves/elf_canopy.tscn"
+target_spawn_point = &"FromNorthEast"
+scale = Vector2(2, 1)
+blocked_flag = "elf_attack_started"
+unblocked_flag = "reached_crisis_council"
+blocked_text = "Überall Feuer und Untote. Erst muss der Älteste in Sicherheit sein."
+
+[node name="Visual" parent="ExitSouthEast" index="0"]
+visible = false
+
+[node name="FromSouth" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(610, 592)
+
+[node name="FromSouthWest" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(231, 592)
+
+[node name="FromSouthEast" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(915, 592)
+
+[node name="Lights" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Lantern1" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(571, 91)
+facing = "south"
+
+[node name="Lantern2" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(687, 130)
+facing = "west"
+
+[node name="Lantern3" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(117, 272)
+facing = "east"
+
+[node name="Lantern4" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(293, 245)
+facing = "south"
+
+[node name="Lantern5" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(884, 262)
+facing = "west"
+
+[node name="Lantern6" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(1038, 326)
+facing = "west"
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Herbalist" parent="People" instance=ExtResource("11_market_stall")]
+position = Vector2(200, 290)
+stall_texture = ExtResource("elf_stall")
+merchant_name = "Kräuterhüterin Ithiel"
+appearance = SubResource("Look_herbalist")
+resident = "elf_ithiel"
+greeting = "Die Kräuter hier oben wachsen näher an den Sternen, Mensch. Darum wirken sie stärker. Sagt man."
+offers = Array[String]([])
+stock_id = "sylvaris_herbs"
+
+[node name="Bowyer" parent="People" instance=ExtResource("11_market_stall")]
+position = Vector2(923, 326)
+stall_texture = ExtResource("elf_stall_bow")
+merchant_name = "Bognerin Saelind"
+appearance = SubResource("Look_bowyer")
+resident = "elf_saelind"
+greeting = "Ein Bogen ist ein Ast, der sich erinnert, wie sehr ihn der Wind gebogen hat. Schau dich um."
+offers = Array[String]([])
+stock_id = "sylvaris_bows"
+
+[node name="CitizenA" type="Node2D" parent="People"]
+position = Vector2(150, 330)
+script = ExtResource("12_goblin_figur")
+appearance = SubResource("Look_citizen_a")
+resident = "elf_citizen_a"
+facing = "right"
+
+[node name="CitizenB" type="Node2D" parent="People"]
+position = Vector2(1035, 268)
+script = ExtResource("12_goblin_figur")
+appearance = SubResource("Look_citizen_c")
+resident = "elf_citizen_c"
+facing = "left"
+
+[node name="Attack" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("13_story_prop")
+required_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+
+[node name="Fire1" type="Sprite2D" parent="Attack"]
+position = Vector2(560, 156)
+texture = ExtResource("14_raid_fire")
+offset = Vector2(0, -55)
+hframes = 7
+script = ExtResource("15_sheet_animat")
+frames_per_second = 10.0
+
+[node name="Light" parent="Attack/Fire1" instance=ExtResource("16_night_light")]
+position = Vector2(0, -40)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.6
+flicker = 0.25
+
+[node name="Fire2" type="Sprite2D" parent="Attack"]
+position = Vector2(230, 420)
+texture = ExtResource("14_raid_fire")
+offset = Vector2(0, -55)
+hframes = 7
+script = ExtResource("15_sheet_animat")
+frames_per_second = 10.0
+
+[node name="Light" parent="Attack/Fire2" instance=ExtResource("16_night_light")]
+position = Vector2(0, -40)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.6
+flicker = 0.25
+
+[node name="VinesWest" type="StaticBody2D" parent="Attack"]
+position = Vector2(395, 254)
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack/VinesWest"]
+texture = ExtResource("17_vine_wall")
+offset = Vector2(0, -31.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/VinesWest"]
+position = Vector2(0, -23)
+shape = SubResource("Rect_vine_block")
+
+[node name="VinesEast" type="StaticBody2D" parent="Attack"]
+position = Vector2(815, 256)
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack/VinesEast"]
+texture = ExtResource("17_vine_wall")
+offset = Vector2(0, -31.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/VinesEast"]
+position = Vector2(0, -23)
+shape = SubResource("Rect_vine_block")
+
+[node name="Deck" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Deck"]
+position = Vector2(988, 255)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P1"]
+texture = ExtResource("wp_world_props_elf_2")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P2" type="StaticBody2D" parent="Deck"]
+position = Vector2(340, 296)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P2"]
+texture = ExtResource("wp_world_props_elf_3")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P3" type="StaticBody2D" parent="Deck"]
+position = Vector2(965, 374)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P3"]
+texture = ExtResource("wp_world_props_elf_4")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P4" type="StaticBody2D" parent="Deck"]
+position = Vector2(175, 333)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P4"]
+texture = ExtResource("wp_world_props_elf_14")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_24x6")
+
+[node name="P5" type="StaticBody2D" parent="Deck"]
+position = Vector2(258, 307)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P5"]
+texture = ExtResource("wp_world_props_elf_22")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P6" type="StaticBody2D" parent="Deck"]
+position = Vector2(961, 364)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P6"]
+texture = ExtResource("wp_world_props_elf_23")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P7" type="StaticBody2D" parent="Deck"]
+position = Vector2(318, 330)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P7"]
+texture = ExtResource("wp_world_props_elf_19")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P7"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P8" type="StaticBody2D" parent="Deck"]
+position = Vector2(130, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P8"]
+texture = ExtResource("wp_world_props_grove_8")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P8"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P9" type="StaticBody2D" parent="Deck"]
+position = Vector2(300, 212)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P9"]
+texture = ExtResource("wp_world_props_grove_13")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P9"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P10" type="StaticBody2D" parent="Deck"]
+position = Vector2(500, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P10"]
+texture = ExtResource("wp_world_props_grove_2")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P10"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P11" type="StaticBody2D" parent="Deck"]
+position = Vector2(720, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P11"]
+texture = ExtResource("wp_world_props_grove_8")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P11"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P12" type="StaticBody2D" parent="Deck"]
+position = Vector2(1045, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P12"]
+texture = ExtResource("wp_world_props_grove_13")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P12"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P13" type="StaticBody2D" parent="Deck"]
+position = Vector2(910, 222)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P13"]
+texture = ExtResource("wp_world_props_grove_7")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P13"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P14" type="StaticBody2D" parent="Deck"]
+position = Vector2(995, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P14"]
+texture = ExtResource("wp_world_props_grove_9")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P14"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_21x6")
+
+[node name="Player" parent="." instance=ExtResource("18_player")]
+position = Vector2(610, 170)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 1120
+limit_bottom = 640
+
+[node name="HUD" parent="." instance=ExtResource("19_hud")]
+
+[editable path="ExitSouth"]
+[editable path="ExitSouthWest"]
+[editable path="ExitSouthEast"]
+[editable path="Player"]

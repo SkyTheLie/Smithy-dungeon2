@@ -1,0 +1,190 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_fortress.tscn" id="lamp_fortress"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="2_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sneak_moat_ground.png" id="3_ground"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="4_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sneak_moat_mask.png" id="5_mask"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="6_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_0.png" id="7_crates"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_1.png" id="8_barrels_sack"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/stones_b.png" id="9_stones_b"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="10_door"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/smith_gate_open.png" id="11_gate_open"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="12_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="13_hud"]
+[ext_resource type="Script" path="res://scenes/actors/companion.gd" id="14_companion"]
+[ext_resource type="Texture2D" path="res://assets/sprites/residents/faelan.png" id="15_faelan"]
+[ext_resource type="Script" path="res://scenes/world/fortress/moat_escape_cutscene.gd" id="17_moat_cut"]
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("6_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="RectangleShape2D" id="Rect_28x12"]
+size = Vector2(28, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_30x12"]
+size = Vector2(30, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_22x10"]
+size = Vector2(22, 10)
+
+[node name="FortressMoatEscape" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+color = Color(0.5, 0.5, 0.62, 1)
+script = ExtResource("2_gloom")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-480, -240)
+texture = ExtResource("3_ground")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-480, -240)
+script = ExtResource("4_cave_walls")
+mask = ExtResource("5_mask")
+
+[node name="SallyPort" type="Sprite2D" parent="."]
+position = Vector2(-384, -80)
+z_index = -1
+texture = ExtResource("11_gate_open")
+offset = Vector2(0, -20)
+
+[node name="Props" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Crates1" type="StaticBody2D" parent="Props"]
+position = Vector2(-80, -22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crates1"]
+texture = ExtResource("7_crates")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crates1"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_28x12")
+
+[node name="Barrels1" type="StaticBody2D" parent="Props"]
+position = Vector2(336, -22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Barrels1"]
+texture = ExtResource("8_barrels_sack")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Barrels1"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_30x12")
+
+[node name="Brazier1" parent="Props" instance=ExtResource("lamp_fortress")]
+position = Vector2(-430, 9)
+
+[node name="Rock1" type="StaticBody2D" parent="Props"]
+position = Vector2(240, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Rock1"]
+texture = ExtResource("9_stones_b")
+offset = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Rock1"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_22x10")
+
+[node name="Rock2" type="StaticBody2D" parent="Props"]
+position = Vector2(-112, 74)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Rock2"]
+texture = ExtResource("9_stones_b")
+offset = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Rock2"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_22x10")
+
+[node name="Crates3" type="StaticBody2D" parent="Props"]
+position = Vector2(112, 106)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crates3"]
+texture = ExtResource("7_crates")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crates3"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_28x12")
+
+[node name="Brazier2" parent="Props" instance=ExtResource("lamp_fortress")]
+position = Vector2(395, 107)
+
+[node name="Back" parent="." instance=ExtResource("10_door")]
+position = Vector2(464, 32)
+scale = Vector2(1, 2)
+target_scene = "res://scenes/world/fortress/fortress_camp.tscn"
+target_spawn_point = &"FromMoat"
+
+[node name="Visual" parent="Back" index="0"]
+visible = false
+
+[node name="AureliusCompanion" type="Node2D" parent="."]
+script = ExtResource("14_companion")
+npc_id = "magician"
+resident = "aurelius_limp"
+appearance = SubResource("Look_magician")
+follow_distance = 3.0
+side_distance = 9.0
+required_flag = "carrying_mage"
+hidden_when_flag = "escaped_castle"
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Faelan" type="Sprite2D" parent="People"]
+position = Vector2(-350, -40)
+texture = ExtResource("15_faelan")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 96, 48, 48)
+
+[node name="MoatNarrator" parent="People" instance=ExtResource("12_story_npc")]
+position = Vector2(-384, -60)
+npc_id = "escape_exit"
+narrator = true
+auto_talk = true
+keep_dialogue_open = true
+talk_area_scale = Vector2(3, 3)
+
+[node name="MoatEscapeCutscene" type="Node2D" parent="."]
+script = ExtResource("17_moat_cut")
+player_path = PackedVector2Array(-384, 32, -10, 34)
+guide = NodePath("../People/Faelan")
+companion = NodePath("../AureliusCompanion")
+guard_starts = PackedVector2Array(-384, -74, 470, 0, -384, -74, 470, 4, -384, -74, 470, 16, -384, -74, 470, 60, -384, -74, 470, 72, -384, -74, 470, 72, -384, -74, -384, -74)
+guard_stops = PackedVector2Array(-30, -12, 30, -12, -62, 2, 62, 4, -88, 24, 86, 28, -100, 48, 92, 54, -88, 72, 72, 80, -62, 92, 36, 100, -28, 104, -130, 30)
+guard_rows = PackedFloat32Array(20, 0, 20, 4, 24, 16, 48, 60, 56, 72, 56, 72, 56, 30)
+vanishing = Array[NodePath]([NodePath("../AureliusCompanion"), NodePath("../People/Faelan")])
+
+[node name="Start" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-384, -60)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-384, -60)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -480
+limit_top = -240
+limit_right = 480
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("13_hud")]
+
+[editable path="Back"]
+[editable path="Player"]

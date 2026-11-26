@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scenes/actors/customer_npc.gd" id="1_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/player_sheet.png" id="2_sheet"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/customer_dialog.tscn" id="3_dialog"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(40, 40)
+
+[node name="CustomerNpc" type="StaticBody2D"]
+script = ExtResource("1_npc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+texture = ExtResource("2_sheet")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 48)
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -30.0
+offset_top = -48.0
+offset_right = 30.0
+offset_bottom = -36.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+
+[node name="Marker" type="Label" parent="."]
+offset_left = -6.0
+offset_top = -60.0
+offset_right = 6.0
+offset_bottom = -48.0
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "!"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_body")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_interaction")
+
+[node name="CustomerDialog" parent="." instance=ExtResource("3_dialog")]
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

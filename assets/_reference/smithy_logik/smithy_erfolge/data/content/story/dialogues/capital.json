@@ -1,0 +1,1343 @@
+{
+	"dialogues": {
+		"hagen_idle": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Schöne Gasse. Viel Lärm, viel Funkenflug, wenig Können."
+				}
+			]
+		},
+		"hagen_intro": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Noch ein Schmied? Lass mich raten: Du hast das beste Eisen der ganzen Stadt."
+				},
+				{
+					"speaker": "warrior_hagen",
+					"text": "Ich bin Hagen. Ich habe jede Schmiede in dieser Gasse abgeklappert. Brandolf, Ilsa, Gorm ... alle reden groß."
+				},
+				{
+					"speaker": "warrior_hagen",
+					"text": "Aber ein seltenes Eisenschwert? Hatte keiner. Nur gewöhnliches Zeug, das beim ersten Ork zerbricht."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein seltenes Eisenschwert ... das ist kein Kinderspiel."
+				},
+				{
+					"speaker": "warrior_hagen",
+					"text": "Eben. Schmiede mir eins, das wirklich selten ist, und ich zahle gut. Dann reden wir weiter."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich schmiede es dir",
+					"action": "set_flag:hagen_sword_accepted",
+					"then": "hagen_sword_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"hagen_sword_accepted": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Gut. Eine Eisenklinge, Seltenheit Selten oder besser. Nichts darunter. Ich warte hier."
+				}
+			]
+		},
+		"hagen_sword_hand_in": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Und? Hast du mein Schwert?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Schwert geben",
+					"action": "hand_in_set:hagen_sword",
+					"then": "hagen_sword_done",
+					"else": "hagen_sword_nothing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"hagen_sword_nothing": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Das ist kein seltenes Eisenschwert. Selten heißt selten, Schmied. Und bring es im Rucksack mit, nicht an einem Helden."
+				}
+			]
+		},
+		"hagen_sword_done": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Das ... ist ein Schwert. Gleichgewicht, Härte, Schliff. Alles stimmt."
+				},
+				{
+					"speaker": "warrior_hagen",
+					"text": "Die anderen in der Gasse werden grün vor Neid. Trittst du je beim großen Turnier an, setze ich mein Gold auf dich."
+				},
+				{
+					"speaker": "",
+					"text": "Hagen gibt dir 800 Gold.",
+					"action": "cutscene:act:warrior_hagen:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "warrior_hagen",
+					"text": "Komm wieder her, wenn du Zeit hast. Ich hätte da noch etwas Größeres für dich."
+				}
+			],
+			"on_end": "give_gold:800;set_flag:hagen_sword_paid"
+		},
+		"hagen_armor_offer": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Bald ziehe ich mit der Stadtwache gegen die Orks im Norden. Dafür brauche ich eine ganze Rüstung, und keine gewöhnliche."
+				},
+				{
+					"speaker": "warrior_hagen",
+					"text": "Helm, Brustpanzer, Schulterschutz, Handschuhe, Beinschutz und Stiefel. Alles aus Eisen, alles selten."
+				},
+				{
+					"speaker": "warrior_hagen",
+					"text": "Schaffst du das, sorge ich dafür, dass die Stadtwache von dir erfährt. Die zahlt besser als jeder Krieger."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich schmiede dir die Rüstung",
+					"action": "set_flag:hagen_armor_accepted",
+					"then": "hagen_armor_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"hagen_armor_accepted": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Bring mir die Teile, gern auch einzeln. Was noch fehlt, steht in deinem Auftragsbuch."
+				}
+			]
+		},
+		"hagen_armor_hand_in": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Zeig her, was hast du für mich?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Teile abgeben",
+					"action": "hand_in_set:hagen_armor",
+					"then": "hagen_armor_handed",
+					"else": "hagen_armor_nothing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"hagen_armor_handed": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Das passt wie angegossen."
+				}
+			],
+			"choices": [
+				{
+					"text": "Weiter",
+					"if_flag": "hagen_armor_given",
+					"then": "hagen_armor_done"
+				},
+				{
+					"text": "Weiter",
+					"unless_flag": "hagen_armor_given",
+					"then": "hagen_armor_more"
+				}
+			]
+		},
+		"hagen_armor_more": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Der Rest kommt noch, ja? Ohne Stiefel marschiere ich nicht los."
+				}
+			]
+		},
+		"hagen_armor_nothing": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Davon fehlt mir nichts. Nur seltenes Eisen, Schmied, und im Rucksack, nicht an einem Helden."
+				}
+			]
+		},
+		"hagen_armor_done": {
+			"lines": [
+				{
+					"speaker": "warrior_hagen",
+					"text": "Helm, Brust, Schultern, Hände, Beine, Füße. Alles Eisen, alles selten."
+				},
+				{
+					"speaker": "warrior_hagen",
+					"text": "In dieser Gasse hat das keiner geschafft. Keiner!"
+				},
+				{
+					"speaker": "",
+					"text": "Hagen gibt dir 3000 Gold.",
+					"action": "cutscene:act:warrior_hagen:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "warrior_hagen",
+					"text": "Ich erzähle dem Hauptmann der Stadtwache von dir. Ritter Edmund wird bei deiner Schmiede vorbeischauen. Seine Aufträge sind manchmal hart, aber er zahlt richtig gut."
+				}
+			],
+			"on_end": "give_gold:3000;set_flag:hagen_armor_paid"
+		},
+		"brandolf_idle": {
+			"lines": [
+				{
+					"speaker": "lane_smith_brandolf",
+					"text": "Seit dreißig Jahren schmiede ich in dieser Gasse. Früher gab es hier jedes Jahr das große Schmiedeturnier, der Sieger bekam den Titel Meisterschmied. Seit der Schmied aus deinem Dorf verschwunden ist, hat es keiner mehr ausgerichtet."
+				}
+			]
+		},
+		"brandolf_tournament": {
+			"lines": [
+				{
+					"speaker": "lane_smith_brandolf",
+					"text": "Dreißig Jahre in dieser Gasse, und endlich brennen die Essen wieder für das große Turnier. Wir sehen uns auf dem Turnierplatz, Junge."
+				}
+			]
+		},
+		"ilsa_idle": {
+			"lines": [
+				{
+					"speaker": "lane_smith_ilsa",
+					"text": "Ilsa Funkenhand. Meine Klingen singen, wenn man sie schwingt. Und deine? Falls das Turnier je wiederkommt, finden wir es heraus."
+				}
+			]
+		},
+		"ilsa_tournament": {
+			"lines": [
+				{
+					"speaker": "lane_smith_ilsa",
+					"text": "Ilsa Funkenhand. Meine Klingen singen, wenn man sie schwingt. Und deine? Auf dem Turnierplatz finden wir es heraus."
+				}
+			]
+		},
+		"gorm_idle": {
+			"lines": [
+				{
+					"speaker": "lane_smith_gorm",
+					"text": "Mh. Gorm. Viel zu tun. Hagen war auch bei mir. Seltenes Eisen ... das schafft keiner."
+				}
+			]
+		},
+		"gorm_after": {
+			"lines": [
+				{
+					"speaker": "lane_smith_gorm",
+					"text": "Mh. Seltenes Eisen. Du hast es geschafft. Ich üb noch."
+				}
+			]
+		},
+		"gorm_impressed": {
+			"lines": [
+				{
+					"speaker": "lane_smith_gorm",
+					"text": "Du hast Hagen ein seltenes Eisenschwert geschmiedet? Du?"
+				},
+				{
+					"speaker": "lane_smith_gorm",
+					"text": "Mh. Dann bist du wohl doch nicht nur ein Dorfschmied. Treffen wir uns je bei einem Turnier, hab ich Angst."
+				}
+			],
+			"on_end": "set_flag:gorm_impressed"
+		},
+		"envoy_castle_garden": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Kutsche hält mitten im Schlossgarten. Springbrunnen plätschern, überall blühen Blumen, und vor dir ragt das Schloss in den Himmel. Ein Mann in einem blauen Mantel erwartet dich."
+				},
+				{
+					"speaker": "envoy",
+					"text": "Ihr müsst {name} sein, der Schmied, von dem Bürgermeister Wendelin schreibt. Mein Name ist Mohammad, ich diene König Albrecht als Gesandter."
+				},
+				{
+					"speaker": "envoy",
+					"text": "Willkommen in Leonheim, der Königsstadt. Beeindruckend, nicht wahr?"
+				},
+				{
+					"speaker": "player",
+					"text": "Im Vergleich dazu ist unser Dorfplatz ein Hühnerhof."
+				},
+				{
+					"speaker": "envoy",
+					"text": "Sagt das nicht zu laut, der König mag Hühner. Geht nur durch das große Tor, die Wachen wissen Bescheid. Der König erwartet Euch im Thronsaal."
+				},
+				{
+					"speaker": "envoy",
+					"text": "Und keine Sorge um Euren Kutscher: Er wartet hier, bis Ihr fertig seid."
+				}
+			],
+			"on_end": "advance:meet_king"
+		},
+		"envoy_waiting": {
+			"lines": [
+				{
+					"speaker": "envoy",
+					"text": "Lasst den König nicht warten. Das Tor ist dort vorne."
+				}
+			]
+		},
+		"envoy_idle": {
+			"lines": [
+				{
+					"speaker": "envoy",
+					"text": "Die Kutsche fährt zwischen Leonheim und Eurem Dorf, wann immer Ihr wollt. Ein Befehl des Königs."
+				}
+			]
+		},
+		"king_audience": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der Thronsaal ist so groß, dass deine Schritte widerhallen. Am Ende des roten Teppichs erhebt sich ein alter Mann mit weißem Bart von seinem Thron.",
+					"action": "cutscene:act:king:stand_up",
+					"hide_for": 1.0
+				},
+				{
+					"speaker": "king",
+					"text": "Tritt näher, Schmied. Hab keine Scheu, ich beiße nur bei Staatsbanketten."
+				},
+				{
+					"speaker": "king",
+					"text": "Ich habe den Bericht eures Bürgermeisters gelesen. Zweimal. Ein Schmied, der mitten in der Nacht in einen brennenden Markt läuft, ohne Schwert und ohne Rüstung, und ein kleines Mädchen herausholt."
+				},
+				{
+					"speaker": "king",
+					"text": "Und der danach nicht trauert und wartet, sondern Nägel schmiedet, damit sein Dorf wieder Dächer hat. Das hast du gut gemacht, {name}. Sehr gut."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich hab nur getan, was jeder getan hätte, Majestät. Und dabei ein bisschen gezittert. Aber hauptsächlich getan."
+				},
+				{
+					"speaker": "king",
+					"text": "Nein. Das hätte nicht jeder getan. Glaub mir, ich kenne viele Leute, und die meisten wären weggelaufen."
+				},
+				{
+					"speaker": "king",
+					"text": "Die kleine Lotte. Hildes Nichte. Sie hat in einer Nacht ihre Tante verloren und alles, was sie kannte."
+				},
+				{
+					"speaker": "king",
+					"text": "Du musst sie ab jetzt beschützen, Schmied. Sorg gut für sie: dass sie satt wird, dass sie lacht, dass sie keine Angst haben muss. Das ist kein Befehl. Das ist eine Bitte."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich habe es Otto schon versprochen, und ich verspreche es Euch. Ihr wird nichts geschehen."
+				},
+				{
+					"speaker": "king",
+					"text": "Gut. Und jetzt erzähl mir, was in jener Nacht wirklich passiert ist. Berichte lesen sich immer so ordentlich. Ich will es von jemandem hören, der dabei war."
+				},
+				{
+					"speaker": "player",
+					"text": "Es war mitten in der Nacht. Ein Knall hat mich geweckt, dann Rauch und Schreie vom Marktplatz. Überall Zombies, die Stände brannten."
+				},
+				{
+					"speaker": "player",
+					"text": "Und mittendrin der Lich. Er hatte seine Hand im Lebensbaum, und grünes Licht ist in seinen Arm geflossen. Dann hat er etwas Leuchtendes aus dem Stamm gerissen, wie ein Herz."
+				},
+				{
+					"speaker": "player",
+					"text": "Der Baum ist vor unseren Augen verwelkt. Die Blätter sind abgefallen, die Äste sind grau geworden. Jetzt steht er tot auf dem Platz."
+				},
+				{
+					"speaker": "player",
+					"text": "Der Lich hat einen Feuerball nach mir geworfen. Bruno, unser Held, hat sich dazwischengeworfen und ihn danach allein aufgehalten, damit ich Lotte wegbringen konnte. Er hat es nicht überlebt. Oma Hilde auch nicht."
+				},
+				{
+					"speaker": "",
+					"text": "Der König schweigt lange. Dann setzt er sich langsam wieder auf seinen Thron.",
+					"action": "cutscene:act:king:sit",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "king",
+					"text": "Der Lebensbaum ... Also ist es wahr. Mein Großvater hat mir als Kind von diesen Bäumen erzählt. Ich hielt es für ein Märchen."
+				},
+				{
+					"speaker": "king",
+					"text": "Wenn ein Lich so etwas stiehlt, dann nicht aus Spaß. Er plant etwas. Und ich fürchte, euer Dorf war erst der Anfang."
+				},
+				{
+					"speaker": "king",
+					"text": "Ich brauche Augen und Ohren und gute Klingen. Die Abenteurergilde hier in Leonheim ist die größte im Königreich. Sie weiß mehr über Lichs als meine Gelehrten."
+				},
+				{
+					"speaker": "king",
+					"text": "Geh zur Gilde, {name}. Unten in der Einkaufsstraße, das große Haus mit dem Schild mit den gekreuzten Schwertern. Sag ihnen, dass ich dich schicke."
+				},
+				{
+					"speaker": "king",
+					"text": "Und schau dich ruhig in den Läden um. Die Händler in Leonheim haben Dinge, von denen man in deinem Dorf nur träumt."
+				},
+				{
+					"speaker": "player",
+					"text": "Danke, Majestät. Ich geh sofort. Und in den Läden fass ich nichts an. Fast nichts."
+				},
+				{
+					"speaker": "king",
+					"text": "Mohammad lässt die Kutsche zur Seite fahren, damit du durch den Garten kommst. Und, Schmied: Grüß die Kleine von mir."
+				}
+			],
+			"on_end": "set_flag:king_audience_done;advance:to_city_guild"
+		},
+		"king_idle": {
+			"lines": [
+				{
+					"speaker": "king",
+					"text": "Ah, mein Schmied. Wie geht es der kleinen Lotte? Pass gut auf sie auf."
+				}
+			]
+		},
+		"castle_guard_idle": {
+			"lines": [
+				{
+					"speaker": "castle_guard",
+					"text": "Willkommen im Schloss von Leonheim. Benehmt Euch, und wir verstehen uns."
+				}
+			]
+		},
+		"capital_guild_welcome": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Gilde von Leonheim ist dreimal so groß wie die im Dorf. An langen Tischen sitzen Abenteurer, Krüge stoßen aneinander, irgendwo streitet jemand lautstark über Drachen."
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "Du bist also der Schmied aus dem Dorf mit dem toten Baum. Mohammad hat dich angekündigt. Ich bin Thora, ich führe diesen Haufen hier."
+				},
+				{
+					"speaker": "player",
+					"text": "Der König sagt, ihr wisst mehr über Lichs als seine Gelehrten."
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "Der König sagt viel, wenn der Tag lang ist. Aber diesmal hat er recht."
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "Seit ein paar Wochen ist es unter der Stadt unruhig. In der Kanalisation wimmelt es von Schleim und Ungeziefer, in den alten Katakomben stehen die Toten wieder auf, und aus der Gruft der Könige hört man nachts Schritte."
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "Tote, die nicht liegen bleiben. Das riecht nach deinem Lich. Ich wette, er hat hier unten Helfer. Oder er war selbst schon hier."
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "Die Alten erzählen, Leonheim sei auf etwas gebaut, das noch aus der Zeit des Dämonenlords stammt. Kindermärchen, sagt der König. Ich sag: Märchen haben meistens einen wahren Kern."
+				},
+				{
+					"speaker": "player",
+					"text": "Dann schicke ich meine Helden hinunter. Und ich schmiede ihnen, was sie dafür brauchen."
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "So gefällt mir das. Ich schreib dich ins Gildenbuch. Am Brett findest du ab jetzt den Reiter Leonheim: erst die Kanalisation, dann die Katakomben. In die Gruft geht nur, wer das überlebt hat."
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "Und wenn du neue Leute brauchst: Frieda am Tresen hat jeden Tag Abenteurer, die Arbeit suchen. Willkommen in Leonheim, Schmied."
+				}
+			],
+			"on_end": "set_flag:capital_guild_joined;hint:capital_dungeons;advance:chapter12_end"
+		},
+		"capital_guild_idle": {
+			"lines": [
+				{
+					"speaker": "capital_guild_master",
+					"text": "Wenn deine Helden aus der Gruft zurückkommen, will ich jedes Detail hören. Jedes."
+				}
+			]
+		},
+		"king_gutter_deal": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "König Albrecht blickt von einem Stapel Papiere auf und strahlt.",
+					"action": "cutscene:act:king:laugh",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "king",
+					"text": "Mein Schmied! Und, wie geht es der Kleinen?"
+				},
+				{
+					"speaker": "player",
+					"text": "Lotte geht es gut, Majestät. Aber ich muss immer an den Lebensbaum denken. Ihr sagtet, Euer Großvater hat Euch davon erzählt."
+				},
+				{
+					"speaker": "king",
+					"text": "Hat er. Jeden Abend am Kamin. Aber das ist sechzig Jahre her, und mein Kopf ist kein Archiv."
+				},
+				{
+					"speaker": "king",
+					"text": "Irgendwas mit einem Helden ... und einem Schlüssel? Oder war es eine Tür? Ich weiß nur noch, dass ich danach immer schlecht geschlafen habe."
+				},
+				{
+					"speaker": "player",
+					"text": "Gibt es jemanden, der die Geschichte noch kennt?"
+				},
+				{
+					"speaker": "king",
+					"text": "Vielleicht. Ich lasse meine Schreiber in den alten Chroniken suchen. Das dauert ein paar Tage, die Archive sind ein Labyrinth."
+				},
+				{
+					"speaker": "king",
+					"text": "Und solange sie suchen ... darf ein alter König dich um einen Gefallen bitten? Ich habe ein Problem, und das stinkt bis in meinen Thronsaal."
+				},
+				{
+					"speaker": "king",
+					"text": "Unten im Armenviertel, in der Gosse, hat sich eine Bande breitgemacht: die Krähen. Sie nehmen den Händlern Wegzoll ab, plündern Lagerhäuser und lachen meine Wachen aus."
+				},
+				{
+					"speaker": "king",
+					"text": "Ihr Anführer nennt sich Krähenkönig. Varrik. Ein König! In MEINER Stadt!"
+				},
+				{
+					"speaker": "player",
+					"text": "Lasst mich raten: Meine Helden sollen ihn Euch bringen. Eingepackt. Mit Schleife."
+				},
+				{
+					"speaker": "king",
+					"text": "Lebend, wenn es geht. Fangt in den Gassen an, dann das Lagerhaus am Kanal und die Spelunke, in der sie saufen. Irgendwann muss Varrik selbst aus seinem Nest kommen."
+				},
+				{
+					"speaker": "king",
+					"text": "Bring mir den Krähenkönig. Bis dahin wissen meine Schreiber hoffentlich mehr über deinen Baum."
+				},
+				{
+					"speaker": "",
+					"text": "Auf dem Dungeon-Brett gibt es jetzt den Reiter Gosse."
+				}
+			],
+			"on_end": "set_flag:gutter_unlocked;hint:gutter;advance:gutter_alleys"
+		},
+		"varrik_sentenced": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Vor dem Thron kniet ein Mann in einem schwarzen Federmantel, die Hände gefesselt. Zwei Wachen halten ihn an den Schultern."
+				},
+				{
+					"speaker": "gutter_boss",
+					"text": "Na sieh mal an. Der Schmied, dessen Helden mein Nest zerlegt haben. Ich hätte dich gern früher kennengelernt. In einer dunklen Gasse."
+				},
+				{
+					"speaker": "king",
+					"text": "Ruhe! Varrik, der sogenannte Krähenkönig. Du hast meine Händler beraubt, meine Lagerhäuser geplündert und meine Wachen mit Fischköpfen beworfen."
+				},
+				{
+					"speaker": "gutter_boss",
+					"text": "Das mit den Fischköpfen war nicht ich. Das waren die Jungs."
+				},
+				{
+					"speaker": "king",
+					"text": "Für all das wanderst du in den Kerker. Ganz nach unten, wo selbst die Ratten Ratten haben."
+				},
+				{
+					"speaker": "gutter_boss",
+					"text": "Die Gosse vergisst nicht, Majestät. Irgendwann fliegen die Krähen wieder."
+				},
+				{
+					"speaker": "",
+					"text": "Die Wachen ziehen Varrik hoch und schleifen ihn aus dem Saal. Seine Flüche hallen noch lange durch die Gänge. Dann fällt tief unten schwer eine Kerkertür ins Schloss.",
+					"action": "cutscene:varrik_dragged",
+					"hide_for": 3.4
+				},
+				{
+					"speaker": "king",
+					"text": "So. Das tat gut. Die Gosse ist wieder frei, und meine Händler danken es dir. Nimm das hier für deine Helden."
+				},
+				{
+					"speaker": "",
+					"text": "Der König gibt dir 300 Gold.",
+					"action": "cutscene:act:king:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "king",
+					"text": "Und meine Schreiber haben etwas gefunden. Du wolltest wissen, wer mehr über den Lebensbaum weiß."
+				},
+				{
+					"speaker": "king",
+					"text": "Es gibt einen alten Zauberer, der früher am Hof gedient hat. Schon meinem Großvater hat er die Sterne gedeutet. Wenn einer die Geschichte kennt, dann er. Aurelius ist sein Name."
+				},
+				{
+					"speaker": "player",
+					"text": "Aurelius? Den kenne ich! Er hat beim Dorffest in unserem Dorf ein Schwert in den Boden gesteckt, und im Wald hat er mir Mondlilien-Samen geschenkt."
+				},
+				{
+					"speaker": "king",
+					"text": "Ha! Natürlich treibt er sich in Wäldern herum. Der Mann hat noch nie ein Dach länger als eine Woche ertragen."
+				},
+				{
+					"speaker": "king",
+					"text": "Aber wo er gerade steckt, weiß ich nicht. Seit Monaten hat ihn niemand bei Hof gesehen."
+				},
+				{
+					"speaker": "king",
+					"text": "Such ihn, Schmied. Hör dich um. Und wenn du ihn findest, richte ihm aus, dass er mir noch ein Feuerwerk schuldet."
+				}
+			],
+			"on_end": "set_flag:varrik_jailed;give_gold:300;advance:chapter13_end"
+		},
+		"king_map": {
+			"lines": [
+				{
+					"speaker": "king",
+					"text": "Mein Schmied! Hast du den alten Zauberer gefunden?"
+				},
+				{
+					"speaker": "player",
+					"text": "Habe ich. Er ist hinter dem Lich her. Und er sagt, in Eurer Schatzkammer liegt eine Karte, auf der die neun heiligen Steine eingezeichnet sind. Ich brauche sie."
+				},
+				{
+					"speaker": "king",
+					"text": "Die Karte. Ah. Das ist ... eine peinliche Geschichte."
+				},
+				{
+					"speaker": "king",
+					"text": "Ich würde sie dir sofort geben. Wirklich. Aber ich kann nicht."
+				},
+				{
+					"speaker": "player",
+					"text": "Warum nicht?"
+				},
+				{
+					"speaker": "king",
+					"text": "Weil ich nicht in meine eigene Schatzkammer komme. Ist das nicht peinlich? Der Schlüssel ist weg."
+				},
+				{
+					"speaker": "king",
+					"text": "Mein alter Kastellan Morwald trug ihn immer am Gürtel. Er ist vor Jahren gestorben und in der Gruft unter der Stadt begraben worden. Mit dem Schlüssel."
+				},
+				{
+					"speaker": "king",
+					"text": "Und seit der Lich umgeht, liegt ein Zauber auf der Gruft. Die Toten stehen auf, und Morwald, sagt man, bewacht die tiefste Kammer. Er lässt keinen durch."
+				},
+				{
+					"speaker": "king",
+					"text": "Bring mir den Schlüssel, dann öffne ich dir die Schatzkammer, und die Karte gehört dir. Dafür müssen deine Helden aber durch den verzauberten Teil der Gruft, und der hat es in sich."
+				},
+				{
+					"speaker": "player",
+					"text": "Dann holen wir Morwald den Schlüssel ab."
+				},
+				{
+					"speaker": "king",
+					"text": "Freundlich, bitte. Er war ein netter Mann. Zu Lebzeiten."
+				}
+			],
+			"on_end": "set_flag:king_wants_key;advance:chapter14_end"
+		},
+		"king_treasury": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der König sieht den Schlüssel in deiner Hand und lacht laut auf.",
+					"action": "cutscene:act:king:laugh",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "king",
+					"text": "Morwalds Schlüssel. Nach all den Jahren."
+				},
+				{
+					"speaker": "king",
+					"text": "Danke, mein Schmied. Du ahnst nicht, wie lange ich mich über diesen Schlüssel geärgert habe."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich hab ihn sogar poliert. Morwald war nicht begeistert. Er hat zweimal Nein gesagt. Mit dem Schwert."
+				},
+				{
+					"speaker": "",
+					"text": "Der König führt dich hinter den Thron. Eine schwere Tür, ein Gang, eine zweite Tür. Der Schlüssel dreht sich mit einem Knirschen.",
+					"action": "cutscene:fade;cutscene:act:king:unlock:0,-20",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "",
+					"text": "Die Schatzkammer ist fast leer. Ein paar Truhen, Staub, ein altes Wappenschild. Auf einem Pult liegt ein Stück Pergament unter Glas."
+				},
+				{
+					"speaker": "king",
+					"text": "Die Karte. Sie ist ... kleiner, als ich sie in Erinnerung hatte."
+				},
+				{
+					"speaker": "player",
+					"text": "Das ist ein Viertel. Höchstens. Die Ränder sind abgerissen."
+				},
+				{
+					"speaker": "king",
+					"text": "Ein Viertel. Hm. Davon hat mein Großvater nie etwas gesagt."
+				},
+				{
+					"speaker": "",
+					"text": "Als Licht auf das Pergament fällt, leuchten drei Punkte auf. Ein brauner, ein heller, ein roter.",
+					"action": "cutscene:treasury_glow",
+					"hide_for": 2.4
+				},
+				{
+					"speaker": "player",
+					"text": "Braun, das ist unser Dorf. Da, wo der Lebensbaum steht. Stand."
+				},
+				{
+					"speaker": "player",
+					"text": "Der helle Punkt ist Leonheim. Und der rote liegt im Gebirge. Am Lavaberg."
+				},
+				{
+					"speaker": "king",
+					"text": "Die Kristalle der Elemente. Erde, Licht und Feuer."
+				},
+				{
+					"speaker": "king",
+					"text": "Den braunen hat der Lich. Der helle ruht irgendwo unter meiner Stadt. Und der rote ..."
+				},
+				{
+					"speaker": "king",
+					"text": "Der Feuerkristall. Im Lavaberg hausen Goblins. Gierige kleine Biester, die alles einsammeln, was glänzt. Wenn einer den Kristall hat, dann sie."
+				},
+				{
+					"speaker": "king",
+					"text": "Geh hin, mein Schmied. Finde ihn, bevor der Lich es tut. Und sei vorsichtig: Ein Kristall ist kein Menschenleben wert. Auch deins nicht."
+				},
+				{
+					"speaker": "player",
+					"text": "Goblins. Natürlich. Warum auch nicht einfach ein netter Spaziergang am Fluss."
+				},
+				{
+					"speaker": "king",
+					"text": "Lake!"
+				},
+				{
+					"speaker": "",
+					"text": "Ein großer Mann in Weiß und Gold tritt neben den Thron und kniet nieder.",
+					"action": "cutscene:act:lake:kneel",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "lake",
+					"text": "Mein König. Euer Licht."
+				},
+				{
+					"speaker": "king",
+					"text": "Diese Karte hat drei Geschwister, irgendwo im Land. Finde die anderen Teile. Alle drei."
+				},
+				{
+					"speaker": "lake",
+					"text": "Wie Ihr befehlt. Der König sieht alles. Was er noch nicht sieht, bringe ich ihm."
+				},
+				{
+					"speaker": "lake",
+					"text": "Und du, Schmied: Enttäusche ihn nicht. Wer am König zweifelt, zweifelt am Licht."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich zweifle an gar nichts. Ich mag Licht. Sehr hell. Wirklich toll."
+				},
+				{
+					"speaker": "",
+					"text": "Lake steht auf und geht, ohne sich umzusehen.",
+					"action": "set_flag:lake_sent;cutscene:act:lake:rise"
+				},
+				{
+					"speaker": "king",
+					"text": "Nimm die Karte mit. Du brauchst sie mehr als ich."
+				},
+				{
+					"speaker": "",
+					"text": "Der König gibt dir die Kristallkarte. Mohammads Kutsche fährt jetzt auch zum Lavaberg (Westende der Einkaufsstraße). Formenmacher Quentin hat neue Bronze-Gussformen.",
+					"action": "cutscene:act:king:give:crystal_map",
+					"hide_for": 1.1
+				}
+			],
+			"on_end": "give_items:crystal_map;set_flag:map_piece_1;set_flag:volcano_route_open;hint:crystal_map;advance:chapter15_end"
+		},
+		"king_fire_waiting": {
+			"lines": [
+				{
+					"speaker": "king",
+					"text": "Wie steht es im Lavaberg, mein Schmied? Nimm genug Wasser mit. Und grüß die kleine Lotte, wenn du zu Hause bist."
+				}
+			]
+		},
+		"jailer_idle": {
+			"lines": [
+				{
+					"speaker": "jailer",
+					"text": "Der da drüben? Der Krähenkönig. Redet den ganzen Tag. Meistens über Rache, manchmal übers Essen."
+				}
+			]
+		},
+		"varrik_cell": {
+			"lines": [
+				{
+					"speaker": "varrik_jailed",
+					"text": "Na sieh mal an. Der Schmied. Gekommen, um den Krähenkönig im Käfig zu bewundern?"
+				},
+				{
+					"speaker": "player",
+					"text": "Ich wollte nur sehen, ob die Gitter halten. Berufskrankheit. Gutes Eisen übrigens."
+				},
+				{
+					"speaker": "varrik_jailed",
+					"text": "Sag deinem König einen schönen Gruß. Und frag mal den Weißen, diesen Lake, wohin der nachts geht, wenn das Schloss schläft. Die Krähen sehen alles."
+				}
+			]
+		},
+		"king_fire_crystal": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der König sieht den roten Schein in deiner Hand. Er steht auf.",
+					"action": "cutscene:act:king:stand_up",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "king",
+					"text": "Der Feuerkristall. Du hast ihn wirklich gefunden, mein Schmied."
+				},
+				{
+					"speaker": "player",
+					"text": "Gefunden ist ein großes Wort. Ein Drache hat darauf geschlafen, und dann ist eine Burg in die Lava gefallen. Mit dem Drachen. Langer Tag."
+				},
+				{
+					"speaker": "king",
+					"text": "Ein Drache! Und du stehst trotzdem hier. Die kleine Lotte kann stolz auf dich sein."
+				},
+				{
+					"speaker": "king",
+					"text": "Ich will ihn dir nicht wegnehmen. Aber deine Schmiede haben die Untoten schon einmal ausgeräumt. In meiner Schatzkammer liegt er hinter drei Türen, und vor der letzten steht eine Wache."
+				}
+			],
+			"choices": [
+				{
+					"text": "Den Feuerkristall übergeben",
+					"action": "has_items:holy_fire_crystal;take_items:holy_fire_crystal",
+					"then": "king_fire_crystal_given",
+					"else": "king_fire_crystal_missing"
+				}
+			]
+		},
+		"king_fire_crystal_missing": {
+			"lines": [
+				{
+					"speaker": "king",
+					"text": "Du hast ihn nicht dabei? Dann hol ihn, mein Schmied. Schnell."
+				}
+			]
+		},
+		"king_fire_crystal_given": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du legst den Kristall in die Hände des Königs. Er hält ihn vorsichtig, als könnte er zerbrechen.",
+					"action": "cutscene:act:player:give:holy_fire_crystal",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "king",
+					"text": "Er ist ja ganz warm. Wie ein Brotlaib frisch aus dem Ofen."
+				},
+				{
+					"speaker": "king",
+					"text": "Danke, mein Schmied. Das ganze Königreich steht in deiner Schuld. Wieder einmal."
+				},
+				{
+					"speaker": "",
+					"text": "Da fliegt die Saaltür auf. Ein alter Mann im sternenblauen Mantel stürmt herein, ganz außer Atem.",
+					"action": "cutscene:aurelius_rushes_in",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "magician",
+					"text": "Majestät! Junger Schmied! Gut, dass ich euch beide hier finde. Meine Knie ... einen Moment ..."
+				},
+				{
+					"speaker": "king",
+					"text": "Aurelius! Nach all den Jahren. Du schuldest mir noch ein Feuerwerk."
+				},
+				{
+					"speaker": "magician",
+					"text": "Später, Majestät, später. Ich bin dem Lich gefolgt, weit in den Norden. Er sammelt ein Heer. Untote, so weit das Auge reicht."
+				},
+				{
+					"speaker": "magician",
+					"text": "Und jetzt zieht er nach Osten. Zum großen Wald der Elfen."
+				},
+				{
+					"speaker": "player",
+					"text": "Zu den Elfen? Was will ein Lich denn bei den Elfen? Blumen pflücken?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Den Kristall der Luft, junger Freund. Den Windkristall. Die Elfen hüten ihn seit den Tagen des ersten Helden."
+				},
+				{
+					"speaker": "magician",
+					"text": "Bekommt der Lich ihn, hat er schon zwei der neun Steine. Und die Elfen ahnen nichts."
+				},
+				{
+					"speaker": "king",
+					"text": "Dann müssen sie gewarnt werden. Sofort."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich gehe voraus. Die Elfen kennen mich, sie werden mir zuhören. Meistens."
+				},
+				{
+					"speaker": "magician",
+					"text": "Und du, junger Schmied: Schmiede, was du kannst, und rüste deine Helden. Wir werden jede Klinge brauchen."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Heer aus Untoten, ein Lich und ein Wald voller Elfen. Klar. Ich mach schon mal das Feuer an."
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius nickt dir zu und eilt hinaus. Seine Schritte verhallen im Gang.",
+					"action": "cutscene:act:magician:face_player>nod;set_flag:mage_left_for_elves",
+					"hide_for": 2.8
+				},
+				{
+					"speaker": "king",
+					"text": "Wenn das alles vorbei ist, lasse ich das große Schmiedeturnier wieder ausrichten. Das Land hat zu lange keinen Meisterschmied gehabt. Und jetzt geh nach Hause, mein Schmied. Grüß Lotte."
+				}
+			],
+			"on_end": "set_flag:fire_crystal_given;advance:part2_end"
+		},
+		"king_crystal_safe": {
+			"lines": [
+				{
+					"speaker": "king",
+					"text": "Der Kristall liegt in der Schatzkammer. Morwalds Schlüssel trage ich jetzt selbst am Gürtel. Einmal verloren reicht. Und jetzt geh, die Elfen brauchen gute Klingen."
+				}
+			]
+		},
+		"king_war_council": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der König sitzt nicht auf seinem Thron. Er steht mit Aurelius und Lake über einer Landkarte."
+				},
+				{
+					"speaker": "king",
+					"text": "Da bist du ja, mein Schmied. Aurelius, erzähl es ihm. So wie mir."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich war bei den Elfen, junger Freund. In Sylvaris, ihrer Stadt in den Bäumen. Ich habe sie gewarnt."
+				},
+				{
+					"speaker": "magician",
+					"text": "Dann bin ich dem Heer des Lichs entgegengegangen. Es lagert am Rand ihres Waldes. Lange wartet er nicht mehr."
+				},
+				{
+					"speaker": "player",
+					"text": "Und die Elfen? Bauen sie Mauern? Graben sie Gräben? Werfen sie mit Tannenzapfen?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Sie hören zu. Aber sie glauben nicht, dass ein Lich ihre Stadt erreichen kann. Sylvaris ist noch nie gefallen."
+				},
+				{
+					"speaker": "lake",
+					"text": "Dann sollen sie ihren Wald selbst verteidigen. Wann hat je ein Elf einem Menschen geholfen?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Vor tausend Jahren. Sonst gäbe es hier keine Menschen mehr, die so etwas fragen könnten."
+				},
+				{
+					"speaker": "king",
+					"text": "Lake. Denk weiter. Was hat der Lich, wenn er den Windkristall hat?"
+				},
+				{
+					"speaker": "lake",
+					"text": "Zwei Steine, mein König. Erde und Wind."
+				},
+				{
+					"speaker": "king",
+					"text": "Zwei von neun. Und mit jedem wird er stärker. Fällt Sylvaris, steht er als Nächstes vor meinen Toren. Oder vor deinem Dorf, mein Schmied."
+				},
+				{
+					"speaker": "player",
+					"text": "Okay. Ja. Das ist ein sehr gutes Argument. Ein sehr schreckliches, sehr gutes Argument."
+				},
+				{
+					"speaker": "king",
+					"text": "Der Lich fragt nicht, ob jemand Elf oder Mensch ist. Das ist nicht ihr Problem. Das ist unseres."
+				},
+				{
+					"speaker": "lake",
+					"text": "Wie Ihr befehlt. Der König sieht weiter als wir alle."
+				},
+				{
+					"speaker": "magician",
+					"text": "Der Älteste will Euch sehen, Majestät. Und dich, junger Schmied. Er will hören, was in deinem Dorf geschehen ist. Von jemandem, der dabei war."
+				},
+				{
+					"speaker": "player",
+					"text": "Von mir? Ich bin Schmied. Ich hab nur gesehen, wie ein Baum stirbt. Und wie Bruno ..."
+				},
+				{
+					"speaker": "player",
+					"text": "... Ja. Ich erzähle es ihm."
+				},
+				{
+					"speaker": "king",
+					"text": "Die Kutsche steht bereit. Wir fahren noch heute."
+				}
+			],
+			"choices": [
+				{
+					"text": "Auf nach Sylvaris",
+					"action": "set_flag:elf_route_open;advance:elf_arrival;travel_fade:res://scenes/world/elves/elf_grove.tscn,FromCarriage"
+				}
+			]
+		},
+		"arena_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der alte Turnierplatz ist voller Menschen. Auf der Tribüne sitzt der König, Fahnen in Blau und Rot flattern im Wind."
+				},
+				{
+					"speaker": "king",
+					"text": "Bürger von Leonheim! Zum ersten Mal seit vielen Jahren brennen hier wieder die Essen. Heute schmieden wir nicht für Gold. Wir schmieden für Sylvaris."
+				},
+				{
+					"speaker": "king",
+					"text": "Der Lich fragt nicht, ob jemand Elf oder Mensch ist. Also fragen wir es auch nicht. Schmiede, an die Feuer!"
+				},
+				{
+					"speaker": "",
+					"text": "Der Herold erklärt die Regeln: vier Runden, Schmied gegen Schmied. Das Material liegt in der Vorratstruhe, das bessere Stück gewinnt, wer schneller ist, bekommt etwas dazu. Wer ein Rezept nicht kennt, verliert Punkte."
+				},
+				{
+					"speaker": "player",
+					"text": "Vier Runden. Vor dem König. Vor der ganzen Stadt. Kein Druck. Gar kein Druck."
+				}
+			],
+			"on_end": "set_flag:arena_intro_seen"
+		},
+		"tournament_ceremony": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Menge tobt. Ilsa Funkenhand legt ihren Hammer ab, nickt dir zu und ruft: „Nächsten Monat schlage ich dich!“",
+					"action": "cutscene:act:arena_narrator:cheer",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "king",
+					"text": "Mein Schmied! Ich wusste es. Seit dem Tag, an dem du Lotte aus dem Feuer getragen hast, wusste ich es."
+				},
+				{
+					"speaker": "king",
+					"text": "Diese Handschuhe trug der Schmied aus deinem Dorf, als er hier zum letzten Mal gewonnen hat. Sie haben lange auf den nächsten Sieger gewartet."
+				},
+				{
+					"speaker": "player",
+					"text": "Seine Handschuhe? Ich ... danke. Ich weiß gar nicht, was ... Die sind warm. Warum sind die warm?"
+				},
+				{
+					"speaker": "king",
+					"text": "Alles, was heute hier geschmiedet wurde, geht morgen früh nach Sylvaris. Mit hundert Soldaten unter General Hadmar. Und mit uns beiden."
+				},
+				{
+					"speaker": "king",
+					"text": "Aber vier Turnierstücke bewaffnen keine Stadt, mein Schmied. Schmiede, so viel du kannst, und bring es Hadmar. Er weiß, wo jede Klinge gebraucht wird."
+				},
+				{
+					"speaker": "king",
+					"text": "Und ab jetzt gibt es hier jeden Monat ein Turnier. Das Land braucht wieder einen Meisterschmied."
+				}
+			],
+			"choices": [
+				{
+					"text": "Auf nach Sylvaris",
+					"action": "set_flag:tournament_ceremony_done;set_flag:elf_defenses;hint:monthly_tournament;advance:elf_return;travel_fade:res://scenes/world/elves/elf_grove.tscn,FromCarriage"
+				}
+			]
+		},
+		"water_departure": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Im Schlossgarten von Leonheim hängt kühler Morgennebel. Eine schwere Reisekutsche steht bereit."
+				},
+				{
+					"speaker": "king",
+					"text": "Guten Morgen, mein Schmied. Ich hoffe, du hast einen warmen Mantel eingepackt."
+				},
+				{
+					"speaker": "player",
+					"text": "Für mich ist alles unter Schmiedefeuer-Temperatur sowieso tiefster Winter. Ich friere schon beim Hinsehen."
+				},
+				{
+					"speaker": "magician",
+					"text": "Dann beneide ich dich nicht um das Ziel, junger Freund. Eisquell macht seinem Namen alle Ehre, und meine alten Knie knirschen schon bei dem Gedanken daran."
+				},
+				{
+					"speaker": "player",
+					"text": "Warte mal. Heißt das, du steigst gar nicht ein?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Nein, {name}. Dieses blaue Licht an deinen Händen lässt mir keine Ruhe."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich kehre auf meine Lichtung im tiefen Wald zurück und wälze meine ältesten Schriften. Wenn ihr mich braucht, ihr wisst, wo meine Lichtung ist."
+				},
+				{
+					"speaker": "king",
+					"text": "Und wir reisen nach Nordosten zum Wasservolk. Kahn hütet in Eisquell den Wasserkristall und das dritte Stück der Karte."
+				},
+				{
+					"speaker": "king",
+					"text": "Nach dem Überfall auf Sylvaris dürfen wir keine Zeit verlieren. Wir müssen mit Kahn sprechen, bevor der Lich vor seinen Toren steht."
+				},
+				{
+					"speaker": "lake",
+					"text": "Dieses Schuppenvolk kennt weder Glauben noch Krone. Wir sollten uns auf ihre Launen nicht verlassen, mein König."
+				},
+				{
+					"speaker": "king",
+					"text": "Auch das Wasservolk will nicht untergehen, Lake. Ein offenes Wort erreicht oft mehr als ein gezogenes Schwert."
+				},
+				{
+					"speaker": "player",
+					"text": "Eis, salziges Wasser und misstrauische Fischmenschen. Klingt nach einem traumhaften Badeurlaub … ich meine, wir schaffen das. Klar."
+				},
+				{
+					"speaker": "king",
+					"text": "Steig ein, mein Schmied. Der Weg an die Küste ist weit."
+				},
+				{
+					"speaker": "",
+					"text": "Die Kutsche rollt nach Nordosten. Mit jeder Stunde wird der Wind kälter, und bald trägt er den Geruch von Salz und Eis heran."
+				}
+			],
+			"on_end": "set_flag:water_route_open;advance:water_arrival;travel_fade:res://scenes/world/water/eisquell.tscn,FromCarriage"
+		},
+		"king_eisquell_idle": {
+			"lines": [
+				{
+					"speaker": "king",
+					"text": "Ein raues Volk, mein Schmied, aber ihre Stadt ist ein kleines Wunder. Selbst der König muss sich hier dem Gesetz der Strömung beugen."
+				},
+				{
+					"speaker": "king",
+					"text": "Eine heiße Fischsuppe vom Markt hat mir eben wieder Wärme in die Finger gebracht. Ich verlasse mich ganz auf dich und deine Helden."
+				}
+			]
+		},
+		"king_waiting": {
+			"lines": [
+				{
+					"speaker": "king",
+					"text": "Geduld, mein Schmied. Wir sind gleich fertig."
+				}
+			]
+		},
+		"thora_fakes_offer": {
+			"lines": [
+				{
+					"speaker": "capital_guild_master",
+					"text": "Schmied. Gut, dass du kommst. Ich hab hier drei Helden, die dir den Kopf abreißen wollen."
+				},
+				{
+					"speaker": "player",
+					"text": "Mir? Ich hab doch nur ... Was hab ich gemacht? Ich war's nicht. Was war es denn?"
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "Schwerter mit deinem Zeichen. Gekauft auf der Einkaufsstraße, billig. Beim ersten Hieb gegen eine Ratte zerbrochen."
+				},
+				{
+					"speaker": "player",
+					"text": "Meine Schwerter brechen nicht an Ratten. Die brechen höchstens Ratten. Das ist nicht mein Zeichen."
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "Dachte ich mir. Hör dich in der Schmiedegasse um. Irgendwer dort macht sich einen schönen Namen. Deinen."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich finde den Fälscher",
+					"action": "set_flag:fake_blades_started"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"gorm_fakes": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Gorm, kurze Frage. Schmiedet hier jemand Schwerter mit meinem Zeichen?"
+				},
+				{
+					"speaker": "lane_smith_gorm",
+					"text": "Mh. Nicht ich. Ich schmiede mit meinem."
+				},
+				{
+					"speaker": "lane_smith_gorm",
+					"text": "Brandolfs Lehrling. Hat letzte Woche einen Stempel geschnitzt. Sah aus wie deiner. Viel Kupfer, wenig Eisen."
+				},
+				{
+					"speaker": "player",
+					"text": "Wenig Eisen. Natürlich. Deshalb brechen die. Danke, Gorm."
+				}
+			],
+			"on_end": "set_flag:fake_blades_gorm"
+		},
+		"brandolf_fakes": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Meister Brandolf. Dein Lehrling verkauft Schwerter mit meinem Zeichen. Schlechte Schwerter."
+				},
+				{
+					"speaker": "lane_smith_brandolf",
+					"text": "Kuno? Der Junge ... Ich hab mich schon gewundert, wo mein Kupfer hinverschwindet. Und warum er neuerdings Stiefel aus Wolfsleder trägt."
+				},
+				{
+					"speaker": "lane_smith_brandolf",
+					"text": "Dreißig Jahre ohne einen Flecken auf meinem Namen. Und jetzt das. Er wird jede Münze zurückzahlen. Jede."
+				},
+				{
+					"speaker": "lane_smith_brandolf",
+					"text": "Nimm das für den Ärger. Und sag Thora, es kommt nicht wieder vor. Ich passe jetzt selbst auf den Stempelkasten auf."
+				},
+				{
+					"speaker": "",
+					"text": "Brandolf gibt dir 300 Gold.",
+					"action": "cutscene:act:lane_smith_brandolf:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				}
+			],
+			"on_end": "give_gold:300;set_flag:fake_blades_found"
+		},
+		"thora_fakes_hand_in": {
+			"lines": [
+				{
+					"speaker": "capital_guild_master",
+					"text": "Brandolfs Lehrling also. Hätte ich auch drauf kommen können. Der Junge hat neuerdings die schönsten Stiefel der Stadt."
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "Bleiben meine drei Helden. Zwei davon stehen ohne Schwert da. Gib ihnen echte, dann sind sie wieder still."
+				}
+			],
+			"choices": [
+				{
+					"text": "2 Schwerter geben",
+					"action": "take_items:sword*2;give_gold:500;set_flag:fake_blades_done",
+					"then": "thora_fakes_done",
+					"else": "thora_fakes_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"thora_fakes_missing": {
+			"lines": [
+				{
+					"speaker": "capital_guild_master",
+					"text": "Zwei Schwerter, Schmied. Echte. Nicht zwei Versprechen."
+				}
+			]
+		},
+		"thora_fakes_done": {
+			"lines": [
+				{
+					"speaker": "capital_guild_master",
+					"text": "Na also. Sie gucken schon wieder freundlich. Fast."
+				},
+				{
+					"speaker": "capital_guild_master",
+					"text": "Die Gilde zahlt für die Schwerter. Und wenn jemand fragt, wer in dieser Stadt die echten macht, weiß ich jetzt, wohin ich sie schicke."
+				},
+				{
+					"speaker": "",
+					"text": "Thora gibt dir 500 Gold.",
+					"action": "cutscene:act:capital_guild_master:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				}
+			]
+		},
+		"tournament_messenger_leonheim_talk": {
+			"lines": [
+				{
+					"speaker": "tournament_messenger_leonheim",
+					"text": "Holla, Meister Schmied! Die Liga-Turniere laufen jeden Tag. Anmelden könnt Ihr Euch in der neuen Turnierhalle, beim Turnierleiter."
+				},
+				{
+					"speaker": "tournament_messenger_leonheim",
+					"text": "Und in der Arena der Krone messen sich die Helden. Wohin soll ich Euch bringen?"
+				},
+				{
+					"speaker": "tournament_messenger_leonheim",
+					"text": "Für die Arena braucht Ihr einen Helden, der schon ein großes Heldenturnier gewonnen hat. Kahn in Eisquell richtet eins aus.",
+					"unless_flag": "hero_tournament_won"
+				}
+			],
+			"choices": [
+				{
+					"text": "Zur Turnierhalle",
+					"action": "travel_fade:res://scenes/world/tournament/tournament_hall_leonheim.tscn,FromCity"
+				},
+				{
+					"text": "Zur Arena der Krone",
+					"if_flag": "hero_tournament_won",
+					"action": "travel_fade:res://scenes/world/capital/leonheim_ring.tscn,FromCity"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		}
+	}
+}

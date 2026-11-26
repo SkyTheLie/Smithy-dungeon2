@@ -1,0 +1,1683 @@
+{
+	"dialogues": {
+		"landlady_offer": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"unless_flag": "landlady_offer_heard",
+					"text": "Na, wer klopft denn da? Ein junges Gesicht, das sieht man hier selten."
+				},
+				{
+					"speaker": "player",
+					"unless_flag": "landlady_offer_heard",
+					"text": "Guten Tag! Ich bin {name}. Ich komme wegen der alten Schmiede. Ich möchte sie mieten."
+				},
+				{
+					"speaker": "landlady",
+					"unless_flag": "landlady_offer_heard",
+					"text": "Die Schmiede? Die steht seit Jahren leer. Spinnweben überall, sag ich dir!"
+				},
+				{
+					"speaker": "landlady",
+					"unless_flag": "landlady_offer_heard",
+					"text": "{rent} Gold alle zwei Wochen. Jeden vierzehnten Tag komm ich kassieren, und wehe, die Kasse ist leer!"
+				},
+				{
+					"speaker": "landlady",
+					"if_flag": "landlady_offer_heard",
+					"text": "Na, doch entschieden? {rent} Gold alle zwei Wochen, wie gesagt."
+				}
+			],
+			"choices": [
+				{
+					"text": "Mieten ({rent} Gold)",
+					"action": "rent_smithy",
+					"then": "landlady_rented",
+					"else": "landlady_no_gold"
+				},
+				{
+					"text": "Ich überlege es mir noch",
+					"action": "set_flag:landlady_offer_heard"
+				}
+			]
+		},
+		"landlady_rented": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Abgemacht! Hier ist der Schlüssel.",
+					"action": "cutscene:act:landlady:give:res://assets/sprites/items/smithy_key.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "landlady",
+					"text": "Und mach erst mal sauber, bevor du da drin Feuer machst. Die Spinnen sind seit Jahren meine einzigen Mieter, hehe."
+				},
+				{
+					"speaker": "player",
+					"text": "Danke! Erst die Spinnen raus, dann das Feuer rein. In genau der Reihenfolge."
+				}
+			]
+		},
+		"landlady_no_gold": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Ohne Gold keine Schmiede, Kindchen. Komm wieder, wenn du {rent} Gold hast."
+				}
+			]
+		},
+		"landlady_idle": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Na, wie läuft es in meiner Schmiede? Denk an die Miete: die nächsten {rent} Gold hole ich am {rent_day}."
+				}
+			]
+		},
+		"bruno_begging": {
+			"lines": [
+				{
+					"speaker": "bruno",
+					"text": "*hicks* Na, du da! Du bist doch der neue Schmied, oder? *hicks*"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Ich hab seit zwei Tagen nichts gegessen ... Hast du vielleicht 'ne kleine Spende für einen alten Krieger?"
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Krieger? Du siehst eher aus, als hättest du die Nacht im Straßengraben verbracht."
+				},
+				{
+					"speaker": "bruno",
+					"text": "Hab ich auch! Aber früher war ich der beste Kämpfer im ganzen Dorf. Ehrenwort!"
+				}
+			],
+			"choices": [
+				{
+					"text": "Ihm helfen",
+					"action": "donate_gold:100;hire_hero:bruno;set_flag:bruno_hired;advance:buy_sword_parts",
+					"then": "bruno_thanks"
+				}
+			]
+		},
+		"bruno_thanks": {
+			"lines": [
+				{
+					"speaker": "",
+					"unless_flag": "donated_nothing",
+					"text": "Du gibst Bruno {donated} Gold.",
+					"action": "cutscene:act:player:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "",
+					"if_flag": "donated_nothing",
+					"text": "Gold hast du selbst kaum noch, aber du nimmst Bruno mit in die Schmiede und versprichst ihm ein Schwert."
+				},
+				{
+					"speaker": "bruno",
+					"unless_flag": "donated_nothing",
+					"text": "{donated} Gold?! Du bist ein Engel! Das zahl ich dir zurück, versprochen!"
+				},
+				{
+					"speaker": "bruno",
+					"if_flag": "donated_nothing",
+					"text": "Ein Schwert, nur für mich?! Du bist ein Engel! Das zahl ich dir zurück, versprochen!"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Weißt du was? Schmied mir ein Schwert, dann hol ich dir Schätze aus dem Rattenkeller. Ich bin dein Held!"
+				},
+				{
+					"speaker": "player",
+					"text": "Na gut, Bruno. Hallo Dungeon!"
+				}
+			]
+		},
+		"bruno_idle": {
+			"lines": [
+				{
+					"speaker": "bruno",
+					"text": "*hicks* Gib mir ein Schwert, und ich hau jedes Monster um!"
+				}
+			]
+		},
+		"landlady_rent_due": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Guten Morgen, Kindchen! Na, weißt du, welcher Tag heute ist?",
+					"if_flag": "first_rent_due"
+				},
+				{
+					"speaker": "player",
+					"text": "Ähm ... {weekday}?",
+					"if_flag": "first_rent_due"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Zahltag! {rent} Gold, wie abgemacht. Hehe.",
+					"if_flag": "first_rent_due"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Hallo, Kindchen! Man hört ja, bei dir klingelt die Kasse.",
+					"unless_flag": "first_rent_due"
+				},
+				{
+					"speaker": "player",
+					"text": "Ähm ... ein bisschen?",
+					"unless_flag": "first_rent_due"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Dann nehme ich die Miete doch gleich mit, das spart mir den Weg. {rent} Gold, wie abgemacht. Hehe.",
+					"unless_flag": "first_rent_due"
+				}
+			],
+			"choices": [
+				{
+					"text": "Miete zahlen ({rent} Gold)",
+					"action": "pay_rent;set_rent:800",
+					"then": "landlady_raise",
+					"else": "landlady_rent_no_gold"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"landlady_rent_no_gold": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Was, so wenig Gold? Na schön, ich warte hier. Komm wieder, wenn du es zusammen hast. Aber trödel nicht!"
+				}
+			]
+		},
+		"landlady_raise": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Oma Hilde zählt die Münzen. Zweimal.",
+					"action": "cutscene:act:landlady:count:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "landlady",
+					"text": "Stimmt genau. Ach, übrigens ... ab der nächsten Miete kostet die Schmiede {rent} Gold."
+				},
+				{
+					"speaker": "player",
+					"text": "Was?! {rent}? Warum das denn?"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Meine Nichte braucht neue Schuhe. Und Schuhe sind heutzutage sooo teuer, weißt du."
+				},
+				{
+					"speaker": "player",
+					"text": "Schuhe für 300 Gold?"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Sehr gute Schuhe! ... Mit Schnallen!"
+				}
+			],
+			"on_end": "advance:first_customer"
+		},
+		"bruno_fountain": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Neben dem Brunnen liegt Bruno im Gras und schnarcht."
+				},
+				{
+					"speaker": "player",
+					"text": "Bruno! Wach auf! Ich brauch deine Hilfe!"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Hmpf ... *hicks* ... Lass mich. Ich hab heute frei."
+				},
+				{
+					"speaker": "player",
+					"text": "In Gustavs Mine sind Ratten! Riesige! Gustav hält sie mit der Spitzhacke auf, aber nicht mehr lange."
+				},
+				{
+					"speaker": "bruno",
+					"text": "Ratten? Nee. Ratten sind eklig. Ich hab genug Ratten gesehen für ein ganzes Leben."
+				}
+			],
+			"choices": [
+				{
+					"text": "Du schuldest mir noch was!",
+					"then": "bruno_debt"
+				}
+			]
+		},
+		"bruno_debt": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Weißt du noch? Ich hab dir mein Gold gegeben, als du nichts zu essen hattest. Und das Schwert an deinem Gürtel, wer hat das geschmiedet?"
+				},
+				{
+					"speaker": "bruno",
+					"text": "... Du."
+				},
+				{
+					"speaker": "player",
+					"text": "Und wer hat bis heute keine einzige Münze zurückgezahlt?"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Schon gut, schon gut! *hicks* Ein Krieger zahlt seine Schulden. Mit der Klinge, wenn's sein muss."
+				},
+				{
+					"speaker": "bruno",
+					"text": "Aber danach sind wir quitt. Und du gibst einen aus!"
+				},
+				{
+					"speaker": "",
+					"text": "Bruno rappelt sich auf und stapft mit dir los zur Mine.",
+					"action": "cutscene:act:bruno:get_up",
+					"hide_for": 1.0
+				}
+			],
+			"on_end": "advance:rat_fight"
+		},
+		"bruno_fight": {
+			"lines": [
+				{
+					"speaker": "bruno",
+					"text": "Da sind die Biester. Puh, und die stinken auch noch."
+				},
+				{
+					"speaker": "miner",
+					"text": "Endlich! Meine Arme sind schon ganz lahm!"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Lass mich mal ran, Opa. Schmied, sag Bescheid, wenn's losgehen soll."
+				}
+			],
+			"choices": [
+				{
+					"text": "Los, Bruno!",
+					"action": "start_adventure:mine_rats,bruno;advance:rat_fight_running",
+					"else": "bruno_busy"
+				},
+				{
+					"text": "Warte noch"
+				}
+			]
+		},
+		"bruno_busy": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Bruno ist gerade noch mit einem Abenteuer beschäftigt. Warte, bis er zurück ist."
+				}
+			]
+		},
+		"bruno_fighting": {
+			"lines": [
+				{
+					"speaker": "bruno",
+					"text": "Nimm das! Und das! *hicks*"
+				}
+			]
+		},
+		"landlady_begs": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Kindchen! Kindchen, gut, dass du da bist!"
+				},
+				{
+					"speaker": "player",
+					"text": "Oma Hilde? Ist die Miete schon wieder fällig?"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Ach, die Miete ... Nein! Es ist meine Lotte. Meine Nichte. Ihr Bett war heute früh leer, und sie ist nicht wiedergekommen!"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Sie muss mitten in der Nacht los sein, das Kind, mit deinen neuen Schuhen ... Sie ist doch alles, was ich habe."
+				},
+				{
+					"speaker": "player",
+					"text": "Hast du schon im Dorf gefragt?"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Mich will ja keiner hören. Die sagen alle, ich bin eine alte Hexe. Aber dich mögen die Leute. Bitte, such sie! Ich ... ich erlass dir auch die Hälfte der nächsten Miete. Ein Viertel. Ein bisschen was."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich finde sie",
+					"action": "set_flag:niece_search_accepted;advance:ask_around",
+					"then": "landlady_begs_thanks"
+				}
+			]
+		},
+		"landlady_begs_thanks": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Danke, Kindchen. Frag auf dem Markt herum, da kommt jeder mal vorbei."
+				}
+			]
+		},
+		"landlady_report": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Und? Hast du was gehört?"
+				},
+				{
+					"speaker": "player",
+					"text": "Holger hat sie gesehen. Sie wollte im Wald Pilze sammeln, tief drin. Wo die Wölfe sind."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Die Wölfe! Ach, Kindchen ... Das Mädchen hat ihren Dickkopf von mir."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Du hast doch Helden, oder? Dieser Trunkenbold und die anderen. Schick sie in den Wald! Sie sollen jeden Stein umdrehen!"
+				},
+				{
+					"speaker": "player",
+					"text": "Ich geh sofort zur Gilde. Wir finden sie, Oma Hilde. Versprochen."
+				}
+			],
+			"on_end": "advance:forest_edge"
+		},
+		"landlady_niece_back": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Da ist er ja! Der Schmied, dessen Helden mich gerettet haben!"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Lotte, Kindchen, setz dich hin, du bist noch ganz schwach."
+				},
+				{
+					"speaker": "niece",
+					"text": "Mir geht's gut, Tante. Ich saß nur ein bisschen auf einer Eiche, unter mir ein Wolf so groß wie eine Kutsche. Ganz normal."
+				},
+				{
+					"speaker": "niece",
+					"text": "Tante Hilde, wir müssen ihm danken. Richtig danken."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Natürlich, natürlich. Hör zu, {name}: Ich senke deine Miete. Um ... 100 Gold."
+				},
+				{
+					"speaker": "niece",
+					"text": "100 Gold?!"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Für eine Woche. Wir wollen ja nicht übertreiben."
+				},
+				{
+					"speaker": "niece",
+					"text": "Tante! Er hat mir das Leben gerettet! Und die Miete ist eh viel zu hoch. Die hast du doch nur erhöht, weil du mir angeblich Schuhe kaufen musstest."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Das ... das waren sehr teure Schuhe!"
+				},
+				{
+					"speaker": "niece",
+					"text": "Du hast mir die für 50 Gold gekauft. Die schönen für 100 wolltest du nicht."
+				},
+				{
+					"speaker": "niece",
+					"text": "Zum Glück hat mir {name} viel schönere geschenkt. Ohne die wär ich im Wald gar nicht so schnell auf die Eiche gekommen!"
+				},
+				{
+					"speaker": "player",
+					"text": "Hm."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Na gut, na gut. 200 Gold weniger. Für einen Monat."
+				},
+				{
+					"speaker": "niece",
+					"text": "Tante Hilde."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Drei Monate!"
+				},
+				{
+					"speaker": "niece",
+					"text": "TANTE HILDE."
+				},
+				{
+					"speaker": "landlady",
+					"text": "... Ein Jahr. Ein ganzes Jahr keine Miete. Bist du jetzt zufrieden, du undankbares Kind?"
+				},
+				{
+					"speaker": "niece",
+					"text": "Sehr! Danke, Tantchen. Du bist die Beste."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Hmpf. Aber nach dem Jahr kostet es wieder normal! Und wehe, die Schmiede brennt ab."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Oder ... du kaufst sie mir gleich ab. Für 100.000 Gold gehört sie dir. Für immer. Überleg es dir. Hehe."
+				},
+				{
+					"speaker": "",
+					"text": "Ein Jahr lang keine Miete. Wenn du genug Gold hast, kannst du Oma Hilde die Schmiede abkaufen: Sprich sie einfach an."
+				}
+			],
+			"on_end": "rent_free:112;set_flag:rent_free_year;advance:chapter7_end"
+		},
+		"landlady_sell_offer": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Na, Kindchen? Willst du mir die Schmiede abkaufen? 100.000 Gold, und sie gehört dir. Für immer."
+				}
+			],
+			"choices": [
+				{
+					"text": "Schmiede kaufen (100.000 Gold)",
+					"action": "pay_gold:100000;buy_smithy",
+					"then": "landlady_sold",
+					"else": "landlady_sell_no_gold"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"landlady_sold": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "100.000 Gold ... Hehe. Hier, der Schlüssel. Die Schmiede gehört jetzt dir."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Du warst ein guter Mieter, Kindchen. Der beste. Und der einzige."
+				},
+				{
+					"speaker": "",
+					"text": "Die Schmiede gehört jetzt dir. Ab sofort zahlst du keine Miete mehr."
+				}
+			]
+		},
+		"landlady_sell_no_gold": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Das reicht nicht, Kindchen. 100.000 Gold, keine Münze weniger."
+				}
+			]
+		},
+		"landlady_owner": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Na, Herr Schmiedebesitzer? Pass gut auf meine ... auf deine Schmiede auf."
+				}
+			]
+		},
+		"niece_idle": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Hallo, {name}! Tante Hilde sagt, ich soll dich nicht bei der Arbeit stören. Mach ich aber trotzdem."
+				}
+			]
+		},
+		"niece_after_forest": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Hallo, {name}! Ich gehe nie wieder allein in den Wald. Jedenfalls nicht so tief."
+				}
+			]
+		},
+		"square_empty": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der Dorfplatz ist wie leergefegt. Kein Mensch weit und breit, nur der Brunnen plätschert."
+				},
+				{
+					"speaker": "player",
+					"text": "Wo sind denn alle?"
+				},
+				{
+					"speaker": "",
+					"text": "Von Osten her hört man Jubel und Klatschen. Es kommt vom Marktplatz."
+				}
+			],
+			"on_end": "set_flag:heard_cheers;advance:festival_show"
+		},
+		"magician_sword": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du trittst vor und legst die Hand auf den Griff. Er ist warm.",
+					"action": "set_flag:sword_try_player",
+					"wait": 1.5
+				},
+				{
+					"speaker": "",
+					"text": "Das Schwert beginnt zu leuchten, heller und heller, bis der ganze Platz in blaues Licht getaucht ist.",
+					"action": "set_flag:sword_glows",
+					"wait": 1.2
+				},
+				{
+					"speaker": "",
+					"text": "Du ziehst. Das Schwert gleitet aus dem Boden, als wäre es aus Luft. Du hältst es hoch über deinen Kopf.",
+					"action": "set_flag:sword_pulled",
+					"wait": 1.8
+				},
+				{
+					"speaker": "",
+					"text": "Einen Moment ist es ganz still. Dann klatschen die letzten Leute auf dem Platz, so laut sie können.",
+					"action": "cutscene:act:magician:cheer;cutscene:act:niece:hop",
+					"hide_for": 1.3
+				},
+				{
+					"speaker": "niece",
+					"text": "Er hat es geschafft!"
+				},
+				{
+					"speaker": "bruno",
+					"text": "*hicks* Ich hab's vorher gelockert."
+				},
+				{
+					"speaker": "magician",
+					"text": "(flüsternd) Das kann doch nicht sein ... Das Schwert gehorcht nur jemandem mit ..."
+				},
+				{
+					"speaker": "magician",
+					"text": "Nun ja. Dann ist es eben so."
+				},
+				{
+					"speaker": "",
+					"text": "Das Schwert in deiner Hand zerfällt zu blauen Funken, die langsam in den Abendhimmel steigen.",
+					"action": "cutscene:sword_sparks",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "magician",
+					"text": "Junger Schmied, hör mir gut zu. Dieses Schwert ist keine Kraftprobe. Es prüft die Magie. Und in dir steckt Magie, mehr als in jedem anderen hier.",
+					"action": "set_flag:sword_gone"
+				},
+				{
+					"speaker": "player",
+					"text": "Magie? In mir? Ich kann ja nicht mal eine Kerze anzünden, ohne mir die Finger zu verbrennen."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ein Schmied mit Magie in den Händen ... so jemanden hat dieses Dorf schon einmal gehabt. Vor langer Zeit."
+				},
+				{
+					"speaker": "player",
+					"text": "Meint Ihr etwa den legendären Schmied?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich meine, dass du ein Geschenk verdient hast. Ein Zaubertisch. Er wird morgen früh in deiner Schmiede stehen. Damit kannst du deinen Klingen Kräfte einhauchen."
+				},
+				{
+					"speaker": "magician",
+					"text": "Wie das geht? Das musst du selbst herausfinden. Guten Abend allerseits!"
+				},
+				{
+					"speaker": "",
+					"text": "Mit einem Knall und einer Wolke aus blauem Rauch ist Meister Aurelius verschwunden.",
+					"action": "cutscene:act:magician:vanish",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "landlady",
+					"text": "Angeber. Hehe. Komm, Lotte, es ist spät."
+				}
+			],
+			"on_end": "set_flag:station_enchanting_table;set_flag:festival_over;advance:festival_night"
+		},
+		"landlady_enchanting": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Oma Hilde, weißt du, wie man verzaubert?"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Verzaubern? Kindchen, wenn ich zaubern könnte, hätte ich mir längst Gold herbeigezaubert. Viel Gold."
+				},
+				{
+					"speaker": "niece",
+					"text": "Tante, du hast doch erzählt, dass der alte Schmied immer nachts in der Werkstatt saß. Mit so einem blauen Licht."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Pssst, Lotte. Alte Geschichten."
+				}
+			],
+			"on_end": "set_flag:asked_landlady"
+		},
+		"shoe_shop_argument": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Vor dem Schuhladen stehen Oma Hilde und Lotte. Lotte drückt sich die Nase am Schaufenster platt."
+				},
+				{
+					"speaker": "niece",
+					"text": "Tante, guck mal, die roten da! Mit den kleinen Schnüren!"
+				},
+				{
+					"speaker": "landlady",
+					"text": "100 Gold? Für Schuhe? Kind, dafür kriegt man ja eine halbe Kuh."
+				},
+				{
+					"speaker": "niece",
+					"text": "Aber die sind so schön ..."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Die braunen hier kosten nur 50. Die halten auch. Und Braun sieht man den Dreck nicht an."
+				},
+				{
+					"speaker": "niece",
+					"text": "Die sehen aus wie zwei Kartoffeln."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Schöne Kartoffeln. Gekauft! Komm jetzt, Kindchen."
+				},
+				{
+					"speaker": "",
+					"text": "Oma Hilde zahlt und zieht Lotte hinter sich her. Lotte dreht sich noch einmal zum Schaufenster um und seufzt.",
+					"action": "cutscene:act:niece:turn:up",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "player",
+					"text": "(Und für diese Schuhe hat sie mir die Miete erhöht ...)"
+				}
+			],
+			"on_end": "set_flag:shoe_scene_seen;advance:look_at_shoes"
+		},
+		"lotte_shoes_gift": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Oh, hallo, Schmied! Willst du zu Tante Hilde?"
+				},
+				{
+					"speaker": "player",
+					"text": "Eigentlich zu dir. Ich hab auf dem Markt zufällig mitbekommen, wie das mit den Schuhen gelaufen ist."
+				},
+				{
+					"speaker": "niece",
+					"text": "Die Kartoffeln? Ach ... die sind schon in Ordnung."
+				}
+			],
+			"choices": [
+				{
+					"text": "Kinderschuhe schenken",
+					"action": "has_items:child_shoes;take_items:child_shoes;set_flag:child_shoes_given;unlock_recipes:leather_shoes",
+					"then": "lotte_shoes_thanks",
+					"else": "lotte_shoes_missing"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"lotte_shoes_thanks": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Hier. Hab ich selbst gemacht. Ich hoffe, sie gefallen dir."
+				},
+				{
+					"speaker": "niece",
+					"text": "Die ... die sind ja rot! Mit Schnüren! Die sind noch schöner als die im Laden!"
+				},
+				{
+					"speaker": "niece",
+					"text": "Danke, danke, danke! Morgen früh probier ich sie gleich aus. Ich weiß auch schon, wo: im Wald, da wachsen jetzt die besten Pilze!"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Umsonst? Du schenkst Schuhe einfach so her? Du bist mir ein komischer Schmied, Kindchen."
+				},
+				{
+					"speaker": "landlady",
+					"text": "... Aber danke."
+				},
+				{
+					"speaker": "",
+					"text": "Wenn du schon Schuhe machen kannst, warum nicht auch für dich selbst? Neues Rezept: Lederschuhe (2 Leder + 1 Seil, Werkbank » Zubehör » Zusatz). Im Charakter-Fenster angelegt läufst du schneller."
+				}
+			]
+		},
+		"lotte_shoes_missing": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "(Ich hab die Kinderschuhe ja noch gar nicht dabei.)"
+				}
+			]
+		},
+		"niece_happy": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Meine neuen Schuhe sind die schönsten im ganzen Dorf! Tante Hilde sagt, die sind zu schade für den Matsch. Pah!"
+				}
+			]
+		},
+		"bruno_raid_meet": {
+			"lines": [
+				{
+					"speaker": "bruno",
+					"text": "Schmied! Du bist auch wach? Bei dem Krach schläft ja keiner."
+				},
+				{
+					"speaker": "player",
+					"text": "Bruno! Was ist passiert?"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Weiß ich nicht. Der Rauch kommt vom Marktplatz. Und da drüben schreit einer, als hätte er ein Gespenst gesehen."
+				},
+				{
+					"speaker": "bruno",
+					"text": "Ich bin heute ausnahmsweise nüchtern. Ausgerechnet heute."
+				},
+				{
+					"speaker": "bruno",
+					"text": "Komm mit, zu zweit ist mir wohler. Aber bleib hinter mir, verstanden?"
+				}
+			],
+			"on_end": "set_flag:bruno_follows;advance:raid_to_market"
+		},
+		"bruno_raid_go": {
+			"lines": [
+				{
+					"speaker": "bruno",
+					"text": "Worauf wartest du noch? Nimm die Kleine und lauf!"
+				}
+			]
+		},
+		"lotte_rescue": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "*schluchz* Tante Hilde ... Tante, wach doch auf!"
+				},
+				{
+					"speaker": "landlady",
+					"text": "{name} ... bist du das, Kindchen? Bring ... bring meine Lotte weg von hier. Bitte."
+				},
+				{
+					"speaker": "player",
+					"text": "Lotte! Komm, wir müssen hier weg. Schnell!"
+				},
+				{
+					"speaker": "niece",
+					"text": "Nein! Ich lass Tante Hilde nicht allein! Ich bleib hier!"
+				}
+			],
+			"choices": [
+				{
+					"text": "Deine Tante will, dass du in Sicherheit bist.",
+					"then": "lotte_rescue_agree"
+				},
+				{
+					"text": "Hier ist es zu gefährlich!",
+					"then": "lotte_rescue_refuse"
+				}
+			]
+		},
+		"lotte_rescue_refuse": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Mir egal! Ich geh nicht weg!"
+				},
+				{
+					"speaker": "",
+					"text": "Hinter euch stöhnt ein Zombie und reißt sich von einem Abenteurer los. Lotte presst sich an ihre Tante."
+				}
+			],
+			"choices": [
+				{
+					"text": "Deine Tante will, dass du in Sicherheit bist.",
+					"then": "lotte_rescue_agree"
+				},
+				{
+					"text": "Hier ist es zu gefährlich!",
+					"then": "lotte_rescue_refuse"
+				}
+			]
+		},
+		"lotte_rescue_agree": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "... Aber wer passt dann auf Tante Hilde auf?"
+				},
+				{
+					"speaker": "player",
+					"text": "Bruno und die Helden. Siehst du? Sie kämpfen schon. Die kümmern sich um alles."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Geh mit ihm, Schätzchen ... Ich komme nach. Versprochen."
+				},
+				{
+					"speaker": "niece",
+					"text": "... Versprochen?"
+				},
+				{
+					"speaker": "",
+					"text": "Lotte wischt sich die Tränen aus dem Gesicht und nimmt deine Hand. Sie zittert.",
+					"action": "cutscene:act:niece:tremble",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "niece",
+					"text": "Okay. Aber lauf nicht so schnell."
+				}
+			],
+			"on_end": "set_flag:emma_follows;advance:raid_flee"
+		},
+		"raid_looter_threat": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Vor deiner Schmiede stehen Untote. Keine tumben Zombies wie auf dem Marktplatz: Sie haben auf dich gewartet. Der größte von ihnen trägt einen rostigen Säbel und versperrt die Tür."
+				},
+				{
+					"speaker": "raid_looter",
+					"text": "Hrrr ... Schmied. Endlich."
+				},
+				{
+					"speaker": "niece",
+					"text": "{name} ... ich hab Angst."
+				},
+				{
+					"speaker": "raid_looter",
+					"text": "Gold. Erz. Waffen. Alles, was du hast. Gib her."
+				},
+				{
+					"speaker": "raid_looter",
+					"text": "Dann ... lebst du. Und das Kleine auch."
+				}
+			],
+			"choices": [
+				{
+					"text": "Den Räubern alles geben",
+					"action": "rob_player",
+					"then": "raid_looter_spare"
+				},
+				{
+					"text": "Ne, lieber nicht",
+					"then": "raid_looter_refuse"
+				}
+			]
+		},
+		"raid_looter_refuse": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der Anführer hebt den Säbel. Die anderen Untoten schlurfen näher, von allen Seiten. Lotte krallt sich an deinen Arm.",
+					"action": "cutscene:act:raid_looter:swing:res://assets/sprites/items/copper_blade.png;cutscene:act:raid_monster:block;cutscene:act:niece:tremble",
+					"hide_for": 1.3
+				},
+				{
+					"speaker": "raid_looter",
+					"text": "Hrrr ... hrrr. Du glaubst ... du hast eine Wahl?"
+				},
+				{
+					"speaker": "raid_looter",
+					"text": "Wir lassen dir ... die Wahl. Aber die Antwort ... steht schon fest."
+				},
+				{
+					"speaker": "niece",
+					"text": "Bitte, {name}! Gib ihnen, was sie wollen! Ich will nicht sterben!"
+				}
+			],
+			"choices": [
+				{
+					"text": "Den Räubern alles geben",
+					"action": "rob_player",
+					"then": "raid_looter_spare"
+				},
+				{
+					"text": "Den Räubern trotzdem alles geben",
+					"action": "rob_player",
+					"then": "raid_looter_spare"
+				}
+			]
+		},
+		"raid_looter_spare": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du leerst deine Taschen vor ihnen aus. Zwei Untote schlurfen in die Schmiede. Truhen splittern, Regale krachen um. Dann schleppen sie alles heraus: dein Gold, dein Erz, deine Barren, deine Waffen. Sogar die Loot-Kiste räumen sie bis auf den Grund leer.",
+					"action": "cutscene:raid_plunder",
+					"hide_for": 5.6
+				},
+				{
+					"speaker": "raid_looter",
+					"text": "Hrrr. Klug ... Schmied. Der Meister braucht Waffen. Viele Waffen."
+				},
+				{
+					"speaker": "",
+					"text": "Die Untoten ziehen mit ihrer Beute nach Osten ab, zurück zum brennenden Marktplatz. Lotte lässt deine Hand nicht los.",
+					"action": "set_flag:raid_spared",
+					"hide_for": 2.4
+				},
+				{
+					"speaker": "player",
+					"text": "Sie sind weg. Wir leben. Komm, rein mit dir."
+				}
+			],
+			"on_end": "set_flag:raid_spared;advance:raid_home"
+		},
+		"lotte_morning": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Da kommt jemand von der Wache. Vielleicht weiß er, wo Tante Hilde ist. Und Bruno."
+				}
+			]
+		},
+		"landlady_dying": {
+			"lines": [
+				{
+					"speaker": "landlady",
+					"text": "Kindchen ... bring ... bring meine Lotte weg von hier ..."
+				}
+			]
+		},
+		"lotte_idle": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Tante Hildes Haus ist so still ohne sie. Manchmal halte ich es da drin nicht aus, dann laufe ich durchs Dorf."
+				},
+				{
+					"speaker": "niece",
+					"text": "Die Miete ({rent} Gold) hole ich am {rent_day}. Tante Hilde hätte das so gewollt."
+				}
+			]
+		},
+		"lotte_forge_offer": {"lines": [{"speaker": "niece", "text": "{name}! Ich üb jeden Tag mit meinem Hammer. Auf Steinen. Auf dem Hufeisen."}, {"speaker": "niece", "text": "Aber das ist doch kein richtiges Schmieden. Darf ich dir mal zusehen? In der Werkstatt? Ich bin auch ganz still."}], "choices": [{"text": "Komm mit in die Werkstatt", "then": "lotte_forge_yes"}, {"text": "Später"}]},
+		"lotte_forge_yes": {"lines": [{"speaker": "player", "text": "Abgemacht. Aber du stehst neben dem Amboss, nicht davor. Funken sind keine Glühwürmchen."}, {"speaker": "niece", "text": "Neben dem Amboss. Ganz still. Versprochen!"}], "on_end": "set_flag:lotte_forge_accepted"},
+		"lotte_forge_watching": {"lines": [{"speaker": "niece", "text": "Ich steh hier und schau zu. Ganz still. Fang an, schmied was am Amboss!"}]},
+		"lotte_forge_after": {"lines": [{"speaker": "niece", "text": "So viele Funken! Und es hat so laut geklungen. Wie eine Glocke!"}, {"speaker": "player", "text": "Erst muss das Metall glühen. Dann schlägst du im Takt, nicht zu früh und nicht zu spät. Und am Ende kommt es ins Wasser, sonst bleibt es weich."}, {"speaker": "niece", "text": "Im Takt. Wie beim Seilspringen. Das kann ich!"}, {"speaker": "niece", "text": "Aber wo kriegst du eigentlich das ganze Erz her? Und die Kohle? Gräbst du das alles selbst aus?"}], "on_end": "set_flag:lotte_forge_done"},
+		"lotte_shop_offer": {"lines": [{"speaker": "niece", "text": "Zeigst du mir, wo man Erz kauft? Dann kann ich dir helfen. Richtig helfen, nicht nur zusehen."}], "choices": [{"text": "Komm mit zum Markt", "then": "lotte_shop_yes"}, {"text": "Später"}]},
+		"lotte_shop_yes": {"lines": [{"speaker": "player", "text": "Na gut. Zum Markt, zu Erna. Bleib dicht bei mir."}, {"speaker": "niece", "text": "Dicht bei dir. Wie ein Schatten!"}], "on_end": "set_flag:lotte_shop_accepted"},
+		"lotte_letter_royal": {"lines": [{"speaker": "niece", "text": "{name}! {name}! Ein Reiter war da! Vom König! Sein Pferd war so groß wie ein Haus!"}, {"speaker": "niece", "text": "Er wollte zu dir. Ich hab gesagt: Ich bring es ihm. Ich weiß immer, wo der Schmied ist."}, {"speaker": "", "text": "Lotte hält dir einen Brief hin. Auf dem roten Siegel prangt das Wappen des Königs.", "action": "cutscene:act:niece:give:res://assets/sprites/items/royal_letter.png", "hide_for": 1.1}, {"speaker": "player", "text": "Du hast ihn aber nicht aufgemacht, oder?"}, {"speaker": "niece", "text": "Nein! Nur gegen das Licht gehalten. Man sieht aber nichts."}, {"speaker": "niece", "text": "Ich bin jetzt deine Botin. Das ist ein richtiger Beruf, oder?"}, {"speaker": "player", "text": "Der wichtigste im ganzen Dorf."}], "on_end": "set_flag:letter_royal_read;hint:king_answer"},
+		"lotte_letter_council": {"lines": [{"speaker": "niece", "text": "Post! Post für den Schmied! Schon wieder vom König!"}, {"speaker": "niece", "text": "Der Reiter hat gesagt, es ist eilig. Da bin ich gerannt. Ganz, ganz schnell."}, {"speaker": "", "text": "Lotte drückt dir den Brief in die Hand. Das Siegel ist ganz warm von ihren Fingern.", "action": "cutscene:act:niece:give:res://assets/sprites/items/royal_letter.png", "hide_for": 1.1}, {"speaker": "player", "text": "Danke, Lotte. Was würde ich nur ohne dich machen?"}, {"speaker": "niece", "text": "Du würdest verschlafen."}], "on_end": "set_flag:letter_council_read;hint:king_letter"},
+		"lotte_letter_finster": {"lines": [{"speaker": "niece", "text": "{name}! {name}! Ein Elf war da! Ein echter! Mit ganz spitzen Ohren!"}, {"speaker": "niece", "text": "Er hat gesagt, der Brief ist vom Zauberer. Und dass er auf keine Antwort wartet. Dann war er weg. Einfach weg!"}, {"speaker": "", "text": "Lotte gibt dir einen Brief. Statt eines Siegels ist ein grünes Blatt in das Wachs gedrückt.", "action": "cutscene:act:niece:give:res://assets/sprites/items/elf_letter.png", "hide_for": 1.1}, {"speaker": "", "text": "„Komm nach Sylvaris, so schnell du kannst. Die Elfen haben etwas über Halvard gehört. Ich warte unten am Waldboden, bei der Kutsche. A.“"}, {"speaker": "niece", "text": "Fährst du jetzt zu den Elfen? Fragst du sie, ob ich auch spitze Ohren haben kann?"}, {"speaker": "player", "text": "Ich frag, ob es die irgendwo zu kaufen gibt."}], "on_end": "set_flag:letter_finster_read;hint:finster_start"},
+		"lotte_letter_grand_council": {"lines": [{"speaker": "niece", "text": "{name}! {name}! Ein Vogel hat an dein Fenster geklopft! Ein grüner, mit einem Brief am Bein!"}, {"speaker": "niece", "text": "Ich hab ihn reingelassen. Er hat mich in den Finger gezwickt. Ich glaub, er mag nur Zauberer."}, {"speaker": "", "text": "Lotte gibt dir einen Brief. Statt eines Siegels ist ein grünes Blatt in das Wachs gedrückt.", "action": "cutscene:act:niece:give:res://assets/sprites/items/elf_letter.png", "hide_for": 1.1}, {"speaker": "", "text": "„Die Anführer aller Völker kommen nach Sylvaris, an den Ratstisch der Elfen ganz oben. Halvard ist bei mir. Komm, so schnell du kannst. A.“"}, {"speaker": "niece", "text": "Alle Völker? Auch die mit den Hörnern? Bringst du mir ein Bild mit?"}, {"speaker": "player", "text": "Ich kann nicht malen, Lotte."}, {"speaker": "niece", "text": "Dann erzählst du es mir. Ganz genau. Von jedem einzeln."}], "on_end": "set_flag:letter_grand_council_read;hint:grand_council"},
+		"lotte_letter_water": {"lines": [{"speaker": "niece", "text": "Da bist du ja! Ich hab dich überall gesucht."}, {"speaker": "niece", "text": "Der Reiter vom König hat mich bis zu dir mitgenommen. Auf dem Pferd! Ganz vorne!"}, {"speaker": "", "text": "Lotte gibt dir einen gefalteten Brief mit dem Siegel des Königs.", "action": "cutscene:act:niece:give:res://assets/sprites/items/royal_letter.png", "hide_for": 1.1}, {"speaker": "niece", "text": "Stimmt es, dass du zum Wasservolk fährst? Bringst du mir eine Muschel mit?"}, {"speaker": "player", "text": "Wenn ich eine finde, die so schön ist wie deine roten Schuhe."}, {"speaker": "niece", "text": "So eine gibt es nicht. Aber du darfst trotzdem suchen."}], "on_end": "set_flag:letter_water_read;hint:water_morning"},
+		"lotte_menu": {"lines": [{"speaker": "niece", "text": "Ja, {name}? Was gibt's?"}], "talk_text": "Reden", "bye_text": "Tschüss"},
+		"lotte_errand_offer": {"lines": [{"speaker": "niece", "text": "Guten Morgen, {name}! Soll ich dir was vom Markt holen?"}], "choices": [{"text": "Einkaufsliste geben", "action": "open_menu:errand"}, {"text": "Heute nicht", "then": "lotte_errand_none"}]},
+		"lotte_errand_none": {"lines": [{"speaker": "niece", "text": "Dann üb ich mit meinem Hammer. Bis morgen!"}]},
+		"lotte_errand_out": {"lines": [{"speaker": "niece", "text": "Ich kauf grad für dich ein! Gleich bin ich wieder in der Werkstatt."}]},
+		"lotte_errand_back": {"lines": [{"speaker": "niece", "text": "Bin wieder da!"}, {"speaker": "niece", "text": "{errand_report}"}], "on_end": "errand_hand_over"},
+		"lotte_sell_offer": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Tante Hilde hat gesagt, du darfst die Schmiede kaufen. 100.000 Gold, dann gehört sie dir. Für immer."
+				}
+			],
+			"choices": [
+				{
+					"text": "Schmiede kaufen (100.000 Gold)",
+					"action": "pay_gold:100000;buy_smithy",
+					"then": "lotte_sold",
+					"else": "lotte_sell_no_gold"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"lotte_sold": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Jetzt gehört sie dir! Tante Hilde wäre stolz auf dich."
+				}
+			]
+		},
+		"lotte_sell_no_gold": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Das reicht nicht. Tante Hilde hat gesagt: 100.000 Gold, keine Münze weniger."
+				}
+			]
+		},
+		"lotte_owner": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Pass gut auf deine Schmiede auf, ja? Tante Hilde hat sie sehr gemocht."
+				}
+			]
+		},
+		"guard_raid_morning": {
+			"lines": [
+				{
+					"speaker": "raid_guard",
+					"text": "Bist du {name}, der Schmied? Ich bin Otto von der Dorfwache. Ich bringe keine guten Nachrichten."
+				},
+				{
+					"speaker": "player",
+					"text": "Was ist passiert? Wo ist Bruno?"
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Wir haben die Zombies zurückgeschlagen, zusammen mit Hedwig und ihren Abenteurern. Aber Bruno ..."
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Hedwig hat es gesehen. Den Feuerball, der dir galt, hat er abgefangen. Verbrannt, wie er war, hat er sich dem Lich danach allein in den Weg gestellt. Lange genug, dass du mit der Kleinen wegkamst."
+				},
+				{
+					"speaker": "",
+					"text": "Der Wachmann nimmt den Helm ab.",
+					"action": "cutscene:act:raid_guard:bow",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Bruno ist tot. Und der Lich ist mit dem leuchtenden Ding aus dem Baum verschwunden."
+				},
+				{
+					"speaker": "player",
+					"text": "Der Feuerball war für mich. Er hätte einfach weglaufen können ..."
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Hätte er. Ist er aber nicht."
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Er hatte ein Schwert dabei, das du ihm geschmiedet hast. Seine Sachen hab ich dir in die Loot-Kiste gelegt. Er hätte gewollt, dass du sie bekommst."
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Der Marktplatz ist verwüstet, und der Lebensbaum ist hinüber. Der steht seit Jahrhunderten da, man sagt, er beschützt das Dorf. Was es damit auf sich hat und was der Lich damit will? Das weiß keiner."
+				},
+				{
+					"speaker": "niece",
+					"text": "Und ... und meine Tante?"
+				},
+				{
+					"speaker": "",
+					"text": "Der Wachmann schaut zu Boden.",
+					"action": "cutscene:act:raid_guard:bow",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Es tut mir leid, Kleine. Deine Tante hat es auch nicht geschafft."
+				},
+				{
+					"speaker": "",
+					"text": "Lotte sagt nichts. Sie drückt nur ganz fest deine Hand.",
+					"action": "cutscene:act:niece:tremble",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "raid_guard",
+					"unless_flag": "smithy_owned",
+					"text": "Hilde hatte außer dir keine Familie mehr, Kleine. Ihr Haus gehört jetzt dir. Und deine Schmiede auch, Schmied: Die Miete bekommt ab jetzt Lotte."
+				},
+				{
+					"speaker": "raid_guard",
+					"if_flag": "smithy_owned",
+					"text": "Hilde hatte außer dir keine Familie mehr, Kleine. Ihr Haus gehört jetzt dir. Die Schmiede hat der Schmied ihr ja schon abgekauft."
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Allein lassen wir dich trotzdem nicht, Kleine. Erna, die Erzhändlerin vom Markt, schaut jeden Abend nach dir. Ihr Hof liegt gleich am Dorfplatz. Das hat sie mir versprochen."
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Du hast sie da rausgeholt, Schmied. Pass auf die Kleine auf. Und verdien genug für euch beide."
+				},
+				{
+					"speaker": "player",
+					"text": "Das mache ich. Versprochen."
+				},
+				{
+					"speaker": "niece",
+					"text": "Ich will in Tante Hildes Haus bleiben. Da riecht noch alles nach ihr ... Kommst du mich besuchen?"
+				}
+			],
+			"on_end": "set_flag:hilde_dead;set_flag:bruno_dead;lose_hero:bruno;advance:chapter10_end"
+		},
+		"guard_rebuild_call": {
+			"lines": [
+				{
+					"speaker": "raid_guard",
+					"text": "Morgen, Schmied. Na, wie geht es der Kleinen?"
+				},
+				{
+					"speaker": "player",
+					"text": "Sie redet nicht viel. Aber sie isst wieder. Das ist ein Anfang."
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Gut. Im ganzen Dorf wird jetzt aufgeräumt und gebaut. Aber der Marktplatz liegt noch in Trümmern: Löcher im Pflaster, verkohlte Häuser."
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Der Bürgermeister will mit dir reden. Er will wissen, was du in der Nacht gesehen hast. Du warst ja mittendrin."
+				},
+				{
+					"speaker": "raid_guard",
+					"text": "Er wartet auf dem Marktplatz, gleich am Westeingang."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich geh gleich hin. Er soll wissen, was Bruno getan hat."
+				}
+			],
+			"on_end": "advance:meet_mayor"
+		},
+		"guard_idle": {
+			"lines": [
+				{
+					"speaker": "raid_guard",
+					"text": "Ich halte die Augen offen. Noch einmal überrascht uns hier niemand."
+				}
+			]
+		},
+		"coachman_no_permission": {
+			"lines": [
+				{
+					"speaker": "coachman",
+					"unless_flag": "asked_coachman",
+					"text": "Na, Schmied? Schöne Kutsche, was? Die gehört dem Dorf."
+				},
+				{
+					"speaker": "coachman",
+					"unless_flag": "asked_coachman",
+					"text": "Mitfahren darf nur, wen der Bürgermeister schickt. Frag Wendelin, ob du sie benutzen darfst. Ohne seinen Segen rührt die Liese keinen Huf."
+				},
+				{
+					"speaker": "player",
+					"unless_flag": "asked_coachman",
+					"text": "Die Liese?"
+				},
+				{
+					"speaker": "coachman",
+					"unless_flag": "asked_coachman",
+					"text": "Mein Pferd. Strenger als der ganze Dorfrat."
+				},
+				{
+					"speaker": "coachman",
+					"if_flag": "asked_coachman",
+					"text": "Ohne Erlaubnis vom Bürgermeister fahr ich nicht, Schmied. Frag Wendelin."
+				},
+				{
+					"speaker": "coachman",
+					"unless_flag": "reached_meet_mayor",
+					"text": "Der lässt sich nur selten blicken. Aber wenn, dann auf dem Markt."
+				}
+			],
+			"on_end": "set_flag:asked_coachman"
+		},
+		"coachman_allowed_wait": {
+			"lines": [
+				{
+					"speaker": "coachman",
+					"text": "Wendelin war hier. Du darfst mitfahren, Schmied, sobald der König nach dir schickt."
+				},
+				{
+					"speaker": "coachman",
+					"text": "Bis dahin steht die Liese hier und frisst mir die Haare vom Kopf."
+				}
+			]
+		},
+		"coachman_to_king": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Jupp hat die Liese schon angespannt."
+				},
+				{
+					"speaker": "coachman",
+					"text": "Da bist du ja. Lotte hat dir den Brief schon gebracht? Gut. Der König erwartet dich."
+				},
+				{
+					"speaker": "coachman",
+					"text": "Ein Brief vom König, für einen Schmied aus unserem Dorf. Das hab ich in dreißig Jahren auf dem Bock noch nicht erlebt."
+				},
+				{
+					"speaker": "player",
+					"text": "Der König wartet auf mich. Auf mich. Ich meine ... ja. Klar. Hätte ich mir doch ein sauberes Hemd gekauft."
+				},
+				{
+					"speaker": "coachman",
+					"text": "Steig ein. Wenn die Liese gute Laune hat, sind wir bald da."
+				}
+			],
+			"choices": [
+				{
+					"text": "Nach Leonheim, zum König.",
+					"action": "set_flag:left_for_capital;advance:castle_arrival;travel_fade:res://scenes/world/capital/castle_garden.tscn,FromCarriage",
+					"then": "coachman_departure"
+				}
+			]
+		},
+		"coachman_departure": {
+			"lines": [
+				{
+					"speaker": "coachman",
+					"text": "Hü, Liese! Ab in die Königsstadt."
+				}
+			]
+		},
+		"coachman_service": {
+			"lines": [
+				{
+					"speaker": "coachman",
+					"text": "Wohin soll's gehen, Schmied? Steig einfach ein, die Liese kennt den Weg."
+				}
+			]
+		},
+		"ending_workshop": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Lotte steht am Amboss, auf einer umgedrehten Kiste. Sie hält deinen zweitbesten Hammer mit beiden Händen. Halvard steht daneben.",
+					"action": "cutscene:act:niece:strike:copper_hammer_head+wooden_shaft",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "niece",
+					"text": "{name}! Du bist wach! Guck mal, guck mal! Ich schmiede!"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Sie schmiedet nicht. Sie haut drauf. Das ist ein Unterschied, Kleine."
+				},
+				{
+					"speaker": "niece",
+					"text": "Aber es wird flach! Flach ist doch richtig, oder? Oder?"
+				},
+				{
+					"speaker": "player",
+					"text": "Es ist sehr flach, Lotte. Was soll es denn werden?"
+				},
+				{
+					"speaker": "niece",
+					"text": "Ein Schwert! Für Brunos Grab. Er hat immer gesagt, ohne Schwert geht er nirgends hin."
+				},
+				{
+					"speaker": "player",
+					"text": "Das gefällt ihm bestimmt, Lotte."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Zwanzig Jahre war ich weg, Junge. Ich dachte, hier steht nichts mehr. Ein kalter Ofen, Spinnweben, Ratten."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Und dann komme ich rein, und die Esse brennt. Alles aufgeräumt, alles benutzt. Mein Amboss hat Kerben, die ich nicht gemacht habe."
+				},
+				{
+					"speaker": "player",
+					"text": "Soll ich mich entschuldigen?"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Nein. Das ist das Beste, was einem Amboss passieren kann. Er war für Arbeit gemacht, nicht fürs Warten."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Die Schmiede gehört dir, Junge. Ich komme nur morgens und schaue, ob du den Hammer richtig hältst."
+				},
+				{
+					"speaker": "player",
+					"text": "Und die Kleine?"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Die bringe ich durch. Ein guter Schmied hat immer einen Lehrling. Sonst ist er bloß ein Mann mit Hammer."
+				},
+				{
+					"speaker": "niece",
+					"text": "Ich werde die beste Schmiedin im ganzen Land! Besser als ihr beide! Zusammen!",
+					"action": "cutscene:act:niece:hop"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Hm. Kann sein. Jetzt schür das Feuer, Junge. Die Leute warten auf ihre Klingen."
+				},
+				{
+					"speaker": "",
+					"text": "Draußen geht die Sonne über dem Dorf auf. In der Schmiede brennt die Esse."
+				}
+			],
+			"on_end": "set_flag:ending_done;hint:story_end;advance:story_end"
+		},
+		"finster_knight_idle": {
+			"lines": [
+				{
+					"speaker": "finster_knight",
+					"text": "Weitergehen. Hier gibt es nichts zu sehen."
+				}
+			]
+		},
+		"village_occupied": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Auf dem Dorfplatz stehen zwei Ritter in schwarzer Rüstung. Am Brunnen hängt dein Steckbrief."
+				},
+				{
+					"speaker": "finster_knight",
+					"text": "Hört her! Der Schmied ist ein Verräter am König. Wer ihn versteckt, dessen Haus brennt. Wer ihn meldet, bekommt zehntausend Gold."
+				},
+				{
+					"speaker": "",
+					"text": "Die Leute auf dem Platz sehen auf ihre Schuhe. Keiner sagt etwas."
+				},
+				{
+					"speaker": "",
+					"text": "Lotte steht am Brunnen. Sie sieht dich, nur ganz kurz, und schüttelt den Kopf.",
+					"action": "cutscene:lotte_shakes",
+					"hide_for": 1.2
+				},
+				{
+					"speaker": "finster_knight_b",
+					"text": "Du da, Kleine. Du wohnst doch hier. Wo ist der Schmied?"
+				},
+				{
+					"speaker": "niece",
+					"text": "Weiß ich nicht. Der ist weg. Schon lange. Der schuldet mir noch Schuhe."
+				},
+				{
+					"speaker": "player",
+					"text": "Lotte. Du lügst für mich. Vor zwei Rittern. Ich weiß nicht, ob ich stolz sein soll oder Angst haben."
+				},
+				{
+					"speaker": "",
+					"text": "Lotte geht langsam zum Weg nach Norden und winkt hinter ihrem Rücken. Die Ritter verschwinden im Gasthaus. Du folgst Lotte im Schatten der Häuser bis zu Omas Haus.",
+					"action": "cutscene:occupied_leave",
+					"hide_for": 4.2
+				}
+			],
+			"on_end": "set_flag:knights_in_village;advance:lotte_hideout;travel_fade:res://scenes/world/village/grandma_house.tscn,FromOutside"
+		},
+		"lotte_hideout": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Die sind seit drei Tagen hier. Die schlafen im Gasthaus und essen alles auf. Und sie fragen jeden. Jeden Tag."
+				},
+				{
+					"speaker": "miner",
+					"text": "Deine Schmiede haben sie versiegelt. Mit so einem roten Wachs-Ding. Sieht teuer aus."
+				},
+				{
+					"speaker": "nina",
+					"text": "Noch hat keiner was gesagt. Aber Fritz redet, wenn er Bier hat. Und zehntausend Gold sind viel Bier."
+				},
+				{
+					"speaker": "player",
+					"text": "Dann müssen sie glauben, dass ich weg bin. Richtig weg. Nicht im Dorf, nicht im Wald."
+				},
+				{
+					"speaker": "player",
+					"text": "Ritter glauben, was sie sehen. Also zeigen wir ihnen, wie der Schmied flieht. Nach Süden, in die Wüste. Ssarok mag keine Ritter."
+				},
+				{
+					"speaker": "player",
+					"text": "Gustav: In der alten Mine qualmt ein Lagerfeuer, als hätte dort einer übernachtet. Dafür brauchst du Kohle."
+				},
+				{
+					"speaker": "player",
+					"text": "Nina: In deinem Schaufenster liegen auf einmal meine Barren. Als hätte ich alles verkauft, für Reisegeld."
+				},
+				{
+					"speaker": "player",
+					"text": "Und am Südweg liegt ein Schwert mit meinem Zeichen. Verloren auf der Flucht. Das übersieht keiner."
+				},
+				{
+					"speaker": "miner",
+					"text": "Und wo willst du das Schwert schmieden? Die Schmiede ist versiegelt."
+				},
+				{
+					"speaker": "player",
+					"text": "Nachts. Das Siegel ist Wachs, Gustav. Ich bin Schmied. Ich mache morgen früh ein neues drauf. Ein schöneres."
+				},
+				{
+					"speaker": "niece",
+					"text": "Und ich trag das Schwert zum Südweg! Mich beachtet keiner. Ich bin nur ein Kind. Das ist praktisch."
+				},
+				{
+					"speaker": "player",
+					"text": "Lotte ... ja. Gut. Aber du rennst sofort weg, wenn einer guckt. Versprochen?"
+				},
+				{
+					"speaker": "niece",
+					"text": "Versprochen, versprochen, versprochen!"
+				}
+			],
+			"on_end": "hint:village_ruse;advance:village_ruse"
+		},
+		"lotte_ruse": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Hast du das Schwert? Ich bring's zum Südweg, zum großen Stein. Ganz schnell und ganz leise."
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier ist es. Und dann sofort weg.",
+					"action": "take_items:sword",
+					"then": "lotte_ruse_done",
+					"else": "lotte_ruse_missing",
+					"unless_flag": "ruse_sword"
+				},
+				{
+					"text": "Noch nicht."
+				}
+			]
+		},
+		"lotte_ruse_missing": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Das ist doch kein Schwert! Ein Schwert. Mit Klinge. Und Griff."
+				}
+			]
+		},
+		"lotte_ruse_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du gibst Lotte das Schwert. Sie hält es mit beiden Händen hoch und betrachtet dein Zeichen.",
+					"action": "cutscene:act:player:give:iron_blade+iron_handle;cutscene:act:niece:receive>hold:iron_blade+iron_handle",
+					"hide_for": 3.0
+				},
+				{
+					"speaker": "niece",
+					"text": "Mit deinem Zeichen! Wie bei Halvards Schwertern. Ich leg's in den Schlamm, damit es echt aussieht.",
+					"action": "set_flag:ruse_sword"
+				},
+				{
+					"speaker": "player",
+					"text": "Lotte, du bist ein bisschen zu gut darin. Darüber reden wir später."
+				}
+			]
+		},
+		"lotte_night": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Jetzt musst du schlafen. In deiner Schmiede. Ganz leise. Ich huste laut, wenn einer kommt."
+				}
+			]
+		},
+		"lotte_morning_after": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Sie sind weg! Alle beide! Heute ganz früh, nach Süden. Einer hat dein Schwert hochgehalten wie einen Pokal.",
+					"action": "cutscene:act:niece:hop"
+				},
+				{
+					"speaker": "niece",
+					"text": "Und Gustav sagt, dein neues Siegel ist schöner als das alte. Er hat es ganz genau angeguckt."
+				},
+				{
+					"speaker": "player",
+					"text": "Natürlich ist es schöner. Ich hatte die ganze Nacht Zeit. Und ein bisschen Angst. Angst macht gründlich."
+				},
+				{
+					"speaker": "niece",
+					"text": "Kommst du wieder? Wenn das alles vorbei ist?"
+				},
+				{
+					"speaker": "player",
+					"text": "Lotte. Das hier ist mein Zuhause. Ihr seid mein Zuhause. Natürlich komme ich wieder."
+				},
+				{
+					"speaker": "niece",
+					"text": "Gut. Der Zauberer hat einen Vogel geschickt. Er sagt, er ist bald in Eisquell. Und du sollst dich beeilen."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Vogel. Mit Nachricht. Wir leben in einer sehr seltsamen Zeit."
+				}
+			],
+			"on_end": "set_flag:village_freed;hint:eisquell_again;advance:to_eisquell_again"
+		},
+		"lotte_hammer_offer": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "{name}? Darf ich dich was fragen? Was Großes?"
+				},
+				{
+					"speaker": "player",
+					"text": "Solange es nicht um Mathe geht. Mit Mathe bin ich nach Kupfer plus Eisen durch."
+				},
+				{
+					"speaker": "niece",
+					"text": "Ich will Schmied werden. Wie du. Wenn wieder jemand kommt und das Dorf anzündet, will ich nicht nur weglaufen."
+				},
+				{
+					"speaker": "niece",
+					"text": "Aber dein Hammer ist viel zu schwer. Ich krieg ihn nicht mal hoch. Kannst du mir einen eigenen machen? Einen kleinen?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich schmiede dir einen",
+					"action": "set_flag:lotte_hammer_accepted",
+					"then": "lotte_hammer_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"lotte_hammer_accepted": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Ein Hammer aus Kupfer. Kupfer ist weich und leicht, perfekt zum Üben. Und wenn du dir auf den Daumen haust, tut es weniger weh."
+				},
+				{
+					"speaker": "niece",
+					"text": "Danke, danke, danke! Ich hau mir nicht auf den Daumen. Bestimmt nicht. Fast bestimmt."
+				}
+			]
+		},
+		"lotte_hammer_hand_in": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Ist er fertig? Mein Hammer?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Hammer schenken",
+					"action": "hand_in_set:lotte_hammer",
+					"then": "lotte_hammer_done",
+					"else": "lotte_hammer_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"lotte_hammer_missing": {
+			"lines": [
+				{
+					"speaker": "niece",
+					"text": "Ein Kupferhammer. Ein kleiner. Du hast es versprochen."
+				}
+			]
+		},
+		"lotte_hammer_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Lotte nimmt den Hammer mit beiden Händen und schwingt ihn einmal durch die Luft.",
+					"action": "cutscene:act:niece:swing:copper_hammer_head+wooden_shaft",
+					"hide_for": 1.2
+				},
+				{
+					"speaker": "niece",
+					"text": "Er ist perfekt! Ich üb jeden Tag. Auf Steinen. Und auf dem alten Hufeisen hinter Tante Hildes Haus."
+				},
+				{
+					"speaker": "niece",
+					"text": "Den hier hab ich am Bach gefunden. Der glitzert. Der ist für dich. Ein Schmied muss doch was zum Glitzern haben."
+				},
+				{
+					"speaker": "",
+					"text": "Lotte gibt dir einen Topas.",
+					"action": "cutscene:act:niece:give:topaz",
+					"hide_for": 1.1
+				}
+			],
+			"on_end": "give_items:topaz;set_flag:lotte_hammer_done"
+		}
+	}
+}

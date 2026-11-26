@@ -1,0 +1,1176 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_10.png" id="wp_world_props_camp_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_21.png" id="wp_world_props_camp_21"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_9.png" id="wp_world_props_camp_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_13.png" id="wp_world_props_camp_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_5.png" id="wp_world_props_camp_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_2.png" id="wp_world_props_camp_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_4.png" id="wp_world_props_camp_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_11.png" id="wp_world_props_camp_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_16.png" id="wp_world_props_camp_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_12.png" id="wp_world_props_fortress_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_14.png" id="wp_world_props_fortress_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_13.png" id="wp_world_props_fortress_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_5.png" id="wp_world_props_fortress_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_1.png" id="wp_world_props_fortress_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_0.png" id="wp_world_props_fortress_2"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_fortress.tscn" id="lamp_fortress"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="3_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/fortress_camp_ground.png" id="4_fortress_cam"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="5_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/gate_closed.png" id="6_gate_closed"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_texture.gd" id="7_story_textur"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/gate_open.png" id="8_gate_open"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/camptent_a_0.png" id="9_tent_blue"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/camptent_b_1.png" id="10_tent_red"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/camptent_a_2.png" id="11_tent_teal"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/camptent_b_2.png" id="12_tent_ochre"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/camptent_a_1.png" id="13_tent_purple"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/banner_leonheim.png" id="14_banner_leonh"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/banner_elves.png" id="15_banner_elves"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/banner_water.png" id="16_banner_water"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/banner_lizards.png" id="17_banner_lizar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_0.png" id="18_goblin_campf"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="19_night_light"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="21_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="22_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="23_hud"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/teleporter.tscn" id="24_teleporter"]
+[ext_resource type="Script" uid="uid://ds0hynlqqpeua" path="res://scenes/actors/village_roads.gd" id="crowd_roads"]
+[ext_resource type="Script" uid="uid://c0pf3sbup4rhn" path="res://scenes/actors/villager_spot.gd" id="crowd_spot"]
+[ext_resource type="PackedScene" path="res://scenes/actors/villager.tscn" id="crowd_villager"]
+
+[sub_resource type="RectangleShape2D" id="Rect_1064x16"]
+size = Vector2(1064, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x808"]
+size = Vector2(16, 808)
+
+[sub_resource type="RectangleShape2D" id="Rect_1024x150"]
+size = Vector2(1024, 143)
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("5_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("5_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("5_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("5_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("5_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("5_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_dark_lake"]
+script = ExtResource("5_appearance")
+race = "human"
+skin = "pale"
+hair_style = "short"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_lizard"]
+script = ExtResource("5_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_warden"]
+script = ExtResource("5_appearance")
+race = "half_demon"
+skin = "ash"
+eye_type = "glowing"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_warden2"]
+script = ExtResource("5_appearance")
+race = "half_demon"
+skin = "slate"
+eye_type = "glowing"
+eye_color = "green"
+hair_style = "spiky"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="RectangleShape2D" id="Rect_80x14"]
+size = Vector2(80, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_92x14"]
+size = Vector2(92, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_70x14"]
+size = Vector2(70, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_100x14"]
+size = Vector2(100, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_128x14"]
+size = Vector2(128, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_4x4"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_16x6"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_30x6"]
+size = Vector2(30, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_20x6"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_27x6"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_17x6"]
+size = Vector2(17, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_32x6"]
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_24x6"]
+size = Vector2(24, 6)
+
+[node name="FortressCamp" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+color = Color(0.6, 0.58, 0.68, 1)
+script = ExtResource("3_gloom")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("4_fortress_cam")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, -392)
+shape = SubResource("Rect_1064x16")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, 392)
+shape = SubResource("Rect_1064x16")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-520, 0)
+shape = SubResource("Rect_16x808")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(520, 0)
+shape = SubResource("Rect_16x808")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(0, -313.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("Rect_1024x150")
+
+[node name="Gate" type="Sprite2D" parent="."]
+position = Vector2(0, -312.5)
+texture = ExtResource("6_gate_closed")
+script = ExtResource("7_story_textur")
+flag = "fortress_gate_open"
+texture_after = ExtResource("8_gate_open")
+
+[node name="Tents" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Tent1" type="StaticBody2D" parent="Tents"]
+position = Vector2(-300, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Tent1"]
+texture = ExtResource("9_tent_blue")
+offset = Vector2(0, -52.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Tent1"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_80x14")
+
+[node name="Tent2" type="StaticBody2D" parent="Tents"]
+position = Vector2(-168, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Tent2"]
+texture = ExtResource("10_tent_red")
+offset = Vector2(0, -54)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Tent2"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_92x14")
+
+[node name="Tent3" type="StaticBody2D" parent="Tents"]
+position = Vector2(152, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Tent3"]
+texture = ExtResource("11_tent_teal")
+offset = Vector2(0, -53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Tent3"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_70x14")
+
+[node name="Tent4" type="StaticBody2D" parent="Tents"]
+position = Vector2(286, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Tent4"]
+texture = ExtResource("12_tent_ochre")
+offset = Vector2(0, -49)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Tent4"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_100x14")
+
+[node name="Tent5" type="StaticBody2D" parent="Tents"]
+position = Vector2(428, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Tent5"]
+texture = ExtResource("13_tent_purple")
+offset = Vector2(0, -53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Tent5"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_128x14")
+
+[node name="Banner1" type="StaticBody2D" parent="Tents"]
+position = Vector2(-234, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Banner1"]
+texture = ExtResource("14_banner_leonh")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Banner1"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_4x4")
+
+[node name="Banner2" type="StaticBody2D" parent="Tents"]
+position = Vector2(82, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Banner2"]
+texture = ExtResource("15_banner_elves")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Banner2"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_4x4")
+
+[node name="Banner3" type="StaticBody2D" parent="Tents"]
+position = Vector2(220, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Banner3"]
+texture = ExtResource("16_banner_water")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Banner3"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_4x4")
+
+[node name="Banner4" type="StaticBody2D" parent="Tents"]
+position = Vector2(358, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Banner4"]
+texture = ExtResource("17_banner_lizar")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Banner4"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_4x4")
+
+[node name="Banner5" type="StaticBody2D" parent="Tents"]
+position = Vector2(-366, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Banner5"]
+texture = ExtResource("14_banner_leonh")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Banner5"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_4x4")
+
+[node name="Campfire" type="StaticBody2D" parent="Tents"]
+position = Vector2(-200, 136)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tents/Campfire"]
+texture = ExtResource("18_goblin_campf")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tents/Campfire"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_8x4")
+
+[node name="NightLight" parent="Tents/Campfire" instance=ExtResource("19_night_light")]
+position = Vector2(0, -8)
+
+[node name="Brazier1" parent="Tents" instance=ExtResource("lamp_fortress")]
+position = Vector2(-52, -226)
+facing = "east"
+
+[node name="Brazier2" parent="Tents" instance=ExtResource("lamp_fortress")]
+position = Vector2(52, -214)
+facing = "west"
+
+[node name="Brazier3" parent="Tents" instance=ExtResource("lamp_fortress")]
+position = Vector2(-300, 176)
+facing = "south"
+
+[node name="Brazier4" parent="Tents" instance=ExtResource("lamp_fortress")]
+position = Vector2(62, 124)
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Aurelius" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(0, 40)
+npc_id = "magician"
+appearance = SubResource("Look_magician")
+resident = "aurelius"
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(3, 3)
+required_flag = "reached_to_camp"
+hidden_when_flag = "fortress_gate_open"
+
+[node name="Lake" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(-160, 136)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+facing = "left"
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(2.5, 2.5)
+required_flag = "reached_to_camp"
+hidden_when_flag = "fortress_gate_open"
+
+[node name="Faelan" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(60, 40)
+npc_id = "faelan"
+resident = "faelan"
+appearance = SubResource("Look_faelan")
+facing = "left"
+required_flag = "reached_to_camp"
+hidden_when_flag = "fortress_gate_open"
+
+[node name="Torgai" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(110, 60)
+npc_id = "kahn_son"
+resident = "kahn_son"
+appearance = SubResource("Look_torgai")
+facing = "left"
+required_flag = "reached_to_camp"
+hidden_when_flag = "fortress_gate_open"
+
+[node name="LizardCaptain" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(-60, 60)
+npc_id = "desert_guard"
+resident = "desert_guard"
+appearance = SubResource("Look_lizard")
+facing = "right"
+required_flag = "reached_to_camp"
+hidden_when_flag = "fortress_gate_open"
+
+[node name="Bertold" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(-100, 30)
+npc_id = "leon_captain"
+resident = "city_guard"
+facing = "right"
+required_flag = "reached_to_camp"
+hidden_when_flag = "fortress_gate_open"
+
+[node name="Soldier1" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(-260, 40)
+npc_id = "leon_soldier"
+resident = "leon_soldier_b"
+required_flag = "reached_to_camp"
+hidden_when_flag = "fortress_gate_open"
+
+[node name="Soldier2" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(-330, 66)
+npc_id = "leon_soldier"
+resident = "leon_soldier_c"
+required_flag = "reached_to_camp"
+hidden_when_flag = "fortress_gate_open"
+
+[node name="Soldier3" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(200, 30)
+npc_id = "leon_soldier"
+resident = "leon_soldier_a"
+required_flag = "reached_to_camp"
+hidden_when_flag = "fortress_gate_open"
+
+[node name="Soldier4" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(380, 60)
+npc_id = "leon_soldier"
+resident = "leon_soldier_b"
+required_flag = "reached_to_camp"
+hidden_when_flag = "fortress_gate_open"
+
+[node name="Narrator" parent="People" instance=ExtResource("21_story_npc")]
+position = Vector2(-460, 216)
+npc_id = "camp_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(3, 3)
+
+[node name="ToSwamp" parent="." instance=ExtResource("22_door")]
+position = Vector2(-508, 216)
+target_scene = "res://scenes/world/swamp/swamp.tscn"
+target_spawn_point = &"FromCamp"
+scale = Vector2(1, 3)
+
+[node name="Visual" parent="ToSwamp" index="0"]
+visible = false
+
+[node name="ToMoat" parent="." instance=ExtResource("22_door")]
+position = Vector2(-508, -160)
+target_scene = "res://scenes/world/fortress/sneak_moat.tscn"
+target_spawn_point = &"Start"
+scale = Vector2(1, 2)
+required_flag = "reached_sneak_in"
+locked_text = "Ein Felsband führt außen um die Burg herum zur Westflanke. Noch nicht."
+blocked_flag = "fortress_gate_open"
+blocked_text = "Das Tor steht offen. Der Weg um die Burg herum ist nicht mehr nötig."
+
+[node name="Visual" parent="ToMoat" index="0"]
+visible = false
+
+[node name="ToYard" parent="." instance=ExtResource("22_door")]
+position = Vector2(0, -226)
+target_scene = "res://scenes/world/fortress/fortress_yard.tscn"
+target_spawn_point = &"FromGate"
+scale = Vector2(3, 1)
+required_flag = "fortress_gate_open"
+locked_text = "Das Tor ist zu. Es öffnet sich nur von innen."
+
+[node name="Visual" parent="ToYard" index="0"]
+visible = false
+
+[node name="FromSwamp" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-460, 216)
+
+[node name="FromMoat" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-460, -160)
+
+[node name="FromGate" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, -190)
+
+[node name="Teleporter" parent="." instance=ExtResource("24_teleporter")]
+position = Vector2(-380, 270)
+spot_id = "fortress_camp"
+open_flag = "dark_road_open"
+
+[node name="FromTeleporter" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-380, 302)
+
+[node name="Camp" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P17" type="StaticBody2D" parent="Camp"]
+position = Vector2(-120, 164)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P17"]
+texture = ExtResource("wp_world_props_camp_16")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P17"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P20" type="StaticBody2D" parent="Camp"]
+position = Vector2(-360, 130)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P20"]
+texture = ExtResource("wp_world_props_camp_11")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P20"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x6")
+
+[node name="P22" type="StaticBody2D" parent="Camp"]
+position = Vector2(280, 178)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P22"]
+texture = ExtResource("wp_world_props_camp_4")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P22"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_20x6")
+
+[node name="P23" type="StaticBody2D" parent="Camp"]
+position = Vector2(330, 178)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P23"]
+texture = ExtResource("wp_world_props_camp_4")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P23"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_20x6")
+
+[node name="P24" type="StaticBody2D" parent="Camp"]
+position = Vector2(170, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P24"]
+texture = ExtResource("wp_world_props_camp_2")
+offset = Vector2(0, -21.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P24"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P25" type="StaticBody2D" parent="Camp"]
+position = Vector2(205, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P25"]
+texture = ExtResource("wp_world_props_camp_5")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P25"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P26" type="StaticBody2D" parent="Camp"]
+position = Vector2(340, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P26"]
+texture = ExtResource("wp_world_props_camp_13")
+offset = Vector2(0, -21.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P26"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P28" type="StaticBody2D" parent="Camp"]
+position = Vector2(470, 130)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P28"]
+texture = ExtResource("wp_world_props_camp_9")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P28"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P29" type="StaticBody2D" parent="Camp"]
+position = Vector2(380, 176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P29"]
+texture = ExtResource("wp_world_props_camp_21")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P29"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P32" type="StaticBody2D" parent="Camp"]
+position = Vector2(-180, -220)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P32"]
+texture = ExtResource("wp_world_props_camp_10")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P32"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x6")
+
+[node name="P33" type="StaticBody2D" parent="Camp"]
+position = Vector2(-130, -220)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P33"]
+texture = ExtResource("wp_world_props_camp_10")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P33"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x6")
+
+[node name="P34" type="StaticBody2D" parent="Camp"]
+position = Vector2(-230, -220)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P34"]
+texture = ExtResource("wp_world_props_camp_10")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P34"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x6")
+
+[node name="P37" type="StaticBody2D" parent="Camp"]
+position = Vector2(90, -180)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P37"]
+texture = ExtResource("wp_world_props_camp_11")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P37"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x6")
+
+[node name="P38" type="StaticBody2D" parent="Camp"]
+position = Vector2(140, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P38"]
+texture = ExtResource("wp_world_props_camp_11")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P38"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x6")
+
+[node name="P41" type="StaticBody2D" parent="Camp"]
+position = Vector2(400, -110)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P41"]
+texture = ExtResource("wp_world_props_camp_16")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P41"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P46" type="StaticBody2D" parent="Camp"]
+position = Vector2(-250, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P46"]
+texture = ExtResource("wp_world_props_fortress_2")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P46"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P47" type="StaticBody2D" parent="Camp"]
+position = Vector2(-216, 302)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P47"]
+texture = ExtResource("wp_world_props_fortress_3")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P47"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P48" type="StaticBody2D" parent="Camp"]
+position = Vector2(240, 130)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P48"]
+texture = ExtResource("wp_world_props_fortress_5")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P48"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P51" type="StaticBody2D" parent="Camp"]
+position = Vector2(420, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P51"]
+texture = ExtResource("wp_world_props_fortress_13")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P51"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_16x6")
+
+[node name="P52" type="StaticBody2D" parent="Camp"]
+position = Vector2(-290, 316)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P52"]
+texture = ExtResource("wp_world_props_fortress_14")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P52"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P53" type="StaticBody2D" parent="Camp"]
+position = Vector2(-180, 312)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/P53"]
+texture = ExtResource("wp_world_props_fortress_12")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/P53"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="Barricade1" type="StaticBody2D" parent="Camp"]
+position = Vector2(492, 46)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/Barricade1"]
+texture = ExtResource("wp_world_props_camp_10")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/Barricade1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x6")
+
+[node name="Barricade2" type="StaticBody2D" parent="Camp"]
+position = Vector2(492, 72)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/Barricade2"]
+texture = ExtResource("wp_world_props_camp_10")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/Barricade2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x6")
+
+[node name="Barricade3" type="StaticBody2D" parent="Camp"]
+position = Vector2(492, 98)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/Barricade3"]
+texture = ExtResource("wp_world_props_camp_10")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/Barricade3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x6")
+
+[node name="Barricade4" type="StaticBody2D" parent="Camp"]
+position = Vector2(458, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camp/Barricade4"]
+texture = ExtResource("wp_world_props_camp_11")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camp/Barricade4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_32x6")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-460, 216)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -512
+limit_top = -384
+limit_right = 512
+limit_bottom = 384
+
+[node name="HUD" parent="." instance=ExtResource("23_hud")]
+
+[node name="DoorToCampTent1" parent="." instance=ExtResource("22_door")]
+position = Vector2(-300, 40)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/camp_tent1.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToCampTent1" index="0"]
+visible = false
+
+[node name="FromCampTent1" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-300, 58)
+
+[node name="DoorToCampTent2" parent="." instance=ExtResource("22_door")]
+position = Vector2(-168, 40)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/camp_tent2.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToCampTent2" index="0"]
+visible = false
+
+[node name="FromCampTent2" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-168, 58)
+
+[node name="DoorToCampTent3" parent="." instance=ExtResource("22_door")]
+position = Vector2(152, 40)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/camp_tent3.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToCampTent3" index="0"]
+visible = false
+
+[node name="FromCampTent3" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(152, 58)
+
+[node name="DoorToCampTent4" parent="." instance=ExtResource("22_door")]
+position = Vector2(286, 40)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/camp_tent4.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToCampTent4" index="0"]
+visible = false
+
+[node name="FromCampTent4" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(286, 58)
+
+[node name="DoorToCampTent5" parent="." instance=ExtResource("22_door")]
+position = Vector2(428, 40)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/camp_tent5.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToCampTent5" index="0"]
+visible = false
+
+[node name="FromCampTent5" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(428, 58)
+
+[editable path="ToSwamp"]
+[editable path="ToMoat"]
+[editable path="ToYard"]
+[editable path="Player"]
+
+[node name="Crowd" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Roads" type="Node2D" parent="Crowd"]
+script = ExtResource("crowd_roads")
+area = Rect2(-512, -384, 1024, 768)
+
+[node name="Hub" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(0, 52)
+
+[node name="Spots" type="Node2D" parent="Crowd"]
+
+[node name="Tent1" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-300, 34)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="Tent2" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-168, 34)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="Tent3" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(152, 34)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="Tent4" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(286, 34)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="Tent5" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(428, 34)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="FireL" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-226, 140)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "right"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../FireR")
+
+[node name="FireR" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-174, 140)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "left"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../FireL")
+
+[node name="FireWarm" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-200, 162)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="RoadTalkL" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(56, 54)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "right"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../RoadTalkR")
+
+[node name="RoadTalkR" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(86, 54)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "left"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../RoadTalkL")
+
+[node name="Rack" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(230, 128)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="Targets" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(300, 176)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="Dummy" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(364, 168)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="GateL" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-40, -226)
+script = ExtResource("crowd_spot")
+kind = 0
+facing = "down"
+duration = Vector2(10, 25)
+road = NodePath("../../Roads/Hub")
+
+[node name="GateR" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(40, -226)
+script = ExtResource("crowd_spot")
+kind = 0
+facing = "down"
+duration = Vector2(10, 25)
+road = NodePath("../../Roads/Hub")
+
+[node name="Sandbags" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(110, -166)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="Supplies" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(400, -108)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="Crates" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-150, 318)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="WestPath" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-340, -186)
+script = ExtResource("crowd_spot")
+kind = 0
+facing = "right"
+duration = Vector2(3, 8)
+road = NodePath("../../Roads/Hub")
+
+[node name="LowPath" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(120, 206)
+script = ExtResource("crowd_spot")
+kind = 0
+facing = "left"
+duration = Vector2(3, 8)
+road = NodePath("../../Roads/Hub")
+
+[node name="Crossing" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(10, 120)
+script = ExtResource("crowd_spot")
+kind = 0
+facing = "down"
+duration = Vector2(3, 8)
+road = NodePath("../../Roads/Hub")
+
+[node name="SoldierA" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/Tent1")
+position = Vector2(-60, 50)
+resident = "camp_soldier_a"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="SoldierB" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/Tent2")
+position = Vector2(200, 60)
+resident = "camp_soldier_b"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="SoldierC" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/Tent1")
+position = Vector2(-250, 60)
+resident = "camp_soldier_c"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="SoldierD" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/Tent4")
+position = Vector2(20, -150)
+resident = "camp_soldier_d"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="SoldierE" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/Tent4")
+position = Vector2(350, 60)
+resident = "camp_soldier_e"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="ElfA" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/Tent3")
+position = Vector2(-120, 200)
+resident = "camp_elf_a"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="ElfB" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/Tent3")
+position = Vector2(260, 190)
+resident = "camp_elf_b"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="Lizard" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/Tent5")
+position = Vector2(-300, -190)
+resident = "camp_lizard"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+[editable path="DoorToCampTent1"]
+[editable path="DoorToCampTent2"]
+[editable path="DoorToCampTent3"]
+[editable path="DoorToCampTent4"]
+[editable path="DoorToCampTent5"]

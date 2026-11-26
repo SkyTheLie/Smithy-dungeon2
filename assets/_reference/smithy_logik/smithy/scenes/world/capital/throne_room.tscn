@@ -1,0 +1,413 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/throne_room.png" id="5_room"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/throne.png" id="6_throne"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/marble_pillar.png" id="7_pillar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/brazier.png" id="8_brazier"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/plant_tall.png" id="9_plant"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="10_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/king.png" id="11_king"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="12_light"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="90_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/castle_guard_a.png" id="91_guard_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/castle_guard_b.png" id="92_guard_b"]
+[ext_resource type="Script" path="res://scenes/world/capital/varrik_cutscene.gd" id="95_varrik_cut"]
+[ext_resource type="Script" path="res://scenes/world/capital/aurelius_cutscene.gd" id="96_aurelius_cut"]
+[ext_resource type="Script" path="res://scenes/world/objects/parchment_cutscene.gd" id="97_parchment_cut"]
+
+[sub_resource type="RectangleShape2D" id="Shape_back_wall"]
+size = Vector2(480, 80)
+
+[sub_resource type="RectangleShape2D" id="Shape_side_wall"]
+size = Vector2(16, 336)
+
+[sub_resource type="RectangleShape2D" id="Shape_front_wall"]
+size = Vector2(208, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_throne"]
+size = Vector2(84, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_pillar"]
+size = Vector2(24, 10)
+
+[sub_resource type="RectangleShape2D" id="Shape_small"]
+size = Vector2(16, 8)
+
+[sub_resource type="Resource" id="Appearance_lake"]
+script = ExtResource("90_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Appearance_magician"]
+script = ExtResource("90_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Appearance_varrik"]
+script = ExtResource("90_appearance")
+race = "human"
+skin = "pale"
+hair_style = "long"
+hair_color = "black"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[node name="ThroneRoom" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("4_day_tint")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-240, -168)
+texture = ExtResource("5_room")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Back" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -128)
+shape = SubResource("Shape_back_wall")
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-232, 0)
+shape = SubResource("Shape_side_wall")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(232, 0)
+shape = SubResource("Shape_side_wall")
+
+[node name="FrontLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-132, 162)
+shape = SubResource("Shape_front_wall")
+
+[node name="FrontRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(132, 162)
+shape = SubResource("Shape_front_wall")
+
+[node name="Throne" type="StaticBody2D" parent="."]
+position = Vector2(0, -26)
+
+[node name="Sprite2D" type="Sprite2D" parent="Throne"]
+texture = ExtResource("6_throne")
+offset = Vector2(0, -45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Throne"]
+position = Vector2(0, -17)
+shape = SubResource("Shape_throne")
+
+[node name="King" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(0, -6)
+npc_id = "king"
+resident = "king"
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(3, 3)
+hidden_when_flag = "king_taken"
+vanish_on_leave = true
+absent_steps = PackedStringArray("elf_arrival", "elf_return", "elf_rest", "elf_attack_wake", "elf_attack_canopy", "elf_attack_summit", "crisis_council", "water_arrival", "frost_hunt", "frost_proof", "kahn_audience", "hero_tournament", "tournament_kahn", "kahn_council", "return_leonheim", "part4_end", "water_departure", "tournament_announced", "tournament_ceremony")
+
+[node name="LakeKingGone" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(-20, 40)
+npc_id = "lake"
+appearance = SubResource("Appearance_lake")
+resident = "lake"
+facing = "up"
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(3, 3)
+required_flag = "reached_return_leonheim"
+hidden_when_flag = "reached_to_camp"
+
+[node name="AureliusKingGone" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(30, 46)
+npc_id = "magician"
+appearance = SubResource("Appearance_magician")
+resident = "aurelius"
+facing = "left"
+required_flag = "reached_return_leonheim"
+hidden_when_flag = "reached_ask_allies"
+
+[node name="Lake" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(-44, 0)
+npc_id = "lake"
+appearance = SubResource("Appearance_lake")
+resident = "lake"
+required_flag = "reached_key_to_king"
+hidden_when_flag = "lake_sent"
+leave_path = PackedVector2Array(-44, 60, 0, 120, 0, 170)
+
+[node name="Aurelius" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(30, 110)
+npc_id = "magician"
+appearance = SubResource("Appearance_magician")
+resident = "aurelius"
+required_flag = "aurelius_at_court"
+hidden_when_flag = "mage_left_for_elves"
+facing = "up"
+leave_path = PackedVector2Array(0, 140, 0, 170)
+
+[node name="LakeCouncil" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(-60, 20)
+npc_id = "lake"
+appearance = SubResource("Appearance_lake")
+resident = "lake"
+required_flag = "reached_council_call"
+hidden_when_flag = "reached_elf_arrival"
+facing = "right"
+
+[node name="AureliusCouncil" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(60, 20)
+npc_id = "magician"
+appearance = SubResource("Appearance_magician")
+resident = "aurelius"
+required_flag = "reached_council_call"
+hidden_when_flag = "reached_elf_arrival"
+facing = "left"
+
+[node name="ThroneNarrator" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(0, 90)
+npc_id = "throne_narrator"
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(12, 6)
+narrator = true
+required_flag = "reached_varrik_caught"
+hidden_when_flag = "varrik_jailed"
+
+[node name="Varrik" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(0, 46)
+npc_id = "gutter_boss"
+resident = "gutter_boss"
+appearance = SubResource("Appearance_varrik")
+facing = "up"
+required_flag = "reached_varrik_caught"
+hidden_when_flag = "varrik_jailed"
+leave_path = PackedVector2Array(0, 168)
+
+[node name="VarrikGuardWest" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(-22, 50)
+npc_id = "castle_guard"
+resident = "castle_guard_a"
+required_flag = "reached_varrik_caught"
+hidden_when_flag = "varrik_jailed"
+leave_path = PackedVector2Array(-14, 168)
+
+[node name="VarrikGuardEast" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(22, 50)
+npc_id = "castle_guard"
+resident = "castle_guard_b"
+required_flag = "reached_varrik_caught"
+hidden_when_flag = "varrik_jailed"
+leave_path = PackedVector2Array(14, 168)
+
+[node name="VarrikCutscene" type="Node2D" parent="."]
+script = ExtResource("95_varrik_cut")
+varrik = NodePath("../Varrik")
+guard_west = NodePath("../VarrikGuardWest")
+guard_east = NodePath("../VarrikGuardEast")
+
+[node name="AureliusCutscene" type="Node2D" parent="."]
+script = ExtResource("96_aurelius_cut")
+aurelius = NodePath("../Aurelius")
+
+[node name="ParchmentCutscene" type="Node2D" parent="."]
+script = ExtResource("97_parchment_cut")
+
+[node name="BrazierWest" type="StaticBody2D" parent="."]
+position = Vector2(-72, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="BrazierWest"]
+texture = ExtResource("8_brazier")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrazierWest"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="Light" parent="BrazierWest" instance=ExtResource("12_light")]
+position = Vector2(0, -22)
+
+[node name="BrazierEast" type="StaticBody2D" parent="."]
+position = Vector2(72, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="BrazierEast"]
+texture = ExtResource("8_brazier")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrazierEast"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="Light" parent="BrazierEast" instance=ExtResource("12_light")]
+position = Vector2(0, -22)
+
+[node name="PillarW1" type="StaticBody2D" parent="."]
+position = Vector2(-150, -30)
+
+[node name="Sprite2D" type="Sprite2D" parent="PillarW1"]
+texture = ExtResource("7_pillar")
+offset = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PillarW1"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_pillar")
+
+[node name="PillarW2" type="StaticBody2D" parent="."]
+position = Vector2(-150, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="PillarW2"]
+texture = ExtResource("7_pillar")
+offset = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PillarW2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_pillar")
+
+[node name="PillarW3" type="StaticBody2D" parent="."]
+position = Vector2(-150, 130)
+
+[node name="Sprite2D" type="Sprite2D" parent="PillarW3"]
+texture = ExtResource("7_pillar")
+offset = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PillarW3"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_pillar")
+
+[node name="PillarE1" type="StaticBody2D" parent="."]
+position = Vector2(150, -30)
+
+[node name="Sprite2D" type="Sprite2D" parent="PillarE1"]
+texture = ExtResource("7_pillar")
+offset = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PillarE1"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_pillar")
+
+[node name="PillarE2" type="StaticBody2D" parent="."]
+position = Vector2(150, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="PillarE2"]
+texture = ExtResource("7_pillar")
+offset = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PillarE2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_pillar")
+
+[node name="PillarE3" type="StaticBody2D" parent="."]
+position = Vector2(150, 130)
+
+[node name="Sprite2D" type="Sprite2D" parent="PillarE3"]
+texture = ExtResource("7_pillar")
+offset = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PillarE3"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_pillar")
+
+[node name="PlantNW" type="StaticBody2D" parent="."]
+position = Vector2(-206, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlantNW"]
+texture = ExtResource("9_plant")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantNW"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="PlantNE" type="StaticBody2D" parent="."]
+position = Vector2(206, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlantNE"]
+flip_h = true
+texture = ExtResource("9_plant")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantNE"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="PlantSW" type="StaticBody2D" parent="."]
+position = Vector2(-206, 146)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlantSW"]
+texture = ExtResource("9_plant")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantSW"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="PlantSE" type="StaticBody2D" parent="."]
+position = Vector2(206, 146)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlantSE"]
+flip_h = true
+texture = ExtResource("9_plant")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantSE"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="DoorOut" parent="." instance=ExtResource("2_door")]
+position = Vector2(0, 168)
+scale = Vector2(1.5, 1)
+target_scene = "res://scenes/world/capital/castle_hall.tscn"
+target_spawn_point = &"FromThrone"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromGarden" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 136)
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 136)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 136)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[editable path="DoorOut"]
+[editable path="Player"]

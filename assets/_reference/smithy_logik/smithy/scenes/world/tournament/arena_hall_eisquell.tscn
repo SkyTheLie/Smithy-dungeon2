@@ -1,0 +1,150 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/tournament/arena_hall.tscn" id="1_hall"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/arena_hall_eisquell_ground.png" id="2_arena_hall_eisquell_ground"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_desk.png" id="3_ice_desk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_12.png" id="4_eis_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_13.png" id="5_eis_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_10.png" id="6_ice_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_3.png" id="7_tide_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_14.png" id="8_tide_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_22.png" id="9_ice_22"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="story_npc"]
+
+[sub_resource type="Resource" id="Look_city_master"]
+script = ExtResource("appearance")
+race = "half_fish"
+skin = "aqua_green"
+hair_style = "spiky"
+hair_color = "red"
+eye_type = "big"
+eye_color = "amber"
+size = "normal"
+outfit = "tunic"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_crier"]
+script = ExtResource("appearance")
+race = "half_fish"
+skin = "aqua_green"
+hair_style = "spiky"
+hair_color = "red"
+eye_type = "big"
+eye_color = "amber"
+size = "normal"
+outfit = "tunic"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("appearance")
+race = "half_fish"
+skin = "deep_blue"
+hair_style = "long"
+hair_color = "black"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("appearance")
+race = "half_fish"
+skin = "deep_blue"
+hair_style = "spiky"
+hair_color = "white"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[node name="ArenaHall" instance=ExtResource("1_hall")]
+
+[node name="Ground" parent="." index="1"]
+texture = ExtResource("2_arena_hall_eisquell_ground")
+
+[node name="Sprite2D" parent="BannerL"]
+texture = ExtResource("4_eis_12")
+offset = Vector2(0, -20)
+
+[node name="Sprite2D" parent="BannerR"]
+texture = ExtResource("5_eis_13")
+offset = Vector2(0, -21)
+
+[node name="Sprite2D" parent="BrazierL"]
+texture = ExtResource("6_ice_10")
+offset = Vector2(0, -20)
+
+[node name="Light" parent="BrazierL"]
+color = Color(0.55, 0.85, 1, 1)
+
+[node name="Sprite2D" parent="BrazierR"]
+texture = ExtResource("6_ice_10")
+offset = Vector2(0, -20)
+
+[node name="Light" parent="BrazierR"]
+color = Color(0.55, 0.85, 1, 1)
+
+[node name="Sprite2D" parent="PlantL"]
+texture = ExtResource("7_tide_3")
+offset = Vector2(0, -16)
+
+[node name="Sprite2D" parent="PlantR"]
+texture = ExtResource("8_tide_14")
+offset = Vector2(0, -17)
+
+[node name="Sprite2D" parent="WeaponRack"]
+texture = ExtResource("9_ice_22")
+offset = Vector2(0, -20.5)
+
+[node name="Master" parent="Desk"]
+appearance = SubResource("Look_city_master")
+visible = false
+
+[node name="Sprite2D" parent="Desk"]
+texture = ExtResource("3_ice_desk")
+
+[node name="DoorOut" parent="."]
+target_scene = "res://scenes/world/water/eisquell.tscn"
+target_spawn_point = &"FromArena"
+
+[node name="HeroTournamentMenu" parent="."]
+venue = ""
+title = "Gezeitenarena"
+
+[node name="NameLabel" parent="Desk"]
+visible = false
+
+[node name="InteractionArea" parent="Desk"]
+monitoring = false
+monitorable = false
+
+[node name="Crier" parent="." instance=ExtResource("story_npc")]
+position = Vector2(320, 140)
+npc_id = "arena_crier"
+resident = "arena_crier"
+appearance = SubResource("Look_crier")
+talk_area_scale = Vector2(3, 3)
+
+[node name="Kahn" parent="." instance=ExtResource("story_npc")]
+position = Vector2(232, 214)
+npc_id = "kahn"
+resident = "kahn"
+appearance = SubResource("Look_kahn")
+facing = "right"
+auto_talk = true
+talk_on_new_step = true
+talk_area_scale = Vector2(6, 6)
+required_flag = "hero_tournament_won"
+hidden_when_flag = "reached_kahn_council"
+
+[node name="Torgai" parent="." instance=ExtResource("story_npc")]
+position = Vector2(410, 214)
+npc_id = "kahn_son"
+resident = "kahn_son"
+appearance = SubResource("Look_torgai")
+facing = "left"
+required_flag = "reached_hero_tournament"
+hidden_when_flag = "reached_kahn_council"

@@ -1,0 +1,407 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_16.png" id="wp_world_props_goblin_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_10.png" id="wp_world_props_goblin_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_3.png" id="wp_world_props_goblin_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_7.png" id="wp_world_props_goblin_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/goblin_castle_hall.png" id="1_goblin_castl"]
+[ext_resource type="Shader" path="res://scenes/world/volcano/lava_glow.gdshader" id="2_lava_glow"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/goblin_castle_hall_lava.png" id="3_goblin_castl"]
+[ext_resource type="Script" path="res://scenes/world/volcano/treasury_gate.gd" id="4_treasury_gat"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/treasury_gate_closed.png" id="5_treasury_gat"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/treasury_gate_open.png" id="6_treasury_gat"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_runes.png" id="7_goblin_runes"]
+[ext_resource type="PackedScene" path="res://scenes/ui/dialogue/dialogue_box.tscn" id="8_dialogue_box"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="9_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="10_door"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="11_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="12_hud"]
+
+[sub_resource type="FastNoiseLite" id="Noise"]
+frequency = 0.03
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture"]
+width = 256
+height = 256
+seamless = true
+noise = SubResource("Noise")
+
+[sub_resource type="ShaderMaterial" id="GlowLava"]
+shader = ExtResource("2_lava_glow")
+shader_parameter/noise_tex = SubResource("NoiseTexture")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4"]
+size = Vector2(280, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5"]
+size = Vector2(270, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6"]
+size = Vector2(90, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8"]
+size = Vector2(14, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_9"]
+size = Vector2(14, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10"]
+size = Vector2(64, 420)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11"]
+size = Vector2(268, 8)
+
+[sub_resource type="Gradient" id="LightGradient"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.45, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="LightTexture"]
+gradient = SubResource("LightGradient")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14"]
+size = Vector2(70, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15"]
+size = Vector2(100, 44)
+
+[sub_resource type="CanvasItemMaterial" id="Unshaded"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="wp_rect_16x6"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_27x6"]
+size = Vector2(27, 6)
+
+[node name="GoblinCastle" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0.2, 0.17, 0.2, 1)
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000
+offset_top = -1000
+offset_right = 1600
+offset_bottom = 1600
+mouse_filter = 2
+color = Color(0.06, 0.035, 0.05, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-320, -210)
+texture = ExtResource("1_goblin_castl")
+centered = false
+
+[node name="WindowLava" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("GlowLava")
+position = Vector2(-320, -210)
+texture = ExtResource("3_goblin_castl")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall0" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-180, -135)
+shape = SubResource("RectangleShape2D_4")
+
+[node name="Wall1" type="CollisionShape2D" parent="Walls"]
+position = Vector2(185, -135)
+shape = SubResource("RectangleShape2D_5")
+
+[node name="Wall2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(5, -162)
+shape = SubResource("RectangleShape2D_6")
+
+[node name="Wall4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-313, -110)
+shape = SubResource("RectangleShape2D_8")
+
+[node name="Wall5" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-313, 160)
+shape = SubResource("RectangleShape2D_9")
+
+[node name="Wall6" type="CollisionShape2D" parent="Walls"]
+position = Vector2(288, 0)
+shape = SubResource("RectangleShape2D_10")
+
+[node name="Wall7" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-186, 214)
+shape = SubResource("RectangleShape2D_11")
+
+[node name="Wall8" type="CollisionShape2D" parent="Walls"]
+position = Vector2(186, 214)
+shape = SubResource("RectangleShape2D_11")
+
+[node name="WindowGlow0" type="PointLight2D" parent="."]
+position = Vector2(-271, -100)
+color = Color(1, 0.42, 0.15, 1)
+energy = 0.9
+texture_scale = 0.5
+texture = SubResource("LightTexture")
+
+[node name="WindowFloor0" type="PointLight2D" parent="."]
+position = Vector2(-257, -30)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.1
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="WindowGlow1" type="PointLight2D" parent="."]
+position = Vector2(-207, -100)
+color = Color(1, 0.42, 0.15, 1)
+energy = 0.9
+texture_scale = 0.5
+texture = SubResource("LightTexture")
+
+[node name="WindowFloor1" type="PointLight2D" parent="."]
+position = Vector2(-193, -30)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.1
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="WindowGlow2" type="PointLight2D" parent="."]
+position = Vector2(149, -100)
+color = Color(1, 0.42, 0.15, 1)
+energy = 0.9
+texture_scale = 0.5
+texture = SubResource("LightTexture")
+
+[node name="WindowFloor2" type="PointLight2D" parent="."]
+position = Vector2(163, -30)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.1
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="WindowGlow3" type="PointLight2D" parent="."]
+position = Vector2(213, -100)
+color = Color(1, 0.42, 0.15, 1)
+energy = 0.9
+texture_scale = 0.5
+texture = SubResource("LightTexture")
+
+[node name="WindowFloor3" type="PointLight2D" parent="."]
+position = Vector2(227, -30)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.1
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="TreasuryGate" type="StaticBody2D" parent="." node_paths=PackedStringArray("closed_sprite", "open_sprite", "body", "runes", "rune_lights")]
+position = Vector2(5, -60)
+script = ExtResource("4_treasury_gat")
+closed_sprite = NodePath("Closed")
+open_sprite = NodePath("Open")
+body = NodePath("CollisionShape2D")
+runes = [NodePath("Rune0"), NodePath("Rune1"), NodePath("Rune2")]
+rune_lights = [NodePath("RuneLight0"), NodePath("RuneLight1"), NodePath("RuneLight2")]
+
+[node name="Closed" type="Sprite2D" parent="TreasuryGate"]
+texture = ExtResource("5_treasury_gat")
+offset = Vector2(0, -38)
+
+[node name="Open" type="Sprite2D" parent="TreasuryGate"]
+visible = false
+texture = ExtResource("6_treasury_gat")
+offset = Vector2(0, -38)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreasuryGate"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_14")
+
+[node name="InteractionArea" type="Area2D" parent="TreasuryGate"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreasuryGate/InteractionArea"]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_15")
+
+[node name="Rune0" type="Sprite2D" parent="TreasuryGate"]
+visible = false
+z_index = 1
+material = SubResource("Unshaded")
+position = Vector2(17, -38)
+texture = ExtResource("7_goblin_runes")
+hframes = 4
+vframes = 3
+
+[node name="RuneLight0" type="PointLight2D" parent="TreasuryGate"]
+position = Vector2(17, -38)
+color = Color(1, 0.55, 0.15, 1)
+energy = 0.7
+texture_scale = 0.25
+texture = SubResource("LightTexture")
+
+[node name="Rune1" type="Sprite2D" parent="TreasuryGate"]
+visible = false
+z_index = 1
+material = SubResource("Unshaded")
+position = Vector2(-17, -38)
+texture = ExtResource("7_goblin_runes")
+hframes = 4
+vframes = 3
+
+[node name="RuneLight1" type="PointLight2D" parent="TreasuryGate"]
+position = Vector2(-17, -38)
+color = Color(0.25, 0.6, 1, 1)
+energy = 0.7
+texture_scale = 0.25
+texture = SubResource("LightTexture")
+
+[node name="Rune2" type="Sprite2D" parent="TreasuryGate"]
+visible = false
+z_index = 1
+material = SubResource("Unshaded")
+position = Vector2(0, -60)
+texture = ExtResource("7_goblin_runes")
+hframes = 4
+vframes = 3
+
+[node name="RuneLight2" type="PointLight2D" parent="TreasuryGate"]
+position = Vector2(0, -60)
+color = Color(0.3, 0.85, 0.35, 1)
+energy = 0.7
+texture_scale = 0.25
+texture = SubResource("LightTexture")
+
+[node name="DialogueBox" parent="TreasuryGate" instance=ExtResource("8_dialogue_box")]
+
+[node name="CastleNarrator" parent="." instance=ExtResource("9_story_npc")]
+position = Vector2(0, 170)
+npc_id = "goblin_castle_narrator"
+narrator = true
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(8, 4)
+
+[node name="ToGate" parent="." instance=ExtResource("10_door")]
+position = Vector2(0, 214)
+scale = Vector2(3, 0.5)
+target_scene = "res://scenes/world/volcano/goblin_castle_gate.tscn"
+target_spawn_point = &"FromCastle"
+
+[node name="Visual" parent="ToGate" index="0"]
+visible = false
+
+[node name="ToForge" parent="." instance=ExtResource("10_door")]
+position = Vector2(-316, 49)
+scale = Vector2(0.5, 3)
+target_scene = "res://scenes/world/volcano/goblin_forge.tscn"
+target_spawn_point = &"FromHall"
+
+[node name="Visual" parent="ToForge" index="0"]
+visible = false
+
+[node name="ToTreasury" parent="." instance=ExtResource("10_door")]
+position = Vector2(5, -100)
+scale = Vector2(2, 0.5)
+target_scene = "res://scenes/world/volcano/goblin_treasury.tscn"
+target_spawn_point = &"FromHall"
+required_flag = "goblin_key_forged"
+
+[node name="Visual" parent="ToTreasury" index="0"]
+visible = false
+
+[node name="FromGate" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 185)
+
+[node name="FromForge" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-285, 49)
+
+[node name="FromTreasury" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(5, -38)
+
+[node name="Dress" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Dress"]
+position = Vector2(-150, -118)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P1"]
+texture = ExtResource("wp_world_props_goblin_7")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_16x6")
+
+[node name="P2" type="StaticBody2D" parent="Dress"]
+position = Vector2(-60, -118)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P2"]
+texture = ExtResource("wp_world_props_goblin_7")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_16x6")
+
+[node name="P3" type="StaticBody2D" parent="Dress"]
+position = Vector2(-252, 80)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P3"]
+texture = ExtResource("wp_world_props_goblin_3")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P4" type="StaticBody2D" parent="Dress"]
+position = Vector2(230, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P4"]
+texture = ExtResource("wp_world_props_goblin_10")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P6" type="StaticBody2D" parent="Dress"]
+position = Vector2(-240, 170)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P6"]
+texture = ExtResource("wp_world_props_goblin_16")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="Player" parent="." instance=ExtResource("11_player")]
+position = Vector2(0, 185)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -210
+limit_right = 320
+limit_bottom = 210
+
+[node name="HUD" parent="." instance=ExtResource("12_hud")]
+
+[connection signal="body_entered" from="TreasuryGate/InteractionArea" to="TreasuryGate" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="TreasuryGate/InteractionArea" to="TreasuryGate" method="_on_interaction_area_body_exited"]
+
+[editable path="ToGate"]
+[editable path="ToForge"]
+[editable path="ToTreasury"]
+[editable path="Player"]

@@ -1,0 +1,339 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-bet-ubt 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 1.png",
+   "frame": {
+    "x": 25,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 2.png",
+   "frame": {
+    "x": 50,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 3.png",
+   "frame": {
+    "x": 75,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 4.png",
+   "frame": {
+    "x": 0,
+    "y": 17,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 5.png",
+   "frame": {
+    "x": 25,
+    "y": 17,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 6.png",
+   "frame": {
+    "x": 50,
+    "y": 17,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 7.png",
+   "frame": {
+    "x": 75,
+    "y": 17,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 8.png",
+   "frame": {
+    "x": 0,
+    "y": 34,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 9.png",
+   "frame": {
+    "x": 25,
+    "y": 34,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 10.png",
+   "frame": {
+    "x": 50,
+    "y": 34,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-bet-ubt 11.png",
+   "frame": {
+    "x": 75,
+    "y": 34,
+    "w": 25,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 0.5882352941176471
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-bet-ubt.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 100,
+   "h": 51
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 12,
+   "y": 10
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-bet-ubt",
+    "from": 0,
+    "to": 11,
+    "direction": "forward"
+   }
+  ]
+ }
+}

@@ -1,0 +1,157 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-treffer 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 20
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 20
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 20
+   },
+   "pivot": {
+    "x": 0.45454545454545453,
+    "y": 0.5
+   },
+   "duration": 77
+  },
+  {
+   "filename": "smithy-kampf-treffer 1.png",
+   "frame": {
+    "x": 22,
+    "y": 0,
+    "w": 22,
+    "h": 20
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 20
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 20
+   },
+   "pivot": {
+    "x": 0.45454545454545453,
+    "y": 0.5
+   },
+   "duration": 77
+  },
+  {
+   "filename": "smithy-kampf-treffer 2.png",
+   "frame": {
+    "x": 44,
+    "y": 0,
+    "w": 22,
+    "h": 20
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 20
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 20
+   },
+   "pivot": {
+    "x": 0.45454545454545453,
+    "y": 0.5
+   },
+   "duration": 77
+  },
+  {
+   "filename": "smithy-kampf-treffer 3.png",
+   "frame": {
+    "x": 0,
+    "y": 20,
+    "w": 22,
+    "h": 20
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 20
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 20
+   },
+   "pivot": {
+    "x": 0.45454545454545453,
+    "y": 0.5
+   },
+   "duration": 77
+  },
+  {
+   "filename": "smithy-kampf-treffer 4.png",
+   "frame": {
+    "x": 22,
+    "y": 20,
+    "w": 22,
+    "h": 20
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 20
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 20
+   },
+   "pivot": {
+    "x": 0.45454545454545453,
+    "y": 0.5
+   },
+   "duration": 77
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-treffer.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 66,
+   "h": 40
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 10,
+   "y": 10
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-treffer",
+    "from": 0,
+    "to": 4,
+    "direction": "forward"
+   }
+  ]
+ }
+}

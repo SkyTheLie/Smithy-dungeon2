@@ -1,0 +1,778 @@
+class_name TournamentRanking
+extends RefCounted
+## League tournaments and the ranks (data/content/leagues.json). Smiths register at the tournament
+## master in a tournament hall (TournamentDeskMenu) and are brought into the arena of the city
+## (SmithTournament); heroes are entered at the crier of an arena (HeroTournament). Every league
+## tournament is a knockout bracket, always one against one (smiths: 8, heroes: 16 entrants).
+## Two scores, "smith" and "hero", count rank points (RP): the place reached gives RP
+## ("place_points"; a league below the own rank only "lower_league_factor" of them). The leagues
+## are the ranks: from a league's "points" on the player has that rank and may enter its league
+## and every one below. RP are never lost.
+## Rewards per tournament: places 1-3 get "places" (gold, items); the winner also picks one prize
+## (TournamentRewards: unknown molds of the league's metal or a gift) in the result window or at a
+## tournament master or crier (pending until then, see get_pending / claim_prize). The first victory
+## in a league (smith or hero) gives its forge theme (TournamentRewards.theme_for); the first
+## victory in a league of a kind gives its title and gear; the first victory in a league in a city gives that city's trophy
+## (furniture "trophy_<type>_<metal>[_<city>]", leagues.json venues "trophies", trophy_for); the first
+## victory in a league of either kind unlocks its theme for the forge sign (ForgeSign); at the end of
+## a season the highest league won in it pays its "season_reward" into the loot chest. Places 1-3
+## give tournament marks (TournamentRewards.marks_for, half below the own rank), spent at the
+## tournament shop (shop_blocker, buy).
+## Leagues are saved by id (never by their place in the list).
+
+signal changed
+
+const TYPES: Array[String] = ["smith", "hero"]
+## Shown instead of the name of a league the player has not reached yet (2026-11-18).
+const HIDDEN_NAME: String = "[???]"
+const TYPE_NAMES: Dictionary = {"smith": "Schmiede-Rang", "hero": "Helden-Rang"}
+## Order of the leagues in saves from before the ranks (2026-11-13, Elo rating, leagues by index).
+const OLD_LEAGUE_ORDER: Array[String] = ["copper", "iron", "bronze", "silver", "gold", "platinum", "palladium"]
+
+## Folder of the league badges (league_badge), one 16x16 picture per league id.
+const BADGE_DIR: String = "res://assets/sprites/ui/league_badges/"
+const BADGE_SIZE: int = 16
+## Frames per second of an animated badge.
+const BADGE_FPS: float = 8.0
+
+## Rank points per type ("smith", "hero").
+var points: Dictionary = {}
+## League ids won at least once per type (titles, trophies, first-win gear).
+var won_leagues: Dictionary = {}
+## Highest league id won in the running season per type, and that season's month index.
+var season_best: Dictionary = {}
+var season: int = -1
+## Day of the last league tournament per venue key (one per day).
+var played: Dictionary = {}
+## Tournaments entered and won per type: {"smith": [entered, won], ...}.
+var counts: Dictionary = {}
+## Prizes the winner still has to pick: [{"type", "league" (id), "choices": [pool entries]}].
+var pending: Array[Dictionary] = []
+## Tournament marks to spend at the tournament shop (smiths and heroes together).
+var marks: int = 0
+## Admin panel (tab "Ränge"): league tournaments at any hour and as often as wanted (no opening
+## hours, no "one per day and venue"). Saved with the game, only works with DevTools. DEV-ONLY
+var admin_any_time: bool = false
+## Loaded league badges by id (league_badge). Only textures, no game state.
+static var _badges: Dictionary[String, Texture2D] = {}
+## What the last finish() gave, for the result window of the arena (TournamentResultWindow):
+## {"type", "league" (index), "place", "points" (RP won), "gold", "items" (Array of give_items
+## specs: place prize and first-win gear), "title", "trophy" (name), "sign_theme" (name of the new
+## forge sign theme, "" = none), "room_theme" (name of the new forge theme, "" = none), "marks" (tournament
+## marks won), "prize_to_pick" (bool),
+## "rank_up" (text, "" = none), "prize" (the entry of `pending` to pick from, {} = none)}. Shown
+## once right after the tournament.
+var last_result: Dictionary = {}  # not saved on purpose
+## The stacks the last opened gift ("surprise:<league>", TournamentRewards) gave (copies), for the
+## window that shows it.
+var last_surprise: Array[InventorySlot] = []  # not saved on purpose
+## Gold the last opened gift gave (0 = items, see last_surprise).
+var last_surprise_gold: int = 0  # not saved on purpose
+## What was in every gift of the last picked prize, also the ones not taken (2026-11-19): index in
+## its "choices" » drawn spec (give_items spec or "gold:<amount>", TournamentRewards.roll_surprise).
+var last_gift_contents: Dictionary[int, String] = {}  # not saved on purpose
+
+
+# --- Data -------------------------------------------------------------------------
+
+static func data() -> Dictionary:
+	return ContentDB.leagues()
+
+
+static func leagues() -> Array:
+	return data().get("leagues", [])
+
+
+static func league_count() -> int:
+	return leagues().size()
+
+
+static func league(index: int) -> Dictionary:
+	var list: Array = leagues()
+	return list[index] if index >= 0 and index < list.size() else {}
+
+
+## Index of the league with this id (-1 = none).
+static func league_index(id: String) -> int:
+	var list: Array = leagues()
+	for index in list.size():
+		if str(list[index].get("id", "")) == id:
+			return index
+	return -1
+
+
+static func league_id(index: int) -> String:
+	return str(league(index).get("id", ""))
+
+
+## Badge of a league (assets/sprites/ui/league_badges/<id>.png, 16x16; with <id>_sheet.png the
+## frames of the sheet play as an animation, e.g. palladium). null for "" or an unknown id.
+static func league_badge(id: String) -> Texture2D:
+	if league_index(id) < 0:
+		return null
+	if _badges.has(id):
+		return _badges[id]
+	var texture: Texture2D = null
+	var sheet_path: String = BADGE_DIR + id + "_sheet.png"
+	if ResourceLoader.exists(sheet_path):
+		# One texture per frame (ItemIcons.animated): with AtlasTexture frames AnimatedTexture draws
+		# the whole sheet, all eight shields squeezed into 16 px.
+		var sheet: Texture2D = load(sheet_path)
+		texture = ItemIcons.animated(sheet, maxi(1, sheet.get_width() / BADGE_SIZE), BADGE_FPS)
+	elif ResourceLoader.exists(BADGE_DIR + id + ".png"):
+		texture = load(BADGE_DIR + id + ".png")
+	_badges[id] = texture
+	return texture
+
+
+## The part of a league for one type ("smith" or "hero").
+static func league_part(type: String, index: int) -> Dictionary:
+	return league(index).get(type, {})
+
+
+static func league_name(index: int) -> String:
+	return str(league(index).get("name", "?"))
+
+
+## Name of the rank of a league (leagues.json "rank", e.g. "Kupfer"; already translated by ContentDB).
+static func league_short_name(index: int) -> String:
+	return str(league(index).get("rank", league_name(index).get_slice("-", 0)))
+
+
+## Rank points from which the player has the rank of this league.
+static func league_points(index: int) -> int:
+	return int(league(index).get("points", 0))
+
+
+## RP for a place (1, 2, 3, 5, 9 ...; leagues.json "place_points", missing = 0).
+static func place_points(place: int) -> int:
+	return int((data().get("place_points", {}) as Dictionary).get(str(place), 0))
+
+
+## Place of an entrant who lost in round `lost_round` (0 = first round) of a knockout bracket with
+## `rounds` rounds; -1 = he won everything (place 1). E.g. 3 rounds: final 2, semifinal 3, first 5.
+static func place_for(rounds: int, lost_round: int) -> int:
+	if lost_round < 0:
+		return 1
+	return int(pow(2, maxi(0, rounds - 1 - lost_round))) + 1
+
+
+## Key of leagues.json "venues" for a tournament type and venue ("" = Leonheim / Eisquell).
+static func venue_key(type: String, venue: String) -> String:
+	var venues: Dictionary = data().get("venues", {})
+	for key: String in venues:
+		if str(venues[key].get("type", "")) == type and str(venues[key].get("venue", "")) == venue:
+			return key
+	return ""
+
+
+static func venue_info(key: String) -> Dictionary:
+	return (data().get("venues", {}) as Dictionary).get(key, {})
+
+
+static func open_hours() -> Array:
+	return data().get("open_hours", [8, 18])
+
+
+static func get_entry_fee(type: String, index: int) -> int:
+	return int(league_part(type, index).get("entry_fee", 0))
+
+
+## Prize of a place (1-3) in a league: {"gold", "items"} ({} = none).
+static func get_place_prize(type: String, index: int, place: int) -> Dictionary:
+	var places: Array = league_part(type, index).get("places", [])
+	return places[place - 1] if place >= 1 and place <= places.size() else {}
+
+
+# --- Rank -------------------------------------------------------------------------
+
+func get_points(type: String) -> int:
+	return int(points.get(type, 0))
+
+
+## Index of the highest league whose "points" the player has reached (his rank).
+func get_rank(type: String) -> int:
+	var rank: int = 0
+	for index in league_count():
+		if get_points(type) >= league_points(index):
+			rank = index
+	return rank
+
+
+## Name of the rank (e.g. "Kupfer").
+func get_rank_name(type: String) -> String:
+	return league_short_name(get_rank(type))
+
+
+func is_league_open(type: String, index: int) -> bool:
+	return index >= 0 and index <= get_rank(type) and index < league_count()
+
+
+## Name of a league as the player sees it: "[???]" until he has the RP for its rank.
+func shown_league_name(type: String, index: int) -> String:
+	return league_name(index) if is_league_open(type, index) else HIDDEN_NAME
+
+
+## Short name (rank) of a league as the player sees it, like shown_league_name.
+func shown_short_name(type: String, index: int) -> String:
+	return league_short_name(index) if is_league_open(type, index) else HIDDEN_NAME
+
+
+## RP for `place` in a league: the place's points, less in a league below the own rank.
+func points_for(type: String, index: int, place: int) -> int:
+	var gain: int = place_points(place)
+	if index < get_rank(type):
+		gain = floori(gain * float(data().get("lower_league_factor", 0.5)))
+	return gain
+
+
+## Adds rank points; a reached rank is announced. Returns the lines for the player.
+func add_points(type: String, amount: int) -> String:
+	if amount <= 0:
+		return ""
+	var rank: int = get_rank(type)
+	points[type] = get_points(type) + amount
+	var lines: Array[String] = []
+	while rank + 1 < league_count() and get_points(type) >= league_points(rank + 1):
+		rank += 1
+		lines.append(Language.translate("Neuer %s: %s. Ab jetzt darfst du in der %s antreten.") % [
+				Language.translate(TYPE_NAMES[type]), league_short_name(rank), league_name(rank)])
+	changed.emit()
+	return " ".join(lines)
+
+
+## DEV-ONLY (admin panel, tab "Ränge"): changes the rank points by `amount`, also downwards (never
+## below 0). No rewards, no messages; the rank follows from the new RP.
+func dev_change_points(type: String, amount: int) -> void:
+	if not DevTools.enabled() or not type in TYPES:
+		return
+	points[type] = maxi(0, get_points(type) + amount)
+	changed.emit()
+
+
+# --- Entering ---------------------------------------------------------------------
+
+## Why the player can't enter the league `index` at this venue now ("" = he can).
+func get_blocker(type: String, venue: String, index: int) -> String:
+	var key: String = venue_key(type, venue)
+	if key.is_empty():
+		return Language.translate("Hier gibt es keine Liga-Turniere.")
+	var game_state: Node = _game_state()
+	var flag: String = str(venue_info(key).get("open_flag", ""))
+	if not flag.is_empty() and not game_state.story.has_flag(flag):
+		return Language.translate("Liga-Turniere gibt es erst, wenn du das große Turnier gewonnen hast.")
+	if not is_any_time():
+		var hours: Array = open_hours()
+		var hour: float = game_state.day_cycle.get_hour()
+		if hour < float(hours[0]) or hour >= float(hours[1]):
+			return Language.translate("Anmeldung zum Liga-Turnier von %d bis %d Uhr.") % [int(hours[0]), int(hours[1])]
+		if int(played.get(key, -1)) == game_state.day_cycle.day:
+			return Language.translate("Hier bist du heute schon angetreten. Morgen wieder.")
+	if index < 0 or index >= league_count():
+		return Language.translate("Diese Liga gibt es nicht.")
+	if not is_league_open(type, index):
+		return Language.translate("Dafür brauchst du %d RP (du hast %d).") % [league_points(index), get_points(type)]
+	if game_state.gold < get_entry_fee(type, index):
+		return Language.translate("Das Startgeld beträgt %d Gold.") % get_entry_fee(type, index)
+	return ""
+
+
+## true = the admin switch lifts opening hours and the one-per-day rule (only with DevTools). DEV-ONLY
+func is_any_time() -> bool:
+	return admin_any_time and DevTools.enabled()
+
+
+## The player enters the league `index` at this venue: pays the fee, the day counts as played.
+func enter(type: String, venue: String, index: int) -> bool:
+	if not get_blocker(type, venue, index).is_empty():
+		return false
+	var game_state: Node = _game_state()
+	var fee: int = get_entry_fee(type, index)
+	if fee > 0 and not game_state.spend_gold(fee):
+		return false
+	played[venue_key(type, venue)] = game_state.day_cycle.day
+	last_result = {}
+	_count(type, 0)
+	changed.emit()
+	return true
+
+
+func _count(type: String, slot: int) -> void:
+	var entry: Array = counts.get(type, [0, 0])
+	entry[slot] = int(entry[slot]) + 1
+	counts[type] = entry
+
+
+func get_counts(type: String) -> Array:
+	return counts.get(type, [0, 0])
+
+
+## Lines for the tournament master / crier: rank, RP, next rank, hours ("" = no leagues here).
+func describe(type: String, venue: String) -> String:
+	if venue_key(type, venue).is_empty():
+		return ""
+	var rank: int = get_rank(type)
+	var hours: Array = open_hours()
+	var lines: Array[String] = [Language.translate("%s: %s (%d RP)") % [Language.translate(TYPE_NAMES[type]),
+			league_short_name(rank), get_points(type)]]
+	if rank + 1 < league_count():
+		lines.append(Language.translate("Nächster Rang: %s ab %d RP") % [HIDDEN_NAME, league_points(rank + 1)])
+	lines.append(Language.translate("Anmeldung %d–%d Uhr, ein Turnier pro Tag und Ort.") % [int(hours[0]), int(hours[1])])
+	return "\n".join(lines)
+
+
+## One line about a league: name, entry fee, prizes of places 1-3.
+func describe_league(type: String, index: int) -> String:
+	var prizes: Array[String] = []
+	for place in [1, 2, 3]:
+		prizes.append(Language.translate("%d. %d Gold") % [place, int(get_place_prize(type, index, place).get("gold", 0))])
+	return Language.translate("%s: Startgeld %d Gold · %s") % [shown_league_name(type, index), get_entry_fee(type, index), " · ".join(prizes)]
+
+
+# --- Result and prizes ------------------------------------------------------------
+
+## Furniture id of the trophy a victory in league `index` at `venue` gives ("" = none): the
+## league's "trophy" with the city of the venue (leagues.json venues "trophies"; "leonheim" or
+## missing = the trophy without a city).
+static func trophy_for(type: String, index: int, venue: String) -> String:
+	var trophy: String = str(league_part(type, index).get("trophy", ""))
+	if trophy.is_empty():
+		return ""
+	var city: String = str(venue_info(venue_key(type, venue)).get("trophies", "leonheim"))
+	if city.is_empty() or city == "leonheim":
+		return trophy
+	return "%s_%s" % [trophy, city]
+
+
+## A league tournament at `venue` is over: the player reached `place`. Gives the RP, the prize of
+## places 1-3, and for the winner the first-win rewards, the trophy of the city and a prize to pick
+## (pending). Returns the lines.
+func finish(type: String, index: int, place: int, venue: String = "") -> String:
+	var game_state: Node = _game_state()
+	var lines: Array[String] = [Language.translate("Platz %d in der %s.") % [place, league_name(index)]]
+	var gain: int = points_for(type, index, place)
+	# Below the own rank (before this tournament's RP): half the marks, no gift.
+	var below_rank: bool = index < get_rank(type)
+	var mark_gain: int = TournamentRewards.marks_for(league_id(index), place)
+	if below_rank:
+		mark_gain /= 2
+	last_result = {"type": type, "league": index, "place": place, "points": gain, "gold": 0, "items": [] as Array[String],
+			"title": "", "trophy": "", "sign_theme": "", "room_theme": "", "marks": mark_gain, "prize_to_pick": false, "rank_up": "", "prize": {}}
+	if gain > 0:
+		var text: String = Language.translate("+%d RP (jetzt %d).") % [gain, get_points(type) + gain]
+		if index < get_rank(type):
+			text += " " + Language.translate("Unter deinem Rang zählt nur die Hälfte.")
+		lines.append(text)
+	var rank_text: String = add_points(type, gain)
+	var prize: Dictionary = get_place_prize(type, index, place)
+	var gold: int = int(prize.get("gold", 0))
+	if gold > 0:
+		game_state.add_gold(gold)
+		last_result["gold"] = gold
+		lines.append(Language.translate("Du bekommst %d Gold.") % gold)
+	var items: String = str(prize.get("items", ""))
+	if not items.is_empty():
+		game_state.give_items(items)
+		(last_result["items"] as Array[String]).append_array(items.split(",", false))
+		lines.append(Language.translate("Dazu: %s.") % _item_names(items))
+	if mark_gain > 0:
+		marks += mark_gain
+		lines.append(Language.translate("+%d Turnier-Marken (jetzt %d).") % [mark_gain, marks])
+	if place == 1:
+		lines.append(_record_win(type, index, venue, not below_rank))
+	if not rank_text.is_empty():
+		lines.append(rank_text)
+	last_result["rank_up"] = rank_text
+	changed.emit()
+	return " ".join(lines.filter(func(line: String) -> bool: return not line.is_empty()))
+
+
+## First victory in a league: title, gear, the forge sign theme, the forge theme (smith or hero, once).
+## First victory in it in this city: its trophy. Every victory: season best, a prize to pick
+## (molds, and a gift only if `with_gift`, i.e. not below the own rank).
+func _record_win(type: String, index: int, venue: String, with_gift: bool = true) -> String:
+	var game_state: Node = _game_state()
+	var part: Dictionary = league_part(type, index)
+	var id: String = league_id(index)
+	var lines: Array[String] = []
+	var sign_theme: String = ForgeSign.theme_for_league(id)
+	var had_theme: bool = sign_theme.is_empty() or game_state.house.forge_sign.is_theme_unlocked(sign_theme)
+	_count(type, 1)
+	_update_season(game_state.day_cycle.day)
+	if league_index(str(season_best.get(type, ""))) < index:
+		season_best[type] = id
+	var won: Array = won_leagues.get(type, [])
+	if not won.has(id):
+		won.append(id)
+		won_leagues[type] = won
+		var title: String = str(part.get("title", ""))
+		if not title.is_empty():
+			last_result["title"] = Language.translate(title)
+			lines.append(Language.translate("Neuer Titel: %s.") % Language.translate(title))
+		var gear: String = str(part.get("first_win", ""))
+		if not gear.is_empty():
+			game_state.give_items(gear)
+			if last_result.has("items"):
+				(last_result["items"] as Array[String]).append_array(gear.split(",", false))
+			lines.append(Language.translate("Dazu: %s.") % _item_names(gear))
+	# The trophy of this city, once per city, league and kind (it can stand in the hall of fame).
+	var trophy: String = trophy_for(type, index, venue)
+	if not trophy.is_empty() and not _furniture(trophy).is_empty() and game_state.house.count_owned_total(trophy) == 0:
+		game_state.house.add_owned(trophy)
+		var trophy_name: String = Language.translate(str(_furniture(trophy).get("name", trophy)))
+		last_result["trophy"] = trophy_name
+		lines.append(KeyBindings.fill(Language.translate("%s liegt in deinem Lager (zu Hause {key_build} drücken).")) % trophy_name)
+	# The theme of this metal for the forge sign (house.json forge_sign.themes "league"), smiths and heroes.
+	if not had_theme and game_state.house.forge_sign.is_theme_unlocked(sign_theme):
+		var theme_name: String = Language.translate(str(ForgeSign.get_theme_data(sign_theme).get("name", sign_theme)))
+		last_result["sign_theme"] = theme_name
+		lines.append(Language.translate("Neues Thema für dein Schmiede-Schild: %s.") % theme_name)
+	# The forge theme of this metal (floor and wall), once: the first win of smiths or heroes.
+	var room_theme: String = TournamentRewards.theme_for(id)
+	if not room_theme.is_empty() and not _theme_styles(room_theme).is_empty() and not game_state.house.owns_theme(room_theme):
+		game_state.house.grant_theme(room_theme)
+		var room_theme_name: String = Language.translate(_theme_name(room_theme))
+		last_result["room_theme"] = room_theme_name
+		lines.append(KeyBindings.fill(Language.translate("Neues Schmiede-Thema: %s. Zu Hause {key_build} drücken » Wände & Böden.")) % room_theme_name)
+	# Molds of the league's metal or a gift (TournamentRewards), smiths and heroes alike.
+	var choices: Array[String] = TournamentRewards.offer(id, type, with_gift)
+	if not choices.is_empty():
+		var prize: Dictionary = {"type": type, "league": id, "choices": choices}
+		pending.append(prize)
+		last_result["prize_to_pick"] = true
+		last_result["prize"] = prize
+		lines.append(Language.translate("Deinen Siegerpreis wählst du beim Turnierleiter (Turnierhalle) oder beim Ausrufer."))
+	return " ".join(lines)
+
+
+## Shown text of a prize entry ("" = unknown entry). "items", "gold" and "theme" only come from
+## prizes still pending in saves from before 2026-11-18 (smith leagues had a prize pool then).
+static func describe_prize(entry: String) -> String:
+	var value: String = entry.get_slice(":", 1)
+	match entry.get_slice(":", 0):
+		"mold":
+			if ContentDB.has_recipe(value):
+				var part: ItemData = ContentDB.recipe(value).get_mold_part()
+				return Language.translate("Gussform: %s") % (part.display_name if part else value)
+		"theme":
+			if not _theme_styles(value).is_empty():
+				return Language.translate("Schmiede-Thema: %s") % _theme_name(value)
+		TournamentRewards.SURPRISE:
+			return Language.translate("Überraschung")
+		"items":
+			var names: String = _item_names(value)
+			return names
+		"gold":
+			return Language.translate("%d Gold") % int(value)
+	return ""
+
+
+## Prizes still to pick (the winner of a league tournament picks at a tournament master or crier).
+func get_pending() -> Array[Dictionary]:
+	return pending
+
+
+## Picks choice `choice` of pending prize `index`. Returns the line for the player ("" = nothing).
+## Picks from the pending entry `entry` (e.g. last_result "prize"). "" if it is not pending any more.
+func claim_entry(entry: Dictionary, choice: int) -> String:
+	for index in pending.size():
+		if pending[index] == entry:
+			return claim_prize(index, choice)
+	return ""
+
+
+func claim_prize(index: int, choice: int) -> String:
+	if index < 0 or index >= pending.size():
+		return ""
+	var choices: Array = pending[index].get("choices", [])
+	if choice < 0 or choice >= choices.size():
+		return ""
+	var entry: String = str(choices[choice])
+	pending.remove_at(index)
+	# Every gift of the prize is drawn now (all different if possible): the picked one is given,
+	# the others are only shown.
+	last_gift_contents.clear()
+	var drawn: Array[String] = []
+	for other in choices.size():
+		var gift: String = str(choices[other])
+		if gift.begins_with(TournamentRewards.SURPRISE + ":"):
+			var spec: String = TournamentRewards.roll_surprise(gift.get_slice(":", 1), _gift_type(gift), drawn)
+			drawn.append(spec)
+			last_gift_contents[other] = spec
+	var text: String = give_prize(entry, last_gift_contents.get(choice, ""))
+	var others: Array[String] = []
+	for other: int in last_gift_contents:
+		if other != choice:
+			others.append(describe_gift(last_gift_contents[other]))
+	if not others.is_empty():
+		text += "\n" + Language.translate("In den anderen Geschenken: %s.") % "; ".join(others)
+	changed.emit()
+	return text
+
+
+## "surprise:<league>:<type>" » type (older saves: "surprise:<league>" = smith).
+static func _gift_type(entry: String) -> String:
+	return entry.get_slice(":", 2) if entry.get_slice_count(":") > 2 else "smith"
+
+
+## Shown text of a drawn gift (give_items spec or "gold:<amount>"), e.g. "3× Kupferbarren (R2)".
+static func describe_gift(spec: String) -> String:
+	var gold: int = TournamentRewards.gold_of(spec)
+	if gold > 0:
+		return Language.translate("%s Gold") % DamageKinds.format_number(gold)
+	var names: Array[String] = []
+	for stack in gift_stacks(spec):
+		names.append(_gift_stack_name(stack))
+	return ", ".join(names)
+
+
+## The stacks of a drawn gift of items ([] for gold or unknown items).
+static func gift_stacks(spec: String) -> Array[InventorySlot]:
+	var stacks: Array[InventorySlot] = []
+	if TournamentRewards.gold_of(spec) > 0:
+		return stacks
+	for item_spec in spec.split(",", false):
+		var stack: InventorySlot = ContentDB.make_stack(item_spec)
+		if stack:
+			stacks.append(stack)
+	return stacks
+
+
+static func _gift_stack_name(stack: InventorySlot) -> String:
+	return "%s%s (%s)" % ["%d× " % stack.amount if stack.amount > 1 else "", stack.get_display_name(), Rarity.get_short_name(stack.rarity)]
+
+
+## Gives one prize ("mold:", "surprise:", older "theme:", "items:", "gold:"). Returns the line for the player.
+## A gift gives `drawn` (from claim_prize) or draws itself ("").
+func give_prize(entry: String, drawn: String = "") -> String:
+	var game_state: Node = _game_state()
+	var value: String = entry.get_slice(":", 1)
+	match entry.get_slice(":", 0):
+		"mold":
+			if ContentDB.has_recipe(value):
+				game_state.unlock_mold(ContentDB.recipe(value))
+		"theme":
+			game_state.house.grant_theme(value)
+			return KeyBindings.fill(Language.translate("Neues Schmiede-Thema: %s. Zu Hause {key_build} drücken » Wände & Böden.")) % _theme_name(value)
+		"items":
+			game_state.give_items(value)
+		"gold":
+			game_state.add_gold(int(value))
+		TournamentRewards.SURPRISE:
+			last_surprise.clear()
+			if drawn.is_empty():
+				drawn = TournamentRewards.roll_surprise(value, _gift_type(entry))
+			last_surprise_gold = TournamentRewards.gold_of(drawn)
+			if last_surprise_gold > 0:
+				game_state.add_gold(last_surprise_gold)
+				return Language.translate("Im Geschenk: %s Gold.") % DamageKinds.format_number(last_surprise_gold)
+			var names: Array[String] = []
+			for stack in gift_stacks(drawn):
+				last_surprise.append(stack.copy_with_amount(stack.amount))
+				names.append(_gift_stack_name(stack))
+				game_state.give_stack(stack)
+			return Language.translate("Im Geschenk: %s.") % ", ".join(names)
+	return Language.translate("Du nimmst: %s.") % describe_prize(entry)
+
+
+static func _item_names(spec_list: String) -> String:
+	var names: Array[String] = []
+	for spec in spec_list.split(",", false):
+		var stack: InventorySlot = ContentDB.make_stack(spec)
+		if stack:
+			names.append("%d× %s" % [stack.amount, stack.get_display_name()] if stack.amount > 1 else stack.get_display_name())
+	return ", ".join(names)
+
+
+# --- Tournament shop ---------------------------------------------------------------
+
+## Highest rank of both kinds (index), for the wares of the tournament shop.
+func get_best_rank() -> int:
+	return maxi(get_rank("smith"), get_rank("hero"))
+
+
+## Why ware `index` of TournamentRewards.shop() can't be bought now ("" = it can).
+func shop_blocker(index: int) -> String:
+	var wares: Array[Dictionary] = TournamentRewards.shop()
+	if index < 0 or index >= wares.size():
+		return Language.translate("Das gibt es nicht.")
+	var ware: Dictionary = wares[index]
+	var rank: int = league_index(ware["rank"])
+	if rank > get_best_rank():
+		return Language.translate("Ab Rang %s.") % HIDDEN_NAME
+	if str(ware["give"]).begins_with("mold:") and _mold_known(str(ware["give"]).get_slice(":", 1)):
+		return Language.translate("Schon gekauft.")
+	if int(ware["cost"]) <= 0 or marks < int(ware["cost"]):
+		return Language.translate("Du hast zu wenig Turnier-Marken.")
+	return ""
+
+
+## Buys ware `index` of the tournament shop for marks. Returns the line ("" = not bought).
+func buy(index: int) -> String:
+	if not shop_blocker(index).is_empty():
+		return ""
+	var ware: Dictionary = TournamentRewards.shop()[index]
+	marks -= int(ware["cost"])
+	var text: String = give_prize(str(ware["give"]))
+	changed.emit()
+	return text
+
+
+func _mold_known(recipe_id: String) -> bool:
+	return not ContentDB.has_recipe(recipe_id) or _game_state().is_recipe_unlocked(ContentDB.recipe(recipe_id))
+
+
+## Title of the best league won (type "" = the better of both). "" = none yet.
+func get_title(type: String = "") -> String:
+	var best_type: String = type
+	var best: int = -1
+	for each: String in ([type] if not type.is_empty() else TYPES):
+		for id: String in won_leagues.get(each, []):
+			var index: int = league_index(id)
+			if index > best and not str(league_part(each, index).get("title", "")).is_empty():
+				best = index
+				best_type = each
+	return Language.translate(str(league_part(best_type, best).get("title", ""))) if best >= 0 else ""
+
+
+## Every title won: [{"type", "league" (index), "title"}].
+func get_titles() -> Array[Dictionary]:
+	var titles: Array[Dictionary] = []
+	for type: String in TYPES:
+		var won: Array[int] = []
+		for id: String in won_leagues.get(type, []):
+			if league_index(id) >= 0:
+				won.append(league_index(id))
+		won.sort()
+		for index: int in won:
+			var title: String = str(league_part(type, index).get("title", ""))
+			if not title.is_empty():
+				titles.append({"type": type, "league": index, "title": Language.translate(title)})
+	return titles
+
+
+## A new morning: when the season (calendar month) changed, the highest league won in the old one
+## pays its season reward into the loot chest. Returns the lines for the wake-up text.
+func on_new_day(day: int) -> String:
+	if season < 0:
+		season = GameCalendar.get_month_index(day)
+		return ""
+	if GameCalendar.get_month_index(day) == season:
+		return ""
+	var news: String = ""
+	var game_state: Node = _game_state()
+	for type: String in TYPES:
+		var index: int = league_index(str(season_best.get(type, "")))
+		if index < 0:
+			continue
+		var reward: Dictionary = league_part(type, index).get("season_reward", {})
+		var gold: int = int(reward.get("gold", 0))
+		if gold > 0:
+			game_state.put_gold_into_reward_chest(gold)
+		for spec in str(reward.get("items", "")).split(",", false):
+			var stack: InventorySlot = ContentDB.make_stack(spec)
+			if stack:
+				game_state.put_into_reward_chest(stack.item, stack.amount, stack.rarity)
+		news += Language.translate("\nDie Jahreszeit ist vorbei. %s: bester Sieg in der %s, die Belohnung liegt in der Loot-Kiste.") % [
+				Language.translate(TYPE_NAMES[type]), league_name(index)]
+	season = GameCalendar.get_month_index(day)
+	season_best.clear()
+	changed.emit()
+	return news
+
+
+## Starts counting a new season if the calendar moved on without a morning (e.g. a test).
+func _update_season(day: int) -> void:
+	if season < 0:
+		season = GameCalendar.get_month_index(day)
+
+
+# --- Saving -----------------------------------------------------------------------
+
+func to_save_data() -> Dictionary:
+	return {"points": points.duplicate(), "won_leagues": won_leagues.duplicate(true), "season_best": season_best.duplicate(),
+			"season": season, "played": played.duplicate(), "counts": counts.duplicate(true), "pending": pending.duplicate(true),
+			"marks": marks, "admin_any_time": admin_any_time}
+
+
+func load_save_data(saved: Dictionary) -> void:
+	points.clear()
+	won_leagues.clear()
+	season_best.clear()
+	played.clear()
+	counts.clear()
+	pending.clear()
+	if saved.has("best_league") and not saved.has("points"):
+		saved = _convert_old_save(saved)
+	for type: String in saved.get("points", {}):
+		points[type] = int(saved["points"][type])
+	for type: String in saved.get("won_leagues", {}):
+		var list: Array = []
+		for id: Variant in saved["won_leagues"][type]:
+			list.append(str(id))
+		won_leagues[type] = list
+	for type: String in saved.get("season_best", {}):
+		season_best[type] = str(saved["season_best"][type])
+	season = int(saved.get("season", -1))
+	marks = int(saved.get("marks", 0))
+	admin_any_time = bool(saved.get("admin_any_time", false))
+	for key: String in saved.get("played", {}):
+		played[key] = int(saved["played"][key])
+	for type: String in saved.get("counts", {}):
+		counts[type] = [int(saved["counts"][type][0]), int(saved["counts"][type][1])]
+	for entry: Dictionary in saved.get("pending", []):
+		var choices: Array[String] = []
+		for choice: Variant in entry.get("choices", []):
+			choices.append(str(choice))
+		pending.append({"type": str(entry.get("type", "smith")), "league": str(entry.get("league", "")), "choices": choices})
+	changed.emit()
+
+
+## Saves from before the ranks (Elo "ratings", leagues by index of OLD_LEAGUE_ORDER): the best
+## league reached gives the RP of its rank, won leagues and season bests become ids. The played
+## days are dropped (their keys were per weekday plan).
+static func _convert_old_save(saved: Dictionary) -> Dictionary:
+	var converted: Dictionary = {"points": {}, "won_leagues": {}, "season_best": {}, "season": saved.get("season", -1),
+			"counts": saved.get("counts", {})}
+	for type: String in saved.get("best_league", {}):
+		var id: String = _old_league_id(int(saved["best_league"][type]))
+		converted["points"][type] = league_points(maxi(0, league_index(id)))
+	for type: String in saved.get("won_leagues", {}):
+		var ids: Array = []
+		for old_index: Variant in saved["won_leagues"][type]:
+			ids.append(_old_league_id(int(old_index)))
+		converted["won_leagues"][type] = ids
+	for type: String in saved.get("season_best", {}):
+		if int(saved["season_best"][type]) >= 0:
+			converted["season_best"][type] = _old_league_id(int(saved["season_best"][type]))
+	return converted
+
+
+static func _old_league_id(old_index: int) -> String:
+	return OLD_LEAGUE_ORDER[clampi(old_index, 0, OLD_LEAGUE_ORDER.size() - 1)]
+
+
+## Styles of a forge theme (house.json room_styles "set"), like House.get_theme_styles (see _furniture).
+static func _theme_styles(theme: String) -> Array[String]:
+	var ids: Array[String] = []
+	var styles: Dictionary = ContentDB.house("room_styles")
+	for id: String in styles:
+		if str(styles[id].get("set", "")) == theme:
+			ids.append(id)
+	return ids
+
+
+static func _theme_name(theme: String) -> String:
+	for id: String in _theme_styles(theme):
+		return str(ContentDB.house("room_styles")[id].get("theme_name", theme))
+	return theme
+
+
+## A piece of house.json "furniture" ({} = none). Not House.get_furniture: this class must compile
+## without the GameState autoload (headless tests load HeroTournament before it exists).
+static func _furniture(id: String) -> Dictionary:
+	return ContentDB.house("furniture").get(id, {})
+
+
+static func _game_state() -> Node:
+	return (Engine.get_main_loop() as SceneTree).root.get_node("GameState")

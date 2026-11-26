@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scenes/stations/station.gd" id="1_station"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/guild_menu.tscn" id="2_menu"]
+[ext_resource type="Script" path="res://scripts/resources/hero.gd" id="3_hero_script"]
+[ext_resource type="Resource" path="res://data/heroes/lena.tres" id="4_lena"]
+[ext_resource type="Resource" path="res://data/heroes/mira.tres" id="5_mira"]
+[ext_resource type="Resource" path="res://data/heroes/anselm.tres" id="6_anselm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_building"]
+size = Vector2(64, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(40, 30)
+
+[node name="AdventurerGuild" type="StaticBody2D"]
+script = ExtResource("1_station")
+
+[node name="Building" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -56.0
+offset_right = 32.0
+mouse_filter = 2
+color = Color(0.48, 0.36, 0.28, 1)
+
+[node name="Roof" type="ColorRect" parent="."]
+offset_left = -36.0
+offset_top = -64.0
+offset_right = 36.0
+offset_bottom = -52.0
+mouse_filter = 2
+color = Color(0.55, 0.2, 0.18, 1)
+
+[node name="Sign" type="ColorRect" parent="."]
+offset_left = -14.0
+offset_top = -46.0
+offset_right = 14.0
+offset_bottom = -36.0
+mouse_filter = 2
+color = Color(0.85, 0.75, 0.45, 1)
+
+[node name="Door" type="ColorRect" parent="."]
+offset_left = -7.0
+offset_top = -18.0
+offset_right = 7.0
+mouse_filter = 2
+color = Color(0.3, 0.18, 0.1, 1)
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -78.0
+offset_right = 40.0
+offset_bottom = -66.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "Abenteurergilde"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_building")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_interaction")
+
+[node name="GuildMenu" parent="." instance=ExtResource("2_menu")]
+heroes = Array[ExtResource("3_hero_script")]([ExtResource("4_lena"), ExtResource("5_mira"), ExtResource("6_anselm")])
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="." to="GuildMenu" method="toggle"]
+[connection signal="player_left" from="." to="GuildMenu" method="close"]

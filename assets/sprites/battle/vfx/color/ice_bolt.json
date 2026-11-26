@@ -1,0 +1,235 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-eis-geschoss 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.7428571428571429,
+    "y": 0.47058823529411764
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-geschoss 1.png",
+   "frame": {
+    "x": 35,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.7428571428571429,
+    "y": 0.47058823529411764
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-geschoss 2.png",
+   "frame": {
+    "x": 70,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.7428571428571429,
+    "y": 0.47058823529411764
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-geschoss 3.png",
+   "frame": {
+    "x": 0,
+    "y": 17,
+    "w": 35,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.7428571428571429,
+    "y": 0.47058823529411764
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-geschoss 4.png",
+   "frame": {
+    "x": 35,
+    "y": 17,
+    "w": 35,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.7428571428571429,
+    "y": 0.47058823529411764
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-geschoss 5.png",
+   "frame": {
+    "x": 70,
+    "y": 17,
+    "w": 35,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.7428571428571429,
+    "y": 0.47058823529411764
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-geschoss 6.png",
+   "frame": {
+    "x": 0,
+    "y": 34,
+    "w": 35,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.7428571428571429,
+    "y": 0.47058823529411764
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-geschoss 7.png",
+   "frame": {
+    "x": 35,
+    "y": 34,
+    "w": 35,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 35,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 35,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.7428571428571429,
+    "y": 0.47058823529411764
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-eis-geschoss.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 105,
+   "h": 51
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 26,
+   "y": 8
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-eis-geschoss",
+    "from": 0,
+    "to": 7,
+    "direction": "forward"
+   }
+  ]
+ }
+}

@@ -1,0 +1,590 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_elf.tscn" id="lamp_elf"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="1_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_summit.png" id="2_elf_summit"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="3_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_summit_mask.png" id="4_elf_summit_m"]
+[ext_resource type="Script" path="res://scenes/world/volcano/depth_layer.gd" id="5_depth_layer"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_summit_below.png" id="6_elf_summit_b"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="Script" path="res://scenes/world/elves/elf_lift.gd" id="8_elf_lift"]
+[ext_resource type="Script" path="res://scenes/world/elves/floating_stone_ring.gd" id="9_floating_sto"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/float_stone_inner.png" id="10_float_stone_"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/float_stone_big.png" id="11_float_stone_"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/float_stone_small.png" id="12_float_stone_"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/council_table.png" id="13_council_tabl"]
+[ext_resource type="Texture2D" path="res://scenes/world/objects/night_light_texture.tres" id="15_night_light_"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/lich_cast.png" id="16_lich_cast"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="17_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/king.png" id="18_king"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="19_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/raid_fire.png" id="20_raid_fire"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="21_sheet_animat"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="22_night_light"]
+[ext_resource type="Script" path="res://scenes/world/elves/elf_attack_cutscene.gd" id="24_elf_attack_c"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="25_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="26_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/lich_cloud.png" id="c_cloud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/wind_pedestal.png" id="c_pedestal"]
+[ext_resource type="Script" path="res://scenes/world/objects/item_sprite.gd" id="c_crystal"]
+[ext_resource type="Script" path="res://scenes/world/objects/parchment_cutscene.gd" id="90_parchment_cut"]
+
+[sub_resource type="Resource" id="Look_elder"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pale"
+hair_style = "long"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "grey"
+size = "tall"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="RectangleShape2D" id="Rect_124x30"]
+size = Vector2(92, 22)
+
+[sub_resource type="RectangleShape2D" id="Rect_20x12"]
+size = Vector2(20, 12)
+
+[sub_resource type="Resource" id="Look_c_magician"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_c_halvard"]
+script = ExtResource("7_appearance")
+skin = "tan"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_c_kahn"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+hair_style = "long"
+hair_color = "black"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_c_ssarok"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "olive"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_c_torgai"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_c_subar"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_c_spear"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_c_nyra"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "violet"
+hair_style = "long"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_c_spear2"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "lizard_green"
+eye_type = "normal"
+eye_color = "amber"
+size = "tall"
+outfit = "vest"
+clothes_color = "red"
+
+[node name="ElfSummit" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -40
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2120.0
+offset_bottom = 1720.0
+mouse_filter = 2
+color = Color(0.59, 0.77, 0.86, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("1_day_tint")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("2_elf_summit")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource("3_cave_walls")
+mask = ExtResource("4_elf_summit_m")
+
+[node name="Depth" type="Node2D" parent="."]
+z_index = -30
+script = ExtResource("5_depth_layer")
+factor = 0.5
+anchor = Vector2(620, 450)
+
+[node name="Below" type="Sprite2D" parent="Depth"]
+modulate = Color(0.85, 0.9, 0.95, 1)
+position = Vector2(-90, -90)
+texture = ExtResource("6_elf_summit_b")
+centered = false
+
+[node name="LiftDown" type="StaticBody2D" parent="."]
+position = Vector2(620, 106)
+script = ExtResource("8_elf_lift")
+target_scene = "res://scenes/world/elves/elf_canopy_top.tscn"
+target_spawn_point = &"FromSummit"
+text = "Hinunter zu den Kronen"
+closed_flag = "reached_elf_attack_summit"
+open_flag = "reached_crisis_council"
+closed_text = "Jetzt nicht. Der Älteste braucht dich hier oben."
+
+[node name="FromCanopy" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(620, 142)
+
+[node name="StoneRing" type="Node2D" parent="."]
+position = Vector2(620, 396)
+script = ExtResource("9_floating_sto")
+starts = PackedVector2Array(0, -85, -70, 65, 69, 65)
+ends = PackedVector2Array(0, -240, -266, 248, 263, 245)
+inner_radius = Vector2(166, 108)
+middle_radius = Vector2(190, 126)
+outer_radius = Vector2(220, 146)
+inner_texture = ExtResource("10_float_stone_")
+big_texture = ExtResource("11_float_stone_")
+small_texture = ExtResource("12_float_stone_")
+width = 22.0
+
+[node name="Council" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Table" type="StaticBody2D" parent="Council"]
+position = Vector2(276, 726)
+
+[node name="Sprite2D" type="Sprite2D" parent="Council/Table"]
+texture = ExtResource("13_council_tabl")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Council/Table"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_124x30")
+
+[node name="Pedestal" type="Sprite2D" parent="."]
+position = Vector2(958, 704)
+texture = ExtResource("c_pedestal")
+offset = Vector2(0, -10)
+
+[node name="PedestalBody" type="StaticBody2D" parent="."]
+position = Vector2(958, 698)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PedestalBody"]
+shape = SubResource("Rect_20x12")
+
+[node name="WindCrystal" type="Sprite2D" parent="Pedestal"]
+position = Vector2(0, -26)
+script = ExtResource("c_crystal")
+item_id = "holy_wind_crystal"
+
+[node name="Glow" type="PointLight2D" parent="Pedestal/WindCrystal"]
+color = Color(0.7, 1, 0.95, 1)
+energy = 0.9
+texture = ExtResource("15_night_light_")
+texture_scale = 1.2
+
+[node name="ShieldCenter" type="Node2D" parent="."]
+position = Vector2(958, 710)
+
+[node name="LichCloud" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(1028, 680)
+texture = ExtResource("c_cloud")
+offset = Vector2(0, -8)
+
+[node name="Lich" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1028, 680)
+texture = ExtResource("16_lich_cast")
+offset = Vector2(0, -23)
+hframes = 6
+vframes = 4
+frame = 6
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Elder" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(276, 650)
+npc_id = "elf_elder"
+resident = "elf_elder"
+appearance = SubResource("Look_elder")
+required_flag = "reached_elf_arrival"
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(4, 4)
+absent_steps = PackedStringArray("elf_attack_wake", "elf_attack_canopy", "elf_attack_summit")
+watch_node = NodePath("../../Pedestal")
+watch_offset = Vector2(-30, 16)
+watch_facing = "right"
+watch_flag = "reached_crisis_council"
+watch_until_flag = "reached_part3_end"
+
+[node name="Faelan" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(356, 706)
+npc_id = "faelan"
+resident = "faelan"
+appearance = SubResource("Look_faelan")
+required_flag = "reached_elf_arrival"
+facing = "left"
+absent_steps = PackedStringArray("tournament_announced", "tournament_ceremony", "elf_rest", "to_camp", "camp_council", "lake_talk", "sneak_in", "gate_battle", "throne_hall", "tonic_for_mage", "glow_lesson", "elf_attack_wake", "elf_attack_canopy", "elf_attack_summit")
+linger_steps = PackedStringArray("elf_rest")
+watch_node = NodePath("../../Pedestal")
+watch_offset = Vector2(52, 22)
+watch_facing = "left"
+watch_flag = "reached_crisis_council"
+watch_until_flag = "reached_part3_end"
+
+[node name="King" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(236, 760)
+npc_id = "king"
+resident = "king"
+required_flag = "reached_elf_arrival"
+hidden_when_flag = "reached_part3_end"
+leave_path = PackedVector2Array(880, 760, 880, 716, 880, 638, 620, 395, 620, 310, 620, 155, 620, 106)
+absent_steps = PackedStringArray("tournament_announced", "tournament_ceremony", "elf_rest", "elf_attack_wake", "elf_attack_canopy", "elf_attack_summit")
+linger_steps = PackedStringArray("elf_rest")
+facing = "up"
+watch_node = NodePath("../../Pedestal")
+watch_offset = Vector2(-36, 72)
+watch_facing = "up"
+watch_flag = "reached_crisis_council"
+watch_until_flag = "reached_part3_end"
+
+[node name="Lake" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(196, 730)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+required_flag = "reached_elf_arrival"
+hidden_when_flag = "reached_part3_end"
+leave_path = PackedVector2Array(880, 760, 880, 716, 880, 638, 620, 395, 620, 310, 620, 155, 620, 106)
+absent_steps = PackedStringArray("tournament_announced", "tournament_ceremony", "elf_rest", "elf_attack_wake", "elf_attack_canopy", "elf_attack_summit")
+linger_steps = PackedStringArray("elf_rest")
+facing = "right"
+watch_node = NodePath("../../Pedestal")
+watch_offset = Vector2(-78, 44)
+watch_facing = "right"
+watch_flag = "reached_crisis_council"
+watch_until_flag = "reached_part3_end"
+
+[node name="Aurelius" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(316, 760)
+npc_id = "magician"
+appearance = SubResource("Look_magician")
+resident = "aurelius"
+required_flag = "reached_elf_arrival"
+hidden_when_flag = "reached_part3_end"
+leave_path = PackedVector2Array(880, 760, 880, 716, 880, 638, 620, 395, 620, 310, 620, 155, 620, 106)
+absent_steps = PackedStringArray("tournament_announced", "tournament_ceremony", "elf_rest", "elf_attack_wake", "elf_attack_canopy", "elf_attack_summit")
+linger_steps = PackedStringArray("elf_rest")
+facing = "up"
+watch_node = NodePath("../../Pedestal")
+watch_offset = Vector2(26, 74)
+watch_facing = "up"
+watch_flag = "reached_crisis_council"
+watch_until_flag = "reached_part3_end"
+
+[node name="ElderAtCrystal" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(918, 720)
+npc_id = "elf_elder"
+appearance = SubResource("Look_elder")
+resident = "elf_elder"
+required_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+keep_dialogue_open = true
+talk_area_scale = Vector2(4, 4)
+
+[node name="FaelanAtCrystal" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(994, 726)
+npc_id = "faelan"
+appearance = SubResource("Look_faelan")
+resident = "faelan"
+required_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+facing = "left"
+
+[node name="AureliusLate" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(878, 716)
+npc_id = "magician"
+appearance = SubResource("Look_magician")
+resident = "aurelius"
+required_flag = "aurelius_on_summit"
+hidden_when_flag = "reached_crisis_council"
+facing = "right"
+arrive_path = PackedVector2Array(760, 525, 880, 638)
+
+[node name="LakeArrives" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(994, 694)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+required_flag = "lake_on_summit"
+hidden_when_flag = "reached_crisis_council"
+facing = "right"
+
+[node name="CouncilAurelius" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(238, 676)
+npc_id = "magician"
+appearance = SubResource("Look_c_magician")
+resident = "aurelius"
+hidden_when_flag = "reached_to_altar"
+facing = "down"
+required_flag = "reached_grand_council"
+auto_talk = true
+talk_area_scale = Vector2(4, 4)
+wait_for_player = true
+talk_on_new_step = true
+
+[node name="CouncilHalvard" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(314, 676)
+npc_id = "halvard"
+appearance = SubResource("Look_c_halvard")
+resident = "halvard"
+hidden_when_flag = "reached_to_altar"
+facing = "down"
+required_flag = "reached_grand_council"
+
+[node name="CouncilNyra" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(270, 756)
+npc_id = "nyra"
+appearance = SubResource("Look_c_nyra")
+resident = "nyra"
+hidden_when_flag = "reached_to_altar"
+facing = "up"
+required_flag = "reached_grand_council"
+
+[node name="CouncilKahn" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(208, 714)
+npc_id = "kahn"
+appearance = SubResource("Look_c_kahn")
+resident = "kahn"
+hidden_when_flag = "reached_to_altar"
+facing = "right"
+required_flag = "council_kahn"
+leave_path = PackedVector2Array(210, 664, 354, 644, 511, 498, 590, 430)
+arrive_path = PackedVector2Array(511, 498, 354, 644, 210, 664)
+
+[node name="CouncilSsarok" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(344, 746)
+npc_id = "desert_lord"
+appearance = SubResource("Look_c_ssarok")
+resident = "desert_lord"
+hidden_when_flag = "reached_to_altar"
+facing = "left"
+required_flag = "council_ssarok"
+leave_path = PackedVector2Array(390, 700, 354, 644, 511, 498, 590, 430)
+arrive_path = PackedVector2Array(511, 498, 354, 644, 390, 700)
+
+[node name="CouncilTorgai" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(206, 748)
+npc_id = "kahn_son"
+appearance = SubResource("Look_c_torgai")
+resident = "kahn_son"
+hidden_when_flag = "reached_to_altar"
+facing = "right"
+required_flag = "council_kahn"
+leave_path = PackedVector2Array(186, 700, 200, 664, 354, 644, 511, 498, 590, 430)
+arrive_path = PackedVector2Array(540, 472, 511, 498, 354, 644, 200, 664, 186, 700)
+
+[node name="CouncilSubar" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(180, 730)
+npc_id = "kahn_right_hand"
+appearance = SubResource("Look_c_subar")
+resident = "kahn_right_hand"
+hidden_when_flag = "reached_to_altar"
+facing = "right"
+required_flag = "council_kahn"
+leave_path = PackedVector2Array(170, 700, 200, 664, 354, 644, 511, 498, 590, 430)
+arrive_path = PackedVector2Array(566, 448, 511, 498, 354, 644, 200, 664, 170, 700)
+
+[node name="CouncilSpearNorth" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(370, 726)
+npc_id = "desert_guard"
+appearance = SubResource("Look_c_spear")
+resident = "desert_guard"
+hidden_when_flag = "reached_to_altar"
+facing = "left"
+required_flag = "council_ssarok"
+leave_path = PackedVector2Array(400, 690, 354, 644, 511, 498, 590, 430)
+arrive_path = PackedVector2Array(540, 472, 511, 498, 354, 644, 400, 690)
+
+[node name="CouncilSpearSouth" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(370, 764)
+npc_id = "desert_guard"
+appearance = SubResource("Look_c_spear2")
+resident = "desert_guard"
+hidden_when_flag = "reached_to_altar"
+facing = "left"
+required_flag = "council_ssarok"
+leave_path = PackedVector2Array(410, 704, 354, 644, 511, 498, 590, 430)
+arrive_path = PackedVector2Array(566, 448, 511, 498, 354, 644, 410, 704)
+
+[node name="Night" type="Node2D" parent="."]
+script = ExtResource("19_story_prop")
+required_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+
+[node name="Fire" type="Sprite2D" parent="Night"]
+position = Vector2(670, 416)
+texture = ExtResource("20_raid_fire")
+offset = Vector2(0, -55)
+hframes = 7
+script = ExtResource("21_sheet_animat")
+frames_per_second = 10.0
+
+[node name="Light" parent="Night/Fire" instance=ExtResource("22_night_light")]
+position = Vector2(0, -40)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.6
+flicker = 0.25
+
+[node name="Lights" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Lantern1" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(575, 120)
+
+[node name="Lantern2" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(676, 120)
+
+[node name="Lantern3" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(160, 696)
+
+[node name="Lantern4" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(387, 694)
+
+[node name="Lantern5" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(903, 685)
+
+[node name="Lantern6" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(1020, 690)
+
+[node name="Lantern7" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(564, 370)
+
+[node name="Lantern8" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(681, 373)
+
+[node name="Cutscene" type="Node" parent="." node_paths=PackedStringArray("lich", "cloud", "crystal", "shield_center")]
+script = ExtResource("24_elf_attack_c")
+lich = NodePath("../Lich")
+cloud = NodePath("../LichCloud")
+crystal = NodePath("../Pedestal/WindCrystal")
+shield_center = NodePath("../ShieldCenter")
+fallers = Array[NodePath]([NodePath("../People/ElderAtCrystal"), NodePath("../People/FaelanAtCrystal")])
+walk_in_path = PackedVector2Array(620, 142, 620, 395, 880, 638, 880, 716)
+talker = NodePath("../People/ElderAtCrystal")
+lake = NodePath("../People/LakeArrives")
+council_elder = NodePath("../People/Elder")
+king = NodePath("../People/King")
+
+[node name="Player" parent="." instance=ExtResource("25_player")]
+position = Vector2(620, 142)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 1240
+limit_bottom = 900
+
+[node name="HUD" parent="." instance=ExtResource("26_hud")]
+
+[node name="ParchmentCutscene" type="Node2D" parent="."]
+script = ExtResource("90_parchment_cut")
+faelan = NodePath("../People/Faelan")
+
+[editable path="Player"]

@@ -1,0 +1,1672 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ru\n"
+
+msgid "%d Herzen"
+msgstr "%d сердец"
+
+msgid "Acht Bomben"
+msgstr "Восемь бомб"
+
+msgid "Alle Items abgelegt"
+msgstr "Все предметы сброшены"
+
+msgid "Alle Items ablegen"
+msgstr "Сбросить все предметы"
+
+msgid "Alle Werte ein bisschen hoch"
+msgstr "Все характеристики немного выше"
+
+msgid "Alle paar Besiegten heilst du ein halbes Herz"
+msgstr "Каждые несколько побед лечат полсердца"
+
+msgid "Alles im Laden kostet die Hälfte"
+msgstr "Всё в лавке за полцены"
+
+msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
+msgstr "В конце каждый выстрел разлетается на четыре искры"
+
+msgid "Amethyst"
+msgstr "Аметист"
+
+msgid "Arena-Amulett"
+msgstr "Амулет арены"
+
+msgid "Arenaherz"
+msgstr "Сердце арены"
+
+msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
+msgstr "Заряженный огромный уголь врезается и взрывается"
+
+msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
+msgstr "Заряди, отпусти: мощный луч огня"
+
+msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
+msgstr "Топор вместо огненных шаров: тяжёлый взмах, враги кровоточат"
+
+msgid "Beenden"
+msgstr "Выход"
+
+msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
+msgstr "При попадании снаряд распадается на четыре искры"
+
+msgid "Bernstein"
+msgstr "Янтарь"
+
+msgid "Besiege %d Gegner (%d / %d)"
+msgstr "Победи %d врагов (%d / %d)"
+
+msgid "Besiege: %s"
+msgstr "Победи: %s"
+
+msgid "Besiegte Gegner: %d"
+msgstr "Побеждено врагов: %d"
+
+msgid "Blasebalg"
+msgstr "Кузнечные мехи"
+
+msgid "Blutphiole"
+msgstr "Флакон крови"
+
+msgid "Bogenschütze"
+msgstr "Лучник"
+
+msgid "Bomben schießen beim Explodieren Feuerbälle"
+msgstr "Бомбы при взрыве выпускают огненные шары"
+
+msgid "Bomben zerplatzen in kleine Bomben"
+msgstr "Бомбы разлетаются на маленькие бомбы"
+
+msgid "Bombengürtel"
+msgstr "Пояс с бомбами"
+
+msgid "Brandöl"
+msgstr "Горючее масло"
+
+msgid "Brennend und langsam: mehr Schaden"
+msgstr "Горит и медлит: больше урона"
+
+msgid "Brennende, explodierende Schüsse"
+msgstr "Горящие взрывные выстрелы"
+
+msgid "Brennende, langsame Gegner und zwei blaue Herzen"
+msgstr "Горящие, медленные враги и два синих сердца"
+
+msgid "Bronzebogen"
+msgstr "Бронзовый лук"
+
+msgid "Bronzeschild"
+msgstr "Бронзовый щит"
+
+msgid "Brotkanone"
+msgstr "Хлебная пушка"
+
+msgid "Brotregen"
+msgstr "Хлебный дождь"
+
+msgid "Bumerang-Haken"
+msgstr "Крюк-бумеранг"
+
+msgid "Das kostet zu viel Leben"
+msgstr "Это стоит слишком много жизни"
+
+msgid "Defensiv"
+msgstr "Защита"
+
+msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
+msgstr "Твои огненные шары уничтожают выстрелы врагов"
+
+msgid "Deine Items"
+msgstr "Твои предметы"
+
+msgid "Deine Schüsse verfolgen Gegner"
+msgstr "Снаряды преследуют врагов"
+
+msgid "Der Feuerstrahl biegt sich zum Gegner"
+msgstr "Луч огня изгибается к врагу"
+
+msgid "Der Stein nimmt dein Opfer an"
+msgstr "Камень принимает твою жертву"
+
+msgid "Der Weg nach unten ist frei!"
+msgstr "Путь вниз открыт!"
+
+msgid "Diamantherz"
+msgstr "Алмазное сердце"
+
+msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
+msgstr "Оружие лучника: натяни стрелу и отпусти, далеко и сильно"
+
+msgid "Die Waffe des Kriegers: ein Schwertschwung trifft alle vor dir"
+msgstr "Оружие воина: взмах меча бьёт всех перед тобой"
+
+msgid "Die Waffe des Magiers: schießt Feuerbälle"
+msgstr "Оружие мага: стреляет огненными шарами"
+
+msgid "Dietrich"
+msgstr "Отмычка"
+
+msgid "Doppelschuss"
+msgstr "Двойной выстрел"
+
+msgid "Dornenpanzer"
+msgstr "Шипастая броня"
+
+msgid "Drachenatem"
+msgstr "Дыхание дракона"
+
+msgid "Drachenhaut"
+msgstr "Шкура дракона"
+
+msgid "Drachenleder"
+msgstr "Драконья кожа"
+
+msgid "Drachenmantel"
+msgstr "Драконий плащ"
+
+msgid "Drei Funken folgen dir und schießen"
+msgstr "Три искры следуют за тобой и стреляют"
+
+msgid "Drei Schlüssel, Rabatt im Laden"
+msgstr "Три ключа, скидка в лавке"
+
+msgid "Drei blaue Herzen"
+msgstr "Три синих сердца"
+
+msgid "Drei blaue Herzen und manchmal ausweichen"
+msgstr "Три синих сердца и иногда уклонение"
+
+msgid "Dreifachschuss"
+msgstr "Тройной выстрел"
+
+msgid "Dreizack-Rune"
+msgstr "Руна трезубца"
+
+msgid "Dreißig Münzen und zehn Schlüssel"
+msgstr "Тридцать монет и десять ключей"
+
+msgid "Du bist gefallen"
+msgstr "Ты пал"
+
+msgid "Du brauchst einen Schlüssel"
+msgstr "Нужен ключ"
+
+msgid "Du hast den Dungeon bezwungen!"
+msgstr "Ты покорил подземелье!"
+
+msgid "Du hast nicht genug Leben"
+msgstr "У тебя мало жизни"
+
+msgid "Du läufst schneller"
+msgstr "Бегаешь быстрее"
+
+msgid "Du schießt Brotlaibe. Getroffene Gegner vergessen dich und rennen weg"
+msgstr "Стреляешь буханками. Задетые враги забывают о тебе и убегают"
+
+msgid "Du schießt auch nach hinten"
+msgstr "Ты стреляешь и назад"
+
+msgid "Du schießt schneller"
+msgstr "Стреляешь быстрее"
+
+msgid "Du wirfst Bomben statt Feuerbällen"
+msgstr "Бросаешь бомбы вместо огненных шаров"
+
+msgid "Du wirfst Wurfsterne, getroffene Gegner bluten"
+msgstr "Ты метаешь сюрикены, подбитые враги кровоточат"
+
+msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
+msgstr "Ты растёшь: больше сердец и урона, в тебя легче попасть"
+
+msgid "Du wirst kleiner und schneller"
+msgstr "Ты становишься меньше и быстрее"
+
+msgid "Du wirst kleiner: schwerer zu treffen, schneller"
+msgstr "Ты уменьшаешься: труднее попасть, быстрее"
+
+msgid "Du wirst viel größer und stärker, aber langsamer"
+msgstr "Ты становишься намного больше и сильнее, но медленнее"
+
+msgid "Du wirst winzig und manchmal weichst du aus"
+msgstr "Ты крошечный и иногда уклоняешься"
+
+msgid "Dungeon der Glut"
+msgstr "Подземелье углей"
+
+msgid "Dunkler Zauberstab"
+msgstr "Тёмный жезл"
+
+msgid "Durch Gegner hindurch und von Wand zu Wand"
+msgstr "Сквозь врагов и от стены к стене"
+
+msgid "Durch Steine, und manchmal fliehen Gegner"
+msgstr "Сквозь камни, и иногда враги бегут"
+
+msgid "Durchschlag, Abprallen und Zerplatzen"
+msgstr "Пробивает, отскакивает и разлетается"
+
+msgid "E: Bombe · Tab: Karte · Esc: Pause"
+msgstr "E: бомба · Tab: карта · Esc: пауза"
+
+msgid "Ebene %d"
+msgstr "Уровень %d"
+
+msgid "Ebene: %d"
+msgstr "Уровень: %d"
+
+msgid "Effekte"
+msgstr "Эффекты"
+
+msgid "Eigene Explosionen heilen dich"
+msgstr "Твои взрывы тебя лечат"
+
+msgid "Ein Feuerball kreist um dich und blockt Schüsse"
+msgstr "Огненный шар кружит вокруг и блокирует выстрелы"
+
+msgid "Ein Funke folgt dir und schießt"
+msgstr "Искра следует за тобой и стреляет"
+
+msgid "Ein Funke und ein Glutmond"
+msgstr "Искра и луна жара"
+
+msgid "Ein Funke und mehr Glück"
+msgstr "Искра и больше удачи"
+
+msgid "Ein Glutpakt hat sich geöffnet"
+msgstr "Открылся пакт жара"
+
+msgid "Ein Herz mehr"
+msgstr "Ещё одно сердце"
+
+msgid "Ein Herz mehr, Glück hoch"
+msgstr "Ещё одно сердце, удача выше"
+
+msgid "Ein Herz mehr, Schaden hoch"
+msgstr "Ещё одно сердце, урон выше"
+
+msgid "Ein Herz mehr, heilt dich ganz"
+msgstr "Ещё одно сердце, полностью лечит"
+
+msgid "Ein Herz und ein blaues Herz"
+msgstr "Одно сердце и одно синее сердце"
+
+msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
+msgstr "Сердце, шипы, взрывы не вредят"
+
+msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "Сердце, монета, бомба и ключ"
+
+msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
+msgstr "Сердце, два синих сердца, урон выше"
+
+msgid "Ein Schrein hat sich geöffnet"
+msgstr "Открылось святилище"
+
+msgid "Ein Schuss mehr und mehr Schaden"
+msgstr "Ещё один выстрел и больше урона"
+
+msgid "Ein Schuss mehr, aber schwächer"
+msgstr "Ещё один выстрел, но слабее"
+
+msgid "Ein blaues Herz und Dornen"
+msgstr "Синее сердце и шипы"
+
+msgid "Ein blaues Herz, Schaden hoch"
+msgstr "Одно синее сердце, урон выше"
+
+msgid "Ein blaues Herz, länger sicher nach Treffern"
+msgstr "Синее сердце, дольше защита после удара"
+
+msgid "Ein blaues Herz, schneller laufen"
+msgstr "Одно синее сердце, бег быстрее"
+
+msgid "Ein geheimer Raum!"
+msgstr "Тайная комната!"
+
+msgid "Ein zweites Leben"
+msgstr "Вторая жизнь"
+
+msgid "Ein zweites Leben und ein Funke"
+msgstr "Вторая жизнь и искра"
+
+msgid "Ein zweites Leben!"
+msgstr "Вторая жизнь!"
+
+msgid "Eine ganze Bäckerei auf einmal"
+msgstr "Целая пекарня разом"
+
+msgid "Einstellungen"
+msgstr "Настройки"
+
+msgid "Eisenhaut"
+msgstr "Железная кожа"
+
+msgid "Eisfeder"
+msgstr "Ледяное перо"
+
+msgid "Eisspiegel"
+msgstr "Ледяное зеркало"
+
+msgid "Eisstab"
+msgstr "Ледяной посох"
+
+msgid "Elfenbrief"
+msgstr "Эльфийское письмо"
+
+msgid "Entdecke %d Items (%d / %d)"
+msgstr "Найди %d предметов (%d / %d)"
+
+msgid "Entdeckt: %d / %d"
+msgstr "Найдено: %d / %d"
+
+msgid "Erdstab"
+msgstr "Посох земли"
+
+msgid "Erreiche Ebene %d"
+msgstr "Дойди до уровня %d"
+
+msgid "Erstglut"
+msgstr "Первый жар"
+
+msgid "Explosive Schüsse, langsamer schießen"
+msgstr "Взрывные выстрелы, стрельба медленнее"
+
+msgid "Fahre mit der Maus über ein Item"
+msgstr "Наведи мышь на предмет"
+
+msgid "Feenstaub"
+msgstr "Пыльца фей"
+
+msgid "Feuerfester Bomber"
+msgstr "Огнеупорный подрывник"
+
+msgid "Feuerhieb"
+msgstr "Огненный удар"
+
+msgid "Feuerkranz"
+msgstr "Огненный венец"
+
+msgid "Feuerlanze"
+msgstr "Огненное копьё"
+
+msgid "Feuerstab"
+msgstr "Огненный посох"
+
+msgid "Feuerstrahl statt Feuerbällen: Maustaste halten"
+msgstr "Луч огня вместо шаров: держи кнопку мыши"
+
+msgid "Feuerwerk"
+msgstr "Фейерверк"
+
+msgid "Flechtenleder"
+msgstr "Лишайниковая кожа"
+
+msgid "Flechtenmantel"
+msgstr "Лишайниковый плащ"
+
+msgid "Fledermaus"
+msgstr "Летучая мышь"
+
+msgid "Flipper"
+msgstr "Пинбол"
+
+msgid "Fluchskelett"
+msgstr "Проклятый скелет"
+
+msgid "Freigeschaltet: %s"
+msgstr "Открыто: %s"
+
+msgid "Frost und Feuer"
+msgstr "Мороз и пламя"
+
+msgid "Frostflechte"
+msgstr "Морозный лишайник"
+
+msgid "Frostkristall"
+msgstr "Морозный кристалл"
+
+msgid "Frostmähne"
+msgstr "Морозная грива"
+
+msgid "Funkenbüchse"
+msgstr "Банка искр"
+
+msgid "Funkenfänger"
+msgstr "Ловец искр"
+
+msgid "Funkenstein"
+msgstr "Искровой камень"
+
+msgid "Fängt in jedem Raum den ersten Treffer ab"
+msgstr "Отражает первый удар в каждой комнате"
+
+msgid "Fünf Bomben, und Explosionen tun dir nichts mehr"
+msgstr "Пять бомб, и взрывы тебе больше не вредят"
+
+msgid "Fünf Münzen, drei Bomben, drei Schlüssel"
+msgstr "Пять монет, три бомбы, три ключа"
+
+msgid "Fünf Schlüssel"
+msgstr "Пять ключей"
+
+msgid "Fünfzehn Münzen"
+msgstr "Пятнадцать монет"
+
+msgid "Gegabelter Stab"
+msgstr "Раздвоенный посох"
+
+msgid "Gegner brennen, Schaden hoch"
+msgstr "Враги горят, урон выше"
+
+msgid "Gegner werden langsamer, Reichweite hoch"
+msgstr "Враги замедляются, дальность выше"
+
+msgid "Gegner, die dich berühren, nehmen Schaden"
+msgstr "Враги, касающиеся тебя, получают урон"
+
+msgid "Geist"
+msgstr "Призрак"
+
+msgid "Geisterfürst"
+msgstr "Повелитель призраков"
+
+msgid "Geisterglas"
+msgstr "Призрачное стекло"
+
+msgid "Geisterstab"
+msgstr "Призрачный посох"
+
+msgid "Generalsklinge"
+msgstr "Клинок генерала"
+
+msgid "Geschafft!"
+msgstr "Победа!"
+
+msgid "Gesperrt"
+msgstr "Закрыто"
+
+msgid "Gesprengte Fessel"
+msgstr "Разбитые оковы"
+
+msgid "Getroffene Gegner brennen weiter"
+msgstr "Подбитые враги продолжают гореть"
+
+msgid "Getroffene Gegner fliehen vor dir"
+msgstr "Подбитые враги бегут от тебя"
+
+msgid "Getroffene Gegner frieren ein"
+msgstr "Подбитые враги замерзают"
+
+msgid "Getroffene Gegner frieren kurz ein"
+msgstr "Подбитые враги ненадолго замерзают"
+
+msgid "Getroffene Gegner torkeln herum"
+msgstr "Подбитые враги шатаются"
+
+msgid "Getroffene Gegner werden langsam und vergiftet"
+msgstr "Подбитые враги замедлены и отравлены"
+
+msgid "Getroffene Gegner werden langsamer"
+msgstr "Подбитые враги замедляются"
+
+msgid "Getroffene Gegner werden vergiftet"
+msgstr "Подбитые враги отравлены"
+
+msgid "Gewinne %d Runs"
+msgstr "Победи в %d забегах"
+
+msgid "Gewinne einen Run"
+msgstr "Победи в одном забеге"
+
+msgid "Gewinne in unter %d Minuten"
+msgstr "Победи меньше чем за %d минут"
+
+msgid "Ghul"
+msgstr "Упырь"
+
+msgid "Giftratte"
+msgstr "Ядовитая крыса"
+
+msgid "Giftstab"
+msgstr "Ядовитый посох"
+
+msgid "Giftzahn"
+msgstr "Ядовитый клык"
+
+msgid "Glutkern"
+msgstr "Угольное ядро"
+
+msgid "Glutklinge"
+msgstr "Клинок жара"
+
+msgid "Glutmantel"
+msgstr "Плащ жара"
+
+msgid "Glutmond"
+msgstr "Угольная луна"
+
+msgid "Glutsammler"
+msgstr "Собиратель углей"
+
+msgid "Glutschwert"
+msgstr "Меч жара"
+
+msgid "Glutstab"
+msgstr "Посох углей"
+
+msgid "Glück"
+msgstr "Удача"
+
+msgid "Glück hoch"
+msgstr "Удача выше"
+
+msgid "Glück und Schaden hoch"
+msgstr "Удача и урон выше"
+
+msgid "Glück viel höher"
+msgstr "Намного больше удачи"
+
+msgid "Glücksflachs"
+msgstr "Счастливый лён"
+
+msgid "Glühender Schlüssel"
+msgstr "Раскалённый ключ"
+
+msgid "Goblin"
+msgstr "Гоблин"
+
+msgid "Goblin-Schamane"
+msgstr "Гоблин-шаман"
+
+msgid "Goblinkrone"
+msgstr "Корона гоблинов"
+
+msgid "Goblinstollen"
+msgstr "Гоблинские штольни"
+
+msgid "Goldader"
+msgstr "Золотая жила"
+
+msgid "Goldamulett"
+msgstr "Золотой амулет"
+
+msgid "Goldbarren"
+msgstr "Золотой слиток"
+
+msgid "Goldbogen"
+msgstr "Золотой лук"
+
+msgid "Goldener Schattenstab"
+msgstr "Золотой посох тени"
+
+msgid "Goldglut"
+msgstr "Золотой жар"
+
+msgid "Goldhammer"
+msgstr "Золотой молот"
+
+msgid "Goldhelm"
+msgstr "Золотой шлем"
+
+msgid "Goldklinge"
+msgstr "Золотой клинок"
+
+msgid "Goldstiefel"
+msgstr "Золотые сапоги"
+
+msgid "Greifenfell"
+msgstr "Мех грифона"
+
+msgid "Greifenmantel"
+msgstr "Плащ грифона"
+
+msgid "Große, schwere Schüsse mit viel Rückstoß"
+msgstr "Большие тяжёлые выстрелы с сильной отдачей"
+
+msgid "Grubenhacke"
+msgstr "Шахтёрская кирка"
+
+msgid "Gruftgespenst"
+msgstr "Склепный дух"
+
+msgid "Gruftschild"
+msgstr "Щит склепа"
+
+msgid "Größere Bomben und drei Bomben"
+msgstr "Бомбы больше и три бомбы"
+
+msgid "Größere Bomben, und keine tut dir weh"
+msgstr "Бомбы больше, и ни одна тебе не вредит"
+
+msgid "Größere Feuerbälle, mehr Schaden"
+msgstr "Огненные шары больше, урон выше"
+
+msgid "Habe %d Herz-Container gleichzeitig"
+msgstr "Имей %d сердец-контейнеров одновременно"
+
+msgid "Habe %d Münzen gleichzeitig"
+msgstr "Имей %d монет одновременно"
+
+msgid "Habe %d blaue Herzen gleichzeitig"
+msgstr "Имей %d синих сердец одновременно"
+
+msgid "Hauptmenü"
+msgstr "Главное меню"
+
+msgid "Heilen durch Besiegte, Schaden hoch"
+msgstr "Лечение за победы, урон выше"
+
+msgid "Heilerkräuter"
+msgstr "Травы целителя"
+
+msgid "Heilt dich ganz, schneller laufen"
+msgstr "Полностью лечит, бег быстрее"
+
+msgid "Heißer Sand"
+msgstr "Горячий песок"
+
+msgid "Herzblatt"
+msgstr "Сердцелист"
+
+msgid "Herzen heilen doppelt"
+msgstr "Сердца лечат вдвое"
+
+msgid "Hexenkessel"
+msgstr "Ведьмин котёл"
+
+msgid "Hier klicken"
+msgstr "Нажми здесь"
+
+msgid "Holzstab"
+msgstr "Деревянный посох"
+
+msgid "Hydraschuppe"
+msgstr "Чешуя гидры"
+
+msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
+msgstr "Не больше полсердца за удар, но медленнее"
+
+msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
+msgstr "Не больше полсердца за удар, дольше защита"
+
+msgid "Höhlentroll"
+msgstr "Пещерный тролль"
+
+msgid "Höllenhundfell"
+msgstr "Мех адской гончей"
+
+msgid "Höllenleder"
+msgstr "Адская кожа"
+
+msgid "Höllenstab"
+msgstr "Адский посох"
+
+msgid "Jadefigur"
+msgstr "Нефритовая фигурка"
+
+msgid "Jagdbogen"
+msgstr "Охотничий лук"
+
+msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
+msgstr "Чем дальше летит выстрел, тем больше урон"
+
+msgid "Jeder Treffer jagt Gegnern Angst ein"
+msgstr "Каждый удар пугает врагов"
+
+msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
+msgstr "Каждый полученный удар усиливает тебя на этом уровне"
+
+msgid "Jeder zweite Schuss ist viel stärker"
+msgstr "Каждый второй выстрел намного сильнее"
+
+msgid "Kamille"
+msgstr "Ромашка"
+
+msgid "Kann ab jetzt im Dungeon auftauchen"
+msgstr "Теперь может появиться в подземелье"
+
+msgid "Karawanenrucksack"
+msgstr "Караванный рюкзак"
+
+msgid "Kein Treffer nimmt mehr als ein halbes Herz"
+msgstr "Ни один удар не отнимает больше полсердца"
+
+msgid "Kinderschuhe"
+msgstr "Детские ботинки"
+
+msgid "Kleiner, schneller und manchmal ausweichen"
+msgstr "Меньше, быстрее и иногда уклонение"
+
+msgid "Klingenstern"
+msgstr "Звезда клинков"
+
+msgid "Knochengeneral"
+msgstr "Костяной генерал"
+
+msgid "Kohlenschrot"
+msgstr "Угольная дробь"
+
+msgid "Kometenschweif"
+msgstr "Хвост кометы"
+
+msgid "Kometenstein"
+msgstr "Камень кометы"
+
+msgid "Kompassnadel"
+msgstr "Стрелка компаса"
+
+msgid "Krieger"
+msgstr "Воин"
+
+msgid "Kriegerschwert"
+msgstr "Меч воина"
+
+msgid "Kriegsaxt"
+msgstr "Боевой топор"
+
+msgid "Kristallkarte"
+msgstr "Хрустальная карта"
+
+msgid "Kristallsplitter"
+msgstr "Осколок кристалла"
+
+msgid "Kräuterbeutel"
+msgstr "Мешочек трав"
+
+msgid "Kupfernagel"
+msgstr "Медный гвоздь"
+
+msgid "Königsbrief"
+msgstr "Королевское письмо"
+
+msgid "Labyrinthaxt"
+msgstr "Топор лабиринта"
+
+msgid "Ladenschild"
+msgstr "Вывеска лавки"
+
+msgid "Lange Flugbahnen, gewaltiger Einschlag"
+msgstr "Долгий полёт, мощный удар"
+
+msgid "Langsam heilen und ein blaues Herz"
+msgstr "Медленное лечение и синее сердце"
+
+msgid "Langsam heilst du dich"
+msgstr "Ты медленно лечишься"
+
+msgid "Lautstärke"
+msgstr "Громкость"
+
+msgid "Lebendiger Wind"
+msgstr "Живой ветер"
+
+msgid "Lebensholz"
+msgstr "Древо жизни"
+
+msgid "Lebenstau"
+msgstr "Роса жизни"
+
+msgid "Lederstiefel"
+msgstr "Кожаные сапоги"
+
+msgid "Legendenhandschuhe"
+msgstr "Перчатки легенды"
+
+msgid "Leichte Feder"
+msgstr "Лёгкое перо"
+
+msgid "Letzte Glut"
+msgstr "Последний жар"
+
+msgid "Lexikon"
+msgstr "Лексикон"
+
+msgid "Lichtstab"
+msgstr "Посох света"
+
+msgid "Länger sicher nach einem Treffer"
+msgstr "Дольше защита после удара"
+
+msgid "Läufersandalen"
+msgstr "Сандалии бегуна"
+
+msgid "Läuferschuhe"
+msgstr "Сапоги бегуна"
+
+msgid "Magier"
+msgstr "Маг"
+
+msgid "Makelloser Schild"
+msgstr "Безупречный щит"
+
+msgid "Manchmal Schüsse in alle vier Richtungen"
+msgstr "Иногда выстрелы во все четыре стороны"
+
+msgid "Manchmal ausweichen, schneller laufen"
+msgstr "Иногда уклонение, бег быстрее"
+
+msgid "Manchmal brennen getroffene Gegner"
+msgstr "Подбитые враги иногда горят"
+
+msgid "Manchmal explodieren deine Schüsse"
+msgstr "Твои выстрелы иногда взрываются"
+
+msgid "Manchmal frieren Gegner ein"
+msgstr "Враги иногда замерзают"
+
+msgid "Manchmal vergiften deine Schüsse"
+msgstr "Твои выстрелы иногда отравляют"
+
+msgid "Manchmal weichst du Treffern aus"
+msgstr "Иногда ты уклоняешься от ударов"
+
+msgid "Maus"
+msgstr "Мышь"
+
+msgid "Maustaste halten zum Aufladen: größer und stärker"
+msgstr "Держи кнопку для заряда: больше и сильнее"
+
+msgid "Mehr Beute nach jedem Raum"
+msgstr "Больше добычи после каждой комнаты"
+
+msgid "Mehr Rückstoß und Schaden"
+msgstr "Больше отдачи и урона"
+
+msgid "Mehr Schaden für jede Münze, die du hast"
+msgstr "Больше урона за каждую монету"
+
+msgid "Meteor"
+msgstr "Метеор"
+
+msgid "Minotaurus"
+msgstr "Минотавр"
+
+msgid "Mondlilie"
+msgstr "Лунная лилия"
+
+msgid "Mondsiegel"
+msgstr "Лунная печать"
+
+msgid "Mondsturm"
+msgstr "Лунная буря"
+
+msgid "Moorherz"
+msgstr "Болотное сердце"
+
+msgid "Musik"
+msgstr "Музыка"
+
+msgid "Münzen und Herzen fliegen zu dir"
+msgstr "Монеты и сердца летят к тебе"
+
+msgid "Nach jedem Boss zwei Items zur Wahl"
+msgstr "После каждого босса два предмета на выбор"
+
+msgid "Nachtschatten"
+msgstr "Паслён"
+
+msgid "Nachtschattensamen"
+msgstr "Семена паслёна"
+
+msgid "Neuer Run"
+msgstr "Новый забег"
+
+msgid "Neues Spiel"
+msgstr "Новая игра"
+
+msgid "Nicht während eines Kampfes"
+msgstr "Не во время боя"
+
+msgid "Nichts geschieht"
+msgstr "Ничего не происходит"
+
+msgid "Nimm %d Glutpakte in einem Run"
+msgstr "Заключи %d пактов жара за один забег"
+
+msgid "Noch ein Glutmond kreist um dich"
+msgstr "Ещё одна угольная луна кружит вокруг"
+
+msgid "Noch keine Items"
+msgstr "Пока нет предметов"
+
+msgid "Noch nicht entdeckt"
+msgstr "Ещё не найдено"
+
+msgid "Nächste Seite"
+msgstr "Следующая страница"
+
+msgid "Offensiv"
+msgstr "Атака"
+
+msgid "Oger"
+msgstr "Огр"
+
+msgid "Onyx"
+msgstr "Оникс"
+
+msgid "Opaljuwel"
+msgstr "Опаловый самоцвет"
+
+msgid "Opferdolch"
+msgstr "Ритуальный нож"
+
+msgid "Opferstein: ein Herz für eine Gabe"
+msgstr "Камень жертвы: сердце за дар"
+
+msgid "Ork"
+msgstr "Орк"
+
+msgid "Ork-Häuptling"
+msgstr "Вождь орков"
+
+msgid "Paktschatulle"
+msgstr "Шкатулка пакта"
+
+msgid "Palladiumamulett"
+msgstr "Палладиевый амулет"
+
+msgid "Palladiumbarren"
+msgstr "Палладиевый слиток"
+
+msgid "Palladiumklinge"
+msgstr "Палладиевый клинок"
+
+msgid "Pause"
+msgstr "Пауза"
+
+msgid "Pfeile aufladen und loslassen: weit und stark"
+msgstr "Натяни и отпусти стрелу: далеко и сильно"
+
+msgid "Pickups fliegen zu dir, Glück hoch"
+msgstr "Подбираемое летит к тебе, удача выше"
+
+msgid "Platin-Großschwert"
+msgstr "Платиновый двуручник"
+
+msgid "Platin-Lichtstab"
+msgstr "Платиновый посох света"
+
+msgid "Platin-Sturmstab"
+msgstr "Платиновый посох бури"
+
+msgid "Platinamulett"
+msgstr "Платиновый амулет"
+
+msgid "Platinbarren"
+msgstr "Платиновый слиток"
+
+msgid "Platinklinge"
+msgstr "Платиновый клинок"
+
+msgid "Platinspitze"
+msgstr "Платиновый наконечник"
+
+msgid "Pulverfass"
+msgstr "Пороховая бочка"
+
+msgid "Pulverhandschuh"
+msgstr "Пороховая перчатка"
+
+msgid "Ratte"
+msgstr "Крыса"
+
+msgid "Rattenfell"
+msgstr "Крысиный мех"
+
+msgid "Rattenkeller"
+msgstr "Крысиный погреб"
+
+msgid "Rattenkönig"
+msgstr "Крысиный король"
+
+msgid "Reichweite"
+msgstr "Дальность"
+
+msgid "Reichweite +2 m, schnellere Schüsse"
+msgstr "Дальность +2 м, снаряды быстрее"
+
+msgid "Reichweite hoch"
+msgstr "Дальность выше"
+
+msgid "Reichweite und Schaden hoch"
+msgstr "Дальность и урон выше"
+
+msgid "Reichweite und Schusstempo hoch"
+msgstr "Дальность и скорость выстрела выше"
+
+msgid "Reichweite: %s m"
+msgstr "Дальность: %s м"
+
+msgid "Reine Fassung"
+msgstr "Чистая оправа"
+
+msgid "Riesenratte"
+msgstr "Гигантская крыса"
+
+msgid "Riesentrank"
+msgstr "Зелье великана"
+
+msgid "Riesige Schüsse, die im Flug schrumpfen"
+msgstr "Огромные выстрелы, уменьшающиеся в полёте"
+
+msgid "Riesige, langsame Feuerbälle mit viel Schaden"
+msgstr "Огромные медленные огненные шары с большим уроном"
+
+msgid "Riesiger Rückstoß und viel Schaden"
+msgstr "Огромная отдача и много урона"
+
+msgid "Ritterhelm"
+msgstr "Рыцарский шлем"
+
+msgid "Robbenfell"
+msgstr "Тюлений мех"
+
+msgid "Robbenmantel"
+msgstr "Тюлений плащ"
+
+msgid "Ruhmeskette"
+msgstr "Цепь славы"
+
+msgid "Rückenamulett"
+msgstr "Амулет спины"
+
+msgid "Sandschmied-Handschuhe"
+msgstr "Перчатки песчаного кузнеца"
+
+msgid "Saphir"
+msgstr "Сапфир"
+
+msgid "Saphirjuwel"
+msgstr "Сапфировый самоцвет"
+
+msgid "Schaden"
+msgstr "Урон"
+
+msgid "Schaden für jede Münze, Glück hoch"
+msgstr "Урон за каждую монету, удача выше"
+
+msgid "Schaden hoch"
+msgstr "Урон выше"
+
+msgid "Schaden hoch, etwas schneller schießen"
+msgstr "Урон выше, стрельба чуть быстрее"
+
+msgid "Schaden hoch, größere Feuerbälle"
+msgstr "Урон выше, огненные шары больше"
+
+msgid "Schaden hoch, schneller laufen"
+msgstr "Урон выше, бег быстрее"
+
+msgid "Schaden mal 1,15"
+msgstr "Урон x1,15"
+
+msgid "Schaden mal 1,2"
+msgstr "Урон x1,2"
+
+msgid "Schaden mal 1,2, etwas langsamer schießen"
+msgstr "Урон x1,2, стрельба чуть медленнее"
+
+msgid "Schaden mal 1,25"
+msgstr "Урон x1,25"
+
+msgid "Schaden mal 1,3 und zehn Münzen"
+msgstr "Урон x1,3 и десять монет"
+
+msgid "Schaden mal 1,4 und Durchschlag"
+msgstr "Урон x1,4 и пробивание"
+
+msgid "Schaden mal 1,5"
+msgstr "Урон x1,5"
+
+msgid "Schaden und Reichweite hoch"
+msgstr "Урон и дальность выше"
+
+msgid "Schaden und Rückstoß hoch"
+msgstr "Урон и отдача выше"
+
+msgid "Schaden und Schusstempo hoch"
+msgstr "Урон и скорость выстрела выше"
+
+msgid "Schaden, Reichweite und Glück hoch"
+msgstr "Урон, дальность и удача выше"
+
+msgid "Schaden, Schusstempo und Reichweite hoch"
+msgstr "Урон, темп стрельбы и дальность выше"
+
+msgid "Schaden: %s"
+msgstr "Урон: %s"
+
+msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
+msgstr "Пройди %d уровней подряд без удара"
+
+msgid "Schattenmantel"
+msgstr "Плащ тени"
+
+msgid "Schattenschritt"
+msgstr "Шаг тени"
+
+msgid "Schattenstab"
+msgstr "Посох тени"
+
+msgid "Schatzbeutel"
+msgstr "Мешок сокровищ"
+
+msgid "Schatzkarte"
+msgstr "Карта сокровищ"
+
+msgid "Schießt Feuerbälle"
+msgstr "Стреляет огненными шарами"
+
+msgid "Schildwache"
+msgstr "Щитоносец"
+
+msgid "Schlachtkeil"
+msgstr "Боевой клин"
+
+msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
+msgstr "Змеиный огонь: снаряды извиваются, урон чуть выше"
+
+msgid "Schlangenschüsse, die Gegner verfolgen"
+msgstr "Змеящиеся выстрелы, преследующие врагов"
+
+msgid "Schleim"
+msgstr "Слизень"
+
+msgid "Schließen"
+msgstr "Закрыть"
+
+msgid "Schlängelnde Schüsse, die abprallen"
+msgstr "Змеящиеся отскакивающие выстрелы"
+
+msgid "Schlüsselform"
+msgstr "Форма для ключей"
+
+msgid "Schmiedehammer"
+msgstr "Кузнечный молот"
+
+msgid "Schmiedeschlüssel"
+msgstr "Ключ кузницы"
+
+msgid "Schmiedeschwert"
+msgstr "Кузнечный меч"
+
+msgid "Schmiedeschürze"
+msgstr "Фартук кузнеца"
+
+msgid "Schneller laufen, Glück hoch"
+msgstr "Бег быстрее, удача выше"
+
+msgid "Schneller laufen, mehr Reichweite"
+msgstr "Бег быстрее, дальность выше"
+
+msgid "Schneller schießen und laufen"
+msgstr "Стреляешь и бегаешь быстрее"
+
+msgid "Schneller schießen, Schüsse zerplatzen am Ende"
+msgstr "Стрельба быстрее, выстрелы разлетаются в конце"
+
+msgid "Schnellere Schüsse fliegen durch Gegner"
+msgstr "Быстрые выстрелы пробивают врагов"
+
+msgid "Schreckensbrief"
+msgstr "Письмо ужаса"
+
+msgid "Schrotflinte: sechs Glutbrocken auf kurze Distanz"
+msgstr "Дробовик: шесть угольков на короткой дистанции"
+
+msgid "Schrumpftrank"
+msgstr "Зелье уменьшения"
+
+msgid "Schusstempo"
+msgstr "Скорость выстрела"
+
+msgid "Schwarzer Kristall"
+msgstr "Чёрный кристалл"
+
+msgid "Schwere Glut"
+msgstr "Тяжёлый уголь"
+
+msgid "Schwerer zu treffen und schneller"
+msgstr "Труднее попасть, и быстрее"
+
+msgid "Schwert statt Feuerbällen: der Schwung trifft alle vor dir, Gegner brennen"
+msgstr "Меч вместо огненных шаров: взмах бьёт всех впереди, враги горят"
+
+msgid "Schwert und Feuerstab: jeder Schwung schickt einen Feuerschweif nach vorne"
+msgstr "Меч и огненный посох: каждый взмах посылает вперёд огненный след"
+
+msgid "Schwertschwung: kurze Reichweite, trifft mehrere Gegner"
+msgstr "Взмах меча: малая дальность, бьёт нескольких врагов"
+
+msgid "Schüsse auf einmal: %d"
+msgstr "Снарядов за раз: %d"
+
+msgid "Schüsse fliegen durch Gegner hindurch"
+msgstr "Снаряды пролетают сквозь врагов"
+
+msgid "Schüsse fliegen durch Steine"
+msgstr "Выстрелы летят сквозь камни"
+
+msgid "Schüsse fliegen durch Steine und suchen Gegner"
+msgstr "Выстрелы летят сквозь камни и ищут врагов"
+
+msgid "Schüsse fliegen zu dir zurück"
+msgstr "Снаряды возвращаются к тебе"
+
+msgid "Schüsse prallen ab, fliegen durch Gegner und suchen sie"
+msgstr "Выстрелы отскакивают, пробивают и ищут врагов"
+
+msgid "Schüsse prallen von Wänden ab"
+msgstr "Снаряды отскакивают от стен"
+
+msgid "Schüsse pro Sekunde: %s"
+msgstr "Выстрелов в секунду: %s"
+
+msgid "Schüsse suchen Gegner und fliegen durch sie"
+msgstr "Выстрелы ищут врагов и пробивают их"
+
+msgid "Schüsse zerplatzen am Ende und fliegen durch Steine"
+msgstr "Выстрелы разлетаются в конце и летят сквозь камни"
+
+msgid "Schüsse/s"
+msgstr "Выстр./с"
+
+msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
+msgstr "Шесть монет, три бомбы, три ключа"
+
+msgid "Seelensplitter"
+msgstr "Осколок души"
+
+msgid "Seelenstab"
+msgstr "Посох душ"
+
+msgid "Seherbräu"
+msgstr "Отвар провидца"
+
+msgid "Seite %d von %d"
+msgstr "Страница %d из %d"
+
+msgid "Shift: du springst dorthin, wo du hinzielst"
+msgstr "Shift: прыжок туда, куда целишься"
+
+msgid "Shift: ein schneller Sprint, kurz unverwundbar"
+msgstr "Shift: быстрый рывок, ненадолго неуязвим"
+
+msgid "Siegerring"
+msgstr "Кольцо победителя"
+
+msgid "Silberader"
+msgstr "Серебряная жила"
+
+msgid "Silberamulett"
+msgstr "Серебряный амулет"
+
+msgid "Silberdolch"
+msgstr "Серебряный кинжал"
+
+msgid "Silberhammer"
+msgstr "Серебряный молот"
+
+msgid "Silberharnisch"
+msgstr "Серебряная кираса"
+
+msgid "Silberklinge"
+msgstr "Серебряный клинок"
+
+msgid "Silberring"
+msgstr "Серебряное кольцо"
+
+msgid "Silberspitze"
+msgstr "Серебряный наконечник"
+
+msgid "Skelett"
+msgstr "Скелет"
+
+msgid "Skelettritter"
+msgstr "Скелет-рыцарь"
+
+msgid "Smaragd"
+msgstr "Изумруд"
+
+msgid "Smaragdjuwel"
+msgstr "Изумрудный самоцвет"
+
+msgid "Sonderraum"
+msgstr "Особая комната"
+
+msgid "Sonnenblume"
+msgstr "Подсолнух"
+
+msgid "Spardose"
+msgstr "Копилка"
+
+msgid "Spinne"
+msgstr "Паук"
+
+msgid "Spinnenmutter"
+msgstr "Паучья матка"
+
+msgid "Spinnenseil"
+msgstr "Паучья верёвка"
+
+msgid "Splitterrubin"
+msgstr "Дробящийся рубин"
+
+msgid "Sprache"
+msgstr "Язык"
+
+msgid "Sprengmeisterhelm"
+msgstr "Шлем подрывника"
+
+msgid "Sprengrune"
+msgstr "Руна взрыва"
+
+msgid "Sprengsack"
+msgstr "Мешок взрывчатки"
+
+msgid "Sprengstrahl"
+msgstr "Взрывной луч"
+
+msgid "Sprinterrucksack"
+msgstr "Рюкзак спринтера"
+
+msgid "Steine zertreten und mehr Beute"
+msgstr "Дави камни и больше добычи"
+
+msgid "Steine zertreten, fünf Bomben"
+msgstr "Дави камни, пять бомб"
+
+msgid "Sternenfessel"
+msgstr "Звёздные оковы"
+
+msgid "Sternenstahl"
+msgstr "Звёздная сталь"
+
+msgid "Sternenstahl-Splitter"
+msgstr "Осколок звёздной стали"
+
+msgid "Sternenstaub"
+msgstr "Звёздная пыль"
+
+msgid "Sternentrunk"
+msgstr "Звёздный напиток"
+
+msgid "Stillstehen macht dich unverwundbar"
+msgstr "Стоя на месте, ты неуязвим"
+
+msgid "Stollenhelm"
+msgstr "Шахтёрская каска"
+
+msgid "Stollenratte"
+msgstr "Туннельная крыса"
+
+msgid "Streitkolben"
+msgstr "Булава"
+
+msgid "Streubombe"
+msgstr "Кассетная бомба"
+
+msgid "Sturmessenz"
+msgstr "Эссенция бури"
+
+msgid "Sturmkarte"
+msgstr "Карта бурь"
+
+msgid "Sturmsiegel"
+msgstr "Печать бури"
+
+msgid "Sturmstab"
+msgstr "Посох бури"
+
+msgid "Stärketrank"
+msgstr "Зелье силы"
+
+msgid "Suchende Bumerangs finden immer ein Ziel"
+msgstr "Ищущие бумеранги всегда находят цель"
+
+msgid "Suchende Schüsse und alle Werte hoch"
+msgstr "Самонаводящиеся выстрелы и все характеристики выше"
+
+msgid "Suchende Schüsse und ein blaues Herz"
+msgstr "Самонаводящиеся выстрелы и синее сердце"
+
+msgid "Suchende Schüsse, Glück hoch"
+msgstr "Самонаводящиеся выстрелы, удача выше"
+
+msgid "Suchende Schüsse, etwas mehr Schaden"
+msgstr "Самонаводящиеся выстрелы, чуть больше урона"
+
+msgid "Suchender Funke"
+msgstr "Ищущая искра"
+
+msgid "Suchender Strahl"
+msgstr "Ищущий луч"
+
+msgid "Sumpfhaut"
+msgstr "Болотная шкура"
+
+msgid "Sumpfleder"
+msgstr "Болотная кожа"
+
+msgid "Sumpfmantel"
+msgstr "Болотный плащ"
+
+msgid "Synergie: %s!"
+msgstr "Синергия: %s!"
+
+msgid "Synergien: %s"
+msgstr "Синергии: %s"
+
+msgid "Taumelkraut"
+msgstr "Шатун-трава"
+
+msgid "Tausendklinge"
+msgstr "Клинок тысячи"
+
+msgid "Tempo"
+msgstr "Скорость"
+
+msgid "Tempo: %s"
+msgstr "Скорость: %s"
+
+msgid "Testraum · P: zurück"
+msgstr "Тестовая комната · P: назад"
+
+msgid "Topasjuwel"
+msgstr "Топазовый самоцвет"
+
+msgid "Totenbeschwörer"
+msgstr "Некромант"
+
+msgid "Totengruft"
+msgstr "Склеп мёртвых"
+
+msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
+msgstr "Попадания разлетаются, выстрелы летят сквозь камни"
+
+msgid "Treue Funken"
+msgstr "Верные искры"
+
+msgid "Trollblut"
+msgstr "Кровь тролля"
+
+msgid "Trollpanzer"
+msgstr "Броня тролля"
+
+msgid "Truhenschlüssel"
+msgstr "Ключ от сундука"
+
+msgid "Utility"
+msgstr "Польза"
+
+msgid "Vampir"
+msgstr "Вампир"
+
+msgid "Vergiftet Gegner, Schaden etwas hoch"
+msgstr "Отравляет врагов, урон чуть выше"
+
+msgid "Viel größere Bomben"
+msgstr "Намного большие бомбы"
+
+msgid "Viel mehr Schaden"
+msgstr "Намного больше урона"
+
+msgid "Viel mehr Schaden mit nur einem Herz"
+msgstr "Намного больше урона при одном сердце"
+
+msgid "Viel mehr Schaden, langsamer schießen"
+msgstr "Намного больше урона, стрельба медленнее"
+
+msgid "Viel schneller laufen"
+msgstr "Бег намного быстрее"
+
+msgid "Viel schneller laufen und schießen"
+msgstr "Бег и стрельба намного быстрее"
+
+msgid "Viel schneller schießen und laufen"
+msgstr "Стреляешь и бегаешь намного быстрее"
+
+msgid "Viel schneller schießen, etwas weniger Schaden"
+msgstr "Стреляешь намного быстрее, урон чуть ниже"
+
+msgid "Viel schnellere Schüsse"
+msgstr "Намного более быстрые выстрелы"
+
+msgid "Viel schnellere Schüsse und mehr Reichweite"
+msgstr "Намного более быстрые выстрелы и дальность"
+
+msgid "Viele suchende Funken auf einmal"
+msgstr "Много ищущих искр разом"
+
+msgid "Vier Schlüssel"
+msgstr "Четыре ключа"
+
+msgid "Vollbild"
+msgstr "Полный экран"
+
+msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
+msgstr "WASD: ходьба · Мышь: прицел · ЛКМ: выстрел"
+
+msgid "Wanderbündel"
+msgstr "Узелок странника"
+
+msgid "Wasserstab"
+msgstr "Посох воды"
+
+msgid "Weiter"
+msgstr "Продолжить"
+
+msgid "Weltenstab"
+msgstr "Посох миров"
+
+msgid "Wer tötet, fliegt mit dem Rest weiter"
+msgstr "Убивший выстрел летит дальше с остатком"
+
+msgid "Wettkampfstiefel"
+msgstr "Состязательные сапоги"
+
+msgid "Windfeder"
+msgstr "Перо ветра"
+
+msgid "Windläufer-Stiefel"
+msgstr "Сапоги ветробега"
+
+msgid "Windrose"
+msgstr "Роза ветров"
+
+msgid "Windstab"
+msgstr "Посох ветра"
+
+msgid "Wo der Strahl auftrifft, knallt es"
+msgstr "Куда бьёт луч, там взрыв"
+
+msgid "Wolfsmantel"
+msgstr "Волчий плащ"
+
+msgid "Wurfsterne"
+msgstr "Сюрикены"
+
+msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
+msgstr "Сюрикены пробивают врагов и часто вызывают кровотечение"
+
+msgid "Wähle deinen Charakter"
+msgstr "Выбери персонажа"
+
+msgid "Wählen"
+msgstr "Выбрать"
+
+msgid "Wüstenkompass"
+msgstr "Пустынный компас"
+
+msgid "Zauberbuch"
+msgstr "Книга заклинаний"
+
+msgid "Zehn Bomben"
+msgstr "Десять бомб"
+
+msgid "Zehn Münzen, Glück hoch"
+msgstr "Десять монет, удача выше"
+
+msgid "Zombie"
+msgstr "Зомби"
+
+msgid "Zu wenig Münzen"
+msgstr "Не хватает монет"
+
+msgid "Zufällig Gift, Furcht oder Taumeln"
+msgstr "Случайно яд, страх или шатание"
+
+msgid "Zunderbüchse"
+msgstr "Трутница"
+
+msgid "Zwanzig Münzen"
+msgstr "Двадцать монет"
+
+msgid "Zwei Funken folgen dir und schießen"
+msgstr "Две искры следуют за тобой и стреляют"
+
+msgid "Zwei Funken und Schaden hoch"
+msgstr "Две искры и урон выше"
+
+msgid "Zwei Glutmonde kreisen um dich"
+msgstr "Вокруг тебя кружат две луны жара"
+
+msgid "Zwei Herzen mehr"
+msgstr "Ещё два сердца"
+
+msgid "Zwei Herzen mehr und Dornen"
+msgstr "Ещё два сердца и шипы"
+
+msgid "Zwei Herzen mehr und langsam heilen"
+msgstr "Ещё два сердца и медленное лечение"
+
+msgid "Zwei Herzen mehr, aber langsamer"
+msgstr "Ещё два сердца, но медленнее"
+
+msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
+msgstr "Два сердца, два синих сердца, урон выше"
+
+msgid "Zwei Schüsse mehr, etwas schwächer"
+msgstr "Ещё два выстрела, чуть слабее"
+
+msgid "Zwei blaue Herzen"
+msgstr "Два синих сердца"
+
+msgid "Zwei blaue Herzen und Dornen"
+msgstr "Два синих сердца и шипы"
+
+msgid "Zwei blaue Herzen, Schaden hoch"
+msgstr "Два синих сердца, урон выше"
+
+msgid "Zwei blaue Herzen, länger sicher nach Treffern"
+msgstr "Два синих сердца, дольше защита после ударов"
+
+msgid "Zwei blaue Herzen; geht eins verloren, trifft es alle Gegner"
+msgstr "Два синих сердца; потеря одного бьёт всех врагов"
+
+msgid "Zwillingshandschuhe"
+msgstr "Перчатки-близнецы"
+
+msgid "oder Leertaste"
+msgstr "или пробел"

@@ -1,0 +1,34 @@
+{
+	"_hilfe": {
+		"info": "Kalender des Spiels: Wochentage, Monate (Jahreszeiten) und wie viele Tage ein Monat hat. Tag 1 des Spiels ist der 1. Tag des ersten Monats im Jahr 1. Alle Felder: docs/CONTENT.md, Abschnitt calendar.json. Dieser Block wird vom Spiel ignoriert.",
+		"felder": "weekdays (Namen, die Woche beginnt mit dem ersten), weekdays_short (Kurzformen), start_weekday (Wochentag von Tag 1, 0 = erster Eintrag), months (Namen), days_per_month, moon_cycle (alle so viele Tage Vollmond), full_moon_day (Spieltag des ersten Vollmonds)"
+	},
+	"weekdays": [
+		"Montag",
+		"Dienstag",
+		"Mittwoch",
+		"Donnerstag",
+		"Freitag",
+		"Samstag",
+		"Sonntag"
+	],
+	"weekdays_short": [
+		"Mo",
+		"Di",
+		"Mi",
+		"Do",
+		"Fr",
+		"Sa",
+		"So"
+	],
+	"start_weekday": 0,
+	"months": [
+		"Frühling",
+		"Sommer",
+		"Herbst",
+		"Winter"
+	],
+	"days_per_month": 28,
+	"moon_cycle": 14,
+	"full_moon_day": 7
+}

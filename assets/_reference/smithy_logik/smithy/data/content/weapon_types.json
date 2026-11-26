@@ -1,0 +1,138 @@
+{
+	"_hilfe": {
+		"info": "Waffentypen = Kategorien im Reiter 'Waffe' von Werkbank und Zaubertisch (auch ohne Rezept). Alle Felder mit Beispielen: docs/CONTENT.md. Dieser Block wird vom Spiel ignoriert (Schlüssel mit _ am Anfang).",
+		"felder": {
+			"name": "Name im Plural (Kategorie)",
+			"hands": "one | two | either | left",
+			"station": "workbench | enchanting_table | bow_table",
+			"attack_speed": "Angriffstempo des Helden mit dieser Waffe: 1 = normal (Schwert), 1.4 = 40 % mehr Schläge (Dolch), 0.7 = langsam (Zweihandschwert). Standard 1",
+			"uses_arrows": "true = schießt Pfeile aus der linken Hand (nur Skill-Treffer verbrauchen einen, ohne Pfeile 25 % Schaden)",
+			"attack_anim": "Bewegung des Helden im Kampffenster: swing (Schwung), thrust (Stich), slam (schwerer Schlag von oben), shoot (Schuss, Pfeil fliegt), cast (Zauber, Kugel fliegt), lunge (Sprung nach vorn). Standard swing",
+			"classes": "Helden-Klassen, die diese Waffe tragen dürfen (ids aus data/hero_classes/, z. B. [\"warrior\", \"rogue\"]); weglassen = alle (Schilde). Eine Klasse kommt erst in die Gilde, wenn der Spieler eine ihrer Waffen herstellen kann."
+		},
+		"vorlage": {
+			"name": "Schwerter",
+			"hands": "one",
+			"station": "workbench",
+			"attack_speed": 1.0
+		}
+	},
+	"sword": {
+		"classes": ["warrior", "paladin", "rogue"],
+		"name": "Schwerter",
+		"hands": "one",
+		"station": "workbench",
+		"attack_speed": 1.0,
+		"attack_anim": "swing"
+	},
+	"two_handed_sword": {
+		"classes": ["warrior"],
+		"name": "Zweihandschwerter",
+		"hands": "two",
+		"station": "workbench",
+		"attack_speed": 0.7,
+		"attack_anim": "slam",
+		"hit_vfx": "hit_great"
+	},
+	"dagger": {
+		"classes": ["ranger", "rogue"],
+		"name": "Dolche",
+		"hands": "either",
+		"station": "workbench",
+		"attack_speed": 1.3,
+		"attack_anim": "thrust",
+		"hit_vfx": "hit_dagger"
+	},
+	"polearm": {
+		"classes": ["warrior", "rogue"],
+		"name": "Stangenwaffen",
+		"hands": "two",
+		"station": "workbench",
+		"attack_speed": 0.8,
+		"attack_anim": "thrust",
+		"hit_vfx": "hit_spear"
+	},
+	"hammer": {
+		"classes": ["paladin", "priest"],
+		"name": "Hämmer",
+		"hands": "one",
+		"station": "workbench",
+		"attack_speed": 0.8,
+		"attack_anim": "slam",
+		"hit_vfx": "hit_hammer"
+	},
+	"mace": {
+		"classes": ["paladin", "priest"],
+		"name": "Keulen",
+		"hands": "one",
+		"station": "workbench",
+		"attack_speed": 1.0,
+		"attack_anim": "swing",
+		"hit_vfx": "hit_hammer"
+	},
+	"axe": {
+		"classes": ["warrior", "paladin", "ranger"],
+		"name": "Äxte",
+		"hands": "one",
+		"station": "workbench",
+		"attack_speed": 0.9,
+		"attack_anim": "swing",
+		"hit_vfx": "hit_axe"
+	},
+	"two_handed_axe": {
+		"classes": ["warrior"],
+		"name": "Zweihandäxte",
+		"hands": "two",
+		"station": "workbench",
+		"attack_speed": 0.65,
+		"attack_anim": "slam",
+		"hit_vfx": "hit_axe"
+	},
+	"bow": {
+		"classes": ["ranger"],
+		"name": "Bögen",
+		"hands": "one",
+		"station": "bow_table",
+		"attack_speed": 1.0,
+		"uses_arrows": true,
+		"attack_anim": "shoot"
+	},
+	"longbow": {
+		"classes": ["ranger"],
+		"name": "Langbögen",
+		"hands": "two",
+		"station": "bow_table",
+		"attack_speed": 0.8,
+		"uses_arrows": true,
+		"attack_anim": "shoot"
+	},
+	"shield": {
+		"name": "Schilde",
+		"hands": "left",
+		"station": "workbench"
+	},
+	"staff": {
+		"classes": ["mage", "priest"],
+		"name": "Zauberstäbe",
+		"hands": "one",
+		"station": "enchanting_table",
+		"attack_speed": 1.0,
+		"attack_anim": "cast"
+	},
+	"two_handed_staff": {
+		"classes": ["mage"],
+		"name": "Zweihand-Zauberstäbe",
+		"hands": "two",
+		"station": "enchanting_table",
+		"attack_speed": 0.8,
+		"attack_anim": "cast"
+	},
+	"tome": {
+		"classes": ["mage", "priest"],
+		"name": "Folianten",
+		"hands": "one",
+		"station": "enchanting_table",
+		"attack_speed": 1.0,
+		"attack_anim": "cast"
+	}
+}

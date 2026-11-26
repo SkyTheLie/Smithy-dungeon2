@@ -1,0 +1,775 @@
+{
+	"dialogues": {
+		"miner_intro": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Na sieh mal einer an, ein Schmied! Endlich."
+				},
+				{
+					"speaker": "miner",
+					"text": "Gustav, Bergmann seit vierzig Jahren. Und seit letzter Woche ohne Spitzhacke. Die ist mir im Stollen zerbrochen, als die Decke runterkam."
+				},
+				{
+					"speaker": "miner",
+					"text": "Seitdem sind die Gänge verschüttet. Nur der vordere Teil der Mine ist noch frei."
+				},
+				{
+					"speaker": "player",
+					"text": "Und du brauchst eine neue Spitzhacke?"
+				},
+				{
+					"speaker": "miner",
+					"text": "Genau. Hier, die Gussform von meinem Vater. Gieß einen Kupfer-Spitzhackenkopf und steck ihn auf einen Holzstiel."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich schmiede dir eine",
+					"action": "unlock_recipes:mold_copper_pickaxe_head,copper_pickaxe_head,wooden_shaft,pickaxe;set_flag:pickaxe_quest_accepted;advance:forge_pickaxe",
+					"then": "miner_route"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"miner_route": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Neue Rezepte: Gussform und Amboss-Rezept für den Kupfer-Spitzhackenkopf, dazu Holzstiel und Spitzhacke."
+				},
+				{
+					"speaker": "miner",
+					"text": "Prima! Kupfer gibt's beim Erzhändler auf dem Markt oder hier in der Mine. Ich warte hier."
+				}
+			]
+		},
+		"miner_pickaxe": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Und? Hast du meine Spitzhacke?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Spitzhacke zeigen",
+					"action": "has_items:pickaxe:copper_pickaxe_head+wooden_shaft",
+					"then": "miner_ores",
+					"else": "miner_no_pickaxe"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"miner_no_pickaxe": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Du hast ja gar keine dabei! Eine Kupferspitzhacke, mit Holzstiel."
+				}
+			]
+		},
+		"miner_ores": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Gustav wiegt die Spitzhacke in der Hand und schlägt einmal gegen den Fels.",
+					"action": "cutscene:act:miner:swing:copper_pickaxe_head+wooden_shaft",
+					"hide_for": 1.3
+				},
+				{
+					"speaker": "miner",
+					"text": "Gute Arbeit! Aber weißt du was? Mein Rücken macht das heute nicht mehr mit."
+				},
+				{
+					"speaker": "miner",
+					"text": "Behalte sie erst mal und bau mir damit Erz ab: 5 Kohle und 8 Kupfererz."
+				},
+				{
+					"speaker": "miner",
+					"text": "Dann bringst du mir alles zusammen, Spitzhacke und Erz. Leg die Spitzhacke im Charakter-Fenster an (C), dann geht es schneller."
+				},
+				{
+					"speaker": "player",
+					"text": "Na gut, ab in die Mine!"
+				}
+			],
+			"on_end": "advance:mine_ores"
+		},
+		"miner_check": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Und, hast du alles? 5 Kohle, 8 Kupfererz und meine Spitzhacke."
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier, alles da",
+					"action": "take_items:pickaxe:copper_pickaxe_head+wooden_shaft,coal*5,copper_ore*8;give_gold:60;advance:chapter4_done",
+					"then": "miner_thanks",
+					"else": "miner_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"miner_missing": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Da fehlt noch was. Schau ins Auftragsbuch, da steht, was du schon hast."
+				}
+			]
+		},
+		"miner_thanks": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Hervorragend! Damit kann ich die Gänge wieder freiräumen."
+				},
+				{
+					"speaker": "",
+					"text": "Gustav gibt dir 60 Gold.",
+					"action": "cutscene:act:miner:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "miner",
+					"text": "Und weil du mir so geholfen hast: Ab morgen leg ich dir jeden Morgen ein Stück Kohle in deine Loot-Kiste."
+				},
+				{
+					"speaker": "miner",
+					"text": "Komm ab und zu vorbei. Wenn die Gänge frei sind, zeig ich dir die tieferen Stollen."
+				}
+			]
+		},
+		"miner_idle": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Die Gänge sind noch verschüttet, aber ich grab mich schon durch."
+				}
+			]
+		},
+		"miner_visit": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Da bist du ja! Ich hab's schon auf dem Markt gehört: Deine Leute haben den Rattenkönig erledigt!"
+				},
+				{
+					"speaker": "player",
+					"text": "Das spricht sich ja schnell herum."
+				},
+				{
+					"speaker": "miner",
+					"text": "In so einem Dorf? Schneller als ein Feuer im Heu. Aber deswegen bin ich nicht hier."
+				},
+				{
+					"speaker": "miner",
+					"text": "Ich hab die verschütteten Gänge freigeschaufelt. Aber die Decke hält nicht. Ohne Stützen stürzt mir alles wieder ein."
+				},
+				{
+					"speaker": "miner",
+					"text": "Ich brauche 20 Holzbretter und 5 Kupfernägel. Dann stütze ich die Stollen ab, und wir kommen an die Kupferader weiter hinten."
+				},
+				{
+					"speaker": "player",
+					"text": "Bretter und Nägel? Ich bin Schmied, kein Zimmermann."
+				},
+				{
+					"speaker": "miner",
+					"text": "Ein Schmied, der keinen Nagel machen kann? Hier, ich hab dir aufgeschrieben, wie's geht. Bretter sägst du an der Werkbank aus Holz."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich besorge dir alles",
+					"action": "unlock_recipes:wooden_plank,copper_nail;set_flag:miner_supplies_accepted;advance:build_supplies",
+					"then": "miner_supplies_route"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"miner_supplies_route": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Neue Rezepte: Holzbrett (1 Holz) und Kupfernagel (1 Kupferbarren), an der Werkbank unter Zubehör » Baumaterial."
+				},
+				{
+					"speaker": "miner",
+					"text": "Bring mir alles vor die Mine. Und denk dran: Kupferbarren erst abkühlen, sonst verbrennst du dir die Finger."
+				}
+			]
+		},
+		"miner_supplies_check": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Und? Hast du die 20 Bretter und die 5 Nägel?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier, alles da",
+					"action": "take_items:wooden_plank*20,copper_nail*5;give_gold:80;advance:mine_repairs",
+					"then": "miner_supplies_thanks",
+					"else": "miner_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"miner_supplies_thanks": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Gustav zählt die Bretter. Dann nimmt er einen Nagel und beißt darauf.",
+					"action": "cutscene:act:miner:bite:copper_nail",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "miner",
+					"text": "Gutes Kupfer! Damit halten die Stützen hundert Jahre."
+				},
+				{
+					"speaker": "",
+					"text": "Gustav gibt dir 80 Gold.",
+					"action": "cutscene:act:miner:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "miner",
+					"text": "Ich mach mich gleich an die Arbeit. Komm morgen wieder, dann zeig ich dir, was aus der Mine geworden ist."
+				}
+			]
+		},
+		"miner_mine_open": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Guten Morgen! Ich hab die ganze Nacht durchgearbeitet. Mein Rücken bringt mich um, aber es hat sich gelohnt."
+				},
+				{
+					"speaker": "miner",
+					"text": "Die Stollen sind abgestützt, die Mine ist wieder ein ganzes Stück größer. Und weißt du, was ich weiter hinten gefunden hab?"
+				},
+				{
+					"speaker": "player",
+					"text": "Gold?"
+				},
+				{
+					"speaker": "miner",
+					"text": "Besser! Kupfer. Eine dicke Ader. Da wächst jetzt jeden Tag viel mehr Kupfererz nach als vorher."
+				},
+				{
+					"speaker": "miner",
+					"text": "Bedien dich. Ohne dich wär ich immer noch ein alter Mann ohne Spitzhacke."
+				},
+				{
+					"speaker": "",
+					"text": "Die Mine ist größer: mehr Steine pro Tag und deutlich mehr Kupfererz."
+				}
+			],
+			"on_end": "advance:chapter5_end"
+		},
+		"miner_tour": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Glück auf! Da bist du ja. Ich hab die halbe Nacht nicht geschlafen."
+				},
+				{
+					"speaker": "miner",
+					"text": "Ich hab den neuen Stollen im Westen noch ein Stück weiter vorgetrieben. Ganz hinten klingt der Fels so ... hohl."
+				},
+				{
+					"speaker": "player",
+					"text": "Hohl? Ist das gut oder schlecht?"
+				},
+				{
+					"speaker": "miner",
+					"text": "Das finden wir raus! Komm mit, ich zeig's dir. Ich geh schon mal vor."
+				}
+			],
+			"on_end": "advance:explore_mine"
+		},
+		"miner_cave_in": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Da bist du ja. Hier, hör mal ..."
+				},
+				{
+					"speaker": "",
+					"text": "Gustav klopft mit der Spitzhacke gegen die Wand. Es klingt dumpf, als wäre dahinter ein Raum.",
+					"action": "cutscene:miner_knock",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "player",
+					"text": "Das klingt wirklich hohl."
+				},
+				{
+					"speaker": "miner",
+					"text": "Sag ich doch! Wenn ich hier noch ein bisschen ..."
+				},
+				{
+					"speaker": "",
+					"text": "Ein tiefes Grollen geht durch den Stollen. Staub rieselt von der Decke. Dann bricht das Geröll in sich zusammen.",
+					"action": "cutscene:cave_in",
+					"hide_for": 2.8
+				},
+				{
+					"speaker": "miner",
+					"text": "Hust ... hust ... Alles in Ordnung bei dir?"
+				},
+				{
+					"speaker": "player",
+					"text": "Ich glaub schon. Da ist jetzt ein Loch in der Wand ..."
+				},
+				{
+					"speaker": "",
+					"text": "Aus der Dunkelheit hinter dem Loch kratzt und quiekt es. Rote Augen blitzen auf.",
+					"action": "cutscene:rats_out",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "miner",
+					"text": "Ratten! Ein ganzes Nest! Und da hinten ... ist das eine? So groß wie ein Hund?"
+				},
+				{
+					"speaker": "player",
+					"text": "Ich bin Schmied, kein Rattenfänger!"
+				},
+				{
+					"speaker": "miner",
+					"text": "Und ich bin zu alt für so was! Ich halte sie mit der Spitzhacke auf. Hol Hilfe, schnell!"
+				},
+				{
+					"speaker": "player",
+					"text": "Ich weiß, wen ich holen kann. Halt durch, Gustav!"
+				}
+			],
+			"on_end": "set_flag:mine_cave_in;set_flag:mine_rats_out;advance:get_help;travel:res://scenes/world/mine/mine_entrance.tscn,FromMine,mine"
+		},
+		"miner_hold": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Weg da, ihr Biester! ... Was stehst du noch hier? Hol Hilfe!"
+				}
+			]
+		},
+		"miner_retreat": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Puh ... die Viecher sind zäher, als sie aussehen."
+				},
+				{
+					"speaker": "miner",
+					"text": "Gib Bruno ordentliches Zeug, dann gehen wir wieder rein. Die Ratten laufen uns schon nicht weg. Leider."
+				}
+			]
+		},
+		"miner_hole": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Ha! Habt ihr gesehen, wie die gerannt sind?"
+				},
+				{
+					"speaker": "bruno",
+					"text": "*hicks* Das war ich. Ganz allein. Gustav hat nur zugeguckt."
+				},
+				{
+					"speaker": "miner",
+					"text": "Ich hab die Lampe gehalten! Ohne Licht hättest du die Wand verprügelt."
+				},
+				{
+					"speaker": "",
+					"text": "Gustav steigt über die Steine und leuchtet mit seiner Lampe durch das Loch.",
+					"action": "cutscene:miner_peek",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "miner",
+					"text": "Bei allen Stollen ... Kommt her, schaut euch das an!"
+				},
+				{
+					"speaker": "",
+					"text": "Hinter dem Loch liegt eine riesige Höhle. Der Lichtschein verliert sich in der Tiefe, irgendwo tropft Wasser. An den Wänden glitzert es."
+				},
+				{
+					"speaker": "player",
+					"text": "Ist das ... Erz?"
+				},
+				{
+					"speaker": "miner",
+					"text": "Und nicht zu knapp! Das muss die alte Mine sein, die vor vielen Jahren eingestürzt ist. Die nächste Ebene!"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Gibt's da unten auch Bier?"
+				},
+				{
+					"speaker": "miner",
+					"text": "Nein, Bruno. Aber da, wo die Ratten herkamen, gibt's sicher noch mehr Ratten."
+				},
+				{
+					"speaker": "bruno",
+					"text": "Dann geh ich lieber wieder an meinen Brunnen. *hicks* Schmied, wir sind quitt!"
+				},
+				{
+					"speaker": "",
+					"text": "Bruno winkt ab und schlurft pfeifend aus der Mine, zurück zu seinem Brunnen.",
+					"action": "set_flag:bruno_left_mine",
+					"hide_for": 3.2
+				},
+				{
+					"speaker": "miner",
+					"text": "Hör zu, {name}. So kommen wir durch das Loch nicht runter, der Fels hier ist zu weich. Erst muss der Gang dahinter abgestützt werden. Das kann ich machen."
+				},
+				{
+					"speaker": "miner",
+					"text": "Dafür brauche ich richtiges Werkzeug. Eine Eisenspitzhacke, Kupfer zerbricht an dem Gestein. Und Eisennägel zum Abstützen."
+				},
+				{
+					"speaker": "player",
+					"text": "Eisen? Hier im Dorf gibt es doch nur Kupfer."
+				},
+				{
+					"speaker": "miner",
+					"text": "Eben. Eisen kriegst du in der Königsstadt, in Leonheim. Wenn du mal dorthin kommst, bring mir welches mit. Dann reden wir weiter."
+				},
+				{
+					"speaker": "miner",
+					"text": "Bis dahin mach ich das Loch mit Brettern zu. Sonst kommen die Ratten wieder."
+				},
+				{
+					"speaker": "",
+					"text": "Gustav holt ein paar alte Bretter aus dem Stollen und nagelt das Loch zu.",
+					"action": "cutscene:board_hole",
+					"hide_for": 3.6
+				}
+			],
+			"on_end": "set_flag:old_mine_found;advance:chapter6_end"
+		},
+		"miner_iron_offer": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Du warst in Leonheim, hab ich gehört! Dann kommst du jetzt an Eisen, oder?"
+				},
+				{
+					"speaker": "miner",
+					"text": "Weißt du noch, das Loch hinter den Ratten? Die nächste Ebene. Ich stütze den Gang ab, wenn du mir das Zeug bringst."
+				},
+				{
+					"speaker": "miner",
+					"text": "Eine Eisenspitzhacke, Kupfer zerbricht an dem Gestein. 40 Holzbalken und 40 Eisennägel zum Abstützen. Und 1000 Gold. Für die Arbeiter. Und für meinen Rücken."
+				},
+				{
+					"speaker": "player",
+					"text": "1000 Gold?!"
+				},
+				{
+					"speaker": "miner",
+					"text": "Glaub mir, das lohnt sich. Da unten liegt Eisen, von dem du bisher nur träumen konntest."
+				},
+				{
+					"speaker": "",
+					"text": "Gustav gibt dir die Gussform für einen Eisen-Spitzhackenkopf und zeigt dir, wie man Holzbalken zuschneidet.",
+					"action": "cutscene:act:miner:give:res://assets/sprites/molds/pickaxe_head.png",
+					"hide_for": 1.1
+				}
+			],
+			"on_end": "unlock_molds:mold_iron_pickaxe_head;unlock_recipes:pickaxe,wooden_shaft,wooden_beam,wooden_plank,iron_nail;set_flag:gustav_deal;hint:old_mine"
+		},
+		"miner_bronze_question": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Gustav, sag mal ... was ist eigentlich Bronze?"
+				},
+				{
+					"speaker": "miner",
+					"text": "Bronze? Hast du etwa welche in die Finger bekommen? Zeig mal her ..."
+				},
+				{
+					"speaker": "miner",
+					"text": "Bronze schlägt man nicht aus dem Berg. Das ist eine Legierung: Kupfer und Eisen, zusammen eingeschmolzen."
+				},
+				{
+					"speaker": "miner",
+					"text": "Leg an deiner Schmelze unter Legieren einen Kupferbarren und einen Eisenbarren hinein. Heraus kommt ein Bronzebarren, härter als Kupfer und zäher als Eisen."
+				},
+				{
+					"speaker": "miner",
+					"text": "Mach mir doch mal einen. Wenn du das hinkriegst, zahl ich dir 150 Gold dafür."
+				}
+			],
+			"on_end": "set_flag:bronze_explained"
+		},
+		"miner_bronze_hand_in": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Und, hast du mir einen Bronzebarren gemacht? Ein Kupfer- und ein Eisenbarren, zusammen in die Schmelze unter Legieren."
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier ist ein Bronzebarren",
+					"action": "take_items:bronze_ingot;give_gold:150;set_flag:bronze_delivered",
+					"then": "miner_bronze_thanks",
+					"else": "miner_bronze_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"miner_bronze_thanks": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Na sieh mal einer an! Schön gleichmäßig, kein einziger Riss."
+				},
+				{
+					"speaker": "miner",
+					"text": "Damit kannst du jetzt Werkzeug machen, das länger hält als Kupfer. Hier, 150 Gold, wie versprochen."
+				}
+			]
+		},
+		"miner_bronze_missing": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Da ist ja gar kein Bronzebarren. Kupferbarren und Eisenbarren in die Schmelze, Reiter Legieren, dann komm wieder."
+				}
+			]
+		},
+		"miner_deal_check": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Na, was hast du für den Gang hinter dem Loch dabei? 1000 Gold, eine Eisenspitzhacke, 40 Holzbalken und 40 Eisennägel. Du kannst mir auch alles einzeln bringen, ich leg's zur Seite."
+				}
+			],
+			"choices": [
+				{
+					"text": "Wegen der Bronze ...",
+					"if_flag": "bronze_explained",
+					"unless_flag": "bronze_delivered",
+					"then": "miner_bronze_hand_in"
+				},
+				{
+					"text": "Sachen abgeben",
+					"action": "deliver:old_mine",
+					"then": "miner_deal_progress",
+					"else": "miner_deal_nothing"
+				},
+				{
+					"text": "Gold geben",
+					"action": "deliver_gold:old_mine",
+					"then": "miner_deal_progress",
+					"else": "miner_deal_no_gold"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"miner_deal_progress": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"unless_flag": "old_mine_deal_done",
+					"text": "Gut, das leg ich zur Seite. Den Rest bringst du, wann du willst. Im Auftragsbuch steht, was noch fehlt."
+				},
+				{
+					"speaker": "miner",
+					"if_flag": "old_mine_deal_done",
+					"text": "Alles da! Und die Spitzhacke ... schön schwer. Damit kommt man durch jeden Fels."
+				},
+				{
+					"speaker": "miner",
+					"if_flag": "old_mine_deal_done",
+					"text": "Morgen früh fang ich an. Wenn der Gang hinter dem Loch hält, kannst du runter."
+				},
+				{
+					"speaker": "miner",
+					"if_flag": "old_mine_deal_done",
+					"text": "Mit der Eisenspitzhacke schlag ich auch viel mehr Kohle. Ab morgen findest du jeden Morgen 3 Kohle in deiner Loot-Kiste."
+				}
+			]
+		},
+		"miner_deal_nothing": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Davon brauch ich nichts mehr, oder du hast es nicht dabei. Leg mir die Sachen hin, die noch fehlen: Eisenspitzhacke, Holzbalken, Eisennägel."
+				}
+			]
+		},
+		"miner_deal_no_gold": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Gold hast du grad keins dabei. Bring's, wenn du's hast."
+				}
+			]
+		},
+		"miner_deep_mine_offer": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Du kommst ja inzwischen weit rum. Dann kann ich es dir ja sagen: Der verschüttete Stollen rechts neben dem Eingang, das war mal der beste Gang vom ganzen Berg."
+				},
+				{
+					"speaker": "miner",
+					"text": "Vor dreißig Jahren ist er eingestürzt. Dahinter liegt die tiefe Ader: Silber, Gold, sogar Platin. Keiner hat sich mehr rangetraut."
+				},
+				{
+					"speaker": "miner",
+					"text": "Ich räume ihn frei, wenn du mir das Zeug bringst: 5000 Gold, eine Goldspitzhacke, 80 Holzbalken und 80 Eisennägel."
+				}
+			],
+			"on_end": "set_flag:gustav_deep_deal;set_flag:deep_mine_offered"
+		},
+		"miner_deep_mine_check": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Was hast du für den alten Stollen dabei? 5000 Gold, eine Goldspitzhacke, 80 Holzbalken und 80 Eisennägel. Gern auch einzeln."
+				}
+			],
+			"choices": [
+				{
+					"text": "Sachen abgeben",
+					"action": "deliver:deep_mine",
+					"then": "miner_deep_mine_progress",
+					"else": "miner_deep_mine_missing"
+				},
+				{
+					"text": "Gold geben",
+					"action": "deliver_gold:deep_mine",
+					"then": "miner_deep_mine_progress",
+					"else": "miner_deal_no_gold"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"miner_deep_mine_progress": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"unless_flag": "deep_mine_deal_done",
+					"text": "Kommt zum Rest. Wenn alles da ist, räum ich den Stollen frei."
+				},
+				{
+					"speaker": "miner",
+					"if_flag": "deep_mine_deal_done",
+					"text": "Sauber! Heute Nacht räum ich den Stollen frei. Morgen früh kannst du rein."
+				}
+			]
+		},
+		"miner_deep_mine_missing": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Davon brauch ich nichts mehr, oder du hast es nicht dabei. Leg mir hin, was noch fehlt: Goldspitzhacke, Holzbalken, Eisennägel."
+				}
+			]
+		},
+		"miner_deep_mine_open": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Der alte Stollen ist offen. Da unten gibt es Erz für ein ganzes Leben. Pass auf deinen Kopf auf."
+				}
+			]
+		},
+		"miner_old_mine_open": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Der Gang hinter dem Rattenloch ist abgestützt. Geh ruhig runter in die nächste Ebene. Da unten steckt viel Eisen und besseres Kupfer als hier oben. Und ab jetzt wächst auch hier oben Eisen nach."
+				}
+			]
+		},
+		"gustav_hideout": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Hör auf Lotte. Die hat mehr Mut als wir alle zusammen."
+				}
+			]
+		},
+		"gustav_ruse": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Fünf Kohle. Dann qualmt die alte Mine, als hätte da einer eine Woche gewohnt. Mein Rücken freut sich nicht."
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier, fünf Kohle.",
+					"action": "take_items:coal*5",
+					"then": "gustav_ruse_done",
+					"else": "gustav_ruse_missing",
+					"unless_flag": "ruse_gustav"
+				},
+				{
+					"text": "Gleich."
+				}
+			]
+		},
+		"gustav_ruse_missing": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Das sind keine fünf. Komm wieder, wenn du zählen kannst."
+				}
+			]
+		},
+		"gustav_ruse_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du gibst Gustav fünf Kohlen. Er wiegt den Sack in der Hand und brummt.",
+					"action": "cutscene:act:player:give:coal",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "miner",
+					"text": "Gut. Heute Abend erzähle ich im Gasthaus, ich hätte in der alten Mine Licht gesehen. Laut. Damit es die Richtigen hören.",
+					"action": "set_flag:ruse_gustav"
+				}
+			]
+		},
+		"gustav_night": {
+			"lines": [
+				{
+					"speaker": "miner",
+					"text": "Die Mine qualmt. Jetzt warten wir."
+				}
+			]
+		}
+	}
+}

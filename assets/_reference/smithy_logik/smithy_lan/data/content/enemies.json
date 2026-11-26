@@ -1,0 +1,6227 @@
+{
+	"_hilfe": {
+		"info": "Monster. Sollen nach links schauen. Wo sie vorkommen: dungeons.json. Alle Felder mit Beispielen: docs/CONTENT.md. Dieser Block wird vom Spiel ignoriert (Schlüssel mit _ am Anfang).",
+		"standard_bilder": {
+			"sprite fehlt": "res://assets/sprites/enemies/default.png (16×16)"
+		},
+		"felder": {
+			"name / level": "Name, angezeigtes Level",
+			"sprite": "{\"path\": Bild, \"frame_size\": [16, 16], \"frames\": Anzahl, \"fps\": Bilder pro Sekunde}",
+			"hp / damage / magic_damage": "Zahl oder [von, bis]",
+			"mana / armor / attack_interval": "Mana, Rüstung, Sekunden zwischen Schlägen",
+			"hp_regen / mana_regen": "pro Sekunde",
+			"attributes": "z. B. {\"str\": 2}",
+			"drops": "[{\"item\": id, \"chance\": 0–1, \"amount\": Zahl oder [von, bis], \"rarity\": {\"R2\": 0.1}}] (rarity optional: Chance auf eine bessere Seltenheit, sonst die des Items)",
+			"skills": "Skill-ids",
+			"damage_type / damage_split / resistances / crit_chance": "wie bei Items",
+			"scale / tint": "Größe (2 = Boss) / Einfärbung, z. B. #ff8080",
+			"on_hit": "Effekte, die normale Angriffe auslösen können: [{\"effect\": id aus status_effects.json, \"chance\": %}], z. B. Giftratte Gift 30 %",
+			"exp": "EXP für jeden lebenden Helden pro Kill (×1,5 wenn das Monster 5+ Level über dem Helden ist, ×0,5 wenn 5+ darunter; Werte in combat.json)",
+			"summon_shout": "Ruf beim Hilfe holen (Standard „Zu mir, Jungs!“)",
+			"absorb": "Schadensarten, die heilen statt verletzen, in %, z. B. {\"fire\": 100} (Lavagolem)",
+			"phases": "weitere Lebensbalken eines Bosses: [{\"name\", \"text\", \"hp\", \"damage\", \"magic_damage\", \"attack_interval\", \"armor\", \"magic_resistance\", \"hp_regen\", \"scale\", \"skills\"}] (fehlende Werte bleiben)",
+			"hover": "true = fliegt: schwebt im Kampf über dem Boden und wippt (Fledermaus, Geist, Harpyie ...)",
+			"attack_vfx": "Effekt der normalen Angriffe beim Ziel, z. B. \"claw\" (drei Kratzer) für Tiere; leer = nach Pose",
+			"shroud": "Effekt-id (z. B. \"shrouded\"): trägt ihn, solange ein anderer Gegner lebt – dann gar nicht zu treffen (Nebelfürst)",
+			"split": "{\"below_percent\": 25, \"count\": 2, \"share_percent\": 50, \"size\": 0.75, \"times\": 2}: teilt sich unter 25 % Leben in 2 Teile mit halbem Leben und Schaden, zweimal hintereinander (Moorschleim)"
+		},
+		"vorlage": {
+			"name": "Ratte",
+			"level": 1,
+			"sprite": {
+				"path": "res://assets/sprites/enemies/rat.png",
+				"frame_size": [
+					16,
+					16
+				],
+				"frames": 1,
+				"fps": 4
+			},
+			"hp": [
+				7,
+				10
+			],
+			"damage": [
+				2,
+				2
+			],
+			"attack_interval": 1.0,
+			"drops": [
+				{
+					"item": "copper_ore",
+					"chance": 0.105,
+					"amount": [
+						1,
+						2
+					]
+				}
+			],
+			"exp": 3
+		}
+	},
+	"rat": {
+		"name": "Ratte",
+		"level": 1,
+		"exp": 3,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/rat.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"death": {"path": "res://assets/sprites/enemies/rat_death.png", "frames": 6, "fps": 10}, "lunge": {"path": "res://assets/sprites/enemies/rat_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/rat_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/rat_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/rat_attack.png", "frames": 6, "fps": 16}, "walk": {"path": "res://assets/sprites/enemies/rat_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			7,
+			10
+		],
+		"mana": 0,
+		"damage": [
+			1,
+			2
+		],
+		"attack_interval": 1.0,
+		"armor": 0,
+		"attributes": {},
+		"drops": [
+			{
+				"item": "rat_fur",
+				"chance": 0.05,
+				"rarity": {
+					"R2": 0.1
+				}
+			}
+		],
+		"skills": [],
+		"damage_type": "stab",
+		"mana_regen": 0,
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"poison_rat": {
+		"name": "Giftratte",
+		"level": 2,
+		"exp": 4,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/poison_rat.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/poison_rat_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/poison_rat_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/poison_rat_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/poison_rat_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/poison_rat_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/poison_rat_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			8,
+			11
+		],
+		"mana": 0,
+		"damage": [
+			1,
+			2
+		],
+		"attack_interval": 1.0,
+		"armor": 0,
+		"attributes": {},
+		"resistances": {
+			"poison": 50
+		},
+		"drops": [
+			{
+				"item": "rat_venom_fang",
+				"chance": 0.1,
+				"rarity": {
+					"R2": 0.1
+				}
+			},
+			{
+				"item": "rat_fur",
+				"chance": 0.05,
+				"rarity": {
+					"R2": 0.1
+				}
+			}
+		],
+		"skills": [],
+		"on_hit": [
+			{
+				"effect": "poison",
+				"chance": 30
+			}
+		],
+		"damage_type": "stab",
+		"mana_regen": 0,
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"giant_rat": {
+		"name": "Riesenratte",
+		"level": 4,
+		"exp": 12,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/giant_rat.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/giant_rat_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/giant_rat_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/giant_rat_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/giant_rat_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/giant_rat_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/giant_rat_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.75,
+		"hp": [
+			28,
+			35
+		],
+		"mana": 6,
+		"damage": [
+			3,
+			4
+		],
+		"attack_interval": 1.2,
+		"armor": 2,
+		"attributes": {},
+		"drops": [
+			{
+				"item": "rat_fur",
+				"chance": 0.15,
+				"rarity": {
+					"R2": 0.1
+				}
+			}
+		],
+		"skills": [
+			"poison_bite"
+		],
+		"damage_type": "stab",
+		"mana_regen": 0.5,
+		"attack_vfx": "claw"
+	},
+	"rat_king": {
+		"name": "Rattenkönig",
+		"level": 7,
+		"exp": 40,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/rat_king.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/rat_king_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/rat_king_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/rat_king_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/rat_king_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/rat_king_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/rat_king_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			75,
+			90
+		],
+		"mana": 20,
+		"mana_regen": 1,
+		"damage": [
+			4,
+			5
+		],
+		"attack_interval": 1.1,
+		"armor": 5,
+		"attributes": {
+			"str": 5
+		},
+		"drops": [
+			{"item": "copper_ore", "chance": 1.0, "amount": [2, 4]},
+			{
+				"item": "feather",
+				"chance": 0.35
+			},
+			{
+				"item": "rat_fur",
+				"chance": 0.5,
+				"rarity": {
+					"R2": 0.1
+				},
+				"amount": [
+					1,
+					2
+				]
+			},
+			{
+				"item": "backpack:copper_backpack_frame+leather",
+				"chance": 0.05
+			}
+		],
+		"skills": [
+			"poison_bite",
+			"deep_cut",
+			"poison_cloud"
+		],
+		"damage_type": "slash",
+		"resistances": {
+			"slash": 10,
+			"fire": -20
+		},
+		"attack_vfx": "claw"
+	},
+	"mine_rat_boss": {
+		"name": "Alte Bergratte",
+		"level": 6,
+		"exp": 25,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/mine_rat_boss.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/mine_rat_boss_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/mine_rat_boss_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/mine_rat_boss_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/mine_rat_boss_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/mine_rat_boss_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/mine_rat_boss_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			70,
+			85
+		],
+		"mana": 10,
+		"mana_regen": 0.5,
+		"damage": [
+			3,
+			5
+		],
+		"attack_interval": 1.2,
+		"armor": 3,
+		"attributes": {},
+		"drops": [
+			{
+				"item": "rat_fur",
+				"chance": 0.5,
+				"rarity": {
+					"R2": 0.1
+				}
+			},
+			{
+				"item": "coal",
+				"chance": 0.8,
+				"amount": [
+					1,
+					3
+				]
+			}
+		],
+		"skills": [
+			"poison_bite"
+		],
+		"damage_type": "stab",
+		"attack_vfx": "claw"
+	},
+	"wolf": {
+		"name": "Wolf",
+		"level": 8,
+		"exp": 15,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/wolf.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/wolf_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/wolf_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/wolf_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/wolf_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/wolf_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/wolf_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			34,
+			42
+		],
+		"mana": 0,
+		"damage": [
+			4,
+			5
+		],
+		"attack_interval": 1.2,
+		"armor": 2,
+		"attributes": {
+			"str": 4,
+			"agi": 3
+		},
+		"drops": [
+			{
+				"item": "wolf_fur",
+				"chance": 0.08,
+				"rarity": {
+					"R3": 0.1
+				}
+			}
+		],
+		"skills": [],
+		"damage_type": "slash",
+		"resistances": {},
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"silver_wolf": {
+		"name": "Silberwolf",
+		"level": 10,
+		"exp": 30,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/silver_wolf.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/silver_wolf_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/silver_wolf_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/silver_wolf_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/silver_wolf_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/silver_wolf_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/silver_wolf_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.57,
+		"hp": [
+			110,
+			145
+		],
+		"mana": 10,
+		"damage": [
+			10,
+			15
+		],
+		"attack_interval": 1.0,
+		"armor": 5,
+		"attributes": {
+			"str": 8,
+			"agi": 6
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.14,
+				"amount": [
+					1,
+					2
+				]
+			}
+		],
+		"skills": [
+			"deep_cut"
+		],
+		"damage_type": "slash",
+		"resistances": {
+			"dark": 25
+		},
+		"attack_vfx": "claw"
+	},
+	"fire_wolf": {
+		"name": "Feuerwolf",
+		"level": 15,
+		"exp": 45,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/fire_wolf.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/fire_wolf_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/fire_wolf_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/fire_wolf_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/fire_wolf_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/fire_wolf_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/fire_wolf_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.6,
+		"hp": [
+			190,
+			240
+		],
+		"mana": 30,
+		"mana_regen": 0.5,
+		"damage": [
+			16,
+			23
+		],
+		"magic_damage": [
+			8,
+			14
+		],
+		"attack_interval": 1.0,
+		"armor": 8,
+		"attributes": {
+			"str": 11,
+			"int": 4
+		},
+		"drops": [],
+		"skills": [
+			"fireball"
+		],
+		"damage_type": "fire",
+		"resistances": {
+			"fire": 100,
+			"ice": -25
+		},
+		"attack_vfx": "claw"
+	},
+	"ice_wolf": {
+		"name": "Eiswolf",
+		"faces_right": true,
+		"level": 18,
+		"exp": 54,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/ice_wolf.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/ice_wolf_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/ice_wolf_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/ice_wolf_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/ice_wolf_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/ice_wolf_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/ice_wolf_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.6,
+		"hp": [
+			250,
+			320
+		],
+		"mana": 40,
+		"mana_regen": 0.7,
+		"damage": [
+			20,
+			27
+		],
+		"magic_damage": [
+			10,
+			17
+		],
+		"attack_interval": 1.1,
+		"armor": 10,
+		"attributes": {
+			"str": 13,
+			"int": 5,
+			"agi": 7
+		},
+		"drops": [],
+		"skills": [
+			"ice_lance"
+		],
+		"damage_type": "ice",
+		"resistances": {
+			"ice": 100,
+			"fire": -25
+		},
+		"attack_vfx": "claw"
+	},
+	"giant_wolf": {
+		"name": "Riesenwolf",
+		"level": 22,
+		"exp": 66,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/giant_wolf.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/giant_wolf_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/giant_wolf_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/giant_wolf_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/giant_wolf_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/giant_wolf_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/giant_wolf_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			450,
+			600
+		],
+		"mana": 20,
+		"damage": [
+			28,
+			38
+		],
+		"attack_interval": 1.3,
+		"armor": 15,
+		"attributes": {
+			"str": 20,
+			"agi": 8
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.49,
+				"amount": [
+					2,
+					5
+				]
+			}
+		],
+		"skills": [
+			"deep_cut"
+		],
+		"damage_type": "slash",
+		"resistances": {},
+		"attack_vfx": "claw"
+	},
+	"wild_boar": {
+		"name": "Wildschwein",
+		"level": 10,
+		"exp": 21,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/wild_boar.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/wild_boar_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/wild_boar_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/wild_boar_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/wild_boar_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/wild_boar_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/wild_boar_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			36,
+			44
+		],
+		"mana": 0,
+		"damage": [
+			4,
+			6
+		],
+		"attack_interval": 1.5,
+		"armor": 4,
+		"attributes": {
+			"str": 6,
+			"con": 4
+		},
+		"drops": [],
+		"skills": [],
+		"damage_type": "blunt",
+		"resistances": {},
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"black_wolf": {
+		"name": "Schwarzer Wolf",
+		"level": 13,
+		"exp": 60,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/black_wolf.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/black_wolf_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/black_wolf_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/black_wolf_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/black_wolf_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/black_wolf_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/black_wolf_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			110,
+			130
+		],
+		"mana": 20,
+		"mana_regen": 1,
+		"damage": [
+			6,
+			9
+		],
+		"attack_interval": 1.1,
+		"armor": 6,
+		"attributes": {
+			"str": 8,
+			"agi": 6
+		},
+		"drops": [
+			{
+				"item": "wolf_fur",
+				"chance": 1.0,
+				"amount": [
+					1,
+					2
+				],
+				"rarity": {
+					"R3": 0.2
+				}
+			},
+			{"item": "copper_ore", "chance": 0.56, "amount": [3, 5]},
+			{
+				"item": "feather",
+				"chance": 0.28
+			},
+			{"item": "backpack:copper_backpack_frame+wolf_leather", "chance": 0.05}
+		],
+		"skills": [
+			"deep_cut"
+		],
+		"damage_type": "slash",
+		"resistances": {
+			"slash": 5
+		},
+		"attack_vfx": "claw"
+	},
+	"giant_wild_boar": {
+		"name": "Riesenwildschwein",
+		"level": 16,
+		"exp": 48,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/giant_wild_boar.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/giant_wild_boar_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/giant_wild_boar_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/giant_wild_boar_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/giant_wild_boar_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/giant_wild_boar_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/giant_wild_boar_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			300,
+			420
+		],
+		"mana": 0,
+		"damage": [
+			20,
+			30
+		],
+		"attack_interval": 1.3,
+		"armor": 12,
+		"attributes": {
+			"str": 15,
+			"con": 12
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.315,
+				"amount": [
+					1,
+					3
+				]
+			}
+		],
+		"skills": [],
+		"damage_type": "blunt",
+		"resistances": {},
+		"attack_vfx": "claw"
+	},
+	"fishman_spearman": {
+		"name": "Fischmensch-Speerträger",
+		"level": 12,
+		"exp": 36,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/fishman_spearman.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/fishman_spearman_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/fishman_spearman_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/fishman_spearman_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/fishman_spearman_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/fishman_spearman_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/fishman_spearman_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			130,
+			170
+		],
+		"mana": 10,
+		"damage": [
+			12,
+			18
+		],
+		"attack_interval": 1.3,
+		"armor": 6,
+		"attributes": {
+			"str": 9,
+			"agi": 4
+		},
+		"drops": [],
+		"skills": [],
+		"damage_type": "stab",
+		"resistances": {
+			"water": 100
+		},
+		"scale": 0.5
+	},
+	"fishman_archer": {
+		"name": "Fischmensch-Bogenschütze",
+		"level": 16,
+		"exp": 48,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/fishman_archer.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/fishman_archer_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/fishman_archer_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/fishman_archer_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/fishman_archer_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/fishman_archer_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/fishman_archer_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			180,
+			230
+		],
+		"mana": 20,
+		"damage": [
+			17,
+			24
+		],
+		"attack_interval": 1.5,
+		"armor": 5,
+		"attributes": {
+			"agi": 12,
+			"str": 7
+		},
+		"drops": [
+			{
+				"item": "feather",
+				"chance": 0.14
+			}
+		],
+		"skills": [
+			"rapid_shot",
+			"aimed_shot"
+		],
+		"damage_type": "stab",
+		"resistances": {
+			"water": 100
+		},
+		"scale": 0.5
+	},
+	"fishman_king": {
+		"name": "Fischmenschenkönig",
+		"level": 30,
+		"exp": 90,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/fishman_king.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/fishman_king_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/fishman_king_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/fishman_king_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/fishman_king_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/fishman_king_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/fishman_king_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			1200,
+			1600
+		],
+		"mana": 150,
+		"mana_regen": 2,
+		"damage": [
+			45,
+			65
+		],
+		"magic_damage": [
+			30,
+			45
+		],
+		"attack_interval": 1.2,
+		"armor": 25,
+		"attributes": {
+			"str": 25,
+			"int": 20,
+			"con": 20
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 1.0,
+				"amount": [
+					4,
+					7
+				]
+			}
+		],
+		"skills": [
+			"whirlwind",
+			"thunder_strike"
+		],
+		"damage_type": "slash",
+		"resistances": {
+			"water": 100,
+			"physical": 20,
+			"lightning": -20
+		}
+	},
+	"mummy": {
+		"name": "Mumie",
+		"level": 20,
+		"exp": 60,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/mummy.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/mummy_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/mummy_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/mummy_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/mummy_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/mummy_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/mummy_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			350,
+			480
+		],
+		"mana": 40,
+		"mana_regen": 0.5,
+		"damage": [
+			22,
+			32
+		],
+		"magic_damage": [
+			12,
+			20
+		],
+		"attack_interval": 1.5,
+		"armor": 14,
+		"attributes": {
+			"str": 14,
+			"int": 8,
+			"con": 12
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.35,
+				"amount": [
+					2,
+					4
+				]
+			}
+		],
+		"skills": [
+			"lifesteal_strike"
+		],
+		"damage_type": "blunt",
+		"resistances": {
+			"earth": 100,
+			"dark": 25,
+			"light": -25
+		},
+		"scale": 0.5
+	},
+	"jackal": {
+		"name": "Schakal",
+		"level": 9,
+		"exp": 27,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/jackal.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/jackal_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/jackal_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/jackal_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/jackal_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/jackal_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/jackal_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.5,
+		"hp": [
+			85,
+			115
+		],
+		"mana": 0,
+		"damage": [
+			9,
+			14
+		],
+		"attack_interval": 0.9,
+		"armor": 3,
+		"attributes": {
+			"str": 6,
+			"agi": 8
+		},
+		"drops": [],
+		"skills": [],
+		"damage_type": "slash",
+		"resistances": {
+			"dark": 25
+		},
+		"attack_vfx": "claw"
+	},
+	"harpy": {
+		"name": "Harpyie",
+		"level": 31,
+		"exp": 80,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/harpy.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/harpy_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/harpy_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/harpy_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/harpy_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/harpy_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/harpy_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			228,
+			276
+		],
+		"mana": 30,
+		"mana_regen": 1.0,
+		"damage": [
+			13,
+			16
+		],
+		"magic_damage": [
+			10,
+			14
+		],
+		"attack_interval": 1.0,
+		"armor": 12,
+		"magic_resistance": 12,
+		"attributes": {
+			"agi": 16,
+			"str": 12,
+			"int": 10
+		},
+		"skills": [
+			"talon_rake",
+			"harpy_shriek"
+		],
+		"damage_split": {
+			"slash": 70,
+			"air": 30
+		},
+		"resistances": {
+			"air": 60,
+			"earth": -25,
+			"lightning": -25
+		},
+		"drops": [
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw",
+		"hover": true
+	},
+	"goblin": {
+		"name": "Goblin",
+		"level": 3,
+		"exp": 9,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/goblin.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/goblin_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/goblin_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/goblin_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/goblin_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/goblin_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/goblin_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			20,
+			30
+		],
+		"mana": 0,
+		"damage": [
+			3,
+			6
+		],
+		"attack_interval": 1.1,
+		"armor": 1,
+		"attributes": {
+			"str": 3,
+			"agi": 4
+		},
+		"drops": [
+			{
+				"item": "copper_ore",
+				"chance": 0.14,
+				"amount": [
+					1,
+					2
+				]
+			}
+		],
+		"skills": [],
+		"damage_type": "stab",
+		"scale": 0.5
+	},
+	"goblin_shaman": {
+		"name": "Goblin-Schamane",
+		"level": 8,
+		"exp": 24,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/goblin_shaman.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/goblin_shaman_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/goblin_shaman_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/goblin_shaman_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/goblin_shaman_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/goblin_shaman_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/goblin_shaman_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			65,
+			90
+		],
+		"mana": 60,
+		"mana_regen": 1,
+		"damage": [
+			5,
+			8
+		],
+		"magic_damage": [
+			10,
+			17
+		],
+		"attack_interval": 1.5,
+		"armor": 2,
+		"attributes": {
+			"int": 9,
+			"wis": 6
+		},
+		"drops": [],
+		"skills": [
+			"fireball",
+			"healing_light"
+		],
+		"damage_type": "dark",
+		"resistances": {
+			"poison": 50
+		},
+		"scale": 0.5
+	},
+	"orc": {
+		"name": "Ork",
+		"level": 12,
+		"exp": 36,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/orc.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/orc_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/orc_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/orc_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/orc_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/orc_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/orc_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			150,
+			210
+		],
+		"mana": 0,
+		"damage": [
+			15,
+			23
+		],
+		"attack_interval": 1.4,
+		"armor": 8,
+		"attributes": {
+			"str": 12,
+			"con": 8
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.21,
+				"amount": [
+					1,
+					3
+				]
+			}
+		],
+		"skills": [],
+		"damage_type": "slash",
+		"scale": 0.5
+	},
+	"orc_chieftain": {
+		"name": "Orkhäuptling",
+		"level": 20,
+		"exp": 60,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/orc_chieftain.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/orc_chieftain_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/orc_chieftain_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/orc_chieftain_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/orc_chieftain_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/orc_chieftain_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/orc_chieftain_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.75,
+		"hp": [
+			500,
+			700
+		],
+		"mana": 20,
+		"damage": [
+			28,
+			42
+		],
+		"attack_interval": 1.3,
+		"armor": 16,
+		"attributes": {
+			"str": 22,
+			"con": 15
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.56,
+				"amount": [
+					2,
+					5
+				]
+			}
+		],
+		"skills": [
+			"battle_cry",
+			"whirlwind"
+		],
+		"damage_type": "slash"
+	},
+	"skeleton": {
+		"name": "Skelett",
+		"faces_right": true,
+		"level": 8,
+		"exp": 24,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/skeleton.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/skeleton_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/skeleton_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/skeleton_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/skeleton_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/skeleton_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/skeleton_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			60,
+			85
+		],
+		"mana": 0,
+		"damage": [
+			8,
+			13
+		],
+		"attack_interval": 1.3,
+		"armor": 4,
+		"attributes": {
+			"str": 6,
+			"agi": 3
+		},
+		"drops": [],
+		"skills": [],
+		"damage_type": "stab",
+		"resistances": {
+			"stab": 25,
+			"poison": 100,
+			"dark": 25,
+			"blunt": -25
+		},
+		"scale": 0.5
+	},
+	"skeleton_knight": {
+		"name": "Skelett-Ritter",
+		"faces_right": true,
+		"level": 18,
+		"exp": 54,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/skeleton_knight.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/skeleton_knight_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/skeleton_knight_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/skeleton_knight_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/skeleton_knight_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/skeleton_knight_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/skeleton_knight_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.6,
+		"hp": [
+			300,
+			420
+		],
+		"mana": 8,
+		"damage": [
+			22,
+			32
+		],
+		"attack_interval": 1.4,
+		"armor": 18,
+		"attributes": {
+			"str": 15,
+			"con": 12
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.35,
+				"amount": [
+					1,
+					3
+				]
+			}
+		],
+		"skills": [
+			"monster_shield_bash"
+		],
+		"damage_type": "slash",
+		"resistances": {
+			"stab": 25,
+			"poison": 100,
+			"dark": 25,
+			"blunt": -25
+		},
+		"mana_regen": 0.5
+	},
+	"zombie": {
+		"name": "Zombie",
+		"level": 6,
+		"exp": 18,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/zombie.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/zombie_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/zombie_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/zombie_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/zombie_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/zombie_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/zombie_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			75,
+			105
+		],
+		"mana": 0,
+		"damage": [
+			7,
+			12
+		],
+		"attack_interval": 1.8,
+		"armor": 3,
+		"attributes": {
+			"str": 6,
+			"con": 8
+		},
+		"drops": [],
+		"skills": [],
+		"damage_type": "blunt",
+		"resistances": {
+			"poison": 100,
+			"dark": 25,
+			"light": -25
+		},
+		"scale": 0.5
+	},
+	"ghoul": {
+		"name": "Ghul",
+		"level": 15,
+		"exp": 45,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/ghoul.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/ghoul_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/ghoul_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/ghoul_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/ghoul_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/ghoul_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/ghoul_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			220,
+			300
+		],
+		"mana": 15,
+		"damage": [
+			18,
+			27
+		],
+		"attack_interval": 1.0,
+		"armor": 8,
+		"attributes": {
+			"str": 12,
+			"agi": 9
+		},
+		"drops": [],
+		"skills": [
+			"poison_bite"
+		],
+		"damage_type": "slash",
+		"resistances": {
+			"poison": 100,
+			"dark": 50,
+			"light": -25
+		},
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"slime": {
+		"name": "Schleim",
+		"level": 2,
+		"exp": 6,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/slime.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/slime_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/slime_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/slime_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/slime_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/slime_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/slime_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			15,
+			25
+		],
+		"mana": 0,
+		"damage": [
+			2,
+			4
+		],
+		"attack_interval": 1.6,
+		"armor": 1,
+		"attributes": {
+			"con": 4
+		},
+		"drops": [],
+		"skills": [],
+		"damage_type": "blunt",
+		"resistances": {
+			"stab": 50,
+			"poison": 100,
+			"blunt": -25
+		},
+		"scale": 0.5
+	},
+	"venom_slime": {
+		"name": "Giftschleim",
+		"level": 11,
+		"exp": 33,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/venom_slime.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/venom_slime_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/venom_slime_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/venom_slime_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/venom_slime_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/venom_slime_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/venom_slime_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			120,
+			175
+		],
+		"mana": 20,
+		"damage": [
+			10,
+			16
+		],
+		"magic_damage": [
+			8,
+			12
+		],
+		"attack_interval": 1.4,
+		"armor": 5,
+		"attributes": {
+			"int": 3,
+			"con": 10
+		},
+		"drops": [],
+		"skills": [
+			"poison_bite"
+		],
+		"damage_type": "poison",
+		"resistances": {
+			"poison": 100,
+			"stab": 50,
+			"fire": -25
+		},
+		"scale": 0.5
+	},
+	"spider": {
+		"name": "Höhlenspinne",
+		"faces_right": true,
+		"level": 5,
+		"exp": 15,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/spider.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/spider_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/spider_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/spider_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/spider_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/spider_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/spider_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			35,
+			50
+		],
+		"mana": 4,
+		"damage": [
+			4,
+			7
+		],
+		"attack_interval": 1.0,
+		"armor": 2,
+		"attributes": {
+			"agi": 6,
+			"str": 3
+		},
+		"drops": [],
+		"skills": [
+			"poison_bite"
+		],
+		"damage_type": "stab",
+		"resistances": {
+			"poison": 100
+		},
+		"mana_regen": 0.5,
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"giant_spider": {
+		"name": "Riesenspinne",
+		"level": 17,
+		"exp": 51,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/giant_spider.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/giant_spider_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/giant_spider_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/giant_spider_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/giant_spider_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/giant_spider_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/giant_spider_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.85,
+		"hp": [
+			280,
+			380
+		],
+		"mana": 15,
+		"damage": [
+			20,
+			29
+		],
+		"attack_interval": 1.1,
+		"armor": 10,
+		"attributes": {
+			"agi": 12,
+			"str": 11
+		},
+		"drops": [],
+		"skills": [
+			"poison_bite"
+		],
+		"damage_type": "stab",
+		"resistances": {
+			"poison": 100
+		},
+		"attack_vfx": "claw"
+	},
+	"bat": {
+		"name": "Fledermaus",
+		"level": 3,
+		"exp": 9,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bat.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bat_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bat_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bat_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bat_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bat_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bat_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			18,
+			28
+		],
+		"mana": 0,
+		"damage": [
+			3,
+			5
+		],
+		"attack_interval": 0.9,
+		"armor": 0,
+		"attributes": {
+			"agi": 5
+		},
+		"drops": [],
+		"skills": [],
+		"damage_type": "stab",
+		"resistances": {
+			"air": 25
+		},
+		"scale": 0.5,
+		"attack_vfx": "claw",
+		"hover": true
+	},
+	"giant_bat": {
+		"name": "Riesenfledermaus",
+		"level": 10,
+		"exp": 30,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/giant_bat.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/giant_bat_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/giant_bat_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/giant_bat_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/giant_bat_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/giant_bat_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/giant_bat_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.75,
+		"hp": [
+			100,
+			145
+		],
+		"mana": 0,
+		"damage": [
+			10,
+			16
+		],
+		"attack_interval": 0.8,
+		"armor": 4,
+		"attributes": {
+			"agi": 10,
+			"str": 5
+		},
+		"drops": [],
+		"skills": [],
+		"damage_type": "stab",
+		"resistances": {
+			"air": 50
+		},
+		"attack_vfx": "claw",
+		"hover": true
+	},
+	"ghost": {
+		"name": "Geist",
+		"level": 16,
+		"exp": 48,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/ghost.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/ghost_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/ghost_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/ghost_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/ghost_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/ghost_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/ghost_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			180,
+			260
+		],
+		"mana": 80,
+		"mana_regen": 1,
+		"damage": [
+			12,
+			18
+		],
+		"magic_damage": [
+			18,
+			28
+		],
+		"attack_interval": 1.4,
+		"armor": 5,
+		"attributes": {
+			"int": 12,
+			"wis": 8
+		},
+		"drops": [],
+		"skills": [
+			"arcane_bolt"
+		],
+		"damage_type": "dark",
+		"resistances": {
+			"physical": 50,
+			"stab": 50,
+			"blunt": 50,
+			"slash": 50,
+			"poison": 100,
+			"dark": 100,
+			"light": -50
+		},
+		"scale": 0.5,
+		"hover": true
+	},
+	"vampire": {
+		"name": "Vampir",
+		"level": 25,
+		"exp": 75,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/vampire.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/vampire_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/vampire_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/vampire_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/vampire_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/vampire_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/vampire_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			650,
+			850
+		],
+		"mana": 100,
+		"mana_regen": 1.5,
+		"damage": [
+			32,
+			46
+		],
+		"magic_damage": [
+			20,
+			35
+		],
+		"attack_interval": 1.1,
+		"armor": 16,
+		"attributes": {
+			"str": 20,
+			"agi": 18,
+			"int": 12
+		},
+		"drops": [],
+		"skills": [
+			"lifesteal_strike",
+			"deep_cut"
+		],
+		"damage_type": "slash",
+		"resistances": {
+			"dark": 100,
+			"poison": 100,
+			"light": -50
+		},
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"troll": {
+		"name": "Troll",
+		"level": 19,
+		"exp": 57,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/troll.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/troll_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/troll_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/troll_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/troll_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/troll_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/troll_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.8,
+		"hp": [
+			420,
+			580
+		],
+		"mana": 0,
+		"hp_regen": 2,
+		"damage": [
+			25,
+			38
+		],
+		"attack_interval": 1.7,
+		"armor": 14,
+		"attributes": {
+			"str": 18,
+			"con": 18
+		},
+		"drops": [],
+		"skills": [],
+		"damage_type": "blunt",
+		"resistances": {
+			"earth": 50,
+			"poison": 50,
+			"fire": -25
+		},
+		"attack_vfx": "claw"
+	},
+	"ogre": {
+		"name": "Oger",
+		"level": 24,
+		"exp": 72,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/ogre.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/ogre_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/ogre_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/ogre_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/ogre_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/ogre_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/ogre_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			650,
+			900
+		],
+		"mana": 0,
+		"damage": [
+			35,
+			52
+		],
+		"attack_interval": 1.8,
+		"armor": 18,
+		"attributes": {
+			"str": 24,
+			"con": 20
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.49,
+				"amount": [
+					2,
+					5
+				]
+			}
+		],
+		"skills": [],
+		"damage_type": "blunt",
+		"resistances": {
+			"blunt": 50
+		}
+	},
+	"stone_golem": {
+		"name": "Steingolem",
+		"level": 28,
+		"exp": 84,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/stone_golem.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/stone_golem_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/stone_golem_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/stone_golem_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/stone_golem_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/stone_golem_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/stone_golem_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			1000,
+			1400
+		],
+		"mana": 30,
+		"damage": [
+			38,
+			55
+		],
+		"attack_interval": 2.0,
+		"armor": 30,
+		"attributes": {
+			"str": 25,
+			"con": 30
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.63,
+				"amount": [
+					3,
+					7
+				]
+			}
+		],
+		"skills": [
+			"earthquake"
+		],
+		"damage_type": "blunt",
+		"resistances": {
+			"earth": 100,
+			"poison": 100,
+			"lightning": -25
+		}
+	},
+	"fire_elemental": {
+		"name": "Feuerelementar",
+		"faces_right": true,
+		"level": 23,
+		"exp": 69,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/fire_elemental.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/fire_elemental_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/fire_elemental_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/fire_elemental_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/fire_elemental_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/fire_elemental_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/fire_elemental_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			480,
+			650
+		],
+		"mana": 120,
+		"mana_regen": 2,
+		"damage": [
+			25,
+			35
+		],
+		"magic_damage": [
+			30,
+			45
+		],
+		"attack_interval": 1.3,
+		"armor": 10,
+		"attributes": {
+			"int": 20,
+			"wis": 12
+		},
+		"drops": [],
+		"skills": [
+			"fireball",
+			"meteor"
+		],
+		"damage_type": "fire",
+		"resistances": {
+			"fire": 100,
+			"ice": -50
+		},
+		"scale": 0.5,
+		"hover": true
+	},
+	"ice_elemental": {
+		"name": "Eiselementar",
+		"level": 23,
+		"exp": 69,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/ice_elemental.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/ice_elemental_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/ice_elemental_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/ice_elemental_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/ice_elemental_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/ice_elemental_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/ice_elemental_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			480,
+			650
+		],
+		"mana": 120,
+		"mana_regen": 2,
+		"damage": [
+			24,
+			34
+		],
+		"magic_damage": [
+			30,
+			45
+		],
+		"attack_interval": 1.4,
+		"armor": 12,
+		"attributes": {
+			"int": 20,
+			"wis": 12
+		},
+		"drops": [],
+		"skills": [
+			"ice_lance",
+			"blizzard"
+		],
+		"damage_type": "ice",
+		"resistances": {
+			"ice": 100,
+			"water": 50,
+			"fire": -50
+		},
+		"scale": 0.5
+	},
+	"earth_elemental": {
+		"name": "Erdelementar",
+		"level": 26,
+		"exp": 78,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/earth_elemental.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/earth_elemental_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/earth_elemental_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/earth_elemental_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/earth_elemental_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/earth_elemental_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/earth_elemental_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			800,
+			1100
+		],
+		"mana": 80,
+		"damage": [
+			32,
+			45
+		],
+		"magic_damage": [
+			20,
+			30
+		],
+		"attack_interval": 1.7,
+		"armor": 25,
+		"attributes": {
+			"str": 20,
+			"int": 12,
+			"con": 25
+		},
+		"drops": [],
+		"skills": [
+			"earthquake"
+		],
+		"damage_type": "earth",
+		"resistances": {
+			"earth": 100,
+			"lightning": -25
+		},
+		"scale": 0.5
+	},
+	"minotaur": {
+		"name": "Minotaurus",
+		"level": 32,
+		"exp": 96,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/minotaur.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/minotaur_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/minotaur_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/minotaur_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/minotaur_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/minotaur_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/minotaur_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			1200,
+			1600
+		],
+		"mana": 20,
+		"damage": [
+			48,
+			68
+		],
+		"attack_interval": 1.5,
+		"armor": 22,
+		"attributes": {
+			"str": 30,
+			"con": 24
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 1.0,
+				"amount": [
+					3,
+					6
+				]
+			}
+		],
+		"skills": [
+			"whirlwind"
+		],
+		"damage_type": "blunt",
+		"resistances": {
+			"blunt": 50
+		},
+		"attack_vfx": "claw"
+	},
+	"demon": {
+		"name": "Dämon",
+		"level": 35,
+		"exp": 105,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/demon.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/demon_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/demon_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/demon_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/demon_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/demon_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/demon_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.75,
+		"hp": [
+			1400,
+			1900
+		],
+		"mana": 180,
+		"mana_regen": 2,
+		"damage": [
+			50,
+			70
+		],
+		"magic_damage": [
+			35,
+			55
+		],
+		"attack_interval": 1.3,
+		"armor": 25,
+		"attributes": {
+			"str": 28,
+			"int": 22,
+			"con": 20
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 1.0,
+				"amount": [
+					4,
+					7
+				]
+			}
+		],
+		"skills": [
+			"fireball",
+			"lifesteal_strike"
+		],
+		"damage_type": "dark",
+		"resistances": {
+			"dark": 100,
+			"fire": 50,
+			"light": -50
+		}
+	},
+	"lich": {
+		"name": "Lich",
+		"level": 40,
+		"exp": 120,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/lich.png",
+			"frame_size": [
+				64,
+				64
+			],
+			"frames": 1,
+			"fps": 4
+			, "anims": {"death": {"path": "res://assets/sprites/enemies/lich_death.png", "frames": 6, "fps": 10}, "lunge": {"path": "res://assets/sprites/enemies/lich_battle_cast.png", "frames": 6, "fps": 12}, "slam": {"path": "res://assets/sprites/enemies/lich_battle_cast.png", "frames": 6, "fps": 12}, "shoot": {"path": "res://assets/sprites/enemies/lich_battle_cast.png", "frames": 6, "fps": 12}, "cast": {"path": "res://assets/sprites/enemies/lich_battle_cast.png", "frames": 6, "fps": 12}, "walk": {"path": "res://assets/sprites/enemies/lich_battle_walk.png", "frames": 6, "fps": 10}}
+		},
+		"scale": 1.0,
+		"hp": [
+			1500,
+			2100
+		],
+		"mana": 300,
+		"mana_regen": 4,
+		"damage": [
+			35,
+			50
+		],
+		"magic_damage": [
+			60,
+			85
+		],
+		"attack_interval": 1.5,
+		"armor": 20,
+		"attributes": {
+			"int": 35,
+			"wis": 30,
+			"con": 15
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 1.0,
+				"amount": [
+					4,
+					8
+				]
+			}
+		],
+		"skills": [
+			"ice_lance",
+			"chain_lightning",
+			"arcane_bolt"
+		],
+		"damage_type": "dark",
+		"resistances": {
+			"dark": 100,
+			"poison": 100,
+			"light": -50
+		}
+	},
+	"dragon": {
+		"name": "Drache",
+		"level": 50,
+		"exp": 150,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/dragon.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/dragon_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/dragon_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/dragon_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/dragon_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/dragon_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/dragon_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			3500,
+			5000
+		],
+		"mana": 250,
+		"mana_regen": 3,
+		"damage": [
+			75,
+			110
+		],
+		"magic_damage": [
+			60,
+			100
+		],
+		"attack_interval": 1.6,
+		"armor": 40,
+		"attributes": {
+			"str": 40,
+			"int": 25,
+			"con": 40
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 1.0,
+				"amount": [
+					7,
+					14
+				]
+			}
+		],
+		"skills": [
+			"meteor",
+			"fire_slash"
+		],
+		"damage_type": "fire",
+		"resistances": {
+			"fire": 100,
+			"physical": 25,
+			"ice": -25
+		},
+		"attack_vfx": "claw"
+	},
+	"bandit_thug": {
+		"name": "Bandit",
+		"level": 14,
+		"exp": 22,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bandit_thug.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bandit_thug_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bandit_thug_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bandit_thug_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bandit_thug_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bandit_thug_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bandit_thug_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			36,
+			44
+		],
+		"damage": [
+			4,
+			5
+		],
+		"attack_interval": 1.2,
+		"armor": 3,
+		"attributes": {
+			"str": 6
+		},
+		"damage_type": "slash",
+		"drops": [
+			{
+				"item": "sword:copper_blade+copper_handle",
+				"chance": 0.06
+			},
+			{
+				"item": "sword:iron_blade+iron_handle",
+				"chance": 0.015
+			},
+			{
+				"item": "coin_purse",
+				"chance": 0.4
+			}
+		],
+		"scale": 0.5
+	},
+	"bandit_archer": {
+		"name": "Banditen-Schütze",
+		"level": 14,
+		"exp": 22,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bandit_archer.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bandit_archer_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bandit_archer_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bandit_archer_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bandit_archer_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bandit_archer_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bandit_archer_walk.png", "frames": 6, "fps": 10}}},
+		"row": "back",
+		"hp": [
+			26,
+			32
+		],
+		"damage": [
+			4,
+			6
+		],
+		"attack_interval": 1.5,
+		"armor": 1,
+		"attributes": {
+			"agi": 6
+		},
+		"damage_type": "stab",
+		"drops": [
+			{
+				"item": "bow:copper_bow_frame",
+				"chance": 0.06
+			},
+			{
+				"item": "bow:iron_bow_frame",
+				"chance": 0.015
+			},
+			{
+				"item": "coin_purse",
+				"chance": 0.4
+			}
+		],
+		"scale": 0.5
+	},
+	"bandit_knifer": {
+		"name": "Messerstecher",
+		"level": 15,
+		"exp": 24,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bandit_knifer.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bandit_knifer_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bandit_knifer_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bandit_knifer_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bandit_knifer_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bandit_knifer_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bandit_knifer_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			30,
+			36
+		],
+		"damage": [
+			2,
+			3
+		],
+		"attack_interval": 0.8,
+		"armor": 2,
+		"attributes": {
+			"agi": 8
+		},
+		"damage_split": {
+			"slash": 0.5,
+			"poison": 0.5
+		},
+		"on_hit": [
+			{
+				"effect": "poison",
+				"chance": 35
+			}
+		],
+		"drops": [
+			{
+				"item": "dagger:copper_dagger_blade+copper_handle",
+				"chance": 0.06
+			},
+			{
+				"item": "dagger:iron_dagger_blade+iron_handle",
+				"chance": 0.015
+			},
+			{
+				"item": "coin_purse",
+				"chance": 0.4
+			}
+		],
+		"scale": 0.5
+	},
+	"bandit_shield": {
+		"name": "Schildbandit",
+		"level": 15,
+		"exp": 28,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bandit_shield.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bandit_shield_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bandit_shield_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bandit_shield_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bandit_shield_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bandit_shield_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bandit_shield_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.6,
+		"hp": [
+			60,
+			75
+		],
+		"mana": 10,
+		"mana_regen": 1,
+		"damage": [
+			2,
+			2
+		],
+		"attack_interval": 1.4,
+		"armor": 10,
+		"magic_resistance": 8,
+		"attributes": {
+			"con": 10
+		},
+		"resistances": {
+			"slash": 25,
+			"stab": 25,
+			"blunt": 25,
+			"fire": 15,
+			"poison": 15
+		},
+		"damage_type": "blunt",
+		"skills": [
+			"bandit_taunt"
+		],
+		"drops": [
+			{
+				"item": "shield:copper_shield_plate+copper_handle",
+				"chance": 0.06
+			},
+			{
+				"item": "shield:iron_shield_plate+iron_handle",
+				"chance": 0.015
+			},
+			{
+				"item": "coin_purse",
+				"chance": 0.4
+			}
+		]
+	},
+	"bandit_brute": {
+		"name": "Zweihand-Bandit",
+		"level": 16,
+		"exp": 30,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bandit_brute.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bandit_brute_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bandit_brute_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bandit_brute_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bandit_brute_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bandit_brute_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bandit_brute_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.65,
+		"hp": [
+			48,
+			58
+		],
+		"damage": [
+			10,
+			13
+		],
+		"attack_interval": 2.8,
+		"armor": 4,
+		"attributes": {
+			"str": 12
+		},
+		"damage_type": "slash",
+		"drops": [
+			{
+				"item": "two_handed_sword:copper_greatsword_blade+copper_handle",
+				"chance": 0.05
+			},
+			{
+				"item": "two_handed_sword:iron_greatsword_blade+iron_handle",
+				"chance": 0.015
+			},
+			{
+				"item": "coin_purse",
+				"chance": 0.4
+			}
+		]
+	},
+	"bandit_ratzo": {
+		"name": "Ratzo der Wegelagerer",
+		"level": 15,
+		"exp": 50,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bandit_ratzo.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bandit_ratzo_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bandit_ratzo_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bandit_ratzo_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bandit_ratzo_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bandit_ratzo_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bandit_ratzo_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.8,
+		"hp": [
+			120,
+			140
+		],
+		"mana": 12,
+		"mana_regen": 1,
+		"damage": [
+			6,
+			8
+		],
+		"attack_interval": 1.1,
+		"armor": 5,
+		"attributes": {
+			"str": 10
+		},
+		"damage_type": "slash",
+		"skills": [
+			"deep_cut"
+		],
+		"drops": [
+			{
+				"item": "sword:copper_blade+copper_handle",
+				"chance": 0.3
+			},
+			{
+				"item": "sword:iron_blade+iron_handle",
+				"chance": 0.08
+			},
+			{
+				"item": "coin_purse",
+				"chance": 1.0,
+				"amount": [
+					1,
+					2
+				]
+			}
+		]
+	},
+	"bandit_grimbald": {
+		"name": "Lagermeister Grimbald",
+		"faces_right": true,
+		"level": 17,
+		"exp": 60,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bandit_grimbald.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bandit_grimbald_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bandit_grimbald_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bandit_grimbald_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bandit_grimbald_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bandit_grimbald_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bandit_grimbald_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			170,
+			200
+		],
+		"damage": [
+			13,
+			17
+		],
+		"attack_interval": 2.6,
+		"armor": 7,
+		"attributes": {
+			"str": 16
+		},
+		"damage_type": "slash",
+		"drops": [
+			{
+				"item": "two_handed_sword:copper_greatsword_blade+copper_handle",
+				"chance": 0.3
+			},
+			{
+				"item": "two_handed_sword:iron_greatsword_blade+iron_handle",
+				"chance": 0.08
+			},
+			{
+				"item": "coin_purse",
+				"chance": 1.0,
+				"amount": [
+					1,
+					3
+				]
+			},
+			{
+				"item": "iron_ingot",
+				"chance": 0.42,
+				"amount": [
+					1,
+					2
+				]
+			}
+		]
+	},
+	"bandit_brakk": {
+		"name": "Bulle Brakk",
+		"level": 18,
+		"exp": 70,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bandit_brakk.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bandit_brakk_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bandit_brakk_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bandit_brakk_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bandit_brakk_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bandit_brakk_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bandit_brakk_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			210,
+			250
+		],
+		"mana": 20,
+		"mana_regen": 1,
+		"damage": [
+			7,
+			9
+		],
+		"attack_interval": 1.3,
+		"armor": 8,
+		"attributes": {
+			"str": 18,
+			"con": 12
+		},
+		"damage_type": "blunt",
+		"skills": [
+			"bear_blood_drink"
+		],
+		"drops": [
+			{
+				"item": "coin_purse",
+				"chance": 1.0,
+				"amount": [
+					2,
+					3
+				]
+			},
+			{
+				"item": "iron_ingot",
+				"chance": 0.49,
+				"amount": [
+					1,
+					3
+				]
+			},
+			{"item": "iron_ore", "chance": 0.35, "amount": [1, 3]}
+		]
+	},
+	"bandit_varrik": {
+		"name": "Varrik, der Krähenkönig",
+		"level": 20,
+		"exp": 100,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bandit_varrik.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bandit_varrik_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bandit_varrik_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bandit_varrik_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bandit_varrik_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bandit_varrik_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bandit_varrik_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			300,
+			340
+		],
+		"mana": 24,
+		"mana_regen": 1.5,
+		"damage": [
+			9,
+			12
+		],
+		"attack_interval": 1.2,
+		"armor": 9,
+		"magic_resistance": 6,
+		"attributes": {
+			"str": 18,
+			"agi": 10
+		},
+		"damage_type": "stab",
+		"skills": [
+			"spear_thrust"
+		],
+		"summon": {
+			"every_percent": 25,
+			"count": 2,
+			"enemies": [
+				"bandit_thug",
+				"bandit_archer",
+				"bandit_knifer",
+				"bandit_shield",
+				"bandit_brute"
+			]
+		},
+		"drops": [
+			{
+				"item": "polearm:iron_spear_head+wooden_shaft",
+				"chance": 0.25
+			},
+			{
+				"item": "polearm:copper_spear_head+wooden_shaft",
+				"chance": 0.75
+			},
+			{
+				"item": "coin_purse",
+				"chance": 1.0,
+				"amount": [
+					4,
+					6
+				]
+			}
+		]
+	},
+	"cursed_skeleton": {
+		"name": "Verfluchter Skelettkrieger",
+		"level": 21,
+		"exp": 62,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/cursed_skeleton.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/cursed_skeleton_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/cursed_skeleton_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/cursed_skeleton_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/cursed_skeleton_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/cursed_skeleton_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/cursed_skeleton_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			128,
+			168
+		],
+		"mana": 0,
+		"damage": [
+			8,
+			11
+		],
+		"attack_interval": 1.3,
+		"armor": 18,
+		"attributes": {
+			"str": 15,
+			"con": 12
+		},
+		"skills": [
+			"bone_slash"
+		],
+		"damage_type": "slash",
+		"resistances": {
+			"poison": 100,
+			"dark": 50,
+			"blunt": -25,
+			"light": -25
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.28,
+				"amount": [
+					1,
+					3
+				]
+			},
+			{"item": "copper_ore", "chance": 0.14, "amount": [1, 2]}
+		],
+		"scale": 0.5
+	},
+	"crypt_wraith": {
+		"name": "Gruftgeist",
+		"level": 22,
+		"exp": 66,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/crypt_wraith.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/crypt_wraith_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/crypt_wraith_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/crypt_wraith_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/crypt_wraith_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/crypt_wraith_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/crypt_wraith_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			104,
+			136
+		],
+		"mana": 60,
+		"mana_regen": 1.5,
+		"damage": [
+			5,
+			7
+		],
+		"magic_damage": [
+			9,
+			13
+		],
+		"attack_interval": 1.5,
+		"armor": 6,
+		"attributes": {
+			"int": 14,
+			"wis": 10
+		},
+		"skills": [
+			"arcane_bolt",
+			"wraith_wail"
+		],
+		"damage_type": "dark",
+		"resistances": {
+			"physical": 50,
+			"stab": 50,
+			"blunt": 50,
+			"slash": 50,
+			"poison": 100,
+			"dark": 100,
+			"light": -50
+		},
+		"drops": [
+			{"item": "iron_ore", "chance": 0.105}
+		],
+		"scale": 0.5,
+		"hover": true
+	},
+	"castellan_morwald": {
+		"name": "Kastellan Morwald",
+		"level": 24,
+		"exp": 220,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/castellan_morwald.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"morwald_cleave": {"path": "res://assets/sprites/enemies/castellan_morwald_morwald_cleave.png", "frames": 6, "fps": 12}, "raise_skeleton": {"path": "res://assets/sprites/enemies/castellan_morwald_raise_skeleton.png", "frames": 6, "fps": 12}, "wraith_wail": {"path": "res://assets/sprites/enemies/castellan_morwald_wraith_wail.png", "frames": 6, "fps": 12}, "lunge": {"path": "res://assets/sprites/enemies/castellan_morwald_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/castellan_morwald_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/castellan_morwald_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/castellan_morwald_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/castellan_morwald_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/castellan_morwald_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			450,
+			480
+		],
+		"mana": 0,
+		"damage": [
+			9,
+			12
+		],
+		"attack_interval": 1.5,
+		"armor": 22,
+		"magic_resistance": 12,
+		"attributes": {
+			"str": 20,
+			"con": 18
+		},
+		"skills": [
+			"morwald_cleave",
+			"raise_skeleton"
+		],
+		"damage_type": "slash",
+		"resistances": {
+			"poison": 100,
+			"dark": 50,
+			"light": -40
+		},
+		"summon_shout": "Erhebt euch, Wachen!",
+		"phases": [
+			{
+				"name": "Zorn",
+				"text": "Der Schlüssel bleibt hier! Morwald erhebt sich erneut!",
+				"hp": [
+					360,
+					390
+				],
+				"damage": [
+					11,
+					15
+				],
+				"attack_interval": 1.3,
+				"skills": [
+					"morwald_cleave",
+					"raise_skeleton",
+					"wraith_wail"
+				]
+			}
+		],
+		"drops": [
+			{"item": "iron_ingot", "chance": 1.0, "amount": [1, 2]},
+			{"item": "sapphire", "chance": 0.3}
+		]
+	},
+	"magma_slime": {
+		"name": "Magmaschleim",
+		"level": 24,
+		"exp": 70,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/magma_slime.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/magma_slime_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/magma_slime_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/magma_slime_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/magma_slime_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/magma_slime_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/magma_slime_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			152,
+			192
+		],
+		"mana": 0,
+		"damage": [
+			8,
+			11
+		],
+		"attack_interval": 1.6,
+		"armor": 10,
+		"magic_resistance": 10,
+		"attributes": {
+			"con": 16
+		},
+		"damage_split": {
+			"blunt": 40,
+			"fire": 60
+		},
+		"on_hit": [
+			{
+				"effect": "burn",
+				"chance": 30
+			}
+		],
+		"resistances": {
+			"fire": 100,
+			"water": -50,
+			"ice": -50,
+			"slash": 20
+		},
+		"drops": [
+			{
+				"item": "coal",
+				"chance": 0.4,
+				"amount": [
+					1,
+					2
+				]
+			},
+			{"item": "copper_ore", "chance": 0.105}
+		],
+		"scale": 0.5
+	},
+	"ember_imp": {
+		"name": "Glutkobold",
+		"level": 24,
+		"exp": 70,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/ember_imp.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/ember_imp_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/ember_imp_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/ember_imp_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/ember_imp_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/ember_imp_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/ember_imp_walk.png", "frames": 6, "fps": 10}}},
+		"row": "back",
+		"hp": [
+			96,
+			120
+		],
+		"mana": 50,
+		"mana_regen": 1.5,
+		"damage": [
+			5,
+			7
+		],
+		"magic_damage": [
+			11,
+			14
+		],
+		"attack_interval": 1.4,
+		"armor": 6,
+		"attributes": {
+			"int": 15,
+			"agi": 10
+		},
+		"skills": [
+			"fireball"
+		],
+		"damage_type": "fire",
+		"resistances": {
+			"fire": 100,
+			"ice": -40
+		},
+		"drops": [
+			{
+				"item": "ruby",
+				"chance": 0.04
+			},
+			{
+				"item": "coal",
+				"chance": 0.3,
+				"amount": [
+					1,
+					2
+				]
+			}
+		],
+		"scale": 0.5
+	},
+	"lava_hound": {
+		"name": "Lavahund",
+		"level": 25,
+		"exp": 74,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/lava_hound.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/lava_hound_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/lava_hound_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/lava_hound_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/lava_hound_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/lava_hound_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/lava_hound_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.6,
+		"hp": [
+			168,
+			208
+		],
+		"mana": 0,
+		"damage": [
+			9,
+			12
+		],
+		"attack_interval": 1.0,
+		"armor": 12,
+		"attributes": {
+			"str": 16,
+			"agi": 12
+		},
+		"skills": [
+			"lava_bite"
+		],
+		"damage_split": {
+			"stab": 60,
+			"fire": 40
+		},
+		"resistances": {
+			"fire": 75,
+			"ice": -30
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.28,
+				"amount": [
+					1,
+					2
+				]
+			},
+			{"item": "copper_ore", "chance": 0.105}
+		],
+		"attack_vfx": "claw"
+	},
+	"magma_brute": {
+		"name": "Magmaschläger",
+		"faces_right": true,
+		"level": 27,
+		"exp": 180,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/magma_brute.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/magma_brute_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/magma_brute_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/magma_brute_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/magma_brute_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/magma_brute_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/magma_brute_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			770,
+			840
+		],
+		"mana": 0,
+		"damage": [
+			12,
+			16
+		],
+		"attack_interval": 1.7,
+		"armor": 26,
+		"magic_resistance": 14,
+		"attributes": {
+			"str": 22,
+			"con": 22
+		},
+		"skills": [
+			"magma_fist",
+			"golem_stomp"
+		],
+		"damage_split": {
+			"blunt": 60,
+			"fire": 40
+		},
+		"resistances": {
+			"fire": 100,
+			"earth": 50,
+			"ice": -30
+		},
+		"drops": [
+			{"item": "copper_ore", "chance": 0.56, "amount": [1, 3]},
+			{
+				"item": "ruby",
+				"chance": 0.15
+			},
+			{
+				"item": "ember_essence",
+				"chance": 0.4
+			}
+		]
+	},
+	"obsidian_guardian": {
+		"name": "Obsidianwächter",
+		"level": 28,
+		"exp": 84,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/obsidian_guardian.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/obsidian_guardian_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/obsidian_guardian_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/obsidian_guardian_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/obsidian_guardian_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/obsidian_guardian_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/obsidian_guardian_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.75,
+		"hp": [
+			224,
+			272
+		],
+		"mana": 0,
+		"damage": [
+			10,
+			14
+		],
+		"attack_interval": 1.9,
+		"armor": 35,
+		"magic_resistance": 18,
+		"attributes": {
+			"str": 20,
+			"con": 25
+		},
+		"skills": [
+			"golem_stomp"
+		],
+		"damage_split": {
+			"blunt": 70,
+			"fire": 30
+		},
+		"resistances": {
+			"fire": 100,
+			"earth": 50,
+			"blunt": -25,
+			"lightning": -25
+		},
+		"drops": [
+			{
+				"item": "iron_ore",
+				"chance": 0.42,
+				"amount": [
+					1,
+					2
+				]
+			},
+			{"item": "bronze_ingot", "chance": 0.07}
+		]
+	},
+	"fire_salamander": {
+		"name": "Feuersalamander",
+		"level": 28,
+		"exp": 84,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/fire_salamander.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/fire_salamander_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/fire_salamander_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/fire_salamander_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/fire_salamander_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/fire_salamander_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/fire_salamander_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			154,
+			186
+		],
+		"mana": 40,
+		"mana_regen": 1.0,
+		"damage": [
+			8,
+			11
+		],
+		"magic_damage": [
+			10,
+			14
+		],
+		"attack_interval": 1.2,
+		"armor": 14,
+		"attributes": {
+			"agi": 14,
+			"int": 12
+		},
+		"skills": [
+			"fireball",
+			"lava_bite"
+		],
+		"damage_split": {
+			"slash": 40,
+			"fire": 60
+		},
+		"resistances": {
+			"fire": 100,
+			"water": -40
+		},
+		"drops": [
+			{
+				"item": "ruby",
+				"chance": 0.05
+			},
+			{"item": "copper_ore", "chance": 0.105},
+			{
+				"item": "ember_essence",
+				"chance": 0.04
+			}
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"salamander_queen": {
+		"name": "Salamanderkönigin",
+		"level": 30,
+		"exp": 240,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/salamander_queen.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/salamander_queen_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/salamander_queen_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/salamander_queen_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/salamander_queen_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/salamander_queen_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/salamander_queen_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			892,
+			952
+		],
+		"mana": 80,
+		"mana_regen": 2.0,
+		"damage": [
+			11,
+			14
+		],
+		"magic_damage": [
+			13,
+			16
+		],
+		"attack_interval": 1.4,
+		"armor": 22,
+		"magic_resistance": 16,
+		"attributes": {
+			"int": 20,
+			"agi": 14
+		},
+		"skills": [
+			"ember_rain",
+			"lava_bite",
+			"salamander_call"
+		],
+		"damage_split": {
+			"slash": 40,
+			"fire": 60
+		},
+		"resistances": {
+			"fire": 100,
+			"water": -40
+		},
+		"summon_shout": "Kommt, meine Kinder!",
+		"drops": [
+			{"item": "bronze_ingot", "chance": 1.0, "amount": [1, 1]},
+			{
+				"item": "ruby",
+				"chance": 0.3
+			},
+			{
+				"item": "ember_essence",
+				"chance": 0.6
+			}
+		],
+		"attack_vfx": "claw"
+	},
+	"lava_golem": {
+		"name": "Lavagolem",
+		"level": 32,
+		"exp": 320,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/lava_golem.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/lava_golem_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/lava_golem_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/lava_golem_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/lava_golem_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/lava_golem_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/lava_golem_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			5057,
+			5539
+		],
+		"mana": 0,
+		"hp_regen": 7.1,
+		"damage": [
+			31,
+			41
+		],
+		"attack_interval": 1.8,
+		"armor": 34,
+		"magic_resistance": 20,
+		"attributes": {
+			"str": 26,
+			"con": 30
+		},
+		"skills": [
+			"lava_eruption",
+			"magma_fist"
+		],
+		"damage_split": {
+			"blunt": 50,
+			"fire": 50
+		},
+		"absorb": {
+			"fire": 100
+		},
+		"resistances": {
+			"earth": 50,
+			"poison": 100,
+			"water": -50,
+			"ice": -50
+		},
+		"drops": [
+			{"item": "bronze_ingot", "chance": 1.0, "amount": [1, 2]},
+			{
+				"item": "ruby",
+				"chance": 0.5,
+				"amount": [
+					1,
+					2
+				]
+			},
+			{
+				"item": "ember_essence",
+				"chance": 1.0,
+				"amount": [
+					1,
+					2
+				]
+			}
+		]
+	},
+	"ember_spirit": {
+		"name": "Glutgeist",
+		"level": 30,
+		"exp": 60,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/ember_spirit.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/ember_spirit_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/ember_spirit_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/ember_spirit_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/ember_spirit_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/ember_spirit_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/ember_spirit_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			208,
+			248
+		],
+		"mana": 40,
+		"mana_regen": 1.5,
+		"damage": [
+			8,
+			11
+		],
+		"magic_damage": [
+			11,
+			15
+		],
+		"attack_interval": 1.3,
+		"armor": 10,
+		"attributes": {
+			"int": 16
+		},
+		"skills": [
+			"fireball"
+		],
+		"damage_type": "fire",
+		"resistances": {
+			"fire": 100,
+			"ice": -50
+		},
+		"drops": [
+			{
+				"item": "ember_essence",
+				"chance": 0.06
+			}
+		],
+		"scale": 0.5,
+		"hover": true
+	},
+	"volcano_dragon": {
+		"name": "Ignar, der Glutdrache",
+		"level": 36,
+		"exp": 600,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/volcano_dragon.png",
+			"frame_size": [
+				128,
+				96
+			],
+			"frames": 1,
+			"fps": 4,
+			"anims": {
+				"lunge": {
+					"path": "res://assets/sprites/enemies/volcano_dragon_breath.png",
+					"frame_size": [
+						288,
+						96
+					],
+					"frames": 8,
+					"fps": 12
+				},
+				"dragon_breath": {
+					"path": "res://assets/sprites/enemies/volcano_dragon_breath.png",
+					"frame_size": [
+						288,
+						96
+					],
+					"frames": 8,
+					"fps": 10
+				},
+				"dragon_inferno": {
+					"path": "res://assets/sprites/enemies/volcano_dragon_breath.png",
+					"frame_size": [
+						288,
+						96
+					],
+					"frames": 8,
+					"fps": 10
+				},
+				"slam": {
+					"path": "res://assets/sprites/enemies/volcano_dragon_tail.png",
+					"frames": 8,
+					"fps": 12
+				},
+				"hit": {
+					"path": "res://assets/sprites/enemies/volcano_dragon_hit.png",
+					"frames": 4,
+					"fps": 12
+				},
+				"death": {
+					"path": "res://assets/sprites/enemies/volcano_dragon_death.png",
+					"frames": 9,
+					"fps": 8
+				},
+				"walk": {
+					"path": "res://assets/sprites/enemies/volcano_dragon_walk.png",
+					"frames": 6,
+					"fps": 8
+				}
+			}
+		},
+		"scale": 0.5,
+		"hp": [
+			2696,
+			2799
+		],
+		"mana": 0,
+		"hp_regen": 5.2,
+		"damage": [
+			16,
+			22
+		],
+		"attack_interval": 2.2,
+		"armor": 34,
+		"magic_resistance": 26,
+		"attributes": {
+			"str": 30,
+			"con": 40
+		},
+		"skills": [
+			"dragon_claw"
+		],
+		"damage_split": {
+			"slash": 50,
+			"fire": 50
+		},
+		"resistances": {
+			"fire": 100,
+			"physical": 15,
+			"slash": 15,
+			"stab": 15,
+			"blunt": 15,
+			"ice": -25,
+			"water": -15
+		},
+		"summon_shout": "Erhebt euch, Kinder der Glut!",
+		"phases": [
+			{
+				"name": "Ernst",
+				"text": "Ignar erhebt sich: Genug gespielt, kleiner Schmied!",
+				"hp": [
+					2903,
+					3007
+				],
+				"damage": [
+					22,
+					28
+				],
+				"attack_interval": 1.8,
+				"hp_regen": 9.4,
+				"skills": [
+					"dragon_claw",
+					"dragon_breath",
+					"dragon_tail",
+					"dragon_summon"
+				]
+			},
+			{
+				"name": "Raserei",
+				"text": "Ignar rast vor Wut! Die ganze Höhle brennt!",
+				"hp": [
+					3110,
+					3214
+				],
+				"damage": [
+					27,
+					34
+				],
+				"attack_interval": 1.4,
+				"hp_regen": 14.6,
+				"skills": [
+					"dragon_claw",
+					"dragon_breath",
+					"dragon_inferno",
+					"dragon_fury",
+					"dragon_summon_rage"
+				]
+			}
+		],
+		"drops": [
+			{
+				"item": "bronze_ingot", "chance": 1.0, "amount": [6, 8],
+				"rarity": {
+					"R3": 0.3,
+					"R2": 0.5
+				}
+			},
+			{
+				"item": "ruby",
+				"chance": 1.0,
+				"amount": [
+					2,
+					3
+				]
+			},
+			{
+				"item": "ember_essence",
+				"chance": 1.0,
+				"amount": [
+					2,
+					3
+				]
+			}
+		]
+	},
+	"mountain_hawk": {
+		"name": "Felsfalke",
+		"level": 29,
+		"exp": 72,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/mountain_hawk.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/mountain_hawk_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/mountain_hawk_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/mountain_hawk_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/mountain_hawk_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/mountain_hawk_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/mountain_hawk_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			180,
+			216
+		],
+		"mana": 0,
+		"damage": [
+			12,
+			15
+		],
+		"attack_interval": 0.8,
+		"armor": 10,
+		"magic_resistance": 8,
+		"attributes": {
+			"agi": 18,
+			"str": 10
+		},
+		"crit_chance": 10,
+		"skills": [
+			"talon_rake"
+		],
+		"damage_type": "stab",
+		"resistances": {
+			"air": 50,
+			"earth": -30,
+			"lightning": -25
+		},
+		"drops": [
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw",
+		"hover": true
+	},
+	"storm_crow": {
+		"name": "Sturmkrähe",
+		"level": 30,
+		"exp": 72,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/storm_crow.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/storm_crow_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/storm_crow_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/storm_crow_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/storm_crow_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/storm_crow_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/storm_crow_walk.png", "frames": 6, "fps": 10}}},
+		"row": "back",
+		"hp": [
+			156,
+			192
+		],
+		"mana": 40,
+		"mana_regen": 1.5,
+		"damage": [
+			8,
+			10
+		],
+		"magic_damage": [
+			13,
+			16
+		],
+		"attack_interval": 1.2,
+		"armor": 8,
+		"magic_resistance": 14,
+		"attributes": {
+			"int": 14,
+			"agi": 14
+		},
+		"skills": [
+			"storm_gust"
+		],
+		"damage_type": "air",
+		"resistances": {
+			"air": 75,
+			"lightning": -30
+		},
+		"drops": [
+			{
+				"item": "emerald",
+				"chance": 0.03
+			}
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw",
+		"hover": true
+	},
+	"harpy_matriarch": {
+		"name": "Harpyienmutter",
+		"level": 34,
+		"exp": 200,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/harpy_matriarch.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/harpy_matriarch_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/harpy_matriarch_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/harpy_matriarch_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/harpy_matriarch_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/harpy_matriarch_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/harpy_matriarch_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.8,
+		"hp": [
+			864,
+			960
+		],
+		"mana": 60,
+		"mana_regen": 1.5,
+		"damage": [
+			15,
+			20
+		],
+		"magic_damage": [
+			14,
+			17
+		],
+		"attack_interval": 1.1,
+		"armor": 18,
+		"magic_resistance": 18,
+		"attributes": {
+			"agi": 18,
+			"str": 16,
+			"int": 14
+		},
+		"skills": [
+			"talon_rake",
+			"harpy_shriek",
+			"harpy_call"
+		],
+		"damage_split": {
+			"slash": 60,
+			"air": 40
+		},
+		"resistances": {
+			"air": 75,
+			"earth": -25,
+			"lightning": -25
+		},
+		"summon_shout": "Schwestern! Zu mir!",
+		"drops": [
+			{
+				"item": "storm_essence",
+				"chance": 0.25
+			}
+		],
+		"attack_vfx": "claw",
+		"hover": true
+	},
+	"hippogriff": {
+		"name": "Hippogreif",
+		"level": 33,
+		"exp": 90,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/hippogriff.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/hippogriff_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/hippogriff_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/hippogriff_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/hippogriff_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/hippogriff_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/hippogriff_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.65,
+		"hp": [
+			336,
+			396
+		],
+		"mana": 0,
+		"damage": [
+			15,
+			20
+		],
+		"attack_interval": 1.3,
+		"armor": 22,
+		"magic_resistance": 12,
+		"attributes": {
+			"str": 18,
+			"con": 18,
+			"agi": 10
+		},
+		"skills": [
+			"talon_rake"
+		],
+		"damage_split": {
+			"stab": 50,
+			"blunt": 50
+		},
+		"resistances": {
+			"air": 40,
+			"lightning": -25
+		},
+		"drops": [
+			{
+				"item": "hippogriff_fur",
+				"chance": 0.12,
+				"rarity": {
+					"R3": 0.05,
+					"R2": 0.2
+				}
+			}
+		],
+		"attack_vfx": "claw"
+	},
+	"storm_spirit": {
+		"name": "Sturmgeist",
+		"level": 34,
+		"exp": 92,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/storm_spirit.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/storm_spirit_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/storm_spirit_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/storm_spirit_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/storm_spirit_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/storm_spirit_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/storm_spirit_walk.png", "frames": 6, "fps": 10}}},
+		"row": "back",
+		"hp": [
+			252,
+			300
+		],
+		"mana": 60,
+		"mana_regen": 2.0,
+		"damage": [
+			8,
+			10
+		],
+		"magic_damage": [
+			16,
+			21
+		],
+		"attack_interval": 1.3,
+		"armor": 8,
+		"magic_resistance": 25,
+		"attributes": {
+			"int": 20,
+			"wis": 12
+		},
+		"skills": [
+			"storm_gust",
+			"chain_lightning"
+		],
+		"damage_type": "air",
+		"resistances": {
+			"air": 100,
+			"lightning": 50,
+			"slash": 25,
+			"stab": 25,
+			"earth": -40
+		},
+		"drops": [
+			{
+				"item": "storm_essence",
+				"chance": 0.08
+			},
+			{
+				"item": "emerald",
+				"chance": 0.04
+			}
+		],
+		"scale": 0.5,
+		"hover": true
+	},
+	"griffin": {
+		"name": "Sturmschwinge, der Greif",
+		"level": 38,
+		"exp": 420,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/griffin.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"griffin_dive": {"path": "res://assets/sprites/enemies/griffin_griffin_dive.png", "frames": 6, "fps": 12}, "griffin_screech": {"path": "res://assets/sprites/enemies/griffin_griffin_screech.png", "frames": 6, "fps": 12}, "storm_wings": {"path": "res://assets/sprites/enemies/griffin_storm_wings.png", "frames": 6, "fps": 12}, "talon_rake": {"path": "res://assets/sprites/enemies/griffin_talon_rake.png", "frames": 6, "fps": 12}, "lunge": {"path": "res://assets/sprites/enemies/griffin_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/griffin_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/griffin_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/griffin_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/griffin_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/griffin_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			2100,
+			2250
+		],
+		"mana": 0,
+		"damage": [
+			19,
+			24
+		],
+		"attack_interval": 1.3,
+		"armor": 32,
+		"magic_resistance": 22,
+		"hp_regen": 3,
+		"attributes": {
+			"str": 26,
+			"agi": 18,
+			"con": 24
+		},
+		"crit_chance": 10,
+		"skills": [
+			"talon_rake",
+			"griffin_dive",
+			"storm_wings"
+		],
+		"damage_split": {
+			"slash": 60,
+			"air": 40
+		},
+		"resistances": {
+			"air": 75,
+			"earth": -20,
+			"lightning": -20
+		},
+		"phases": [
+			{
+				"name": "Sturmschwinge, rasend",
+				"text": "Ein schwarzer Splitter in der Brust des Greifen glüht auf. Sturmschwinge schreit und steigt in den Sturm.",
+				"hp": [
+					1400,
+					1500
+				],
+				"damage": [
+					22,
+					28
+				],
+				"attack_interval": 1.1,
+				"skills": [
+					"talon_rake",
+					"griffin_dive",
+					"storm_wings",
+					"griffin_screech"
+				]
+			}
+		],
+		"drops": [
+			{
+				"item": "hippogriff_fur",
+				"chance": 1.0,
+				"amount": [
+					1,
+					2
+				],
+				"rarity": {
+					"R3": 0.15,
+					"R2": 0.4
+				}
+			},
+			{
+				"item": "storm_essence",
+				"chance": 1.0,
+				"amount": [
+					1,
+					2
+				]
+			},
+			{
+				"item": "emerald",
+				"chance": 0.3
+			}
+		],
+		"attack_vfx": "claw"
+	},
+	"ember_drake": {
+		"name": "Glutdrachling",
+		"level": 27,
+		"exp": 82,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/ember_drake.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/ember_drake_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/ember_drake_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/ember_drake_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/ember_drake_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/ember_drake_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/ember_drake_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.6,
+		"hp": [
+			190,
+			230
+		],
+		"mana": 30,
+		"mana_regen": 1.0,
+		"damage": [
+			10,
+			13
+		],
+		"magic_damage": [
+			11,
+			14
+		],
+		"attack_interval": 1.2,
+		"armor": 18,
+		"magic_resistance": 12,
+		"attributes": {
+			"str": 16,
+			"int": 12
+		},
+		"skills": [
+			"lava_bite",
+			"fireball"
+		],
+		"damage_split": {
+			"slash": 50,
+			"fire": 50
+		},
+		"resistances": {
+			"fire": 100,
+			"ice": -40,
+			"water": -30
+		},
+		"drops": [
+			{
+				"item": "dragon_hide",
+				"chance": 0.15,
+				"rarity": {
+					"R3": 0.05,
+					"R2": 0.2
+				}
+			},
+			{
+				"item": "ember_essence",
+				"chance": 0.04
+			},
+			{"item": "iron_ore", "chance": 0.105}
+		],
+		"attack_vfx": "claw",
+		"hover": true
+	},
+	"surf_crab": {
+		"name": "Brandungskrebs",
+		"level": 33,
+		"exp": 86,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/surf_crab.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/surf_crab_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/surf_crab_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/surf_crab_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/surf_crab_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/surf_crab_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/surf_crab_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			380,
+			440
+		],
+		"mana": 0,
+		"damage": [
+			13,
+			17
+		],
+		"attack_interval": 1.4,
+		"armor": 32,
+		"magic_resistance": 10,
+		"attributes": {
+			"str": 16,
+			"con": 20
+		},
+		"skills": [
+			"crab_pinch"
+		],
+		"damage_split": {
+			"blunt": 60,
+			"water": 40
+		},
+		"resistances": {
+			"water": 100,
+			"lightning": -50,
+			"slash": 25,
+			"stab": 25,
+			"blunt": -20
+		},
+		"drops": [
+			{
+				"item": "silver_ore",
+				"chance": 0.105
+			},
+			{
+				"item": "aquamarine",
+				"chance": 0.03
+			}
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"tide_fishman": {
+		"name": "Küstenkrieger",
+		"level": 33,
+		"exp": 88,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/tide_fishman.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/tide_fishman_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/tide_fishman_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/tide_fishman_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/tide_fishman_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/tide_fishman_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/tide_fishman_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			310,
+			360
+		],
+		"mana": 0,
+		"damage": [
+			15,
+			19
+		],
+		"attack_interval": 1.2,
+		"armor": 18,
+		"magic_resistance": 10,
+		"attributes": {
+			"str": 18,
+			"agi": 12
+		},
+		"skills": [
+			"spear_thrust"
+		],
+		"damage_split": {
+			"stab": 70,
+			"water": 30
+		},
+		"resistances": {
+			"water": 100,
+			"lightning": -50
+		},
+		"drops": [
+			{
+				"item": "silver_ore",
+				"chance": 0.084
+			},
+			{"item": "aquamarine", "chance": 0.03}
+		],
+		"scale": 0.5
+	},
+	"tide_eel": {
+		"name": "Gezeitenaal",
+		"level": 34,
+		"exp": 84,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/tide_eel.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/tide_eel_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/tide_eel_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/tide_eel_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/tide_eel_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/tide_eel_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/tide_eel_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			240,
+			280
+		],
+		"mana": 40,
+		"mana_regen": 1.5,
+		"damage": [
+			11,
+			14
+		],
+		"magic_damage": [
+			14,
+			18
+		],
+		"attack_interval": 0.9,
+		"armor": 10,
+		"magic_resistance": 16,
+		"attributes": {
+			"agi": 20,
+			"int": 10
+		},
+		"crit_chance": 10,
+		"skills": [
+			"water_jet"
+		],
+		"damage_split": {
+			"stab": 50,
+			"water": 50
+		},
+		"resistances": {
+			"water": 100,
+			"lightning": -50,
+			"slash": -20
+		},
+		"drops": [
+			{
+				"item": "aquamarine",
+				"chance": 0.04
+			}
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"fishman_shaman": {
+		"name": "Fischmensch-Schamane",
+		"level": 35,
+		"exp": 96,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/fishman_shaman.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/fishman_shaman_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/fishman_shaman_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/fishman_shaman_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/fishman_shaman_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/fishman_shaman_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/fishman_shaman_walk.png", "frames": 6, "fps": 10}}},
+		"row": "back",
+		"hp": [
+			270,
+			310
+		],
+		"mana": 90,
+		"mana_regen": 2.0,
+		"damage": [
+			8,
+			11
+		],
+		"magic_damage": [
+			17,
+			22
+		],
+		"attack_interval": 1.4,
+		"armor": 10,
+		"magic_resistance": 26,
+		"attributes": {
+			"int": 20,
+			"wis": 16
+		},
+		"skills": [
+			"tidal_wave",
+			"water_jet",
+			"healing_light"
+		],
+		"damage_split": {
+			"water": 100
+		},
+		"resistances": {
+			"water": 100,
+			"lightning": -50
+		},
+		"drops": [
+			{
+				"item": "sapphire",
+				"chance": 0.05
+			},
+			{
+				"item": "aquamarine",
+				"chance": 0.05
+			}
+		],
+		"scale": 0.5
+	},
+	"ice_seal": {
+		"name": "Eisrobbe",
+		"level": 35,
+		"exp": 98,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/ice_seal.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/ice_seal_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/ice_seal_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/ice_seal_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/ice_seal_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/ice_seal_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/ice_seal_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.65,
+		"hp": [
+			430,
+			490
+		],
+		"mana": 0,
+		"damage": [
+			15,
+			19
+		],
+		"attack_interval": 1.3,
+		"armor": 22,
+		"magic_resistance": 16,
+		"attributes": {
+			"str": 18,
+			"con": 22
+		},
+		"skills": [
+			"frost_bite"
+		],
+		"damage_split": {
+			"blunt": 50,
+			"ice": 50
+		},
+		"resistances": {
+			"water": 100,
+			"lightning": -50,
+			"ice": 50,
+			"fire": -20
+		},
+		"drops": [
+			{
+				"item": "ice_seal_fur",
+				"chance": 0.12,
+				"rarity": {
+					"R3": 0.05,
+					"R2": 0.2
+				}
+			},
+			{
+				"item": "silver_ore",
+				"chance": 0.03
+			}
+		],
+		"attack_vfx": "claw"
+	},
+	"reef_warden": {
+		"name": "Riffwächter",
+		"level": 35,
+		"exp": 220,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/reef_warden.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/reef_warden_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/reef_warden_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/reef_warden_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/reef_warden_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/reef_warden_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/reef_warden_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.8,
+		"hp": [
+			980,
+			1080
+		],
+		"mana": 60,
+		"mana_regen": 1.0,
+		"damage": [
+			18,
+			23
+		],
+		"magic_damage": [
+			15,
+			19
+		],
+		"attack_interval": 1.2,
+		"armor": 26,
+		"magic_resistance": 18,
+		"attributes": {
+			"str": 24,
+			"con": 22
+		},
+		"skills": [
+			"spear_thrust",
+			"tidal_wave"
+		],
+		"damage_split": {
+			"stab": 60,
+			"water": 40
+		},
+		"resistances": {
+			"water": 100,
+			"lightning": -50
+		},
+		"drops": [
+			{"item": "silver_ore", "chance": 0.35, "amount": [1, 2]},
+			{
+				"item": "aquamarine",
+				"chance": 0.2
+			}
+		]
+	},
+	"crystal_crab": {
+		"name": "Kristallkrabbe",
+		"level": 37,
+		"exp": 110,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/crystal_crab.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/crystal_crab_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/crystal_crab_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/crystal_crab_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/crystal_crab_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/crystal_crab_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/crystal_crab_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			540,
+			620
+		],
+		"mana": 0,
+		"damage": [
+			16,
+			21
+		],
+		"attack_interval": 1.4,
+		"armor": 42,
+		"magic_resistance": 28,
+		"attributes": {
+			"str": 20,
+			"con": 26
+		},
+		"skills": [
+			"crab_pinch"
+		],
+		"damage_split": {
+			"blunt": 60,
+			"water": 40
+		},
+		"resistances": {
+			"water": 100,
+			"lightning": -50,
+			"slash": 30,
+			"stab": 30,
+			"blunt": -30
+		},
+		"drops": [
+			{
+				"item": "sapphire",
+				"chance": 0.06
+			},
+			{
+				"item": "aquamarine",
+				"chance": 0.06
+			}
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"grotto_kraken": {
+		"name": "Grottenkrake",
+		"level": 37,
+		"faces_right": true,
+		"exp": 260,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/grotto_kraken.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/grotto_kraken_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/grotto_kraken_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/grotto_kraken_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/grotto_kraken_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/grotto_kraken_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/grotto_kraken_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.85,
+		"hp": [
+			1150,
+			1300
+		],
+		"mana": 60,
+		"mana_regen": 1.2,
+		"damage": [
+			18,
+			23
+		],
+		"magic_damage": [
+			16,
+			20
+		],
+		"attack_interval": 1.3,
+		"armor": 24,
+		"magic_resistance": 22,
+		"attributes": {
+			"str": 24,
+			"con": 24
+		},
+		"skills": [
+			"kraken_grip",
+			"tidal_wave"
+		],
+		"damage_split": {
+			"blunt": 60,
+			"water": 40
+		},
+		"resistances": {
+			"water": 100,
+			"lightning": -50,
+			"slash": -20
+		},
+		"drops": [
+			{
+				"item": "aquamarine",
+				"chance": 0.35
+			},
+			{"item": "silver_ore", "chance": 0.28, "amount": [1, 3]}
+		]
+	},
+	"frost_mane": {
+		"name": "Frostmähne",
+		"level": 38,
+		"exp": 480,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/frost_mane.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"frost_bite": {"path": "res://assets/sprites/enemies/frost_mane_frost_bite.png", "frames": 6, "fps": 12}, "frost_mane_roar": {"path": "res://assets/sprites/enemies/frost_mane_frost_mane_roar.png", "frames": 6, "fps": 12}, "tidal_wave": {"path": "res://assets/sprites/enemies/frost_mane_tidal_wave.png", "frames": 6, "fps": 12}, "lunge": {"path": "res://assets/sprites/enemies/frost_mane_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/frost_mane_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/frost_mane_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/frost_mane_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/frost_mane_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/frost_mane_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			2250,
+			2400
+		],
+		"mana": 100,
+		"mana_regen": 2.0,
+		"damage": [
+			20,
+			25
+		],
+		"magic_damage": [
+			18,
+			23
+		],
+		"attack_interval": 1.3,
+		"armor": 34,
+		"magic_resistance": 24,
+		"attributes": {
+			"str": 28,
+			"con": 26,
+			"agi": 14
+		},
+		"crit_chance": 8,
+		"skills": [
+			"frost_bite",
+			"frost_mane_roar"
+		],
+		"damage_split": {
+			"slash": 50,
+			"ice": 50
+		},
+		"resistances": {
+			"water": 100,
+			"ice": 100,
+			"lightning": -30,
+			"fire": -20
+		},
+		"phases": [
+			{
+				"name": "Frostmähne, tobend",
+				"text": "Frostmähne brüllt. Ihre Mähne aus Eis sträubt sich, die Grotte friert zu.",
+				"hp": [
+					1500,
+					1600
+				],
+				"damage": [
+					23,
+					29
+				],
+				"attack_interval": 1.1,
+				"skills": [
+					"frost_bite",
+					"frost_mane_roar",
+					"tidal_wave"
+				]
+			}
+		],
+		"drops": [
+			{
+				"item": "sapphire",
+				"chance": 0.5
+			},
+			{"item": "silver_ingot", "chance": 0.42, "amount": [1, 2]}
+		],
+		"attack_vfx": "claw"
+	},
+	"will_o_wisp": {
+		"name": "Irrlicht",
+		"level": 40,
+		"exp": 92,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/will_o_wisp.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/will_o_wisp_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/will_o_wisp_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/will_o_wisp_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/will_o_wisp_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/will_o_wisp_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/will_o_wisp_walk.png", "frames": 6, "fps": 10}}},
+		"row": "back",
+		"hp": [
+			210,
+			250
+		],
+		"mana": 60,
+		"mana_regen": 2.0,
+		"damage": [
+			6,
+			8
+		],
+		"magic_damage": [
+			16,
+			21
+		],
+		"attack_interval": 1.4,
+		"armor": 6,
+		"magic_resistance": 30,
+		"attributes": {
+			"int": 22
+		},
+		"skills": [
+			"wisp_veil",
+			"wisp_flare"
+		],
+		"damage_split": {
+			"magic": 100
+		},
+		"resistances": {
+			"poison": 100,
+			"dark": 50,
+			"light": -40
+		},
+		"drops": [
+			{
+				"item": "storm_essence",
+				"chance": 0.04
+			}
+		],
+		"scale": 0.5,
+		"hover": true
+	},
+	"mire_toad": {
+		"name": "Moorkröte",
+		"level": 40,
+		"exp": 90,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/mire_toad.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/mire_toad_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/mire_toad_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/mire_toad_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/mire_toad_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/mire_toad_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/mire_toad_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			420,
+			480
+		],
+		"mana": 0,
+		"damage": [
+			14,
+			18
+		],
+		"attack_interval": 1.3,
+		"armor": 22,
+		"magic_resistance": 14,
+		"attributes": {
+			"str": 20,
+			"con": 22
+		},
+		"skills": [
+			"poison_bite"
+		],
+		"damage_split": {
+			"blunt": 60,
+			"poison": 40
+		},
+		"resistances": {
+			"poison": 75,
+			"fire": -40
+		},
+		"on_hit": [
+			{
+				"effect": "poison",
+				"chance": 30
+			}
+		],
+		"drops": [
+			{
+				"item": "gold_ore",
+				"chance": 0.07
+			}
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"bog_leech": {
+		"name": "Riesenegel",
+		"level": 41,
+		"exp": 94,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bog_leech.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bog_leech_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bog_leech_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bog_leech_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bog_leech_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bog_leech_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bog_leech_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			360,
+			410
+		],
+		"mana": 0,
+		"damage": [
+			13,
+			17
+		],
+		"attack_interval": 1.1,
+		"armor": 14,
+		"magic_resistance": 12,
+		"attributes": {
+			"str": 18,
+			"agi": 14
+		},
+		"skills": [
+			"leech_bite"
+		],
+		"damage_split": {
+			"stab": 100
+		},
+		"resistances": {
+			"poison": 100,
+			"fire": -40,
+			"slash": -20
+		},
+		"drops": [
+			{
+				"item": "wolf_leather",
+				"chance": 0.1
+			}
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"wisp_queen": {
+		"name": "Irrlichtkönigin",
+		"level": 42,
+		"exp": 300,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/wisp_queen.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/wisp_queen_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/wisp_queen_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/wisp_queen_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/wisp_queen_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/wisp_queen_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/wisp_queen_walk.png", "frames": 6, "fps": 10}}},
+		"row": "back",
+		"scale": 0.9,
+		"hp": [
+			1200,
+			1350
+		],
+		"mana": 120,
+		"mana_regen": 3.0,
+		"damage": [
+			10,
+			13
+		],
+		"magic_damage": [
+			20,
+			26
+		],
+		"attack_interval": 1.3,
+		"armor": 12,
+		"magic_resistance": 34,
+		"attributes": {
+			"int": 28
+		},
+		"skills": [
+			"wisp_veil",
+			"wisp_flare",
+			"wisp_call"
+		],
+		"damage_split": {
+			"magic": 100
+		},
+		"resistances": {
+			"poison": 100,
+			"dark": 50,
+			"light": -40
+		},
+		"drops": [
+			{
+				"item": "storm_essence",
+				"chance": 0.3
+			},
+			{
+				"item": "emerald",
+				"chance": 0.25
+			}
+		],
+		"hover": true
+	},
+	"bog_corpse": {
+		"name": "Moorleiche",
+		"level": 42,
+		"exp": 98,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bog_corpse.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/bog_corpse_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bog_corpse_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bog_corpse_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bog_corpse_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bog_corpse_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bog_corpse_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			520,
+			600
+		],
+		"mana": 0,
+		"hp_regen": 14,
+		"damage": [
+			16,
+			21
+		],
+		"attack_interval": 1.4,
+		"armor": 24,
+		"magic_resistance": 10,
+		"attributes": {
+			"str": 22,
+			"con": 24
+		},
+		"skills": [
+			"bone_slash"
+		],
+		"damage_split": {
+			"slash": 70,
+			"poison": 30
+		},
+		"resistances": {
+			"poison": 100,
+			"dark": 50,
+			"fire": -50,
+			"light": -30
+		},
+		"absorb": {
+			"poison": 100
+		},
+		"drops": [
+			{
+				"item": "gold_ore",
+				"chance": 0.084
+			}
+		],
+		"scale": 0.5
+	},
+	"swamp_shaman": {
+		"name": "Sumpfschamane",
+		"level": 42,
+		"exp": 104,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/swamp_shaman.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/swamp_shaman_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/swamp_shaman_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/swamp_shaman_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/swamp_shaman_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/swamp_shaman_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/swamp_shaman_walk.png", "frames": 6, "fps": 10}}},
+		"row": "back",
+		"hp": [
+			300,
+			340
+		],
+		"mana": 100,
+		"mana_regen": 2.5,
+		"damage": [
+			8,
+			10
+		],
+		"magic_damage": [
+			17,
+			22
+		],
+		"attack_interval": 1.4,
+		"armor": 12,
+		"magic_resistance": 28,
+		"attributes": {
+			"int": 20,
+			"wis": 20
+		},
+		"skills": [
+			"healing_light",
+			"poison_cloud"
+		],
+		"damage_split": {
+			"poison": 100
+		},
+		"resistances": {
+			"poison": 75,
+			"fire": -40
+		},
+		"drops": [
+			{
+				"item": "jade",
+				"chance": 0.05
+			},
+			{
+				"item": "emerald",
+				"chance": 0.04
+			}
+		],
+		"scale": 0.5
+	},
+	"bog_mother": {
+		"name": "Moormutter",
+		"level": 43,
+		"exp": 420,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bog_mother.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"bone_slash": {"path": "res://assets/sprites/enemies/bog_mother_bone_slash.png", "frames": 6, "fps": 12}, "corpse_call": {"path": "res://assets/sprites/enemies/bog_mother_corpse_call.png", "frames": 6, "fps": 12}, "poison_cloud": {"path": "res://assets/sprites/enemies/bog_mother_poison_cloud.png", "frames": 6, "fps": 12}, "lunge": {"path": "res://assets/sprites/enemies/bog_mother_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bog_mother_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bog_mother_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bog_mother_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bog_mother_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bog_mother_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			2100,
+			2250
+		],
+		"mana": 120,
+		"mana_regen": 2.0,
+		"hp_regen": 10,
+		"damage": [
+			19,
+			24
+		],
+		"magic_damage": [
+			18,
+			23
+		],
+		"attack_interval": 1.3,
+		"armor": 28,
+		"magic_resistance": 26,
+		"attributes": {
+			"str": 26,
+			"con": 28
+		},
+		"skills": [
+			"bone_slash",
+			"poison_cloud",
+			"corpse_call"
+		],
+		"damage_split": {
+			"slash": 50,
+			"poison": 50
+		},
+		"resistances": {
+			"poison": 100,
+			"dark": 50,
+			"fire": -40,
+			"light": -30
+		},
+		"absorb": {
+			"poison": 100
+		},
+		"phases": [
+			{
+				"name": "Moormutter, erwacht",
+				"text": "Die Moormutter versinkt im Schlamm und steigt wieder auf. Aus dem Sumpf greifen Hände nach deinen Helden.",
+				"hp": [
+					1400,
+					1500
+				],
+				"damage": [
+					22,
+					28
+				],
+				"attack_interval": 1.1,
+				"skills": [
+					"bone_slash",
+					"poison_cloud",
+					"corpse_call"
+				]
+			}
+		],
+		"drops": [
+			{
+				"item": "gold_ingot",
+				"chance": 0.35
+			},
+			{
+				"item": "jade",
+				"chance": 0.3
+			}
+		]
+	},
+	"swamp_serpent": {
+		"name": "Sumpfnatter",
+		"level": 43,
+		"exp": 100,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/swamp_serpent.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/swamp_serpent_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/swamp_serpent_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/swamp_serpent_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/swamp_serpent_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/swamp_serpent_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/swamp_serpent_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			380,
+			430
+		],
+		"mana": 0,
+		"damage": [
+			15,
+			19
+		],
+		"attack_interval": 0.9,
+		"armor": 16,
+		"magic_resistance": 16,
+		"attributes": {
+			"agi": 22,
+			"str": 16
+		},
+		"crit_chance": 12,
+		"skills": [
+			"poison_bite",
+			"leech_bite"
+		],
+		"damage_split": {
+			"stab": 60,
+			"poison": 40
+		},
+		"resistances": {
+			"poison": 75,
+			"fire": -40
+		},
+		"on_hit": [
+			{
+				"effect": "poison",
+				"chance": 25
+			}
+		],
+		"drops": [
+			{
+				"item": "jade",
+				"chance": 0.05
+			}
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"swamp_hydra": {
+		"name": "Die Sumpfhydra",
+		"level": 45,
+		"exp": 600,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/swamp_hydra.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"hydra_bite": {"path": "res://assets/sprites/enemies/swamp_hydra_hydra_bite.png", "frames": 6, "fps": 12}, "hydra_spit": {"path": "res://assets/sprites/enemies/swamp_hydra_hydra_spit.png", "frames": 6, "fps": 12}, "poison_cloud": {"path": "res://assets/sprites/enemies/swamp_hydra_poison_cloud.png", "frames": 6, "fps": 12}, "lunge": {"path": "res://assets/sprites/enemies/swamp_hydra_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/swamp_hydra_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/swamp_hydra_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/swamp_hydra_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/swamp_hydra_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/swamp_hydra_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			1800,
+			1950
+		],
+		"mana": 100,
+		"mana_regen": 2.0,
+		"damage": [
+			20,
+			25
+		],
+		"magic_damage": [
+			18,
+			23
+		],
+		"attack_interval": 1.4,
+		"armor": 30,
+		"magic_resistance": 26,
+		"attributes": {
+			"str": 28,
+			"con": 30
+		},
+		"skills": [
+			"hydra_bite",
+			"poison_cloud"
+		],
+		"damage_split": {
+			"stab": 50,
+			"poison": 50
+		},
+		"resistances": {
+			"poison": 100,
+			"fire": -40,
+			"water": 30
+		},
+		"absorb": {
+			"poison": 100
+		},
+		"phases": [
+			{
+				"name": "Die Sumpfhydra, zwei Köpfe",
+				"text": "Der Kopf fällt in den Teich. Aus dem Stumpf wachsen zwei neue, zischend und schneller.",
+				"hp": [
+					1600,
+					1700
+				],
+				"damage": [
+					22,
+					27
+				],
+				"attack_interval": 1.15,
+				"skills": [
+					"hydra_bite",
+					"poison_cloud",
+					"hydra_spit"
+				]
+			},
+			{
+				"name": "Die Sumpfhydra, drei Köpfe",
+				"text": "Drei Köpfe peitschen über das Wasser. Die Hydra tobt.",
+				"hp": [
+					1500,
+					1600
+				],
+				"damage": [
+					24,
+					30
+				],
+				"attack_interval": 0.95,
+				"skills": [
+					"hydra_bite",
+					"poison_cloud",
+					"hydra_spit"
+				]
+			}
+		],
+		"drops": [
+			{
+				"item": "gold_ingot",
+				"chance": 0.49,
+				"amount": [
+					1,
+					3
+				]
+			},
+			{
+				"item": "jade",
+				"chance": 0.4
+			}
+		],
+		"attack_vfx": "claw"
+	},
+	"hydra_head_bite": {"name":"Hydrakopf (Biss)","level":45,"exp":200,"sprite":{"path":"res://assets/sprites/enemies/swamp_hydra.png","frame_size":[48,48],"frames":1,"fps":4,"anims":{"hydra_bite":{"path":"res://assets/sprites/enemies/swamp_hydra_hydra_bite.png","frames":6,"fps":12},"hydra_spit":{"path":"res://assets/sprites/enemies/swamp_hydra_hydra_spit.png","frames":6,"fps":12},"poison_cloud":{"path":"res://assets/sprites/enemies/swamp_hydra_poison_cloud.png","frames":6,"fps":12},"lunge":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"slam":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"shoot":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"cast":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"death":{"path":"res://assets/sprites/enemies/swamp_hydra_death.png","frames":6,"fps":10},"walk":{"path":"res://assets/sprites/enemies/swamp_hydra_walk.png","frames":6,"fps":10}}},"scale":0.9,"body":"hydra","body_label":"Biss","hp":[1050,1150],"mana":100,"mana_regen":2,"damage":[16,20],"magic_damage":[14,18],"attack_interval":1.5,"armor":30,"magic_resistance":26,"attributes":{"str":24,"con":26},"skills":["hydra_bite"],"damage_split":{"stab":70,"poison":30},"resistances":{"poison":100,"fire":-40,"water":30},"absorb":{"poison":100},"regrow":{"group":"hydra","seconds":30,"health_percent":[50,25],"text":"Der Kopf wächst nach!"},"drops":[{"item":"jade","chance":0.4}],"attack_vfx":"claw"},
+	"hydra_head_spit": {"name":"Hydrakopf (Gift)","level":45,"exp":200,"sprite":{"path":"res://assets/sprites/enemies/swamp_hydra.png","frame_size":[48,48],"frames":1,"fps":4,"anims":{"hydra_bite":{"path":"res://assets/sprites/enemies/swamp_hydra_hydra_bite.png","frames":6,"fps":12},"hydra_spit":{"path":"res://assets/sprites/enemies/swamp_hydra_hydra_spit.png","frames":6,"fps":12},"poison_cloud":{"path":"res://assets/sprites/enemies/swamp_hydra_poison_cloud.png","frames":6,"fps":12},"lunge":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"slam":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"shoot":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"cast":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"death":{"path":"res://assets/sprites/enemies/swamp_hydra_death.png","frames":6,"fps":10},"walk":{"path":"res://assets/sprites/enemies/swamp_hydra_walk.png","frames":6,"fps":10}}},"scale":0.9,"body":"hydra","body_label":"Gift","hp":[1050,1150],"mana":100,"mana_regen":2,"damage":[16,20],"magic_damage":[14,18],"attack_interval":1.5,"armor":30,"magic_resistance":26,"attributes":{"str":24,"con":26},"skills":["hydra_spit"],"damage_split":{"stab":30,"poison":70},"resistances":{"poison":100,"fire":-40,"water":30},"absorb":{"poison":100},"regrow":{"group":"hydra","seconds":30,"health_percent":[50,25],"text":"Der Kopf wächst nach!"},"drops":[{"item":"gold_ingot","chance":0.35}],"attack_vfx":"claw"},
+	"hydra_head_cloud": {"name":"Hydrakopf (Nebel)","level":45,"exp":200,"sprite":{"path":"res://assets/sprites/enemies/swamp_hydra.png","frame_size":[48,48],"frames":1,"fps":4,"anims":{"hydra_bite":{"path":"res://assets/sprites/enemies/swamp_hydra_hydra_bite.png","frames":6,"fps":12},"hydra_spit":{"path":"res://assets/sprites/enemies/swamp_hydra_hydra_spit.png","frames":6,"fps":12},"poison_cloud":{"path":"res://assets/sprites/enemies/swamp_hydra_poison_cloud.png","frames":6,"fps":12},"lunge":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"slam":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"shoot":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"cast":{"path":"res://assets/sprites/enemies/swamp_hydra_attack.png","frames":6,"fps":16},"death":{"path":"res://assets/sprites/enemies/swamp_hydra_death.png","frames":6,"fps":10},"walk":{"path":"res://assets/sprites/enemies/swamp_hydra_walk.png","frames":6,"fps":10}}},"scale":0.9,"body":"hydra","body_label":"Nebel","hp":[1050,1150],"mana":100,"mana_regen":2,"damage":[16,20],"magic_damage":[14,18],"attack_interval":1.5,"armor":30,"magic_resistance":26,"attributes":{"str":24,"con":26},"skills":["poison_cloud"],"damage_split":{"stab":50,"poison":50},"resistances":{"poison":100,"fire":-40,"water":30},"absorb":{"poison":100},"regrow":{"group":"hydra","seconds":30,"health_percent":[50,25],"text":"Der Kopf wächst nach!"},"drops":[],"attack_vfx":"claw"},
+	"dark_knight": {
+		"name": "Finsterritter",
+		"level": 44,
+		"exp": 110,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/dark_knight.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/dark_knight_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/dark_knight_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/dark_knight_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/dark_knight_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/dark_knight_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/dark_knight_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			620,
+			700
+		],
+		"mana": 0,
+		"damage": [
+			19,
+			24
+		],
+		"attack_interval": 1.3,
+		"armor": 34,
+		"magic_resistance": 24,
+		"attributes": {
+			"str": 26,
+			"con": 24
+		},
+		"skills": [
+			"monster_shield_bash",
+			"morwald_cleave"
+		],
+		"damage_split": {
+			"slash": 60,
+			"dark": 40
+		},
+		"resistances": {
+			"dark": 75,
+			"poison": 100,
+			"light": -40,
+			"lightning": -20
+		},
+		"drops": [
+			{
+				"item": "gold_ore",
+				"chance": 0.105
+			},
+			{
+				"item": "emerald",
+				"chance": 0.04
+			}
+		],
+		"scale": 0.5
+	},
+	"bone_general": {
+		"name": "Knochengeneral Varg",
+		"level": 46,
+		"exp": 640,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/bone_general.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"morwald_cleave": {"path": "res://assets/sprites/enemies/bone_general_morwald_cleave.png", "frames": 6, "fps": 12}, "raise_skeleton": {"path": "res://assets/sprites/enemies/bone_general_raise_skeleton.png", "frames": 6, "fps": 12}, "wraith_wail": {"path": "res://assets/sprites/enemies/bone_general_wraith_wail.png", "frames": 6, "fps": 12}, "lunge": {"path": "res://assets/sprites/enemies/bone_general_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/bone_general_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/bone_general_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/bone_general_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/bone_general_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/bone_general_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hp": [
+			2400,
+			2600
+		],
+		"mana": 100,
+		"mana_regen": 2.0,
+		"damage": [
+			22,
+			28
+		],
+		"magic_damage": [
+			20,
+			26
+		],
+		"attack_interval": 1.2,
+		"armor": 38,
+		"magic_resistance": 30,
+		"attributes": {
+			"str": 30,
+			"con": 28
+		},
+		"skills": [
+			"morwald_cleave",
+			"raise_skeleton",
+			"wraith_wail"
+		],
+		"damage_split": {
+			"slash": 60,
+			"dark": 40
+		},
+		"resistances": {
+			"dark": 75,
+			"poison": 100,
+			"light": -40,
+			"blunt": -20
+		},
+		"phases": [
+			{
+				"name": "Knochengeneral Varg, entfesselt",
+				"text": "Varg wirft seinen Schild fort. „Für den Herrn der Finsterburg!“",
+				"hp": [
+					1700,
+					1800
+				],
+				"damage": [
+					26,
+					32
+				],
+				"attack_interval": 1.0,
+				"skills": [
+					"morwald_cleave",
+					"raise_skeleton",
+					"wraith_wail"
+				]
+			}
+		],
+		"drops": [
+			{
+				"item": "gold_ingot",
+				"chance": 1.0,
+				"amount": [
+					1,
+					2
+				]
+			}
+		]
+	},
+	"dark_archer": {
+		"name": "Finsterschütze",
+		"level": 46,
+		"exp": 120,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/dark_archer.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/dark_archer_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/dark_archer_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/dark_archer_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/dark_archer_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/dark_archer_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/dark_archer_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			420,
+			480
+		],
+		"mana": 0,
+		"damage": [
+			20,
+			25
+		],
+		"attack_interval": 1.1,
+		"armor": 24,
+		"magic_resistance": 22,
+		"attributes": {
+			"str": 31,
+			"con": 29
+		},
+		"skills": [
+			"aimed_shot",
+			"rapid_shot"
+		],
+		"damage_split": {
+			"stab": 70,
+			"dark": 30
+		},
+		"resistances": {
+			"dark": 60,
+			"light": -30
+		},
+		"drops": [
+			{
+				"item": "platinum_ore",
+				"chance": 0.105
+			}
+		],
+		"scale": 0.5
+	},
+	"dark_captain": {
+		"name": "Hauptmann der Finsterritter",
+		"level": 47,
+		"exp": 560,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/dark_captain.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/dark_captain_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/dark_captain_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/dark_captain_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/dark_captain_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/dark_captain_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/dark_captain_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			1700,
+			1850
+		],
+		"mana": 0,
+		"damage": [
+			24,
+			30
+		],
+		"attack_interval": 1.25,
+		"armor": 40,
+		"magic_resistance": 28,
+		"attributes": {
+			"str": 31,
+			"con": 29
+		},
+		"skills": [
+			"morwald_cleave",
+			"monster_shield_bash",
+			"battle_cry"
+		],
+		"damage_split": {
+			"slash": 60,
+			"dark": 40
+		},
+		"resistances": {
+			"dark": 75,
+			"poison": 100,
+			"light": -40
+		},
+		"drops": [
+			{
+				"item": "platinum_ingot",
+				"chance": 0.56,
+				"amount": [
+					1,
+					2
+				]
+			}
+		],
+		"scale": 0.85
+	},
+	"frost_spirit": {
+		"name": "Frostgeist",
+		"level": 46,
+		"exp": 125,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/frost_spirit.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/frost_spirit_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/frost_spirit_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/frost_spirit_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/frost_spirit_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/frost_spirit_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/frost_spirit_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			520,
+			580
+		],
+		"mana": 100,
+		"damage": [
+			14,
+			18
+		],
+		"attack_interval": 1.3,
+		"armor": 18,
+		"magic_resistance": 38,
+		"attributes": {
+			"str": 31,
+			"con": 29
+		},
+		"skills": [
+			"ice_lance",
+			"blizzard"
+		],
+		"damage_split": {
+			"ice": 100
+		},
+		"resistances": {
+			"ice": 100,
+			"water": 50,
+			"fire": -40
+		},
+		"drops": [
+			{
+				"item": "sapphire",
+				"chance": 0.04
+			}
+		],
+		"mana_regen": 2.0,
+		"magic_damage": [
+			20,
+			25
+		],
+		"scale": 0.5,
+		"hover": true
+	},
+	"frost_golem": {
+		"name": "Eisgolem",
+		"level": 47,
+		"exp": 150,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/frost_golem.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/frost_golem_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/frost_golem_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/frost_golem_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/frost_golem_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/frost_golem_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/frost_golem_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			900,
+			1000
+		],
+		"mana": 0,
+		"damage": [
+			24,
+			30
+		],
+		"attack_interval": 1.6,
+		"armor": 48,
+		"magic_resistance": 20,
+		"attributes": {
+			"str": 31,
+			"con": 29
+		},
+		"skills": [
+			"golem_stomp",
+			"frost_bite"
+		],
+		"damage_split": {
+			"blunt": 70,
+			"ice": 30
+		},
+		"resistances": {
+			"ice": 100,
+			"lightning": -30,
+			"fire": -30
+		},
+		"drops": [
+			{
+				"item": "silver_ore",
+				"chance": 0.14,
+				"rarity": {
+					"R2": 1.0
+				}
+			},
+			{
+				"item": "frost_lichen",
+				"chance": 0.12,
+				"rarity": {
+					"R3": 0.05,
+					"R2": 0.2
+				}
+			}
+		],
+		"scale": 0.8
+	},
+	"wall_harpy": {
+		"name": "Eisharpyie",
+		"level": 48,
+		"exp": 135,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/wall_harpy.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/wall_harpy_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/wall_harpy_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/wall_harpy_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/wall_harpy_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/wall_harpy_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/wall_harpy_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			480,
+			540
+		],
+		"mana": 100,
+		"damage": [
+			18,
+			22
+		],
+		"attack_interval": 1.0,
+		"armor": 22,
+		"magic_resistance": 26,
+		"attributes": {
+			"str": 32,
+			"con": 30
+		},
+		"skills": [
+			"harpy_shriek",
+			"storm_gust"
+		],
+		"damage_split": {
+			"slash": 60,
+			"ice": 40
+		},
+		"resistances": {
+			"ice": 60,
+			"lightning": -30
+		},
+		"drops": [
+			{
+				"item": "ice_harpy_feather",
+				"chance": 0.14
+			}
+		],
+		"mana_regen": 2.0,
+		"magic_damage": [
+			18,
+			22
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw",
+		"hover": true
+	},
+	"dark_lake": {
+		"name": "Lake, der dunkle Ritter",
+		"level": 50,
+		"exp": 800,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/dark_lake.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"battle_cry": {"path": "res://assets/sprites/enemies/dark_lake_battle_cry.png", "frames": 6, "fps": 12}, "monster_shield_bash": {"path": "res://assets/sprites/enemies/dark_lake_monster_shield_bash.png", "frames": 6, "fps": 12}, "morwald_cleave": {"path": "res://assets/sprites/enemies/dark_lake_morwald_cleave.png", "frames": 6, "fps": 12}, "wraith_wail": {"path": "res://assets/sprites/enemies/dark_lake_wraith_wail.png", "frames": 6, "fps": 12}, "lunge": {"path": "res://assets/sprites/enemies/dark_lake_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/dark_lake_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/dark_lake_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/dark_lake_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/dark_lake_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/dark_lake_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			2600,
+			2800
+		],
+		"mana": 100,
+		"damage": [
+			26,
+			32
+		],
+		"attack_interval": 1.15,
+		"armor": 40,
+		"magic_resistance": 34,
+		"attributes": {
+			"str": 32,
+			"con": 30
+		},
+		"skills": [
+			"morwald_cleave",
+			"monster_shield_bash",
+			"wraith_wail"
+		],
+		"damage_split": {
+			"slash": 60,
+			"dark": 40
+		},
+		"resistances": {
+			"dark": 80,
+			"poison": 50,
+			"light": -30
+		},
+		"drops": [
+			{
+				"item": "gold_ingot",
+				"chance": 1.0,
+				"amount": [
+					1,
+					2
+				]
+			}
+		],
+		"mana_regen": 2.0,
+		"magic_damage": [
+			24,
+			30
+		],
+		"scale": 0.9,
+		"crit_chance": 10,
+		"phases": [
+			{
+				"name": "Lake, der dunkle Ritter, entfesselt",
+				"text": "Lakes schwarzes Schwert flammt auf. Kein Laut kommt über seine Lippen.",
+				"hp": [
+					2000,
+					2200
+				],
+				"damage": [
+					29,
+					35
+				],
+				"attack_interval": 1.0,
+				"skills": [
+					"morwald_cleave",
+					"monster_shield_bash",
+					"wraith_wail",
+					"battle_cry"
+				]
+			},
+			{
+				"name": "Lake, der dunkle Ritter, wankend",
+				"text": "Für einen Herzschlag flackert ein goldener Schimmer in seiner Rüstung. Dann wird sie wieder schwarz.",
+				"hp": [
+					1600,
+					1800
+				],
+				"damage": [
+					32,
+					38
+				],
+				"attack_interval": 0.9,
+				"skills": [
+					"morwald_cleave",
+					"wraith_wail",
+					"battle_cry"
+				]
+			}
+		]
+	},
+	"finster_guard": {
+		"name": "Wache der Finsterstadt",
+		"level": 51,
+		"exp": 140,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/finster_guard.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/finster_guard_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/finster_guard_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/finster_guard_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/finster_guard_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/finster_guard_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/finster_guard_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			760,
+			840
+		],
+		"mana": 0,
+		"damage": [
+			23,
+			28
+		],
+		"attack_interval": 1.25,
+		"armor": 40,
+		"magic_resistance": 28,
+		"attributes": {
+			"str": 32,
+			"con": 30
+		},
+		"skills": [
+			"spear_thrust",
+			"monster_shield_bash"
+		],
+		"damage_split": {
+			"stab": 60,
+			"dark": 40
+		},
+		"resistances": {
+			"dark": 60,
+			"fire": 30,
+			"light": -30
+		},
+		"drops": [
+			{
+				"item": "platinum_ore",
+				"chance": 0.14
+			},
+			{"item": "sword:silver_blade+silver_handle", "chance": 0.01},
+			{"item": "polearm:silver_spear_head+silver_shaft", "chance": 0.01},
+			{"item": "shield:silver_shield_plate+silver_handle", "chance": 0.01},
+			{"item": "helmet:silver_helmet_plate+leather", "chance": 0.01},
+			{"item": "chest_armor:silver_chest_plate+leather", "chance": 0.01},
+			{"item": "leg_armor:silver_leg_plate+leather", "chance": 0.01},
+			{"item": "boots:silver_boot_plate+leather", "chance": 0.01},
+			{"item": "gloves:silver_glove_plate+leather", "chance": 0.01},
+			{"item": "shoulder_armor:silver_shoulder_plate+leather", "chance": 0.01}
+		],
+		"scale": 0.5
+	},
+	"canal_beast": {
+		"name": "Kanalbestie",
+		"level": 52,
+		"exp": 160,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/canal_beast.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/canal_beast_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/canal_beast_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/canal_beast_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/canal_beast_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/canal_beast_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/canal_beast_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			980,
+			1080
+		],
+		"mana": 0,
+		"damage": [
+			26,
+			32
+		],
+		"attack_interval": 1.4,
+		"armor": 36,
+		"magic_resistance": 24,
+		"attributes": {
+			"str": 33,
+			"con": 31
+		},
+		"skills": [
+			"poison_bite",
+			"deep_cut"
+		],
+		"damage_split": {
+			"stab": 50,
+			"poison": 50
+		},
+		"resistances": {
+			"poison": 100,
+			"water": 50,
+			"lightning": -30
+		},
+		"drops": [
+			{
+				"item": "jade",
+				"chance": 0.05
+			}
+		],
+		"scale": 0.75,
+		"attack_vfx": "claw"
+	},
+	"tower_archer": {
+		"name": "Turmschütze",
+		"level": 53,
+		"exp": 150,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/tower_archer.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/tower_archer_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/tower_archer_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/tower_archer_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/tower_archer_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/tower_archer_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/tower_archer_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			600,
+			680
+		],
+		"mana": 0,
+		"damage": [
+			25,
+			30
+		],
+		"attack_interval": 1.1,
+		"armor": 28,
+		"magic_resistance": 26,
+		"attributes": {
+			"str": 33,
+			"con": 31
+		},
+		"skills": [
+			"aimed_shot",
+			"rapid_shot"
+		],
+		"damage_split": {
+			"stab": 80,
+			"dark": 20
+		},
+		"resistances": {
+			"dark": 50
+		},
+		"drops": [
+			{
+				"item": "platinum_ore",
+				"chance": 0.14
+			}
+		],
+		"scale": 0.5
+	},
+	"finster_warden": {
+		"name": "Turmhauptmann Mordrek",
+		"level": 54,
+		"exp": 700,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/finster_warden.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"battle_cry": {"path": "res://assets/sprites/enemies/finster_warden_battle_cry.png", "frames": 6, "fps": 12}, "morwald_cleave": {"path": "res://assets/sprites/enemies/finster_warden_morwald_cleave.png", "frames": 6, "fps": 12}, "raise_skeleton": {"path": "res://assets/sprites/enemies/finster_warden_raise_skeleton.png", "frames": 6, "fps": 12}, "lunge": {"path": "res://assets/sprites/enemies/finster_warden_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/finster_warden_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/finster_warden_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/finster_warden_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/finster_warden_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/finster_warden_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			2800,
+			3000
+		],
+		"mana": 100,
+		"damage": [
+			28,
+			34
+		],
+		"attack_interval": 1.2,
+		"armor": 44,
+		"magic_resistance": 32,
+		"attributes": {
+			"str": 33,
+			"con": 31
+		},
+		"skills": [
+			"morwald_cleave",
+			"battle_cry",
+			"raise_skeleton"
+		],
+		"damage_split": {
+			"slash": 60,
+			"dark": 40
+		},
+		"resistances": {
+			"dark": 70,
+			"light": -30
+		},
+		"drops": [
+			{
+				"item": "platinum_ingot",
+				"chance": 1.0,
+				"amount": [
+					1,
+					2
+				]
+			}
+		],
+		"mana_regen": 2.0,
+		"magic_damage": [
+			24,
+			30
+		],
+		"scale": 0.9,
+		"phases": [
+			{
+				"name": "Turmhauptmann Mordrek, wütend",
+				"text": "Mordrek stößt ins Horn. „Zu den Waffen! Wer nicht kämpft, landet im Kerker!“",
+				"hp": [
+					1800,
+					1900
+				],
+				"damage": [
+					31,
+					37
+				],
+				"attack_interval": 1.0,
+				"skills": [
+					"morwald_cleave",
+					"battle_cry",
+					"raise_skeleton"
+				]
+			}
+		]
+	},
+	"star_golem": {
+		"name": "Sternengolem",
+		"level": 54,
+		"exp": 170,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/star_golem.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/star_golem_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/star_golem_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/star_golem_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/star_golem_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/star_golem_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/star_golem_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			1300,
+			1450
+		],
+		"mana": 100,
+		"damage": [
+			30,
+			36
+		],
+		"attack_interval": 1.6,
+		"armor": 55,
+		"magic_resistance": 40,
+		"attributes": {
+			"str": 33,
+			"con": 31
+		},
+		"skills": [
+			"golem_stomp",
+			"meteor"
+		],
+		"damage_split": {
+			"blunt": 60,
+			"fire": 40
+		},
+		"resistances": {
+			"fire": 50,
+			"lightning": -30,
+			"ice": -20
+		},
+		"drops": [],
+		"mana_regen": 2.0,
+		"magic_damage": [
+			28,
+			34
+		],
+		"scale": 0.85
+	},
+	"star_colossus": {
+		"name": "Der Sternenkoloss",
+		"level": 55,
+		"exp": 760,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/star_colossus.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"earthquake": {"path": "res://assets/sprites/enemies/star_colossus_earthquake.png", "frames": 6, "fps": 12}, "golem_stomp": {"path": "res://assets/sprites/enemies/star_colossus_golem_stomp.png", "frames": 6, "fps": 12}, "meteor": {"path": "res://assets/sprites/enemies/star_colossus_meteor.png", "frames": 6, "fps": 12}, "lunge": {"path": "res://assets/sprites/enemies/star_colossus_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/star_colossus_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/star_colossus_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/star_colossus_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/star_colossus_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/star_colossus_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			3400,
+			3600
+		],
+		"mana": 100,
+		"damage": [
+			32,
+			38
+		],
+		"attack_interval": 1.5,
+		"armor": 60,
+		"magic_resistance": 44,
+		"attributes": {
+			"str": 33,
+			"con": 31
+		},
+		"skills": [
+			"golem_stomp",
+			"meteor",
+			"earthquake"
+		],
+		"damage_split": {
+			"blunt": 60,
+			"fire": 40
+		},
+		"resistances": {
+			"fire": 60,
+			"lightning": -30,
+			"ice": -20
+		},
+		"drops": [
+			{
+				"item": "star_ore",
+				"chance": 1.0,
+				"amount": [
+					1,
+					1
+				]
+			}
+		],
+		"mana_regen": 2.0,
+		"magic_damage": [
+			30,
+			36
+		],
+		"scale": 0.9,
+		"phases": [
+			{
+				"name": "Der Sternenkoloss, glühend",
+				"text": "Risse ziehen sich über den Koloss. Aus jedem leuchtet blaues Sternenlicht.",
+				"hp": [
+					2200,
+					2400
+				],
+				"damage": [
+					35,
+					41
+				],
+				"attack_interval": 1.3,
+				"skills": [
+					"golem_stomp",
+					"meteor",
+					"earthquake"
+				]
+			}
+		]
+	},
+	"shadow_spawn": {
+		"name": "Schattenbrut",
+		"level": 55,
+		"exp": 175,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/shadow_spawn.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/shadow_spawn_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/shadow_spawn_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/shadow_spawn_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/shadow_spawn_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/shadow_spawn_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/shadow_spawn_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			820,
+			900
+		],
+		"mana": 100,
+		"damage": [
+			27,
+			33
+		],
+		"attack_interval": 1.1,
+		"armor": 30,
+		"magic_resistance": 40,
+		"attributes": {
+			"str": 33,
+			"con": 31
+		},
+		"skills": [
+			"lifesteal_strike",
+			"wraith_wail"
+		],
+		"damage_split": {
+			"slash": 40,
+			"dark": 60
+		},
+		"resistances": {
+			"dark": 100,
+			"poison": 100,
+			"light": -50
+		},
+		"drops": [],
+		"mana_regen": 2.0,
+		"magic_damage": [
+			26,
+			32
+		],
+		"scale": 0.5
+	},
+	"demon_hound": {
+		"name": "Höllenhund",
+		"level": 56,
+		"exp": 180,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/demon_hound.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/demon_hound_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/demon_hound_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/demon_hound_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/demon_hound_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/demon_hound_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/demon_hound_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			900,
+			980
+		],
+		"mana": 0,
+		"damage": [
+			30,
+			36
+		],
+		"attack_interval": 1.0,
+		"armor": 34,
+		"magic_resistance": 30,
+		"attributes": {
+			"str": 34,
+			"con": 32
+		},
+		"skills": [
+			"lava_bite",
+			"deep_cut"
+		],
+		"damage_split": {
+			"stab": 50,
+			"fire": 50
+		},
+		"resistances": {
+			"fire": 80,
+			"ice": -30
+		},
+		"drops": [
+			{
+				"item": "ruby",
+				"chance": 0.05
+			}
+		],
+		"scale": 0.5,
+		"attack_vfx": "claw"
+	},
+	"gate_warden": {
+		"name": "Torwächter",
+		"faces_right": true,
+		"level": 57,
+		"exp": 820,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/gate_warden.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"earthquake": {"path": "res://assets/sprites/enemies/gate_warden_earthquake.png", "frames": 6, "fps": 12}, "morwald_cleave": {"path": "res://assets/sprites/enemies/gate_warden_morwald_cleave.png", "frames": 6, "fps": 12}, "raise_skeleton": {"path": "res://assets/sprites/enemies/gate_warden_raise_skeleton.png", "frames": 6, "fps": 12}, "lunge": {"path": "res://assets/sprites/enemies/gate_warden_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/gate_warden_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/gate_warden_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/gate_warden_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/gate_warden_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/gate_warden_walk.png", "frames": 6, "fps": 10}}},
+		"hp": [
+			3600,
+			3900
+		],
+		"mana": 100,
+		"damage": [
+			32,
+			38
+		],
+		"attack_interval": 1.3,
+		"armor": 50,
+		"magic_resistance": 40,
+		"attributes": {
+			"str": 34,
+			"con": 32
+		},
+		"skills": [
+			"earthquake",
+			"morwald_cleave",
+			"raise_skeleton"
+		],
+		"damage_split": {
+			"blunt": 50,
+			"dark": 50
+		},
+		"resistances": {
+			"dark": 80,
+			"poison": 100,
+			"light": -40
+		},
+		"drops": [
+			{
+				"item": "gold_ingot",
+				"chance": 1.0,
+				"amount": [
+					1,
+					3
+				]
+			}
+		],
+		"mana_regen": 2.0,
+		"magic_damage": [
+			30,
+			36
+		],
+		"scale": 0.9,
+		"phases": [
+			{
+				"name": "Torwächter, aus dem Spalt gerufen",
+				"text": "Hinter dem Wächter flackert das Tor. Neue Kraft strömt aus der Dunkelheit in ihn hinein.",
+				"hp": [
+					2400,
+					2600
+				],
+				"damage": [
+					35,
+					41
+				],
+				"attack_interval": 1.1,
+				"skills": [
+					"earthquake",
+					"morwald_cleave",
+					"raise_skeleton"
+				]
+			}
+		]
+	},
+	"swamp_slime": {
+		"name": "Moorschleim",
+		"level": 41,
+		"exp": 30,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/swamp_slime.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/swamp_slime_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/swamp_slime_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/swamp_slime_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/swamp_slime_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/swamp_slime_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/swamp_slime_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.75,
+		"hp": [
+			420,
+			480
+		],
+		"mana": 0,
+		"damage": [
+			14,
+			18
+		],
+		"attack_interval": 1.5,
+		"armor": 10,
+		"magic_resistance": 10,
+		"attributes": {
+			"con": 20
+		},
+		"damage_split": {
+			"blunt": 60,
+			"poison": 40
+		},
+		"resistances": {
+			"poison": 100,
+			"stab": 40,
+			"blunt": -25,
+			"fire": -30
+		},
+		"on_hit": [
+			{
+				"effect": "poison",
+				"chance": 20
+			}
+		],
+		"split": {
+			"below_percent": 25,
+			"count": 2,
+			"share_percent": 50,
+			"size": 0.75,
+			"times": 2
+		},
+		"summon_shout": "Platsch!",
+		"drops": [
+			{
+				"item": "gold_ore",
+				"chance": 0.03
+			}
+		]
+	},
+	"swamp_ghost": {
+		"name": "Sumpfgeist",
+		"level": 44,
+		"exp": 60,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/swamp_ghost.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/swamp_ghost_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/swamp_ghost_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/swamp_ghost_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/swamp_ghost_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/swamp_ghost_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/swamp_ghost_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.5,
+		"hover": true,
+		"row": "back",
+		"hp": [
+			260,
+			300
+		],
+		"mana": 60,
+		"mana_regen": 1.5,
+		"damage": [
+			8,
+			10
+		],
+		"magic_damage": [
+			12,
+			15
+		],
+		"attack_interval": 1.4,
+		"armor": 8,
+		"magic_resistance": 30,
+		"attributes": {
+			"int": 22
+		},
+		"skills": [
+			"arcane_bolt"
+		],
+		"damage_type": "dark",
+		"resistances": {
+			"stab": 40,
+			"blunt": 40,
+			"slash": 40,
+			"poison": 100,
+			"dark": 75,
+			"light": -50,
+			"fire": -20
+		},
+		"drops": []
+	},
+	"ghost_lord": {
+		"name": "Der Nebelfürst",
+		"level": 46,
+		"exp": 650,
+		"sprite": {
+			"path": "res://assets/sprites/enemies/ghost_lord.png",
+			"frame_size": [
+				48,
+				48
+			],
+			"frames": 1,
+			"fps": 4
+		, "anims": {"lunge": {"path": "res://assets/sprites/enemies/ghost_lord_attack.png", "frames": 6, "fps": 16}, "slam": {"path": "res://assets/sprites/enemies/ghost_lord_attack.png", "frames": 6, "fps": 16}, "shoot": {"path": "res://assets/sprites/enemies/ghost_lord_attack.png", "frames": 6, "fps": 16}, "cast": {"path": "res://assets/sprites/enemies/ghost_lord_attack.png", "frames": 6, "fps": 16}, "death": {"path": "res://assets/sprites/enemies/ghost_lord_death.png", "frames": 6, "fps": 10}, "walk": {"path": "res://assets/sprites/enemies/ghost_lord_walk.png", "frames": 6, "fps": 10}}},
+		"scale": 0.9,
+		"hover": true,
+		"hp": [
+			3600,
+			3900
+		],
+		"mana": 150,
+		"mana_regen": 3.0,
+		"damage": [
+			14,
+			18
+		],
+		"magic_damage": [
+			18,
+			23
+		],
+		"attack_interval": 1.4,
+		"armor": 20,
+		"magic_resistance": 32,
+		"attributes": {
+			"int": 30,
+			"wis": 26
+		},
+		"skills": [
+			"ghost_call",
+			"ghost_mend",
+			"wisp_flare"
+		],
+		"damage_split": {
+			"dark": 100
+		},
+		"resistances": {
+			"poison": 100,
+			"dark": 75,
+			"light": -40,
+			"fire": -20
+		},
+		"shroud": "shrouded",
+		"summon_shout": "Erhebt euch, meine Kinder!",
+		"drops": [
+			{
+				"item": "gold_ingot",
+				"chance": 0.49,
+				"amount": [
+					1,
+					3
+				]
+			},
+			{
+				"item": "jade",
+				"chance": 0.4
+			}
+		]
+	}
+}

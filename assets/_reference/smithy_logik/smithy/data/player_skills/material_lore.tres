@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerSkillData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/player_skill_data.gd" id="1_skill"]
+[ext_resource type="Texture2D" path="res://assets/sprites/skills/material_lore.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_skill")
+display_name = "Materialkunde"
+description = "Schwierige Metalle (für deinen Ruf zu hoch) werden eine Schwierigkeitsstufe leichter: schnellerer Takt und kleinere Zonen bremsen dich weniger."
+icon = ExtResource("2_icon")
+stat = 9
+value_per_rank = 1
+max_rank = 1
+required_level = 10

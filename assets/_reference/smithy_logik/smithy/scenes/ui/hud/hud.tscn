@@ -1,0 +1,321 @@
+[gd_scene load_steps=25 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/hud.gd" id="1_hud"]
+[ext_resource type="Script" path="res://scenes/ui/hud/time_compass.gd" id="95_time_compass"]
+[ext_resource type="Texture2D" path="res://assets/ui/icon_coin.png" id="96_coin"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/character_window.tscn" id="97_character_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/save_window.tscn" id="98_save_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hint_panel.tscn" id="101_hint_panel"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/quest_log_window.tscn" id="99_quest_log"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/quest_detail_window.tscn" id="100_quest_detail"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/quest_tracker.tscn" id="102_quest_tracker"]
+[ext_resource type="Script" path="res://scenes/ui/inventory/inventory_grid.gd" id="2_grid"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/menu_character.png" id="3_character"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/menu_inventory.png" id="4_inventory"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/menu_quest.png" id="5_quest"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/recipe_book_window.tscn" id="99_recipe_book"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/menu_save.png" id="6_save"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/menu_load.png" id="7_load"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/menu_settings.png" id="8_settings"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/menu_heroes.png" id="91_heroes_icon"]
+[ext_resource type="PackedScene" path="res://scenes/ui/heroes/heroes_window.tscn" id="92_heroes_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/heroes/hero_window.tscn" id="93_hero_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/heroes/hero_stats_window.tscn" id="93_hero_stats_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/heroes/skill_command_window.tscn" id="93_skill_command_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/heroes/battle_window.tscn" id="94_battle_window"]
+
+[node name="HUD" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_hud")
+
+[node name="HotbarFrame" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -27.0
+offset_right = 68.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"HudPanel"
+
+[node name="Hotbar" type="GridContainer" parent="HotbarFrame"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+script = ExtResource("2_grid")
+first_slot = 0
+slot_count = 8
+
+[node name="QuestTracker" parent="." instance=ExtResource("102_quest_tracker")]
+unique_name_in_owner = true
+
+[node name="InventoryWindow" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="InventoryWindow"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="InventoryWindow/VBox" instance=ExtResource("90_title_bar")]
+layout_mode = 2
+title = "Inventar"
+
+[node name="Bag" type="GridContainer" parent="InventoryWindow/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
+script = ExtResource("2_grid")
+first_slot = 8
+slot_count = -1
+
+[node name="SideMenu" type="PanelContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -88.0
+offset_right = -4.0
+offset_bottom = 88.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"HudPanel"
+
+[node name="Buttons" type="VBoxContainer" parent="SideMenu"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="CharacterButton" type="Button" parent="SideMenu/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Charakter (C)"
+icon = ExtResource("3_character")
+icon_alignment = 1
+
+[node name="InventoryButton" type="Button" parent="SideMenu/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Inventar (I)"
+icon = ExtResource("4_inventory")
+icon_alignment = 1
+
+[node name="HeroesButton" type="Button" parent="SideMenu/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Helden (H)"
+icon = ExtResource("91_heroes_icon")
+icon_alignment = 1
+
+[node name="QuestButton" type="Button" parent="SideMenu/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Aufträge (J)"
+icon = ExtResource("5_quest")
+icon_alignment = 1
+
+[node name="SaveButton" type="Button" parent="SideMenu/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Speichern (F5: Schnellspeichern)"
+icon = ExtResource("6_save")
+icon_alignment = 1
+
+[node name="LoadButton" type="Button" parent="SideMenu/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Laden (F7: Schnellladen)"
+icon = ExtResource("7_load")
+icon_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="SideMenu/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Einstellungen (Esc)"
+icon = ExtResource("8_settings")
+icon_alignment = 1
+
+[node name="CharacterWindow" parent="." instance=ExtResource("97_character_window")]
+unique_name_in_owner = true
+
+[node name="SaveWindow" parent="." instance=ExtResource("98_save_window")]
+unique_name_in_owner = true
+
+[node name="QuestWindow" parent="." instance=ExtResource("99_quest_log")]
+unique_name_in_owner = true
+
+[node name="QuestDetailWindow" parent="." instance=ExtResource("100_quest_detail")]
+unique_name_in_owner = true
+
+[node name="RecipeBookWindow" parent="." instance=ExtResource("99_recipe_book")]
+unique_name_in_owner = true
+
+[node name="SettingsWindow" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -120.0
+offset_right = 125.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="SettingsWindow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TitleBar" parent="SettingsWindow/VBox" instance=ExtResource("90_title_bar")]
+layout_mode = 2
+title = "Einstellungen"
+
+[node name="QuitButton" type="Button" parent="SettingsWindow/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 11
+text = "Spiel beenden"
+
+[node name="Hint" type="Label" parent="SettingsWindow/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+theme_override_font_sizes/font_size = 11
+text = "Esc: schließen"
+horizontal_alignment = 1
+
+[node name="HeroesWindow" parent="." instance=ExtResource("92_heroes_window")]
+unique_name_in_owner = true
+
+[node name="HeroWindow" parent="." instance=ExtResource("93_hero_window")]
+unique_name_in_owner = true
+
+[node name="HeroStatsWindow" parent="." instance=ExtResource("93_hero_stats_window")]
+unique_name_in_owner = true
+
+[node name="SkillCommandWindow" parent="." instance=ExtResource("93_skill_command_window")]
+unique_name_in_owner = true
+
+[node name="BattleWindow" parent="." instance=ExtResource("94_battle_window")]
+unique_name_in_owner = true
+
+[node name="GoldBox" type="PanelContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -25.0
+offset_right = 68.0
+offset_bottom = -3.0
+grow_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"HudPanel"
+
+[node name="HBox" type="HBoxContainer" parent="GoldBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="Coin" type="TextureRect" parent="GoldBox/HBox"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("96_coin")
+stretch_mode = 3
+
+[node name="GoldLabel" type="Label" parent="GoldBox/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+
+[node name="TimePanel" type="PanelContainer" parent="." groups=["window_free_zone"]]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_type_variation = &"HudPanel"
+
+[node name="VBox" type="VBoxContainer" parent="TimePanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="TimeCompass" type="Control" parent="TimePanel/VBox"]
+custom_minimum_size = Vector2(148, 14)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("95_time_compass")
+
+[node name="DayLabel" type="Label" parent="TimePanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="WakeOverlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.06, 0.03, 0.06, 1)
+
+[node name="WakeLabel" type="Label" parent="WakeOverlay"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -20.0
+offset_right = 150.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HintPanel" parent="." instance=ExtResource("101_hint_panel")]

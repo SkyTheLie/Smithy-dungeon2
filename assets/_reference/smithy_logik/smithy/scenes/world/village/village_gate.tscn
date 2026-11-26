@@ -1,0 +1,694 @@
+[gd_scene format=3 uid="uid://cdxrbn33gefa2"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/oak_big.tscn" id="tree_oak_big"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_12.png" id="wp_world_props_village_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/front_0.png" id="wp_world_props_front_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_21.png" id="wp_world_props_village_21"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_20.png" id="wp_world_props_village_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_2.png" id="wp_world_props_village_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_23.png" id="wp_world_props_village_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_22.png" id="wp_world_props_village_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_16.png" id="wp_world_props_village_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_14.png" id="wp_world_props_village_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_8.png" id="wp_world_props_village_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_6.png" id="wp_world_props_village_6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_5.png" id="wp_world_props_village_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_4.png" id="wp_world_props_village_4"]
+[ext_resource type="Script" path="res://scenes/world/objects/critter.gd" id="wp_scenes_world_objects_critte"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_village.tscn" id="lamp_village"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" uid="uid://cc6gai1tdirhu" path="res://assets/sprites/maps/village_gate_ground.png" id="5_ground"]
+[ext_resource type="Texture2D" uid="uid://cyqtf0qbllvhp" path="res://assets/sprites/props/palisade.png" id="6_palisade"]
+[ext_resource type="Texture2D" uid="uid://detw82d1gif8m" path="res://assets/sprites/props/gate_frame.png" id="7_gate"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/fir.tscn" id="tree_fir"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/birch_tall.tscn" id="tree_birch_tall"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/bush.tscn" id="12_bush"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/berry_bush.tscn" id="13_berry_bush"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/direction_sign.tscn" id="16_sign"]
+[ext_resource type="Texture2D" uid="uid://c1fv4i85ea5jb" path="res://assets/sprites/props/sign_west.png" id="17_sign_west"]
+[ext_resource type="Texture2D" uid="uid://v0hj7dcwvl70" path="res://assets/sprites/props/sign_south.png" id="18_sign_south"]
+[ext_resource type="Texture2D" uid="uid://b3sw63bdee2gm" path="res://assets/sprites/props/sign_north.png" id="19_sign_north"]
+[ext_resource type="Script" uid="uid://vflhwaso7lwi" path="res://scenes/world/objects/rock_spawner.gd" id="20_spawner"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/ore_rock.tscn" id="21_resource"]
+[ext_resource type="Script" uid="uid://b8x8qgquckx7w" path="res://scripts/resources/rock_data.gd" id="22_rock_data"]
+[ext_resource type="Resource" path="res://data/rocks/chamomile_plant.tres" id="23_chamomile"]
+[ext_resource type="Resource" path="res://data/rocks/sage_plant.tres" id="24_sage"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/torch.tscn" id="26_torch"]
+[ext_resource type="Texture2D" uid="uid://8xmb15ww6kw" path="res://assets/sprites/npcs/gate_guard.png" id="40_guard"]
+[ext_resource type="Texture2D" uid="uid://bwtcma7nj0hr6" path="res://assets/sprites/props/hay_cart.png" id="41_hay_cart"]
+[ext_resource type="Texture2D" uid="uid://dv32g8kslgaii" path="res://assets/sprites/props/dog_sleeping.png" id="42_dog"]
+[ext_resource type="Texture2D" uid="uid://ec0ggh01gm88" path="res://assets/sprites/plants/flowers_red.png" id="44_fl_red"]
+[ext_resource type="Texture2D" uid="uid://dv8xmfoo36bep" path="res://assets/sprites/plants/flowers_blue.png" id="45_fl_blue"]
+[ext_resource type="Texture2D" uid="uid://chh4mmu6nwpb7" path="res://assets/sprites/plants/flowers_yellow.png" id="46_fl_yellow"]
+[ext_resource type="Texture2D" uid="uid://dplngax5dokqg" path="res://assets/sprites/plants/flowers_white.png" id="47_fl_white"]
+[ext_resource type="Texture2D" uid="uid://cohv3pnjybg8u" path="res://assets/sprites/plants/flowers_pink.png" id="48_fl_pink"]
+[ext_resource type="PackedScene" path="res://scenes/actors/traveler.tscn" id="49_traveler"]
+[ext_resource type="Script" uid="uid://xmy5qhn5t30p" path="res://scripts/resources/appearance.gd" id="50_appearance"]
+
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="k1_story_prop"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="k2_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/royal_carriage.png" id="k3_carriage"]
+
+[sub_resource type="RectangleShape2D" id="Shape_Carriage"]
+size = Vector2(150, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_horizontal"]
+size = Vector2(1056, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_vertical"]
+size = Vector2(16, 800)
+
+[sub_resource type="RectangleShape2D" id="Shape_palisade"]
+size = Vector2(457, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_gate_post"]
+size = Vector2(36, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_guard"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_cart"]
+size = Vector2(46, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_dog"]
+size = Vector2(18, 6)
+
+[sub_resource type="Resource" id="Appearance_traveler"]
+script = ExtResource("50_appearance")
+race = "beast_lizard"
+skin = "sand"
+eye_type = "narrow"
+eye_color = "amber"
+outfit = "tunic"
+clothes_color = "red"
+
+[sub_resource type="RectangleShape2D" id="Shape_forest_north"]
+size = Vector2(16, 250)
+
+[sub_resource type="RectangleShape2D" id="Shape_forest_south"]
+size = Vector2(16, 280)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_12x6"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_17x6"]
+size = Vector2(17, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_13x6"]
+size = Vector2(13, 6)
+
+[node name="VillageGate" type="Node2D" unique_id=188449787]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="." unique_id=573049058]
+script = ExtResource("4_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=633094028]
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("5_ground")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="." unique_id=1977764632]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds" unique_id=2112775412]
+position = Vector2(0, -392)
+shape = SubResource("Shape_horizontal")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds" unique_id=9896182]
+position = Vector2(0, 392)
+shape = SubResource("Shape_horizontal")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds" unique_id=1260395639]
+position = Vector2(-520, 0)
+shape = SubResource("Shape_vertical")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds" unique_id=2039129468]
+position = Vector2(520, 0)
+shape = SubResource("Shape_vertical")
+
+[node name="Wall" type="Node2D" parent="." unique_id=65461843]
+y_sort_enabled = true
+
+[node name="PalisadeWest" type="StaticBody2D" parent="Wall" unique_id=111507795]
+position = Vector2(0, -224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/PalisadeWest" unique_id=1677570676]
+position = Vector2(-512, -57)
+texture = ExtResource("6_palisade")
+centered = false
+region_enabled = true
+region_rect = Rect2(23, 0, 457, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/PalisadeWest" unique_id=64688009]
+position = Vector2(-283.5, -4)
+shape = SubResource("Shape_palisade")
+
+[node name="PalisadeEast" type="StaticBody2D" parent="Wall" unique_id=1860224777]
+position = Vector2(0, -224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/PalisadeEast" unique_id=1695875252]
+position = Vector2(55, -57)
+texture = ExtResource("6_palisade")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 457, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/PalisadeEast" unique_id=466501540]
+position = Vector2(283.5, -4)
+shape = SubResource("Shape_palisade")
+
+[node name="Gate" type="StaticBody2D" parent="Wall" unique_id=2039009983]
+position = Vector2(0, -223)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/Gate" unique_id=1237464163]
+texture = ExtResource("7_gate")
+offset = Vector2(0, -36)
+
+[node name="PostWest" type="CollisionShape2D" parent="Wall/Gate" unique_id=695935005]
+position = Vector2(-38, -5)
+shape = SubResource("Shape_gate_post")
+
+[node name="PostEast" type="CollisionShape2D" parent="Wall/Gate" unique_id=1272310887]
+position = Vector2(38, -5)
+shape = SubResource("Shape_gate_post")
+
+[node name="Lights" type="Node2D" parent="." unique_id=831890930]
+y_sort_enabled = true
+
+[node name="FirePoleWest" parent="Lights" unique_id=1668567133 instance=ExtResource("lamp_village")]
+position = Vector2(-55, -196)
+facing = "east"
+
+[node name="FirePoleWest2" parent="Lights" unique_id=1150622656 instance=ExtResource("lamp_village")]
+position = Vector2(-65, -21)
+facing = "east"
+
+[node name="FirePoleWest3" parent="Lights" unique_id=1070215889 instance=ExtResource("lamp_village")]
+position = Vector2(-57, 158)
+facing = "east"
+
+[node name="FirePoleWest4" parent="Lights" unique_id=1738645965 instance=ExtResource("lamp_village")]
+position = Vector2(-360, 120)
+facing = "north"
+
+[node name="FirePoleWest5" parent="Lights" unique_id=815789946 instance=ExtResource("lamp_village")]
+position = Vector2(-359, 13)
+facing = "south"
+
+[node name="FirePoleWest6" parent="Lights" unique_id=858759380 instance=ExtResource("lamp_village")]
+position = Vector2(-55, 376)
+facing = "east"
+
+[node name="FirePoleEast" parent="Lights" unique_id=2043618320 instance=ExtResource("lamp_village")]
+position = Vector2(54, -196)
+facing = "west"
+collision_layer = 3
+
+[node name="FirePoleEast2" parent="Lights" unique_id=2051464072 instance=ExtResource("lamp_village")]
+position = Vector2(61, -23)
+facing = "west"
+collision_layer = 3
+
+[node name="FirePoleEast3" parent="Lights" unique_id=62502961 instance=ExtResource("lamp_village")]
+position = Vector2(57, 156)
+facing = "west"
+collision_layer = 3
+
+[node name="FirePoleEast4" parent="Lights" unique_id=1640467079 instance=ExtResource("lamp_village")]
+position = Vector2(54, 376)
+facing = "west"
+collision_layer = 3
+
+[node name="Signs" type="Node2D" parent="." unique_id=706067770]
+y_sort_enabled = true
+
+[node name="SignNorth" parent="Signs" unique_id=1766561207 instance=ExtResource("16_sign")]
+position = Vector2(-88, -140)
+texture = ExtResource("19_sign_north")
+text = "Dorf"
+
+[node name="SignWest" parent="Signs" unique_id=1304759626 instance=ExtResource("16_sign")]
+position = Vector2(-120, 18)
+texture = ExtResource("17_sign_west")
+text = "Wald"
+
+[node name="SignSouth" parent="Signs" unique_id=761236775 instance=ExtResource("16_sign")]
+position = Vector2(88, 170)
+texture = ExtResource("18_sign_south")
+text = "Mine"
+
+[node name="Nature" type="Node2D" parent="." unique_id=666656731]
+y_sort_enabled = true
+
+[node name="Oak1" parent="Nature" unique_id=1983948168 instance=ExtResource("tree_oak_big")]
+position = Vector2(-330, -296)
+
+[node name="Oak3" parent="Nature" unique_id=1100094981 instance=ExtResource("tree_oak_big")]
+position = Vector2(-470, -330)
+
+[node name="Bush4" parent="Nature" unique_id=1225485207 instance=ExtResource("12_bush")]
+position = Vector2(-160, -300)
+
+[node name="Bush5" parent="Nature" unique_id=2021164292 instance=ExtResource("12_bush")]
+position = Vector2(180, -318)
+
+[node name="BerryBush6" parent="Nature" unique_id=961835726 instance=ExtResource("13_berry_bush")]
+position = Vector2(-420, -268)
+
+[node name="BerryBush7" parent="Nature" unique_id=1138117245 instance=ExtResource("13_berry_bush")]
+position = Vector2(120, -280)
+
+[node name="Oak9" parent="Nature" unique_id=1449933347 instance=ExtResource("tree_birch_tall")]
+position = Vector2(-260, 300)
+
+[node name="Oak10" parent="Nature" unique_id=1318677494 instance=ExtResource("tree_birch_tall")]
+position = Vector2(-460, 250)
+
+[node name="Bush12" parent="Nature" unique_id=203226930 instance=ExtResource("12_bush")]
+position = Vector2(-344, -96)
+
+[node name="Bush13" parent="Nature" unique_id=968646060 instance=ExtResource("12_bush")]
+position = Vector2(-180, 236)
+
+[node name="Bush14" parent="Nature" unique_id=1249478753 instance=ExtResource("12_bush")]
+position = Vector2(150, -120)
+
+[node name="Bush15" parent="Nature" unique_id=557340700 instance=ExtResource("12_bush")]
+position = Vector2(236, 200)
+
+[node name="BerryBush16" parent="Nature" unique_id=1902046646 instance=ExtResource("13_berry_bush")]
+position = Vector2(-360, 170)
+
+[node name="BerryBush17" parent="Nature" unique_id=84088369 instance=ExtResource("13_berry_bush")]
+position = Vector2(186, -56)
+
+[node name="BerryBush18" parent="Nature" unique_id=1504320262 instance=ExtResource("13_berry_bush")]
+position = Vector2(-130, -180)
+
+[node name="BerryBush19" parent="Nature" unique_id=831699667 instance=ExtResource("13_berry_bush")]
+position = Vector2(-96, 300)
+
+[node name="Oak21" parent="Nature" unique_id=1821855487 instance=ExtResource("tree_oak_big")]
+position = Vector2(448, -150)
+
+[node name="Oak22" parent="Nature" unique_id=1497049992 instance=ExtResource("tree_oak_big")]
+position = Vector2(396, -96)
+
+[node name="Oak27" parent="Nature" unique_id=1376739456 instance=ExtResource("tree_fir")]
+position = Vector2(372, 246)
+
+[node name="Oak28" parent="Nature" unique_id=956380186 instance=ExtResource("tree_fir")]
+position = Vector2(448, 286)
+
+[node name="Oak29" parent="Nature" unique_id=362092142 instance=ExtResource("tree_fir")]
+position = Vector2(392, 330)
+
+[node name="Bush32" parent="Nature" unique_id=1779360205 instance=ExtResource("12_bush")]
+position = Vector2(344, -206)
+
+[node name="Bush33" parent="Nature" unique_id=301501231 instance=ExtResource("12_bush")]
+position = Vector2(352, -176)
+
+[node name="Bush34" parent="Nature" unique_id=22089074 instance=ExtResource("12_bush")]
+position = Vector2(340, -140)
+
+[node name="Bush35" parent="Nature" unique_id=823779481 instance=ExtResource("12_bush")]
+position = Vector2(356, -112)
+
+[node name="Bush36" parent="Nature" unique_id=80913553 instance=ExtResource("12_bush")]
+position = Vector2(346, -70)
+
+[node name="Bush37" parent="Nature" unique_id=1637745076 instance=ExtResource("12_bush")]
+position = Vector2(340, -36)
+
+[node name="Bush38" parent="Nature" unique_id=165982454 instance=ExtResource("12_bush")]
+position = Vector2(354, -8)
+
+[node name="Bush39" parent="Nature" unique_id=428302564 instance=ExtResource("12_bush")]
+position = Vector2(348, 12)
+
+[node name="BerryBush40" parent="Nature" unique_id=1959169139 instance=ExtResource("13_berry_bush")]
+position = Vector2(338, -156)
+
+[node name="BerryBush41" parent="Nature" unique_id=1616385106 instance=ExtResource("13_berry_bush")]
+position = Vector2(350, -54)
+
+[node name="BerryBush42" parent="Nature" unique_id=1445653724 instance=ExtResource("13_berry_bush")]
+position = Vector2(346, 140)
+
+[node name="BerryBush43" parent="Nature" unique_id=1290497876 instance=ExtResource("13_berry_bush")]
+position = Vector2(342, 232)
+
+[node name="BerryBush44" parent="Nature" unique_id=100894951 instance=ExtResource("13_berry_bush")]
+position = Vector2(352, 330)
+
+[node name="Bush45" parent="Nature" unique_id=1551097978 instance=ExtResource("12_bush")]
+position = Vector2(350, 122)
+
+[node name="Bush46" parent="Nature" unique_id=129581277 instance=ExtResource("12_bush")]
+position = Vector2(340, 164)
+
+[node name="Bush47" parent="Nature" unique_id=327803829 instance=ExtResource("12_bush")]
+position = Vector2(356, 192)
+
+[node name="Bush48" parent="Nature" unique_id=448146639 instance=ExtResource("12_bush")]
+position = Vector2(344, 214)
+
+[node name="Bush49" parent="Nature" unique_id=1927870635 instance=ExtResource("12_bush")]
+position = Vector2(352, 262)
+
+[node name="Bush50" parent="Nature" unique_id=2059538277 instance=ExtResource("12_bush")]
+position = Vector2(340, 290)
+
+[node name="Bush51" parent="Nature" unique_id=169375003 instance=ExtResource("12_bush")]
+position = Vector2(356, 312)
+
+[node name="Bush52" parent="Nature" unique_id=1196975475 instance=ExtResource("12_bush")]
+position = Vector2(344, 352)
+
+[node name="Bush53" parent="Nature" unique_id=580682995 instance=ExtResource("12_bush")]
+position = Vector2(350, 378)
+
+[node name="Life" type="Node2D" parent="." unique_id=637680433]
+y_sort_enabled = true
+
+[node name="Guard" type="StaticBody2D" parent="Life" unique_id=1257445342]
+position = Vector2(52, -204)
+
+[node name="Sprite2D" type="Sprite2D" parent="Life/Guard" unique_id=1948756091]
+texture = ExtResource("40_guard")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Life/Guard" unique_id=2052505374]
+position = Vector2(0, -2)
+shape = SubResource("Shape_guard")
+
+[node name="HayCart" type="StaticBody2D" parent="Life" unique_id=1671603370]
+position = Vector2(-466, -186)
+
+[node name="Sprite2D" type="Sprite2D" parent="Life/HayCart" unique_id=560628003]
+texture = ExtResource("41_hay_cart")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Life/HayCart" unique_id=278238026]
+position = Vector2(0, -6)
+shape = SubResource("Shape_cart")
+
+[node name="Dog" type="StaticBody2D" parent="Life" unique_id=219559060]
+position = Vector2(112, -188)
+
+[node name="Sprite2D" type="Sprite2D" parent="Life/Dog" unique_id=564724719]
+texture = ExtResource("42_dog")
+offset = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Life/Dog" unique_id=1440510695]
+position = Vector2(0, -2)
+shape = SubResource("Shape_dog")
+
+[node name="Traveler" parent="Life" unique_id=1963525344 instance=ExtResource("49_traveler")]
+position = Vector2(-300, -168)
+appearance = SubResource("Appearance_traveler")
+resident = "rashid"
+
+[node name="Flowers1" type="Sprite2D" parent="Life" unique_id=1400337247]
+position = Vector2(-150, -150)
+texture = ExtResource("44_fl_red")
+offset = Vector2(0, -12)
+
+[node name="Flowers2" type="Sprite2D" parent="Life" unique_id=1322544930]
+position = Vector2(-240, -60)
+texture = ExtResource("46_fl_yellow")
+offset = Vector2(0, -12)
+
+[node name="Flowers3" type="Sprite2D" parent="Life" unique_id=1657681658]
+position = Vector2(-120, -100)
+texture = ExtResource("45_fl_blue")
+offset = Vector2(0, -12)
+
+[node name="Flowers4" type="Sprite2D" parent="Life" unique_id=1207364941]
+position = Vector2(-440, 180)
+texture = ExtResource("47_fl_white")
+offset = Vector2(0, -12)
+
+[node name="Flowers5" type="Sprite2D" parent="Life" unique_id=1723300901]
+position = Vector2(-300, 240)
+texture = ExtResource("48_fl_pink")
+offset = Vector2(0, -12)
+
+[node name="Flowers6" type="Sprite2D" parent="Life" unique_id=233202174]
+position = Vector2(-160, 320)
+texture = ExtResource("44_fl_red")
+offset = Vector2(0, -12)
+
+[node name="Flowers7" type="Sprite2D" parent="Life" unique_id=1372063430]
+position = Vector2(80, 220)
+texture = ExtResource("46_fl_yellow")
+offset = Vector2(0, -12)
+
+[node name="Flowers8" type="Sprite2D" parent="Life" unique_id=807118745]
+position = Vector2(150, 300)
+texture = ExtResource("45_fl_blue")
+offset = Vector2(0, -12)
+
+[node name="Flowers9" type="Sprite2D" parent="Life" unique_id=1380287847]
+position = Vector2(120, -130)
+texture = ExtResource("48_fl_pink")
+offset = Vector2(0, -12)
+
+[node name="Flowers10" type="Sprite2D" parent="Life" unique_id=1651183220]
+position = Vector2(230, -80)
+texture = ExtResource("47_fl_white")
+offset = Vector2(0, -12)
+
+[node name="Flowers11" type="Sprite2D" parent="Life" unique_id=820911768]
+position = Vector2(250, 150)
+texture = ExtResource("44_fl_red")
+offset = Vector2(0, -12)
+
+[node name="Flowers12" type="Sprite2D" parent="Life" unique_id=446302704]
+position = Vector2(-60, -140)
+texture = ExtResource("46_fl_yellow")
+offset = Vector2(0, -12)
+
+[node name="Flowers13" type="Sprite2D" parent="Life" unique_id=220730880]
+position = Vector2(-460, -60)
+texture = ExtResource("45_fl_blue")
+offset = Vector2(0, -12)
+
+[node name="Flowers14" type="Sprite2D" parent="Life" unique_id=1872698007]
+position = Vector2(60, 340)
+texture = ExtResource("48_fl_pink")
+offset = Vector2(0, -12)
+
+[node name="Flowers15" type="Sprite2D" parent="Life" unique_id=613948877]
+position = Vector2(-230, 140)
+texture = ExtResource("47_fl_white")
+offset = Vector2(0, -12)
+
+[node name="ForestEdge" type="StaticBody2D" parent="." unique_id=616419839]
+
+[node name="North" type="CollisionShape2D" parent="ForestEdge" unique_id=318391277]
+position = Vector2(338, -99)
+shape = SubResource("Shape_forest_north")
+
+[node name="South" type="CollisionShape2D" parent="ForestEdge" unique_id=874302195]
+position = Vector2(338, 244)
+shape = SubResource("Shape_forest_south")
+
+[node name="Herbs" type="Node2D" parent="." unique_id=700871071]
+y_sort_enabled = true
+script = ExtResource("20_spawner")
+rock_scene = ExtResource("21_resource")
+rock_types = Array[ExtResource("22_rock_data")]([ExtResource("23_chamomile"), ExtResource("24_sage")])
+rock_count = 1
+rock_count_max = 2
+area = Rect2(-480, -170, 770, 540)
+min_distance = 80.0
+keep_clear = Rect2(-60, -180, 120, 560)
+more_keep_clear = Array[Rect2]([Rect2(-390, -200, 250, 70), Rect2(-500, -210, 70, 50), Rect2(-490, 4, 560, 120), Rect2(-160, -190, 120, 70), Rect2(-200, -10, 130, 50), Rect2(40, 140, 110, 50), Rect2(-450, -140, 60, 50), Rect2(-290, 270, 60, 50), Rect2(-490, 220, 60, 50), Rect2(180, 300, 60, 50), Rect2(-330, -180, 60, 50), Rect2(-210, 206, 60, 50), Rect2(120, -150, 60, 50), Rect2(206, 170, 60, 50), Rect2(-390, 140, 60, 50), Rect2(156, -86, 60, 50), Rect2(-160, -210, 60, 50), Rect2(-126, 270, 60, 50)])
+
+[node name="ExitNorth" parent="." unique_id=597876843 instance=ExtResource("2_door")]
+position = Vector2(0, -372)
+scale = Vector2(3, 1)
+target_scene = "res://scenes/world/village/village_center.tscn"
+target_spawn_point = &"FromSouth"
+
+[node name="Visual" parent="ExitNorth" index="0"]
+visible = false
+
+[node name="ExitEast" parent="." instance=ExtResource("2_door")]
+position = Vector2(504, 64)
+scale = Vector2(1, 3)
+target_scene = "res://scenes/world/swamp/swamp.tscn"
+target_spawn_point = &"FromVillage"
+required_flag = "swamp_road_open"
+locked_text = "Der Ostweg verliert sich im Nebel. Ohne Grund gehst du da nicht hinein."
+
+[node name="Visual" parent="ExitEast" index="0"]
+visible = false
+
+[node name="FromSwamp" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(456, 64)
+
+[node name="ExitWest" parent="." unique_id=2008205935 instance=ExtResource("2_door")]
+position = Vector2(-500, 64)
+scale = Vector2(1, 3)
+target_scene = "res://scenes/world/forest/forest_entrance.tscn"
+target_spawn_point = &"FromGate"
+
+[node name="Visual" parent="ExitWest" index="0"]
+visible = false
+
+[node name="ExitSouth" parent="." unique_id=641568627 instance=ExtResource("2_door")]
+position = Vector2(0, 372)
+scale = Vector2(3, 1)
+target_scene = "res://scenes/world/village/south_road.tscn"
+target_spawn_point = &"FromGate"
+required_flag = "reached_meet_miner"
+locked_text = "Die Straße führt zur Mine. Dort hast du noch nichts zu tun."
+
+[node name="Visual" parent="ExitSouth" index="0"]
+visible = false
+
+[node name="FromCenter" type="Marker2D" parent="." unique_id=931564074 groups=["spawn_points"]]
+position = Vector2(0, -330)
+
+[node name="FromForest" type="Marker2D" parent="." unique_id=1439063743 groups=["spawn_points"]]
+position = Vector2(-456, 64)
+
+[node name="FromSouthRoad" type="Marker2D" parent="." unique_id=1950719792 groups=["spawn_points"]]
+position = Vector2(0, 330)
+
+[node name="CarriageService" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Carriage" type="StaticBody2D" parent="CarriageService"]
+position = Vector2(280, 62)
+
+[node name="Sprite2D" type="Sprite2D" parent="CarriageService/Carriage"]
+texture = ExtResource("k3_carriage")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarriageService/Carriage"]
+position = Vector2(0, -6)
+shape = SubResource("Shape_Carriage")
+
+[node name="Coachman" parent="CarriageService" instance=ExtResource("k2_story_npc")]
+position = Vector2(278, 66)
+npc_id = "coachman"
+talk_area_scale = Vector2(2, 2)
+
+[node name="NameLabel" parent="CarriageService/Coachman" index="1"]
+offset_top = -88.0
+offset_bottom = -76.0
+
+[node name="Marker" parent="CarriageService/Coachman" index="2"]
+offset_top = -100.0
+offset_bottom = -88.0
+
+[node name="Ride" type="Node2D" parent="CarriageService"]
+script = ExtResource("k1_story_prop")
+required_flag = "king_audience_done"
+
+[node name="ToCapital" parent="CarriageService/Ride" instance=ExtResource("2_door")]
+position = Vector2(298, 70)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"FromCarriage"
+fade = true
+needs_interact = true
+carriage_stop = "village"
+
+[node name="Visual" parent="CarriageService/Ride/ToCapital" index="0"]
+visible = false
+
+[node name="FromCarriage" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(298, 88)
+
+[node name="Vignettes" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-418, -196)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P1"]
+texture = ExtResource("wp_world_props_front_0")
+offset = Vector2(0, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P2" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-392, -194)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P2"]
+texture = ExtResource("wp_world_props_front_0")
+offset = Vector2(0, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P3" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-232, 164)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P3"]
+texture = ExtResource("wp_world_props_village_12")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P4" type="Sprite2D" parent="Vignettes"]
+position = Vector2(-268, 182)
+texture = ExtResource("wp_world_props_village_5")
+offset = Vector2(0, -11)
+
+[node name="P5" type="Sprite2D" parent="Vignettes"]
+position = Vector2(-196, 186)
+texture = ExtResource("wp_world_props_village_5")
+offset = Vector2(0, -11)
+
+[node name="P6" type="Sprite2D" parent="Vignettes"]
+position = Vector2(-232, 206)
+texture = ExtResource("wp_world_props_village_5")
+offset = Vector2(0, -11)
+
+[node name="Player" parent="." unique_id=62342742 instance=ExtResource("1_player")]
+position = Vector2(0, -330)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -512
+limit_top = -384
+limit_right = 512
+limit_bottom = 384
+
+[node name="HUD" parent="." unique_id=1209681011 instance=ExtResource("3_hud")]
+
+[editable path="ExitNorth"]
+[editable path="ExitWest"]
+[editable path="ExitSouth"]
+[editable path="Player"]
+[editable path="CarriageService/Coachman"]
+[editable path="CarriageService/Ride/ToCapital"]
+[editable path="ExitEast"]

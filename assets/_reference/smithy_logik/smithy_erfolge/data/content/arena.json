@@ -1,0 +1,217 @@
+{
+	"_hilfe": {
+		"info": "Kahns Heldenturnier in der Gezeitenarena von Eisquell (HeroTournament): Der Spieler meldet einen Helden an, der allein gegen andere Helden kämpft (ArenaDuel, 1 gegen 1). Gegner entstehen hier aus Bauplänen (HeroBuilder). Schlüssel mit _ am Anfang werden ignoriert.",
+		"dungeon": "id in dungeons.json (versteckt): Name, Hintergrund und Zeitlimit eines Kampfs. Ist die Zeit um, gewinnt, wer mehr Leben übrig hat (in Prozent).",
+		"health_factor": "Beide Kämpfer haben so viel mal mehr Leben als im Dungeon, damit ein Duell nicht nach Sekunden vorbei ist (Werte per assets/_reference/story4/sim_tournament.gd).",
+		"heal_factor": "Jede Heilung im Ring wirkt nur so stark (0.5 = halb), sonst verliert ein Heiler nie.",
+		"heal_decay_interval / heal_decay_step": "Alle heal_decay_interval Sekunden wird jede Heilung um heal_decay_step schwächer (0.05 = 5 % der Anfangsheilung weniger), damit zwei Heiler nicht bis zum Zeitende gegeneinander heilen. interval 0 = aus.",
+		"participants": "Teilnehmer im Turnierbaum (Zweierpotenz: 16 = 4 Runden). Der Held des Spielers steht immer auf Platz 1.",
+		"round_names": "Name jeder Runde, von der ersten bis zum Finale.",
+		"opponents": "Zufällige Gegner: level_offset = pro Runde [von, bis] Level relativ zum Helden des Spielers (mindestens level_min); rarity = [von, bis] Seltenheit der Ausrüstung (0 = R1); metals = [ab Level, Metall], das letzte passende gilt; builds = Baupläne, aus denen gezogen wird; races = Rassen; names = Namen (keiner doppelt im selben Turnier).",
+		"champions": "Feste Gegner (z. B. Kahns Sohn): name, build, race, appearance (Felder wie in appearance.json, fehlende kommen aus seed), seed, level_min, level_over_hero (Level = max(level_min, Held + das)), metal, rarity (0 = R1, 4 = R5), slot (Platz im Turnierbaum, 0 = der Held des Spielers), wins_until (bis zu dieser Runde gewinnt er alle Kämpfe ohne den Spieler, 0 = erste Runde).",
+		"builds": "Baupläne: class (Klassen-id, Standard = Schlüssel), weapon (sword, hammer, dagger, staff, bow), shield, offhand, staff (Element des Stabs), attributes (Gewichte: str, agi, con, int, wis, res), skills (Reihenfolge der Skillpunkte, wird wiederholt, bis keine Punkte mehr da sind)."
+	},
+	"dungeon": "arena_duel",
+	"health_factor": 4,
+	"heal_factor": 0.25,
+	"heal_decay_interval": 10,
+	"heal_decay_step": 0.05,
+	"participants": 16,
+	"round_names": ["Achtelfinale", "Viertelfinale", "Halbfinale", "Finale"],
+	"opponents": {
+		"level_min": 5,
+		"level_offset": [[-4, -2], [-2, 0], [-1, 1], [0, 2]],
+		"rarity": [0, 2],
+		"metals": [[0, "copper"], [8, "iron"], [12, "bronze"], [24, "silver"], [34, "gold"]],
+		"builds": ["warrior", "paladin", "priest", "shadow_priest", "mage", "ranger", "rogue"],
+		"races": ["human", "elf", "half_demon", "half_fish", "half_fish", "beast_dog", "beast_cat", "beast_lizard"],
+		"names": [
+			"Brakka die Brecherin", "Sven Eisenfaust", "Mirela Sturmklinge", "Oskar der Lange", "Thessa Wellenreiter",
+			"Grimm vom Kai", "Nalu Perlenzahn", "Rurik Schildwall", "Ysolde Funkenschlag", "Kerrin Tidenläufer",
+			"Hakon Bärenarm", "Lysa Nebelpfeil", "Morn der Stille", "Tarkan Salzhaut", "Edda Frostauge",
+			"Quill Schuppenrücken", "Bodo Hammerschlag", "Selka Gezeitensang", "Jarne Treibholz", "Vinna Rabenfeder",
+			"Ulfric Sturmbrecher", "Pell Muschelschild", "Asra Sandläufer", "Dorn Eisenhaut"
+		]
+	},
+	"champions": [
+		{
+			"name": "Torgai, Sohn des Kahn",
+			"build": "warrior",
+			"race": "half_fish",
+			"seed": "torgai",
+			"appearance": {"skin": "deep_blue", "eye_type": "narrow", "eye_color": "amber", "hair_style": "spiky", "hair_color": "white", "size": "tall", "outfit": "vest", "clothes_color": "blue"},
+			"attributes": {"str": 3, "con": 2},
+			"level_min": 30,
+			"level_over_hero": 0,
+			"metal": "silver",
+			"rarity": 2,
+			"slot": 4,
+			"wins_until": 1
+		}
+	],
+	"builds": {
+		"warrior": {"weapon": "sword", "shield": true, "attributes": {"str": 2, "con": 1},
+			"skills": ["sword_strike", "sword_strike", "blade_sharpness", "deep_cut", "sword_strike", "whirlwind",
+				"deep_cut", "blade_sharpness", "whirlwind", "toughness", "shield_break", "toughness", "whirlwind",
+				"blade_sharpness", "parry", "parry", "mighty_blow", "mighty_blow", "execute", "toughness"]},
+		"paladin": {"weapon": "hammer", "shield": true, "attributes": {"str": 1, "con": 1, "res": 1},
+			"skills": ["hammer_blow", "armored", "hammer_blow", "momentum", "holy_strike", "thunder_strike",
+				"armored", "holy_strike", "thunder_strike", "momentum", "judgment", "judgment", "holy_zeal",
+				"thunder_strike", "holy_strike", "judgment", "divine_wrath", "holy_zeal", "divine_wrath"]},
+		"priest": {"weapon": "staff", "staff": "light", "attributes": {"wis": 2, "con": 1},
+			"skills": ["healing_light", "prayer_shield", "healing_light", "purify", "blessed_hands", "healing_light",
+				"greater_heal", "blessed_hands", "greater_heal", "prayer_shield", "circle_of_healing",
+				"circle_of_healing", "greater_heal", "shield_of_faith", "circle_of_healing", "resurrection"]},
+		"shadow_priest": {"class": "priest", "weapon": "staff", "staff": "dark", "attributes": {"wis": 2, "con": 1},
+			"skills": ["shadow_pain", "weaken", "shadow_pain", "soul_drain", "strict_faith", "shadow_pain",
+				"soul_drain", "strict_faith", "curse_of_vulnerability", "soul_drain", "curse_of_vulnerability",
+				"ban_circle", "strict_faith", "shadow_pain", "soul_drain", "shadow_flood", "shadow_flood"]},
+		"mage": {"weapon": "staff", "staff": "fire", "attributes": {"int": 2, "con": 1},
+			"skills": ["fireball", "ice_lance", "fireball", "elemental_mastery", "chain_lightning", "fireball",
+				"elemental_mastery", "chain_lightning", "ice_lance", "blizzard", "elemental_mastery", "blizzard",
+				"inferno", "chain_lightning", "inferno", "meteor", "meteor"]},
+		"ranger": {"weapon": "bow", "attributes": {"agi": 2, "str": 1},
+			"skills": ["rapid_shot", "rapid_shot", "poison_arrow", "fire_arrow", "eagle_eye", "rapid_shot",
+				"aimed_shot", "eagle_eye", "aimed_shot", "piercing_shot", "piercing_shot", "eagle_eye",
+				"rain_of_arrows", "rain_of_arrows", "storm_volley", "aimed_shot"]},
+		"rogue": {"weapon": "dagger", "offhand": "dagger", "attributes": {"agi": 2, "str": 1},
+			"skills": ["quick_stab", "double_stab", "quick_stab", "backstab", "double_stab", "ambidextrous",
+				"backstab", "ambidextrous", "quick_stab", "backstab", "ambidextrous", "double_stab",
+				"sword_art", "backstab", "ambidextrous", "thousand_cuts", "thousand_cuts"]}
+	},
+	"venues": {
+		"leonheim": {"_info": "Arena der Krone in Leonheim (leonheim_ring.tscn): nur Liga-Turniere (league_only).", "league_only": true, "round_names": ["Erste Runde", "Zweite Runde", "Halbfinale", "Finale"], "opponents": {"level_min": 5, "level_offset": [[-4, -2], [-2, 0], [-1, 1], [0, 2]], "rarity": [0, 2], "metals": [[0, "copper"], [8, "iron"], [12, "bronze"], [24, "silver"], [34, "gold"]], "builds": ["warrior", "paladin", "priest", "ranger", "rogue", "mage"], "races": ["human", "human", "human", "elf", "beast_dog", "beast_cat"], "names": ["Ritter Alwin", "Gerlinde Schildhand", "Bruno der Zweite", "Hartmut Eisenkopf", "Mara vom Tor", "Konrad Hellebarde", "Isolde Rotfeder", "Wilm Stahlschritt", "Agnes die Schnelle", "Falko Bärentatze", "Ute Morgenstern", "Ritter Eckbert", "Lene Kettenhemd", "Gunter Wallbrecher", "Hedda Sturmtritt", "Rolf ohne Furcht"]}},
+		"sahrim": {"_info": "Arena im Sand von Sahrim (sahrim_ring.tscn): nur Liga-Turniere.", "league_only": true, "round_names": ["Erster Sand", "Zweiter Sand", "Glutkreis", "Sonnenkreis"], "opponents": {"level_min": 5, "level_offset": [[-4, -2], [-2, 0], [-1, 1], [0, 2]], "rarity": [0, 2], "metals": [[0, "copper"], [8, "iron"], [12, "bronze"], [24, "silver"], [34, "gold"]], "builds": ["warrior", "ranger", "rogue", "mage", "priest", "paladin"], "races": ["beast_lizard", "beast_lizard", "beast_lizard", "human"], "names": ["Ssarek Dornschwanz", "Isha Glutschuppe", "Tarrak Sandläufer", "Nessa Wüstenauge", "Kurrh Schattenzahn", "Selia Mittagssonne", "Brakkar Steinhaut", "Ziri Dünentanz", "Hassar Speerwind", "Merr die Stille", "Tukka Sandsturm", "Rhassa Kupferzunge", "Vesk Hitzeflimmern", "Arra Oase", "Ssul Langschwanz", "Kadir Sonnenspeer"]}},
+		"finster": {"_info": "Arena der Finsterstadt (finster_ring.tscn): nur Liga-Turniere.", "league_only": true, "round_names": ["Rauchkreis", "Aschekreis", "Glutkreis", "Schattenthron"], "opponents": {"level_min": 5, "level_offset": [[-4, -2], [-2, 0], [-1, 1], [0, 2]], "rarity": [0, 2], "metals": [[0, "copper"], [8, "iron"], [12, "bronze"], [24, "silver"], [34, "gold"]], "builds": ["shadow_priest", "rogue", "warrior", "mage", "paladin", "ranger"], "races": ["half_demon", "half_demon", "half_demon", "human"], "names": ["Varek Rußhorn", "Lysra Nachtglut", "Doran ohne Schatten", "Kesh die Kalte", "Morrak Eisenschwinge", "Sela Rabenblut", "Thorne Funkenauge", "Ivra Dornkrone", "Grisk Aschefaust", "Naveen Halbmond", "Ulla Rußflügel", "Zerek Glutzahn", "Meira Schattenpfad", "Corvan Kohleherz", "Ystra Flammenzunge", "Bael der Ruhige"]}},
+		"sylvaris": {
+			"_info": "Wettkampfring der Elfen auf der Kronenebene von Sylvaris (HeroTournamentMenu.venue = \"sylvaris\"). Felder hier ersetzen die von Eisquell (opponents komplett). won_flag / wins_flag_prefix = eigene Story-Flags, prize_gold = Gold für jeden Turniersieg hier.",
+			"won_flag": "elf_duel_won",
+			"wins_flag_prefix": "elf_duel_win_",
+			"prize_gold": 500,
+			"round_names": [
+				"Wurzelkreis",
+				"Stammkreis",
+				"Kronenkreis",
+				"Sternenkreis"
+			],
+			"opponents": {
+				"level_min": 5,
+				"level_offset": [
+					[
+						-3,
+						-1
+					],
+					[
+						-1,
+						1
+					],
+					[
+						0,
+						2
+					],
+					[
+						1,
+						3
+					]
+				],
+				"rarity": [
+					1,
+					3
+				],
+				"metals": [
+					[
+						0,
+						"copper"
+					],
+					[
+						8,
+						"iron"
+					],
+					[
+						12,
+						"bronze"
+					],
+					[
+						24,
+						"silver"
+					],
+					[
+						34,
+						"gold"
+					]
+				],
+				"builds": [
+					"ranger",
+					"ranger",
+					"mage",
+					"priest",
+					"rogue",
+					"warrior",
+					"paladin"
+				],
+				"races": [
+					"elf",
+					"elf",
+					"elf",
+					"elf",
+					"human",
+					"beast_cat"
+				],
+				"names": [
+					"Aerin Morgentau",
+					"Faewyn Blattläufer",
+					"Ithron Windfeder",
+					"Lyriel vom Moos",
+					"Calen Eichensang",
+					"Nimara Silberzweig",
+					"Ravin Pfeilgras",
+					"Elowen Taufunke",
+					"Gavren Rindenhaut",
+					"Mirien Nachtblüte",
+					"Hesper der Stille",
+					"Sillith Wolkenruf",
+					"Orelin Dornspross",
+					"Tirnel Mondschnitt",
+					"Aveline Farnweber",
+					"Corvel Harzauge",
+					"Lissar Laubtanz",
+					"Ambrel Sturmast",
+					"Nessa Tannengrün",
+					"Beryl Schattenhain",
+					"Tess Holzfaust",
+					"Mauz die Flinke",
+					"Rowan Grauweg",
+					"Vael Sternbruch"
+				]
+			},
+			"champions": [
+				{
+					"name": "Aelith Silberpfeil",
+					"build": "ranger",
+					"race": "elf",
+					"seed": "aelith",
+					"appearance": {
+						"skin": "pale",
+						"eye_type": "narrow",
+						"eye_color": "green",
+						"hair_style": "long",
+						"hair_color": "white",
+						"size": "tall",
+						"outfit": "vest",
+						"clothes_color": "green"
+					},
+					"attributes": {
+						"agi": 3,
+						"con": 1
+					},
+					"level_min": 18,
+					"level_over_hero": 1,
+					"metal": "silver",
+					"rarity": 3,
+					"slot": 8,
+					"wins_until": 2
+				}
+			]
+		}
+	}
+}

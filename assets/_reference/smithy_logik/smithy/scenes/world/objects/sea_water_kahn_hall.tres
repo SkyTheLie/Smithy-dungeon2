@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://scenes/world/objects/sea_water.gdshader" id="1_shader"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/falls = PackedVector4Array(97, 21, 28, 91, 515, 21, 28, 91)
+shader_parameter/fall_count = 2

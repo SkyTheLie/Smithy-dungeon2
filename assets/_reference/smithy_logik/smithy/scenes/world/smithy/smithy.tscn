@@ -1,0 +1,481 @@
+[gd_scene format=3 uid="uid://62qiul0amt5m"]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/smithy/smithy_room.tscn" id="3_room"]
+[ext_resource type="PackedScene" path="res://scenes/stations/anvil.tscn" id="4_anvil"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/crafting_menu.tscn" id="5_crafting_menu"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="6_door"]
+[ext_resource type="PackedScene" path="res://scenes/stations/smelter.tscn" id="7_smelter"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="8_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/smelter_menu.tscn" id="9_smelter_menu"]
+[ext_resource type="PackedScene" path="res://scenes/stations/workbench.tscn" id="10_workbench"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/assembly_menu.tscn" id="15_assembly_menu"]
+[ext_resource type="PackedScene" path="res://scenes/stations/forge.tscn" id="16_forge"]
+[ext_resource type="PackedScene" path="res://scenes/stations/water_trough.tscn" id="23_water_trough"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/quench_menu.tscn" id="24_quench_menu"]
+
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="90_day_tint"]
+[ext_resource type="PackedScene" path="res://scenes/stations/grindstone.tscn" id="91_grindstone"]
+[ext_resource type="PackedScene" path="res://scenes/stations/polishing_table.tscn" id="110_polishing_table"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/sharpen_menu.tscn" id="92_sharpen_menu"]
+[ext_resource type="PackedScene" path="res://scenes/stations/enchanting_table.tscn" id="93_enchanting_table"]
+[ext_resource type="PackedScene" path="res://scenes/stations/bow_table.tscn" id="104_bow_table"]
+[ext_resource type="PackedScene" path="res://scenes/stations/vial_table.tscn" id="107_vial_table"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/vial_menu.tscn" id="108_vial_menu"]
+[ext_resource type="PackedScene" path="res://scenes/stations/jewel_table.tscn" id="109_jewel_table"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/jewel_menu.tscn" id="110_jewel_menu"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/cobweb.tscn" id="94_cobweb"]
+[ext_resource type="PackedScene" path="res://scenes/stations/tanning_rack.tscn" id="95_tanning_rack"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/tanning_menu.tscn" id="96_tanning_menu"]
+[ext_resource type="Script" path="res://scenes/world/objects/house_level_gate.gd" id="97_gate"]
+[ext_resource type="PackedScene" path="res://scenes/world/smithy/smithy_room_big.tscn" id="98_room_big"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/display_stand.tscn" id="99_stand"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/shop_display_menu.tscn" id="100_display_menu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/display_table.png" id="101_table"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/cash_box.tscn" id="102_cash_box"]
+[ext_resource type="Script" path="res://scenes/world/objects/house_editor.gd" id="103_editor"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/cobweb_4.png" id="cobweb_tex_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/cobweb_3.png" id="cobweb_tex_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/cobweb_2.png" id="cobweb_tex_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/cobweb_1.png" id="cobweb_tex_1"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="r1_story_prop"]
+[ext_resource type="Script" path="res://scenes/actors/companion.gd" id="r2_companion"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="r3_night_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/chimney_smoke.png" id="r4_smoke"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="r5_sheet"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_hider.gd" id="r6_hider"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="r7_story_npc"]
+[ext_resource type="Resource" path="res://data/heroes/bruno.tres" id="r8_bruno"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="r9_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/errand_menu.tscn" id="r40_errand_menu"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/reward_chest.tscn" id="rc1_chest"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/chest_menu.tscn" id="rc2_chest_menu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/nina/armor_stand.png" id="as1_armor_stand"]
+[ext_resource type="Script" path="res://scenes/world/smithy/cold_furnace.gd" id="ff_forge_fire"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/forge_cold.png" id="ff_forge_cold"]
+
+[sub_resource type="Resource" id="Look_halvard"]
+script = ExtResource("r9_appearance")
+race = "human"
+skin = "tan"
+hair_style = "long"
+hair_color = "white"
+eye_type = "normal"
+eye_color = "blue"
+size = "tall"
+outfit = "smith"
+clothes_color = "grey"
+[node name="Smithy" type="Node2D" unique_id=413228147]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("90_day_tint")
+strength = 0.5
+
+[node name="SmallRoom" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("97_gate")
+max_level = 1
+
+[node name="Room" parent="SmallRoom" instance=ExtResource("3_room")]
+
+[node name="HouseEditor" type="Node2D" parent="SmallRoom"]
+script = ExtResource("103_editor")
+room = "smithy_small"
+floor_rect = Rect2(-155, -58, 310, 155)
+movables = Array[NodePath]([NodePath("../../Anvil"), NodePath("../../Smelter"), NodePath("../../Forge"), NodePath("../../Workbench"), NodePath("../../EnchantingTable"), NodePath("../../WaterTrough"), NodePath("../../Grindstone"), NodePath("../../PolishingTable"), NodePath("../../TanningRack"), NodePath("../../BowTable"), NodePath("../../VialTable"), NodePath("../../JewelTable"), NodePath("../Room/Barrel"), NodePath("../Room/Sacks"), NodePath("../Room/Coal"), NodePath("../RewardChest")])
+
+[node name="RewardChest" parent="SmallRoom" instance=ExtResource("rc1_chest")]
+position = Vector2(61, -40)
+required_flag = "loot_chest_unlocked"
+
+[node name="SmallDoors" type="Node2D" parent="."]
+script = ExtResource("97_gate")
+max_level = 1
+
+[node name="BigRoom" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("97_gate")
+min_level = 2
+
+[node name="RoomBig" parent="BigRoom" instance=ExtResource("98_room_big")]
+
+[node name="HouseEditor" type="Node2D" parent="BigRoom"]
+script = ExtResource("103_editor")
+room = "smithy_big"
+floor_rect = Rect2(-232, -73, 464, 186)
+movables = Array[NodePath]([NodePath("../../Anvil"), NodePath("../../Smelter"), NodePath("../../Forge"), NodePath("../../Workbench"), NodePath("../../EnchantingTable"), NodePath("../../WaterTrough"), NodePath("../../Grindstone"), NodePath("../../PolishingTable"), NodePath("../../TanningRack"), NodePath("../../BowTable"), NodePath("../../VialTable"), NodePath("../../JewelTable"), NodePath("../RoomBig/Barrel"), NodePath("../RoomBig/Sacks"), NodePath("../RoomBig/Coal"), NodePath("../../Sales/HouseTable1"), NodePath("../../Sales/HouseTable2"), NodePath("../../Sales/CashBox"), NodePath("../../Sales/ArmorStand"), NodePath("../RewardChest")])
+
+[node name="RewardChest" parent="BigRoom" instance=ExtResource("rc1_chest")]
+position = Vector2(60, -52)
+required_flag = "loot_chest_unlocked"
+
+[node name="BigDoors" type="Node2D" parent="."]
+script = ExtResource("97_gate")
+min_level = 2
+
+[node name="DoorToVillage" parent="BigDoors" instance=ExtResource("6_door")]
+position = Vector2(200, 117)
+target_scene = "res://scenes/world/village/village.tscn"
+target_spawn_point = &"FromSmithy"
+
+[node name="Visual" parent="BigDoors/DoorToVillage" index="0"]
+visible = false
+
+[node name="FromVillage" type="Marker2D" parent="BigDoors" groups=["spawn_points"]]
+position = Vector2(200, 96)
+
+[node name="DoorToBedroom" parent="BigDoors" instance=ExtResource("6_door")]
+position = Vector2(-122, -75)
+target_scene = "res://scenes/world/smithy/bedroom.tscn"
+target_spawn_point = &"FromSmithy"
+
+[node name="Visual" parent="BigDoors/DoorToBedroom" index="0"]
+visible = false
+
+[node name="FromBedroom" type="Marker2D" parent="BigDoors" groups=["spawn_points"]]
+position = Vector2(-122, -53)
+
+[node name="Sales" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("97_gate")
+min_level = 3
+max_level = 3
+
+[node name="HouseTable1" parent="Sales" instance=ExtResource("99_stand")]
+position = Vector2(176, -38)
+shop = "house"
+table_texture = ExtResource("101_table")
+
+[node name="HouseTable2" parent="Sales" instance=ExtResource("99_stand")]
+position = Vector2(216, -38)
+index = 1
+shop = "house"
+table_texture = ExtResource("101_table")
+
+[node name="CashBox" parent="Sales" instance=ExtResource("102_cash_box")]
+position = Vector2(196, 40)
+
+[node name="ArmorStand" parent="Sales" instance=ExtResource("99_stand")]
+position = Vector2(206, 92)
+shop = "house"
+table_texture = ExtResource("as1_armor_stand")
+dummy = true
+
+[node name="HouseDisplayMenu" parent="Sales" instance=ExtResource("100_display_menu")]
+title = "Verkaufstische"
+shop = "house"
+
+[node name="ArmorStandMenu" parent="Sales" instance=ExtResource("100_display_menu")]
+title = "Rüstungsständer"
+shop = "house"
+dummy = true
+
+[node name="Anvil" parent="." instance=ExtResource("4_anvil")]
+position = Vector2(-20, 42)
+
+[node name="Smelter" parent="." instance=ExtResource("7_smelter")]
+position = Vector2(107, -18)
+
+[node name="Forge" parent="." instance=ExtResource("16_forge")]
+position = Vector2(3, -22)
+
+[node name="Workbench" parent="." instance=ExtResource("10_workbench")]
+position = Vector2(-107, -28)
+
+[node name="EnchantingTable" parent="." instance=ExtResource("93_enchanting_table")]
+position = Vector2(-100, 22)
+required_flag = "station_enchanting_table"
+
+[node name="WaterTrough" parent="." instance=ExtResource("23_water_trough")]
+position = Vector2(50, 46)
+required_flag = "station_water_trough"
+
+[node name="Grindstone" parent="." instance=ExtResource("91_grindstone")]
+position = Vector2(124, 46)
+required_flag = "station_grindstone"
+
+[node name="PolishingTable" parent="." instance=ExtResource("110_polishing_table")]
+position = Vector2(-32, 90)
+required_flag = "station_polishing_table"
+
+[node name="TanningRack" parent="." instance=ExtResource("95_tanning_rack")]
+position = Vector2(-92, 90)
+required_flag = "station_tanning_rack"
+
+[node name="BowTable" parent="." instance=ExtResource("104_bow_table")]
+position = Vector2(118, 84)
+required_flag = "station_bow_table"
+
+[node name="VialTable" parent="." instance=ExtResource("107_vial_table")]
+position = Vector2(30, 86)
+required_flag = "station_vial_table"
+
+[node name="JewelTable" parent="." instance=ExtResource("109_jewel_table")]
+position = Vector2(-120, 84)
+required_flag = "station_jewel_table"
+
+[node name="ColdFurnace" type="Node" parent="."]
+script = ExtResource("ff_forge_fire")
+forge_path = NodePath("../Forge")
+cold_texture = ExtResource("ff_forge_cold")
+
+[node name="CobwebSmelter" parent="." instance=ExtResource("94_cobweb")]
+position = Vector2(107, -14)
+texture = ExtResource("cobweb_tex_1")
+station_path = NodePath("../Smelter")
+flag = "cobweb_smelter"
+after_text = "Sauber! Das ist die Schmelze: hier wird aus Erz ein Barren."
+web_size = Vector2(44, 40)
+
+[node name="CobwebForge" parent="." instance=ExtResource("94_cobweb")]
+position = Vector2(3, -18)
+texture = ExtResource("cobweb_tex_2")
+station_path = NodePath("../Forge")
+flag = "cobweb_forge"
+after_text = "Sauber! Das ist der Gussofen: hier gießt du Barren in Gussformen."
+web_size = Vector2(44, 36)
+
+[node name="CobwebWorkbench" parent="." instance=ExtResource("94_cobweb")]
+position = Vector2(-107, -24)
+texture = ExtResource("cobweb_tex_3")
+station_path = NodePath("../Workbench")
+flag = "cobweb_workbench"
+after_text = "Sauber! Das ist die Werkbank: hier setzt du Teile zusammen."
+web_size = Vector2(52, 28)
+
+[node name="CobwebAnvil" parent="." instance=ExtResource("94_cobweb")]
+position = Vector2(-20, 46)
+texture = ExtResource("cobweb_tex_4")
+station_path = NodePath("../Anvil")
+flag = "cobweb_anvil"
+after_text = "Sauber! Das ist der Amboss: hier schmiedest du heiße Rohlinge."
+web_size = Vector2(32, 28)
+
+[node name="Player" parent="." unique_id=1401920713 instance=ExtResource("2_player")]
+
+[node name="Camera2D" parent="Player"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="DoorToVillage" parent="SmallDoors" instance=ExtResource("6_door")]
+position = Vector2(120, 101)
+target_scene = "res://scenes/world/village/village.tscn"
+target_spawn_point = &"FromSmithy"
+
+[node name="Visual" parent="SmallDoors/DoorToVillage" index="0"]
+visible = false
+
+[node name="FromVillage" type="Marker2D" parent="SmallDoors" groups=["spawn_points"]]
+position = Vector2(120, 80)
+
+[node name="AnvilMenu" parent="." instance=ExtResource("5_crafting_menu")]
+title = "Amboss"
+uses_categories = true
+station = &"anvil"
+uses_minigame = true
+only_with_ingredients = true
+
+[node name="ForgeMenu" parent="." instance=ExtResource("5_crafting_menu")]
+title = "Gussofen"
+uses_categories = true
+uses_heat = true
+station = &"forge"
+
+[node name="WorkbenchMenu" parent="." instance=ExtResource("15_assembly_menu")]
+title = "Werkbank"
+uses_categories = true
+uses_minigame = true
+station = &"workbench"
+
+[node name="EnchantingMenu" parent="." instance=ExtResource("15_assembly_menu")]
+title = "Zaubertisch"
+uses_categories = true
+uses_minigame = true
+has_mortar_tab = true
+station = &"enchanting_table"
+tabs = Array[int]([4, 0, 3])
+
+[node name="BowMenu" parent="." instance=ExtResource("15_assembly_menu")]
+title = "Bogentisch"
+uses_categories = true
+uses_minigame = true
+station = &"bow_table"
+tabs = Array[int]([0, 5])
+
+[node name="SmelterMenu" parent="." instance=ExtResource("9_smelter_menu")]
+title = "Schmelze"
+
+[node name="QuenchMenu" parent="." instance=ExtResource("24_quench_menu")]
+
+[node name="DoorToBedroom" parent="SmallDoors" instance=ExtResource("6_door")]
+position = Vector2(-45, -60)
+target_scene = "res://scenes/world/smithy/bedroom.tscn"
+target_spawn_point = &"FromSmithy"
+
+[node name="Visual" parent="SmallDoors/DoorToBedroom" index="0"]
+visible = false
+
+[node name="FromBedroom" type="Marker2D" parent="SmallDoors" groups=["spawn_points"]]
+position = Vector2(-45, -38)
+
+[node name="SharpenMenu" parent="." instance=ExtResource("92_sharpen_menu")]
+
+[node name="PolishMenu" parent="." instance=ExtResource("92_sharpen_menu")]
+title = "Poliertisch"
+polish = true
+
+[node name="VialMenu" parent="." instance=ExtResource("108_vial_menu")]
+
+[node name="JewelMenu" parent="." instance=ExtResource("110_jewel_menu")]
+
+[node name="TanningMenu" parent="." instance=ExtResource("96_tanning_menu")]
+
+[node name="HUD" parent="." instance=ExtResource("8_hud")]
+
+[node name="RaidNarrator" parent="." instance=ExtResource("r7_story_npc")]
+position = Vector2(0, 0)
+npc_id = "raid_narrator"
+hidden_when_flag = "reached_raid_night"
+auto_talk = true
+talk_area_scale = Vector2(30, 30)
+narrator = true
+required_flag = "reached_raid_robbed"
+
+[node name="HalvardEnding" parent="." instance=ExtResource("r7_story_npc")]
+position = Vector2(14, 60)
+npc_id = "halvard"
+appearance = SubResource("Look_halvard")
+resident = "halvard"
+hidden_when_flag = "ending_done"
+auto_talk = true
+facing = "left"
+required_flag = "reached_ending_morning"
+watch_node = NodePath("../Anvil")
+watch_offset = Vector2(34, 18)
+watch_facing = "left"
+watch_flag = "reached_ending_morning"
+watch_until_flag = "ending_done"
+leave_doors = Array[NodePath]([NodePath("../BigDoors/DoorToVillage"), NodePath("../SmallDoors/DoorToVillage")])
+
+[node name="LotteEnding" parent="." instance=ExtResource("r7_story_npc")]
+position = Vector2(-15, 58)
+npc_id = "niece"
+resident = "emma"
+hidden_when_flag = "ending_done"
+facing = "up"
+required_flag = "reached_ending_morning"
+watch_node = NodePath("../Anvil")
+watch_offset = Vector2(5, 16)
+watch_facing = "up"
+watch_flag = "reached_ending_morning"
+watch_until_flag = "ending_done"
+leave_doors = Array[NodePath]([NodePath("../BigDoors/DoorToVillage"), NodePath("../SmallDoors/DoorToVillage")])
+
+[node name="LotteCompanion" type="Node2D" parent="."]
+script = ExtResource("r2_companion")
+npc_id = "niece"
+resident = "emma"
+required_flag = "emma_follows"
+hidden_when_flag = "reached_raid_night"
+
+[node name="ErrandMenu" parent="." instance=ExtResource("r40_errand_menu")]
+
+[node name="ChestMenu" parent="." instance=ExtResource("rc2_chest_menu")]
+
+[node name="LotteSmall" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("97_gate")
+max_level = 1
+
+[node name="WorkshopLotte" parent="LotteSmall" instance=ExtResource("r7_story_npc")]
+position = Vector2(92, 76)
+npc_id = "niece"
+resident = "emma"
+roam_spot = "workshop"
+absent_steps = PackedStringArray("village_occupied", "lotte_hideout", "village_ruse", "village_night", "village_morning", "ending_morning")
+roam_exits = {"default": Vector2(120, 104)}
+required_flag = "hilde_dead"
+watch_node = NodePath("../../Anvil")
+watch_offset = Vector2(34, -2)
+watch_facing = "left"
+watch_flag = "lotte_forge_accepted"
+watch_until_flag = "lotte_forge_done"
+
+[node name="LotteBig" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("97_gate")
+min_level = 2
+
+[node name="WorkshopLotte" parent="LotteBig" instance=ExtResource("r7_story_npc")]
+position = Vector2(172, 92)
+npc_id = "niece"
+resident = "emma"
+roam_spot = "workshop"
+absent_steps = PackedStringArray("village_occupied", "lotte_hideout", "village_ruse", "village_night", "village_morning", "ending_morning")
+roam_exits = {"default": Vector2(200, 120)}
+required_flag = "hilde_dead"
+watch_node = NodePath("../../Anvil")
+watch_offset = Vector2(34, -2)
+watch_facing = "left"
+watch_flag = "lotte_forge_accepted"
+watch_until_flag = "lotte_forge_done"
+
+[node name="LotteShopCompanion" type="Node2D" parent="."]
+script = ExtResource("r2_companion")
+npc_id = "niece"
+resident = "emma"
+required_flag = "lotte_shop_accepted"
+hidden_when_flag = "lotte_shop_done"
+
+[connection signal="interacted" from="Anvil" to="AnvilMenu" method="toggle"]
+[connection signal="interacted" from="Smelter" to="SmelterMenu" method="toggle"]
+[connection signal="interacted" from="Workbench" to="WorkbenchMenu" method="toggle"]
+[connection signal="player_left" from="Anvil" to="AnvilMenu" method="close"]
+[connection signal="player_left" from="Smelter" to="SmelterMenu" method="close"]
+[connection signal="player_left" from="Workbench" to="WorkbenchMenu" method="close"]
+[connection signal="interacted" from="Forge" to="ForgeMenu" method="toggle"]
+[connection signal="player_left" from="Forge" to="ForgeMenu" method="close"]
+[connection signal="interacted" from="WaterTrough" to="QuenchMenu" method="toggle"]
+[connection signal="player_left" from="WaterTrough" to="QuenchMenu" method="close"]
+
+[connection signal="interacted" from="EnchantingTable" to="EnchantingMenu" method="toggle"]
+[connection signal="player_left" from="EnchantingTable" to="EnchantingMenu" method="close"]
+[connection signal="interacted" from="BowTable" to="BowMenu" method="toggle"]
+[connection signal="player_left" from="BowTable" to="BowMenu" method="close"]
+[connection signal="interacted" from="Grindstone" to="SharpenMenu" method="toggle"]
+[connection signal="interacted" from="PolishingTable" to="PolishMenu" method="toggle"]
+[connection signal="interacted" from="VialTable" to="VialMenu" method="toggle"]
+[connection signal="player_left" from="VialTable" to="VialMenu" method="close"]
+[connection signal="interacted" from="JewelTable" to="JewelMenu" method="toggle"]
+[connection signal="player_left" from="JewelTable" to="JewelMenu" method="close"]
+[connection signal="player_left" from="Grindstone" to="SharpenMenu" method="close"]
+[connection signal="player_left" from="PolishingTable" to="PolishMenu" method="close"]
+[connection signal="interacted" from="TanningRack" to="TanningMenu" method="toggle"]
+[connection signal="player_left" from="TanningRack" to="TanningMenu" method="close"]
+[connection signal="interacted" from="Sales/HouseTable1" to="Sales/HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="Sales/HouseTable1" to="Sales/HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="Sales/HouseTable2" to="Sales/HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="Sales/HouseTable2" to="Sales/HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="Sales/ArmorStand" to="Sales/ArmorStandMenu" method="toggle"]
+[connection signal="player_left" from="Sales/ArmorStand" to="Sales/ArmorStandMenu" method="close"]
+[connection signal="interacted" from="SmallRoom/RewardChest" to="ChestMenu" method="toggle"]
+[connection signal="player_left" from="SmallRoom/RewardChest" to="ChestMenu" method="close"]
+[connection signal="interacted" from="BigRoom/RewardChest" to="ChestMenu" method="toggle"]
+[connection signal="player_left" from="BigRoom/RewardChest" to="ChestMenu" method="close"]
+[editable path="SmallDoors/DoorToVillage"]
+[editable path="SmallDoors/DoorToBedroom"]
+[editable path="BigDoors/DoorToVillage"]
+[editable path="BigDoors/DoorToBedroom"]
+[editable path="Player"]

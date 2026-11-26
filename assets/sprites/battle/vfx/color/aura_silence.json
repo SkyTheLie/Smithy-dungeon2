@@ -1,0 +1,297 @@
+{
+ "frames": [
+  {
+   "filename": "aura_silence 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 1.png",
+   "frame": {
+    "x": 55,
+    "y": 0,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 2.png",
+   "frame": {
+    "x": 110,
+    "y": 0,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 3.png",
+   "frame": {
+    "x": 165,
+    "y": 0,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 4.png",
+   "frame": {
+    "x": 0,
+    "y": 25,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 5.png",
+   "frame": {
+    "x": 55,
+    "y": 25,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 6.png",
+   "frame": {
+    "x": 110,
+    "y": 25,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 7.png",
+   "frame": {
+    "x": 165,
+    "y": 25,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 8.png",
+   "frame": {
+    "x": 0,
+    "y": 50,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 9.png",
+   "frame": {
+    "x": 55,
+    "y": 50,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 10.png",
+   "frame": {
+    "x": 110,
+    "y": 50,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 11.png",
+   "frame": {
+    "x": 165,
+    "y": 50,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 12.png",
+   "frame": {
+    "x": 0,
+    "y": 75,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 13.png",
+   "frame": {
+    "x": 55,
+    "y": 75,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 14.png",
+   "frame": {
+    "x": 110,
+    "y": 75,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_silence 15.png",
+   "frame": {
+    "x": 165,
+    "y": 75,
+    "w": 55,
+    "h": 25
+   },
+   "sourceSize": {
+    "w": 55,
+    "h": 25
+   },
+   "pivot": {
+    "x": 0.4909090909090909,
+    "y": 0.56
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "both"
+ }
+}

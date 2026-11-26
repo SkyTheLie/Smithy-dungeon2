@@ -1,0 +1,892 @@
+{
+	"side_dialogues": [
+		{"npc": "finster_posters", "flag": "reached_princess_reveal", "done_flag": "wanted_poster_taken", "dialogue": "finster_poster_take", "quiet": true},
+		{"npc": "tree_of_life", "flag": "tree_of_life_restored", "dialogue": "tree_of_life_bloom", "quiet": true},
+		{"npc": "tree_of_life", "flag": "tree_of_life_rotten", "dialogue": "tree_of_life_rotten", "quiet": true},
+		{"npc": "temple_mural_gate", "flag": "temple_mural_gate_read", "dialogue": "temple_mural_sockets", "quiet": true},
+		{"npc": "niece", "flag": "letter_royal", "done_flag": "letter_royal_read", "dialogue": "lotte_letter_royal", "courier": true},
+		{"npc": "niece", "flag": "letter_council", "done_flag": "letter_council_read", "dialogue": "lotte_letter_council", "courier": true},
+		{"npc": "niece", "flag": "letter_water", "done_flag": "letter_water_read", "dialogue": "lotte_letter_water", "courier": true},
+		{"npc": "niece", "flag": "letter_finster", "done_flag": "letter_finster_read", "dialogue": "lotte_letter_finster", "courier": true},
+		{"npc": "niece", "flag": "letter_grand_council", "done_flag": "letter_grand_council_read", "dialogue": "lotte_letter_grand_council", "courier": true},
+		{"npc": "leon_captain", "flag": "reached_throne_hall", "done_flag": "keep_won_seen", "dialogue": "keep_won"},
+		{"npc": "leon_captain", "flag": "keep_won_seen", "done_flag": "reached_carry_mage", "dialogue": "bertold_keep_idle", "quiet": true},
+		{"npc": "kahn_right_hand", "flag": "reached_harbor_attack", "done_flag": "harbor_subar_seen", "dialogue": "harbor_subar"},
+		{"npc": "kahn_right_hand", "flag": "harbor_subar_seen", "done_flag": "reached_kahn_decides", "dialogue": "subar_harbor_idle", "quiet": true},
+		{"npc": "leon_captain", "flag": "reached_gate_battle", "done_flag": "yard_battle_seen", "dialogue": "yard_battle"},
+		{"npc": "leon_captain", "flag": "yard_battle_seen", "done_flag": "reached_throne_hall", "dialogue": "bertold_yard_idle", "quiet": true},
+		{"npc": "bone_general", "flag": "reached_gate_battle", "done_flag": "bone_general_met", "dialogue": "bone_general_challenge"},
+		{"npc": "altar_outskirts_narrator", "flag": "reached_altar_siege", "done_flag": "altar_outskirts_seen", "dialogue": "altar_outskirts_arrival"},
+		{"npc": "altar_warden", "flag": "reached_altar_siege", "done_flag": "altar_warden_met", "dialogue": "altar_warden_challenge"},
+		{"npc": "altar_boss_west", "flag": "reached_altar_west", "done_flag": "altar_west_boss_met", "dialogue": "altar_boss_west_challenge"},
+		{"npc": "altar_boss_south", "flag": "reached_altar_south", "done_flag": "altar_south_boss_met", "dialogue": "altar_boss_south_challenge"},
+		{"npc": "altar_boss_east", "flag": "reached_altar_east", "done_flag": "altar_east_boss_met", "dialogue": "altar_boss_east_challenge"},
+		{"npc": "lake", "flag": "king_at_tablet", "done_flag": "lake_challenge_met", "dialogue": "lake_challenge"},
+		{"npc": "lake", "flag": "reached_altar_lake", "done_flag": "king_at_tablet", "dialogue": "dark_lake_silent", "quiet": true},
+		{"npc": "kahn_son", "flag": "reached_gate_battle", "done_flag": "reached_part5_end", "dialogue": "torgai_yard", "quiet": true},
+		{"npc": "escape_narrator", "flag": "carrying_mage", "done_flag": "escape_intro_done", "dialogue": "escape_start"},
+		{"npc": "goblin_crowd", "flag": "goblin_audience_paid", "done_flag": "goblin_crowd_parted", "dialogue": "goblin_crowd_part"},
+		{"npc": "coachman", "flag": "carriage_allowed", "done_flag": "reached_royal_carriage", "dialogue": "coachman_allowed_wait", "quiet": true},
+		{"npc": "coachman", "flag": "king_audience_done", "dialogue": "coachman_service", "quiet": true},
+		{"npc": "pyramid_keeper", "flag": "story_complete", "done_flag": "underworld_open", "dialogue": "pyramid_keeper_open"},
+		{"npc": "pyramid_keeper", "flag": "underworld_open", "dialogue": "pyramid_keeper_after", "quiet": true},
+		{"npc": "elf_inventor", "flag": "reached_elf_arrival", "done_flag": "met_fenn", "dialogue": "elf_inventor_meet"},
+		{"npc": "elf_inventor", "flag": "met_fenn", "flags": ["reached_part3_end"], "done_flag": "fenn_frame_accepted", "dialogue": "fenn_frame_offer"},
+		{"npc": "elf_inventor", "flag": "fenn_frame_accepted", "done_flag": "fenn_frame_given", "dialogue": "fenn_frame_hand_in", "quiet": true},
+		{"npc": "elf_inventor", "flag": "fenn_frame_done", "done_flag": "fenn_wings_done", "dialogue": "fenn_wings_hand_in"},
+		{"npc": "elf_inventor", "flag": "fenn_wings_done", "done_flag": "fenn_orb_done", "dialogue": "fenn_orb_hand_in", "quiet": true},
+		{"npc": "elf_inventor", "flag": "fenn_orb_done", "done_flag": "fenn_flight_done", "dialogue": "fenn_life_hand_in", "quiet": true},
+		{"npc": "elf_inventor", "flag": "fenn_flight_done", "dialogue": "fenn_fly_offer", "quiet": true},
+		{"npc": "elf_grumbler", "flag": "fenn_flight_done", "dialogue": "elf_grumbler_after", "quiet": true},
+		{"npc": "temple_crystal", "flag": "fenn_orb_search", "flags": ["lightning_crystal_owned"], "done_flag": "wind_orb_found", "dialogue": "temple_wind_orb"},
+		{"npc": "goblin_king", "flag": "reached_ask_allies", "done_flag": "asked_goblin", "dialogue": "goblin_ask"},
+		{"npc": "elf_elder", "flag": "reached_ask_allies", "done_flag": "asked_elder", "dialogue": "elder_ask"},
+		{"npc": "kahn", "flag": "reached_ask_allies", "done_flag": "asked_kahn", "dialogue": "kahn_ask"},
+		{"npc": "goblin_king", "flag": "asked_goblin", "done_flag": "reached_part5_end", "dialogue": "goblin_after", "quiet": true},
+		{"npc": "elf_elder", "flag": "asked_elder", "done_flag": "reached_part5_end", "dialogue": "elder_after", "quiet": true},
+		{"npc": "kahn", "flag": "asked_kahn", "done_flag": "reached_part5_end", "dialogue": "kahn_after", "quiet": true},
+		{"npc": "swamp_narrator", "flag": "reached_to_swamp", "done_flag": "swamp_intro_seen", "dialogue": "swamp_arrival"},
+		{"npc": "camp_narrator", "flag": "reached_camp_council", "done_flag": "camp_intro_seen", "dialogue": "camp_arrival"},
+		{"npc": "sneak_narrator", "flag": "reached_sneak_in", "done_flag": "sneak_intro_seen", "dialogue": "sneak_intro"},
+		{"npc": "ring_narrator", "flag": "reached_sneak_out", "done_flag": "ring_entry_seen", "dialogue": "ring_entry"},
+		{"npc": "faelan", "flag": "reached_camp_council", "done_flag": "fortress_gate_open", "dialogue": "faelan_camp", "quiet": true},
+		{"npc": "kahn_son", "flag": "reached_camp_council", "done_flag": "fortress_gate_open", "dialogue": "torgai_camp", "quiet": true},
+		{"npc": "desert_guard", "flag": "reached_camp_council", "done_flag": "fortress_gate_open", "dialogue": "lizard_captain_camp", "quiet": true},
+		{"npc": "magician", "flag": "reached_lake_talk", "done_flag": "fortress_gate_open", "dialogue": "aurelius_camp", "quiet": true},
+		{"npc": "lake", "flag": "reached_sneak_in", "done_flag": "fortress_gate_open", "dialogue": "lake_camp", "quiet": true},
+		{
+			"npc": "warrior_hagen",
+			"flag": "capital_guild_joined",
+			"done_flag": "hagen_sword_accepted",
+			"dialogue": "hagen_intro"
+		},
+		{
+			"npc": "leon_captain",
+			"flag": "reached_part5_end",
+			"dialogue": "bertold_after",
+			"quiet": true
+		},
+		{
+			"npc": "warrior_hagen",
+			"flag": "hagen_sword_accepted",
+			"done_flag": "hagen_sword_given",
+			"dialogue": "hagen_sword_hand_in",
+			"quiet": true
+		},
+		{
+			"npc": "warrior_hagen",
+			"flag": "hagen_sword_given",
+			"done_flag": "hagen_sword_paid",
+			"dialogue": "hagen_sword_done"
+		},
+		{
+			"npc": "warrior_hagen",
+			"flag": "hagen_sword_paid",
+			"done_flag": "hagen_armor_accepted",
+			"dialogue": "hagen_armor_offer"
+		},
+		{
+			"npc": "warrior_hagen",
+			"flag": "hagen_armor_accepted",
+			"done_flag": "hagen_armor_given",
+			"dialogue": "hagen_armor_hand_in",
+			"quiet": true
+		},
+		{
+			"npc": "warrior_hagen",
+			"flag": "hagen_armor_given",
+			"done_flag": "hagen_armor_paid",
+			"dialogue": "hagen_armor_done"
+		},
+		{
+			"npc": "lane_smith_gorm",
+			"flag": "hagen_sword_paid",
+			"done_flag": "gorm_impressed",
+			"dialogue": "gorm_impressed"
+		},
+		{"npc": "lane_smith_brandolf", "flag": "fake_blades_gorm", "done_flag": "fake_blades_found", "dialogue": "brandolf_fakes"},
+		{
+			"npc": "lane_smith_brandolf",
+			"flag": "tournament_open",
+			"dialogue": "brandolf_tournament",
+			"quiet": true
+		},
+		{
+			"npc": "lane_smith_ilsa",
+			"flag": "tournament_open",
+			"dialogue": "ilsa_tournament",
+			"quiet": true
+		},
+		{"npc": "lane_smith_gorm", "flag": "fake_blades_started", "done_flag": "fake_blades_gorm", "dialogue": "gorm_fakes"},
+		{
+			"npc": "lane_smith_gorm",
+			"flag": "gorm_impressed",
+			"dialogue": "gorm_after",
+			"quiet": true
+		},
+		{
+			"npc": "niece",
+			"flag": "shoe_idea",
+			"done_flag": "child_shoes_given",
+			"dialogue": "lotte_shoes_gift",
+			"topic": "Schuhe für Lotte"
+		},
+		{
+			"npc": "niece",
+			"flag": "child_shoes_given",
+			"done_flag": "reached_niece_found",
+			"dialogue": "niece_happy",
+			"quiet": true
+		},
+		{
+			"npc": "niece",
+			"flag": "reached_niece_found",
+			"done_flag": "hilde_dead",
+			"dialogue": "niece_after_forest",
+			"quiet": true
+		},
+		{
+			"npc": "nina",
+			"flag": "nina_calendar_ready",
+			"done_flag": "calendar_owned",
+			"dialogue": "nina_calendar"
+		},
+		{
+			"npc": "guild_master",
+			"flag": "armor_mold_found",
+			"done_flag": "copper_set_accepted",
+			"dialogue": "guild_set_offer"
+		},
+		{
+			"npc": "guild_master",
+			"flag": "copper_set_accepted",
+			"done_flag": "copper_set_complete",
+			"dialogue": "guild_set_hand_in",
+			"quiet": true
+		},
+		{
+			"npc": "guild_master",
+			"flag": "copper_set_complete",
+			"done_flag": "copper_set_paid",
+			"dialogue": "guild_set_done"
+		},
+		{
+			"npc": "miner",
+			"flag": "bronze_found",
+			"done_flag": "bronze_explained",
+			"dialogue": "miner_bronze_question"
+		},
+		{
+			"npc": "miner",
+			"flag": "iron_unlocked",
+			"done_flag": "gustav_deal",
+			"dialogue": "miner_iron_offer"
+		},
+		{
+			"npc": "miner",
+			"flag": "gustav_deal",
+			"done_flag": "old_mine_deal_done",
+			"dialogue": "miner_deal_check"
+		},
+		{
+			"npc": "miner",
+			"flag": "bronze_explained",
+			"done_flag": "bronze_delivered",
+			"dialogue": "miner_bronze_hand_in"
+		},
+		{
+			"npc": "miner",
+			"flag": "reached_storm_temple",
+			"done_flag": "deep_mine_offered",
+			"dialogue": "miner_deep_mine_offer"
+		},
+		{
+			"npc": "miner",
+			"flag": "gustav_deep_deal",
+			"done_flag": "deep_mine_deal_done",
+			"dialogue": "miner_deep_mine_check"
+		},
+		{
+			"npc": "miner",
+			"flag": "deep_mine_open",
+			"dialogue": "miner_deep_mine_open",
+			"quiet": true
+		},
+		{
+			"npc": "miner",
+			"flag": "old_mine_open",
+			"dialogue": "miner_old_mine_open",
+			"quiet": true
+		},
+		{
+			"npc": "nina",
+			"flag": "nina_expansion_visit",
+			"done_flag": "nina_expanded",
+			"dialogue": "nina_expansion"
+		},
+		{
+			"npc": "nina",
+			"flag": "reached_ask_enchanting",
+			"done_flag": "asked_nina",
+			"dialogue": "nina_enchanting"
+		},
+		{
+			"npc": "nina",
+			"flag": "nina_dummy_full",
+			"done_flag": "nina_dummy_paid",
+			"dialogue": "nina_dummy_done"
+		},
+		{
+			"npc": "guild_master",
+			"flag": "reached_ask_enchanting",
+			"done_flag": "asked_hedwig",
+			"dialogue": "guild_enchanting"
+		},
+		{
+			"npc": "landlady",
+			"flag": "reached_ask_enchanting",
+			"done_flag": "asked_landlady",
+			"dialogue": "landlady_enchanting"
+		},
+		{
+			"npc": "landlady",
+			"flag": "rent_free_year",
+			"done_flag": "smithy_owned",
+			"dialogue": "landlady_sell_offer",
+			"quiet": true
+		},
+		{
+			"npc": "landlady",
+			"flag": "smithy_owned",
+			"dialogue": "landlady_owner",
+			"quiet": true
+		},
+		{"npc": "niece", "flag": "errand_back", "dialogue": "lotte_errand_back", "topic": "Einkauf abholen"},
+		{"npc": "niece", "flag": "errand_out", "dialogue": "lotte_errand_out", "quiet": true},
+		{"npc": "niece", "flag": "errand_ready", "dialogue": "lotte_errand_offer", "topic": "Einkaufsliste geben"},
+		{"npc": "niece", "flag": "lotte_forge_watched", "done_flag": "lotte_forge_done", "dialogue": "lotte_forge_after", "topic": "Lotte schaut zu"},
+		{"npc": "niece", "flag": "lotte_forge_accepted", "done_flag": "lotte_forge_watched", "dialogue": "lotte_forge_watching", "quiet": true},
+		{"npc": "niece", "flag": "lotte_forge_done", "done_flag": "lotte_shop_accepted", "dialogue": "lotte_shop_offer", "topic": "Einkaufen mit Lotte"},
+		{"npc": "niece", "flag": "lotte_hammer_done", "done_flag": "lotte_forge_accepted", "dialogue": "lotte_forge_offer", "topic": "Lotte schaut zu"},
+		{"npc": "lotte_market_narrator", "flag": "lotte_shop_accepted", "done_flag": "lotte_shop_done", "dialogue": "lotte_shop_lesson"},
+		{
+			"npc": "niece",
+			"flag": "rent_free_year",
+			"done_flag": "smithy_owned",
+			"dialogue": "lotte_sell_offer",
+			"topic": "Schmiede kaufen",
+			"quiet": true,
+			"flags": [
+				"hilde_dead"
+			]
+		},
+		{"npc": "niece", "flag": "hilde_dead", "flags": ["reached_rebuild_done"], "done_flag": "lotte_hammer_accepted", "dialogue": "lotte_hammer_offer", "topic": "Lottes erster Hammer"},
+		{"npc": "niece", "flag": "lotte_hammer_accepted", "done_flag": "lotte_hammer_done", "dialogue": "lotte_hammer_hand_in", "topic": "Lottes erster Hammer", "quiet": true},
+		{
+			"npc": "niece",
+			"flag": "smithy_owned",
+			"dialogue": "lotte_owner",
+			"quiet": true,
+			"flags": [
+				"hilde_dead"
+			]
+		},
+		{
+			"npc": "niece",
+			"flag": "hilde_dead",
+			"dialogue": "lotte_idle",
+			"quiet": true
+		},
+		{
+			"npc": "guild_master",
+			"flag": "builder_weekly",
+			"done_flag": "guild_upgrade_heard",
+			"dialogue": "guild_upgrade_intro"
+		},
+		{
+			"npc": "guild_master",
+			"flag": "guild_upgrade_heard",
+			"done_flag": "guild_level_1",
+			"dialogue": "guild_upgrade_1",
+			"quiet": true
+		},
+		{
+			"npc": "guild_master",
+			"flag": "guild_level_1",
+			"flags": ["reached_part2_end"],
+			"done_flag": "guild_upgrade_2_heard",
+			"dialogue": "guild_upgrade_2_intro"
+		},
+		{
+			"npc": "guild_master",
+			"flag": "guild_upgrade_2_heard",
+			"done_flag": "guild_level_2",
+			"dialogue": "guild_upgrade_2",
+			"quiet": true
+		},
+		{
+			"npc": "guild_master",
+			"flag": "guild_level_2",
+			"flags": ["reached_part4_end"],
+			"done_flag": "guild_upgrade_3_heard",
+			"dialogue": "guild_upgrade_3_intro"
+		},
+		{
+			"npc": "guild_master",
+			"flag": "guild_upgrade_3_heard",
+			"done_flag": "guild_level_3",
+			"dialogue": "guild_upgrade_3",
+			"quiet": true
+		},
+		{
+			"npc": "goblin_castle_narrator",
+			"flag": "reached_goblin_forge_tasks",
+			"done_flag": "goblin_castle_intro_seen",
+			"dialogue": "goblin_castle_intro"
+		},
+		{
+			"npc": "grove_narrator",
+			"flag": "reached_elf_arrival",
+			"done_flag": "grove_intro_seen",
+			"dialogue": "grove_intro"
+		},
+		{
+			"npc": "grove_narrator",
+			"flag": "reached_elf_return",
+			"done_flag": "grove_return_seen",
+			"dialogue": "grove_return"
+		},
+		{
+			"npc": "arena_narrator",
+			"flag": "reached_tournament_announced",
+			"done_flag": "arena_intro_seen",
+			"dialogue": "arena_intro"
+		},
+		{
+			"npc": "magician",
+			"flag": "desert_lost_once",
+			"done_flag": "compass_dungeons_unlocked",
+			"dialogue": "aurelius_compass"
+		},
+		{
+			"npc": "magician",
+			"flag": "desert_compass_built",
+			"done_flag": "aurelius_saw_compass",
+			"dialogue": "aurelius_compass_done"
+		},
+		{
+			"npc": "magician",
+			"flag": "compass_dungeons_unlocked",
+			"done_flag": "desert_compass_built",
+			"dialogue": "aurelius_compass_idle",
+			"quiet": true
+		},
+		{
+			"npc": "lizard_elder",
+			"flag": "desert_town_found",
+			"done_flag": "ishra_welcomed",
+			"dialogue": "lizard_elder_welcome"
+		},
+		{
+			"npc": "treasure_hunter",
+			"flag": "desert_town_found",
+			"done_flag": "desert_map_owned",
+			"dialogue": "treasure_hunter_map"
+		},
+		{"npc": "eisquell_narrator", "flag": "reached_water_arrival", "done_flag": "eisquell_intro_seen", "dialogue": "eisquell_arrival"},
+		{"npc": "kahn_right_hand", "flag": "reached_frost_hunt", "done_flag": "kahn_hall_open", "dialogue": "subar_waiting", "quiet": true},
+		{"npc": "arena_crier", "flag": "reached_hero_tournament", "done_flag": "crier_welcomed", "dialogue": "arena_crier_welcome"},
+		{"npc": "kahn", "flag": "reached_to_desert", "dialogue": "kahn_idle", "quiet": true},
+		{"npc": "kahn_son", "flag": "hero_tournament_won", "done_flag": "torgai_spear_accepted", "dialogue": "torgai_spear_offer"},
+		{"npc": "kahn_son", "flag": "torgai_spear_accepted", "done_flag": "torgai_spear_given", "dialogue": "torgai_spear_hand_in", "quiet": true},
+		{"npc": "kahn_son", "flag": "hero_tournament_won", "dialogue": "torgai_idle", "quiet": true},
+		{"npc": "eisquell_fisher", "flag": "frost_mane_slain", "dialogue": "eisquell_fisher_after", "quiet": true},
+		{"npc": "cage_narrator", "flag": "reached_desert_cage", "done_flag": "cage_morning_seen", "dialogue": "cage_morning"},
+		{"npc": "first_customer", "flag": "reached_storm_temple", "done_flag": "ulrich_hilde_told", "dialogue": "ulrich_hilde"},
+		{"npc": "first_customer", "flag": "reached_storm_temple", "dialogue": "ulrich_idle", "quiet": true},
+		{"npc": "desert_lord", "flag": "reached_return_leonheim", "dialogue": "desert_lord_after", "quiet": true},
+		{"npc": "temple_narrator", "flag": "reached_temple_seals", "done_flag": "temple_intro_seen", "dialogue": "temple_gate_intro"},
+		{"npc": "temple_hall_narrator", "flag": "reached_temple_pillars", "done_flag": "temple_hall_seen", "dialogue": "temple_hall_intro"},
+		{"npc": "temple_sanctum_narrator", "flag": "reached_temple_crystal", "done_flag": "temple_sanctum_seen", "dialogue": "temple_sanctum_intro"},
+		{"npc": "temple_rod_stand", "flag": "temple_rod_placed", "dialogue": "temple_rod_stand_done", "quiet": true},
+		{"npc": "temple_crystal", "flag": "temple_rod_placed", "done_flag": "lightning_crystal_owned", "dialogue": "temple_crystal_take"},
+		{"npc": "temple_pillar_1", "flag": "temple_pillars_done", "dialogue": "temple_pillar_quiet", "quiet": true},
+		{"npc": "temple_pillar_2", "flag": "temple_pillars_done", "dialogue": "temple_pillar_quiet", "quiet": true},
+		{"npc": "temple_pillar_3", "flag": "temple_pillars_done", "dialogue": "temple_pillar_quiet", "quiet": true},
+		{"npc": "temple_pillar_4", "flag": "temple_pillars_done", "dialogue": "temple_pillar_quiet", "quiet": true},
+		{"npc": "temple_socket_0", "flag": "temple_gate_open", "dialogue": "temple_socket_open", "quiet": true},
+		{"npc": "temple_socket_0", "flag": "temple_socket_0_sun_seal", "dialogue": "temple_socket_filled_sun_seal", "quiet": true},
+		{"npc": "temple_socket_0", "flag": "temple_socket_0_moon_seal", "dialogue": "temple_socket_filled_moon_seal", "quiet": true},
+		{"npc": "temple_socket_0", "flag": "temple_socket_0_storm_seal", "dialogue": "temple_socket_filled_storm_seal", "quiet": true},
+		{"npc": "temple_socket_1", "flag": "temple_gate_open", "dialogue": "temple_socket_open", "quiet": true},
+		{"npc": "temple_socket_1", "flag": "temple_socket_1_sun_seal", "dialogue": "temple_socket_filled_sun_seal", "quiet": true},
+		{"npc": "temple_socket_1", "flag": "temple_socket_1_moon_seal", "dialogue": "temple_socket_filled_moon_seal", "quiet": true},
+		{"npc": "temple_socket_1", "flag": "temple_socket_1_storm_seal", "dialogue": "temple_socket_filled_storm_seal", "quiet": true},
+		{"npc": "temple_socket_2", "flag": "temple_gate_open", "dialogue": "temple_socket_open", "quiet": true},
+		{"npc": "temple_socket_2", "flag": "temple_socket_2_sun_seal", "dialogue": "temple_socket_filled_sun_seal", "quiet": true},
+		{"npc": "temple_socket_2", "flag": "temple_socket_2_moon_seal", "dialogue": "temple_socket_filled_moon_seal", "quiet": true},
+		{"npc": "temple_socket_2", "flag": "temple_socket_2_storm_seal", "dialogue": "temple_socket_filled_storm_seal", "quiet": true},
+		{"npc": "king", "flag": "reached_water_arrival", "done_flag": "reached_to_desert", "dialogue": "king_eisquell_idle", "quiet": true},
+		{"npc": "lake", "flag": "reached_water_arrival", "done_flag": "reached_to_desert", "dialogue": "lake_eisquell_idle", "quiet": true},
+		{"npc": "ice_pillar_1", "flag": "ice_song_done", "dialogue": "ice_pillar_quiet", "quiet": true},
+		{"npc": "ice_pillar_2", "flag": "ice_song_done", "dialogue": "ice_pillar_quiet", "quiet": true},
+		{"npc": "ice_pillar_3", "flag": "ice_song_done", "dialogue": "ice_pillar_quiet", "quiet": true},
+		{"npc": "ice_pillar_4", "flag": "ice_song_done", "dialogue": "ice_pillar_quiet", "quiet": true},
+		{"npc": "ice_pillar_5", "flag": "ice_song_done", "dialogue": "ice_pillar_quiet", "quiet": true},
+		{"npc": "ice_mirror_socket_1", "flag": "ice_mirror_1", "dialogue": "ice_mirror_placed", "quiet": true},
+		{"npc": "ice_mirror_socket_2", "flag": "ice_mirror_2", "dialogue": "ice_mirror_placed", "quiet": true},
+		{"npc": "ice_mirror_socket_3", "flag": "ice_mirror_3", "dialogue": "ice_mirror_placed", "quiet": true},
+		{"npc": "ice_singing_wall", "flag": "ice_crystal_taken", "dialogue": "singing_wall_empty", "quiet": true},
+		{"npc": "ice_crown_narrator", "flag": "reached_wall_crown", "dialogue": "crown_arrival", "done_flag": "crown_intro_seen"},
+		{"npc": "finster_gate_narrator", "flag": "reached_finster_gate", "dialogue": "finster_gate_arrival", "done_flag": "finster_gate_seen"},
+		{"npc": "finster_narrator", "flag": "reached_finster_wanted", "dialogue": "finster_intro", "done_flag": "finster_intro_seen"},
+		{"npc": "finster_narrator", "flag": "reached_to_altar", "dialogue": "finster_uprising", "done_flag": "uprising_seen"},
+		{"npc": "castle_sneak_narrator", "flag": "reached_sneak_castle", "dialogue": "castle_sneak_intro", "done_flag": "castle_sneak_seen"},
+		{"npc": "magician", "flag": "reached_alliance_forge", "dialogue": "council_weapons", "done_flag": "allies_armed"},
+		{"npc": "halvard", "flag": "reached_alliance_forge", "dialogue": "council_starsteel", "done_flag": "starsteel_ready"},
+		{"npc": "halvard", "flag": "story_complete", "done_flag": "halvard_hammer_accepted", "dialogue": "halvard_hammer_offer"},
+		{"npc": "halvard", "flag": "halvard_hammer_accepted", "done_flag": "halvard_hammer_given", "dialogue": "halvard_hammer_hand_in", "quiet": true},
+		{"npc": "halvard", "flag": "story_complete", "dialogue": "halvard_home", "quiet": true},
+		{"npc": "finster_citizen_a", "flag": "reached_to_altar", "dialogue": "finster_free_a", "quiet": true},
+		{"npc": "finster_citizen_b", "flag": "reached_to_altar", "dialogue": "finster_free_b", "quiet": true},
+		{"npc": "finster_citizen_c", "flag": "reached_to_altar", "dialogue": "finster_free_c", "quiet": true},
+		{"npc": "elf_elder", "flag": "fenn_wings_done", "done_flag": "fenn_orb_search", "dialogue": "elder_fenn_orb"},
+		{"npc": "capital_guild_master", "flag": "hagen_sword_paid", "done_flag": "fake_blades_started", "dialogue": "thora_fakes_offer"},
+		{"npc": "capital_guild_master", "flag": "fake_blades_found", "done_flag": "fake_blades_done", "dialogue": "thora_fakes_hand_in"},
+		{"npc": "lizard_kesh", "flag": "desert_town_found", "flags": ["desert_chest_boots"], "done_flag": "kesh_pipe_accepted", "dialogue": "kesh_pipe_offer"},
+		{"npc": "lizard_kesh", "flag": "kesh_pipe_accepted", "done_flag": "kesh_pipe_done", "dialogue": "kesh_pipe_hand_in", "quiet": true},
+		{"npc": "lizard_kesh", "flag": "kesh_pipe_done", "dialogue": "kesh_pipe_after", "quiet": true},
+		{"npc": "treasure_hunter", "flag": "desert_map_owned", "flags": ["desert_chest_boots", "desert_chest_gloves", "desert_chest_backpack"], "done_flag": "zahir_charm_search", "dialogue": "zahir_charm_offer"},
+		{"npc": "treasure_hunter", "flag": "zahir_charm_search", "done_flag": "zahir_charm_done", "dialogue": "zahir_charm_hand_in", "quiet": true},
+		{"npc": "goblin_king", "flag": "reached_part5_end", "done_flag": "goblin_crown_accepted", "dialogue": "goblin_crown_offer"},
+		{"npc": "goblin_king", "flag": "goblin_crown_accepted", "done_flag": "goblin_crown_paid", "dialogue": "goblin_crown_hand_in", "quiet": true},
+		{"npc": "goblin_hungry", "flag": "goblin_thrown", "flags": ["reached_part2_end"], "done_flag": "goblin_food_accepted", "dialogue": "goblin_food_offer"},
+		{"npc": "goblin_hungry", "flag": "goblin_food_accepted", "done_flag": "goblin_fed", "dialogue": "goblin_food_hand_in", "quiet": true},
+		{"npc": "goblin_hungry", "flag": "goblin_fed", "dialogue": "goblin_food_after", "quiet": true},
+		{"npc": "swamp_witch", "flag": "reached_part5_end", "done_flag": "witch_cauldron_accepted", "dialogue": "witch_cauldron_offer"},
+		{"npc": "swamp_witch", "flag": "witch_cauldron_accepted", "done_flag": "witch_cauldron_done", "dialogue": "witch_cauldron_hand_in", "quiet": true}
+	],
+	"side_tasks": {
+		"hagen_sword": {
+			"title": "Ein Schwert für Hagen",
+			"text": "Hagen, ein Krieger in der Schmiedegasse von Leonheim (von der Einkaufsstraße nach Osten), hat in keiner Schmiede ein seltenes Eisenschwert bekommen. Schmiede ihm ein Schwert mit Eisenklinge in der Seltenheit Selten oder besser und bring es ihm im Inventar. Tipp: Ein Mondglanz-Trank (3 Mondlilien + Phiole im Mörser) hebt die Qualität um eine ganze Stufe.",
+			"start_flag": "hagen_sword_accepted",
+			"done_flag": "hagen_sword_paid",
+			"complete_flag": "hagen_sword_given",
+			"complete_text": "Hagen hat sein Schwert! Hol dir deinen Lohn bei ihm.",
+			"hand_in": true,
+			"set_material": "iron",
+			"set_min_rarity": "R5",
+			"set_items": {
+				"sword": "Eisenschwert (Selten)"
+			}
+		},
+		"hagen_armor": {
+			"title": "Hagens Rüstung",
+			"text": "Hagen will eine komplette seltene Eisenrüstung: Helm, Rüstung, Schulterschutz, Handschuhe, Beinschutz und Stiefel, jeweils mit Eisen geschmiedet und mindestens Selten. Bring ihm die Teile in die Schmiedegasse (im Inventar, auch einzeln). Danach will er der Stadtwache von dir erzählen.",
+			"start_flag": "hagen_armor_accepted",
+			"done_flag": "hagen_armor_paid",
+			"complete_flag": "hagen_armor_given",
+			"complete_text": "Alles abgegeben! Hol dir bei Hagen deinen Lohn.",
+			"hand_in": true,
+			"set_material": "iron",
+			"set_min_rarity": "R5",
+			"set_items": {
+				"helmet": "Helm (Selten)",
+				"armor": "Rüstung (Selten)",
+				"shoulders": "Schulterschutz (Selten)",
+				"gloves": "Handschuhe (Selten)",
+				"legs": "Beinschutz (Selten)",
+				"boots": "Stiefel (Selten)"
+			}
+		},
+		"bronze_question": {
+			"title": "Was ist Bronze?",
+			"text": "Du hast etwas aus Bronze bekommen und weißt nicht so recht, was das für ein Metall ist. Frag Gustav, den Bergmann vor der Mine (Dorfplatz » Süden » Dorftor » Südweg » Osten).",
+			"start_flag": "bronze_found",
+			"done_flag": "bronze_explained"
+		},
+		"bronze_delivery": {
+			"title": "Ein Bronzebarren für Gustav",
+			"text": "Bronze ist eine Legierung aus Kupfer und Eisen. Leg an der Schmelze unter Legieren einen Kupferbarren und einen Eisenbarren hinein und bring Gustav vor der Mine den Bronzebarren. Er zahlt 150 Gold.",
+			"start_flag": "bronze_explained",
+			"done_flag": "bronze_delivered",
+			"show_items": "bronze_ingot"
+		},
+		"copper_set": {
+			"title": "Ein Kupferset für die Gilde",
+			"text": "Hedwig will ein komplettes Kupferset: eine Waffe, einen Helm, eine Rüstung, Handschuhe, einen Beinschutz, Stiefel und einen Schulterschutz, jeweils mit Kupfer geschmiedet. Die Rüstungs-Gussformen gibt es beim Gussform-Händler auf dem Markt oder als Beute aus den Dungeons. Die Rüstungsteile entstehen an der Werkbank aus der Kupferplatte und 1 Leder (Rattenfell an der Gerberbank gerben). Bring die Teile Hedwig in die Abenteurergilde (im Inventar, nicht an einem Helden): Erst was sie bekommen hat, ist abgehakt. Du kannst sie auch einzeln abgeben.",
+			"start_flag": "copper_set_accepted",
+			"done_flag": "copper_set_paid",
+			"complete_flag": "copper_set_complete",
+			"complete_text": "Alles abgegeben! Hol dir bei Hedwig deine Prämie.",
+			"hand_in": true,
+			"set_material": "copper",
+			"set_items": {
+				"weapon": "Waffe",
+				"helmet": "Helm",
+				"armor": "Rüstung",
+				"gloves": "Handschuhe",
+				"legs": "Beinschutz",
+				"boots": "Stiefel",
+				"shoulders": "Schulterschutz"
+			}
+		},
+		"old_mine": {
+			"title": "Die nächste Ebene",
+			"text": "Gustav stützt den Gang hinter dem Rattenloch in der Mine ab, dahinter liegt die nächste Ebene der Mine. Dafür will er 1000 Gold, eine Eisenspitzhacke, 40 Holzbalken und 40 Eisennägel. Bring alles zu ihm vor die Mine.\nEisen-Spitzhackenkopf: Gussform am Gussofen, dann Amboss, dann an der Werkbank mit einem Holzstiel verbinden. Holzbalken (2 Holz) und Eisennägel (1 Eisenbarren) an der Werkbank unter Zubehör » Baumaterial.",
+			"start_flag": "gustav_deal",
+			"done_flag": "old_mine_deal_done",
+			"show_items": "pickaxe:iron_pickaxe_head+wooden_shaft,wooden_beam*40,iron_nail*40",
+			"show_gold": 1000
+		},
+		"deep_mine": {
+			"title": "Der verschüttete Stollen",
+			"text": "Gustav räumt den verschütteten Stollen rechts neben dem Mineneingang frei, dahinter liegt die tiefe Ader mit Silber, Gold und Platin. Dafür will er 5000 Gold, eine Goldspitzhacke, 80 Holzbalken und 80 Eisennägel. Bring alles zu ihm vor die Mine.",
+			"start_flag": "gustav_deep_deal",
+			"done_flag": "deep_mine_deal_done",
+			"show_items": "pickaxe:gold_pickaxe_head+wooden_shaft,wooden_beam*80,iron_nail*80",
+			"show_gold": 5000
+		},
+		"nina_dummy": {
+			"title": "Die Rüstungspuppe",
+			"text": "Nina hat ihren Laden erweitert. Leg der Rüstungspuppe in ihrem Laden auf jeden Platz ein Teil an, alle gleichzeitig: Helm, Schulterschutz, Rüstung, Umhang, Handschuhe, Stiefel, Schild und Beinschutz.",
+			"start_flag": "nina_expanded",
+			"done_flag": "nina_dummy_paid",
+			"complete_flag": "nina_dummy_full",
+			"complete_text": "Die Puppe ist komplett! Sprich mit Nina.",
+			"check": "nina_dummy",
+			"on_complete": "hint:nina_dummy_full"
+		},
+		"lotte_shoes": {
+			"title": "Schuhe für Lotte",
+			"text": "Mach Lotte ein Paar Kinderschuhe und schenk sie ihr (sie wohnt bei Oma Hilde im Wohnviertel).\nLeder: Rattenfell an der Gerberbank gerben (Gerberbank bei der Möbelhändlerin auf dem Markt). Seil: 2 Hanf oder 2 Flachs (tiefer Wald) an der Werkbank. Kinderschuhe: 1 Leder + 1 Seil an der Werkbank unter Zubehör » Zusatz.",
+			"start_flag": "shoe_idea",
+			"done_flag": "child_shoes_given",
+			"show_items": "child_shoes"
+		},
+		"greenhouse": {
+			"title": "Ein Gewächshaus",
+			"text": "Baumeister Konrad baut dir links neben deiner Schmiede ein Gewächshaus. Er will 20 Holzbalken, 20 Glas und 500 Gold. Du findest ihn jeden Dienstag und Donnerstag von 8 bis 18 Uhr auf dem Marktplatz (Westeingang).\nHolzbalken: 2 Holz an der Werkbank unter Zubehör » Baumaterial. Glas: Sand in der Schmelze schmelzen; Sand fällt mit 15 % Chance, wenn du einen Erzstein abbaust.",
+			"start_flag": "greenhouse_offer",
+			"done_flag": "greenhouse_paid",
+			"show_items": "wooden_beam*20,glass*20"
+		},
+		"hall_of_fame": {
+			"title": "Eine Ruhmeshalle",
+			"text": "Wohin mit den Pokalen? Baumeister Konrad baut dir hinter dem Schlafzimmer eine Ruhmeshalle. Er will 30 Holzbalken, 10 Glas, 5 Silberbarren und 15.000 Gold. Du findest ihn jeden Dienstag und Donnerstag von 8 bis 18 Uhr auf dem Marktplatz (Westeingang).\nIn der Halle drückst du B und stellst deine Pokale auf. Jeder Pokal dort bringt jeden Morgen Ruf.",
+			"start_flag": "smith_tournament_won",
+			"done_flag": "hall_of_fame_paid",
+			"show_items": "wooden_beam*30,glass*10,silver_ingot*5"
+		},
+		"greenhouse_pot": {
+			"title": "Ein Topf voll Erde",
+			"text": "Dein Gewächshaus links neben der Schmiede ist noch leer. Kauf bei der Möbelhändlerin am Markt einen Pflanztopf (2×2 für 500 Gold) und Gartenerde. Im Gewächshaus drückst du {key_build} und stellst den Topf auf. Dann {key_interact} am Topf: Erde einfüllen.",
+			"start_flag": "greenhouse_built",
+			"done_flag": "pot_soil_filled"
+		},
+		"lily_plant": {
+			"title": "Mondlilien pflanzen",
+			"text": "Pflanze die Mondlilien-Samen von Aurelius in deinen Pflanztopf: {key_interact} am Topf, dann ein Feld anklicken (oder Rechtsklick auf die Samen im Inventar).",
+			"start_flag": "pot_soil_filled",
+			"done_flag": "planted_moon_lily_seed"
+		},
+		"lily_grow": {
+			"title": "Geduld",
+			"text": "Die Mondlilie braucht eine Woche (7 Tage). Schau ab und zu ins Gewächshaus und ernte sie, wenn sie blüht. Bei jeder Ernte bekommst du die Samen zurück (manchmal 2). Asche auf einer wachsenden Pflanze lässt sie doppelt so schnell wachsen und macht die Ernte besser.",
+			"start_flag": "planted_moon_lily_seed",
+			"done_flag": "harvested_moon_lily"
+		},
+		"first_potion": {
+			"title": "Der erste Trank",
+			"text": "Braue am Zaubertisch im Reiter Mörser einen Klarkopf-Trank für deine Helden: Kamille und Salbei in die ersten Felder, eine Phiole in das Feld rechts. Kamille und Salbei wachsen auf den Wiesen am Dorftor, Phiolen macht der Phiolen-Tisch aus Sand. Öffne dann das Fenster eines Helden und mach einen Rechtsklick auf den Trank im Inventar: Der Held trinkt ihn und bekommt IQ +2. Mit einer Mondlilie dazu wird daraus ein Mondweisheits-Elixier (IQ +4 und mehr).",
+			"start_flag": "harvested_moon_lily",
+			"done_flag": "iq_potion_used",
+			"todo": [
+				{
+					"items": "chamomile"
+				},
+				{
+					"items": "sage"
+				},
+				{
+					"items": "vial"
+				},
+				{
+					"name": "Klarkopf-Trank brauen (Zaubertisch » Mörser)",
+					"flag": "iq_potion_made"
+				},
+				{
+					"name": "Einem Helden geben: IQ erhöhen (Heldenfenster, Rechtsklick auf den Trank)",
+					"flag": "iq_potion_used"
+				}
+			]
+		},
+		"first_enchant": {
+			"title": "Die erste Verzauberung",
+			"text": "Braue am Zaubertisch im Reiter Mörser einen Verzauberungstrank: einen Kristall (oder seinen Staub) und eine Mondlilie (oder ihren Staub) in die ersten Felder, eine Phiole in das Feld rechts. Kristalle findest du beim Erzabbau. Leg dann im Reiter Verzaubern eine Waffe oder ein Rüstungsteil und den Trank hinein. Waffen bekommen Schaden des Elements dazu, Rüstungen Schutz dagegen. Je seltener der Trank, desto stärker der Zauber. Drei Mondlilien + Phiole ergeben einen Mondglanz-Trank (Qualität +100 für eine Waffe oder Rüstung).",
+			"start_flag": "iq_potion_used",
+			"done_flag": "item_enchanted",
+			"todo": [
+				{
+					"name": "Verzauberungstrank brauen (Kristall + Mondlilie + Phiole)",
+					"flag": "potion_made"
+				},
+				{
+					"name": "Eine Waffe oder Rüstung verzaubern (Zaubertisch » Verzaubern)",
+					"flag": "item_enchanted"
+				}
+			]
+		},
+		"guild_upgrade_1": {
+			"title": "Die Gilde ausbauen",
+			"text": "Hedwig will die Abenteurergilde (Marktplatz, Osten) vergrößern. Bring ihr 30 Holzbalken, 30 Kupfernägel, 10 Kupferbarren und 1500 Gold. Dafür kannst du einen Helden mehr anheuern, die Helden in der Gilde sind erfahrener (Level 8 bis 14), deine Helden erholen sich schneller, und am Tresen gibt es Suchaufträge.\nHolzbalken und Kupfernägel machst du an der Werkbank unter Zubehör » Baumaterial.",
+			"start_flag": "guild_upgrade_heard",
+			"done_flag": "guild_level_1",
+			"show_items": "wooden_beam*30,copper_nail*30,copper_ingot*10",
+			"show_gold": 1500
+		},
+		"guild_upgrade_2": {
+			"title": "Eine Übungsecke für die Gilde",
+			"text": "Hedwig will weiter anbauen. Bring ihr 40 Holzbretter, 15 Bronzebarren, 10 Leder und 5000 Gold. Dafür: eine Übungsecke, noch ein Heldenplatz, Helden mit Level 26 bis 34, schnellere Erholung, zwei Suchtrupps gleichzeitig und Ware bis Fein.\nBronze: Kupfer- und Eisenbarren zusammen in die Schmelze (Reiter Legieren). Leder: Fell an der Gerberbank gerben.",
+			"start_flag": "guild_upgrade_2_heard",
+			"done_flag": "guild_level_2",
+			"show_items": "wooden_plank*40,bronze_ingot*15,leather*10",
+			"show_gold": 5000
+		},
+		"guild_upgrade_3": {
+			"title": "Die größte Gilde",
+			"text": "Der letzte Anbau der Gilde: Bring Hedwig 40 Holzbalken, 15 Silberbarren, 20 Glas und 12000 Gold. Dafür: ein Pokalschrank, noch ein Heldenplatz, Helden mit Level 36 bis 44, die schnellste Erholung, drei Suchtrupps gleichzeitig und Ware bis Ungewöhnlich.\nGlas: Sand in der Schmelze schmelzen.",
+			"start_flag": "guild_upgrade_3_heard",
+			"done_flag": "guild_level_3",
+			"show_items": "wooden_beam*40,silver_ingot*15,glass*20",
+			"show_gold": 12000
+		},
+		"desert_lost": {
+			"title": "Sicherlich weiß der Zauberer etwas",
+			"text": "Die Wüste südlich vom Südweg ist ein Labyrinth: Jeder falsche Schritt führt zurück zum Schild am Anfang. Meister Aurelius sucht auf seiner Lichtung im tiefen Wald nach Kräutern (Dorftor » Westen » Wald). Vielleicht weiß er Rat.",
+			"start_flag": "desert_lost_once",
+			"done_flag": "compass_dungeons_unlocked"
+		},
+		"desert_compass": {
+			"title": "Der Wüstenkompass",
+			"main": true,
+			"text": "Aurelius hat die vier Gussformen seines Wüstenkompasses versteckt. Schick deine Helden in die vier Dungeons (Dungeon-Brett: Leonheim, Vulkan, Sturmgipfel, Wald). Gieß die Teile, schmiede sie und bau sie an der Werkbank mit 1 Glas zum Wüstenkompass zusammen (Zubehör » Kompass).",
+			"start_flag": "compass_dungeons_unlocked",
+			"done_flag": "desert_compass_built",
+			"todo": [
+				{
+					"name": "Gussform Kompassgehäuse (Leonheim: Die vergessene Gießerei)",
+					"flag": "compass_mold_case",
+					"own": true
+				},
+				{
+					"name": "Gussform Kompassnadel (Vulkan: Die Obsidiankammer)",
+					"flag": "compass_mold_needle",
+					"own": true
+				},
+				{
+					"name": "Gussform Windrose (Sturmgipfel: Die Windhöhle)",
+					"flag": "compass_mold_rose",
+					"own": true
+				},
+				{
+					"name": "Gussform Kompassdeckel (Wald: Der Wurzelhort)",
+					"flag": "compass_mold_lid",
+					"own": true
+				},
+				{
+					"items": "desert_compass"
+				}
+			]
+		},
+		"desert_town": {
+			"title": "Der Weg nach Sahrim",
+			"main": true,
+			"text": "Rechtsklick auf den Wüstenkompass im Inventar: Die Nadel zeigt den Weg. An Abzweigungen schwenkt sie zwischen den Wegen hin und her. Irgendwo im Süden liegt Sahrim, die Glaskuppel des Echsenvolks.",
+			"start_flag": "desert_compass_built",
+			"done_flag": "desert_town_found"
+		},
+		"desert_treasures": {
+			"title": "Schätze im Sand",
+			"text": "In der Wüste liegen drei vergessene Truhen. Die Leute in Sahrim kennen Hinweise, und Zahir, der Schatzsucher, verrät jeden Tag einen anderen. Auch der Kompass zeigt zu Truhen, die noch niemand geöffnet hat.",
+			"start_flag": "desert_town_found",
+			"done_flag": "desert_treasures_found",
+			"todo": [
+				{
+					"name": "Wüstenläufer (beim Skelett)",
+					"flag": "desert_chest_boots",
+					"own": true
+				},
+				{
+					"name": "Sandschmied-Handschuhe (bei den Säulen)",
+					"flag": "desert_chest_gloves",
+					"own": true
+				},
+				{
+					"name": "Karawanenrucksack (bei den Säulen)",
+					"flag": "desert_chest_backpack",
+					"own": true
+				}
+			]
+		},
+		"fenn_frame": {
+			"title": "Fenns Flugmaschine: das Gestell",
+			"text": "Fenn baut auf dem Flugfeld von Sylvaris eine Flugmaschine. Sein Gestell aus Holz ist zerbrochen. Bau an der Werkbank ein Fluggestell aus einer Silber-Brustplatte, einem Stiel und 2 Seilen. Es muss mindestens Selten sein, sonst bricht es im Wind. Bring es Fenn im Inventar.",
+			"start_flag": "fenn_frame_accepted",
+			"done_flag": "fenn_frame_done",
+			"complete_flag": "fenn_frame_given",
+			"complete_text": "Fenn hat sein Gestell. Hör dir an, was er sagt.",
+			"hand_in": true,
+			"set_material": "silver",
+			"set_min_rarity": "R5",
+			"set_items": {
+				"flight_frame": "Fluggestell aus Silber (Selten)"
+			}
+		},
+		"fenn_wings": {
+			"title": "Fenns Flugmaschine: die Schwingen",
+			"text": "Fenn braucht Schwingen für seine Flugmaschine: 3 Hippogreifleder für die Segel, 8 Harpyienfedern und 4 Seile. Hippogreiffell bringen Helden aus den Dungeons am Sturmgipfel mit, das Fell gerbst du an der Gerberbank. Harpyienfedern verkauft die Bognerin von Sylvaris.",
+			"start_flag": "fenn_frame_done",
+			"done_flag": "fenn_wings_done",
+			"show_items": "hippogriff_leather*3,harpy_feather*8,rope*4"
+		},
+		"fenn_orb": {
+			"title": "Fenns Flugmaschine: der Antrieb",
+			"text": "Die Maschine hat Schwingen, aber keinen Antrieb. Fenn braucht einen Windorb. Frag den Ältesten Elarion auf der Spitze von Sylvaris, wo es einen gibt, und zeig ihn dann Fenn.",
+			"start_flag": "fenn_wings_done",
+			"done_flag": "fenn_orb_done",
+			"todo": [
+				{
+					"name": "Den Ältesten nach einem Windorb fragen",
+					"flag": "fenn_orb_search"
+				},
+				{
+					"name": "Den Windorb im Sturmtempel holen (innerste Kammer)",
+					"flag": "wind_orb_found"
+				},
+				{
+					"items": "wind_orb"
+				}
+			]
+		},
+		"fenn_life": {
+			"title": "Fenns Flugmaschine: ein Funke Leben",
+			"text": "Der Windorb dreht sich, doch die Maschine bewegt sich nicht. Ihr fehlt ein Funke Leben. Kauf bei der Kräuterhüterin Ithiel in Sylvaris ein Herzblatt und verbinde es am Zaubertisch mit dem Windorb. Bring Fenn den beseelten Windorb.",
+			"start_flag": "fenn_orb_done",
+			"done_flag": "fenn_flight_done",
+			"todo": [
+				{
+					"items": "heartleaf"
+				},
+				{
+					"items": "living_wind_orb"
+				}
+			]
+		},
+		"lotte_hammer": {
+			"title": "Lottes erster Hammer",
+			"text": "Lotte will Schmied werden wie du. Schmiede ihr einen Hammer mit einem Kupferkopf und schenk ihn ihr.",
+			"start_flag": "lotte_hammer_accepted",
+			"done_flag": "lotte_hammer_done",
+			"complete_flag": "lotte_hammer_given",
+			"complete_text": "Lotte hat ihren Hammer. Hör dir an, was sie sagt.",
+			"hand_in": true,
+			"set_material": "copper",
+			"set_items": {
+				"hammer": "Kupferhammer"
+			}
+		},
+		"lotte_forge": {"title": "Lotte schaut zu", "text": "Lotte will sehen, wie man richtig schmiedet. Sie wartet in deiner Werkstatt. Schmiede dort am Amboss ein Teil, während sie zusieht, und sprich danach mit ihr.", "start_flag": "lotte_forge_accepted", "done_flag": "lotte_forge_done", "todo": [{"name": "Am Amboss ein Teil schmieden, während Lotte zusieht", "flag": "lotte_forge_watched"}, {"name": "Mit Lotte sprechen", "flag": "lotte_forge_done"}]},
+		"lotte_shopping": {"title": "Einkaufen mit Lotte", "text": "Lotte läuft mit dir. Geh mit ihr auf den Marktplatz zu Erna, der Erzhändlerin, und zeig ihr, wie man einkauft.", "start_flag": "lotte_shop_accepted", "done_flag": "lotte_shop_done"},
+		"fake_blades": {
+			"title": "Gefälschte Klingen",
+			"text": "In Leonheim werden billige Schwerter mit deinem Zeichen verkauft, die beim ersten Hieb brechen. Hör dich in der Schmiedegasse um, wer sie macht. Danach will Thora 2 echte Schwerter für die betrogenen Helden.",
+			"start_flag": "fake_blades_started",
+			"done_flag": "fake_blades_done",
+			"todo": [
+				{
+					"name": "In der Schmiedegasse nachfragen",
+					"flag": "fake_blades_gorm"
+				},
+				{
+					"name": "Den Fälscher finden",
+					"flag": "fake_blades_found"
+				},
+				{
+					"items": "sword*2"
+				}
+			]
+		},
+		"kesh_pipe": {
+			"title": "Wasser für die Kuppel",
+			"text": "Kesh trägt jeden Tag das Wasser von der Quelle in Sahrim zu den Zelten. Bring ihm 8 Glas, 4 Kupferbarren und 6 Eisennägel für eine Leitung. Glas entsteht an der Schmelze aus Sand.",
+			"start_flag": "kesh_pipe_accepted",
+			"done_flag": "kesh_pipe_done",
+			"show_items": "glass*8,copper_ingot*4,iron_nail*6"
+		},
+		"zahir_charm": {
+			"title": "Zahirs Glücksamulett",
+			"text": "Zahir hat in der Wüste sein Glücksamulett verloren. Vom großen Skelett zweimal nach Norden, einmal nach Westen, dann nach Norden liegt eine Düne mit einem krummen Felsen. Bring ihm das Amulett nach Sahrim.",
+			"start_flag": "zahir_charm_search",
+			"done_flag": "zahir_charm_done",
+			"show_items": "zahir_charm"
+		},
+		"torgai_spear": {
+			"title": "Revanche",
+			"text": "Torgai will beim nächsten Heldenturnier gewinnen. Schmiede ihm einen Speer mit Silberspitze, mindestens Selten, und bring ihn in die Halle der Strömung in Eisquell.",
+			"start_flag": "torgai_spear_accepted",
+			"done_flag": "torgai_spear_paid",
+			"complete_flag": "torgai_spear_given",
+			"complete_text": "Torgai hat seinen Speer. Hör dir an, was er sagt.",
+			"hand_in": true,
+			"set_material": "silver",
+			"set_min_rarity": "R5",
+			"set_items": {
+				"polearm": "Silberspeer (Selten)"
+			}
+		},
+		"goblin_crown_copy": {
+			"title": "Goldzahns zweite Krone",
+			"text": "Goldzahn will seine echte Krone verkaufen, ohne dass es jemand merkt. Bring ihm einen Helm mit Kupferplatte und 2 Bronzebarren in die Goblinhöhle. Daraus machst du eine Krone, die aussieht wie die echte.",
+			"start_flag": "goblin_crown_accepted",
+			"done_flag": "goblin_crown_paid",
+			"complete_flag": "goblin_crown_given",
+			"complete_text": "Goldzahn hat seine zweite Krone. Hör dir an, was er sagt.",
+			"hand_in": true,
+			"set_material": "copper",
+			"set_items": {
+				"helmet": "Kupferhelm"
+			},
+			"show_items": "bronze_ingot*2"
+		},
+		"goblin_food": {
+			"title": "Der dünne Goblin",
+			"text": "Der dünne Goblin in der Goblinmine hat seit Wochen nur Pilze gegessen. Bring ihm 3 Sonnenblumen und 5 Kamille. Dafür will er dir jeden Morgen etwas aus der Mine in die Loot-Kiste legen.",
+			"start_flag": "goblin_food_accepted",
+			"done_flag": "goblin_fed",
+			"show_items": "sunflower*3,chamomile*5"
+		},
+		"witch_cauldron": {
+			"title": "Muhmes Kessel",
+			"text": "Muhme Grislas Kessel im Sumpf ist durchgerostet. Bau an der Werkbank einen Hexenkessel aus einer Kupfer-Brustplatte und 4 Eisennägeln und bring ihn ihr.",
+			"start_flag": "witch_cauldron_accepted",
+			"done_flag": "witch_cauldron_done",
+			"show_items": "witch_cauldron"
+		},
+		"halvard_hammer": {
+			"title": "Halvards Hammer",
+			"text": "Meister Halvard will nie wieder mit dem Hammer aus der Kerkerschmiede arbeiten. Schmiede ihm einen Hammer mit Platinkopf, mindestens Selten, und bring ihn ihm ins Dorf.",
+			"start_flag": "halvard_hammer_accepted",
+			"done_flag": "halvard_hammer_paid",
+			"complete_flag": "halvard_hammer_given",
+			"complete_text": "Halvard hat seinen Hammer. Hör dir an, was er sagt.",
+			"hand_in": true,
+			"set_material": "platinum",
+			"set_min_rarity": "R5",
+			"set_items": {
+				"hammer": "Platinhammer (Selten)"
+			}
+		}
+	}
+}

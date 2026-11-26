@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/resources/quest_reward.gd" id="2_reward"]
+
+[sub_resource type="Resource" id="QuestReward_exp"]
+script = ExtResource("2_reward")
+kind = 0
+amount = 60
+
+[sub_resource type="Resource" id="QuestReward_wood"]
+script = ExtResource("2_reward")
+kind = 3
+amount = 3
+item_id = "wood"
+
+[resource]
+script = ExtResource("1_quest")
+title = "Eine Eisenaxt für Holger"
+giver_name = "Holger"
+location = "Wald – an seiner Hütte (Dorfplatz » Süden » Dorftor » Kreuzung » Westen)"
+description = "Holger will eine Holzfälleraxt aus Eisen, damit er mehr Holz schlagen kann:
+1. Gussform „Eisen-Holzfälleraxtkopf“ beim Gussform-Händler auf dem Markt kaufen
+2. Eisenbarren am Gussofen (Reiter „Zubehör“) in die Gussform gießen
+3. Am Amboss zum Axtkopf schmieden, im Wassertrog abkühlen
+4. An der Werkbank unter „Zubehör“ » Werkzeug mit einem Holzstiel zur Holzfälleraxt verbinden
+Dafür bringt er dir jeden Morgen 3 Holz statt 1."
+requirement_name = "Eisen-Holzfälleraxt"
+required_item_id = "lumber_axe"
+required_part_id = "iron_lumber_axe_head"
+required_flag = "gustav_deal"
+accept_flag = "iron_lumber_axe_accepted"
+offer_text = "Eine Axt aus Eisen? Gustav hat erzählt, dass du jetzt sogar Eisenspitzhacken machst ... Mit einer Eisenaxt käme ich durch die Eichen wie durch Butter!
+
+Schmied mir eine Holzfälleraxt aus Eisen. Die Gussform hat der Gussform-Händler auf dem Markt. Dafür bring ich dir jeden Morgen 3 Holz statt einem."
+reminder_text = "Die Gussform für den Eisenkopf hat der Gussform-Händler auf dem Markt. Gießen, schmieden, abkühlen, Stiel dran – fertig ist die Eisenaxt!"
+done_text = "Schau sich einer diese Schneide an! Damit schaffe ich dreimal so viel.
+
+Abgemacht ist abgemacht: Ab morgen liegen jeden Morgen 3 Holz in deiner Loot-Kiste."
+after_text = "Die Eisenaxt ist ein Traum! Deine 3 Holz liegen jeden Morgen in der Loot-Kiste."
+rewards = Array[ExtResource("2_reward")]([SubResource("QuestReward_exp"), SubResource("QuestReward_wood")])
+unlock_recipe_ids = Array[String]([])

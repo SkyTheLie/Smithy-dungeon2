@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerSkillData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/player_skill_data.gd" id="1_skill"]
+[ext_resource type="Texture2D" path="res://assets/sprites/skills/strong_swing.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_skill")
+display_name = "Kräftiger Schlag"
+description = "Beim Abbau von Erz und beim Fällen von Bäumen +1 Schaden pro Stufe."
+icon = ExtResource("2_icon")
+stat = 3
+value_per_rank = 1.0
+max_rank = 5
+required_level = 1

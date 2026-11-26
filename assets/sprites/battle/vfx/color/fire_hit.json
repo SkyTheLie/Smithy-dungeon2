@@ -1,0 +1,339 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-feuer-einschlag 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 1.png",
+   "frame": {
+    "x": 37,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 2.png",
+   "frame": {
+    "x": 74,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 3.png",
+   "frame": {
+    "x": 111,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 4.png",
+   "frame": {
+    "x": 0,
+    "y": 36,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 5.png",
+   "frame": {
+    "x": 37,
+    "y": 36,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 6.png",
+   "frame": {
+    "x": 74,
+    "y": 36,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 7.png",
+   "frame": {
+    "x": 111,
+    "y": 36,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 8.png",
+   "frame": {
+    "x": 0,
+    "y": 72,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 9.png",
+   "frame": {
+    "x": 37,
+    "y": 72,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 10.png",
+   "frame": {
+    "x": 74,
+    "y": 72,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-feuer-einschlag 11.png",
+   "frame": {
+    "x": 111,
+    "y": 72,
+    "w": 37,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 37,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 37,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.4864864864864865,
+    "y": 0.5
+   },
+   "duration": 71
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-feuer-einschlag.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 148,
+   "h": 108
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 18,
+   "y": 18
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-feuer-einschlag",
+    "from": 0,
+    "to": 11,
+    "direction": "forward"
+   }
+  ]
+ }
+}

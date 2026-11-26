@@ -1,0 +1,133 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/crafting_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory/item_slot.tscn" id="2_slot"]
+[ext_resource type="PackedScene" path="res://scenes/ui/minigames/forging_minigame.tscn" id="3_minigame"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+
+[node name="CraftingMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("90_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TabBar" type="TabBar" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+
+[node name="Columns" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="CategoryColumn" type="HBoxContainer" parent="Panel/VBox/Columns"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="CategoryScroll" type="ScrollContainer" parent="Panel/VBox/Columns/CategoryColumn"]
+custom_minimum_size = Vector2(70, 100)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="CategoryList" type="VBoxContainer" parent="Panel/VBox/Columns/CategoryColumn/CategoryScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="CategorySeparator" type="VSeparator" parent="Panel/VBox/Columns/CategoryColumn"]
+layout_mode = 2
+
+[node name="RecipeScroll" type="ScrollContainer" parent="Panel/VBox/Columns"]
+custom_minimum_size = Vector2(90, 100)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="RecipeList" type="VBoxContainer" parent="Panel/VBox/Columns/RecipeScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Separator" type="VSeparator" parent="Panel/VBox/Columns"]
+layout_mode = 2
+
+[node name="Details" type="VBoxContainer" parent="Panel/VBox/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="ResultRow" type="HBoxContainer" parent="Panel/VBox/Columns/Details"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ResultSlot" parent="Panel/VBox/Columns/Details/ResultRow" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ResultName" type="Label" parent="Panel/VBox/Columns/Details/ResultRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+vertical_alignment = 1
+
+[node name="NeedLabel" type="Label" parent="Panel/VBox/Columns/Details"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Benötigt:"
+
+[node name="IngredientList" type="VBoxContainer" parent="Panel/VBox/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="CraftButton" type="Button" parent="Panel/VBox/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Herstellen"
+
+[node name="HeatRow" type="HBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HeatSlot" parent="Panel/VBox/HeatRow" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HeatLabel" type="Label" parent="Panel/VBox/HeatRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 11
+
+[node name="StatusLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.85, 0.45, 1)
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+
+[node name="ForgingMinigame" parent="." instance=ExtResource("3_minigame")]
+unique_name_in_owner = true
+visible = false

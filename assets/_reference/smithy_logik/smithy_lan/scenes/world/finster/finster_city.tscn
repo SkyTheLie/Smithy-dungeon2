@@ -1,0 +1,1237 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_18.png" id="wp_world_props_finster_18"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_22.png" id="wp_world_props_finster_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_4.png" id="wp_world_props_finster_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_7.png" id="wp_world_props_finster_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_8.png" id="wp_world_props_finster_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_17.png" id="wp_world_props_finster_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_24.png" id="wp_world_props_finster_24"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_3.png" id="wp_world_props_finster_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_1.png" id="wp_world_props_finster_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_2.png" id="wp_world_props_finster_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_5.png" id="wp_world_props_finster_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_9.png" id="wp_world_props_finster_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_6.png" id="wp_world_props_finster_6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_10.png" id="wp_world_props_finster_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_12.png" id="wp_world_props_finster_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_11.png" id="wp_world_props_finster_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_19.png" id="wp_world_props_finster_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_0.png" id="wp_world_props_finster_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/house_3.png" id="wp_finster_house_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/house_4.png" id="wp_finster_house_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/forge.png" id="wp_finster_dark_forge"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/house_5.png" id="wp_finster_house_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/house_2.png" id="wp_finster_house_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/shrine.png" id="wp_finster_dark_shrine"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/mansion.png" id="wp_finster_dark_mansion"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/gate.png" id="wp_finster_dark_gate"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/house_6.png" id="wp_finster_dark_house_6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/house_5.png" id="wp_finster_dark_house_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/house_4.png" id="wp_finster_dark_house_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/house_3.png" id="wp_finster_dark_house_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/house_2.png" id="wp_finster_dark_house_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/dye.png" id="wp_finster_dark_dye"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dark/house_1.png" id="wp_finster_dark_house_1"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_finster.tscn" id="lamp_finster"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="3_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/finster_city_ground.png" id="4_finster_city"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="5_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/finster_city_mask.png" id="6_finster_city"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/dye_house.png" id="8_dye_house"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/house_1.png" id="9_house_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/house_2.png" id="10_house_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/house_3.png" id="11_house_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/house_4.png" id="12_house_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/house_5.png" id="13_house_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/house_6.png" id="14_house_6"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="16_night_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/poster_nyra.png" id="17_poster_nyra"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/poster_smith.png" id="18_poster_smith"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/curtain_anim.png" id="19_curtain"]
+[ext_resource type="Texture2D" path="res://assets/sprites/finster/scaffold_fall.png" id="scaffold_tex"]
+[ext_resource type="Script" path="res://scenes/world/finster/finster_scaffold.gd" id="scaffold_script"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="20_story_npc"]
+[ext_resource type="Script" path="res://scenes/world/sneak/sneak_guard.gd" id="21_sneak_guard"]
+[ext_resource type="Script" path="res://scenes/world/finster/finster_chase.gd" id="22_finster_chas"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/teleporter.tscn" id="23_teleporter"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="24_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="25_hud"]
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_dark_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "pale"
+hair_style = "short"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_lizard"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_warden"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "ash"
+eye_type = "glowing"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_warden2"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "slate"
+eye_type = "glowing"
+eye_color = "green"
+hair_style = "spiky"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_halvard"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "tan"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "smith"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_nyra"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "violet"
+hair_style = "long"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_corvin"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "ash"
+hair_style = "bald"
+eye_type = "sleepy"
+eye_color = "grey"
+size = "tall"
+outfit = "vest"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_elder"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pale"
+hair_style = "long"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "grey"
+size = "tall"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_ssarok"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "olive"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_citizen_a"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "crimson"
+hair_style = "short"
+hair_color = "black"
+eye_type = "normal"
+eye_color = "amber"
+outfit = "tunic"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_citizen_b"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "slate"
+hair_style = "ponytail"
+hair_color = "red"
+eye_type = "big"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_citizen_c"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "ember"
+hair_style = "bald"
+eye_type = "sleepy"
+eye_color = "grey"
+size = "small"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="RectangleShape2D" id="Rect_120x14"]
+size = Vector2(120, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_96x14"]
+size = Vector2(96, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_80x14"]
+size = Vector2(80, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_112x14"]
+size = Vector2(112, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_88x14"]
+size = Vector2(88, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_104x14"]
+size = Vector2(104, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_92x14"]
+size = Vector2(92, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="Rect_240x240"]
+size = Vector2(240, 240)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_75x16"]
+size = Vector2(75, 16)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_103x16"]
+size = Vector2(103, 16)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_50x16"]
+size = Vector2(50, 16)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_138x16"]
+size = Vector2(138, 16)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_92x16"]
+size = Vector2(92, 16)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_87x16"]
+size = Vector2(87, 16)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_73x14"]
+size = Vector2(73, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_112x14"]
+size = Vector2(112, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_98x14"]
+size = Vector2(98, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_113x14"]
+size = Vector2(113, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_134x14"]
+size = Vector2(134, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_117x14"]
+size = Vector2(117, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_66x14"]
+size = Vector2(66, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_94x14"]
+size = Vector2(94, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_27x6"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_29x6"]
+size = Vector2(29, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="Resource" id="Look_tournament_messenger"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "ember"
+hair_style = "short"
+hair_color = "red"
+eye_type = "narrow"
+eye_color = "amber"
+size = "small"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="RectangleShape2D" id="wp_rect_114x14"]
+size = Vector2(114, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_75x14"]
+size = Vector2(75, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_74x14"]
+size = Vector2(74, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_100x14"]
+size = Vector2(100, 14)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_19x6"]
+size = Vector2(19, 6)
+
+[node name="FinsterCity" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+color = Color(0.62, 0.55, 0.68, 1)
+script = ExtResource("3_gloom")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("4_finster_city")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-512, -384)
+script = ExtResource("5_cave_walls")
+mask = ExtResource("6_finster_city")
+
+[node name="Houses" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="DyeHouse" type="StaticBody2D" parent="Houses"]
+position = Vector2(-345, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/DyeHouse"]
+texture = ExtResource("wp_finster_dark_dye")
+offset = Vector2(0, -62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/DyeHouse"]
+position = Vector2(0, -7)
+shape = SubResource("wp_rect_103x16")
+
+[node name="House1" type="StaticBody2D" parent="Houses"]
+position = Vector2(-458, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House1"]
+texture = ExtResource("wp_finster_dark_house_1")
+offset = Vector2(0, -63.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House1"]
+position = Vector2(0, -7)
+shape = SubResource("wp_rect_75x16")
+
+[node name="House2" type="StaticBody2D" parent="Houses"]
+position = Vector2(-70, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House2"]
+texture = ExtResource("wp_finster_dark_house_2")
+offset = Vector2(0, -66)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House2"]
+position = Vector2(0, -7)
+shape = SubResource("wp_rect_50x16")
+
+[node name="House3" type="StaticBody2D" parent="Houses"]
+position = Vector2(400, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House3"]
+texture = ExtResource("wp_finster_dark_house_3")
+offset = Vector2(0, -43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House3"]
+position = Vector2(0, -7)
+shape = SubResource("wp_rect_138x16")
+
+[node name="House4" type="StaticBody2D" parent="Houses"]
+position = Vector2(105, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House4"]
+texture = ExtResource("wp_finster_dark_house_4")
+offset = Vector2(0, -61.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House4"]
+position = Vector2(0, -7)
+shape = SubResource("wp_rect_92x16")
+
+[node name="House5" type="StaticBody2D" parent="Houses"]
+position = Vector2(-175, -34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House5"]
+texture = ExtResource("wp_finster_dark_house_5")
+offset = Vector2(0, -62.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House5"]
+position = Vector2(0, -7)
+shape = SubResource("wp_rect_87x16")
+
+[node name="House6" type="StaticBody2D" parent="Houses"]
+position = Vector2(215, 268)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses/House6"]
+texture = ExtResource("wp_finster_dark_house_6")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses/House6"]
+position = Vector2(0, -7)
+shape = SubResource("wp_rect_50x16")
+
+[node name="Lights" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Lantern1" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-320, 38)
+facing = "north"
+
+[node name="Lantern2" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-113, -33)
+facing = "south"
+
+[node name="Lantern3" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(178, -33)
+facing = "south"
+
+[node name="Lantern4" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-200, 318)
+facing = "north"
+
+[node name="Lantern5" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(150, 318)
+facing = "north"
+
+[node name="Lantern6" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(330, 38)
+facing = "north"
+
+[node name="Lantern7" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(478, 38)
+facing = "north"
+
+[node name="Lantern8" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-292, -110)
+facing = "east"
+
+[node name="Lantern9" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(289, -110)
+facing = "west"
+
+[node name="Lantern10" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-100, -164)
+facing = "north"
+
+[node name="Lantern11" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(170, -164)
+facing = "north"
+
+[node name="Lantern12" parent="Lights" instance=ExtResource("lamp_finster")]
+position = Vector2(-37, 215)
+facing = "east"
+
+[node name="PosterNyra" type="Sprite2D" parent="."]
+position = Vector2(-486, -56)
+texture = ExtResource("17_poster_nyra")
+z_index = 1
+
+[node name="PosterSmith" type="Sprite2D" parent="."]
+position = Vector2(-430, -56)
+texture = ExtResource("18_poster_smith")
+z_index = 1
+
+[node name="Curtain" type="Sprite2D" parent="."]
+position = Vector2(265, -48)
+texture = ExtResource("19_curtain")
+offset = Vector2(0, -24)
+hframes = 9
+z_index = 1
+
+[node name="Talk" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Posters" parent="Talk" instance=ExtResource("20_story_npc")]
+position = Vector2(-458, -24)
+npc_id = "finster_posters"
+narrator = true
+talk_area_scale = Vector2(1.5, 1)
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="CitizenA" parent="People" instance=ExtResource("20_story_npc")]
+position = Vector2(20, 135)
+npc_id = "finster_citizen_a"
+resident = "finster_citizen_a"
+appearance = SubResource("Look_citizen_a")
+facing = "right"
+
+[node name="CitizenB" parent="People" instance=ExtResource("20_story_npc")]
+position = Vector2(-200, 22)
+npc_id = "finster_citizen_b"
+resident = "finster_citizen_b"
+appearance = SubResource("Look_citizen_b")
+facing = "left"
+
+[node name="CitizenC" parent="People" instance=ExtResource("20_story_npc")]
+position = Vector2(-330, 20)
+npc_id = "finster_citizen_c"
+resident = "finster_citizen_c"
+appearance = SubResource("Look_citizen_c")
+
+[node name="Hooded" parent="People" instance=ExtResource("20_story_npc")]
+position = Vector2(270, -140)
+npc_id = "hooded"
+resident = "nyra"
+hood_off_flag = "nyra_unhooded"
+appearance = SubResource("Look_nyra")
+required_flag = "chase_pulled"
+hidden_when_flag = "reached_resistance_hideout"
+
+[node name="Scaffold" type="Sprite2D" parent="People"]
+position = Vector2(244, -95)
+texture = ExtResource("scaffold_tex")
+centered = false
+offset = Vector2(-44, -136)
+hframes = 9
+script = ExtResource("scaffold_script")
+guard_a = SubResource("Look_warden")
+guard_b = SubResource("Look_warden2")
+resident_a = "finster_warden_a"
+resident_b = "finster_warden_b"
+guard_spots = PackedVector2Array(30, -20, 48, -36)
+
+[node name="Narrator" parent="People" instance=ExtResource("20_story_npc")]
+position = Vector2(0, 330)
+npc_id = "finster_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(3, 3)
+
+[node name="ChaseTalk" parent="People" instance=ExtResource("20_story_npc")]
+position = Vector2(0, 0)
+npc_id = "finster_chase"
+narrator = true
+talk_area_scale = Vector2(0.1, 0.1)
+
+[node name="Watch" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Guard1" type="Node2D" parent="Watch"]
+position = Vector2(-90, 5)
+script = ExtResource("21_sneak_guard")
+appearance = SubResource("Look_warden")
+resident = "finster_warden_a"
+look_directions = PackedStringArray("down", "left")
+turn_seconds = 2.0
+view_range = 130.0
+
+[node name="Guard2" type="Node2D" parent="Watch"]
+position = Vector2(80, 70)
+script = ExtResource("21_sneak_guard")
+appearance = SubResource("Look_warden2")
+resident = "finster_warden_b"
+look_directions = PackedStringArray("down", "left")
+turn_seconds = 2.0
+patrol = PackedVector2Array(0, 0, -130, 0)
+walk_speed = 32.0
+view_range = 130.0
+
+[node name="Guard3" type="Node2D" parent="Watch"]
+position = Vector2(150, -12)
+script = ExtResource("21_sneak_guard")
+appearance = SubResource("Look_warden")
+resident = "finster_warden_a"
+look_directions = PackedStringArray("left", "down")
+turn_seconds = 2.0
+patrol = PackedVector2Array(0, 0, 70, 0)
+walk_speed = 30.0
+view_range = 130.0
+
+[node name="ChaseTrigger" type="Area2D" parent="."]
+position = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseTrigger"]
+shape = SubResource("Rect_240x240")
+
+[node name="Chase" type="Node2D" parent="." node_paths=PackedStringArray("watch", "trigger", "narrator", "curtain")]
+curtain = NodePath("../Curtain")
+script = ExtResource("22_finster_chas")
+watch = NodePath("../Watch")
+trigger = NodePath("../ChaseTrigger")
+narrator = NodePath("../People/ChaseTalk")
+run_path = PackedVector2Array(225, 0, 265, -20)
+hide_spot = Vector2(262, -72)
+guards_path = PackedVector2Array(200, 0, 540, 0)
+
+[node name="Teleporter" parent="." instance=ExtResource("23_teleporter")]
+position = Vector2(-75, 85)
+spot_id = "finster_city"
+open_flag = "reached_resistance_hideout"
+
+[node name="ToCamp" parent="." instance=ExtResource("24_door")]
+position = Vector2(-508, 0)
+target_scene = "res://scenes/world/fortress/fortress_camp.tscn"
+target_spawn_point = &"FromFinsterCity"
+scale = Vector2(1, 4)
+
+[node name="Visual" parent="ToCamp" index="0"]
+visible = false
+
+[node name="ToHideout" parent="." instance=ExtResource("24_door")]
+position = Vector2(-345, -26)
+target_scene = "res://scenes/world/finster/finster_hideout.tscn"
+target_spawn_point = &"FromCity"
+required_flag = "reached_resistance_hideout"
+locked_text = "Die Tür der Färberei ist verriegelt."
+
+[node name="Visual" parent="ToHideout" index="0"]
+visible = false
+
+[node name="ToCastle" parent="." instance=ExtResource("24_door")]
+position = Vector2(0, -380)
+target_scene = "res://scenes/world/finster/castle_wall.tscn"
+target_spawn_point = &"Start"
+scale = Vector2(4, 1)
+required_flag = "reached_sneak_castle"
+locked_text = "Der Weg zur Burg wird schwer bewacht. Allein und ohne Plan kommst du da nicht hinein."
+
+[node name="Visual" parent="ToCastle" index="0"]
+visible = false
+
+[node name="ToAltar" parent="." instance=ExtResource("24_door")]
+position = Vector2(508, 0)
+target_scene = "res://scenes/world/finster/altar_of_nine.tscn"
+target_spawn_point = &"FromCity"
+scale = Vector2(1, 4)
+required_flag = "reached_to_altar"
+locked_text = "Im Osten liegt das Hochland mit dem alten Steinkreis. Dort hast du noch nichts zu suchen."
+
+[node name="Visual" parent="ToAltar" index="0"]
+visible = false
+
+[node name="FromCamp" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-470, 0)
+
+[node name="FromHideout" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-345, 2)
+
+[node name="FromCastle" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, -340)
+
+[node name="FromAltar" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(470, 0)
+
+[node name="TournamentMessenger" parent="." instance=ExtResource("20_story_npc")]
+position = Vector2(-25, 122)
+npc_id = "tournament_messenger_finster"
+appearance = SubResource("Look_tournament_messenger")
+required_flag = "smith_tournament_won"
+
+[node name="FromTeleporter" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-75, 118)
+
+[node name="ToGuardhouse" parent="." instance=ExtResource("24_door")]
+position = Vector2(105, -26)
+scale = Vector2(2, 1)
+target_scene = "res://scenes/world/finster/finster_guardhouse.tscn"
+target_spawn_point = &"Start"
+required_flag = "reached_resistance_prep"
+locked_text = "Die Wachstube der Stadtwache. Ohne Grund gehst du da nicht hinein."
+blocked_flag = "roster_stolen"
+blocked_text = "In der Wachstube brennt jetzt Licht. Da gehst du nicht noch einmal hinein."
+
+[node name="Visual" parent="ToGuardhouse" index="0"]
+visible = false
+
+[node name="FromGuardhouse" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(105, 6)
+
+[node name="ToGate" parent="." instance=ExtResource("24_door")]
+position = Vector2(0, 380)
+target_scene = "res://scenes/world/finster/finster_gate.tscn"
+target_spawn_point = &"FromCity"
+scale = Vector2(2, 1)
+
+[node name="Visual" parent="ToGate" index="0"]
+visible = false
+
+[node name="FromGate" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 340)
+
+[node name="Town" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Gate" type="Sprite2D" parent="Town"]
+position = Vector2(0, -318)
+texture = ExtResource("wp_finster_dark_gate")
+offset = Vector2(0, -69.5)
+
+[node name="Mansion" type="StaticBody2D" parent="Town"]
+position = Vector2(-100, -214)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/Mansion"]
+texture = ExtResource("wp_finster_dark_mansion")
+offset = Vector2(0, -70.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/Mansion"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_114x14")
+
+[node name="Shrine" type="StaticBody2D" parent="Town"]
+position = Vector2(100, -214)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/Shrine"]
+texture = ExtResource("wp_finster_dark_shrine")
+offset = Vector2(0, -84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/Shrine"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_75x14")
+
+[node name="House_2" type="StaticBody2D" parent="Town"]
+position = Vector2(-225, -214)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/House_2"]
+texture = ExtResource("wp_finster_house_2")
+offset = Vector2(0, -65.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/House_2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_74x14")
+
+[node name="House_5" type="StaticBody2D" parent="Town"]
+position = Vector2(215, -214)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/House_5"]
+texture = ExtResource("wp_finster_house_5")
+offset = Vector2(0, -58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/House_5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_117x14")
+
+[node name="Forge" type="StaticBody2D" parent="Town"]
+position = Vector2(-165, 268)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/Forge"]
+texture = ExtResource("wp_finster_dark_forge")
+offset = Vector2(0, -58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/Forge"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_100x14")
+
+[node name="House_4" type="StaticBody2D" parent="Town"]
+position = Vector2(-70, 268)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/House_4"]
+texture = ExtResource("wp_finster_house_4")
+offset = Vector2(0, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/House_4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_66x14")
+
+[node name="House_3" type="StaticBody2D" parent="Town"]
+position = Vector2(110, 268)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/House_3"]
+texture = ExtResource("wp_finster_house_3")
+offset = Vector2(0, -51)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/House_3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_134x14")
+
+[node name="P9" type="StaticBody2D" parent="Town"]
+position = Vector2(-470, 104)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P9"]
+texture = ExtResource("wp_world_props_finster_0")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P9"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P10" type="StaticBody2D" parent="Town"]
+position = Vector2(-430, 104)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P10"]
+texture = ExtResource("wp_world_props_finster_0")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P10"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P11" type="Sprite2D" parent="Town"]
+position = Vector2(-390, 106)
+texture = ExtResource("wp_world_props_finster_19")
+offset = Vector2(0, -20)
+
+[node name="P12" type="StaticBody2D" parent="Town"]
+position = Vector2(-350, 104)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P12"]
+texture = ExtResource("wp_world_props_finster_0")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P12"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P13" type="StaticBody2D" parent="Town"]
+position = Vector2(-310, 104)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P13"]
+texture = ExtResource("wp_world_props_finster_0")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P13"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P14" type="StaticBody2D" parent="Town"]
+position = Vector2(-335, 78)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P14"]
+texture = ExtResource("wp_world_props_finster_11")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P14"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P15" type="Sprite2D" parent="Town"]
+position = Vector2(-450, 165)
+texture = ExtResource("wp_world_props_finster_12")
+offset = Vector2(0, -17.5)
+
+[node name="P16" type="Sprite2D" parent="Town"]
+position = Vector2(-425, 170)
+texture = ExtResource("wp_world_props_finster_12")
+offset = Vector2(0, -17.5)
+
+[node name="P17" type="Sprite2D" parent="Town"]
+position = Vector2(-355, 165)
+texture = ExtResource("wp_world_props_finster_12")
+offset = Vector2(0, -17.5)
+
+[node name="P18" type="Sprite2D" parent="Town"]
+position = Vector2(-325, 170)
+texture = ExtResource("wp_world_props_finster_12")
+offset = Vector2(0, -17.5)
+
+[node name="P19" type="Sprite2D" parent="Town"]
+position = Vector2(-450, 240)
+texture = ExtResource("wp_world_props_finster_12")
+offset = Vector2(0, -17.5)
+
+[node name="P20" type="Sprite2D" parent="Town"]
+position = Vector2(-350, 240)
+texture = ExtResource("wp_world_props_finster_12")
+offset = Vector2(0, -17.5)
+
+[node name="P21" type="StaticBody2D" parent="Town"]
+position = Vector2(-390, 270)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P21"]
+texture = ExtResource("wp_world_props_finster_10")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P21"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_14x6")
+
+[node name="P22" type="StaticBody2D" parent="Town"]
+position = Vector2(-476, 322)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P22"]
+texture = ExtResource("wp_world_props_finster_6")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P22"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P23" type="StaticBody2D" parent="Town"]
+position = Vector2(-430, -230)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P23"]
+texture = ExtResource("wp_world_props_finster_9")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P23"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_14x6")
+
+[node name="P24" type="Sprite2D" parent="Town"]
+position = Vector2(-395, -224)
+texture = ExtResource("wp_world_props_finster_5")
+offset = Vector2(0, -14)
+
+[node name="P25" type="StaticBody2D" parent="Town"]
+position = Vector2(-470, -290)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P25"]
+texture = ExtResource("wp_world_props_finster_6")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P25"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P26" type="StaticBody2D" parent="Town"]
+position = Vector2(-340, -280)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P26"]
+texture = ExtResource("wp_world_props_finster_2")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P26"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_24x6")
+
+[node name="P27" type="StaticBody2D" parent="Town"]
+position = Vector2(-408, -36)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P27"]
+texture = ExtResource("wp_world_props_finster_1")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P27"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P28" type="Sprite2D" parent="Town"]
+position = Vector2(-232, 264)
+texture = ExtResource("wp_world_props_finster_3")
+offset = Vector2(0, -12)
+
+[node name="P29" type="StaticBody2D" parent="Town"]
+position = Vector2(60, 95)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P29"]
+texture = ExtResource("wp_world_props_finster_24")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P29"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P30" type="StaticBody2D" parent="Town"]
+position = Vector2(-62, 156)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P30"]
+texture = ExtResource("wp_world_props_finster_17")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P30"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P31" type="StaticBody2D" parent="Town"]
+position = Vector2(62, 156)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P31"]
+texture = ExtResource("wp_world_props_finster_17")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P31"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P32" type="StaticBody2D" parent="Town"]
+position = Vector2(-103, 138)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P32"]
+texture = ExtResource("wp_world_props_finster_8")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P32"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_19x6")
+
+[node name="P33" type="StaticBody2D" parent="Town"]
+position = Vector2(-232, 46)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P33"]
+texture = ExtResource("wp_world_props_finster_7")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P33"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_19x6")
+
+[node name="P34" type="StaticBody2D" parent="Town"]
+position = Vector2(400, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P34"]
+texture = ExtResource("wp_world_props_finster_4")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P34"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P35" type="StaticBody2D" parent="Town"]
+position = Vector2(440, 96)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P35"]
+texture = ExtResource("wp_world_props_finster_1")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P35"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P36" type="StaticBody2D" parent="Town"]
+position = Vector2(360, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P36"]
+texture = ExtResource("wp_world_props_finster_22")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P36"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P37" type="StaticBody2D" parent="Town"]
+position = Vector2(470, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P37"]
+texture = ExtResource("wp_world_props_finster_6")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P37"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P38" type="StaticBody2D" parent="Town"]
+position = Vector2(340, 340)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P38"]
+texture = ExtResource("wp_world_props_finster_2")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P38"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_24x6")
+
+[node name="P39" type="StaticBody2D" parent="Town"]
+position = Vector2(450, -280)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P39"]
+texture = ExtResource("wp_world_props_finster_6")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P39"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P40" type="StaticBody2D" parent="Town"]
+position = Vector2(360, -240)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P40"]
+texture = ExtResource("wp_world_props_finster_2")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P40"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_24x6")
+
+[node name="P41" type="Sprite2D" parent="Town"]
+position = Vector2(430, -170)
+texture = ExtResource("wp_world_props_finster_18")
+offset = Vector2(0, -18)
+
+[node name="P42" type="StaticBody2D" parent="Town"]
+position = Vector2(-150, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="Town/P42"]
+texture = ExtResource("wp_world_props_finster_2")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/P42"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_24x6")
+
+[node name="P43" type="Sprite2D" parent="Town"]
+position = Vector2(205, 350)
+texture = ExtResource("wp_world_props_finster_18")
+offset = Vector2(0, -18)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-470, 0)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -512
+limit_top = -384
+limit_right = 512
+limit_bottom = 384
+
+[node name="HUD" parent="." instance=ExtResource("25_hud")]
+
+[editable path="ToCamp"]
+[editable path="ToHideout"]
+[editable path="ToCastle"]
+[editable path="ToAltar"]
+[editable path="Player"]
+[editable path="ToGuardhouse"]
+[editable path="ToGate"]

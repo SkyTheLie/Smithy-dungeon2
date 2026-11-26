@@ -1,0 +1,1201 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_22.png" id="wp_world_props_tide_22"]
+[ext_resource type="Script" path="res://scenes/world/objects/critter.gd" id="wp_scenes_world_objects_critte"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_17.png" id="wp_world_props_tide_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_16.png" id="wp_world_props_tide_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_14.png" id="wp_world_props_tide_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_13.png" id="wp_world_props_tide_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_12.png" id="wp_world_props_tide_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_10.png" id="wp_world_props_tide_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_8.png" id="wp_world_props_tide_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_6.png" id="wp_world_props_tide_6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_2.png" id="wp_world_props_tide_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_1.png" id="wp_world_props_tide_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/ice_stair.png" id="ice_stair_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_12.png" id="wp_world_props_eis_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_16.png" id="wp_world_props_eis_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_5.png" id="wp_world_props_eis_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_4.png" id="wp_world_props_eis_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_24.png" id="wp_world_props_eis_24"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_23.png" id="wp_world_props_eis_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_19.png" id="wp_world_props_eis_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_18.png" id="wp_world_props_eis_18"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_13.png" id="wp_world_props_eis_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_11.png" id="wp_world_props_eis_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_10.png" id="wp_world_props_eis_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_9.png" id="wp_world_props_eis_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_0.png" id="wp_world_props_eis_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_0.png" id="wp_world_props_eis_6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_1.png" id="wp_world_props_harbor_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_16.png" id="wp_world_props_harbor_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/harbor_6.png" id="wp_world_props_harbor_6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/harbor_21.png" id="wp_world_props_harbor_21"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/harbor_8.png" id="wp_world_props_harbor_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_0.png" id="wp_world_props_harbor_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_0.png" id="wp_world_props_harbor_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/harbor_19.png" id="wp_world_props_harbor_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_1.png" id="wp_world_props_harbor_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_20.png" id="wp_world_props_harbor_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_0.png" id="wp_world_props_harbor_15"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/harbor_14.png" id="wp_world_props_harbor_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/harbor_13.png" id="wp_world_props_harbor_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/harbor_9.png" id="wp_world_props_harbor_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/harbor_7.png" id="wp_world_props_harbor_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_0.png" id="wp_world_props_harbor_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_1.png" id="wp_world_props_harbor_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/harbor_1.png" id="wp_world_props_harbor_1"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_ice.tscn" id="lamp_ice"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/eisquell_ground.png" id="3_eisquell_gro"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="4_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/eisquell_mask.png" id="5_eisquell_mas"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="6_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/kahn_hall.png" id="7_kahn_hall"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/arena.png" id="8_arena"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/barracks.png" id="9_barracks"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/royal_carriage.png" id="15_royal_carria"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="17_night_light"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="18_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/king.png" id="19_king"]
+[ext_resource type="PackedScene" path="res://scenes/actors/market_stall.tscn" id="20_market_stall"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/dungeon_board.tscn" id="21_dungeon_boar"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/teleporter.tscn" id="22_teleporter"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="23_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="24_hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="26_story_prop"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/props/crates.png" id="q_crates"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/sacks.png" id="q_sacks"]
+[ext_resource type="Material" path="res://scenes/world/objects/sea_water_eisquell.tres" id="sea_mat"]
+[ext_resource type="Script" path="res://scenes/world/water/harbor_attack_cutscene.gd" id="90_harbor_cut"]
+[ext_resource type="Script" path="res://scenes/world/water/torgai_blade_cutscene.gd" id="91_torgai_blade_cut"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/burning_boat_a.png" id="91_boat_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/harbour_burning_crates.png" id="94_burning_crates"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/harbour_burning_barrels.png" id="94_burning_barrels"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/harbour_burning_nets.png" id="94_burning_nets"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/burning_boat_b.png" id="92_boat_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/burning_boat_c.png" id="93_boat_c"]
+[ext_resource type="Script" uid="uid://ds0hynlqqpeua" path="res://scenes/actors/village_roads.gd" id="crowd_roads"]
+[ext_resource type="Script" uid="uid://c0pf3sbup4rhn" path="res://scenes/actors/villager_spot.gd" id="crowd_spot"]
+[ext_resource type="PackedScene" path="res://scenes/actors/villager.tscn" id="crowd_villager"]
+[sub_resource type="RectangleShape2D" id="Rect_burning_crates"]
+size = Vector2(30, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_burning_barrels"]
+size = Vector2(34, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_burning_nets"]
+size = Vector2(40, 8)
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("6_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_guard"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "sea_blue"
+eye_type = "normal"
+eye_color = "grey"
+hair_style = "short"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_guard2"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "aqua_green"
+eye_type = "narrow"
+eye_color = "green"
+hair_style = "bald"
+size = "tall"
+outfit = "tunic"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_fisher"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "sleepy"
+eye_color = "brown"
+hair_style = "short"
+hair_color = "white"
+outfit = "vest"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_child"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "aqua_green"
+eye_type = "big"
+eye_color = "blue"
+hair_style = "ponytail"
+hair_color = "blonde"
+size = "small"
+outfit = "tunic"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_nerea"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "pearl"
+eye_type = "big"
+eye_color = "blue"
+hair_style = "long"
+hair_color = "white"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_brann"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "sea_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "smith"
+clothes_color = "grey"
+
+[sub_resource type="RectangleShape2D" id="Rect_230x16_kahn_hall_0"]
+size = Vector2(140, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_230x16_arena_0"]
+size = Vector2(191, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_230x16"]
+size = Vector2(230, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_210x16"]
+size = Vector2(210, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_80x12"]
+size = Vector2(80, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_16x6"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_27x6"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_15x6"]
+size = Vector2(15, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_19x6"]
+size = Vector2(19, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_20x6"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_29x6"]
+size = Vector2(29, 6)
+
+[sub_resource type="Resource" id="Look_tournament_messenger"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "aqua_green"
+hair_style = "short"
+hair_color = "black"
+eye_type = "big"
+eye_color = "amber"
+size = "small"
+outfit = "tunic"
+clothes_color = "blue"
+
+[sub_resource type="RectangleShape2D" id="q_rect_16x6"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="q_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="q_rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="q_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="q_rect_30x6"]
+size = Vector2(30, 6)
+
+[sub_resource type="RectangleShape2D" id="q_rect_8x6"]
+size = Vector2(8, 6)
+
+[node name="Eisquell" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("2_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-640, -700)
+texture = ExtResource("3_eisquell_gro")
+material = ExtResource("sea_mat")
+centered = false
+
+[node name="IceStair" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -550)
+texture = ExtResource("ice_stair_tex")
+centered = false
+offset = Vector2(0, -158)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-640, -700)
+script = ExtResource("4_cave_walls")
+mask = ExtResource("5_eisquell_mas")
+
+[node name="Buildings" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="KahnHall" type="StaticBody2D" parent="Buildings"]
+position = Vector2(0, -425)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/KahnHall"]
+texture = ExtResource("7_kahn_hall")
+offset = Vector2(0, -65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/KahnHall"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_230x16_kahn_hall_0")
+
+[node name="Arena" type="StaticBody2D" parent="Buildings"]
+position = Vector2(495, -395)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Arena"]
+texture = ExtResource("8_arena")
+offset = Vector2(0, -79.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Arena"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_230x16_arena_0")
+
+[node name="Barracks" type="StaticBody2D" parent="Buildings"]
+position = Vector2(-497, -445)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Barracks"]
+texture = ExtResource("9_barracks")
+offset = Vector2(0, -50.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Barracks"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_210x16")
+
+[node name="Carriage" type="StaticBody2D" parent="Buildings"]
+position = Vector2(-150, 484)
+modulate = Color(0.8, 0.9, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Carriage"]
+texture = ExtResource("15_royal_carria")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Carriage"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_80x12")
+
+[node name="Label" type="Label" parent="Buildings/Carriage"]
+offset_left = -60.0
+offset_top = -96.0
+offset_right = 60.0
+offset_bottom = -84.0
+text = "Kutscher Jupp"
+horizontal_alignment = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+
+[node name="Lights" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Lantern13" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(-452, -258)
+
+[node name="Lantern14" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(-286, -258)
+
+[node name="Lantern15" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(-66, -258)
+
+[node name="Lantern16" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(134, -258)
+
+[node name="Lantern17" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(524, -258)
+
+[node name="Lantern1" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(-107, -453)
+
+[node name="Lantern2" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(121, -464)
+
+[node name="Lantern3" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(-262, -110)
+
+[node name="Lantern4" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(262, -80)
+
+[node name="Lantern5" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(-60, 431)
+
+[node name="Lantern6" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(56, 432)
+
+[node name="Lantern7" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(300, -420)
+
+[node name="Lantern8" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(607, -385)
+
+[node name="Lantern9" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(-544, -70)
+
+[node name="Lantern10" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(530, -70)
+
+[node name="Lantern11" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(-290, -420)
+
+[node name="Lantern12" parent="Lights" instance=ExtResource("lamp_ice")]
+position = Vector2(70, 210)
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Subar" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(44, -405)
+npc_id = "kahn_right_hand"
+resident = "kahn_right_hand"
+appearance = SubResource("Look_subar")
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(2, 2)
+hidden_when_flag = "kahn_hall_open"
+
+[node name="King" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(-70, -385)
+npc_id = "king"
+resident = "king"
+required_flag = "reached_water_arrival"
+hidden_when_flag = "kahn_hall_open"
+
+[node name="Lake" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(-100, -385)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+facing = "right"
+required_flag = "reached_water_arrival"
+hidden_when_flag = "kahn_hall_open"
+
+[node name="GuardBarracksA" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(-547, -410)
+npc_id = "water_guard"
+resident = "water_guard"
+appearance = SubResource("Look_guard")
+
+[node name="GuardBarracksB" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(-447, -410)
+npc_id = "water_guard"
+resident = "water_guard"
+appearance = SubResource("Look_guard2")
+
+[node name="GuardStairA" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(-212, -545)
+npc_id = "water_guard"
+resident = "water_guard"
+appearance = SubResource("Look_guard")
+hidden_when_flag = "ice_crown_open"
+
+[node name="GuardStairB" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(-128, -545)
+npc_id = "water_guard"
+resident = "water_guard"
+appearance = SubResource("Look_guard2")
+hidden_when_flag = "ice_crown_open"
+
+[node name="GuardArena" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(440, -378)
+npc_id = "water_guard"
+resident = "water_guard"
+appearance = SubResource("Look_guard")
+
+[node name="Fisher" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(-230, -100)
+npc_id = "eisquell_fisher"
+resident = "eisquell_fisher"
+appearance = SubResource("Look_fisher")
+
+[node name="Child" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(220, -90)
+npc_id = "eisquell_child"
+resident = "eisquell_child"
+appearance = SubResource("Look_child")
+
+[node name="Narrator" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(-60, 472)
+npc_id = "eisquell_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(4, 3)
+
+[node name="Merchant" parent="People" instance=ExtResource("20_market_stall")]
+position = Vector2(-180, -252)
+merchant_name = "Perlenhändlerin Nerea"
+appearance = SubResource("Look_nerea")
+resident = "water_nerea"
+offers = Array[String]([])
+stock_id = "eisquell_goods"
+greeting = "Perlen, Glas und Seil aus Eisquell. Fang dir nichts ein, was du nicht bezahlen kannst, Südling."
+
+[node name="Smith" parent="People" instance=ExtResource("20_market_stall")]
+position = Vector2(200, -258)
+merchant_name = "Eisschmied Brann"
+appearance = SubResource("Look_brann")
+resident = "water_brann"
+offers = Array[String]([])
+stock_id = "eisquell_smith"
+greeting = "Kalte Hände, heißes Eisen. Brann verkauft Barren und Kohle, und er feilscht nicht."
+
+[node name="DungeonBoard" parent="People" instance=ExtResource("21_dungeon_boar")]
+position = Vector2(-30, -226)
+
+[node name="Teleporter" parent="." instance=ExtResource("22_teleporter")]
+position = Vector2(-300, 350)
+spot_id = "eisquell"
+
+[node name="ToHall" parent="." instance=ExtResource("23_door")]
+position = Vector2(0, -419)
+target_scene = "res://scenes/world/water/kahn_hall.tscn"
+target_spawn_point = &"FromCity"
+required_flag = "kahn_hall_open"
+locked_text = "Subar versperrt dir den Weg."
+
+[node name="Visual" parent="ToHall" index="0"]
+visible = false
+
+[node name="ToArena" parent="." instance=ExtResource("23_door")]
+position = Vector2(495, -398)
+target_scene = "res://scenes/world/tournament/arena_hall_eisquell.tscn"
+target_spawn_point = &"FromCity"
+required_flag = "kahn_tournament_open"
+locked_text = "Das Tor der Arena ist zu. Heute gibt es keine Kämpfe."
+
+[node name="Visual" parent="ToArena" index="0"]
+visible = false
+
+[node name="ToLeonheim" parent="." instance=ExtResource("23_door")]
+position = Vector2(-132, 496)
+target_scene = "res://scenes/world/capital/castle_garden.tscn"
+target_spawn_point = &"FromCarriage"
+fade = true
+needs_interact = true
+carriage_stop = "eisquell"
+
+[node name="Visual" parent="ToLeonheim" index="0"]
+visible = false
+
+[node name="ToCaveShore" parent="." instance=ExtResource("23_door")]
+position = Vector2(0, 176)
+scale = Vector2(2, 1)
+target_scene = "res://scenes/world/water/eisquell_cave.tscn"
+target_spawn_point = &"FromShore"
+
+[node name="Visual" parent="ToCaveShore" index="0"]
+visible = false
+
+[node name="FromCaveShore" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 206)
+
+[node name="ToCaveLedge" parent="." instance=ExtResource("23_door")]
+position = Vector2(60, -264)
+scale = Vector2(2, 1)
+target_scene = "res://scenes/world/water/eisquell_cave.tscn"
+target_spawn_point = &"FromLedge"
+
+[node name="Visual" parent="ToCaveLedge" index="0"]
+visible = false
+
+[node name="FromCaveLedge" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(60, -236)
+
+[node name="ToCaveTop" parent="." instance=ExtResource("23_door")]
+position = Vector2(230, -474)
+scale = Vector2(2, 1)
+target_scene = "res://scenes/world/water/eisquell_cave.tscn"
+target_spawn_point = &"FromTop"
+
+[node name="Visual" parent="ToCaveTop" index="0"]
+visible = false
+
+[node name="FromCaveTop" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(230, -444)
+
+[node name="FromCarriage" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-60, 472)
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, -395)
+
+[node name="FromArena" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(495, -374)
+
+[node name="TournamentMessenger" parent="." instance=ExtResource("18_story_npc")]
+position = Vector2(-248, 370)
+npc_id = "tournament_messenger_eisquell"
+appearance = SubResource("Look_tournament_messenger")
+required_flag = "smith_tournament_won"
+
+[node name="FromTeleporter" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-300, 390)
+
+[node name="TorgaiBlade" parent="." instance=ExtResource("18_story_npc")]
+position = Vector2(-40, -380)
+npc_id = "kahn_son"
+resident = "kahn_son"
+appearance = SubResource("Look_torgai")
+required_flag = "reached_eisquell_blade"
+hidden_when_flag = "reached_kahn_refuses"
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(3, 3)
+facing = "left"
+leave_path = PackedVector2Array(-12, -380, -12, -418)
+
+[node name="SubarHarbor" parent="." instance=ExtResource("18_story_npc")]
+position = Vector2(150, -396)
+npc_id = "kahn_right_hand"
+resident = "kahn_right_hand"
+appearance = SubResource("Look_subar")
+required_flag = "harbor_attacked"
+hidden_when_flag = "reached_kahn_decides"
+auto_talk = true
+walk_to_player = true
+keep_dialogue_open = true
+facing = "left"
+
+[node name="SubarBlade" parent="." instance=ExtResource("18_story_npc")]
+position = Vector2(150, -396)
+npc_id = "kahn_right_hand"
+resident = "kahn_right_hand"
+appearance = SubResource("Look_subar")
+required_flag = "reached_eisquell_blade"
+hidden_when_flag = "reached_kahn_refuses"
+facing = "left"
+leave_path = PackedVector2Array(12, -396, 12, -418)
+
+[node name="TorgaiBladeCutscene" type="Node2D" parent="."]
+script = ExtResource("91_torgai_blade_cut")
+torgai = NodePath("../TorgaiBlade")
+subar = NodePath("../SubarBlade")
+
+[node name="HarbourFire" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("26_story_prop")
+required_flag = "harbor_attacked"
+hidden_when_flag = "harbor_saved"
+
+[node name="Wreckage" type="Node2D" parent="HarbourFire"]
+y_sort_enabled = true
+
+[node name="Crates" type="StaticBody2D" parent="HarbourFire/Wreckage"]
+position = Vector2(-385, -64)
+
+[node name="Sprite2D" type="Sprite2D" parent="HarbourFire/Wreckage/Crates"]
+texture = ExtResource("94_burning_crates")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HarbourFire/Wreckage/Crates"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_burning_crates")
+
+[node name="Light" parent="HarbourFire/Wreckage/Crates" instance=ExtResource("17_night_light")]
+position = Vector2(0, -16)
+color = Color(1, 0.6, 0.3, 1)
+
+[node name="Barrels" type="StaticBody2D" parent="HarbourFire/Wreckage"]
+position = Vector2(10, -64)
+
+[node name="Sprite2D" type="Sprite2D" parent="HarbourFire/Wreckage/Barrels"]
+texture = ExtResource("94_burning_barrels")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HarbourFire/Wreckage/Barrels"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_burning_barrels")
+
+[node name="Light" parent="HarbourFire/Wreckage/Barrels" instance=ExtResource("17_night_light")]
+position = Vector2(0, -16)
+color = Color(1, 0.6, 0.3, 1)
+
+[node name="Nets" type="StaticBody2D" parent="HarbourFire/Wreckage"]
+position = Vector2(140, -56)
+
+[node name="Sprite2D" type="Sprite2D" parent="HarbourFire/Wreckage/Nets"]
+texture = ExtResource("94_burning_nets")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HarbourFire/Wreckage/Nets"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_burning_nets")
+
+[node name="Light" parent="HarbourFire/Wreckage/Nets" instance=ExtResource("17_night_light")]
+position = Vector2(0, -16)
+color = Color(1, 0.6, 0.3, 1)
+
+[node name="Boats" type="Node2D" parent="HarbourFire"]
+y_sort_enabled = true
+
+[node name="BoatA" type="Sprite2D" parent="HarbourFire/Boats"]
+position = Vector2(-420, 14)
+texture = ExtResource("91_boat_a")
+offset = Vector2(0, -18)
+
+[node name="BoatB" type="Sprite2D" parent="HarbourFire/Boats"]
+position = Vector2(-60, 22)
+texture = ExtResource("92_boat_b")
+offset = Vector2(0, -20)
+flip_h = true
+
+[node name="BoatC" type="Sprite2D" parent="HarbourFire/Boats"]
+position = Vector2(300, 10)
+texture = ExtResource("93_boat_c")
+offset = Vector2(0, -18)
+
+[node name="ToWallCrown" parent="." instance=ExtResource("23_door")]
+position = Vector2(-170, -552)
+scale = Vector2(2, 1)
+target_scene = "res://scenes/world/water/ice_wall_crown.tscn"
+target_spawn_point = &"FromEisquell"
+required_flag = "ice_crown_open"
+locked_text = "Eine Treppe aus Eis führt an der Mauer hinauf. Kahns Wachen lassen niemanden hinauf."
+
+[node name="Visual" parent="ToWallCrown" index="0"]
+visible = false
+
+[node name="FromWall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-170, -522)
+
+[node name="Harbor" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P2" type="StaticBody2D" parent="Harbor"]
+position = Vector2(197, -523)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/P2"]
+texture = ExtResource("wp_world_props_eis_7")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_24x6")
+
+[node name="P3" type="StaticBody2D" parent="Harbor"]
+position = Vector2(297, -465)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/P3"]
+texture = ExtResource("wp_world_props_eis_9")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P9" type="StaticBody2D" parent="Harbor"]
+position = Vector2(-265, -537)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/P9"]
+texture = ExtResource("wp_world_props_eis_23")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/P9"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P10" type="StaticBody2D" parent="Harbor"]
+position = Vector2(-261, -475)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/P10"]
+texture = ExtResource("wp_world_props_eis_24")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/P10"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P19" type="StaticBody2D" parent="Harbor"]
+position = Vector2(146, -413)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/P19"]
+texture = ExtResource("wp_world_props_eis_11")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/P19"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P22" type="StaticBody2D" parent="Harbor"]
+position = Vector2(-36, -109)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/P22"]
+texture = ExtResource("wp_world_props_eis_19")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/P22"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_29x6")
+
+[node name="P24" type="StaticBody2D" parent="Harbor"]
+position = Vector2(95, -79)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/P24"]
+texture = ExtResource("wp_world_props_eis_24")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/P24"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P29" type="StaticBody2D" parent="Harbor"]
+position = Vector2(-296, -68)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/P29"]
+texture = ExtResource("wp_world_props_eis_6")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/P29"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="ArchBannerW" type="Sprite2D" parent="Harbor"]
+position = Vector2(-52, 160)
+texture = ExtResource("wp_world_props_eis_12")
+offset = Vector2(0, -20)
+
+[node name="ArchBannerE" type="Sprite2D" parent="Harbor"]
+position = Vector2(52, 160)
+texture = ExtResource("wp_world_props_eis_12")
+offset = Vector2(0, -20)
+
+[node name="WallBannerW" type="Sprite2D" parent="Harbor"]
+position = Vector2(-480, 160)
+texture = ExtResource("wp_world_props_eis_12")
+offset = Vector2(0, -20)
+
+[node name="WallBannerE" type="Sprite2D" parent="Harbor"]
+position = Vector2(480, 160)
+texture = ExtResource("wp_world_props_eis_12")
+offset = Vector2(0, -20)
+
+[node name="CargoCrates" type="StaticBody2D" parent="Harbor"]
+position = Vector2(-292, 480)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/CargoCrates"]
+texture = ExtResource("q_crates")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/CargoCrates"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_28x6")
+
+[node name="CargoSacks" type="StaticBody2D" parent="Harbor"]
+position = Vector2(-258, 484)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/CargoSacks"]
+texture = ExtResource("q_sacks")
+offset = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/CargoSacks"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_24x6")
+
+[node name="CargoBarrel" type="StaticBody2D" parent="Harbor"]
+position = Vector2(-322, 484)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/CargoBarrel"]
+texture = ExtResource("wp_world_props_eis_10")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/CargoBarrel"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_16x6")
+
+[node name="FishRack" type="StaticBody2D" parent="Harbor"]
+position = Vector2(380, 470)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/FishRack"]
+texture = ExtResource("wp_world_props_eis_19")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/FishRack"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_30x6")
+
+[node name="NetRack" type="StaticBody2D" parent="Harbor"]
+position = Vector2(530, 470)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/NetRack"]
+texture = ExtResource("wp_world_props_eis_18")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/NetRack"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_30x6")
+
+[node name="FishBarrel" type="StaticBody2D" parent="Harbor"]
+position = Vector2(412, 476)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/FishBarrel"]
+texture = ExtResource("wp_world_props_eis_10")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/FishBarrel"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_16x6")
+
+[node name="JettyAnchorE" type="StaticBody2D" parent="Harbor"]
+position = Vector2(452, 492)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/JettyAnchorE"]
+texture = ExtResource("wp_world_props_eis_9")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/JettyAnchorE"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_24x6")
+
+[node name="JettyAnchorW" type="StaticBody2D" parent="Harbor"]
+position = Vector2(-418, 492)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/JettyAnchorW"]
+texture = ExtResource("wp_world_props_eis_9")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/JettyAnchorW"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_24x6")
+
+[node name="CrystalsW1" type="StaticBody2D" parent="Harbor"]
+position = Vector2(-580, 262)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/CrystalsW1"]
+texture = ExtResource("wp_world_props_eis_4")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/CrystalsW1"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_18x6")
+
+[node name="CrystalsW2" type="StaticBody2D" parent="Harbor"]
+position = Vector2(-552, 276)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/CrystalsW2"]
+texture = ExtResource("wp_world_props_eis_5")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/CrystalsW2"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_16x6")
+
+[node name="CrystalsE1" type="StaticBody2D" parent="Harbor"]
+position = Vector2(578, 266)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/CrystalsE1"]
+texture = ExtResource("wp_world_props_eis_5")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/CrystalsE1"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_16x6")
+
+[node name="CrystalsE2" type="StaticBody2D" parent="Harbor"]
+position = Vector2(552, 280)
+
+[node name="Sprite2D" type="Sprite2D" parent="Harbor/CrystalsE2"]
+texture = ExtResource("wp_world_props_eis_4")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harbor/CrystalsE2"]
+position = Vector2(0, -3)
+shape = SubResource("q_rect_18x6")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-60, 472)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -640
+limit_top = -700
+limit_right = 640
+limit_bottom = 700
+
+[node name="HUD" parent="." instance=ExtResource("24_hud")]
+
+[node name="HarborAttackCutscene" type="Node2D" parent="."]
+script = ExtResource("90_harbor_cut")
+boats = NodePath("../HarbourFire/Boats")
+wreckage = NodePath("../HarbourFire/Wreckage")
+shooter_spots = PackedVector2Array(-470, -46, -150, -50, 180, -48)
+canal_view = Vector2(60, -10)
+
+[node name="DoorToIceHouseWest" parent="." instance=ExtResource("23_door")]
+position = Vector2(-500, -252)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/ice_house_west.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToIceHouseWest" index="0"]
+visible = false
+
+[node name="FromIceHouseWest" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-500, -234)
+
+[editable path="ToHall"]
+[editable path="ToArena"]
+[editable path="ToLeonheim"]
+[editable path="Player"]
+[editable path="ToWallCrown"]
+[editable path="ToCaveShore"]
+[editable path="ToCaveLedge"]
+[editable path="ToCaveTop"]
+
+[node name="Crowd" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Roads" type="Node2D" parent="Crowd"]
+script = ExtResource("crowd_roads")
+area = Rect2(-640, -275, 1270, 225)
+
+[node name="Hub" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(0, -160)
+
+[node name="Spots" type="Node2D" parent="Crowd"]
+
+[node name="HouseWest" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-500, -258)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="PearlShop" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-255, -258)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="ShopNext" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-115, -258)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="Arch" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(60, -258)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "up"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="Forge" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(160, -236)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="Board" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-30, -224)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="FishRack" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-35, -104)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="Well" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(95, -82)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="TalkL" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-130, -170)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "right"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../TalkR")
+
+[node name="TalkR" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-100, -170)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "left"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../TalkL")
+
+[node name="TalkEL" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(430, -150)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "right"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../TalkER")
+
+[node name="TalkER" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(460, -150)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "left"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../TalkEL")
+
+[node name="WalkWest" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-560, -150)
+script = ExtResource("crowd_spot")
+kind = 0
+facing = "right"
+duration = Vector2(3, 8)
+road = NodePath("../../Roads/Hub")
+
+[node name="WalkEast" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(560, -200)
+script = ExtResource("crowd_spot")
+kind = 0
+facing = "left"
+duration = Vector2(3, 8)
+road = NodePath("../../Roads/Hub")
+
+[node name="IceBrann" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/HouseWest")
+position = Vector2(-400, -100)
+resident = "ice_brann"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="IceNerea" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/HouseWest")
+position = Vector2(-60, -200)
+resident = "ice_nerea"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="IceFisher" parent="Crowd" node_paths=PackedStringArray("spots", "roads") instance=ExtResource("crowd_villager")]
+position = Vector2(300, -120)
+resident = "ice_fisher"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="IceChild" parent="Crowd" node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("crowd_villager")]
+home_spot = NodePath("../Spots/HouseWest")
+position = Vector2(40, -150)
+resident = "ice_child"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="IceWarrior" parent="Crowd" node_paths=PackedStringArray("spots", "roads") instance=ExtResource("crowd_villager")]
+position = Vector2(500, -170)
+resident = "ice_warrior"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+[editable path="DoorToIceHouseWest"]

@@ -1,0 +1,108 @@
+{
+	"_hilfe": {
+		"info": "Liga-Turniere mit Rangliste (TournamentRanking, scripts/systems/tournament_ranking.gd). Neben dem großen Turnier jedes Orts gibt es jeden Tag ein Liga-Turnier: Schmied gegen Schmied (SmithTournament) oder Held gegen Held (HeroTournament). Jede Runde ändert die Wertung (Elo): Sieg gegen Stärkere bringt viel, Niederlage kostet Punkte. Wer die Wertung einer Liga erreicht, darf dort antreten und fällt nie mehr unter ihre Grenze (Sockel). Schlüssel mit _ am Anfang werden ignoriert. Alle Felder: docs/CONTENT.md, Abschnitt leagues.json.",
+		"rating": "start = Wertung am Anfang, k = wie stark eine Runde die Wertung ändert, opponent_over_league = Wertung des ersten Gegners über der Grenze der Liga, round_step = so viel stärker ist jeder Gegner der nächsten Runde.",
+		"open_hours": "Anmeldung von bis (Uhr). Pro Ort ein Liga-Turnier am Tag.",
+		"season_shift": "Spielplan: Liga am Ort = (Wochentag + offset des Orts + Jahreszeit × season_shift) mod Anzahl Ligen. Jede Liga kommt an jedem Ort einmal pro Woche, jede Jahreszeit an anderen Tagen.",
+		"venues": "Orte: type (smith/hero), venue (\"\" = Leonheim bzw. Eisquell, sonst Schlüssel der venues in economy.json bzw. arena.json), city (Name), offset (Spielplan), open_flag (Liga-Turniere erst ab diesem Story-Flag).",
+		"leagues": "Ligen von unten nach oben: id, name, rating (Grenze der Wertung). smith: metal, leather, ores (wie die Runden des Schmiedeturniers), quality = Punkte des ersten Gegners [von, bis] (jede Runde + quality_step), time = Zeitfaktor des Gegners [von, bis] (jede Runde - time_step). hero: levels = Level der Gegner in der ersten Runde [von, bis] (jede Runde + level_step), metal, rarity = Seltenheit ihrer Ausrüstung [von, bis] (0 = R1). Beide: entry_fee, prize_gold (Turniersieg), title (Titel beim ersten Turniersieg), trophy (Möbel aus house.json, beim ersten Sieg ins Lager), first_win (Items beim ersten Sieg, Liste wie give_items), season_reward (gold, items: am Ende der Jahreszeit für die höchste Liga, in der man in dieser Jahreszeit ein Turnier gewonnen hat).",
+		"smith_opponents": "Gegner der Schmiede-Ligen: name, look (Aussehen wie appearance.json). Pro Turnier werden 4 gezogen."
+	},
+	"rating": {"start": 1000, "k": 32, "opponent_over_league": 40, "round_step": 30},
+	"open_hours": [8, 18],
+	"season_shift": 2,
+	"quality_step": 10,
+	"time_step": 0.03,
+	"level_step": 2,
+	"venues": {
+		"leonheim_smith": {"type": "smith", "venue": "", "city": "Leonheim", "offset": 0, "open_flag": "smith_tournament_won"},
+		"sylvaris_smith": {"type": "smith", "venue": "sylvaris", "city": "Sylvaris", "offset": 4, "open_flag": "smith_tournament_won"},
+		"eisquell_hero": {"type": "hero", "venue": "", "city": "Eisquell", "offset": 2, "open_flag": "hero_tournament_won"},
+		"sylvaris_hero": {"type": "hero", "venue": "sylvaris", "city": "Sylvaris", "offset": 5, "open_flag": "hero_tournament_won"},
+		"eisquell_smith": {"type": "smith", "venue": "eisquell", "city": "Eisquell", "offset": 1, "open_flag": "smith_tournament_won"},
+		"sahrim_smith": {"type": "smith", "venue": "sahrim", "city": "Sahrim", "offset": 2, "open_flag": "smith_tournament_won"},
+		"finster_smith": {"type": "smith", "venue": "finster", "city": "Finsterstadt", "offset": 6, "open_flag": "smith_tournament_won"},
+		"leonheim_hero": {"type": "hero", "venue": "leonheim", "city": "Leonheim", "offset": 3, "open_flag": "hero_tournament_won"},
+		"sahrim_hero": {"type": "hero", "venue": "sahrim", "city": "Sahrim", "offset": 6, "open_flag": "hero_tournament_won"},
+		"finster_hero": {"type": "hero", "venue": "finster", "city": "Finsterstadt", "offset": 0, "open_flag": "hero_tournament_won"}
+	},
+	"leagues": [
+		{
+			"id": "copper", "name": "Kupfer-Liga", "rating": 1000,
+			"smith": {"metal": "copper", "leather": "leather", "ores": {"copper_ore": 1}, "quality": [30, 70], "time": [0.95, 1.3],
+				"entry_fee": 50, "prize_gold": 250, "title": "Funkenschläger", "trophy": "trophy_smith_copper", "first_win": "",
+				"season_reward": {"gold": 300, "items": "copper_ingot*5"}},
+			"hero": {"levels": [8, 11], "metal": "copper", "rarity": [0, 1],
+				"entry_fee": 50, "prize_gold": 250, "title": "Ringneuling", "trophy": "trophy_hero_copper", "first_win": "",
+				"season_reward": {"gold": 300, "items": "skill_reset_potion"}}
+		},
+		{
+			"id": "iron", "name": "Eisen-Liga", "rating": 1150,
+			"smith": {"metal": "iron", "leather": "wolf_leather", "ores": {"iron_ore": 1}, "quality": [50, 95], "time": [0.9, 1.25],
+				"entry_fee": 100, "prize_gold": 450, "title": "Eisenhand", "trophy": "trophy_smith_iron", "first_win": "league_boots",
+				"season_reward": {"gold": 600, "items": "iron_ingot*5"}},
+			"hero": {"levels": [15, 18], "metal": "iron", "rarity": [0, 2],
+				"entry_fee": 100, "prize_gold": 450, "title": "Eisenwall", "trophy": "trophy_hero_iron", "first_win": "arena_ring",
+				"season_reward": {"gold": 600, "items": "attribute_reset_potion"}}
+		},
+		{
+			"id": "bronze", "name": "Bronze-Liga", "rating": 1300,
+			"smith": {"metal": "bronze", "leather": "wolf_leather", "ores": {"copper_ore": 1, "iron_ore": 1}, "quality": [70, 115], "time": [0.85, 1.2],
+				"entry_fee": 200, "prize_gold": 750, "title": "Bronzeschmied", "trophy": "trophy_smith_bronze", "first_win": "league_gloves_bronze",
+				"season_reward": {"gold": 1000, "items": "bronze_ingot*5,topaz"}},
+			"hero": {"levels": [22, 25], "metal": "bronze", "rarity": [1, 2],
+				"entry_fee": 200, "prize_gold": 750, "title": "Bronzeklinge", "trophy": "trophy_hero_bronze", "first_win": "arena_amulet",
+				"season_reward": {"gold": 1000, "items": "skill_point_potion"}}
+		},
+		{
+			"id": "silver", "name": "Silber-Liga", "rating": 1450,
+			"smith": {"metal": "silver", "leather": "hippogriff_leather", "ores": {"silver_ore": 1}, "quality": [90, 135], "time": [0.8, 1.15],
+				"entry_fee": 300, "prize_gold": 1100, "title": "Silberhammer", "trophy": "trophy_smith_silver", "first_win": "league_backpack",
+				"season_reward": {"gold": 1500, "items": "silver_ingot*5,sapphire"}},
+			"hero": {"levels": [31, 34], "metal": "silver", "rarity": [1, 3],
+				"entry_fee": 300, "prize_gold": 1100, "title": "Silberlöwe", "trophy": "trophy_hero_silver", "first_win": "champion_ring",
+				"season_reward": {"gold": 1500, "items": "attribute_point_potion"}}
+		},
+		{
+			"id": "gold", "name": "Gold-Liga", "rating": 1600,
+			"smith": {"metal": "gold", "leather": "hippogriff_leather", "ores": {"gold_ore": 1}, "quality": [110, 155], "time": [0.75, 1.1],
+				"entry_fee": 500, "prize_gold": 1600, "title": "Goldamboss", "trophy": "trophy_smith_gold", "first_win": "league_gloves_gold",
+				"season_reward": {"gold": 2200, "items": "gold_ingot*5,ruby"}},
+			"hero": {"levels": [42, 45], "metal": "gold", "rarity": [2, 3],
+				"entry_fee": 500, "prize_gold": 1600, "title": "Goldchampion", "trophy": "trophy_hero_gold", "first_win": "glory_chain",
+				"season_reward": {"gold": 2200, "items": "skill_point_potion*2"}}
+		},
+		{
+			"id": "platinum", "name": "Platin-Liga", "rating": 1750,
+			"smith": {"metal": "platinum", "leather": "dragon_leather", "ores": {"platinum_ore": 1}, "quality": [130, 175], "time": [0.7, 1.05],
+				"entry_fee": 800, "prize_gold": 2400, "title": "Platinmeister", "trophy": "trophy_smith_platinum", "first_win": "league_runners",
+				"season_reward": {"gold": 3200, "items": "platinum_ingot*5,diamond"}},
+			"hero": {"levels": [55, 58], "metal": "platinum", "rarity": [2, 4],
+				"entry_fee": 800, "prize_gold": 2400, "title": "Platinsturm", "trophy": "trophy_hero_platinum", "first_win": "storm_ring",
+				"season_reward": {"gold": 3200, "items": "attribute_point_potion*2"}}
+		},
+		{
+			"id": "palladium", "name": "Palladium-Liga", "rating": 1900,
+			"smith": {"metal": "palladium", "leather": "dragon_leather", "ores": {"palladium_ore": 1}, "quality": [150, 195], "time": [0.65, 1.0],
+				"entry_fee": 1200, "prize_gold": 3500, "title": "Legende der Esse", "trophy": "trophy_smith_palladium", "first_win": "legend_gloves",
+				"season_reward": {"gold": 5000, "items": "palladium_ingot*5,diamond*2"}},
+			"hero": {"levels": [70, 73], "metal": "palladium", "rarity": [3, 4],
+				"entry_fee": 1200, "prize_gold": 3500, "title": "Unbesiegbar", "trophy": "trophy_hero_palladium", "first_win": "arena_heart",
+				"season_reward": {"gold": 5000, "items": "skill_point_potion*2,attribute_point_potion*2"}}
+		}
+	],
+	"smith_opponents": [
+		{"name": "Kuno der Lehrling", "look": {"race": "human", "skin": "light", "hair_style": "short", "hair_color": "brown", "eye_type": "big", "eye_color": "blue", "size": "small", "outfit": "smith", "clothes_color": "brown"}},
+		{"name": "Ilsa Funkenhand", "look": {"race": "elf", "skin": "light", "hair_style": "ponytail", "hair_color": "red", "eye_type": "big", "eye_color": "green", "size": "normal", "outfit": "smith", "clothes_color": "brown"}},
+		{"name": "Gorm", "look": {"race": "human", "skin": "dark", "hair_style": "spiky", "hair_color": "black", "eye_type": "sleepy", "eye_color": "amber", "size": "small", "outfit": "smith", "clothes_color": "brown"}},
+		{"name": "Meister Brandolf", "look": {"race": "human", "skin": "pale", "hair_style": "short", "hair_color": "white", "eye_type": "normal", "eye_color": "blue", "size": "normal", "outfit": "smith", "clothes_color": "brown"}},
+		{"name": "Kasim aus dem Süden", "look": {"race": "human", "skin": "dark", "hair_style": "long", "hair_color": "black", "eye_type": "narrow", "eye_color": "amber", "size": "tall", "outfit": "vest", "clothes_color": "ochre"}},
+		{"name": "Schmiedin Ssiva", "look": {"race": "beast_lizard", "skin": "lizard_green", "hair_style": "bald", "hair_color": "black", "eye_type": "narrow", "eye_color": "amber", "size": "normal", "outfit": "smith", "clothes_color": "ochre"}},
+		{"name": "Torvald Ambossbart", "look": {"race": "human", "skin": "tan", "hair_style": "short", "hair_color": "red", "eye_type": "normal", "eye_color": "grey", "size": "tall", "outfit": "smith", "clothes_color": "red"}},
+		{"name": "Nalu Perlenhammer", "look": {"race": "half_fish", "skin": "deep_blue", "hair_style": "spiky", "hair_color": "white", "eye_type": "narrow", "eye_color": "amber", "size": "normal", "outfit": "vest", "clothes_color": "blue"}},
+		{"name": "Caelir Funkenblatt", "look": {"race": "elf", "skin": "light", "hair_style": "short", "hair_color": "blonde", "eye_type": "big", "eye_color": "green", "size": "normal", "outfit": "smith", "clothes_color": "green"}},
+		{"name": "Hjalla Eisenhuf", "look": {"race": "beast_dog", "skin": "brown", "hair_style": "short", "hair_color": "brown", "eye_type": "normal", "eye_color": "brown", "size": "tall", "outfit": "smith", "clothes_color": "grey"}},
+		{"name": "Varga Rußauge", "look": {"race": "half_demon", "skin": "crimson", "hair_style": "long", "hair_color": "black", "eye_type": "glowing", "eye_color": "amber", "size": "normal", "outfit": "smith", "clothes_color": "purple"}},
+		{"name": "Mira Glutfaust", "look": {"race": "human", "skin": "brown", "hair_style": "ponytail", "hair_color": "black", "eye_type": "normal", "eye_color": "brown", "size": "normal", "outfit": "smith", "clothes_color": "red"}}
+	]
+}

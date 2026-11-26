@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/rock_data.gd" id="1_rock"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rocks/ruby_crystal.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_rock")
+display_name = "Rubinader"
+color = Color(0.75, 0.15, 0.18, 1)
+texture = ExtResource("2_texture")
+max_health = 25
+drop_item_id = "ruby"
+drop_amount = 1
+better_rarity_chance = 0.05
+spawn_weight = 1.0

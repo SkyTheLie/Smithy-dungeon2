@@ -1,0 +1,75 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="1_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_guest_room.png" id="2_elf_guest_ro"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="3_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_guest_room_mask.png" id="4_elf_guest_ro"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/bed.png" id="5_bed"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="6_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="8_door"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="9_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="10_hud"]
+
+[node name="ElfGuestRoom" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -40
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1320.0
+offset_bottom = 1240.0
+mouse_filter = 2
+color = Color(0.06, 0.09, 0.07, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("1_day_tint")
+strength = 0.6
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("2_elf_guest_ro")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource("3_cave_walls")
+mask = ExtResource("4_elf_guest_ro")
+
+[node name="Bed" parent="." instance=ExtResource("6_story_npc")]
+position = Vector2(78, 150)
+npc_id = "elf_guest_bed"
+figure_texture = ExtResource("5_bed")
+
+[node name="WakeNarrator" parent="." instance=ExtResource("6_story_npc")]
+position = Vector2(160, 140)
+npc_id = "elf_guest_narrator"
+narrator = true
+auto_talk = true
+talk_on_new_step = true
+talk_area_scale = Vector2(30, 30)
+
+[node name="DoorOut" parent="." instance=ExtResource("8_door")]
+position = Vector2(160, 236)
+target_scene = "res://scenes/world/elves/elf_canopy.tscn"
+target_spawn_point = &"FromGuestRoom"
+scale = Vector2(2, 1)
+
+[node name="Visual" parent="DoorOut"]
+visible = false
+
+[node name="FromCanopy" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(160, 196)
+
+[node name="Player" parent="." instance=ExtResource("9_player")]
+position = Vector2(160, 196)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -160
+limit_top = -60
+limit_right = 480
+limit_bottom = 300
+
+[node name="HUD" parent="." instance=ExtResource("10_hud")]
+
+[editable path="DoorOut"]
+[editable path="Player"]

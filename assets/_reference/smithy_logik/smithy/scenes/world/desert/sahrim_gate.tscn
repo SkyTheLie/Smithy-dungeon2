@@ -1,0 +1,337 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/sand_3.png" id="wp_themes_sand_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_8.png" id="wp_world_props_desert_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_17.png" id="wp_world_props_oasis_17"]
+[ext_resource type="Script" path="res://scenes/world/objects/critter.gd" id="wp_scenes_world_objects_critte"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_15.png" id="wp_world_props_oasis_15"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_11.png" id="wp_world_props_oasis_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_9.png" id="wp_world_props_oasis_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_8.png" id="wp_world_props_oasis_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_7.png" id="wp_world_props_oasis_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_3.png" id="wp_world_props_oasis_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_2.png" id="wp_world_props_oasis_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_1.png" id="wp_world_props_oasis_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_0.png" id="wp_world_props_oasis_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/sand_18.png" id="wp_world_props_desert_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_0.png" id="wp_world_props_desert_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_17.png" id="wp_world_props_desert_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_5.png" id="wp_world_props_desert_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_13.png" id="wp_world_props_desert_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_12.png" id="wp_world_props_desert_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_11.png" id="wp_world_props_desert_11"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_desert.tscn" id="lamp_desert"]
+[ext_resource type="Script" path="res://scenes/world/desert/sahrim_gate.gd" id="1_sahrim_gate"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sahrim_gate_ground.png" id="3_sahrim_gate_"]
+[ext_resource type="Texture2D" path="res://assets/sprites/buildings/sahrim_dome.png" id="4_sahrim_dome"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="5_door"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="7_night_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/palm_a.png" id="8_palm_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/palm_b.png" id="9_palm_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_a.png" id="10_cactus_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_a2.png" id="10_cactus_a2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_a3.png" id="10_cactus_a3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_a4.png" id="10_cactus_a4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_b.png" id="11_cactus_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_b2.png" id="11_cactus_b2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_b3.png" id="11_cactus_b3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_b4.png" id="11_cactus_b4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/stones_a.png" id="12_stones_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush.png" id="13_dry_bush"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush2.png" id="13_dry_bush2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush3.png" id="13_dry_bush3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush4.png" id="13_dry_bush4"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="14_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="15_hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/window_lights.gd" id="window_lights"]
+
+[sub_resource type="RectangleShape2D" id="Rect_840x16"]
+size = Vector2(840, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x600"]
+size = Vector2(16, 600)
+
+[sub_resource type="RectangleShape2D" id="Rect_800x16"]
+size = Vector2(800, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x560"]
+size = Vector2(16, 560)
+
+[sub_resource type="RectangleShape2D" id="Rect_616x240"]
+size = Vector2(720, 240)
+
+[sub_resource type="RectangleShape2D" id="Rect_12x6"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_27x6"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_16x6"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_15x6"]
+size = Vector2(15, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_20x6"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_29x6"]
+size = Vector2(29, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[node name="SahrimGate" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_sahrim_gate")
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("2_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-400, -380)
+texture = ExtResource("3_sahrim_gate_")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, -288)
+shape = SubResource("Rect_840x16")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, 288)
+shape = SubResource("Rect_840x16")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-408, 0)
+shape = SubResource("Rect_16x600")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(408, 0)
+shape = SubResource("Rect_16x600")
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="ExitSouth" type="Area2D" parent="Exits"]
+position = Vector2(0, 274)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/ExitSouth"]
+shape = SubResource("Rect_800x16")
+
+[node name="ExitEast" type="Area2D" parent="Exits"]
+position = Vector2(392, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/ExitEast"]
+shape = SubResource("Rect_16x560")
+
+[node name="Dome" type="StaticBody2D" parent="."]
+position = Vector2(0, -30)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dome"]
+texture = ExtResource("4_sahrim_dome")
+offset = Vector2(0, -160.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dome"]
+position = Vector2(0, -120)
+shape = SubResource("Rect_616x240")
+
+[node name="Gate" parent="." instance=ExtResource("5_door")]
+position = Vector2(0, -22)
+target_scene = "res://scenes/world/desert/desert_town.tscn"
+target_spawn_point = &"FromSouth"
+
+[node name="Visual" parent="Gate" index="0"]
+visible = false
+
+[node name="Decor" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="BrazierWest" parent="Decor" instance=ExtResource("lamp_desert")]
+position = Vector2(-45, -13)
+
+
+[node name="BrazierEast" parent="Decor" instance=ExtResource("lamp_desert")]
+position = Vector2(52, 83)
+facing = "south"
+
+[node name="PalmA" type="StaticBody2D" parent="Decor"]
+position = Vector2(-190, 30)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/PalmA"]
+texture = ExtResource("8_palm_a")
+offset = Vector2(0, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/PalmA"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_12x6")
+
+[node name="PalmB" type="StaticBody2D" parent="Decor"]
+position = Vector2(-150, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/PalmB"]
+texture = ExtResource("9_palm_b")
+offset = Vector2(0, -28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/PalmB"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_12x6")
+
+[node name="PalmC" type="StaticBody2D" parent="Decor"]
+position = Vector2(210, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/PalmC"]
+texture = ExtResource("9_palm_b")
+offset = Vector2(0, -28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/PalmC"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_12x6")
+
+[node name="CactusA" type="StaticBody2D" parent="Decor"]
+position = Vector2(-320, 170)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CactusA"]
+texture = ExtResource("10_cactus_a")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CactusA"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_12x6")
+
+[node name="CactusB" type="StaticBody2D" parent="Decor"]
+position = Vector2(300, 230)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CactusB"]
+texture = ExtResource("11_cactus_b")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CactusB"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_12x6")
+
+[node name="Stones" type="Sprite2D" parent="Decor"]
+position = Vector2(-120, 200)
+texture = ExtResource("12_stones_a")
+offset = Vector2(0, -12)
+
+[node name="Bush" type="Sprite2D" parent="Decor"]
+position = Vector2(150, 160)
+texture = ExtResource("13_dry_bush")
+offset = Vector2(0, -12)
+
+[node name="FromSouth" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 230)
+
+[node name="FromEast" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(350, 102)
+
+[node name="FromTown" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 14)
+
+[node name="PyramidSign" type="Label" parent="."]
+offset_left = -392.0
+offset_top = -30.0
+offset_right = -292.0
+offset_bottom = -18.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "« Zur Pyramide"
+
+[node name="ToPyramid" parent="." instance=ExtResource("5_door")]
+position = Vector2(-392, 0)
+scale = Vector2(1, 4)
+target_scene = "res://scenes/world/desert/sahrim_pyramid.tscn"
+target_spawn_point = &"FromGate"
+fade = true
+
+[node name="Visual" parent="ToPyramid" index="0"]
+visible = false
+
+[node name="FromPyramid" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-350, 0)
+
+[node name="Groups" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Groups"]
+position = Vector2(-150, 190)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P1"]
+texture = ExtResource("wp_world_props_desert_5")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P2" type="StaticBody2D" parent="Groups"]
+position = Vector2(-192, 182)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P2"]
+texture = ExtResource("wp_world_props_desert_8")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P3" type="StaticBody2D" parent="Groups"]
+position = Vector2(-110, 166)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P3"]
+texture = ExtResource("wp_world_props_oasis_3")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_29x6")
+
+[node name="P4" type="StaticBody2D" parent="Groups"]
+position = Vector2(250, 190)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P4"]
+texture = ExtResource("wp_themes_sand_3")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_29x6")
+
+[node name="Player" parent="." instance=ExtResource("14_player")]
+position = Vector2(0, 230)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -400
+limit_top = -380
+limit_right = 400
+limit_bottom = 280
+
+[node name="HUD" parent="." instance=ExtResource("15_hud")]
+
+[node name="WindowLights" type="Node" parent="."]
+script = ExtResource("window_lights")
+
+[editable path="Gate"]
+[editable path="Player"]
+[editable path="ToPyramid"]

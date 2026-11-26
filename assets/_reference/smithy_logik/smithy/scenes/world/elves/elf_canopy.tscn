@@ -1,0 +1,897 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_5.png" id="wp_world_props_grove_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_7.png" id="wp_world_props_grove_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_9.png" id="wp_world_props_grove_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_13.png" id="wp_world_props_grove_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_2.png" id="wp_world_props_grove_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_8.png" id="wp_world_props_grove_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_6.png" id="wp_world_props_elf_18"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_19.png" id="wp_world_props_elf_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_23.png" id="wp_world_props_elf_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_22.png" id="wp_world_props_elf_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_0.png" id="wp_world_props_elf_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_4.png" id="wp_world_props_elf_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_3.png" id="wp_world_props_elf_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_2.png" id="wp_world_props_elf_2"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_elf.tscn" id="lamp_elf"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="1_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_canopy.png" id="2_elf_canopy"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="3_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_canopy_mask.png" id="4_elf_canopy_m"]
+[ext_resource type="Script" path="res://scenes/world/volcano/depth_layer.gd" id="5_depth_layer"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_canopy_below.png" id="6_elf_canopy_b"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="Script" path="res://scenes/world/elves/elf_lift.gd" id="8_elf_lift"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="9_door"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_inn.png" id="10_elf_inn"]
+[ext_resource type="Script" path="res://scenes/stations/station.gd" id="11_station"]
+[ext_resource type="Script" path="res://scenes/world/volcano/goblin_figure.gd" id="12_goblin_figur"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_desk.png" id="13_guild_counte"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/inn_menu.tscn" id="14_inn_menu"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/dungeon_board.tscn" id="15_dungeon_boar"]
+[ext_resource type="PackedScene" path="res://scenes/actors/market_stall.tscn" id="17_market_stall"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="18_story_npc"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="19_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/raid_fire.png" id="20_raid_fire"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="21_sheet_animat"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="22_night_light"]
+[ext_resource type="Script" path="res://scenes/actors/zombie.gd" id="23_zombie"]
+[ext_resource type="Script" path="res://scenes/actors/raid_fighter.gd" id="24_raid_fighter"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="25_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="26_hud"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_stall_jewel.png" id="elf_stall_jewel"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/attack_root_1.png" id="c_root1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/attack_root_2.png" id="c_root2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/attack_root_3.png" id="c_root3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/attack_root_4.png" id="c_root4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/attack_root_5.png" id="c_root5"]
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_child"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "big"
+eye_color = "blue"
+size = "small"
+outfit = "tunic"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_fighter"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "tan"
+hair_style = "ponytail"
+hair_color = "brown"
+eye_type = "narrow"
+eye_color = "green"
+size = "normal"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_fighter2"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "short"
+hair_color = "black"
+eye_type = "normal"
+eye_color = "grey"
+size = "tall"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_innkeeper"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "brown"
+hair_style = "ponytail"
+hair_color = "white"
+eye_type = "normal"
+eye_color = "green"
+size = "normal"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_jeweller"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pale"
+hair_style = "short"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "normal"
+outfit = "vest"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_citizen_b"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "tan"
+hair_style = "short"
+hair_color = "brown"
+eye_type = "narrow"
+eye_color = "brown"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_citizen_d"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "brown"
+hair_style = "long"
+hair_color = "black"
+eye_type = "big"
+eye_color = "amber"
+size = "small"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="RectangleShape2D" id="Rect_84x14"]
+size = Vector2(84, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_156x14"]
+size = Vector2(156, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_110x34"]
+size = Vector2(110, 34)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_17x6"]
+size = Vector2(17, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_19x6"]
+size = Vector2(19, 6)
+
+[node name="ElfCanopy" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -40
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2120.0
+offset_bottom = 1640.0
+mouse_filter = 2
+color = Color(0.06, 0.09, 0.07, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("1_day_tint")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("2_elf_canopy")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource("3_cave_walls")
+mask = ExtResource("4_elf_canopy_m")
+
+[node name="Depth" type="Node2D" parent="."]
+z_index = -30
+script = ExtResource("5_depth_layer")
+factor = 0.55
+anchor = Vector2(560, 320)
+
+[node name="Below" type="Sprite2D" parent="Depth"]
+modulate = Color(0.7, 0.75, 0.72, 1)
+position = Vector2(-40, -80)
+texture = ExtResource("6_elf_canopy_b")
+centered = false
+
+[node name="LiftDown" type="StaticBody2D" parent="."]
+position = Vector2(600, 462)
+script = ExtResource("8_elf_lift")
+target_scene = "res://scenes/world/elves/elf_tree_hall.tscn"
+target_spawn_point = &"FromCanopyLift"
+text = "Hinunter zum Waldboden"
+closed_flag = "elf_attack_started"
+open_flag = "reached_crisis_council"
+closed_text = "Die Plattform rührt sich nicht. Dicke Wurzeln haben sie umschlungen."
+blocked_steps = PackedStringArray("elf_rest")
+blocked_text = "Es ist schon spät. Du solltest dich im Gasthaus Mondblatt schlafen legen, bevor du weiterziehst."
+
+[node name="FromGroveLift" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(600, 500)
+
+[node name="ExitNorth" parent="." instance=ExtResource("9_door")]
+position = Vector2(600, 8)
+target_scene = "res://scenes/world/elves/elf_canopy_top.tscn"
+target_spawn_point = &"FromSouth"
+scale = Vector2(2, 1)
+
+[node name="Visual" parent="ExitNorth" index="0"]
+visible = false
+
+[node name="ExitNorthWest" parent="." instance=ExtResource("9_door")]
+position = Vector2(236, 8)
+target_scene = "res://scenes/world/elves/elf_canopy_top.tscn"
+target_spawn_point = &"FromSouthWest"
+scale = Vector2(2, 1)
+blocked_flag = "elf_attack_started"
+unblocked_flag = "reached_crisis_council"
+blocked_text = "Überall Feuer und Untote. Erst muss der Älteste in Sicherheit sein."
+
+[node name="Visual" parent="ExitNorthWest" index="0"]
+visible = false
+
+[node name="ExitNorthEast" parent="." instance=ExtResource("9_door")]
+position = Vector2(880, 8)
+target_scene = "res://scenes/world/elves/elf_canopy_top.tscn"
+target_spawn_point = &"FromSouthEast"
+scale = Vector2(2, 1)
+blocked_flag = "elf_attack_started"
+unblocked_flag = "reached_crisis_council"
+blocked_text = "Überall Feuer und Untote. Erst muss der Älteste in Sicherheit sein."
+
+[node name="Visual" parent="ExitNorthEast" index="0"]
+visible = false
+
+[node name="ExitSouthWest" parent="." instance=ExtResource("9_door")]
+position = Vector2(475, 632)
+target_scene = "res://scenes/world/elves/elf_canopy_low.tscn"
+target_spawn_point = &"FromNorthWest"
+scale = Vector2(2, 1)
+blocked_flag = "elf_attack_started"
+unblocked_flag = "reached_crisis_council"
+blocked_text = "Überall Feuer und Untote. Erst muss der Älteste in Sicherheit sein."
+
+[node name="Visual" parent="ExitSouthWest" index="0"]
+visible = false
+
+[node name="ExitSouthEast" parent="." instance=ExtResource("9_door")]
+position = Vector2(754, 632)
+target_scene = "res://scenes/world/elves/elf_canopy_low.tscn"
+target_spawn_point = &"FromNorthEast"
+scale = Vector2(2, 1)
+blocked_flag = "elf_attack_started"
+unblocked_flag = "reached_crisis_council"
+blocked_text = "Überall Feuer und Untote. Erst muss der Älteste in Sicherheit sein."
+
+[node name="Visual" parent="ExitSouthEast" index="0"]
+visible = false
+
+[node name="FromNorth" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(600, 50)
+
+[node name="FromNorthWest" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(236, 50)
+
+[node name="FromNorthEast" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(880, 50)
+
+[node name="FromSouthWest" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(475, 590)
+
+[node name="FromSouthEast" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(754, 590)
+
+[node name="Buildings" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Inn" type="StaticBody2D" parent="Buildings"]
+position = Vector2(160, 186)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Inn"]
+texture = ExtResource("10_elf_inn")
+offset = Vector2(0, -54.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Inn"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_84x14")
+
+[node name="DoorGuestRoom" parent="." instance=ExtResource("9_door")]
+position = Vector2(160, 188)
+target_scene = "res://scenes/world/elves/elf_guest_room.tscn"
+target_spawn_point = &"FromCanopy"
+
+[node name="Visual" parent="DoorGuestRoom" index="0"]
+visible = false
+
+[node name="GuestSign" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 128.0
+offset_right = 220.0
+offset_bottom = 140.0
+text = "Gasthaus Mondblatt"
+horizontal_alignment = 1
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+
+[node name="FromGuestRoom" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(160, 218)
+
+[node name="InnDesk" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(300, 260)
+script = ExtResource("11_station")
+
+[node name="Keeper" type="Node2D" parent="InnDesk"]
+position = Vector2(0, -30)
+script = ExtResource("12_goblin_figur")
+appearance = SubResource("Look_innkeeper")
+resident = "elf_ithra"
+
+[node name="Sprite2D" type="Sprite2D" parent="InnDesk"]
+texture = ExtResource("13_guild_counte")
+offset = Vector2(0, -30)
+
+[node name="NameLabel" type="Label" parent="InnDesk"]
+z_index = 1
+offset_left = -70.0
+offset_top = -88.0
+offset_right = 70.0
+offset_bottom = -76.0
+text = "Wirtin Ithra: Zimmer"
+horizontal_alignment = 1
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnDesk"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_156x14")
+
+[node name="InteractionArea" type="Area2D" parent="InnDesk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnDesk/InteractionArea"]
+position = Vector2(0, 14)
+shape = SubResource("Rect_110x34")
+
+[node name="InnMenu" parent="InnDesk" instance=ExtResource("14_inn_menu")]
+inn_scene = "res://scenes/world/elves/elf_guest_room.tscn"
+room_spawn = &"FromCanopy"
+
+[node name="DungeonBoard" parent="Buildings" instance=ExtResource("15_dungeon_boar")]
+position = Vector2(820, 226)
+
+[node name="Lights" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Lantern1" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(87, 212)
+facing = "east"
+
+[node name="Lantern2" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(205, 229)
+
+
+
+[node name="Lantern3" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(387, 242)
+facing = "west"
+
+[node name="Lantern4" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(307, 354)
+facing = "north"
+
+[node name="Lantern5" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(541, 402)
+facing = "south"
+
+[node name="Lantern6" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(640, 558)
+facing = "north"
+
+[node name="Lantern7" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(790, 250)
+facing = "east"
+
+[node name="Lantern8" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(955, 330)
+facing = "north"
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Jeweller" parent="People" instance=ExtResource("17_market_stall")]
+position = Vector2(920, 236)
+stall_texture = ExtResource("elf_stall_jewel")
+merchant_name = "Steinsänger Thalor"
+appearance = SubResource("Look_jeweller")
+resident = "elf_thalor"
+greeting = "Jeder Stein singt, Mensch. Die meisten nur sehr langsam. Diese hier singen schon seit tausend Jahren."
+offers = Array[String]([])
+stock_id = "sylvaris_gems"
+
+[node name="CitizenA" type="Node2D" parent="People"]
+position = Vector2(230, 320)
+script = ExtResource("12_goblin_figur")
+appearance = SubResource("Look_citizen_b")
+resident = "elf_citizen_b"
+facing = "up"
+
+[node name="CitizenB" type="Node2D" parent="People"]
+position = Vector2(900, 290)
+script = ExtResource("12_goblin_figur")
+appearance = SubResource("Look_citizen_d")
+resident = "elf_citizen_d"
+facing = "left"
+
+[node name="AureliusStars" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(860, 292)
+npc_id = "magician"
+appearance = SubResource("Look_magician")
+resident = "aurelius"
+facing = "up"
+required_flag = "reached_elf_rest"
+hidden_when_flag = "elf_attack_started"
+
+[node name="FaelanWatch" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(668, 486)
+npc_id = "faelan"
+resident = "faelan"
+appearance = SubResource("Look_faelan")
+facing = "right"
+required_flag = "reached_elf_rest"
+hidden_when_flag = "elf_attack_started"
+
+[node name="LakeBridge" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(700, 300)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+facing = "right"
+required_flag = "reached_elf_rest"
+hidden_when_flag = "elf_attack_started"
+
+[node name="Nimeriel" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(330, 300)
+npc_id = "elf_child"
+resident = "elf_child"
+appearance = SubResource("Look_child")
+required_flag = "reached_elf_arrival"
+hidden_when_flag = "elf_attack_started"
+
+[node name="Soldier" parent="People" instance=ExtResource("18_story_npc")]
+position = Vector2(548, 452)
+npc_id = "leon_soldier"
+resident = "leon_soldier_b"
+required_flag = "elf_defenses"
+hidden_when_flag = "elf_attack_started"
+
+[node name="Attack" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("19_story_prop")
+required_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+
+[node name="Root1" type="Sprite2D" parent="Attack"]
+position = Vector2(449, 460)
+texture = ExtResource("c_root1")
+offset = Vector2(0, -31.5)
+
+[node name="Root2" type="Sprite2D" parent="Attack"]
+position = Vector2(727, 470)
+texture = ExtResource("c_root2")
+offset = Vector2(0, -31)
+
+[node name="Root3" type="Sprite2D" parent="Attack"]
+position = Vector2(88, 270)
+texture = ExtResource("c_root3")
+offset = Vector2(0, -30)
+
+[node name="Root4" type="Sprite2D" parent="Attack"]
+position = Vector2(988, 300)
+texture = ExtResource("c_root4")
+offset = Vector2(0, -31)
+
+[node name="Root5" type="Sprite2D" parent="Attack"]
+position = Vector2(337, 366)
+texture = ExtResource("c_root5")
+offset = Vector2(0, -31)
+
+[node name="Fire1" type="Sprite2D" parent="Attack"]
+position = Vector2(120, 200)
+texture = ExtResource("20_raid_fire")
+offset = Vector2(0, -55)
+hframes = 7
+script = ExtResource("21_sheet_animat")
+frames_per_second = 10.0
+
+[node name="Light" parent="Attack/Fire1" instance=ExtResource("22_night_light")]
+position = Vector2(0, -40)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.6
+flicker = 0.25
+
+[node name="Fire2" type="Sprite2D" parent="Attack"]
+position = Vector2(290, 300)
+texture = ExtResource("20_raid_fire")
+offset = Vector2(0, -55)
+hframes = 7
+script = ExtResource("21_sheet_animat")
+frames_per_second = 10.0
+
+[node name="Light" parent="Attack/Fire2" instance=ExtResource("22_night_light")]
+position = Vector2(0, -40)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.6
+flicker = 0.25
+
+[node name="Fire3" type="Sprite2D" parent="Attack"]
+position = Vector2(900, 230)
+texture = ExtResource("20_raid_fire")
+offset = Vector2(0, -55)
+hframes = 7
+script = ExtResource("21_sheet_animat")
+frames_per_second = 10.0
+
+[node name="Light" parent="Attack/Fire3" instance=ExtResource("22_night_light")]
+position = Vector2(0, -40)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.6
+flicker = 0.25
+
+[node name="Fire4" type="Sprite2D" parent="Attack"]
+position = Vector2(560, 430)
+texture = ExtResource("20_raid_fire")
+offset = Vector2(0, -55)
+hframes = 7
+script = ExtResource("21_sheet_animat")
+frames_per_second = 10.0
+
+[node name="Light" parent="Attack/Fire4" instance=ExtResource("22_night_light")]
+position = Vector2(0, -40)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.6
+flicker = 0.25
+
+[node name="Zombie1" type="CharacterBody2D" parent="Attack"]
+position = Vector2(560, 486)
+script = ExtResource("23_zombie")
+wander_radius = 30.0
+
+[node name="Zombie2" type="CharacterBody2D" parent="Attack"]
+position = Vector2(650, 462)
+script = ExtResource("23_zombie")
+wander_radius = 30.0
+
+[node name="Zombie3" type="CharacterBody2D" parent="Attack"]
+position = Vector2(200, 260)
+script = ExtResource("23_zombie")
+wander_radius = 30.0
+
+[node name="Zombie4" type="CharacterBody2D" parent="Attack"]
+position = Vector2(270, 300)
+script = ExtResource("23_zombie")
+wander_radius = 30.0
+
+[node name="Zombie5" type="CharacterBody2D" parent="Attack"]
+position = Vector2(850, 262)
+script = ExtResource("23_zombie")
+wander_radius = 30.0
+
+[node name="Zombie6" type="CharacterBody2D" parent="Attack"]
+position = Vector2(930, 268)
+script = ExtResource("23_zombie")
+wander_radius = 30.0
+
+[node name="FighterElfA" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(586, 494)
+script = ExtResource("24_raid_fighter")
+target = NodePath("../Attack/Zombie1")
+start_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+appearance = SubResource("Look_fighter")
+resident = "elf_fighter_a"
+
+[node name="FighterSoldierA" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(676, 470)
+script = ExtResource("24_raid_fighter")
+target = NodePath("../Attack/Zombie2")
+start_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+resident = "city_guard"
+
+[node name="FighterElfB" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(226, 268)
+script = ExtResource("24_raid_fighter")
+target = NodePath("../Attack/Zombie3")
+start_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+appearance = SubResource("Look_fighter2")
+resident = "elf_fighter_b"
+
+[node name="FighterSoldierB" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(296, 308)
+script = ExtResource("24_raid_fighter")
+target = NodePath("../Attack/Zombie4")
+start_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+resident = "city_guard"
+
+[node name="FighterElfC" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(876, 270)
+script = ExtResource("24_raid_fighter")
+target = NodePath("../Attack/Zombie5")
+start_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+appearance = SubResource("Look_fighter")
+resident = "elf_fighter_c"
+
+[node name="FighterElfD" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(956, 276)
+script = ExtResource("24_raid_fighter")
+target = NodePath("../Attack/Zombie6")
+start_flag = "elf_attack_started"
+hidden_when_flag = "reached_crisis_council"
+appearance = SubResource("Look_fighter2")
+resident = "elf_fighter_d"
+
+[node name="AureliusFight" parent="." instance=ExtResource("18_story_npc")]
+position = Vector2(660, 496)
+npc_id = "magician"
+appearance = SubResource("Look_magician")
+resident = "aurelius"
+required_flag = "elf_attack_started"
+hidden_when_flag = "reached_elf_attack_summit"
+auto_talk = true
+talk_on_new_step = true
+talk_area_scale = Vector2(20, 20)
+
+[node name="Deck" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Deck"]
+position = Vector2(531, 564)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P1"]
+texture = ExtResource("wp_world_props_elf_2")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P2" type="StaticBody2D" parent="Deck"]
+position = Vector2(668, 554)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P2"]
+texture = ExtResource("wp_world_props_elf_3")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P3" type="StaticBody2D" parent="Deck"]
+position = Vector2(256, 218)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P3"]
+texture = ExtResource("wp_world_props_elf_4")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P4" type="StaticBody2D" parent="Deck"]
+position = Vector2(960, 215)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P4"]
+texture = ExtResource("wp_world_props_elf_14")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_24x6")
+
+[node name="P5" type="StaticBody2D" parent="Deck"]
+position = Vector2(170, 145)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P5"]
+texture = ExtResource("wp_world_props_elf_22")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P6" type="StaticBody2D" parent="Deck"]
+position = Vector2(708, 412)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P6"]
+texture = ExtResource("wp_world_props_elf_23")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P7" type="StaticBody2D" parent="Deck"]
+position = Vector2(158, 309)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P7"]
+texture = ExtResource("wp_world_props_elf_19")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P7"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P8" type="StaticBody2D" parent="Deck"]
+position = Vector2(525, 578)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P8"]
+texture = ExtResource("wp_world_props_elf_18")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P8"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P9" type="StaticBody2D" parent="Deck"]
+position = Vector2(110, 260)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P9"]
+texture = ExtResource("wp_world_props_grove_8")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P9"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P10" type="StaticBody2D" parent="Deck"]
+position = Vector2(360, 210)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P10"]
+texture = ExtResource("wp_world_props_grove_2")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P10"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P11" type="StaticBody2D" parent="Deck"]
+position = Vector2(262, 356)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P11"]
+texture = ExtResource("wp_world_props_grove_13")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P11"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P12" type="StaticBody2D" parent="Deck"]
+position = Vector2(470, 470)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P12"]
+texture = ExtResource("wp_world_props_grove_9")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P12"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_21x6")
+
+[node name="P13" type="StaticBody2D" parent="Deck"]
+position = Vector2(770, 520)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P13"]
+texture = ExtResource("wp_world_props_grove_2")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P13"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P14" type="StaticBody2D" parent="Deck"]
+position = Vector2(716, 436)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P14"]
+texture = ExtResource("wp_world_props_grove_7")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P14"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P15" type="StaticBody2D" parent="Deck"]
+position = Vector2(1000, 280)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P15"]
+texture = ExtResource("wp_world_props_grove_13")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P15"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P16" type="StaticBody2D" parent="Deck"]
+position = Vector2(800, 322)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P16"]
+texture = ExtResource("wp_world_props_grove_5")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P16"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_19x6")
+
+[node name="Player" parent="." instance=ExtResource("25_player")]
+position = Vector2(600, 500)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 1120
+limit_bottom = 640
+
+[node name="HUD" parent="." instance=ExtResource("26_hud")]
+
+[connection signal="body_entered" from="InnDesk/InteractionArea" to="InnDesk" method="_on_interaction_area_body_entered"]
+
+[connection signal="body_exited" from="InnDesk/InteractionArea" to="InnDesk" method="_on_interaction_area_body_exited"]
+
+[connection signal="interacted" from="InnDesk" to="InnDesk/InnMenu" method="toggle"]
+
+[connection signal="player_left" from="InnDesk" to="InnDesk/InnMenu" method="close"]
+
+[editable path="ExitNorth"]
+[editable path="ExitNorthWest"]
+[editable path="ExitNorthEast"]
+[editable path="ExitSouthWest"]
+[editable path="ExitSouthEast"]
+[editable path="DoorGuestRoom"]
+[editable path="Player"]

@@ -1,0 +1,538 @@
+{
+	"_hilfe": {
+		"info": "Die Geschichte: Intro-Texte, Story-Schritte (Aufgabe im Auftragsbuch), Dialoge, Tipps und Story-Figuren. Alle Felder: docs/CONTENT.md, Abschnitt story.json. Die frühere story.json ist dieser Ordner: general.json, steps.json, npcs.json, hints.json, side.json und die Dialoge je Gebiet in dialogues/; das Spiel fügt alle Dateien zusammen. Dieser Block wird vom Spiel ignoriert.",
+		"platzhalter": "In Texten: {name} = Name des Spielers, {rent} = Miete, {rent_day} = Tag der nächsten Miete, {gold} = Gold des Spielers. {shop_gold} = was Nina zuletzt ausgezahlt hat. {weekday} = heutiger Wochentag; {first_order_gold} = was Ulrich für das erste Schwert gezahlt hat; {rent_day} ist ein Datum (z. B. \"Mo, 8. Frühling\").",
+		"sprecher": "In Dialogen: \"speaker\": \"player\" = der Spieler, \"\" = Erzähler/Schild, sonst die id einer Figur aus \"npcs\".",
+		"aktionen": "on_end / choices.action, mehrere mit ; getrennt: accept_quest:<id> (data/quests/<id>.tres), unlock_recipes:<id>,<id>, set_flag:<flag>, advance:<schritt>, hint:<tipp>, außerdem read_rent_sign und rent_smithy (Miete). set_time:<stunde> (Uhr vorstellen), hire_hero:<id> (data/heroes/<id>.tres, kostenlos), donate_gold:<menge> (so viel Gold verschenken, höchstens alles).  has_items:<liste> (prüft, ob der Spieler das hat, auch angelegte Werkzeuge; Liste wie \"coal*5,pickaxe:copper_pickaxe_head+wooden_shaft\"), take_items:<liste> (nimmt es weg, sonst false), give_gold:<menge>, collect_shop_gold (Nina zahlt aus; false = nichts verkauft). pay_rent (zahlt die Miete an Oma Hilde, false = zu wenig Gold), set_rent:<gold> (neue Miete), story_order:<npc-id>,<item>,<seltenheit>,<tage> (ein Auftrag dieser Figur, z. B. \"first_customer,sword:copper_blade+copper_handle,R2,3\"; läuft nicht ab, Abgabe setzt das Flag order_done_<npc-id>). unlock_molds:<gussform-ids> (Gussformen freischalten, mit Amboss-Rezept und den Werkbank-Rezepten, die dadurch herstellbar werden). cutscene:<id> (etwas in der Szene läuft von allein, z. B. beim Goblinkönig; in der Dialogzeile mit \"wait\" kombinieren).",
+		"schritte": "Ein Schritt endet über eine Aktion (advance), über progress_flags (alle gesetzt -> next), über quest_ready (Gegenstand für die Quest im Inventar -> next) oder quest_done (Quest abgegeben -> next). Mit jedem Schritt wird das Flag reached_<schritt> gesetzt. Weitere Bedingungen: have_item (z. B. \"sword:copper_blade+copper_handle\" im Inventar), hero_armed (Held hat eine Waffe in der rechten Hand). events: Ereignis -> nächster Schritt; Ereignisse: sleep, enter:<szenen-dateiname>, adventure_started, adventure_won, adventure_lost. on_start: Aktionen beim Start des Schritts. Kapitel 4: shop_display (z. B. \"sword*2:R1,sword*1:R2\": so viele Teile mit mindestens dieser Seltenheit liegen in Ninas Laden aus), shop_sold (so viele Teile hat Nina verkauft), shop_goal (z. B. \"sword*3\": so viele Schwerter hat Nina insgesamt verkauft; das Auftragsbuch zeigt verkauft x/3 und wie viele gerade ausliegen), show_items (Liste wie bei take_items, das Auftragsbuch zeigt, wie viele der Spieler hat). Ereignis rent_due: am Morgen, an dem die erste Miete fällig ist (danach kassiert Oma Hilde von selbst). hero_level: ein Held hat mindestens dieses Level (z. B. 5). Ereignisse adventure_won:<dungeon-id> / adventure_lost:<dungeon-id> gelten nur für diesen Dungeon (Vorrang vor adventure_won). wait_days: der Schritt endet so viele Tage nach seinem Beginn (z. B. 4: Aurelius taucht erst nach 4 Tagen wieder auf), mit next. shopping (Einkaufsliste der ersten Schritte bis zum Kupferset, im Auftragsbuch und im Aufgaben-Tracker): [{\"name\", \"where\" (Händler), \"flag\" (abgehakt, sobald gesetzt) oder \"items\" (abgehakt, sobald im Inventar, Liste wie show_items)}]. Ein Schritt mit quest_ready/quest_done übernimmt die Quest: sie steht nicht extra unter Aufträge, ihr Gegenstand erscheint als Ziel der Story-Aufgabe.",
+		"side_dialogues": "Nebendialoge außerhalb der Schritte: npc, flag (muss gesetzt sein), done_flag (setzt der Dialog, danach ist er vorbei), dialogue. Vorrang: Dialog des aktuellen Schritts, dann Nebendialog, dann default.",
+		"skip_recipes": "skip_recipes: Rezepte, die man beim Überspringen der Story bekommt (GameState.SKIP_TITLE_SCREEN). legacy_recipes: Rezepte, die früher ab Spielstart bekannt waren; Spielstände von davor und das Überspringen der Story bekommen sie dazu. Ein neues Spiel kennt keine Rezepte.",
+		"side_tasks": "Neben-Aufgaben neben den Schritten (Auftragsbuch unter Nebenquests): title, text, start_flag (ab da läuft sie), done_flag (danach erledigt). Mit set_items ({\"weapon\": \"Waffe\", \"helmet\": \"Helm\", ...}) und set_material (z. B. \"copper\"): sobald der Spieler von jedem Typ ein Teil mit diesem Metall hat (Inventar oder an einem Helden), wird complete_flag gesetzt und on_complete ausgeführt; complete_text steht dann im Auftragsbuch. todo: abhakbare Liste [{\"items\": \"chamomile\"} (zählt wie show_items) oder {\"name\", \"flag\"} (abgehakt, sobald gesetzt)]; ist ein späterer Punkt erledigt, gelten alle davor auch als erledigt.",
+		"item_actions": "item_actions: Item-id -> Aktionen, sobald so ein Item im Inventar oder in der Lagertruhe liegt (z. B. der erste Bronzebarren). Wird ständig geprüft, also nur set_flag und hint benutzen.",
+		"recipe_actions": "recipe_actions: Rezept-id -> Aktionen, sobald das Rezept bekannt ist (z. B. erste Rüstungs-Gussform; eine id mit * am Ende passt auf alle, die so anfangen, z. B. mold_bronze_*). Laufen nach jedem neuen Rezept und beim Laden erneut, also nur set_flag, hint und unlock_recipes benutzen (z. B. bekommen alte Spielstände mit der Kupferaxt-Gussform die Holzfälleraxt dazu).",
+		"intro_hints": "intro_hints: Tipps (ids aus hints), die in den Einstellungen unter „Einleitung“ immer stehen, in dieser Reihenfolge; alle anderen Tipps erscheinen dort erst, wenn sie im Spiel schon gezeigt wurden. purchase_hints: Kauf (wie bei purchase_flags, z. B. station:water_trough) -> Tipp, der danach einmal erscheint.",
+		"renamed_steps": "renamed_steps: alte Schritt-id -> neue (Spielstände, die an einem entfernten Schritt stehen, z. B. dem alten \"Fortsetzung folgt\" chapter5_done, machen dort weiter).",
+		"daily_rewards": "daily_rewards: Geschenke, die jeden Morgen in die Loot-Kiste kommen, solange flag gesetzt ist und until (optional) noch nicht: item, amount (z. B. Gustavs Kohle: 1 nach der Kupferspitzhacke, 3 nach der Eisenspitzhacke). Belohnungen aus Aufträgen (Holgers Holz) stehen dagegen in der Quest (QuestReward DAILY_ITEM).",
+		"ending": "ending: Abspann nach dem Ende der Geschichte (Aktion show_ending): pages wie intro, die Seite \"{stats}\" zeigt stats_title und die Zahlen aus stats (value: days, gold, heroes oder ein Zähler der Erfolge wie forge, order, dungeon). Danach laufen die Aktionen aus then (z. B. sleep_at).",
+		"future_flags": "future_flags: Flag -> erster Schritt, an dem ein Spielstand es haben kann; steht der Spielstand davor (z. B. nach einem Kapitel-Sprung zurück), wird es beim Laden und beim Sprung gelöscht. Für Flags, die Cutscene-Skripte setzen (der Kapitel-Sprung kennt sie nicht).",
+		"implied_flags": "implied_flags: Flag -> Flags, die beim Laden dazukommen (alte Spielstände, z. B. wer schon nach dem Wiederaufbau war, trifft den Baumeister ab sofort am Markt)."
+	},
+	"start": {
+		"scene": "res://scenes/world/village/village_center.tscn",
+		"spawn": "Start",
+		"walk_in_from": "FromSouth",
+		"step": "find_smithy",
+		"gold": 800,
+		"clock_stops_until": "reached_go_to_sleep",
+		"clock_stops_at_hour": 18
+	},
+	"skip_flags": [
+		"axe_quest_accepted",
+		"bought_copper",
+		"bruno_for_hire",
+		"calendar_owned",
+		"cobweb_anvil",
+		"cobweb_forge",
+		"cobweb_smelter",
+		"cobweb_workbench",
+		"first_rent_paid",
+		"loot_chest_unlocked",
+		"mine_expanded",
+		"nina_met",
+		"nina_shop_unlocked",
+		"order_board_unlocked",
+		"pickaxe_quest_accepted",
+		"rat_cellar_deep_unlocked",
+		"rat_nest_unlocked",
+		"read_rent_sign",
+		"regular_customers",
+		"smithy_rented",
+		"station_enchanting_table",
+		"station_grindstone",
+		"station_polishing_table",
+		"station_tanning_rack",
+		"station_water_trough",
+		"teleporter_unlocked",
+		"traveler_told",
+		"reached_meet_mayor",
+		"builder_weekly",
+		"teleporter_home_built",
+		"teleporter_forest_built",
+		"gold_molds_unlocked",
+		"tournament_open",
+		"elf_route_open"
+	],
+	"intro": [
+		"Vor vielen Jahren lebte in diesem Dorf ein Schmied, dessen Klingen man in allen Königreichen kannte.",
+		"Eines Tages verschwand er spurlos. Sein Schmiedefeuer erlosch, und niemand weiß, was aus ihm geworden ist.",
+		"Seitdem sucht das Dorf einen neuen Meisterschmied. Viele Schmiede sind gekommen und wetteifern um den Titel.",
+		"Du, {name}, hast den legendären Schmied als Kind bewundert. Seitdem wolltest du nur eines: selbst Schmied werden.",
+		"Jahrelang hast du gearbeitet und gespart. Mit {gold} Gold in der Tasche kommst du heute ins Dorf, auf der Suche nach einer eigenen Schmiede."
+	],
+	"ending": {
+		"pages": [
+			"Das Tor am Altar der Neun ist geschlossen. Es bleibt tausend Jahre zu.",
+			"Lake wacht am Altar. Er bittet um nichts und spricht wenig. Die Finsterstadt hat wieder eine Fürstin. Nyra öffnet die Tore, zum ersten Mal seit Jahrhunderten.",
+			"Leonheim hat keinen König mehr. Hauptmann Bertold und Thora führen die Stadt, bis jemand den Thron freiwillig will. Bisher will ihn niemand.",
+			"Die Elfen bauen ihre Kronen neu. In Eisquell singt die Mauer wieder. In Sahrim erzählt man sich am Quellplatz von einem Südling mit leuchtenden Händen.",
+			"Im Dorf treibt der Lebensbaum wieder aus. Halvard wohnt in einem kleinen Haus am Markt.",
+			"Vor vielen Jahren wurde in diesem Dorf die Esse eines Schmieds kalt. Jetzt brennt sie wieder.",
+			"{stats}",
+			"-- Smithy --\nThe Crystals of the Nine\n\nAnton Guliyev & Marvin Schwartz\nSchwayev GdR\n\nDanke fürs Spielen."
+		],
+		"stats_title": "Die Geschichte von {name}",
+		"stats": [
+			{"text": "Tage im Dorf: {value}", "value": "days"},
+			{"text": "Geschmiedet: {value}", "value": "forge"},
+			{"text": "Aufträge erledigt: {value}", "value": "order"},
+			{"text": "Helden: {value}", "value": "heroes"},
+			{"text": "Dungeons geschafft: {value}", "value": "dungeon"},
+			{"text": "Gold: {value}", "value": "gold"}
+		],
+		"then": "sleep_at:res://scenes/world/smithy/bedroom.tscn,InBed"
+	},
+	"skip_recipes": [
+		"mold_copper_lumber_axe_head",
+		"copper_lumber_axe_head",
+		"lumber_axe",
+		"leather_cloak",
+		"mold_copper_axe_head",
+		"copper_axe_head",
+		"wooden_shaft",
+		"axe",
+		"mold_copper_pickaxe_head",
+		"copper_pickaxe_head",
+		"pickaxe"
+	],
+	"legacy_recipes": [
+		"sword",
+		"two_handed_sword",
+		"dagger",
+		"polearm",
+		"hammer",
+		"mace",
+		"two_handed_axe",
+		"shield",
+		"iron_blade",
+		"iron_handle",
+		"iron_axe_head",
+		"copper_greatsword_blade",
+		"iron_greatsword_blade",
+		"copper_dagger_blade",
+		"iron_dagger_blade",
+		"copper_spear_head",
+		"iron_spear_head",
+		"copper_hammer_head",
+		"iron_hammer_head",
+		"copper_mace_head",
+		"iron_mace_head",
+		"copper_greataxe_head",
+		"iron_greataxe_head",
+		"copper_shield_plate",
+		"iron_shield_plate"
+	],
+	"purchase_flags": {
+		"copper_ore": "bought_copper",
+		"copper_ingot": "bought_copper"
+	},
+	"recipe_actions": {
+		"mold_bronze_*": "set_flag:bronze_found;hint:bronze_found",
+		"mold_copper_axe_head": "unlock_recipes:mold_copper_lumber_axe_head,copper_lumber_axe_head,lumber_axe",
+		"mold_copper_chest_plate": "set_flag:armor_mold_found;hint:armor_mold;unlock_recipes:leather_cloak",
+		"mold_copper_helmet_plate": "set_flag:armor_mold_found;hint:armor_mold;unlock_recipes:leather_cloak",
+		"mold_copper_shoulder_plate": "set_flag:armor_mold_found;hint:armor_mold;unlock_recipes:leather_cloak",
+		"mold_copper_boot_plate": "set_flag:armor_mold_found;hint:armor_mold;unlock_recipes:leather_cloak",
+		"mold_copper_leg_plate": "set_flag:armor_mold_found;hint:armor_mold;unlock_recipes:leather_cloak",
+		"mold_copper_glove_plate": "set_flag:armor_mold_found;hint:armor_mold;unlock_recipes:leather_cloak",
+		"goblin_crown": "unlock_recipes:goblin_crown_cast",
+		"sun_seal": "unlock_recipes:sun_seal_cast",
+		"moon_seal": "unlock_recipes:moon_seal_cast",
+		"storm_seal": "unlock_recipes:storm_seal_cast",
+		"lightning_rod": "unlock_recipes:lightning_rod_cast",
+		"harpoon_tip": "unlock_molds:mold_harpoon_tip",
+		"ice_mirror": "unlock_molds:mold_ice_mirror",
+		"finster_lockpick": "unlock_molds:mold_finster_lockpick",
+		"climbing_hook": "unlock_molds:mold_climbing_hook",
+		"mold_gold_compass_case": "set_flag:compass_mold_case",
+		"mold_iron_compass_needle": "set_flag:compass_mold_needle",
+		"mold_silver_compass_rose": "set_flag:compass_mold_rose",
+		"mold_bronze_compass_lid": "set_flag:compass_mold_lid"
+	},
+	"station_hints": {
+		"_hilfe": "Tipp beim ersten Benutzen einer Station (Station.get_first_use_hint), nach Guide-ID. Händler zeigen immer den Tipp merchants.",
+		"station:smelter": "smelter",
+		"station:forge": "forge",
+		"station:anvil": "anvil",
+		"station:workbench": "workbench",
+		"station:enchanting_table": "tutorial_staff"
+	},
+	"tutorials": {
+		"_info": "Lehrgänge: Station für Station goldenes Leuchten beim ersten Mal (Guide). start und done = Bedingungen wie bei guide.if, hint = Tipp beim Start, guide = Stufen wie bei einem Schritt. Läuft nur, solange der aktuelle Schritt kein eigenes guide hat. Flags tutorial_<id> und tutorial_<id>_done.",
+		"leather_armor": {
+			"start": "flag:armor_mold_found",
+			"done": "has:chest_armor|has:helmet|has:shoulder_armor|has:boots|has:leg_armor|has:gloves",
+			"hint": "tutorial_leather_armor",
+			"guide": [
+				{
+					"if": "part:leather,part:chest_plate|part:helmet_plate|part:shoulder_plate|part:boot_plate|part:leg_plate|part:glove_plate",
+					"show": [
+						"station:workbench",
+						{
+							"target": "recipe:chest_armor",
+							"if": "part:chest_plate"
+						},
+						{
+							"target": "recipe:helmet",
+							"if": "part:helmet_plate"
+						},
+						{
+							"target": "recipe:shoulder_armor",
+							"if": "part:shoulder_plate"
+						},
+						{
+							"target": "recipe:boots",
+							"if": "part:boot_plate"
+						},
+						{
+							"target": "recipe:leg_armor",
+							"if": "part:leg_plate"
+						},
+						{
+							"target": "recipe:gloves",
+							"if": "part:glove_plate"
+						}
+					]
+				},
+				{
+					"if": "!part:leather,flag:station_tanning_rack,has:*_fur|has:dragon_hide",
+					"show": [
+						"station:tanning_rack",
+						"tanning:slot",
+						"inv:*_fur",
+						"inv:dragon_hide"
+					]
+				},
+				{
+					"if": "!part:leather,!flag:station_tanning_rack,has:*_fur|has:dragon_hide",
+					"show": [
+						"buy:station:tanning_rack"
+					]
+				},
+				{
+					"if": "trough_busy",
+					"show": [
+						"station:water_trough",
+						"trough:slot"
+					]
+				},
+				{
+					"if": "hot:*_plate",
+					"show": [
+						"station:water_trough",
+						"trough:slot",
+						"inv:*_plate"
+					]
+				},
+				{
+					"if": "has:hot_*_plate_blank",
+					"show": [
+						"station:anvil",
+						"recipe:*_chest_plate",
+						"recipe:*_helmet_plate",
+						"recipe:*_shoulder_plate",
+						"recipe:*_boot_plate",
+						"recipe:*_leg_plate",
+						"recipe:*_glove_plate"
+					]
+				},
+				{
+					"if": "has:*_ingot",
+					"show": [
+						"station:forge",
+						"recipe:mold_*_chest_plate",
+						"recipe:mold_*_helmet_plate",
+						"recipe:mold_*_shoulder_plate",
+						"recipe:mold_*_boot_plate",
+						"recipe:mold_*_leg_plate",
+						"recipe:mold_*_glove_plate"
+					]
+				}
+			]
+		},
+		"bow": {
+			"start": "flag:station_bow_table",
+			"done": "has:arrows",
+			"hint": "tutorial_bow",
+			"guide": [
+				{
+					"if": "has:*_arrow_tip,has:*_arrow_shaft,has:feather|has:harpy_feather",
+					"show": [
+						"station:bow_table",
+						"recipe:arrows"
+					]
+				},
+				{
+					"if": "has:bow|has:longbow",
+					"show": [
+						"station:bow_table",
+						{
+							"target": "recipe:wooden_arrow_tip",
+							"if": "!has:*_arrow_tip"
+						},
+						{
+							"target": "recipe:wooden_arrow_shaft",
+							"if": "!has:*_arrow_shaft"
+						}
+					]
+				},
+				{
+					"if": "has:*_bow_frame|has:*_longbow_frame",
+					"show": [
+						"station:bow_table",
+						{
+							"target": "recipe:bow",
+							"if": "has:*_bow_frame"
+						},
+						{
+							"target": "recipe:longbow",
+							"if": "has:*_longbow_frame"
+						}
+					]
+				},
+				{
+					"show": [
+						"station:bow_table",
+						"recipe:wooden_bow_frame"
+					]
+				}
+			]
+		},
+		"staff": {
+			"start": "flag:station_enchanting_table",
+			"done": "weapon:staff",
+			"guide": [
+				{
+					"if": "cold:*_staff_rod",
+					"show": [
+						"station:enchanting_table",
+						"recipe:*_staff_fire"
+					]
+				},
+				{
+					"if": "trough_busy",
+					"show": [
+						"station:water_trough",
+						"trough:slot"
+					]
+				},
+				{
+					"if": "hot:*_staff_rod",
+					"show": [
+						"station:water_trough",
+						"trough:slot",
+						"inv:*_staff_rod"
+					]
+				},
+				{
+					"if": "has:hot_*_staff_rod_blank",
+					"show": [
+						"station:anvil",
+						"recipe:*_staff_rod"
+					]
+				},
+				{
+					"show": [
+						"station:enchanting_table",
+						"recipe:wooden_staff"
+					]
+				}
+			]
+		}
+	},
+	"item_actions": {
+		"bronze_ingot": "set_flag:bronze_found;hint:bronze_found",
+		"moon_lily_seed": "hint:planting",
+		"desert_compass": "set_flag:desert_compass_built;hint:desert_compass"
+	},
+	"overnight": [
+		{
+			"if": [
+				"hall_of_fame_paid"
+			],
+			"set": "hall_of_fame_built",
+			"text": "Konrad und seine Leute haben über Nacht die Ruhmeshalle hinter deinem Schlafzimmer gebaut. Die neue Tür ist links neben dem Fenster."
+		},
+		{
+			"if": [
+				"hagen_armor_paid"
+			],
+			"set": "knight_orders_unlocked",
+			"text": "Hagen hat Wort gehalten: Ritter Edmund von der Stadtwache kommt ab heute mit Aufträgen zu deiner Schmiede. Nicht jeder ist schwer, aber die schweren lohnen sich, besonders mit den Extras, die er sich wünscht."
+		},
+		{
+			"if": [
+				"deep_mine_deal_done"
+			],
+			"set": "deep_mine_open",
+			"text": "Gustav hat die ganze Nacht Geröll geschleppt. Der verschüttete Stollen neben dem Mineneingang ist offen."
+		},
+		{
+			"if": [
+				"old_mine_deal_done"
+			],
+			"set": "old_mine_open",
+			"text": "Gustav hat über Nacht den Gang hinter dem Rattenloch abgestützt. Durch das Loch in der Mine geht es jetzt in die nächste Ebene."
+		},
+		{
+			"if": [
+				"nina_expansion_ready",
+				"reached_festival_rumors"
+			],
+			"set": "nina_expansion_visit"
+		},
+		{
+			"if": [
+				"greenhouse_paid"
+			],
+			"set": "greenhouse_built",
+			"hint": "greenhouse_pot",
+			"text": "Über Nacht hat Konrad links neben deiner Schmiede das Gewächshaus gebaut. Der Zaun steht jetzt weiter im Westen."
+		},
+		{
+			"if": [
+				"raid_over"
+			],
+			"set": "raid_watch_done",
+			"text": "Du hast die ganze Nacht Wache gehalten. Lotte schläft noch tief und fest."
+		},
+		{
+			"if": [
+				"rebuild_delivered"
+			],
+			"set": "village_rebuilt",
+			"text": "Die ganze Nacht hat man vom Marktplatz Hämmern und Sägen gehört."
+		}
+	],
+	"daily_rewards": [
+		{
+			"flag": "reached_chapter4_done",
+			"until": "old_mine_deal_done",
+			"item": "coal",
+			"amount": 1
+		},
+		{
+			"flag": "old_mine_deal_done",
+			"item": "coal",
+			"amount": 3
+		},
+		{"flag": "goblin_fed", "item": "iron_ore", "amount": 1}
+	],
+	"villagers_away": [
+		{
+			"from": "festival_started",
+			"until": "festival_over"
+		},
+		{
+			"from": "raid_started",
+			"until": "raid_over"
+		}
+	],
+	"future_flags": {
+		"mine_hole_boarded": "after_rat_fight",
+		"raid_bruno_charges": "raid_market",
+		"king_at_tablet": "altar_lake",
+		"gate_cracked": "altar_lake",
+		"lake_challenge_met": "altar_lake",
+		"altar_awakened": "altar_west",
+		"altar_battle_started": "altar_west",
+		"lake_redeemed": "final_forge",
+		"king_possessed": "forge_true_setting",
+		"king_fell": "ending_night",
+		"gate_sealed": "ending_night",
+		"altar_crystal_out_dark": "ending_night",
+		"altar_crystal_out_light": "ending_night",
+		"altar_crystal_out_poison": "ending_night",
+		"altar_crystal_out_lightning": "ending_night",
+		"altar_crystal_out_fire": "ending_night",
+		"altar_crystal_out_ice": "ending_night",
+		"altar_crystal_out_wind": "ending_night",
+		"altar_crystal_out_water": "ending_night",
+		"altar_crystal_out_earth": "ending_night"
+	},
+	"implied_flags": {
+		"altar_warden_met": ["altar_outskirts_seen"],
+		"old_mine_found": ["bruno_left_mine", "mine_hole_boarded"],
+		"reached_raid_rescue": ["raid_bruno_charges"],
+		"king_fell": ["king_possessed", "lake_redeemed", "king_at_tablet", "lake_challenge_met"],
+		"king_possessed": ["lake_redeemed", "king_at_tablet", "lake_challenge_met"],
+		"lake_redeemed": ["king_at_tablet", "lake_challenge_met"],
+		"goblin_mine_open": [
+			"goblin_crowd_parted"
+		],
+		"goblin_castle_path_open": [
+			"goblin_king_crowned"
+		],
+		"reached_finster_wanted": [
+			"reached_finster_gate"
+		],
+		"reached_part7_end": [
+			"nyra_unhooded"
+		],
+		"reached_raid_wake": [
+			"reached_go_to_sleep"
+		],
+		"reached_rebuild_gather": [
+			"reached_meet_mayor"
+		],
+		"reached_chapter11_end": [
+			"reached_meet_mayor",
+			"builder_weekly"
+		],
+		"greenhouse_built": [
+			"greenhouse_paid"
+		],
+		"hall_of_fame_built": [
+			"hall_of_fame_paid"
+		],
+		"guild_level_2": [
+			"guild_upgrade_2_heard"
+		],
+		"guild_level_3": [
+			"guild_upgrade_3_heard"
+		],
+		"teleporter_unlocked": [
+			"teleporter_home_built",
+			"teleporter_forest_built"
+		],
+		"reached_forest_mage": [
+			"greenhouse_offer",
+			"carriage_allowed"
+		],
+		"potion_made": [
+			"iq_potion_made",
+			"iq_potion_used"
+		],
+		"dragon_gone": [
+			"goblin_castle_fallen"
+		],
+		"desert_town_found": [
+			"desert_open"
+		],
+		"reached_to_desert": [
+			"desert_open",
+			"gold_molds_unlocked"
+		],
+		"reached_to_city_guild": [
+			"iron_unlocked"
+		],
+		"reached_elf_arrival": [
+			"silver_molds_offered"
+		],
+		"storm_map_owned": [
+			"map_piece_4"
+		],
+		"dark_road_open": [
+			"map_piece_5"
+		]
+	}
+}

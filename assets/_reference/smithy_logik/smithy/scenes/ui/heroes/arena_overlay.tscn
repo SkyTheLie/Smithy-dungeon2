@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/heroes/arena_overlay.gd" id="1_overlay"]
+[ext_resource type="PackedScene" path="res://scenes/ui/heroes/arena_fighter_panel.tscn" id="2_panel"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/slot_hints/equip_armor.png" id="3_icon"]
+
+[sub_resource type="StyleBoxFlat" id="Style_banner"]
+content_margin_left = 10.0
+content_margin_top = 3.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.07, 0.06, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.82, 0.3, 0.8)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="ArenaOverlay" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_overlay")
+
+[node name="HeroBoard" parent="." instance=ExtResource("2_panel")]
+unique_name_in_owner = true
+visible = false
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 138.0
+offset_bottom = 186.0
+
+[node name="RivalBoard" parent="." instance=ExtResource("2_panel")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -138.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = 186.0
+grow_horizontal = 0
+
+[node name="GearButton" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = 22.0
+offset_right = -6.0
+offset_bottom = 42.0
+grow_horizontal = 0
+focus_mode = 0
+tooltip_text = "Ausrüstung der Kämpfer zeigen oder ausblenden"
+toggle_mode = true
+text = "Ausrüstung"
+icon = ExtResource("3_icon")
+
+[node name="Banner" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -26.0
+offset_right = 100.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Style_banner")
+
+[node name="BannerLabel" type="Label" parent="Banner"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
+horizontal_alignment = 1

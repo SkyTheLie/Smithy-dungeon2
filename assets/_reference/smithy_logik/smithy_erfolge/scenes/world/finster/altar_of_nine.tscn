@@ -1,0 +1,971 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/finster/altar_king_cutscene.gd" id="92_king_cut"]
+[ext_resource type="Script" path="res://scenes/world/finster/altar_battle_cutscene.gd" id="95_battle_cut"]
+[ext_resource type="Script" path="res://scenes/world/finster/altar_elements.gd" id="96_elements"]
+[ext_resource type="Script" path="res://scenes/world/objects/skirmish_group.gd" id="97_skirmish"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/altar_shadow_lord.png" id="99_boss_west"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/altar_hellhound.png" id="100_boss_south"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/altar_champion.png" id="101_boss_east"]
+[ext_resource type="Script" path="res://scenes/world/finster/altar_seal_cutscene.gd" id="94_seal_cut"]
+[ext_resource type="Texture2D" path="res://assets/sprites/altar/king_glove.png" id="93_king_glove"]
+[ext_resource type="Script" path="res://scenes/world/finster/altar_lake_cutscene.gd" id="91_lake_cut"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="3_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/altar_of_nine_ground.png" id="4_altar_of_nin"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="5_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/altar_of_nine_mask.png" id="6_altar_of_nin"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/altar/pillar.png" id="8_pillar"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_texture.gd" id="9_story_textur"]
+[ext_resource type="Texture2D" path="res://assets/sprites/altar/pillar_lit.png" id="10_pillar_lit"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="11_night_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/altar/first_anvil.png" id="12_first_anvil"]
+[ext_resource type="PackedScene" path="res://scenes/stations/anvil.tscn" id="13_anvil"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="14_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/altar/gate.png" id="15_gate"]
+[ext_resource type="Texture2D" path="res://assets/sprites/altar/gate_anim.png" id="gate_anim"]
+[ext_resource type="Script" path="res://scenes/world/finster/altar_gate_cutscene.gd" id="gate_cut"]
+[ext_resource type="Texture2D" path="res://assets/sprites/altar/gate_open.png" id="16_gate_open"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="17_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/king.png" id="18_king"]
+[ext_resource type="Script" path="res://scenes/stations/story_station.gd" id="19_story_statio"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/war_table.png" id="20_war_table"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/dungeon_board_menu.tscn" id="21_dungeon_boar"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="22_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="23_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/crafting_menu.tscn" id="90_anvil_menu"]
+[ext_resource type="Script" path="res://scenes/world/finster/altar_crystal_setting.gd" id="89_crystal_setting"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/crystal_setting_menu.tscn" id="88_crystal_menu"]
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_dark_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "pale"
+hair_style = "short"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_lizard"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_warden"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "ash"
+eye_type = "glowing"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_warden2"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "slate"
+eye_type = "glowing"
+eye_color = "green"
+hair_style = "spiky"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_halvard"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "tan"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "smith"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_nyra"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "violet"
+hair_style = "long"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_corvin"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "ash"
+hair_style = "bald"
+eye_type = "sleepy"
+eye_color = "grey"
+size = "tall"
+outfit = "vest"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_elder"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pale"
+hair_style = "long"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "grey"
+size = "tall"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_ssarok"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "olive"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="RectangleShape2D" id="Rect_setting"]
+size = Vector2(64, 48)
+
+[sub_resource type="RectangleShape2D" id="Rect_20x8"]
+size = Vector2(20, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_60x10"]
+size = Vector2(60, 10)
+
+[sub_resource type="RectangleShape2D" id="Rect_170x10"]
+size = Vector2(170, 10)
+
+[sub_resource type="RectangleShape2D" id="Rect_war_table"]
+size = Vector2(76, 46)
+
+[sub_resource type="RectangleShape2D" id="Rect_80x50"]
+size = Vector2(80, 50)
+
+[sub_resource type="RectangleShape2D" id="Rect_boss"]
+size = Vector2(90, 60)
+
+[node name="AltarOfNine" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+color = Color(0.58, 0.55, 0.72, 1)
+script = ExtResource("3_gloom")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("4_altar_of_nin")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-512, -384)
+script = ExtResource("5_cave_walls")
+mask = ExtResource("6_altar_of_nin")
+
+[node name="Stones" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Pillar1" type="StaticBody2D" parent="Stones"]
+position = Vector2(0, 144)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stones/Pillar1"]
+texture = ExtResource("8_pillar")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones/Pillar1"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="NightLight" parent="Stones/Pillar1" instance=ExtResource("11_night_light")]
+position = Vector2(0, -40)
+color = Color(0.5, 0.75, 1, 1)
+
+[node name="Pillar2" type="StaticBody2D" parent="Stones"]
+position = Vector2(-141, 108)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stones/Pillar2"]
+texture = ExtResource("8_pillar")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones/Pillar2"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="NightLight" parent="Stones/Pillar2" instance=ExtResource("11_night_light")]
+position = Vector2(0, -40)
+color = Color(0.5, 0.75, 1, 1)
+
+[node name="Pillar3" type="StaticBody2D" parent="Stones"]
+position = Vector2(-228, 13)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stones/Pillar3"]
+texture = ExtResource("8_pillar")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones/Pillar3"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="NightLight" parent="Stones/Pillar3" instance=ExtResource("11_night_light")]
+position = Vector2(0, -40)
+color = Color(0.5, 0.75, 1, 1)
+
+[node name="Pillar4" type="StaticBody2D" parent="Stones"]
+position = Vector2(-228, -105)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stones/Pillar4"]
+texture = ExtResource("8_pillar")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones/Pillar4"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="NightLight" parent="Stones/Pillar4" instance=ExtResource("11_night_light")]
+position = Vector2(0, -40)
+color = Color(0.5, 0.75, 1, 1)
+
+[node name="Pillar5" type="StaticBody2D" parent="Stones"]
+position = Vector2(-141, -200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stones/Pillar5"]
+texture = ExtResource("8_pillar")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones/Pillar5"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="NightLight" parent="Stones/Pillar5" instance=ExtResource("11_night_light")]
+position = Vector2(0, -40)
+color = Color(0.5, 0.75, 1, 1)
+
+[node name="Pillar6" type="StaticBody2D" parent="Stones"]
+position = Vector2(141, -200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stones/Pillar6"]
+texture = ExtResource("8_pillar")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones/Pillar6"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="NightLight" parent="Stones/Pillar6" instance=ExtResource("11_night_light")]
+position = Vector2(0, -40)
+color = Color(0.5, 0.75, 1, 1)
+
+[node name="Pillar7" type="StaticBody2D" parent="Stones"]
+position = Vector2(228, -105)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stones/Pillar7"]
+texture = ExtResource("8_pillar")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones/Pillar7"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="NightLight" parent="Stones/Pillar7" instance=ExtResource("11_night_light")]
+position = Vector2(0, -40)
+color = Color(0.5, 0.75, 1, 1)
+
+[node name="Pillar8" type="StaticBody2D" parent="Stones"]
+position = Vector2(228, 13)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stones/Pillar8"]
+texture = ExtResource("8_pillar")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones/Pillar8"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="NightLight" parent="Stones/Pillar8" instance=ExtResource("11_night_light")]
+position = Vector2(0, -40)
+color = Color(0.5, 0.75, 1, 1)
+
+[node name="Pillar9" type="StaticBody2D" parent="Stones"]
+position = Vector2(141, 108)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stones/Pillar9"]
+texture = ExtResource("8_pillar")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones/Pillar9"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="NightLight" parent="Stones/Pillar9" instance=ExtResource("11_night_light")]
+position = Vector2(0, -40)
+color = Color(0.5, 0.75, 1, 1)
+
+[node name="FirstAnvil" type="StaticBody2D" parent="Stones"]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stones/FirstAnvil"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_60x10")
+
+[node name="Anvil" parent="Stones" instance=ExtResource("13_anvil")]
+position = Vector2(0, -30)
+usable_flag = "reached_forge_true_setting"
+
+[node name="Sprite2D" parent="Stones/Anvil" index="0"]
+position = Vector2(0, -20)
+texture = ExtResource("12_first_anvil")
+centered = true
+
+[node name="CollisionShape2D" parent="Stones/Anvil" index="1"]
+disabled = true
+
+[node name="Gate" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="GateClosed" type="Node2D" parent="Gate"]
+y_sort_enabled = true
+script = ExtResource("14_story_prop")
+hidden_when_flag = "gate_cracked"
+
+[node name="Sprite" type="StaticBody2D" parent="Gate/GateClosed"]
+position = Vector2(0, -252)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gate/GateClosed/Sprite"]
+texture = ExtResource("15_gate")
+offset = Vector2(0, -76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/GateClosed/Sprite"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_170x10")
+
+[node name="GateMoving" type="Sprite2D" parent="Gate"]
+z_index = 1
+position = Vector2(0, -252)
+texture = ExtResource("gate_anim")
+offset = Vector2(0, -76)
+hframes = 9
+script = ExtResource("gate_cut")
+
+[node name="GateCracked" type="Node2D" parent="Gate"]
+y_sort_enabled = true
+script = ExtResource("14_story_prop")
+required_flag = "gate_cracked"
+hidden_when_flag = "gate_sealed"
+
+[node name="Sprite" type="StaticBody2D" parent="Gate/GateCracked"]
+position = Vector2(0, -252)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gate/GateCracked/Sprite"]
+texture = ExtResource("16_gate_open")
+offset = Vector2(0, -76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/GateCracked/Sprite"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_170x10")
+
+[node name="GateSealed" type="Node2D" parent="Gate"]
+y_sort_enabled = true
+script = ExtResource("14_story_prop")
+required_flag = "gate_sealed"
+
+[node name="Sprite" type="StaticBody2D" parent="Gate/GateSealed"]
+position = Vector2(0, -252)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gate/GateSealed/Sprite"]
+texture = ExtResource("15_gate")
+offset = Vector2(0, -76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/GateSealed/Sprite"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_170x10")
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Aurelius" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(-110, 250)
+npc_id = "magician"
+appearance = SubResource("Look_magician")
+resident = "aurelius"
+facing = "up"
+required_flag = "reached_gate_opens"
+hidden_when_flag = "story_complete"
+vanish_on_leave = true
+arrive_path = PackedVector2Array(0, 384, 0, 330, -110, 300)
+
+[node name="Halvard" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(-50, 262)
+npc_id = "halvard"
+resident = "halvard"
+appearance = SubResource("Look_halvard")
+facing = "up"
+required_flag = "reached_gate_opens"
+hidden_when_flag = "story_complete"
+vanish_on_leave = true
+arrive_path = PackedVector2Array(0, 384, 0, 330, -50, 300)
+
+[node name="Nyra" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(10, 262)
+npc_id = "nyra"
+resident = "nyra"
+appearance = SubResource("Look_nyra")
+facing = "up"
+required_flag = "reached_gate_opens"
+hidden_when_flag = "story_complete"
+vanish_on_leave = true
+arrive_path = PackedVector2Array(0, 384, 0, 330, 10, 300)
+
+[node name="Kahn" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(70, 250)
+npc_id = "kahn"
+resident = "kahn"
+appearance = SubResource("Look_kahn")
+facing = "up"
+required_flag = "reached_gate_opens"
+hidden_when_flag = "story_complete"
+vanish_on_leave = true
+arrive_path = PackedVector2Array(0, 384, 0, 330, 70, 300)
+
+[node name="Torgai" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(120, 266)
+npc_id = "kahn_son"
+resident = "kahn_son"
+appearance = SubResource("Look_torgai")
+facing = "up"
+required_flag = "reached_gate_opens"
+hidden_when_flag = "story_complete"
+vanish_on_leave = true
+arrive_path = PackedVector2Array(0, 384, 0, 330, 120, 300)
+
+[node name="Faelan" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(-170, 262)
+npc_id = "faelan"
+resident = "faelan"
+appearance = SubResource("Look_faelan")
+facing = "up"
+required_flag = "reached_gate_opens"
+hidden_when_flag = "story_complete"
+vanish_on_leave = true
+arrive_path = PackedVector2Array(0, 384, 0, 330, -170, 300)
+
+[node name="Ssarok" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(180, 250)
+npc_id = "desert_lord"
+resident = "desert_lord"
+appearance = SubResource("Look_ssarok")
+facing = "up"
+required_flag = "reached_gate_opens"
+hidden_when_flag = "story_complete"
+vanish_on_leave = true
+arrive_path = PackedVector2Array(0, 384, 0, 330, 180, 300)
+
+[node name="Bertold" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(-230, 250)
+npc_id = "leon_captain"
+resident = "city_guard"
+facing = "up"
+required_flag = "reached_gate_opens"
+hidden_when_flag = "story_complete"
+vanish_on_leave = true
+arrive_path = PackedVector2Array(0, 384, 0, 330, -230, 300)
+
+[node name="KingAltar" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(0, -128)
+npc_id = "king"
+resident = "king"
+required_flag = "reached_gate_opens"
+hidden_when_flag = "king_at_tablet"
+vanish_on_leave = true
+
+[node name="KingTablet" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(0, -226)
+npc_id = "king"
+resident = "king"
+required_flag = "king_at_tablet"
+hidden_when_flag = "king_fell"
+vanish_on_leave = true
+
+[node name="DarkLake" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(36, -122)
+npc_id = "lake"
+appearance = SubResource("Look_dark_lake")
+resident = "lake_dark"
+required_flag = "reached_gate_opens"
+hidden_when_flag = "king_at_tablet"
+vanish_on_leave = true
+
+[node name="DarkLakeGuard" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(0, -196)
+npc_id = "lake"
+appearance = SubResource("Look_dark_lake")
+resident = "lake_dark"
+required_flag = "king_at_tablet"
+hidden_when_flag = "lake_redeemed"
+auto_talk = true
+wait_for_player = true
+silent_without_news = true
+talk_area_scale = Vector2(2.5, 2)
+
+[node name="Lake" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(0, -196)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+facing = "left"
+required_flag = "lake_redeemed"
+hidden_when_flag = "king_possessed"
+vanish_on_leave = true
+
+[node name="LakeHolding" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(0, -212)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+facing = "up"
+required_flag = "king_possessed"
+hidden_when_flag = "king_fell"
+vanish_on_leave = true
+
+[node name="LakeAfter" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(40, -190)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+facing = "down"
+required_flag = "king_fell"
+
+[node name="Narrator" parent="People" instance=ExtResource("17_story_npc")]
+position = Vector2(0, 200)
+npc_id = "altar_narrator"
+narrator = true
+auto_talk = true
+keep_dialogue_open = true
+talk_on_new_step = true
+talk_area_scale = Vector2(24, 18)
+
+[node name="Elements" type="Node2D" parent="."]
+script = ExtResource("96_elements")
+pillars = Array[NodePath]([NodePath("../Stones/Pillar1"), NodePath("../Stones/Pillar2"), NodePath("../Stones/Pillar3"), NodePath("../Stones/Pillar4"), NodePath("../Stones/Pillar5"), NodePath("../Stones/Pillar6"), NodePath("../Stones/Pillar7"), NodePath("../Stones/Pillar8"), NodePath("../Stones/Pillar9")])
+elements = PackedStringArray("dark", "light", "poison", "lightning", "fire", "ice", "wind", "water", "earth")
+altar = NodePath("../Stones/FirstAnvil")
+
+[node name="Battle" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Fight1" type="StaticBody2D" parent="Battle"]
+position = Vector2(-380, -170)
+script = ExtResource("97_skirmish")
+soldiers = PackedStringArray("elf_fighter_a", "elf_fighter_b")
+foes = PackedStringArray("shadow_spawn", "demon_hound", "shadow_spawn")
+required_flag = "altar_battle_started"
+hidden_when_flag = "gate_sealed"
+
+[node name="Fight2" type="StaticBody2D" parent="Battle"]
+position = Vector2(-400, -20)
+script = ExtResource("97_skirmish")
+soldiers = PackedStringArray("leon_soldier_a", "leon_soldier_b", "desert_guard")
+foes = PackedStringArray("dark_knight", "skeleton_knight", "demon_hound", "shadow_spawn")
+required_flag = "altar_battle_started"
+hidden_when_flag = "gate_sealed"
+
+[node name="Fight3" type="StaticBody2D" parent="Battle"]
+position = Vector2(-380, 150)
+script = ExtResource("97_skirmish")
+soldiers = PackedStringArray("water_guard")
+foes = PackedStringArray("demon_hound", "shadow_spawn")
+required_flag = "altar_battle_started"
+hidden_when_flag = "gate_sealed"
+
+[node name="Fight4" type="StaticBody2D" parent="Battle"]
+position = Vector2(-300, 290)
+script = ExtResource("97_skirmish")
+soldiers = PackedStringArray("goblin_guard")
+foes = PackedStringArray("skeleton_knight")
+required_flag = "altar_battle_started"
+hidden_when_flag = "gate_sealed"
+
+[node name="Fight5" type="StaticBody2D" parent="Battle"]
+position = Vector2(380, -170)
+script = ExtResource("97_skirmish")
+soldiers = PackedStringArray("lizard_brakk")
+foes = PackedStringArray("dark_knight", "demon_hound")
+required_flag = "altar_battle_started"
+hidden_when_flag = "gate_sealed"
+
+[node name="Fight6" type="StaticBody2D" parent="Battle"]
+position = Vector2(400, -20)
+script = ExtResource("97_skirmish")
+soldiers = PackedStringArray("elf_fighter_c", "water_guard", "leon_soldier_c")
+foes = PackedStringArray("shadow_spawn", "dark_knight", "skeleton_knight", "demon_hound")
+required_flag = "altar_battle_started"
+hidden_when_flag = "gate_sealed"
+
+[node name="Fight7" type="StaticBody2D" parent="Battle"]
+position = Vector2(380, 150)
+script = ExtResource("97_skirmish")
+soldiers = PackedStringArray("desert_guard", "goblin_guard")
+foes = PackedStringArray("dark_knight", "skeleton_knight")
+required_flag = "altar_battle_started"
+hidden_when_flag = "gate_sealed"
+
+[node name="Fight8" type="StaticBody2D" parent="Battle"]
+position = Vector2(300, 290)
+script = ExtResource("97_skirmish")
+soldiers = PackedStringArray("leon_soldier_a")
+foes = PackedStringArray("shadow_spawn")
+required_flag = "altar_battle_started"
+hidden_when_flag = "gate_sealed"
+
+[node name="BossWest" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("14_story_prop")
+required_flag = "reached_altar_west"
+hidden_when_flag = "reached_altar_south"
+
+[node name="Talk" parent="BossWest" instance=ExtResource("17_story_npc")]
+position = Vector2(-160, -20)
+npc_id = "altar_boss_west"
+figure_texture = ExtResource("99_boss_west")
+figure_scale = 2.0
+auto_talk = true
+wait_for_player = true
+keep_dialogue_open = true
+silent_without_news = true
+talk_area_scale = Vector2(2.5, 2)
+
+[node name="Fight" type="StaticBody2D" parent="BossWest"]
+position = Vector2(-160, -20)
+script = ExtResource("19_story_statio")
+open_flag = "altar_west_boss_met"
+close_flag = "reached_altar_south"
+
+[node name="InteractionArea" type="Area2D" parent="BossWest/Fight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossWest/Fight/InteractionArea"]
+position = Vector2(0, 10)
+shape = SubResource("Rect_boss")
+
+[node name="DungeonBoardMenu" parent="BossWest/Fight" instance=ExtResource("21_dungeon_boar")]
+only_dungeons = PackedStringArray("altar_west")
+
+[node name="BossSouth" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("14_story_prop")
+required_flag = "reached_altar_south"
+hidden_when_flag = "reached_altar_east"
+
+[node name="Talk" parent="BossSouth" instance=ExtResource("17_story_npc")]
+position = Vector2(0, 84)
+npc_id = "altar_boss_south"
+figure_texture = ExtResource("100_boss_south")
+figure_scale = 2.0
+auto_talk = true
+wait_for_player = true
+keep_dialogue_open = true
+silent_without_news = true
+talk_area_scale = Vector2(2.5, 2)
+
+[node name="Fight" type="StaticBody2D" parent="BossSouth"]
+position = Vector2(0, 84)
+script = ExtResource("19_story_statio")
+open_flag = "altar_south_boss_met"
+close_flag = "reached_altar_east"
+
+[node name="InteractionArea" type="Area2D" parent="BossSouth/Fight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossSouth/Fight/InteractionArea"]
+position = Vector2(0, 10)
+shape = SubResource("Rect_boss")
+
+[node name="DungeonBoardMenu" parent="BossSouth/Fight" instance=ExtResource("21_dungeon_boar")]
+only_dungeons = PackedStringArray("altar_south")
+
+[node name="BossEast" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("14_story_prop")
+required_flag = "reached_altar_east"
+hidden_when_flag = "reached_altar_lake"
+
+[node name="Talk" parent="BossEast" instance=ExtResource("17_story_npc")]
+position = Vector2(160, -20)
+npc_id = "altar_boss_east"
+figure_texture = ExtResource("101_boss_east")
+figure_scale = 2.0
+auto_talk = true
+wait_for_player = true
+keep_dialogue_open = true
+silent_without_news = true
+talk_area_scale = Vector2(2.5, 2)
+
+[node name="Fight" type="StaticBody2D" parent="BossEast"]
+position = Vector2(160, -20)
+script = ExtResource("19_story_statio")
+open_flag = "altar_east_boss_met"
+close_flag = "reached_altar_lake"
+
+[node name="InteractionArea" type="Area2D" parent="BossEast/Fight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossEast/Fight/InteractionArea"]
+position = Vector2(0, 10)
+shape = SubResource("Rect_boss")
+
+[node name="DungeonBoardMenu" parent="BossEast/Fight" instance=ExtResource("21_dungeon_boar")]
+only_dungeons = PackedStringArray("altar_east")
+
+[node name="LakeFight" type="StaticBody2D" parent="."]
+position = Vector2(0, -196)
+script = ExtResource("19_story_statio")
+open_flag = "lake_challenge_met"
+close_flag = "reached_lake_awakens"
+
+[node name="InteractionArea" type="Area2D" parent="LakeFight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LakeFight/InteractionArea"]
+position = Vector2(0, 10)
+shape = SubResource("Rect_boss")
+
+[node name="DungeonBoardMenu" parent="LakeFight" instance=ExtResource("21_dungeon_boar")]
+only_dungeons = PackedStringArray("altar_lake")
+
+[node name="CrystalSetting" type="StaticBody2D" parent="."]
+position = Vector2(0, -30)
+script = ExtResource("89_crystal_setting")
+guide_id = "station:altar_crystal_setting"
+
+[node name="InteractionArea" type="Area2D" parent="CrystalSetting"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrystalSetting/InteractionArea"]
+shape = SubResource("Rect_setting")
+
+[node name="AltarBattleCutscene" type="Node2D" parent="."]
+script = ExtResource("95_battle_cut")
+elements = NodePath("../Elements")
+altar = NodePath("../Stones/FirstAnvil")
+king_altar = NodePath("../People/KingAltar")
+king_tablet = NodePath("../People/KingTablet")
+dark_lake = NodePath("../People/DarkLake")
+lake = NodePath("../People/Lake")
+lake_holding = NodePath("../People/LakeHolding")
+battle = NodePath("../Battle")
+boss_west = NodePath("../BossWest")
+boss_south = NodePath("../BossSouth")
+boss_east = NodePath("../BossEast")
+entrance = NodePath("../FromOutskirts")
+narrator = NodePath("../People/Narrator")
+
+[node name="AltarLakeCutscene" type="Node2D" parent="."]
+script = ExtResource("91_lake_cut")
+dark_lake = NodePath("../People/DarkLakeGuard")
+lake = NodePath("../People/Lake")
+
+[node name="AltarSealCutscene" type="Node2D" parent="."]
+script = ExtResource("94_seal_cut")
+halvard = NodePath("../People/Halvard")
+pillars = Array[NodePath]([NodePath("../Stones/Pillar9"), NodePath("../Stones/Pillar7"), NodePath("../Stones/Pillar5"), NodePath("../Stones/Pillar8"), NodePath("../Stones/Pillar2"), NodePath("../Stones/Pillar1"), NodePath("../Stones/Pillar4"), NodePath("../Stones/Pillar3"), NodePath("../Stones/Pillar6")])
+gate = NodePath("../Gate/GateMoving")
+anvil = NodePath("../Stones/Anvil")
+
+[node name="AltarKingCutscene" type="Node2D" parent="."]
+script = ExtResource("92_king_cut")
+king = NodePath("../People/KingTablet")
+lake = NodePath("../People/LakeHolding")
+glove = NodePath("../KingGlove")
+
+[node name="KingGlove" type="Node2D" parent="."]
+position = Vector2(0, -226)
+script = ExtResource("14_story_prop")
+required_flag = "king_fell"
+hidden_when_flag = "story_complete"
+
+[node name="Sprite2D" type="Sprite2D" parent="KingGlove"]
+texture = ExtResource("93_king_glove")
+offset = Vector2(0, -6)
+
+[node name="ToOutskirts" parent="." instance=ExtResource("22_door")]
+position = Vector2(0, 380)
+target_scene = "res://scenes/world/finster/altar_outskirts.tscn"
+target_spawn_point = &"FromAltar"
+scale = Vector2(2.5, 1)
+
+[node name="Visual" parent="ToOutskirts" index="0"]
+visible = false
+
+[node name="FromOutskirts" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 336)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 336)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -512
+limit_top = -384
+limit_right = 512
+limit_bottom = 384
+
+[node name="AnvilMenu" parent="." instance=ExtResource("90_anvil_menu")]
+title = "Amboss"
+uses_categories = true
+station = &"anvil"
+uses_minigame = true
+only_with_ingredients = true
+
+[node name="CrystalSettingMenu" parent="." instance=ExtResource("88_crystal_menu")]
+elements_path = NodePath("../Elements")
+
+[node name="HUD" parent="." instance=ExtResource("23_hud")]
+
+[connection signal="interacted" from="Stones/Anvil" to="AnvilMenu" method="toggle"]
+[connection signal="player_left" from="Stones/Anvil" to="AnvilMenu" method="close"]
+[connection signal="body_entered" from="BossWest/Fight/InteractionArea" to="BossWest/Fight" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="BossWest/Fight/InteractionArea" to="BossWest/Fight" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="BossWest/Fight" to="BossWest/Fight/DungeonBoardMenu" method="toggle"]
+[connection signal="player_left" from="BossWest/Fight" to="BossWest/Fight/DungeonBoardMenu" method="close"]
+[connection signal="body_entered" from="BossSouth/Fight/InteractionArea" to="BossSouth/Fight" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="BossSouth/Fight/InteractionArea" to="BossSouth/Fight" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="BossSouth/Fight" to="BossSouth/Fight/DungeonBoardMenu" method="toggle"]
+[connection signal="player_left" from="BossSouth/Fight" to="BossSouth/Fight/DungeonBoardMenu" method="close"]
+[connection signal="body_entered" from="BossEast/Fight/InteractionArea" to="BossEast/Fight" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="BossEast/Fight/InteractionArea" to="BossEast/Fight" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="BossEast/Fight" to="BossEast/Fight/DungeonBoardMenu" method="toggle"]
+[connection signal="player_left" from="BossEast/Fight" to="BossEast/Fight/DungeonBoardMenu" method="close"]
+[connection signal="body_entered" from="LakeFight/InteractionArea" to="LakeFight" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="LakeFight/InteractionArea" to="LakeFight" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="LakeFight" to="LakeFight/DungeonBoardMenu" method="toggle"]
+[connection signal="player_left" from="LakeFight" to="LakeFight/DungeonBoardMenu" method="close"]
+[connection signal="body_entered" from="CrystalSetting/InteractionArea" to="CrystalSetting" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="CrystalSetting/InteractionArea" to="CrystalSetting" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="CrystalSetting" to="CrystalSettingMenu" method="toggle"]
+[connection signal="player_left" from="CrystalSetting" to="CrystalSettingMenu" method="close"]
+[editable path="ToOutskirts"]
+[editable path="Player"]

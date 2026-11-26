@@ -1,0 +1,226 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/bedroom.png" id="4_background"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/bed.tscn" id="5_bed"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/sleep_menu.tscn" id="6_sleep_menu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/nightstand.png" id="7_nightstand"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/chest.png" id="8_chest"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="9_day_tint"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="10_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/wall_calendar.tscn" id="20_calendar"]
+[ext_resource type="Script" path="res://scenes/world/objects/house_editor.gd" id="21_editor"]
+[ext_resource type="Script" path="res://scenes/world/objects/storage_chest.gd" id="23_storage"]
+[ext_resource type="Script" path="res://scenes/world/objects/recipe_book_stand.gd" id="25_book_stand"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/recipe_book.png" id="26_book"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/storage_menu.tscn" id="24_storage_menu"]
+[ext_resource type="Script" path="res://scenes/world/smithy/room_style_layer.gd" id="rs_layer"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="27_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/styles/door_oak.png" id="28_hall_door"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal"]
+size = Vector2(187, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical"]
+size = Vector2(16, 149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nightstand"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_book_interaction"]
+size = Vector2(20, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chest"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chest_interaction"]
+size = Vector2(52, 40)
+
+[node name="Bedroom" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-85, -74)
+texture = ExtResource("4_background")
+centered = false
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("9_day_tint")
+strength = 0.6
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="TopCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -34)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="BottomCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 75)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-85, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="RightCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(85, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Bed" parent="." instance=ExtResource("5_bed")]
+position = Vector2(-52, 18)
+
+[node name="InBed" type="Marker2D" parent="Bed" groups=["spawn_points"]]
+position = Vector2(24, -2)
+
+[node name="Nightstand" type="StaticBody2D" parent="."]
+position = Vector2(-26, -12)
+script = ExtResource("25_book_stand")
+
+[node name="Sprite2D" type="Sprite2D" parent="Nightstand"]
+position = Vector2(-8, -21)
+texture = ExtResource("7_nightstand")
+centered = false
+
+[node name="RecipeBook" type="Sprite2D" parent="Nightstand"]
+position = Vector2(-1, -16)
+texture = ExtResource("26_book")
+centered = false
+
+[node name="InteractionArea" type="Area2D" parent="Nightstand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nightstand/InteractionArea"]
+position = Vector2(12, 10)
+shape = SubResource("RectangleShape2D_book_interaction")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nightstand"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_nightstand")
+
+[node name="Chest" type="StaticBody2D" parent="."]
+position = Vector2(54, -6)
+script = ExtResource("23_storage")
+
+[node name="Sprite2D" type="Sprite2D" parent="Chest"]
+position = Vector2(-16, -23)
+texture = ExtResource("8_chest")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_chest")
+
+[node name="InteractionArea" type="Area2D" parent="Chest"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest/InteractionArea"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_chest_interaction")
+
+[node name="DoorToSmithy" parent="." instance=ExtResource("2_door")]
+position = Vector2(1, 71)
+target_scene = "res://scenes/world/smithy/smithy.tscn"
+target_spawn_point = &"FromBedroom"
+
+[node name="Visual" parent="DoorToSmithy" index="0"]
+visible = false
+
+[node name="FromSmithy" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(1, 50)
+
+[node name="OldChest" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(54, -2)
+npc_id = "old_chest"
+silent_without_news = true
+
+[node name="WallCalendar" parent="." instance=ExtResource("20_calendar")]
+position = Vector2(-45, -52)
+
+[node name="HouseEditor" type="Node2D" parent="."]
+script = ExtResource("21_editor")
+room = "bedroom"
+floor_rect = Rect2(-77, -26, 154, 97)
+movables = Array[NodePath]([NodePath("../Bed"), NodePath("../Nightstand"), NodePath("../Chest")])
+
+[node name="RaidNarrator" parent="." instance=ExtResource("10_story_npc")]
+npc_id = "raid_narrator"
+hidden_when_flag = "raid_woken"
+auto_talk = true
+talk_area_scale = Vector2(8, 8)
+narrator = true
+required_flag = "reached_raid_wake"
+
+[node name="EndingNarrator" parent="." instance=ExtResource("10_story_npc")]
+npc_id = "ending_narrator"
+hidden_when_flag = "ending_woken"
+auto_talk = true
+talk_area_scale = Vector2(8, 8)
+narrator = true
+required_flag = "reached_ending_morning"
+
+[node name="HallDoor" type="Node2D" parent="."]
+script = ExtResource("27_story_prop")
+required_flag = "hall_of_fame_built"
+
+[node name="Sprite2D" type="Sprite2D" parent="HallDoor"]
+z_index = -1
+position = Vector2(-20, -58)
+texture = ExtResource("28_hall_door")
+centered = false
+
+[node name="DoorToHall" parent="HallDoor" instance=ExtResource("2_door")]
+position = Vector2(-11, -30)
+target_scene = "res://scenes/world/smithy/hall_of_fame.tscn"
+target_spawn_point = &"FromBedroom"
+
+[node name="Visual" parent="HallDoor/DoorToHall" index="0"]
+visible = false
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-10, -12)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(1, 50)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="SleepMenu" parent="." instance=ExtResource("6_sleep_menu")]
+
+[node name="StorageMenu" parent="." instance=ExtResource("24_storage_menu")]
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="RoomStyle" type="Node2D" parent="Background"]
+script = ExtResource("rs_layer")
+room = "bedroom"
+floor_rect = Rect2(9, 49, 153, 91)
+wall_rect = Rect2(9, 1, 153, 47)
+door_rects = Array[Rect2]([])
+keep_rects = Array[Rect2]([Rect2(94, 6, 24, 33)])
+
+[connection signal="interacted" from="Bed" to="SleepMenu" method="toggle"]
+[connection signal="player_left" from="Bed" to="SleepMenu" method="close"]
+[connection signal="body_entered" from="Nightstand/InteractionArea" to="Nightstand" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Nightstand/InteractionArea" to="Nightstand" method="_on_interaction_area_body_exited"]
+[connection signal="body_entered" from="Chest/InteractionArea" to="Chest" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Chest/InteractionArea" to="Chest" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="Chest" to="StorageMenu" method="toggle"]
+[connection signal="player_left" from="Chest" to="StorageMenu" method="close"]
+
+[editable path="DoorToSmithy"]
+[editable path="HallDoor/DoorToHall"]
+[editable path="Player"]

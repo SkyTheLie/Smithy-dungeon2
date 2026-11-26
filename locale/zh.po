@@ -1,0 +1,1672 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh\n"
+
+msgid "%d Herzen"
+msgstr "%d颗心"
+
+msgid "Acht Bomben"
+msgstr "八枚炸弹"
+
+msgid "Alle Items abgelegt"
+msgstr "已丢弃所有物品"
+
+msgid "Alle Items ablegen"
+msgstr "丢弃所有物品"
+
+msgid "Alle Werte ein bisschen hoch"
+msgstr "所有属性略微提升"
+
+msgid "Alle paar Besiegten heilst du ein halbes Herz"
+msgstr "每击败几个敌人恢复半颗心"
+
+msgid "Alles im Laden kostet die Hälfte"
+msgstr "商店所有东西半价"
+
+msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
+msgstr "每发射击最后炸成四个火花"
+
+msgid "Amethyst"
+msgstr "紫水晶"
+
+msgid "Arena-Amulett"
+msgstr "竞技场护符"
+
+msgid "Arenaherz"
+msgstr "竞技场之心"
+
+msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
+msgstr "蓄力的巨型余烬撞击并爆炸"
+
+msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
+msgstr "蓄力后松开：巨大的火焰光束"
+
+msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
+msgstr "用斧头代替火球：沉重挥砍，敌人流血"
+
+msgid "Beenden"
+msgstr "退出"
+
+msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
+msgstr "命中时子弹炸成四颗火花"
+
+msgid "Bernstein"
+msgstr "琥珀"
+
+msgid "Besiege %d Gegner (%d / %d)"
+msgstr "击败%d个敌人（%d / %d）"
+
+msgid "Besiege: %s"
+msgstr "击败：%s"
+
+msgid "Besiegte Gegner: %d"
+msgstr "击败敌人：%d"
+
+msgid "Blasebalg"
+msgstr "风箱"
+
+msgid "Blutphiole"
+msgstr "血之瓶"
+
+msgid "Bogenschütze"
+msgstr "弓箭手"
+
+msgid "Bomben schießen beim Explodieren Feuerbälle"
+msgstr "炸弹爆炸时射出火球"
+
+msgid "Bomben zerplatzen in kleine Bomben"
+msgstr "炸弹会炸成小炸弹"
+
+msgid "Bombengürtel"
+msgstr "炸弹腰带"
+
+msgid "Brandöl"
+msgstr "燃油"
+
+msgid "Brennend und langsam: mehr Schaden"
+msgstr "燃烧又减速：伤害更高"
+
+msgid "Brennende, explodierende Schüsse"
+msgstr "燃烧并爆炸的射击"
+
+msgid "Brennende, langsame Gegner und zwei blaue Herzen"
+msgstr "敌人燃烧并减速，外加两颗蓝心"
+
+msgid "Bronzebogen"
+msgstr "青铜弓"
+
+msgid "Bronzeschild"
+msgstr "青铜盾"
+
+msgid "Brotkanone"
+msgstr "面包大炮"
+
+msgid "Brotregen"
+msgstr "面包雨"
+
+msgid "Bumerang-Haken"
+msgstr "回旋钩"
+
+msgid "Das kostet zu viel Leben"
+msgstr "这会消耗太多生命"
+
+msgid "Defensiv"
+msgstr "防御"
+
+msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
+msgstr "你的火球会摧毁敌人的子弹"
+
+msgid "Deine Items"
+msgstr "你的物品"
+
+msgid "Deine Schüsse verfolgen Gegner"
+msgstr "子弹会追踪敌人"
+
+msgid "Der Feuerstrahl biegt sich zum Gegner"
+msgstr "火焰光束会弯向敌人"
+
+msgid "Der Stein nimmt dein Opfer an"
+msgstr "石头接受了你的献祭"
+
+msgid "Der Weg nach unten ist frei!"
+msgstr "通往下层的路已打开！"
+
+msgid "Diamantherz"
+msgstr "钻石之心"
+
+msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
+msgstr "弓箭手的武器：蓄力后放箭，又远又强"
+
+msgid "Die Waffe des Kriegers: ein Schwertschwung trifft alle vor dir"
+msgstr "战士的武器：挥剑击中你前方的所有敌人"
+
+msgid "Die Waffe des Magiers: schießt Feuerbälle"
+msgstr "法师的武器：发射火球"
+
+msgid "Dietrich"
+msgstr "撬锁器"
+
+msgid "Doppelschuss"
+msgstr "双发"
+
+msgid "Dornenpanzer"
+msgstr "荆棘铠甲"
+
+msgid "Drachenatem"
+msgstr "龙息"
+
+msgid "Drachenhaut"
+msgstr "龙皮"
+
+msgid "Drachenleder"
+msgstr "龙皮革"
+
+msgid "Drachenmantel"
+msgstr "龙之斗篷"
+
+msgid "Drei Funken folgen dir und schießen"
+msgstr "三个火花跟随你并射击"
+
+msgid "Drei Schlüssel, Rabatt im Laden"
+msgstr "三把钥匙，商店打折"
+
+msgid "Drei blaue Herzen"
+msgstr "三颗蓝心"
+
+msgid "Drei blaue Herzen und manchmal ausweichen"
+msgstr "三颗蓝心，有时闪避"
+
+msgid "Dreifachschuss"
+msgstr "三连发"
+
+msgid "Dreizack-Rune"
+msgstr "三叉符文"
+
+msgid "Dreißig Münzen und zehn Schlüssel"
+msgstr "三十枚硬币和十把钥匙"
+
+msgid "Du bist gefallen"
+msgstr "你倒下了"
+
+msgid "Du brauchst einen Schlüssel"
+msgstr "你需要一把钥匙"
+
+msgid "Du hast den Dungeon bezwungen!"
+msgstr "你征服了地牢！"
+
+msgid "Du hast nicht genug Leben"
+msgstr "你的生命不够"
+
+msgid "Du läufst schneller"
+msgstr "移动更快"
+
+msgid "Du schießt Brotlaibe. Getroffene Gegner vergessen dich und rennen weg"
+msgstr "你发射面包。被击中的敌人会忘了你并逃跑"
+
+msgid "Du schießt auch nach hinten"
+msgstr "你也会向后射击"
+
+msgid "Du schießt schneller"
+msgstr "射速更快"
+
+msgid "Du wirfst Bomben statt Feuerbällen"
+msgstr "你投掷炸弹而不是火球"
+
+msgid "Du wirfst Wurfsterne, getroffene Gegner bluten"
+msgstr "你投掷飞镖，被击中的敌人流血"
+
+msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
+msgstr "你变大：更多心和伤害，更容易被击中"
+
+msgid "Du wirst kleiner und schneller"
+msgstr "你变小变快"
+
+msgid "Du wirst kleiner: schwerer zu treffen, schneller"
+msgstr "你缩小：更难被击中，更快"
+
+msgid "Du wirst viel größer und stärker, aber langsamer"
+msgstr "你变得更大更强，但更慢"
+
+msgid "Du wirst winzig und manchmal weichst du aus"
+msgstr "你变得极小，有时闪避"
+
+msgid "Dungeon der Glut"
+msgstr "余烬地牢"
+
+msgid "Dunkler Zauberstab"
+msgstr "暗之魔杖"
+
+msgid "Durch Gegner hindurch und von Wand zu Wand"
+msgstr "穿透敌人，在墙间来回弹射"
+
+msgid "Durch Steine, und manchmal fliehen Gegner"
+msgstr "穿过岩石，有时敌人会逃跑"
+
+msgid "Durchschlag, Abprallen und Zerplatzen"
+msgstr "穿透、反弹和爆裂"
+
+msgid "E: Bombe · Tab: Karte · Esc: Pause"
+msgstr "E：炸弹 · Tab：地图 · Esc：暂停"
+
+msgid "Ebene %d"
+msgstr "第%d层"
+
+msgid "Ebene: %d"
+msgstr "层数：%d"
+
+msgid "Effekte"
+msgstr "音效"
+
+msgid "Eigene Explosionen heilen dich"
+msgstr "自己的爆炸会治疗你"
+
+msgid "Ein Feuerball kreist um dich und blockt Schüsse"
+msgstr "一颗火球环绕着你并阻挡子弹"
+
+msgid "Ein Funke folgt dir und schießt"
+msgstr "一个火花跟随你并射击"
+
+msgid "Ein Funke und ein Glutmond"
+msgstr "一个火花和一颗余烬之月"
+
+msgid "Ein Funke und mehr Glück"
+msgstr "一个火花和更多幸运"
+
+msgid "Ein Glutpakt hat sich geöffnet"
+msgstr "余烬契约已开启"
+
+msgid "Ein Herz mehr"
+msgstr "多一颗心"
+
+msgid "Ein Herz mehr, Glück hoch"
+msgstr "多一颗心，幸运提升"
+
+msgid "Ein Herz mehr, Schaden hoch"
+msgstr "多一颗心，伤害提升"
+
+msgid "Ein Herz mehr, heilt dich ganz"
+msgstr "多一颗心，完全治愈"
+
+msgid "Ein Herz und ein blaues Herz"
+msgstr "一颗心和一颗蓝心"
+
+msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
+msgstr "一颗心、荆棘，爆炸不伤你"
+
+msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "一颗心、一枚硬币、一枚炸弹和一把钥匙"
+
+msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
+msgstr "一颗心、两颗蓝心，伤害提升"
+
+msgid "Ein Schrein hat sich geöffnet"
+msgstr "圣坛已开启"
+
+msgid "Ein Schuss mehr und mehr Schaden"
+msgstr "多一发射击，伤害更高"
+
+msgid "Ein Schuss mehr, aber schwächer"
+msgstr "多一发射击，但更弱"
+
+msgid "Ein blaues Herz und Dornen"
+msgstr "一颗蓝心和荆棘"
+
+msgid "Ein blaues Herz, Schaden hoch"
+msgstr "一颗蓝心，伤害提升"
+
+msgid "Ein blaues Herz, länger sicher nach Treffern"
+msgstr "一颗蓝心，受击后安全时间更长"
+
+msgid "Ein blaues Herz, schneller laufen"
+msgstr "一颗蓝心，移动更快"
+
+msgid "Ein geheimer Raum!"
+msgstr "一个秘密房间！"
+
+msgid "Ein zweites Leben"
+msgstr "第二条命"
+
+msgid "Ein zweites Leben und ein Funke"
+msgstr "第二条命和一个火花"
+
+msgid "Ein zweites Leben!"
+msgstr "第二条命！"
+
+msgid "Eine ganze Bäckerei auf einmal"
+msgstr "一次射出整间面包店"
+
+msgid "Einstellungen"
+msgstr "设置"
+
+msgid "Eisenhaut"
+msgstr "铁肤"
+
+msgid "Eisfeder"
+msgstr "冰羽"
+
+msgid "Eisspiegel"
+msgstr "冰镜"
+
+msgid "Eisstab"
+msgstr "冰杖"
+
+msgid "Elfenbrief"
+msgstr "精灵信笺"
+
+msgid "Entdecke %d Items (%d / %d)"
+msgstr "发现%d件物品（%d / %d）"
+
+msgid "Entdeckt: %d / %d"
+msgstr "已发现：%d / %d"
+
+msgid "Erdstab"
+msgstr "大地之杖"
+
+msgid "Erreiche Ebene %d"
+msgstr "到达第%d层"
+
+msgid "Erstglut"
+msgstr "初始余烬"
+
+msgid "Explosive Schüsse, langsamer schießen"
+msgstr "爆炸射击，射速变慢"
+
+msgid "Fahre mit der Maus über ein Item"
+msgstr "将鼠标悬停在物品上"
+
+msgid "Feenstaub"
+msgstr "仙尘"
+
+msgid "Feuerfester Bomber"
+msgstr "防火爆破手"
+
+msgid "Feuerhieb"
+msgstr "烈焰斩"
+
+msgid "Feuerkranz"
+msgstr "火焰花环"
+
+msgid "Feuerlanze"
+msgstr "火焰长枪"
+
+msgid "Feuerstab"
+msgstr "火杖"
+
+msgid "Feuerstrahl statt Feuerbällen: Maustaste halten"
+msgstr "火焰光束代替火球：按住鼠标键"
+
+msgid "Feuerwerk"
+msgstr "烟花"
+
+msgid "Flechtenleder"
+msgstr "地衣皮革"
+
+msgid "Flechtenmantel"
+msgstr "地衣斗篷"
+
+msgid "Fledermaus"
+msgstr "蝙蝠"
+
+msgid "Flipper"
+msgstr "弹珠台"
+
+msgid "Fluchskelett"
+msgstr "诅咒骷髅"
+
+msgid "Freigeschaltet: %s"
+msgstr "已解锁：%s"
+
+msgid "Frost und Feuer"
+msgstr "冰与火"
+
+msgid "Frostflechte"
+msgstr "霜地衣"
+
+msgid "Frostkristall"
+msgstr "霜之水晶"
+
+msgid "Frostmähne"
+msgstr "霜鬃"
+
+msgid "Funkenbüchse"
+msgstr "火花罐"
+
+msgid "Funkenfänger"
+msgstr "火花捕手"
+
+msgid "Funkenstein"
+msgstr "火花石"
+
+msgid "Fängt in jedem Raum den ersten Treffer ab"
+msgstr "在每个房间挡下第一次攻击"
+
+msgid "Fünf Bomben, und Explosionen tun dir nichts mehr"
+msgstr "五枚炸弹，爆炸不再伤害你"
+
+msgid "Fünf Münzen, drei Bomben, drei Schlüssel"
+msgstr "五枚硬币、三枚炸弹、三把钥匙"
+
+msgid "Fünf Schlüssel"
+msgstr "五把钥匙"
+
+msgid "Fünfzehn Münzen"
+msgstr "十五枚硬币"
+
+msgid "Gegabelter Stab"
+msgstr "分叉法杖"
+
+msgid "Gegner brennen, Schaden hoch"
+msgstr "敌人燃烧，伤害提升"
+
+msgid "Gegner werden langsamer, Reichweite hoch"
+msgstr "敌人减速，射程提升"
+
+msgid "Gegner, die dich berühren, nehmen Schaden"
+msgstr "碰到你的敌人会受伤"
+
+msgid "Geist"
+msgstr "幽灵"
+
+msgid "Geisterfürst"
+msgstr "幽灵领主"
+
+msgid "Geisterglas"
+msgstr "幽灵玻璃"
+
+msgid "Geisterstab"
+msgstr "幽灵之杖"
+
+msgid "Generalsklinge"
+msgstr "将军之刃"
+
+msgid "Geschafft!"
+msgstr "成功了！"
+
+msgid "Gesperrt"
+msgstr "未解锁"
+
+msgid "Gesprengte Fessel"
+msgstr "破碎镣铐"
+
+msgid "Getroffene Gegner brennen weiter"
+msgstr "被击中的敌人会持续燃烧"
+
+msgid "Getroffene Gegner fliehen vor dir"
+msgstr "被击中的敌人会逃离你"
+
+msgid "Getroffene Gegner frieren ein"
+msgstr "被击中的敌人会冻住"
+
+msgid "Getroffene Gegner frieren kurz ein"
+msgstr "被击中的敌人会短暂冻住"
+
+msgid "Getroffene Gegner torkeln herum"
+msgstr "被击中的敌人会东倒西歪"
+
+msgid "Getroffene Gegner werden langsam und vergiftet"
+msgstr "被击中的敌人会减速并中毒"
+
+msgid "Getroffene Gegner werden langsamer"
+msgstr "被击中的敌人会减速"
+
+msgid "Getroffene Gegner werden vergiftet"
+msgstr "被击中的敌人会中毒"
+
+msgid "Gewinne %d Runs"
+msgstr "通关%d次"
+
+msgid "Gewinne einen Run"
+msgstr "通关一次"
+
+msgid "Gewinne in unter %d Minuten"
+msgstr "在%d分钟内通关"
+
+msgid "Ghul"
+msgstr "食尸鬼"
+
+msgid "Giftratte"
+msgstr "毒鼠"
+
+msgid "Giftstab"
+msgstr "毒杖"
+
+msgid "Giftzahn"
+msgstr "毒牙"
+
+msgid "Glutkern"
+msgstr "余烬之核"
+
+msgid "Glutklinge"
+msgstr "余烬之刃"
+
+msgid "Glutmantel"
+msgstr "余烬斗篷"
+
+msgid "Glutmond"
+msgstr "余烬之月"
+
+msgid "Glutsammler"
+msgstr "聚火器"
+
+msgid "Glutschwert"
+msgstr "余烬之剑"
+
+msgid "Glutstab"
+msgstr "余烬法杖"
+
+msgid "Glück"
+msgstr "幸运"
+
+msgid "Glück hoch"
+msgstr "幸运提升"
+
+msgid "Glück und Schaden hoch"
+msgstr "幸运和伤害提升"
+
+msgid "Glück viel höher"
+msgstr "幸运大幅提升"
+
+msgid "Glücksflachs"
+msgstr "幸运亚麻"
+
+msgid "Glühender Schlüssel"
+msgstr "炽热钥匙"
+
+msgid "Goblin"
+msgstr "哥布林"
+
+msgid "Goblin-Schamane"
+msgstr "哥布林萨满"
+
+msgid "Goblinkrone"
+msgstr "哥布林王冠"
+
+msgid "Goblinstollen"
+msgstr "哥布林坑道"
+
+msgid "Goldader"
+msgstr "金矿脉"
+
+msgid "Goldamulett"
+msgstr "黄金护符"
+
+msgid "Goldbarren"
+msgstr "金锭"
+
+msgid "Goldbogen"
+msgstr "黄金弓"
+
+msgid "Goldener Schattenstab"
+msgstr "黄金暗影杖"
+
+msgid "Goldglut"
+msgstr "黄金余烬"
+
+msgid "Goldhammer"
+msgstr "黄金锤"
+
+msgid "Goldhelm"
+msgstr "黄金头盔"
+
+msgid "Goldklinge"
+msgstr "黄金之刃"
+
+msgid "Goldstiefel"
+msgstr "黄金靴"
+
+msgid "Greifenfell"
+msgstr "狮鹫毛皮"
+
+msgid "Greifenmantel"
+msgstr "狮鹫斗篷"
+
+msgid "Große, schwere Schüsse mit viel Rückstoß"
+msgstr "又大又重的射击，击退很强"
+
+msgid "Grubenhacke"
+msgstr "矿镐"
+
+msgid "Gruftgespenst"
+msgstr "墓穴怨灵"
+
+msgid "Gruftschild"
+msgstr "墓穴之盾"
+
+msgid "Größere Bomben und drei Bomben"
+msgstr "炸弹更大，外加三枚炸弹"
+
+msgid "Größere Bomben, und keine tut dir weh"
+msgstr "炸弹更大，而且不会伤到你"
+
+msgid "Größere Feuerbälle, mehr Schaden"
+msgstr "火球更大，伤害更高"
+
+msgid "Habe %d Herz-Container gleichzeitig"
+msgstr "同时拥有%d个心之容器"
+
+msgid "Habe %d Münzen gleichzeitig"
+msgstr "同时拥有%d枚硬币"
+
+msgid "Habe %d blaue Herzen gleichzeitig"
+msgstr "同时拥有%d颗蓝心"
+
+msgid "Hauptmenü"
+msgstr "主菜单"
+
+msgid "Heilen durch Besiegte, Schaden hoch"
+msgstr "击杀回血，伤害提升"
+
+msgid "Heilerkräuter"
+msgstr "治疗草药"
+
+msgid "Heilt dich ganz, schneller laufen"
+msgstr "完全治疗，移动更快"
+
+msgid "Heißer Sand"
+msgstr "热沙"
+
+msgid "Herzblatt"
+msgstr "心叶草"
+
+msgid "Herzen heilen doppelt"
+msgstr "心的治疗量翻倍"
+
+msgid "Hexenkessel"
+msgstr "女巫大锅"
+
+msgid "Hier klicken"
+msgstr "点击这里"
+
+msgid "Holzstab"
+msgstr "木杖"
+
+msgid "Hydraschuppe"
+msgstr "九头蛇鳞"
+
+msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
+msgstr "每次受击最多半颗心，但更慢"
+
+msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
+msgstr "每次受击最多半颗心，安全时间更长"
+
+msgid "Höhlentroll"
+msgstr "洞穴巨魔"
+
+msgid "Höllenhundfell"
+msgstr "地狱犬毛皮"
+
+msgid "Höllenleder"
+msgstr "地狱皮革"
+
+msgid "Höllenstab"
+msgstr "地狱之杖"
+
+msgid "Jadefigur"
+msgstr "玉雕像"
+
+msgid "Jagdbogen"
+msgstr "狩猎弓"
+
+msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
+msgstr "射击飞得越远，伤害越高"
+
+msgid "Jeder Treffer jagt Gegnern Angst ein"
+msgstr "每次命中都让敌人恐惧"
+
+msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
+msgstr "每次受击都会让你在本层变得更强"
+
+msgid "Jeder zweite Schuss ist viel stärker"
+msgstr "每第二发射击强得多"
+
+msgid "Kamille"
+msgstr "洋甘菊"
+
+msgid "Kann ab jetzt im Dungeon auftauchen"
+msgstr "现在可以在地牢中出现"
+
+msgid "Karawanenrucksack"
+msgstr "商队背包"
+
+msgid "Kein Treffer nimmt mehr als ein halbes Herz"
+msgstr "任何攻击最多只扣半颗心"
+
+msgid "Kinderschuhe"
+msgstr "童鞋"
+
+msgid "Kleiner, schneller und manchmal ausweichen"
+msgstr "更小、更快，有时闪避"
+
+msgid "Klingenstern"
+msgstr "刃之星"
+
+msgid "Knochengeneral"
+msgstr "白骨将军"
+
+msgid "Kohlenschrot"
+msgstr "煤炭霰弹"
+
+msgid "Kometenschweif"
+msgstr "彗尾"
+
+msgid "Kometenstein"
+msgstr "彗星石"
+
+msgid "Kompassnadel"
+msgstr "罗盘指针"
+
+msgid "Krieger"
+msgstr "战士"
+
+msgid "Kriegerschwert"
+msgstr "战士之剑"
+
+msgid "Kriegsaxt"
+msgstr "战斧"
+
+msgid "Kristallkarte"
+msgstr "水晶地图"
+
+msgid "Kristallsplitter"
+msgstr "水晶碎片"
+
+msgid "Kräuterbeutel"
+msgstr "草药袋"
+
+msgid "Kupfernagel"
+msgstr "铜钉"
+
+msgid "Königsbrief"
+msgstr "王室信函"
+
+msgid "Labyrinthaxt"
+msgstr "迷宫之斧"
+
+msgid "Ladenschild"
+msgstr "商店招牌"
+
+msgid "Lange Flugbahnen, gewaltiger Einschlag"
+msgstr "长距离飞行，猛烈冲击"
+
+msgid "Langsam heilen und ein blaues Herz"
+msgstr "缓慢恢复和一颗蓝心"
+
+msgid "Langsam heilst du dich"
+msgstr "你会缓慢恢复"
+
+msgid "Lautstärke"
+msgstr "音量"
+
+msgid "Lebendiger Wind"
+msgstr "活之风"
+
+msgid "Lebensholz"
+msgstr "生命之木"
+
+msgid "Lebenstau"
+msgstr "生命之露"
+
+msgid "Lederstiefel"
+msgstr "皮靴"
+
+msgid "Legendenhandschuhe"
+msgstr "传奇手套"
+
+msgid "Leichte Feder"
+msgstr "轻羽"
+
+msgid "Letzte Glut"
+msgstr "最后的余烬"
+
+msgid "Lexikon"
+msgstr "图鉴"
+
+msgid "Lichtstab"
+msgstr "光之杖"
+
+msgid "Länger sicher nach einem Treffer"
+msgstr "受击后安全时间更长"
+
+msgid "Läufersandalen"
+msgstr "跑者凉鞋"
+
+msgid "Läuferschuhe"
+msgstr "跑者之靴"
+
+msgid "Magier"
+msgstr "法师"
+
+msgid "Makelloser Schild"
+msgstr "无瑕之盾"
+
+msgid "Manchmal Schüsse in alle vier Richtungen"
+msgstr "有时向四个方向射击"
+
+msgid "Manchmal ausweichen, schneller laufen"
+msgstr "有时闪避，移动更快"
+
+msgid "Manchmal brennen getroffene Gegner"
+msgstr "被击中的敌人有时会燃烧"
+
+msgid "Manchmal explodieren deine Schüsse"
+msgstr "你的射击有时会爆炸"
+
+msgid "Manchmal frieren Gegner ein"
+msgstr "敌人有时会冻住"
+
+msgid "Manchmal vergiften deine Schüsse"
+msgstr "你的射击有时会下毒"
+
+msgid "Manchmal weichst du Treffern aus"
+msgstr "你有时会闪避攻击"
+
+msgid "Maus"
+msgstr "鼠标"
+
+msgid "Maustaste halten zum Aufladen: größer und stärker"
+msgstr "按住蓄力：更大更强"
+
+msgid "Mehr Beute nach jedem Raum"
+msgstr "每个房间后战利品更多"
+
+msgid "Mehr Rückstoß und Schaden"
+msgstr "击退和伤害提升"
+
+msgid "Mehr Schaden für jede Münze, die du hast"
+msgstr "你每有一枚硬币，伤害就更高"
+
+msgid "Meteor"
+msgstr "流星"
+
+msgid "Minotaurus"
+msgstr "牛头人"
+
+msgid "Mondlilie"
+msgstr "月百合"
+
+msgid "Mondsiegel"
+msgstr "月之印"
+
+msgid "Mondsturm"
+msgstr "月之风暴"
+
+msgid "Moorherz"
+msgstr "沼泽之心"
+
+msgid "Musik"
+msgstr "音乐"
+
+msgid "Münzen und Herzen fliegen zu dir"
+msgstr "硬币和心会飞向你"
+
+msgid "Nach jedem Boss zwei Items zur Wahl"
+msgstr "每个首领后可从两件物品中选择"
+
+msgid "Nachtschatten"
+msgstr "颠茄"
+
+msgid "Nachtschattensamen"
+msgstr "颠茄种子"
+
+msgid "Neuer Run"
+msgstr "再来一局"
+
+msgid "Neues Spiel"
+msgstr "新游戏"
+
+msgid "Nicht während eines Kampfes"
+msgstr "战斗中不可用"
+
+msgid "Nichts geschieht"
+msgstr "什么也没发生"
+
+msgid "Nimm %d Glutpakte in einem Run"
+msgstr "一局内缔结%d次余烬契约"
+
+msgid "Noch ein Glutmond kreist um dich"
+msgstr "又一颗余烬之月环绕着你"
+
+msgid "Noch keine Items"
+msgstr "还没有物品"
+
+msgid "Noch nicht entdeckt"
+msgstr "尚未发现"
+
+msgid "Nächste Seite"
+msgstr "下一页"
+
+msgid "Offensiv"
+msgstr "进攻"
+
+msgid "Oger"
+msgstr "食人魔"
+
+msgid "Onyx"
+msgstr "缟玛瑙"
+
+msgid "Opaljuwel"
+msgstr "蛋白石宝石"
+
+msgid "Opferdolch"
+msgstr "祭祀匕首"
+
+msgid "Opferstein: ein Herz für eine Gabe"
+msgstr "献祭石：一颗心换一份馈赠"
+
+msgid "Ork"
+msgstr "兽人"
+
+msgid "Ork-Häuptling"
+msgstr "兽人酋长"
+
+msgid "Paktschatulle"
+msgstr "契约之匣"
+
+msgid "Palladiumamulett"
+msgstr "钯金护符"
+
+msgid "Palladiumbarren"
+msgstr "钯锭"
+
+msgid "Palladiumklinge"
+msgstr "钯金之刃"
+
+msgid "Pause"
+msgstr "暂停"
+
+msgid "Pfeile aufladen und loslassen: weit und stark"
+msgstr "蓄力后放箭：又远又强"
+
+msgid "Pickups fliegen zu dir, Glück hoch"
+msgstr "掉落物飞向你，幸运提升"
+
+msgid "Platin-Großschwert"
+msgstr "白金巨剑"
+
+msgid "Platin-Lichtstab"
+msgstr "白金光之杖"
+
+msgid "Platin-Sturmstab"
+msgstr "白金风暴杖"
+
+msgid "Platinamulett"
+msgstr "白金护符"
+
+msgid "Platinbarren"
+msgstr "白金锭"
+
+msgid "Platinklinge"
+msgstr "白金之刃"
+
+msgid "Platinspitze"
+msgstr "白金箭头"
+
+msgid "Pulverfass"
+msgstr "火药桶"
+
+msgid "Pulverhandschuh"
+msgstr "火药手套"
+
+msgid "Ratte"
+msgstr "老鼠"
+
+msgid "Rattenfell"
+msgstr "鼠皮"
+
+msgid "Rattenkeller"
+msgstr "鼠窖"
+
+msgid "Rattenkönig"
+msgstr "鼠王"
+
+msgid "Reichweite"
+msgstr "射程"
+
+msgid "Reichweite +2 m, schnellere Schüsse"
+msgstr "射程+2米，弹速更快"
+
+msgid "Reichweite hoch"
+msgstr "射程提升"
+
+msgid "Reichweite und Schaden hoch"
+msgstr "射程和伤害提升"
+
+msgid "Reichweite und Schusstempo hoch"
+msgstr "射程和弹速提升"
+
+msgid "Reichweite: %s m"
+msgstr "射程：%s 米"
+
+msgid "Reine Fassung"
+msgstr "纯净镶座"
+
+msgid "Riesenratte"
+msgstr "巨鼠"
+
+msgid "Riesentrank"
+msgstr "巨人药水"
+
+msgid "Riesige Schüsse, die im Flug schrumpfen"
+msgstr "飞行中会缩小的巨大射击"
+
+msgid "Riesige, langsame Feuerbälle mit viel Schaden"
+msgstr "巨大缓慢的高伤害火球"
+
+msgid "Riesiger Rückstoß und viel Schaden"
+msgstr "巨大击退和高伤害"
+
+msgid "Ritterhelm"
+msgstr "骑士头盔"
+
+msgid "Robbenfell"
+msgstr "海豹皮"
+
+msgid "Robbenmantel"
+msgstr "海豹斗篷"
+
+msgid "Ruhmeskette"
+msgstr "荣耀之链"
+
+msgid "Rückenamulett"
+msgstr "背护符"
+
+msgid "Sandschmied-Handschuhe"
+msgstr "沙匠手套"
+
+msgid "Saphir"
+msgstr "蓝宝石"
+
+msgid "Saphirjuwel"
+msgstr "蓝宝石珠宝"
+
+msgid "Schaden"
+msgstr "伤害"
+
+msgid "Schaden für jede Münze, Glück hoch"
+msgstr "每枚硬币增加伤害，幸运提升"
+
+msgid "Schaden hoch"
+msgstr "伤害提升"
+
+msgid "Schaden hoch, etwas schneller schießen"
+msgstr "伤害提升，射速略快"
+
+msgid "Schaden hoch, größere Feuerbälle"
+msgstr "伤害提升，火球更大"
+
+msgid "Schaden hoch, schneller laufen"
+msgstr "伤害提升，移动更快"
+
+msgid "Schaden mal 1,15"
+msgstr "伤害×1.15"
+
+msgid "Schaden mal 1,2"
+msgstr "伤害×1.2"
+
+msgid "Schaden mal 1,2, etwas langsamer schießen"
+msgstr "伤害×1.2，射速略慢"
+
+msgid "Schaden mal 1,25"
+msgstr "伤害×1.25"
+
+msgid "Schaden mal 1,3 und zehn Münzen"
+msgstr "伤害×1.3，外加十枚硬币"
+
+msgid "Schaden mal 1,4 und Durchschlag"
+msgstr "伤害×1.4并穿透"
+
+msgid "Schaden mal 1,5"
+msgstr "伤害×1.5"
+
+msgid "Schaden und Reichweite hoch"
+msgstr "伤害和射程提升"
+
+msgid "Schaden und Rückstoß hoch"
+msgstr "伤害和击退提升"
+
+msgid "Schaden und Schusstempo hoch"
+msgstr "伤害和弹速提升"
+
+msgid "Schaden, Reichweite und Glück hoch"
+msgstr "伤害、射程和幸运提升"
+
+msgid "Schaden, Schusstempo und Reichweite hoch"
+msgstr "伤害、射速和射程提升"
+
+msgid "Schaden: %s"
+msgstr "伤害：%s"
+
+msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
+msgstr "连续%d层不受伤"
+
+msgid "Schattenmantel"
+msgstr "暗影斗篷"
+
+msgid "Schattenschritt"
+msgstr "暗影步"
+
+msgid "Schattenstab"
+msgstr "暗影杖"
+
+msgid "Schatzbeutel"
+msgstr "宝藏袋"
+
+msgid "Schatzkarte"
+msgstr "藏宝图"
+
+msgid "Schießt Feuerbälle"
+msgstr "发射火球"
+
+msgid "Schildwache"
+msgstr "持盾卫兵"
+
+msgid "Schlachtkeil"
+msgstr "战楔"
+
+msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
+msgstr "蛇焰：子弹蛇形前进，伤害稍高"
+
+msgid "Schlangenschüsse, die Gegner verfolgen"
+msgstr "追踪敌人的蛇形射击"
+
+msgid "Schleim"
+msgstr "史莱姆"
+
+msgid "Schließen"
+msgstr "关闭"
+
+msgid "Schlängelnde Schüsse, die abprallen"
+msgstr "会反弹的蛇形射击"
+
+msgid "Schlüsselform"
+msgstr "钥匙模具"
+
+msgid "Schmiedehammer"
+msgstr "铁匠锤"
+
+msgid "Schmiedeschlüssel"
+msgstr "铁匠铺钥匙"
+
+msgid "Schmiedeschwert"
+msgstr "铁匠之剑"
+
+msgid "Schmiedeschürze"
+msgstr "铁匠围裙"
+
+msgid "Schneller laufen, Glück hoch"
+msgstr "移动更快，幸运提升"
+
+msgid "Schneller laufen, mehr Reichweite"
+msgstr "移动更快，射程更远"
+
+msgid "Schneller schießen und laufen"
+msgstr "射击和移动更快"
+
+msgid "Schneller schießen, Schüsse zerplatzen am Ende"
+msgstr "射速更快，射击最后爆裂"
+
+msgid "Schnellere Schüsse fliegen durch Gegner"
+msgstr "更快的射击穿透敌人"
+
+msgid "Schreckensbrief"
+msgstr "恐惧信函"
+
+msgid "Schrotflinte: sechs Glutbrocken auf kurze Distanz"
+msgstr "霰弹枪：近距离射出六块余烬"
+
+msgid "Schrumpftrank"
+msgstr "缩小药水"
+
+msgid "Schusstempo"
+msgstr "弹速"
+
+msgid "Schwarzer Kristall"
+msgstr "黑水晶"
+
+msgid "Schwere Glut"
+msgstr "沉重余烬"
+
+msgid "Schwerer zu treffen und schneller"
+msgstr "更难被击中且更快"
+
+msgid "Schwert statt Feuerbällen: der Schwung trifft alle vor dir, Gegner brennen"
+msgstr "用剑代替火球：挥砍命中前方所有敌人，敌人燃烧"
+
+msgid "Schwert und Feuerstab: jeder Schwung schickt einen Feuerschweif nach vorne"
+msgstr "剑与火焰法杖：每次挥砍都会向前送出一道火焰"
+
+msgid "Schwertschwung: kurze Reichweite, trifft mehrere Gegner"
+msgstr "挥剑：射程短，可击中多个敌人"
+
+msgid "Schüsse auf einmal: %d"
+msgstr "同时射出：%d"
+
+msgid "Schüsse fliegen durch Gegner hindurch"
+msgstr "子弹穿透敌人"
+
+msgid "Schüsse fliegen durch Steine"
+msgstr "射击穿过岩石"
+
+msgid "Schüsse fliegen durch Steine und suchen Gegner"
+msgstr "射击穿过岩石并追踪敌人"
+
+msgid "Schüsse fliegen zu dir zurück"
+msgstr "子弹会飞回你身边"
+
+msgid "Schüsse prallen ab, fliegen durch Gegner und suchen sie"
+msgstr "射击会反弹、穿透并追踪敌人"
+
+msgid "Schüsse prallen von Wänden ab"
+msgstr "子弹会被墙反弹"
+
+msgid "Schüsse pro Sekunde: %s"
+msgstr "每秒射击：%s"
+
+msgid "Schüsse suchen Gegner und fliegen durch sie"
+msgstr "射击追踪并穿透敌人"
+
+msgid "Schüsse zerplatzen am Ende und fliegen durch Steine"
+msgstr "射击最后爆裂并穿过岩石"
+
+msgid "Schüsse/s"
+msgstr "射击/秒"
+
+msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
+msgstr "六枚硬币、三枚炸弹、三把钥匙"
+
+msgid "Seelensplitter"
+msgstr "灵魂碎片"
+
+msgid "Seelenstab"
+msgstr "灵魂之杖"
+
+msgid "Seherbräu"
+msgstr "先知药剂"
+
+msgid "Seite %d von %d"
+msgstr "第%d页，共%d页"
+
+msgid "Shift: du springst dorthin, wo du hinzielst"
+msgstr "Shift：瞬移到你瞄准的位置"
+
+msgid "Shift: ein schneller Sprint, kurz unverwundbar"
+msgstr "Shift：快速冲刺，短暂无敌"
+
+msgid "Siegerring"
+msgstr "胜者之戒"
+
+msgid "Silberader"
+msgstr "银矿脉"
+
+msgid "Silberamulett"
+msgstr "白银护符"
+
+msgid "Silberdolch"
+msgstr "银匕首"
+
+msgid "Silberhammer"
+msgstr "白银锤"
+
+msgid "Silberharnisch"
+msgstr "白银胸甲"
+
+msgid "Silberklinge"
+msgstr "白银之刃"
+
+msgid "Silberring"
+msgstr "银戒指"
+
+msgid "Silberspitze"
+msgstr "银箭头"
+
+msgid "Skelett"
+msgstr "骷髅"
+
+msgid "Skelettritter"
+msgstr "骷髅骑士"
+
+msgid "Smaragd"
+msgstr "祖母绿"
+
+msgid "Smaragdjuwel"
+msgstr "祖母绿宝石"
+
+msgid "Sonderraum"
+msgstr "特殊房间"
+
+msgid "Sonnenblume"
+msgstr "向日葵"
+
+msgid "Spardose"
+msgstr "存钱罐"
+
+msgid "Spinne"
+msgstr "蜘蛛"
+
+msgid "Spinnenmutter"
+msgstr "蜘蛛之母"
+
+msgid "Spinnenseil"
+msgstr "蛛丝绳"
+
+msgid "Splitterrubin"
+msgstr "碎裂红宝石"
+
+msgid "Sprache"
+msgstr "语言"
+
+msgid "Sprengmeisterhelm"
+msgstr "爆破大师头盔"
+
+msgid "Sprengrune"
+msgstr "爆破符文"
+
+msgid "Sprengsack"
+msgstr "炸药袋"
+
+msgid "Sprengstrahl"
+msgstr "爆破光束"
+
+msgid "Sprinterrucksack"
+msgstr "疾跑者背包"
+
+msgid "Steine zertreten und mehr Beute"
+msgstr "踩碎岩石，战利品更多"
+
+msgid "Steine zertreten, fünf Bomben"
+msgstr "踩碎岩石，五枚炸弹"
+
+msgid "Sternenfessel"
+msgstr "星辰镣铐"
+
+msgid "Sternenstahl"
+msgstr "星钢"
+
+msgid "Sternenstahl-Splitter"
+msgstr "星钢碎片"
+
+msgid "Sternenstaub"
+msgstr "星尘"
+
+msgid "Sternentrunk"
+msgstr "星光药水"
+
+msgid "Stillstehen macht dich unverwundbar"
+msgstr "静止不动时无敌"
+
+msgid "Stollenhelm"
+msgstr "矿工头盔"
+
+msgid "Stollenratte"
+msgstr "坑道鼠"
+
+msgid "Streitkolben"
+msgstr "钉头锤"
+
+msgid "Streubombe"
+msgstr "集束炸弹"
+
+msgid "Sturmessenz"
+msgstr "风暴精华"
+
+msgid "Sturmkarte"
+msgstr "风暴地图"
+
+msgid "Sturmsiegel"
+msgstr "风暴之印"
+
+msgid "Sturmstab"
+msgstr "风暴之杖"
+
+msgid "Stärketrank"
+msgstr "力量药水"
+
+msgid "Suchende Bumerangs finden immer ein Ziel"
+msgstr "追踪回旋镖总能找到目标"
+
+msgid "Suchende Schüsse und alle Werte hoch"
+msgstr "追踪射击，所有属性提升"
+
+msgid "Suchende Schüsse und ein blaues Herz"
+msgstr "追踪射击和一颗蓝心"
+
+msgid "Suchende Schüsse, Glück hoch"
+msgstr "追踪射击，幸运提升"
+
+msgid "Suchende Schüsse, etwas mehr Schaden"
+msgstr "追踪射击，伤害略高"
+
+msgid "Suchender Funke"
+msgstr "追踪火花"
+
+msgid "Suchender Strahl"
+msgstr "追踪光束"
+
+msgid "Sumpfhaut"
+msgstr "沼泽皮"
+
+msgid "Sumpfleder"
+msgstr "沼泽皮革"
+
+msgid "Sumpfmantel"
+msgstr "沼泽斗篷"
+
+msgid "Synergie: %s!"
+msgstr "协同：%s！"
+
+msgid "Synergien: %s"
+msgstr "协同：%s"
+
+msgid "Taumelkraut"
+msgstr "蹒跚草"
+
+msgid "Tausendklinge"
+msgstr "千刃"
+
+msgid "Tempo"
+msgstr "速度"
+
+msgid "Tempo: %s"
+msgstr "速度：%s"
+
+msgid "Testraum · P: zurück"
+msgstr "测试房间 · P：返回"
+
+msgid "Topasjuwel"
+msgstr "黄玉宝石"
+
+msgid "Totenbeschwörer"
+msgstr "死灵法师"
+
+msgid "Totengruft"
+msgstr "亡者墓穴"
+
+msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
+msgstr "命中后爆裂，射击穿过岩石"
+
+msgid "Treue Funken"
+msgstr "忠诚火花"
+
+msgid "Trollblut"
+msgstr "巨魔之血"
+
+msgid "Trollpanzer"
+msgstr "巨魔铠甲"
+
+msgid "Truhenschlüssel"
+msgstr "宝箱钥匙"
+
+msgid "Utility"
+msgstr "辅助"
+
+msgid "Vampir"
+msgstr "吸血鬼"
+
+msgid "Vergiftet Gegner, Schaden etwas hoch"
+msgstr "使敌人中毒，伤害略高"
+
+msgid "Viel größere Bomben"
+msgstr "炸弹大得多"
+
+msgid "Viel mehr Schaden"
+msgstr "伤害大幅提升"
+
+msgid "Viel mehr Schaden mit nur einem Herz"
+msgstr "只剩一颗心时伤害大增"
+
+msgid "Viel mehr Schaden, langsamer schießen"
+msgstr "伤害大幅提升，射速变慢"
+
+msgid "Viel schneller laufen"
+msgstr "移动快得多"
+
+msgid "Viel schneller laufen und schießen"
+msgstr "移动和射击快得多"
+
+msgid "Viel schneller schießen und laufen"
+msgstr "射击和移动快得多"
+
+msgid "Viel schneller schießen, etwas weniger Schaden"
+msgstr "射速快得多，伤害略低"
+
+msgid "Viel schnellere Schüsse"
+msgstr "子弹快得多"
+
+msgid "Viel schnellere Schüsse und mehr Reichweite"
+msgstr "子弹快得多，射程更远"
+
+msgid "Viele suchende Funken auf einmal"
+msgstr "同时射出大量追踪火花"
+
+msgid "Vier Schlüssel"
+msgstr "四把钥匙"
+
+msgid "Vollbild"
+msgstr "全屏"
+
+msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
+msgstr "WASD：移动 · 鼠标：瞄准 · 左键：射击"
+
+msgid "Wanderbündel"
+msgstr "旅人包裹"
+
+msgid "Wasserstab"
+msgstr "水之杖"
+
+msgid "Weiter"
+msgstr "继续"
+
+msgid "Weltenstab"
+msgstr "世界之杖"
+
+msgid "Wer tötet, fliegt mit dem Rest weiter"
+msgstr "击杀后射击带着剩余伤害继续飞行"
+
+msgid "Wettkampfstiefel"
+msgstr "竞技靴"
+
+msgid "Windfeder"
+msgstr "风之羽"
+
+msgid "Windläufer-Stiefel"
+msgstr "疾风靴"
+
+msgid "Windrose"
+msgstr "风向玫瑰"
+
+msgid "Windstab"
+msgstr "风之杖"
+
+msgid "Wo der Strahl auftrifft, knallt es"
+msgstr "光束击中处会爆炸"
+
+msgid "Wolfsmantel"
+msgstr "狼皮斗篷"
+
+msgid "Wurfsterne"
+msgstr "飞镖"
+
+msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
+msgstr "飞镖穿透敌人并常使其流血"
+
+msgid "Wähle deinen Charakter"
+msgstr "选择你的角色"
+
+msgid "Wählen"
+msgstr "选择"
+
+msgid "Wüstenkompass"
+msgstr "沙漠罗盘"
+
+msgid "Zauberbuch"
+msgstr "法术书"
+
+msgid "Zehn Bomben"
+msgstr "十枚炸弹"
+
+msgid "Zehn Münzen, Glück hoch"
+msgstr "十枚硬币，幸运提升"
+
+msgid "Zombie"
+msgstr "僵尸"
+
+msgid "Zu wenig Münzen"
+msgstr "金币不足"
+
+msgid "Zufällig Gift, Furcht oder Taumeln"
+msgstr "随机中毒、恐惧或蹒跚"
+
+msgid "Zunderbüchse"
+msgstr "火绒盒"
+
+msgid "Zwanzig Münzen"
+msgstr "二十枚硬币"
+
+msgid "Zwei Funken folgen dir und schießen"
+msgstr "两个火花跟随你并射击"
+
+msgid "Zwei Funken und Schaden hoch"
+msgstr "两个火花，伤害提升"
+
+msgid "Zwei Glutmonde kreisen um dich"
+msgstr "两颗余烬之月环绕着你"
+
+msgid "Zwei Herzen mehr"
+msgstr "多两颗心"
+
+msgid "Zwei Herzen mehr und Dornen"
+msgstr "多两颗心和荆棘"
+
+msgid "Zwei Herzen mehr und langsam heilen"
+msgstr "多两颗心并缓慢恢复"
+
+msgid "Zwei Herzen mehr, aber langsamer"
+msgstr "多两颗心，但移动变慢"
+
+msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
+msgstr "两颗心、两颗蓝心，伤害提升"
+
+msgid "Zwei Schüsse mehr, etwas schwächer"
+msgstr "多两发射击，略弱"
+
+msgid "Zwei blaue Herzen"
+msgstr "两颗蓝心"
+
+msgid "Zwei blaue Herzen und Dornen"
+msgstr "两颗蓝心和荆棘"
+
+msgid "Zwei blaue Herzen, Schaden hoch"
+msgstr "两颗蓝心，伤害提升"
+
+msgid "Zwei blaue Herzen, länger sicher nach Treffern"
+msgstr "两颗蓝心，受击后安全时间更长"
+
+msgid "Zwei blaue Herzen; geht eins verloren, trifft es alle Gegner"
+msgstr "两颗蓝心；失去一颗时攻击所有敌人"
+
+msgid "Zwillingshandschuhe"
+msgstr "双子手套"
+
+msgid "oder Leertaste"
+msgstr "或按空格键"

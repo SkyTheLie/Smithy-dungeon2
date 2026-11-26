@@ -1,0 +1,1672 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ja\n"
+
+msgid "%d Herzen"
+msgstr "ハート%d個"
+
+msgid "Acht Bomben"
+msgstr "爆弾8個"
+
+msgid "Alle Items abgelegt"
+msgstr "全アイテムを外した"
+
+msgid "Alle Items ablegen"
+msgstr "全アイテムを外す"
+
+msgid "Alle Werte ein bisschen hoch"
+msgstr "全ステータスが少し上昇"
+
+msgid "Alle paar Besiegten heilst du ein halbes Herz"
+msgstr "数体倒すごとにハート半分回復"
+
+msgid "Alles im Laden kostet die Hälfte"
+msgstr "店の品が半額"
+
+msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
+msgstr "弾は最後に4つの火花に弾ける"
+
+msgid "Amethyst"
+msgstr "アメジスト"
+
+msgid "Arena-Amulett"
+msgstr "闘技場のお守り"
+
+msgid "Arenaherz"
+msgstr "闘技場の心臓"
+
+msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
+msgstr "チャージした巨大な火球が落ちて爆発する"
+
+msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
+msgstr "溜めて放つ: 強大な火炎ビーム"
+
+msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
+msgstr "火の玉の代わりに斧：重い一撃、敵は出血"
+
+msgid "Beenden"
+msgstr "終了"
+
+msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
+msgstr "命中すると4つの火花に弾ける"
+
+msgid "Bernstein"
+msgstr "琥珀"
+
+msgid "Besiege %d Gegner (%d / %d)"
+msgstr "敵を%d体倒す（%d / %d）"
+
+msgid "Besiege: %s"
+msgstr "倒す：%s"
+
+msgid "Besiegte Gegner: %d"
+msgstr "倒した敵: %d"
+
+msgid "Blasebalg"
+msgstr "ふいご"
+
+msgid "Blutphiole"
+msgstr "血の小瓶"
+
+msgid "Bogenschütze"
+msgstr "弓使い"
+
+msgid "Bomben schießen beim Explodieren Feuerbälle"
+msgstr "爆弾が爆発すると火の玉を放つ"
+
+msgid "Bomben zerplatzen in kleine Bomben"
+msgstr "爆弾が小さな爆弾に分裂する"
+
+msgid "Bombengürtel"
+msgstr "爆弾ベルト"
+
+msgid "Brandöl"
+msgstr "火炎油"
+
+msgid "Brennend und langsam: mehr Schaden"
+msgstr "燃えて遅い：ダメージ増加"
+
+msgid "Brennende, explodierende Schüsse"
+msgstr "燃えて爆発する弾"
+
+msgid "Brennende, langsame Gegner und zwei blaue Herzen"
+msgstr "敵が燃えて遅くなり、青いハート2つ"
+
+msgid "Bronzebogen"
+msgstr "青銅の弓"
+
+msgid "Bronzeschild"
+msgstr "青銅の盾"
+
+msgid "Brotkanone"
+msgstr "パン大砲"
+
+msgid "Brotregen"
+msgstr "パンの雨"
+
+msgid "Bumerang-Haken"
+msgstr "ブーメランフック"
+
+msgid "Das kostet zu viel Leben"
+msgstr "体力を払いすぎる"
+
+msgid "Defensiv"
+msgstr "防御"
+
+msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
+msgstr "火の玉が敵の弾を壊す"
+
+msgid "Deine Items"
+msgstr "所持アイテム"
+
+msgid "Deine Schüsse verfolgen Gegner"
+msgstr "弾が敵を追いかける"
+
+msgid "Der Feuerstrahl biegt sich zum Gegner"
+msgstr "火炎ビームが敵へ曲がる"
+
+msgid "Der Stein nimmt dein Opfer an"
+msgstr "石が生贄を受け入れた"
+
+msgid "Der Weg nach unten ist frei!"
+msgstr "下への道が開いた！"
+
+msgid "Diamantherz"
+msgstr "ダイヤの心臓"
+
+msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
+msgstr "弓使いの武器：矢をためて放つ、遠くへ強く"
+
+msgid "Die Waffe des Kriegers: ein Schwertschwung trifft alle vor dir"
+msgstr "戦士の武器：剣のひと振りで前方の敵すべてに当たる"
+
+msgid "Die Waffe des Magiers: schießt Feuerbälle"
+msgstr "魔法使いの武器：火の玉を撃つ"
+
+msgid "Dietrich"
+msgstr "鍵開け具"
+
+msgid "Doppelschuss"
+msgstr "ダブルショット"
+
+msgid "Dornenpanzer"
+msgstr "棘の鎧"
+
+msgid "Drachenatem"
+msgstr "ドラゴンブレス"
+
+msgid "Drachenhaut"
+msgstr "竜の皮"
+
+msgid "Drachenleder"
+msgstr "竜の革"
+
+msgid "Drachenmantel"
+msgstr "竜のマント"
+
+msgid "Drei Funken folgen dir und schießen"
+msgstr "火花3つがついてきて撃つ"
+
+msgid "Drei Schlüssel, Rabatt im Laden"
+msgstr "鍵3本、店で割引"
+
+msgid "Drei blaue Herzen"
+msgstr "青いハート3つ"
+
+msgid "Drei blaue Herzen und manchmal ausweichen"
+msgstr "青いハート3つ、時々回避"
+
+msgid "Dreifachschuss"
+msgstr "トリプルショット"
+
+msgid "Dreizack-Rune"
+msgstr "三叉のルーン"
+
+msgid "Dreißig Münzen und zehn Schlüssel"
+msgstr "コイン30枚と鍵10本"
+
+msgid "Du bist gefallen"
+msgstr "力尽きた"
+
+msgid "Du brauchst einen Schlüssel"
+msgstr "鍵が必要だ"
+
+msgid "Du hast den Dungeon bezwungen!"
+msgstr "ダンジョンを制覇した！"
+
+msgid "Du hast nicht genug Leben"
+msgstr "体力が足りない"
+
+msgid "Du läufst schneller"
+msgstr "移動速度アップ"
+
+msgid "Du schießt Brotlaibe. Getroffene Gegner vergessen dich und rennen weg"
+msgstr "パンを撃つ。当たった敵はキミを忘れて逃げ出す"
+
+msgid "Du schießt auch nach hinten"
+msgstr "後ろにも撃つ"
+
+msgid "Du schießt schneller"
+msgstr "連射速度アップ"
+
+msgid "Du wirfst Bomben statt Feuerbällen"
+msgstr "火の玉の代わりに爆弾を投げる"
+
+msgid "Du wirfst Wurfsterne, getroffene Gegner bluten"
+msgstr "手裏剣を投げ、当たった敵は出血"
+
+msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
+msgstr "大きくなる：ハートとダメージ上昇、当たりやすい"
+
+msgid "Du wirst kleiner und schneller"
+msgstr "小さく速くなる"
+
+msgid "Du wirst kleiner: schwerer zu treffen, schneller"
+msgstr "小さくなる：当たりにくく速い"
+
+msgid "Du wirst viel größer und stärker, aber langsamer"
+msgstr "とても大きく強くなるが遅くなる"
+
+msgid "Du wirst winzig und manchmal weichst du aus"
+msgstr "とても小さくなり、時々回避"
+
+msgid "Dungeon der Glut"
+msgstr "残り火のダンジョン"
+
+msgid "Dunkler Zauberstab"
+msgstr "闇の杖"
+
+msgid "Durch Gegner hindurch und von Wand zu Wand"
+msgstr "敵を貫き、壁から壁へ"
+
+msgid "Durch Steine, und manchmal fliehen Gegner"
+msgstr "岩を貫通し、時々敵が逃げる"
+
+msgid "Durchschlag, Abprallen und Zerplatzen"
+msgstr "貫通・反射・破裂"
+
+msgid "E: Bombe · Tab: Karte · Esc: Pause"
+msgstr "E: 爆弾 · Tab: マップ · Esc: ポーズ"
+
+msgid "Ebene %d"
+msgstr "第%d層"
+
+msgid "Ebene: %d"
+msgstr "階層: %d"
+
+msgid "Effekte"
+msgstr "効果音"
+
+msgid "Eigene Explosionen heilen dich"
+msgstr "自分の爆発で回復する"
+
+msgid "Ein Feuerball kreist um dich und blockt Schüsse"
+msgstr "火の玉が周りを回り、弾を防ぐ"
+
+msgid "Ein Funke folgt dir und schießt"
+msgstr "火花がついてきて撃つ"
+
+msgid "Ein Funke und ein Glutmond"
+msgstr "火花と残り火の月"
+
+msgid "Ein Funke und mehr Glück"
+msgstr "火花と運の上昇"
+
+msgid "Ein Glutpakt hat sich geöffnet"
+msgstr "残り火の契約が開いた"
+
+msgid "Ein Herz mehr"
+msgstr "ハートが1つ増える"
+
+msgid "Ein Herz mehr, Glück hoch"
+msgstr "ハート1つ追加、運上昇"
+
+msgid "Ein Herz mehr, Schaden hoch"
+msgstr "ハート1つ追加、ダメージ上昇"
+
+msgid "Ein Herz mehr, heilt dich ganz"
+msgstr "ハートが1つ増え、全回復する"
+
+msgid "Ein Herz und ein blaues Herz"
+msgstr "ハート1つと青いハート1つ"
+
+msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
+msgstr "ハート1つ、棘、爆発無効"
+
+msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "ハート・コイン・爆弾・鍵を1つずつ"
+
+msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
+msgstr "ハート1つ、青いハート2つ、ダメージ上昇"
+
+msgid "Ein Schrein hat sich geöffnet"
+msgstr "祠が開いた"
+
+msgid "Ein Schuss mehr und mehr Schaden"
+msgstr "弾が1発増え、ダメージ上昇"
+
+msgid "Ein Schuss mehr, aber schwächer"
+msgstr "弾が1発増えるが弱くなる"
+
+msgid "Ein blaues Herz und Dornen"
+msgstr "青いハート1つと棘"
+
+msgid "Ein blaues Herz, Schaden hoch"
+msgstr "青いハート1つ、ダメージ上昇"
+
+msgid "Ein blaues Herz, länger sicher nach Treffern"
+msgstr "青いハート1つ、被弾後の無敵が長い"
+
+msgid "Ein blaues Herz, schneller laufen"
+msgstr "青いハート1つ、移動が速くなる"
+
+msgid "Ein geheimer Raum!"
+msgstr "隠し部屋だ！"
+
+msgid "Ein zweites Leben"
+msgstr "2つ目の命"
+
+msgid "Ein zweites Leben und ein Funke"
+msgstr "2つ目の命と火花"
+
+msgid "Ein zweites Leben!"
+msgstr "2つ目の命！"
+
+msgid "Eine ganze Bäckerei auf einmal"
+msgstr "パン屋まるごと一斉発射"
+
+msgid "Einstellungen"
+msgstr "設定"
+
+msgid "Eisenhaut"
+msgstr "鉄の肌"
+
+msgid "Eisfeder"
+msgstr "氷の羽"
+
+msgid "Eisspiegel"
+msgstr "氷の鏡"
+
+msgid "Eisstab"
+msgstr "氷の杖"
+
+msgid "Elfenbrief"
+msgstr "エルフの手紙"
+
+msgid "Entdecke %d Items (%d / %d)"
+msgstr "アイテムを%d個発見（%d / %d）"
+
+msgid "Entdeckt: %d / %d"
+msgstr "発見済み：%d / %d"
+
+msgid "Erdstab"
+msgstr "大地の杖"
+
+msgid "Erreiche Ebene %d"
+msgstr "%d階に到達する"
+
+msgid "Erstglut"
+msgstr "始まりの残り火"
+
+msgid "Explosive Schüsse, langsamer schießen"
+msgstr "爆発する弾、連射が遅い"
+
+msgid "Fahre mit der Maus über ein Item"
+msgstr "アイテムにマウスを合わせる"
+
+msgid "Feenstaub"
+msgstr "妖精の粉"
+
+msgid "Feuerfester Bomber"
+msgstr "耐火ボマー"
+
+msgid "Feuerhieb"
+msgstr "炎の斬撃"
+
+msgid "Feuerkranz"
+msgstr "炎の輪"
+
+msgid "Feuerlanze"
+msgstr "炎の槍"
+
+msgid "Feuerstab"
+msgstr "炎の杖"
+
+msgid "Feuerstrahl statt Feuerbällen: Maustaste halten"
+msgstr "火の玉の代わりに火炎ビーム: ボタン長押し"
+
+msgid "Feuerwerk"
+msgstr "花火"
+
+msgid "Flechtenleder"
+msgstr "地衣の革"
+
+msgid "Flechtenmantel"
+msgstr "地衣のマント"
+
+msgid "Fledermaus"
+msgstr "コウモリ"
+
+msgid "Flipper"
+msgstr "ピンボール"
+
+msgid "Fluchskelett"
+msgstr "呪われた骸骨"
+
+msgid "Freigeschaltet: %s"
+msgstr "解放：%s"
+
+msgid "Frost und Feuer"
+msgstr "霜と炎"
+
+msgid "Frostflechte"
+msgstr "霜の地衣"
+
+msgid "Frostkristall"
+msgstr "霜の結晶"
+
+msgid "Frostmähne"
+msgstr "霜のたてがみ"
+
+msgid "Funkenbüchse"
+msgstr "火花の缶"
+
+msgid "Funkenfänger"
+msgstr "火花受け"
+
+msgid "Funkenstein"
+msgstr "火花石"
+
+msgid "Fängt in jedem Raum den ersten Treffer ab"
+msgstr "各部屋で最初の一撃を防ぐ"
+
+msgid "Fünf Bomben, und Explosionen tun dir nichts mehr"
+msgstr "爆弾5個、爆発でダメージを受けなくなる"
+
+msgid "Fünf Münzen, drei Bomben, drei Schlüssel"
+msgstr "コイン5枚、爆弾3個、鍵3本"
+
+msgid "Fünf Schlüssel"
+msgstr "鍵5本"
+
+msgid "Fünfzehn Münzen"
+msgstr "コイン15枚"
+
+msgid "Gegabelter Stab"
+msgstr "二股の杖"
+
+msgid "Gegner brennen, Schaden hoch"
+msgstr "敵が燃え、ダメージ上昇"
+
+msgid "Gegner werden langsamer, Reichweite hoch"
+msgstr "敵が遅くなり、射程上昇"
+
+msgid "Gegner, die dich berühren, nehmen Schaden"
+msgstr "触れた敵がダメージを受ける"
+
+msgid "Geist"
+msgstr "幽霊"
+
+msgid "Geisterfürst"
+msgstr "幽霊王"
+
+msgid "Geisterglas"
+msgstr "幽霊ガラス"
+
+msgid "Geisterstab"
+msgstr "幽霊の杖"
+
+msgid "Generalsklinge"
+msgstr "将軍の刃"
+
+msgid "Geschafft!"
+msgstr "クリア！"
+
+msgid "Gesperrt"
+msgstr "未解放"
+
+msgid "Gesprengte Fessel"
+msgstr "砕けた枷"
+
+msgid "Getroffene Gegner brennen weiter"
+msgstr "当たった敵は燃え続ける"
+
+msgid "Getroffene Gegner fliehen vor dir"
+msgstr "当たった敵が逃げ出す"
+
+msgid "Getroffene Gegner frieren ein"
+msgstr "当たった敵が凍る"
+
+msgid "Getroffene Gegner frieren kurz ein"
+msgstr "当たった敵が一瞬凍る"
+
+msgid "Getroffene Gegner torkeln herum"
+msgstr "当たった敵がよろめく"
+
+msgid "Getroffene Gegner werden langsam und vergiftet"
+msgstr "当たった敵が遅くなり毒を受ける"
+
+msgid "Getroffene Gegner werden langsamer"
+msgstr "当たった敵は遅くなる"
+
+msgid "Getroffene Gegner werden vergiftet"
+msgstr "当たった敵が毒を受ける"
+
+msgid "Gewinne %d Runs"
+msgstr "%d回クリアする"
+
+msgid "Gewinne einen Run"
+msgstr "1回クリアする"
+
+msgid "Gewinne in unter %d Minuten"
+msgstr "%d分以内にクリアする"
+
+msgid "Ghul"
+msgstr "グール"
+
+msgid "Giftratte"
+msgstr "毒ネズミ"
+
+msgid "Giftstab"
+msgstr "毒の杖"
+
+msgid "Giftzahn"
+msgstr "毒牙"
+
+msgid "Glutkern"
+msgstr "残り火の核"
+
+msgid "Glutklinge"
+msgstr "残り火の刃"
+
+msgid "Glutmantel"
+msgstr "残り火のマント"
+
+msgid "Glutmond"
+msgstr "残り火の月"
+
+msgid "Glutsammler"
+msgstr "残り火の器"
+
+msgid "Glutschwert"
+msgstr "残り火の剣"
+
+msgid "Glutstab"
+msgstr "残り火の杖"
+
+msgid "Glück"
+msgstr "運"
+
+msgid "Glück hoch"
+msgstr "運上昇"
+
+msgid "Glück und Schaden hoch"
+msgstr "運とダメージ上昇"
+
+msgid "Glück viel höher"
+msgstr "運が大幅に上昇"
+
+msgid "Glücksflachs"
+msgstr "幸運の亜麻"
+
+msgid "Glühender Schlüssel"
+msgstr "灼熱の鍵"
+
+msgid "Goblin"
+msgstr "ゴブリン"
+
+msgid "Goblin-Schamane"
+msgstr "ゴブリンシャーマン"
+
+msgid "Goblinkrone"
+msgstr "ゴブリンの王冠"
+
+msgid "Goblinstollen"
+msgstr "ゴブリンの坑道"
+
+msgid "Goldader"
+msgstr "金脈"
+
+msgid "Goldamulett"
+msgstr "金の護符"
+
+msgid "Goldbarren"
+msgstr "金の延べ棒"
+
+msgid "Goldbogen"
+msgstr "金の弓"
+
+msgid "Goldener Schattenstab"
+msgstr "黄金の影の杖"
+
+msgid "Goldglut"
+msgstr "黄金の残り火"
+
+msgid "Goldhammer"
+msgstr "金の槌"
+
+msgid "Goldhelm"
+msgstr "金の兜"
+
+msgid "Goldklinge"
+msgstr "金の刃"
+
+msgid "Goldstiefel"
+msgstr "金のブーツ"
+
+msgid "Greifenfell"
+msgstr "グリフォンの毛皮"
+
+msgid "Greifenmantel"
+msgstr "グリフォンのマント"
+
+msgid "Große, schwere Schüsse mit viel Rückstoß"
+msgstr "大きく重い弾、強いノックバック"
+
+msgid "Grubenhacke"
+msgstr "鉱山のつるはし"
+
+msgid "Gruftgespenst"
+msgstr "墓所の亡霊"
+
+msgid "Gruftschild"
+msgstr "墓所の盾"
+
+msgid "Größere Bomben und drei Bomben"
+msgstr "爆弾が大きくなり、爆弾3個"
+
+msgid "Größere Bomben, und keine tut dir weh"
+msgstr "爆弾が大きくなり、どれも自分を傷つけない"
+
+msgid "Größere Feuerbälle, mehr Schaden"
+msgstr "火の玉が大きくなり、ダメージ上昇"
+
+msgid "Habe %d Herz-Container gleichzeitig"
+msgstr "ハートの器を同時に%d個持つ"
+
+msgid "Habe %d Münzen gleichzeitig"
+msgstr "コインを同時に%d枚持つ"
+
+msgid "Habe %d blaue Herzen gleichzeitig"
+msgstr "青いハートを同時に%d個持つ"
+
+msgid "Hauptmenü"
+msgstr "メインメニュー"
+
+msgid "Heilen durch Besiegte, Schaden hoch"
+msgstr "倒すと回復、ダメージ上昇"
+
+msgid "Heilerkräuter"
+msgstr "治癒の薬草"
+
+msgid "Heilt dich ganz, schneller laufen"
+msgstr "全回復、移動が速くなる"
+
+msgid "Heißer Sand"
+msgstr "熱い砂"
+
+msgid "Herzblatt"
+msgstr "ハートリーフ"
+
+msgid "Herzen heilen doppelt"
+msgstr "ハートの回復量が2倍"
+
+msgid "Hexenkessel"
+msgstr "魔女の大釜"
+
+msgid "Hier klicken"
+msgstr "ここをクリック"
+
+msgid "Holzstab"
+msgstr "木の杖"
+
+msgid "Hydraschuppe"
+msgstr "ヒドラの鱗"
+
+msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
+msgstr "被弾は最大ハート半分、ただし遅くなる"
+
+msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
+msgstr "被弾は最大ハート半分、無敵が長い"
+
+msgid "Höhlentroll"
+msgstr "洞窟トロール"
+
+msgid "Höllenhundfell"
+msgstr "ヘルハウンドの毛皮"
+
+msgid "Höllenleder"
+msgstr "地獄の革"
+
+msgid "Höllenstab"
+msgstr "地獄の杖"
+
+msgid "Jadefigur"
+msgstr "翡翠の像"
+
+msgid "Jagdbogen"
+msgstr "狩猟弓"
+
+msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
+msgstr "弾が遠くへ飛ぶほどダメージが増す"
+
+msgid "Jeder Treffer jagt Gegnern Angst ein"
+msgstr "当たるたびに敵が怯える"
+
+msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
+msgstr "被弾するたびにこの階で強くなる"
+
+msgid "Jeder zweite Schuss ist viel stärker"
+msgstr "2発に1発がとても強い"
+
+msgid "Kamille"
+msgstr "カモミール"
+
+msgid "Kann ab jetzt im Dungeon auftauchen"
+msgstr "これからダンジョンに出現する"
+
+msgid "Karawanenrucksack"
+msgstr "隊商の背嚢"
+
+msgid "Kein Treffer nimmt mehr als ein halbes Herz"
+msgstr "被弾は最大でもハート半分"
+
+msgid "Kinderschuhe"
+msgstr "子供の靴"
+
+msgid "Kleiner, schneller und manchmal ausweichen"
+msgstr "小さく速くなり、時々回避"
+
+msgid "Klingenstern"
+msgstr "刃の星"
+
+msgid "Knochengeneral"
+msgstr "骨の将軍"
+
+msgid "Kohlenschrot"
+msgstr "石炭の散弾"
+
+msgid "Kometenschweif"
+msgstr "彗星の尾"
+
+msgid "Kometenstein"
+msgstr "彗星石"
+
+msgid "Kompassnadel"
+msgstr "羅針盤の針"
+
+msgid "Krieger"
+msgstr "戦士"
+
+msgid "Kriegerschwert"
+msgstr "戦士の剣"
+
+msgid "Kriegsaxt"
+msgstr "戦斧"
+
+msgid "Kristallkarte"
+msgstr "水晶の地図"
+
+msgid "Kristallsplitter"
+msgstr "水晶の欠片"
+
+msgid "Kräuterbeutel"
+msgstr "薬草袋"
+
+msgid "Kupfernagel"
+msgstr "銅の釘"
+
+msgid "Königsbrief"
+msgstr "王の手紙"
+
+msgid "Labyrinthaxt"
+msgstr "迷宮の斧"
+
+msgid "Ladenschild"
+msgstr "店の看板"
+
+msgid "Lange Flugbahnen, gewaltiger Einschlag"
+msgstr "長い弾道、強烈な一撃"
+
+msgid "Langsam heilen und ein blaues Herz"
+msgstr "徐々に回復、青いハート1つ"
+
+msgid "Langsam heilst du dich"
+msgstr "徐々に回復する"
+
+msgid "Lautstärke"
+msgstr "音量"
+
+msgid "Lebendiger Wind"
+msgstr "生ける風"
+
+msgid "Lebensholz"
+msgstr "命の木"
+
+msgid "Lebenstau"
+msgstr "命の露"
+
+msgid "Lederstiefel"
+msgstr "革のブーツ"
+
+msgid "Legendenhandschuhe"
+msgstr "伝説の手袋"
+
+msgid "Leichte Feder"
+msgstr "軽い羽根"
+
+msgid "Letzte Glut"
+msgstr "最後の残り火"
+
+msgid "Lexikon"
+msgstr "図鑑"
+
+msgid "Lichtstab"
+msgstr "光の杖"
+
+msgid "Länger sicher nach einem Treffer"
+msgstr "被弾後の無敵が長い"
+
+msgid "Läufersandalen"
+msgstr "走者のサンダル"
+
+msgid "Läuferschuhe"
+msgstr "ランナーの靴"
+
+msgid "Magier"
+msgstr "魔法使い"
+
+msgid "Makelloser Schild"
+msgstr "完璧な盾"
+
+msgid "Manchmal Schüsse in alle vier Richtungen"
+msgstr "時々4方向に撃つ"
+
+msgid "Manchmal ausweichen, schneller laufen"
+msgstr "時々回避、移動が速くなる"
+
+msgid "Manchmal brennen getroffene Gegner"
+msgstr "当たった敵が時々燃える"
+
+msgid "Manchmal explodieren deine Schüsse"
+msgstr "弾が時々爆発する"
+
+msgid "Manchmal frieren Gegner ein"
+msgstr "敵が時々凍る"
+
+msgid "Manchmal vergiften deine Schüsse"
+msgstr "弾が時々毒を与える"
+
+msgid "Manchmal weichst du Treffern aus"
+msgstr "時々攻撃を回避する"
+
+msgid "Maus"
+msgstr "マウス"
+
+msgid "Maustaste halten zum Aufladen: größer und stärker"
+msgstr "長押しでチャージ: 大きく強くなる"
+
+msgid "Mehr Beute nach jedem Raum"
+msgstr "部屋ごとの戦利品が増える"
+
+msgid "Mehr Rückstoß und Schaden"
+msgstr "ノックバックとダメージ上昇"
+
+msgid "Mehr Schaden für jede Münze, die du hast"
+msgstr "持っているコイン1枚ごとにダメージ上昇"
+
+msgid "Meteor"
+msgstr "メテオ"
+
+msgid "Minotaurus"
+msgstr "ミノタウロス"
+
+msgid "Mondlilie"
+msgstr "月百合"
+
+msgid "Mondsiegel"
+msgstr "月の印章"
+
+msgid "Mondsturm"
+msgstr "月の嵐"
+
+msgid "Moorherz"
+msgstr "沼の心臓"
+
+msgid "Musik"
+msgstr "音楽"
+
+msgid "Münzen und Herzen fliegen zu dir"
+msgstr "コインとハートが飛んでくる"
+
+msgid "Nach jedem Boss zwei Items zur Wahl"
+msgstr "ボスの後にアイテムを2つから選べる"
+
+msgid "Nachtschatten"
+msgstr "ナイトシェード"
+
+msgid "Nachtschattensamen"
+msgstr "ナイトシェードの種"
+
+msgid "Neuer Run"
+msgstr "もう一度"
+
+msgid "Neues Spiel"
+msgstr "ニューゲーム"
+
+msgid "Nicht während eines Kampfes"
+msgstr "戦闘中は不可"
+
+msgid "Nichts geschieht"
+msgstr "何も起こらない"
+
+msgid "Nimm %d Glutpakte in einem Run"
+msgstr "1回の挑戦で残り火の契約を%d回結ぶ"
+
+msgid "Noch ein Glutmond kreist um dich"
+msgstr "残り火の月がもう1つ回る"
+
+msgid "Noch keine Items"
+msgstr "まだアイテムがない"
+
+msgid "Noch nicht entdeckt"
+msgstr "未発見"
+
+msgid "Nächste Seite"
+msgstr "次のページ"
+
+msgid "Offensiv"
+msgstr "攻撃"
+
+msgid "Oger"
+msgstr "オーガ"
+
+msgid "Onyx"
+msgstr "オニキス"
+
+msgid "Opaljuwel"
+msgstr "オパールの宝石"
+
+msgid "Opferdolch"
+msgstr "儀式の短刀"
+
+msgid "Opferstein: ein Herz für eine Gabe"
+msgstr "生贄の石：ハート1つで贈り物"
+
+msgid "Ork"
+msgstr "オーク"
+
+msgid "Ork-Häuptling"
+msgstr "オークの族長"
+
+msgid "Paktschatulle"
+msgstr "契約の小箱"
+
+msgid "Palladiumamulett"
+msgstr "パラジウムの護符"
+
+msgid "Palladiumbarren"
+msgstr "パラジウムの延べ棒"
+
+msgid "Palladiumklinge"
+msgstr "パラジウムの刃"
+
+msgid "Pause"
+msgstr "ポーズ"
+
+msgid "Pfeile aufladen und loslassen: weit und stark"
+msgstr "矢を溜めて放つ：遠く強い"
+
+msgid "Pickups fliegen zu dir, Glück hoch"
+msgstr "拾得物が飛んでくる、運上昇"
+
+msgid "Platin-Großschwert"
+msgstr "プラチナの大剣"
+
+msgid "Platin-Lichtstab"
+msgstr "プラチナの光の杖"
+
+msgid "Platin-Sturmstab"
+msgstr "プラチナの嵐の杖"
+
+msgid "Platinamulett"
+msgstr "プラチナの護符"
+
+msgid "Platinbarren"
+msgstr "プラチナの延べ棒"
+
+msgid "Platinklinge"
+msgstr "プラチナの刃"
+
+msgid "Platinspitze"
+msgstr "プラチナの矢じり"
+
+msgid "Pulverfass"
+msgstr "火薬樽"
+
+msgid "Pulverhandschuh"
+msgstr "火薬の手袋"
+
+msgid "Ratte"
+msgstr "ネズミ"
+
+msgid "Rattenfell"
+msgstr "ネズミの毛皮"
+
+msgid "Rattenkeller"
+msgstr "ネズミの地下室"
+
+msgid "Rattenkönig"
+msgstr "ネズミの王"
+
+msgid "Reichweite"
+msgstr "射程"
+
+msgid "Reichweite +2 m, schnellere Schüsse"
+msgstr "射程+2m、弾速アップ"
+
+msgid "Reichweite hoch"
+msgstr "射程上昇"
+
+msgid "Reichweite und Schaden hoch"
+msgstr "射程とダメージ上昇"
+
+msgid "Reichweite und Schusstempo hoch"
+msgstr "射程と弾速上昇"
+
+msgid "Reichweite: %s m"
+msgstr "射程: %s m"
+
+msgid "Reine Fassung"
+msgstr "清らかな台座"
+
+msgid "Riesenratte"
+msgstr "大ネズミ"
+
+msgid "Riesentrank"
+msgstr "巨人の薬"
+
+msgid "Riesige Schüsse, die im Flug schrumpfen"
+msgstr "飛ぶうちに縮む巨大な弾"
+
+msgid "Riesige, langsame Feuerbälle mit viel Schaden"
+msgstr "巨大で遅いが強力な火の玉"
+
+msgid "Riesiger Rückstoß und viel Schaden"
+msgstr "強烈なノックバックと大ダメージ"
+
+msgid "Ritterhelm"
+msgstr "騎士の兜"
+
+msgid "Robbenfell"
+msgstr "アザラシの毛皮"
+
+msgid "Robbenmantel"
+msgstr "アザラシのマント"
+
+msgid "Ruhmeskette"
+msgstr "栄光の鎖"
+
+msgid "Rückenamulett"
+msgstr "背中の護符"
+
+msgid "Sandschmied-Handschuhe"
+msgstr "砂の鍛冶屋の手袋"
+
+msgid "Saphir"
+msgstr "サファイア"
+
+msgid "Saphirjuwel"
+msgstr "サファイアの宝石"
+
+msgid "Schaden"
+msgstr "ダメージ"
+
+msgid "Schaden für jede Münze, Glück hoch"
+msgstr "コインごとにダメージ、運上昇"
+
+msgid "Schaden hoch"
+msgstr "ダメージアップ"
+
+msgid "Schaden hoch, etwas schneller schießen"
+msgstr "ダメージ上昇、連射が少し速い"
+
+msgid "Schaden hoch, größere Feuerbälle"
+msgstr "ダメージ上昇、火の玉が大きい"
+
+msgid "Schaden hoch, schneller laufen"
+msgstr "ダメージ上昇、移動が速い"
+
+msgid "Schaden mal 1,15"
+msgstr "ダメージ×1.15"
+
+msgid "Schaden mal 1,2"
+msgstr "ダメージ×1.2"
+
+msgid "Schaden mal 1,2, etwas langsamer schießen"
+msgstr "ダメージ×1.2、連射が少し遅い"
+
+msgid "Schaden mal 1,25"
+msgstr "ダメージ×1.25"
+
+msgid "Schaden mal 1,3 und zehn Münzen"
+msgstr "ダメージ×1.3とコイン10枚"
+
+msgid "Schaden mal 1,4 und Durchschlag"
+msgstr "ダメージ×1.4と貫通"
+
+msgid "Schaden mal 1,5"
+msgstr "ダメージ×1.5"
+
+msgid "Schaden und Reichweite hoch"
+msgstr "ダメージと射程上昇"
+
+msgid "Schaden und Rückstoß hoch"
+msgstr "ダメージとノックバック上昇"
+
+msgid "Schaden und Schusstempo hoch"
+msgstr "ダメージと弾速上昇"
+
+msgid "Schaden, Reichweite und Glück hoch"
+msgstr "ダメージ・射程・運上昇"
+
+msgid "Schaden, Schusstempo und Reichweite hoch"
+msgstr "ダメージ・連射・射程上昇"
+
+msgid "Schaden: %s"
+msgstr "ダメージ: %s"
+
+msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
+msgstr "%d階連続で被弾せずに進む"
+
+msgid "Schattenmantel"
+msgstr "影のマント"
+
+msgid "Schattenschritt"
+msgstr "影歩き"
+
+msgid "Schattenstab"
+msgstr "影の杖"
+
+msgid "Schatzbeutel"
+msgstr "宝袋"
+
+msgid "Schatzkarte"
+msgstr "宝の地図"
+
+msgid "Schießt Feuerbälle"
+msgstr "火の玉を撃つ"
+
+msgid "Schildwache"
+msgstr "盾の衛兵"
+
+msgid "Schlachtkeil"
+msgstr "戦の楔"
+
+msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
+msgstr "蛇炎: 弾がくねくね進み、少し強い"
+
+msgid "Schlangenschüsse, die Gegner verfolgen"
+msgstr "敵を追う蛇行弾"
+
+msgid "Schleim"
+msgstr "スライム"
+
+msgid "Schließen"
+msgstr "閉じる"
+
+msgid "Schlängelnde Schüsse, die abprallen"
+msgstr "反射する蛇行弾"
+
+msgid "Schlüsselform"
+msgstr "鍵の鋳型"
+
+msgid "Schmiedehammer"
+msgstr "鍛冶ハンマー"
+
+msgid "Schmiedeschlüssel"
+msgstr "鍛冶場の鍵"
+
+msgid "Schmiedeschwert"
+msgstr "鍛冶屋の剣"
+
+msgid "Schmiedeschürze"
+msgstr "鍛冶屋の前掛け"
+
+msgid "Schneller laufen, Glück hoch"
+msgstr "移動が速くなり、運上昇"
+
+msgid "Schneller laufen, mehr Reichweite"
+msgstr "移動が速くなり、射程上昇"
+
+msgid "Schneller schießen und laufen"
+msgstr "連射と移動が速くなる"
+
+msgid "Schneller schießen, Schüsse zerplatzen am Ende"
+msgstr "連射が速く、弾は最後に弾ける"
+
+msgid "Schnellere Schüsse fliegen durch Gegner"
+msgstr "速い弾が敵を貫通する"
+
+msgid "Schreckensbrief"
+msgstr "恐怖の手紙"
+
+msgid "Schrotflinte: sechs Glutbrocken auf kurze Distanz"
+msgstr "ショットガン: 近距離に火の粉を6発"
+
+msgid "Schrumpftrank"
+msgstr "縮小の薬"
+
+msgid "Schusstempo"
+msgstr "弾速"
+
+msgid "Schwarzer Kristall"
+msgstr "黒水晶"
+
+msgid "Schwere Glut"
+msgstr "重い残り火"
+
+msgid "Schwerer zu treffen und schneller"
+msgstr "当たりにくく、速くなる"
+
+msgid "Schwert statt Feuerbällen: der Schwung trifft alle vor dir, Gegner brennen"
+msgstr "火の玉の代わりに剣：前方すべてに当たり、敵は燃える"
+
+msgid "Schwert und Feuerstab: jeder Schwung schickt einen Feuerschweif nach vorne"
+msgstr "剣と炎の杖：振るたびに炎の軌跡が前へ飛ぶ"
+
+msgid "Schwertschwung: kurze Reichweite, trifft mehrere Gegner"
+msgstr "剣の一振り：射程は短いが複数の敵に当たる"
+
+msgid "Schüsse auf einmal: %d"
+msgstr "同時発射数: %d"
+
+msgid "Schüsse fliegen durch Gegner hindurch"
+msgstr "弾が敵を貫通する"
+
+msgid "Schüsse fliegen durch Steine"
+msgstr "弾が岩を貫通する"
+
+msgid "Schüsse fliegen durch Steine und suchen Gegner"
+msgstr "弾が岩を貫通し、敵を追う"
+
+msgid "Schüsse fliegen zu dir zurück"
+msgstr "弾が手元に戻ってくる"
+
+msgid "Schüsse prallen ab, fliegen durch Gegner und suchen sie"
+msgstr "弾が反射し、敵を貫通して追う"
+
+msgid "Schüsse prallen von Wänden ab"
+msgstr "弾が壁で跳ね返る"
+
+msgid "Schüsse pro Sekunde: %s"
+msgstr "毎秒の発射数: %s"
+
+msgid "Schüsse suchen Gegner und fliegen durch sie"
+msgstr "弾が敵を追い、貫通する"
+
+msgid "Schüsse zerplatzen am Ende und fliegen durch Steine"
+msgstr "弾が最後に弾け、岩を貫通する"
+
+msgid "Schüsse/s"
+msgstr "連射/秒"
+
+msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
+msgstr "コイン6枚、爆弾3個、鍵3本"
+
+msgid "Seelensplitter"
+msgstr "魂の欠片"
+
+msgid "Seelenstab"
+msgstr "魂の杖"
+
+msgid "Seherbräu"
+msgstr "予言者の薬"
+
+msgid "Seite %d von %d"
+msgstr "%d / %d ページ"
+
+msgid "Shift: du springst dorthin, wo du hinzielst"
+msgstr "Shift：狙った場所へ瞬間移動"
+
+msgid "Shift: ein schneller Sprint, kurz unverwundbar"
+msgstr "Shift：素早いダッシュ、一瞬無敵"
+
+msgid "Siegerring"
+msgstr "勝者の指輪"
+
+msgid "Silberader"
+msgstr "銀脈"
+
+msgid "Silberamulett"
+msgstr "銀の護符"
+
+msgid "Silberdolch"
+msgstr "銀の短剣"
+
+msgid "Silberhammer"
+msgstr "銀の槌"
+
+msgid "Silberharnisch"
+msgstr "銀の胸当て"
+
+msgid "Silberklinge"
+msgstr "銀の刃"
+
+msgid "Silberring"
+msgstr "銀の指輪"
+
+msgid "Silberspitze"
+msgstr "銀の矢じり"
+
+msgid "Skelett"
+msgstr "骸骨"
+
+msgid "Skelettritter"
+msgstr "骸骨の騎士"
+
+msgid "Smaragd"
+msgstr "エメラルド"
+
+msgid "Smaragdjuwel"
+msgstr "エメラルドの宝石"
+
+msgid "Sonderraum"
+msgstr "特別な部屋"
+
+msgid "Sonnenblume"
+msgstr "ひまわり"
+
+msgid "Spardose"
+msgstr "貯金箱"
+
+msgid "Spinne"
+msgstr "クモ"
+
+msgid "Spinnenmutter"
+msgstr "蜘蛛の母"
+
+msgid "Spinnenseil"
+msgstr "蜘蛛の綱"
+
+msgid "Splitterrubin"
+msgstr "砕けるルビー"
+
+msgid "Sprache"
+msgstr "言語"
+
+msgid "Sprengmeisterhelm"
+msgstr "爆破師の兜"
+
+msgid "Sprengrune"
+msgstr "爆破のルーン"
+
+msgid "Sprengsack"
+msgstr "爆薬袋"
+
+msgid "Sprengstrahl"
+msgstr "爆裂ビーム"
+
+msgid "Sprinterrucksack"
+msgstr "俊足の背嚢"
+
+msgid "Steine zertreten und mehr Beute"
+msgstr "岩を踏み砕き、戦利品が増える"
+
+msgid "Steine zertreten, fünf Bomben"
+msgstr "岩を踏み砕く、爆弾5個"
+
+msgid "Sternenfessel"
+msgstr "星の枷"
+
+msgid "Sternenstahl"
+msgstr "星鋼"
+
+msgid "Sternenstahl-Splitter"
+msgstr "星鋼の欠片"
+
+msgid "Sternenstaub"
+msgstr "星屑"
+
+msgid "Sternentrunk"
+msgstr "星明かりの薬"
+
+msgid "Stillstehen macht dich unverwundbar"
+msgstr "立ち止まると無敵になる"
+
+msgid "Stollenhelm"
+msgstr "坑夫の兜"
+
+msgid "Stollenratte"
+msgstr "坑道ネズミ"
+
+msgid "Streitkolben"
+msgstr "メイス"
+
+msgid "Streubombe"
+msgstr "クラスター爆弾"
+
+msgid "Sturmessenz"
+msgstr "嵐の精髄"
+
+msgid "Sturmkarte"
+msgstr "嵐の地図"
+
+msgid "Sturmsiegel"
+msgstr "嵐の印章"
+
+msgid "Sturmstab"
+msgstr "嵐の杖"
+
+msgid "Stärketrank"
+msgstr "力の薬"
+
+msgid "Suchende Bumerangs finden immer ein Ziel"
+msgstr "追尾ブーメランは必ず標的を見つける"
+
+msgid "Suchende Schüsse und alle Werte hoch"
+msgstr "追尾弾と全ステータス上昇"
+
+msgid "Suchende Schüsse und ein blaues Herz"
+msgstr "追尾弾と青いハート1つ"
+
+msgid "Suchende Schüsse, Glück hoch"
+msgstr "追尾弾、運上昇"
+
+msgid "Suchende Schüsse, etwas mehr Schaden"
+msgstr "追尾弾、ダメージ少し上昇"
+
+msgid "Suchender Funke"
+msgstr "追尾の火花"
+
+msgid "Suchender Strahl"
+msgstr "追尾ビーム"
+
+msgid "Sumpfhaut"
+msgstr "沼の皮"
+
+msgid "Sumpfleder"
+msgstr "沼の革"
+
+msgid "Sumpfmantel"
+msgstr "沼のマント"
+
+msgid "Synergie: %s!"
+msgstr "シナジー: %s！"
+
+msgid "Synergien: %s"
+msgstr "シナジー: %s"
+
+msgid "Taumelkraut"
+msgstr "よろめき草"
+
+msgid "Tausendklinge"
+msgstr "千の刃"
+
+msgid "Tempo"
+msgstr "移動速度"
+
+msgid "Tempo: %s"
+msgstr "移動速度: %s"
+
+msgid "Testraum · P: zurück"
+msgstr "テスト部屋 · P: 戻る"
+
+msgid "Topasjuwel"
+msgstr "トパーズの宝石"
+
+msgid "Totenbeschwörer"
+msgstr "死霊術師"
+
+msgid "Totengruft"
+msgstr "死者の墓所"
+
+msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
+msgstr "命中で弾け、岩を貫通する"
+
+msgid "Treue Funken"
+msgstr "忠実な火花"
+
+msgid "Trollblut"
+msgstr "トロールの血"
+
+msgid "Trollpanzer"
+msgstr "トロールの鎧"
+
+msgid "Truhenschlüssel"
+msgstr "宝箱の鍵"
+
+msgid "Utility"
+msgstr "補助"
+
+msgid "Vampir"
+msgstr "吸血鬼"
+
+msgid "Vergiftet Gegner, Schaden etwas hoch"
+msgstr "敵に毒、ダメージ少し上昇"
+
+msgid "Viel größere Bomben"
+msgstr "爆弾が大幅に大きい"
+
+msgid "Viel mehr Schaden"
+msgstr "ダメージ大幅上昇"
+
+msgid "Viel mehr Schaden mit nur einem Herz"
+msgstr "ハート1つ以下でダメージ大幅上昇"
+
+msgid "Viel mehr Schaden, langsamer schießen"
+msgstr "ダメージ大幅上昇、連射が遅くなる"
+
+msgid "Viel schneller laufen"
+msgstr "移動が大幅に速い"
+
+msgid "Viel schneller laufen und schießen"
+msgstr "移動と連射が大幅に速い"
+
+msgid "Viel schneller schießen und laufen"
+msgstr "連射と移動が大幅に速くなる"
+
+msgid "Viel schneller schießen, etwas weniger Schaden"
+msgstr "連射が大幅に速くなり、ダメージ少し低下"
+
+msgid "Viel schnellere Schüsse"
+msgstr "弾速が大幅に上昇"
+
+msgid "Viel schnellere Schüsse und mehr Reichweite"
+msgstr "弾速大幅上昇と射程上昇"
+
+msgid "Viele suchende Funken auf einmal"
+msgstr "追尾する火花がたくさん"
+
+msgid "Vier Schlüssel"
+msgstr "鍵4本"
+
+msgid "Vollbild"
+msgstr "フルスクリーン"
+
+msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
+msgstr "WASD: 移動 · マウス: 狙う · 左クリック: 撃つ"
+
+msgid "Wanderbündel"
+msgstr "旅人の包み"
+
+msgid "Wasserstab"
+msgstr "水の杖"
+
+msgid "Weiter"
+msgstr "再開"
+
+msgid "Weltenstab"
+msgstr "世界の杖"
+
+msgid "Wer tötet, fliegt mit dem Rest weiter"
+msgstr "倒した弾は残りの威力で飛び続ける"
+
+msgid "Wettkampfstiefel"
+msgstr "競技用ブーツ"
+
+msgid "Windfeder"
+msgstr "風の羽"
+
+msgid "Windläufer-Stiefel"
+msgstr "風走りのブーツ"
+
+msgid "Windrose"
+msgstr "風配図"
+
+msgid "Windstab"
+msgstr "風の杖"
+
+msgid "Wo der Strahl auftrifft, knallt es"
+msgstr "ビームが当たった所で爆発する"
+
+msgid "Wolfsmantel"
+msgstr "狼のマント"
+
+msgid "Wurfsterne"
+msgstr "手裏剣"
+
+msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
+msgstr "手裏剣が敵を貫通し、よく出血させる"
+
+msgid "Wähle deinen Charakter"
+msgstr "キャラクターを選ぶ"
+
+msgid "Wählen"
+msgstr "選ぶ"
+
+msgid "Wüstenkompass"
+msgstr "砂漠の羅針盤"
+
+msgid "Zauberbuch"
+msgstr "魔導書"
+
+msgid "Zehn Bomben"
+msgstr "爆弾10個"
+
+msgid "Zehn Münzen, Glück hoch"
+msgstr "コイン10枚、運上昇"
+
+msgid "Zombie"
+msgstr "ゾンビ"
+
+msgid "Zu wenig Münzen"
+msgstr "コインが足りない"
+
+msgid "Zufällig Gift, Furcht oder Taumeln"
+msgstr "ランダムで毒・恐怖・よろめき"
+
+msgid "Zunderbüchse"
+msgstr "火口箱"
+
+msgid "Zwanzig Münzen"
+msgstr "コイン20枚"
+
+msgid "Zwei Funken folgen dir und schießen"
+msgstr "火花2つがついてきて撃つ"
+
+msgid "Zwei Funken und Schaden hoch"
+msgstr "火花2つとダメージ上昇"
+
+msgid "Zwei Glutmonde kreisen um dich"
+msgstr "残り火の月が2つ周りを回る"
+
+msgid "Zwei Herzen mehr"
+msgstr "ハートが2つ増える"
+
+msgid "Zwei Herzen mehr und Dornen"
+msgstr "ハート2つ追加と棘"
+
+msgid "Zwei Herzen mehr und langsam heilen"
+msgstr "ハート2つ追加と徐々に回復"
+
+msgid "Zwei Herzen mehr, aber langsamer"
+msgstr "ハートが2つ増えるが、遅くなる"
+
+msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
+msgstr "ハート2つ、青いハート2つ、ダメージ上昇"
+
+msgid "Zwei Schüsse mehr, etwas schwächer"
+msgstr "弾が2発増え、少し弱くなる"
+
+msgid "Zwei blaue Herzen"
+msgstr "青いハート2つ"
+
+msgid "Zwei blaue Herzen und Dornen"
+msgstr "青いハート2つと棘"
+
+msgid "Zwei blaue Herzen, Schaden hoch"
+msgstr "青いハート2つ、ダメージ上昇"
+
+msgid "Zwei blaue Herzen, länger sicher nach Treffern"
+msgstr "青いハート2つ、被弾後の無敵が長い"
+
+msgid "Zwei blaue Herzen; geht eins verloren, trifft es alle Gegner"
+msgstr "青いハート2つ。1つ失うと敵全体に攻撃"
+
+msgid "Zwillingshandschuhe"
+msgstr "双子の手袋"
+
+msgid "oder Leertaste"
+msgstr "またはスペースキー"

@@ -1,0 +1,225 @@
+{
+ "frames": [
+  {
+   "filename": "aura_down 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 1.png",
+   "frame": {
+    "x": 24,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 2.png",
+   "frame": {
+    "x": 48,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 3.png",
+   "frame": {
+    "x": 72,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 4.png",
+   "frame": {
+    "x": 0,
+    "y": 24,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 5.png",
+   "frame": {
+    "x": 24,
+    "y": 24,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 6.png",
+   "frame": {
+    "x": 48,
+    "y": 24,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 7.png",
+   "frame": {
+    "x": 72,
+    "y": 24,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 8.png",
+   "frame": {
+    "x": 0,
+    "y": 48,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 9.png",
+   "frame": {
+    "x": 24,
+    "y": 48,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 10.png",
+   "frame": {
+    "x": 48,
+    "y": 48,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_down 11.png",
+   "frame": {
+    "x": 72,
+    "y": 48,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4583333333333333,
+    "y": 0.875
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "behind"
+ }
+}

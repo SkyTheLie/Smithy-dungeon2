@@ -1,0 +1,882 @@
+{
+	"_hilfe": {
+		"info": "Ausbau des eigenen Hauses (Schmiede) in 5 Stufen, der eigene Laden und die Einrichtung dafür. Siehe House (scripts/systems/house.gd) und docs/CONTENT.md.",
+		"felder": {
+			"levels": "Liste der Stufen (Reihenfolge = Stufe 1..5): name, price (Gold beim Baumeister, Stufe 1 = 0), description, smithy_displays (Verkaufstische in der Schmiede), shop_displays (Verkaufstische im Laden-Anbau), armor_stand (true = Rüstungsständer zum Verkauf von Rüstungen, ein Platz pro Rüstungsart wie Ninas Puppe). Die Grafik jeder Stufe steckt in den Szenen (village.tscn, smithy.tscn, house_shop.tscn).",
+			"shop": "eigener Laden: commission (Anteil, den jemand anderes behält; 0 = alles für dich), max_furniture_bonus (höchster Preis-Bonus durch Einrichtung, 0.5 = +50 %), price_factor, sale_chance_per_hour, open_from_hour, open_until_hour (fehlt ein Wert, gilt der von Ninas Laden in economy.json \"shop\")",
+			"furniture": "Einrichtung: id -> name, price (beim Möbelhändler am Markt), bonus (Preis-Bonus im eigenen Laden, 0.03 = +3 %, nur solange das Stück im Laden steht), texture, floor (true = liegt auf dem Boden wie ein Teppich, man kann darüber laufen), size [Breite, Tiefe] der Standfläche in Pixeln (Kollision und Platzbedarf), description; planter (Pflanztopf mit planter × planter Feldern, siehe Garden), rooms (nur in diesen Räumen aufstellbar, z. B. [\"greenhouse\"]; ohne = überall), unlock_flag (erst ab diesem Story-Flag beim Möbelhändler), rank (erst ab diesem Ruf-Rang, z. B. \"E\"), storage (Lagerkiste mit so vielen Plätzen; E öffnet sie, ein Kistenschild beschriftet sie, siehe House.boxes), jewel_slots (Schmuckvitrine: so viele Plätze für Ringe und Amulette im eigenen Laden, verkauft wie die Tische, nur im Laden-Anbau ab Hausstufe 4), max_owned (höchstens so viele Stück kaufbar, danach nicht mehr im Angebot)"
+		},
+		"decorations": "Deko, die schon im Raum steht und sich mit B einlagern lässt: Knotenname in der Szene (z. B. Barrel in smithy_room.tscn) -> name, icon (Bild im Lager-Fenster). Fehlt ein Knoten hier, lässt er sich nur verschieben.",
+		"room_styles": "Raum-Designer: id -> name, kind (floor | wall | door), price, bonus (Preis-Bonus im eigenen Laden, wenn der Laden diesen Stil hat), texture (Kachel, Boden 32x32, Wand 32x48, Tür 17x32), unlock_flag (erst ab diesem Story-Flag), description. Gekauft wird einmal, benutzt in jedem Raum (B » Wände & Böden).",
+		"workshop_upgrades": "Werkstatt-Ausbau beim Baumeister: Station -> name, levels (Liste der Stufen): name, price, items (Liste wie give_items), unlock_flag, description und die Wirkung: forge_quality (Prozent Qualität beim Schmieden), smelt_speed (Prozent schneller schmelzen), smelt_slots (Plätze mehr in der Schmelze, jeder schmilzt für sich), heat_bonus (Prozent mehr Güsse pro Brennstoff). Die Wirkungen der gekauften Stufen zählen zusammen.",
+		"hall_of_fame": "Ruhmeshalle beim Baumeister: price, items, reputation_per_trophy (Ruf jeden Morgen pro aufgestelltem Pokal), max_trophies_counted, description.",
+		"moebel_hausstufe": "furniture.<id>.house_level: die Möbelhändlerin verkauft das Stück erst ab dieser Hausstufe (ohne = sofort).",
+		"builder_jobs": "Bauten des Baumeisters, die über Nacht fertig werden: <id>: ordered_flag (bezahlt), done_flag (steht), dialogue (was Konrad sagt, solange er daran baut). Der Hausausbau heißt \"house\" (ohne Flags). Er nimmt erst einen neuen Auftrag an, wenn der alte fertig ist."
+	},
+	"levels": [
+		{
+			"name": "Kleine Schmiede",
+			"price": 0,
+			"description": "Die gemietete Schmiede, wie du sie übernommen hast.",
+			"smithy_displays": 0,
+			"shop_displays": 0
+		},
+		{
+			"name": "Große Schmiede",
+			"price": 1500,
+			"description": "Ein Steinflügel wird angebaut: die Werkstatt wird deutlich größer.",
+			"smithy_displays": 0,
+			"shop_displays": 0
+		},
+		{
+			"name": "Schmiede mit Verkauf",
+			"price": 2500,
+			"description": "Zwei Verkaufstische und ein Rüstungsständer in der Werkstatt: Kunden kaufen deine Waffen und Rüstungen direkt bei dir, ohne Provision.",
+			"smithy_displays": 2,
+			"shop_displays": 0,
+			"armor_stand": true
+		},
+		{
+			"name": "Laden-Anbau",
+			"price": 7500,
+			"description": "Ein eigener Laden links an der Schmiede mit 6 Verkaufstischen, dem Rüstungsständer und der Kasse (Tische und Ständer aus der Werkstatt ziehen dorthin um). Einrichtung gibt es beim Möbelhändler am Markt.",
+			"smithy_displays": 0,
+			"shop_displays": 6,
+			"armor_stand": true
+		},
+		{
+			"name": "Großer Laden",
+			"price": 25000,
+			"description": "Der Laden wird erweitert: mehr Platz und 10 Verkaufstische.",
+			"smithy_displays": 0,
+			"shop_displays": 10,
+			"armor_stand": true
+		}
+	],
+	"shop": {
+		"commission": 0.0,
+		"max_furniture_bonus": 0.5
+	},
+	"furniture": {
+		"planter_2x2": {
+			"name": "Pflanztopf 2×2",
+			"price": 500,
+			"texture": "res://assets/sprites/furniture/greenhouse/planter_2x2.png",
+			"size": [36, 16],
+			"planter": 2,
+			"rooms": ["greenhouse"],
+			"unlock_flag": "greenhouse_built",
+			"description": "Ein Holztrog mit 4 Feldern fürs Gewächshaus. Erst Erde hinein, dann Samen pflanzen."
+		},
+		"planter_3x3": {
+			"name": "Pflanztopf 3×3",
+			"price": 2000,
+			"texture": "res://assets/sprites/furniture/greenhouse/planter_3x3.png",
+			"size": [50, 24],
+			"planter": 3,
+			"rooms": ["greenhouse"],
+			"unlock_flag": "greenhouse_built",
+			"description": "Ein großer Holztrog mit 9 Feldern fürs Gewächshaus."
+		},
+		"planter_4x4": {
+			"name": "Pflanztopf 4×4",
+			"price": 10000,
+			"texture": "res://assets/sprites/furniture/greenhouse/planter_4x4.png",
+			"size": [64, 32],
+			"planter": 4,
+			"rooms": ["greenhouse"],
+			"unlock_flag": "greenhouse_built",
+			"description": "Ein riesiger Holztrog mit 16 Feldern fürs Gewächshaus."
+		},
+		"plant_tall": {
+			"name": "Große Topfpflanze",
+			"price": 350,
+			"bonus": 0.03,
+			"texture": "res://assets/sprites/furniture/shop/plant_tall.png",
+			"size": [
+				14,
+				6
+			],
+			"description": "Etwas Grün macht jeden Laden freundlicher."
+		},
+		"flower_box": {
+			"name": "Blumenkasten",
+			"price": 90,
+			"bonus": 0.01,
+			"texture": "res://assets/sprites/furniture/shop/flower_box.png",
+			"size": [
+				20,
+				6
+			],
+			"description": "Bunte Blumen im Holzkasten."
+		},
+		"rug_round": {
+			"name": "Runder roter Teppich",
+			"price": 250,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/furniture/shop/rug_round.png",
+			"floor": true,
+			"size": [
+				0,
+				0
+			],
+			"description": "Weich und warm, man läuft darüber."
+		},
+		"rug_long": {
+			"name": "Langer blauer Teppich",
+			"price": 300,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/furniture/shop/rug_long.png",
+			"floor": true,
+			"size": [
+				0,
+				0
+			],
+			"description": "Führt die Kunden durch den Laden.",
+			"house_level": 2
+		},
+		"side_table": {
+			"name": "Beistelltisch mit Vase",
+			"price": 180,
+			"bonus": 0.015,
+			"texture": "res://assets/sprites/furniture/shop/side_table.png",
+			"size": [
+				16,
+				8
+			],
+			"description": "Ein kleiner Tisch mit frischen Blumen.",
+			"house_level": 2
+		},
+		"crates": {
+			"name": "Warenkisten",
+			"price": 80,
+			"bonus": 0.005,
+			"texture": "res://assets/sprites/furniture/shop/crates.png",
+			"size": [
+				22,
+				8
+			],
+			"description": "Zeigt: hier gibt es Nachschub."
+		},
+		"chest": {
+			"name": "Schatztruhe",
+			"price": 400,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/furniture/shop/chest.png",
+			"size": [
+				22,
+				8
+			],
+			"description": "Messingbeschläge, die Kunden staunen lassen."
+		},
+		"storage_small": {
+			"name": "Kleine Kiste",
+			"price": 500,
+			"texture": "res://assets/sprites/furniture/storage/box_small.png",
+			"size": [20, 8],
+			"storage": 8,
+			"rank": "E",
+			"description": "Eine einfache Holzkiste mit 8 Plätzen zum Lagern. Mit einem Kistenschild siehst du von außen, was drin ist."
+		},
+		"storage_medium": {
+			"name": "Holztruhe",
+			"price": 2000,
+			"texture": "res://assets/sprites/furniture/storage/box_medium.png",
+			"size": [26, 8],
+			"storage": 16,
+			"rank": "D",
+			"description": "Eine Truhe mit Eisenbändern und 16 Plätzen."
+		},
+		"storage_large": {
+			"name": "Eisentruhe",
+			"price": 6000,
+			"texture": "res://assets/sprites/furniture/storage/box_large.png",
+			"size": [33, 9],
+			"storage": 24,
+			"rank": "C",
+			"description": "Eine schwere Truhe aus dunklem Holz mit 24 Plätzen."
+		},
+		"storage_huge": {
+			"name": "Große Schatztruhe",
+			"price": 15000,
+			"texture": "res://assets/sprites/furniture/storage/box_huge.png",
+			"size": [35, 10],
+			"storage": 40,
+			"rank": "B",
+			"description": "Eine riesige Truhe mit Goldbeschlägen und 40 Plätzen."
+		},
+		"jewel_display": {
+			"name": "Schmuckvitrine",
+			"price": 1500,
+			"bonus": 0.03,
+			"texture": "res://assets/sprites/furniture/shop/jewel_display.png",
+			"size": [26, 7],
+			"jewel_slots": 8,
+			"max_owned": 1,
+			"rooms": ["shop"],
+			"house_level": 4,
+			"description": "Eine kleine Glasvitrine auf rotem Samt mit 8 Plätzen für Ringe und Amulette. Im eigenen Laden aufgestellt verkaufen Kunden deinen Schmuck, das Gold kommt in die Kasse."
+		},
+		"barrel_weapons": {
+			"name": "Waffenfass",
+			"price": 220,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/furniture/shop/barrel_weapons.png",
+			"size": [
+				14,
+				6
+			],
+			"description": "Ein Fass voller Schwerter und Speere."
+		},
+		"weapon_rack": {
+			"name": "Waffenständer",
+			"price": 450,
+			"bonus": 0.03,
+			"texture": "res://assets/sprites/furniture/shop/weapon_rack.png",
+			"size": [
+				26,
+				6
+			],
+			"description": "Drei Schwerter, schön aufgereiht.",
+			"house_level": 3
+		},
+		"shield_stand": {
+			"name": "Schildständer",
+			"price": 420,
+			"bonus": 0.03,
+			"texture": "res://assets/sprites/furniture/shop/shield_stand.png",
+			"size": [
+				22,
+				6
+			],
+			"description": "Zwei Schilde zum Bestaunen.",
+			"house_level": 3
+		},
+		"armor_stand": {
+			"name": "Rüstungsständer",
+			"price": 650,
+			"bonus": 0.04,
+			"texture": "res://assets/sprites/furniture/shop/armor_stand.png",
+			"size": [
+				18,
+				6
+			],
+			"description": "Eine Puppe in Brustpanzer und Helm.",
+			"house_level": 4
+		},
+		"bookshelf": {
+			"name": "Bücherregal",
+			"price": 500,
+			"bonus": 0.03,
+			"texture": "res://assets/sprites/furniture/shop/bookshelf.png",
+			"size": [
+				26,
+				8
+			],
+			"description": "Bücher und Schriftrollen über die Schmiedekunst.",
+			"house_level": 3
+		},
+		"candelabra": {
+			"name": "Kerzenständer",
+			"price": 280,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/furniture/shop/candelabra.png",
+			"size": [
+				10,
+				5
+			],
+			"description": "Drei Kerzen für warmes Licht.",
+			"house_level": 2
+		},
+		"brazier": {
+			"name": "Feuerschale",
+			"price": 350,
+			"bonus": 0.025,
+			"texture": "res://assets/sprites/furniture/shop/brazier.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Glühende Kohlen, wie in einer echten Schmiede.",
+			"house_level": 3
+		},
+		"banner_anvil": {
+			"name": "Amboss-Banner",
+			"price": 600,
+			"bonus": 0.04,
+			"texture": "res://assets/sprites/furniture/shop/banner_anvil.png",
+			"size": [
+				12,
+				5
+			],
+			"description": "Das Wappen deiner Schmiede.",
+			"house_level": 2
+		},
+		"bear_trophy": {
+			"name": "Ausgestopfter Bär",
+			"price": 1200,
+			"bonus": 0.06,
+			"texture": "res://assets/sprites/furniture/shop/bear_trophy.png",
+			"size": [
+				24,
+				8
+			],
+			"description": "Ein echter Hingucker – die Kunden zahlen gern etwas mehr.",
+			"house_level": 5
+		},
+		"potion_shelf": {
+			"name": "Trankregal",
+			"price": 320,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/furniture/shop/potion_shelf.png",
+			"size": [
+				26,
+				8
+			],
+			"description": "Bunte Fläschchen, die das Auge anziehen.",
+			"house_level": 4
+		},
+		"display_case": {
+			"name": "Waffenvitrine",
+			"price": 900,
+			"bonus": 0.05,
+			"texture": "res://assets/sprites/furniture/shop/display_case.png",
+			"size": [
+				30,
+				8
+			],
+			"description": "Hinter Glas wirkt jede Klinge doppelt so wertvoll.",
+			"house_level": 5
+		},
+		"gh_stove": {
+			"name": "Wärmeofen",
+			"price": 1500,
+			"texture": "res://assets/sprites/furniture/greenhouse/stove.png",
+			"size": [
+				22,
+				8
+			],
+			"garden": {
+				"grow": 0.5,
+				"radius": 64
+			},
+			"rooms": [
+				"greenhouse"
+			],
+			"unlock_flag": "greenhouse_built",
+			"description": "Ein kleiner Gusseisenofen. Pflanzen in der Nähe wachsen jede Nacht einen halben Tag schneller."
+		},
+		"gh_crystal_lamp": {
+			"name": "Kristall-Lampe",
+			"price": 2500,
+			"texture": "res://assets/sprites/furniture/greenhouse/crystal_lamp.png",
+			"size": [
+				12,
+				5
+			],
+			"garden": {
+				"grow": 0.5,
+				"radius": 56
+			},
+			"rooms": [
+				"greenhouse"
+			],
+			"unlock_flag": "greenhouse_built",
+			"description": "Ein leuchtender Kristall auf einem Eisenständer. Pflanzen in der Nähe wachsen jede Nacht einen halben Tag schneller."
+		},
+		"gh_rain_barrel": {
+			"name": "Regenfass",
+			"price": 800,
+			"texture": "res://assets/sprites/furniture/greenhouse/rain_barrel.png",
+			"size": [
+				20,
+				7
+			],
+			"garden": {
+				"water": true,
+				"radius": 64
+			},
+			"rooms": [
+				"greenhouse"
+			],
+			"unlock_flag": "greenhouse_built",
+			"description": "Ein Fass voll Regenwasser. Gießt nachts die Pflanzen in der Nähe, die tagsüber nicht gegossen wurden."
+		},
+		"gh_beehive": {
+			"name": "Bienenkorb",
+			"price": 1200,
+			"texture": "res://assets/sprites/furniture/greenhouse/beehive.png",
+			"size": [
+				22,
+				7
+			],
+			"garden": {
+				"harvest": 0.25,
+				"radius": 72
+			},
+			"rooms": [
+				"greenhouse"
+			],
+			"unlock_flag": "greenhouse_built",
+			"description": "Die Bienen bestäuben die Blüten. Pflanzen in der Nähe geben mit 25 % Chance eine Ernte mehr."
+		},
+		"gh_potting_bench": {
+			"name": "Pflanztisch",
+			"price": 300,
+			"texture": "res://assets/sprites/furniture/greenhouse/potting_bench.png",
+			"size": [
+				36,
+				8
+			],
+			"unlock_flag": "greenhouse_built",
+			"description": "Ein Arbeitstisch mit Töpfen, Erde und Schaufel."
+		},
+		"gh_plant_shelf": {
+			"name": "Pflanzenregal",
+			"price": 260,
+			"texture": "res://assets/sprites/furniture/greenhouse/plant_shelf.png",
+			"size": [
+				32,
+				8
+			],
+			"unlock_flag": "greenhouse_built",
+			"description": "Drei Reihen kleiner Topfpflanzen."
+		},
+		"gh_trellis": {
+			"name": "Rankgitter",
+			"price": 140,
+			"texture": "res://assets/sprites/furniture/greenhouse/trellis.png",
+			"size": [
+				34,
+				5
+			],
+			"unlock_flag": "greenhouse_built",
+			"description": "Ein Holzgitter mit blühenden Ranken."
+		},
+		"gh_can_table": {
+			"name": "Gießkannen-Tisch",
+			"price": 180,
+			"texture": "res://assets/sprites/furniture/greenhouse/can_table.png",
+			"size": [
+				32,
+				7
+			],
+			"unlock_flag": "greenhouse_built",
+			"description": "Ein kleiner Tisch mit zwei Kupfer-Gießkannen."
+		},
+		"gh_rose_arch": {
+			"name": "Rosenbogen",
+			"price": 400,
+			"texture": "res://assets/sprites/furniture/greenhouse/rose_arch.png",
+			"size": [
+				34,
+				4
+			],
+			"unlock_flag": "greenhouse_built",
+			"description": "Ein Bogen voller roter Rosen."
+		},
+		"trophy_smith_copper": {
+			"name": "Kupfer-Pokal der Schmiede",
+			"price": 0,
+			"bonus": 0.01,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_smith_copper.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg in der Kupfer-Liga der Schmiede. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_hero_copper": {
+			"name": "Kupfer-Pokal der Arena",
+			"price": 0,
+			"bonus": 0.01,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_hero_copper.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg deiner Helden in der Kupfer-Liga. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_smith_iron": {
+			"name": "Eisen-Pokal der Schmiede",
+			"price": 0,
+			"bonus": 0.015,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_smith_iron.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg in der Eisen-Liga der Schmiede. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_hero_iron": {
+			"name": "Eisen-Pokal der Arena",
+			"price": 0,
+			"bonus": 0.015,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_hero_iron.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg deiner Helden in der Eisen-Liga. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_smith_bronze": {
+			"name": "Bronze-Pokal der Schmiede",
+			"price": 0,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_smith_bronze.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg in der Bronze-Liga der Schmiede. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_hero_bronze": {
+			"name": "Bronze-Pokal der Arena",
+			"price": 0,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_hero_bronze.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg deiner Helden in der Bronze-Liga. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_smith_silver": {
+			"name": "Silber-Pokal der Schmiede",
+			"price": 0,
+			"bonus": 0.025,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_smith_silver.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg in der Silber-Liga der Schmiede. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_hero_silver": {
+			"name": "Silber-Pokal der Arena",
+			"price": 0,
+			"bonus": 0.025,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_hero_silver.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg deiner Helden in der Silber-Liga. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_smith_gold": {
+			"name": "Gold-Pokal der Schmiede",
+			"price": 0,
+			"bonus": 0.03,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_smith_gold.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg in der Gold-Liga der Schmiede. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_hero_gold": {
+			"name": "Gold-Pokal der Arena",
+			"price": 0,
+			"bonus": 0.03,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_hero_gold.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg deiner Helden in der Gold-Liga. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_smith_platinum": {
+			"name": "Platin-Pokal der Schmiede",
+			"price": 0,
+			"bonus": 0.035,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_smith_platinum.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg in der Platin-Liga der Schmiede. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_hero_platinum": {
+			"name": "Platin-Pokal der Arena",
+			"price": 0,
+			"bonus": 0.035,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_hero_platinum.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg deiner Helden in der Platin-Liga. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_smith_palladium": {
+			"name": "Palladium-Pokal der Schmiede",
+			"price": 0,
+			"bonus": 0.04,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_smith_palladium.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg in der Palladium-Liga der Schmiede. Kann man nicht kaufen, nur gewinnen."
+		},
+		"trophy_hero_palladium": {
+			"name": "Palladium-Pokal der Arena",
+			"price": 0,
+			"bonus": 0.04,
+			"texture": "res://assets/sprites/furniture/trophies/trophy_hero_palladium.png",
+			"size": [
+				16,
+				6
+			],
+			"description": "Für den ersten Sieg deiner Helden in der Palladium-Liga. Kann man nicht kaufen, nur gewinnen."
+		}
+	},
+	"decorations": {
+		"Barrel": {"name": "Fass", "icon": "res://assets/sprites/props/barrel.png"},
+		"Sacks": {"name": "Säcke", "icon": "res://assets/sprites/props/sacks.png"},
+		"Coal": {"name": "Kohlehaufen", "icon": "res://assets/sprites/props/coal.png"}
+	},
+	"room_styles": {
+		"floor_oak_planks": {
+			"name": "Eichendielen",
+			"kind": "floor",
+			"price": 400,
+			"bonus": 0.01,
+			"texture": "res://assets/sprites/rooms/styles/floor_oak_planks.png",
+			"description": "Warme Holzdielen aus Eiche."
+		},
+		"floor_red_carpet": {
+			"name": "Roter Teppichboden",
+			"kind": "floor",
+			"price": 1200,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/rooms/styles/floor_red_carpet.png",
+			"description": "Weicher Teppich mit goldenem Muster. Kunden treten sich die Füße ab."
+		},
+		"floor_sandstone": {
+			"name": "Sandsteinplatten",
+			"kind": "floor",
+			"price": 1500,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/rooms/styles/floor_sandstone.png",
+			"unlock_flag": "desert_town_found",
+			"description": "Glatte Platten aus Sahrim. Bleiben auch im Sommer kühl."
+		},
+		"floor_checker_marble": {
+			"name": "Marmor-Schachbrett",
+			"kind": "floor",
+			"price": 2500,
+			"bonus": 0.03,
+			"texture": "res://assets/sprites/rooms/styles/floor_checker_marble.png",
+			"description": "Schwarz und weiß, wie im Schloss von Leonheim."
+		},
+		"floor_elfwood": {
+			"name": "Elfenholz-Dielen",
+			"kind": "floor",
+			"price": 3000,
+			"bonus": 0.03,
+			"texture": "res://assets/sprites/rooms/styles/floor_elfwood.png",
+			"unlock_flag": "reached_elf_arrival",
+			"description": "Schmale, helle Dielen aus Sylvaris. Knarren nie."
+		},
+		"floor_obsidian": {
+			"name": "Obsidianplatten",
+			"kind": "floor",
+			"price": 5000,
+			"bonus": 0.04,
+			"texture": "res://assets/sprites/rooms/styles/floor_obsidian.png",
+			"unlock_flag": "reached_dragon_defeated",
+			"description": "Schwarzes Glas aus dem Lavaberg. Kühl und unzerbrechlich."
+		},
+		"wall_plaster": {
+			"name": "Weißer Putz",
+			"kind": "wall",
+			"price": 400,
+			"bonus": 0.01,
+			"texture": "res://assets/sprites/rooms/styles/wall_plaster.png",
+			"description": "Hell und sauber. Macht jeden Raum größer."
+		},
+		"wall_red_brick": {
+			"name": "Roter Backstein",
+			"kind": "wall",
+			"price": 800,
+			"bonus": 0.01,
+			"texture": "res://assets/sprites/rooms/styles/wall_red_brick.png",
+			"description": "Kräftige rote Ziegel wie in der Hauptstadt."
+		},
+		"wall_wood_panel": {
+			"name": "Holzvertäfelung",
+			"kind": "wall",
+			"price": 1200,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/rooms/styles/wall_wood_panel.png",
+			"description": "Dunkles Holz in Kassetten. Riecht nach Wald."
+		},
+		"wall_sandstone": {
+			"name": "Sandsteinwand",
+			"kind": "wall",
+			"price": 1500,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/rooms/styles/wall_sandstone.png",
+			"unlock_flag": "desert_town_found",
+			"description": "Gemauert wie die Häuser unter der Kuppel."
+		},
+		"wall_elf_vines": {
+			"name": "Rankenwand",
+			"kind": "wall",
+			"price": 3000,
+			"bonus": 0.03,
+			"texture": "res://assets/sprites/rooms/styles/wall_elf_vines.png",
+			"unlock_flag": "reached_elf_arrival",
+			"description": "Steine mit blühenden Ranken aus Sylvaris."
+		},
+		"wall_obsidian": {
+			"name": "Obsidianwand",
+			"kind": "wall",
+			"price": 5000,
+			"bonus": 0.04,
+			"texture": "res://assets/sprites/rooms/styles/wall_obsidian.png",
+			"unlock_flag": "reached_dragon_defeated",
+			"description": "Schwarz glänzend, aus dem Herzen des Lavabergs."
+		},
+		"door_oak": {
+			"name": "Eichentür",
+			"kind": "door",
+			"price": 300,
+			"bonus": 0.005,
+			"texture": "res://assets/sprites/rooms/styles/door_oak.png",
+			"description": "Eine solide Tür aus Eiche."
+		},
+		"door_iron": {
+			"name": "Beschlagene Tür",
+			"kind": "door",
+			"price": 900,
+			"bonus": 0.01,
+			"texture": "res://assets/sprites/rooms/styles/door_iron.png",
+			"description": "Mit Eisenbändern beschlagen. Selbst geschmiedet, natürlich."
+		},
+		"door_elf": {
+			"name": "Elfentür",
+			"kind": "door",
+			"price": 2000,
+			"bonus": 0.015,
+			"texture": "res://assets/sprites/rooms/styles/door_elf.png",
+			"unlock_flag": "reached_elf_arrival",
+			"description": "Hell und schlank, mit grünen Beschlägen."
+		},
+		"door_gold": {
+			"name": "Goldene Tür",
+			"kind": "door",
+			"price": 6000,
+			"bonus": 0.02,
+			"texture": "res://assets/sprites/rooms/styles/door_gold.png",
+			"unlock_flag": "smith_tournament_won",
+			"description": "Für den Sieger des großen Turniers. Bescheiden geht anders."
+		}
+	},
+	"workshop_upgrades": {
+		"anvil": {
+			"name": "Amboss",
+			"levels": [
+				{
+					"name": "Gehärteter Amboss",
+					"price": 2000,
+					"items": "iron_ingot*10",
+					"forge_quality": 2,
+					"description": "Die Bahn ist gehärtet: Schmiedestücke werden etwas besser."
+				},
+				{
+					"name": "Bronzeamboss",
+					"price": 6000,
+					"items": "bronze_ingot*10,coal*20",
+					"forge_quality": 4,
+					"description": "Ein schwerer Amboss mit Bronzekern."
+				},
+				{
+					"name": "Meisteramboss",
+					"price": 15000,
+					"items": "silver_ingot*10,gold_ingot*5",
+					"forge_quality": 6,
+					"unlock_flag": "smith_tournament_won",
+					"description": "Ein Amboss, wie ihn nur Turniersieger haben."
+				},
+				{
+					"name": "Sternenamboss",
+					"price": 40000,
+					"items": "platinum_ingot*10,starsteel_ingot*1",
+					"forge_quality": 9,
+					"unlock_flag": "story_complete",
+					"description": "Mit einem Kern aus Sternenstahl. Halvard wäre neidisch."
+				}
+			]
+		},
+		"smelter": {
+			"name": "Schmelze",
+			"levels": [
+				{
+					"name": "Größerer Blasebalg",
+					"price": 1500,
+					"items": "leather*5,wooden_plank*10",
+					"smelt_speed": 15,
+					"smelt_slots": 1,
+					"description": "Mehr Luft, mehr Hitze: Erz schmilzt schneller, und ein zweiter Platz schmilzt nebenher."
+				},
+				{
+					"name": "Ausgemauerte Schmelze",
+					"price": 5000,
+					"items": "iron_ingot*10,sand*20",
+					"smelt_speed": 30,
+					"smelt_slots": 1,
+					"description": "Feuerfeste Steine halten die Hitze. Ein dritter Platz zum Schmelzen."
+				},
+				{
+					"name": "Glutkammer",
+					"price": 14000,
+					"items": "ember_essence*3,bronze_ingot*10",
+					"smelt_speed": 50,
+					"smelt_slots": 1,
+					"unlock_flag": "reached_dragon_defeated",
+					"description": "Mit Glutessenz aus dem Lavaberg. Fast doppelt so schnell, und ein vierter Platz."
+				}
+			]
+		},
+		"forge": {
+			"name": "Gussofen",
+			"levels": [
+				{
+					"name": "Bessere Esse",
+					"price": 1500,
+					"items": "iron_ingot*5,coal*10",
+					"heat_bonus": 20,
+					"description": "Holz und Kohle reichen für mehr Güsse."
+				},
+				{
+					"name": "Doppelte Esse",
+					"price": 5000,
+					"items": "bronze_ingot*8,coal*30",
+					"heat_bonus": 40,
+					"description": "Zwei Kammern: weniger Brennstoff pro Guss."
+				},
+				{
+					"name": "Ewige Glut",
+					"price": 16000,
+					"items": "ember_essence*5,gold_ingot*5",
+					"heat_bonus": 75,
+					"unlock_flag": "reached_dragon_defeated",
+					"description": "Die Glut hält fast doppelt so lange."
+				}
+			]
+		}
+	},
+	"hall_of_fame": {
+		"price": 15000,
+		"items": "wooden_beam*30,glass*10,silver_ingot*5",
+		"reputation_per_trophy": 2,
+		"max_trophies_counted": 14,
+		"description": "Ein Saal für deine Pokale, Titel und Meisterstücke. Jeder aufgestellte Pokal bringt dir jeden Morgen Ruf."
+	},
+	"builder_jobs": {
+		"house": {"dialogue": "builder_busy_house"},
+		"hall": {"ordered_flag": "hall_of_fame_paid", "done_flag": "hall_of_fame_built", "dialogue": "builder_busy_hall"},
+		"greenhouse": {"ordered_flag": "greenhouse_paid", "done_flag": "greenhouse_built", "dialogue": "builder_busy_greenhouse"}
+	}
+}

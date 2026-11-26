@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/smelter_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory/item_slot.tscn" id="2_slot"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/slot_hints/plus.png" id="3_plus"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/slot_hints/arrow.png" id="4_arrow"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+
+[node name="SmelterMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+title = "Schmelze"
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 24.0
+offset_right = 75.0
+offset_bottom = 124.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("90_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TabBar" type="TabBar" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+current_tab = 0
+tab_count = 2
+tab_0/title = "Schmelzen"
+tab_1/title = "Legieren"
+
+[node name="Lanes" type="HBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Lane" type="VBoxContainer" parent="Panel/VBox/Lanes"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Row" type="HBoxContainer" parent="Panel/VBox/Lanes/Lane"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Inputs" type="VBoxContainer" parent="Panel/VBox/Lanes/Lane/Row"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="InputRow" type="HBoxContainer" parent="Panel/VBox/Lanes/Lane/Row/Inputs"]
+layout_mode = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="OreSlot" parent="Panel/VBox/Lanes/Lane/Row/Inputs/InputRow" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Plus" type="TextureRect" parent="Panel/VBox/Lanes/Lane/Row/Inputs/InputRow"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_plus")
+stretch_mode = 3
+
+[node name="SecondSlot" parent="Panel/VBox/Lanes/Lane/Row/Inputs/InputRow" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="FuelSlot" parent="Panel/VBox/Lanes/Lane/Row/Inputs" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Middle" type="VBoxContainer" parent="Panel/VBox/Lanes/Lane/Row"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Arrow" type="TextureRect" parent="Panel/VBox/Lanes/Lane/Row/Middle"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("4_arrow")
+stretch_mode = 3
+
+[node name="TimeLabel" type="Label" parent="Panel/VBox/Lanes/Lane/Row/Middle"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OutputSlot" parent="Panel/VBox/Lanes/Lane/Row" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="StartButton" type="Button" parent="Panel/VBox/Lanes/Lane"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Einschmelzen"

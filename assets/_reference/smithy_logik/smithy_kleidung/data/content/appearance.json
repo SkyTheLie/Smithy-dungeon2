@@ -1,0 +1,1029 @@
+{
+	"_hilfe": {
+		"info": "Baukasten für das Aussehen von Spieler und NPCs (Charakter-Editor, Kunden, Helden). Alle Felder: docs/CONTENT.md, Abschnitt appearance.json. Dieser Block wird vom Spiel ignoriert.",
+		"bilder": "Basis-Figur pro Kleidung (outfits.<id>.base, z. B. res://assets/sprites/characters/base_smith.png), Teile res://assets/sprites/characters/parts/<kleidung>/<teil>.png (+ <teil>_back.png = hinter dem Körper). Neu backen: py -I assets/_reference/characters/bake_characters.py",
+		"farben": "Jede Farbe ist eine Rampe aus 5 Tönen von hell nach dunkel (Augen: 2 Töne: Farbe, Glanz). Die Teile sind mit Markerfarben gemalt und werden damit eingefärbt.",
+		"rassen_boni": "Jede Rasse gibt Helden und dem Schmied einen kleinen Bonus. hero_bonus: Werte wie bei passiven Skills (z. B. {\"damage_light\": 5} = Lichtschaden +5 %, \"max_health\": 10 = Leben +10 %, \"crit_chance\", \"evasion\"; Liste: docs/CONTENT.md). hero_resistances: Resistenz gegen Schadensarten (z. B. {\"fire\": 5}). player_bonus: Werte des Schmieds (Namen aus PlayerStats.Stat, z. B. {\"FORGING_ZONES\": 0.01} = Amboss-Zonen +1 %-Punkt, \"SELL_PRICE\": 0.05 = +5 % Gold). Die Texte im Charakter-Editor und bei den Helden entstehen aus diesen Zahlen.",
+		"vorlage_rasse": {
+			"name": "Elf",
+			"skin_tones": [
+				"light",
+				"pale",
+				"tan",
+				"brown",
+				"dark"
+			],
+			"parts": [],
+			"ears": [
+				"elf_long",
+				"elf_short",
+				"elf_flat"
+			],
+			"no_hair": false
+		},
+		"figur": "bodies: Figur des Schmieds (male = Mann, female = Frau mit Wimpern und schmalerer Taille/Brust, CharacterBaker._add_lashes und _shape_female; Platzhalter, docs/PIXELLAB_TODO.md). Zufallsfiguren (Kunden, Helden) sind immer male.", "kleidung": "outfits: Kleidung (name, base = Basis-Figur; random = false: nie bei Zufallsfiguren (Kunden, Helden; Kleider), Spieler mit jeder Figur dürfen sie tragen; body = female: nur für die Figur Frau (derzeit keine); body_of = Kleidung, deren Teile (Haare, Ohren), Kampf-Posen und Abbau-Bilder benutzt werden, wenn es eigene nicht gibt; price = Preis beim Schneider (ohne = gibt es schon im Charakter-Editor); unlock_flag = Schneider verkauft sie erst ab diesem Story-Flag; fixed = feste Figur einer bestimmten Person, z. B. Bruno und Gustav aus PixelLab: ohne Haar-/Augen-Teile und Farben, nicht im Charakter-Editor und nicht für Zufallsfiguren, Größe immer normal; battle_look = Baukasten-Werte, mit denen die Figur im Kampf gezeichnet wird, damit sie alle Kampf-Posen hat). clothes_colors: Farben für das Hauptkleidungsstück (5 Töne hell » dunkel), gilt für Kleidung mit Kleidungs-Marker (Tunika, Weste; die Schmiede-Schürze bleibt braun)."
+	},
+	"parts_dir": "res://assets/sprites/characters/parts/",
+	"outfits": {
+		"smith": {
+			"name": "Schmied",
+			"name_female": "Schmiedin",
+			"base": "res://assets/sprites/characters/base_smith.png"
+		},
+		"tunic": {
+			"name": "Tunika",
+			"base": "res://assets/sprites/characters/base_tunic.png",
+			"colorable": true
+		},
+		"vest": {
+			"name": "Weste",
+			"base": "res://assets/sprites/characters/base_vest.png",
+			"colorable": true
+		},
+		"bruno": {
+			"name": "Bruno",
+			"base": "res://assets/sprites/characters/base_bruno.png",
+			"fixed": true,
+			"battle_look": {
+				"race": "human",
+				"skin": "tan",
+				"hair_style": "short",
+				"hair_color": "black",
+				"eye_color": "brown",
+				"outfit": "vest",
+				"clothes_color": "red"
+			}
+		},
+		"gustav": {
+			"name": "Gustav",
+			"base": "res://assets/sprites/characters/base_gustav.png",
+			"fixed": true
+		},
+		"blouse_skirt": {
+			"name": "Bluse und Rock",
+			"base": "res://assets/sprites/characters/base_blouse_skirt.png",
+			"body_of": "tunic",
+			"random": false,
+			"colorable": true
+		},
+		"apron_dress": {
+			"name": "Schürzenkleid",
+			"base": "res://assets/sprites/characters/base_apron_dress.png",
+			"body_of": "tunic",
+			"random": false,
+			"colorable": true,
+			"price": 180
+		},
+		"dress_long": {
+			"name": "Langes Kleid",
+			"base": "res://assets/sprites/characters/base_dress_long.png",
+			"body_of": "tunic",
+			"random": false,
+			"colorable": true,
+			"price": 350
+		}
+	},
+	"clothes_colors": {
+		"green": {
+			"name": "Grün",
+			"colors": [
+				"#6a9a5c",
+				"#4f7947",
+				"#3c5e35",
+				"#2d4928",
+				"#1c2f1a"
+			]
+		},
+		"red": {
+			"name": "Rot",
+			"colors": [
+				"#c04a44",
+				"#a12b2b",
+				"#8a2523",
+				"#6a1717",
+				"#450d0d"
+			]
+		},
+		"blue": {
+			"name": "Blau",
+			"colors": [
+				"#5d82b8",
+				"#456a9e",
+				"#36547f",
+				"#283f60",
+				"#1a2940"
+			]
+		},
+		"brown": {
+			"name": "Braun",
+			"colors": [
+				"#a0774e",
+				"#835f3c",
+				"#69492d",
+				"#4f3522",
+				"#332216"
+			]
+		},
+		"grey": {
+			"name": "Grau",
+			"colors": [
+				"#9a9a9a",
+				"#7c7c7c",
+				"#626262",
+				"#4a4a4a",
+				"#303030"
+			]
+		},
+		"purple": {
+			"name": "Lila",
+			"colors": [
+				"#8e66a8",
+				"#74508d",
+				"#5b3e70",
+				"#432d53",
+				"#2c1d37"
+			]
+		},
+		"ochre": {
+			"name": "Ocker",
+			"colors": [
+				"#d2a548",
+				"#b38a34",
+				"#906d28",
+				"#6c501d",
+				"#463313"
+			]
+		},
+		"black": {
+			"name": "Schwarz",
+			"colors": [
+				"#55555c",
+				"#404049",
+				"#303038",
+				"#25252c",
+				"#17171d"
+			]
+		},
+		"white": {
+			"name": "Weiß",
+			"colors": [
+				"#ece6d8",
+				"#d0c9b8",
+				"#afa897",
+				"#8e8778",
+				"#635e52"
+			]
+		},
+		"yellow": {
+			"name": "Gelb",
+			"colors": [
+				"#f0de62",
+				"#beae46",
+				"#928633",
+				"#736926",
+				"#4a4417"
+			]
+		},
+		"orange": {
+			"name": "Orange",
+			"colors": [
+				"#de7c3c",
+				"#af5e28",
+				"#87471c",
+				"#6b3614",
+				"#45220c"
+			]
+		},
+		"teal": {
+			"name": "Türkis",
+			"colors": [
+				"#44a39e",
+				"#31817d",
+				"#246360",
+				"#1a4e4c",
+				"#103331"
+			]
+		},
+		"pink": {
+			"name": "Rosa",
+			"colors": [
+				"#d4809e",
+				"#a75e79",
+				"#81465b",
+				"#663547",
+				"#42212d"
+			]
+		},
+		"navy": {
+			"name": "Marineblau",
+			"colors": [
+				"#46598c",
+				"#33436f",
+				"#263355",
+				"#1c2743",
+				"#11182b"
+			]
+		},
+		"forest": {
+			"name": "Waldgrün",
+			"colors": [
+				"#4a7a44",
+				"#376032",
+				"#294a25",
+				"#1f3b1c",
+				"#142611"
+			]
+		}
+	},
+	"portrait_rect": [
+		11,
+		0,
+		24,
+		24
+	],
+	"races": {
+		"human": {
+			"name": "Mensch",
+			"hero_bonus": {"damage_light": 5, "damage_earth": 5},
+			"hero_resistances": {"light": 5, "earth": 5},
+			"player_bonus": {"SELL_PRICE": 0.05},
+			"skin_tones": [
+				"light",
+				"pale",
+				"tan",
+				"brown",
+				"dark",
+				"rosy",
+				"olive_skin",
+				"umber"
+			],
+			"parts": []
+		},
+		"elf": {
+			"name": "Elf",
+			"hero_bonus": {"damage_air": 8, "evasion": 2},
+			"hero_resistances": {"air": 5},
+			"player_bonus": {"JOINING_GREEN_ZONE": 0.005},
+			"skin_tones": [
+				"light",
+				"pale",
+				"tan",
+				"brown",
+				"dark",
+				"rosy",
+				"olive_skin",
+				"umber"
+			],
+			"parts": [],
+			"ears": [
+				"elf_long",
+				"elf_short",
+				"elf_flat"
+			]
+		},
+		"half_demon": {
+			"name": "Halbdämon",
+			"hero_bonus": {"damage_dark": 5, "damage_fire": 5},
+			"hero_resistances": {"dark": 5, "fire": 5},
+			"player_bonus": {"FUEL_DURATION": 0.25},
+			"skin_tones": [
+				"crimson",
+				"violet",
+				"ash",
+				"ember",
+				"slate",
+				"obsidian",
+				"frost",
+				"jade"
+			],
+			"parts": [],
+			"horns": true
+		},
+		"half_fish": {
+			"name": "Halb-Fischmensch",
+			"hero_bonus": {"damage_water": 5, "damage_ice": 5},
+			"hero_resistances": {"water": 5, "ice": 5},
+			"player_bonus": {"PLANT_RARITY": 0.1},
+			"skin_tones": [
+				"sea_blue",
+				"teal",
+				"aqua_green",
+				"pearl",
+				"deep_blue",
+				"coral",
+				"abyss",
+				"kelp"
+			],
+			"parts": [],
+			"ears": [
+				"fin",
+				"fin_frill",
+				"fin_swept"
+			]
+		},
+		"beast_dog": {
+			"name": "Tiervolk (Hund)",
+			"hero_bonus": {"max_health": 10},
+			"player_bonus": {"MINING_DAMAGE": 1},
+			"skin_tones": [
+				"light",
+				"pale",
+				"tan",
+				"brown",
+				"dark",
+				"rosy",
+				"olive_skin",
+				"umber"
+			],
+			"parts": [
+				"dog_tail"
+			],
+			"ears": [
+				"dog_floppy",
+				"dog_up",
+				"dog_fold"
+			]
+		},
+		"beast_cat": {
+			"name": "Tiervolk (Katze)",
+			"hero_bonus": {"crit_chance": 3, "evasion": 3},
+			"player_bonus": {"FORGING_ZONES": 0.01},
+			"skin_tones": [
+				"light",
+				"pale",
+				"tan",
+				"brown",
+				"dark",
+				"rosy",
+				"olive_skin",
+				"umber"
+			],
+			"parts": [
+				"cat_tail"
+			],
+			"ears": [
+				"cat_pointed",
+				"cat_round",
+				"cat_tuft"
+			]
+		},
+		"beast_lizard": {
+			"name": "Tiervolk (Echse)",
+			"hero_bonus": {"damage_lightning": 8},
+			"hero_resistances": {"lightning": 5, "poison": 5},
+			"player_bonus": {"RARE_FIND": 0.03},
+			"skin_tones": [
+				"lizard_green",
+				"olive",
+				"sand",
+				"rust",
+				"scale_teal",
+				"obsidian",
+				"gold_scale",
+				"frost"
+			],
+			"parts": [
+				"crest",
+				"lizard_tail"
+			],
+			"no_hair": true
+		}
+	},
+	"skin_tones": {
+		"light": {
+			"name": "Hell",
+			"colors": [
+				"#fbc195",
+				"#fab488",
+				"#f39b71",
+				"#ed8c66",
+				"#e06e48"
+			]
+		},
+		"pale": {
+			"name": "Blass",
+			"colors": [
+				"#ffdcc1",
+				"#ffd4b9",
+				"#f8c2a8",
+				"#f2b69f",
+				"#e49f87"
+			]
+		},
+		"tan": {
+			"name": "Gebräunt",
+			"colors": [
+				"#d59d7a",
+				"#d4916f",
+				"#cf7a5b",
+				"#c96d51",
+				"#be5237"
+			]
+		},
+		"brown": {
+			"name": "Braun",
+			"colors": [
+				"#9c7456",
+				"#9b6b4d",
+				"#975b3e",
+				"#935137",
+				"#8b3d23"
+			]
+		},
+		"dark": {
+			"name": "Dunkel",
+			"colors": [
+				"#69513f",
+				"#694c39",
+				"#66412f",
+				"#643b2b",
+				"#5e2e1e"
+			]
+		},
+		"crimson": {
+			"name": "Karmesin",
+			"colors": [
+				"#ce6977",
+				"#cd5d6c",
+				"#c74758",
+				"#c23e4f",
+				"#b82236"
+			]
+		},
+		"violet": {
+			"name": "Violett",
+			"colors": [
+				"#a17ab5",
+				"#9e72b4",
+				"#9664af",
+				"#915dab",
+				"#844aa1"
+			]
+		},
+		"ash": {
+			"name": "Aschgrau",
+			"colors": [
+				"#b5aeaa",
+				"#b4aca8",
+				"#afa5a1",
+				"#aba09c",
+				"#a19591"
+			]
+		},
+		"ember": {
+			"name": "Glutrot",
+			"colors": [
+				"#ee7467",
+				"#ed6556",
+				"#e74b3a",
+				"#e1402e",
+				"#d51f0b"
+			]
+		},
+		"slate": {
+			"name": "Schieferblau",
+			"colors": [
+				"#8892ab",
+				"#838faa",
+				"#7986a5",
+				"#7381a1",
+				"#657498"
+			]
+		},
+		"sea_blue": {
+			"name": "Meeresblau",
+			"colors": [
+				"#89c0e7",
+				"#7dbae6",
+				"#68aee0",
+				"#5ea6da",
+				"#4294ce"
+			]
+		},
+		"teal": {
+			"name": "Türkis",
+			"colors": [
+				"#85d8d1",
+				"#7ad7cf",
+				"#67d1c8",
+				"#5eccc3",
+				"#44c1b6"
+			]
+		},
+		"aqua_green": {
+			"name": "Algengrün",
+			"colors": [
+				"#95ddb9",
+				"#8cdcb4",
+				"#7ad6a8",
+				"#72d1a1",
+				"#5ac590"
+			]
+		},
+		"pearl": {
+			"name": "Perlmutt",
+			"colors": [
+				"#e2f2fb",
+				"#def0fa",
+				"#d2e8f3",
+				"#cbe2ed",
+				"#bad3e0"
+			]
+		},
+		"deep_blue": {
+			"name": "Tiefseeblau",
+			"colors": [
+				"#6270a6",
+				"#5a69a5",
+				"#4b5ca0",
+				"#43559c",
+				"#304494"
+			]
+		},
+		"lizard_green": {
+			"name": "Grün",
+			"colors": [
+				"#7fb564",
+				"#78b45a",
+				"#6aaf48",
+				"#63ab40",
+				"#51a129"
+			]
+		},
+		"olive": {
+			"name": "Oliv",
+			"colors": [
+				"#9da662",
+				"#9ba55a",
+				"#95a04b",
+				"#919c43",
+				"#869430"
+			]
+		},
+		"sand": {
+			"name": "Sand",
+			"colors": [
+				"#eed69c",
+				"#edd291",
+				"#e7c77e",
+				"#e1c074",
+				"#d5b05a"
+			]
+		},
+		"rust": {
+			"name": "Rost",
+			"colors": [
+				"#b06f53",
+				"#af6647",
+				"#aa5734",
+				"#a6502b",
+				"#9d3c12"
+			]
+		},
+		"scale_teal": {
+			"name": "Blaugrün",
+			"colors": [
+				"#609c8d",
+				"#589b8a",
+				"#4a9784",
+				"#43937f",
+				"#318b74"
+			]
+		},
+		"rosy": {
+			"name": "Rosig",
+			"colors": [
+				"#fcc7b6",
+				"#fcb9a7",
+				"#f4a18e",
+				"#ef9582",
+				"#e06d5c"
+			]
+		},
+		"olive_skin": {
+			"name": "Olivfarben",
+			"colors": [
+				"#d0a878",
+				"#d09f6c",
+				"#ca8f58",
+				"#c6874e",
+				"#b96b31"
+			]
+		},
+		"umber": {
+			"name": "Tiefbraun",
+			"colors": [
+				"#56402f",
+				"#563c2a",
+				"#533522",
+				"#52311e",
+				"#4d2512"
+			]
+		},
+		"obsidian": {
+			"name": "Obsidian",
+			"colors": [
+				"#6a6672",
+				"#655f72",
+				"#5b536f",
+				"#554d6c",
+				"#443b65"
+			]
+		},
+		"frost": {
+			"name": "Frostblau",
+			"colors": [
+				"#b4cfe6",
+				"#a6cbe6",
+				"#8fbfdf",
+				"#84b9da",
+				"#61a8cd"
+			]
+		},
+		"jade": {
+			"name": "Jade",
+			"colors": [
+				"#78b892",
+				"#6db889",
+				"#5bb27a",
+				"#53af71",
+				"#38a457"
+			]
+		},
+		"coral": {
+			"name": "Koralle",
+			"colors": [
+				"#f4a294",
+				"#f49285",
+				"#ed796e",
+				"#e86d63",
+				"#d94440"
+			]
+		},
+		"abyss": {
+			"name": "Abgrund",
+			"colors": [
+				"#3e5a7e",
+				"#36587e",
+				"#2b527a",
+				"#254f78",
+				"#144870"
+			]
+		},
+		"kelp": {
+			"name": "Seetang",
+			"colors": [
+				"#86a660",
+				"#84a656",
+				"#7da147",
+				"#799e3f",
+				"#6f9428"
+			]
+		},
+		"gold_scale": {
+			"name": "Gold",
+			"colors": [
+				"#e0bc56",
+				"#e0b449",
+				"#d9a535",
+				"#d59c2b",
+				"#c7810f"
+			]
+		}
+	},
+	"hair_styles": {
+		"short": {
+			"name": "Kurz"
+		},
+		"long": {
+			"name": "Lang",
+			"part": "hair_long"
+		},
+		"ponytail": {
+			"name": "Zopf",
+			"part": "hair_ponytail"
+		},
+		"spiky": {
+			"name": "Stachelig",
+			"part": "hair_spiky"
+		},
+		"bald": {
+			"name": "Glatze",
+			"bald": true
+		}
+	},
+	"hair_colors": {
+		"brown": {
+			"name": "Braun",
+			"colors": [
+				"#a46a40",
+				"#76391c",
+				"#532213",
+				"#491c10",
+				"#2f0d07"
+			]
+		},
+		"black": {
+			"name": "Schwarz",
+			"colors": [
+				"#524439",
+				"#3b2c25",
+				"#2a1d1a",
+				"#241916",
+				"#180f0e"
+			]
+		},
+		"blonde": {
+			"name": "Blond",
+			"colors": [
+				"#ffdc8a",
+				"#ecc365",
+				"#a68946",
+				"#92783c",
+				"#5e4c22"
+			]
+		},
+		"red": {
+			"name": "Rot",
+			"colors": [
+				"#e66a4c",
+				"#a5361b",
+				"#742512",
+				"#66200e",
+				"#421104"
+			]
+		},
+		"white": {
+			"name": "Weiß",
+			"colors": [
+				"#fff8f3",
+				"#fff4ef",
+				"#e0d6d2",
+				"#c5bbb9",
+				"#7f7876"
+			]
+		},
+		"grey": {
+			"name": "Grau",
+			"colors": [
+				"#b4b0aa",
+				"#827567",
+				"#5e5348",
+				"#51463c",
+				"#322923"
+			]
+		},
+		"chestnut": {
+			"name": "Kastanie",
+			"colors": [
+				"#9c5634",
+				"#702d15",
+				"#511b0d",
+				"#461609",
+				"#2c0a04"
+			]
+		},
+		"platinum": {
+			"name": "Platin",
+			"colors": [
+				"#f4eed4",
+				"#dcd4b4",
+				"#a69f83",
+				"#928c71",
+				"#625d49"
+			]
+		},
+		"blue": {
+			"name": "Blau",
+			"colors": [
+				"#6a8fe0",
+				"#345da1",
+				"#234774",
+				"#1c3b65",
+				"#0e263f"
+			]
+		},
+		"green": {
+			"name": "Grün",
+			"colors": [
+				"#6cba62",
+				"#418632",
+				"#316123",
+				"#29541b",
+				"#19340e"
+			]
+		},
+		"purple": {
+			"name": "Lila",
+			"colors": [
+				"#a774d4",
+				"#683d99",
+				"#462a6e",
+				"#3b215f",
+				"#20123b"
+			]
+		},
+		"pink": {
+			"name": "Rosa",
+			"colors": [
+				"#f39cc0",
+				"#c76c92",
+				"#974c6b",
+				"#7e3a57",
+				"#532337"
+			]
+		}
+	},
+	"eye_types": {
+		"normal": {
+			"name": "Normal"
+		},
+		"big": {
+			"name": "Groß",
+			"part": "eyes_big"
+		},
+		"narrow": {
+			"name": "Schmal",
+			"part": "eyes_narrow"
+		},
+		"glowing": {
+			"name": "Leuchtend",
+			"part": "eyes_glowing"
+		},
+		"sleepy": {
+			"name": "Müde",
+			"part": "eyes_sleepy"
+		}
+	},
+	"eye_colors": {
+		"brown": {
+			"name": "Braun",
+			"colors": [
+				"#4a2814",
+				"#8a5a30"
+			]
+		},
+		"blue": {
+			"name": "Blau",
+			"colors": [
+				"#2f5fa8",
+				"#7fb0f0"
+			]
+		},
+		"green": {
+			"name": "Grün",
+			"colors": [
+				"#2f7a3a",
+				"#7cd080"
+			]
+		},
+		"grey": {
+			"name": "Grau",
+			"colors": [
+				"#4c5460",
+				"#a8b0bc"
+			]
+		},
+		"amber": {
+			"name": "Bernstein",
+			"colors": [
+				"#a0700f",
+				"#ffd050"
+			]
+		},
+		"red": {
+			"name": "Rot",
+			"colors": [
+				"#a81c1c",
+				"#ff7a6a"
+			]
+		},
+		"violet": {
+			"name": "Violett",
+			"colors": [
+				"#6a3aa8",
+				"#c8a0f4"
+			]
+		},
+		"teal": {
+			"name": "Türkis",
+			"colors": [
+				"#1f8a86",
+				"#86e6dc"
+			]
+		}
+	},
+	"horn_styles": {
+		"bull": {
+			"name": "Stier",
+			"part": "horns_bull"
+		},
+		"ram": {
+			"name": "Widder",
+			"part": "horns_ram"
+		},
+		"unicorn": {
+			"name": "Stirnhorn",
+			"part": "horns_unicorn"
+		},
+		"stubs": {
+			"name": "Stummel",
+			"part": "horns_stubs"
+		},
+		"swept": {
+			"name": "Nach hinten",
+			"part": "horns_swept"
+		},
+		"straight": {
+			"name": "Spitz",
+			"part": "horns_straight"
+		},
+		"four": {
+			"name": "Vier Hörner",
+			"part": "horns_four"
+		},
+		"broken": {
+			"name": "Abgebrochen",
+			"part": "horns_broken"
+		}
+	},
+	"horn_colors": {
+		"ivory": {
+			"name": "Elfenbein",
+			"colors": [
+				"#c4b6a0",
+				"#968476",
+				"#625450",
+				"#463a3a"
+			]
+		},
+		"bone": {
+			"name": "Knochen",
+			"colors": [
+				"#e8e2d0",
+				"#bfb6a0",
+				"#8a8070",
+				"#5a5248"
+			]
+		},
+		"black": {
+			"name": "Schwarz",
+			"colors": [
+				"#6a6470",
+				"#46424e",
+				"#2c2a34",
+				"#1c1a22"
+			]
+		},
+		"ember": {
+			"name": "Glutrot",
+			"colors": [
+				"#ff8a4a",
+				"#c03a28",
+				"#6a2026",
+				"#3a141a"
+			]
+		},
+		"gold": {
+			"name": "Gold",
+			"colors": [
+				"#ffe27a",
+				"#d8a83a",
+				"#9a6a22",
+				"#5e3e16"
+			]
+		}
+	},
+	"ear_styles": {
+		"elf_long": {"name": "Lang", "part": "elf_ears", "hide_human_ears": true},
+		"elf_short": {"name": "Kurz", "part": "elf_ears_short", "hide_human_ears": true},
+		"elf_flat": {"name": "Waagrecht", "part": "elf_ears_flat", "hide_human_ears": true},
+		"fin": {"name": "Flosse", "part": "fins", "hide_human_ears": true},
+		"fin_frill": {"name": "Fächer", "part": "fins_frill", "hide_human_ears": true},
+		"fin_swept": {"name": "Zacken", "part": "fins_swept", "hide_human_ears": true},
+		"dog_floppy": {"name": "Schlappohren", "part": "dog_ears", "hide_human_ears": true},
+		"dog_up": {"name": "Stehohren", "part": "dog_ears_up", "hide_human_ears": true},
+		"dog_fold": {"name": "Kippohren", "part": "dog_ears_fold", "hide_human_ears": true},
+		"cat_pointed": {"name": "Spitz", "part": "cat_ears", "hide_human_ears": true},
+		"cat_round": {"name": "Rund", "part": "cat_ears_round", "hide_human_ears": true},
+		"cat_tuft": {"name": "Luchs", "part": "cat_ears_tuft", "hide_human_ears": true}
+	},
+	"bodies": {
+		"male": {"name": "Mann"},
+		"female": {"name": "Frau", "lashes": true, "shape": true}
+	},
+	"sizes": {
+		"small": {
+			"name": "Klein",
+			"scale": 0.92
+		},
+		"normal": {
+			"name": "Normal",
+			"scale": 1.0
+		},
+		"tall": {
+			"name": "Groß",
+			"scale": 1.08
+		}
+	}
+}

@@ -1,0 +1,336 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_ice.tscn" id="lamp_ice"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/kahn_hall_ground.png" id="3_kahn_hall_gr"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="4_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/kahn_hall_mask.png" id="5_kahn_hall_ma"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="6_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/ice_throne_sealed.png" id="7_ice_throne"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="9_night_light"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="10_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/king.png" id="11_king"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="12_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="13_hud"]
+[ext_resource type="Material" path="res://scenes/world/objects/sea_water_kahn_hall.tres" id="14_sea_mat"]
+[ext_resource type="Texture2D" path="res://assets/sprites/water/ice_brazier_lit.png" id="15_brazier"]
+[ext_resource type="Texture2D" path="res://assets/sprites/items/holy_crystals/holy_water_crystal.png" id="21_water_crystal"]
+[ext_resource type="Script" path="res://scenes/world/water/kahn_crystal_cutscene.gd" id="22_crystal_cutscene"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="16_sheet_anim"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_6.png" id="17_hang_flake"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_8.png" id="18_hang_wave"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_22.png" id="19_trident_rack"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/banner_water.png" id="20_banner_water"]
+[ext_resource type="Script" path="res://scenes/world/water/harbor_attack_cutscene.gd" id="90_harbor_cut"]
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("6_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("6_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="RectangleShape2D" id="Rect_52x12"]
+size = Vector2(52, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="Rect_brazier"]
+size = Vector2(24, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_rack"]
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_banner"]
+size = Vector2(8, 4)
+
+[node name="KahnHall" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("2_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-320, -240)
+texture = ExtResource("3_kahn_hall_gr")
+material = ExtResource("14_sea_mat")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-320, -240)
+script = ExtResource("4_cave_walls")
+mask = ExtResource("5_kahn_hall_ma")
+
+[node name="Throne" type="StaticBody2D" parent="."]
+position = Vector2(0, -118)
+
+[node name="Sprite2D" type="Sprite2D" parent="Throne"]
+texture = ExtResource("7_ice_throne")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Throne"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_52x12")
+
+[node name="SealGlow" parent="Throne" instance=ExtResource("9_night_light")]
+position = Vector2(0, -10)
+color = Color(0.3, 0.6, 1, 1)
+always_on = true
+night_energy = 0.8
+texture_scale = 0.5
+
+[node name="WaterCrystal" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("21_water_crystal")
+hframes = 25
+script = ExtResource("16_sheet_anim")
+frames_per_second = 12.0
+
+[node name="Light" parent="WaterCrystal" instance=ExtResource("9_night_light")]
+color = Color(0.35, 0.65, 1, 1)
+always_on = true
+texture_scale = 0.8
+
+[node name="CrystalCutscene" type="Node2D" parent="." node_paths=PackedStringArray("throne", "seal_glow", "crystal")]
+script = ExtResource("22_crystal_cutscene")
+throne = NodePath("../Throne/Sprite2D")
+seal_glow = NodePath("../Throne/SealGlow")
+crystal = NodePath("../WaterCrystal")
+kahn_path = NodePath("../People/Kahn")
+king_path = NodePath("../People/King")
+
+[node name="Lantern1" parent="." instance=ExtResource("lamp_ice")]
+position = Vector2(-172, -110)
+
+[node name="Lantern2" parent="." instance=ExtResource("lamp_ice")]
+position = Vector2(172, -110)
+
+[node name="Lantern3" parent="." instance=ExtResource("lamp_ice")]
+position = Vector2(-172, 150)
+
+[node name="Lantern4" parent="." instance=ExtResource("lamp_ice")]
+position = Vector2(172, 150)
+
+[node name="Hangings" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="WaveL" type="Sprite2D" parent="Hangings"]
+position = Vector2(-150, -156)
+texture = ExtResource("18_hang_wave")
+offset = Vector2(0, -20)
+
+[node name="FlakeL" type="Sprite2D" parent="Hangings"]
+position = Vector2(-62, -156)
+texture = ExtResource("17_hang_flake")
+offset = Vector2(0, -20)
+
+[node name="FlakeR" type="Sprite2D" parent="Hangings"]
+position = Vector2(62, -156)
+texture = ExtResource("17_hang_flake")
+offset = Vector2(0, -20)
+
+[node name="WaveR" type="Sprite2D" parent="Hangings"]
+position = Vector2(150, -156)
+texture = ExtResource("18_hang_wave")
+offset = Vector2(0, -20)
+
+[node name="BrazierL" type="StaticBody2D" parent="."]
+position = Vector2(-114, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="BrazierL"]
+texture = ExtResource("15_brazier")
+offset = Vector2(0, -20)
+hframes = 8
+script = ExtResource("16_sheet_anim")
+frames_per_second = 8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrazierL"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_brazier")
+
+[node name="Light" parent="BrazierL" instance=ExtResource("9_night_light")]
+position = Vector2(0, -30)
+color = Color(0.45, 0.95, 1, 1)
+
+[node name="BrazierR" type="StaticBody2D" parent="."]
+position = Vector2(114, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="BrazierR"]
+texture = ExtResource("15_brazier")
+offset = Vector2(0, -20)
+hframes = 8
+script = ExtResource("16_sheet_anim")
+frames_per_second = 8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrazierR"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_brazier")
+
+[node name="Light" parent="BrazierR" instance=ExtResource("9_night_light")]
+position = Vector2(0, -30)
+color = Color(0.45, 0.95, 1, 1)
+
+[node name="RackL" type="StaticBody2D" parent="."]
+position = Vector2(-172, 30)
+
+[node name="Sprite2D" type="Sprite2D" parent="RackL"]
+texture = ExtResource("19_trident_rack")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RackL"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_rack")
+
+[node name="RackR" type="StaticBody2D" parent="."]
+position = Vector2(172, 30)
+
+[node name="Sprite2D" type="Sprite2D" parent="RackR"]
+texture = ExtResource("19_trident_rack")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RackR"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_rack")
+
+[node name="BannerL" type="StaticBody2D" parent="."]
+position = Vector2(-52, 226)
+
+[node name="Sprite2D" type="Sprite2D" parent="BannerL"]
+texture = ExtResource("20_banner_water")
+offset = Vector2(0, -33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BannerL"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_banner")
+
+[node name="BannerR" type="StaticBody2D" parent="."]
+position = Vector2(52, 226)
+
+[node name="Sprite2D" type="Sprite2D" parent="BannerR"]
+texture = ExtResource("20_banner_water")
+offset = Vector2(0, -33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BannerR"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_banner")
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Kahn" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(0, -96)
+npc_id = "kahn"
+resident = "kahn"
+appearance = SubResource("Look_kahn")
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(3, 3)
+
+[node name="Torgai" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(54, -86)
+npc_id = "kahn_son"
+resident = "kahn_son"
+appearance = SubResource("Look_torgai")
+facing = "left"
+absent_steps = PackedStringArray("hero_tournament", "tournament_kahn", "to_camp", "camp_council", "lake_talk", "sneak_in", "gate_battle", "throne_hall", "eisquell_blade", "subar_test")
+
+[node name="Subar" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(-54, -86)
+npc_id = "kahn_right_hand"
+resident = "kahn_right_hand"
+appearance = SubResource("Look_subar")
+facing = "right"
+absent_steps = PackedStringArray("eisquell_blade", "subar_test", "harbor_attack")
+
+[node name="King" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(-30, -20)
+npc_id = "king"
+resident = "king"
+facing = "up"
+required_flag = "kahn_hall_open"
+hidden_when_flag = "reached_to_desert"
+
+[node name="Lake" parent="People" instance=ExtResource("10_story_npc")]
+position = Vector2(-62, -20)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+facing = "up"
+required_flag = "kahn_hall_open"
+hidden_when_flag = "reached_to_desert"
+
+[node name="ToCity" parent="." instance=ExtResource("12_door")]
+position = Vector2(0, 236)
+target_scene = "res://scenes/world/water/eisquell.tscn"
+target_spawn_point = &"FromHall"
+scale = Vector2(3, 1)
+
+[node name="Visual" parent="ToCity" index="0"]
+visible = false
+
+[node name="FromCity" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 200)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 200)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("13_hud")]
+
+[node name="HarborAttackCutscene" type="Node2D" parent="."]
+script = ExtResource("90_harbor_cut")
+sleep_spot = Vector2(-120, 130)
+leave_for_night = Array[NodePath]([NodePath("../People/Kahn"), NodePath("../People/Subar"), NodePath("../People/Torgai")])
+
+[editable path="ToCity"]
+[editable path="Player"]

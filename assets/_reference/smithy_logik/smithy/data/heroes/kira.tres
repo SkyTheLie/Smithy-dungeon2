@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Hero" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/hero.gd" id="1_hero"]
+[ext_resource type="Resource" path="res://data/hero_classes/rogue.tres" id="2_class"]
+
+[resource]
+script = ExtResource("1_hero")
+id = &"kira"
+display_name = "Kira"
+hero_class = ExtResource("2_class")
+level = 1
+race = "beast_cat"
+hire_cost = 90
+strength = 2
+agility = 8
+constitution = 3
+intelligence = 3
+wisdom = 2
+resistance = 3

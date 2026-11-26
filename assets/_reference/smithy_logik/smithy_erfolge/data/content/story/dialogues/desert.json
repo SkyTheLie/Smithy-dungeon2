@@ -1,0 +1,1462 @@
+{
+	"dialogues": {
+		"pyramid_keeper_closed": {
+			"lines": [
+				{
+					"speaker": "pyramid_keeper",
+					"text": "Diese Treppe führt zu denen, die nicht gehen wollten. Solange da draußen noch gekämpft wird, bleibt sie zu."
+				},
+				{
+					"speaker": "player",
+					"text": "Klingt nach einem Keller, den man besser nicht aufräumt."
+				}
+			]
+		},
+		"pyramid_keeper_open": {
+			"lines": [
+				{
+					"speaker": "pyramid_keeper",
+					"text": "Das Tor ist zu, Schmied. Das Rumoren unter uns ist geblieben. Auf dem alten Knochenthron sitzt wieder etwas."
+				},
+				{
+					"speaker": "player",
+					"text": "Der Lich ist Staub. Ich hab es gesehen."
+				},
+				{
+					"speaker": "pyramid_keeper",
+					"text": "Der Knochen ist Staub. Ich öffne das Siegel. Nimm deine Helden mit, wenn du noch welche hast, die ruhig schlafen."
+				},
+				{
+					"speaker": "",
+					"text": "Sethek legt beide Hände auf das Siegel im Boden und drückt. Stein schabt über Stein, eine Treppe öffnet sich in die Tiefe.",
+					"action": "cutscene:act:pyramid_keeper:push;cutscene:act:pyramid_keeper:quake",
+					"hide_for": 1.8
+				}
+			],
+			"on_end": "set_flag:underworld_open"
+		},
+		"pyramid_keeper_after": {
+			"lines": [
+				{
+					"speaker": "pyramid_keeper",
+					"text": "Die Treppe ist offen. Komm wieder herauf, bevor du dich dort unten zu Hause fühlst."
+				}
+			]
+		},
+		"lich_echo_talk": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Oben auf dem Turm aus Toten sitzt ein Umriss, grün und dünn wie Rauch. Der Kopf dreht sich zu dir."
+				},
+				{
+					"speaker": "lich",
+					"text": "Glutträger ... er hat mir die Ewigkeit versprochen. Er hat Wort gehalten. Nur nicht so."
+				},
+				{
+					"speaker": "player",
+					"text": "Lake hat dir den Kopf abgeschlagen. Ich stand daneben."
+				},
+				{
+					"speaker": "lich",
+					"text": "Der Knochen fiel. Das hier blieb. Schick deine Helden hinauf ... oder lass es. Ich habe Zeit."
+				}
+			],
+			"on_end": "set_flag:underworld_tower_open"
+		},
+		"first_customer_order": {
+			"lines": [
+				{
+					"speaker": "first_customer",
+					"text": "Entschuldigung! Sind Sie der neue Schmied? Ich habe von Ihnen gehört."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Ich bräuchte ein Kupferschwert. Aber kein gewöhnliches: Solide muss es sein."
+				},
+				{
+					"speaker": "player",
+					"text": "Solide aus Kupfer? Das ist nicht so einfach, da muss jeder Schlag am Amboss sitzen ..."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Er macht es!"
+				},
+				{
+					"speaker": "player",
+					"text": "Oma Hilde?!"
+				},
+				{
+					"speaker": "landlady",
+					"text": "Natürlich macht er es. Er ist der beste Schmied im Dorf! Der einzige, aber der beste."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Wunderbar! Dann komme ich in drei Tagen wieder. Ich bezahle gut."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Hörst du, Kindchen? Er bezahlt gut. Und ich weiß ja, wo du wohnst. Hehe."
+				},
+				{
+					"speaker": "",
+					"text": "Der Auftrag steht jetzt im Auftragsbuch. Abgeben kannst du ihn am Auftragsbrett vor der Schmiede."
+				}
+			],
+			"on_end": "story_order:first_customer,sword:copper_blade+copper_handle,R2,3;set_flag:order_board_unlocked;set_flag:first_order_accepted;advance:first_order"
+		},
+		"first_customer_idle": {
+			"lines": [
+				{
+					"speaker": "first_customer",
+					"text": "Mein Schwert! Ich freue mich schon darauf."
+				}
+			]
+		},
+		"desert_sign": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Auf einem verwitterten Holzpfahl steht in roten Buchstaben: GEFAHR."
+				},
+				{
+					"speaker": "",
+					"text": "Wer die Pfade nicht kennt, verliert sich in den Dünen. Die Sonne brennt heiß."
+				},
+				{
+					"speaker": "",
+					"text": "Hast du genug Wasser dabei? Kehre um, solange du noch deine eigenen Spuren siehst."
+				}
+			]
+		},
+		"desert_bones": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Vor dir liegen die gebleichten Knochen eines riesigen Wüstentiers. Gewaltige Hörner ragen aus dem Sand."
+				},
+				{
+					"speaker": "",
+					"text": "Die mächtigen Rippen stehen wie die Stangen eines gewaltigen Zeltes im heißen Wind."
+				}
+			]
+		},
+		"desert_ruins": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Umgestürzte Säulen liegen halb versunken im Mahlsand."
+				},
+				{
+					"speaker": "",
+					"text": "Im brüchigen Stein erkennst du uralte, verwitterte Echsenzeichen."
+				}
+			]
+		},
+		"lizard_elder_welcome": {
+			"lines": [
+				{
+					"speaker": "lizard_elder",
+					"text": "Möge dein Schatten kühl sein, Weichhaut. Ssso tief in die Wüste hat sich schon lange kein Wanderer ohne Schuppen mehr gewagt."
+				},
+				{
+					"speaker": "player",
+					"text": "Danke. Schatten klingt herrlich, meine Wangen fühlen sich an wie frisch aus dem Härtebecken. Ich bin übrigens der Dorfschmied."
+				},
+				{
+					"speaker": "lizard_elder",
+					"text": "Der Fürst hat mir von deinem Kompass erzählt. Hätten die jungen Wachen mich gefragt, ich hätte ihn sofort erkannt. Sssolch einen trug vor vielen Sonnenwenden nur ein einziger Wanderer. Ein alter Elf mit Sternenmantel."
+				},
+				{
+					"speaker": "player",
+					"text": "Meister Aurelius lässt grüßen. Seiner ist zerbrochen, also habe ich ihm ... mir ... einen neuen geschmiedet. Lange Geschichte."
+				},
+				{
+					"speaker": "lizard_elder",
+					"text": "Aurelius. Möge die Sonne seinen Schritt wärmen. Du bist in Sahrim willkommen. Auch Rashid, der Händler, wohnt hier, wenn er nicht gerade unterwegs ins Land der Weichhäute ist."
+				},
+				{
+					"speaker": "lizard_elder",
+					"text": "Unten an der Quelle steht ein alter Teleport-Kristall. Vielleicht weckt deine Hand ihn wieder auf."
+				},
+				{
+					"speaker": "player",
+					"text": "Darf ich fragen, wer diese Kuppel gebaut hat? Als Schmied tut mir schon beim Hinsehen der Rücken weh."
+				},
+				{
+					"speaker": "lizard_elder",
+					"text": "Unsere Ahnen, in den alten Zeiten. Sie riefen die Blitze herab, und wo ein Blitz in den Sand fuhr, wurde er zu Glas."
+				},
+				{
+					"speaker": "lizard_elder",
+					"text": "Sechseck um Sechseck setzten sie zusammen, bis die Kuppel stand. Nur über der Quelle ließen sie ein Loch, damit die Sonne das Wasser findet."
+				},
+				{
+					"speaker": "lizard_elder",
+					"text": "Doch hüte dich vor der tiefen Wüste. Dort toben gewaltige Gewitter. Grelle Blitze schlagen in den Sssand und brennen klares Glas daraus."
+				}
+			],
+			"on_end": "set_flag:ishra_welcomed"
+		},
+		"lizard_elder_idle": {
+			"lines": [
+				{
+					"speaker": "lizard_elder",
+					"text": "Raste an unseren Feuern, Schmied. Der Sssand verlangt Geduld von jedem, der seinen Weg sucht."
+				},
+				{
+					"speaker": "lizard_elder",
+					"text": "Achte stets auf deinen Wasserschlauch. Die Sonne brennt unbarmherzig über den Dünen."
+				}
+			]
+		},
+		"lizard_kesh_hint": {
+			"lines": [
+				{
+					"speaker": "lizard_kesh",
+					"text": "Möge dein Schatten kühl sein. Als ich gestern Wasser schöpfte, kam ich am großen Tierskelett vorbei."
+				},
+				{
+					"speaker": "lizard_kesh",
+					"text": "Ganz in der Nähe sah ich eine schwere Truhe im Sssand. Doch die Hitze flirrte so stark, dass ich den Pfad verlor."
+				}
+			]
+		},
+		"lizard_mira_hint": {
+			"lines": [
+				{
+					"speaker": "lizard_mira",
+					"text": "Der Wüstenwind flüstert den Weg, wenn man ssseine Zeichen zu deuten weiß."
+				},
+				{
+					"speaker": "lizard_mira",
+					"text": "Vom gewaltigen Skelett aus musst du zweimal nach Westen wandern. Lass dich nicht vom gleißenden Sssand täuschen."
+				}
+			]
+		},
+		"lizard_brakk_hint": {
+			"lines": [
+				{
+					"speaker": "lizard_brakk",
+					"text": "Was willst du, Weichhaut? Sssuchst du die verborgene Beute der Vorfahren?"
+				},
+				{
+					"speaker": "lizard_brakk",
+					"text": "Wenn du dem Pfad zur Truhe folgst, gehe am Ende nach Norden und dann nach Osten. Tust du es nicht, holt dich der Sssand."
+				}
+			]
+		},
+		"treasure_hunter_map": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Sssieh an, eine Weichhaut mit festem Schritt. Ich bin Zahir, der unerschrockenste Schatzsucher dieser Wüste."
+				},
+				{
+					"speaker": "player",
+					"text": "Freut mich, Zahir. Ich suche eher Wege als Schätze, aber im Verlaufen bin ich inzwischen meisterhaft."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Ha, ich habe mich selbst schon hundertmal verirrt. Wahrer Mut kehrt immer wieder um. Hier, nimm dieses Pergament, meine Sssandkarte."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Sie bleibt vollkommen leer, bis du selbst läufst. Dann zeichnet sie deine Schritte von allein ein. Ich zeichne nicht gut. Sie zeichnet besser."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Komm an jedem neuen Tag wieder zu mir. Wenn die Sssonne wandert, teile ich meine besten Hinweise mit dir."
+				},
+				{
+					"speaker": "",
+					"text": "Zahir gibt dir die Sandkarte.",
+					"action": "cutscene:act:treasure_hunter:give:desert_map",
+					"hide_for": 1.1
+				}
+			],
+			"on_end": "give_items:desert_map;set_flag:desert_map_owned;hint:desert_map"
+		},
+		"treasure_hunter_day_1": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Möge dein Schatten kühl sein. Hör gut zu: Beim riesigen Skelett liegt ein alter Pfad verborgen."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Gehe von den mächtigen Knochen aus zweimal nach Westen. Dort wartet das erste Geheimnis im Sssand."
+				}
+			]
+		},
+		"treasure_hunter_day_2": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Vom Skelett zweimal nach Westen, das weißt du schon? Gut. Dann wendest du dich nach Norden und zum Schluss nach Osten."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Dort steht eine Truhe mit Wüstenläufer-Sandalen. Damit gleitest du ssso leicht über die Dünen wie eine Sandechse."
+				}
+			]
+		},
+		"treasure_hunter_day_3": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Östlich von Sahrim liegen uralte, umgestürzte Säulen im Staub. Der Weg dorthin verzeiht keine Fehler."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Verlasse Sahrim nach Osten, gehe dann zweimal nach Süden, einmal nach Westen und noch einmal nach Süden."
+				}
+			]
+		},
+		"treasure_hunter_day_4": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Sssahst du schon die alten Säulen? Von dort aus kenne ich einen weiteren Pfad zu einem Versteck."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Gehe nach Osten, dann nach Norden und zweimal nach Osten. Die Truhe dort birgt wunderbare Handschuhe für dein Handwerk."
+				}
+			]
+		},
+		"treasure_hunter_day_5": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Sssuchst du noch mehr Stauraum für deine weite Reise? Die Säulenruine birgt noch ein weiteres Geheimnis."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Wandere von den Säulen nach Westen, zweimal nach Süden und nochmals nach Westen. Dort ruht ein echter Karawanenrucksack."
+				}
+			]
+		},
+		"treasure_hunter_day_6": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "In der tiefen Wüste toben endlose Gewitter. Den sicheren Weg hindurch kennen nur der Fürst und seine Späher. Ich nicht. Noch nicht."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Grelle Blitze schlagen dort pausenlos in die Dünen. Und mittendrin steht ein Tempel, den nur ein Schmied öffnen kann. Sssagen die Alten."
+				}
+			]
+		},
+		"desert_arrest": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Nach einem langen Marsch durch flimmernde Dünen trittst du durch das Südtor von Sahrim. Unter der Glaskuppel ist es schattig und feuchtwarm. Sofort kreuzen zwei Echsenwachen ihre Speere vor deiner Brust.",
+					"action": "cutscene:act:desert_guard:block",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "desert_guard",
+					"text": "Stehen bleiben, Weichhaut! Keinen Ssschritt weiter!"
+				},
+				{
+					"speaker": "player",
+					"text": "Ganz ruhig, Freunde! Ich bin nur ein völlig überhitzter Schmied auf der Durchreise."
+				},
+				{
+					"speaker": "desert_guard",
+					"text": "Lügen! Vor zwei Tagen wurde eine Karawane am Dünenkamm überfallen, und Fremde in dunklen Mänteln schnüffelten nach dem Sturm!"
+				},
+				{
+					"speaker": "desert_guard",
+					"text": "Und was hängt da an deinem Gürtel? Ein Wüstenkompass aus Sahrim!"
+				},
+				{
+					"speaker": "player",
+					"text": "Ach, der? Den hab ich selbst geschmiedet. Nach den Gussformen eines alten Zauberers, der ständig über seine Knie jammert. Ehrenwort!"
+				},
+				{
+					"speaker": "desert_guard",
+					"text": "Unser Volk schenkt keinen Kompass an einen dahergelaufenen Spion! Du hast ihn den Toten der Karawane gestohlen!"
+				},
+				{
+					"speaker": "player",
+					"text": "Gestohlen? Sehe ich etwa aus wie ein Grabräuber? Okay, meine Haare sitzen nach dem Sandsturm furchtbar, aber ich arbeite gegen den Kerl mit den dunklen Mänteln!"
+				},
+				{
+					"speaker": "player",
+					"text": "Ich suche nur einen heiligen Stein im Gewitter, damit die Welt nicht untergeht … ähm. Wenn ich es laut ausspreche, klingt das wirklich verdächtig."
+				},
+				{
+					"speaker": "desert_guard",
+					"text": "Genug gezischelt, Dieb! Du gehörst zu den Dienern des Knochenmanns!"
+				},
+				{
+					"speaker": "desert_guard",
+					"text": "Nehmt ihm den Kompass ab und sperrt ihn in die Zelle. Morgen entscheidet Fürst Ssarok, was mit ihm geschieht."
+				},
+				{
+					"speaker": "",
+					"text": "Die Wachen packen dich an den Armen und schieben dich in eine der Zellen gleich neben dem Tor. Die Nacht verbringst du auf altem Stroh hinter eisernen Gitterstäben."
+				}
+			],
+			"on_end": "cutscene:arrest_lock"
+		},
+		"cage_morning": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der Morgen bricht an. Durch die Glaswände fällt das erste Licht und malt ein Netz aus Sechsecken auf den Boden der Zelle."
+				},
+				{
+					"speaker": "player",
+					"text": "Sand in den Schuhen, Sand in den Ohren, Zunge wie Schmirgelpapier. Wenigstens muss ich mir heute keine Sorgen um kalte Füße machen."
+				},
+				{
+					"speaker": "player",
+					"text": "Ob diese Gitterstäbe wohl aus billigem Eisen sind? Mit einer kleinen Feile und drei Wochen Zeit wäre ich im Nu hier draußen."
+				},
+				{
+					"speaker": "",
+					"text": "Durch das Südtor stapft ein beladenes Kamel herein. Neben dem Tier geht ein Händler in staubigem Reisemantel.",
+					"action": "set_flag:cage_morning_seen;cutscene:camel_arrives",
+					"hide_for": 3.2
+				}
+			],
+			"on_end": "set_flag:cage_morning_seen"
+		},
+		"ulrich_cage": {
+			"lines": [
+				{
+					"speaker": "first_customer",
+					"text": "Nanu? Sitzt da drinnen schon wieder ein Sonnenstich-Dieb? Moment mal … {name}? Der Schmied aus dem Dorf?"
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Bei allen guten Geistern, Sie sind es wirklich! Ich bin es, Ulrich!"
+				},
+				{
+					"speaker": "player",
+					"text": "Ulrich? Der Ulrich? … Wer? … Ah ja! Der aus meinem allerersten Auftrag. Hmmm?"
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Ganz genau der! Oma Hilde hat Sie mir damals empfohlen. Für 1200 Gold!"
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Sie haben mir ein Kupferschwert geschmiedet, mit ganz hervorragender Qualität. Letztens habe ich damit ein paar Banditen vertrieben. Die dachten, es wäre ein goldenes Schwert! Schaha! Schaha!"
+				},
+				{
+					"speaker": "player",
+					"text": "1200 Gold? Ich habe nur {first_order_gold} bekommen."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Nur {first_order_gold}? Ach du liebe Güte. Sie sagte, gute Schmiede seien teuer, und den Rest bekäme der Schmied … irgendwann."
+				},
+				{
+					"speaker": "player",
+					"text": "Irgendwann. Jetzt weiß ich, wer die Schuhe mit Schnallen bezahlt hat."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Inzwischen ziehe ich als Händler mit den Karawanen zwischen dem Norden und Sahrim hin und her. Aber um Himmels willen, warum sitzen Sie wie ein Brathähnchen in dieser Zelle, {name}?"
+				},
+				{
+					"speaker": "player",
+					"text": "Kleines Missverständnis mit den örtlichen Gastgebern. Ich habe mir nach Meister Aurelius' Gussformen einen Wüstenkompass geschmiedet, und die Wachen glauben, ich hätte ihn einer überfallenen Karawane abgenommen."
+				},
+				{
+					"speaker": "player",
+					"text": "Außerdem halten sie mich für einen Spion des Lichs. Dabei wollte ich nur mit ihrem Anführer über den Sturmtempel sprechen."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Sie und ein Spion? Das ist ja vollkommen absurd! Wer so ein Kupferschwert schmiedet, hat für Spionage gar keine Zeit!"
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Wissen Sie was? Ich liefere seit einem Jahr bestes Eisenwerkzeug und Leinentuch an Fürst Ssarok. Der Fürst ist ein strenger, aber sehr vernünftiger Herr."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Ich gehe sofort zum Fürsten und bürge mit meinem Namen für Sie! Trinken Sie erst einmal einen Schluck aus meinem Wasserschlauch."
+				},
+				{
+					"speaker": "player",
+					"text": "Ulrich, Sie sind mein absoluter Lieblingskunde. Wenn ich hier rauskomme, schleife ich Ihnen das Kupferschwert umsonst nach. Und die 1200 Gold verrechnen wir nicht."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Das nehme ich gern beim Wort! Halten Sie noch ein wenig durch und laufen Sie mir bloß nicht weg!"
+				},
+				{
+					"speaker": "player",
+					"text": "Weglaufen? Ich? Wo ich es hier drinnen gerade so gemütlich habe? Keine Sorge, ich warte genau hier."
+				}
+			],
+			"on_end": "cutscene:fade;set_time:14;set_flag:ulrich_went_to_lord"
+		},
+		"desert_lord_cage": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Stunden vergehen, während das Licht langsam durch die Kuppel wandert. Endlich nähern sich Schritte auf den Steinplatten.",
+					"action": "cutscene:lord_arrives",
+					"hide_for": 4.4
+				},
+				{
+					"speaker": "",
+					"text": "Ein hochgewachsener Echsenfürst in dunklen Tüchern tritt an die Zelle, flankiert von zwei Speerkriegern und einem aufgeregten Ulrich, dessen Schwanzspitze unruhig hin und her zuckt."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Öffnet das Gitter. Sofort."
+				},
+				{
+					"speaker": "",
+					"text": "Die Wachen ziehen den schweren Riegel zurück. Du trittst mit steifen Knochen aus der engen Zelle.",
+					"action": "cutscene:cell_open",
+					"hide_for": 3.6
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Möge dein Schatten kühl sein, Weichhaut. Ich bin Fürst Ssarok, und ich bitte dich aufrichtig um Verzeihung für diese Nacht."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Händler Ulrich hat mir versichert, wer du bist, und ich erkenne das Zeichen meines alten Freundes Aurelius auf der Rückseite deines Kompasses."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Meine Krieger sind nervös, weil fremde Späher durch unsere Dünen schleichen. Doch einen Freund von Aurelius sperrt man nicht hinter Gitter."
+				},
+				{
+					"speaker": "player",
+					"text": "Schon gut, Fürst Ssarok. Eine Nacht auf Stroh hält bescheiden, und das Missverständnis ist ja geklärt."
+				},
+				{
+					"speaker": "",
+					"text": "Du berichtest Fürst Ssarok von deiner Reise, dem Raub der Kristalle und deiner Suche nach dem Stein des Blitzes."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Du erzählst mir wenig, was der Wüstenwind nicht schon an mein Ohr getragen hat, junger Schmied. Meine Kundschafter sehen weit über den Sssand hinaus."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Ich weiß vom untoten Heer vor dem Elfenwald, vom Feuerkristall aus dem Lavaberg und vom nächtlichen Diebstahl in Sylvaris."
+				},
+				{
+					"speaker": "player",
+					"text": "Für ein Volk mitten in der Wüste habt ihr aber verdammt gute Nachrichtenwege."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Wer in der Dürre überleben will, muss das Gewitter hören, bevor der erste Tropfen fällt. Und an dieser Geschichte vom Lich stört mich etwas."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Denk nach, Weichhaut: Ein Toter hat keinen Hunger, keinen Ehrgeiz und keine Furcht. Ein Toter will nichts mehr."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Wer aber nichts will, der sammelt auch keine neun heiligen Steine in allen Winkeln der Welt. Wenn dieser Lich sammelt, dann tut er es für jemanden."
+				},
+				{
+					"speaker": "player",
+					"text": "Du glaubst, der Lich ist nur der Laufbursche? In Sylvaris hat er tatsächlich gesagt, ein „Freund“ hätte ihm verraten, wo der Windkristall liegt."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Ssso ist es. Sag mir eines, Schmied: Wer wusste in jener Nacht genau, wo die Elfen ihren Stein aufbewahren?"
+				},
+				{
+					"speaker": "player",
+					"text": "Nur ganz wenige. Die Elfen um ihren Ältesten und Hauptmann Faelan natürlich … und aus unserer Reisegruppe König Albrecht, Meister Aurelius und Lake."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Dann weiß es einer von denen. Oder alle. Oder keiner."
+				},
+				{
+					"speaker": "player",
+					"text": "Das ist jetzt nicht gerade die beruhigendste Antwort, die ich heute gehört habe."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Ich nenne keine Namen, weil ich keine Beweise habe. Ich rate dir nur, deine Augen genauso offen zu halten wie dein Herz."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Was den Blitzkristall angeht: Er ruht tief im Süden im Sturmtempel, jenseits der Sturmfelder, wo ewige Blitze den Sand zu Glas schmelzen."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Vor tausend Jahren haben unsere Vorfahren diesen Tempel gemeinsam mit den Schmieden des ersten Helden errichtet. Seitdem halten wir Wache, doch betreten können wir ihn nicht."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Die Alten schufen das Tor so, dass kein Krieger und kein Fürst es aufbrechen kann. Nur das Handwerk eines wahren Schmieds vermag den Sturmtempel zu öffnen."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Nimm diese Karte der Sturmpfade. Der sichere Weg führt von den alten Säulen östlich von Sahrim weiter nach Süden durch die Gewitter."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Und merke dir diesen Rat, wenn du vor den alten Mauern stehst: Der Tempel redet. Lies seine Wände."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Und noch etwas. Unsere Vorfahren bekamen ein Stück jener alten Karte, auf der die neun Steine stehen. Das Stück mit dem Sand und dem Tempel."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Mein Großvater sagte, eines Tages kommt jemand, der es braucht. Ich dachte immer, er meint eine Echse. Er meinte wohl einen Schmied.",
+					"action": "set_flag:map_piece_4"
+				},
+				{
+					"speaker": "player",
+					"text": "Sprechende Wände, geschmolzener Sand und ein tausendjähriges Türschloss. Endlich wieder ein Auftrag für mein Fachgebiet!"
+				},
+				{
+					"speaker": "",
+					"text": "Fürst Ssarok übergibt dir die Karte der Sturmpfade, das Kartenstück des Echsenvolks und deinen Kompass. Sein Zelt steht im Norden der Stadt, hinter der Quelle. Dort findest du ihn, wenn du ihn brauchst.",
+					"action": "cutscene:act:desert_lord:give:storm_map|desert_compass",
+					"hide_for": 2.2
+				}
+			],
+			"on_end": "give_items:storm_map;set_flag:storm_map_owned;hint:storm_map;hint:crystal_map_4;advance:storm_temple;travel_fade:res://scenes/world/desert/desert_town.tscn,FromCells"
+		},
+		"desert_lord_idle": {
+			"lines": [
+				{
+					"speaker": "desert_lord",
+					"text": "Der Weg zum Sturmtempel führt von den Säulen im Osten weiter nach Süden. Vergiss nicht, Weichhaut: Der Tempel redet, lies seine Wände."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Und frage dich immer, wessen Hand die Fäden im Schatten hält."
+				}
+			]
+		},
+		"ulrich_hilde": {
+			"lines": [
+				{
+					"speaker": "first_customer",
+					"text": "{name}! Da sind Sie ja wieder. Sagen Sie, wie geht es denn der guten Oma Hilde? Treibt sie die Miete immer noch ein wie ein Steuereintreiber des Königs?"
+				},
+				{
+					"speaker": "player",
+					"text": "Ach, Ulrich … Oma Hilde ist beim Überfall des Lichs gestorben. Die Untoten kamen nachts ins Dorf."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Oh. Das … das tut mir aufrichtig leid. Sie war eine ganz besondere Frau."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Wissen Sie, die 1200 Gold … ich wusste damals schon, dass sie mindestens die Hälfte behält. Ich habe trotzdem bezahlt."
+				},
+				{
+					"speaker": "player",
+					"text": "Sie wussten es?"
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Natürlich. Bei Hilde wusste man immer, woran man ist: Sie nimmt, was sie kriegen kann. Und dann gibt sie es heimlich für andere aus."
+				},
+				{
+					"speaker": "player",
+					"text": "Schuhe mit Schnallen. Für Lotte."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Sehen Sie. Möge ihr Schatten kühl sein, {name}. Und wenn Sie wieder im Dorf sind, schaue ich in Ihrer Schmiede vorbei. Auf Hilde."
+				}
+			],
+			"on_end": "set_flag:ulrich_hilde_told"
+		},
+		"ulrich_idle": {
+			"lines": [
+				{
+					"speaker": "first_customer",
+					"text": "Wie schön, Sie in Freiheit zu sehen, {name}! Passen Sie in diesen schrecklichen Gewittern im Süden bloß gut auf sich auf."
+				},
+				{
+					"speaker": "first_customer",
+					"text": "Wenn Sie wieder im Dorf sind, schaue ich bestimmt in Ihrer Schmiede vorbei!"
+				}
+			]
+		},
+		"temple_gate_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Über dem Sturmtempel tobt ein unablässiges Gewitter. Überall im Sand ragen gezackte Gebilde aus schwarz geschmolzenem Glas auf.",
+					"action": "cutscene:act:player:storm",
+					"hide_for": 2.2
+				},
+				{
+					"speaker": "",
+					"text": "Vor dir erhebt sich ein schweres Steintor ohne Griff und ohne Schlüsselloch. Daneben steht eine Steintafel mit drei leeren Vertiefungen.",
+					"action": "cutscene:act:player:turn:up",
+					"hide_for": 0.6
+				},
+				{
+					"speaker": "",
+					"text": "Gleich neben dem Tor steht unter einem steinernen Vordach eine uralte Schmiede mit Esse, Amboss, Wassertrog und Werkbank. Seit tausend Jahren ist hier kein Funke mehr geflogen.",
+					"action": "cutscene:act:player:turn:left",
+					"hide_for": 0.6
+				},
+				{
+					"speaker": "player",
+					"text": "Kein Türgriff, drei leere Fassungen und eine komplette Werkstatt direkt neben der Haustür. Die alten Baumeister wollten wohl sagen: „Bitte Schlüssel selbst schmieden.“"
+				},
+				{
+					"speaker": "player",
+					"text": "Ssarok meinte, der Tempel redet durch seine Wände. Schauen wir uns die Inschriften mal genauer an."
+				}
+			],
+			"on_end": "set_flag:temple_intro_seen"
+		},
+		"temple_crystal_take": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du trittst an den Altar und blickst hinauf. Langsam sinkt der Blitzkristall herab, direkt in deine Hände.",
+					"action": "cutscene:crystal_grab",
+					"hide_for": 3.4
+				},
+				{
+					"speaker": "",
+					"text": "Im selben Augenblick zuckt ein greller Lichtbogen durch den Raum, und deine beiden Hände leuchten in tiefem, klarem Blau auf.",
+					"action": "cutscene:crystal_arc",
+					"hide_for": 1.0
+				},
+				{
+					"speaker": "",
+					"text": "Einen einzigen Herzschlag lang verschwimmt der Tempel vor deinen Augen. Du siehst einen hochgewachsenen Mann an einem glühenden Amboss stehen.",
+					"action": "cutscene:crystal_vision",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "",
+					"text": "Auch seine Hände leuchten im selben blauen Feuer. Er hebt den Kopf, sieht dich direkt an und öffnet den Mund, als wollte er dir eine Warnung zurufen – dann ist das Bild verschwunden."
+				},
+				{
+					"speaker": "player",
+					"text": "Das … das war er. Der Schmied aus den alten Geschichten … und er hat mich angesehen.",
+					"action": "cutscene:vision_end"
+				},
+				{
+					"speaker": "player",
+					"text": "Okay. Durchatmen. Nächstes Mal darf die Vision gern einen kleinen Notizzettel hinterlassen. Ich bringe den Stein jetzt erst einmal zurück nach Sahrim."
+				}
+			],
+			"on_end": "give_items:holy_lightning_crystal;set_flag:lightning_crystal_owned;advance:crystal_to_lord"
+		},
+		"crystal_to_desert_lord": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Im Zelt des Fürsten trittst du vor Fürst Ssarok und die alte Älteste Ishra. Als du den knisternden Blitzkristall vorzeigst, neigen die Wachen ehrfürchtig ihre Speere.",
+					"action": "cutscene:act:player:hold:holy_lightning_crystal",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "lizard_elder",
+					"text": "Tausend Sommer und tausend Winter haben wir auf den Sturm gehört. Nun liegt das Herz des Gewitters wieder in den Händen eines Schmieds."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Du hast vollbracht, was keinem vor dir gelang, Weichhaut. Unsere lange Wacht vor den Sturmfeldern hat heute ihr Ziel gefunden."
+				},
+				{
+					"speaker": "player",
+					"text": "Eure Vorfahren verstehen jedenfalls etwas von Sicherheitstüren. Ohne Amboss und einen sehr geduldigen Kopf kommt da niemand rein."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Jetzt trägst du eine gefährliche Last bei dir. Hör auf mein Wort: Gib diesen Kristall niemandem in die Hand, dem du nicht vollkommen vertraust."
+				},
+				{
+					"speaker": "lizard_elder",
+					"text": "Der Schatten kriecht oft dort am dichtesten, wo das Licht am hellsten scheint, junger Schmied."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich gebe gut auf ihn acht, versprochen. Ich bringe ihn jetzt nach Leonheim, dort wartet der König."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Dann halte deine Augen auf dem Weg nach Norden offen. Von diesem Tag an bist du kein Fremder mehr in unseren Zelten."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Das Volk von Sahrim nennt dich seinen Freund. Möge dein Schatten kühl sein, {name}."
+				},
+				{
+					"speaker": "",
+					"text": "Mit dem Blitzkristall im Gepäck verlässt du die Wüste und machst dich auf den Rückweg nach Leonheim."
+				}
+			],
+			"on_end": "advance:return_leonheim"
+		},
+		"desert_guard_idle": {
+			"lines": [
+				{
+					"speaker": "desert_guard",
+					"text": "Der Fürst sagt, du bist ein Freund. Also bist du ein Freund. Mach keinen Ärger, Weichhaut."
+				}
+			]
+		},
+		"desert_lord_after": {
+			"lines": [
+				{
+					"speaker": "desert_lord",
+					"text": "Möge dein Schatten kühl sein, Freund. Und vergiss meine Frage nicht."
+				}
+			]
+		},
+		"temple_mural_gate": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Neben dem Tempel steht eine Steintafel: eine Sonne, ein Mond und ein Blitz über drei Vertiefungen. Auf ihrer Kante steht eine Inschrift."
+				},
+				{
+					"speaker": "",
+					"text": "„Wo der Morgen erwacht, ruht die Sonne. Über der Mitte der Nacht wacht der Mond. Und aus dem Land, in dem der Tag stirbt, kommt der Sturm.“"
+				},
+				{
+					"speaker": "",
+					"text": "Daneben sind drei Scheiben eingeritzt: eine aus Gold, eine aus Silber, eine aus Kupfer. Für jede braucht man zwei Barren."
+				},
+				{
+					"speaker": "player",
+					"text": "Gold für die Sonne, Silber für den Mond, Kupfer für den Blitz. Gießen, schmieden, abkühlen, wie immer. Und der Morgen erwacht im Osten. Das hab ich mir sogar gemerkt. Meistens."
+				}
+			],
+			"on_end": "unlock_recipes:sun_seal,moon_seal,storm_seal,sun_seal_cast,moon_seal_cast,storm_seal_cast;set_flag:temple_mural_gate_read"
+		},
+		"temple_socket_no_seal": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du hast kein solches Siegel bei dir. Lies die Wand neben dem Tor, dort steht, wie man sie schmiedet."
+				}
+			]
+		},
+		"temple_hall_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Hinter dem Tor liegt eine Halle. Vier Säulen stehen in einer Reihe, jede verschieden hoch. In jede ist eine Blitzrune geschnitten."
+				},
+				{
+					"speaker": "",
+					"text": "Eine schwere Steinplatte versperrt den Weg weiter hinein."
+				},
+				{
+					"speaker": "player",
+					"text": "Vier Säulen. Ich wette, die sind nicht nur zum Dachtragen da."
+				}
+			],
+			"on_end": "set_flag:temple_hall_seen"
+		},
+		"temple_mural_hall": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein Bild an der Wand: Ein Blitz fährt vom Himmel herab. Er trifft zuerst einen hohen Turm, dann einen Baum, dann ein Haus und zuletzt einen Stein am Boden."
+				},
+				{
+					"speaker": "",
+					"text": "„Der Blitz wählt immer zuerst das Höchste. Erst zuletzt erreicht er die Erde.“"
+				},
+				{
+					"speaker": "player",
+					"text": "Vom Höchsten zum Niedrigsten. Und ich hab einen Hammer. Das passt doch."
+				}
+			]
+		},
+		"temple_pillar_quiet": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Säule summt noch leise nach."
+				}
+			]
+		},
+		"temple_sanctum_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die innerste Kammer. Über einem Altar schwebt ein gelber Kristall. Um ihn herum zucken Blitze wie ein Käfig aus Licht."
+				},
+				{
+					"speaker": "",
+					"text": "Links steht ein Steinsockel mit einer langen Kerbe. An der Wand ist ein letztes Bild."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Käfig aus Blitzen. Natürlich. Wenn ich da reingreife, bin ich hinterher sehr gleichmäßig durchgegart."
+				}
+			],
+			"on_end": "set_flag:temple_sanctum_seen"
+		},
+		"temple_mural_sanctum": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein Bild: Ein Mensch mit einem Hammer steckt einen langen Stab in den Boden. Der Blitz fährt in den Stab statt in den Menschen."
+				},
+				{
+					"speaker": "",
+					"text": "„Wer das Herz des Sturms berühren will, gebe dem Blitz zuerst einen Weg in die Erde. Aus dem Metall, das ihn am liebsten trägt.“"
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Blitzableiter. Silber leitet zwar noch besser, aber ich stecke doch kein Silber in den Boden. Kupfer, drei Barren. Draußen in den Gussofen, auf den Amboss, ab ins Wasser."
+				}
+			],
+			"on_end": "unlock_recipes:lightning_rod,lightning_rod_cast;set_flag:temple_mural_sanctum_read"
+		},
+		"temple_rod_stand": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein Steinsockel mit einer langen Kerbe. Sie führt tief in den Boden."
+				}
+			],
+			"choices": [
+				{
+					"text": "Blitzableiter einsetzen",
+					"action": "take_items:lightning_rod;set_flag:temple_rod_placed",
+					"then": "temple_rod_placed",
+					"else": "temple_rod_missing"
+				},
+				{
+					"text": "Nichts tun"
+				}
+			]
+		},
+		"temple_rod_missing": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du hast keinen Blitzableiter bei dir. Lies das Bild an der Wand."
+				}
+			]
+		},
+		"temple_rod_placed": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du steckst den Blitzableiter in den Sockel. Einen Herzschlag lang ist es still."
+				},
+				{
+					"speaker": "",
+					"text": "Dann springen alle Blitze auf einmal vom Kristall in den Kupferstab und verschwinden knisternd im Boden. Der Käfig aus Licht ist fort.",
+					"action": "cutscene:rod_lightning",
+					"hide_for": 2.2
+				},
+				{
+					"speaker": "player",
+					"text": "Ha! Physik. Ich liebe Physik."
+				}
+			]
+		},
+		"temple_rod_stand_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der Blitzableiter steckt im Sockel. Er ist noch warm."
+				}
+			]
+		},
+		"temple_crystal_blocked": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Blitze zucken um den Kristall. Du kommst nicht näher heran, ohne dich zu verbrennen."
+				}
+			]
+		},
+		"temple_mural_sockets": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Unter Sonne, Mond und Blitz sind drei runde Vertiefungen in die Tafel eingelassen."
+				}
+			],
+			"choices": [
+				{"text": "Linke Vertiefung", "then": "temple_socket_0"},
+				{"text": "Mittlere Vertiefung", "then": "temple_socket_1"},
+				{"text": "Rechte Vertiefung", "then": "temple_socket_2"},
+				{"text": "Inschrift lesen", "then": "temple_mural_gate"},
+				{"text": "Nichts tun"}
+			]
+		},
+		"temple_socket_0": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Eine runde Vertiefung im Stein, so groß wie eine Handfläche. Die linke von dreien."
+				}
+			],
+			"choices": [
+				{
+					"text": "Sonnensiegel einsetzen",
+					"action": "temple_seal:0,sun_seal",
+					"else": "temple_socket_no_seal"
+				},
+				{
+					"text": "Mondsiegel einsetzen",
+					"action": "temple_seal:0,moon_seal",
+					"else": "temple_socket_no_seal"
+				},
+				{
+					"text": "Sturmsiegel einsetzen",
+					"action": "temple_seal:0,storm_seal",
+					"else": "temple_socket_no_seal"
+				},
+				{
+					"text": "Nichts einsetzen"
+				}
+			]
+		},
+		"temple_socket_1": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Eine runde Vertiefung im Stein, so groß wie eine Handfläche. Die mittlere von dreien."
+				}
+			],
+			"choices": [
+				{
+					"text": "Sonnensiegel einsetzen",
+					"action": "temple_seal:1,sun_seal",
+					"else": "temple_socket_no_seal"
+				},
+				{
+					"text": "Mondsiegel einsetzen",
+					"action": "temple_seal:1,moon_seal",
+					"else": "temple_socket_no_seal"
+				},
+				{
+					"text": "Sturmsiegel einsetzen",
+					"action": "temple_seal:1,storm_seal",
+					"else": "temple_socket_no_seal"
+				},
+				{
+					"text": "Nichts einsetzen"
+				}
+			]
+		},
+		"temple_socket_2": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Eine runde Vertiefung im Stein, so groß wie eine Handfläche. Die rechte von dreien."
+				}
+			],
+			"choices": [
+				{
+					"text": "Sonnensiegel einsetzen",
+					"action": "temple_seal:2,sun_seal",
+					"else": "temple_socket_no_seal"
+				},
+				{
+					"text": "Mondsiegel einsetzen",
+					"action": "temple_seal:2,moon_seal",
+					"else": "temple_socket_no_seal"
+				},
+				{
+					"text": "Sturmsiegel einsetzen",
+					"action": "temple_seal:2,storm_seal",
+					"else": "temple_socket_no_seal"
+				},
+				{
+					"text": "Nichts einsetzen"
+				}
+			]
+		},
+		"temple_pillar_1": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du schlägst mit dem Hammer gegen die Säule. Ein dunkler Ton.",
+					"action": "cutscene:act:player:hammer:temple_pillar_1,ffe680",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "temple_pillar:1"
+		},
+		"temple_pillar_2": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du schlägst mit dem Hammer gegen die Säule. Ein heller, hoher Ton.",
+					"action": "cutscene:act:player:hammer:temple_pillar_2,ffe680",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "temple_pillar:2"
+		},
+		"temple_pillar_3": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du schlägst mit dem Hammer gegen die Säule. Ein tiefer, dröhnender Ton.",
+					"action": "cutscene:act:player:hammer:temple_pillar_3,ffe680",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "temple_pillar:3"
+		},
+		"temple_pillar_4": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du schlägst mit dem Hammer gegen die Säule. Ein klarer Ton.",
+					"action": "cutscene:act:player:hammer:temple_pillar_4,ffe680",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "temple_pillar:4"
+		},
+		"ssarok_ask": {
+			"lines": [
+				{
+					"speaker": "desert_lord",
+					"text": "Willkommen zurück im warmen Sssand, Freund. Dein Blick ist unruhig wie eine Flamme im Wind."
+				},
+				{
+					"speaker": "player",
+					"text": "Fürst Ssarok. Ich habe ein riesiges Problem: Der Lich ist nachts ins Schloss von Leonheim eingedrungen und hat König Albrecht entführt. Niemand weiß, wohin."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Ssso. Der Knochenmann schleicht in die Festung der Menschen und nimmt den König mit. Erlaube mir zwei kleine Fragen, Weichhaut."
+				},
+				{
+					"speaker": "player",
+					"text": "Schieß los. Im Moment nehme ich auch gute Fragen, Antworten hat ohnehin keiner."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Warum ist in einer Burg voller Eisen und geschulter Klingen keine einzige Wache aufgewacht? Und wer hatte in jener Nacht die Macht, den treuesten Wächter vor die Tür zu schicken?"
+				},
+				{
+					"speaker": "player",
+					"text": "Äh ... na ja, der Lich hat dunkle Magie benutzt, und der König wollte eben, dass die Stadtmauer geprüft wird. Worauf willst du hinaus?"
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Auf nichts, Freund. Nur auf den Ssschatten, den ein Stein wirft, wenn die Sonne sinkt. Wer den Puppenspieler sucht, darf nicht nur auf die Holzfigur starren."
+				},
+				{
+					"speaker": "player",
+					"text": "Mir reicht im Moment schon der Ort, an dem die Holzfigur steckt. Goldzahn und Elarion meinten beide, ich soll im Osten suchen, wo das Land fault."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Dann meinen sie die Schwarzen Moore und das Land dahinter. Ich kenne jemanden im Sssumpf östlich deines eigenen Dorfes, der durch jeden Nebel blickt: meine Großtante, Muhme Grisla."
+				},
+				{
+					"speaker": "player",
+					"text": "Moment – du hast eine Großtante im Sumpf direkt neben meinem Heimatdorf? Eine Hexe?"
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Hüte deine Zunge, Weichhaut, sie hört es gar nicht gern, wenn man es falsch ausspricht. Sag ihr, Sssarok schickt dich. Und bring ihr nichts Süßes, sie hasst Süßes."
+				},
+				{
+					"speaker": "player",
+					"text": "Und wie komme ich da hin? Ich kenne den Sumpf nur als Nebel hinter dem Dorftor, in den keiner freiwillig geht."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Nimm die Kutsche deines Volkes. Meine Boten sagen den Kutschern noch heute, dass sie dich bis an den Rand des Sssumpfes fahren sollen, dort steht ein trockenes Stück Land. Oder geh vom Tor deines Dorfes nach Osten, der alte Weg führt direkt hinein."
+				},
+				{
+					"speaker": "player",
+					"text": "Kutsche klingt gut. Weniger Nebel in den Stiefeln."
+				},
+				{
+					"speaker": "",
+					"text": "Du verabschiedest dich von Fürst Ssarok. In den Sumpf kommst du jetzt mit jeder Kutsche (Dorf, Leonheim, Sylvaris …) oder zu Fuß vom Dorftor nach Osten."
+				}
+			],
+			"on_end": "set_flag:swamp_road_open;advance:to_swamp"
+		},
+		"lizard_captain_camp": {
+			"lines": [
+				{
+					"speaker": "desert_guard",
+					"text": "Die Speere von Sahrim stehen bereit. Die Pforte an der Westflanke wartet auf dich, Weichhaut."
+				}
+			]
+		},
+		"desert_guard_council": {
+			"lines": [
+				{
+					"speaker": "desert_guard",
+					"text": "Der Fürst spricht. Wir stehen. So ist es Sitte, Weichhaut."
+				}
+			]
+		},
+		"ssarok_ally": {
+			"lines": [
+				{
+					"speaker": "desert_lord",
+					"text": "Möge dein Schatten kühl sein, Schmied. Heute wird es heiß."
+				}
+			]
+		},
+		"temple_wind_orb": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Dort, wo der Blitzkristall lag, kreist ein letzter Rest Sturm. Er zieht sich zu einer Kugel zusammen, als du die Hand ausstreckst.",
+					"action": "cutscene:act:player:hold:wind_orb",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "",
+					"text": "Du hältst einen Windorb. Er dreht sich in deiner Hand und will weg."
+				}
+			],
+			"on_end": "give_items:wind_orb;set_flag:wind_orb_found"
+		},
+		"kesh_pipe_offer": {
+			"lines": [
+				{
+					"speaker": "lizard_kesh",
+					"text": "Möge dein Schatten kühl sein, Weichhaut. Verzeih, dass ich nicht stehen bleibe. Die Krüge werden nicht von allein voll."
+				},
+				{
+					"speaker": "lizard_kesh",
+					"text": "Jeden Morgen trage ich das Wasser von der Quelle zu den Zelten. Vierzig Krüge. Mein Rücken ist älter als ich."
+				},
+				{
+					"speaker": "player",
+					"text": "Und wenn das Wasser von selbst zu den Zelten liefe? Durch Rohre. Aus Glas, damit es in der Sonne nicht heiß wird. Mit Kupfer verbunden."
+				},
+				{
+					"speaker": "lizard_kesh",
+					"text": "Wasser, das läuft, ohne dass es jemand trägt? Das wäre ein Wunder. Kannst du so ein Wunder bauen?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich baue dir eine Leitung",
+					"action": "set_flag:kesh_pipe_accepted",
+					"then": "kesh_pipe_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"kesh_pipe_accepted": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Ich brauche 8 Glas, 4 Kupferbarren und 6 Eisennägel. Glas mache ich aus Sand, davon habt ihr ja genug."
+				},
+				{
+					"speaker": "lizard_kesh",
+					"text": "Sand, ja. Den haben wir. Nur selten so viel, wie wir gern hätten. Ich warte an der Quelle."
+				}
+			]
+		},
+		"kesh_pipe_hand_in": {
+			"lines": [
+				{
+					"speaker": "lizard_kesh",
+					"text": "Hast du alles für die Leitung, Weichhaut?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Material geben",
+					"action": "take_items:glass*8,copper_ingot*4,iron_nail*6;give_gold:400;give_items:aquamarine;set_flag:kesh_pipe_done",
+					"then": "kesh_pipe_done",
+					"else": "kesh_pipe_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"kesh_pipe_missing": {
+			"lines": [
+				{
+					"speaker": "lizard_kesh",
+					"text": "8 Glas, 4 Kupferbarren, 6 Eisennägel. Ich habe es mir in den Sand geschrieben. Der Wind hat es weggeweht, aber ich weiß es noch."
+				}
+			]
+		},
+		"kesh_pipe_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du verlegst die Leitung von der Quelle bis zu den Zelten. Am Abend läuft das erste Wasser durch das Glas und glitzert in der Sonne.",
+					"action": "cutscene:fade;cutscene:act:lizard_kesh:splash",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "lizard_kesh",
+					"text": "Es läuft. Es läuft wirklich. Ich habe heute keinen einzigen Krug getragen."
+				},
+				{
+					"speaker": "lizard_kesh",
+					"text": "Die alte Ishra sagt, so etwas hat es seit der Kuppel nicht gegeben. Nimm das. Und dieser Stein war ein Geschenk des Flusses. Jetzt ist er deiner."
+				},
+				{
+					"speaker": "",
+					"text": "Kesh gibt dir 400 Gold und einen Aquamarin.",
+					"action": "cutscene:act:lizard_kesh:give:res://assets/sprites/items/coin_purse.png|aquamarine",
+					"hide_for": 2.2
+				}
+			]
+		},
+		"kesh_pipe_after": {
+			"lines": [
+				{
+					"speaker": "lizard_kesh",
+					"text": "Möge dein Schatten kühl sein, Weichhaut. Ich habe jetzt Zeit. So viel Zeit. Ich weiß gar nicht, was ich damit machen soll. Vielleicht lerne ich weben."
+				}
+			]
+		},
+		"zahir_charm_offer": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Weichhaut! Du kommst wie gerufen. Der unerschrockenste Schatzsucher dieser Wüste braucht ... nun. Eine Kleinigkeit."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Mein Glücksamulett. Ein gelber Stein an einer Schnur. Ohne ihn verlaufe ich mich. Mit ihm auch, aber nicht so oft."
+				},
+				{
+					"speaker": "player",
+					"text": "Und wo hast du es verloren? Lass mich raten: Wenn du das wüsstest, hättest du es nicht verloren."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Ich weiß es sogar! Ungefähr. Vom großen Skelett zweimal nach Norden, einmal nach Westen, dann wieder nach Norden. Dort war eine Düne mit einem krummen Felsen."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Dort habe ich mich hingesetzt. Und als ich aufstand, war der Stein weg. Und dann ich auch. Drei Tage lang."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich suche es dir",
+					"action": "set_flag:zahir_charm_search",
+					"then": "zahir_charm_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"zahir_charm_accepted": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Du bist ein Freund, Weichhaut! Und nimm Wasser mit. Ich habe beim letzten Mal keins mitgenommen. Das war ein Fehler. Einer von mehreren."
+				}
+			]
+		},
+		"zahir_charm_hand_in": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Und? Hast du ihn? Meinen Stein?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Amulett geben",
+					"action": "take_items:zahir_charm;give_gold:500;give_items:amethyst;set_flag:zahir_charm_done",
+					"then": "zahir_charm_done",
+					"else": "zahir_charm_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"zahir_charm_missing": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Vom großen Skelett zweimal Norden, einmal Westen, einmal Norden. Die Düne mit dem krummen Felsen. Ich bin fast sicher. Ganz fast."
+				}
+			]
+		},
+		"zahir_charm_done": {
+			"lines": [
+				{
+					"speaker": "treasure_hunter",
+					"text": "Mein Stein! Siehst du, wie er glänzt? Er hat dich zu sich geführt. Das tut er nur bei würdigen Leuten."
+				},
+				{
+					"speaker": "player",
+					"text": "Oder ich bin einfach zweimal nach Norden gegangen. Aber gut, nehmen wir die Version mit dem Glanz."
+				},
+				{
+					"speaker": "treasure_hunter",
+					"text": "Nimm das. Ein Schatzsucher bezahlt seine Schulden. Fast immer."
+				},
+				{
+					"speaker": "",
+					"text": "Zahir gibt dir 500 Gold und einen Amethyst.",
+					"action": "cutscene:act:treasure_hunter:give:res://assets/sprites/items/coin_purse.png|amethyst",
+					"hide_for": 2.2
+				}
+			]
+		},
+		"tournament_messenger_sahrim_talk": {
+			"lines": [
+				{
+					"speaker": "tournament_messenger_sahrim",
+					"text": "Möge dein Schatten kühl sein, Weichhaut. Unter der Kuppel messen sich Schmiede und Helden in den Ligen. Schmiede melden sich in der Turnierhalle an."
+				},
+				{
+					"speaker": "tournament_messenger_sahrim",
+					"text": "Der Sand vergisst keinen Sieger. Wohin soll ich dich bringen?"
+				},
+				{
+					"speaker": "tournament_messenger_sahrim",
+					"text": "In die Arena kommen nur Helden, die schon ein großes Heldenturnier gewonnen haben.",
+					"unless_flag": "hero_tournament_won"
+				}
+			],
+			"choices": [
+				{
+					"text": "Zur Turnierhalle",
+					"action": "travel_fade:res://scenes/world/tournament/tournament_hall_sahrim.tscn,FromCity"
+				},
+				{
+					"text": "Zur Arena",
+					"if_flag": "hero_tournament_won",
+					"action": "travel_fade:res://scenes/world/desert/sahrim_ring.tscn,FromCity"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		}
+	}
+}

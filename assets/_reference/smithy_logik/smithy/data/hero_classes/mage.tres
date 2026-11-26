@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HeroClass" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/hero_class.gd" id="1_class"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/skill_trees/mage.png" id="2_tree"]
+
+[resource]
+script = ExtResource("1_class")
+id = &"mage"
+display_name = "Magier"
+color = Color(0.42, 0.62, 1.0, 1)
+description = "Wirkt Elementmagie."
+skill_ids = Array[String]([])
+skill_background = ExtResource("2_tree")
+attribute_bonuses = {3: 3}

@@ -1,0 +1,389 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_fortress.tscn" id="lamp_fortress"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/sneak/sneak_zone.gd" id="3_sneak_zone"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="4_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sneak_moat_ground.png" id="5_sneak_moat_g"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="6_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sneak_moat_mask.png" id="7_sneak_moat_m"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="8_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_0.png" id="9_crates"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_1.png" id="10_barrels_sack"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="12_night_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/stones_b.png" id="13_stones_b"]
+[ext_resource type="Script" path="res://scenes/world/sneak/sneak_guard.gd" id="14_sneak_guard"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="15_door"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/smith_gate_closed.png" id="16_smith_gate_c"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_texture.gd" id="17_story_textur"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/smith_gate_open.png" id="18_smith_gate_o"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="19_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="20_hud"]
+[ext_resource type="Script" path="res://scenes/world/finster/finster_fog.gd" id="fog_script"]
+[ext_resource type="Shader" path="res://scenes/world/finster/finster_fog.gdshader" id="fog_shader"]
+[ext_resource type="Script" path="res://scenes/world/finster/fog_ghost.gd" id="ghost_script"]
+[ext_resource type="Script" path="res://scenes/world/finster/lamplighter.gd" id="lamplighter_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/crypt_wraith_walk.png" id="ghost_crypt_wraith"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/ghost_walk.png" id="ghost_ghost"]
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("8_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("8_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("8_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("8_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("8_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("8_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_dark_lake"]
+script = ExtResource("8_appearance")
+race = "human"
+skin = "pale"
+hair_style = "short"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_lizard"]
+script = ExtResource("8_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_warden"]
+script = ExtResource("8_appearance")
+race = "half_demon"
+skin = "ash"
+eye_type = "glowing"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_warden2"]
+script = ExtResource("8_appearance")
+race = "half_demon"
+skin = "slate"
+eye_type = "glowing"
+eye_color = "green"
+hair_style = "spiky"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="RectangleShape2D" id="Rect_28x12"]
+size = Vector2(28, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_30x12"]
+size = Vector2(30, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="Rect_22x10"]
+size = Vector2(22, 10)
+
+[sub_resource type="FastNoiseLite" id="fog_noise_gen"]
+frequency = 0.012
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="fog_noise"]
+width = 256
+height = 256
+seamless = true
+noise = SubResource("fog_noise_gen")
+
+[sub_resource type="ShaderMaterial" id="fog_material"]
+shader = ExtResource("fog_shader")
+shader_parameter/noise = SubResource("fog_noise")
+shader_parameter/clear_above_y = -10000.0
+
+[node name="SneakFlank" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("3_sneak_zone")
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+color = Color(0.5, 0.5, 0.62, 1)
+script = ExtResource("4_gloom")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-480, -240)
+texture = ExtResource("5_sneak_moat_g")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-480, -240)
+script = ExtResource("6_cave_walls")
+mask = ExtResource("7_sneak_moat_m")
+
+[node name="Props" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Crates1" type="StaticBody2D" parent="Props"]
+position = Vector2(-80, -22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crates1"]
+texture = ExtResource("9_crates")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crates1"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_28x12")
+
+[node name="Barrels1" type="StaticBody2D" parent="Props"]
+position = Vector2(336, -22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Barrels1"]
+texture = ExtResource("10_barrels_sack")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Barrels1"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_30x12")
+
+[node name="Brazier1" parent="Props" instance=ExtResource("lamp_fortress")]
+position = Vector2(-398, 9)
+
+[node name="Crates2" type="StaticBody2D" parent="Props"]
+position = Vector2(-368, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crates2"]
+texture = ExtResource("9_crates")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crates2"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_28x12")
+
+[node name="Rock1" type="StaticBody2D" parent="Props"]
+position = Vector2(240, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Rock1"]
+texture = ExtResource("13_stones_b")
+offset = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Rock1"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_22x10")
+
+[node name="Rock2" type="StaticBody2D" parent="Props"]
+position = Vector2(-112, 74)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Rock2"]
+texture = ExtResource("13_stones_b")
+offset = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Rock2"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_22x10")
+
+[node name="Crates3" type="StaticBody2D" parent="Props"]
+position = Vector2(112, 106)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crates3"]
+texture = ExtResource("9_crates")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crates3"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_28x12")
+
+[node name="Brazier2" parent="Props" instance=ExtResource("lamp_fortress")]
+position = Vector2(395, 107)
+
+[node name="Guards" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Guard1" type="Node2D" parent="Guards"]
+position = Vector2(-176, 32)
+script = ExtResource("14_sneak_guard")
+appearance = SubResource("Look_warden")
+resident = "finster_warden_a"
+look_directions = PackedStringArray("up", "down")
+turn_seconds = 1.4
+view_range = 110.0
+patrol = PackedVector2Array(0, 0, 224, 0)
+walk_speed = 40.0
+
+[node name="Guard2" type="Node2D" parent="Guards"]
+position = Vector2(176, 64)
+script = ExtResource("14_sneak_guard")
+appearance = SubResource("Look_warden2")
+resident = "finster_warden_b"
+look_directions = PackedStringArray("right", "up")
+turn_seconds = 2.2
+view_range = 110.0
+
+[node name="Guard3" type="Node2D" parent="Guards"]
+position = Vector2(-336, 48)
+script = ExtResource("14_sneak_guard")
+appearance = SubResource("Look_warden")
+resident = "finster_warden_a"
+look_directions = PackedStringArray("up", "right")
+turn_seconds = 2.5
+view_range = 120.0
+
+[node name="Back" parent="." instance=ExtResource("15_door")]
+position = Vector2(464, 32)
+target_scene = "res://scenes/world/fortress/fortress_camp.tscn"
+target_spawn_point = &"FromMoat"
+scale = Vector2(1, 2)
+
+[node name="Visual" parent="Back" index="0"]
+visible = false
+
+[node name="GateIn" parent="." instance=ExtResource("15_door")]
+position = Vector2(-400, -80)
+target_scene = "res://scenes/world/fortress/sneak_walls.tscn"
+target_spawn_point = &"Start"
+required_flag = "smith_gate_open"
+locked_text = "Die alte Pforte ist zu. Sieh sie dir genauer an (E)."
+fade = true
+
+[node name="Visual" parent="GateIn" index="0"]
+visible = false
+
+[node name="SmithGate" type="Sprite2D" parent="."]
+position = Vector2(-384, -80)
+texture = ExtResource("16_smith_gate_c")
+offset = Vector2(0, -20)
+z_index = -1
+script = ExtResource("17_story_textur")
+flag = "smith_gate_open"
+texture_after = ExtResource("18_smith_gate_o")
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="GateLock" parent="People" instance=ExtResource("19_story_npc")]
+position = Vector2(-400, -60)
+npc_id = "smith_gate"
+narrator = true
+talk_area_scale = Vector2(1.6, 1.6)
+
+[node name="Narrator" parent="People" instance=ExtResource("19_story_npc")]
+position = Vector2(400, 32)
+npc_id = "sneak_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(3, 3)
+
+[node name="Start" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(400, 32)
+
+[node name="Fog" type="Node2D" parent="."]
+z_index = 60
+material = SubResource("fog_material")
+script = ExtResource("fog_script")
+map_rect = Rect2(-480, -240, 960, 480)
+
+[node name="Ghosts" type="Node2D" parent="."]
+z_index = 61
+
+[node name="HallGhost" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_ghost")
+area = Rect2(-460, -220, 920, 440)
+speed = 11.0
+max_alpha = 0.5
+hide_time = Vector2(6, 16)
+
+[node name="HallWraith" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_crypt_wraith")
+area = Rect2(-460, -220, 920, 440)
+speed = 10.0
+max_alpha = 0.5
+hide_time = Vector2(8, 20)
+
+[node name="CellGhost" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_ghost")
+area = Rect2(0, -220, 460, 440)
+speed = 9.0
+max_alpha = 0.45
+hide_time = Vector2(10, 25)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(400, 32)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -480
+limit_top = -240
+limit_right = 480
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("20_hud")]
+
+[editable path="Back"]
+[editable path="GateIn"]
+[editable path="Player"]

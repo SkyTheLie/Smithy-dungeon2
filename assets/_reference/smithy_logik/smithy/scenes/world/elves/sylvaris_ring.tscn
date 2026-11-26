@@ -1,0 +1,410 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/_template/map_base.tscn" id="map_base"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sylvaris_ring_ground.png" id="ground"]
+[ext_resource type="Script" path="res://scenes/world/tournament/arena_fight_stage.gd" id="fight_stage"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="door"]
+[ext_resource type="Script" path="res://scenes/world/volcano/goblin_figure.gd" id="figure"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_11.png" id="banner_white"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_9.png" id="banner_green"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_13.png" id="brazier"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="light"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_elf.tscn" id="lantern"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_17.png" id="bush_butterflies"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_8.png" id="fern"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_mid_a.png" id="tree_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_mid_c.png" id="tree_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_mid_d.png" id="tree_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_mid_b.png" id="tree_3"]
+
+[sub_resource type="RectangleShape2D" id="Shape_tribune"]
+size = Vector2(480, 120)
+
+[sub_resource type="RectangleShape2D" id="Shape_trunk"]
+size = Vector2(30, 10)
+
+[sub_resource type="RectangleShape2D" id="Shape_small"]
+size = Vector2(20, 8)
+
+[sub_resource type="Resource" id="Look_crowd_0"]
+script = ExtResource("appearance")
+race = "elf"
+skin = "pale"
+hair_style = "long"
+hair_color = "platinum"
+eye_type = "narrow"
+eye_color = "teal"
+size = "tall"
+outfit = "tunic"
+clothes_color = "forest"
+
+[sub_resource type="Resource" id="Look_crowd_1"]
+script = ExtResource("appearance")
+race = "elf"
+skin = "tan"
+hair_style = "ponytail"
+hair_color = "chestnut"
+eye_type = "normal"
+eye_color = "green"
+size = "small"
+outfit = "vest"
+clothes_color = "teal"
+
+[sub_resource type="Resource" id="Look_crowd_2"]
+script = ExtResource("appearance")
+race = "elf"
+skin = "light"
+hair_style = "short"
+hair_color = "green"
+eye_type = "big"
+eye_color = "amber"
+size = "normal"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_crowd_3"]
+script = ExtResource("appearance")
+race = "elf"
+skin = "pale"
+hair_style = "long"
+hair_color = "white"
+eye_type = "sleepy"
+eye_color = "violet"
+size = "tall"
+outfit = "tunic"
+clothes_color = "white"
+
+[sub_resource type="Resource" id="Look_crowd_4"]
+script = ExtResource("appearance")
+race = "elf"
+skin = "tan"
+hair_style = "spiky"
+hair_color = "blonde"
+eye_type = "normal"
+eye_color = "blue"
+size = "normal"
+outfit = "smith"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_crowd_5"]
+script = ExtResource("appearance")
+race = "elf"
+skin = "light"
+hair_style = "short"
+hair_color = "red"
+eye_type = "big"
+eye_color = "green"
+size = "small"
+outfit = "vest"
+clothes_color = "forest"
+
+[sub_resource type="Resource" id="Look_crowd_6"]
+script = ExtResource("appearance")
+race = "elf"
+skin = "pale"
+hair_style = "short"
+hair_color = "black"
+eye_type = "narrow"
+eye_color = "grey"
+size = "normal"
+outfit = "tunic"
+clothes_color = "navy"
+
+[sub_resource type="Resource" id="Look_crowd_7"]
+script = ExtResource("appearance")
+race = "elf"
+skin = "tan"
+hair_style = "long"
+hair_color = "blonde"
+eye_type = "normal"
+eye_color = "teal"
+size = "tall"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_crowd_8"]
+script = ExtResource("appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "white"
+eye_type = "big"
+eye_color = "violet"
+size = "normal"
+outfit = "tunic"
+clothes_color = "teal"
+
+[sub_resource type="Resource" id="Look_crowd_9"]
+script = ExtResource("appearance")
+race = "elf"
+skin = "pale"
+hair_style = "spiky"
+hair_color = "green"
+eye_type = "sleepy"
+eye_color = "amber"
+size = "small"
+outfit = "smith"
+clothes_color = "ochre"
+
+[node name="SylvarisRing" instance=ExtResource("map_base")]
+
+[node name="Ground" parent="." index="1"]
+texture = ExtResource("ground")
+
+[node name="FromStart" parent="." index="4"]
+position = Vector2(320, 318)
+
+[node name="Player" parent="." index="5"]
+position = Vector2(320, 318)
+
+[node name="Tribune" type="StaticBody2D" parent="."]
+position = Vector2(320, 57)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tribune"]
+shape = SubResource("Shape_tribune")
+
+[node name="Crowd" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Spectator1" type="Node2D" parent="Crowd"]
+position = Vector2(130, 42)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_0")
+facing = "down"
+
+[node name="Spectator2" type="Node2D" parent="Crowd"]
+position = Vector2(214, 42)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_1")
+facing = "down"
+
+[node name="Spectator3" type="Node2D" parent="Crowd"]
+position = Vector2(300, 42)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_2")
+facing = "down"
+
+[node name="Spectator4" type="Node2D" parent="Crowd"]
+position = Vector2(408, 42)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_3")
+facing = "down"
+
+[node name="Spectator5" type="Node2D" parent="Crowd"]
+position = Vector2(500, 42)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_4")
+facing = "down"
+
+[node name="Spectator6" type="Node2D" parent="Crowd"]
+position = Vector2(170, 70)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_5")
+facing = "down"
+
+[node name="Spectator7" type="Node2D" parent="Crowd"]
+position = Vector2(262, 70)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_6")
+facing = "down"
+
+[node name="Spectator8" type="Node2D" parent="Crowd"]
+position = Vector2(366, 70)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_7")
+facing = "down"
+
+[node name="Spectator9" type="Node2D" parent="Crowd"]
+position = Vector2(454, 70)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_8")
+facing = "down"
+
+[node name="Spectator10" type="Node2D" parent="Crowd"]
+position = Vector2(538, 70)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_9")
+facing = "down"
+
+[node name="BannerL" type="Sprite2D" parent="Crowd"]
+position = Vector2(236, 116)
+texture = ExtResource("banner_white")
+offset = Vector2(0, -21)
+
+[node name="BannerR" type="Sprite2D" parent="Crowd"]
+position = Vector2(404, 116)
+texture = ExtResource("banner_green")
+offset = Vector2(0, -21)
+
+[node name="BrazierL" type="StaticBody2D" parent="."]
+position = Vector2(104, 164)
+
+[node name="Sprite2D" type="Sprite2D" parent="BrazierL"]
+texture = ExtResource("brazier")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrazierL"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="Light" parent="BrazierL" instance=ExtResource("light")]
+position = Vector2(0, -18)
+color = Color(0.55, 1, 0.6, 1)
+
+[node name="BrazierR" type="StaticBody2D" parent="."]
+position = Vector2(536, 164)
+
+[node name="Sprite2D" type="Sprite2D" parent="BrazierR"]
+texture = ExtResource("brazier")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrazierR"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="Light" parent="BrazierR" instance=ExtResource("light")]
+position = Vector2(0, -18)
+color = Color(0.55, 1, 0.6, 1)
+
+[node name="LanternL" parent="." instance=ExtResource("lantern")]
+position = Vector2(252, 338)
+
+[node name="LanternR" parent="." instance=ExtResource("lantern")]
+position = Vector2(388, 338)
+
+[node name="Dress" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Fern1" type="StaticBody2D" parent="Dress"]
+position = Vector2(120, 330)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/Fern1"]
+texture = ExtResource("fern")
+offset = Vector2(0, -19.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/Fern1"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="Fern2" type="StaticBody2D" parent="Dress"]
+position = Vector2(516, 326)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/Fern2"]
+texture = ExtResource("fern")
+offset = Vector2(0, -19.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/Fern2"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="Bush1" type="StaticBody2D" parent="Dress"]
+position = Vector2(84, 196)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/Bush1"]
+texture = ExtResource("bush_butterflies")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/Bush1"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="Bush2" type="StaticBody2D" parent="Dress"]
+position = Vector2(560, 194)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/Bush2"]
+texture = ExtResource("bush_butterflies")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/Bush2"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="Trees" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Tree0" type="StaticBody2D" parent="Trees"]
+position = Vector2(26, 118)
+
+[node name="Sprite2D" type="Sprite2D" parent="Trees/Tree0"]
+texture = ExtResource("tree_0")
+offset = Vector2(0, -59.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree0"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_trunk")
+
+[node name="Tree1" type="StaticBody2D" parent="Trees"]
+position = Vector2(22, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Trees/Tree1"]
+texture = ExtResource("tree_1")
+offset = Vector2(0, -51.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree1"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_trunk")
+
+[node name="Tree2" type="StaticBody2D" parent="Trees"]
+position = Vector2(70, 362)
+
+[node name="Sprite2D" type="Sprite2D" parent="Trees/Tree2"]
+texture = ExtResource("tree_2")
+offset = Vector2(0, -54.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree2"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_trunk")
+
+[node name="Tree3" type="StaticBody2D" parent="Trees"]
+position = Vector2(614, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="Trees/Tree3"]
+texture = ExtResource("tree_3")
+offset = Vector2(0, -61.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree3"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_trunk")
+
+[node name="Tree4" type="StaticBody2D" parent="Trees"]
+position = Vector2(618, 252)
+
+[node name="Sprite2D" type="Sprite2D" parent="Trees/Tree4"]
+texture = ExtResource("tree_2")
+offset = Vector2(0, -54.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree4"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_trunk")
+
+[node name="Tree5" type="StaticBody2D" parent="Trees"]
+position = Vector2(570, 362)
+
+[node name="Sprite2D" type="Sprite2D" parent="Trees/Tree5"]
+texture = ExtResource("tree_0")
+offset = Vector2(0, -59.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree5"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_trunk")
+
+[node name="DuelRing" type="Node2D" parent="."]
+position = Vector2(320, 242)
+script = ExtResource("fight_stage")
+player_spot = Vector2(-44, 0)
+opponent_spot = Vector2(44, 0)
+walk_in_distance = 170.0
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(320, 318)
+
+[node name="DoorOut" parent="." instance=ExtResource("door")]
+position = Vector2(320, 360)
+target_scene = "res://scenes/world/elves/elf_canopy_low.tscn"
+target_spawn_point = &"FromDuelRing"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[editable path="DoorOut"]

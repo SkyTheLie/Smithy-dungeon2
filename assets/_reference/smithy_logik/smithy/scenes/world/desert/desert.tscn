@@ -1,0 +1,342 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scenes/world/desert/desert.gd" id="2_desert"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/desert_ground.png" id="5_ground"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="6_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/warning_sign.png" id="7_sign"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/skeleton.png" id="8_skeleton"]
+[ext_resource type="Script" path="res://scenes/world/desert/desert_chest.gd" id="9_chest"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/sand_15.png" id="10_chest"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/pillar.png" id="11_pillar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/pillar_fallen.png" id="12_pillar_fallen"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/pillar_broken.png" id="13_pillar_broken"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/rubble_a.png" id="14_rubble_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/rubble_b.png" id="15_rubble_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_a.png" id="16_cactus_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_a3.png" id="16_cactus_a3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_b3.png" id="17_cactus_b3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush.png" id="18_bush"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush2.png" id="18_bush2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush3.png" id="18_bush3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush4.png" id="18_bush4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/stones_a.png" id="19_stones_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/stones_b.png" id="20_stones_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/stones_c.png" id="21_stones_c"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dead_tree.png" id="22_dead_tree"]
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_h"]
+size = Vector2(840, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_v"]
+size = Vector2(16, 600)
+
+[sub_resource type="RectangleShape2D" id="Shape_exit_h"]
+size = Vector2(800, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_exit_v"]
+size = Vector2(16, 560)
+
+[sub_resource type="RectangleShape2D" id="Shape_small"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_pillar"]
+size = Vector2(24, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_pillar_fallen"]
+size = Vector2(78, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_chest"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_chest_talk"]
+size = Vector2(48, 40)
+
+[sub_resource type="RectangleShape2D" id="Shape_stones"]
+size = Vector2(22, 8)
+
+[node name="Desert" type="Node2D" groups=["desert_maze"]]
+y_sort_enabled = true
+script = ExtResource("2_desert")
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("4_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-400, -280)
+texture = ExtResource("5_ground")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, -288)
+shape = SubResource("Shape_wall_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, 288)
+shape = SubResource("Shape_wall_h")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-408, 0)
+shape = SubResource("Shape_wall_v")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(408, 0)
+shape = SubResource("Shape_wall_v")
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="ExitNorth" type="Area2D" parent="Exits"]
+position = Vector2(0, -272)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/ExitNorth"]
+shape = SubResource("Shape_exit_h")
+
+[node name="ExitSouth" type="Area2D" parent="Exits"]
+position = Vector2(0, 274)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/ExitSouth"]
+shape = SubResource("Shape_exit_h")
+
+[node name="ExitWest" type="Area2D" parent="Exits"]
+position = Vector2(-392, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/ExitWest"]
+shape = SubResource("Shape_exit_v")
+
+[node name="ExitEast" type="Area2D" parent="Exits"]
+position = Vector2(392, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/ExitEast"]
+shape = SubResource("Shape_exit_v")
+
+[node name="Decor" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="CactusA" type="StaticBody2D" parent="Decor"]
+position = Vector2(-292, -170)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CactusA"]
+texture = ExtResource("16_cactus_a")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CactusA"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="CactusB" type="StaticBody2D" parent="Decor"]
+position = Vector2(286, 168)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CactusB"]
+texture = ExtResource("16_cactus_a3")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CactusB"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="CactusD" type="StaticBody2D" parent="Decor"]
+position = Vector2(220, -186)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CactusD"]
+texture = ExtResource("17_cactus_b3")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CactusD"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="StonesA" type="StaticBody2D" parent="Decor"]
+position = Vector2(-318, -156)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/StonesA"]
+texture = ExtResource("19_stones_a")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/StonesA"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_stones")
+
+[node name="StonesB" type="StaticBody2D" parent="Decor"]
+position = Vector2(-330, 132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/StonesB"]
+texture = ExtResource("20_stones_b")
+offset = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/StonesB"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_stones")
+
+[node name="StonesC" type="Sprite2D" parent="Decor"]
+position = Vector2(250, 178)
+texture = ExtResource("21_stones_c")
+offset = Vector2(0, -10)
+
+[node name="DeadTree" type="StaticBody2D" parent="Decor"]
+position = Vector2(-300, 118)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/DeadTree"]
+texture = ExtResource("22_dead_tree")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/DeadTree"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="BushA" type="Sprite2D" parent="Decor"]
+position = Vector2(-266, -162)
+texture = ExtResource("18_bush")
+offset = Vector2(0, -12)
+
+[node name="BushB" type="Sprite2D" parent="Decor"]
+position = Vector2(246, -178)
+texture = ExtResource("18_bush3")
+offset = Vector2(0, -12)
+
+[node name="BushC" type="Sprite2D" parent="Decor"]
+position = Vector2(-274, 128)
+texture = ExtResource("18_bush2")
+offset = Vector2(0, -12)
+
+[node name="BushD" type="Sprite2D" parent="Decor"]
+position = Vector2(312, 182)
+texture = ExtResource("18_bush4")
+offset = Vector2(0, -12)
+
+[node name="Marks" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Sign" parent="Marks" instance=ExtResource("6_story_npc")]
+position = Vector2(70, -188)
+npc_id = "desert_sign"
+figure_texture = ExtResource("7_sign")
+
+[node name="Figure" parent="Marks/Sign" index="0"]
+position = Vector2(0, -18)
+
+[node name="NameLabel" parent="Marks/Sign" index="1"]
+visible = false
+
+[node name="Bones" parent="Marks" instance=ExtResource("6_story_npc")]
+position = Vector2(0, 40)
+npc_id = "desert_bones"
+figure_texture = ExtResource("8_skeleton")
+talk_area_scale = Vector2(1.6, 1.8)
+
+[node name="Figure" parent="Marks/Bones" index="0"]
+z_index = -1
+position = Vector2(0, -31)
+
+[node name="NameLabel" parent="Marks/Bones" index="1"]
+visible = false
+
+[node name="Ruins" type="Node2D" parent="Marks"]
+y_sort_enabled = true
+
+[node name="Pillar" type="StaticBody2D" parent="Marks/Ruins"]
+position = Vector2(-70, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Marks/Ruins/Pillar"]
+texture = ExtResource("11_pillar")
+offset = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marks/Ruins/Pillar"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_pillar")
+
+[node name="PillarFallen" type="StaticBody2D" parent="Marks/Ruins"]
+position = Vector2(30, 46)
+
+[node name="Sprite2D" type="Sprite2D" parent="Marks/Ruins/PillarFallen"]
+texture = ExtResource("12_pillar_fallen")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marks/Ruins/PillarFallen"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_pillar_fallen")
+
+[node name="PillarBroken" type="StaticBody2D" parent="Marks/Ruins"]
+position = Vector2(84, -30)
+
+[node name="Sprite2D" type="Sprite2D" parent="Marks/Ruins/PillarBroken"]
+texture = ExtResource("13_pillar_broken")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marks/Ruins/PillarBroken"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_pillar")
+
+[node name="RubbleA" type="Sprite2D" parent="Marks/Ruins"]
+position = Vector2(-40, 20)
+texture = ExtResource("14_rubble_a")
+offset = Vector2(0, -10)
+
+[node name="RubbleB" type="Sprite2D" parent="Marks/Ruins"]
+position = Vector2(100, 10)
+texture = ExtResource("15_rubble_b")
+offset = Vector2(0, -12)
+
+[node name="Talk" parent="Marks/Ruins" instance=ExtResource("6_story_npc")]
+position = Vector2(0, 10)
+npc_id = "desert_ruins"
+narrator = true
+talk_area_scale = Vector2(3, 2.5)
+
+[node name="Chest" type="StaticBody2D" parent="Marks"]
+position = Vector2(0, 16)
+script = ExtResource("9_chest")
+
+[node name="Sprite2D" type="Sprite2D" parent="Marks/Chest"]
+texture = ExtResource("10_chest")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marks/Chest"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_chest")
+
+[node name="InteractionArea" type="Area2D" parent="Marks/Chest"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marks/Chest/InteractionArea"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_chest_talk")
+
+[node name="FromNorth" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, -236)
+
+[node name="FromSouth" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 238)
+
+[node name="FromWest" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-356, 0)
+
+[node name="FromEast" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(356, 0)
+
+[node name="FromSouthRoad" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, -236)
+
+[node name="FromLost" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(30, -150)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, -236)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -400
+limit_top = -280
+limit_right = 400
+limit_bottom = 280
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[connection signal="body_entered" from="Marks/Chest/InteractionArea" to="Marks/Chest" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Marks/Chest/InteractionArea" to="Marks/Chest" method="_on_interaction_area_body_exited"]
+
+[editable path="Marks/Sign"]
+[editable path="Marks/Bones"]
+[editable path="Player"]

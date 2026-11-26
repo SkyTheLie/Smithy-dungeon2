@@ -1,0 +1,297 @@
+{
+ "frames": [
+  {
+   "filename": "aura_curse 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 1.png",
+   "frame": {
+    "x": 19,
+    "y": 0,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 2.png",
+   "frame": {
+    "x": 38,
+    "y": 0,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 3.png",
+   "frame": {
+    "x": 57,
+    "y": 0,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 4.png",
+   "frame": {
+    "x": 0,
+    "y": 18,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 5.png",
+   "frame": {
+    "x": 19,
+    "y": 18,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 6.png",
+   "frame": {
+    "x": 38,
+    "y": 18,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 7.png",
+   "frame": {
+    "x": 57,
+    "y": 18,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 8.png",
+   "frame": {
+    "x": 0,
+    "y": 36,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 9.png",
+   "frame": {
+    "x": 19,
+    "y": 36,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 10.png",
+   "frame": {
+    "x": 38,
+    "y": 36,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 11.png",
+   "frame": {
+    "x": 57,
+    "y": 36,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 12.png",
+   "frame": {
+    "x": 0,
+    "y": 54,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 13.png",
+   "frame": {
+    "x": 19,
+    "y": 54,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 14.png",
+   "frame": {
+    "x": 38,
+    "y": 54,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_curse 15.png",
+   "frame": {
+    "x": 57,
+    "y": 54,
+    "w": 19,
+    "h": 18
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 18
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 1.8333333333333333
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "both"
+ }
+}

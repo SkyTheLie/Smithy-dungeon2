@@ -1,0 +1,970 @@
+{
+	"_hilfe": {
+		"info": "Erfolge im Charakter-Fenster (Reiter Erfolge). Alle Felder: docs/CONTENT.md, Abschnitt achievements.json. Dieser Block wird vom Spiel ignoriert.",
+		"steam": "steam: enabled (true = an Steam melden, braucht das GodotSteam-Plugin), app_id (480 = Steams Testspiel Spacewar, später die eigene), name_pattern / single_pattern = Name bei Steam pro Stufe ({ID} = steam_id bzw. id groß, {LEVEL} = Stufe); jede Stufe ist bei Steam ein eigener Erfolg. Liste für Steamworks: python assets/_reference/steam/make_steam_list.py (Anleitung docs/STEAM.md).",
+		"felder": {
+			"name / description": "Titel und Text im Tooltip (was man tun muss)",
+			"category": "id aus categories (Reihenfolge der Kategorien = Reihenfolge im Fenster)",
+			"counter + levels": "Zähler und die Ziele der Stufen, z. B. [1, 5, 50, 100, 200] = Lv 1 bei 1, Lv 5 (max) bei 200; [1] = nur eine Stufe",
+			"all": "Liste von Zählern, die alle mindestens 1 sein müssen (z. B. ein ganzes Set), eine Stufe",
+			"flag": "Story-Flag (z. B. reached_<schritt>), eine Stufe",
+			"secret": "true = bis zur ersten Stufe nur [?] (Story-Erfolge, damit nichts verraten wird)",
+			"icon / item / enemy": "Bild: Pfad, oder das Icon eines Items (id) oder eines Gegners (id); ohne = Standard-Bild",
+			"steam_id": "Name bei Steam statt der id (in Großbuchstaben), z. B. \"RAT_HUNTER\"; nie mehr ändern, sobald die Erfolge bei Steam angelegt sind",
+			"steam": "false = dieser Erfolg kommt nicht zu Steam",
+			"steam_stat": "Name einer Steam-Statistik, die den Fortschritt (Zähler) zeigt, z. B. \"STAT_RATS\" (muss bei Steam angelegt sein)"
+		},
+		"zaehler": {
+			"forge, forge:<item>": "am Amboss geschmiedet (jedes Teil)",
+			"forge_perfect": "am Amboss mit Qualität 100 geschmiedet",
+			"craft, craft:<item>": "an der Werkbank gebaut",
+			"made:<typ>:<material>": "Ausrüstung gebaut, typ = weapon, helmet, shoulders, armor, gloves, legs, boots, shield, cloak; material = Material der Platte/Klinge (copper, iron, bronze ...)",
+			"smelt": "Barren aus Schmelze oder Legierung",
+			"rock": "Erz-/Steinbrocken abgebaut",
+			"kill, kill:<gegner>": "Monster besiegt (alle Helden zusammen)",
+			"dungeon, dungeon:<id>": "Dungeon geschafft",
+			"order": "Kundenauftrag abgegeben",
+			"sold": "Stück in Ninas oder im eigenen Laden verkauft",
+			"harvest": "Pflanze im Gewächshaus geerntet",
+			"potion": "Verzauberungstrank im Mörser gebraut",
+			"enchant, enchant:legendary": "Waffe/Rüstung am Zaubertisch verzaubert (legendary = mit einem Trank ab Seltenheit Legendär)",
+			"flag:<flag>": "1, sobald das Story-Flag gesetzt ist",
+			"material:<material>": "Teil aus diesem Material am Amboss oder mit einer Gussform hergestellt (copper, platinum, rat_leather ...)",
+			"tree:<klasse>:<baum>": "1, sobald ein Held dieser Klasse den Baum (skill_trees.json) ganz gelernt hat; bleibt, auch wenn er später neu skillt",
+			"lexicon:enemies, lexicon:items": "Prozent der Monster bzw. Gegenstände, die im Lexikon entdeckt sind (abgerundet, 100 = alle)",
+			"seen:<item>": "1, sobald das Item im Lexikon steht (einmal im Inventar oder einer Truhe)",
+			"perfect:<metall>": "am Amboss mit allen Schlägen perfekt geschmiedet, aus diesem Metall",
+			"made_rarity:legendary, made_rarity:mythic": "Ausrüstung (Werkbank) oder Schmuck ab Legendär bzw. Mythisch gebaut",
+			"jewel": "Schmuck am Juweliertisch gefasst",
+			"class:<klasse>": "1, sobald ein Held dieser Klasse angeheuert ist",
+			"hero_level, reputation_rank, house_level, hard_mode": "Bestwert: höchste Heldenstufe, Ruf-Rang (1 = F … 8 = S+), Hausstufe, schwerster geschaffter Modus (2–5); sinkt nie",
+			"dungeon_solo": "Dungeon mit einem einzigen Helden geschafft",
+			"potions:found, leagues:won": "Prozent der Verzauberungstränke, die je gebraut wurden, bzw. der Ligen, die je gewonnen wurden",
+			"sleep, assistant_day": "Nächte geschlafen, Tage mit Lotte als Gehilfin"
+		},
+		"vorlage": {
+			"name": "Rattenjäger",
+			"description": "Besiege Ratten.",
+			"category": "dungeons",
+			"counter": "kill:rat",
+			"levels": [10, 100, 250, 500, 1000],
+			"enemy": "rat"
+		}
+	},
+	"steam": {
+		"enabled": false,
+		"app_id": 480,
+		"name_pattern": "ACH_{ID}_{LEVEL}",
+		"single_pattern": "ACH_{ID}"
+	},
+	"categories": {
+		"story": {"name": "Geschichte"},
+		"forging": {"name": "Schmieden"},
+		"dungeons": {"name": "Dungeons"},
+		"quests": {"name": "Aufgaben"},
+		"heroes": {"name": "Helden"},
+		"trade": {"name": "Handel"},
+		"tournaments": {"name": "Turniere"},
+		"enchanting": {"name": "Verzauberungen"},
+		"lexicon": {"name": "Lexikon"},
+		"misc": {"name": "Allerlei"}
+	},
+	"achievements": {
+		"story_rented": {
+			"name": "Ein eigenes Dach",
+			"description": "Miete die alte Schmiede von Oma Hilde.",
+			"category": "story",
+			"flag": "smithy_rented",
+			"secret": true,
+			"icon": "res://assets/sprites/stations/anvil.png"
+		},
+		"story_axe": {
+			"name": "Holz für Holger",
+			"description": "Bring dem Holzfäller seine Axt.",
+			"category": "story",
+			"flag": "reached_go_to_sleep",
+			"secret": true,
+			"item": "axe"
+		},
+		"story_bruno": {
+			"name": "Ein Freund in der Not",
+			"description": "Hilf Bruno auf die Beine.",
+			"category": "story",
+			"flag": "reached_buy_sword_parts",
+			"secret": true,
+			"icon": "res://assets/ui/icon_coin.png"
+		},
+		"story_dungeon": {
+			"name": "Hallo Dungeon",
+			"description": "Schick deinen ersten Helden erfolgreich in einen Dungeon.",
+			"category": "story",
+			"flag": "reached_dungeon_done",
+			"secret": true,
+			"enemy": "rat"
+		},
+		"story_shop": {
+			"name": "Ladenhüter? Von wegen!",
+			"description": "Verkaufe deine ersten Schwerter in Ninas Laden.",
+			"category": "story",
+			"flag": "reached_collect_shop_money",
+			"secret": true,
+			"item": "sword"
+		},
+		"story_lotte": {
+			"name": "Verloren im Wald",
+			"description": "Finde Lotte.",
+			"category": "story",
+			"flag": "reached_niece_found",
+			"secret": true,
+			"item": "leather_shoes"
+		},
+		"story_festival": {
+			"name": "Das Schwert im Boden",
+			"description": "Erlebe das Dorffest.",
+			"category": "story",
+			"flag": "reached_festival_night",
+			"secret": true,
+			"item": "sword"
+		},
+		"story_part2": {
+			"name": "Aus der Asche",
+			"description": "Beginne Teil 2 der Geschichte.",
+			"category": "story",
+			"flag": "reached_rebuild_call",
+			"secret": true,
+			"item": "wooden_beam"
+		},
+		"story_part3": {
+			"name": "Der Kriegsrat",
+			"description": "Beginne Teil 3 der Geschichte.",
+			"category": "story",
+			"flag": "reached_council_call",
+			"secret": true,
+			"item": "crystal_map"
+		},
+		"story_part4": {
+			"name": "Die Stadt im Eis",
+			"description": "Beginne Teil 4 der Geschichte.",
+			"category": "story",
+			"flag": "reached_water_departure",
+			"secret": true,
+			"item": "holy_water_crystal"
+		},
+		"story_part5": {
+			"name": "Ohne König",
+			"description": "Beginne Teil 5 der Geschichte.",
+			"category": "story",
+			"flag": "reached_rescue_council",
+			"secret": true,
+			"item": "goblin_crown"
+		},
+		"story_part6": {
+			"name": "Asche und Sternenlicht",
+			"description": "Beginne Teil 6 der Geschichte.",
+			"category": "story",
+			"flag": "reached_forest_wake",
+			"secret": true,
+			"item": "star_ore"
+		},
+		"story_part7": {
+			"name": "Die Stadt im Schatten",
+			"description": "Beginne Teil 7 der Geschichte.",
+			"category": "story",
+			"flag": "reached_finster_start",
+			"secret": true,
+			"item": "finster_lockpick"
+		},
+		"story_part8": {
+			"name": "Der große Rat",
+			"description": "Beginne Teil 8 der Geschichte.",
+			"category": "story",
+			"flag": "reached_grand_council",
+			"secret": true,
+			"item": "holy_ice_crystal"
+		},
+		"story_end": {
+			"name": "Der Schmied der Neun",
+			"description": "Spiele die Geschichte bis zum Ende.",
+			"category": "story",
+			"flag": "reached_story_end",
+			"secret": true,
+			"item": "true_setting"
+		},
+		"story_dust": {
+			"name": "Ein Hauch von Magie",
+			"description": "Braue im Mörser am Zaubertisch deinen ersten Verzauberungstrank.",
+			"category": "enchanting",
+			"flag": "potion_made",
+			"item": "fire_potion"
+		},
+		"plant_picker": {
+			"name": "Pflanzen pflücken",
+			"description": "Ernte Pflanzen im Gewächshaus. Jede Stufe hebt den Skill „Pflanzen pflücken“: +10 % Chance auf eine seltenere Ernte.",
+			"category": "enchanting",
+			"counter": "harvest",
+			"levels": [1, 10, 100, 500, 1000],
+			"item": "moon_lily"
+		},
+		"legendary_enchant": {
+			"name": "Legendärer Zauber",
+			"description": "Verzaubere eine Waffe oder ein Rüstungsteil mit einem legendären Trank (oder besser).",
+			"category": "enchanting",
+			"counter": "enchant:legendary",
+			"levels": [1],
+			"item": "light_potion"
+		},
+		"potions_all": {
+			"name": "Trankmeister",
+			"description": "Braue jeden Verzauberungstrank mindestens einmal (Fortschritt in Prozent).",
+			"category": "enchanting",
+			"counter": "potions:found",
+			"levels": [25, 50, 100],
+			"item": "seers_brew"
+		},
+		"plants_all": {
+			"name": "Grüner Daumen",
+			"description": "Ernte jede Pflanze einmal: Mondlilie, Nachtschatten und Sonnenblume.",
+			"category": "enchanting",
+			"all": ["flag:harvested_moon_lily", "flag:harvested_nightshade", "flag:harvested_sunflower"],
+			"item": "sunflower"
+		},
+		"here_we_go": {
+			"name": "Here we go",
+			"description": "Schmiede zum ersten Mal etwas am Amboss.",
+			"category": "forging",
+			"counter": "forge",
+			"levels": [1],
+			"icon": "res://assets/sprites/stations/anvil.png"
+		},
+		"hammer_time": {
+			"name": "Hammerzeit",
+			"description": "Schmiede Teile am Amboss.",
+			"category": "forging",
+			"counter": "forge",
+			"levels": [10, 50, 200, 500, 1000],
+			"item": "copper_blade"
+		},
+		"perfect_strike": {
+			"name": "Meisterhand",
+			"description": "Schmiede ein Teil mit Qualität 100.",
+			"category": "forging",
+			"counter": "forge_perfect",
+			"levels": [1, 10, 50, 100, 250],
+			"item": "iron_blade"
+		},
+		"melting_pot": {
+			"name": "Heiß und flüssig",
+			"description": "Gieße Barren in der Schmelze.",
+			"category": "forging",
+			"counter": "smelt",
+			"levels": [1, 25, 100, 500, 1000],
+			"item": "copper_ingot"
+		},
+		"assembler": {
+			"name": "Alles passt zusammen",
+			"description": "Baue Dinge an der Werkbank.",
+			"category": "forging",
+			"counter": "craft",
+			"levels": [1, 10, 50, 200, 500],
+			"item": "wooden_plank"
+		},
+		"miner": {
+			"name": "Glück auf!",
+			"description": "Baue Erz und Gestein ab.",
+			"category": "forging",
+			"counter": "rock",
+			"levels": [10, 100, 500, 1000, 2500],
+			"item": "copper_ore"
+		},
+		"metal_copper": {
+			"name": "Kupferglanz",
+			"description": "Stelle zum ersten Mal etwas aus Kupfer her (am Amboss oder mit einer Gussform).",
+			"category": "forging",
+			"counter": "material:copper",
+			"levels": [1],
+			"item": "copper_blade"
+		},
+		"metal_iron": {
+			"name": "Eisenhart",
+			"description": "Stelle zum ersten Mal etwas aus Eisen her (am Amboss oder mit einer Gussform).",
+			"category": "forging",
+			"counter": "material:iron",
+			"levels": [1],
+			"item": "iron_blade"
+		},
+		"metal_bronze": {
+			"name": "Bronzezeit",
+			"description": "Stelle zum ersten Mal etwas aus Bronze her (am Amboss oder mit einer Gussform).",
+			"category": "forging",
+			"counter": "material:bronze",
+			"levels": [1],
+			"item": "bronze_blade"
+		},
+		"metal_silver": {
+			"name": "Silberstreif",
+			"description": "Stelle zum ersten Mal etwas aus Silber her (am Amboss oder mit einer Gussform).",
+			"category": "forging",
+			"counter": "material:silver",
+			"levels": [1],
+			"item": "silver_blade"
+		},
+		"metal_gold": {
+			"name": "Alles, was glänzt",
+			"description": "Stelle zum ersten Mal etwas aus Gold her (am Amboss oder mit einer Gussform).",
+			"category": "forging",
+			"counter": "material:gold",
+			"levels": [1],
+			"item": "gold_blade"
+		},
+		"metal_platinum": {
+			"name": "Edler als Gold",
+			"description": "Stelle zum ersten Mal etwas aus Platin her (am Amboss oder mit einer Gussform).",
+			"category": "forging",
+			"counter": "material:platinum",
+			"levels": [1],
+			"item": "platinum_blade"
+		},
+		"metal_palladium": {
+			"name": "Das seltenste Metall",
+			"description": "Stelle zum ersten Mal etwas aus Palladium her (am Amboss oder mit einer Gussform).",
+			"category": "forging",
+			"counter": "material:palladium",
+			"levels": [1],
+			"item": "palladium_blade"
+		},
+		"made_legendary": {
+			"name": "Ein Meisterstück",
+			"description": "Baue Ausrüstung oder Schmuck der Seltenheit Legendär (oder besser).",
+			"category": "forging",
+			"counter": "made_rarity:legendary",
+			"levels": [1, 10, 50],
+			"item": "champion_ring"
+		},
+		"made_mythic": {
+			"name": "Mythenschmied",
+			"description": "Baue Ausrüstung oder Schmuck der Seltenheit Mythisch.",
+			"category": "forging",
+			"counter": "made_rarity:mythic",
+			"levels": [1, 5, 25],
+			"item": "arena_heart"
+		},
+		"perfect_metals": {
+			"name": "Meisterhand in jedem Metall",
+			"description": "Schmiede aus jedem Metall ein Teil, bei dem alle Schläge am Amboss perfekt sitzen.",
+			"category": "forging",
+			"all": ["perfect:copper", "perfect:iron", "perfect:bronze", "perfect:silver", "perfect:gold", "perfect:platinum", "perfect:palladium"],
+			"item": "palladium_blade"
+		},
+		"weapon_types": {
+			"name": "Waffenkammer",
+			"description": "Baue jede Waffenart einmal: Schwert, Axt, Zweihänder, Dolch, Stangenwaffe, Hammer, Streitkolben, Zweihandaxt, Bogen und Langbogen.",
+			"category": "forging",
+			"all": ["craft:sword", "craft:axe", "craft:two_handed_sword", "craft:dagger", "craft:polearm", "craft:hammer", "craft:mace", "craft:two_handed_axe", "craft:bow", "craft:longbow"],
+			"item": "two_handed_axe"
+		},
+		"leather_all": {
+			"name": "Gerbermeister",
+			"description": "Gerbe jede Lederart einmal.",
+			"category": "forging",
+			"all": ["material:rat_leather", "material:wolf_leather", "material:dragon_leather", "material:hippogriff_leather", "material:ice_seal_leather", "material:lichen_leather", "material:swamp_leather", "material:hell_leather"],
+			"item": "leather"
+		},
+		"jeweler": {
+			"name": "Juwelier",
+			"description": "Fasse Kristalle zu Schmuck.",
+			"category": "forging",
+			"counter": "jewel",
+			"levels": [1, 10, 50],
+			"item": "jewel_ring"
+		},
+		"set_copper": {
+			"name": "Kupferset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Kupfer.",
+			"category": "forging",
+			"all": ["made:weapon:copper", "made:helmet:copper", "made:shoulders:copper", "made:armor:copper", "made:gloves:copper", "made:legs:copper", "made:boots:copper"],
+			"item": "copper_ingot"
+		},
+		"set_iron": {
+			"name": "Eisenset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Eisen.",
+			"category": "forging",
+			"all": ["made:weapon:iron", "made:helmet:iron", "made:shoulders:iron", "made:armor:iron", "made:gloves:iron", "made:legs:iron", "made:boots:iron"],
+			"item": "iron_ingot"
+		},
+		"set_bronze": {
+			"name": "Bronzeset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Bronze.",
+			"category": "forging",
+			"all": ["made:weapon:bronze", "made:helmet:bronze", "made:shoulders:bronze", "made:armor:bronze", "made:gloves:bronze", "made:legs:bronze", "made:boots:bronze"],
+			"item": "bronze_ingot"
+		},
+		"set_silver": {
+			"name": "Silberset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Silber.",
+			"category": "forging",
+			"all": ["made:weapon:silver", "made:helmet:silver", "made:shoulders:silver", "made:armor:silver", "made:gloves:silver", "made:legs:silver", "made:boots:silver"],
+			"item": "silver_ingot"
+		},
+		"set_gold": {
+			"name": "Goldset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Gold.",
+			"category": "forging",
+			"all": ["made:weapon:gold", "made:helmet:gold", "made:shoulders:gold", "made:armor:gold", "made:gloves:gold", "made:legs:gold", "made:boots:gold"],
+			"item": "gold_ingot"
+		},
+		"set_platinum": {
+			"name": "Platinset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Platin.",
+			"category": "forging",
+			"all": ["made:weapon:platinum", "made:helmet:platinum", "made:shoulders:platinum", "made:armor:platinum", "made:gloves:platinum", "made:legs:platinum", "made:boots:platinum"],
+			"item": "platinum_ingot"
+		},
+		"set_palladium": {
+			"name": "Palladiumset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Palladium.",
+			"category": "forging",
+			"all": ["made:weapon:palladium", "made:helmet:palladium", "made:shoulders:palladium", "made:armor:palladium", "made:gloves:palladium", "made:legs:palladium", "made:boots:palladium"],
+			"item": "palladium_ingot"
+		},
+		"adventurer": {
+			"name": "Abenteurer",
+			"description": "Schaffe Dungeons mit deinen Helden.",
+			"category": "dungeons",
+			"counter": "dungeon",
+			"levels": [1, 10, 50, 100, 250],
+			"item": "sword"
+		},
+		"series_rats": {
+			"name": "Rattenplage",
+			"description": "Schaffe den Rattenkeller, den Tiefen Rattenkeller und das Rattennest.",
+			"category": "dungeons",
+			"all": ["dungeon:rat_cellar", "dungeon:rat_cellar_deep", "dungeon:rat_nest"],
+			"secret": true,
+			"enemy": "rat_king"
+		},
+		"series_forest": {
+			"name": "Herr des Waldes",
+			"description": "Schaffe den Lichten Hain, das Dornendickicht und die Wolfshöhle.",
+			"category": "dungeons",
+			"all": ["dungeon:forest_edge", "dungeon:forest_thicket", "dungeon:forest_den"],
+			"secret": true,
+			"enemy": "black_wolf"
+		},
+		"series_leonheim": {
+			"name": "Unter Leonheim",
+			"description": "Schaffe die Kanalisation, die alten Katakomben und die Gruft der Könige.",
+			"category": "dungeons",
+			"all": ["dungeon:capital_sewers", "dungeon:capital_catacombs", "dungeon:capital_crypt"],
+			"secret": true,
+			"enemy": "mummy"
+		},
+		"series_gutter": {
+			"name": "Aufgeräumt",
+			"description": "Schaffe die Gosse I bis III.",
+			"category": "dungeons",
+			"all": ["dungeon:gutter_alleys", "dungeon:gutter_warehouse", "dungeon:gutter_tavern"],
+			"secret": true,
+			"enemy": "bandit_brakk"
+		},
+		"series_volcano": {
+			"name": "Feuerfest",
+			"description": "Schaffe Vulkan I und II.",
+			"category": "dungeons",
+			"all": ["dungeon:volcano_ash_tunnels", "dungeon:volcano_magma_halls"],
+			"secret": true,
+			"enemy": "salamander_queen"
+		},
+		"series_mountain": {
+			"name": "Gipfelstürmer",
+			"description": "Schaffe Sturmgipfel I bis III.",
+			"category": "dungeons",
+			"all": ["dungeon:mountain_foot", "dungeon:mountain_slope", "dungeon:mountain_summit"],
+			"secret": true,
+			"enemy": "griffin"
+		},
+		"series_compass": {
+			"name": "Alle Himmelsrichtungen",
+			"description": "Schaffe die vergessene Gießerei, die Obsidiankammer, die Windhöhle und den Wurzelhort.",
+			"category": "dungeons",
+			"all": ["dungeon:compass_foundry", "dungeon:compass_obsidian", "dungeon:compass_windcave", "dungeon:compass_roots"],
+			"secret": true,
+			"item": "desert_compass"
+		},
+		"series_eisquell": {
+			"name": "Gezeitenkundig",
+			"description": "Schaffe Eisquell I bis III.",
+			"category": "dungeons",
+			"all": ["dungeon:water_coast", "dungeon:water_cave", "dungeon:water_grotto"],
+			"secret": true,
+			"enemy": "grotto_kraken"
+		},
+		"series_swamp": {
+			"name": "Sumpfläufer",
+			"description": "Schaffe Sumpf I bis III.",
+			"category": "dungeons",
+			"all": ["dungeon:swamp_mire", "dungeon:swamp_bones", "dungeon:swamp_hydra"],
+			"secret": true,
+			"enemy": "ghost_lord"
+		},
+		"series_ice_wall": {
+			"name": "Über die Eismauer",
+			"description": "Schaffe die gefrorenen Fälle, die Eisstege und den Windbruch.",
+			"category": "dungeons",
+			"all": ["dungeon:ice_falls", "dungeon:ice_bridges", "dungeon:ice_windbreak"],
+			"secret": true,
+			"enemy": "frost_golem"
+		},
+		"series_finster": {
+			"name": "Licht in Finsterstadt",
+			"description": "Schaffe Finsterstadt I bis III.",
+			"category": "dungeons",
+			"all": ["dungeon:finster_ash", "dungeon:finster_canals", "dungeon:finster_towers"],
+			"secret": true,
+			"enemy": "finster_warden"
+		},
+		"series_star": {
+			"name": "Sternenstaub",
+			"description": "Schaffe den Krater der fallenden Sterne.",
+			"category": "dungeons",
+			"counter": "dungeon:star_crater",
+			"levels": [1],
+			"secret": true,
+			"enemy": "star_colossus"
+		},
+		"series_underworld": {
+			"name": "Durch die Unterwelt",
+			"description": "Schaffe den Knochenweg und den Turm der Toten.",
+			"category": "dungeons",
+			"all": ["dungeon:underworld_road", "dungeon:underworld_tower"],
+			"secret": true,
+			"enemy": "lich"
+		},
+		"boss_varrik": {
+			"name": "Die Krähe fällt",
+			"description": "Besiege Varrik, den Anführer der Krähenbande.",
+			"category": "dungeons",
+			"counter": "kill:bandit_varrik",
+			"levels": [1],
+			"secret": true,
+			"enemy": "bandit_varrik"
+		},
+		"boss_morwald": {
+			"name": "Ruhe in der Gruft",
+			"description": "Besiege Kastellan Morwald.",
+			"category": "dungeons",
+			"counter": "kill:castellan_morwald",
+			"levels": [1],
+			"secret": true,
+			"enemy": "castellan_morwald"
+		},
+		"boss_dragon": {
+			"name": "Drachentöter",
+			"description": "Besiege den Drachen im Vulkan.",
+			"category": "dungeons",
+			"counter": "kill:volcano_dragon",
+			"levels": [1],
+			"secret": true,
+			"enemy": "volcano_dragon"
+		},
+		"boss_frost_mane": {
+			"name": "Jagd auf Frostmähne",
+			"description": "Besiege Frostmähne.",
+			"category": "dungeons",
+			"counter": "kill:frost_mane",
+			"levels": [1],
+			"secret": true,
+			"enemy": "frost_mane"
+		},
+		"hard_mode": {
+			"name": "Harte Schale",
+			"description": "Schaffe einen Dungeon im schweren Modus (×2 bis ×5).",
+			"category": "dungeons",
+			"counter": "hard_mode",
+			"levels": [2, 3, 4, 5],
+			"item": "glory_chain"
+		},
+		"solo_win": {
+			"name": "Einzelkämpfer",
+			"description": "Schaffe einen Dungeon mit nur einem Helden.",
+			"category": "dungeons",
+			"counter": "dungeon_solo",
+			"levels": [1, 10, 50],
+			"item": "axe"
+		},
+		"rat_hunter": {
+			"name": "Rattenjäger",
+			"description": "Besiege Ratten.",
+			"category": "dungeons",
+			"counter": "kill:rat",
+			"levels": [10, 100, 250, 500, 1000],
+			"enemy": "rat"
+		},
+		"giant_rat": {
+			"name": "Ganz schön groß",
+			"description": "Besiege Riesenratten.",
+			"category": "dungeons",
+			"counter": "kill:giant_rat",
+			"levels": [1, 10, 50, 100, 200],
+			"enemy": "giant_rat"
+		},
+		"rat_king": {
+			"name": "Königsmord",
+			"description": "Besiege den Rattenkönig.",
+			"category": "dungeons",
+			"counter": "kill:rat_king",
+			"levels": [1, 5, 50, 100, 200],
+			"enemy": "rat_king"
+		},
+		"mine_rat": {
+			"name": "Ärger im Stollen",
+			"description": "Besiege die Alte Bergratte.",
+			"category": "dungeons",
+			"counter": "kill:mine_rat_boss",
+			"levels": [1],
+			"secret": true,
+			"enemy": "mine_rat_boss"
+		},
+		"wolf_hunter": {
+			"name": "Wolfsheulen",
+			"description": "Besiege Wölfe.",
+			"category": "dungeons",
+			"counter": "kill:wolf",
+			"levels": [10, 50, 100, 250, 500],
+			"enemy": "wolf"
+		},
+		"black_wolf": {
+			"name": "Der Schwarze Wolf",
+			"description": "Besiege den Schwarzen Wolf.",
+			"category": "dungeons",
+			"counter": "kill:black_wolf",
+			"levels": [1, 5, 50, 100, 200],
+			"enemy": "black_wolf"
+		},
+		"monster_slayer": {
+			"name": "Monsterschreck",
+			"description": "Besiege Monster aller Art.",
+			"category": "dungeons",
+			"counter": "kill",
+			"levels": [50, 250, 1000, 2500, 5000],
+			"enemy": "wild_boar"
+		},
+		"customers": {
+			"name": "Kundenliebling",
+			"description": "Gib Kundenaufträge am Auftragsbrett ab.",
+			"category": "trade",
+			"counter": "order",
+			"levels": [1, 10, 50, 100, 250],
+			"icon": "res://assets/ui/icon_coin.png"
+		},
+		"shopkeeper": {
+			"name": "Ladenbesitzer",
+			"description": "Verkaufe Waren in Ninas oder deinem eigenen Laden.",
+			"category": "trade",
+			"counter": "sold",
+			"levels": [1, 25, 100, 500, 1000],
+			"item": "sword"
+		},
+		"smithy_owner": {
+			"name": "Hausbesitzer",
+			"description": "Kaufe die Schmiede.",
+			"category": "trade",
+			"flag": "smithy_owned",
+			"icon": "res://assets/sprites/stations/anvil.png"
+		},
+		"reputation_rank": {
+			"name": "Guter Ruf",
+			"description": "Steig im Ruf auf: Rang D, B, S und S+.",
+			"category": "trade",
+			"counter": "reputation_rank",
+			"levels": [3, 5, 7, 8],
+			"item": "chest_sign"
+		},
+		"house_level": {
+			"name": "Trautes Heim",
+			"description": "Bau dein Haus aus.",
+			"category": "trade",
+			"counter": "house_level",
+			"levels": [2, 3, 4, 5],
+			"item": "wooden_plank"
+		},
+		"smith_tournament": {
+			"name": "Bester Schmied des Reichs",
+			"description": "Gewinne das große Schmiedeturnier in Leonheim.",
+			"category": "tournaments",
+			"flag": "smith_tournament_won",
+			"secret": true,
+			"item": "master_gloves"
+		},
+		"hero_tournament": {
+			"name": "Champion der Gezeiten",
+			"description": "Gewinne Kahns Heldenturnier in Eisquell.",
+			"category": "tournaments",
+			"flag": "hero_tournament_won",
+			"secret": true,
+			"item": "arena_amulet"
+		},
+		"leagues": {
+			"name": "Ligameister",
+			"description": "Gewinne Liga-Turniere (Fortschritt in Prozent aller Ligen).",
+			"category": "tournaments",
+			"counter": "leagues:won",
+			"levels": [1, 50, 100],
+			"item": "league_gloves_gold"
+		},
+		"quest_hagen": {
+			"name": "Gut gerüstet",
+			"description": "Erfülle Hagens Aufträge: erst das Schwert, dann die Rüstung.",
+			"category": "quests",
+			"all": ["flag:hagen_sword_paid", "flag:hagen_armor_paid"],
+			"item": "chest_armor"
+		},
+		"quest_bronze": {
+			"name": "Was ist Bronze?",
+			"description": "Finde heraus, was Bronze ist, und bring Gustav einen Bronzebarren.",
+			"category": "quests",
+			"all": ["flag:bronze_explained", "flag:bronze_delivered"],
+			"item": "bronze_ingot"
+		},
+		"quest_mines": {
+			"name": "Tief im Berg",
+			"description": "Öffne mit Gustav die alte Mine und den verschütteten Stollen.",
+			"category": "quests",
+			"all": ["flag:old_mine_deal_done", "flag:deep_mine_deal_done"],
+			"item": "pickaxe"
+		},
+		"quest_magic": {
+			"name": "Vom Samen zum Zauber",
+			"description": "Bau das Gewächshaus, zieh Mondlilien, braue den ersten Trank und verzaubere damit etwas.",
+			"category": "quests",
+			"all": ["flag:greenhouse_paid", "flag:pot_soil_filled", "flag:planted_moon_lily_seed", "flag:harvested_moon_lily", "flag:iq_potion_used", "flag:item_enchanted"],
+			"item": "moon_lily"
+		},
+		"quest_guild": {
+			"name": "Die größte Gilde",
+			"description": "Bau die Abenteurergilde dreimal aus.",
+			"category": "quests",
+			"all": ["flag:guild_level_1", "flag:guild_level_2", "flag:guild_level_3"],
+			"item": "coin_purse"
+		},
+		"quest_desert": {
+			"name": "Schätze im Sand",
+			"description": "Erfülle alle Aufgaben in der Wüste, bis du ihre Schätze gefunden hast.",
+			"category": "quests",
+			"all": ["flag:compass_dungeons_unlocked", "flag:desert_compass_built", "flag:desert_town_found", "flag:desert_treasures_found"],
+			"item": "desert_map"
+		},
+		"quest_fenn": {
+			"name": "Fenn hebt ab",
+			"description": "Hilf Fenn, seine Flugmaschine zu bauen: Gestell, Schwingen, Antrieb und ein Funke Leben.",
+			"category": "quests",
+			"all": ["flag:fenn_frame_done", "flag:fenn_wings_done", "flag:fenn_orb_done", "flag:fenn_flight_done"],
+			"item": "living_wind_orb"
+		},
+		"quest_lotte": {
+			"name": "Lottes Lehrzeit",
+			"description": "Schmiede Lottes ersten Hammer, lass sie zuschauen und geh mit ihr einkaufen.",
+			"category": "quests",
+			"all": ["flag:lotte_hammer_done", "flag:lotte_forge_done", "flag:lotte_shop_done"],
+			"item": "hammer"
+		},
+		"tree_warrior_sword": {
+			"name": "Meister der Klinge",
+			"description": "Lerne bei einem Krieger alle Skills im Baum „Schwert“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:warrior:sword",
+			"levels": [1],
+			"item": "sword"
+		},
+		"tree_warrior_body": {
+			"name": "Unverwüstlich",
+			"description": "Lerne bei einem Krieger alle Skills im Baum „Körper“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:warrior:body",
+			"levels": [1],
+			"item": "chest_armor"
+		},
+		"tree_warrior_arcane": {
+			"name": "Glut und Fels",
+			"description": "Lerne bei einem Krieger alle Skills im Baum „Glut und Fels“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:warrior:arcane",
+			"levels": [1],
+			"item": "hammer"
+		},
+		"tree_mage_elementalist": {
+			"name": "Herr der Elemente",
+			"description": "Lerne bei einem Magier alle Skills im Baum „Elementarist“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:mage:elementalist",
+			"levels": [1],
+			"item": "wooden_staff"
+		},
+		"tree_mage_summoner": {
+			"name": "Meister der Beschwörung",
+			"description": "Lerne bei einem Magier alle Skills im Baum „Beschwörer“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:mage:summoner",
+			"levels": [1],
+			"item": "soul_shard"
+		},
+		"tree_mage_arcanist": {
+			"name": "Arkane Vollendung",
+			"description": "Lerne bei einem Magier alle Skills im Baum „Arkanist“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:mage:arcanist",
+			"levels": [1],
+			"item": "enchanting_book"
+		},
+		"tree_paladin_bulwark": {
+			"name": "Ein wahres Bollwerk",
+			"description": "Lerne bei einem Paladin alle Skills im Baum „Bollwerk“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:paladin:bulwark",
+			"levels": [1],
+			"item": "shield"
+		},
+		"tree_paladin_blessing": {
+			"name": "Gesegneter Streiter",
+			"description": "Lerne bei einem Paladin alle Skills im Baum „Segen“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:paladin:blessing",
+			"levels": [1],
+			"item": "mace"
+		},
+		"tree_paladin_retribution": {
+			"name": "Gerechte Vergeltung",
+			"description": "Lerne bei einem Paladin alle Skills im Baum „Vergeltung“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:paladin:retribution",
+			"levels": [1],
+			"item": "two_handed_sword"
+		},
+		"tree_priest_healing": {
+			"name": "Heilendes Licht",
+			"description": "Lerne bei einem Priester alle Skills im Baum „Licht“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:priest:healing",
+			"levels": [1],
+			"item": "holy_light_crystal"
+		},
+		"tree_priest_blessing": {
+			"name": "Segensreich",
+			"description": "Lerne bei einem Priester alle Skills im Baum „Segen“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:priest:blessing",
+			"levels": [1],
+			"item": "jewel_amulet"
+		},
+		"tree_priest_shadow": {
+			"name": "Priester der Schatten",
+			"description": "Lerne bei einem Priester alle Skills im Baum „Schatten“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:priest:shadow",
+			"levels": [1],
+			"item": "holy_dark_crystal"
+		},
+		"tree_ranger_marksman": {
+			"name": "Meisterschütze",
+			"description": "Lerne bei einem Waldläufer alle Skills im Baum „Schütze“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:ranger:marksman",
+			"levels": [1],
+			"item": "longbow"
+		},
+		"tree_ranger_nature": {
+			"name": "Kind der Natur",
+			"description": "Lerne bei einem Waldläufer alle Skills im Baum „Natur“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:ranger:nature",
+			"levels": [1],
+			"item": "heartleaf"
+		},
+		"tree_ranger_beast": {
+			"name": "Rudelführer",
+			"description": "Lerne bei einem Waldläufer alle Skills im Baum „Tierfreund“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:ranger:beast",
+			"levels": [1],
+			"item": "wolf_fur"
+		},
+		"tree_rogue_blades": {
+			"name": "Doppelklinge",
+			"description": "Lerne bei einem Schurken alle Skills im Baum „Zwei Klingen“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:rogue:blades",
+			"levels": [1],
+			"item": "dagger"
+		},
+		"tree_rogue_shadow": {
+			"name": "Unsichtbar",
+			"description": "Lerne bei einem Schurken alle Skills im Baum „Schatten“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:rogue:shadow",
+			"levels": [1],
+			"item": "leather_cloak"
+		},
+		"tree_rogue_poison": {
+			"name": "Giftmischer",
+			"description": "Lerne bei einem Schurken alle Skills im Baum „Gift“ bis zur höchsten Stufe.",
+			"category": "heroes",
+			"counter": "tree:rogue:poison",
+			"levels": [1],
+			"item": "nightshade"
+		},
+		"hero_level": {
+			"name": "Veteran",
+			"description": "Bring einen Helden auf eine hohe Stufe.",
+			"category": "heroes",
+			"counter": "hero_level",
+			"levels": [10, 25, 50, 75, 100],
+			"item": "polearm"
+		},
+		"all_classes": {
+			"name": "Bunte Truppe",
+			"description": "Heuere einen Helden jeder Klasse an.",
+			"category": "heroes",
+			"all": ["class:warrior", "class:mage", "class:paladin", "class:priest", "class:ranger", "class:rogue"],
+			"item": "caravan_backpack"
+		},
+		"lexicon_enemies": {
+			"name": "Monsterkunde",
+			"description": "Entdecke die Monster im Lexikon (Fortschritt in Prozent). Ein Monster ist entdeckt, sobald deine Helden es einmal besiegt haben.",
+			"category": "lexicon",
+			"counter": "lexicon:enemies",
+			"levels": [25, 50, 75, 100],
+			"enemy": "wolf"
+		},
+		"lexicon_items": {
+			"name": "Sammler",
+			"description": "Entdecke die Gegenstände im Lexikon (Fortschritt in Prozent). Entdeckt ist, was einmal in deinem Inventar oder einer Truhe lag.",
+			"category": "lexicon",
+			"counter": "lexicon:items",
+			"levels": [25, 50, 75, 100],
+			"item": "backpack"
+		},
+		"holy_crystals": {
+			"name": "Die neun Steine",
+			"description": "Halte jeden der neun heiligen Kristalle einmal in den Händen.",
+			"category": "lexicon",
+			"all": ["seen:holy_fire_crystal", "seen:holy_water_crystal", "seen:holy_lightning_crystal", "seen:holy_ice_crystal", "seen:holy_earth_crystal", "seen:holy_light_crystal", "seen:holy_wind_crystal", "seen:holy_poison_crystal", "seen:holy_dark_crystal"],
+			"secret": true,
+			"item": "holy_fire_crystal"
+		},
+		"sleeper": {
+			"name": "Gut geschlafen",
+			"description": "Schlafe Nächte durch.",
+			"category": "misc",
+			"counter": "sleep",
+			"levels": [10, 50, 100, 365],
+			"item": "starlight_tonic"
+		},
+		"lotte_days": {
+			"name": "Lottes rechte Hand",
+			"description": "Tage mit Lotte als Gehilfin.",
+			"category": "misc",
+			"counter": "assistant_day",
+			"levels": [7, 30, 100],
+			"item": "hammer"
+		}
+	}
+}

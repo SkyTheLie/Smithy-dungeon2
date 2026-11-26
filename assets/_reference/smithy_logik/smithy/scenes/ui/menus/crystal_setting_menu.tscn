@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/crystal_setting_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/items/true_setting.png" id="2_setting"]
+
+[node name="CrystalSettingMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+title = "Die wahre Fassung"
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -100.0
+offset_right = 90.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("90_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Ring" type="Control" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(164, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SettingIcon" type="TextureRect" parent="Panel/VBox/Ring"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_setting")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MessageLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(164, 0)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3

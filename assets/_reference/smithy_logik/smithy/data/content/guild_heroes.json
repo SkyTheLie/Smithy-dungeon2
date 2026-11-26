@@ -1,0 +1,36 @@
+{
+	"_hilfe": {
+		"info": "Helden, die jeden Tag neu in der Abenteurergilde angeboten werden (HeroOffers). Gleicher Tag = gleiche Helden, am nächsten Morgen kommen neue. Schlüssel mit _ am Anfang werden ignoriert.",
+		"count": "[von, bis] Helden pro Tag",
+		"level": "[von, bis] Level der Helden",
+		"cost": "Preis = base + per_level × Level + Zufall aus random [von, bis]",
+		"attributes": "Jedes Attribut startet bei base; dazu kommen points + points_per_level × (Level - 1) Punkte, verteilt nach den Gewichten der Klasse (focus, alle anderen Gewicht 1)",
+		"classes": "Klassen-id (data/hero_classes/<id>.tres) mit focus: {Attribut: Gewicht}",
+		"names": "Vornamen, aus denen jeden Tag gezogen wird (keiner doppelt am selben Tag)",
+		"guild_levels": "Ausbaustufen der Gilde (Hedwig, Neben-Aufgaben nach dem Wiederaufbau), in Reihenfolge: flag (Story-Flag der Stufe), hero_slots (mehr Heldenplätze), level und count (ersetzen level/count oben), search_orders (so viele Suchaufträge gleichzeitig), search_max_rarity (beste Seltenheit, z. B. \"R3\"), stamina_rest_bonus (Helden bekommen pro Stunde und pro Nacht so viel mehr Ausdauer zurück, 0.25 = +25 %). Kosten und ab welchem Story-Punkt Hedwig die Stufe anbietet: data/content/story (Dialoge guild_upgrade_*, side.json)."
+	},
+	"count": [1, 4],
+	"level": [1, 3],
+	"cost": {"base": 120, "per_level": 25, "random": [0, 200]},
+	"attributes": {"base": 2, "points": 9, "points_per_level": 2},
+	"classes": {
+		"warrior": {"focus": {"strength": 4, "constitution": 3}},
+		"ranger": {"focus": {"agility": 4, "strength": 2}},
+		"mage": {"focus": {"intelligence": 4, "wisdom": 2}},
+		"priest": {"focus": {"wisdom": 4, "resistance": 2}},
+		"rogue": {"focus": {"agility": 4, "intelligence": 2}},
+		"paladin": {"focus": {"strength": 3, "resistance": 3}}
+	},
+	"guild_levels": [
+		{"flag": "guild_level_1", "hero_slots": 1, "level": [8, 14], "count": [2, 5], "search_orders": 1, "search_max_rarity": "R2", "stamina_rest_bonus": 0.25},
+		{"flag": "guild_level_2", "hero_slots": 1, "level": [26, 34], "count": [3, 5], "search_orders": 2, "search_max_rarity": "R3", "stamina_rest_bonus": 0.5},
+		{"flag": "guild_level_3", "hero_slots": 1, "level": [36, 44], "count": [3, 6], "search_orders": 3, "search_max_rarity": "R4", "stamina_rest_bonus": 0.75}
+	],
+	"names": [
+		"Alrik", "Brida", "Corin", "Dagna", "Edric", "Fenja", "Gunnar", "Hedda", "Ivo", "Jorun",
+		"Kalle", "Liska", "Magnus", "Nele", "Osric", "Petra", "Quirin", "Rhona", "Sigurd", "Talia",
+		"Ulf", "Vera", "Wendel", "Ylva", "Zora", "Arne", "Berit", "Cassian", "Dorle", "Elmar",
+		"Frieda", "Gero", "Hanna", "Ilka", "Jasper", "Kunigunde", "Leif", "Malin", "Nikolai", "Ottilie",
+		"Rasmus", "Selma", "Tjark", "Ursel", "Valentin", "Wiebke"
+	]
+}

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/actors/merchant.gd" id="1_merchant"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/shop_dialog.tscn" id="2_dialog"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stall"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(88, 30)
+
+[node name="MarketStall" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_merchant")
+
+[node name="StallSprite" type="Sprite2D" parent="."]
+
+[node name="MerchantSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -46.0
+offset_right = 40.0
+offset_bottom = -34.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+
+[node name="StallCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_stall")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_interaction")
+
+[node name="ShopDialog" parent="." instance=ExtResource("2_dialog")]
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="." to="ShopDialog" method="toggle"]
+[connection signal="player_left" from="." to="ShopDialog" method="close"]

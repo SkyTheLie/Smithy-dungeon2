@@ -1,0 +1,77 @@
+{
+	"_hilfe": {
+		"allgemein": "Glücksschmiede (GambaRun, scenes/gamba/). Ein Run = bis zu contract_days Tage. Jeden Tag kommen Schwerter, man erhitzt sie, schlägt sie auf dem Amboss und gibt sie abends als Abgabe an die Zunft. Reicht der Schwertwert nicht (demand), gibt es einen Fehlschlag; max_failures Fehlschläge beenden den Run.",
+		"outcomes": "Die fünf Eimer eines Schlags, Reihenfolge fest: break (zerbrochen, Schwert weg), damage (Seltenheit -1), hold (nichts), success (+1), great (+2). outcome_style: Name und Farbe je Eimer.",
+		"start_tickets": "Lose je Eimer bei einem neuen Schwert. Chance = Lose / Summe aller Lose.",
+		"drift": "Pro Schlag ändern sich die Lose des Schwerts: drift[eimer] × (1 + drift_growth × bisherige Schläge) × Zufall zwischen drift_random[0] und drift_random[1]. Positiv = mehr Lose. min_tickets hält einen Eimer über einem Mindestwert.",
+		"value": "Wert eines Schwerts = materials[m].value × value_growth ^ (Seltenheit - 1) × (1 + Wert-Boni der Relikte). R1 = Stufe 0.",
+		"demand": "Abgabe am Tag d = demand.first × demand.growth ^ (d - 1), gerundet auf demand.round.",
+		"frenzy": "Raserei: nach frenzy.strikes Schlägen an einem Schwert läuft frenzy.seconds Sekunden lang, in der Zeit kann nichts brechen und die Lose bleiben stehen.",
+		"relics": "Relikte gibt es nie geschenkt: im Reliktschrein gibt man ein Schwert ab Stufe coin_min_level (0 = R1) für eine Zunftmarke ab; coins = Marken, die das Relikt kostet. Der Schrein bietet relic_offers Relikte an, nach jeder Glocke neue. effects: break_mult (Bruch-Lose ×), tickets {eimer: +Lose}, value (+Anteil Schwertwert), daily_swords (+Schwerter je Tag), frenzy_seconds (+s), frenzy_strikes (+/- Schläge bis Raserei), break_save (Chance, dass ein Bruch nur Beschädigt wird), break_gold (Anteil des Werts als Gold beim Bruch), damage_cut (jede Beschädigung senkt die Bruchchance des Schwerts um diesen Anteil, höchstens damage_cut_max), max_failures (+ erlaubte Fehlschläge), demand_mult (Abgabe ×).",
+		"shop": "Händler kommt nach jedem merchant_every-ten Tag. Schwerter zum festen Preis, Verbrauchsgüter: price × (1 + price_per_day × (Tag - 1)). Relikte verkauft er nicht (Reliktschrein)."
+	},
+	"contract_days": 21,
+	"max_failures": 3,
+	"start_swords": 3,
+	"daily_swords": 3,
+	"start_material": "copper",
+	"relic_slots": 5,
+	"relic_offers": 3,
+	"coin_min_level": 3,
+	"merchant_every": 3,
+	"strike_cooldown": 0.22,
+	"frenzy_cooldown": 0.15,
+	"max_level": 60,
+	"heat_seconds": 0.7,
+	"value_growth": 1.4,
+	"demand": {"first": 700, "growth": 1.15, "round": 50},
+	"outcomes": ["break", "damage", "hold", "success", "great"],
+	"outcome_style": {
+		"break": {"name": "Zerbrochen", "color": "#e04040"},
+		"damage": {"name": "Beschädigt", "color": "#e8913a"},
+		"hold": {"name": "Nichts", "color": "#a0a0a0"},
+		"success": {"name": "Verbessert", "color": "#5ad35a"},
+		"great": {"name": "Verbessert ++", "color": "#ffd84a"}
+	},
+	"start_tickets": {"break": 0.0, "damage": 7.0, "hold": 14.0, "success": 67.0, "great": 12.0},
+	"drift": {"break": 1.3, "damage": 0.5, "hold": 0.4, "success": -1.6, "great": -0.25},
+	"drift_growth": 0.32,
+	"drift_random": [0.4, 1.6],
+	"min_tickets": {"success": 6.0, "great": 1.0},
+	"frenzy": {"strikes": 12, "seconds": 2.5},
+	"materials": {
+		"copper": {"name": "Kupferschwert", "value": 100, "blade": "res://assets/sprites/items/copper_blade.png", "handle": "res://assets/sprites/items/copper_handle.png"},
+		"bronze": {"name": "Bronzeschwert", "value": 170, "blade": "res://assets/sprites/items/bronze_blade.png", "handle": "res://assets/sprites/items/bronze_handle.png"},
+		"iron": {"name": "Eisenschwert", "value": 300, "blade": "res://assets/sprites/items/iron_blade.png", "handle": "res://assets/sprites/items/iron_handle.png"},
+		"silver": {"name": "Silberschwert", "value": 520, "blade": "res://assets/sprites/items/silver_blade.png", "handle": "res://assets/sprites/items/silver_handle.png"},
+		"gold": {"name": "Goldschwert", "value": 900, "blade": "res://assets/sprites/items/gold_blade.png", "handle": "res://assets/sprites/items/gold_handle.png"},
+		"platinum": {"name": "Platinschwert", "value": 1550, "blade": "res://assets/sprites/items/platinum_blade.png", "handle": "res://assets/sprites/items/platinum_handle.png"},
+		"palladium": {"name": "Palladiumschwert", "value": 2700, "blade": "res://assets/sprites/items/palladium_blade.png", "handle": "res://assets/sprites/items/palladium_handle.png"}
+	},
+	"shop": {
+		"swords": {"copper": 150, "bronze": 380, "iron": 800, "silver": 1600, "gold": 3200, "platinum": 6200, "palladium": 12000},
+		"sword_offers": 3,
+		"consumable_offers": 2,
+		"price_per_day": 0.2
+	},
+	"relics": {
+		"lucky_nail": {"name": "Glücksnagel", "text": "Bruchchance -10 %.", "icon": "res://assets/sprites/items/copper_nail.png", "coins": 1, "effects": {"break_mult": 0.9}},
+		"leather_apron": {"name": "Geflickte Lederschürze", "text": "+3 Lose für Verbessert.", "icon": "res://assets/sprites/items/leather.png", "coins": 1, "effects": {"tickets": {"success": 3.0}}},
+		"ember_heart": {"name": "Glutherz", "text": "+1,5 Lose für Verbessert ++.", "icon": "res://assets/sprites/items/ember_essence.png", "coins": 1, "effects": {"tickets": {"great": 1.5}}},
+		"whetstone": {"name": "Feiner Wetzstein", "text": "Schwertwert +8 %.", "icon": "res://assets/sprites/items/onyx.png", "coins": 1, "effects": {"value": 0.08}},
+		"guild_seal": {"name": "Zunftsiegel", "text": "Jeden Tag ein Schwert mehr.", "icon": "res://assets/sprites/items/forge_sign.png", "coins": 2, "effects": {"daily_swords": 1}},
+		"bellows": {"name": "Alter Blasebalg", "text": "Raserei dauert 0,5 Sekunden länger.", "icon": "res://assets/sprites/items/feather.png", "coins": 1, "effects": {"frenzy_seconds": 0.5}},
+		"quick_hands": {"name": "Flinke Hände", "text": "Raserei einen Schlag früher.", "icon": "res://assets/sprites/items/master_gloves.png", "coins": 1, "effects": {"frenzy_strikes": -1}},
+		"iron_cap": {"name": "Eisenkappe", "text": "Bricht ein Schwert, wird es mit 25 % Chance nur beschädigt.", "icon": "res://assets/sprites/items/iron_nail.png", "coins": 2, "effects": {"break_save": 0.25}},
+		"pawn_token": {"name": "Pfandmarke", "text": "Bricht ein Schwert, bekommst du 15 % seines Werts als Gold.", "icon": "res://assets/sprites/items/coin_purse.png", "coins": 1, "effects": {"break_gold": 0.15}},
+		"cool_head": {"name": "Kühler Kopf", "text": "Jede Beschädigung senkt die Bruchchance des Schwerts um 6 % (höchstens 24 %).", "icon": "res://assets/sprites/items/frost_lichen.png", "coins": 1, "effects": {"damage_cut": 0.06, "damage_cut_max": 0.24}},
+		"lead_weight": {"name": "Bleigewicht", "text": "+4 Lose für Nichts, Bruchchance -5 %.", "icon": "res://assets/sprites/items/iron_ingot.png", "coins": 1, "effects": {"tickets": {"hold": 4.0}, "break_mult": 0.95}},
+		"glory_chain": {"name": "Ruhmeskette", "text": "Schwertwert +15 %, aber +2 Lose für Zerbrochen.", "icon": "res://assets/sprites/items/glory_chain.png", "coins": 1, "effects": {"value": 0.15, "tickets": {"break": 2.0}}},
+		"mercy_letter": {"name": "Gnadenbrief", "text": "Die Zunft verzeiht einen Fehlschlag mehr.", "icon": "res://assets/sprites/items/royal_letter.png", "coins": 3, "effects": {"max_failures": 1}},
+		"guild_friend": {"name": "Freund in der Zunft", "text": "Die Abgabe ist 7 % kleiner.", "icon": "res://assets/sprites/items/elf_letter.png", "coins": 2, "effects": {"demand_mult": 0.93}}
+	},
+	"consumables": {
+		"ward": {"name": "Schutzrune", "text": "Der nächste Schlag kann nicht brechen.", "icon": "res://assets/sprites/items/moon_seal.png", "price": 500},
+		"hourglass": {"name": "Stundenglas", "text": "Macht den letzten Schlag rückgängig, auch einen Bruch.", "icon": "res://assets/sprites/items/sand.png", "price": 1200}
+	}
+}

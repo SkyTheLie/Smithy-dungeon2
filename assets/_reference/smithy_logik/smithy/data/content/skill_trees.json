@@ -1,0 +1,260 @@
+{
+	"_hilfe": {
+		"info": "Die drei Skillbäume jeder Klasse (Schlüssel = id der Klasse aus data/hero_classes). Reihenfolge der Skills = Reihenfolge im Baum. Werte der Skills: skills.json. Freischalten über Punkte im Baum (skills.json \"points\"). Dieser Block wird vom Spiel ignoriert."
+	},
+	"warrior": [
+		{
+			"id": "sword",
+			"name": "Schwert", "outfit": {"outfit": "vest", "clothes_color": "red"},
+			"skills": [
+				"sword_strike",
+				"blade_sharpness",
+				"deep_cut",
+				"whirlwind",
+				"shield_break",
+				"parry",
+				"mighty_blow",
+				"execute"
+			]
+		},
+		{
+			"id": "body",
+			"name": "Körper", "outfit": {"outfit": "vest", "clothes_color": "brown"},
+			"skills": [
+				"toughness",
+				"heal_wounds",
+				"battle_cry",
+				"pain",
+				"iron_will",
+				"bloodlust",
+				"lifesteal_strike",
+				"unbreakable"
+			]
+		},
+		{
+			"id": "arcane",
+			"name": "Glut und Fels", "outfit": {"outfit": "tunic", "clothes_color": "orange"},
+			"skills": [
+				"fire_slash",
+				"arcane_blade",
+				"frost_blade",
+				"ground_slam",
+				"rune_shield",
+				"elemental_flow",
+				"earthquake",
+				"elemental_blade"
+			]
+		}
+	],
+	"mage": [
+		{
+			"id": "elementalist",
+			"name": "Elementarist", "outfit": {"outfit": "tunic", "clothes_color": "red"},
+			"skills": [
+				"fireball",
+				"ice_lance",
+				"elemental_mastery",
+				"chain_lightning",
+				"blizzard",
+				"inferno",
+				"meteor"
+			]
+		},
+		{
+			"id": "summoner",
+			"name": "Beschwörer", "outfit": {"outfit": "tunic", "clothes_color": "teal"},
+			"skills": [
+				"summon_fire_elemental",
+				"binding",
+				"summon_ice_elemental",
+				"sacrifice_elemental",
+				"summon_storm_spirit",
+				"soul_bond",
+				"summon_earth_golem",
+				"summon_elemental_lord"
+			]
+		},
+		{
+			"id": "arcanist",
+			"name": "Arkanist", "outfit": {"outfit": "tunic", "clothes_color": "navy"},
+			"skills": [
+				"arcane_bolt",
+				"arcane_might",
+				"arcane_shield",
+				"mana_surge",
+				"hex",
+				"arcane_bind",
+				"spell_flow",
+				"time_stop"
+			]
+		}
+	],
+	"paladin": [
+		{
+			"id": "bulwark",
+			"name": "Bollwerk", "outfit": {"outfit": "vest", "clothes_color": "grey"},
+			"skills": [
+				"shield_bash",
+				"armored",
+				"challenge",
+				"holy_regeneration",
+				"divine_shield",
+				"elemental_ward",
+				"shield_wall",
+				"bastion"
+			]
+		},
+		{
+			"id": "blessing",
+			"name": "Segen", "outfit": {"outfit": "tunic", "clothes_color": "white"},
+			"skills": [
+				"blessing_of_might",
+				"lay_on_hands",
+				"blessing_of_wisdom",
+				"devotion_aura",
+				"consecration",
+				"martyr",
+				"divine_intervention"
+			]
+		},
+		{
+			"id": "retribution",
+			"name": "Vergeltung", "outfit": {"outfit": "vest", "clothes_color": "yellow"},
+			"skills": [
+				"hammer_blow",
+				"momentum",
+				"holy_strike",
+				"thunder_strike",
+				"judgment",
+				"holy_zeal",
+				"divine_wrath"
+			]
+		}
+	],
+	"priest": [
+		{
+			"id": "healing",
+			"name": "Licht", "outfit": {"outfit": "tunic", "clothes_color": "yellow"},
+			"skills": [
+				"healing_light",
+				"prayer_shield",
+				"purify",
+				"blessed_hands",
+				"greater_heal",
+				"circle_of_healing",
+				"shield_of_faith",
+				"resurrection"
+			]
+		},
+		{
+			"id": "blessing",
+			"name": "Segen", "outfit": {"outfit": "tunic", "clothes_color": "pink"},
+			"skills": [
+				"blessing_of_power",
+				"blessing_of_spirit",
+				"haste",
+				"lasting_blessing",
+				"divine_armor",
+				"inspiration",
+				"divine_favor"
+			]
+		},
+		{
+			"id": "shadow",
+			"name": "Schatten", "outfit": {"outfit": "tunic", "clothes_color": "black"},
+			"skills": [
+				"shadow_pain",
+				"weaken",
+				"soul_drain",
+				"strict_faith",
+				"curse_of_vulnerability",
+				"ban_circle",
+				"shadow_flood"
+			]
+		}
+	],
+	"ranger": [
+		{
+			"id": "marksman",
+			"name": "Schütze", "outfit": {"outfit": "vest", "clothes_color": "green"},
+			"skills": [
+				"rapid_shot",
+				"poison_arrow",
+				"fire_arrow",
+				"eagle_eye",
+				"aimed_shot",
+				"piercing_shot",
+				"rain_of_arrows",
+				"storm_volley"
+			]
+		},
+		{
+			"id": "nature",
+			"name": "Natur", "outfit": {"outfit": "tunic", "clothes_color": "forest"},
+			"skills": [
+				"gust",
+				"healing_herbs",
+				"thorn_vines",
+				"nature_harmony",
+				"stone_skin",
+				"cyclone",
+				"wrath_of_the_forest"
+			]
+		},
+		{
+			"id": "beast",
+			"name": "Tierfreund", "outfit": {"outfit": "vest", "clothes_color": "ochre"},
+			"skills": [
+				"call_wolf_pup",
+				"pack_instinct",
+				"grown_wolf",
+				"protect",
+				"sic_em",
+				"giant_wolf",
+				"howl",
+				"wild_hunt"
+			]
+		}
+	],
+	"rogue": [
+		{
+			"id": "blades",
+			"name": "Zwei Klingen", "outfit": {"outfit": "vest", "clothes_color": "black"},
+			"skills": [
+				"quick_stab",
+				"double_stab",
+				"backstab",
+				"ambidextrous",
+				"sword_art",
+				"twin_swords",
+				"thousand_cuts"
+			]
+		},
+		{
+			"id": "shadow",
+			"name": "Schatten", "outfit": {"outfit": "vest", "clothes_color": "navy"},
+			"skills": [
+				"nimble",
+				"cheap_shot",
+				"veil",
+				"from_the_shadows",
+				"smoke_bomb",
+				"shadow_step",
+				"assassinate"
+			]
+		},
+		{
+			"id": "poison",
+			"name": "Gift", "outfit": {"outfit": "vest", "clothes_color": "purple"},
+			"skills": [
+				"poisoned_blade",
+				"corrosive_poisons",
+				"poison_bomb",
+				"crippling_poison",
+				"virulence",
+				"toxic_burst",
+				"plague"
+			]
+		}
+	]
+}

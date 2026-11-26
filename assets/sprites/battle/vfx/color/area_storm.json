@@ -1,0 +1,339 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-sturm 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 1.png",
+   "frame": {
+    "x": 118,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 2.png",
+   "frame": {
+    "x": 236,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 3.png",
+   "frame": {
+    "x": 354,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 4.png",
+   "frame": {
+    "x": 0,
+    "y": 63,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 5.png",
+   "frame": {
+    "x": 118,
+    "y": 63,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 6.png",
+   "frame": {
+    "x": 236,
+    "y": 63,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 7.png",
+   "frame": {
+    "x": 354,
+    "y": 63,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 8.png",
+   "frame": {
+    "x": 0,
+    "y": 126,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 9.png",
+   "frame": {
+    "x": 118,
+    "y": 126,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 10.png",
+   "frame": {
+    "x": 236,
+    "y": 126,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-sturm 11.png",
+   "frame": {
+    "x": 354,
+    "y": 126,
+    "w": 118,
+    "h": 63
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 118,
+    "h": 63
+   },
+   "sourceSize": {
+    "w": 118,
+    "h": 63
+   },
+   "pivot": {
+    "x": 0.5169491525423728,
+    "y": 0.4603174603174603
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-sturm.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 472,
+   "h": 189
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 61,
+   "y": 29
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-sturm",
+    "from": 0,
+    "to": 11,
+    "direction": "forward"
+   }
+  ]
+ }
+}

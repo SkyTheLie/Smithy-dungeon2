@@ -1,0 +1,246 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_8.png" id="wp_world_props_fortress_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_7.png" id="wp_world_props_fortress_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/prison_bars.png" id="wp_world_props_prison_bars"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/prison_cell_front.png" id="cell_front"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/castle_dungeon.png" id="1_castle_dunge"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/torch.tscn" id="2_torch"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="3_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="4_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="5_door"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="6_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="7_hud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(640, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+size = Vector2(16, 480)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_cell_front"]
+size = Vector2(640, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_cell_wall"]
+size = Vector2(8, 104)
+
+[sub_resource type="Gradient" id="LightGradient"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.45, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="LightTexture"]
+gradient = SubResource("LightGradient")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Resource" id="Appearance_varrik"]
+script = ExtResource("3_appearance")
+race = "human"
+skin = "pale"
+hair_style = "long"
+hair_color = "black"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Appearance_jailer"]
+script = ExtResource("3_appearance")
+race = "human"
+skin = "tan"
+hair_style = "bald"
+hair_color = "brown"
+eye_type = "sleepy"
+eye_color = "brown"
+size = "tall"
+outfit = "smith"
+clothes_color = "grey"
+
+[node name="CastleDungeon" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0.62, 0.6, 0.7, 1)
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000
+offset_top = -1000
+offset_right = 1000
+offset_bottom = 1000
+mouse_filter = 2
+color = Color(0.08, 0.06, 0.09, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-320, -240)
+texture = ExtResource("1_castle_dunge")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall0" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -190)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Wall1" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-312, 0)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="Wall2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(312, 0)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="Wall3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 236)
+shape = SubResource("RectangleShape2D_3")
+
+[node name="TorchLight1" type="PointLight2D" parent="."]
+position = Vector2(-152, -66)
+color = Color(1, 0.7, 0.4, 1)
+energy = 0.9
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="TorchLight2" type="PointLight2D" parent="."]
+position = Vector2(152, -66)
+color = Color(1, 0.7, 0.4, 1)
+energy = 0.9
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="TorchLight3" type="PointLight2D" parent="."]
+position = Vector2(0, 150)
+color = Color(1, 0.7, 0.4, 1)
+energy = 0.6
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="Torch-150" parent="." instance=ExtResource("2_torch")]
+position = Vector2(-152, -34)
+
+[node name="Torch150" parent="." instance=ExtResource("2_torch")]
+position = Vector2(152, -34)
+
+[node name="Varrik" parent="." instance=ExtResource("4_story_npc")]
+position = Vector2(-76, -84)
+npc_id = "varrik_jailed"
+resident = "gutter_boss"
+appearance = SubResource("Appearance_varrik")
+required_flag = "varrik_jailed"
+talk_area_scale = Vector2(2, 3)
+
+[node name="Jailer" parent="." instance=ExtResource("4_story_npc")]
+position = Vector2(200, 60)
+npc_id = "jailer"
+resident = "jailer"
+appearance = SubResource("Appearance_jailer")
+
+[node name="ToHall" parent="." instance=ExtResource("5_door")]
+position = Vector2(306, 120)
+scale = Vector2(0.5, 3)
+target_scene = "res://scenes/world/capital/castle_hall.tscn"
+target_spawn_point = &"FromDungeon"
+
+[node name="Visual" parent="ToHall" index="0"]
+visible = false
+
+[node name="HallLabel" type="Label" parent="."]
+offset_left = 222
+offset_top = 90
+offset_right = 302
+offset_bottom = 102
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "Vorhalle »"
+horizontal_alignment = 1
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(270, 120)
+
+[node name="Cells" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Front1" type="Sprite2D" parent="Cells"]
+position = Vector2(-230, -36)
+texture = ExtResource("cell_front")
+offset = Vector2(0, -34.5)
+
+[node name="Front2" type="Sprite2D" parent="Cells"]
+position = Vector2(-76, -36)
+texture = ExtResource("cell_front")
+offset = Vector2(0, -34.5)
+
+[node name="Front3" type="Sprite2D" parent="Cells"]
+position = Vector2(76, -36)
+texture = ExtResource("cell_front")
+offset = Vector2(0, -34.5)
+
+[node name="Front4" type="Sprite2D" parent="Cells"]
+position = Vector2(230, -36)
+texture = ExtResource("cell_front")
+offset = Vector2(0, -34.5)
+
+[node name="EndLeft" type="Sprite2D" parent="Cells"]
+position = Vector2(-312, -36)
+texture = ExtResource("cell_front")
+offset = Vector2(0, -34.5)
+region_enabled = true
+region_rect = Rect2(10, 0, 20, 69)
+
+[node name="EndRight" type="Sprite2D" parent="Cells"]
+position = Vector2(312, -36)
+texture = ExtResource("cell_front")
+offset = Vector2(0, -34.5)
+region_enabled = true
+region_rect = Rect2(10, 0, 20, 69)
+
+[node name="CellWalls" type="StaticBody2D" parent="Cells"]
+
+[node name="Front" type="CollisionShape2D" parent="Cells/CellWalls"]
+position = Vector2(0, -39)
+shape = SubResource("Shape_cell_front")
+
+[node name="Wall1" type="CollisionShape2D" parent="Cells/CellWalls"]
+position = Vector2(-152, -88)
+shape = SubResource("Shape_cell_wall")
+
+[node name="Wall2" type="CollisionShape2D" parent="Cells/CellWalls"]
+position = Vector2(0, -88)
+shape = SubResource("Shape_cell_wall")
+
+[node name="Wall3" type="CollisionShape2D" parent="Cells/CellWalls"]
+position = Vector2(152, -88)
+shape = SubResource("Shape_cell_wall")
+
+[node name="P5" type="Sprite2D" parent="Cells"]
+position = Vector2(-276, -100)
+texture = ExtResource("wp_world_props_fortress_7")
+offset = Vector2(0, -20.5)
+
+[node name="P6" type="Sprite2D" parent="Cells"]
+position = Vector2(270, -98)
+texture = ExtResource("wp_world_props_fortress_8")
+offset = Vector2(0, -15.5)
+
+[node name="Player" parent="." instance=ExtResource("6_player")]
+position = Vector2(270, 120)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("7_hud")]
+
+[editable path="ToHall"]
+[editable path="Player"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/fireball.gd" id="1_fireball"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/fireball.png" id="2_ball"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/fireball_explosion.png" id="3_explosion"]
+
+[node name="Fireball" type="Node2D"]
+z_index = 2
+script = ExtResource("1_fireball")
+
+[node name="Ball" type="Sprite2D" parent="."]
+texture = ExtResource("2_ball")
+hframes = 3
+vframes = 3
+
+[node name="Explosion" type="Sprite2D" parent="."]
+texture = ExtResource("3_explosion")
+offset = Vector2(0, -12)
+hframes = 4
+vframes = 3

@@ -1,0 +1,149 @@
+{
+	"_hilfe": {
+		"info": "Materialien für Teile. Alle Felder mit Beispielen: docs/CONTENT.md. Dieser Block wird vom Spiel ignoriert (Schlüssel mit _ am Anfang).",
+		"felder": {
+			"name": "Wort für Namen: 'Gold' + 'schwert' = 'Goldschwert'",
+			"process": "cast = Metall (Gussofen → Amboss) | carve = an der Werkbank schnitzen | tan = Leder von der Gerberbank (kein Rezept) | gather = nur als Beute, z. B. Harpyienfeder (kein Rezept)",
+			"ingot": "cast: id des Barrens",
+			"unlock_flag": "cast: Story-Flag, ab dem es Erz und Barren dieses Metalls als Beute gibt (Monster, Bosse, Dungeon-Belohnungen, Zufalls-Gussformen). Ohne = von Anfang an",
+			"raw": "carve: id des Rohstoffs",
+			"rarity": "Grund-Seltenheit (alle R1: seltener wird ein Material nur durch Funde, Kauf oder gutes Schmieden)", "tier": "Materialstufe: 0 Holz, 1 Kupfer/Rattenleder, 2 Eisen/Wolfsleder, 3 Bronze/Drachenleder, 4 Silber/Hippogreifleder/Harpyienfeder, 5 Gold, 6 Platin, 7 Palladium. Leder und Federn haben die Stufe ihres Metalls. Preis der Aufträge, Ruf beim Verkauf und Schwierigkeit der Minispiele je nach Ruf (economy.json crafting_quality)",
+			"colors": "5 Farbtöne hell » dunkel: so sieht Ausrüstung aus diesem Material an Helden im Kampf aus (CharacterBaker.get_battle_sheet)"
+		},
+		"vorlage": {
+			"name": "Gold",
+			"ingot": "gold_ingot",
+			"rarity": "R4",
+			"process": "cast"
+		}
+	},
+	"copper": {
+		"armor_detail": {"bands": 6, "rivets": 4},
+		"name": "Kupfer",
+		"colors": ["#f6c08e", "#e0904f", "#b9683a", "#87472a", "#552e1d"],
+		"ingot": "copper_ingot",
+		"rarity": "R1", "tier": 1,
+		"process": "cast"
+	},
+	"iron": {
+		"armor_detail": {"bands": 5},
+		"name": "Eisen",
+		"colors": ["#dfe5ea", "#aeb8c1", "#808b96", "#5b6470", "#383e48"],
+		"ingot": "iron_ingot",
+		"unlock_flag": "iron_unlocked",
+		"rarity": "R1", "tier": 2,
+		"process": "cast"
+	},
+	"bronze": {
+		"armor_detail": {"bands": 7, "trim": 7},
+		"name": "Bronze",
+		"colors": ["#f0cf86", "#c99a4b", "#9c7234", "#6e4f25", "#433018"],
+		"ingot": "bronze_ingot",
+		"unlock_flag": "volcano_route_open",
+		"rarity": "R1", "tier": 3,
+		"process": "cast"
+	},
+	"silver": {
+		"armor_detail": {"trim": 8, "chevrons": 5},
+		"name": "Silber",
+		"colors": ["#ffffff", "#d8dde6", "#aab2c0", "#7c8596", "#4f5664"],
+		"ingot": "silver_ingot",
+		"unlock_flag": "silver_molds_offered",
+		"rarity": "R1", "tier": 4,
+		"process": "cast"
+	},
+	"gold": {
+		"armor_detail": {"trim": 6, "chevrons": 4},
+		"name": "Gold",
+		"colors": ["#fff3a6", "#f5cf4a", "#d3a12a", "#9c6f1c", "#5f4012"],
+		"ingot": "gold_ingot",
+		"unlock_flag": "gold_molds_unlocked",
+		"rarity": "R1", "tier": 5,
+		"process": "cast"
+	},
+	"platinum": {
+		"armor_detail": {"bands": 8, "rivets": 3, "studs": 5},
+		"name": "Platin",
+		"colors": ["#f4f8fb", "#cfdce6", "#a4b6c4", "#768a9a", "#4a5866"],
+		"ingot": "platinum_ingot",
+		"unlock_flag": "reached_to_swamp",
+		"rarity": "R1", "tier": 6,
+		"process": "cast"
+	},
+	"palladium": {
+		"armor_detail": {"trim": 5, "chevrons": 4, "studs": 6},
+		"name": "Palladium",
+		"colors": ["#eef0f8", "#c3c6dd", "#9599bb", "#696c8f", "#424460"],
+		"ingot": "palladium_ingot",
+		"unlock_flag": "reached_finster_start",
+		"rarity": "R1", "tier": 7,
+		"process": "cast"
+	},
+	"wood": {
+		"name": "Holz",
+		"colors": ["#d2a165", "#a8763f", "#7f5730", "#5a3c22", "#3a2616"],
+		"raw": "wood",
+		"rarity": "R1", "tier": 0,
+		"process": "carve"
+	},
+	"rat_leather": {
+		"name": "Ratten",
+		"colors": ["#c39a6a", "#9c7348", "#775535", "#543a25", "#352417"],
+		"rarity": "R1", "tier": 1,
+		"process": "tan"
+	},
+	"wolf_leather": {
+		"name": "Wolfs",
+		"colors": ["#a8a39a", "#827b70", "#5f5850", "#423d38", "#2a2724"],
+		"rarity": "R1", "tier": 2,
+		"process": "tan"
+	},
+	"dragon_leather": {
+		"name": "Drachen",
+		"colors": ["#e08050", "#b04a2a", "#7a2a1c", "#4a1410", "#2a0c0a"],
+		"rarity": "R1", "tier": 3,
+		"process": "tan"
+	},
+	"hippogriff_leather": {
+		"name": "Hippogreif",
+		"colors": ["#f4e6cc", "#d8c0a0", "#a88a68", "#6a5040", "#3a2c22"],
+		"rarity": "R1", "tier": 4,
+		"process": "tan"
+	},
+	"harpy_feather": {
+		"name": "Harpyien",
+		"colors": ["#f0e8ff", "#b8a8d8", "#7a6a9a", "#4a3a6a", "#1e1428"],
+		"rarity": "R1", "tier": 4,
+		"process": "gather"
+	},
+	"ice_seal_leather": {
+		"name": "Eisrobben",
+		"colors": ["#f2f7fb", "#c9d8e4", "#94aabb", "#5e7488", "#33424f"],
+		"rarity": "R1", "tier": 4,
+		"process": "tan"
+	},
+	"lichen_leather": {
+		"name": "Flechten",
+		"colors": ["#e4f4f2", "#a8d4d2", "#6fa3aa", "#41707c", "#22404a"],
+		"rarity": "R1", "tier": 6,
+		"process": "tan"
+	},
+	"swamp_leather": {
+		"name": "Sumpf",
+		"colors": ["#d8e8b0", "#a0bc70", "#6c8a48", "#445c30", "#26361c"],
+		"rarity": "R1", "tier": 5,
+		"process": "tan"
+	},
+	"hell_leather": {
+		"name": "Höllen",
+		"colors": ["#b89aa0", "#7c5a64", "#4e3640", "#30222a", "#1a1216"],
+		"rarity": "R1", "tier": 7,
+		"process": "tan"
+	},
+	"ice_harpy_feather": {
+		"name": "Eisharpyien",
+		"colors": ["#f4fbff", "#bfe2f4", "#7fb4d6", "#4a7aa6", "#203a5a"],
+		"rarity": "R1", "tier": 5,
+		"process": "gather"
+	}
+}

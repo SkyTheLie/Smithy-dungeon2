@@ -1,0 +1,339 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-doppelstich 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 1.png",
+   "frame": {
+    "x": 42,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 2.png",
+   "frame": {
+    "x": 84,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 3.png",
+   "frame": {
+    "x": 126,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 4.png",
+   "frame": {
+    "x": 0,
+    "y": 49,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 5.png",
+   "frame": {
+    "x": 42,
+    "y": 49,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 6.png",
+   "frame": {
+    "x": 84,
+    "y": 49,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 7.png",
+   "frame": {
+    "x": 126,
+    "y": 49,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 8.png",
+   "frame": {
+    "x": 0,
+    "y": 98,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 9.png",
+   "frame": {
+    "x": 42,
+    "y": 98,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 10.png",
+   "frame": {
+    "x": 84,
+    "y": 98,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-doppelstich 11.png",
+   "frame": {
+    "x": 126,
+    "y": 98,
+    "w": 42,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3877551020408163
+   },
+   "duration": 63
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-doppelstich.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 168,
+   "h": 147
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 21,
+   "y": 19
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-doppelstich",
+    "from": 0,
+    "to": 11,
+    "direction": "forward"
+   }
+  ]
+ }
+}

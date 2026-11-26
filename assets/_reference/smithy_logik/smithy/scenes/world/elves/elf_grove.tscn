@@ -1,0 +1,622 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_2.png" id="wp_world_props_grove_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_4.png" id="wp_world_props_grove_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_8.png" id="wp_world_props_grove_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_13.png" id="wp_world_props_grove_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_9.png" id="wp_world_props_grove_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_1.png" id="wp_world_props_grove_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_17.png" id="wp_world_props_grove_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_15.png" id="wp_world_props_grove_15"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_16.png" id="wp_world_props_grove_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_0.png" id="wp_world_props_grove_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_mid_b.png" id="wp_elves_tree_mid_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_mid_d.png" id="wp_elves_tree_mid_d"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_mid_c.png" id="wp_elves_tree_mid_c"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_mid_a.png" id="wp_elves_tree_mid_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_big_c.png" id="wp_elves_tree_big_c"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_big_b.png" id="wp_elves_tree_big_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_big_a.png" id="wp_elves_tree_big_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/tree_great.png" id="wp_elves_tree_great"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="tr_anim"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/trunk_big.png" id="tr_big"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/trunk_mid.png" id="tr_mid"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/fireflies.png" id="tr_fly"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_elf.tscn" id="lamp_elf"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="1_appearance"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_grove.png" id="3_elf_grove"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="4_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_grove_mask.png" id="5_elf_grove_ma"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="6_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="7_door"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/royal_carriage.png" id="8_royal_carria"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="9_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/leon_soldier_a.png" id="10_castle_guard"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/leon_soldier_c.png" id="11_castle_guard"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/banner_blue.png" id="12_banner_blue"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="14_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="15_hud"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/teleporter.tscn" id="16_teleporter"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/armory_menu.tscn" id="armory_menu"]
+
+[sub_resource type="Resource" id="Look_elder"]
+script = ExtResource("1_appearance")
+race = "elf"
+skin = "pale"
+hair_style = "long"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "grey"
+size = "tall"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("1_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("1_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("1_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_guard"]
+script = ExtResource("1_appearance")
+race = "elf"
+skin = "tan"
+hair_style = "long"
+hair_color = "white"
+eye_type = "normal"
+eye_color = "green"
+size = "normal"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_general"]
+script = ExtResource("1_appearance")
+race = "human"
+skin = "tan"
+hair_style = "short"
+hair_color = "grey"
+eye_type = "narrow"
+eye_color = "brown"
+size = "tall"
+outfit = "vest"
+clothes_color = "navy"
+
+[sub_resource type="RectangleShape2D" id="Shape_carriage"]
+size = Vector2(150, 16)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_210x30"]
+size = Vector2(210, 30)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_46x12"]
+size = Vector2(46, 12)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_30x10"]
+size = Vector2(30, 10)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_19x6"]
+size = Vector2(19, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[node name="ElfGrove" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -40
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1960.0
+offset_bottom = 1540.0
+mouse_filter = 2
+color = Color(0.06, 0.09, 0.07, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("2_day_tint")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, -300)
+z_index = -2
+texture = ExtResource("3_elf_grove")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(0, -300)
+script = ExtResource("4_cave_walls")
+mask = ExtResource("5_elf_grove_ma")
+
+[node name="GroveNarrator" parent="." instance=ExtResource("6_story_npc")]
+position = Vector2(480, 400)
+npc_id = "grove_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(40, 40)
+
+[node name="Liriel" parent="." instance=ExtResource("6_story_npc")]
+position = Vector2(530, 290)
+npc_id = "elf_guard"
+resident = "elf_guard"
+appearance = SubResource("Look_guard")
+facing = "left"
+
+[node name="General" parent="." instance=ExtResource("6_story_npc")]
+position = Vector2(470, 440)
+npc_id = "general"
+appearance = SubResource("Look_general")
+required_flag = "elf_defenses"
+hidden_when_flag = "reached_part3_end"
+absent_steps = PackedStringArray("elf_attack_wake", "elf_attack_canopy", "elf_attack_summit")
+facing = "left"
+
+[node name="AureliusFinster" parent="." instance=ExtResource("6_story_npc")]
+position = Vector2(432, 425)
+npc_id = "magician"
+appearance = SubResource("Look_magician")
+resident = "aurelius"
+required_flag = "reached_finster_start"
+hidden_when_flag = "reached_finster_gate"
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(3, 3)
+
+[node name="Fireflies" type="Sprite2D" parent="."]
+z_index = 2
+modulate = Color(0.7, 1, 1, 0.8)
+position = Vector2(480, 300)
+texture = ExtResource("tr_fly")
+hframes = 4
+vframes = 4
+script = ExtResource("tr_anim")
+frames_per_second = 7.0
+
+[node name="DoorGreatTree" parent="." instance=ExtResource("7_door")]
+position = Vector2(480, 262)
+target_scene = "res://scenes/world/elves/elf_tree_hall.tscn"
+target_spawn_point = &"FromGrove"
+
+[node name="Visual" parent="DoorGreatTree"]
+visible = false
+
+[node name="FromTree" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(480, 300)
+
+[node name="Carriage" type="StaticBody2D" parent="."]
+modulate = Color(0.78, 1, 0.82, 1)
+position = Vector2(300, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="Carriage"]
+texture = ExtResource("8_royal_carria")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carriage"]
+position = Vector2(0, -6)
+shape = SubResource("Shape_carriage")
+
+[node name="Label" type="Label" parent="Carriage"]
+offset_left = -60.0
+offset_top = -96.0
+offset_right = 60.0
+offset_bottom = -84.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "Kutscher Jupp"
+horizontal_alignment = 1
+
+[node name="ToLeonheim" parent="." instance=ExtResource("7_door")]
+position = Vector2(318, 512)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"FromCarriage"
+fade = true
+needs_interact = true
+carriage_stop = "sylvaris"
+
+[node name="Visual" parent="ToLeonheim"]
+visible = false
+
+[node name="FromCarriage" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(420, 470)
+
+[node name="Camp" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("9_story_prop")
+required_flag = "elf_defenses"
+
+[node name="Soldier1" type="Sprite2D" parent="Camp"]
+position = Vector2(620, 380)
+texture = ExtResource("10_castle_guard")
+offset = Vector2(0, -20)
+
+[node name="Soldier2" type="Sprite2D" parent="Camp"]
+position = Vector2(660, 392)
+texture = ExtResource("11_castle_guard")
+offset = Vector2(0, -20)
+
+[node name="Soldier3" type="Sprite2D" parent="Camp"]
+position = Vector2(360, 380)
+texture = ExtResource("11_castle_guard")
+offset = Vector2(0, -20)
+
+[node name="Soldier4" type="Sprite2D" parent="Camp"]
+position = Vector2(700, 250)
+texture = ExtResource("10_castle_guard")
+offset = Vector2(0, -20)
+
+[node name="Soldier5" type="Sprite2D" parent="Camp"]
+position = Vector2(250, 250)
+texture = ExtResource("10_castle_guard")
+offset = Vector2(0, -20)
+
+[node name="Soldier6" type="Sprite2D" parent="Camp"]
+position = Vector2(560, 470)
+texture = ExtResource("11_castle_guard")
+offset = Vector2(0, -20)
+
+[node name="Banner1" type="Sprite2D" parent="Camp"]
+position = Vector2(600, 360)
+texture = ExtResource("12_banner_blue")
+offset = Vector2(0, -20)
+
+[node name="Banner2" type="Sprite2D" parent="Camp"]
+position = Vector2(380, 360)
+texture = ExtResource("12_banner_blue")
+offset = Vector2(0, -20)
+
+[node name="Lantern1" parent="." instance=ExtResource("lamp_elf")]
+position = Vector2(398, 352)
+
+[node name="Lantern2" parent="." instance=ExtResource("lamp_elf")]
+position = Vector2(612, 452)
+
+[node name="Lantern3" parent="." instance=ExtResource("lamp_elf")]
+position = Vector2(262, 455)
+
+[node name="Lantern4" parent="." instance=ExtResource("lamp_elf")]
+position = Vector2(736, 382)
+
+[node name="Teleporter" parent="." instance=ExtResource("16_teleporter")]
+position = Vector2(440, 505)
+spot_id = "sylvaris"
+open_flag = "elf_route_open"
+
+[node name="FromTeleporter" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(490, 508)
+
+[node name="GroveTrees" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="GreatTree" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(480, 271)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/GreatTree"]
+texture = ExtResource("wp_elves_tree_great")
+offset = Vector2(0, -277)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/GreatTree"]
+position = Vector2(0, -27)
+shape = SubResource("wp_rect_210x30")
+
+[node name="P2" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(130, 232)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P2"]
+texture = ExtResource("wp_elves_tree_big_a")
+offset = Vector2(0, -110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_46x12")
+
+[node name="P3" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(842, 238)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P3"]
+texture = ExtResource("wp_elves_tree_big_b")
+offset = Vector2(0, -104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_46x12")
+
+[node name="P4" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(262, 380)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P4"]
+texture = ExtResource("wp_elves_tree_big_c")
+offset = Vector2(0, -110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_46x12")
+
+[node name="P5" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(690, 372)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P5"]
+texture = ExtResource("wp_elves_tree_big_a")
+offset = Vector2(0, -110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_46x12")
+
+[node name="P6" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(130, 520)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P6"]
+texture = ExtResource("wp_elves_tree_big_b")
+offset = Vector2(0, -104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_46x12")
+
+[node name="P7" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(830, 524)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P7"]
+texture = ExtResource("wp_elves_tree_big_c")
+offset = Vector2(0, -110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P7"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_46x12")
+
+[node name="P8" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(90, -80)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P8"]
+texture = ExtResource("wp_elves_tree_mid_a")
+offset = Vector2(0, -65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P8"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x10")
+
+[node name="P9" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(240, -130)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P9"]
+texture = ExtResource("wp_elves_tree_mid_c")
+offset = Vector2(0, -57.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P9"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x10")
+
+[node name="P10" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(720, -110)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P10"]
+texture = ExtResource("wp_elves_tree_mid_d")
+offset = Vector2(0, -60.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P10"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x10")
+
+[node name="P11" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(880, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P11"]
+texture = ExtResource("wp_elves_tree_mid_b")
+offset = Vector2(0, -67.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P11"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x10")
+
+[node name="P12" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(60, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P12"]
+texture = ExtResource("wp_elves_tree_mid_c")
+offset = Vector2(0, -57.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P12"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x10")
+
+[node name="P13" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(920, 70)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P13"]
+texture = ExtResource("wp_elves_tree_mid_a")
+offset = Vector2(0, -65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P13"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x10")
+
+[node name="P14" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(560, 516)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P14"]
+texture = ExtResource("wp_elves_tree_mid_b")
+offset = Vector2(0, -67.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P14"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x10")
+
+[node name="P15" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(40, 390)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P15"]
+texture = ExtResource("wp_elves_tree_mid_d")
+offset = Vector2(0, -60.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P15"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x10")
+
+[node name="P16" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(930, 380)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P16"]
+texture = ExtResource("wp_elves_tree_mid_c")
+offset = Vector2(0, -57.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P16"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x10")
+
+[node name="P17" type="Sprite2D" parent="GroveTrees"]
+position = Vector2(380, 300)
+texture = ExtResource("wp_world_props_grove_0")
+offset = Vector2(0, -18.5)
+
+[node name="P19" type="Sprite2D" parent="GroveTrees"]
+position = Vector2(610, 300)
+texture = ExtResource("wp_world_props_grove_16")
+offset = Vector2(0, -14)
+
+[node name="P20" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(740, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P20"]
+texture = ExtResource("wp_world_props_grove_15")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P20"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_19x6")
+
+[node name="P21" type="Sprite2D" parent="GroveTrees"]
+position = Vector2(210, 450)
+texture = ExtResource("wp_world_props_grove_17")
+offset = Vector2(0, -18.5)
+
+[node name="P22" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(420, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P22"]
+texture = ExtResource("wp_world_props_grove_1")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P22"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P23" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(590, 340)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P23"]
+texture = ExtResource("wp_world_props_grove_9")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P23"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_21x6")
+
+[node name="P24" type="Sprite2D" parent="GroveTrees"]
+position = Vector2(720, 460)
+texture = ExtResource("wp_world_props_grove_0")
+offset = Vector2(0, -18.5)
+
+[node name="P25" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(660, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P25"]
+texture = ExtResource("wp_world_props_grove_13")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P25"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P26" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(90, 340)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P26"]
+texture = ExtResource("wp_world_props_grove_8")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P26"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P27" type="Sprite2D" parent="GroveTrees"]
+position = Vector2(760, 90)
+texture = ExtResource("wp_world_props_grove_17")
+offset = Vector2(0, -18.5)
+
+[node name="P29" type="Sprite2D" parent="GroveTrees"]
+position = Vector2(180, 90)
+texture = ExtResource("wp_world_props_grove_0")
+offset = Vector2(0, -18.5)
+
+[node name="P30" type="StaticBody2D" parent="GroveTrees"]
+position = Vector2(300, 190)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroveTrees/P30"]
+texture = ExtResource("wp_world_props_grove_4")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroveTrees/P30"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P31" type="Sprite2D" parent="GroveTrees"]
+position = Vector2(880, 450)
+texture = ExtResource("wp_world_props_grove_2")
+offset = Vector2(0, -20)
+
+[node name="Player" parent="." instance=ExtResource("14_player")]
+position = Vector2(420, 470)
+
+[node name="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = -300
+limit_right = 960
+limit_bottom = 540
+
+[node name="HUD" parent="." instance=ExtResource("15_hud")]
+
+[editable path="DoorGreatTree"]
+[editable path="ToLeonheim"]
+[editable path="Player"]
+
+[node name="ArmoryMenu" parent="." instance=ExtResource("armory_menu")]

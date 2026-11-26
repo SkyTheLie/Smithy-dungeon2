@@ -1,0 +1,221 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/heroes/hero_window.gd" id="1_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+[ext_resource type="Script" path="res://scenes/ui/common/sliding_pages.gd" id="2_pages"]
+[ext_resource type="Script" path="res://scenes/ui/common/equipment_doll.gd" id="3_doll"]
+[ext_resource type="Script" path="res://scenes/ui/common/skill_tree_view.gd" id="4_tree"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_class"]
+content_margin_left = 4.0
+content_margin_top = 1.0
+content_margin_right = 4.0
+content_margin_bottom = 1.0
+bg_color = Color(0.13, 0.075, 0.12, 0.6)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.4, 0.32, 1)
+
+[node name="HeroWindow" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -130.0
+offset_right = 310.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_window")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="TitleBar" parent="VBox" instance=ExtResource("90_title_bar")]
+layout_mode = 2
+
+[node name="HeaderPanel" type="PanelContainer" parent="VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_class")
+
+[node name="Header" type="HBoxContainer" parent="VBox/HeaderPanel"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Portrait" type="TextureRect" parent="VBox/HeaderPanel/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Info" type="VBoxContainer" parent="VBox/HeaderPanel/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="NameLabel" type="Label" parent="VBox/HeaderPanel/Header/Info"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+text_overrun_behavior = 3
+
+[node name="NameEdit" type="LineEdit" parent="VBox/HeaderPanel/Header/Info"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ClassLabel" type="Label" parent="VBox/HeaderPanel/Header/Info"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text_overrun_behavior = 3
+
+[node name="Side" type="VBoxContainer" parent="VBox/HeaderPanel/Header"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 1
+
+[node name="LevelLabel" type="Label" parent="VBox/HeaderPanel/Header/Side"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="StaminaBar" type="ProgressBar" parent="VBox/HeaderPanel/Header/Side"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+mouse_filter = 1
+max_value = 1.0
+step = 0.0
+show_percentage = false
+
+[node name="StaminaLabel" type="Label" parent="VBox/HeaderPanel/Header/Side"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+horizontal_alignment = 2
+
+[node name="Tabs" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="EquipmentTab" type="Button" parent="VBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+text = "Ausrüstung"
+text_overrun_behavior = 3
+alignment = 0
+
+[node name="SkillsTab" type="Button" parent="VBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+text = "Fähigkeiten"
+text_overrun_behavior = 3
+alignment = 0
+
+[node name="MoreButton" type="Button" parent="VBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Alle Werte des Helden"
+text = "Mehr anzeigen"
+
+[node name="Pages" type="Control" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 200)
+layout_mode = 2
+script = ExtResource("2_pages")
+
+[node name="EquipmentPage" type="HBoxContainer" parent="VBox/Pages"]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 200.0
+theme_override_constants/separation = 4
+
+[node name="Doll" type="Control" parent="VBox/Pages/EquipmentPage"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 170)
+layout_mode = 2
+script = ExtResource("3_doll")
+
+[node name="Stats" type="VBoxContainer" parent="VBox/Pages/EquipmentPage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+
+[node name="ValuesGrid" type="GridContainer" parent="VBox/Pages/EquipmentPage/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="ValuesSeparator" type="HSeparator" parent="VBox/Pages/EquipmentPage/Stats"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="AttributeGrid" type="GridContainer" parent="VBox/Pages/EquipmentPage/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="Spacer" type="Control" parent="VBox/Pages/EquipmentPage/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PointsLabel" type="Label" parent="VBox/Pages/EquipmentPage/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExperienceLabel" type="Label" parent="VBox/Pages/EquipmentPage/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExperienceBar" type="ProgressBar" parent="VBox/Pages/EquipmentPage/Stats"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+show_percentage = false
+
+[node name="SkillsPage" type="VBoxContainer" parent="VBox/Pages"]
+visible = false
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 192.0
+theme_override_constants/separation = 2
+
+[node name="TreeTabs" type="HBoxContainer" parent="VBox/Pages/SkillsPage"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="SkillTree" type="Control" parent="VBox/Pages/SkillsPage"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("4_tree")
+
+[node name="SkillPointsLabel" type="Label" parent="VBox/Pages/SkillsPage"]
+unique_name_in_owner = true
+layout_mode = 2

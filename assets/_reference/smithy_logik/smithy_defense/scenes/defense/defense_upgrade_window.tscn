@@ -1,0 +1,321 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scenes/defense/defense_upgrade_window.gd" id="1_window"]
+[ext_resource type="Texture2D" path="res://assets/ui/icon_coin.png" id="2_coin"]
+[ext_resource type="Script" path="res://scenes/defense/defense_upgrade_tree.gd" id="3_tree"]
+[ext_resource type="Script" path="res://scenes/ui/common/pan_zoom_view.gd" id="4_drag"]
+[ext_resource type="Script" path="res://scenes/defense/defense_ui_fx.gd" id="5_uifx"]
+
+[sub_resource type="StyleBoxFlat" id="result_box"]
+content_margin_left = 6.0
+content_margin_top = 3.0
+content_margin_right = 6.0
+content_margin_bottom = 3.0
+bg_color = Color(0.1, 0.06, 0.09, 0.85)
+border_width_bottom = 1
+border_color = Color(0.55, 0.4, 0.25, 1)
+
+[sub_resource type="StyleBoxFlat" id="chip"]
+content_margin_left = 4.0
+content_margin_top = 1.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0.08, 0.05, 0.08, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.33, 0.25, 1)
+
+[sub_resource type="StyleBoxFlat" id="tree_backdrop"]
+bg_color = Color(0.07, 0.045, 0.065, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.25, 0.2, 1)
+
+[node name="DefenseUpgradeWindow" type="PanelContainer"]
+custom_minimum_size = Vector2(600, 336)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -168.0
+offset_right = 300.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HudPanel"
+script = ExtResource("1_window")
+
+[node name="Embers" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("5_uifx")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Result" type="PanelContainer" parent="VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("result_box")
+
+[node name="ResultBox" type="VBoxContainer" parent="VBox/Result"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Header" type="HBoxContainer" parent="VBox/Result/ResultBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="InfoLabel" type="Label" parent="VBox/Result/ResultBox/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 0
+theme_override_colors/font_color = Color(1, 0.82, 0.45, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Verbesserungsphase"
+text_overrun_behavior = 3
+
+[node name="CoinChip" type="PanelContainer" parent="VBox/Result/ResultBox/Header"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("chip")
+
+[node name="CoinRow" type="HBoxContainer" parent="VBox/Result/ResultBox/Header/CoinChip"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="CoinIcon" type="TextureRect" parent="VBox/Result/ResultBox/Header/CoinChip/CoinRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinsLabel" type="Label" parent="VBox/Result/ResultBox/Header/CoinChip/CoinRow"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(1, 0.86, 0.45, 1)
+text = "0"
+
+[node name="CrystalChip" type="PanelContainer" parent="VBox/Result/ResultBox/Header"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("chip")
+
+[node name="CrystalCoinsLabel" type="Label" parent="VBox/Result/ResultBox/Header/CrystalChip"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.55, 0.9, 1, 1)
+text = "0"
+
+[node name="MasteryChip" type="PanelContainer" parent="VBox/Result/ResultBox/Header"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("chip")
+
+[node name="MasteryLabel" type="Label" parent="VBox/Result/ResultBox/Header/MasteryChip"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.64, 1, 1)
+text = "0"
+
+[node name="GainsLabel" type="Label" parent="VBox/Result/ResultBox"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.85, 0.8, 0.72, 1)
+text_overrun_behavior = 3
+
+[node name="WinsLabel" type="Label" parent="VBox/Result/ResultBox"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.6, 0.95, 0.55, 1)
+text_overrun_behavior = 3
+
+[node name="RelicChoice" type="VBoxContainer" parent="VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="RelicChoiceTitle" type="Label" parent="VBox/RelicChoice"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+text = "Wähle ein Relikt"
+horizontal_alignment = 1
+
+[node name="RelicChoiceRow" type="HBoxContainer" parent="VBox/RelicChoice"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Tabs" type="TabContainer" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Shop" type="VBoxContainer" parent="VBox/Tabs"]
+layout_mode = 2
+theme_override_constants/separation = 4
+metadata/_tab_index = 0
+
+[node name="OfferScroll" type="ScrollContainer" parent="VBox/Tabs/Shop"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="OfferList" type="GridContainer" parent="VBox/Tabs/Shop/OfferScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="FilterRow" type="HBoxContainer" parent="VBox/Tabs/Shop"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="FilterLabel" type="Label" parent="VBox/Tabs/Shop/FilterRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.7, 0.65, 1)
+text = "Im Laden:"
+
+[node name="FilterIcons" type="HBoxContainer" parent="VBox/Tabs/Shop/FilterRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ShopFooter" type="HBoxContainer" parent="VBox/Tabs/Shop"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StockLabel" type="Label" parent="VBox/Tabs/Shop/ShopFooter"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.75, 0.7, 0.65, 1)
+text = ""
+text_overrun_behavior = 3
+
+[node name="RerollButton" type="Button" parent="VBox/Tabs/Shop/ShopFooter"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 20)
+layout_mode = 2
+text = "Auffrischen"
+
+[node name="Upgrades" type="Control" parent="VBox/Tabs"]
+visible = false
+layout_mode = 2
+script = ExtResource("4_drag")
+backdrop = SubResource("tree_backdrop")
+metadata/_tab_index = 1
+
+[node name="UpgradeTree" type="Control" parent="VBox/Tabs/Upgrades"]
+unique_name_in_owner = true
+layout_mode = 0
+script = ExtResource("3_tree")
+
+[node name="Relics" type="VBoxContainer" parent="VBox/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="SlotTitle" type="Label" parent="VBox/Tabs/Relics"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.45, 1)
+text = "Eingesetzt"
+horizontal_alignment = 1
+
+[node name="RelicSlots" type="HBoxContainer" parent="VBox/Tabs/Relics"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="RelicSeparator" type="HSeparator" parent="VBox/Tabs/Relics"]
+layout_mode = 2
+
+[node name="RelicScroll" type="ScrollContainer" parent="VBox/Tabs/Relics"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="RelicList" type="GridContainer" parent="VBox/Tabs/Relics/RelicScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Mastery" type="Control" parent="VBox/Tabs"]
+visible = false
+layout_mode = 2
+script = ExtResource("4_drag")
+backdrop = SubResource("tree_backdrop")
+metadata/_tab_index = 3
+
+[node name="MasteryTree" type="Control" parent="VBox/Tabs/Mastery"]
+unique_name_in_owner = true
+layout_mode = 0
+script = ExtResource("3_tree")
+
+[node name="Collection" type="ScrollContainer" parent="VBox/Tabs"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 4
+
+[node name="CollectionList" type="GridContainer" parent="VBox/Tabs/Collection"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 3
+
+[node name="Quests" type="ScrollContainer" parent="VBox/Tabs"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 5
+
+[node name="QuestList" type="VBoxContainer" parent="VBox/Tabs/Quests"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Buttons" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="NextWaveButton" type="Button" parent="VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.86, 0.45, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "Run starten"
+
+[node name="Confetti" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("5_uifx")

@@ -1,0 +1,218 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/admin_panel.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+[ext_resource type="Script" path="res://scenes/ui/common/resize_grip.gd" id="91_grip"]
+
+[node name="AdminPanel" type="CanvasLayer"]
+script = ExtResource("1_menu")
+title = "Adminpanel"
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.0
+offset_top = 30.0
+offset_right = 210.0
+offset_bottom = 330.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("90_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TabBar" type="TabBar" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+
+[node name="ItemsPage" type="VBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="Filter" type="HBoxContainer" parent="Panel/VBox/ItemsPage"]
+layout_mode = 2
+
+[node name="Search" type="LineEdit" parent="Panel/VBox/ItemsPage/Filter"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Suchen..."
+
+[node name="Category" type="OptionButton" parent="Panel/VBox/ItemsPage/Filter"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+
+[node name="Pick" type="HBoxContainer" parent="Panel/VBox/ItemsPage"]
+layout_mode = 2
+tooltip_text = "Gilt für alles, was du ab jetzt nimmst."
+
+[node name="RarityLabel" type="Label" parent="Panel/VBox/ItemsPage/Pick"]
+layout_mode = 2
+text = "Seltenheit"
+
+[node name="RarityPick" type="OptionButton" parent="Panel/VBox/ItemsPage/Pick"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "„Standard“ = wie das Item normalerweise ist. Waffen und Rüstungen würfeln ihre Boni dazu neu."
+
+[node name="QualityLabel" type="Label" parent="Panel/VBox/ItemsPage/Pick"]
+layout_mode = 2
+text = "Qualität"
+
+[node name="QualityPick" type="SpinBox" parent="Panel/VBox/ItemsPage/Pick"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Qualität 0–100 wie aus dem Schmiede-Minispiel (Barren, Teile, Waffen, Rüstungen …). 0 = keine."
+
+[node name="Scroll" type="ScrollContainer" parent="Panel/VBox/ItemsPage"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(236, 192)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 3
+
+[node name="Grid" type="GridContainer" parent="Panel/VBox/ItemsPage/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 14
+
+[node name="EventsPage" type="VBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="RaidInfo" type="Label" parent="Panel/VBox/EventsPage"]
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
+text = "Kapitel 10: Der Überfall mit dem Lich. Du wachst nachts in der Schmiede auf. Wie in der Story nehmen die Diebe Gold, Inventar und Truhen mit, Bruno und Oma Hilde sterben."
+autowrap_mode = 3
+
+[node name="RaidButton" type="Button" parent="Panel/VBox/EventsPage"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Überfall starten"
+
+[node name="KingInfo" type="Label" parent="Panel/VBox/EventsPage"]
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
+text = "Teil 2, Kapitel 3: Die Kutsche des Königs bringt dich in den Schlossgarten von Leonheim, danach Audienz im Thronsaal."
+autowrap_mode = 3
+
+[node name="KingButton" type="Button" parent="Panel/VBox/EventsPage"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Mit der Kutsche zum König"
+
+[node name="HousePage" type="VBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="HouseInfo" type="Label" parent="Panel/VBox/HousePage"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="HouseButtons" type="VBoxContainer" parent="Panel/VBox/HousePage"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="GreenhouseButton" type="Button" parent="Panel/VBox/HousePage"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Gewächshaus bauen"
+
+[node name="ChaptersPage" type="VBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ChapterInfo" type="Label" parent="Panel/VBox/ChaptersPage"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="ChapterScroll" type="ScrollContainer" parent="Panel/VBox/ChaptersPage"]
+custom_minimum_size = Vector2(236, 170)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ChapterButtons" type="VBoxContainer" parent="Panel/VBox/ChaptersPage/ChapterScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="MapsPage" type="VBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="MapInfo" type="Label" parent="Panel/VBox/MapsPage"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="MapScroll" type="ScrollContainer" parent="Panel/VBox/MapsPage"]
+custom_minimum_size = Vector2(236, 170)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="MapButtons" type="VBoxContainer" parent="Panel/VBox/MapsPage/MapScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="StatusRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="GripSpacer" type="Control" parent="Panel/VBox/StatusRow"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="Panel/VBox/StatusRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+
+[node name="ResizeGrip" type="Control" parent="Panel/VBox/StatusRow"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_vertical = 8
+script = ExtResource("91_grip")

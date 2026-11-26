@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/night_light.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://scenes/world/objects/night_light_texture.tres" id="2_texture"]
+
+[node name="NightLight" type="PointLight2D"]
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.0
+texture = ExtResource("2_texture")
+texture_scale = 1.6
+script = ExtResource("1_script")

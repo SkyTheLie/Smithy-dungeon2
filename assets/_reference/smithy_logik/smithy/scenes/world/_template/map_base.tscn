@@ -1,0 +1,57 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="1_day_tint"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v"]
+size = Vector2(16, 360)
+
+[node name="Map" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("1_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -2
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(320, -8)
+shape = SubResource("RectangleShape2D_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(320, 368)
+shape = SubResource("RectangleShape2D_h")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-8, 180)
+shape = SubResource("RectangleShape2D_v")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(648, 180)
+shape = SubResource("RectangleShape2D_v")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="FromStart" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(320, 180)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(320, 180)
+
+[node name="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 360
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[editable path="Player"]

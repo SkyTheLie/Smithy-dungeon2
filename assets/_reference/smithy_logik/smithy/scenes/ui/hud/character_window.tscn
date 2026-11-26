@@ -1,0 +1,241 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/character_window.gd" id="1_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+[ext_resource type="Script" path="res://scenes/ui/common/sliding_pages.gd" id="2_pages"]
+[ext_resource type="Script" path="res://scenes/ui/common/equipment_doll.gd" id="3_doll"]
+[ext_resource type="Script" path="res://scenes/ui/common/skill_tree_view.gd" id="4_tree"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_class"]
+content_margin_left = 4.0
+content_margin_top = 1.0
+content_margin_right = 4.0
+content_margin_bottom = 1.0
+bg_color = Color(0.13, 0.075, 0.12, 0.6)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.4, 0.32, 1)
+
+[node name="CharacterWindow" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -130.0
+offset_right = -10.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_window")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="TitleBar" parent="VBox" instance=ExtResource("90_title_bar")]
+layout_mode = 2
+title = "Charakter"
+
+[node name="Header" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="NamePanel" type="PanelContainer" parent="VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_class")
+
+[node name="NameLabel" type="Label" parent="VBox/Header/NamePanel"]
+layout_mode = 2
+text = "Schmied"
+
+[node name="ClassPanel" type="PanelContainer" parent="VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.3
+theme_override_styles/panel = SubResource("StyleBoxFlat_class")
+
+[node name="ClassLabel" type="Label" parent="VBox/Header/ClassPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.65, 0.3, 1)
+
+[node name="Tabs" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="EquipmentTab" type="Button" parent="VBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+text = "Ausrüstung"
+text_overrun_behavior = 3
+alignment = 0
+
+[node name="SkillsTab" type="Button" parent="VBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+text = "Fähigkeiten"
+text_overrun_behavior = 3
+alignment = 0
+
+[node name="RecipesTab" type="Button" parent="VBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+text = "Gussformen"
+text_overrun_behavior = 3
+alignment = 0
+
+[node name="KnownRecipesTab" type="Button" parent="VBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+text = "Rezepte"
+text_overrun_behavior = 3
+alignment = 0
+
+[node name="AchievementsTab" type="Button" parent="VBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+text = "Erfolge"
+text_overrun_behavior = 3
+alignment = 0
+
+[node name="FameTab" type="Button" parent="VBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+text = "Ruhm"
+text_overrun_behavior = 3
+alignment = 0
+
+[node name="Pages" type="Control" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 192)
+layout_mode = 2
+script = ExtResource("2_pages")
+
+[node name="EquipmentPage" type="HBoxContainer" parent="VBox/Pages"]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 192.0
+theme_override_constants/separation = 4
+
+[node name="Doll" type="Control" parent="VBox/Pages/EquipmentPage"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 136)
+layout_mode = 2
+script = ExtResource("3_doll")
+
+[node name="Stats" type="VBoxContainer" parent="VBox/Pages/EquipmentPage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+
+[node name="StatsLabel" type="RichTextLabel" parent="VBox/Pages/EquipmentPage/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ExperienceLabel" type="Label" parent="VBox/Pages/EquipmentPage/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExperienceBar" type="ProgressBar" parent="VBox/Pages/EquipmentPage/Stats"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+show_percentage = false
+
+[node name="SkillsPage" type="VBoxContainer" parent="VBox/Pages"]
+visible = false
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 192.0
+theme_override_constants/separation = 2
+
+[node name="SkillTree" type="Control" parent="VBox/Pages/SkillsPage"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("4_tree")
+
+[node name="SkillPointsLabel" type="Label" parent="VBox/Pages/SkillsPage"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RecipesPage" type="ScrollContainer" parent="VBox/Pages"]
+visible = false
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 192.0
+horizontal_scroll_mode = 0
+
+[node name="RecipesLabel" type="Label" parent="VBox/Pages/RecipesPage"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="KnownRecipesPage" type="ScrollContainer" parent="VBox/Pages"]
+visible = false
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 192.0
+horizontal_scroll_mode = 0
+
+[node name="KnownRecipesList" type="VBoxContainer" parent="VBox/Pages/KnownRecipesPage"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="AchievementsPage" type="ScrollContainer" parent="VBox/Pages"]
+visible = false
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 192.0
+horizontal_scroll_mode = 0
+
+[node name="AchievementList" type="VBoxContainer" parent="VBox/Pages/AchievementsPage"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="FamePage" type="ScrollContainer" parent="VBox/Pages"]
+visible = false
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 192.0
+horizontal_scroll_mode = 0
+
+[node name="FameLabel" type="RichTextLabel" parent="VBox/Pages/FamePage"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = false

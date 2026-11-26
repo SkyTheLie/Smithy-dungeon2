@@ -1,0 +1,74 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/tournament/tournament_hall.tscn" id="1_hall"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/tournament_hall_sahrim_ground.png" id="2_tournament_hall_sahrim_ground"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/sahrim_desk.png" id="3_sahrim_desk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/sahrimforge_8.png" id="4_sahrimforge_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_24.png" id="5_oasis_24"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/pillar.png" id="6_pillar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/sahrimforge_5.png" id="7_sahrimforge_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_0.png" id="8_oasis_0"]
+
+[sub_resource type="Resource" id="Look_city_master"]
+script = ExtResource("appearance")
+race = "beast_lizard"
+skin = "sand"
+hair_style = "bald"
+hair_color = "black"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "vest"
+clothes_color = "ochre"
+
+[node name="TournamentHall" instance=ExtResource("1_hall")]
+
+[node name="Ground" parent="." index="1"]
+texture = ExtResource("2_tournament_hall_sahrim_ground")
+
+[node name="Sprite2D" parent="BannerL"]
+texture = ExtResource("4_sahrimforge_8")
+offset = Vector2(0, -23)
+
+[node name="Sprite2D" parent="BannerR"]
+texture = ExtResource("5_oasis_24")
+offset = Vector2(0, -21)
+
+[node name="Sprite2D" parent="PillarL"]
+texture = ExtResource("6_pillar")
+offset = Vector2(0, -56)
+
+[node name="Sprite2D" parent="PillarR"]
+texture = ExtResource("6_pillar")
+offset = Vector2(0, -56)
+
+[node name="Sprite2D" parent="BrazierL"]
+texture = ExtResource("7_sahrimforge_5")
+offset = Vector2(0, -19.5)
+
+[node name="Sprite2D" parent="BrazierR"]
+texture = ExtResource("7_sahrimforge_5")
+offset = Vector2(0, -19.5)
+
+[node name="Sprite2D" parent="PlantL"]
+texture = ExtResource("8_oasis_0")
+offset = Vector2(0, -21)
+
+[node name="Sprite2D" parent="PlantR"]
+texture = ExtResource("8_oasis_0")
+offset = Vector2(0, -21)
+
+[node name="Master" parent="Desk"]
+appearance = SubResource("Look_city_master")
+
+[node name="Sprite2D" parent="Desk"]
+texture = ExtResource("3_sahrim_desk")
+
+[node name="DoorOut" parent="."]
+target_scene = "res://scenes/world/desert/sahrim_east.tscn"
+target_spawn_point = &"FromSmithTent"
+
+[node name="TournamentDeskMenu" parent="."]
+venue = "sahrim"
+title = "Turnierhalle Sahrim"

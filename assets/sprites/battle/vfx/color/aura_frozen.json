@@ -1,0 +1,225 @@
+{
+ "frames": [
+  {
+   "filename": "aura_frozen 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 1.png",
+   "frame": {
+    "x": 19,
+    "y": 0,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 2.png",
+   "frame": {
+    "x": 38,
+    "y": 0,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 3.png",
+   "frame": {
+    "x": 57,
+    "y": 0,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 4.png",
+   "frame": {
+    "x": 0,
+    "y": 24,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 5.png",
+   "frame": {
+    "x": 19,
+    "y": 24,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 6.png",
+   "frame": {
+    "x": 38,
+    "y": 24,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 7.png",
+   "frame": {
+    "x": 57,
+    "y": 24,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 8.png",
+   "frame": {
+    "x": 0,
+    "y": 48,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 9.png",
+   "frame": {
+    "x": 19,
+    "y": 48,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 10.png",
+   "frame": {
+    "x": 38,
+    "y": 48,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_frozen 11.png",
+   "frame": {
+    "x": 57,
+    "y": 48,
+    "w": 19,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.47368421052631576,
+    "y": 0.7916666666666666
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "both"
+ }
+}

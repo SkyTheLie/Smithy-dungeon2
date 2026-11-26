@@ -1,0 +1,391 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-ranken 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 1.png",
+   "frame": {
+    "x": 49,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 2.png",
+   "frame": {
+    "x": 98,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 3.png",
+   "frame": {
+    "x": 147,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 4.png",
+   "frame": {
+    "x": 0,
+    "y": 40,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 5.png",
+   "frame": {
+    "x": 49,
+    "y": 40,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 6.png",
+   "frame": {
+    "x": 98,
+    "y": 40,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 7.png",
+   "frame": {
+    "x": 147,
+    "y": 40,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 8.png",
+   "frame": {
+    "x": 0,
+    "y": 80,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 9.png",
+   "frame": {
+    "x": 49,
+    "y": 80,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 10.png",
+   "frame": {
+    "x": 98,
+    "y": 80,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 11.png",
+   "frame": {
+    "x": 147,
+    "y": 80,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 12.png",
+   "frame": {
+    "x": 0,
+    "y": 120,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-ranken 13.png",
+   "frame": {
+    "x": 49,
+    "y": 120,
+    "w": 49,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 49,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 49,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.4897959183673469,
+    "y": 0.725
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-ranken.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 196,
+   "h": 160
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 24,
+   "y": 29
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-ranken",
+    "from": 0,
+    "to": 13,
+    "direction": "forward"
+   }
+  ]
+ }
+}

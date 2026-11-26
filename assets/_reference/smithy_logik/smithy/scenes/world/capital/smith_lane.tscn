@@ -1,0 +1,756 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/buildings/lane_tent_teal.png" id="wp_buildings_lane_tent_teal"]
+[ext_resource type="Texture2D" path="res://assets/sprites/buildings/lane_tent_leather.png" id="wp_buildings_lane_tent_leather"]
+[ext_resource type="Texture2D" path="res://assets/sprites/buildings/lane_tent_purple.png" id="wp_buildings_lane_tent_purple"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/city_7.png" id="wp_world_props_city_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/camp_13.png" id="wp_world_props_camp_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/city_18.png" id="wp_world_props_city_18"]
+[ext_resource type="Texture2D" path="res://assets/sprites/buildings/lane_tent_gorm.png" id="wp_buildings_lane_tent_gorm"]
+[ext_resource type="Texture2D" path="res://assets/sprites/buildings/lane_tent_ilsa.png" id="wp_buildings_lane_tent_ilsa"]
+[ext_resource type="Texture2D" path="res://assets/sprites/buildings/lane_tent_brandolf.png" id="wp_buildings_lane_tent_brandolf"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_11.png" id="wp_world_props_lane_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_16.png" id="wp_world_props_lane_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_9.png" id="wp_world_props_lane_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_1.png" id="wp_world_props_lane_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_20.png" id="wp_world_props_lane_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_22.png" id="wp_world_props_lane_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_12.png" id="wp_world_props_lane_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_24.png" id="wp_world_props_lane_24"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_7.png" id="wp_world_props_lane_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_14.png" id="wp_world_props_lane_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_18.png" id="wp_world_props_lane_18"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_15.png" id="wp_world_props_lane_15"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_3.png" id="wp_world_props_lane_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/lane_0.png" id="wp_world_props_lane_0"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/smith_lane_ground.png" id="5_ground"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="10_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="12_light"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern.tscn" id="13_lantern"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="90_appearance"]
+[ext_resource type="Script" path="res://scenes/world/objects/window_lights.gd" id="window_lights"]
+[ext_resource type="Script" uid="uid://ds0hynlqqpeua" path="res://scenes/actors/village_roads.gd" id="crowd_roads"]
+[ext_resource type="Script" uid="uid://c0pf3sbup4rhn" path="res://scenes/actors/villager_spot.gd" id="crowd_spot"]
+[ext_resource type="PackedScene" path="res://scenes/actors/villager.tscn" id="crowd_villager"]
+
+[sub_resource type="RectangleShape2D" id="Shape_h"]
+size = Vector2(960, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_v"]
+size = Vector2(16, 640)
+
+[sub_resource type="RectangleShape2D" id="Shape_stand"]
+size = Vector2(96, 22)
+
+[sub_resource type="RectangleShape2D" id="Shape_small"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_crates"]
+size = Vector2(30, 12)
+
+[sub_resource type="Resource" id="Appearance_hagen"]
+script = ExtResource("90_appearance")
+race = "human"
+skin = "tan"
+hair_style = "bald"
+hair_color = "brown"
+eye_type = "narrow"
+eye_color = "grey"
+size = "tall"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Appearance_brandolf"]
+script = ExtResource("90_appearance")
+race = "human"
+skin = "pale"
+hair_style = "short"
+hair_color = "white"
+eye_type = "normal"
+eye_color = "blue"
+size = "normal"
+outfit = "smith"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Appearance_ilsa"]
+script = ExtResource("90_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "red"
+eye_type = "big"
+eye_color = "green"
+size = "normal"
+outfit = "smith"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Appearance_gorm"]
+script = ExtResource("90_appearance")
+race = "human"
+skin = "dark"
+hair_style = "spiky"
+hair_color = "black"
+eye_type = "sleepy"
+eye_color = "amber"
+size = "small"
+outfit = "smith"
+clothes_color = "brown"
+
+[sub_resource type="RectangleShape2D" id="wp_rect_133x44"]
+size = Vector2(133, 44)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_155x44"]
+size = Vector2(155, 44)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_152x44"]
+size = Vector2(152, 44)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_112x46"]
+size = Vector2(112, 46)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_165x46"]
+size = Vector2(165, 46)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_167x46"]
+size = Vector2(167, 46)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_15x6"]
+size = Vector2(15, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_17x6"]
+size = Vector2(17, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_16x6"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_13x6"]
+size = Vector2(13, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_19x6"]
+size = Vector2(19, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_20x6"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_198x44"]
+size = Vector2(198, 44)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_206x44"]
+size = Vector2(206, 44)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_30x6"]
+size = Vector2(30, 6)
+
+[node name="SmithLane" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("4_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-480, -306)
+texture = ExtResource("5_ground")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, -314)
+shape = SubResource("Shape_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, 278)
+shape = SubResource("Shape_h")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-488, 0)
+shape = SubResource("Shape_v")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(488, 0)
+shape = SubResource("Shape_v")
+
+[node name="Decor" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="LanternWest" parent="Decor" instance=ExtResource("13_lantern")]
+position = Vector2(-148, -100)
+
+[node name="LanternEast" parent="Decor" instance=ExtResource("13_lantern")]
+position = Vector2(172, 12)
+
+[node name="SmithBrandolf" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(-305, 208)
+npc_id = "lane_smith_brandolf"
+resident = "lane_smith_brandolf"
+appearance = SubResource("Appearance_brandolf")
+
+[node name="SmithIlsa" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(0, 216)
+npc_id = "lane_smith_ilsa"
+resident = "lane_smith_ilsa"
+appearance = SubResource("Appearance_ilsa")
+
+[node name="SmithGorm" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(305, 210)
+npc_id = "lane_smith_gorm"
+resident = "lane_smith_gorm"
+appearance = SubResource("Appearance_gorm")
+
+[node name="Hagen" parent="." instance=ExtResource("10_story_npc")]
+position = Vector2(150, 34)
+npc_id = "warrior_hagen"
+resident = "warrior_hagen"
+appearance = SubResource("Appearance_hagen")
+facing = "up"
+
+[node name="ToCity" parent="." instance=ExtResource("2_door")]
+position = Vector2(-474, -47)
+scale = Vector2(1, 4)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"FromSmithLane"
+
+[node name="Visual" parent="ToCity" index="0"]
+visible = false
+
+[node name="FromCity" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-440, -47)
+
+[node name="ToTournament" parent="." instance=ExtResource("2_door")]
+position = Vector2(474, -47)
+scale = Vector2(1, 4)
+target_scene = "res://scenes/world/capital/tournament_arena.tscn"
+target_spawn_point = &"FromSmithLane"
+required_flag = "tournament_open"
+locked_text = "Hinter dem Tor liegt der alte Turnierplatz. Seit Jahren ist er verschlossen."
+
+[node name="Visual" parent="ToTournament" index="0"]
+visible = false
+
+[node name="TournamentSign" type="Label" parent="."]
+offset_left = 380.0
+offset_top = -90.0
+offset_right = 476.0
+offset_bottom = -78.0
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "Turnierplatz »"
+horizontal_alignment = 2
+
+[node name="FromTournament" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(440, -47)
+
+[node name="LaneHouses" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="tent_brandolf" type="StaticBody2D" parent="LaneHouses"]
+position = Vector2(-305, 188)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneHouses/tent_brandolf"]
+texture = ExtResource("wp_buildings_lane_tent_brandolf")
+offset = Vector2(0, -86)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneHouses/tent_brandolf"]
+position = Vector2(0, -23)
+shape = SubResource("wp_rect_198x44")
+
+[node name="Forge" parent="LaneHouses/tent_brandolf" instance=ExtResource("12_light")]
+position = Vector2(72, -52)
+
+[node name="tent_ilsa" type="StaticBody2D" parent="LaneHouses"]
+position = Vector2(0, 196)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneHouses/tent_ilsa"]
+texture = ExtResource("wp_buildings_lane_tent_ilsa")
+offset = Vector2(0, -88.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneHouses/tent_ilsa"]
+position = Vector2(0, -23)
+shape = SubResource("wp_rect_206x44")
+
+[node name="Forge" parent="LaneHouses/tent_ilsa" instance=ExtResource("12_light")]
+position = Vector2(60, -52)
+
+[node name="tent_gorm" type="StaticBody2D" parent="LaneHouses"]
+position = Vector2(305, 190)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneHouses/tent_gorm"]
+texture = ExtResource("wp_buildings_lane_tent_gorm")
+offset = Vector2(0, -90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneHouses/tent_gorm"]
+position = Vector2(0, -23)
+shape = SubResource("wp_rect_206x44")
+
+[node name="Forge" parent="LaneHouses/tent_gorm" instance=ExtResource("12_light")]
+position = Vector2(66, -52)
+
+[node name="LaneProps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P22" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(-436, 196)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P22"]
+texture = ExtResource("wp_world_props_lane_3")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P22"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P25" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(-176, 204)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P25"]
+texture = ExtResource("wp_world_props_lane_0")
+offset = Vector2(0, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P25"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P26" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(-180, 232)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P26"]
+texture = ExtResource("wp_world_props_lane_20")
+offset = Vector2(0, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P26"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_19x6")
+
+[node name="P27" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(-154, 232)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P27"]
+texture = ExtResource("wp_world_props_lane_9")
+offset = Vector2(0, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P27"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_15x6")
+
+[node name="P29" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(-104, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P29"]
+texture = ExtResource("wp_world_props_lane_1")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P29"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_16x6")
+
+[node name="P30" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(110, 212)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P30"]
+texture = ExtResource("wp_world_props_lane_18")
+offset = Vector2(0, -14.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P30"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P31" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(124, 238)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P31"]
+texture = ExtResource("wp_world_props_lane_7")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P31"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P32" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(136, 216)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P32"]
+texture = ExtResource("wp_world_props_lane_22")
+offset = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P32"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_13x6")
+
+[node name="P33" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(182, 212)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P33"]
+texture = ExtResource("wp_world_props_lane_12")
+offset = Vector2(0, -14.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P33"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P34" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(180, 242)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P34"]
+texture = ExtResource("wp_world_props_lane_24")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P34"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_16x6")
+
+[node name="P36" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(446, 216)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P36"]
+texture = ExtResource("wp_world_props_lane_14")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P36"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_15x6")
+
+[node name="P37" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(420, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P37"]
+texture = ExtResource("wp_world_props_lane_11")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P37"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P38" type="Sprite2D" parent="LaneProps"]
+position = Vector2(150, 90)
+texture = ExtResource("wp_world_props_lane_15")
+offset = Vector2(0, -13)
+
+[node name="P39" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(-200, 176)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P39"]
+texture = ExtResource("wp_world_props_lane_16")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P39"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_20x6")
+
+[node name="P41" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(148, -116)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P41"]
+texture = ExtResource("wp_world_props_lane_14")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P41"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_15x6")
+
+[node name="P42" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(-96, -112)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P42"]
+texture = ExtResource("wp_world_props_lane_0")
+offset = Vector2(0, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P42"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P44" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(432, -108)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P44"]
+texture = ExtResource("wp_world_props_lane_7")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P44"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P45" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(-452, -116)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P45"]
+texture = ExtResource("wp_world_props_lane_20")
+offset = Vector2(0, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P45"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_19x6")
+
+[node name="P46" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(-148, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P46"]
+texture = ExtResource("wp_world_props_city_18")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P46"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P51" type="StaticBody2D" parent="LaneProps"]
+position = Vector2(206, 242)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneProps/P51"]
+texture = ExtResource("wp_world_props_camp_13")
+offset = Vector2(0, -21.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneProps/P51"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P52" type="Sprite2D" parent="LaneProps"]
+position = Vector2(-60, 30)
+texture = ExtResource("wp_world_props_city_7")
+offset = Vector2(0, -11)
+
+[node name="tent_purple" type="StaticBody2D" parent="LaneHouses"]
+position = Vector2(-305, -99)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneHouses/tent_purple"]
+texture = ExtResource("wp_buildings_lane_tent_purple")
+offset = Vector2(0, -84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneHouses/tent_purple"]
+position = Vector2(0, -23)
+shape = SubResource("wp_rect_206x44")
+
+[node name="Forge" parent="LaneHouses/tent_purple" instance=ExtResource("12_light")]
+position = Vector2(50, -52)
+
+[node name="tent_leather" type="StaticBody2D" parent="LaneHouses"]
+position = Vector2(0, -99)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneHouses/tent_leather"]
+texture = ExtResource("wp_buildings_lane_tent_leather")
+offset = Vector2(0, -88.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneHouses/tent_leather"]
+position = Vector2(0, -23)
+shape = SubResource("wp_rect_206x44")
+
+[node name="Forge" parent="LaneHouses/tent_leather" instance=ExtResource("12_light")]
+position = Vector2(50, -52)
+
+[node name="tent_teal" type="StaticBody2D" parent="LaneHouses"]
+position = Vector2(305, -99)
+
+[node name="Sprite2D" type="Sprite2D" parent="LaneHouses/tent_teal"]
+texture = ExtResource("wp_buildings_lane_tent_teal")
+offset = Vector2(0, -90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaneHouses/tent_teal"]
+position = Vector2(0, -23)
+shape = SubResource("wp_rect_206x44")
+
+[node name="Forge" parent="LaneHouses/tent_teal" instance=ExtResource("12_light")]
+position = Vector2(88, -52)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-440, -47)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -480
+limit_top = -306
+limit_right = 480
+limit_bottom = 270
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="WindowLights" type="Node" parent="."]
+script = ExtResource("window_lights")
+
+[editable path="ToCity"]
+[editable path="ToTournament"]
+[editable path="Player"]
+
+[node name="Crowd" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Roads" type="Node2D" parent="Crowd"]
+script = ExtResource("crowd_roads")
+area = Rect2(-480, -306, 960, 605)
+
+[node name="Hub" type="Marker2D" parent="Crowd/Roads"]
+position = Vector2(0, -50)
+
+[node name="Spots" type="Node2D" parent="Crowd"]
+
+[node name="LaneWest" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-468, -50)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "left"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="LaneEast" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(468, -50)
+script = ExtResource("crowd_spot")
+kind = 1
+facing = "right"
+duration = Vector2(20, 60)
+road = NodePath("../../Roads/Hub")
+
+[node name="StallTopW" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-305, -86)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="StallTopM" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(0, -86)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="StallTopE" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(300, -86)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="Brandolf" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-262, 232)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="Ilsa" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(44, 236)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="Gorm" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(262, 234)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="Pigeons" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(-60, 44)
+script = ExtResource("crowd_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 16)
+road = NodePath("../../Roads/Hub")
+
+[node name="StreetWL" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-196, -46)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "right"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../StreetWR")
+
+[node name="StreetWR" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-166, -46)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "left"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../StreetWL")
+
+[node name="StreetEL" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(206, -40)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "right"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../StreetER")
+
+[node name="StreetER" type="Marker2D" parent="Crowd/Spots" node_paths=PackedStringArray("road", "partner")]
+position = Vector2(236, -40)
+script = ExtResource("crowd_spot")
+kind = 4
+facing = "left"
+duration = Vector2(8, 16)
+road = NodePath("../../Roads/Hub")
+partner = NodePath("../StreetEL")
+
+[node name="Apprentice" parent="Crowd" node_paths=PackedStringArray("spots", "roads") instance=ExtResource("crowd_villager")]
+position = Vector2(-350, -50)
+resident = "lane_apprentice"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="Messenger" parent="Crowd" node_paths=PackedStringArray("spots", "roads") instance=ExtResource("crowd_villager")]
+position = Vector2(100, -40)
+resident = "lane_messenger"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="Maid" parent="Crowd" node_paths=PackedStringArray("spots", "roads") instance=ExtResource("crowd_villager")]
+position = Vector2(-100, 60)
+resident = "lane_maid"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="Gentleman" parent="Crowd" node_paths=PackedStringArray("spots", "roads") instance=ExtResource("crowd_villager")]
+position = Vector2(350, -60)
+resident = "lane_gentleman"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+
+[node name="MerchantWife" parent="Crowd" node_paths=PackedStringArray("spots", "roads") instance=ExtResource("crowd_villager")]
+position = Vector2(-20, -30)
+resident = "lane_merchant_wife"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(2, 6)
+goes_home_at_night = true
+

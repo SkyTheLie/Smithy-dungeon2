@@ -1,0 +1,33 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/actors/ball_kids.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/residents/ball.png" id="2_ball"]
+
+[sub_resource type="RectangleShape2D" id="Shape_feet"]
+size = Vector2(12, 6)
+
+[node name="BallKids" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_script")
+
+[node name="Left" type="StaticBody2D" parent="."]
+position = Vector2(-36, 0)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Left"]
+position = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("Shape_feet")
+
+[node name="Right" type="StaticBody2D" parent="."]
+position = Vector2(36, 0)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Right"]
+position = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("Shape_feet")
+
+[node name="Ball" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("2_ball")

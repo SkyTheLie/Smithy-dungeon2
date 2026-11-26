@@ -1,0 +1,358 @@
+{
+	"dialogues": {
+		"swamp_arrival": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Dichter Nebel hängt über dem schwarzen Wasser. Tote Bäume ragen wie krumme Finger aus dem Schlamm."
+				},
+				{
+					"speaker": "",
+					"text": "In der Ferne tanzen blasse Irrlichter, und aus dem Schilf dringt ein tiefes Quaken. Zwischen den Wurzeln steht eine schiefe Hütte auf hohen Holzstelzen."
+				},
+				{
+					"speaker": "player",
+					"text": "Na wunderbar, die Luft hier hat ungefähr den Feuchtigkeitsgrad einer nassen Wolldecke – mein gutes Werkzeug rostet mir ja schon beim Atmen weg."
+				},
+				{
+					"speaker": "",
+					"text": "Vor der Hütte brennt ein kleines Feuer unter einem eisernen Kessel. Eine alte Gestalt mit krummem Hut rührt langsam in der dunklen Brühe."
+				}
+			],
+			"on_end": "set_flag:swamp_intro_seen"
+		},
+		"witch_meet": {
+			"lines": [
+				{
+					"speaker": "swamp_witch",
+					"text": "Hihihi! Tritt nicht auf die Kröten, Schmiedchen, die quaken sonst die ganze Nacht in einer falschen Tonlage!"
+				},
+				{
+					"speaker": "player",
+					"text": "Äh, verzeiht! Ich schaue auf meine Füße. Ihr müsst Muhme Grisla sein, die Sumpfhexe?"
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Hechse! Mit ch, du taube Nuss! Eine Echse, die hext, ist eine Hechse, merk dir das endlich!"
+				},
+				{
+					"speaker": "player",
+					"text": "Hechse, natürlich, völlig logisch, mein Fehler! Euer Großneffe Ssarok schickt mich. Und ich habe extra nichts Süßes mitgebracht."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Braver Junge, mein kleiner Ssarok. Hihihi! Ich wusste schon gestern, dass du kommst, die Fliegen im Kessel sind im Kreis geschwommen."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Du suchst das klapprige Knochengestell, nicht wahr? Vor Wochen ist der Tote durch mein schönes Moor gestampft und hat den Stein des Giftes direkt aus dem Herzen des Sumpfes gerissen!"
+				},
+				{
+					"speaker": "player",
+					"text": "Der Giftkristall? Den hat er auch schon?! Kein Wunder, dass das Wasser hier aussieht wie kaltes Härteöl nach einer langen Arbeitswoche."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Seit der Stein fort ist, kranken die Wasser und das Moor schlägt Blasen vor Wut. Aber wohin das Gerippe danach gekrochen ist, verbirgt ein dichter Schleier aus schwarzer Kunst."
+				},
+				{
+					"speaker": "player",
+					"text": "Ssarok meinte, Ihr seht alles. Gibt es irgendeinen Weg, durch diesen Schleier zu blicken?"
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Für eine Hechse gibt es immer einen Weg, Schmiedchen! Ich brauche nur einen kräftigen Schluck vom Trank der tausend Augen. Schön bitter, schön schleimig!"
+				},
+				{
+					"speaker": "player",
+					"text": "Klingt nach einem Rezept, bei dem mir schon vom Zuhören schlecht wird. Was muss da rein?"
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Drei hübsche Kleinigkeiten aus den tiefen Tümpeln! Zuerst Irrlichtglut aus dem Nebelmoor. Aber Vorsicht: Die Biester hüllen sich in dichten Nebel, da trifft sie nur, wer den ganzen Platz auf einmal fegt!"
+				},
+				{
+					"speaker": "player",
+					"text": "Flächenschaden gegen neblige Leuchtkugeln, ist notiert. Was ist die zweite Zutat?"
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Das schlagende Herz der Moormutter aus dem Knochensumpf! Die faulen Toten dort flicken sich ständig selbst zusammen und stehen wieder auf, wenn man sie nicht schnell und heiß kleinkriegt."
+				},
+				{
+					"speaker": "player",
+					"text": "Okay, heißes Feuer und kräftige Hiebe gegen widerspenstige Moorleichen. Und Nummer drei?"
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Eine frische Schuppe der Sumpfhydra aus dem Hydrateich! Hihihi, ein prächtiges Tierchen! Schlägst du ihr einen Kopf ab, wachsen glatt zwei neue nach."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Mit Gift brauchst du ihr gar nicht erst zu kommen, das schlürft sie wie warme Suppe und wird nur stärker. Aber Feuer, Schmiedchen, Feuer verdirbt ihr gründlich die Laune!"
+				},
+				{
+					"speaker": "player",
+					"text": "Verstanden, meine Helden packen die großen Feuerklingen ein. Soll ich Euch die drei Sachen dann hierher an den Kessel bringen?"
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Ach was, mein Kessel ist voll mit Blutegelsuppe! Hier hast du das Rezept, brau den Trank selbst an deinem Zaubertisch und bring mir die fertige Phiole!"
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Schmied, der Hexenbrühe – Verzeihung, Hechsenbrühe – kocht. Ich bin so gut wie unterwegs, Muhme Grisla!"
+				}
+			],
+			"on_end": "set_flag:swamp_dungeons_unlocked;unlock_recipes:seers_brew;hint:swamp_dungeons;advance:witch_potion"
+		},
+		"witch_waiting": {
+			"lines": [
+				{
+					"speaker": "swamp_witch",
+					"text": "Noch keinen Trank der tausend Augen dabei, Schmiedchen? Erst die drei Zutaten aus dem Sumpf holen, dann an deinem Zaubertisch brauen!"
+				},
+				{
+					"speaker": "player",
+					"text": "Ich arbeite daran! Gute Arbeit braucht eben die richtige Temperatur."
+				}
+			]
+		},
+		"witch_vision": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Hier ist der Trank der tausend Augen, Muhme Grisla. Er blubbert, stinkt nach altem Moor und leuchtet im Dunkeln – müsste also genau Euer Geschmack sein."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Hihihi, her damit! Riecht wie meine Jugend!"
+				},
+				{
+					"speaker": "",
+					"text": "Die alte Echse zieht den Korken mit den Zähnen heraus und trinkt die Phiole in einem Zug leer. Ihre gelben Augen werden milchig und starr.",
+					"action": "cutscene:witch_drinks",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Der Nebel reißt auf ... Ich sehe verbranntes Land jenseits der Sümpfe, weit im Osten. Das alte Reich der Halbdämonen."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Dort ragt eine Festung aus schwarzem Basalt in den grauen Himmel. Die Finsterburg. Auf ihren Zinnen marschieren Knochenwachen Schritt für Schritt."
+				},
+				{
+					"speaker": "player",
+					"text": "Die Finsterburg ... Wenn schon der Name nach schlechtem Wetter klingt, ist die Bausubstanz bestimmt gruselig. Seht Ihr den König?"
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Im höchsten Saal ... Der Tote steht vor einem schwarzen Thron. Und daneben, an einer steinernen Säule, sitzt dein weißbärtiger König in schweren Eisenketten."
+				},
+				{
+					"speaker": "player",
+					"text": "Er lebt! Dem Himmel sei Dank. Geht es ihm gut?"
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Seltsam, Schmiedchen. Ganz seltsam. Der König sitzt völlig ruhig in seinen Ketten ... wie einer, der nur geduldig wartet."
+				},
+				{
+					"speaker": "",
+					"text": "Grisla schüttelt sich kräftig, und ihre Augen werden wieder klar. Sie spuckt ein kleines grünes Wölkchen ins Feuer.",
+					"action": "cutscene:witch_spits",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Bäh, im Abgang etwas zu wenig Krötenschleim! Aber jetzt weißt du, wo das Nest ist. Allein kommst du durch dieses schwarze Tor jedoch niemals hinein."
+				},
+				{
+					"speaker": "player",
+					"text": "Allein hatte ich das auch nicht vor. Wenn der Lich ein ganzes Heer aus Knochen hat, bringe ich eben mein eigenes mit."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Dann nimm den alten Knüppeldamm im Osten, ich nehme den Tarnzauber von den Pfählen. Sag meinem Großneffen, er soll sich im Moor nicht die Schwanzspitze verkühlen!"
+				},
+				{
+					"speaker": "player",
+					"text": "Mach ich! Danke, Muhme Grisla – Ihr seid die beste Hechse im ganzen Land!"
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Halt, Schmiedchen! Was die Augen gesehen haben, vergessen sie schnell. Gib mir deine alte Karte."
+				},
+				{
+					"speaker": "",
+					"text": "Grisla taucht eine Kralle in einen Topf mit Sumpftinte und malt auf ein frisches Stück Pergament: den Sumpf, den Knüppeldamm und das Land der Halbdämonen mit der schwarzen Burg.",
+					"action": "cutscene:act:swamp_witch:trace:crystal_map",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Auf der alten Karte fehlt dieses Land. Die Völker von damals wollten es auf keiner Karte haben. Warum, hat mir nie einer gesagt. Hihihi."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein neues Kartenstück, frisch gemalt und noch feucht. Es riecht nach Kröte. Danke, Muhme.",
+					"action": "set_flag:map_piece_5"
+				},
+				{
+					"speaker": "",
+					"text": "Du schickst schnelle Boten an Meister Aurelius, an Leonheim und an alle Verbündeten. Dann brichst du über den alten Knüppeldamm nach Osten auf."
+				},
+				{
+					"speaker": "",
+					"text": "Zwei Tage später sammelt sich am Ostrand des Sumpfes ein gewaltiges Heer."
+				}
+			],
+			"on_end": "hint:crystal_map_5;take_items:seers_brew;set_flag:dark_road_open;advance:to_camp"
+		},
+		"witch_idle": {
+			"lines": [
+				{
+					"speaker": "swamp_witch",
+					"text": "Was stehst du hier noch bei meinen Kröten herum, Schmiedchen? Marsch über den Knüppeldamm nach Osten, sonst rostet dein hübsches Hämmerchen noch ein!"
+				},
+				{
+					"speaker": "player",
+					"text": "Nie im Leben, das ist frisch geölt! Ich bin schon weg."
+				}
+			]
+		},
+		"witch_cauldron_offer": {
+			"lines": [
+				{
+					"speaker": "swamp_witch",
+					"text": "Schmiedchen! Komm her, komm her. Schau dir das an. Hihihi. Nein, eigentlich ist es gar nicht lustig."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Mein Kessel. Zweihundert Jahre hat er gekocht. Jetzt ist er durchgerostet. Die Kröten laufen unten wieder raus."
+				},
+				{
+					"speaker": "player",
+					"text": "Das ist ... nicht gut für die Kröten. Oder gut für die Kröten. Kommt drauf an, was du kochst."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Was ich koche, geht dich nichts an. Schmiede mir einen neuen. Aus Kupfer, Kupfer mag den Sumpf. Mit Nägeln, nicht mit Zauber. Zauber hält nicht."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Dann braue ich dir was Feines. Nichts mit Kröten. Versprochen. Hechsen-Ehrenwort."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich schmiede dir einen",
+					"action": "set_flag:witch_cauldron_accepted;unlock_recipes:witch_cauldron",
+					"then": "witch_cauldron_accepted"
+				},
+				{
+					"text": "Hexen-Ehrenwort?",
+					"then": "witch_cauldron_hechse"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"witch_cauldron_hechse": {
+			"lines": [
+				{
+					"speaker": "swamp_witch",
+					"text": "HECHSE! Hechse, Schmiedchen. Wie oft noch. Willst du mir jetzt einen Kessel schmieden oder nicht?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich schmiede dir einen",
+					"action": "set_flag:witch_cauldron_accepted;unlock_recipes:witch_cauldron",
+					"then": "witch_cauldron_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"witch_cauldron_accepted": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Eine Kupfer-Brustplatte, rund gebogen, mit 4 Eisennägeln vernietet. An der Werkbank. Ein Kessel ist eigentlich nur eine Rüstung für Suppe."
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Hihihi. Rüstung für Suppe. Den merk ich mir."
+				}
+			]
+		},
+		"witch_cauldron_hand_in": {
+			"lines": [
+				{
+					"speaker": "swamp_witch",
+					"text": "Hast du meinen Kessel, Schmiedchen?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Kessel geben",
+					"action": "take_items:witch_cauldron;set_flag:witch_cauldron_done",
+					"then": "witch_cauldron_done",
+					"else": "witch_cauldron_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"witch_cauldron_missing": {
+			"lines": [
+				{
+					"speaker": "swamp_witch",
+					"text": "Ohne Kessel kein Trank, ohne Trank kein Lohn. So einfach ist das, Schmiedchen. Werkbank, Kupferplatte, Nägel."
+				}
+			]
+		},
+		"witch_cauldron_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du gibst Grisla den Kupferkessel.",
+					"action": "cutscene:act:player:give:witch_cauldron",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "",
+					"text": "Grisla stellt den Kessel aufs Feuer und klopft dagegen. Er klingt hell und hält dicht.",
+					"action": "cutscene:act:swamp_witch:hold:witch_cauldron",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Der hält wieder zweihundert Jahre. Länger als du, Schmiedchen. Hihihi."
+				},
+				{
+					"speaker": "",
+					"text": "Grisla wirft Dinge in den Kessel, die du nicht genauer sehen willst. Am Abend füllt sie zwei Phiolen ab.",
+					"action": "cutscene:witch_brews",
+					"hide_for": 2.5
+				},
+				{
+					"speaker": "swamp_witch",
+					"text": "Ein Trank des Wissens und ein Trank der Stärkung. Für deine Helden. Und keine einzige Kröte drin. Fast keine."
+				},
+				{
+					"speaker": "",
+					"text": "Grisla gibt dir einen Trank des Wissens und einen Trank der Stärkung.",
+					"action": "cutscene:act:swamp_witch:give:res://assets/sprites/items/skill_point_potion.png|res://assets/sprites/items/attribute_point_potion.png",
+					"hide_for": 2.2
+				}
+			],
+			"on_end": "give_items:skill_point_potion,attribute_point_potion"
+		}
+	}
+}

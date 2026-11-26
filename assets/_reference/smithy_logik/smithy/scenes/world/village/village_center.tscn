@@ -1,0 +1,1241 @@
+[gd_scene format=3 uid="uid://ydgb56nui67b"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/oak_big.tscn" id="tree_oak_big"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/front_7.png" id="wp_world_props_front_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/front_0.png" id="wp_world_props_front_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/front_5.png" id="wp_world_props_front_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/front_21.png" id="wp_world_props_front_21"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/front_1.png" id="wp_world_props_front_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_21.png" id="wp_world_props_village_21"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_20.png" id="wp_world_props_village_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_2.png" id="wp_world_props_village_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_23.png" id="wp_world_props_village_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_22.png" id="wp_world_props_village_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_16.png" id="wp_world_props_village_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_14.png" id="wp_world_props_village_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_8.png" id="wp_world_props_village_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_6.png" id="wp_world_props_village_6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_5.png" id="wp_world_props_village_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/village_4.png" id="wp_world_props_village_4"]
+[ext_resource type="Script" path="res://scenes/world/objects/critter.gd" id="wp_scenes_world_objects_critte"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_village.tscn" id="lamp_village"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" uid="uid://yh25ednryngd" path="res://assets/sprites/maps/village_square_ground.png" id="5_ground"]
+[ext_resource type="Texture2D" uid="uid://ctuo4plhao7uk" path="res://assets/sprites/buildings/village_inn.png" id="10_inn"]
+[ext_resource type="Texture2D" uid="uid://bm4gnlnw3esrc" path="res://assets/sprites/buildings/village_cottage_tiny.png" id="11_cottage"]
+[ext_resource type="Texture2D" uid="uid://bjg864dexejsm" path="res://assets/sprites/buildings/village_tower_house.png" id="12_tower"]
+[ext_resource type="Texture2D" uid="uid://lsm4degqth7b" path="res://assets/sprites/buildings/village_townhouse_tall.png" id="13_townhouse"]
+[ext_resource type="Texture2D" uid="uid://gdfax1pgcv6p" path="res://assets/sprites/buildings/village_farmhouse.png" id="14_farmhouse"]
+[ext_resource type="Texture2D" uid="uid://nx177garrwlh" path="res://assets/sprites/buildings/village_thatched_house.png" id="15_thatched"]
+[ext_resource type="Texture2D" uid="uid://jswpdg5nnnyp" path="res://assets/sprites/buildings/village_general_store.png" id="16_store"]
+[ext_resource type="Texture2D" uid="uid://c1jylxfkibbmn" path="res://assets/sprites/buildings/village_balcony_house.png" id="17_balcony"]
+[ext_resource type="PackedScene" uid="uid://kkx1hjht7swp" path="res://scenes/world/objects/fountain.tscn" id="20_fountain"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/bench.tscn" id="22_bench"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/flower_bed.tscn" id="23_flower_bed"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_chestnut_a.tscn" id="tree_chestnut_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_cherry_a.tscn" id="tree_cherry_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_apple_a.tscn" id="tree_apple_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/bush.tscn" id="26_bush"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/direction_sign.tscn" id="27_sign"]
+[ext_resource type="Texture2D" uid="uid://b3sw63bdee2gm" path="res://assets/sprites/props/sign_north.png" id="30_sign_north"]
+[ext_resource type="Texture2D" uid="uid://cngh3t5lcqwwg" path="res://assets/sprites/props/sign_east.png" id="31_sign_east"]
+[ext_resource type="Texture2D" uid="uid://v0hj7dcwvl70" path="res://assets/sprites/props/sign_south.png" id="32_sign_south"]
+[ext_resource type="Texture2D" uid="uid://c1fv4i85ea5jb" path="res://assets/sprites/props/sign_west.png" id="33_sign_west"]
+[ext_resource type="Script" uid="uid://xmy5qhn5t30p" path="res://scripts/resources/appearance.gd" id="60_appearance"]
+[ext_resource type="Script" uid="uid://ds0hynlqqpeua" path="res://scenes/actors/village_roads.gd" id="80_roads"]
+[ext_resource type="Script" uid="uid://c0pf3sbup4rhn" path="res://scenes/actors/villager_spot.gd" id="81_spot"]
+[ext_resource type="PackedScene" path="res://scenes/actors/villager.tscn" id="82_villager"]
+[ext_resource type="Script" path="res://scenes/world/village/arrival_cutscene.gd" id="90_arrival"]
+[ext_resource type="PackedScene" path="res://scenes/actors/ball_kids.tscn" id="91_ball_kids"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/shell_game_beggar.tscn" id="c1_beggar"]
+[ext_resource type="Script" uid="uid://cno422e6auv4r" path="res://scenes/world/objects/story_prop.gd" id="r1_story_prop"]
+[ext_resource type="Script" uid="uid://bs2q8njd7naxe" path="res://scenes/actors/companion.gd" id="r2_companion"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="r3_night_light"]
+[ext_resource type="Texture2D" uid="uid://5ys2out1gem7" path="res://assets/sprites/effects/chimney_smoke.png" id="r4_smoke"]
+[ext_resource type="Script" uid="uid://3btvbhn62ngj" path="res://scenes/world/objects/sheet_animation.gd" id="r5_sheet"]
+[ext_resource type="Script" uid="uid://tvu2hma5xxfa" path="res://scenes/world/objects/story_hider.gd" id="r6_hider"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="r7_story_npc"]
+[ext_resource type="Resource" path="res://data/heroes/bruno.tres" id="r8_bruno"]
+[ext_resource type="Script" path="res://scenes/world/objects/window_lights.gd" id="window_lights"]
+[ext_resource type="Script" path="res://scenes/world/village/occupied_cutscene.gd" id="90_occupied_cut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal"]
+size = Vector2(1056, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical"]
+size = Vector2(16, 800)
+
+[sub_resource type="RectangleShape2D" id="Shape_Cottage"]
+size = Vector2(84, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_Inn"]
+size = Vector2(166, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_TowerHouse"]
+size = Vector2(120, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_Townhouse"]
+size = Vector2(68, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_ThatchedHouse"]
+size = Vector2(145, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_Farmhouse"]
+size = Vector2(206, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_GeneralStore"]
+size = Vector2(152, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_BalconyHouse"]
+size = Vector2(126, 34)
+
+[sub_resource type="Resource" id="Appearance_gossip_a"]
+script = ExtResource("60_appearance")
+skin = "tan"
+hair_style = "long"
+eye_type = "big"
+size = "small"
+
+[sub_resource type="Resource" id="Appearance_gossip_b"]
+script = ExtResource("60_appearance")
+race = "beast_cat"
+hair_color = "black"
+eye_color = "green"
+
+[sub_resource type="Resource" id="Look_knight_a"]
+script = ExtResource("60_appearance")
+race = "half_demon"
+skin = "ash"
+eye_type = "glowing"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_knight_b"]
+script = ExtResource("60_appearance")
+race = "half_demon"
+skin = "slate"
+eye_type = "glowing"
+eye_color = "green"
+hair_style = "spiky"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_12x6"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_17x6"]
+size = Vector2(17, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_13x6"]
+size = Vector2(13, 6)
+
+[node name="VillageCenter" type="Node2D" unique_id=695064710]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="." unique_id=1333498801]
+script = ExtResource("4_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=1557901899]
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("5_ground")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="." unique_id=1018226120]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds" unique_id=1833106531]
+position = Vector2(0, -392)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds" unique_id=1626433639]
+position = Vector2(0, 392)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds" unique_id=1164304566]
+position = Vector2(-520, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds" unique_id=1081619003]
+position = Vector2(520, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Buildings" type="Node2D" parent="." unique_id=188571472]
+y_sort_enabled = true
+
+[node name="Cottage" type="StaticBody2D" parent="Buildings" unique_id=1158000789]
+position = Vector2(-432, -188)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Cottage" unique_id=616604233]
+texture = ExtResource("11_cottage")
+offset = Vector2(0, -49)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Cottage" unique_id=1368979723]
+position = Vector2(0, -18)
+shape = SubResource("Shape_Cottage")
+
+[node name="Inn" type="StaticBody2D" parent="Buildings" unique_id=1774303189]
+position = Vector2(-276, -84)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Inn" unique_id=721467994]
+texture = ExtResource("10_inn")
+offset = Vector2(0, -84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Inn" unique_id=158382216]
+position = Vector2(0, -18)
+shape = SubResource("Shape_Inn")
+
+[node name="TowerHouse" type="StaticBody2D" parent="Buildings" unique_id=706508609]
+position = Vector2(255, -84)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/TowerHouse" unique_id=1987939251]
+texture = ExtResource("12_tower")
+offset = Vector2(0, -71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/TowerHouse" unique_id=246307230]
+position = Vector2(0, -18)
+shape = SubResource("Shape_TowerHouse")
+
+[node name="Townhouse" type="StaticBody2D" parent="Buildings" unique_id=448716706]
+position = Vector2(432, -84)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Townhouse" unique_id=1282062412]
+texture = ExtResource("13_townhouse")
+offset = Vector2(0, -86)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Townhouse" unique_id=852637929]
+position = Vector2(0, -18)
+shape = SubResource("Shape_Townhouse")
+
+[node name="ThatchedHouse" type="StaticBody2D" parent="Buildings" unique_id=463131076]
+position = Vector2(-432, 306)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/ThatchedHouse" unique_id=69140933]
+texture = ExtResource("15_thatched")
+offset = Vector2(0, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/ThatchedHouse" unique_id=1489260209]
+position = Vector2(0, -18)
+shape = SubResource("Shape_ThatchedHouse")
+
+[node name="Farmhouse" type="StaticBody2D" parent="Buildings" unique_id=482512073]
+position = Vector2(-236, 306)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Farmhouse" unique_id=332652580]
+texture = ExtResource("14_farmhouse")
+offset = Vector2(0, -60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Farmhouse" unique_id=1695089130]
+position = Vector2(0, -18)
+shape = SubResource("Shape_Farmhouse")
+
+[node name="GeneralStore" type="StaticBody2D" parent="Buildings" unique_id=677770917]
+position = Vector2(164, 306)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/GeneralStore" unique_id=808184778]
+texture = ExtResource("16_store")
+offset = Vector2(0, -66)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/GeneralStore" unique_id=1419034635]
+position = Vector2(0, -18)
+shape = SubResource("Shape_GeneralStore")
+
+[node name="BalconyHouse" type="StaticBody2D" parent="Buildings" unique_id=1624087978]
+position = Vector2(400, 306)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/BalconyHouse" unique_id=104796554]
+texture = ExtResource("17_balcony")
+offset = Vector2(0, -76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/BalconyHouse" unique_id=443634199]
+position = Vector2(0, -18)
+shape = SubResource("Shape_BalconyHouse")
+
+[node name="Square" type="Node2D" parent="." unique_id=1757504306]
+y_sort_enabled = true
+
+[node name="Fountain" parent="Square" unique_id=1867414529 instance=ExtResource("20_fountain")]
+position = Vector2(0, 56)
+
+[node name="Lantern1" parent="Square" unique_id=671110651 instance=ExtResource("lamp_village")]
+position = Vector2(-55, -240)
+facing = "east"
+
+[node name="Lantern2" parent="Square" unique_id=1083771254 instance=ExtResource("lamp_village")]
+position = Vector2(54, -195)
+facing = "west"
+
+[node name="Lantern3" parent="Square" unique_id=828031254 instance=ExtResource("lamp_village")]
+position = Vector2(-200, -51)
+facing = "south"
+
+[node name="Lantern4" parent="Square" unique_id=946488601 instance=ExtResource("lamp_village")]
+position = Vector2(-400, 56)
+facing = "north"
+
+[node name="Lantern5" parent="Square" unique_id=1410754337 instance=ExtResource("lamp_village")]
+position = Vector2(-183, 100)
+facing = "east"
+
+[node name="Lantern6" parent="Square" unique_id=1702452533 instance=ExtResource("lamp_village")]
+position = Vector2(370, -51)
+facing = "south"
+
+[node name="Lantern7" parent="Square" unique_id=366230487 instance=ExtResource("lamp_village")]
+position = Vector2(250, 56)
+facing = "north"
+
+[node name="Lantern8" parent="Square" unique_id=448057313 instance=ExtResource("lamp_village")]
+position = Vector2(182, 100)
+facing = "west"
+
+[node name="Lantern9" parent="Square" unique_id=16304544 instance=ExtResource("lamp_village")]
+position = Vector2(-85, 152)
+facing = "north"
+
+[node name="Lantern10" parent="Square" unique_id=888159717 instance=ExtResource("lamp_village")]
+position = Vector2(150, 152)
+facing = "north"
+
+[node name="Lantern11" parent="Square" unique_id=1917200864 instance=ExtResource("lamp_village")]
+position = Vector2(-55, 250)
+facing = "east"
+
+[node name="Lantern12" parent="Square" unique_id=1948938555 instance=ExtResource("lamp_village")]
+position = Vector2(54, 300)
+facing = "west"
+
+[node name="Lantern13" parent="Square" unique_id=310553913 instance=ExtResource("lamp_village")]
+position = Vector2(-120, -147)
+facing = "south"
+
+[node name="Bench1" parent="Square" unique_id=1288322678 instance=ExtResource("22_bench")]
+position = Vector2(-112, -64)
+
+[node name="Bench2" parent="Square" unique_id=1796492076 instance=ExtResource("22_bench")]
+position = Vector2(112, -64)
+
+[node name="Bench3" parent="Square" unique_id=800729587 instance=ExtResource("22_bench")]
+position = Vector2(-112, 108)
+
+[node name="Bench4" parent="Square" unique_id=2102261043 instance=ExtResource("22_bench")]
+position = Vector2(112, 108)
+
+[node name="SignWest" parent="Square" unique_id=1572521983 instance=ExtResource("27_sign")]
+position = Vector2(-232, 70)
+texture = ExtResource("33_sign_west")
+text = "Alte Schmiede"
+
+[node name="SignNorth" parent="Square" unique_id=1407644846 instance=ExtResource("27_sign")]
+position = Vector2(123, -182)
+texture = ExtResource("30_sign_north")
+text = "Wohnviertel"
+
+[node name="SignEast" parent="Square" unique_id=1582250981 instance=ExtResource("27_sign")]
+position = Vector2(382, 108)
+texture = ExtResource("31_sign_east")
+text = "Marktplatz"
+
+[node name="SignSouth" parent="Square" unique_id=1976791440 instance=ExtResource("27_sign")]
+position = Vector2(-129, 196)
+texture = ExtResource("32_sign_south")
+text = "Dorftor"
+
+[node name="Decor" type="Node2D" parent="." unique_id=1499492099]
+y_sort_enabled = true
+
+[node name="Oak1" parent="Decor" unique_id=764646650 instance=ExtResource("tree_oak_big")]
+position = Vector2(-480, -330)
+
+[node name="Oak2" parent="Decor" unique_id=309638190 instance=ExtResource("tree_oak_big")]
+position = Vector2(-330, -300)
+scale = Vector2(-1, 1)
+
+[node name="Oak4" parent="Decor" unique_id=709749932 instance=ExtResource("tree_chestnut_a")]
+position = Vector2(110, -330)
+scale = Vector2(-1, 1)
+
+[node name="Oak5" parent="Decor" unique_id=1229514784 instance=ExtResource("tree_chestnut_a")]
+position = Vector2(300, -320)
+
+[node name="Oak7" parent="Decor" unique_id=1355979199 instance=ExtResource("tree_apple_a")]
+position = Vector2(-470, 90)
+
+[node name="Oak8" parent="Decor" unique_id=1379038482 instance=ExtResource("tree_apple_a")]
+position = Vector2(-330, 120)
+scale = Vector2(-1, 1)
+
+[node name="Oak10" parent="Decor" unique_id=1838029078 instance=ExtResource("tree_cherry_a")]
+position = Vector2(480, 100)
+scale = Vector2(-1, 1)
+
+[node name="Bush1" parent="Decor" unique_id=1672524723 instance=ExtResource("26_bush")]
+position = Vector2(-490, -200)
+
+[node name="Bush2" parent="Decor" unique_id=772036890 instance=ExtResource("26_bush")]
+position = Vector2(-180, -220)
+
+[node name="Bush3" parent="Decor" unique_id=487659069 instance=ExtResource("26_bush")]
+position = Vector2(180, -220)
+
+[node name="Bush4" parent="Decor" unique_id=691649135 instance=ExtResource("26_bush")]
+position = Vector2(330, -200)
+
+[node name="Bush5" parent="Decor" unique_id=36745679 instance=ExtResource("26_bush")]
+position = Vector2(-490, 200)
+
+[node name="Bush6" parent="Decor" unique_id=335766043 instance=ExtResource("26_bush")]
+position = Vector2(-193, 175)
+
+[node name="Bush7" parent="Decor" unique_id=1127405849 instance=ExtResource("26_bush")]
+position = Vector2(126, 169)
+
+[node name="Bush8" parent="Decor" unique_id=1981665425 instance=ExtResource("26_bush")]
+position = Vector2(490, 200)
+
+[node name="FlowerBed2" parent="Decor" unique_id=906317511 instance=ExtResource("23_flower_bed")]
+position = Vector2(345, -72)
+
+[node name="FlowerBed3" parent="Decor" unique_id=1856868568 instance=ExtResource("23_flower_bed")]
+position = Vector2(-110, 300)
+
+[node name="ExitWest" parent="." unique_id=1818383131 instance=ExtResource("2_door")]
+position = Vector2(-500, 0)
+scale = Vector2(1, 3)
+target_scene = "res://scenes/world/village/village.tscn"
+target_spawn_point = &"FromCenter"
+blocked_flag = "bruno_follows"
+unblocked_flag = "emma_follows"
+blocked_text = "Bruno hält dich fest: \"Zum Markt, nicht nach Hause!\""
+
+[node name="Visual" parent="ExitWest" index="0"]
+visible = false
+
+[node name="ExitNorth" parent="." unique_id=231212886 instance=ExtResource("2_door")]
+position = Vector2(0, -372)
+scale = Vector2(3, 1)
+target_scene = "res://scenes/world/village/residential.tscn"
+target_spawn_point = &"FromCenter"
+blocked_flag = "raid_started"
+unblocked_flag = "raid_over"
+blocked_text = "Erst musst du wissen, was am Markt los ist."
+required_flag = "reached_visit_landlady"
+locked_text = "Dort wohnen nur Dorfleute. Sieh dir erst die alte Schmiede an (vom Dorfplatz nach Westen)."
+
+[node name="Visual" parent="ExitNorth" index="0"]
+visible = false
+
+[node name="ExitEast" parent="." unique_id=2098769163 instance=ExtResource("2_door")]
+position = Vector2(500, 0)
+scale = Vector2(1, 3)
+target_scene = "res://scenes/world/market/market.tscn"
+target_spawn_point = &"FromCenter"
+blocked_flag = "emma_follows"
+unblocked_flag = "raid_over"
+blocked_text = "Nicht zurück! Bring Emma in Sicherheit."
+required_flag = "reached_find_customer"
+locked_text = "Zum Markt gehst du später. Erst brauchst du eine Schmiede."
+
+[node name="Visual" parent="ExitEast" index="0"]
+visible = false
+
+[node name="ExitSouth" parent="." unique_id=1319266028 instance=ExtResource("2_door")]
+position = Vector2(0, 372)
+scale = Vector2(3, 1)
+target_scene = "res://scenes/world/village/village_gate.tscn"
+target_spawn_point = &"FromCenter"
+blocked_flag = "raid_started"
+unblocked_flag = "raid_over"
+blocked_text = "Erst musst du wissen, was am Markt los ist."
+required_flag = "reached_find_axe_recipe"
+locked_text = "Vor dem Dorftor hast du noch nichts zu tun. Kümmere dich erst um deine Schmiede."
+
+[node name="Visual" parent="ExitSouth" index="0"]
+visible = false
+
+[node name="Start" type="Marker2D" parent="." unique_id=470908050 groups=["spawn_points"]]
+position = Vector2(0, 100)
+
+[node name="FromWest" type="Marker2D" parent="." unique_id=442881749 groups=["spawn_points"]]
+position = Vector2(-462, 0)
+
+[node name="FromNorth" type="Marker2D" parent="." unique_id=757013685 groups=["spawn_points"]]
+position = Vector2(0, -334)
+
+[node name="FromEast" type="Marker2D" parent="." unique_id=1431287513 groups=["spawn_points"]]
+position = Vector2(462, 0)
+
+[node name="FromSouth" type="Marker2D" parent="." unique_id=1270162154 groups=["spawn_points"]]
+position = Vector2(0, 334)
+
+[node name="Roads" type="Node2D" parent="." unique_id=1283245762]
+script = ExtResource("80_roads")
+
+[node name="SqN" type="Marker2D" parent="Roads" unique_id=1298705364]
+position = Vector2(0, -110)
+
+[node name="SqNW" type="Marker2D" parent="Roads" unique_id=222828172]
+position = Vector2(-100, -132)
+
+[node name="SqNE" type="Marker2D" parent="Roads" unique_id=362329066]
+position = Vector2(100, -132)
+
+[node name="SqW" type="Marker2D" parent="Roads" unique_id=1916332956]
+position = Vector2(-158, -10)
+
+[node name="SqE" type="Marker2D" parent="Roads" unique_id=872752004]
+position = Vector2(158, -10)
+
+[node name="SqSW" type="Marker2D" parent="Roads" unique_id=313066850]
+position = Vector2(-100, 140)
+
+[node name="SqSE" type="Marker2D" parent="Roads" unique_id=1129796152]
+position = Vector2(100, 140)
+
+[node name="SqS" type="Marker2D" parent="Roads" unique_id=512038136]
+position = Vector2(0, 140)
+
+[node name="North" type="Marker2D" parent="Roads" unique_id=1311060173]
+position = Vector2(0, -300)
+
+[node name="W1" type="Marker2D" parent="Roads" unique_id=537170297]
+position = Vector2(-272, 0)
+
+[node name="W2" type="Marker2D" parent="Roads" unique_id=1175591783]
+position = Vector2(-434, 0)
+
+[node name="E1" type="Marker2D" parent="Roads" unique_id=1586038413]
+position = Vector2(263, 0)
+
+[node name="E2" type="Marker2D" parent="Roads" unique_id=1115667555]
+position = Vector2(433, 0)
+
+[node name="South" type="Marker2D" parent="Roads" unique_id=167096040]
+position = Vector2(0, 320)
+
+[node name="LaneW" type="Marker2D" parent="Roads" unique_id=1898553708]
+position = Vector2(-287, 320)
+
+[node name="LaneWW" type="Marker2D" parent="Roads" unique_id=1587726606]
+position = Vector2(-442, 320)
+
+[node name="LaneE" type="Marker2D" parent="Roads" unique_id=1882928033]
+position = Vector2(178, 320)
+
+[node name="LaneEE" type="Marker2D" parent="Roads" unique_id=1668231709]
+position = Vector2(398, 320)
+
+[node name="Spots" type="Node2D" parent="." unique_id=2092486082]
+
+[node name="DoorInn" type="Marker2D" parent="Spots" unique_id=576463465 node_paths=PackedStringArray("road")]
+position = Vector2(-272, -96)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/W1")
+
+[node name="DoorCottage" type="Marker2D" parent="Spots" unique_id=1505836040 node_paths=PackedStringArray("road")]
+position = Vector2(-434, -186)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/W2")
+
+[node name="DoorTower" type="Marker2D" parent="Spots" unique_id=1151636164 node_paths=PackedStringArray("road")]
+position = Vector2(263, -92)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/E1")
+
+[node name="DoorTownhouse" type="Marker2D" parent="Spots" unique_id=2094895545 node_paths=PackedStringArray("road")]
+position = Vector2(433, -92)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/E2")
+
+[node name="DoorThatched" type="Marker2D" parent="Spots" unique_id=2020197409 node_paths=PackedStringArray("road")]
+position = Vector2(-442, 292)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/LaneWW")
+
+[node name="DoorFarmhouse" type="Marker2D" parent="Spots" unique_id=1698206565 node_paths=PackedStringArray("road")]
+position = Vector2(-287, 294)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/LaneW")
+
+[node name="DoorStore" type="Marker2D" parent="Spots" unique_id=515867947 node_paths=PackedStringArray("road")]
+position = Vector2(178, 292)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/LaneE")
+
+[node name="DoorBalcony" type="Marker2D" parent="Spots" unique_id=464405512 node_paths=PackedStringArray("road")]
+position = Vector2(398, 294)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/LaneEE")
+
+[node name="BenchNWA" type="Marker2D" parent="Spots" unique_id=1731485011 node_paths=PackedStringArray("road")]
+position = Vector2(-122, -62)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/SqW")
+
+[node name="BenchNWB" type="Marker2D" parent="Spots" unique_id=2145730297 node_paths=PackedStringArray("road")]
+position = Vector2(-102, -62)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/SqW")
+
+[node name="BenchNEA" type="Marker2D" parent="Spots" unique_id=289980768 node_paths=PackedStringArray("road")]
+position = Vector2(102, -62)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/SqE")
+
+[node name="BenchNEB" type="Marker2D" parent="Spots" unique_id=1551062074 node_paths=PackedStringArray("road")]
+position = Vector2(122, -62)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/SqE")
+
+[node name="BenchSWA" type="Marker2D" parent="Spots" unique_id=1080382363 node_paths=PackedStringArray("road")]
+position = Vector2(-122, 110)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/SqSW")
+
+[node name="BenchSWB" type="Marker2D" parent="Spots" unique_id=329153930 node_paths=PackedStringArray("road")]
+position = Vector2(-102, 110)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/SqSW")
+
+[node name="BenchSEA" type="Marker2D" parent="Spots" unique_id=248067793 node_paths=PackedStringArray("road")]
+position = Vector2(102, 110)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/SqSE")
+
+[node name="BenchSEB" type="Marker2D" parent="Spots" unique_id=1807619467 node_paths=PackedStringArray("road")]
+position = Vector2(122, 110)
+script = ExtResource("81_spot")
+kind = 2
+duration = Vector2(8, 20)
+road = NodePath("../../Roads/SqSE")
+
+[node name="FountainWest" type="Marker2D" parent="Spots" unique_id=1219161553 node_paths=PackedStringArray("road")]
+position = Vector2(-74, 36)
+script = ExtResource("81_spot")
+kind = 3
+facing = "right"
+duration = Vector2(4, 9)
+road = NodePath("../../Roads/SqW")
+
+[node name="FountainEast" type="Marker2D" parent="Spots" unique_id=280918737 node_paths=PackedStringArray("road")]
+position = Vector2(74, 36)
+script = ExtResource("81_spot")
+kind = 3
+facing = "left"
+duration = Vector2(4, 9)
+road = NodePath("../../Roads/SqE")
+
+[node name="FountainSouth" type="Marker2D" parent="Spots" unique_id=1789584576 node_paths=PackedStringArray("road")]
+position = Vector2(0, 72)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+duration = Vector2(4, 9)
+road = NodePath("../../Roads/SqS")
+
+[node name="FlowersWest" type="Marker2D" parent="Spots" unique_id=842408260 node_paths=PackedStringArray("road")]
+position = Vector2(-370, -54)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+duration = Vector2(4, 8)
+road = NodePath("../../Roads/W1")
+
+[node name="FlowersEast" type="Marker2D" parent="Spots" unique_id=117712948 node_paths=PackedStringArray("road")]
+position = Vector2(345, -50)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+duration = Vector2(4, 8)
+road = NodePath("../../Roads/E1")
+
+[node name="FlowersSouth" type="Marker2D" parent="Spots" unique_id=1243538361 node_paths=PackedStringArray("road")]
+position = Vector2(-110, 322)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+duration = Vector2(4, 8)
+road = NodePath("../../Roads/South")
+
+[node name="TalkSquareA" type="Marker2D" parent="Spots" unique_id=685425242 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-112, -24)
+script = ExtResource("81_spot")
+kind = 4
+facing = "right"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/SqW")
+partner = NodePath("../TalkSquareB")
+
+[node name="TalkSquareB" type="Marker2D" parent="Spots" unique_id=1926800653 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-84, -24)
+script = ExtResource("81_spot")
+kind = 4
+facing = "left"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/SqW")
+partner = NodePath("../TalkSquareA")
+
+[node name="TalkLaneA" type="Marker2D" parent="Spots" unique_id=1396985709 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(80, 322)
+script = ExtResource("81_spot")
+kind = 4
+facing = "right"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/South")
+partner = NodePath("../TalkLaneB")
+
+[node name="TalkLaneB" type="Marker2D" parent="Spots" unique_id=995453942 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(108, 322)
+script = ExtResource("81_spot")
+kind = 4
+facing = "left"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/South")
+partner = NodePath("../TalkLaneA")
+
+[node name="TalkWestA" type="Marker2D" parent="Spots" unique_id=2102013834 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-360, 8)
+script = ExtResource("81_spot")
+kind = 4
+facing = "right"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/W1")
+partner = NodePath("../TalkWestB")
+
+[node name="TalkWestB" type="Marker2D" parent="Spots" unique_id=2038427551 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-332, 8)
+script = ExtResource("81_spot")
+kind = 4
+facing = "left"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/W1")
+partner = NodePath("../TalkWestA")
+
+[node name="StrollNorth" type="Marker2D" parent="Spots" unique_id=180988866 node_paths=PackedStringArray("road")]
+position = Vector2(0, -290)
+script = ExtResource("81_spot")
+duration = Vector2(2, 5)
+road = NodePath("../../Roads/North")
+
+[node name="Resident1" parent="." unique_id=762404574 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorCottage")
+position = Vector2(-100, -132)
+resident = "granny"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Resident2" parent="." unique_id=586677254 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorTower")
+position = Vector2(158, -10)
+resident = "monk"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Resident3" parent="." unique_id=842410032 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorTownhouse")
+position = Vector2(-100, 140)
+resident = "scholar"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Resident4" parent="." unique_id=1141550464 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorBalcony")
+position = Vector2(100, -132)
+resident = "bard"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Exits" type="Node2D" parent="." unique_id=238321027]
+
+[node name="LeaveSouth" type="Marker2D" parent="Exits" unique_id=1133250623 node_paths=PackedStringArray("road")]
+position = Vector2(0, 352)
+script = ExtResource("81_spot")
+road = NodePath("../../Roads/South")
+
+[node name="LeaveEast" type="Marker2D" parent="Exits" unique_id=634787048 node_paths=PackedStringArray("road")]
+position = Vector2(476, 0)
+script = ExtResource("81_spot")
+road = NodePath("../../Roads/E2")
+
+[node name="BallKids" parent="." unique_id=1139323839 node_paths=PackedStringArray("spots", "roads") instance=ExtResource("91_ball_kids")]
+position = Vector2(240, -262)
+soccer_spot = Vector2(268, 132)
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="BrunoAtFountain" parent="." unique_id=1152109386 instance=ExtResource("r7_story_npc")]
+position = Vector2(44, 100)
+npc_id = "bruno"
+hero = ExtResource("r8_bruno")
+hidden_when_flag = "bruno_joins_fight"
+lying = true
+leave_path = PackedVector2Array(28, 140, 56, 182, 22, 224, 50, 266, 16, 308, 38, 346, 6, 380, 0, 420)
+required_flag = "reached_get_help"
+
+[node name="BrunoBackAtFountain" parent="." instance=ExtResource("r7_story_npc")]
+position = Vector2(44, 100)
+npc_id = "bruno"
+hero = ExtResource("r8_bruno")
+hidden_when_flag = "raid_started"
+lying = true
+absent_steps = PackedStringArray("festival_morning", "festival_show")
+required_flag = "bruno_left_mine"
+
+[node name="GossipA" parent="." unique_id=133058499 instance=ExtResource("r7_story_npc")]
+position = Vector2(-70, -40)
+npc_id = "gossip_a"
+resident = "gossip_a"
+appearance = SubResource("Appearance_gossip_a")
+hidden_when_flag = "heard_festival"
+leave_path = PackedVector2Array(-272, -96)
+auto_talk = true
+talk_area_scale = Vector2(2, 2)
+wait_for_player = true
+facing = "right"
+required_flag = "reached_festival_rumors"
+
+[node name="GossipB" parent="." unique_id=539525195 instance=ExtResource("r7_story_npc")]
+position = Vector2(-44, -40)
+npc_id = "gossip_b"
+resident = "gossip_b"
+appearance = SubResource("Appearance_gossip_b")
+hidden_when_flag = "heard_festival"
+leave_path = PackedVector2Array(-272, -96)
+facing = "left"
+required_flag = "reached_festival_rumors"
+
+[node name="EmptySquare" parent="." unique_id=180825400 instance=ExtResource("r7_story_npc")]
+position = Vector2(0, 40)
+npc_id = "empty_square"
+hidden_when_flag = "heard_cheers"
+auto_talk = true
+talk_area_scale = Vector2(24, 20)
+wait_for_player = true
+narrator = true
+required_flag = "reached_festival_morning"
+
+[node name="Beggar" parent="." unique_id=1031800094 instance=ExtResource("c1_beggar")]
+position = Vector2(-258, 150)
+
+[node name="FinsterKnightA" parent="." instance=ExtResource("r7_story_npc")]
+position = Vector2(-70, -40)
+npc_id = "finster_knight"
+resident = "finster_knight"
+appearance = SubResource("Look_knight_a")
+facing = "right"
+required_flag = "reached_village_occupied"
+hidden_when_flag = "knights_in_village"
+
+[node name="FinsterKnightB" parent="." instance=ExtResource("r7_story_npc")]
+position = Vector2(-44, -40)
+npc_id = "finster_knight_b"
+resident = "finster_knight_b"
+appearance = SubResource("Look_knight_b")
+facing = "down"
+required_flag = "reached_village_occupied"
+hidden_when_flag = "knights_in_village"
+
+[node name="LotteSquare" parent="." instance=ExtResource("r7_story_npc")]
+position = Vector2(30, 70)
+npc_id = "niece"
+resident = "emma"
+facing = "left"
+required_flag = "reached_village_occupied"
+hidden_when_flag = "knights_in_village"
+
+[node name="OccupiedSquare" parent="." instance=ExtResource("r7_story_npc")]
+position = Vector2(0, 40)
+npc_id = "occupied_square"
+narrator = true
+auto_talk = true
+talk_on_new_step = true
+wait_for_player = true
+talk_area_scale = Vector2(24, 20)
+required_flag = "reached_village_occupied"
+hidden_when_flag = "knights_in_village"
+
+[node name="OccupiedCutscene" type="Node2D" parent="."]
+script = ExtResource("90_occupied_cut")
+lotte = NodePath("../LotteSquare")
+knights = Array[NodePath]([NodePath("../FinsterKnightA"), NodePath("../FinsterKnightB")])
+
+[node name="Vignettes" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-386, -106)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P1"]
+texture = ExtResource("wp_world_props_front_1")
+offset = Vector2(0, -14.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P2" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-352, -98)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P2"]
+texture = ExtResource("wp_world_props_front_21")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P3" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-432, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P3"]
+texture = ExtResource("wp_world_props_front_5")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="C4" type="Sprite2D" parent="Vignettes"]
+position = Vector2(-398, 170)
+texture = ExtResource("wp_world_props_village_21")
+offset = Vector2(0, -13.5)
+script = ExtResource("wp_scenes_world_objects_critte")
+
+[node name="C5" type="Sprite2D" parent="Vignettes"]
+position = Vector2(-462, 176)
+texture = ExtResource("wp_world_props_village_21")
+offset = Vector2(0, -13.5)
+script = ExtResource("wp_scenes_world_objects_critte")
+
+[node name="P6" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-92, 302)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P6"]
+texture = ExtResource("wp_world_props_front_0")
+offset = Vector2(0, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P7" type="StaticBody2D" parent="Vignettes"]
+position = Vector2(-62, 304)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P7"]
+texture = ExtResource("wp_world_props_front_7")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P7"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="Player" parent="." unique_id=1250229639 instance=ExtResource("1_player")]
+position = Vector2(0, 100)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -512
+limit_top = -384
+limit_right = 512
+limit_bottom = 384
+
+[node name="HUD" parent="." unique_id=241082025 instance=ExtResource("3_hud")]
+
+[node name="RaidSmoke" type="Node2D" parent="." unique_id=1657809277]
+z_index = 2
+y_sort_enabled = true
+script = ExtResource("r1_story_prop")
+required_flag = "raid_started"
+hidden_when_flag = "raid_over"
+
+[node name="Smoke1" type="Sprite2D" parent="RaidSmoke" unique_id=184212646]
+modulate = Color(0.45, 0.42, 0.42, 0.55)
+position = Vector2(486, -130)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("r4_smoke")
+offset = Vector2(0, -39)
+hframes = 4
+vframes = 4
+script = ExtResource("r5_sheet")
+frames_per_second = 7.0
+
+[node name="Smoke2" type="Sprite2D" parent="RaidSmoke" unique_id=371114220]
+modulate = Color(0.45, 0.42, 0.42, 0.55)
+position = Vector2(452, -232)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("r4_smoke")
+offset = Vector2(0, -39)
+hframes = 4
+vframes = 4
+script = ExtResource("r5_sheet")
+frames_per_second = 7.0
+
+[node name="Smoke3" type="Sprite2D" parent="RaidSmoke" unique_id=1397110396]
+modulate = Color(0.45, 0.42, 0.42, 0.55)
+position = Vector2(494, 70)
+scale = Vector2(2, 2)
+texture = ExtResource("r4_smoke")
+offset = Vector2(0, -39)
+hframes = 4
+vframes = 4
+script = ExtResource("r5_sheet")
+frames_per_second = 7.0
+
+[node name="Smoke4" type="Sprite2D" parent="RaidSmoke" unique_id=1928310865]
+modulate = Color(0.45, 0.42, 0.42, 0.55)
+position = Vector2(420, 160)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("r4_smoke")
+offset = Vector2(0, -39)
+hframes = 4
+vframes = 4
+script = ExtResource("r5_sheet")
+frames_per_second = 7.0
+
+[node name="Glow1" parent="RaidSmoke" unique_id=1097439657 instance=ExtResource("r3_night_light")]
+position = Vector2(530, -60)
+color = Color(1, 0.45, 0.15, 1)
+texture_scale = 6.0
+night_energy = 0.9
+flicker = 0.18
+
+[node name="Glow2" parent="RaidSmoke" unique_id=559732671 instance=ExtResource("r3_night_light")]
+position = Vector2(520, 120)
+color = Color(1, 0.45, 0.15, 1)
+texture_scale = 4.0
+night_energy = 0.9
+flicker = 0.18
+
+[node name="RaidBruno" parent="." unique_id=1935296389 instance=ExtResource("r7_story_npc")]
+position = Vector2(200, -20)
+npc_id = "bruno"
+hero = ExtResource("r8_bruno")
+hidden_when_flag = "bruno_follows"
+auto_talk = true
+walk_to_player = true
+vanish_on_leave = true
+required_flag = "reached_raid_bruno"
+
+[node name="BrunoCompanion" type="Node2D" parent="." unique_id=1334570544]
+script = ExtResource("r2_companion")
+npc_id = "bruno"
+hero = ExtResource("r8_bruno")
+required_flag = "bruno_follows"
+hidden_when_flag = "reached_raid_market"
+
+[node name="LotteCompanion" type="Node2D" parent="." unique_id=529782425]
+script = ExtResource("r2_companion")
+npc_id = "niece"
+resident = "emma"
+required_flag = "emma_follows"
+hidden_when_flag = "reached_raid_robbed"
+
+[node name="RaidHider" type="Node" parent="." unique_id=1408490983]
+script = ExtResource("r6_hider")
+from_flag = "raid_started"
+until_flag = "raid_over"
+nodes = Array[NodePath]([NodePath("../BallKids")])
+
+[node name="RoamLotte" parent="." unique_id=1748670823 instance=ExtResource("r7_story_npc")]
+position = Vector2(30, 70)
+npc_id = "niece"
+resident = "emma"
+roam_spot = "village_center"
+absent_steps = PackedStringArray("village_occupied", "lotte_hideout", "village_ruse", "village_night", "village_morning")
+roam_exits = {
+"default": Vector2(500, 0),
+"home": Vector2(0, -376),
+"smithy": Vector2(-500, 0),
+"workshop": Vector2(-500, 0)
+}
+required_flag = "hilde_dead"
+
+[node name="ArrivalCutscene" type="Node2D" parent="." node_paths=PackedStringArray("hud")]
+script = ExtResource("90_arrival")
+hud = NodePath("../HUD")
+
+[node name="WindowLights" type="Node" parent="."]
+script = ExtResource("window_lights")
+
+[node name="DoorToFarmhouseGustav" parent="." instance=ExtResource("2_door")]
+position = Vector2(-285, 312)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/farmhouse_gustav.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToFarmhouseGustav" index="0"]
+visible = false
+
+[node name="FromFarmhouseGustav" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-285, 334)
+
+[node name="DoorToVcCottage" parent="." instance=ExtResource("2_door")]
+position = Vector2(-434, -180)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/vc_cottage.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToVcCottage" index="0"]
+visible = false
+
+[node name="FromVcCottage" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-434, -162)
+
+[node name="DoorToVcTower" parent="." instance=ExtResource("2_door")]
+position = Vector2(263, -86)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/vc_tower.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToVcTower" index="0"]
+visible = false
+
+[node name="FromVcTower" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(263, -68)
+
+[node name="DoorToVcTownhouse" parent="." instance=ExtResource("2_door")]
+position = Vector2(433, -86)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/vc_townhouse.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToVcTownhouse" index="0"]
+visible = false
+
+[node name="FromVcTownhouse" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(433, -68)
+
+[node name="DoorToVcThatched" parent="." instance=ExtResource("2_door")]
+position = Vector2(-442, 298)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/vc_thatched.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToVcThatched" index="0"]
+visible = false
+
+[node name="FromVcThatched" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-442, 316)
+
+[node name="DoorToVcBalcony" parent="." instance=ExtResource("2_door")]
+position = Vector2(398, 300)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/vc_balcony.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToVcBalcony" index="0"]
+visible = false
+
+[node name="FromVcBalcony" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(398, 318)
+
+[node name="DoorToVcInn" parent="." instance=ExtResource("2_door")]
+position = Vector2(-272, -90)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/vc_inn.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToVcInn" index="0"]
+visible = false
+
+[node name="FromVcInn" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-272, -72)
+
+[node name="DoorToVcStore" parent="." instance=ExtResource("2_door")]
+position = Vector2(178, 298)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/vc_store.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToVcStore" index="0"]
+visible = false
+
+[node name="FromVcStore" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(178, 316)
+
+[editable path="ExitWest"]
+[editable path="ExitNorth"]
+[editable path="ExitEast"]
+[editable path="ExitSouth"]
+[editable path="Player"]
+
+[node name="LotteShopCompanion" type="Node2D" parent="."]
+script = ExtResource("r2_companion")
+npc_id = "niece"
+resident = "emma"
+required_flag = "lotte_shop_accepted"
+hidden_when_flag = "lotte_shop_done"
+[editable path="DoorToFarmhouseGustav"]
+[editable path="DoorToVcCottage"]
+[editable path="DoorToVcTower"]
+[editable path="DoorToVcTownhouse"]
+[editable path="DoorToVcThatched"]
+[editable path="DoorToVcBalcony"]
+[editable path="DoorToVcInn"]
+[editable path="DoorToVcStore"]

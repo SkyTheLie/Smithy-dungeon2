@@ -1,0 +1,204 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_storm.tscn" id="lamp_storm"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/temple_sanctum_ground.png" id="3_temple_sanct"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/temple_altar.png" id="4_temple_altar"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="5_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/items/holy_crystals/holy_lightning_crystal.png" id="6_lightning_cr"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="7_night_light"]
+[ext_resource type="Script" path="res://scenes/world/desert/crystal_arcs.gd" id="8_crystal_arcs"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="18_sheet_anim"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/rod_stand.png" id="9_rod_stand"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_texture.gd" id="10_story_textur"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/rod_stand_rod.png" id="11_rod_stand_ro"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="13_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="14_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="15_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/temple_mural_sanctum.png" id="16_mural_pic"]
+[ext_resource type="Script" path="res://scenes/world/desert/temple_crystal_cutscene.gd" id="17_crystal_cut"]
+
+[sub_resource type="RectangleShape2D" id="Rect_680x16"]
+size = Vector2(680, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x520"]
+size = Vector2(16, 520)
+
+[sub_resource type="RectangleShape2D" id="Rect_640x20"]
+size = Vector2(640, 20)
+
+[sub_resource type="RectangleShape2D" id="Rect_48x10"]
+size = Vector2(48, 10)
+
+[sub_resource type="RectangleShape2D" id="Rect_20x8"]
+size = Vector2(20, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[node name="StormTempleSanctum" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("2_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-320, -240)
+texture = ExtResource("3_temple_sanct")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, -248)
+shape = SubResource("Rect_680x16")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, 248)
+shape = SubResource("Rect_680x16")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-328, 0)
+shape = SubResource("Rect_16x520")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(328, 0)
+shape = SubResource("Rect_16x520")
+
+[node name="BackWall" type="StaticBody2D" parent="."]
+position = Vector2(0, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackWall"]
+shape = SubResource("Rect_640x20")
+
+[node name="Altar" type="StaticBody2D" parent="."]
+position = Vector2(0, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Altar"]
+texture = ExtResource("4_temple_altar")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Altar"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_48x10")
+
+[node name="Crystal" type="Node2D" parent="."]
+script = ExtResource("5_story_prop")
+hidden_when_flag = "lightning_crystal_owned"
+
+[node name="Sprite2D" type="Sprite2D" parent="Crystal"]
+position = Vector2(0, -118)
+texture = ExtResource("6_lightning_cr")
+hframes = 20
+script = ExtResource("18_sheet_anim")
+frames_per_second = 12.0
+
+[node name="Glow" parent="Crystal" instance=ExtResource("7_night_light")]
+position = Vector2(0, -110)
+night_energy = 0.5
+always_on = true
+color = Color(1, 0.8, 0.45, 1)
+
+[node name="Barrier" type="Node2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="Arcs" type="Node2D" parent="Barrier"]
+position = Vector2(0, -119)
+script = ExtResource("8_crystal_arcs")
+targets = PackedVector2Array(-46, 101, 46, 101)
+crystal_sprite = NodePath("../../Crystal/Sprite2D")
+off_flag = "temple_rod_placed"
+
+[node name="RodStand" type="StaticBody2D" parent="."]
+position = Vector2(-130, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="RodStand"]
+texture = ExtResource("9_rod_stand")
+offset = Vector2(0, -32)
+script = ExtResource("10_story_textur")
+flag = "temple_rod_placed"
+texture_after = ExtResource("11_rod_stand_ro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RodStand"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="Brazier1" parent="." instance=ExtResource("lamp_storm")]
+position = Vector2(-251, -116)
+
+[node name="Brazier2" parent="." instance=ExtResource("lamp_storm")]
+position = Vector2(264, -127)
+
+[node name="Brazier3" parent="." instance=ExtResource("lamp_storm")]
+position = Vector2(-253, 165)
+
+[node name="Brazier4" parent="." instance=ExtResource("lamp_storm")]
+position = Vector2(256, 156)
+
+[node name="Talk" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="CrystalTalk" parent="Talk" instance=ExtResource("13_story_npc")]
+position = Vector2(0, 0)
+npc_id = "temple_crystal"
+narrator = true
+talk_area_scale = Vector2(1.8, 1.5)
+
+[node name="StandTalk" parent="Talk" instance=ExtResource("13_story_npc")]
+position = Vector2(-130, 24)
+npc_id = "temple_rod_stand"
+narrator = true
+talk_area_scale = Vector2(1.2, 1.2)
+
+[node name="Mural" parent="Talk" instance=ExtResource("13_story_npc")]
+position = Vector2(-190, -134)
+npc_id = "temple_mural_sanctum"
+narrator = true
+talk_area_scale = Vector2(2, 1.5)
+
+[node name="MuralPicture" type="Sprite2D" parent="Talk"]
+z_index = -1
+position = Vector2(-190, -170)
+texture = ExtResource("16_mural_pic")
+
+[node name="Narrator" parent="Talk" instance=ExtResource("13_story_npc")]
+position = Vector2(0, 180)
+npc_id = "temple_sanctum_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(4, 3)
+
+[node name="ToHall" parent="." instance=ExtResource("14_door")]
+position = Vector2(0, 236)
+target_scene = "res://scenes/world/desert/storm_temple_hall.tscn"
+target_spawn_point = &"FromSanctum"
+scale = Vector2(3, 1)
+
+[node name="Visual" parent="ToHall" index="0"]
+visible = false
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 200)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 200)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="TempleCrystalCutscene" type="Node2D" parent="."]
+script = ExtResource("17_crystal_cut")
+crystal = NodePath("../Crystal")
+rod_stand = NodePath("../RodStand")
+altar = NodePath("../Altar")
+arcs = NodePath("../Barrier/Arcs")
+
+[node name="HUD" parent="." instance=ExtResource("15_hud")]
+
+[editable path="ToHall"]
+[editable path="Player"]

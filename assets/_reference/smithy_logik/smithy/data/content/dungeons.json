@@ -1,0 +1,3498 @@
+{
+	"_hilfe": {
+		"info": "Dungeons erscheinen automatisch auf dem Dungeon-Brett (unter ihrem Reiter, z. B. Stadt). Alle Felder mit Beispielen: docs/CONTENT.md. Dieser Block wird vom Spiel ignoriert (Schlüssel mit _ am Anfang).",
+		"standard_bilder": {
+			"background": "kein Standard-Bild, Beispiel: res://assets/sprites/battle/rat_cellar.png (Seitenansicht, links/rechts nahtlos)"
+		},
+		"felder": {
+			"name / description / level": "Text auf dem Brett, empfohlenes Level",
+			"required_flag": "Story-Flag, ab dem der Dungeon auf dem Brett steht (z. B. \"rat_nest_unlocked\"); weglassen = immer",
+			"required_dungeon": "id eines anderen Dungeons, den die Helden erst einmal geschafft haben müssen (Dungeons eines Reiters nacheinander, z. B. die Katakomben nach der Kanalisation); weglassen = keiner",
+			"region": "Reiter auf dem Dungeon-Brett, z. B. \"Stadt\" (Standard: Stadt)",
+			"cost / stamina": "Gold, das der Spieler pro Raid zahlt (Standard 0), und Ausdauer, die jeder Held dafür braucht (Standard: dungeon_stamina in combat.json, 20)",
+			"stamina_free_until_won": "true = keine Ausdauer, bis der Dungeon einmal geschafft ist, danach wie stamina (Kämpfe der Altar-Schlacht ohne Nacht dazwischen)",
+			"hidden": "true = nicht auf dem Brett, nur die Story startet ihn (z. B. die Ratten in der Mine, Kapitel 6); einmal geschafft steht er danach doch auf dem Brett",
+			"gone_flag": "ab diesem Story-Flag vom Brett, solange er nie geschafft wurde; jeder einmal geschaffte Dungeon bleibt für immer auf dem Brett. Story-Gegenstände (items.json story_item) droppen nur beim ersten Sieg",
+			"background": "Kampf-Hintergrund",
+			"background_mirror": "true = Hintergrund wird gespiegelt aneinandergereiht (für Bilder, die links/rechts nicht nahtlos sind)",
+			"stages / time_limit": "Anzahl Stufen / Sekunden für alles (Standard 300 = 5 Minuten; abgelaufen = verloren)",
+			"enemies": "Welle jeder normalen Stufe: {\"count\": [von, bis], \"pool\": [{\"enemy\": id, \"chance\": Gewicht, \"from_stage\": n}]}",
+			"special_stages": "{\"5\": {\"type\": \"mini_boss\" | \"boss\", \"fixed\": [ids], \"count\": ...}}",
+			"rewards": "{\"gold\": Zahl, [von, bis] oder {\"amount\": [von, bis], \"chance\": 0–1}, \"exp\": wie gold, \"items\": [{\"item\", \"amount\", \"chance\"}], \"recipes\": [Rezept-ids], \"random_mold\": {\"material\": \"copper\", \"chance\": 0–1} (eine zufällige, noch unbekannte Gussform dieses Metalls; sind alle bekannt, gibt es keine mehr), \"boss_ingot\": Barren-id, den ein Boss mit Glück fallen lässt (Metall des Story-Teils, z. B. \"iron_ingot\"; Chance in combat.json dungeon_loot; weglassen = keiner)}",
+			"enemy_scale": "{\"health\": 1.5, \"damage\": 1.5} = alle Monster hier haben 50 % mehr Leben und Schaden (auch Zauber und Boss-Phasen) als in enemies.json, die Kill-EXP wächst mit dem Lebens-Faktor (unter 1 bleibt sie normal). So werden Dungeons einer neuen Erz-Stufe härter, ohne die Monster zu kopieren (Werte per Simulator: assets/_reference/balancing/sim_party.gd)"
+		}
+	},
+	"rat_cellar": {
+		"name": "Rattenkeller",
+		"region": "Stadt",
+		"description": "Ein feuchter Keller unter der Taverne. Überall Ratten, manche davon giftig. Die Beute schwankt: mal gar nichts, mal nur Erfahrung – und mit Glück Erz, Kohle oder eine neue Kupfer-Gussform.",
+		"level": 1,
+		"cost": 10,
+		"free_until_won": true,
+		"background": "res://assets/sprites/battle/rat_cellar.png",
+		"stages": 10,
+		"time_limit": 300,
+		"enemies": {
+			"count": [1, 2],
+			"pool": [
+				{"enemy": "rat", "chance": 75},
+				{"enemy": "poison_rat", "chance": 25}
+			]
+		},
+		"rewards": {
+			"boss_ingot": "copper_ingot",
+			"exp": [10, 15],
+			"items": [
+				{"item": "copper_ingot", "amount": 1, "chance": 0.28},
+				{"item": "coal", "amount": 2, "chance": 0.4}
+			],
+			"random_mold": {"material": "copper", "chance": 1.0}
+		}
+	},
+	"rat_cellar_deep": {
+		"name": "Tiefer Rattenkeller",
+		"region": "Stadt",
+		"description": "Hinter einer eingestürzten Wand geht der Keller weiter nach unten. Dort unten werden die Ratten größer. Die Beute schwankt: mal gar nichts, mal nur Erfahrung – und mit Glück Kupfer, Kohle oder eine neue Kupfer-Gussform.",
+		"level": 3, "enemy_scale": {"health": 1.5, "damage": 1.5},
+		"cost": 15,
+		"required_flag": "rat_cellar_deep_unlocked",
+		"background": "res://assets/sprites/battle/rat_cellar_deep.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 300,
+		"enemies": {
+			"count": [1, 2],
+			"pool": [
+				{"enemy": "rat", "chance": 75},
+				{"enemy": "giant_rat", "chance": 25, "from_stage": 5}
+			]
+		},
+		"rewards": {
+			"boss_ingot": "copper_ingot",
+			"exp": [12, 18],
+			"items": [
+				{"item": "copper_ingot", "amount": 2, "chance": 0.42},
+				{"item": "coal", "amount": 2, "chance": 0.6}
+			],
+			"random_mold": {"material": "copper", "chance": 1.0}
+		}
+	},
+	"rat_nest": {
+		"name": "Rattennest",
+		"region": "Stadt",
+		"description": "Tief unter dem Keller hausen größere Ratten – und ihr König. Die Beute schwankt: mal gar nichts, mal nur Erfahrung – und mit Glück Kupfer oder eine neue Kupfer-Gussform.",
+		"level": 7, "enemy_scale": {"health": 1.35, "damage": 1.35},
+		"cost": 20,
+		"required_flag": "rat_nest_unlocked",
+		"background": "res://assets/sprites/battle/rat_nest.png",
+		"background_mirror": true,
+		"stages": 11,
+		"time_limit": 300,
+		"enemies": {
+			"count": [1, 3],
+			"pool": [
+				{"enemy": "rat", "chance": 65},
+				{"enemy": "giant_rat", "chance": 35, "from_stage": 6}
+			]
+		},
+		"special_stages": {
+			"5": {"type": "mini_boss", "fixed": ["giant_rat"], "count": [0, 1]},
+			"11": {"type": "boss", "fixed": ["rat_king"], "count": [1, 1], "pool": [{"enemy": "rat"}]}
+		},
+		"rewards": {
+			"boss_ingot": "copper_ingot",
+			"exp": [35, 45],
+			"items": [
+				{"item": "copper_ore", "amount": [3, 5], "chance": 0.35},
+				{"item": "coal", "amount": [2, 4], "chance": 0.5},
+				{"item": "feather", "amount": 1, "chance": 0.21},
+				{"item": "copper_ingot", "amount": [1, 2], "chance": 0.175},
+				{"item": "topaz", "amount": 1, "chance": 0.05}
+			],
+			"random_mold": {"material": "copper", "chance": 0.5}
+		}
+	},
+	"mine_rats": {
+		"name": "Ratten in der Mine",
+		"region": "Stadt",
+		"hidden": true,
+		"description": "Hinter dem eingestürzten Geröll in Gustavs Mine kommen Ratten hervor. Bruno muss sie vertreiben.",
+		"level": 7,
+		"background": "res://assets/sprites/battle/mine_rats.png",
+		"background_mirror": true,
+		"stages": 3,
+		"time_limit": 300,
+		"enemies": {"count": [3, 3], "pool": [{"enemy": "rat"}]},
+		"special_stages": {
+			"2": {"fixed": ["rat", "rat", "giant_rat"], "count": [0, 0]},
+			"3": {"type": "boss", "fixed": ["mine_rat_boss", "giant_rat"], "count": [0, 0]}
+		},
+		"rewards": {
+			"boss_ingot": "copper_ingot",
+			"exp": 15
+		}
+	},
+	"mine_tunnels": {
+		"name": "Rattengänge in der Mine",
+		"region": "Stadt",
+		"description": "Hinter dem Loch in Gustavs Mine wühlen sich immer neue Ratten durch die alten Gänge. Die Beute schwankt: mit Glück Kupfer, Kohle oder eine neue Kupfer-Gussform.",
+		"cost": 20,
+		"required_flag": "mine_rats_cleared",
+		"level": 7,
+		"background": "res://assets/sprites/battle/mine_rats.png",
+		"background_mirror": true,
+		"stages": 6,
+		"time_limit": 300,
+		"enemy_scale": {"health": 1.3, "damage": 1.3},
+		"enemies": {"count": [2, 3], "pool": [{"enemy": "rat", "chance": 60}, {"enemy": "giant_rat", "chance": 40}]},
+		"special_stages": {
+			"6": {"type": "boss", "fixed": ["mine_rat_boss", "giant_rat"], "count": [0, 0]}
+		},
+		"rewards": {
+			"boss_ingot": "copper_ingot",
+			"exp": [20, 28],
+			"items": [
+				{"item": "copper_ore", "amount": [2, 4], "chance": 0.35},
+				{"item": "coal", "amount": [2, 3], "chance": 0.5},
+				{"item": "copper_ingot", "amount": 1, "chance": 0.175},
+				{"item": "citrine", "amount": 1, "chance": 0.04}
+			],
+			"random_mold": {"material": "copper", "chance": 0.3}
+		}
+	},
+	"forest_edge": {
+		"name": "Lichter Hain",
+		"region": "Wald",
+		"description": "Der Waldrand hinter Holgers Hütte. Wölfe streifen durch das Unterholz. Die Beute schwankt: mal gar nichts, mal Erfahrung – und mit Glück Holz oder Federn.",
+		"level": 8, "enemy_scale": {"health": 1.6, "damage": 1.6},
+		"cost": 30,
+		"required_flag": "forest_edge_unlocked",
+		"background": "res://assets/sprites/battle/forest.png",
+		"stages": 8,
+		"time_limit": 300,
+		"enemies": {
+			"count": [1, 2],
+			"pool": [
+				{"enemy": "wolf", "chance": 100}
+			]
+		},
+		"rewards": {
+			"boss_ingot": "copper_ingot",
+			"exp": [25, 30],
+			"items": [
+				{"item": "wood", "amount": [2, 4], "chance": 0.5},
+				{"item": "feather", "amount": 1, "chance": 0.21}
+			]
+		}
+	},
+	"forest_thicket": {
+		"name": "Dornendickicht",
+		"region": "Wald",
+		"description": "Tiefer im Wald wird es dicht und dornig. Hier wühlen Wildschweine, und die Wölfe jagen im Rudel.",
+		"level": 10,
+		"cost": 35,
+		"required_flag": "forest_thicket_unlocked",
+		"background": "res://assets/sprites/battle/forest_thicket.png",
+		"background_mirror": true,
+		"stages": 9,
+		"time_limit": 300,
+		"enemy_scale": {"health": 1.45, "damage": 1.45},
+		"enemies": {
+			"count": [1, 3],
+			"pool": [
+				{"enemy": "wolf", "chance": 65},
+				{"enemy": "wild_boar", "chance": 35, "from_stage": 3}
+			]
+		},
+		"special_stages": {
+			"9": {"type": "mini_boss", "fixed": ["wild_boar", "wild_boar"], "count": [0, 0]}
+		},
+		"rewards": {
+			"boss_ingot": "copper_ingot",
+			"exp": [35, 45],
+			"items": [
+				{"item": "wood", "amount": [3, 5], "chance": 0.5},
+				{"item": "copper_ore", "amount": [2, 3], "chance": 0.21},
+				{"item": "emerald", "amount": 1, "chance": 0.08}
+			]
+		}
+	},
+	"forest_den": {
+		"name": "Die Wolfshöhle",
+		"region": "Wald",
+		"description": "Ganz hinten im Wald liegt die Höhle des Schwarzen Wolfs. Wer bis zu ihm vordringt, muss an seinem Rudel vorbei.",
+		"level": 13,
+		"cost": 40,
+		"required_flag": "forest_den_unlocked",
+		"background": "res://assets/sprites/battle/forest_den.png",
+		"background_mirror": true,
+		"stages": 12,
+		"time_limit": 360,
+		"enemy_scale": {"health": 1.3, "damage": 1.3},
+		"enemies": {
+			"count": [1, 3],
+			"pool": [
+				{"enemy": "wolf", "chance": 50},
+				{"enemy": "wild_boar", "chance": 50}
+			]
+		},
+		"special_stages": {
+			"6": {"type": "mini_boss", "fixed": ["wild_boar"], "count": [0, 1]},
+			"12": {"type": "boss", "fixed": ["black_wolf"], "count": [2, 2], "pool": [{"enemy": "wolf"}]}
+		},
+		"rewards": {
+			"boss_ingot": "copper_ingot",
+			"exp": [55, 70],
+			"items": [
+				{"item": "copper_ore", "amount": [3, 5], "chance": 0.35},
+				{"item": "copper_ingot", "amount": [1, 2], "chance": 0.21},
+				{"item": "amethyst", "amount": 1, "chance": 0.1},
+				{"item": "onyx", "amount": 1, "chance": 0.04}
+			],
+			"random_mold": {"material": "copper", "chance": 0.4}
+		}
+	},
+	"capital_sewers": {
+		"name": "Kanalisation von Leonheim",
+		"region": "Leonheim",
+		"description": "Unter der Königsstadt stinkt es nach Schleim und Ungeziefer. Seit Wochen kommt etwas aus den Tiefen nach oben. Beute: Eisen, mit Glück eine Eisen-Gussform.",
+		"level": 12,
+		"cost": 50,
+		"required_flag": "capital_guild_joined",
+		"background": "res://assets/sprites/battle/capital_sewers.png",
+		"background_mirror": true,
+		"stages": 12,
+		"time_limit": 360,
+		"enemy_scale": {"health": 2.1, "damage": 2.1},
+		"enemies": {
+			"count": [1, 3],
+			"pool": [
+				{"enemy": "slime", "chance": 35},
+				{"enemy": "bat", "chance": 30},
+				{"enemy": "giant_rat", "chance": 25},
+				{"enemy": "venom_slime", "chance": 10, "from_stage": 5}
+			]
+		},
+		"special_stages": {
+			"6": {"type": "mini_boss", "fixed": ["giant_bat"], "count": [0, 1]},
+			"12": {"type": "boss", "fixed": ["venom_slime"], "count": [2, 2], "pool": [{"enemy": "slime"}]}
+		},
+		"rewards": {
+			"boss_ingot": "iron_ingot",
+			"exp": [65, 80],
+			"items": [
+				{"item": "iron_ore", "amount": [1, 2], "chance": 0.35},
+				{"item": "iron_ingot", "amount": 1, "chance": 0.175}
+			],
+			"random_mold": {"material": "iron", "chance": 0.4}
+		}
+	},
+	"capital_catacombs": {
+		"name": "Die alten Katakomben",
+		"region": "Leonheim",
+		"description": "Unter dem Tempelviertel liegen die Toten von tausend Jahren. Jetzt stehen sie wieder auf. Beute: Eisen und mit Glück eine Eisen-Gussform.",
+		"level": 15,
+		"cost": 65,
+		"required_flag": "capital_guild_joined",
+		"required_dungeon": "capital_sewers",
+		"background": "res://assets/sprites/battle/capital_catacombs.png",
+		"background_mirror": true,
+		"stages": 12,
+		"time_limit": 360,
+		"enemy_scale": {"health": 1.6, "damage": 1.6},
+		"enemies": {
+			"count": [1, 3],
+			"pool": [
+				{"enemy": "skeleton", "chance": 45},
+				{"enemy": "zombie", "chance": 35},
+				{"enemy": "giant_bat", "chance": 20, "from_stage": 4}
+			]
+		},
+		"special_stages": {
+			"6": {"type": "mini_boss", "fixed": ["ghoul"], "count": [0, 1]},
+			"12": {"type": "boss", "fixed": ["skeleton_knight"], "count": [2, 2], "pool": [{"enemy": "skeleton"}]}
+		},
+		"rewards": {
+			"boss_ingot": "iron_ingot",
+			"exp": [85, 105],
+			"items": [
+				{"item": "iron_ingot", "amount": [1, 2], "chance": 0.35},
+				{"item": "iron_ore", "amount": [2, 3], "chance": 0.21}
+			],
+			"random_mold": {"material": "iron", "chance": 0.3}
+		}
+	},
+	"capital_crypt": {
+		"name": "Die Gruft der Könige",
+		"region": "Leonheim",
+		"description": "Hier liegen die alten Könige von Leonheim. Nachts hört man Schritte zwischen den Sarkophagen, und kalte Lichter wandern durch die Gänge. Beute: Eisen, Saphire und mit Glück eine Eisen-Gussform.",
+		"level": 18,
+		"cost": 80,
+		"required_flag": "capital_guild_joined",
+		"required_dungeon": "capital_catacombs",
+		"background": "res://assets/sprites/battle/capital_crypt.png",
+		"background_mirror": true,
+		"stages": 14,
+		"time_limit": 420,
+		"enemy_scale": {"health": 0.85, "damage": 0.85},
+		"enemies": {
+			"count": [1, 3],
+			"pool": [
+				{"enemy": "skeleton", "chance": 30},
+				{"enemy": "ghoul", "chance": 30},
+				{"enemy": "ghost", "chance": 25, "from_stage": 4},
+				{"enemy": "skeleton_knight", "chance": 15, "from_stage": 8}
+			]
+		},
+		"special_stages": {
+			"7": {"type": "mini_boss", "fixed": ["ghost"], "count": [1, 1]},
+			"14": {"type": "boss", "fixed": ["mummy"], "count": [2, 2], "pool": [{"enemy": "ghost"}]}
+		},
+		"rewards": {
+			"boss_ingot": "iron_ingot",
+			"exp": [110, 140],
+			"items": [
+				{"item": "iron_ingot", "amount": [1, 3], "chance": 0.28},
+				{"item": "sapphire", "amount": 1, "chance": 0.1}
+			],
+			"random_mold": {"material": "iron", "chance": 0.5}
+		}
+	},
+	"gutter_alleys": {
+		"name": "Gosse I: Die Krummen Gassen",
+		"region": "Gosse",
+		"description": "Im Armenviertel von Leonheim, wo die Gassen so eng sind, dass kein Sonnenstrahl den Boden erreicht, treibt die Krähenbande Wegzoll ein. Ihr Wegelagerer Ratzo hält die Gassen. Beute: Waffen der Banditen, Geldbeutel.",
+		"level": 14,
+		"cost": 50,
+		"required_flag": "gutter_unlocked",
+		"background": "res://assets/sprites/battle/gutter_alleys.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 360,
+		"enemy_scale": {"health": 4.47, "damage": 4.47},
+		"enemies": {
+			"count": [
+				1,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "bandit_thug",
+					"chance": 45
+				},
+				{
+					"enemy": "bandit_archer",
+					"chance": 30
+				},
+				{
+					"enemy": "bandit_knifer",
+					"chance": 25,
+					"from_stage": 3
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"bandit_shield"
+				],
+				"count": [
+					1,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "bandit_thug"
+					}
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"bandit_ratzo"
+				],
+				"count": [
+					2,
+					2
+				],
+				"pool": [
+					{
+						"enemy": "bandit_thug"
+					},
+					{
+						"enemy": "bandit_archer"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "iron_ingot",
+			"exp": [60, 75],
+			"items": [
+				{
+					"item": "iron_ingot",
+					"amount": [
+						1,
+						2
+					],
+					"chance": 0.28
+				}
+			],
+			"random_mold": {"material": "iron", "chance": 0.3}
+		}
+	},
+	"gutter_warehouse": {
+		"name": "Gosse II: Das Lagerhaus am Kanal",
+		"region": "Gosse",
+		"description": "Ein morsches Lagerhaus am stinkenden Kanal, randvoll mit Diebesgut. Lagermeister Grimbald zählt die Kisten mit einem Zweihänder in der Hand. Beute: Waffen, Geldbeutel, Eisen.",
+		"level": 16,
+		"cost": 60,
+		"required_flag": "gutter_warehouse_unlocked",
+		"background": "res://assets/sprites/battle/gutter_warehouse.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 360,
+		"enemy_scale": {"health": 4.75, "damage": 4.75},
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "bandit_thug",
+					"chance": 30
+				},
+				{
+					"enemy": "bandit_archer",
+					"chance": 25
+				},
+				{
+					"enemy": "bandit_knifer",
+					"chance": 20
+				},
+				{
+					"enemy": "bandit_shield",
+					"chance": 25,
+					"from_stage": 2
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"bandit_brute"
+				],
+				"count": [
+					1,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "bandit_shield"
+					}
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"bandit_grimbald"
+				],
+				"count": [
+					2,
+					2
+				],
+				"pool": [
+					{
+						"enemy": "bandit_shield"
+					},
+					{
+						"enemy": "bandit_archer"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "iron_ingot",
+			"exp": [70, 85],
+			"items": [
+				{
+					"item": "iron_ingot",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 0.35
+				}
+			],
+			"random_mold": {"material": "iron", "chance": 0.35}
+		}
+	},
+	"gutter_tavern": {
+		"name": "Gosse III: Die Spelunke ‚Zum Ersoffenen Hund‘",
+		"region": "Gosse",
+		"description": "Die verrauchte Kellerkneipe der Krähen. Hier sitzt Bulle Brakk, der sich vor jedem Kampf ein Fläschchen Bärenblut hinter die Binde kippt und dann stärker wird. Beute: Waffen, Geldbeutel, Eisenerz.",
+		"level": 18,
+		"cost": 70,
+		"required_flag": "gutter_tavern_unlocked",
+		"background": "res://assets/sprites/battle/gutter_tavern.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 400,
+		"enemy_scale": {"health": 5.05, "damage": 5.05},
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "bandit_thug",
+					"chance": 25
+				},
+				{
+					"enemy": "bandit_archer",
+					"chance": 20
+				},
+				{
+					"enemy": "bandit_knifer",
+					"chance": 20
+				},
+				{
+					"enemy": "bandit_shield",
+					"chance": 20
+				},
+				{
+					"enemy": "bandit_brute",
+					"chance": 15,
+					"from_stage": 4
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"bandit_brute",
+					"bandit_shield"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "bandit_knifer"
+					}
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"bandit_brakk"
+				],
+				"count": [
+					2,
+					2
+				],
+				"pool": [
+					{
+						"enemy": "bandit_knifer"
+					},
+					{
+						"enemy": "bandit_shield"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "iron_ingot",
+			"exp": [80, 95],
+			"items": [
+				{
+					"item": "iron_ingot",
+					"amount": [
+						2,
+						3
+					],
+					"chance": 0.35
+				},
+				{"item": "iron_ore", "amount": [2, 3], "chance": 0.21}
+			],
+			"random_mold": {"material": "iron", "chance": 0.4}
+		}
+	},
+	"gutter_nest": {
+		"name": "Gosse IV: Das Krähennest",
+		"region": "Gosse",
+		"description": "Das Haus des Krähenkönigs Varrik, ganz oben im Armenviertel. Wer ihn angreift, hat die ganze Bande am Hals: Er ruft immer neue Banditen zu Hilfe. Nur einmal zu schaffen.",
+		"level": 20,
+		"cost": 80,
+		"required_flag": "gutter_nest_unlocked",
+		"gone_flag": "varrik_defeated",
+		"background": "res://assets/sprites/battle/gutter_nest.png",
+		"background_mirror": true,
+		"stages": 8,
+		"time_limit": 420,
+		"enemy_scale": {"health": 3.85, "damage": 3.85},
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "bandit_thug",
+					"chance": 20
+				},
+				{
+					"enemy": "bandit_archer",
+					"chance": 20
+				},
+				{
+					"enemy": "bandit_knifer",
+					"chance": 20
+				},
+				{
+					"enemy": "bandit_shield",
+					"chance": 20
+				},
+				{
+					"enemy": "bandit_brute",
+					"chance": 20
+				}
+			]
+		},
+		"special_stages": {
+			"8": {
+				"type": "boss",
+				"fixed": [
+					"bandit_varrik"
+				],
+				"count": [
+					0,
+					0
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "iron_ingot",
+			"exp": [120, 140],
+			"random_mold": {"material": "iron", "chance": 1.0},
+			"items": [
+				{
+					"item": "iron_ingot",
+					"amount": [
+						2,
+						4
+					],
+					"chance": 1.0
+				},
+				{"item": "copper_ingot", "amount": [2, 3], "chance": 0.35}
+			]
+		}
+	},
+	"capital_crypt_cursed": {
+		"name": "Leonheim IV: Die verzauberte Gruft",
+		"region": "Leonheim",
+		"description": "Der tiefste Teil der Gruft der Könige. Seit der Lich umgeht, liegt ein Fluch auf ihm, und Kastellan Morwald bewacht mit dem Schlüssel der Schatzkammer die letzte Kammer. Nur einmal zu schaffen.",
+		"level": 22,
+		"cost": 90,
+		"required_flag": "king_wants_key",
+		"gone_flag": "morwald_defeated",
+		"background": "res://assets/sprites/battle/capital_crypt_cursed.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 480,
+		"enemy_scale": {"health": 2.0, "damage": 2.0},
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "cursed_skeleton",
+					"chance": 60
+				},
+				{
+					"enemy": "crypt_wraith",
+					"chance": 40,
+					"from_stage": 3
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"crypt_wraith",
+					"crypt_wraith"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"castellan_morwald"
+				],
+				"count": [
+					0,
+					0
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "iron_ingot",
+			"exp": [150, 180],
+			"items": [
+				{"item": "iron_ingot", "amount": [2, 3], "chance": 1.0},
+				{"item": "sapphire", "amount": 1, "chance": 0.3}
+			]
+		}
+	},
+	"volcano_ash_tunnels": {
+		"name": "Vulkan I: Die Aschegänge",
+		"region": "Vulkan",
+		"description": "Heiße Gänge unter der Goblinhöhle. Magmaschleim, Glutkobolde und Lavahunde - fast alles hier ist gegen Feuer gefeit. Eis- und Wasserwaffen helfen. Beute: Kupfer, Eisen, Rubine.",
+		"level": 25,
+		"cost": 100,
+		"required_flag": "volcano_dungeons_unlocked",
+		"background": "res://assets/sprites/battle/volcano.png",
+		"stages": 10,
+		"time_limit": 480,
+		"enemy_scale": {"health": 2.26, "damage": 2.26},
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "magma_slime",
+					"chance": 40
+				},
+				{
+					"enemy": "ember_imp",
+					"chance": 30
+				},
+				{
+					"enemy": "lava_hound",
+					"chance": 30,
+					"from_stage": 3
+				},
+				{
+					"enemy": "ember_drake",
+					"chance": 15,
+					"from_stage": 4
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"lava_hound",
+					"lava_hound"
+				],
+				"count": [
+					0,
+					0
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"magma_brute"
+				],
+				"count": [
+					1,
+					1
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "bronze_ingot",
+			"drop_factor": 0.5,
+			"exp": [160, 190],
+			"items": [
+				{"item": "copper_ore", "amount": [1, 3], "chance": 0.35},
+				{"item": "iron_ore", "amount": [1, 2], "chance": 0.3},
+				{"item": "ruby", "amount": 1, "chance": 0.2}
+			],
+			"random_mold": {"material": "bronze", "chance": 0.50}
+		}
+	},
+	"volcano_magma_halls": {
+		"name": "Vulkan II: Die Magmahallen",
+		"region": "Vulkan",
+		"description": "Riesige Hallen über einem Lavasee. Obsidianwächter halten fast alles aus, Feuersalamander spucken Feuer, und ihre Königin ruft immer neue Brut. Beute: Bronze, Eisen, Rubine.",
+		"level": 28,
+		"cost": 120,
+		"required_flag": "volcano_dungeons_unlocked",
+		"required_dungeon": "volcano_ash_tunnels",
+		"background": "res://assets/sprites/battle/volcano_magma_halls.png",
+		"background_mirror": true,
+		"stages": 12,
+		"time_limit": 540,
+		"enemy_scale": {"health": 2.1, "damage": 2.1},
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "lava_hound",
+					"chance": 30
+				},
+				{
+					"enemy": "obsidian_guardian",
+					"chance": 25
+				},
+				{
+					"enemy": "fire_salamander",
+					"chance": 30
+				},
+				{
+					"enemy": "ember_spirit",
+					"chance": 15,
+					"from_stage": 6
+				},
+				{
+					"enemy": "ember_drake",
+					"chance": 25
+				}
+			]
+		},
+		"special_stages": {
+			"6": {
+				"type": "mini_boss",
+				"fixed": [
+					"obsidian_guardian",
+					"fire_salamander"
+				],
+				"count": [
+					0,
+					0
+				]
+			},
+			"12": {
+				"type": "boss",
+				"fixed": [
+					"salamander_queen"
+				],
+				"count": [
+					0,
+					0
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "bronze_ingot",
+			"drop_factor": 0.5,
+			"exp": [190, 230],
+			"items": [
+				{"item": "bronze_ingot", "amount": 1, "chance": 0.35},
+				{"item": "iron_ore", "amount": [1, 2], "chance": 0.3},
+				{"item": "ruby", "amount": 1, "chance": 0.3}
+			],
+			"random_mold": {"material": "bronze", "chance": 0.60}
+		}
+	},
+	"volcano_golem_forge": {
+		"name": "Vulkan: Die Schmiede des Lavagolems",
+		"region": "Vulkan",
+		"description": "Eine uralte Goblinschmiede tief im Berg, in der ein Lavagolem wacht. Hier liegt das Rezept der Krone. Der Golem trinkt Feuer: Feuerangriffe heilen ihn, und sein Lava-Ausbruch trifft auch ihn selbst. Nur einmal zu schaffen.",
+		"level": 30,
+		"cost": 150,
+		"required_flag": "crown_quest_started",
+		"gone_flag": "crown_recipe_found",
+		"background": "res://assets/sprites/battle/volcano_golem_forge.png",
+		"background_mirror": true,
+		"stages": 8,
+		"time_limit": 540,
+		"enemy_scale": {"health": 1.5, "damage": 1.5},
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "magma_slime",
+					"chance": 35
+				},
+				{
+					"enemy": "obsidian_guardian",
+					"chance": 30
+				},
+				{
+					"enemy": "ember_imp",
+					"chance": 35
+				}
+			]
+		},
+		"special_stages": {
+			"4": {
+				"type": "mini_boss",
+				"fixed": [
+					"ember_spirit",
+					"ember_spirit"
+				],
+				"count": [
+					0,
+					0
+				]
+			},
+			"8": {
+				"type": "boss",
+				"fixed": [
+					"lava_golem"
+				],
+				"count": [
+					0,
+					0
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "bronze_ingot",
+			"exp": [240, 280],
+			"items": [
+				{"item": "bronze_ingot", "amount": [2, 4], "chance": 1.0}
+			],
+			"recipes": ["goblin_crown"]
+		}
+	},
+	"dragon_lair": {
+		"name": "Die Drachenkammer",
+		"region": "Vulkan",
+		"description": "Ignar, der Glutdrache, liegt auf dem Schatz der Goblins. Drei Lebensbalken: erst spielt er mit euch, dann wird er ernst, am Ende rast er. Er heilt sich schnell, sein Feuer trifft alle, und er ruft Glutgeister. Bringt Feuerschutz mit - und Geduld.",
+		"level": 36,
+		"cost": 0,
+		"stamina": 40,
+		"hidden": true,
+		"required_flag": "dragon_challenge",
+		"gone_flag": "dragon_defeated",
+		"background": "res://assets/sprites/battle/dragon_lair.png",
+		"stages": 1,
+		"time_limit": 600,
+		"enemy_scale": {"health": 1.35, "damage": 1.35},
+		"enemies": {
+			"count": [
+				0,
+				0
+			],
+			"pool": [
+				{
+					"enemy": "ember_spirit"
+				}
+			]
+		},
+		"special_stages": {
+			"1": {
+				"type": "boss",
+				"fixed": [
+					"volcano_dragon"
+				],
+				"count": [
+					0,
+					0
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "bronze_ingot",
+			"exp": [500, 600],
+			"items": [
+				{"item": "bronze_ingot", "amount": [3, 4], "chance": 1.0},
+				{"item": "ruby", "amount": [1, 2], "chance": 1.0}
+			]
+		}
+	},
+	"mountain_foot": {
+		"enemy_scale": {"health": 3.22, "damage": 3.22},
+		"name": "Sturmgipfel I: Der Bergfuß",
+		"region": "Sturmgipfel",
+		"description": "Hinter Sylvaris steigt der Sturmgipfel auf. Schon an seinem Fuß stürzen Felsfalken aus dem Himmel, und Hippogreife verteidigen ihre Weiden. Beute: Federn, Silber, mit Glück Hippogreiffell (Leder wie Silber) und Harpyienfedern.",
+		"level": 36,
+		"cost": 120,
+		"required_flag": "tournament_open",
+		"background": "res://assets/sprites/battle/mountain_foot.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 480,
+		"enemies": {
+			"count": [2, 3],
+			"pool": [
+				{"enemy": "mountain_hawk", "chance": 45},
+				{"enemy": "storm_crow", "chance": 25},
+				{"enemy": "hippogriff", "chance": 20, "from_stage": 3},
+				{"enemy": "harpy", "chance": 10, "from_stage": 6}
+			]
+		},
+		"special_stages": {
+			"5": {"type": "mini_boss", "fixed": ["hippogriff", "hippogriff"], "count": [0, 0]},
+			"10": {"type": "boss", "fixed": ["hippogriff", "hippogriff"], "count": [1, 1], "pool": [{"enemy": "mountain_hawk"}]}
+		},
+		"rewards": {
+			"boss_ingot": "silver_ingot",
+			"drop_factor": 0.5,
+			"exp": [170, 200],
+			"items": [
+				{"item": "silver_ore", "amount": 1, "chance": 1.0},
+				{"item": "emerald", "amount": 1, "chance": 0.15}
+			],
+			"random_mold": {"material": "silver", "chance": 0.5}
+		}
+	},
+	"mountain_slope": {
+		"enemy_scale": {"health": 2.45, "damage": 2.45},
+		"name": "Sturmgipfel II: Die Felsenhänge",
+		"region": "Sturmgipfel",
+		"description": "Auf halber Höhe heult der Wind durch die Felsen. Hier nisten die Harpyien, und Sturmgeister ziehen über die Grate. Die Harpyienmutter wacht über ihre Brut. Beute: Harpyienfedern, Silber, mit Glück Sturmessenz.",
+		"level": 38,
+		"cost": 140,
+		"required_flag": "tournament_open",
+		"required_dungeon": "mountain_foot",
+		"background": "res://assets/sprites/battle/mountain_slope.png",
+		"background_mirror": true,
+		"stages": 12,
+		"time_limit": 540,
+		"enemies": {
+			"count": [2, 3],
+			"pool": [
+				{"enemy": "harpy", "chance": 40},
+				{"enemy": "mountain_hawk", "chance": 20},
+				{"enemy": "hippogriff", "chance": 20},
+				{"enemy": "storm_spirit", "chance": 20, "from_stage": 4}
+			]
+		},
+		"special_stages": {
+			"6": {"type": "mini_boss", "fixed": ["storm_spirit", "storm_spirit"], "count": [0, 1]},
+			"12": {"type": "boss", "fixed": ["harpy_matriarch"], "count": [1, 1], "pool": [{"enemy": "harpy"}]}
+		},
+		"rewards": {
+			"boss_ingot": "silver_ingot",
+			"drop_factor": 0.5,
+			"exp": [200, 240],
+			"items": [
+				{"item": "silver_ore", "amount": 1, "chance": 1.0},
+				{"item": "emerald", "amount": 1, "chance": 0.2}
+			],
+			"random_mold": {"material": "silver", "chance": 0.6}
+		}
+	},
+	"mountain_summit": {
+		"enemy_scale": {"health": 2.44, "damage": 2.44},
+		"name": "Sturmgipfel III: Der Horst",
+		"region": "Sturmgipfel",
+		"description": "Ganz oben, im ewigen Schnee, liegt der Horst von Sturmschwinge. Früher wachte der Greif über die Pässe der Elfen. Jetzt greift er jeden an, der sich nähert. Zwei Lebensbalken, sein Sturzflug betäubt. Erde und Blitz wirken gut. Beute: Hippogreiffell, Harpyienfedern, Sturmessenz.",
+		"level": 40,
+		"cost": 180,
+		"stamina": 30,
+		"required_flag": "tournament_open",
+		"required_dungeon": "mountain_slope",
+		"background": "res://assets/sprites/battle/mountain_summit.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 600,
+		"enemies": {
+			"count": [2, 3],
+			"pool": [
+				{"enemy": "harpy", "chance": 35},
+				{"enemy": "storm_spirit", "chance": 25},
+				{"enemy": "hippogriff", "chance": 25},
+				{"enemy": "storm_crow", "chance": 15}
+			]
+		},
+		"special_stages": {
+			"5": {"type": "mini_boss", "fixed": ["harpy_matriarch"], "count": [0, 1], "pool": [{"enemy": "harpy"}]},
+			"10": {"type": "boss", "fixed": ["griffin"], "count": [1, 1], "pool": [{"enemy": "harpy"}]}
+		},
+		"rewards": {
+			"boss_ingot": "silver_ingot",
+			"drop_factor": 0.5,
+			"exp": [280, 330],
+			"items": [
+				{"item": "silver_ore", "amount": 1, "chance": 1.0},
+				{"item": "emerald", "amount": 1, "chance": 0.3}
+			],
+			"random_mold": {"material": "silver", "chance": 0.7}
+		}
+	},
+	"compass_foundry": {
+		"name": "Die vergessene Gießerei",
+		"region": "Leonheim",
+		"description": "Tief unter Leonheim liegt eine Gießerei, an die sich niemand mehr erinnert. Seit der Lich umgeht, ziehen Skelette, Ghule, Geister und Skelettritter durch die Gewölbe, am Ende warten zwei Mumien. Beute: Gussform Kompassgehäuse, Goldbarren, Topas.",
+		"level": 41,
+		"cost": 190,
+		"stamina": 30,
+		"required_flag": "compass_dungeons_unlocked",
+		"background": "res://assets/sprites/battle/compass_foundry.png",
+		"background_mirror": true,
+		"stages": 12,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "cursed_skeleton",
+					"chance": 30
+				},
+				{
+					"enemy": "ghoul",
+					"chance": 25
+				},
+				{
+					"enemy": "crypt_wraith",
+					"chance": 20
+				},
+				{
+					"enemy": "skeleton_knight",
+					"chance": 15
+				},
+				{
+					"enemy": "ghost",
+					"chance": 10
+				}
+			]
+		},
+		"special_stages": {
+			"6": {
+				"type": "mini_boss",
+				"fixed": [
+					"skeleton_knight",
+					"skeleton_knight"
+				],
+				"count": [
+					0,
+					0
+				]
+			},
+			"12": {
+				"type": "boss",
+				"fixed": [
+					"mummy",
+					"mummy"
+				],
+				"count": [
+					1,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "cursed_skeleton"
+					}
+				]
+			}
+		},
+		"enemy_scale": {"health": 3.25, "damage": 3.25},
+		"rewards": {
+			"boss_ingot": "gold_ingot",
+			"early_metals": ["gold"],
+			"exp": [
+				300,
+				360
+			],
+			"items": [
+				{
+					"item": "gold_ingot",
+					"amount": [
+						1,
+						2
+					],
+					"chance": 1
+				},
+				{
+					"item": "topaz",
+					"amount": 1,
+					"chance": 0.3
+				}
+			],
+			"recipes": [
+				"mold_gold_compass_case",
+				"gold_compass_case"
+			]
+		}
+	},
+	"compass_obsidian": {
+		"name": "Die Obsidiankammer",
+		"region": "Vulkan",
+		"description": "Eine Kammer aus schwarzem Vulkanglas, tief im Lavaberg. Magmaschleime, Lavahunde, Obsidianwächter und Glutgeister bewachen sie, ganz hinten schläft ein Lavagolem. Beute: Gussform Kompassnadel, Eisenbarren, Rubin.",
+		"level": 42,
+		"cost": 200,
+		"stamina": 30,
+		"required_flag": "compass_dungeons_unlocked",
+		"background": "res://assets/sprites/battle/compass_obsidian.png",
+		"background_mirror": true,
+		"stages": 12,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "magma_slime",
+					"chance": 20
+				},
+				{
+					"enemy": "lava_hound",
+					"chance": 25
+				},
+				{
+					"enemy": "obsidian_guardian",
+					"chance": 25
+				},
+				{
+					"enemy": "fire_salamander",
+					"chance": 15
+				},
+				{
+					"enemy": "ember_spirit",
+					"chance": 15
+				}
+			]
+		},
+		"special_stages": {
+			"6": {
+				"type": "mini_boss",
+				"fixed": [
+					"obsidian_guardian",
+					"obsidian_guardian"
+				],
+				"count": [
+					0,
+					0
+				]
+			},
+			"12": {
+				"type": "boss",
+				"fixed": [
+					"lava_golem"
+				],
+				"count": [
+					0,
+					0
+				]
+			}
+		},
+		"enemy_scale": {"health": 2.29, "damage": 2.29},
+		"rewards": {
+			"boss_ingot": "gold_ingot",
+			"exp": [
+				320,
+				380
+			],
+			"items": [
+				{
+					"item": "iron_ingot",
+					"amount": [
+						2,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "ruby",
+					"amount": 1,
+					"chance": 0.3
+				}
+			],
+			"recipes": [
+				"mold_iron_compass_needle",
+				"iron_compass_needle"
+			]
+		}
+	},
+	"compass_windcave": {
+		"name": "Die Windhöhle",
+		"region": "Sturmgipfel",
+		"description": "Eine Höhle hoch oben am Sturmgipfel, durch die der Wind heult. Harpyien, Sturmgeister, Hippogreife und Sturmkrähen nisten dort, zwei Harpyien-Matriarchinnen herrschen über sie. Beute: Gussform Windrose, Silberbarren, Harpyienfedern.",
+		"level": 42,
+		"cost": 200,
+		"stamina": 30,
+		"required_flag": "compass_dungeons_unlocked",
+		"background": "res://assets/sprites/battle/compass_windcave.png",
+		"background_mirror": true,
+		"stages": 12,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "harpy",
+					"chance": 30
+				},
+				{
+					"enemy": "storm_spirit",
+					"chance": 25
+				},
+				{
+					"enemy": "hippogriff",
+					"chance": 25
+				},
+				{
+					"enemy": "storm_crow",
+					"chance": 20
+				}
+			]
+		},
+		"special_stages": {
+			"6": {
+				"type": "mini_boss",
+				"fixed": [
+					"hippogriff",
+					"hippogriff"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "storm_crow"
+					}
+				]
+			},
+			"12": {
+				"type": "boss",
+				"fixed": [
+					"harpy_matriarch",
+					"harpy_matriarch"
+				],
+				"count": [
+					1,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "storm_spirit"
+					}
+				]
+			}
+		},
+		"enemy_scale": {"health": 2.1, "damage": 2.1},
+		"rewards": {
+			"boss_ingot": "gold_ingot",
+			"exp": [
+				320,
+				380
+			],
+			"items": [
+				{
+					"item": "silver_ingot",
+					"amount": [
+						2,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "harpy_feather",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 0.35
+				}
+			],
+			"recipes": [
+				"mold_silver_compass_rose",
+				"silver_compass_rose"
+			]
+		}
+	},
+	"compass_roots": {
+		"name": "Der Wurzelhort",
+		"region": "Wald",
+		"description": "Unter den Wurzeln einer uralten Eiche im tiefen Wald liegt ein dunkler Bau. Die Wölfe und Wildschweine dort sind nicht mehr die aus dem Lichten Hain: Etwas hat sie groß und wild gemacht. Beute: Gussform Kompassdeckel, Bronzebarren, Smaragd.",
+		"level": 41,
+		"cost": 190,
+		"stamina": 30,
+		"required_flag": "compass_dungeons_unlocked",
+		"background": "res://assets/sprites/battle/compass_roots.png",
+		"background_mirror": true,
+		"stages": 12,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "wolf",
+					"chance": 40
+				},
+				{
+					"enemy": "wild_boar",
+					"chance": 30
+				},
+				{
+					"enemy": "black_wolf",
+					"chance": 30
+				}
+			]
+		},
+		"special_stages": {
+			"6": {
+				"type": "mini_boss",
+				"fixed": [
+					"wild_boar",
+					"wild_boar"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "wolf"
+					}
+				]
+			},
+			"12": {
+				"type": "boss",
+				"fixed": [
+					"black_wolf",
+					"black_wolf",
+					"black_wolf"
+				],
+				"count": [
+					0,
+					0
+				]
+			}
+		},
+		"enemy_scale": {"health": 9.75, "damage": 9.75},
+		"rewards": {
+			"boss_ingot": "gold_ingot",
+			"exp": [
+				300,
+				360
+			],
+			"items": [
+				{
+					"item": "gold_ingot",
+					"amount": [
+						1,
+						2
+					],
+					"chance": 1
+				},
+				{
+					"item": "emerald",
+					"amount": 1,
+					"chance": 0.3
+				}
+			],
+			"recipes": [
+				"mold_bronze_compass_lid",
+				"bronze_compass_lid"
+			]
+		}
+	},
+	"water_coast": {
+		"enemy_scale": {"health": 3.02, "damage": 3.02},
+		"name": "Eisquell I: Die Brandungsküste",
+		"region": "Eisquell",
+		"description": "Unter der Eismauer schlägt die Brandung gegen schwarze Felsen. Krebse so groß wie Fässer und Küstenkrieger, die keinem Herrn mehr gehorchen. Der Riffwächter hält die Küste. Wasser macht ihnen nichts, Blitz trifft sie hart. Beute: Silber, Aquamarin.",
+		"level": 39,
+		"cost": 150,
+		"required_flag": "water_dungeons_unlocked",
+		"background": "res://assets/sprites/battle/water_coast.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 540,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "surf_crab",
+					"chance": 40
+				},
+				{
+					"enemy": "tide_fishman",
+					"chance": 40
+				},
+				{
+					"enemy": "tide_eel",
+					"chance": 20,
+					"from_stage": 4
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"fishman_shaman",
+					"fishman_shaman"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"reef_warden"
+				],
+				"count": [
+					1,
+					2
+				],
+				"pool": [
+					{
+						"enemy": "tide_fishman"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "silver_ingot",
+			"exp": [
+				260,
+				300
+			],
+			"items": [
+				{
+					"item": "silver_ore",
+					"amount": [
+						2,
+						4
+					],
+					"chance": 0.42
+				},
+				{"item": "silver_ingot", "amount": [1, 2], "chance": 0.35},
+				{
+					"item": "aquamarine",
+					"amount": 1,
+					"chance": 0.2
+				}
+			],
+			"random_mold": {"material": "silver", "chance": 0.55}
+		}
+	},
+	"water_cave": {
+		"enemy_scale": {"health": 2.78, "damage": 2.78},
+		"name": "Eisquell II: Die Gezeitenhöhle",
+		"region": "Eisquell",
+		"description": "Zweimal am Tag läuft die Höhle voll. Dazwischen jagen Eisrobben und Gezeitenaale in den Becken, Schamanen der wilden Fischmenschen rufen die Flut. Ganz hinten lauert eine Grottenkrake. Beute: Silber, Aquamarin, Saphir.",
+		"level": 40,
+		"cost": 170,
+		"required_flag": "water_dungeons_unlocked",
+		"required_dungeon": "water_coast",
+		"background": "res://assets/sprites/battle/water_cave.png",
+		"background_mirror": true,
+		"stages": 12,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "tide_fishman",
+					"chance": 30
+				},
+				{
+					"enemy": "ice_seal",
+					"chance": 30
+				},
+				{
+					"enemy": "tide_eel",
+					"chance": 20
+				},
+				{
+					"enemy": "fishman_shaman",
+					"chance": 20,
+					"from_stage": 3
+				}
+			]
+		},
+		"special_stages": {
+			"6": {
+				"type": "mini_boss",
+				"fixed": [
+					"reef_warden"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"12": {
+				"type": "boss",
+				"fixed": [
+					"grotto_kraken"
+				],
+				"count": [
+					1,
+					2
+				],
+				"pool": [
+					{
+						"enemy": "tide_eel"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "silver_ingot",
+			"exp": [
+				290,
+				340
+			],
+			"items": [
+				{"item": "silver_ore", "amount": [2, 4], "chance": 0.49},
+				{
+					"item": "aquamarine",
+					"amount": 1,
+					"chance": 0.3
+				},
+				{
+					"item": "sapphire",
+					"amount": 1,
+					"chance": 0.15
+				}
+			],
+			"random_mold": {"material": "silver", "chance": 0.65}
+		}
+	},
+	"water_grotto": {
+		"enemy_scale": {"health": 2.6, "damage": 2.6},
+		"name": "Eisquell III: Die Kristallgrotte",
+		"region": "Eisquell",
+		"description": "Tief im Gletscher glitzern Wände aus blauem Kristall. Kristallkrabben tragen ihn als Panzer, stumpfe Schläge brechen ihn. Zwei Grottenkraken bewachen den Abstieg in die Tiefe. Beute: Silber, Saphir, Aquamarin.",
+		"level": 41,
+		"cost": 190,
+		"stamina": 30,
+		"required_flag": "water_dungeons_unlocked",
+		"required_dungeon": "water_cave",
+		"background": "res://assets/sprites/battle/water_grotto.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "crystal_crab",
+					"chance": 35
+				},
+				{
+					"enemy": "ice_seal",
+					"chance": 25
+				},
+				{
+					"enemy": "fishman_shaman",
+					"chance": 20
+				},
+				{
+					"enemy": "tide_eel",
+					"chance": 20
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"grotto_kraken"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"grotto_kraken",
+					"grotto_kraken"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "crystal_crab"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "silver_ingot",
+			"exp": [
+				320,
+				370
+			],
+			"items": [
+				{"item": "silver_ore", "amount": [3, 5], "chance": 0.56},
+				{"item": "silver_ingot", "amount": [1, 2], "chance": 0.28},
+				{
+					"item": "sapphire",
+					"amount": 1,
+					"chance": 0.25
+				}
+			],
+			"random_mold": {"material": "silver", "chance": 0.75}
+		}
+	},
+	"water_deep_grotto": {
+		"enemy_scale": {"health": 2.75, "damage": 2.75},
+		"name": "Eisquell IV: Die Tiefe Grotte",
+		"region": "Eisquell",
+		"description": "Ganz unten, wo das Meer unter dem Eis atmet, schläft Frostmähne auf den Knochen der Fischer. Zwei Lebensbalken, ihr Gebrüll verlangsamt alle. Blitz wirkt gut, Wasser und Eis gar nicht. Beute: das Fell der Frostmähne.",
+		"level": 42,
+		"cost": 200,
+		"stamina": 30,
+		"required_flag": "water_dungeons_unlocked",
+		"required_dungeon": "water_grotto",
+		"gone_flag": "frost_mane_slain",
+		"background": "res://assets/sprites/battle/water_grotto.png",
+		"background_mirror": true,
+		"stages": 6,
+		"time_limit": 480,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "crystal_crab",
+					"chance": 40
+				},
+				{
+					"enemy": "ice_seal",
+					"chance": 40
+				},
+				{
+					"enemy": "fishman_shaman",
+					"chance": 20
+				}
+			]
+		},
+		"special_stages": {
+			"6": {
+				"type": "boss",
+				"fixed": [
+					"frost_mane"
+				],
+				"count": [
+					1,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "ice_seal"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "silver_ingot",
+			"exp": [
+				360,
+				420
+			],
+			"items": [
+				{
+					"item": "frost_mane_pelt",
+					"amount": 1,
+					"chance": 1
+				},
+				{"item": "silver_ingot", "amount": [1, 2], "chance": 1}
+			]
+		}
+	},
+	"arena_duel": {
+		"name": "Gezeitenarena",
+		"region": "Eisquell",
+		"hidden": true,
+		"description": "Kahns Arena in Eisquell: ein Held gegen einen Helden.",
+		"level": 1,
+		"background": "res://assets/sprites/battle/water_arena.png",
+		"background_mirror": true,
+		"stages": 1,
+		"time_limit": 120,
+		"enemies": {
+			"count": [
+				0,
+				0
+			],
+			"pool": [
+				{
+					"enemy": "rat"
+				}
+			]
+		},
+		"rewards": {
+			"exp": 0
+		}
+	},
+	"swamp_mire": {
+		"enemy_scale": {"health": 2.9, "damage": 2.9},
+		"name": "Sumpf I: Das Nebelmoor",
+		"region": "Sumpf",
+		"description": "Nebel liegt so dicht über dem Moor, dass die Irrlichter darin verschwinden. Verschleiert treffen sie nur Flächenangriffe. Moorkröten vergiften, Riesenegel trinken. Die Irrlichtkönigin ruft immer neue Lichter. Feuer wirkt, Gift kaum. Beute: Irrlichtglut.",
+		"level": 42,
+		"cost": 200,
+		"stamina": 30,
+		"required_flag": "swamp_dungeons_unlocked",
+		"background": "res://assets/sprites/battle/swamp_mire.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "mire_toad",
+					"chance": 30
+				},
+				{
+					"enemy": "bog_leech",
+					"chance": 30
+				},
+				{
+					"enemy": "will_o_wisp",
+					"chance": 25,
+					"from_stage": 2
+				},
+				{
+					"enemy": "swamp_slime",
+					"chance": 15,
+					"from_stage": 3
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"will_o_wisp",
+					"will_o_wisp",
+					"will_o_wisp"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"wisp_queen"
+				],
+				"count": [
+					1,
+					2
+				],
+				"pool": [
+					{
+						"enemy": "mire_toad"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"drop_factor": 0.5,
+			"boss_ingot": "gold_ingot",
+			"exp": [
+				360,
+				420
+			],
+			"items": [
+				{
+					"item": "wisp_ember",
+					"amount": 1,
+					"chance": 1
+				},
+				{
+					"item": "gold_ore",
+					"amount": 1,
+					"chance": 1
+				},
+				{
+					"item": "emerald",
+					"amount": 1,
+					"chance": 0.2
+				}
+			],
+			"random_mold": {
+				"material": "gold",
+				"chance": 0.4
+			}
+		}
+	},
+	"swamp_bones": {
+		"enemy_scale": {"health": 3.1, "damage": 3.1},
+		"name": "Sumpf II: Der Hydrateich",
+		"region": "Sumpf",
+		"description": "Im schwarzen Teich mitten im Sumpf lebt die Sumpfhydra. Drei Köpfe an einem Leib, jeder mit eigenem Leben und eigenen Angriffen. Ein abgeschlagener Kopf wächst nach 30 Sekunden nach, solange ein anderer lebt. Sumpfnattern bewachen das Ufer, Moorschleime teilen sich, wenn man sie schlägt. Feuer trifft hart, Gift heilt. Beute: Hydraschuppe.",
+		"level": 43,
+		"cost": 220,
+		"stamina": 30,
+		"required_flag": "swamp_dungeons_unlocked",
+		"required_dungeon": "swamp_mire",
+		"background": "res://assets/sprites/battle/swamp_hydra.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "swamp_serpent",
+					"chance": 40
+				},
+				{
+					"enemy": "mire_toad",
+					"chance": 25
+				},
+				{
+					"enemy": "swamp_slime",
+					"chance": 35,
+					"from_stage": 2
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"swamp_shaman",
+					"swamp_shaman"
+				],
+				"count": [
+					1,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "bog_corpse"
+					}
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"hydra_head_bite",
+					"hydra_head_spit",
+					"hydra_head_cloud"
+				],
+				"count": [
+					0,
+					0
+				],
+				"pool": [
+					{
+						"enemy": "swamp_serpent"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"drop_factor": 0.5,
+			"boss_ingot": "gold_ingot",
+			"exp": [
+				390,
+				450
+			],
+			"items": [
+				{
+					"item": "hydra_scale",
+					"amount": 1,
+					"chance": 1
+				},
+				{
+					"item": "gold_ore",
+					"amount": 1,
+					"chance": 1
+				},
+				{
+					"item": "jade",
+					"amount": 1,
+					"chance": 0.25
+				}
+			],
+			"random_mold": {
+				"material": "gold",
+				"chance": 0.5
+			}
+		}
+	},
+	"swamp_hydra": {
+		"enemy_scale": {"health": 2.35, "damage": 2.35},
+		"name": "Sumpf III: Der Knochensumpf",
+		"region": "Sumpf",
+		"description": "Am Ende des Sumpfes liegen die Toten nicht still. Moorleichen heilen sich und trinken Gift, Sumpfschamanen flicken sie zusammen, auf halbem Weg steigt die Moormutter aus dem Schlamm. Ganz hinten wartet der Nebelfürst: Solange seine Geister leben, ist er im Nebel nicht zu treffen und heilt seine Leute. Erst die Geister, dann er. Licht und Feuer helfen. Beute: Moorherz.",
+		"level": 44,
+		"cost": 240,
+		"stamina": 30,
+		"required_flag": "swamp_dungeons_unlocked",
+		"required_dungeon": "swamp_bones",
+		"background": "res://assets/sprites/battle/swamp_bones.png",
+		"background_mirror": true,
+		"stages": 8,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "bog_corpse",
+					"chance": 35
+				},
+				{
+					"enemy": "swamp_shaman",
+					"chance": 20,
+					"from_stage": 2
+				},
+				{
+					"enemy": "swamp_slime",
+					"chance": 25
+				},
+				{
+					"enemy": "swamp_ghost",
+					"chance": 20,
+					"from_stage": 3
+				}
+			]
+		},
+		"special_stages": {
+			"4": {
+				"type": "mini_boss",
+				"fixed": [
+					"bog_mother"
+				],
+				"count": [
+					0,
+					0
+				]
+			},
+			"8": {
+				"type": "boss",
+				"fixed": [
+					"ghost_lord"
+				],
+				"count": [
+					3,
+					3
+				],
+				"pool": [
+					{
+						"enemy": "swamp_ghost"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"drop_factor": 0.5,
+			"boss_ingot": "gold_ingot",
+			"exp": [
+				420,
+				480
+			],
+			"items": [
+				{
+					"item": "bog_heart",
+					"amount": 1,
+					"chance": 1
+				},
+				{
+					"item": "gold_ore",
+					"amount": 1,
+					"chance": 1
+				},
+				{
+					"item": "jade",
+					"amount": 1,
+					"chance": 0.35
+				}
+			],
+			"random_mold": {
+				"material": "gold",
+				"chance": 0.6
+			}
+		}
+	},
+	"dark_keep": {
+		"name": "Die Finsterburg: Der Bergfried",
+		"region": "Finsterburg",
+		"hidden": true,
+		"description": "Der Bergfried der Finsterburg. Finsterritter und Skelette halten jede Treppe, oben wartet Knochengeneral Varg mit zwei Lebensbalken. Licht und Blitz wirken, Gift gar nicht.",
+		"level": 45,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/dark_keep.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 660,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "dark_knight",
+					"chance": 40
+				},
+				{
+					"enemy": "skeleton_knight",
+					"chance": 25
+				},
+				{
+					"enemy": "cursed_skeleton",
+					"chance": 20
+				},
+				{
+					"enemy": "crypt_wraith",
+					"chance": 15
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"dark_knight",
+					"dark_knight"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"bone_general"
+				],
+				"count": [
+					1,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "dark_knight"
+					}
+				]
+			}
+		},
+		"enemy_scale": {"health": 2.9, "damage": 2.9},
+		"rewards": {
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				460,
+				520
+			],
+			"items": [
+				{
+					"item": "gold_ingot",
+					"amount": [
+						2,
+						3
+					],
+					"chance": 1
+				}
+			]
+		}
+	},
+	"eisquell_burning": {
+		"enemy_scale": {"health": 3.65, "damage": 3.65},
+		"name": "Eisquell in Flammen",
+		"region": "Eisquell",
+		"description": "In der Nacht greifen Finsterritter den Hafen von Eisquell an. Boote brennen, Schützen schießen von den Stegen. Ihr Hauptmann steht am Kai. Licht und Blitz wirken, Gift kaum.",
+		"level": 46,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/eisquell_burning.png",
+		"background_mirror": true,
+		"stages": 8,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "dark_knight",
+					"chance": 40
+				},
+				{
+					"enemy": "dark_archer",
+					"chance": 35
+				},
+				{
+					"enemy": "skeleton_knight",
+					"chance": 25
+				}
+			]
+		},
+		"special_stages": {
+			"4": {
+				"type": "mini_boss",
+				"fixed": [
+					"dark_knight",
+					"dark_knight"
+				],
+				"count": [
+					0,
+					0
+				]
+			},
+			"8": {
+				"type": "boss",
+				"fixed": [
+					"dark_captain"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "dark_archer"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				430,
+				490
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						2
+					],
+					"chance": 1
+				},
+				{
+					"item": "sapphire",
+					"amount": 1,
+					"chance": 0.3
+				}
+			]
+		},
+		"required_flag": "harbor_attacked",
+		"gone_flag": "harbor_saved"
+	},
+	"ice_falls": {
+		"enemy_scale": {"health": 2.45, "damage": 2.45},
+		"name": "Eismauer: Die gefrorenen Fälle",
+		"region": "Eismauer",
+		"description": "Der Aufstieg an der Eismauer beginnt an den gefrorenen Wasserfällen. Frostgeister schweben zwischen den Eiszapfen, Eisgolems wachen an den Stufen. Feuer wirkt gut, Wasser und Eis gar nicht.",
+		"level": 47,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/ice_falls.png",
+		"background_mirror": true,
+		"stages": 8,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "frost_spirit",
+					"chance": 50
+				},
+				{
+					"enemy": "frost_golem",
+					"chance": 25
+				},
+				{
+					"enemy": "wall_harpy",
+					"chance": 25
+				}
+			]
+		},
+		"special_stages": {
+			"4": {
+				"type": "mini_boss",
+				"fixed": [
+					"frost_golem"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"8": {
+				"type": "boss",
+				"fixed": [
+					"frost_golem",
+					"frost_golem"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "frost_spirit"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				440,
+				500
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "sapphire",
+					"amount": 1,
+					"chance": 0.3
+				}
+			],
+			"random_mold": {"material": "platinum", "chance": 0.5}
+		},
+		"cost": 230,
+		"required_flag": "ice_wall_open"
+	},
+	"ice_bridges": {
+		"enemy_scale": {"health": 2.1, "damage": 2.1},
+		"name": "Eismauer: Die Eisstege",
+		"region": "Eismauer",
+		"description": "Schmale Stege aus Eis führen an der Mauer entlang nach oben. Eisgolems versperren die Stege, Harpyien stoßen aus dem Wind herab. Feuer und Blitz wirken.",
+		"level": 48,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/ice_bridges.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "frost_golem",
+					"chance": 40
+				},
+				{
+					"enemy": "wall_harpy",
+					"chance": 35
+				},
+				{
+					"enemy": "frost_spirit",
+					"chance": 25
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"wall_harpy",
+					"wall_harpy"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"frost_golem",
+					"frost_golem",
+					"frost_spirit"
+				],
+				"count": [
+					0,
+					1
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				460,
+				520
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						2
+					],
+					"chance": 1
+				},
+				{
+					"item": "aquamarine",
+					"amount": 1,
+					"chance": 0.3
+				}
+			],
+			"random_mold": {"material": "platinum", "chance": 0.6}
+		},
+		"cost": 240,
+		"required_flag": "ice_wall_open",
+		"required_dungeon": "ice_falls"
+	},
+	"ice_windbreak": {
+		"enemy_scale": {"health": 2.45, "damage": 2.45},
+		"name": "Eismauer: Der Windbruch",
+		"region": "Eismauer",
+		"description": "Kurz unter der Mauerkrone heult der Wind durch eine Bresche im Eis. Harpyien reiten auf den Böen, Frostgeister heulen mit. Wer hier fällt, fällt tief.",
+		"level": 49,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/ice_windbreak.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "wall_harpy",
+					"chance": 45
+				},
+				{
+					"enemy": "frost_spirit",
+					"chance": 35
+				},
+				{
+					"enemy": "frost_golem",
+					"chance": 20
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"frost_golem"
+				],
+				"count": [
+					0,
+					2
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"frost_golem",
+					"wall_harpy",
+					"wall_harpy"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "frost_spirit"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				480,
+				540
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						2
+					],
+					"chance": 1
+				},
+				{
+					"item": "sapphire",
+					"amount": 1,
+					"chance": 0.4
+				}
+			],
+			"random_mold": {"material": "platinum", "chance": 0.7}
+		},
+		"cost": 250,
+		"required_flag": "ice_wall_open"
+	},
+	"ice_wall_lake": {
+		"enemy_scale": {"health": 3.1, "damage": 3.1},
+		"name": "Die Mauerkrone: Lake",
+		"region": "Eismauer",
+		"description": "Lake, der dunkle Ritter, stellt sich deinen Helden auf der Krone der Eismauer. Drei Lebensbalken, jeder härter als der davor. Licht trifft ihn, Gift kaum.",
+		"level": 50,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/ice_wall_crown.png",
+		"background_mirror": true,
+		"stages": 3,
+		"time_limit": 480,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "dark_knight",
+					"chance": 100
+				}
+			]
+		},
+		"special_stages": {
+			"3": {
+				"type": "boss",
+				"fixed": [
+					"dark_lake"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "dark_knight"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				520,
+				600
+			],
+			"items": [
+				{
+					"item": "platinum_ingot",
+					"amount": [
+						1,
+						2
+					],
+					"chance": 1
+				}
+			]
+		},
+		"hidden": true,
+		"required_flag": "reached_wall_battle",
+		"gone_flag": "reached_wall_aftermath"
+	},
+	"finster_ash": {
+		"enemy_scale": {"health": 4.5, "damage": 4.5},
+		"name": "Finsterstadt I: Die Aschegassen",
+		"region": "Finsterstadt",
+		"description": "Die Gassen am Rand der Finsterstadt gehören den Wachen des Statthalters. Wer dort nachts unterwegs ist, wird ausgeraubt oder eingesperrt. Licht wirkt, Feuer kaum.",
+		"level": 51,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/finster_ash.png",
+		"background_mirror": true,
+		"stages": 8,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{"enemy": "shadow_hound", "chance": 20}, {
+					"enemy": "finster_guard",
+					"chance": 50
+				},
+				{
+					"enemy": "dark_archer",
+					"chance": 30
+				},
+				{
+					"enemy": "dark_knight",
+					"chance": 20
+				}
+			]
+		},
+		"special_stages": {
+			"4": {
+				"type": "mini_boss",
+				"fixed": [
+					"finster_guard",
+					"finster_guard"
+				],
+				"count": [
+					0,
+					0
+				]
+			},
+			"8": {
+				"type": "boss",
+				"fixed": [
+					"dark_captain"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "finster_guard"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"random_mold": {"material": "palladium", "chance": 0.5},
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				500,
+				560
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "amethyst",
+					"amount": 1,
+					"chance": 0.25
+				}
+			]
+		},
+		"cost": 260,
+		"required_flag": "resistance_joined"
+	},
+	"finster_canals": {
+		"enemy_scale": {"health": 4.05, "damage": 4.05},
+		"name": "Finsterstadt II: Die Schattenkanäle",
+		"region": "Finsterstadt",
+		"description": "Unter der Stadt fließt schwarzes Wasser. In den Kanälen leben Bestien, die alles fressen, was hineinfällt. Gift wirkt nicht, Blitz umso besser.",
+		"level": 52,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/finster_canals.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "canal_beast",
+					"chance": 55
+				},
+				{
+					"enemy": "finster_guard",
+					"chance": 25
+				},
+				{
+					"enemy": "bog_leech",
+					"chance": 20
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"canal_beast",
+					"canal_beast"
+				],
+				"count": [
+					0,
+					0
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"canal_beast",
+					"canal_beast"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "finster_guard"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"random_mold": {"material": "palladium", "chance": 0.6},
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				520,
+				580
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "jade",
+					"amount": 1,
+					"chance": 0.3
+				}
+			]
+		},
+		"cost": 270,
+		"required_flag": "resistance_joined",
+		"required_dungeon": "finster_ash"
+	},
+	"finster_towers": {
+		"enemy_scale": {"health": 3.85, "damage": 3.85},
+		"name": "Finsterstadt III: Die Wachtürme",
+		"region": "Finsterstadt",
+		"description": "Drei Wachtürme bewachen den Weg zur Burg. Schützen auf jeder Plattform, oben Turmhauptmann Mordrek. Bei ihm liegt der Wachplan der Burg.",
+		"level": 53,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/finster_towers.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{"enemy": "shadow_hound", "chance": 20}, {
+					"enemy": "tower_archer",
+					"chance": 45
+				},
+				{
+					"enemy": "finster_guard",
+					"chance": 40
+				},
+				{
+					"enemy": "dark_knight",
+					"chance": 15
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"tower_archer",
+					"tower_archer"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"finster_warden"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "tower_archer"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"random_mold": {"material": "palladium", "chance": 0.7},
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				540,
+				600
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						2,
+						3
+					],
+					"chance": 1
+				}
+			]
+		},
+		"cost": 280,
+		"required_flag": "resistance_joined",
+		"required_dungeon": "finster_canals"
+	},
+	"star_crater": {
+		"enemy_scale": {"health": 1.9, "damage": 1.9},
+		"name": "Der Krater der fallenden Sterne",
+		"region": "Sternenkrater",
+		"description": "Hinter dem Sturmgipfel liegt ein Krater, in den vor langer Zeit ein Stern fiel. Seine Splitter sind zu Golems erwacht. Der Koloss am Ende trägt ein Stück Sternenerz für Sternenstahl.",
+		"level": 54,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/star_crater.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 600,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "star_golem",
+					"chance": 60
+				},
+				{
+					"enemy": "wall_harpy",
+					"chance": 25
+				},
+				{
+					"enemy": "frost_spirit",
+					"chance": 15
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"star_golem"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"star_colossus"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "star_golem"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"random_mold": {"material": "palladium", "chance": 0.5},
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				560,
+				620
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "platinum_ingot",
+					"amount": [
+						1,
+						2
+					],
+					"chance": 0.42
+				}
+			]
+		},
+		"cost": 300,
+		"required_flag": "star_crater_open"
+	},
+	"altar_gate": {
+		"name": "Der Altar: Das Tor",
+		"region": "Altar",
+		"description": "Vor der Mauer des Altars kämpft das Bündnis gegen die Truppen des Königs. Finsterritter und Höllenhunde halten das Feld, am Tor steht der Torwächter. Fällt er, geht das Tor auf.",
+		"level": 55,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/altar_battle.png",
+		"background_mirror": true,
+		"stages": 6,
+		"time_limit": 420,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "dark_knight",
+					"chance": 45
+				},
+				{
+					"enemy": "demon_hound",
+					"chance": 35
+				},
+				{
+					"enemy": "shadow_spawn",
+					"chance": 20
+				}
+			]
+		},
+		"special_stages": {
+			"3": {
+				"type": "mini_boss",
+				"fixed": [
+					"dark_knight",
+					"dark_knight"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"6": {
+				"type": "boss",
+				"fixed": [
+					"gate_warden"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "dark_knight"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"random_mold": {"material": "palladium", "chance": 0.6},
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				580,
+				640
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "platinum_ingot",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				}
+			]
+		},
+		"hidden": true,
+		"required_flag": "altar_warden_met",
+		"gone_flag": "altar_warden_fallen",
+		"enemy_scale": {"health": 3.1, "damage": 3.1}
+	},
+	"altar_north": {
+		"name": "Der Altar: Die Nordtreppe",
+		"region": "Altar",
+		"description": "Die Elfen halten die Nordtreppe zwischen den Säulen. Schattenbrut kriecht aus dem Spalt im Tor, Höllenhunde jagen die Stufen hinauf. Am Ende steht ein Torwächter.",
+		"level": 55,
+		"stamina": 30,
+		"background": "res://assets/sprites/battle/altar_battle.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 660,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "shadow_spawn",
+					"chance": 50
+				},
+				{
+					"enemy": "demon_hound",
+					"chance": 30
+				},
+				{
+					"enemy": "dark_knight",
+					"chance": 20
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"shadow_spawn",
+					"shadow_spawn"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"gate_warden"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "shadow_spawn"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"random_mold": {"material": "palladium", "chance": 0.6},
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				580,
+				640
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "platinum_ingot",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				}
+			]
+		},
+		"hidden": true,
+		"required_flag": "reached_altar_north",
+		"gone_flag": "reached_altar_east",
+		"enemy_scale": {"health": 2.35, "damage": 2.35}
+	},
+	"altar_east": {
+		"name": "Der Altar: Der Ostgrat",
+		"region": "Altar",
+		"description": "Der Osten der Halle. Das Wasservolk wankt unter den Finsterrittern. Ihr Anführer ist Kargoth, der Finsterchampion des Königs.",
+		"level": 58,
+		"stamina": 30,
+		"stamina_free_until_won": true,
+		"background": "res://assets/sprites/battle/altar_battle.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 660,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "demon_hound",
+					"chance": 45
+				},
+				{
+					"enemy": "dark_knight",
+					"chance": 30
+				},
+				{
+					"enemy": "shadow_spawn",
+					"chance": 25
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"shadow_spawn",
+					"shadow_spawn"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"altar_champion"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "demon_hound"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"random_mold": {"material": "palladium", "chance": 0.6},
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				600,
+				660
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "platinum_ingot",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				}
+			]
+		},
+		"hidden": true,
+		"required_flag": "altar_east_boss_met",
+		"gone_flag": "reached_altar_lake",
+		"enemy_scale": {"health": 2.9, "damage": 2.9}
+	},
+	"altar_south": {
+		"name": "Der Altar: Das Südtor",
+		"region": "Altar",
+		"description": "Der Süden der Halle, am Tor im Berg. Echsen und Goblins stemmen sich gegen die Meute. Vorne läuft Garm, ein Höllenhund so groß wie ein Pferd.",
+		"level": 57,
+		"stamina": 30,
+		"stamina_free_until_won": true,
+		"background": "res://assets/sprites/battle/altar_battle.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 660,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "finster_guard",
+					"chance": 40
+				},
+				{
+					"enemy": "shadow_spawn",
+					"chance": 35
+				},
+				{
+					"enemy": "tower_archer",
+					"chance": 25
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"shadow_spawn",
+					"shadow_spawn"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"altar_hellhound"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "finster_guard"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"random_mold": {"material": "palladium", "chance": 0.6},
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				620,
+				680
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "platinum_ingot",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				}
+			]
+		},
+		"hidden": true,
+		"required_flag": "altar_south_boss_met",
+		"gone_flag": "reached_altar_east",
+		"enemy_scale": {"health": 3.1, "damage": 3.1}
+	},
+	"altar_west": {
+		"name": "Der Altar: Der Westhang",
+		"region": "Altar",
+		"description": "Der Westen der Halle. Nyras Halbdämonen und die Soldaten aus Leonheim halten gegen Schattenbrut und Höllenhunde. Hinter ihnen kommt der Schattenfürst Vrak.",
+		"level": 56,
+		"stamina": 30,
+		"stamina_free_until_won": true,
+		"background": "res://assets/sprites/battle/altar_battle.png",
+		"background_mirror": true,
+		"stages": 10,
+		"time_limit": 660,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "shadow_spawn",
+					"chance": 40
+				},
+				{
+					"enemy": "demon_hound",
+					"chance": 35
+				},
+				{
+					"enemy": "finster_guard",
+					"chance": 25
+				}
+			]
+		},
+		"special_stages": {
+			"5": {
+				"type": "mini_boss",
+				"fixed": [
+					"shadow_spawn",
+					"shadow_spawn"
+				],
+				"count": [
+					0,
+					1
+				]
+			},
+			"10": {
+				"type": "boss",
+				"fixed": [
+					"altar_shadow_lord"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "shadow_spawn"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"random_mold": {"material": "palladium", "chance": 0.6},
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				640,
+				700
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "platinum_ingot",
+					"amount": [
+						1,
+						3
+					],
+					"chance": 1
+				}
+			]
+		},
+		"hidden": true,
+		"required_flag": "altar_west_boss_met",
+		"gone_flag": "reached_altar_south",
+		"enemy_scale": {"health": 2.45, "damage": 2.45}
+	},
+	"altar_lake": {
+		"name": "Der Altar: Lake",
+		"region": "Altar",
+		"description": "Vor dem Amboss des ersten Schmieds stellt sich Lake deinen Helden in den Weg. Er ist stärker als auf der Eismauer.",
+		"level": 59,
+		"stamina": 30,
+		"stamina_free_until_won": true,
+		"background": "res://assets/sprites/battle/altar_battle.png",
+		"background_mirror": true,
+		"stages": 3,
+		"time_limit": 480,
+		"enemies": {
+			"count": [
+				2,
+				3
+			],
+			"pool": [
+				{
+					"enemy": "shadow_spawn",
+					"chance": 100
+				}
+			]
+		},
+		"special_stages": {
+			"3": {
+				"type": "boss",
+				"fixed": [
+					"dark_lake"
+				],
+				"count": [
+					0,
+					1
+				],
+				"pool": [
+					{
+						"enemy": "shadow_spawn"
+					}
+				]
+			}
+		},
+		"rewards": {
+			"random_mold": {"material": "palladium", "chance": 0.7},
+			"boss_ingot": "platinum_ingot",
+			"exp": [
+				640,
+				720
+			],
+			"items": [
+				{
+					"item": "platinum_ore",
+					"amount": [
+						2,
+						3
+					],
+					"chance": 1
+				},
+				{
+					"item": "platinum_ingot",
+					"amount": [
+						2,
+						3
+					],
+					"chance": 1
+				}
+			]
+		},
+		"hidden": true,
+		"required_flag": "lake_challenge_met",
+		"gone_flag": "reached_lake_awakens",
+		"enemy_scale": {"health": 3.25, "damage": 3.25}
+	},
+	"underworld_road": {"name": "Der Knochenweg", "region": "Unterwelt", "description": "Ein Weg aus Skeletten, und die Skelette stehen wieder auf. Zwischen den Zelten graben Tote nach etwas, das sie vergessen haben.", "level": 62, "stamina": 30, "background": "res://assets/sprites/battle/underworld.png", "background_mirror": true, "stages": 5, "time_limit": 480, "enemies": {"count": [2, 3], "pool": [{"enemy": "skeleton_knight", "chance": 60}, {"enemy": "ghoul", "chance": 40}]}, "rewards": {"random_mold": {"material": "palladium", "chance": 0.6}, "boss_ingot": "platinum_ingot", "exp": [700, 800], "items": [{"item": "platinum_ore", "amount": [1, 3], "chance": 1}, {"item": "platinum_ingot", "amount": [1, 3], "chance": 1}]}, "required_flag": "underworld_open", "enemy_scale": {"health": 8.7, "damage": 8.7}},
+	"underworld_tower": {"name": "Der Turm der Toten", "region": "Unterwelt", "description": "Ganz oben auf dem Turm sitzt, was vom Lich übrig ist. Es hat alle Zeit der Welt und keine Eile.", "level": 65, "stamina": 30, "background": "res://assets/sprites/battle/underworld.png", "background_mirror": true, "stages": 3, "time_limit": 480, "enemies": {"count": [2, 3], "pool": [{"enemy": "skeleton_knight", "chance": 100}]}, "special_stages": {"3": {"type": "boss", "fixed": ["lich"], "count": [0, 1], "pool": [{"enemy": "ghoul"}]}}, "rewards": {"random_mold": {"material": "palladium", "chance": 0.7}, "boss_ingot": "platinum_ingot", "exp": [800, 900], "items": [{"item": "platinum_ore", "amount": [2, 3], "chance": 1}, {"item": "platinum_ingot", "amount": [3, 4], "chance": 1}]}, "required_flag": "underworld_tower_open", "required_dungeon": "underworld_road", "enemy_scale": {"health": 3.25, "damage": 3.25}},
+	"endless_tower": {"name": "Endloser Turm", "region": "Turm", "description": "Ein Turm ohne Dach. Jede Etage ist härter als die letzte, und niemand weiß, wie hoch er reicht. Alle 10 Etagen wartet ein Boss und eine besondere Belohnung; ein neuer Lauf beginnt an der letzten erreichten Zehner-Etage.", "level": 40, "stamina": 30, "background": "res://assets/sprites/battle/finster_towers.png", "stages": 99999, "time_limit": 0, "required_flag": "ending_done", "enemies": {"count": [2, 3], "pool": [{"enemy": "skeleton_knight", "chance": 100}]}, "tower": {"start_level": 36, "levels_per_floor": 1.0, "growth_per_floor": 1.06, "boss_every": 10, "checkpoint_every": 10, "exp_per_floor": 40, "milestone": {"gold": 800, "ingots": 3, "rarity_from": "R3", "mold": true}}}
+}

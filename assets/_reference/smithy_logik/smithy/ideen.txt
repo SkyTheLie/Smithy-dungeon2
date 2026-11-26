@@ -1,0 +1,115 @@
+# IDEEN – SMITHY
+
+Stand 2026-11-22. Hier steht nur, was noch OFFEN ist ([ ] offen, [~] teilweise).
+Was fertig ist, steht in docs/UEBERBLICK.md (Liste aller Systeme) und docs/systeme/<system>.md.
+Story-Stand: docs/STORY.md. Offene Grafiken: docs/PIXELLAB_TODO.md. Fertige Punkte hier löschen.
+
+
+=====================================================================
+1) STORY UND FIGUREN
+=====================================================================
+   [ ] Wettbewerb um den Titel des Schmieds (Konkurrenten, Siegbedingung). Offene Entscheidung, PROJEKT.md Abschnitt 8.
+   [ ] Kunden in der Dorfmitte (laut Story; bisher warten sie vor der Schmiede).
+   [ ] Goblinkönig erzählt von seiner Vergangenheit: wie tolle Schmieden die Goblins hatten und dass dort Turniere abgehalten wurden.
+   [ ] Wachen beim Goblinkönig wollen immer Geld: einmal zahlen = einmal durchgehen, kurz rausgehen = neu zahlen.
+       Der Goblin sagt „Katsching“, wenn er Geld bekommt.
+   [ ] Spätere Stadt-Quest: die Goblinstadt aufbauen (Turniere, Kolosseum, Stadt-Gebäude).
+
+   Insider-Witze (Figuren, noch keine im Spiel):
+   [ ] Justin als Penner in der Gosse, sagt nur „Eiergame“.
+   [ ] Phillip, der Rich Boy, chillt den ganzen Tag mit Justin in der Gosse, hat aber viel Geld; angesprochen gibt er Tipps
+       (Geld sparen, Trank-Rezepte und andere nützliche Sachen).
+   [ ] El Homo im Kerker. Warum? Free Cake und keine Steuern.
+   [ ] Szene Viktor und El Homo: Viktor hat eine Zauberkugel, mit der er überall das Geschehen sehen kann. El Homo sagt,
+       er könne die Szene doch mit der Kugel ansehen; Viktor: „Das ist zu kompliziert, ich gehe selber hin und schau mir das an.“
+   [ ] Vlada backt Kuchen und füttert El Homo.
+   [ ] Annika, die Viktors Termine plant.
+   [ ] Schmidi irgendwo in der Wüste mit Leuten, die für ihn arbeiten; spricht man sie an, antworten sie wie KI-Modelle.
+   [ ] Anton als Clown „SkyTheLie“, der Leute trollt und mad macht.
+   [ ] Azadeh mit zwei Master-Abschlüssen, lacht über Antons Trollen.
+   [ ] Marvin als Arena-Champion im SM-Anzug, der ihm brutale Kräfte gibt (wie Arbeitszeitbetrug): der Anzug kämpft für ihn,
+       während er irgendwo chillt.
+   [ ] Lea, die sich um Waisenkinder kümmert.
+   [ ] Jascha, der beim Bogenschießen danebenschießt und herumbrüllt.
+   [ ] Lexy sagt immer „Verpiss dich“, wenn man sie anspricht. Sie soll etwas für den Spieler erledigen, macht es aber nicht.
+
+
+=====================================================================
+2) AUFTRÄGE
+=====================================================================
+   [x] Aufträge mit gewünschten Attributen (z. B. +5 Stärke). (2026-11-25: Wunsch-Kunden mit Pflicht-Attribut)
+   [ ] Bürgermeister gibt Jagd-Aufträge (böser Bär / Monster jagen). Danach ein Dungeon, in dem das Quest-Monster auftauchen kann.
+       Ziel: x Gegner besiegen oder 1 Mini-Boss/Boss.
+   [~] Gilde gibt dem Spieler eigene Aufträge („suche xyz“, „töte xyz“). Suchaufträge der Gilde gibt es schon,
+       aber nur vom Spieler bezahlt.
+
+
+=====================================================================
+3) SCHMIEDEN UND STATIONEN
+=====================================================================
+   [ ] Feuerorb für die Esse (20 Schmiedevorgänge, mit Magie wieder auffüllbar).
+   [ ] Legieren als Ablauf: nach dem Amboss neu erhitzen » in Öl abkühlen » neu erhitzen » im Wasser abkühlen.
+       (Legierungen in der Schmelze gibt es schon, diesen Ablauf nicht.)
+   [~] Werkstatt-Upgrades: Amboss, Schmelze und Gussofen gibt es; offen sind Werkbank-Upgrade und leichtere Minispiele als Bonus.
+   [ ] Sehnen-Station für Bögen.
+   [ ] Bögen: weitere Aufwertungs-Materialien (z. B. Feuer), größere Köcher.
+   [ ] Minispiel am Juweliertisch.
+   [ ] Pflanz-Muster: wie Pflanzen im Topf zueinander stehen, lässt sie besser wachsen oder gibt bessere Seltenheit.
+   [ ] Weitere Schmiedeturniere mit Verzaubern (Zaubertisch), Pfeilen und Bögen (Bogentisch), Zauberstäben und Schmuck
+       (Juweliertisch) als Aufgaben: die Tische auf den Turnierplatz stellen, economy.json smith_tournament.pieces erweitern.
+
+
+=====================================================================
+4) HELDEN UND KAMPF
+=====================================================================
+   [ ] Element-Attribut je Held: Jeder Held hat genau ein Element aus fire, water, earth, air, dark, light, lightning, ice, poison.
+       Es passt seine Skills an, z. B. Feuerheld: Feuerschlag statt normalem Schlag, Wasserheld: Wasserschlag.
+       Die Varianten unterscheiden sich in Name, Darstellung und Element-Schadensart.
+       (Bisher gibt es Klassen-Elemente in den Skillbäumen, kein Element pro Held.)
+
+   [ ] Elementare Zusatzeffekte: Jeder Angriff mit Elementarschaden hat 5 % Grundchance auf den Effekt seines Elements
+       (nicht bei rein physischen Angriffen):
+         - Feuer: Brand, zusätzlicher Schaden am Gegner (Heldenlevel × 5 + Intelligenz).
+         - Wasser: heilt den Angreifer (Heldenlevel × 5 + Intelligenz).
+         - Erde: Erdschutzschild für den Angreifer (Heldenlevel × 5 + CON), als zusätzliche Leiste über der HP-Leiste.
+         - Luft: Ausweichen des Angreifers für 5 s um (5 + DEX) % erhöht.
+         - Dunkelheit: Trefferchance des Gegners für 5 s um 20 % gesenkt.
+         - Licht: der nächste Schadenszauber des Gegners macht keinen Schaden.
+         - Blitz: betäubt den Gegner für 2,5 s.
+         - Eis: Angriffstempo des Gegners um 35 % gesenkt (Dauer noch offen).
+         - Gift: löst den vorhandenen Gift-Debuff aus (vorhandene Regeln für Dauer und Schaden).
+       Noch festzulegen: reicht ein beliebiger Element-Anteil bei Skills mit mehreren Schadensarten? Was passiert bei erneutem
+       Auslösen (Dauer erneuern, stapeln, ignorieren), auch beim Erdschild? Vorhandene Status-Effekte, Resistenzen und
+       Kampfregeln verwenden.
+
+   [~] Items mit Resistenzen, Krit-Boni, Magieschaden und Element-Anteil: die Felder gibt es, Inhalte nur teilweise
+       (Magieresistenz auf Platten ab Silber, Eisenstein-Kristalle).
+   [ ] Mehr Skills pro Baum, z. B. Dolchwurf, Federschuss.
+   [ ] Angriffs- und Skill-Animationen für alle Helden (bisher nur Bruno); Ausrüstung im Kampf mit Leuchten und Effekten.
+
+
+=====================================================================
+5) WELT UND STÄDTE
+=====================================================================
+   [~] Klassenräume, Baracken und Soldaten in den Städten (eine Kaserne gibt es in Kahns Stadt).
+   [ ] Reittiere pro Volk: Riesenechsen für das Echsenvolk, Rehe für die Elfen, Riesenmolche für das Wasservolk;
+       für Menschen menschenähnliche Kreaturen mit dunkler Hautfarbe, die beim Galopp Affengeräusche machen.
+   [ ] Reiter-Ausrüstung bauen (Sattel, Zaumzeug o. Ä.).
+
+
+=====================================================================
+6) SPIELER UND KOMFORT
+=====================================================================
+   [ ] Kleidung des Spielers ändern: neue kaufen, neue freischalten.
+   [ ] Aussehen später ändern (Frisur usw.); mit einem Trank auch das Geschlecht, mit einem weiteren auch die Rasse.
+   [x] Kurzer Schlaf (Powernap, 2026-11-25: 2/4/6 h im Bett): schlafen bis 8, 12, 16 oder 20 Uhr statt bis zum nächsten Morgen.
+   [x] Schrift größer stellen (vor allem auf dem Handy). 2026-11-22 umgesetzt für Tipps, Dialoge, Werte und Aufgaben
+       (Einstellungen » Oberfläche » Textgröße, `TextSize`, Branch `feature/farsi-textgroesse`). Offen: alle anderen
+       Fenster (Schriftgrößen stehen dort an rund 150 Stellen fest).
+
+
+=====================================================================
+7) AUSSERHALB DES SPIELS
+=====================================================================
+   [ ] Twitter-Account: News und Updates.
+   [ ] Discord: Feedback, Erlebnisse teilen, Bugs melden.

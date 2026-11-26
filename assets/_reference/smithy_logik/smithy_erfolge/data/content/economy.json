@@ -1,0 +1,3523 @@
+{
+	"_hilfe": {
+		"info": "Preise, Kunden und Ruf. Preis eines Auftrags = (Material (Barren-value + Kohle pro gegossenem Teil) × (1 + work_share + order_bonus) + order_base_gold + order_gold_per_tier pro Teil und Materialstufe über R1) × Seltenheits-Bonus × Ruf-Bonus, mindestens order_min_gold. Alle Felder mit Beispielen: docs/CONTENT.md. Dieser Block wird vom Spiel ignoriert (Schlüssel mit _ am Anfang).",
+		"felder": {
+			"prices": "fuel_item, fuel_per_cast_part, work_share, order_bonus, order_base_gold, order_gold_per_tier, order_min_gold, rarity_bonus_per_step, experience_per_gold",
+			"customers": "arrive_from_hour, arrive_until_hour, leave_hour, order_days [von, bis], same_material_chance, names; order_stations = Stationen, deren Rezepte Kunden bestellen (Waffen, Rüstungen, Schilde, Bögen, Zauberstäbe; gekaufte Stationen nur mit ihrem Flag aus stations); raw_parts = Teile ohne Rezept (Leder) -> ab welchem Story-Flag sie verlangt werden (\"\" = immer); order_kinds = Arten von Aufträgen {big, normal, small: chance, pay (Gold-Faktor), title (Wort vor dem Titel)}: Seltenheit bis zur besten selbst gebauten Stufe dieser Waffe aus diesem Metall als Glocke (bei R5: R3 am häufigsten, R2 und R4 seltener, R1 und R5 am seltensten), big nur obere Hälfte und bestes Metall, small immer R1 und billigstes Metall; min_per_day = so viele Kunden kommen mindestens (auch wenn der Ruf-Rang weniger würfelt); rush_chance = Chance pro Tag, dass der erste Kunde einen Eilauftrag bringt (rush_days Tage Frist, Gold × rush_pay)",
+			"prices.buy_markup / sell_factor / sell_crafted_factor": "Händler verkaufen zu Wert × buy_markup, kaufen Rohstoffe zu Wert × sell_factor und Selbstgemachtes zu Materialwert × sell_crafted_factor; sell_price_factor = Standard-Faktor pro Seltenheitsstufe für Items mit festem sell_price (items.json); crafted_weapon_bonus = so viel Gold mehr pro selbst geschmiedeter Waffe (Händler, Ninas und eigener Laden)",
+			"stations": "Geräte fürs Haus, nur bei der Möbelhändlerin: name, price, flag (Story-Flag, das die Station erscheinen lässt), icon, description; unlock_flag (erst ab diesem Story-Flag im Angebot, vorher unsichtbar), house_level (erst ab dieser Hausstufe im Angebot); beim Händler als \"station:<id>\" in offers",
+			"shop": "Ninas Laden: slots (Ausstellungsplätze), price_factor (Preis = Materialwert × Faktor × Seltenheits-Bonus), commission (Ninas Anteil), sale_chance_per_hour (Chance pro Stück und Stunde), open_from_hour, open_until_hour, calendar_gift_sales (ab diesem Umsatz schenkt Nina den Kalender), expansion_sales (ab diesem Umsatz erweitert Nina ihren Laden, ab Kapitel 8), expansion (weapon_slots = Waffenplätze danach, dummy = Item-Typ » Name der Plätze an der Rüstungspuppe, min_sales_per_day = so viele Teile verkauft sie danach mindestens pro Tag)",
+			"assistant": "Lotte als Gehilfin (Assistant): npc (Figur), flag (ab diesem Story-Flag kauft sie ein), wait_hours [von, bis] wartet sie morgens in der Werkstatt (sie läuft travel_minutes ihres roam vorher hin), market_hours: so lange ist sie mit Hin- und Rückweg auf dem Markt (sie kauft, sobald sie dort ist), deliver_until: bis zu dieser Stunde wartet sie mit der Ware, danach Loot-Kiste, wage: ihr Anteil am ausgegebenen Gold (0.1 = ein Zehntel, mindestens 1 Gold), max_amount: höchstens so viele Stück pro Einkauf, merchants [{name, key (MerchantStock-Schlüssel: Szene:Pfad des Marktstands), stock_id (market_stock)}]",
+			"search_orders": "Suchaufträge in der Gilde (Seite Suchaufträge am Tresen): items [{item, flag (erst ab diesem Story-Flag), rarity (false = Seltenheit nicht wählbar, z. B. Kohle)}], Preis = fee + Händlerpreis eines Stücks × price_factor × rarity_factor hoch (Stufe über R1) × Menge, Lieferung nach days [von, bis] Tagen in die Loot-Kiste, höchstens max_amount Stück pro Auftrag; wie viele gleichzeitig und welche Seltenheit: guild_heroes.json guild_levels",
+			"traveler": "Reisender (jeden Sonntag mit Planwagen und Kamel vor dem Dorftor): name, weekday (0 = Montag, 6 = Sonntag), greeting, mold_tier (Materialstufe(n) der Gussformen, die er verkauft, Zahl oder Liste; [4, 5] = Silber und Gold), mold_material_flags (Metall -> Story-Flag: Gussformen dieses Metalls erst ab dem Flag, z. B. Gold erst ab gold_molds_unlocked), mold_count [von, bis] (0 = keine Gussformen), mold_price, offers (Item-Vorrat, aus dem er offer_count [von, bis] zufällig auswählt; \"=Preis\" hinten = fester Preis eines R1-Stücks, höhere Seltenheit +25 % je Stufe, z. B. \"ruby*3@R3-R4=250\"; \"*Zahl\" = so viele Stück statt der Standard-Menge; fertiger Schmuck: \"jewel_ring:silver_ring_band#ruby.lifesteal\" = Ring mit Kristall und Wirkung, \"#ruby\" = zufällige Wirkung, \"#any\" = zufälliger Kristall), always_offers (diese Angebote aus offers hat er immer), price_factor (Aufschlag auf den normalen Händlerpreis ohne festen Preis); das Angebot wechselt jeden Sonntag",
+			"recipes": "kaufbare Rezepte/Gussformen: name, price, unlock (Rezept-ids), icon, description, unlock_flag (erst ab diesem Story-Flag im Angebot, dann bis zum Kauf immer da), rank (erst ab diesem Ruf-Rang im Angebot, z. B. \\\"E\\\"); beim Händler als \"recipe:<id>\" in offers",
+			"reputation": "Ruf (statt Karma). ranks: Ränge von unten nach oben {id, from (Punkte), required_flag (Story-Flag, erst dann ist der Rang erreichbar; Punkte sammelt man trotzdem), customers [min, max] pro Tag, pay_bonus (% mehr für Aufträge), shop_bonus (% höhere Preise in Ninas und im eigenen Laden), house_level (so weit baut der Baumeister aus), color (Wappen)}. gains: Punkte für order_completed, order_expired, rent_late. sale: Punkte pro verkauftem Stück in Ninas und im eigenen Laden = (1 + Materialstufe × per_tier) × (1 + Seltenheitsstufen über R1 × per_rarity), z. B. Kupfer R1 = 1, Kupfer R2 = 2, Eisen R1 = 2, Eisen R2 = 4, Silber R3 = 12. story: {Story-Flag: Punkte}, einmalig, sobald das Flag gesetzt ist.",
+			"crafting_quality": "anvil, joining, grindstone (Qualitätspunkte), difficulty (Schwierigkeit der Minispiele nach Material und Ruf), siehe _info im Abschnitt",
+			"market_stock": "Tagesangebot der Händler mit Stückzahl (MerchantStock). Jeder Händler mit stock_id (Merchant.stock_id) bekommt jeden Tag neu: items = Liste {item, amount [von, bis] oder Zahl, chance (0-1, sonst immer), rank (ab diesem Ruf-Rang), flag (ab diesem Story-Flag), pick [ids] (statt item: eins davon zufällig), price (fester Preis pro Stück), extra_chance (Chance auf 1 Stück mehr), rare_chance (Chance auf rare_rarity), rare_price (Preis dann)}; equipment = {types [Item-ids mit parts, z. B. sword], count [von, bis] fertige Teile, part_count [von, bis] Einzelteile, materials {Rang: [Materialien]} (der höchste erreichte Rang zählt), part_materials {Teil-Art: {Material: Item-id}} (wenn es das Teil nicht aus dem Material gibt, z. B. Leder), rare_chance (Chance pro Tag), rare_count [von, bis], rare_rarity, rare_price_factor, material_flags {Metall: Story-Flag} (ein Metall erst ab dem Flag, sonst Kupfer)}. default = Stückzahl für Händler ohne stock_id (Leonheim, Schwarzmarkt, Reisender): stackable [von, bis], equipment [von, bis]. Möbel, Geräte und Rezepte haben keine Stückzahl. story_limits = Liste {from (Story-Flag), until (Story-Flag), stocks {stock_id: Liste wie items}, offers [feste Angebote, die bleiben]}: von from bis until verkaufen alle Händler nur das, die erste passende Regel gilt (vom Spielstart bis zu Brunos Einstellung nur Kupfererz, Kohle, Holz und der Wassertrog für Holgers Axt; nach Brunos Spende nur 3 Kupferbarren, 2 Kohle, 1 Holz und die zwei Gussformen fürs Schwert), alle anderen nichts.",
+			"weapon_history": "Waffen mit Geschichte: selbst gebaute Waffen zählen ihre Kills (der Held, der den letzten Treffer setzt). nickname_kills = ab so vielen Kills bekommt die Waffe einen Spitznamen; nicknames = Gegner-id oder Teil davon (rat passt auf giant_rat, rat_king ...) » Spitzname nach dem meist besiegten Gegner; default_nickname sonst",
+			"knight_orders": "Ritter der Stadtwache (nach Hagens Rüstung, Story-Flag flag): kommt jeden Tag um arrive_hour mit einem Auftrag, solange keiner von ihm offen ist. kinds {easy, good, hard: chance, rarity [von, bis] als Glocke, pay (Gold-Faktor), extra_chance (Chance auf einen Bonus-Wunsch: Attribut wie bei R4+-Stücken und/oder mit enchant_chance eine Verzauberung), extra_bonus (so viel vom Gold gibt es dazu, wenn das Stück den Wunsch erfüllt; ohne gibt es den normalen Preis), title}, order_days [von, bis], name, appearance_seed (Aussehen), resident (PixelLab-Figur, geht vor)",
+			"praise": "Kunden melden sich zurück: wer einen Auftrag ab Seltenheit min_rarity (2 = Fein) bekommt, kommt nach days [von, bis] Tagen am Morgen vorbei (Text im Aufwach-Bildschirm aus texts, {name} = Kunde, {item} = Waffe), bringt reputation Ruf und schickt an dem Tag einen Kunden mehr",
+			"market_hours": "Öffnungszeiten aller Händler (Markt, Leonheim): from, until (Stunden; ab until geschlossen). Feste Bewohner wie Erna zusätzlich nur in ihrer Arbeitszeit (npcs.json work). Der Schwarzmarkt hat immer offen (Merchant.keeps_market_hours aus)."
+		}
+	},
+	"weapon_history": {
+		"nickname_kills": 25,
+		"default_nickname": "Monsterschreck",
+		"nicknames": {
+			"rat": "Rattenbeißer",
+			"wolf": "Wolfsfang",
+			"boar": "Keilerspieß",
+			"bandit": "Banditenschreck",
+			"goblin": "Goblinplage",
+			"orc": "Orkspalter",
+			"skeleton": "Knochenbrecher",
+			"spider": "Spinnentod",
+			"slime": "Schleimschneider",
+			"bat": "Flatterfänger"
+		}
+	},
+	"knight_orders": {
+		"name": "Ritter Edmund",
+		"appearance_seed": "knight_edmund",
+		"resident": "knight_edmund",
+		"flag": "knight_orders_unlocked",
+		"arrive_hour": 10,
+		"order_days": [
+			4,
+			6
+		],
+		"kinds": {
+			"easy": {
+				"chance": 0.3,
+				"rarity": ["R2", "R3"],
+				"pay": 0.8,
+				"title": "Stadtwache, Kleinkram"
+			},
+			"good": {
+				"chance": 0.4,
+				"rarity": ["R3", "R4"],
+				"pay": 1.8,
+				"extra_chance": 0.35,
+				"enchant_chance": 0.3,
+				"extra_bonus": 0.8,
+				"title": "Stadtwache"
+			},
+			"hard": {
+				"chance": 0.3,
+				"rarity": ["R4", "R5"],
+				"pay": 3.0,
+				"extra_chance": 1.0,
+				"enchant_chance": 0.4,
+				"extra_bonus": 1.2,
+				"title": "Stadtwache, schwer"
+			}
+		}
+	},
+	"praise": {
+		"min_rarity": 2,
+		"days": [2, 4],
+		"reputation": 5,
+		"texts": [
+			"{name} kommt vorbei und lobt dich: „{item} – bestens bewährt!“ Heute kommt jemand auf Empfehlung.",
+			"{name} lässt ausrichten: Ohne {item} aus deiner Schmiede wäre die Reise schlecht ausgegangen. Ein Bekannter kommt heute auch zu dir.",
+			"{name} erzählt im ganzen Dorf von deiner Schmiede ({item}). Heute kommt ein neuer Kunde."
+		]
+	},
+	"market_hours": {
+		"from": 6,
+		"until": 19
+	},
+	"prices": {
+		"fuel_item": "coal",
+		"fuel_per_cast_part": 2,
+		"work_share": 0.5,
+		"order_bonus": 0.2,
+		"order_base_gold": 53,
+		"order_gold_per_tier": 6,
+		"order_min_gold": 90,
+		"rarity_bonus_per_step": 0.25,
+		"experience_per_gold": 0.2,
+		"buy_markup": 1.25,
+		"sell_factor": 0.6,
+		"sell_crafted_factor": 1.2,
+		"sell_price_factor": 1.2,
+		"crafted_weapon_bonus": 7
+	},
+	"customers": {
+		"min_per_day": 1,
+		"rush_chance": 0.5,
+		"rush_days": 2,
+		"rush_pay": 1.5,
+		"arrive_from_hour": 9,
+		"arrive_until_hour": 18,
+		"leave_hour": 20,
+		"order_days": [
+			2,
+			4
+		],
+		"same_material_chance": 0.7,
+		"order_stations": ["workbench", "bow_table", "enchanting_table"],
+		"raw_parts": {"leather": "", "wolf_leather": "forest_den_unlocked", "dragon_leather": "volcano_dungeons_unlocked", "hippogriff_leather": "tournament_open", "swamp_leather": "swamp_dungeons_unlocked", "lichen_leather": "ice_wall_open", "hell_leather": "resistance_joined"},
+		"order_kinds": {
+			"big": {
+				"chance": 0.3,
+				"pay": 1.8,
+				"title": "Großauftrag"
+			},
+			"normal": {
+				"chance": 0.4,
+				"pay": 1.0
+			},
+			"small": {
+				"chance": 0.3,
+				"pay": 0.55,
+				"title": "Kleinkram"
+			}
+		},
+		"names": [
+			"Greta",
+			"Hannes",
+			"Ida",
+			"Konrad",
+			"Lotte",
+			"Matthis",
+			"Nele",
+			"Otto",
+			"Paula",
+			"Rupert",
+			"Sanne",
+			"Theo",
+			"Ulla",
+			"Veit",
+			"Wilma"
+		]
+	},
+	"reputation": {
+		"ranks": [
+			{
+				"id": "F",
+				"from": 0,
+				"customers": [
+					0,
+					2
+				],
+				"pay_bonus": 0,
+				"shop_bonus": 0,
+				"house_level": 1,
+				"color": "#8a7f74"
+			},
+			{
+				"id": "E",
+				"from": 200,
+				"customers": [
+					1,
+					2
+				],
+				"pay_bonus": 0,
+				"shop_bonus": 2,
+				"house_level": 2,
+				"color": "#7a9a5a"
+			},
+			{
+				"id": "D",
+				"from": 400,
+				"required_flag": "reached_chapter10_end",
+				"customers": [
+					1,
+					3
+				],
+				"pay_bonus": 5,
+				"shop_bonus": 4,
+				"house_level": 3,
+				"color": "#4f8fb0"
+			},
+			{
+				"id": "C",
+				"from": 1000,
+				"required_flag": "reached_chapter12_end",
+				"customers": [
+					2,
+					3
+				],
+				"pay_bonus": 10,
+				"shop_bonus": 6,
+				"house_level": 5,
+				"color": "#8a63b8"
+			},
+			{
+				"id": "B",
+				"from": 2500,
+				"customers": [
+					2,
+					4
+				],
+				"pay_bonus": 15,
+				"shop_bonus": 8,
+				"house_level": 5,
+				"color": "#c0503a"
+			},
+			{
+				"id": "A",
+				"from": 5000,
+				"customers": [
+					3,
+					4
+				],
+				"pay_bonus": 20,
+				"shop_bonus": 10,
+				"house_level": 5,
+				"color": "#d0d6de"
+			},
+			{
+				"id": "S",
+				"from": 9000,
+				"customers": [
+					3,
+					5
+				],
+				"pay_bonus": 25,
+				"shop_bonus": 12,
+				"house_level": 5,
+				"color": "#e8b830"
+			},
+			{
+				"id": "S+",
+				"from": 15000,
+				"customers": [
+					4,
+					5
+				],
+				"pay_bonus": 30,
+				"shop_bonus": 15,
+				"house_level": 5,
+				"color": "#ffe27a"
+			}
+		],
+		"gains": {
+			"order_completed": 10,
+			"order_expired": -10,
+			"rent_late": -5
+		},
+		"sale": {
+			"per_tier": 1,
+			"per_rarity": 1
+		},
+		"story": {
+			"reached_chapter4_done": 20,
+			"reached_first_order_done": 10,
+			"reached_miner_visit": 20,
+			"reached_chapter6_end": 20,
+			"reached_niece_found": 25,
+			"reached_chapter8_end": 20,
+			"reached_forest_hemp": 20,
+			"reached_chapter10_end": 30,
+			"reached_chapter11_end": 50,
+			"reached_chapter12_end": 50,
+			"hagen_sword_paid": 25,
+			"hagen_armor_paid": 60
+		}
+	},
+	"rent": {
+		"amount": 300,
+		"days": 14,
+		"landlady": "Oma Hilde"
+	},
+	"shop": {
+		"slots": 4,
+		"price_factor": 1.8,
+		"commission": 0.15,
+		"sale_chance_per_hour": 0.2,
+		"open_from_hour": 8,
+		"open_until_hour": 20,
+		"calendar_gift_sales": 200,
+		"expansion_sales": 2000,
+		"expansion": {
+			"weapon_slots": 6,
+			"dummy": {
+				"helmet": "Helm",
+				"shoulders": "Schulterschutz",
+				"armor": "Rüstung",
+				"cloak": "Umhang",
+				"gloves": "Handschuhe",
+				"boots": "Stiefel",
+				"shield": "Schild",
+				"legs": "Beinschutz"
+			},
+			"min_sales_per_day": 2
+		}
+	},
+	"traveler": {
+		"name": "Rashid",
+		"voice": "hiss",
+		"weekday": 6,
+		"greeting": "Salam, Schmied! Rashid kommt von weit her, über sieben Wüsten. Ringe, Amulette und Kristalle, wie du sie sonst nirgends findest. Billig ist es nicht, aber einzigartig!",
+		"home_greeting": "Salam, mein Freund. Rashid genießt den kühlen Schatten unter der Kuppel von Sahrim, bevor er am Sonntag wieder in dein Dorf reist.",
+		"mold_tier": [4, 5],
+		"mold_material_flags": {
+			"silver": "silver_molds_offered",
+			"gold": "gold_molds_unlocked"
+		},
+		"mold_count": [
+			0,
+			0
+		],
+		"mold_price": 1000,
+		"offers": [
+			"jewel_ring:silver_ring_band#any*1@R2-R4=2900",
+			"jewel_amulet:silver_amulet_band#any*1@R2-R4=2900",
+			"ruby*3@R3-R4=680",
+			"sapphire*3@R3-R4=680",
+			"emerald*3@R3-R4=680",
+			"topaz*3@R3-R4=680",
+			"amethyst*3@R3-R4=680",
+			"diamond*3@R3-R4=680",
+			"citrine*3@R3-R4=680",
+			"aquamarine*3@R3-R4=680",
+			"jade*3@R3-R4=680"
+		],
+		"always_offers": [
+			"jewel_ring:silver_ring_band#any*1@R2-R3=2900",
+			"jewel_amulet:silver_amulet_band#any*1@R2-R3=2900"
+		],
+		"offer_count": [
+			3,
+			4
+		],
+		"price_factor": 2.0
+	},
+	"stations": {
+		"water_trough": {
+			"name": "Wassertrog",
+			"price": 60,
+			"flag": "station_water_trough",
+			"icon": "res://assets/sprites/stations/water_trough.png",
+			"description": "Zum Abkühlen glühender Teile. Wird in deiner Schmiede aufgestellt."
+		},
+		"grindstone": {
+			"name": "Schleifstein",
+			"price": 250,
+			"flag": "station_grindstone",
+			"icon": "res://assets/sprites/stations/grindstone.png",
+			"description": "Schärft Waffen (bis +50 Qualität, jede einmal) und schleift Kristalle zu Edelsteinen. Wird in deiner Schmiede aufgestellt.",
+			"unlock_flag": "reached_meet_bruno"
+		},
+		"polishing_table": {"name": "Poliertisch", "price": 400, "flag": "station_polishing_table", "icon": "res://assets/sprites/stations/polishing_table.png", "description": "Poliert Rüstungen, Helme und Schilde (bis +50 Qualität, jedes Stück einmal), so wie der Schleifstein Waffen schärft. Wird in deiner Schmiede aufgestellt.", "unlock_flag": "reached_meet_bruno"}, "tanning_rack": {
+			"name": "Gerberbank",
+			"price": 300,
+			"flag": "station_tanning_rack",
+			"icon": "res://assets/sprites/stations/tanning_rack.png",
+			"description": "Macht aus Fell Leder (Seltenheit bleibt). Wird in deiner Schmiede aufgestellt.",
+			"unlock_flag": "reached_meet_bruno"
+		},
+		"enchanting_table": {
+			"name": "Zaubertisch",
+			"price": 2000,
+			"flag": "station_enchanting_table",
+			"house_level": 3,
+			"icon": "res://assets/sprites/stations/enchanting_table.png",
+			"description": "Zum Verzaubern, mit Mörser für Staub und Verzauberungstränke. Wird in deiner Schmiede aufgestellt."
+		},
+		"bow_table": {
+			"name": "Bogentisch",
+			"price": 200,
+			"flag": "station_bow_table",
+			"unlock_flag": "loot_chest_unlocked",
+			"icon": "res://assets/sprites/stations/bow_table.png",
+			"description": "Zum Bauen von Bögen, Langbögen und Pfeilen (Holzteile schnitzt man hier). Wird in deiner Schmiede aufgestellt."
+		},
+		"jewel_table": {
+			"name": "Juweliertisch",
+			"price": 1500,
+			"flag": "station_jewel_table",
+			"icon": "res://assets/sprites/stations/jewel_table.png",
+			"description": "Fasst Kristalle in Silberringe (Angriff) und Silberamulette (Schutz): jeder Kristall bringt eine zufällige von bis zu drei Eigenschaften mit. Wird in deiner Schmiede aufgestellt.",
+			"unlock_flag": "reached_meet_bruno"
+		},
+		"vial_table": {
+			"name": "Phiolen-Tisch",
+			"price": 500,
+			"flag": "station_vial_table",
+			"icon": "res://assets/sprites/stations/vial_table.png",
+			"description": "Bläst aus Sand und Brennstoff Phiolen für Tränke (Holz 1, Kohle 2). Wird in deiner Schmiede aufgestellt.",
+			"unlock_flag": "greenhouse_built"
+		}
+	},
+	"recipes": {
+		"copper_blade": {
+			"name": "Gussform: Kupferklinge",
+			"price": 200,
+			"unlock": [
+				"mold_copper_blade",
+				"copper_blade",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/copper_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu das Schwert an der Werkbank."
+		},
+		"silver_blade": {
+			"name": "Gussform: Silberklinge (Schmuggelware)",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_blade",
+				"silver_blade",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/default.png",
+			"description": "Aus einer Werkstatt, von der niemand redet. Gussform und Amboss-Rezept für Silberklingen.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_handle": {
+			"name": "Gussform: Silbergriff (Schmuggelware)",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_handle",
+				"silver_handle",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/default.png",
+			"description": "Gussform und Amboss-Rezept für Silbergriffe. Fragt nicht, woher.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"gold_blade": {
+			"name": "Gussform: Goldklinge (Schmuggelware)",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_blade",
+				"gold_blade",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/default.png",
+			"description": "Angeblich aus der Schatzkammer eines toten Fürsten. Gussform und Amboss-Rezept für Goldklingen.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"copper_handle": {
+			"name": "Gussform: Kupfergriff",
+			"price": 200,
+			"unlock": [
+				"mold_copper_handle",
+				"copper_handle",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/copper_handle.png",
+			"description": "Rezept für Gussform und Amboss, dazu das Schwert an der Werkbank."
+		},
+		"copper_chest_plate": {
+			"name": "Gussform: Kupfer-Brustplatte",
+			"price": 200,
+			"unlock": [
+				"mold_copper_chest_plate",
+				"copper_chest_plate",
+				"chest_armor"
+			],
+			"icon": "res://assets/sprites/items/default.png",
+			"description": "Rezept für Gussform und Amboss, dazu die Rüstung an der Werkbank (mit Leder)."
+		},
+		"copper_helmet_plate": {
+			"name": "Gussform: Kupfer-Helmschale",
+			"price": 200,
+			"unlock": [
+				"mold_copper_helmet_plate",
+				"copper_helmet_plate",
+				"helmet"
+			],
+			"icon": "res://assets/sprites/items/default.png",
+			"description": "Rezept für Gussform und Amboss, dazu den Helm an der Werkbank (mit Leder)."
+		},
+		"copper_shoulder_plate": {
+			"name": "Gussform: Kupfer-Schulterplatte",
+			"price": 200,
+			"unlock": [
+				"mold_copper_shoulder_plate",
+				"copper_shoulder_plate",
+				"shoulder_armor"
+			],
+			"icon": "res://assets/sprites/items/default.png",
+			"description": "Rezept für Gussform und Amboss, dazu den Schulterschutz an der Werkbank (mit Leder)."
+		},
+		"copper_leg_plate": {
+			"name": "Gussform: Kupfer-Beinplatte",
+			"price": 200,
+			"unlock": [
+				"mold_copper_leg_plate",
+				"copper_leg_plate",
+				"leg_armor"
+			],
+			"icon": "res://assets/sprites/items/default.png",
+			"description": "Rezept für Gussform und Amboss, dazu den Beinschutz an der Werkbank (mit Leder)."
+		},
+		"copper_boot_plate": {
+			"name": "Gussform: Kupfer-Stiefelplatte",
+			"price": 200,
+			"unlock": [
+				"mold_copper_boot_plate",
+				"copper_boot_plate",
+				"boots"
+			],
+			"icon": "res://assets/sprites/items/default.png",
+			"description": "Rezept für Gussform und Amboss, dazu die Stiefel an der Werkbank (mit Leder)."
+		},
+		"copper_glove_plate": {
+			"name": "Gussform: Kupfer-Handschuhplatte",
+			"price": 200,
+			"unlock": [
+				"mold_copper_glove_plate",
+				"copper_glove_plate",
+				"gloves"
+			],
+			"icon": "res://assets/sprites/items/default.png",
+			"description": "Rezept für Gussform und Amboss, dazu die Handschuhe an der Werkbank (mit Leder)."
+		},
+		"iron_lumber_axe_head": {
+			"name": "Gussform: Eisen-Holzfälleraxtkopf",
+			"price": 80,
+			"unlock": [
+				"mold_iron_lumber_axe_head",
+				"iron_lumber_axe_head",
+				"lumber_axe"
+			],
+			"unlock_flag": "iron_lumber_axe_accepted",
+			"icon": "res://assets/sprites/items/iron_axe_head.png",
+			"description": "Rezept für Gussform und Amboss. Mit einem Holzstiel an der Werkbank wird daraus eine Holzfälleraxt, die Bäume schneller fällt."
+		},
+		"copper_backpack_frame": {
+			"name": "Gussform: Kupfer-Rucksackgestell",
+			"price": 200,
+			"unlock": [
+				"mold_copper_backpack_frame",
+				"copper_backpack_frame",
+				"backpack"
+			],
+			"rank": "E",
+			"icon": "res://assets/sprites/items/copper_backpack_frame.png",
+			"description": "Rezept für Gussform und Amboss, dazu den Rucksack an der Werkbank (mit 1 Leder): +3 Plätze im Inventar. Ab Ruf-Rang E."
+		},
+		"iron_backpack_frame": {
+			"name": "Gussform: Eisen-Rucksackgestell",
+			"price": 600,
+			"unlock": [
+				"mold_iron_backpack_frame",
+				"iron_backpack_frame",
+				"backpack"
+			],
+			"rank": "D",
+			"icon": "res://assets/sprites/items/iron_backpack_frame.png",
+			"description": "Rezept für Gussform und Amboss, dazu den Rucksack an der Werkbank (mit 1 Leder): +5 Plätze im Inventar. Ab Ruf-Rang D.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"bronze_backpack_frame": {
+			"name": "Gussform: Bronze-Rucksackgestell",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_backpack_frame",
+				"bronze_backpack_frame",
+				"backpack"
+			],
+			"rank": "C",
+			"icon": "res://assets/sprites/items/bronze_backpack_frame.png",
+			"description": "Rezept für Gussform und Amboss, dazu den Rucksack an der Werkbank (mit 1 Leder): +7 Plätze im Inventar. Ab Ruf-Rang C.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"silver_backpack_frame": {
+			"name": "Gussform: Silber-Rucksackgestell",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_backpack_frame",
+				"silver_backpack_frame",
+				"backpack"
+			],
+			"rank": "B",
+			"icon": "res://assets/sprites/items/silver_backpack_frame.png",
+			"description": "Rezept für Gussform und Amboss, dazu den Rucksack an der Werkbank (mit 1 Leder): +9 Plätze im Inventar. Ab Ruf-Rang B.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"gold_backpack_frame": {
+			"name": "Gussform: Gold-Rucksackgestell",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_backpack_frame",
+				"gold_backpack_frame",
+				"backpack"
+			],
+			"rank": "A",
+			"icon": "res://assets/sprites/items/gold_backpack_frame.png",
+			"description": "Rezept für Gussform und Amboss, dazu den Rucksack an der Werkbank (mit 1 Leder): +12 Plätze im Inventar. Ab Ruf-Rang A.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"copper_can_body": {
+			"name": "Gussform: Kupfer-Kannenkörper",
+			"price": 200,
+			"unlock": [
+				"mold_copper_can_body",
+				"copper_can_body",
+				"watering_can"
+			],
+			"unlock_flag": "greenhouse_built",
+			"icon": "res://assets/sprites/items/copper_can_body.png",
+			"description": "Rezept für Gussform und Amboss, dazu die Gießkanne an der Werkbank (mit 1 Holz): 2 Wasser pro Füllung. Erst mit eigenem Gewächshaus."
+		},
+		"iron_can_body": {
+			"name": "Gussform: Eisen-Kannenkörper",
+			"price": 600,
+			"unlock": [
+				"mold_iron_can_body",
+				"iron_can_body",
+				"watering_can"
+			],
+			"unlock_flag": "greenhouse_built",
+			"rank": "D",
+			"icon": "res://assets/sprites/items/iron_can_body.png",
+			"description": "Rezept für Gussform und Amboss, dazu die Gießkanne an der Werkbank (mit 1 Holz): 3 Wasser pro Füllung. Erst mit eigenem Gewächshaus. Ab Ruf-Rang D."
+		},
+		"bronze_can_body": {
+			"name": "Gussform: Bronze-Kannenkörper",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_can_body",
+				"bronze_can_body",
+				"watering_can"
+			],
+			"unlock_flag": "greenhouse_built",
+			"rank": "C",
+			"icon": "res://assets/sprites/items/bronze_can_body.png",
+			"description": "Rezept für Gussform und Amboss, dazu die Gießkanne an der Werkbank (mit 1 Holz): 4 Wasser pro Füllung. Erst mit eigenem Gewächshaus. Ab Ruf-Rang C."
+		},
+		"silver_can_body": {
+			"name": "Gussform: Silber-Kannenkörper",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_can_body",
+				"silver_can_body",
+				"watering_can"
+			],
+			"unlock_flag": "greenhouse_built",
+			"rank": "B",
+			"icon": "res://assets/sprites/items/silver_can_body.png",
+			"description": "Rezept für Gussform und Amboss, dazu die Gießkanne an der Werkbank (mit 1 Holz): 5 Wasser pro Füllung. Erst mit eigenem Gewächshaus. Ab Ruf-Rang B."
+		},
+		"gold_can_body": {
+			"name": "Gussform: Gold-Kannenkörper",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_can_body",
+				"gold_can_body",
+				"watering_can"
+			],
+			"unlock_flag": "greenhouse_built",
+			"rank": "A",
+			"icon": "res://assets/sprites/items/gold_can_body.png",
+			"description": "Rezept für Gussform und Amboss, dazu die Gießkanne an der Werkbank (mit 1 Holz): 6 Wasser pro Füllung. Erst mit eigenem Gewächshaus. Ab Ruf-Rang A."
+		},
+		"iron_blade_mold": {
+			"name": "Gussform: Eisenklinge",
+			"price": 600,
+			"unlock": [
+				"mold_iron_blade",
+				"iron_blade",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/iron_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_handle_mold": {
+			"name": "Gussform: Eisengriff",
+			"price": 600,
+			"unlock": [
+				"mold_iron_handle",
+				"iron_handle",
+				"sword",
+				"two_handed_sword",
+				"dagger",
+				"mace",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/iron_handle.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert, Zweihandschwert, Dolch, Keule, Schild.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_axe_head_mold": {
+			"name": "Gussform: Eisen-Axtkopf",
+			"price": 600,
+			"unlock": [
+				"mold_iron_axe_head",
+				"iron_axe_head",
+				"axe"
+			],
+			"icon": "res://assets/sprites/items/iron_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_greatsword_blade_mold": {
+			"name": "Gussform: Eisen-Zweihandklinge",
+			"price": 600,
+			"unlock": [
+				"mold_iron_greatsword_blade",
+				"iron_greatsword_blade",
+				"two_handed_sword"
+			],
+			"icon": "res://assets/sprites/items/iron_greatsword_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandschwert.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_dagger_blade_mold": {
+			"name": "Gussform: Eisen-Dolchklinge",
+			"price": 600,
+			"unlock": [
+				"mold_iron_dagger_blade",
+				"iron_dagger_blade",
+				"dagger"
+			],
+			"icon": "res://assets/sprites/items/iron_dagger_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Dolch.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_spear_head_mold": {
+			"name": "Gussform: Eisen-Speerspitze",
+			"price": 600,
+			"unlock": [
+				"mold_iron_spear_head",
+				"iron_spear_head",
+				"polearm"
+			],
+			"icon": "res://assets/sprites/items/iron_spear_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Speer.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_hammer_head_mold": {
+			"name": "Gussform: Eisen-Hammerkopf",
+			"price": 600,
+			"unlock": [
+				"mold_iron_hammer_head",
+				"iron_hammer_head",
+				"hammer"
+			],
+			"icon": "res://assets/sprites/items/iron_hammer_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Hammer.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_mace_head_mold": {
+			"name": "Gussform: Eisen-Keulenkopf",
+			"price": 600,
+			"unlock": [
+				"mold_iron_mace_head",
+				"iron_mace_head",
+				"mace"
+			],
+			"icon": "res://assets/sprites/items/iron_mace_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Keule.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_greataxe_head_mold": {
+			"name": "Gussform: Eisen-Zweihandaxtkopf",
+			"price": 600,
+			"unlock": [
+				"mold_iron_greataxe_head",
+				"iron_greataxe_head",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/iron_greataxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandaxt.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_shield_plate_mold": {
+			"name": "Gussform: Eisen-Schildplatte",
+			"price": 600,
+			"unlock": [
+				"mold_iron_shield_plate",
+				"iron_shield_plate",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/iron_shield_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schild.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_shaft_mold": {
+			"name": "Gussform: Eisenstiel",
+			"price": 600,
+			"unlock": [
+				"mold_iron_shaft",
+				"iron_shaft",
+				"axe",
+				"polearm",
+				"hammer",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/iron_shaft.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt, Speer, Hammer, Zweihandaxt.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_staff_rod_mold": {
+			"name": "Gussform: Eisenstab",
+			"price": 600,
+			"unlock": [
+				"mold_iron_staff_rod",
+				"iron_staff_rod"
+			],
+			"icon": "res://assets/sprites/items/iron_staff_rod.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_bow_frame_mold": {
+			"name": "Gussform: Eisen-Bogenrahmen",
+			"price": 600,
+			"unlock": [
+				"mold_iron_bow_frame",
+				"iron_bow_frame"
+			],
+			"icon": "res://assets/sprites/items/iron_bow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_longbow_frame_mold": {
+			"name": "Gussform: Eisen-Langbogenrahmen",
+			"price": 600,
+			"unlock": [
+				"mold_iron_longbow_frame",
+				"iron_longbow_frame"
+			],
+			"icon": "res://assets/sprites/items/iron_longbow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_arrow_tip_mold": {
+			"name": "Gussform: Eisen-Pfeilspitze",
+			"price": 600,
+			"unlock": [
+				"mold_iron_arrow_tip",
+				"iron_arrow_tip"
+			],
+			"icon": "res://assets/sprites/items/iron_arrow_tip.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_arrow_shaft_mold": {
+			"name": "Gussform: Eisen-Pfeilschaft",
+			"price": 600,
+			"unlock": [
+				"mold_iron_arrow_shaft",
+				"iron_arrow_shaft"
+			],
+			"icon": "res://assets/sprites/items/iron_arrow_shaft.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_chest_plate_mold": {
+			"name": "Gussform: Eisen-Brustplatte",
+			"price": 600,
+			"unlock": [
+				"mold_iron_chest_plate",
+				"iron_chest_plate",
+				"chest_armor"
+			],
+			"icon": "res://assets/sprites/items/iron_chest_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Rüstung.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_helmet_plate_mold": {
+			"name": "Gussform: Eisen-Helmschale",
+			"price": 600,
+			"unlock": [
+				"mold_iron_helmet_plate",
+				"iron_helmet_plate",
+				"helmet"
+			],
+			"icon": "res://assets/sprites/items/iron_helmet_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Helm.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_shoulder_plate_mold": {
+			"name": "Gussform: Eisen-Schulterplatte",
+			"price": 600,
+			"unlock": [
+				"mold_iron_shoulder_plate",
+				"iron_shoulder_plate",
+				"shoulder_armor"
+			],
+			"icon": "res://assets/sprites/items/iron_shoulder_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schulterschutz.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_boot_plate_mold": {
+			"name": "Gussform: Eisen-Stiefelplatte",
+			"price": 600,
+			"unlock": [
+				"mold_iron_boot_plate",
+				"iron_boot_plate",
+				"boots"
+			],
+			"icon": "res://assets/sprites/items/iron_boot_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Stiefel.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_glove_plate_mold": {
+			"name": "Gussform: Eisen-Handschuhplatte",
+			"price": 600,
+			"unlock": [
+				"mold_iron_glove_plate",
+				"iron_glove_plate",
+				"gloves"
+			],
+			"icon": "res://assets/sprites/items/iron_glove_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Handschuhe.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_leg_plate_mold": {
+			"name": "Gussform: Eisen-Beinplatte",
+			"price": 600,
+			"unlock": [
+				"mold_iron_leg_plate",
+				"iron_leg_plate",
+				"leg_armor"
+			],
+			"icon": "res://assets/sprites/items/iron_leg_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Beinschutz.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_pickaxe_head_mold": {
+			"name": "Gussform: Eisen-Spitzhackenkopf",
+			"price": 600,
+			"unlock": [
+				"mold_iron_pickaxe_head",
+				"iron_pickaxe_head",
+				"pickaxe"
+			],
+			"icon": "res://assets/sprites/items/iron_pickaxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Spitzhacke.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"iron_lumber_axe_head_mold": {
+			"name": "Gussform: Eisen-Holzfälleraxtkopf",
+			"price": 600,
+			"unlock": [
+				"mold_iron_lumber_axe_head",
+				"iron_lumber_axe_head",
+				"lumber_axe"
+			],
+			"icon": "res://assets/sprites/items/iron_lumber_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Holzfälleraxt.",
+			"unlock_flag": "iron_unlocked"
+		},
+		"bronze_blade_mold": {
+			"name": "Gussform: Bronzeklinge",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_blade",
+				"bronze_blade",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/bronze_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_handle_mold": {
+			"name": "Gussform: Bronzegriff",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_handle",
+				"bronze_handle",
+				"sword",
+				"two_handed_sword",
+				"dagger",
+				"mace",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/bronze_handle.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert, Zweihandschwert, Dolch, Keule, Schild.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_axe_head_mold": {
+			"name": "Gussform: Bronze-Axtkopf",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_axe_head",
+				"bronze_axe_head",
+				"axe"
+			],
+			"icon": "res://assets/sprites/items/bronze_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_greatsword_blade_mold": {
+			"name": "Gussform: Bronze-Zweihandklinge",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_greatsword_blade",
+				"bronze_greatsword_blade",
+				"two_handed_sword"
+			],
+			"icon": "res://assets/sprites/items/bronze_greatsword_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandschwert.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_dagger_blade_mold": {
+			"name": "Gussform: Bronze-Dolchklinge",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_dagger_blade",
+				"bronze_dagger_blade",
+				"dagger"
+			],
+			"icon": "res://assets/sprites/items/bronze_dagger_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Dolch.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_spear_head_mold": {
+			"name": "Gussform: Bronze-Speerspitze",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_spear_head",
+				"bronze_spear_head",
+				"polearm"
+			],
+			"icon": "res://assets/sprites/items/bronze_spear_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Speer.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_hammer_head_mold": {
+			"name": "Gussform: Bronze-Hammerkopf",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_hammer_head",
+				"bronze_hammer_head",
+				"hammer"
+			],
+			"icon": "res://assets/sprites/items/bronze_hammer_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Hammer.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_mace_head_mold": {
+			"name": "Gussform: Bronze-Keulenkopf",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_mace_head",
+				"bronze_mace_head",
+				"mace"
+			],
+			"icon": "res://assets/sprites/items/bronze_mace_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Keule.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_greataxe_head_mold": {
+			"name": "Gussform: Bronze-Zweihandaxtkopf",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_greataxe_head",
+				"bronze_greataxe_head",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/bronze_greataxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandaxt.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_shield_plate_mold": {
+			"name": "Gussform: Bronze-Schildplatte",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_shield_plate",
+				"bronze_shield_plate",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/bronze_shield_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schild.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_shaft_mold": {
+			"name": "Gussform: Bronzestiel",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_shaft",
+				"bronze_shaft",
+				"axe",
+				"polearm",
+				"hammer",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/bronze_shaft.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt, Speer, Hammer, Zweihandaxt.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_staff_rod_mold": {
+			"name": "Gussform: Bronzestab",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_staff_rod",
+				"bronze_staff_rod"
+			],
+			"icon": "res://assets/sprites/items/bronze_staff_rod.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_bow_frame_mold": {
+			"name": "Gussform: Bronze-Bogenrahmen",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_bow_frame",
+				"bronze_bow_frame"
+			],
+			"icon": "res://assets/sprites/items/bronze_bow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_longbow_frame_mold": {
+			"name": "Gussform: Bronze-Langbogenrahmen",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_longbow_frame",
+				"bronze_longbow_frame"
+			],
+			"icon": "res://assets/sprites/items/bronze_longbow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_arrow_tip_mold": {
+			"name": "Gussform: Bronze-Pfeilspitze",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_arrow_tip",
+				"bronze_arrow_tip"
+			],
+			"icon": "res://assets/sprites/items/bronze_arrow_tip.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_arrow_shaft_mold": {
+			"name": "Gussform: Bronze-Pfeilschaft",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_arrow_shaft",
+				"bronze_arrow_shaft"
+			],
+			"icon": "res://assets/sprites/items/bronze_arrow_shaft.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_chest_plate_mold": {
+			"name": "Gussform: Bronze-Brustplatte",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_chest_plate",
+				"bronze_chest_plate",
+				"chest_armor"
+			],
+			"icon": "res://assets/sprites/items/bronze_chest_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Rüstung.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_helmet_plate_mold": {
+			"name": "Gussform: Bronze-Helmschale",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_helmet_plate",
+				"bronze_helmet_plate",
+				"helmet"
+			],
+			"icon": "res://assets/sprites/items/bronze_helmet_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Helm.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_shoulder_plate_mold": {
+			"name": "Gussform: Bronze-Schulterplatte",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_shoulder_plate",
+				"bronze_shoulder_plate",
+				"shoulder_armor"
+			],
+			"icon": "res://assets/sprites/items/bronze_shoulder_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schulterschutz.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_boot_plate_mold": {
+			"name": "Gussform: Bronze-Stiefelplatte",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_boot_plate",
+				"bronze_boot_plate",
+				"boots"
+			],
+			"icon": "res://assets/sprites/items/bronze_boot_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Stiefel.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_glove_plate_mold": {
+			"name": "Gussform: Bronze-Handschuhplatte",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_glove_plate",
+				"bronze_glove_plate",
+				"gloves"
+			],
+			"icon": "res://assets/sprites/items/bronze_glove_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Handschuhe.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_leg_plate_mold": {
+			"name": "Gussform: Bronze-Beinplatte",
+			"price": 1200,
+			"unlock": [
+				"mold_bronze_leg_plate",
+				"bronze_leg_plate",
+				"leg_armor"
+			],
+			"icon": "res://assets/sprites/items/bronze_leg_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Beinschutz.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_pickaxe_head_mold": {
+			"name": "Gussform: Bronze-Spitzhackenkopf",
+			"price": 2000,
+			"unlock": [
+				"mold_bronze_pickaxe_head",
+				"bronze_pickaxe_head",
+				"pickaxe"
+			],
+			"icon": "res://assets/sprites/items/bronze_pickaxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Spitzhacke.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"bronze_lumber_axe_head_mold": {
+			"name": "Gussform: Bronze-Holzfälleraxtkopf",
+			"price": 2000,
+			"unlock": [
+				"mold_bronze_lumber_axe_head",
+				"bronze_lumber_axe_head",
+				"lumber_axe"
+			],
+			"icon": "res://assets/sprites/items/bronze_lumber_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Holzfälleraxt.",
+			"unlock_flag": "volcano_route_open"
+		},
+		"silver_blade_mold": {
+			"name": "Gussform: Silberklinge",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_blade",
+				"silver_blade",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/silver_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_handle_mold": {
+			"name": "Gussform: Silbergriff",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_handle",
+				"silver_handle",
+				"sword",
+				"two_handed_sword",
+				"dagger",
+				"mace",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/silver_handle.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert, Zweihandschwert, Dolch, Keule, Schild.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_axe_head_mold": {
+			"name": "Gussform: Silber-Axtkopf",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_axe_head",
+				"silver_axe_head",
+				"axe"
+			],
+			"icon": "res://assets/sprites/items/silver_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_greatsword_blade_mold": {
+			"name": "Gussform: Silber-Zweihandklinge",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_greatsword_blade",
+				"silver_greatsword_blade",
+				"two_handed_sword"
+			],
+			"icon": "res://assets/sprites/items/silver_greatsword_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandschwert.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_dagger_blade_mold": {
+			"name": "Gussform: Silber-Dolchklinge",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_dagger_blade",
+				"silver_dagger_blade",
+				"dagger"
+			],
+			"icon": "res://assets/sprites/items/silver_dagger_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Dolch.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_spear_head_mold": {
+			"name": "Gussform: Silber-Speerspitze",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_spear_head",
+				"silver_spear_head",
+				"polearm"
+			],
+			"icon": "res://assets/sprites/items/silver_spear_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Speer.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_hammer_head_mold": {
+			"name": "Gussform: Silber-Hammerkopf",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_hammer_head",
+				"silver_hammer_head",
+				"hammer"
+			],
+			"icon": "res://assets/sprites/items/silver_hammer_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Hammer.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_mace_head_mold": {
+			"name": "Gussform: Silber-Keulenkopf",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_mace_head",
+				"silver_mace_head",
+				"mace"
+			],
+			"icon": "res://assets/sprites/items/silver_mace_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Keule.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_greataxe_head_mold": {
+			"name": "Gussform: Silber-Zweihandaxtkopf",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_greataxe_head",
+				"silver_greataxe_head",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/silver_greataxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandaxt.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_shield_plate_mold": {
+			"name": "Gussform: Silber-Schildplatte",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_shield_plate",
+				"silver_shield_plate",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/silver_shield_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schild.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_shaft_mold": {
+			"name": "Gussform: Silberstiel",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_shaft",
+				"silver_shaft",
+				"axe",
+				"polearm",
+				"hammer",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/silver_shaft.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt, Speer, Hammer, Zweihandaxt.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_staff_rod_mold": {
+			"name": "Gussform: Silberstab",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_staff_rod",
+				"silver_staff_rod"
+			],
+			"icon": "res://assets/sprites/items/silver_staff_rod.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_bow_frame_mold": {
+			"name": "Gussform: Silber-Bogenrahmen",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_bow_frame",
+				"silver_bow_frame"
+			],
+			"icon": "res://assets/sprites/items/silver_bow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_longbow_frame_mold": {
+			"name": "Gussform: Silber-Langbogenrahmen",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_longbow_frame",
+				"silver_longbow_frame"
+			],
+			"icon": "res://assets/sprites/items/silver_longbow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_arrow_tip_mold": {
+			"name": "Gussform: Silber-Pfeilspitze",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_arrow_tip",
+				"silver_arrow_tip"
+			],
+			"icon": "res://assets/sprites/items/silver_arrow_tip.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_arrow_shaft_mold": {
+			"name": "Gussform: Silber-Pfeilschaft",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_arrow_shaft",
+				"silver_arrow_shaft"
+			],
+			"icon": "res://assets/sprites/items/silver_arrow_shaft.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_chest_plate_mold": {
+			"name": "Gussform: Silber-Brustplatte",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_chest_plate",
+				"silver_chest_plate",
+				"chest_armor"
+			],
+			"icon": "res://assets/sprites/items/silver_chest_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Rüstung.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_helmet_plate_mold": {
+			"name": "Gussform: Silber-Helmschale",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_helmet_plate",
+				"silver_helmet_plate",
+				"helmet"
+			],
+			"icon": "res://assets/sprites/items/silver_helmet_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Helm.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_shoulder_plate_mold": {
+			"name": "Gussform: Silber-Schulterplatte",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_shoulder_plate",
+				"silver_shoulder_plate",
+				"shoulder_armor"
+			],
+			"icon": "res://assets/sprites/items/silver_shoulder_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schulterschutz.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_boot_plate_mold": {
+			"name": "Gussform: Silber-Stiefelplatte",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_boot_plate",
+				"silver_boot_plate",
+				"boots"
+			],
+			"icon": "res://assets/sprites/items/silver_boot_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Stiefel.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_glove_plate_mold": {
+			"name": "Gussform: Silber-Handschuhplatte",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_glove_plate",
+				"silver_glove_plate",
+				"gloves"
+			],
+			"icon": "res://assets/sprites/items/silver_glove_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Handschuhe.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_leg_plate_mold": {
+			"name": "Gussform: Silber-Beinplatte",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_leg_plate",
+				"silver_leg_plate",
+				"leg_armor"
+			],
+			"icon": "res://assets/sprites/items/silver_leg_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Beinschutz.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_pickaxe_head_mold": {
+			"name": "Gussform: Silber-Spitzhackenkopf",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_pickaxe_head",
+				"silver_pickaxe_head",
+				"pickaxe"
+			],
+			"icon": "res://assets/sprites/items/silver_pickaxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Spitzhacke.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_lumber_axe_head_mold": {
+			"name": "Gussform: Silber-Holzfälleraxtkopf",
+			"price": 3000,
+			"unlock": [
+				"mold_silver_lumber_axe_head",
+				"silver_lumber_axe_head",
+				"lumber_axe"
+			],
+			"icon": "res://assets/sprites/items/silver_lumber_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Holzfälleraxt.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"platinum_blade_mold": {
+			"name": "Gussform: Platinklinge",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_blade",
+				"platinum_blade",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/platinum_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_handle_mold": {
+			"name": "Gussform: Platingriff",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_handle",
+				"platinum_handle",
+				"sword",
+				"two_handed_sword",
+				"dagger",
+				"mace",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/platinum_handle.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert, Zweihandschwert, Dolch, Keule, Schild.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_axe_head_mold": {
+			"name": "Gussform: Platin-Axtkopf",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_axe_head",
+				"platinum_axe_head",
+				"axe"
+			],
+			"icon": "res://assets/sprites/items/platinum_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_greatsword_blade_mold": {
+			"name": "Gussform: Platin-Zweihandklinge",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_greatsword_blade",
+				"platinum_greatsword_blade",
+				"two_handed_sword"
+			],
+			"icon": "res://assets/sprites/items/platinum_greatsword_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandschwert.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_dagger_blade_mold": {
+			"name": "Gussform: Platin-Dolchklinge",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_dagger_blade",
+				"platinum_dagger_blade",
+				"dagger"
+			],
+			"icon": "res://assets/sprites/items/platinum_dagger_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Dolch.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_spear_head_mold": {
+			"name": "Gussform: Platin-Speerspitze",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_spear_head",
+				"platinum_spear_head",
+				"polearm"
+			],
+			"icon": "res://assets/sprites/items/platinum_spear_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Speer.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_hammer_head_mold": {
+			"name": "Gussform: Platin-Hammerkopf",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_hammer_head",
+				"platinum_hammer_head",
+				"hammer"
+			],
+			"icon": "res://assets/sprites/items/platinum_hammer_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Hammer.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_mace_head_mold": {
+			"name": "Gussform: Platin-Keulenkopf",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_mace_head",
+				"platinum_mace_head",
+				"mace"
+			],
+			"icon": "res://assets/sprites/items/platinum_mace_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Keule.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_greataxe_head_mold": {
+			"name": "Gussform: Platin-Zweihandaxtkopf",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_greataxe_head",
+				"platinum_greataxe_head",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/platinum_greataxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandaxt.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_shield_plate_mold": {
+			"name": "Gussform: Platin-Schildplatte",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_shield_plate",
+				"platinum_shield_plate",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/platinum_shield_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schild.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_shaft_mold": {
+			"name": "Gussform: Platinstiel",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_shaft",
+				"platinum_shaft",
+				"axe",
+				"polearm",
+				"hammer",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/platinum_shaft.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt, Speer, Hammer, Zweihandaxt.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_staff_rod_mold": {
+			"name": "Gussform: Platinstab",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_staff_rod",
+				"platinum_staff_rod"
+			],
+			"icon": "res://assets/sprites/items/platinum_staff_rod.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_bow_frame_mold": {
+			"name": "Gussform: Platin-Bogenrahmen",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_bow_frame",
+				"platinum_bow_frame"
+			],
+			"icon": "res://assets/sprites/items/platinum_bow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_longbow_frame_mold": {
+			"name": "Gussform: Platin-Langbogenrahmen",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_longbow_frame",
+				"platinum_longbow_frame"
+			],
+			"icon": "res://assets/sprites/items/platinum_longbow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_arrow_tip_mold": {
+			"name": "Gussform: Platin-Pfeilspitze",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_arrow_tip",
+				"platinum_arrow_tip"
+			],
+			"icon": "res://assets/sprites/items/platinum_arrow_tip.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_arrow_shaft_mold": {
+			"name": "Gussform: Platin-Pfeilschaft",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_arrow_shaft",
+				"platinum_arrow_shaft"
+			],
+			"icon": "res://assets/sprites/items/platinum_arrow_shaft.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_chest_plate_mold": {
+			"name": "Gussform: Platin-Brustplatte",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_chest_plate",
+				"platinum_chest_plate",
+				"chest_armor"
+			],
+			"icon": "res://assets/sprites/items/platinum_chest_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Rüstung.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_helmet_plate_mold": {
+			"name": "Gussform: Platin-Helmschale",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_helmet_plate",
+				"platinum_helmet_plate",
+				"helmet"
+			],
+			"icon": "res://assets/sprites/items/platinum_helmet_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Helm.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_shoulder_plate_mold": {
+			"name": "Gussform: Platin-Schulterplatte",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_shoulder_plate",
+				"platinum_shoulder_plate",
+				"shoulder_armor"
+			],
+			"icon": "res://assets/sprites/items/platinum_shoulder_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schulterschutz.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_boot_plate_mold": {
+			"name": "Gussform: Platin-Stiefelplatte",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_boot_plate",
+				"platinum_boot_plate",
+				"boots"
+			],
+			"icon": "res://assets/sprites/items/platinum_boot_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Stiefel.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_glove_plate_mold": {
+			"name": "Gussform: Platin-Handschuhplatte",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_glove_plate",
+				"platinum_glove_plate",
+				"gloves"
+			],
+			"icon": "res://assets/sprites/items/platinum_glove_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Handschuhe.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_leg_plate_mold": {
+			"name": "Gussform: Platin-Beinplatte",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_leg_plate",
+				"platinum_leg_plate",
+				"leg_armor"
+			],
+			"icon": "res://assets/sprites/items/platinum_leg_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Beinschutz.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_pickaxe_head_mold": {
+			"name": "Gussform: Platin-Spitzhackenkopf",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_pickaxe_head",
+				"platinum_pickaxe_head",
+				"pickaxe"
+			],
+			"icon": "res://assets/sprites/items/platinum_pickaxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Spitzhacke.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_lumber_axe_head_mold": {
+			"name": "Gussform: Platin-Holzfälleraxtkopf",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_lumber_axe_head",
+				"platinum_lumber_axe_head",
+				"lumber_axe"
+			],
+			"icon": "res://assets/sprites/items/platinum_lumber_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Holzfälleraxt.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_ring_band_mold": {
+			"name": "Gussform: Platin-Ringfassung",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_ring_band",
+				"platinum_ring_band",
+				"ring"
+			],
+			"icon": "res://assets/sprites/items/platinum_ring_band.png",
+			"description": "Gussform und Amboss-Rezept für die Platin-Ringfassung. Am Juweliertisch kommt ein Kristall hinein.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"platinum_amulet_mold": {
+			"name": "Gussform: Platinamulett",
+			"price": 9000,
+			"unlock": [
+				"mold_platinum_amulet_band",
+				"platinum_amulet_band"
+			],
+			"icon": "res://assets/sprites/items/platinum_amulet_band.png",
+			"description": "Gussform und Amboss-Rezept für die Platin-Amulettfassung. Am Juweliertisch kommt ein Kristall hinein.",
+			"unlock_flag": "reached_forest_wake"
+		},
+		"palladium_blade_mold": {
+			"name": "Gussform: Palladiumklinge",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_blade",
+				"palladium_blade",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/palladium_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_handle_mold": {
+			"name": "Gussform: Palladiumgriff",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_handle",
+				"palladium_handle",
+				"sword",
+				"two_handed_sword",
+				"dagger",
+				"mace",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/palladium_handle.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert, Zweihandschwert, Dolch, Keule, Schild.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_axe_head_mold": {
+			"name": "Gussform: Palladium-Axtkopf",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_axe_head",
+				"palladium_axe_head",
+				"axe"
+			],
+			"icon": "res://assets/sprites/items/palladium_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_greatsword_blade_mold": {
+			"name": "Gussform: Palladium-Zweihandklinge",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_greatsword_blade",
+				"palladium_greatsword_blade",
+				"two_handed_sword"
+			],
+			"icon": "res://assets/sprites/items/palladium_greatsword_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandschwert.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_dagger_blade_mold": {
+			"name": "Gussform: Palladium-Dolchklinge",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_dagger_blade",
+				"palladium_dagger_blade",
+				"dagger"
+			],
+			"icon": "res://assets/sprites/items/palladium_dagger_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Dolch.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_spear_head_mold": {
+			"name": "Gussform: Palladium-Speerspitze",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_spear_head",
+				"palladium_spear_head",
+				"polearm"
+			],
+			"icon": "res://assets/sprites/items/palladium_spear_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Speer.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_hammer_head_mold": {
+			"name": "Gussform: Palladium-Hammerkopf",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_hammer_head",
+				"palladium_hammer_head",
+				"hammer"
+			],
+			"icon": "res://assets/sprites/items/palladium_hammer_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Hammer.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_mace_head_mold": {
+			"name": "Gussform: Palladium-Keulenkopf",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_mace_head",
+				"palladium_mace_head",
+				"mace"
+			],
+			"icon": "res://assets/sprites/items/palladium_mace_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Keule.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_greataxe_head_mold": {
+			"name": "Gussform: Palladium-Zweihandaxtkopf",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_greataxe_head",
+				"palladium_greataxe_head",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/palladium_greataxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandaxt.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_shield_plate_mold": {
+			"name": "Gussform: Palladium-Schildplatte",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_shield_plate",
+				"palladium_shield_plate",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/palladium_shield_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schild.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_shaft_mold": {
+			"name": "Gussform: Palladiumstiel",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_shaft",
+				"palladium_shaft",
+				"axe",
+				"polearm",
+				"hammer",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/palladium_shaft.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt, Speer, Hammer, Zweihandaxt.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_staff_rod_mold": {
+			"name": "Gussform: Palladiumstab",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_staff_rod",
+				"palladium_staff_rod"
+			],
+			"icon": "res://assets/sprites/items/palladium_staff_rod.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_bow_frame_mold": {
+			"name": "Gussform: Palladium-Bogenrahmen",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_bow_frame",
+				"palladium_bow_frame"
+			],
+			"icon": "res://assets/sprites/items/palladium_bow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_longbow_frame_mold": {
+			"name": "Gussform: Palladium-Langbogenrahmen",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_longbow_frame",
+				"palladium_longbow_frame"
+			],
+			"icon": "res://assets/sprites/items/palladium_longbow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_arrow_tip_mold": {
+			"name": "Gussform: Palladium-Pfeilspitze",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_arrow_tip",
+				"palladium_arrow_tip"
+			],
+			"icon": "res://assets/sprites/items/palladium_arrow_tip.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_arrow_shaft_mold": {
+			"name": "Gussform: Palladium-Pfeilschaft",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_arrow_shaft",
+				"palladium_arrow_shaft"
+			],
+			"icon": "res://assets/sprites/items/palladium_arrow_shaft.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_chest_plate_mold": {
+			"name": "Gussform: Palladium-Brustplatte",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_chest_plate",
+				"palladium_chest_plate",
+				"chest_armor"
+			],
+			"icon": "res://assets/sprites/items/palladium_chest_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Rüstung.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_helmet_plate_mold": {
+			"name": "Gussform: Palladium-Helmschale",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_helmet_plate",
+				"palladium_helmet_plate",
+				"helmet"
+			],
+			"icon": "res://assets/sprites/items/palladium_helmet_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Helm.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_shoulder_plate_mold": {
+			"name": "Gussform: Palladium-Schulterplatte",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_shoulder_plate",
+				"palladium_shoulder_plate",
+				"shoulder_armor"
+			],
+			"icon": "res://assets/sprites/items/palladium_shoulder_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schulterschutz.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_boot_plate_mold": {
+			"name": "Gussform: Palladium-Stiefelplatte",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_boot_plate",
+				"palladium_boot_plate",
+				"boots"
+			],
+			"icon": "res://assets/sprites/items/palladium_boot_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Stiefel.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_glove_plate_mold": {
+			"name": "Gussform: Palladium-Handschuhplatte",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_glove_plate",
+				"palladium_glove_plate",
+				"gloves"
+			],
+			"icon": "res://assets/sprites/items/palladium_glove_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Handschuhe.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_leg_plate_mold": {
+			"name": "Gussform: Palladium-Beinplatte",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_leg_plate",
+				"palladium_leg_plate",
+				"leg_armor"
+			],
+			"icon": "res://assets/sprites/items/palladium_leg_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Beinschutz.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_pickaxe_head_mold": {
+			"name": "Gussform: Palladium-Spitzhackenkopf",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_pickaxe_head",
+				"palladium_pickaxe_head",
+				"pickaxe"
+			],
+			"icon": "res://assets/sprites/items/palladium_pickaxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Spitzhacke.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_lumber_axe_head_mold": {
+			"name": "Gussform: Palladium-Holzfälleraxtkopf",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_lumber_axe_head",
+				"palladium_lumber_axe_head",
+				"lumber_axe"
+			],
+			"icon": "res://assets/sprites/items/palladium_lumber_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Holzfälleraxt.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_ring_band_mold": {
+			"name": "Gussform: Palladium-Ringfassung",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_ring_band",
+				"palladium_ring_band",
+				"ring"
+			],
+			"icon": "res://assets/sprites/items/palladium_ring_band.png",
+			"description": "Gussform und Amboss-Rezept für die Palladium-Ringfassung. Am Juweliertisch kommt ein Kristall hinein.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"palladium_amulet_mold": {
+			"name": "Gussform: Palladiumamulett",
+			"price": 15000,
+			"unlock": [
+				"mold_palladium_amulet_band",
+				"palladium_amulet_band"
+			],
+			"icon": "res://assets/sprites/items/palladium_amulet_band.png",
+			"description": "Gussform und Amboss-Rezept für die Palladium-Amulettfassung. Am Juweliertisch kommt ein Kristall hinein.",
+			"unlock_flag": "reached_finster_start"
+		},
+		"gold_blade_mold": {
+			"name": "Gussform: Goldklinge",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_blade",
+				"gold_blade",
+				"sword"
+			],
+			"icon": "res://assets/sprites/items/gold_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_handle_mold": {
+			"name": "Gussform: Goldgriff",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_handle",
+				"gold_handle",
+				"sword",
+				"two_handed_sword",
+				"dagger",
+				"mace",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/gold_handle.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schwert, Zweihandschwert, Dolch, Keule, Schild.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_axe_head_mold": {
+			"name": "Gussform: Gold-Axtkopf",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_axe_head",
+				"gold_axe_head",
+				"axe"
+			],
+			"icon": "res://assets/sprites/items/gold_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_greatsword_blade_mold": {
+			"name": "Gussform: Gold-Zweihandklinge",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_greatsword_blade",
+				"gold_greatsword_blade",
+				"two_handed_sword"
+			],
+			"icon": "res://assets/sprites/items/gold_greatsword_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandschwert.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_dagger_blade_mold": {
+			"name": "Gussform: Gold-Dolchklinge",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_dagger_blade",
+				"gold_dagger_blade",
+				"dagger"
+			],
+			"icon": "res://assets/sprites/items/gold_dagger_blade.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Dolch.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_spear_head_mold": {
+			"name": "Gussform: Gold-Speerspitze",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_spear_head",
+				"gold_spear_head",
+				"polearm"
+			],
+			"icon": "res://assets/sprites/items/gold_spear_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Speer.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_hammer_head_mold": {
+			"name": "Gussform: Gold-Hammerkopf",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_hammer_head",
+				"gold_hammer_head",
+				"hammer"
+			],
+			"icon": "res://assets/sprites/items/gold_hammer_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Hammer.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_mace_head_mold": {
+			"name": "Gussform: Gold-Keulenkopf",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_mace_head",
+				"gold_mace_head",
+				"mace"
+			],
+			"icon": "res://assets/sprites/items/gold_mace_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Keule.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_greataxe_head_mold": {
+			"name": "Gussform: Gold-Zweihandaxtkopf",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_greataxe_head",
+				"gold_greataxe_head",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/gold_greataxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Zweihandaxt.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_shield_plate_mold": {
+			"name": "Gussform: Gold-Schildplatte",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_shield_plate",
+				"gold_shield_plate",
+				"shield"
+			],
+			"icon": "res://assets/sprites/items/gold_shield_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schild.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_shaft_mold": {
+			"name": "Gussform: Goldstiel",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_shaft",
+				"gold_shaft",
+				"axe",
+				"polearm",
+				"hammer",
+				"two_handed_axe"
+			],
+			"icon": "res://assets/sprites/items/gold_shaft.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Axt, Speer, Hammer, Zweihandaxt.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_staff_rod_mold": {
+			"name": "Gussform: Goldstab",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_staff_rod",
+				"gold_staff_rod"
+			],
+			"icon": "res://assets/sprites/items/gold_staff_rod.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_bow_frame_mold": {
+			"name": "Gussform: Gold-Bogenrahmen",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_bow_frame",
+				"gold_bow_frame"
+			],
+			"icon": "res://assets/sprites/items/gold_bow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_longbow_frame_mold": {
+			"name": "Gussform: Gold-Langbogenrahmen",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_longbow_frame",
+				"gold_longbow_frame"
+			],
+			"icon": "res://assets/sprites/items/gold_longbow_frame.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_arrow_tip_mold": {
+			"name": "Gussform: Gold-Pfeilspitze",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_arrow_tip",
+				"gold_arrow_tip"
+			],
+			"icon": "res://assets/sprites/items/gold_arrow_tip.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_arrow_shaft_mold": {
+			"name": "Gussform: Gold-Pfeilschaft",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_arrow_shaft",
+				"gold_arrow_shaft"
+			],
+			"icon": "res://assets/sprites/items/gold_arrow_shaft.png",
+			"description": "Rezept für Gussform und Amboss.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_chest_plate_mold": {
+			"name": "Gussform: Gold-Brustplatte",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_chest_plate",
+				"gold_chest_plate",
+				"chest_armor"
+			],
+			"icon": "res://assets/sprites/items/gold_chest_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Rüstung.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_helmet_plate_mold": {
+			"name": "Gussform: Gold-Helmschale",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_helmet_plate",
+				"gold_helmet_plate",
+				"helmet"
+			],
+			"icon": "res://assets/sprites/items/gold_helmet_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Helm.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_shoulder_plate_mold": {
+			"name": "Gussform: Gold-Schulterplatte",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_shoulder_plate",
+				"gold_shoulder_plate",
+				"shoulder_armor"
+			],
+			"icon": "res://assets/sprites/items/gold_shoulder_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Schulterschutz.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_boot_plate_mold": {
+			"name": "Gussform: Gold-Stiefelplatte",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_boot_plate",
+				"gold_boot_plate",
+				"boots"
+			],
+			"icon": "res://assets/sprites/items/gold_boot_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Stiefel.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_glove_plate_mold": {
+			"name": "Gussform: Gold-Handschuhplatte",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_glove_plate",
+				"gold_glove_plate",
+				"gloves"
+			],
+			"icon": "res://assets/sprites/items/gold_glove_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Handschuhe.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_leg_plate_mold": {
+			"name": "Gussform: Gold-Beinplatte",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_leg_plate",
+				"gold_leg_plate",
+				"leg_armor"
+			],
+			"icon": "res://assets/sprites/items/gold_leg_plate.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Beinschutz.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_pickaxe_head_mold": {
+			"name": "Gussform: Gold-Spitzhackenkopf",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_pickaxe_head",
+				"gold_pickaxe_head",
+				"pickaxe"
+			],
+			"icon": "res://assets/sprites/items/gold_pickaxe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Spitzhacke.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_lumber_axe_head_mold": {
+			"name": "Gussform: Gold-Holzfälleraxtkopf",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_lumber_axe_head",
+				"gold_lumber_axe_head",
+				"lumber_axe"
+			],
+			"icon": "res://assets/sprites/items/gold_lumber_axe_head.png",
+			"description": "Rezept für Gussform und Amboss, dazu: Holzfälleraxt.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_ring_band_mold": {
+			"name": "Gussform: Gold-Ringfassung",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_ring_band",
+				"gold_ring_band",
+				"ring"
+			],
+			"icon": "res://assets/sprites/items/gold_ring_band.png",
+			"description": "Gussform und Amboss-Rezept für die Gold-Ringfassung. Am Juweliertisch kommt ein Kristall hinein.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"gold_amulet_mold": {
+			"name": "Gussform: Goldamulett",
+			"price": 5000,
+			"unlock": [
+				"mold_gold_amulet_band",
+				"gold_amulet_band"
+			],
+			"icon": "res://assets/sprites/items/gold_amulet_band.png",
+			"description": "Gussform und Amboss-Rezept für die Gold-Amulettfassung. Am Juweliertisch kommt ein Kristall hinein.",
+			"unlock_flag": "gold_molds_unlocked"
+		},
+		"silver_ring_mold": {
+			"name": "Gussform: Silberring",
+			"price": 600,
+			"unlock": [
+				"mold_silver_ring_band",
+				"silver_ring_band"
+			],
+			"icon": "res://assets/sprites/items/silver_ring_band.png",
+			"description": "Gussform und Amboss-Rezept für die Silber-Ringfassung. Am Juweliertisch kommt ein Kristall hinein.",
+			"unlock_flag": "silver_molds_offered"
+		},
+		"silver_amulet_mold": {
+			"name": "Gussform: Silberamulett",
+			"price": 600,
+			"unlock": [
+				"mold_silver_amulet_band",
+				"silver_amulet_band"
+			],
+			"icon": "res://assets/sprites/items/silver_amulet_band.png",
+			"description": "Gussform und Amboss-Rezept für die Silber-Amulettfassung. Am Juweliertisch kommt ein Kristall hinein.",
+			"unlock_flag": "silver_molds_offered"
+		}
+	},
+	"shell_game": {
+		"_info": "Hütchenspiel des Bettlers am Dorfplatz: bait_stake = Einsatz am Anfang (fair), nach bait_wins_min bis bait_wins_max Siegen (zufällig) will er mehr: high_stakes = Einsätze danach (dann gewinnt man nie). swaps = Vertauschungen pro Runde, swap_seconds = Dauer einer Vertauschung, show_seconds = so lange zeigt er die Murmel. Ein Sieg zahlt den doppelten Einsatz.",
+		"bait_stake": 5,
+		"bait_wins_min": 2,
+		"bait_wins_max": 3,
+		"high_stakes": [
+			100,
+			250,
+			1000
+		],
+		"swaps": 5,
+		"swap_seconds": 0.8,
+		"show_seconds": 1.2
+	},
+	"slot_machine": {
+		"_info": "Spielautomat im Schwarzmarkt: bets = wählbare Einsätze. outcomes werden der Reihe nach ausgewürfelt (chance = Wahrscheinlichkeit pro Dreh, pays = Gewinn als Vielfaches des Einsatzes, symbols = welche drei Gleichen erscheinen; pair = zwei Gleiche). Was übrig bleibt, ist verloren (drei verschiedene). So: ca. 30 % Gewinn, 70 % Verlust, im Schnitt kommen ca. 84 % des Einsatzes zurück. symbols = Bilder in assets/sprites/ui/slot/<id>.png, jackpot_symbol nur beim Jackpot dreifach.",
+		"bets": [
+			1,
+			2,
+			3,
+			4,
+			5
+		],
+		"symbols": [
+			"coin",
+			"sword",
+			"shield",
+			"potion",
+			"gem",
+			"crown"
+		],
+		"jackpot_symbol": "crown",
+		"outcomes": [
+			{
+				"id": "jackpot",
+				"chance": 1e-05,
+				"pays": 2000,
+				"symbols": [
+					"crown"
+				]
+			},
+			{
+				"id": "gems",
+				"chance": 0.0099,
+				"pays": 10,
+				"symbols": [
+					"gem"
+				]
+			},
+			{
+				"id": "triple",
+				"chance": 0.07,
+				"pays": 4,
+				"symbols": [
+					"coin",
+					"sword",
+					"shield",
+					"potion"
+				]
+			},
+			{
+				"id": "pair",
+				"chance": 0.22,
+				"pays": 2
+			}
+		],
+		"spin_seconds": 1.2
+	},
+	"inn": {
+		"_info": "Gasthaus in Leonheim: room_price = Gold für eine Nacht (Zimmer mieten beim Wirt, dann sofort schlafen, man wacht im Gasthaus auf).",
+		"room_price": 25
+	},
+	"crafting_quality": {
+		"_info": "Seltenheit und Qualität (ForgeQuality): Qualität 0–100 innerhalb einer Seltenheit, über 100 = nächste Seltenheit, unter 0 = eine tiefer. cast_quality: Qualität jedes frisch gegossenen glühenden Rohlings (die Seltenheit kommt vom Barren). anvil: Punkte für das ganze Teil, wenn alle Schläge grün / gelb / daneben sind (pro Schlag geteilt durch die Anzahl der Schläge). joining: Punkte am Werktisch je Ergebnis, fail = Verlust für jedes Teil. grindstone: Punkte am Schleifstein, wenn der Ball das ganze Minispiel im grünen Bereich bleibt (anteilig nach der Zeit im Grünen). grindstone_game: seconds (Dauer), zone (Höhe des grünen Bereichs, Anteil am Balken), zone_speed (so schnell wandert er, Balken pro Sekunde), lift / gravity (Beschleunigung des Balls mit / ohne Linksklick); Meisterhand macht den Bereich pro Stufe breiter und langsamer. Gewinne wachsen mit dem Skill Meisterhand. difficulty: Abstand = Materialstufe (materials.json tier) - Ruf-Rang (F 0, E 1, D 2 ...) - Skill Materialkunde; die erste Stufe mit max_gap >= Abstand gilt: speed (so viel schneller laufen Takt und Teile), green/yellow (Faktoren für die Zonenbreite, 0 = keine Zone). loot_rarity: Erz und Barren aus Dungeons sind mit dieser Chance seltener (pro Dungeon-Level + per_dungeon_level, z. B. Level 10 = 1,5-fach).",
+		"cast_quality": 50,
+		"anvil": {
+			"green": 80,
+			"yellow": 24,
+			"miss": -48
+		},
+		"joining": {
+			"perfect": 50,
+			"good": 20,
+			"okay": 0,
+			"fail": -15
+		},
+		"grindstone": 50,
+		"grindstone_game": {
+			"seconds": 6.0,
+			"zone": 0.28,
+			"zone_speed": 0.45,
+			"lift": 2.6,
+			"gravity": 2.0
+		},
+		"difficulty": [
+			{
+				"max_gap": -1,
+				"name": "Leicht",
+				"speed": 0.9,
+				"green": 1.25,
+				"yellow": 1.0
+			},
+			{
+				"max_gap": 0,
+				"name": "Normal",
+				"speed": 1.0,
+				"green": 1.0,
+				"yellow": 1.0
+			},
+			{
+				"max_gap": 1,
+				"name": "Schwierig",
+				"speed": 1.3,
+				"green": 0.6,
+				"yellow": 0.8
+			},
+			{
+				"max_gap": 2,
+				"name": "Sehr schwer",
+				"speed": 1.6,
+				"green": 0.25,
+				"yellow": 0.6
+			},
+			{
+				"max_gap": 99,
+				"name": "Kaum machbar",
+				"speed": 1.8,
+				"green": 0.0,
+				"yellow": 0.4
+			}
+		],
+		"loot_rarity": {
+			"chances": {
+				"R2": 0.35,
+				"R3": 0.05,
+				"R4": 0.012,
+				"R5": 0.004
+			},
+			"per_dungeon_level": 0.05
+		}
+	},
+	"skill_reset": {
+		"gold_per_point": 50
+	},
+	"market_stock": {
+		"story_limits": [
+			{
+				"from": "reached_find_smithy",
+				"until": "bruno_hired",
+				"stocks": {
+					"ore": [
+						{
+							"item": "copper_ore",
+							"amount": [
+								6,
+								10
+							]
+						},
+						{
+							"item": "coal",
+							"amount": [
+								5,
+								10
+							]
+						}
+					],
+					"herbalist": [
+						{
+							"item": "wood",
+							"amount": [
+								10,
+								20
+							]
+						}
+					]
+				},
+				"offers": [
+					"station:water_trough"
+				]
+			},
+			{
+				"from": "bruno_hired",
+				"until": "reached_wait_for_bruno",
+				"stocks": {
+					"ore": [
+						{
+							"item": "copper_ingot",
+							"amount": 3
+						},
+						{
+							"item": "coal",
+							"amount": 2
+						}
+					],
+					"herbalist": [
+						{
+							"item": "wood",
+							"amount": 1
+						}
+					]
+				},
+				"offers": [
+					"recipe:copper_blade",
+					"recipe:copper_handle"
+				],
+				"prices": {"recipe:copper_blade": 50, "recipe:copper_handle": 50}
+			}
+		],
+		"default": {
+			"stackable": [
+				5,
+				15
+			],
+			"equipment": [
+				1,
+				2
+			]
+		},
+		"herbalist": {
+			"items": [
+				{
+					"item": "wood",
+					"amount": [
+						15,
+						30
+					]
+				},
+				{
+					"item": "flax",
+					"amount": [
+						3,
+						6
+					]
+				},
+				{
+					"item": "hemp",
+					"amount": [
+						2,
+						5
+					],
+					"rank": "E"
+				},
+				{
+					"item": "feather",
+					"amount": [
+						2,
+						5
+					],
+					"chance": 0.25
+				},
+				{
+					"item": "chamomile",
+					"amount": [
+						2,
+						4
+					],
+					"rank": "D"
+				},
+				{
+					"item": "sage",
+					"amount": [
+						2,
+						4
+					],
+					"rank": "D"
+				},
+				{
+					"item": "nightshade_seed",
+					"amount": [
+						1,
+						3
+					],
+					"flag": "enchanting_book_owned"
+				},
+				{
+					"item": "sunflower_seed",
+					"amount": [
+						1,
+						3
+					],
+					"flag": "enchanting_book_owned"
+				}
+			]
+		},
+		"ore": {
+			"items": [
+				{
+					"item": "coal",
+					"amount": [
+						10,
+						20
+					]
+				},
+				{
+					"item": "copper_ore",
+					"amount": [
+						10,
+						20
+					]
+				},
+				{
+					"item": "copper_ingot",
+					"amount": [
+						4,
+						8
+					]
+				},
+				{
+					"item": "sand",
+					"amount": [
+						10,
+						20
+					]
+				},
+				{
+					"item": "iron_ore",
+					"amount": [
+						5,
+						12
+					],
+					"flag": "iron_unlocked"
+				},
+				{
+					"item": "iron_ingot",
+					"amount": [
+						3,
+						6
+					],
+					"flag": "iron_unlocked",
+					"rank": "E"
+				},
+				{
+					"item": "bronze_ingot",
+					"flag": "volcano_route_open",
+					"amount": [
+						2,
+						4
+					],
+					"rank": "D"
+				}
+			]
+		},
+		"enchanter": {
+			"_info": "Verzauberer am Markt: die Anlaufstelle für Verzauberungen. Kristalle, Phiolen, fertige Verzauberungstränke, Heldentränke, Samen und bessere Erde; die geheimen Trank-Rezepte stehen als potion_recipe: im Angebot des Händlers (market.tscn).",
+			"items": [
+				{"item": "vial", "amount": [3, 6]},
+				{"pick": ["fire_potion", "water_potion", "air_potion", "earth_potion", "dark_potion", "ice_potion", "light_potion", "lightning_potion", "poison_potion"], "amount": 1, "extra_chance": 0.5, "flag": "enchanting_book_owned"},
+				{"item": "clarity_potion", "amount": [1, 2], "chance": 0.5, "flag": "enchanting_book_owned"},
+				{"item": "moonglow_potion", "amount": 1, "chance": 0.25, "flag": "enchanting_book_owned"},
+				{"item": "change_potion", "amount": 1, "chance": 0.3, "flag": "enchanting_book_owned"},
+				{"item": "spark_potion", "amount": 1, "chance": 0.15, "flag": "enchanting_book_owned"},
+				{"item": "moon_lily_seed", "amount": [1, 3], "flag": "enchanting_book_owned"},
+				{"item": "nightshade_seed", "amount": [1, 2], "flag": "enchanting_book_owned"},
+				{"item": "sunflower_seed", "amount": [1, 2], "flag": "enchanting_book_owned"},
+				{"item": "forest_humus", "amount": [1, 2], "flag": "enchanting_book_owned"},
+				{"item": "moon_humus", "amount": 1, "chance": 0.4, "rank": "C", "flag": "enchanting_book_owned"},
+				{
+					"pick": [
+						"ruby",
+						"sapphire",
+						"emerald",
+						"topaz",
+						"amethyst",
+						"diamond",
+						"citrine",
+						"aquamarine",
+						"jade"
+					],
+					"amount": 1,
+					"extra_chance": 0.3,
+					"price": 438,
+					"rare_chance": 0.1,
+					"rare_rarity": "R2",
+					"rare_price": 547
+				}
+			]
+		},
+		"goblin": {
+			"offer_count": [1, 8],
+			"random_offers": true,
+			"always_offers": {
+				"recipe:bronze_pickaxe_head_mold": "goblin_castle_path_open",
+				"recipe:bronze_lumber_axe_head_mold": "goblin_castle_path_open"
+			},
+			"items": [
+				{"item": "ruby", "amount": [1, 2]},
+				{"item": "sapphire", "amount": [1, 2]},
+				{"item": "emerald", "amount": [1, 2]},
+				{"item": "topaz", "amount": [1, 2]},
+				{"item": "amethyst", "amount": [1, 2]},
+				{"item": "diamond", "amount": [1, 2]},
+				{"item": "citrine", "amount": [1, 2]},
+				{"item": "aquamarine", "amount": [1, 2]},
+				{"item": "jade", "amount": [1, 2]},
+				{"item": "bronze_ingot", "amount": [4, 8]},
+				{"item": "copper_ore", "amount": [10, 20]},
+				{"item": "iron_ore", "amount": [8, 15]},
+				{"item": "coal", "amount": [10, 20]},
+				{"item": "ember_essence", "amount": [1, 3]},
+				{"item": "dragon_hide", "amount": [1, 2]},
+				{"item": "bronze_staff_fire", "amount": 1, "price": 700},
+				{"item": "bronze_staff_water", "amount": 1, "price": 700},
+				{"item": "bronze_staff_air", "amount": 1, "price": 700},
+				{"item": "bronze_staff_earth", "amount": 1, "price": 700},
+				{"item": "bronze_staff_dark", "amount": 1, "price": 700},
+				{"item": "bronze_staff_light", "amount": 1, "price": 700},
+				{"item": "bronze_staff_lightning", "amount": 1, "price": 700},
+				{"item": "bronze_staff_ice", "amount": 1, "price": 700},
+				{"item": "bronze_staff_poison", "amount": 1, "price": 700}
+			],
+			"equipment": {"types": ["sword", "dagger", "axe", "mace", "polearm", "hammer", "two_handed_sword", "two_handed_axe", "shield", "chest_armor", "helmet", "shoulder_armor", "leg_armor", "boots", "gloves", "bow", "longbow"], "count": [99, 99], "part_count": [0, 0], "materials": {"F": ["bronze"]}, "part_materials": {"shaft": {"*": "wooden_shaft"}, "leather": {"*": "leather"}}, "price": 700}
+		},
+		"leonheim_ore": {"offer_count": [3, 6], "items": [{"item": "coal", "amount": [10, 20], "always": true}, {"item": "sand", "amount": [10, 20]}, {"item": "copper_ore", "amount": [10, 20]}, {"item": "iron_ore", "amount": [8, 15]}, {"item": "copper_ingot", "amount": [4, 8]}, {"item": "iron_ingot", "amount": [3, 6]}, {"item": "sapphire", "amount": [1, 2]}, {"item": "topaz", "amount": [1, 2]}]},
+		"leonheim_weapons": {"offer_count": [3, 8], "equipment": {"types": ["sword", "dagger", "axe", "mace", "polearm", "hammer", "two_handed_sword", "two_handed_axe", "shield", "bow", "longbow"], "count": [99, 99], "part_count": [0, 0], "materials": {"F": ["iron"]}, "part_materials": {"shaft": {"*": "wooden_shaft"}, "leather": {"*": "leather"}}, "price": 400}},
+		"leonheim_parts": {"offer_count": [3, 8], "items": [{"item": "leather", "amount": [3, 6]}, {"item": "rope", "amount": [2, 5]}], "equipment": {"types": ["sword", "dagger", "axe", "mace", "polearm", "hammer", "two_handed_sword", "two_handed_axe", "shield", "chest_armor", "helmet", "shoulder_armor", "leg_armor", "boots", "gloves"], "count": [0, 0], "part_count": [99, 99], "materials": {"F": ["iron"]}, "part_materials": {"shaft": {"*": "wooden_shaft"}, "leather": {"*": "wolf_leather"}}, "price": 0}},
+		"leonheim_herbs": {"offer_count": [3, 5], "items": [{"item": "wood", "amount": [15, 30]}, {"item": "chamomile", "amount": [2, 5]}, {"item": "sage", "amount": [2, 5]}, {"item": "hemp", "amount": [2, 5]}, {"item": "flax", "amount": [2, 5]}]},
+		"sylvaris_herbs": {"offer_count": [3, 6], "items": [{"item": "chamomile", "amount": [2, 5]}, {"item": "sage", "amount": [2, 5]}, {"item": "moon_lily_seed", "amount": [1, 3]}, {"item": "nightshade_seed", "amount": [1, 3]}, {"item": "vial", "amount": [3, 8]}, {"item": "garden_soil", "amount": [2, 5]}, {"item": "heartleaf", "amount": [1, 2], "always": true}]},
+		"sylvaris_bows": {"offer_count": [3, 8], "items": [{"item": "wood", "amount": [10, 20]}, {"item": "wooden_bow_frame", "amount": [1, 2]}, {"item": "wooden_longbow_frame", "amount": [1, 2]}, {"item": "wooden_arrow_shaft", "amount": [5, 10]}, {"item": "feather", "amount": [5, 10]}, {"item": "harpy_feather", "amount": [2, 5]}, {"item": "rope", "amount": [2, 5]}, {"item": "hippogriff_fur", "amount": [1, 2]}, {"item": "silver_bow_frame", "amount": 1}, {"item": "silver_longbow_frame", "amount": 1}, {"item": "silver_arrow_tip", "amount": [3, 6]}]},
+		"sylvaris_gems": {"offer_count": [3, 5], "items": [{"item": "emerald", "amount": [1, 2]}, {"item": "jade", "amount": [1, 2]}, {"item": "opal", "amount": [1, 2]}, {"item": "amethyst", "amount": [1, 2]}, {"item": "aquamarine", "amount": [1, 2]}, {"item": "storm_essence", "amount": [1, 2]}]},
+		"sahrim_goods": {"offer_count": [2, 3], "items": [{"item": "sand", "amount": [15, 30], "always": true}, {"item": "glass", "amount": [5, 10], "always": true}, {"item": "rope", "amount": [2, 5]}, {"item": "wolf_leather", "amount": [2, 4]}, {"item": "vial", "amount": [3, 8]}]},
+		"sahrim_gems": {"offer_count": [3, 5], "items": [{"item": "topaz", "amount": [1, 2]}, {"item": "citrine", "amount": [1, 2]}, {"item": "amber", "amount": [1, 2]}, {"item": "ruby", "amount": [1, 2]}, {"item": "diamond", "amount": [1, 2]}, {"item": "onyx", "amount": [1, 2]}]},
+		"sahrim_smith": {"offer_count": [3, 8], "items": [{"item": "coal", "amount": [10, 20], "always": true}, {"item": "topaz", "amount": [1, 2]}, {"item": "citrine", "amount": [1, 2]}], "equipment": {"types": ["sword", "dagger", "axe", "mace", "polearm", "hammer", "two_handed_sword", "two_handed_axe", "shield", "chest_armor", "helmet", "shoulder_armor", "leg_armor", "boots", "gloves", "bow", "longbow"], "count": [99, 99], "part_count": [0, 0], "materials": {"F": ["gold"]}, "part_materials": {"shaft": {"*": "wooden_shaft"}, "leather": {"*": "leather"}}, "price": 2000}},
+		"eisquell_goods": {"offer_count": [3, 6], "items": [{"item": "glass", "amount": [5, 10]}, {"item": "rope", "amount": [2, 5]}, {"item": "wolf_leather", "amount": [2, 4]}, {"item": "vial", "amount": [3, 8]}, {"item": "aquamarine", "amount": [1, 2]}, {"item": "sapphire", "amount": [1, 2]}]},
+		"eisquell_smith": {"offer_count": [3, 8], "items": [{"item": "coal", "amount": [10, 20], "always": true}, {"item": "aquamarine", "amount": [1, 2]}, {"item": "sapphire", "amount": [1, 2]}], "equipment": {"types": ["sword", "dagger", "axe", "mace", "polearm", "hammer", "two_handed_sword", "two_handed_axe", "shield", "chest_armor", "helmet", "shoulder_armor", "leg_armor", "boots", "gloves", "bow", "longbow"], "count": [99, 99], "part_count": [0, 0], "materials": {"F": ["silver"]}, "part_materials": {"shaft": {"*": "wooden_shaft"}, "leather": {"*": "leather"}}, "price": 1200}},
+		"weapons": {
+			"equipment": {
+				"types": [
+					"sword",
+					"dagger",
+					"axe",
+					"mace",
+					"polearm",
+					"hammer",
+					"two_handed_sword",
+					"two_handed_axe",
+					"shield"
+				],
+				"count": [
+					3,
+					5
+				],
+				"part_count": [
+					2,
+					4
+				],
+				"material_flags": {"iron": "iron_unlocked", "bronze": "volcano_route_open", "silver": "silver_molds_offered", "gold": "gold_molds_unlocked", "platinum": "reached_forest_wake", "palladium": "reached_finster_start"},
+				"materials": {
+					"F": [
+						"copper"
+					],
+					"E": [
+						"copper",
+						"iron"
+					],
+					"D": [
+						"copper",
+						"iron",
+						"bronze"
+					],
+					"C": [
+						"iron",
+						"bronze",
+						"silver"
+					],
+					"B": [
+						"iron",
+						"bronze",
+						"silver",
+						"gold"
+					],
+					"A": [
+						"silver",
+						"gold",
+						"platinum"
+					],
+					"S": [
+						"gold",
+						"platinum",
+						"palladium"
+					]
+				},
+				"part_materials": {
+					"shaft": {
+						"*": "wooden_shaft"
+					}
+				},
+				"rare_chance": 0.1,
+				"rare_count": [
+					1,
+					2
+				],
+				"rare_rarity": "R2",
+				"rare_price_factor": 2.0
+			}
+		},
+		"armor": {
+			"equipment": {
+				"types": [
+					"chest_armor",
+					"helmet",
+					"shoulder_armor",
+					"leg_armor",
+					"boots",
+					"gloves",
+					"leather_cloak"
+				],
+				"count": [
+					3,
+					5
+				],
+				"part_count": [
+					2,
+					4
+				],
+				"material_flags": {"iron": "iron_unlocked", "bronze": "volcano_route_open", "silver": "silver_molds_offered", "gold": "gold_molds_unlocked", "platinum": "reached_forest_wake", "palladium": "reached_finster_start"},
+				"materials": {
+					"F": [
+						"copper"
+					],
+					"E": [
+						"copper",
+						"iron"
+					],
+					"D": [
+						"copper",
+						"iron",
+						"bronze"
+					],
+					"C": [
+						"iron",
+						"bronze",
+						"silver"
+					],
+					"B": [
+						"iron",
+						"bronze",
+						"silver",
+						"gold"
+					],
+					"A": [
+						"silver",
+						"gold",
+						"platinum"
+					],
+					"S": [
+						"gold",
+						"platinum",
+						"palladium"
+					]
+				},
+				"part_materials": {
+					"leather": {
+						"copper": "leather",
+						"iron": "wolf_leather",
+						"*": "leather"
+					}
+				},
+				"rare_chance": 0.1,
+				"rare_count": [
+					1,
+					2
+				],
+				"rare_rarity": "R2",
+				"rare_price_factor": 2.0
+			}
+		}
+	},
+	"masterwork_socket": {
+		"min_rarity": 3,
+		"chance": 0.35
+	},
+	"assistant": {
+		"npc": "niece",
+		"flag": "lotte_errands",
+		"wait_hours": [7, 9],
+		"market_hours": 2,
+		"deliver_until": 20,
+		"wage": 0.1,
+		"sale_share": 0.8,
+		"max_amount": 20,
+		"merchants": [
+			{"name": "Erzhändlerin Erna", "key": "res://scenes/world/market/market.tscn:Stalls/OreTrader", "stock_id": "ore"},
+			{"name": "Kräuterhändlerin", "key": "res://scenes/world/market/market.tscn:Stalls/Herbalist", "stock_id": "herbalist"},
+			{"name": "Verzauberer", "key": "res://scenes/world/market/market.tscn:Stalls/Enchanter", "stock_id": "enchanter"},
+			{"name": "Waffenhändler", "key": "res://scenes/world/market/market.tscn:Stalls/WeaponTrader", "stock_id": "weapons"},
+			{"name": "Rüstungshändlerin", "key": "res://scenes/world/market/market.tscn:Stalls/ComponentTrader", "stock_id": "armor"}
+		]
+	},
+	"search_orders": {
+		"price_factor": 1.5,
+		"rarity_factor": 1.6,
+		"fee": 20,
+		"days": [1, 2],
+		"max_amount": 10,
+		"items": [
+			{"item": "copper_ore"},
+			{"item": "copper_ingot"},
+			{"item": "iron_ore", "flag": "iron_unlocked"},
+			{"item": "iron_ingot", "flag": "iron_unlocked"},
+			{"item": "coal", "rarity": false},
+			{"item": "wood", "rarity": false},
+			{"item": "leather"},
+			{"item": "bronze_ingot", "flag": "volcano_route_open"},
+			{"item": "silver_ore", "flag": "silver_molds_offered"},
+			{"item": "silver_ingot", "flag": "silver_molds_offered"},
+			{"item": "wolf_leather", "flag": "forest_den_unlocked"},
+			{"item": "dragon_leather", "flag": "volcano_dungeons_unlocked"},
+			{"item": "hippogriff_leather", "flag": "tournament_open"},
+			{"item": "harpy_feather", "flag": "tournament_open"},
+			{"item": "gold_ore", "flag": "gold_molds_unlocked"},
+			{"item": "gold_ingot", "flag": "gold_molds_unlocked"},
+			{"item": "topaz"},
+			{"item": "amethyst"},
+			{"item": "emerald"},
+			{"item": "sapphire", "flag": "king_audience_done"},
+			{"item": "ruby", "flag": "goblin_mine_open"},
+			{"item": "glass", "rarity": false},
+			{"item": "moon_lily_seed", "flag": "enchanting_book_owned", "rarity": false}
+		]
+	},
+	"jewelry": {
+		"_info": "Juweliertisch (Jewelry): Kristall (items.json jewel) + Ring- oder Amulettfassung = Ring (ring_item) bzw. Amulett (amulet_item) mit einer zufälligen Eigenschaft des Kristalls. Seltenheit aus Fassung und Kristall wie an der Werkbank (50/50-Regel), Qualität von der Fassung. Wert der Eigenschaft = Wert im Kristall x rarity_factor der Seltenheit (R1 bis R8) x metal_factor der Fassung.",
+		"ring_item": "jewel_ring",
+		"amulet_item": "jewel_amulet",
+		"_metal_factor": "Faktor auf die Eigenschaft je nach Metall der Fassung (materials.json-id), fehlt ein Metall = 1.",
+		"metal_factor": {"silver": 1.0, "gold": 1.2, "platinum": 1.4, "palladium": 1.6},
+		"_preise": "Wert eines Rings/Amuletts = Fassung + Kristall (items.json value). Händler zahlen die Fassung wie Selbstgemachtes und den Kristall × crystal_sell_factor (wie den rohen Kristall), Ninas und der eigene Laden (Schmuckvitrine) verkaufen die Fassung × price_factor und den Kristall × shop_crystal_factor; Seltenheit, Ruf und Einrichtung zählen auf beides. So bringt ein gekaufter Kristall im Ring kaum Gewinn, erst bessere Seltenheit und Einrichtung.",
+		"crystal_sell_factor": 0.6,
+		"shop_crystal_factor": 1.0,
+		"rarity_factor": [
+			1.0,
+			1.25,
+			1.5,
+			1.75,
+			2.0,
+			2.5,
+			3.0,
+			4.0
+		]
+	},
+	"elf_defense": {
+		"_info": "Teil 3, Waffen für Sylvaris (ElfDefense, ArmoryMenu): Punkte pro Teil = (Materialstufe × per_tier, mindestens 1) × (1 + Seltenheit × per_rarity), Seltenheit R1 = 0. Wer den Horst auf dem Sturmgipfel (griffin_dungeon) einmal gewonnen hat, bekommt griffin_bonus dazu. Ab goal Punkten gewinnen die Elfen den Angriff. levels = Anteile am Ziel für die Stufen der Rückmeldung (verdicts[0] darunter, verdicts[1] ab levels[0], verdicts[2] ab levels[1], verdicts[3] ab goal). Der Spieler sieht keine Zahl.",
+		"goal": 80,
+		"per_tier": 1.0,
+		"per_rarity": 0.5,
+		"griffin_dungeon": "mountain_summit",
+		"griffin_bonus": 25,
+		"levels": [
+			0.3,
+			0.7
+		],
+		"verdict_start": "Hadmar: „Leg hinein, was du entbehren kannst, Schmied. Jede Klinge ist ein Elf mehr, der nicht mit einem Jagdmesser kämpft.“",
+		"verdicts": [
+			"Hadmar: „Danke. Aber das reicht nicht mal für die Ostbrücke.“",
+			"Hadmar: „Ein Anfang. Die unteren Brücken sind bewaffnet. Oben kämpfen die Elfen noch mit Jagdmessern.“",
+			"Hadmar: „Fast. Noch ein paar gute Stücke, dann hält jede Brücke.“",
+			"Hadmar: „Das reicht, Schmied. Jeder Elf hat eine Klinge, jede Brücke eine Wand aus Schilden. Mehr brauche ich nicht.“"
+		]
+	},
+	"potion_recipes": {
+		"_info": "Geheime Trank-Rezepte beim Verzauberer (Angebot potion_recipe:<id>): name (nur der Name ist im Laden zu sehen), price, potions (Trank-ids aus mortar.json; Kauf setzt potion_found_<id>, als wäre der Trank gebraut), unlock_flag, rank.",
+		"magma": {
+			"name": "Rezept: Magmatrank",
+			"price": 900,
+			"potions": [
+				"magma_potion"
+			],
+			"unlock_flag": "enchanting_book_owned"
+		},
+		"steam": {
+			"name": "Rezept: Dampftrank",
+			"price": 900,
+			"potions": [
+				"steam_potion"
+			],
+			"unlock_flag": "enchanting_book_owned"
+		},
+		"thunderstorm": {
+			"name": "Rezept: Gewittertrank",
+			"price": 900,
+			"potions": [
+				"thunderstorm_potion"
+			],
+			"unlock_flag": "enchanting_book_owned"
+		},
+		"glacier": {
+			"name": "Rezept: Gletschertrank",
+			"price": 900,
+			"potions": [
+				"glacier_potion"
+			],
+			"unlock_flag": "enchanting_book_owned"
+		},
+		"dusk": {
+			"name": "Rezept: Dämmerungstrank",
+			"price": 900,
+			"potions": [
+				"dusk_potion"
+			],
+			"unlock_flag": "enchanting_book_owned"
+		},
+		"swamp": {
+			"name": "Rezept: Sumpftrank",
+			"price": 900,
+			"potions": [
+				"swamp_potion"
+			],
+			"unlock_flag": "enchanting_book_owned"
+		},
+		"firestorm": {
+			"name": "Rezept: Feuersturmtrank",
+			"price": 900,
+			"potions": [
+				"firestorm_potion"
+			],
+			"unlock_flag": "enchanting_book_owned"
+		},
+		"curses": {
+			"name": "Rezept: Fluchtränke",
+			"price": 1500,
+			"potions": [
+				"fire_curse_potion",
+				"water_curse_potion",
+				"air_curse_potion",
+				"earth_curse_potion",
+				"dark_curse_potion",
+				"ice_curse_potion",
+				"light_curse_potion",
+				"lightning_curse_potion",
+				"poison_curse_potion"
+			],
+			"unlock_flag": "enchanting_book_owned"
+		},
+		"blessings": {
+			"name": "Rezept: Segenstränke",
+			"price": 1500,
+			"potions": [
+				"fire_blessing_potion",
+				"water_blessing_potion",
+				"air_blessing_potion",
+				"earth_blessing_potion",
+				"dark_blessing_potion",
+				"ice_blessing_potion",
+				"light_blessing_potion",
+				"lightning_blessing_potion",
+				"poison_blessing_potion"
+			],
+			"unlock_flag": "enchanting_book_owned"
+		}
+	},
+	"smith_tournament": {
+		"_info": "Das große Schmiedeturnier in Leonheim (SmithTournament, Turnierplatz am Ende der Schmiedegasse). 4 Runden, je 1 gegen 1. Pro Runde wird eine Aufgabe zufällig gewählt: aus den tasks der Runde, sonst aus pieces (alles, was am Gussofen, Amboss und an der Werkbank entsteht: Waffen, Schild, Rüstungsteile) im metal der Runde. Eine Aufgabe aus pieces entsteht von selbst: das Stück aus Metall-Teilen (Stiele aus shaft, Leder aus leather der Runde), alle Rezepte dafür, in der Vorratstruhe Erz für die Barren + spare_ingots (ores = Erz pro Barren, Bronze: Kupfer- + Eisenerz), Kohle (1 pro 2 Erz, bei Legierungen 1 pro 2 Barren mehr), Holz und Leder. Pfeile, Bögen, Zauberstäbe und Schmuck fehlen, weil Bogentisch, Zaubertisch und Juweliertisch auf dem Turnierplatz fehlen (spätere Turniere: pieces erweitern). Eigene Aufgaben in tasks: name (Anzeige), piece (das abzugebende Stück, Form wie have_item), recipes (Rezepte, die man für die Runde kennt), chest (kommt in die Vorratstruhe). Jedes Rezept, das man vorher nicht kannte, kostet unknown_recipe_penalty Punkte (eine Runde kann einen eigenen Wert haben, z. B. 0 in der Silberrunde: Silber-Gussformen gibt es erst seit Sylvaris, alle kann noch niemand kennen). Punkte = Seltenheit x 100 + Qualität des Stücks + Zeitbonus (time_bonus bei 0 Sekunden, 0 ab par_seconds) - Abzug. Der Gegner: opponent_quality (Punkte ohne Zeitbonus, zufällig von-bis) und opponent_time (Faktor auf par_seconds, von-bis), opponent_look (Aussehen wie appearance.json). Bei Gleichstand gewinnt der Spieler. Die Esse hat während des Turniers forge_heat Güsse. open_flag = ab diesem Story-Flag ist der Turnierplatz offen. Das Story-Turnier ist kostenlos und beliebig oft wiederholbar; nach dem ersten Sieg gibt es eins pro Kalendermonat mit entry_fee Startgeld. Jeder Sieg: prize_gold, der erste zusätzlich first_win_reward.",
+		"open_flag": "tournament_open",
+		"par_seconds": 360,
+		"time_bonus": 40,
+		"unknown_recipe_penalty": 30,
+		"forge_heat": 99,
+		"entry_fee": 500,
+		"prize_gold": 1000,
+		"first_win_reward": "master_gloves",
+		"pieces": [
+			"sword",
+			"dagger",
+			"two_handed_sword",
+			"axe",
+			"two_handed_axe",
+			"polearm",
+			"hammer",
+			"mace",
+			"shield",
+			"helmet",
+			"shoulder_armor",
+			"chest_armor",
+			"gloves",
+			"leg_armor",
+			"boots"
+		],
+		"shaft": "wooden_shaft",
+		"spare_ingots": 1,
+		"rounds": [
+			{
+				"opponent_name": "Gorm",
+				"opponent_look": {
+					"race": "human",
+					"skin": "dark",
+					"hair_style": "spiky",
+					"hair_color": "black",
+					"eye_type": "sleepy",
+					"eye_color": "amber",
+					"size": "small",
+					"outfit": "smith",
+					"clothes_color": "brown"
+				},
+				"metal": "copper",
+				"leather": "leather",
+				"ores": {
+					"copper_ore": 1
+				},
+				"opponent_quality": [
+					30,
+					75
+				],
+				"opponent_time": [
+					0.9,
+					1.3
+				]
+			},
+			{
+				"opponent_name": "Meister Brandolf",
+				"opponent_look": {
+					"race": "human",
+					"skin": "pale",
+					"hair_style": "short",
+					"hair_color": "white",
+					"eye_type": "normal",
+					"eye_color": "blue",
+					"size": "normal",
+					"outfit": "smith",
+					"clothes_color": "brown"
+				},
+				"metal": "iron",
+				"leather": "wolf_leather",
+				"ores": {
+					"iron_ore": 1
+				},
+				"opponent_quality": [
+					50,
+					100
+				],
+				"opponent_time": [
+					0.85,
+					1.2
+				]
+			},
+			{
+				"opponent_name": "Kasim aus dem Süden",
+				"opponent_look": {
+					"race": "human",
+					"skin": "dark",
+					"hair_style": "long",
+					"hair_color": "black",
+					"eye_type": "narrow",
+					"eye_color": "amber",
+					"size": "tall",
+					"outfit": "vest",
+					"clothes_color": "ochre"
+				},
+				"metal": "bronze",
+				"leather": "dragon_leather",
+				"ores": {
+					"copper_ore": 1,
+					"iron_ore": 1
+				},
+				"opponent_quality": [
+					70,
+					120
+				],
+				"opponent_time": [
+					0.8,
+					1.15
+				]
+			},
+			{
+				"opponent_name": "Ilsa Funkenhand",
+				"opponent_look": {
+					"race": "elf",
+					"skin": "light",
+					"hair_style": "ponytail",
+					"hair_color": "red",
+					"eye_type": "big",
+					"eye_color": "green",
+					"size": "normal",
+					"outfit": "smith",
+					"clothes_color": "brown"
+				},
+				"metal": "silver",
+				"leather": "hippogriff_leather",
+				"ores": {
+					"silver_ore": 1
+				},
+				"unknown_recipe_penalty": 0,
+				"opponent_quality": [
+					90,
+					140
+				],
+				"opponent_time": [
+					0.75,
+					1.1
+				]
+			}
+		],
+		"tasks": {},
+		"venues": {
+			"eisquell": {"_info": "Liga-Schmiedeplatz von Eisquell (eisquell_forge.tscn): nur Liga-Turniere (league_only).", "league_only": true, "open_flag": "smith_tournament_won", "closed_text": "Hier schmieden nur Südlinge, die das große Turnier in Leonheim gewonnen haben.", "intro_text": "Der Schmiedeplatz der Gezeiten, Südling. Hier gibt es kein großes Turnier, nur die Ligen. Vier Runden, Schmied gegen Schmied.\nDeine Taschen bleiben draußen: Was du dabei hast, bekommst du nach dem Turnier zurück."},
+			"sahrim": {"_info": "Liga-Schmiedeplatz von Sahrim (sahrim_forge.tscn): nur Liga-Turniere.", "league_only": true, "open_flag": "smith_tournament_won", "closed_text": "Unter der Kuppel schmieden nur Weichhäute, die das große Turnier in Leonheim gewonnen haben.", "intro_text": "Möge dein Schatten kühl sein, Weichhaut. Der Sand von Sahrim kennt nur die Ligen: vier Runden, Schmied gegen Schmied.\nDeine Taschen bleiben draußen: Was du dabei hast, bekommst du nach dem Turnier zurück."},
+			"finster": {"_info": "Liga-Schmiedeplatz der Finsterstadt (finster_forge.tscn): nur Liga-Turniere.", "league_only": true, "open_flag": "smith_tournament_won", "closed_text": "Hier tritt nur an, wer das große Turnier in Leonheim gewonnen hat.", "intro_text": "Willkommen in der Schmiedegrube, Mensch. Früher haben wir hier Ketten geschmiedet. Heute Pokale. Die Ligen, vier Runden, Schmied gegen Schmied.\nDeine Taschen bleiben draußen: Was du dabei hast, bekommst du nach dem Turnier zurück."},
+			"sylvaris": {
+				"_info": "Das Turnier der Elfen auf der Kronenebene von Sylvaris (Turnierplatz, TournamentMenu.venue = \"sylvaris\"). Felder hier ersetzen die von Leonheim. monthly = jedes Turnier kostet Startgeld, eins pro Monat. won_flag = Story-Flag nach dem ersten Sieg hier. closed_text = was der Herold sagt, solange open_flag fehlt. intro_text / champion_text = Texte im Fenster.",
+				"open_flag": "smith_tournament_won",
+				"closed_text": "Die Elfen lassen nur Schmiede antreten, die das große Turnier in Leonheim gewonnen haben.",
+				"monthly": true,
+				"won_flag": "elf_smith_tournament_won",
+				"entry_fee": 800,
+				"prize_gold": 1600,
+				"first_win_reward": "diamond*2",
+				"intro_text": "Willkommen auf dem Turnierplatz der Kronen, Mensch. Vier Runden, Schmied gegen Schmied, wie in Leonheim. Nur sind unsere Schmiede ein paar Jahrhunderte älter.\nDeine Taschen bleiben draußen: Was du dabei hast, bekommst du nach dem Turnier zurück.",
+				"champion_text": "Du hast das Turnier der Kronen gewonnen! Die Bäume werden davon erzählen.",
+				"rounds": [
+					{
+						"opponent_name": "Caelir Funkenblatt",
+						"opponent_look": {
+							"race": "elf",
+							"skin": "light",
+							"hair_style": "short",
+							"hair_color": "blonde",
+							"eye_type": "big",
+							"eye_color": "green",
+							"size": "normal",
+							"outfit": "smith",
+							"clothes_color": "green"
+						},
+						"metal": "iron",
+						"leather": "wolf_leather",
+						"ores": {
+							"iron_ore": 1
+						},
+						"opponent_quality": [
+							60,
+							105
+						],
+						"opponent_time": [
+							0.85,
+							1.2
+						]
+					},
+					{
+						"opponent_name": "Sorawen",
+						"opponent_look": {
+							"race": "elf",
+							"skin": "tan",
+							"hair_style": "ponytail",
+							"hair_color": "black",
+							"eye_type": "narrow",
+							"eye_color": "grey",
+							"size": "tall",
+							"outfit": "smith",
+							"clothes_color": "ochre"
+						},
+						"metal": "bronze",
+						"leather": "wolf_leather",
+						"ores": {
+							"copper_ore": 1,
+							"iron_ore": 1
+						},
+						"opponent_quality": [
+							80,
+							125
+						],
+						"opponent_time": [
+							0.8,
+							1.15
+						]
+					},
+					{
+						"opponent_name": "Meisterin Ilmare",
+						"opponent_look": {
+							"race": "elf",
+							"skin": "pale",
+							"hair_style": "long",
+							"hair_color": "white",
+							"eye_type": "glowing",
+							"eye_color": "blue",
+							"size": "normal",
+							"outfit": "smith",
+							"clothes_color": "blue"
+						},
+						"metal": "silver",
+						"leather": "hippogriff_leather",
+						"ores": {
+							"silver_ore": 1
+						},
+						"opponent_quality": [
+							100,
+							145
+						],
+						"opponent_time": [
+							0.75,
+							1.1
+						]
+					},
+					{
+						"opponent_name": "Thandor vom Sternenhain",
+						"opponent_look": {
+							"race": "elf",
+							"skin": "brown",
+							"hair_style": "long",
+							"hair_color": "white",
+							"eye_type": "glowing",
+							"eye_color": "amber",
+							"size": "tall",
+							"outfit": "smith",
+							"clothes_color": "purple"
+						},
+						"metal": "gold",
+						"leather": "hippogriff_leather",
+						"ores": {
+							"gold_ore": 1
+						},
+						"opponent_quality": [
+							120,
+							165
+						],
+						"opponent_time": [
+							0.7,
+							1.05
+						]
+					}
+				]
+			}
+		}
+	}
+}

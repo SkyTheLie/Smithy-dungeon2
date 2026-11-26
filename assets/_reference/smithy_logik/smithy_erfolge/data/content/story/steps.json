@@ -1,0 +1,1781 @@
+{
+	"steps": {
+		"find_smithy": {
+			"title": "Eine Schmiede finden",
+			"goal": "Geh zur alten Schmiede im Westen",
+			"text": "Im Dorf soll es eine alte Schmiede geben. Geh vom Dorfplatz nach Westen und sieh dich um.",
+			"hints": [
+				"movement",
+				"quest_log"
+			],
+			"guide": [
+				{"show": ["npc:smithy_sign"]}
+			]
+		},
+		"visit_landlady": {
+			"title": "Die Vermieterin besuchen",
+			"goal": "Geh zu Oma Hilde im Norden",
+			"text": "Die alte Schmiede ist zu vermieten. Die Besitzerin, Oma Hilde, wohnt im Wohnviertel: vom Dorfplatz nach Norden.",
+			"guide": [
+				{"show": ["npc:landlady"]}
+			]
+		},
+		"clean_smithy": {
+			"title": "Die Schmiede aufräumen",
+			"goal": "{done}/{total} Spinnweben entfernt",
+			"text": "Die Schmiede ist voller Spinnweben. Geh zu Schmelze, Werkbank, Amboss und Gussofen und drück {key_interact}, um sie sauber zu machen.",
+			"progress_flags": [
+				"cobweb_smelter",
+				"cobweb_workbench",
+				"cobweb_anvil",
+				"cobweb_forge"
+			],
+			"next": "find_customer",
+			"hints": [
+				"rent"
+			],
+			"guide": [
+				{"show": ["station:cobweb"]}
+			]
+		},
+		"find_customer": {
+			"title": "Einen Kunden finden",
+			"goal": "Geh zum Marktplatz und finde einen ersten Kunden",
+			"text": "Für die Miete brauchst du Kunden. Vielleicht findest du welche auf dem Marktplatz: vom Dorfplatz nach Osten.",
+			"hints": [
+				"intro_help"
+			]
+		},
+		"find_axe_recipe": {
+			"title": "Ein Rezept für die Axt",
+			"goal": "Sieh in der Truhe im Schlafzimmer der Schmiede nach",
+			"text": "Holger braucht eine Holzfälleraxt aus Kupfer. Vielleicht hat der frühere Schmied Aufzeichnungen hinterlassen: sieh im Schlafzimmer der Schmiede in der Truhe nach.",
+			"guide": [
+				{"show": ["station:storage_chest"]}
+			]
+		},
+		"buy_supplies": {
+			"title": "Kupfer und Wassertrog kaufen",
+			"goal": "Kauf auf dem Marktplatz ein (Dorfplatz » Osten)",
+			"text": "Für die Holzfälleraxt brauchst du Kupfererz für den Axtkopf, Kohle zum Einschmelzen, Holz für den Gussofen und den Stiel und einen Wassertrog, um den glühenden Axtkopf abzukühlen. Alles gibt es auf dem Marktplatz (vom Dorfplatz nach Osten). Bis du dich in der Schmiede eingerichtet hast, verkaufen die Händler nur das.",
+			"shopping": [
+				{
+					"name": "Kupfererz (für den Axtkopf)",
+					"where": "Erzhändlerin Erna",
+					"items": "copper_ore",
+					"buy": "copper_ore"
+				},
+				{
+					"name": "Kohle (zum Einschmelzen des Erzes)",
+					"where": "Erzhändlerin Erna",
+					"items": "coal",
+					"buy": "coal"
+				},
+				{
+					"name": "Holz (Gussofen heizen, Stiel schnitzen)",
+					"where": "Kräuterhändlerin",
+					"items": "wood*2",
+					"buy": "wood"
+				},
+				{
+					"name": "Wassertrog (zum Abkühlen)",
+					"where": "Möbelhändlerin",
+					"flag": "station_water_trough",
+					"buy": "station:water_trough"
+				}
+			],
+			"shopping_done": true,
+			"next": "forge_axe",
+			"hints": [
+				"guide_glow"
+			]
+		},
+		"forge_axe": {
+			"title": "Die Holzfälleraxt schmieden",
+			"goal": "Schmiede die Holzfälleraxt (Schritte im Auftragsbuch)",
+			"text": "1. Kupfererz mit Brennstoff in der Schmelze zu einem Barren schmelzen\n2. Am Gussofen (Reiter Zubehör) den Barren in die Gussform Kupfer-Holzfälleraxtkopf gießen\n3. Am Amboss zum Axtkopf schmieden, im Wassertrog abkühlen\n4. An der Werkbank unter Zubehör einen Holzstiel schnitzen\n5. An der Werkbank unter Zubehör » Werkzeug Kopf und Stiel zur Holzfälleraxt verbinden",
+			"quest_ready": "woodcutter_axe",
+			"next": "deliver_axe",
+			"guide": [
+				{"if": "cold:copper_lumber_axe_head,cold:wooden_shaft", "show": ["station:workbench", "recipe:lumber_axe"]},
+				{"if": "cold:copper_lumber_axe_head", "show": ["station:workbench", "recipe:wooden_shaft"]},
+				{"if": "trough_busy", "show": ["station:water_trough", "trough:slot"]},
+				{"if": "hot:copper_lumber_axe_head", "show": ["station:water_trough", "trough:slot", "inv:copper_lumber_axe_head"]},
+				{"if": "has:hot_copper_lumber_axe_head_blank", "show": ["station:anvil", "recipe:copper_lumber_axe_head"]},
+				{"if": "has:copper_ingot", "show": ["station:forge", "recipe:mold_copper_lumber_axe_head"]},
+				{"if": "smelter_ready", "show": ["station:smelter", "smelter:output"]},
+				{"if": "smelter_busy", "show": []},
+				{"show": ["station:smelter", "smelter:ore", "smelter:fuel", "inv:copper_ore", "inv:coal"]}
+			]
+		},
+		"deliver_axe": {
+			"title": "Die Axt abgeben",
+			"goal": "Bring Holger die Axt: Dorftor » Westen » Hütte oben links",
+			"text": "Bring Holger die Holzfälleraxt. Er wartet an seiner Hütte im Wald: vom Dorfplatz nach Süden durch das Dorftor, an der Kreuzung nach Westen in den Wald, dort oben links zu seiner Hütte.",
+			"quest_done": "woodcutter_axe",
+			"next": "go_to_sleep"
+		},
+		"go_to_sleep": {
+			"title": "Feierabend",
+			"goal": "Leg dich im Schlafzimmer der Schmiede schlafen",
+			"text": "Es ist Abend geworden. Geh nach Hause und leg dich im Schlafzimmer der Schmiede schlafen.",
+			"on_start": "set_time:19",
+			"hints": [
+				"sleep",
+				"saving"
+			],
+			"guide": [
+				{"show": ["station:bed"]}
+			],
+			"events": {
+				"sleep": "meet_bruno"
+			}
+		},
+		"meet_bruno": {
+			"title": "Ein Besucher",
+			"goal": "Sprich mit dem Besucher vor deiner Schmiede",
+			"text": "Vor deiner Schmiede wartet jemand auf dich."
+		},
+		"buy_sword_parts": {
+			"title": "Hallo Dungeon: Material kaufen",
+			"goal": "Kauf auf dem Marktplatz ein (Dorfplatz » Osten)",
+			"text": "Bruno braucht ein Schwert. Kauf auf dem Marktplatz beim Gussform-Händler die Gussformen für Kupferklinge und Kupfergriff, bei Erna (Erz) zwei Kupferbarren (einen für die Klinge, einen für den Griff) und Kohle und bei der Kräuterhändlerin Holz als Brennstoff. Dein Gold reicht genau dafür und für den Rattenkeller, deshalb verkaufen die Händler bis zum Dungeon nur das Nötigste.",
+			"progress_flags": [
+				"bought_recipe_copper_blade",
+				"bought_recipe_copper_handle"
+			],
+			"shopping": [
+				{
+					"name": "Gussform Kupferklinge",
+					"where": "Gussform-Händler",
+					"buy": "recipe:copper_blade",
+					"flag": "bought_recipe_copper_blade"
+				},
+				{
+					"name": "Gussform Kupfergriff",
+					"where": "Gussform-Händler",
+					"buy": "recipe:copper_handle",
+					"flag": "bought_recipe_copper_handle"
+				},
+				{
+					"name": "Kupferbarren (Klinge und Griff)",
+					"where": "Erzhändlerin Erna",
+					"items": "copper_ingot*2",
+					"buy": "copper_ingot"
+				},
+				{
+					"name": "Kohle",
+					"where": "Erzhändlerin Erna",
+					"items": "coal",
+					"buy": "coal"
+				},
+				{
+					"name": "Holz",
+					"where": "Kräuterhändlerin",
+					"items": "wood",
+					"buy": "wood"
+				}
+			],
+			"shopping_done": true,
+			"next": "forge_sword"
+		},
+		"forge_sword": {
+			"title": "Hallo Dungeon: Schwert schmieden",
+			"goal": "Schmiede ein Kupferschwert (Klinge und Griff aus Kupfer)",
+			"text": "Schmiede ein Kupferschwert: Klinge und Griff aus Kupfer gießen (Gussofen), am Amboss schmieden, im Wassertrog abkühlen und an der Werkbank zusammenbauen.",
+			"have_item": "sword:copper_blade+copper_handle",
+			"next": "equip_bruno",
+			"guide": [
+				{"if": "cold:copper_blade,cold:copper_handle", "show": ["station:workbench", "recipe:sword"]},
+				{"if": "trough_busy", "show": ["station:water_trough", "trough:slot"]},
+				{"if": "hot:copper_blade", "show": ["station:water_trough", "trough:slot", "inv:copper_blade"]},
+				{"if": "hot:copper_handle", "show": ["station:water_trough", "trough:slot", "inv:copper_handle"]},
+				{"if": "has:hot_copper_blade_blank", "show": ["station:anvil", "recipe:copper_blade"]},
+				{"if": "has:hot_copper_handle_blank", "show": ["station:anvil", "recipe:copper_handle"]},
+				{"if": "has:copper_ingot", "show": [
+					"station:forge",
+					{"target": "recipe:mold_copper_blade", "if": "!has:copper_blade"},
+					{"target": "recipe:mold_copper_handle", "if": "!has:copper_handle"}
+				]}
+			]
+		},
+		"equip_bruno": {
+			"title": "Hallo Dungeon: Bruno ausrüsten",
+			"goal": "Gib Bruno das Schwert (Leiste rechts » Helden » Bruno)",
+			"text": "Gib Bruno das Kupferschwert: Leiste rechts » Helden » Bruno, dann das Schwert in die rechte Hand ziehen (oder Rechtsklick auf das Schwert, solange Brunos Fenster offen ist).",
+			"hints": [
+				"equip_hero"
+			],
+			"hero_armed": "bruno",
+			"next": "go_to_guild"
+		},
+		"go_to_guild": {
+			"title": "Hallo Dungeon: Zur Abenteurergilde",
+			"goal": "Geh zur Abenteurergilde (Marktplatz, im Osten)",
+			"text": "Geh zur Abenteurergilde: vom Dorfplatz nach Osten zum Marktplatz, die Gilde steht dort im Osten.",
+			"events": {
+				"enter:guild_hall": "send_bruno"
+			}
+		},
+		"send_bruno": {
+			"title": "Hallo Dungeon: Bruno losschicken",
+			"goal": "Schick Bruno am Dungeon-Brett in den Rattenkeller",
+			"text": "Schick Bruno am Dungeon-Brett in der Gilde in den Rattenkeller: links Stadt » Rattenkeller, dann Bruno in einen Heldenplatz setzen und losschicken. Das erste Mal kostet nichts.",
+			"hints": [
+				"dungeon_board"
+			],
+			"guide": [
+				{"show": ["station:dungeon_board", "dungeon:rat_cellar", "hero:bruno"]}
+			],
+			"events": {
+				"adventure_started": "wait_for_bruno"
+			}
+		},
+		"wait_for_bruno": {
+			"title": "Hallo Dungeon: Warten auf Bruno",
+			"goal": "Warte, bis Bruno den Rattenkeller geschafft hat",
+			"text": "Bruno kämpft sich durch den Rattenkeller. Im Kampffenster kannst du zusehen (Dungeon-Brett » Verfolgen).",
+			"events": {
+				"adventure_won": "dungeon_done",
+				"adventure_lost": "send_bruno"
+			}
+		},
+		"dungeon_done": {
+			"title": "Hallo Dungeon: geschafft",
+			"goal": "Hol die Beute aus der Loot-Kiste und leg dich schlafen",
+			"text": "Bruno hat seinen ersten Dungeon geschafft. Die Beute liegt in der Loot-Kiste in deiner Werkstatt. Darüber ist es Nacht geworden: Geh nach Hause und leg dich im Schlafzimmer der Schmiede schlafen.",
+			"on_start": "set_flag:loot_chest_unlocked;set_time:21",
+			"hints": [
+				"loot_chest"
+			],
+			"guide": [
+				{"show": ["station:bed"]}
+			],
+			"events": {
+				"sleep": "go_to_market"
+			}
+		},
+		"go_to_market": {
+			"title": "Einkaufen auf dem Markt",
+			"goal": "Geh zum Marktplatz und sprich mit Nina",
+			"text": "Ein neuer Tag. Geh auf den Marktplatz (vom Dorfplatz nach Osten) und sieh dich nach Vorräten um."
+		},
+		"display_swords": {
+			"title": "Schwerter ausstellen",
+			"goal": "Stell Schwerter in Ninas Laden aus (Markt, oben)",
+			"text": "Verkauf drei Schwerter in Ninas Laden (oben am Markt, am Ende der Straße nach Norden), z. B. aus Kupfer. Am Tisch {key_interact} drücken, dann die Schwerter hineinziehen oder rechtsklicken. Du kannst sie auch nach und nach hinlegen: Jedes verkaufte Schwert zählt. Käufer kommen zwischen 8 und 20 Uhr, das kann etwas dauern (Schlafen hilft).",
+			"shop_goal": "sword*3",
+			"next": "collect_shop_money",
+			"hints": [
+				"shop"
+			]
+		},
+		"collect_shop_money": {
+			"title": "Schwerter ausstellen: Geld abholen",
+			"goal": "Hol dein Geld bei Nina in ihrem Laden ab",
+			"text": "Alle drei Schwerter sind verkauft. Sprich mit Nina an der Kasse in ihrem Laden. (Geld, das du bis zum nächsten Morgen nicht abholst, legt sie dir in die Loot-Kiste.)"
+		},
+		"meet_miner": {
+			"title": "Der Bergmann",
+			"goal": "Geh zu Gustav vor der Mine (Dorfplatz » Süden » Süden » Osten)",
+			"text": "Nina erzählt, dass Gustav, ein alter Bergmann, einen Schmied sucht. Er wartet vor der Mine: vom Dorfplatz nach Süden, am Dorftor weiter nach Süden und dann nach Osten."
+		},
+		"forge_pickaxe": {
+			"title": "Eine Spitzhacke für Gustav",
+			"goal": "Schmiede eine Kupferspitzhacke (Schritte im Auftragsbuch)",
+			"text": "1. Am Gussofen (Reiter Zubehör) einen Kupferbarren in die Gussform „Kupfer-Spitzhackenkopf“ gießen\n2. Am Amboss schmieden, im Wassertrog abkühlen\n3. An der Werkbank unter Zubehör einen Holzstiel schnitzen\n4. An der Werkbank unter Zubehör » Werkzeug Kopf und Stiel zur Spitzhacke verbinden",
+			"have_item": "pickaxe:copper_pickaxe_head+wooden_shaft",
+			"next": "deliver_pickaxe"
+		},
+		"deliver_pickaxe": {
+			"title": "Die Spitzhacke abgeben",
+			"goal": "Bring Gustav die Spitzhacke (vor der Mine)",
+			"text": "Bring Gustav die Kupferspitzhacke. Er wartet vor der Mine (Dorfplatz » Süden » Süden » Osten)."
+		},
+		"mine_ores": {
+			"title": "Erz für Gustav",
+			"goal": "Bau das Erz ab und bring es Gustav vor die Mine",
+			"text": "Bau in der Mine 5 Kohle und 8 Kupfererz ab und bring sie Gustav zusammen mit der Spitzhacke. Nur der vordere Teil der Mine ist frei, dort wachsen jeden Tag nur wenige Steine nach.",
+			"show_items": "pickaxe:copper_pickaxe_head+wooden_shaft,coal*5,copper_ore*8",
+			"hints": [
+				"pickaxe"
+			]
+		},
+		"chapter4_done": {
+			"title": "Ruhige Tage",
+			"goal": "Halte bis {rent_day} die Miete bereit: {gold}/{rent} Gold",
+			"text": "Gustav räumt mit deiner Hilfe die verschütteten Gänge frei. Schmiede, verkaufe bei Nina und bau Erz ab. Die erste Miete ({rent} Gold) ist am {rent_day} fällig. Sobald du das Gold zusammen hast, kommt Oma Hilde vorbei und holt es ab.",
+			"have_gold": "{rent}",
+			"next": "first_rent",
+			"events": {
+				"rent_due": "first_rent"
+			}
+		},
+		"first_rent": {
+			"title": "Die erste Miete",
+			"goal": "Bezahl Oma Hilde die Miete vor deiner Schmiede ({rent} Gold)",
+			"text": "Oma Hilde wartet vor deiner Schmiede: Die Miete ist fällig ({rent} Gold).",
+			"move_in_dialogue": true
+		},
+		"first_customer": {
+			"title": "Ein Fremder",
+			"goal": "Sprich mit dem Fremden vor deiner Schmiede",
+			"text": "Ein Fremder kommt auf deine Schmiede zu."
+		},
+		"first_order": {
+			"title": "Den ersten Kunden vergisst man nie",
+			"goal": "{done}/{total} solides Kupferschwert für Ulrich abgegeben (Auftragsbrett)",
+			"text": "Ulrich möchte ein Kupferschwert der Seltenheit Solide. Dafür muss die Qualität über 100 steigen: Klinge und Griff am Amboss sauber schmieden (grüne Treffer), an der Werkbank die Klinge genau mittig auf den Griff setzen und, wenn du einen hast, am Schleifstein schärfen. Gib das Schwert am Auftragsbrett neben der Schmiede ab.",
+			"progress_flags": [
+				"order_done_first_customer"
+			],
+			"next": "first_order_done",
+			"hints": [
+				"order_board"
+			],
+			"guide": [
+				{
+					"if": "order_item",
+					"show": [
+						"station:order_board",
+						"order:slot"
+					]
+				}
+			]
+		},
+		"first_order_done": {
+			"title": "Feierabend",
+			"goal": "Leg dich schlafen",
+			"text": "Ulrich ist zufrieden. Ab jetzt kommen auch andere Kunden zu deiner Schmiede. Leg dich schlafen.",
+			"on_start": "set_flag:regular_customers",
+			"hints": [
+				"customers"
+			],
+			"events": {
+				"sleep": "market_rumors"
+			}
+		},
+		"market_rumors": {
+			"title": "Gerüchte",
+			"goal": "Geh zum Marktplatz und hör Berta und Fritz zu",
+			"text": "Auf dem Marktplatz tuscheln die Leute. Geh hin und hör zu."
+		},
+		"train_hero": {
+			"title": "Stärker werden",
+			"goal": "Bring einen Helden auf Level 3 (Rattenkeller)",
+			"text": "Orks, keine zwei Tagesreisen entfernt ... Deine Helden müssen stärker werden. Bring einen Helden auf Level 3: Schick ihn immer wieder in den Rattenkeller (Dungeon-Brett in der Abenteurergilde).",
+			"hero_level": 3,
+			"next": "guild_news",
+			"hints": [
+				"hero_level"
+			]
+		},
+		"guild_news": {
+			"title": "Neuigkeiten aus der Gilde",
+			"goal": "Sprich mit Hedwig in der Abenteurergilde",
+			"text": "Dein Held hat Level 3 erreicht. Hedwig, die Gildenmeisterin, will dich sprechen. Sie steht in der Abenteurergilde beim Dungeon-Brett (Marktplatz, im Osten)."
+		},
+		"clear_deep_cellar": {
+			"title": "Der Tiefe Rattenkeller",
+			"goal": "Schafft den Tiefen Rattenkeller (Dungeon-Brett, Reiter Stadt)",
+			"text": "Schick deine Helden in den Tiefen Rattenkeller (Dungeon-Brett, Reiter Stadt) und schafft ihn einmal. Dort unten gibt es Riesenratten: am besten mit mehreren Helden und guter Ausrüstung.",
+			"events": {
+				"adventure_won:rat_cellar_deep": "beat_rat_king"
+			}
+		},
+		"beat_rat_king": {
+			"title": "Der Rattenkönig",
+			"goal": "Besiegt den Rattenkönig im Rattennest",
+			"text": "Im Tiefen Rattenkeller haben deine Helden einen Gang gefunden, der noch weiter hinunterführt: ins Rattennest. Dort haust der Rattenkönig. Besiegt ihn einmal (Dungeon-Brett, Rattennest).",
+			"on_start": "set_flag:rat_nest_unlocked",
+			"hints": [
+				"rat_nest"
+			],
+			"events": {
+				"adventure_won:rat_nest": "miner_visit"
+			}
+		},
+		"miner_visit": {
+			"title": "Besuch vom Bergmann",
+			"goal": "Sprich mit Gustav vor deiner Schmiede",
+			"text": "Der Rattenkönig ist besiegt. Das spricht sich herum: Gustav, der Bergmann, sucht dich. Er wartet vor deiner Schmiede."
+		},
+		"build_supplies": {
+			"title": "Bretter und Nägel für Gustav",
+			"goal": "Bring alles zu Gustav vor die Mine",
+			"text": "Gustav braucht 20 Holzbretter und 5 Kupfernägel, um die Stollen abzustützen.\n1. An der Werkbank unter Zubehör » Baumaterial aus je 1 Holz ein Holzbrett sägen\n2. Kupferbarren (abgekühlt) an der Werkbank zu Kupfernägeln verarbeiten, je 1 Barren pro Nagel\n3. Alles zu Gustav vor der Mine bringen (Dorfplatz » Süden » Süden » Osten)",
+			"show_items": "wooden_plank*20,copper_nail*5"
+		},
+		"mine_repairs": {
+			"title": "Gustav baut",
+			"goal": "Leg dich schlafen",
+			"text": "Gustav stützt mit deinen Brettern und Nägeln die Stollen ab. Das dauert bis morgen: Leg dich schlafen und komm dann zur Mine.",
+			"events": {
+				"sleep": "visit_mine"
+			}
+		},
+		"visit_mine": {
+			"title": "Die größere Mine",
+			"goal": "Sprich mit Gustav vor der Mine",
+			"text": "Ein neuer Tag. Gustav müsste mit den Stollen fertig sein. Geh zur Mine (Dorfplatz » Süden » Süden » Osten) und sprich mit ihm.",
+			"on_start": "set_flag:mine_expanded"
+		},
+		"chapter5_end": {
+			"title": "Feierabend",
+			"goal": "Leg dich schlafen",
+			"text": "Die Mine ist wieder größer, und es gibt mehr Kupfer. Leg dich schlafen, morgen geht es weiter.",
+			"events": {
+				"sleep": "mine_tour"
+			}
+		},
+		"mine_tour": {
+			"title": "Gustavs neuer Stollen",
+			"goal": "Geh zu Gustav vor der Mine",
+			"text": "Gustav wartet vor der Mine auf dich (Dorfplatz » Süden » Süden » Osten). Er will dir etwas zeigen."
+		},
+		"explore_mine": {
+			"title": "Ein Rundgang",
+			"goal": "Folge Gustav in die obere Kammer der Mine (Norden, dann links)",
+			"text": "Gustav ist schon in die Mine vorgegangen. Folge ihm ganz nach hinten: vom Eingang geradeaus nach Norden, dann links in die obere Kammer."
+		},
+		"get_help": {
+			"title": "Hilfe holen",
+			"goal": "Hol Bruno vom Brunnen auf dem Dorfplatz",
+			"text": "Aus dem Loch in der Wand kommen Ratten. Gustav hält sie mit seiner Spitzhacke in Schach. Du brauchst jemanden, der kämpfen kann: Bruno. Der schläft seinen Rausch oft am Brunnen auf dem Dorfplatz aus."
+		},
+		"rat_fight": {
+			"title": "Kampf in der Mine",
+			"goal": "Geh mit Bruno zurück in die Mine zu Gustav",
+			"text": "Bruno kommt mit. Geh zurück in die Mine zu Gustav und schick Bruno gegen die Ratten. Er kämpft allein: Rüste ihn vorher gut aus.",
+			"on_start": "set_flag:bruno_joins_fight",
+			"hints": [
+				"mine_rats"
+			]
+		},
+		"rat_fight_running": {
+			"title": "Bruno gegen die Ratten",
+			"goal": "Bruno kämpft gegen die Ratten (Kampffenster)",
+			"text": "Bruno kämpft gegen die Ratten: drei Wellen, am Ende eine alte Bergratte. Im Kampffenster kannst du zusehen.",
+			"events": {
+				"adventure_won:mine_rats": "after_rat_fight",
+				"adventure_lost:mine_rats": "rat_fight_lost"
+			}
+		},
+		"rat_fight_lost": {
+			"title": "Rückzug",
+			"goal": "Rüste Bruno besser aus und geh zurück in die Mine",
+			"text": "Bruno ist zu Boden gegangen, ihr musstet aus der Mine fliehen. Rüste ihn besser aus, dann geht zurück in die Mine und versucht es noch einmal.",
+			"on_start": "travel:res://scenes/world/mine/mine_entrance.tscn,FromMine,mine",
+			"events": {
+				"enter:mine": "rat_fight"
+			}
+		},
+		"after_rat_fight": {
+			"title": "Was ist hinter dem Loch?",
+			"goal": "Sprich mit Gustav am Loch in der Wand",
+			"text": "Die Ratten sind vertrieben. Gustav steht am Loch in der Wand. Sprich mit ihm.",
+			"on_start": "set_flag:mine_rats_cleared"
+		},
+		"chapter6_end": {
+			"title": "Feierabend",
+			"goal": "Leg dich schlafen",
+			"text": "Hinter dem Loch in der Mine liegt die nächste Ebene. Dafür braucht Gustav Eisen, und das gibt es erst in der Königsstadt. Leg dich schlafen, morgen geht es weiter.",
+			"events": {
+				"sleep": "market_shoes"
+			}
+		},
+		"market_shoes": {
+			"title": "Schuhe für Lotte?",
+			"goal": "Geh zum Schuhladen am Marktplatz (oben links)",
+			"text": "Ein neuer Tag. Auf dem Marktplatz (Dorfplatz » Osten) stehen Oma Hilde und ihre Nichte Lotte vor dem Schuhladen, oben links am Platz."
+		},
+		"look_at_shoes": {
+			"title": "Das Schaufenster",
+			"goal": "Sieh dir das Schaufenster des Schuhladens an",
+			"text": "Lotte hat die schönen roten Schuhe nicht bekommen. Schau sie dir im Schaufenster des Schuhladens mal genauer an (Marktplatz, oben links)."
+		},
+		"shoes_for_lotte": {
+			"title": "Ein Geschenk für Lotte",
+			"goal": "Schenk Lotte Kinderschuhe (Wohnviertel, Dorfplatz » Norden)",
+			"text": "Mach Lotte ein Paar Kinderschuhe und schenk sie ihr (Neben-Aufgabe „Schuhe für Lotte“). Lotte wohnt bei Oma Hilde im Wohnviertel.",
+			"progress_flags": [
+				"child_shoes_given"
+			],
+			"next": "lotte_gift_evening"
+		},
+		"lotte_gift_evening": {
+			"title": "Feierabend",
+			"goal": "Leg dich schlafen",
+			"text": "Lotte hat sich riesig über die Schuhe gefreut. Leg dich schlafen, morgen geht es weiter.",
+			"events": {
+				"sleep": "grandma_begs"
+			}
+		},
+		"grandma_begs": {
+			"title": "Oma in Not",
+			"goal": "Sprich mit Oma Hilde vor deiner Schmiede",
+			"text": "Oma Hilde wartet vor deiner Schmiede. Sie sieht gar nicht gut aus."
+		},
+		"ask_around": {
+			"title": "Wo ist Lotte?",
+			"goal": "Frag auf dem Marktplatz nach Lotte",
+			"text": "Lotte, Oma Hildes Nichte, ist heute früh verschwunden. Hör dich auf dem Marktplatz um (Dorfplatz » Osten), vielleicht hat sie jemand gesehen."
+		},
+		"report_grandma": {
+			"title": "Zurück zu Oma",
+			"goal": "Erzähl es Oma Hilde im Wohnviertel (Dorfplatz » Norden)",
+			"text": "Holger hat Lotte heute früh gesehen: Sie wollte im Wald Pilze sammeln, ganz tief drin. Erzähl es Oma Hilde (Wohnviertel, Dorfplatz » Norden)."
+		},
+		"forest_edge": {
+			"title": "Suche im Lichten Hain",
+			"goal": "Schafft den Lichten Hain (Dungeon-Brett, Reiter Wald)",
+			"text": "Schick Helden in den Wald, um Lotte zu suchen: Dungeon-Brett in der Abenteurergilde, Reiter Wald, Lichter Hain. Schafft ihn einmal.",
+			"on_start": "set_flag:forest_edge_unlocked",
+			"hints": [
+				"forest_dungeons"
+			],
+			"events": {
+				"adventure_won:forest_edge": "forest_thicket"
+			}
+		},
+		"forest_thicket": {
+			"title": "Suche im Dornendickicht",
+			"goal": "Schafft das Dornendickicht (Dungeon-Brett, Reiter Wald)",
+			"text": "Im Lichten Hain haben deine Helden ein Stück von Lottes Schal gefunden, es hing an einem Dornenzweig. Die Spur führt tiefer in den Wald: ins Dornendickicht (Dungeon-Brett, Reiter Wald). Schafft es einmal.",
+			"on_start": "set_flag:forest_thicket_unlocked",
+			"events": {
+				"adventure_won:forest_thicket": "forest_den"
+			}
+		},
+		"forest_den": {
+			"title": "Die Wolfshöhle",
+			"goal": "Besiegt den Schwarzen Wolf in der Wolfshöhle",
+			"text": "Im Dornendickicht lag Lottes Korb, umgeworfen, die Pilze überall verstreut. Daneben riesige Pfotenabdrücke. Sie führen zur Wolfshöhle, wo der Schwarze Wolf haust. Besiegt ihn (Dungeon-Brett, Reiter Wald).",
+			"on_start": "set_flag:forest_den_unlocked",
+			"hints": [
+				"forest_den"
+			],
+			"events": {
+				"adventure_won:forest_den": "niece_found"
+			}
+		},
+		"niece_found": {
+			"title": "Lotte ist gerettet",
+			"goal": "Besuch Oma Hilde und Lotte im Wohnviertel",
+			"text": "Hinter der Wolfshöhle haben deine Helden Lotte gefunden. Sie ist schon wieder zu Hause. Besuch Oma Hilde und Lotte (Wohnviertel, Dorfplatz » Norden).",
+			"hints": [
+				"niece_found"
+			]
+		},
+		"chapter7_end": {
+			"title": "Ein Jahr mietfrei",
+			"goal": "Leg dich schlafen",
+			"text": "Ein Jahr lang keine Miete. Mit genug Gold kannst du Oma Hilde die Schmiede auch ganz abkaufen. Leg dich schlafen, morgen geht es weiter.",
+			"events": {
+				"sleep": "festival_rumors"
+			}
+		},
+		"festival_rumors": {
+			"title": "Gerede im Dorf",
+			"goal": "Hör Berta und Fritz auf dem Dorfplatz zu",
+			"text": "Auf dem Dorfplatz unterhalten sich Berta und Fritz ganz aufgeregt. Hör mal hin."
+		},
+		"festival_eve": {
+			"title": "Morgen ist Dorffest",
+			"goal": "Leg dich schlafen",
+			"text": "Morgen ist Dorffest. Vielleicht kommt auch der Magier. Leg dich schlafen.",
+			"events": {
+				"sleep": "festival_morning"
+			}
+		},
+		"festival_morning": {
+			"title": "Ausgeschlafen",
+			"goal": "Geh zum Dorfplatz",
+			"text": "Du hast bis 10 Uhr geschlafen. Heute ist Dorffest. Geh zum Dorfplatz.",
+			"on_start": "set_time:10;set_flag:festival_started",
+			"events": {
+				"enter:market": "festival_show"
+			}
+		},
+		"festival_show": {
+			"title": "Das Dorffest",
+			"goal": "Geh zum Marktplatz und schau dir das Fest an",
+			"text": "Der Jubel kommt vom Marktplatz (Dorfplatz » Osten). Alle stehen vor dem großen Baum. Auf dem Marktplatz gehst du von selbst zur Menge und schaust zu."
+		},
+		"festival_night": {
+			"title": "Ein magischer Abend",
+			"goal": "Leg dich zu Hause schlafen",
+			"text": "Meister Aurelius hat dir einen Zaubertisch geschenkt, er steht jetzt in deiner Schmiede. Geh nach Hause und leg dich schlafen.",
+			"hints": [
+				"enchanting_table"
+			],
+			"events": {
+				"sleep": "ask_enchanting"
+			}
+		},
+		"ask_enchanting": {
+			"title": "Wie verzaubert man?",
+			"goal": "{done}/{total} gefragt: Nina, Hedwig, Oma Hilde",
+			"text": "Ein Zaubertisch ... aber wie verzaubert man eigentlich? Frag im Dorf herum: Nina (ihr Laden am Markt), Hedwig (Abenteurergilde) und Oma Hilde (Wohnviertel).",
+			"progress_flags": [
+				"asked_nina",
+				"asked_hedwig",
+				"asked_landlady"
+			],
+			"next": "chapter8_end"
+		},
+		"chapter8_end": {
+			"title": "Niemand weiß es",
+			"goal": "Leg dich schlafen",
+			"text": "Niemand im Dorf weiß, wie man verzaubert. Schlaf eine Nacht darüber.",
+			"events": {
+				"sleep": "raid_wake"
+			}
+		},
+		"raid_wake": {
+			"no_sleep": true,
+			"title": "Mitten in der Nacht",
+			"goal": "Geh nach draußen",
+			"text": "Lärm und Rauch haben dich geweckt. Geh nach draußen und sieh nach, was los ist.",
+			"on_start": "set_time:25;set_flag:raid_started",
+			"events": {
+				"enter:village": "raid_outside"
+			}
+		},
+		"raid_outside": {
+			"no_sleep": true,
+			"title": "Rauch über dem Dorf",
+			"goal": "Lauf zum Dorfplatz (Osten)",
+			"text": "Im Osten steigt dicker Rauch auf, von dort kommen Schreie. Lauf zum Dorfplatz (Osten).",
+			"events": {
+				"enter:village_center": "raid_bruno"
+			}
+		},
+		"raid_bruno": {
+			"no_sleep": true,
+			"title": "Bruno ist auch wach",
+			"goal": "Sprich mit Bruno",
+			"text": "Auf dem Dorfplatz kommt dir Bruno entgegen."
+		},
+		"raid_to_market": {
+			"no_sleep": true,
+			"title": "Zum Marktplatz",
+			"goal": "Lauf mit Bruno zum Marktplatz (Osten)",
+			"text": "Der Rauch kommt vom Marktplatz. Lauf mit Bruno nach Osten.",
+			"events": {
+				"enter:market": "raid_market"
+			}
+		},
+		"raid_market": {
+			"no_sleep": true,
+			"title": "Der Marktplatz brennt",
+			"goal": "Bleib bei Bruno und sieh dich um",
+			"text": "Bleib bei Bruno und sieh dich um."
+		},
+		"raid_rescue": {
+			"no_sleep": true,
+			"title": "Nimm die Kleine",
+			"goal": "Sprich mit Lotte",
+			"text": "Oma Hilde liegt verletzt in der Ecke des Platzes, daneben weint ihre Nichte Lotte. Sprich mit Lotte und bring sie hier weg."
+		},
+		"raid_flee": {
+			"no_sleep": true,
+			"title": "In Sicherheit",
+			"goal": "Bring Lotte zu deiner Schmiede (Westen, dann Westen)",
+			"text": "Bring Lotte in deine Schmiede: vom Marktplatz nach Westen über den Dorfplatz, dann weiter nach Westen.",
+			"events": {
+				"enter:village": "raid_ambush"
+			}
+		},
+		"raid_ambush": {
+			"no_sleep": true,
+			"title": "Monster vor der Schmiede",
+			"goal": "Geh zu den Untoten vor deiner Schmiede",
+			"text": "Vor deiner Schmiede warten Untote und versperren die Tür. Geh zu ihnen."
+		},
+		"raid_home": {
+			"no_sleep": true,
+			"title": "Mit dem Leben davongekommen",
+			"goal": "Geh mit Lotte in deine Schmiede",
+			"text": "Die Untoten sind mit allem abgezogen, was du hattest. Geh mit Lotte in deine Schmiede.",
+			"events": {
+				"enter:smithy": "raid_robbed"
+			}
+		},
+		"raid_robbed": {
+			"no_sleep": true,
+			"title": "Ausgeraubt",
+			"goal": "Sieh dich in deiner Schmiede um",
+			"text": "Die Untoten haben deine Schmiede ausgeräumt."
+		},
+		"raid_night": {
+			"title": "Eine lange Nacht",
+			"goal": "Leg dich schlafen",
+			"text": "Du hältst Wache, während Lotte schläft.",
+			"events": {
+				"sleep": "raid_morning"
+			}
+		},
+		"raid_morning": {
+			"title": "Der Morgen danach",
+			"goal": "Sprich mit dem Wachmann vor deiner Schmiede",
+			"text": "Ein Wachmann wartet vor deiner Schmiede."
+		},
+		"chapter10_end": {
+			"title": "Ein neuer Anfang",
+			"goal": "Leg dich schlafen",
+			"text": "Der Lebensbaum ist verwelkt. Bruno hat dich vor dem Lich gerettet und ist dabei gestorben, Oma Hilde ist ebenfalls tot. Hildes Nichte Lotte hat ihr Haus und die Schmiede geerbt (die Miete bekommt jetzt sie), und du passt auf sie auf. Ruh dich heute Abend aus, morgen geht es weiter.",
+			"hints": [
+				"part1_end"
+			],
+			"events": {
+				"sleep": "rebuild_call"
+			}
+		},
+		"rebuild_call": {
+			"title": "Ein Besuch von der Wache",
+			"goal": "Sprich mit Wachmann Otto vor deiner Schmiede",
+			"text": "Überall im Dorf wird gehämmert und aufgeräumt. Wachmann Otto wartet vor deiner Schmiede."
+		},
+		"meet_mayor": {
+			"title": "Der Bürgermeister",
+			"goal": "Sprich mit dem Bürgermeister (Marktplatz, Westeingang)",
+			"text": "Der Bürgermeister will wissen, was du in der Nacht des Überfalls gesehen hast. Er wartet auf dem Marktplatz am Westeingang (vom Dorfplatz nach Osten)."
+		},
+		"rebuild_gather": {
+			"title": "Baumaterial für das Dorf",
+			"goal": "Bring Konrad das Baumaterial (Marktplatz, Westeingang)",
+			"text": "Baumeister Konrad baut den Marktplatz wieder auf, und du bist der Schmied. Bring ihm auf den Marktplatz (Westeingang): 20 Holzbretter, 20 Holzbalken, 20 Kupfernägel und 5 Kupferbarren.\nHolzbretter (1 Holz), Holzbalken (2 Holz) und Kupfernägel (1 Kupferbarren) machst du an der Werkbank unter Zubehör » Baumaterial. Holz gibt es im Wald, Kupfer in der Mine.",
+			"show_items": "wooden_plank*20,wooden_beam*20,copper_nail*20,copper_ingot*5"
+		},
+		"rebuild_night": {
+			"title": "Alle packen mit an",
+			"goal": "Leg dich schlafen",
+			"text": "Konrad und die Dorfbewohner bauen die ganze Nacht. Leg dich schlafen.",
+			"events": {
+				"sleep": "rebuild_done"
+			}
+		},
+		"rebuild_done": {
+			"title": "Wie neu",
+			"goal": "Sieh dir den Marktplatz an",
+			"text": "Über Nacht ist viel passiert. Sieh dir den Marktplatz an.",
+			"events": {
+				"enter:market": "rebuild_thanks"
+			}
+		},
+		"rebuild_thanks": {
+			"title": "Danke, Schmied",
+			"goal": "Sprich mit dem Bürgermeister und Konrad auf dem Marktplatz",
+			"text": "Der Bürgermeister und Konrad warten auf dem Marktplatz."
+		},
+		"forest_mage": {
+			"title": "Der Magier im Wald",
+			"goal": "Such Aurelius im tiefen Wald (Dorftor » Westen » Norden)",
+			"text": "Konrad hat heute Morgen im tiefen Wald einen alten Mann im Sternenmantel gesehen, der mit Pilzen redet. Das kann nur Meister Aurelius sein. Vielleicht weiß er, wie man mit dem Zaubertisch verzaubert.\nWeg: Dorfplatz » Süden » Dorftor » Westen » Wald » nach Norden in den tiefen Wald."
+		},
+		"forest_hemp": {
+			"title": "Ein Bündel Hanf",
+			"goal": "Bring Aurelius 1 Hanf (wächst selten im tiefen Wald)",
+			"text": "Meister Aurelius sucht im tiefen Wald nach Kräutern und braucht 1 Hanf. Hanf wächst hier im tiefen Wald, aber nur selten. Bring ihm einen.",
+			"hints": [
+				"mage_hemp"
+			]
+		},
+		"chapter11_end": {
+			"title": "Ein Hauch von Magie",
+			"goal": "Leg dich schlafen",
+			"text": "Der Marktplatz ist wieder aufgebaut, und Meister Aurelius hat dir gezeigt, wie man Verzauberungstränke braut. Gewächshaus, Mondlilien und Tränke kannst du nebenbei angehen (Nebenaufgaben im Auftragsbuch). Leg dich heute Abend schlafen.",
+			"events": {
+				"sleep": "royal_carriage"
+			}
+		},
+		"royal_carriage": {
+			"title": "Zum König",
+			"goal": "Sprich mit Kutscher Jupp am Wegekreuz vor dem Dorftor",
+			"text": "Ein Reiter aus Leonheim hat die Antwort des Königs gebracht, und Lotte hat sie dir als Botin gleich ans Bett geliefert: Der König erwartet dich im Schloss. Kutscher Jupp wartet mit der Dorfkutsche am Wegekreuz vor dem Dorftor (Dorfplatz » Süden » Dorftor).",
+			"on_start": "set_flag:letter_royal"
+		},
+		"castle_arrival": {
+			"title": "Im Schlossgarten",
+			"goal": "Sprich mit Mohammad im Schlossgarten",
+			"text": "Die Kutsche hat dich in die Königsstadt Leonheim gebracht, direkt vor das Schloss."
+		},
+		"meet_king": {
+			"title": "Audienz beim König",
+			"goal": "Geh ins Schloss zu König Albrecht im Thronsaal",
+			"text": "Geh durch das große Tor ins Schloss. König Albrecht erwartet dich im Thronsaal."
+		},
+		"to_city_guild": {
+			"title": "Die Gilde von Leonheim",
+			"goal": "Geh zur Gilde in der Einkaufsstraße (unten links)",
+			"text": "Der König schickt dich zur Abenteurergilde von Leonheim. Die Kutsche ist zur Seite gefahren: Geh durch den Schlossgarten nach Süden in die Einkaufsstraße, die Gilde steht unten links. Geh hinein.\nZurück ins Dorf bringt dich die Kutsche am Westende der Einkaufsstraße.",
+			"on_start": "set_flag:iron_unlocked",
+			"events": {
+				"enter:capital_guild_hall": "meet_guild_master"
+			}
+		},
+		"meet_guild_master": {
+			"title": "Die Gildenmeisterin",
+			"goal": "Sprich mit Thora am Dungeon-Brett",
+			"text": "Die Gildenmeisterin von Leonheim steht neben dem Dungeon-Brett. Sprich mit ihr."
+		},
+		"chapter12_end": {
+			"title": "Feierabend",
+			"goal": "Leg dich schlafen",
+			"text": "Thora hat dich in die Gilde von Leonheim aufgenommen. Auf dem Dungeon-Brett gibt es jetzt den Reiter Leonheim. Zuerst steht dort die Kanalisation. Haben deine Helden sie einmal geschafft, kommen die Katakomben dazu, danach die Gruft der Könige. Leg dich schlafen, morgen geht es weiter.\nZurück ins Dorf bringt dich die Kutsche am Westende der Einkaufsstraße, und vom Wegekreuz vor dem Dorftor fährt sie dich wieder her.",
+			"events": {
+				"sleep": "king_question"
+			}
+		},
+		"king_question": {
+			"title": "Was weiß der König?",
+			"goal": "Sprich mit dem König im Thronsaal (Kutsche am Dorftor)",
+			"text": "Der König kennt die Lebensbäume aus den Geschichten seines Großvaters. Vielleicht weiß er, was der Lich mit dem leuchtenden Kern will. Fahr mit der Kutsche vom Wegekreuz vor dem Dorftor nach Leonheim und sprich mit ihm im Thronsaal."
+		},
+		"gutter_alleys": {
+			"title": "Die Krummen Gassen",
+			"goal": "Schafft Gosse I: Die Krummen Gassen",
+			"text": "Bring dem König den Krähenkönig Varrik. Fang unten in der Gosse an: Schick deine Helden in Gosse I: Die Krummen Gassen (Dungeon-Brett, Reiter Gosse). Die Banditen kämpfen mit Schwertern, Bögen und Giftdolchen. Schützen stehen hinten und lassen sich erst angreifen, wenn vorne keiner mehr steht.",
+			"events": {
+				"adventure_won:gutter_alleys": "gutter_warehouse"
+			}
+		},
+		"gutter_warehouse": {
+			"title": "Das Lagerhaus am Kanal",
+			"goal": "Schafft Gosse II: Das Lagerhaus am Kanal",
+			"text": "Ratzo der Wegelagerer ist erledigt. In seiner Tasche steckte ein Zettel: „Ware ins Lagerhaus am Kanal.“ Schick deine Helden in Gosse II. Vorsicht vor den Schildbanditen: Solange einer herausfordert, treffen deine Helden mit einzelnen Angriffen nur ihn (Flächenangriffe treffen trotzdem alle).",
+			"on_start": "set_flag:gutter_warehouse_unlocked",
+			"hints": [
+				"gutter_shield"
+			],
+			"events": {
+				"adventure_won:gutter_warehouse": "gutter_tavern"
+			}
+		},
+		"gutter_tavern": {
+			"title": "Zum Ersoffenen Hund",
+			"goal": "Schafft Gosse III: Zum Ersoffenen Hund",
+			"text": "Lagermeister Grimbald ist besiegt. Die Krähen haben sich in ihre Spelunke „Zum Ersoffenen Hund“ zurückgezogen. Dort wartet Bulle Brakk, der sich mit Bärenblut stark trinkt: Je länger der Kampf dauert, desto gefährlicher wird er. Gosse III.",
+			"on_start": "set_flag:gutter_tavern_unlocked",
+			"events": {
+				"adventure_won:gutter_tavern": "gutter_nest"
+			}
+		},
+		"gutter_nest": {
+			"title": "Das Krähennest",
+			"goal": "Schafft Gosse IV: Das Krähennest",
+			"text": "Bulle Brakk liegt am Boden, und er hat geredet: Varrik sitzt im Krähennest, ganz oben im Armenviertel. Schick deine Helden in Gosse IV: Das Krähennest. Varrik ruft immer wieder Banditen zu Hilfe. Das Krähennest gibt es nur einmal.",
+			"on_start": "set_flag:gutter_nest_unlocked",
+			"hints": [
+				"gutter_nest"
+			],
+			"events": {
+				"adventure_won:gutter_nest": "varrik_caught"
+			}
+		},
+		"varrik_caught": {
+			"title": "Der Krähenkönig",
+			"goal": "Geh in den Thronsaal in Leonheim",
+			"text": "Varrik ist besiegt. Die Stadtwachen haben ihn gefesselt ins Schloss gebracht. Geh in den Thronsaal (Kutsche nach Leonheim, durch den Schlossgarten ins Schloss, dort die Treppe hinauf).",
+			"on_start": "set_flag:varrik_defeated"
+		},
+		"chapter13_end": {
+			"title": "Feierabend",
+			"goal": "Leg dich schlafen",
+			"text": "Varrik sitzt im Kerker, und der König hat dir einen Namen genannt: Aurelius, der alte Zauberer. Nur wo er steckt, weiß niemand. Leg dich schlafen, morgen geht es weiter.",
+			"events": {
+				"sleep": "search_mage"
+			}
+		},
+		"search_mage": {
+			"title": "Wo ist Aurelius?",
+			"goal": "Geh deiner Arbeit nach, in ein paar Tagen gibt es Neuigkeiten",
+			"text": "Niemand weiß, wo Aurelius steckt. Geh deiner Arbeit nach und halte die Ohren offen: In ein paar Tagen hört man bestimmt etwas von ihm.",
+			"wait_days": 4,
+			"next": "mage_rumors_return"
+		},
+		"mage_rumors_return": {
+			"title": "Gerüchte auf dem Markt",
+			"goal": "Hör Berta und Fritz auf dem Marktplatz zu",
+			"text": "Auf dem Marktplatz (Dorfplatz » Osten) tuscheln Berta und Fritz. Ging es da nicht um einen Zauberer?"
+		},
+		"find_mage_again": {
+			"title": "Aurelius im Wald",
+			"goal": "Such Aurelius im tiefen Wald (Dorftor » Westen » Norden)",
+			"text": "Aurelius ist zurück im tiefen Wald, wieder auf Kräutersuche.\nWeg: Dorfplatz » Süden » Dorftor » Westen » Wald » nach Norden in den tiefen Wald."
+		},
+		"build_teleporter": {
+			"title": "Den Teleporter wecken",
+			"goal": "{done}/{total} Teleporter neben deiner Schmiede geweckt (E)",
+			"text": "Neben deiner Schmiede steht der alte Teleport-Kristall, der bisher nie reagiert hat. Geh hin und drück {key_interact}: Der Portalkristall weckt ihn auf. Danach reist du mit {key_interact} zwischen allen erwachten Teleportern hin und her.",
+			"progress_flags": [
+				"teleporter_home_built"
+			],
+			"next": "ask_king_map",
+			"hints": [
+				"teleporter"
+			]
+		},
+		"ask_king_map": {
+			"title": "Die Karte der heiligen Steine",
+			"goal": "Frag den König im Thronsaal nach der Karte",
+			"text": "Frag den König im Thronsaal nach der Karte, auf der die Verstecke der neun heiligen Steine eingezeichnet sind. Auf dem Platz der Einkaufsstraße in Leonheim steht auch ein schlafender Teleporter: Weck ihn mit {key_interact}, dann bist du schneller dort."
+		},
+		"chapter14_end": {
+			"title": "Die verzauberte Gruft",
+			"goal": "Schafft Leonheim IV: Die verzauberte Gruft",
+			"text": "Den Schlüssel der Schatzkammer trägt Kastellan Morwald im verzauberten Teil der Gruft unter Leonheim. Schick deine Helden in Leonheim IV: Die verzauberte Gruft (Dungeon-Brett, Reiter Leonheim). Morwald steht einmal wieder auf. Die verzauberte Gruft gibt es nur einmal.",
+			"hints": [
+				"cursed_crypt"
+			],
+			"events": {
+				"adventure_won:capital_crypt_cursed": "key_to_king"
+			}
+		},
+		"key_to_king": {
+			"title": "Der Schlüssel der Schatzkammer",
+			"goal": "Bring dem König den Schlüssel (Thronsaal)",
+			"text": "Morwald ist besiegt, deine Helden haben den Schlüssel der Schatzkammer. Bring ihn dem König (Schlossgarten » Schloss » Treppe hinauf in den Thronsaal).",
+			"on_start": "set_flag:morwald_defeated"
+		},
+		"chapter15_end": {
+			"title": "Feierabend",
+			"goal": "Leg dich schlafen",
+			"text": "Der König hat dir ein Viertel der Kristallkarte gegeben. Der Feuerkristall liegt im Lavaberg, bei den Goblins. Leg dich schlafen, morgen geht es weiter.",
+			"events": {
+				"sleep": "to_volcano"
+			}
+		},
+		"to_volcano": {
+			"title": "Zum Lavaberg",
+			"goal": "Fahr zum Lavaberg und geh in die Goblinhöhle (Norden)",
+			"text": "Die Kutsche zum Lavaberg steht am Westende der Einkaufsstraße in Leonheim. Am Lavaberg führt eine Brücke über die Schlucht. Im Norden des Plateaus liegt der Eingang zur Goblinhöhle. Neben der Kutsche steht ein schlafender Teleport-Kristall.",
+			"events": {
+				"enter:goblin_cave": "goblin_cave_arrival"
+			}
+		},
+		"goblin_cave_arrival": {
+			"title": "Die Goblinhöhle",
+			"goal": "Sieh dich in der Goblinhöhle um",
+			"text": "Sieh dich in der Goblinhöhle um."
+		},
+		"goblin_guards": {
+			"title": "Die Wachen des Goblinkönigs",
+			"goal": "Sprich mit den Goblinwachen vor der Brücke",
+			"text": "Zwei Goblinwachen stehen vor der Brücke zum Thron im Norden. Sprich mit ihnen."
+		},
+		"goblin_king_audience": {
+			"title": "Audienz beim Goblinkönig",
+			"goal": "Geh über die Brücke nach Norden zum Thron",
+			"text": "Die Wachen haben dich durchgelassen. Geh über die Brücke nach Norden zum Thron."
+		},
+		"goblin_gold": {
+			"title": "Dreißig Bronzebarren",
+			"goal": "Bring Goldzahn die Bronzebarren (Thron im Norden)",
+			"text": "Goldzahn der Prächtige will 30 Bronzebarren. In der Goblinmine (Goblinhöhle » Osten) wachsen Kupfer- und Eisenerz. Schmilz beides zu Barren, leg in der Schmelze unter Legieren je einen Kupfer- und einen Eisenbarren zusammen und bring die Bronzebarren zum Thron.",
+			"show_items": "bronze_ingot*30"
+		},
+		"crown_recipe": {
+			"title": "Das Rezept der Krone",
+			"goal": "Schafft die Schmiede des Lavagolems (Reiter Vulkan)",
+			"text": "Das Rezept der Goblinkrone liegt in der Schmiede des Lavagolems (Dungeon-Brett, Reiter Vulkan). Feuer heilt den Lavagolem, auch sein eigener Lava-Ausbruch. Eis- und Wasserwaffen wirken gut.",
+			"hints": [
+				"lava_golem"
+			],
+			"events": {
+				"adventure_won:volcano_golem_forge": "forge_crown"
+			}
+		},
+		"forge_crown": {
+			"title": "Die Goblinkrone",
+			"goal": "Schmiede die Goblinkrone (5 Bronzebarren ab Fein)",
+			"text": "Deine Helden haben das Rezept der Goblinkrone gefunden. Die Gussform liegt am Gussofen unter Rüstung » Einzigartig und braucht 5 Bronzebarren, jeder mindestens Fein. Seltene Bronze entsteht aus seltenen Kupfer- und Eisenbarren, Bronzebarren bringen auch deine Helden aus dem Vulkan mit.",
+			"on_start": "set_flag:crown_recipe_found",
+			"have_item": "goblin_crown",
+			"next": "deliver_crown"
+		},
+		"deliver_crown": {
+			"title": "Eine Krone für Goldzahn",
+			"goal": "Bring Goldzahn die Krone (Thron im Norden)",
+			"text": "Bring Goldzahn dem Prächtigen die Goblinkrone (Goblinhöhle, Thron im Norden)."
+		},
+		"chapter16_end": {
+			"title": "Feierabend",
+			"goal": "Leg dich schlafen",
+			"text": "Goldzahn hat dir die Schlüssel-Gussform gegeben. Der Feuerkristall liegt unter einem Drachen in der Schatzkammer der Goblinburg. Leg dich schlafen, morgen geht es weiter.",
+			"events": {
+				"sleep": "to_goblin_castle"
+			}
+		},
+		"to_goblin_castle": {
+			"title": "Die Goblinburg",
+			"goal": "Zerschlag die Felsen vor dem Burgtor (Bronzespitzhacke)",
+			"text": "Der Weg zur Goblinburg führt durch die Goblinmine in die tiefe Mine und dort nach Osten. Vor dem Burgtor liegen Felsbrocken, die nur eine Bronzespitzhacke zerschlägt. Die Gussform hat Formenmacher Quentin in Leonheim (Bronze-Werkzeug), Kupfer- und Eisenerz gibt es in der Goblinmine.",
+			"hints": [
+				"silver_pickaxe"
+			],
+			"progress_flags": [
+				"goblin_castle_gate_cleared"
+			],
+			"next": "goblin_forge_tasks"
+		},
+		"goblin_forge_tasks": {
+			"title": "Das verschlossene Tor",
+			"goal": "Öffne das Tor der Schatzkammer in der Goblinburg",
+			"text": "Das Burgtor ist frei. Irgendwo in der Goblinburg liegt die Schatzkammer, und ihr Tor ist verschlossen. Die Goblins haben ihre Schlüssel selbst gegossen: Die Schlüssel-Gussform des Goblinkönigs hast du, Kupfer- und Eisenerz gibt es in den Goblinminen.",
+			"progress_flags": [
+				"goblin_key_forged"
+			],
+			"next": "open_treasury"
+		},
+		"open_treasury": {
+			"title": "Die Drachenkammer",
+			"goal": "Geh in die Schatzkammer",
+			"text": "Das Tor der Schatzkammer ist offen. Dahinter führt eine Treppe hinab ins Dunkle."
+		},
+		"fight_dragon": {
+			"title": "Ignar, der Glutdrache",
+			"goal": "Sprich Ignar an und besiegt ihn",
+			"text": "Sprich in der Schatzkammer den Drachen an und wähle die Helden für den Kampf. Ignar hat drei Lebensbalken und wird mit jedem stärker. Er heilt sich schnell, sein Feuer trifft alle, und er ruft Glutgeister. Feuer schadet ihm nicht.",
+			"hints": [
+				"dragon_fight"
+			],
+			"events": {
+				"adventure_won:dragon_lair": "dragon_defeated"
+			}
+		},
+		"dragon_defeated": {
+			"title": "Der Feuerkristall",
+			"goal": "Geh in die Schatzkammer der Goblinburg",
+			"text": "Deine Helden haben Ignar besiegt. Geh in die Schatzkammer der Goblinburg.",
+			"on_start": "set_flag:dragon_defeated"
+		},
+		"crystal_to_king": {
+			"title": "Der Feuerkristall für den König",
+			"goal": "Bring dem König den Feuerkristall (Thronsaal in Leonheim)",
+			"text": "Die Goblinburg ist mit Ignar und seinem Gold in der Lava versunken. Du hast den heiligen Feuerkristall. Bring ihn dem König (Leonheim, Schlossgarten » Schloss » Treppe hinauf in den Thronsaal)."
+		},
+		"part2_end": {
+			"title": "Feierabend",
+			"goal": "Leg dich schlafen",
+			"text": "Der König hat den Feuerkristall. Meister Aurelius ist zu den Elfen aufgebrochen: Der Lich zieht mit einem Heer gegen ihren Wald, er will den Windkristall. Leg dich schlafen.",
+			"events": {
+				"sleep": "council_call"
+			}
+		},
+		"council_call": {
+			"title": "Ein Brief vom König",
+			"goal": "Geh zum König in den Thronsaal (Leonheim)",
+			"text": "Am Morgen hat Lotte dir einen Brief mit dem Siegel des Königs gebracht: Aurelius ist zurück, der König ruft dich in den Thronsaal (Leonheim, Schlossgarten » Schloss » Treppe hinauf).",
+			"on_start": "set_flag:letter_council"
+		},
+		"elf_arrival": {
+			"title": "Sylvaris",
+			"goal": "Fahr im großen Baum mit der Plattform zum Ältesten hinauf",
+			"text": "Die Kutsche hat dich nach Sylvaris gebracht, in die Stadt der Elfen. Der König und Aurelius sind schon beim Ältesten. Geh in den großen Baum und fahr mit der leuchtenden Plattform hinauf, erst zu den Kronen, dann bis an die Spitze.",
+			"hints": [
+				"elf_lift"
+			],
+			"on_start": "set_flag:silver_molds_offered"
+		},
+		"tournament_announced": {
+			"title": "Das große Schmiedeturnier",
+			"goal": "Gewinn das Schmiedeturnier (Herold am Ende der Schmiedegasse)",
+			"text": "Der König lässt das große Schmiedeturnier wieder ausrichten, alles Geschmiedete geht an die Elfen. Der Turnierplatz liegt am Ende der Schmiedegasse in Leonheim (Osten). Melde dich beim Herold. Du schmiedest nur mit dem, was in der Vorratstruhe liegt, deine Sachen bekommst du danach zurück.",
+			"hints": [
+				"smith_tournament"
+			],
+			"progress_flags": [
+				"smith_tournament_won"
+			],
+			"next": "tournament_ceremony"
+		},
+		"tournament_ceremony": {
+			"title": "Der Sieger",
+			"goal": "Sprich mit dem König",
+			"text": "Du hast das große Schmiedeturnier gewonnen. Der König will dir etwas sagen."
+		},
+		"elf_return": {
+			"title": "Zurück in Sylvaris",
+			"goal": "Sprich mit General Hadmar am Waldboden",
+			"text": "Die Klingen und Rüstungen aus dem Turnier sind in Sylvaris angekommen, mit ihnen hundert Soldaten aus Leonheim unter General Hadmar. Er wartet am Waldboden bei den Zelten."
+		},
+		"elf_armory": {
+			"title": "Waffen für Sylvaris",
+			"goal": "Bring General Hadmar Waffen und Rüstungen (Waldboden von Sylvaris)",
+			"text": "Die Turnierstücke reichen nicht für eine ganze Stadt. Schmiede Waffen und Rüstungsteile und gib sie General Hadmar am Waldboden von Sylvaris, so viele du willst: besseres Metall und höhere Seltenheit helfen mehr. Hadmar sagt dir, wann es genug ist. Auf dem Sturmgipfel hinter Sylvaris (Dungeon-Brett) gibt es Hippogreiffell und Silber, und solange der Greif Sturmschwinge den Pass hält, fliegen die Knochenvögel des Lichs ungesehen herein. Sag Hadmar Bescheid, wenn du fertig bist.",
+			"hints": [
+				"elf_armory"
+			],
+			"on_start": "elf_defense_update"
+		},
+		"elf_elder_evening": {
+			"title": "Ein letzter Besuch",
+			"goal": "Fahr hinauf zum Ältesten an die Spitze",
+			"text": "Hadmar verteilt deine Waffen auf die Brücken. Der Älteste will dich sehen, bevor es Nacht wird. Fahr mit der Plattform hinauf an die Spitze."
+		},
+		"elf_rest": {
+			"title": "Eine Nacht in Sylvaris",
+			"goal": "Leg dich im Gästezimmer schlafen (Gasthaus Mondblatt, Kronenebene)",
+			"text": "Der Älteste hat dir ein Gästezimmer im Gasthaus Mondblatt gegeben, unten auf der Kronenebene (mit der Plattform hinunter). Sieh dich um und leg dich dort schlafen."
+		},
+		"elf_attack_wake": {
+			"title": "Ein Horn in der Nacht",
+			"goal": "Geh nach draußen",
+			"text": "Ein Horn hat dich geweckt, der ganze Baum zittert. Geh nach draußen.",
+			"on_start": "set_flag:elf_attack_started;elf_defense_check",
+			"events": {
+				"enter:elf_canopy": "elf_attack_canopy"
+			}
+		},
+		"elf_attack_canopy": {
+			"title": "Angriff auf Sylvaris",
+			"goal": "Lauf über die lange Brücke nach Norden zur Plattform und fahr hinauf",
+			"text": "Untote klettern an Wurzeln die Stämme herauf, die Kronenebene brennt. Lauf über die lange Brücke nach Norden zur Plattform und fahr hinauf zum Ältesten.",
+			"events": {
+				"enter:elf_summit": "elf_attack_summit"
+			}
+		},
+		"elf_attack_summit": {
+			"title": "Die Spitze",
+			"goal": "Geh zum Ältesten vor dem Windkristall",
+			"text": "Auf der Spitze steht der Älteste vor dem Windkristall. Geh zu ihm."
+		},
+		"crisis_council": {
+			"title": "Der Krisenrat",
+			"goal": "Sprich mit dem Ältesten auf der Spitze",
+			"text": "Die Nacht ist vorbei. Am Morgen kommen alle auf der Spitze zusammen. Sprich mit dem Ältesten."
+		},
+		"part3_end": {
+			"title": "Ruhe vor dem Aufbruch",
+			"goal": "Leg dich schlafen",
+			"text": "Der Krisenrat in Sylvaris ist vorbei. Morgen früh reist ihr nach Nordosten zu Kahn und dem Wasservolk. Leg dich schlafen.",
+			"events": {
+				"sleep": "water_departure"
+			}
+		},
+		"water_departure": {
+			"title": "Aufbruch nach Nordosten",
+			"goal": "Sprich mit dem König im Schlossgarten",
+			"text": "Ein neuer Morgen ist angebrochen. Lotte hat dir eine Nachricht des Königs gebracht: König Albrecht, Lake und Meister Aurelius warten bereits mit der Kutsche im Schlossgarten von Leonheim, um nach Eisquell aufzubrechen.",
+			"on_start": "set_flag:letter_water"
+		},
+		"water_arrival": {
+			"title": "Die Stadt im Eis",
+			"goal": "Geh zur Halle der Strömung im Norden",
+			"text": "Ihr habt Eisquell, die Stadt des Wasservolks, erreicht. Folge den Stegen nach Norden zur Halle der Strömung, um mit Kahn zu sprechen.",
+			"on_start": "set_flag:water_route_open"
+		},
+		"frost_hunt": {
+			"title": "Jagd auf Frostmähne",
+			"goal": "Besiege Frostmähne in der Tiefen Grotte",
+			"text": "Subar lässt niemanden ohne Beweis zu Kahn vor. Schick deine Helden (Dungeon-Brett, Reiter Eisquell) nacheinander durch die Brandungsküste, die Gezeitenhöhle und die Kristallgrotte bis in die Tiefe Grotte zu Frostmähne. Wasser schadet den Bestien dort nicht, doch Blitz trifft sie hart.",
+			"events": {
+				"adventure_won:water_deep_grotto": "frost_proof"
+			}
+		},
+		"frost_proof": {
+			"title": "Beweis der Stärke",
+			"goal": "Bring Subar das Fell von Frostmähne",
+			"text": "Deine Helden haben Frostmähne in der Tiefen Grotte bezwungen und ihr weißes Fell erbeutet. Bring es zu Subar vor der Halle der Strömung.",
+			"on_start": "set_flag:frost_mane_slain",
+			"show_items": "frost_mane_pelt"
+		},
+		"kahn_audience": {
+			"title": "Vor dem Eisthron",
+			"goal": "Betritt die Halle der Strömung",
+			"text": "Subar hat das Fell von Frostmähne angenommen und das Tor entriegelt. Tritt in die Halle der Strömung und sprich mit Kahn."
+		},
+		"hero_tournament": {
+			"title": "Das Turnier der Gezeiten",
+			"goal": "Gewinne das Turnier in der Gezeitenarena",
+			"text": "Kahn hört euch erst an, wenn sich einer deiner Helden im Turnier beweist. Melde deinen stärksten Streiter beim Ausrufer in der Gezeitenarena an und überstehe alle vier Runden. Nach einer Niederlage kannst du es jederzeit erneut versuchen.",
+			"progress_flags": [
+				"hero_tournament_won"
+			],
+			"next": "tournament_kahn"
+		},
+		"tournament_kahn": {
+			"title": "Sieger der Arena",
+			"goal": "Sprich mit Kahn in der Gezeitenarena",
+			"text": "Dein Held hat das Finale der Gezeitenarena gewonnen. Sprich noch in der Arena mit Kahn und seinem Sohn Torgai."
+		},
+		"kahn_council": {
+			"title": "Rat in der Strömung",
+			"goal": "Sprich mit Kahn in der Halle der Strömung",
+			"text": "Du hast dir Kahns Achtung verdient. Begib dich zurück in die Halle der Strömung, um mit ihm über den Wasserkristall und die Karte zu sprechen."
+		},
+		"to_desert": {
+			"title": "Weg in den Wüstensand",
+			"goal": "Reise über den Südweg in die Wüste",
+			"text": "Der König bringt den Wasserkristall nach Leonheim, während du den Blitzkristall im Süden suchen sollst. Reise über Dorftor » Südweg » Süden in die Wüste. Wer sich im Sand verläuft, sollte zuvor Meister Aurelius um Rat fragen.",
+			"on_start": "set_flag:desert_open;set_flag:gold_molds_unlocked",
+			"extra_goals": [
+				{"name": "Aurelius fragen", "if_flag": "desert_lost_once", "flag": "compass_dungeons_unlocked"}
+			],
+			"events": {
+				"enter:desert_town": "desert_arrest"
+			}
+		},
+		"desert_arrest": {
+			"title": "Unter Verdacht",
+			"goal": "Sprich mit den Wachen in Sahrim",
+			"text": "Du hast Sahrim erreicht, die Glaskuppel des Echsenvolks. Gleich hinter dem Südtor versperren dir zwei Echsenwachen mit Speeren misstrauisch den Weg."
+		},
+		"desert_cage": {
+			"title": "Hinter Gittern",
+			"goal": "Warte in der Zelle am Südtor ab",
+			"text": "Die Echsenwachen halten dich wegen deines Kompasses für einen Spion des Lichs. Du sitzt in einer der Zellen gleich hinter dem Südtor von Sahrim fest."
+		},
+		"storm_temple": {
+			"title": "Pfad durch das Gewitter",
+			"goal": "Folge der Karte zum Sturmtempel",
+			"text": "Fürst Ssarok hat dich freigelassen und dir die Karte der Sturmpfade übergeben. Folge dem Weg von Sahrim » Säulen » Süden bis zum alten Sturmtempel.",
+			"events": {
+				"enter:storm_temple": "temple_seals"
+			}
+		},
+		"temple_seals": {
+			"title": "Drei geschmiedete Siegel",
+			"goal": "Schmiede die Siegel und öffne das Tempeltor",
+			"text": "Neben dem Sturmtempel steht eine Steintafel mit drei leeren Vertiefungen. Lies ihre Inschrift, schmiede die passenden Siegel an der alten Tempelschmiede und setze sie in der richtigen Ordnung ein.",
+			"progress_flags": [
+				"temple_gate_open"
+			],
+			"next": "temple_pillars"
+		},
+		"temple_pillars": {
+			"title": "Klang des Donners",
+			"goal": "Schlage die vier Säulen in der richtigen Folge an",
+			"text": "Im Inneren des Tempels ragt eine Halle mit vier Klang-Säulen auf. Lies die Hinweise an der Steinwand und schlage die Säulen in der richtigen Reihenfolge an.",
+			"progress_flags": [
+				"temple_pillars_done"
+			],
+			"next": "temple_crystal"
+		},
+		"temple_crystal": {
+			"title": "Herz des Gewitters",
+			"goal": "Löse das letzte Rätsel und nimm den Blitzkristall",
+			"text": "Der Blitzkristall schwebt hinter einem tödlichen Vorhang aus Blitzen. Lies die letzte Wandinschrift, durchbrich den Schutz und nimm den Kristall an dich."
+		},
+		"crystal_to_lord": {
+			"title": "Rückkehr nach Sahrim",
+			"goal": "Bring den Blitzkristall zu Fürst Ssarok",
+			"text": "Du hast den Blitzkristall aus dem Sturmtempel geborgen. Kehre nach Sahrim zurück und berichte Fürst Ssarok in seinem Zelt im Norden der Stadt von deinem Erfolg."
+		},
+		"return_leonheim": {
+			"title": "Nachricht für den König",
+			"goal": "Bring den Blitzkristall in den Thronsaal von Leonheim",
+			"text": "Das Echsenvolk hat dich als Freund verabschiedet. Reise mit dem Blitzkristall zurück nach Norden in den Thronsaal von Leonheim."
+		},
+		"part4_end": {
+			"title": "Schatten über Leonheim",
+			"goal": "Leg dich schlafen",
+			"text": "König Albrecht ist samt den Kristallen aus dem Schloss verschwunden. Heute Nacht kannst du nichts mehr ausrichten. Leg dich schlafen, morgen früh beratet ihr im Thronsaal.",
+			"events": {
+				"sleep": "rescue_council"
+			}
+		},
+		"rescue_council": {
+			"title": "Rat im Thronsaal",
+			"goal": "Sprich mit Aurelius und Lake im Thronsaal",
+			"text": "Ein neuer Morgen bricht über der Hauptstadt an. Meister Aurelius und Lake warten bereits im Thronsaal auf dich. Geh über Leonheim » Schloss in den Thronsaal."
+		},
+		"ask_allies": {
+			"title": "Augen und Ohren",
+			"goal": "Befrage Goldzahn, Elarion und Kahn nach dem Lich",
+			"text": "Niemand weiß, wohin der Lich den König verschleppt hat. Befrage Goldzahn in der Goblinhöhle am Lavaberg, den Ältesten Elarion auf der Spitze von Sylvaris und Kahn in der Halle von Eisquell.",
+			"progress_flags": [
+				"asked_goblin",
+				"asked_elder",
+				"asked_kahn"
+			],
+			"extra_goals": [
+				{"name": "Goldzahn befragen", "flag": "asked_goblin"},
+				{"name": "Elarion befragen", "flag": "asked_elder"},
+				{"name": "Kahn befragen", "flag": "asked_kahn"}
+			],
+			"next": "ask_ssarok"
+		},
+		"ask_ssarok": {
+			"title": "Rat in der Wüste",
+			"goal": "Sprich mit Fürst Ssarok in Sahrim",
+			"text": "Weder in den Bergen noch in den Wäldern oder an den Küsten wurde der Lich gesehen. Nur die Spur nach Osten bleibt. Reise in die Wüstenstadt Sahrim und befrage Fürst Ssarok."
+		},
+		"to_swamp": {
+			"title": "Weg in den Nebel",
+			"goal": "Fahr mit der Kutsche in den Sumpf (oder Dorftor » Osten)",
+			"text": "Fürst Ssarok hat dich an seine Großtante Muhme Grisla verwiesen, die im Sumpf östlich deines Dorfes lebt. Die Kutschen fahren dich jetzt bis an den Rand des Sumpfes, zu Fuß geht es über Dorftor » Osten in das neblige Moor.",
+			"events": {
+				"enter:swamp": "meet_witch"
+			}
+		},
+		"meet_witch": {
+			"title": "Die alte Hechse",
+			"goal": "Sprich mit Muhme Grisla vor ihrer Stelzenhütte",
+			"text": "Mitten im schwarzen Wasser steht eine schiefe Hütte auf Stelzen. Sprich mit Muhme Grisla am Kessel und bitte sie um ihre Hilfe bei der Suche nach dem König."
+		},
+		"witch_potion": {
+			"title": "Trank der tausend Augen",
+			"goal": "Hole die drei Sumpfzutaten und braue den Trank am Zaubertisch",
+			"text": "Für den Trank der tausend Augen brauchst du Irrlichtglut, das Herz der Moormutter und eine Hydraschuppe. Schicke deine Helden auf dem Dungeon-Brett unter dem Reiter Sumpf in das Nebelmoor, den Hydrateich und den Knochensumpf. Braue danach den Trank an deinem Zaubertisch.",
+			"hints": [
+				"witch_potion"
+			],
+			"have_item": "seers_brew",
+			"next": "witch_vision"
+		},
+		"witch_vision": {
+			"title": "Blick durch den Schleier",
+			"goal": "Bring Muhme Grisla den Trank der tausend Augen",
+			"text": "Du hast den Trank der tausend Augen am Zaubertisch gebraut. Kehre in den Sumpf zurück und übergib Muhme Grisla die Phiole, damit sie das Versteck des Lichs erspäht."
+		},
+		"to_camp": {
+			"title": "Marsch nach Osten",
+			"goal": "Geh über Sumpf » Osten zum Heerlager vor der Finsterburg",
+			"text": "Muhme Grisla hat den König in der Finsterburg gesehen und den alten Knüppeldamm freigegeben. Die Verbündeten sammeln bereits ihre Truppen. Folge dem Weg über Sumpf » Osten zum Heerlager.",
+			"events": {
+				"enter:fortress_camp": "camp_council"
+			}
+		},
+		"camp_council": {
+			"title": "Kriegsrat vor der Finsterburg",
+			"goal": "Sprich mit Meister Aurelius im Heerlager",
+			"text": "Die Heere der Verbündeten haben vor den Mauern der Finsterburg ihr Lager aufgeschlagen. Tritt an den Kartentisch in der Mitte des Lagers und halte Kriegsrat mit Meister Aurelius."
+		},
+		"lake_talk": {
+			"title": "Gespräch am Lagerfeuer",
+			"goal": "Sprich mit Lake an seinem Lagerfeuer",
+			"text": "Der Plan für den Angriff auf die Finsterburg steht fest. Ehe du außen um die Burg herum zur Westflanke aufbrichst, möchte Lake am Rand des Lagers unter vier Augen mit dir sprechen."
+		},
+		"sneak_in": {
+			"title": "Schatten in den Gängen",
+			"goal": "Schleiche um die Burg zur alten Pforte und ziehe im Torhaus den Hebel",
+			"text": "Folge dem Felsband an der Westflanke bis zur alten Schmiedepforte und öffne sie. Schleiche durch die Gänge der Burg bis ins Torhaus und ziehe dort den großen Hebel für das Haupttor. Meide das Blickfeld der Knochenwachen, sonst musst du den jeweiligen Abschnitt von vorn beginnen."
+		},
+		"sneak_out": {
+			"title": "Raus aus dem Torhaus",
+			"goal": "Schleiche durch Kaserne und Ringgang zu deinen Verbündeten im Torhof",
+			"text": "Das Haupttor steht offen, und weil du die Sperrklinke zerbrochen hast, geht es nicht mehr zu. Die Wachen rennen zum Tor. Schleich dich aus dem Torhaus, durch die Kaserne und den Ringgang hinaus zu deinen Verbündeten im Torhof.",
+			"events": {
+				"enter:fortress_yard": "gate_battle"
+			}
+		},
+		"gate_battle": {
+			"title": "Kampf um den Bergfried",
+			"goal": "Sprich mit dem Knochengeneral vor dem Tor zum Bergfried",
+			"text": "Das Haupttor ist offen und das Heer kämpft im Torhof. Ein Knochengeneral versperrt jedoch das Tor zum Bergfried. Sprich ihn an und schicke deine Helden gegen ihn, um den Weg freizukämpfen.",
+			"events": {
+				"adventure_won:dark_keep": "throne_hall"
+			}
+		},
+		"throne_hall": {
+			"title": "Hinauf zum Thronsaal",
+			"goal": "Folge Lake in den Thronsaal der Finsterburg",
+			"text": "Deine Helden haben den Knochengeneral im Bergfried bezwungen. Der Weg nach oben ist frei. Folge Lake über die große Treppe direkt in den Thronsaal.",
+			"on_start": "set_flag:keep_taken"
+		},
+		"carry_mage": {
+			"title": "Raus aus der Burg",
+			"goal": "Bring Aurelius an den Wachen vorbei nach Westen",
+			"text": "Ihr seid aus dem Thronsaal geflohen, Lake sucht euch am Haupttor. Aurelius kann kaum gehen. Bring ihn an den Wachen vorbei nach Westen zur Ausfallpforte unten links und dann durch den Westgraben hinaus."
+		},
+		"part5_end": {
+			"title": "Der neunte Stein",
+			"goal": "Ruh dich aus",
+			"text": "König Albrecht steht hinter allem. Er hat acht der neun Kristalle, und Lake dient ihm als dunkler Ritter. Du hast Aurelius aus der Finsterburg getragen, und mit seinem letzten Funken hat er euch aus dem Westgraben gerissen.",
+			"events": {
+				"sleep": "forest_wake"
+			}
+		},
+		"forest_wake": {
+			"title": "Weißes Licht",
+			"goal": "Sprich mit Aurelius auf der Lichtung",
+			"text": "Du bist auf Aurelius' Lichtung im tiefen Wald aufgewacht. Der Zauberer liegt neben dir im Gras und rührt sich kaum. Sprich mit ihm."
+		},
+		"brew_tonic": {
+			"title": "Ein Trank für den Zauberer",
+			"goal": "Braue einen Sternentau am Zaubertisch",
+			"text": "Aurelius hat seine letzte Kraft verbraucht. Für einen Sternentau brauchst du eine Mondlilie, Hanf, Kamille und eine Phiole. Braue ihn am Zaubertisch und bring ihn auf die Lichtung im tiefen Wald.",
+			"hints": [
+				"starlight_tonic"
+			],
+			"show_items": "moon_lily,hemp,chamomile,vial",
+			"have_item": "starlight_tonic",
+			"next": "tonic_for_mage"
+		},
+		"tonic_for_mage": {
+			"title": "Sternentau",
+			"goal": "Bring Aurelius den Sternentau",
+			"text": "Der Sternentau ist fertig. Bring ihn Aurelius auf die Lichtung im tiefen Wald."
+		},
+		"glow_lesson": {
+			"title": "Die Glut in deinen Händen",
+			"goal": "Hör Aurelius auf der Lichtung zu",
+			"text": "Aurelius hat sich erholt, aber seine Magie ist fort. Er will dir etwas über das blaue Licht in deinen Händen erzählen."
+		},
+		"return_home": {
+			"title": "Nach Hause",
+			"goal": "Geh zurück auf den Dorfplatz",
+			"text": "Aurelius braucht Zeit, bis er wieder gehen kann. Geh nach Hause ins Dorf, hol dein Werkzeug und sieh nach Lotte. Danach geht es nach Eisquell.",
+			"events": {
+				"enter:village_center": "village_occupied"
+			}
+		},
+		"village_occupied": {
+			"title": "Ritter im Dorf",
+			"goal": "Sieh dich auf dem Dorfplatz um",
+			"text": "Auf dem Dorfplatz ist etwas anders als sonst."
+		},
+		"lotte_hideout": {
+			"title": "Bei Lotte",
+			"goal": "Sprich mit Lotte in Omas Haus",
+			"text": "Lotte hat dich in Omas Haus im Wohnviertel versteckt. Gustav und Nina sind auch da."
+		},
+		"village_ruse": {
+			"title": "Eine falsche Spur",
+			"goal": "{done}/{total}: Kohle für Gustav, Barren für Nina, ein Schwert für Lotte",
+			"text": "Die Ritter sollen glauben, du seist nach Süden geflohen. Gustav macht in der alten Mine Rauch wie von einem Lagerfeuer und braucht dafür 5 Kohle. Nina stellt Barren ins Schaufenster, als hättest du alles verkauft: 3 Eisenbarren. Und Lotte legt ein Schwert mit deinem Zeichen am Südweg ab. Schmiede nachts in deiner Schmiede und bring alles in Omas Haus.",
+			"progress_flags": [
+				"ruse_gustav",
+				"ruse_nina",
+				"ruse_sword"
+			],
+			"next": "village_night",
+			"show_items": "coal*5,iron_ingot*3,sword"
+		},
+		"village_night": {
+			"title": "Abwarten",
+			"goal": "Leg dich in deiner Schmiede schlafen",
+			"text": "Die Spur ist gelegt. Jetzt kannst du nur noch abwarten. Schleich dich in deine Schmiede und leg dich schlafen.",
+			"events": {
+				"sleep": "village_morning"
+			}
+		},
+		"village_morning": {
+			"title": "Die Ritter ziehen ab",
+			"goal": "Geh vor die Schmiede",
+			"text": "Ein neuer Morgen. Draußen vor der Schmiede wartet jemand auf dich."
+		},
+		"to_eisquell_again": {
+			"title": "Zurück nach Eisquell",
+			"goal": "Reise nach Eisquell und sprich mit Kahn",
+			"text": "Der Eiskristall liegt irgendwo in Kahns Mauer, und nur deine Hände können ihn finden. Der König weiß das. Reise nach Eisquell, bevor er es tut: mit der Kutsche links im Schlossgarten oder mit dem Teleporter. Ins Schloss selbst lassen dich die Wachen nicht mehr.",
+			"events": {
+				"enter:eisquell": "eisquell_blade"
+			}
+		},
+		"eisquell_blade": {
+			"title": "Eine neue Klinge",
+			"goal": "Sprich mit Torgai vor der Halle der Strömung",
+			"text": "Torgai wartet vor der Halle der Strömung auf dich. Er hat etwas aus der Finsterburg mitgebracht."
+		},
+		"subar_test": {
+			"title": "Die Probe",
+			"goal": "Schmiede eine Harpunenspitze (Gussform) und bring sie Subar",
+			"text": "Subar glaubt keinem Steckbrief und keinem Wort. Er will sehen, was deine Hände können. Die Harpunenspitze ist ein eigenes Stück, kein Speer: Die Gussform liegt am Gussofen unter Zubehör » Eisquell, sie braucht 1 Silberbarren und 1 Eisenbarren. Bring die fertige Spitze Subar vor die Halle der Strömung.",
+			"show_items": "harpoon_tip",
+			"on_start": "unlock_molds:mold_harpoon_tip"
+		},
+		"kahn_refuses": {
+			"title": "Das Gesetz der Strömung",
+			"goal": "Sprich mit Kahn in der Halle der Strömung",
+			"text": "Subar lässt dich durch. Kahn wartet in der Halle der Strömung. Erzähl ihm, was in der Finsterburg geschehen ist."
+		},
+		"harbor_attack": {
+			"title": "Feuer im Hafen",
+			"goal": "Schicke deine Helden: Dungeon-Brett » Eisquell » Eisquell in Flammen",
+			"text": "In der Nacht greifen Finsterritter den Hafen von Eisquell an. Schicke deine Helden über das Dungeon-Brett neben der Kaserne in den Kampf (Reiter Eisquell).",
+			"hints": [
+				"harbor_attack"
+			],
+			"events": {
+				"adventure_won:eisquell_burning": "kahn_decides"
+			}
+		},
+		"kahn_decides": {
+			"title": "Die Strömung dreht sich",
+			"goal": "Sprich mit Kahn in der Halle der Strömung",
+			"text": "Der Angriff ist abgewehrt, der Hafen raucht noch. Kahn will dich sprechen.",
+			"on_start": "set_flag:harbor_saved"
+		},
+		"climb_wall": {
+			"title": "Der Aufstieg",
+			"goal": "Schicke deine Helden durch den Windbruch (Dungeon-Brett » Eismauer)",
+			"text": "Der Weg auf die Mauerkrone führt durch den Windbruch. Schicke deine Helden hinauf, damit der Weg frei ist. Die gefrorenen Fälle und die Eisstege musst du nicht nehmen, dort gibt es aber Silber, Gold und Edelsteine.",
+			"hints": [
+				"ice_wall_dungeons"
+			],
+			"events": {
+				"adventure_won:ice_windbreak": "wall_crown"
+			}
+		},
+		"wall_crown": {
+			"title": "Wo das Eis singt",
+			"goal": "Steig in Eisquell die Eistreppe hinauf und löse die Rätsel der Mauerkrone",
+			"text": "Der Weg ist frei. Links neben der Halle der Strömung führt eine Treppe aus Eis auf die Mauerkrone. Dort warten Kahn, Torgai und Subar. Die Lieder sagen: Wo das Eis für die glühende Hand singt.",
+			"on_start": "set_flag:ice_crown_open",
+			"progress_flags": [
+				"ice_song_done",
+				"ice_beam_on"
+			],
+			"next": "singing_wall"
+		},
+		"singing_wall": {
+			"title": "Die singende Wand",
+			"goal": "Leg die Hände auf die klare Wand im Norden",
+			"text": "Die Säulen haben gesungen und das Licht fällt auf die Wand im Norden. Das Eis dort ist klar wie Wasser. Leg deine Hände darauf."
+		},
+		"wall_battle": {
+			"title": "Kampf auf der Mauerkrone",
+			"goal": "Schicke deine Helden am Kriegstisch gegen Lake",
+			"text": "Der König und Lake stehen auf der Mauerkrone. Schicke deine Helden am Kriegstisch auf der Mauerkrone gegen Lake, den dunklen Ritter.",
+			"hints": [
+				"wall_battle"
+			],
+			"events": {
+				"adventure_won:ice_wall_lake": "wall_aftermath"
+			}
+		},
+		"wall_aftermath": {
+			"title": "Neun",
+			"goal": "Sprich mit Kahn auf der Mauerkrone",
+			"text": "Deine Helden haben Lake zurückgedrängt. Geh zu Kahn auf die Mauerkrone."
+		},
+		"part6_end": {
+			"title": "Neun Steine",
+			"goal": "Leg dich schlafen",
+			"text": "Der König hat alle neun Steine. Kahn steht jetzt an deiner Seite. Leg dich schlafen, morgen geht es weiter.",
+			"events": {
+				"sleep": "finster_start"
+			}
+		},
+		"finster_start": {
+			"title": "Ein Brief aus Sylvaris",
+			"goal": "Triff Aurelius in Sylvaris, unten am Waldboden bei der Kutsche",
+			"text": "Lotte hat dir einen Brief von Aurelius gebracht. Er wartet in Sylvaris auf dich, unten am Waldboden neben der Kutsche. Die Elfen haben etwas über Halvard gehört. Nach Sylvaris kommst du mit dem Teleporter oder mit der Kutsche.",
+			"on_start": "set_flag:letter_finster"
+		},
+		"to_finster_city": {
+			"title": "Die Stadt im Schatten",
+			"goal": "Fahr mit der Kutsche von Sylvaris in die Finsterstadt",
+			"text": "Halvard ist wohl in der Finsterstadt am Fuß der Finsterburg. Ein Heer würde dort nur auffallen, ein Schmied in einer Kutsche nicht. Sprich in Sylvaris an der Kutsche mit Jupp und fahr in die Finsterstadt.",
+			"events": {
+				"enter:finster_gate": "finster_gate"
+			}
+		},
+		"finster_gate": {
+			"title": "Vor dem Südtor",
+			"goal": "Geh durch das Südtor nach Norden ins Zentrum der Finsterstadt",
+			"text": "Die Kutsche hält vor dem Südtor der Finsterstadt. Finsterwachen gehen vor der Mauer auf und ab. Geh durch das Tor und die Straße nach Norden bis zum Platz in der Mitte der Stadt.",
+			"events": {
+				"enter:finster_city": "finster_wanted"
+			}
+		},
+		"finster_wanted": {
+			"title": "Gesucht",
+			"goal": "Sieh dich in der Finsterstadt um",
+			"text": "Du bist in der Finsterstadt. An jeder Ecke hängt dein Steckbrief. Lass dich nicht erwischen."
+		},
+		"resistance_hideout": {
+			"title": "Unter der Färberei",
+			"goal": "Sprich mit Nyra im Versteck",
+			"text": "Nyra hat dich in ein Versteck unter einer Färberei gebracht. Sprich mit ihr."
+		},
+		"resistance_prep": {
+			"title": "Werkzeug für den Einbruch",
+			"goal": "Bring Nyra Dietrich, 2 Kletterhaken und den Wachplan aus der Wachstube",
+			"text": "Für den Weg in die Burg braucht Nyra einen Dietrich aus Silber, zwei Kletterhaken und den Wachplan der Burg. Die Gussformen für Dietrich (1 Silber- und 1 Eisenbarren) und Kletterhaken (je 2 Eisenbarren) liegen am Gussofen unter Zubehör » Finsterstadt. Den Wachplan bewahrt die Stadtwache in ihrer Wachstube auf, im Haus nördlich des Platzes. Schleich dich hinein und hol ihn.",
+			"show_items": "finster_lockpick,climbing_hook*2,guard_roster",
+			"on_start": "unlock_molds:mold_finster_lockpick,mold_climbing_hook",
+			"hints": [
+				"finster_dungeons"
+			]
+		},
+		"sneak_castle": {
+			"title": "Zurück in die Finsterburg",
+			"goal": "Schleich dich vom Nordende der Finsterstadt in die Burg",
+			"text": "Der Plan steht. Am Nordende der Finsterstadt führt der Weg zur Burg. Schleich dich über die Außenmauer, den Wachgang und den Kerkertrakt bis zur Kerkerschmiede. Nyra kommt nach.",
+			"events": {
+				"enter:kerker_forge": "free_halvard"
+			}
+		},
+		"free_halvard": {
+			"title": "Die Kerkerschmiede",
+			"goal": "Sprich mit dem Schmied am Amboss",
+			"text": "Tief unter der Finsterburg steht ein alter Mann am Amboss. Seine Hände leuchten blau."
+		},
+		"break_shackle": {
+			"title": "Sternenstahl",
+			"goal": "Schmiede Halvards Fessel am Amboss auf",
+			"text": "Halvards Hände sind mit Sternenstahl gefesselt. Kein Schlüssel öffnet die Fessel, nur Hände mit der Siegelglut. Er hat sie auf den Amboss der Kerkerschmiede gelegt: Stell dich an den Amboss und triff dreimal genau im Takt."
+		},
+		"halvard_freed": {
+			"title": "Frei",
+			"goal": "Sprich mit Halvard",
+			"on_start": "set_flag:halvard_freed",
+			"text": "Die Fessel ist offen. Halvard ist frei. Sprich mit ihm, bevor jemand merkt, dass er fehlt."
+		},
+		"princess_reveal": {
+			"title": "Die rechtmäßige Erbin",
+			"goal": "Sprich mit Nyra im Versteck",
+			"text": "Ihr seid aus der Burg entkommen. Im Versteck unter der Färberei wartet Nyra mit Corvin."
+		},
+		"part7_end": {
+			"title": "Fünf Völker",
+			"goal": "Geh nach Hause und leg dich schlafen",
+			"text": "Halvard ist frei, Nyra ist die rechtmäßige Fürstin der Finsterstadt, und die Halbdämonen stehen auf deiner Seite. Leg dich schlafen, morgen kommen alle Völker in deinem Dorf zusammen.",
+			"events": {
+				"sleep": "grand_council"
+			}
+		},
+		"grand_council": {
+			"title": "Der große Rat",
+			"goal": "Geh in Sylvaris ganz nach oben zum Ratstisch der Elfen",
+			"text": "Lotte hat dir einen Brief von Aurelius gebracht. Die Anführer aller Völker kommen in Sylvaris zusammen, ganz oben am Ratstisch der Elfen. Aurelius, Halvard und Nyra warten dort mit den Elfen auf dich. Nach Sylvaris kommst du mit dem Teleporter oder mit der Kutsche.",
+			"on_start": "set_flag:letter_grand_council"
+		},
+		"alliance_forge": {
+			"title": "Der Schmied des Bündnisses",
+			"goal": "{done}/{total}: Waffen fürs Bündnis zu Aurelius, 3 Sternenstahl für Halvard",
+			"text": "Das Bündnis braucht fertige Waffen, jede mindestens ungewöhnlich: eine Gold-Zweihandaxt für Kahn, zwei Bronzespeere für Torgai und Subar, ein Silberschwert für Faelan, zwei Kupferspeere und einen Golddolch für Ssarok und seine Speerkrieger, zwei Bronzedolche für Nyra, einen Silberhammer für Bertold und einen Goldhelm für Goldzahn. Bring sie Aurelius an den Ratstisch in Sylvaris. Für die wahre Fassung braucht Halvard 3 Sternenstahl: Sternenerz aus dem Krater der fallenden Sterne (Dungeon-Brett » Sternenkrater), in der Schmelze geschmolzen.",
+			"progress_flags": [
+				"allies_armed",
+				"starsteel_ready"
+			],
+			"next": "to_altar",
+			"on_start": "set_flag:council_kahn;set_flag:council_ssarok",
+			"show_items_until": {
+				"allies_armed": "two_handed_axe:gold_greataxe_head@R4+,polearm:bronze_spear_head*2@R4+,sword:silver_blade@R4+,polearm:copper_spear_head*2@R4+,dagger:gold_dagger_blade@R4+,dagger:bronze_dagger_blade*2@R4+,hammer:silver_hammer_head@R4+,helmet:gold_helmet_plate@R4+"
+			},
+			"show_items": "starsteel_ingot*3",
+			"hints": [
+				"alliance_forge"
+			]
+		},
+		"to_altar": {
+			"title": "Zum Altar der Neun",
+			"goal": "Fahre mit Jupps Kutsche zum Altar der Neun",
+			"text": "Das Bündnis ist bereit. Der König steht am Altar der Neun, hoch im Osten. Die Straße aus der Finsterstadt ist verschüttet, aber Jupps Kutsche fährt bis vor den Altar. Steig an einer seiner Haltestellen ein. Deinen Sternenstahl brauchst du dort.",
+			"events": {
+				"enter:altar_outskirts": "altar_siege"
+			}
+		},
+		"altar_siege": {
+			"title": "Die Schlacht vor dem Altar",
+			"goal": "Sprich mit dem Torwächter und schicke deine Helden gegen ihn",
+			"text": "Vor der Mauer des Altars kämpfen Krieger aller Völker gegen die Truppen des Königs. Ein Torwächter versperrt das Tor. Sprich ihn an und schicke deine Helden gegen ihn, damit das Tor aufgeht.",
+			"events": {
+				"adventure_won:altar_gate": "altar_gate_open"
+			}
+		},
+		"altar_gate_open": {
+			"title": "Das Tor ist offen",
+			"goal": "Geh mit dem Bündnis durch das Tor zum Altar",
+			"text": "Deine Helden haben den Torwächter besiegt. Das Tor steht offen, und das Bündnis zieht hinein. Folge ihnen zum Altar der Neun.",
+			"on_start": "set_flag:altar_warden_fallen",
+			"events": {
+				"enter:altar_of_nine": "gate_opens"
+			}
+		},
+		"gate_opens": {
+			"title": "Der Altar erwacht",
+			"goal": "Sieh, was am Altar geschieht",
+			"text": "Hinter dem Tor im Berg liegt der Altar der Neun. Am Amboss in der Mitte steht der König."
+		},
+		"altar_west": {
+			"title": "Die Schlacht am Altar: Der Westen",
+			"goal": "Sprich mit dem Schattenfürsten im Westen und schick deine Helden gegen ihn",
+			"text": "Der König hat den Altar erweckt, seine Truppen stürmen die Halle. Im Westen bricht der Schattenfürst Vrak durch die Reihen der Halbdämonen. Sprich ihn an und schick deine Helden gegen ihn.",
+			"events": {
+				"adventure_won:altar_west": "altar_south"
+			}
+		},
+		"altar_south": {
+			"title": "Die Schlacht am Altar: Der Süden",
+			"goal": "Sprich mit Garm im Süden und schick deine Helden gegen ihn",
+			"text": "Vrak ist gefallen. Am Eingang im Süden springt Garm, der Höllenhund des Königs, über die Echsen hinweg. Sprich ihn an und schick deine Helden gegen ihn.",
+			"events": {
+				"adventure_won:altar_south": "altar_east"
+			}
+		},
+		"altar_east": {
+			"title": "Die Schlacht am Altar: Der Osten",
+			"goal": "Sprich mit Kargoth im Osten und schick deine Helden gegen ihn",
+			"text": "Garm liegt still. Im Osten schlägt sich der Finsterchampion Kargoth durch das Wasservolk. Sprich ihn an und schick deine Helden gegen ihn.",
+			"events": {
+				"adventure_won:altar_east": "altar_lake"
+			}
+		},
+		"altar_lake": {
+			"title": "Die Schlacht am Altar: Lake",
+			"goal": "Sprich mit Lake vor der Tafel und schick deine Helden gegen ihn",
+			"text": "Die drei Heerführer sind gefallen. Der König ist zur Tafel im Norden gegangen, um das Böse zu befreien. Lake steht unter ihm und schützt ihn. Sprich Lake an und schick deine Helden, aber nicht, um ihn zu töten.",
+			"events": {
+				"adventure_won:altar_lake": "lake_awakens"
+			}
+		},
+		"lake_awakens": {
+			"title": "Licht in der Dunkelheit",
+			"goal": "Geh zu Lake vor der Tafel",
+			"text": "Deine Helden haben Lake niedergerungen. Er kniet vor der Tafel im Norden, das schwarze Schwert noch in der Hand."
+		},
+		"final_forge": {
+			"title": "Die verzauberte Fassung",
+			"goal": "Stell dich dem König am Tor",
+			"text": "Lake ist frei. Jetzt steht nur noch der König zwischen dir und dem Tor."
+		},
+		"forge_true_setting": {
+			"title": "Die wahre Fassung",
+			"goal": "Schmiede am Amboss des Altars die wahre Fassung (3 Sternenstahl)",
+			"text": "Die verzauberte Fassung ist zersprungen, die neun Steine liegen auf dem Altar. Aber das Tor steht noch einen Spalt offen. Schmiede mit Halvard am Amboss in der Mitte des Altars die wahre Fassung aus 3 Sternenstahl.",
+			"have_item": "true_setting",
+			"show_items": "starsteel_ingot*3",
+			"next": "seal_the_gate"
+		},
+		"seal_the_gate": {
+			"title": "Tausend Jahre",
+			"goal": "Setz die neun Steine in die wahre Fassung",
+			"text": "Die wahre Fassung ist fertig. Setz die neun Steine ein und schließ das Tor."
+		},
+		"ending_night": {
+			"title": "Nach Hause",
+			"goal": "Geh nach Hause und leg dich schlafen",
+			"text": "Das Tor ist geschlossen. Halvard will nach Hause, und du auch. Leg dich in deiner Schmiede schlafen.",
+			"events": {
+				"sleep": "ending_morning"
+			}
+		},
+		"ending_morning": {
+			"title": "Ein neuer Morgen",
+			"goal": "Geh runter in die Werkstatt",
+			"text": "Du bist in deinem eigenen Bett aufgewacht. Unten in der Werkstatt schlägt jemand auf deinen Amboss."
+		},
+		"story_end": {
+			"title": "Der Schmied der Neun",
+			"goal": "Schmiede weiter, wie es dir gefällt",
+			"text": "Das Tor ist für tausend Jahre geschlossen. Halvard lebt im Dorf, Lake wacht am Altar, Nyra herrscht in der Finsterstadt, und das Schloss in Leonheim steht dir wieder offen. Die Geschichte ist erzählt. Deine Schmiede nicht."
+		}
+	},
+	"renamed_steps": {
+		"altar_north": "altar_west",
+		"chapter5_done": "train_hero",
+		"plant_lily": "chapter8_end",
+		"grow_lily": "chapter8_end",
+		"first_dust": "chapter8_end",
+		"rebuild_mourning": "rebuild_call",
+		"wait_for_sales": "display_swords",
+		"mage_rumors": "chapter8_end",
+		"find_mage": "chapter8_end",
+		"bring_hemp": "chapter8_end",
+		"chapter9_end": "chapter8_end",
+		"greenhouse_build": "forest_mage",
+		"greenhouse_pot": "chapter11_end",
+		"lily_plant": "chapter11_end",
+		"lily_grow": "chapter11_end",
+		"lily_dust": "chapter11_end",
+		"chapter7_rest": "festival_rumors",
+		"chapter17_end": "crystal_to_king"
+	}
+}

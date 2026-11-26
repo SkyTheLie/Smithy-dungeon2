@@ -1,0 +1,261 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-wasser-einschlag 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 29,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.2413793103448276,
+    "y": 0.42424242424242425
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-wasser-einschlag 1.png",
+   "frame": {
+    "x": 29,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 29,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.2413793103448276,
+    "y": 0.42424242424242425
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-wasser-einschlag 2.png",
+   "frame": {
+    "x": 58,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 29,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.2413793103448276,
+    "y": 0.42424242424242425
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-wasser-einschlag 3.png",
+   "frame": {
+    "x": 0,
+    "y": 33,
+    "w": 29,
+    "h": 33
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 29,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.2413793103448276,
+    "y": 0.42424242424242425
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-wasser-einschlag 4.png",
+   "frame": {
+    "x": 29,
+    "y": 33,
+    "w": 29,
+    "h": 33
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 29,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.2413793103448276,
+    "y": 0.42424242424242425
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-wasser-einschlag 5.png",
+   "frame": {
+    "x": 58,
+    "y": 33,
+    "w": 29,
+    "h": 33
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 29,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.2413793103448276,
+    "y": 0.42424242424242425
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-wasser-einschlag 6.png",
+   "frame": {
+    "x": 0,
+    "y": 66,
+    "w": 29,
+    "h": 33
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 29,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.2413793103448276,
+    "y": 0.42424242424242425
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-wasser-einschlag 7.png",
+   "frame": {
+    "x": 29,
+    "y": 66,
+    "w": 29,
+    "h": 33
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 29,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.2413793103448276,
+    "y": 0.42424242424242425
+   },
+   "duration": 67
+  },
+  {
+   "filename": "smithy-kampf-wasser-einschlag 8.png",
+   "frame": {
+    "x": 58,
+    "y": 66,
+    "w": 29,
+    "h": 33
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 29,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 29,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.2413793103448276,
+    "y": 0.42424242424242425
+   },
+   "duration": 67
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-wasser-einschlag.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 87,
+   "h": 99
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 7,
+   "y": 14
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-wasser-einschlag",
+    "from": 0,
+    "to": 8,
+    "direction": "forward"
+   }
+  ]
+ }
+}

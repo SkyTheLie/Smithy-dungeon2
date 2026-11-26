@@ -1,0 +1,235 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-ausweichen 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.47058823529411764
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-ausweichen 1.png",
+   "frame": {
+    "x": 28,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.47058823529411764
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-ausweichen 2.png",
+   "frame": {
+    "x": 56,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.47058823529411764
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-ausweichen 3.png",
+   "frame": {
+    "x": 0,
+    "y": 17,
+    "w": 28,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.47058823529411764
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-ausweichen 4.png",
+   "frame": {
+    "x": 28,
+    "y": 17,
+    "w": 28,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.47058823529411764
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-ausweichen 5.png",
+   "frame": {
+    "x": 56,
+    "y": 17,
+    "w": 28,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.47058823529411764
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-ausweichen 6.png",
+   "frame": {
+    "x": 0,
+    "y": 34,
+    "w": 28,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.47058823529411764
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-ausweichen 7.png",
+   "frame": {
+    "x": 28,
+    "y": 34,
+    "w": 28,
+    "h": 17
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 17
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 17
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.47058823529411764
+   },
+   "duration": 71
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-ausweichen.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 84,
+   "h": 51
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 14,
+   "y": 8
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-ausweichen",
+    "from": 0,
+    "to": 7,
+    "direction": "forward"
+   }
+  ]
+ }
+}

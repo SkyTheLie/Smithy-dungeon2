@@ -1,0 +1,679 @@
+{
+	"_hilfe": {
+		"info": "Sockel-Boni für Ausrüstung. Jedes Ausrüstungsteil kann bis zu 4 Sockel haben, in jedem steckt ein Bonus mit einer Stufe (1-9). Wie die Boni ins Item kommen, kommt später. Anleitung: docs/CONTENT.md, Abschnitt sockets.json. Dieser Block wird vom Spiel ignoriert.",
+		"felder": {
+			"name": "Name im Tooltip, z. B. 'Wucht' (dann steht dort 'Wucht 3: +12 % Stumpf-Schaden')",
+			"effect": "Was der Bonus macht, siehe 'effekte'",
+			"kind": "nur bei extra_damage und resistance: Schadensart (physical, stab, blunt, slash, fire, water, earth, air, dark, light, lightning, ice, poison, magic, true)",
+			"attribute": "nur bei attribute: str, agi, con, int, wis, res",
+			"levels": "Wert pro Stufe, 1 bis 9 Zahlen. [2, 4, 5, 6, 8] = Stufe 1 bis 5",
+			"chances": "Gewicht pro Stufe, gleich viele Zahlen wie levels. [30, 20, 20, 20, 10] = 30 % Stufe 1, 10 % Stufe 5 (muss nicht 100 ergeben, wird umgerechnet)",
+			"slots": "Wo der Bonus hinein darf: Item-Typen (weapon, shield, armor, helmet, shoulders, boots, gloves, cloak, legs, necklace, ring, shoes ...), Gruppen (armor_all = alle Rüstungsteile ohne Schild, jewelry = Halskette + Ring, hero_equipment = alles, was ein Held trägt) oder ein Waffentyp aus weapon_types.json mit 'weapon:', z. B. 'weapon:hammer'",
+			"enchant": "true = kommt nur über Verzauberungstränke (Mörser, mortar.json) ins Item, nie zufällig in einen Sockel; Stufe = Seltenheit des Tranks (R1 = Stufe 1)"
+		},
+		"effekte": {
+			"extra_damage": "Waffe: +Wert % des Waffenschadens zusätzlich als Schaden von 'kind'. Kupferschwert 10-15 Schnitt + Wucht 20 = 10-15 Schnitt und 2-3 Stumpf",
+			"damage_percent": "Waffe: +Wert % Schaden (Schadensarten bleiben gleich)",
+			"attribute": "+Wert Punkte im Attribut",
+			"resistance": "+Wert Resistenz gegen 'kind'",
+			"armor_percent": "+Wert % Rüstung des Teils",
+			"magic_resistance": "+Wert Magieresistenz",
+			"crit_chance": "+Wert % Krit-Chance",
+			"crit_damage": "+Wert % Krit-Schaden",
+			"attack_speed": "Waffe: +Wert % Angriffstempo (10 = 1,1-mal so schnell, z. B. Federtrank aus Harpyienfedern)"
+		},
+		"vorlage": {
+			"name": "Wucht",
+			"effect": "extra_damage",
+			"kind": "blunt",
+			"levels": [4, 8, 12, 16, 20],
+			"chances": [30, 25, 20, 15, 10],
+			"slots": ["weapon"]
+		}
+	},
+	"blunt_damage": {
+		"name": "Wucht",
+		"effect": "extra_damage",
+		"kind": "blunt",
+		"levels": [4, 8, 12, 16, 20],
+		"chances": [30, 25, 20, 15, 10],
+		"slots": ["weapon"]
+	},
+	"fire_damage": {
+		"name": "Glut",
+		"effect": "extra_damage",
+		"kind": "fire",
+		"levels": [3, 6, 9, 12, 15, 18, 21, 24, 27],
+		"chances": [25, 20, 15, 12, 10, 8, 5, 3, 2],
+		"slots": ["weapon"]
+	},
+	"sharpness": {
+		"name": "Schärfe",
+		"effect": "damage_percent",
+		"levels": [5, 10, 15],
+		"chances": [50, 35, 15],
+		"slots": ["weapon:sword", "weapon:two_handed_sword", "weapon:dagger", "weapon:axe", "weapon:two_handed_axe"]
+	},
+	"strength": {
+		"name": "Kraft",
+		"effect": "attribute",
+		"attribute": "str",
+		"levels": [1, 2, 3, 4, 5, 6],
+		"chances": [30, 25, 20, 12, 8, 5],
+		"slots": ["weapon", "armor_all", "shield", "jewelry"]
+	},
+	"wisdom": {
+		"name": "Weisheit",
+		"effect": "attribute",
+		"attribute": "wis",
+		"levels": [1, 2, 3, 4, 5, 6],
+		"chances": [30, 25, 20, 12, 8, 5],
+		"slots": ["weapon", "armor_all", "shield", "jewelry"]
+	},
+	"hardness": {
+		"name": "Härte",
+		"effect": "armor_percent",
+		"levels": [5, 10, 15, 20],
+		"chances": [40, 30, 20, 10],
+		"slots": ["armor_all", "shield"]
+	},
+	"fire_resistance": {
+		"name": "Feuerschutz",
+		"effect": "resistance",
+		"kind": "fire",
+		"levels": [5, 10, 15, 20, 25],
+		"chances": [35, 25, 20, 12, 8],
+		"slots": ["armor_all", "shield", "jewelry"]
+	},
+	"precision": {
+		"name": "Präzision",
+		"effect": "crit_chance",
+		"levels": [1, 2, 3, 4, 5],
+		"chances": [35, 25, 20, 12, 8],
+		"slots": ["weapon", "gloves", "ring"]
+	},
+	"water_damage": {
+		"name": "Gischt",
+		"effect": "extra_damage",
+		"kind": "water",
+		"levels": [3, 6, 9, 12, 15, 18, 21, 24, 27],
+		"chances": [25, 20, 15, 12, 10, 8, 5, 3, 2],
+		"slots": ["weapon"]
+	},
+	"air_damage": {
+		"name": "Böe",
+		"effect": "extra_damage",
+		"kind": "air",
+		"levels": [3, 6, 9, 12, 15, 18, 21, 24, 27],
+		"chances": [25, 20, 15, 12, 10, 8, 5, 3, 2],
+		"slots": ["weapon"]
+	},
+	"earth_damage": {
+		"name": "Fels",
+		"effect": "extra_damage",
+		"kind": "earth",
+		"levels": [3, 6, 9, 12, 15, 18, 21, 24, 27],
+		"chances": [25, 20, 15, 12, 10, 8, 5, 3, 2],
+		"slots": ["weapon"]
+	},
+	"dark_damage": {
+		"name": "Finsternis",
+		"effect": "extra_damage",
+		"kind": "dark",
+		"levels": [3, 6, 9, 12, 15, 18, 21, 24, 27],
+		"chances": [25, 20, 15, 12, 10, 8, 5, 3, 2],
+		"slots": ["weapon"]
+	},
+	"ice_damage": {
+		"name": "Frost",
+		"effect": "extra_damage",
+		"kind": "ice",
+		"levels": [3, 6, 9, 12, 15, 18, 21, 24, 27],
+		"chances": [25, 20, 15, 12, 10, 8, 5, 3, 2],
+		"slots": ["weapon"]
+	},
+	"light_damage": {
+		"name": "Glanz",
+		"effect": "extra_damage",
+		"kind": "light",
+		"levels": [3, 6, 9, 12, 15, 18, 21, 24, 27],
+		"chances": [25, 20, 15, 12, 10, 8, 5, 3, 2],
+		"slots": ["weapon"]
+	},
+	"lightning_damage": {
+		"name": "Funkenschlag",
+		"effect": "extra_damage",
+		"kind": "lightning",
+		"levels": [3, 6, 9, 12, 15, 18, 21, 24, 27],
+		"chances": [25, 20, 15, 12, 10, 8, 5, 3, 2],
+		"slots": ["weapon"]
+	},
+	"poison_damage": {
+		"name": "Gifthauch",
+		"effect": "extra_damage",
+		"kind": "poison",
+		"levels": [3, 6, 9, 12, 15, 18, 21, 24, 27],
+		"chances": [25, 20, 15, 12, 10, 8, 5, 3, 2],
+		"slots": ["weapon"]
+	},
+	"water_resistance": {
+		"name": "Wasserschutz",
+		"effect": "resistance",
+		"kind": "water",
+		"levels": [5, 10, 15, 20, 25],
+		"chances": [35, 25, 20, 12, 8],
+		"slots": ["armor_all", "shield", "jewelry"]
+	},
+	"air_resistance": {
+		"name": "Windschutz",
+		"effect": "resistance",
+		"kind": "air",
+		"levels": [5, 10, 15, 20, 25],
+		"chances": [35, 25, 20, 12, 8],
+		"slots": ["armor_all", "shield", "jewelry"]
+	},
+	"earth_resistance": {
+		"name": "Erdschutz",
+		"effect": "resistance",
+		"kind": "earth",
+		"levels": [5, 10, 15, 20, 25],
+		"chances": [35, 25, 20, 12, 8],
+		"slots": ["armor_all", "shield", "jewelry"]
+	},
+	"dark_resistance": {
+		"name": "Schattenschutz",
+		"effect": "resistance",
+		"kind": "dark",
+		"levels": [5, 10, 15, 20, 25],
+		"chances": [35, 25, 20, 12, 8],
+		"slots": ["armor_all", "shield", "jewelry"]
+	},
+	"ice_resistance": {
+		"name": "Eisschutz",
+		"effect": "resistance",
+		"kind": "ice",
+		"levels": [5, 10, 15, 20, 25],
+		"chances": [35, 25, 20, 12, 8],
+		"slots": ["armor_all", "shield", "jewelry"]
+	},
+	"light_resistance": {
+		"name": "Lichtschutz",
+		"effect": "resistance",
+		"kind": "light",
+		"levels": [5, 10, 15, 20, 25],
+		"chances": [35, 25, 20, 12, 8],
+		"slots": ["armor_all", "shield", "jewelry"]
+	},
+	"lightning_resistance": {
+		"name": "Blitzschutz",
+		"effect": "resistance",
+		"kind": "lightning",
+		"levels": [5, 10, 15, 20, 25],
+		"chances": [35, 25, 20, 12, 8],
+		"slots": ["armor_all", "shield", "jewelry"]
+	},
+	"poison_resistance": {
+		"name": "Giftschutz",
+		"effect": "resistance",
+		"kind": "poison",
+		"levels": [5, 10, 15, 20, 25],
+		"chances": [35, 25, 20, 12, 8],
+		"slots": ["armor_all", "shield", "jewelry"]
+	},
+	"agility": {
+		"name": "Geschick",
+		"effect": "attribute",
+		"attribute": "agi",
+		"levels": [1, 2, 3, 4, 5, 6],
+		"chances": [30, 25, 20, 12, 8, 5],
+		"slots": ["weapon", "armor_all", "shield", "jewelry"]
+	},
+	"constitution": {
+		"name": "Ausdauer",
+		"effect": "attribute",
+		"attribute": "con",
+		"levels": [1, 2, 3, 4, 5, 6],
+		"chances": [30, 25, 20, 12, 8, 5],
+		"slots": ["weapon", "armor_all", "shield", "jewelry"]
+	},
+	"intelligence": {
+		"name": "Verstand",
+		"effect": "attribute",
+		"attribute": "int",
+		"levels": [1, 2, 3, 4, 5, 6],
+		"chances": [30, 25, 20, 12, 8, 5],
+		"slots": ["weapon", "armor_all", "shield", "jewelry"]
+	},
+	"resilience": {
+		"name": "Standhaftigkeit",
+		"effect": "attribute",
+		"attribute": "res",
+		"levels": [1, 2, 3, 4, 5, 6],
+		"chances": [30, 25, 20, 12, 8, 5],
+		"slots": ["weapon", "armor_all", "shield", "jewelry"]
+	},
+	"deadliness": {
+		"name": "Tödlichkeit",
+		"effect": "crit_damage",
+		"levels": [5, 6, 7, 8, 9, 10],
+		"chances": [30, 25, 18, 12, 9, 6],
+		"slots": ["weapon", "gloves", "ring"]
+	},
+	"enchant_fire": {
+		"name": "Feuerzauber",
+		"effect": "extra_damage",
+		"kind": "fire",
+		"levels": [5, 8, 11, 15, 20, 26, 33, 40],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"ward_fire": {
+		"name": "Feuerschutz",
+		"effect": "resistance",
+		"kind": "fire",
+		"levels": [3, 5, 7, 10, 13, 17, 22, 28],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"enchant_water": {
+		"name": "Wasserzauber",
+		"effect": "extra_damage",
+		"kind": "water",
+		"levels": [5, 8, 11, 15, 20, 26, 33, 40],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"ward_water": {
+		"name": "Wasserschutz",
+		"effect": "resistance",
+		"kind": "water",
+		"levels": [3, 5, 7, 10, 13, 17, 22, 28],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"enchant_air": {
+		"name": "Windzauber",
+		"effect": "extra_damage",
+		"kind": "air",
+		"levels": [5, 8, 11, 15, 20, 26, 33, 40],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"ward_air": {
+		"name": "Windschutz",
+		"effect": "resistance",
+		"kind": "air",
+		"levels": [3, 5, 7, 10, 13, 17, 22, 28],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"enchant_earth": {
+		"name": "Erdzauber",
+		"effect": "extra_damage",
+		"kind": "earth",
+		"levels": [5, 8, 11, 15, 20, 26, 33, 40],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"ward_earth": {
+		"name": "Erdschutz",
+		"effect": "resistance",
+		"kind": "earth",
+		"levels": [3, 5, 7, 10, 13, 17, 22, 28],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"enchant_dark": {
+		"name": "Schattenzauber",
+		"effect": "extra_damage",
+		"kind": "dark",
+		"levels": [5, 8, 11, 15, 20, 26, 33, 40],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"ward_dark": {
+		"name": "Schattenschutz",
+		"effect": "resistance",
+		"kind": "dark",
+		"levels": [3, 5, 7, 10, 13, 17, 22, 28],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"enchant_ice": {
+		"name": "Eiszauber",
+		"effect": "extra_damage",
+		"kind": "ice",
+		"levels": [5, 8, 11, 15, 20, 26, 33, 40],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"ward_ice": {
+		"name": "Eisschutz",
+		"effect": "resistance",
+		"kind": "ice",
+		"levels": [3, 5, 7, 10, 13, 17, 22, 28],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"enchant_light": {
+		"name": "Lichtzauber",
+		"effect": "extra_damage",
+		"kind": "light",
+		"levels": [5, 8, 11, 15, 20, 26, 33, 40],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"ward_light": {
+		"name": "Lichtschutz",
+		"effect": "resistance",
+		"kind": "light",
+		"levels": [3, 5, 7, 10, 13, 17, 22, 28],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"enchant_lightning": {
+		"name": "Blitzzauber",
+		"effect": "extra_damage",
+		"kind": "lightning",
+		"levels": [5, 8, 11, 15, 20, 26, 33, 40],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"ward_lightning": {
+		"name": "Blitzschutz",
+		"effect": "resistance",
+		"kind": "lightning",
+		"levels": [3, 5, 7, 10, 13, 17, 22, 28],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"enchant_poison": {
+		"name": "Giftzauber",
+		"effect": "extra_damage",
+		"kind": "poison",
+		"levels": [5, 8, 11, 15, 20, 26, 33, 40],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"ward_poison": {
+		"name": "Giftschutz",
+		"effect": "resistance",
+		"kind": "poison",
+		"levels": [3, 5, 7, 10, 13, 17, 22, 28],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"enchant_haste": {
+		"name": "Federleicht",
+		"effect": "attack_speed",
+		"levels": [4, 6, 8, 10, 13, 16, 20, 25],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"curse_fire": {
+		"name": "Feuerfluch",
+		"effect": "on_hit",
+		"status": "burn",
+		"levels": [5, 7, 9, 11, 14, 17, 21, 25],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"curse_water": {
+		"name": "Wasserfluch",
+		"effect": "on_hit",
+		"status": "slow",
+		"levels": [5, 7, 9, 11, 14, 17, 21, 25],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"curse_air": {
+		"name": "Windfluch",
+		"effect": "on_hit",
+		"status": "vulnerable",
+		"levels": [5, 7, 9, 11, 14, 17, 21, 25],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"curse_earth": {
+		"name": "Erdfluch",
+		"effect": "on_hit",
+		"status": "rooted",
+		"levels": [3, 4, 5, 6, 8, 10, 12, 15],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"curse_dark": {
+		"name": "Schattenfluch",
+		"effect": "on_hit",
+		"status": "weaken",
+		"levels": [5, 7, 9, 11, 14, 17, 21, 25],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"curse_ice": {
+		"name": "Eisfluch",
+		"effect": "on_hit",
+		"status": "frozen",
+		"levels": [3, 4, 5, 6, 8, 10, 12, 15],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"curse_light": {
+		"name": "Lichtfluch",
+		"effect": "on_hit",
+		"status": "silence",
+		"levels": [3, 4, 5, 6, 8, 10, 12, 15],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"curse_lightning": {
+		"name": "Blitzfluch",
+		"effect": "on_hit",
+		"status": "stun",
+		"levels": [3, 4, 5, 6, 8, 10, 12, 15],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"curse_poison": {
+		"name": "Giftfluch",
+		"effect": "on_hit",
+		"status": "poison",
+		"levels": [5, 7, 9, 11, 14, 17, 21, 25],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"blessing_str": {
+		"name": "Segen: Stärke",
+		"effect": "attribute",
+		"attribute": "str",
+		"levels": [1, 2, 3, 4, 5, 6, 8, 10],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon", "armor_all", "shield"],
+		"enchant": true
+	},
+	"blessing_agi": {
+		"name": "Segen: Geschick",
+		"effect": "attribute",
+		"attribute": "agi",
+		"levels": [1, 2, 3, 4, 5, 6, 8, 10],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon", "armor_all", "shield"],
+		"enchant": true
+	},
+	"blessing_con": {
+		"name": "Segen: Konstitution",
+		"effect": "attribute",
+		"attribute": "con",
+		"levels": [1, 2, 3, 4, 5, 6, 8, 10],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon", "armor_all", "shield"],
+		"enchant": true
+	},
+	"blessing_int": {
+		"name": "Segen: Intelligenz",
+		"effect": "attribute",
+		"attribute": "int",
+		"levels": [1, 2, 3, 4, 5, 6, 8, 10],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon", "armor_all", "shield"],
+		"enchant": true
+	},
+	"blessing_wis": {
+		"name": "Segen: Weisheit",
+		"effect": "attribute",
+		"attribute": "wis",
+		"levels": [1, 2, 3, 4, 5, 6, 8, 10],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon", "armor_all", "shield"],
+		"enchant": true
+	},
+	"blessing_res": {
+		"name": "Segen: Widerstand",
+		"effect": "attribute",
+		"attribute": "res",
+		"levels": [1, 2, 3, 4, 5, 6, 8, 10],
+		"chances": [1, 1, 1, 1, 1, 1, 1, 1],
+		"slots": ["weapon", "armor_all", "shield"],
+		"enchant": true
+	},
+	"combo_magma": {
+		"name": "Magmazauber",
+		"effect": "combo",
+		"combo": ["enchant_fire", "enchant_earth"],
+		"combo_factor": 0.7,
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"combo_magma_ward": {
+		"name": "Magmaschutz",
+		"effect": "combo",
+		"combo": ["ward_fire", "ward_earth"],
+		"combo_factor": 0.7,
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"combo_steam": {
+		"name": "Dampfzauber",
+		"effect": "combo",
+		"combo": ["enchant_fire", "enchant_water"],
+		"combo_factor": 0.7,
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"combo_steam_ward": {
+		"name": "Dampfschutz",
+		"effect": "combo",
+		"combo": ["ward_fire", "ward_water"],
+		"combo_factor": 0.7,
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"combo_thunderstorm": {
+		"name": "Gewitterzauber",
+		"effect": "combo",
+		"combo": ["enchant_air", "enchant_lightning"],
+		"combo_factor": 0.7,
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"combo_thunderstorm_ward": {
+		"name": "Gewitterschutz",
+		"effect": "combo",
+		"combo": ["ward_air", "ward_lightning"],
+		"combo_factor": 0.7,
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"combo_glacier": {
+		"name": "Gletscherzauber",
+		"effect": "combo",
+		"combo": ["enchant_water", "enchant_ice"],
+		"combo_factor": 0.7,
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"combo_glacier_ward": {
+		"name": "Gletscherschutz",
+		"effect": "combo",
+		"combo": ["ward_water", "ward_ice"],
+		"combo_factor": 0.7,
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"combo_dusk": {
+		"name": "Dämmerungszauber",
+		"effect": "combo",
+		"combo": ["enchant_light", "enchant_dark"],
+		"combo_factor": 0.7,
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"combo_dusk_ward": {
+		"name": "Dämmerungsschutz",
+		"effect": "combo",
+		"combo": ["ward_light", "ward_dark"],
+		"combo_factor": 0.7,
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"combo_swamp": {
+		"name": "Sumpfzauber",
+		"effect": "combo",
+		"combo": ["enchant_poison", "enchant_earth"],
+		"combo_factor": 0.7,
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"combo_swamp_ward": {
+		"name": "Sumpfschutz",
+		"effect": "combo",
+		"combo": ["ward_poison", "ward_earth"],
+		"combo_factor": 0.7,
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	},
+	"combo_firestorm": {
+		"name": "Feuersturmzauber",
+		"effect": "combo",
+		"combo": ["enchant_fire", "enchant_air"],
+		"combo_factor": 0.7,
+		"slots": ["weapon"],
+		"enchant": true
+	},
+	"combo_firestorm_ward": {
+		"name": "Feuersturmschutz",
+		"effect": "combo",
+		"combo": ["ward_fire", "ward_air"],
+		"combo_factor": 0.7,
+		"slots": ["armor_all", "shield"],
+		"enchant": true
+	}
+}

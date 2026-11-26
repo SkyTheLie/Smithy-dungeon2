@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/minigames/forging_minigame.gd" id="1_minigame"]
+[ext_resource type="Script" path="res://scenes/ui/minigames/timing_bar.gd" id="2_timing_bar"]
+[ext_resource type="Script" path="res://scenes/ui/minigames/forging_workpiece.gd" id="3_workpiece"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+
+[node name="ForgingMinigame" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_top = 20.0
+offset_right = 108.0
+offset_bottom = 184.0
+grow_horizontal = 2
+script = ExtResource("1_minigame")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="VBox" instance=ExtResource("90_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+title = "Schmieden"
+
+[node name="InfoLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+
+[node name="Workpiece" type="Control" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 108)
+layout_mode = 2
+script = ExtResource("3_workpiece")
+
+[node name="TimingBar" type="Control" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_timing_bar")
+
+[node name="FeedbackLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+
+[node name="QualityLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+
+[node name="RarityLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1

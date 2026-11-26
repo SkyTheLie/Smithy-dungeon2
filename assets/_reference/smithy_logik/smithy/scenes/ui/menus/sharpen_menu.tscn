@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/sharpen_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory/item_slot.tscn" id="2_slot"]
+[ext_resource type="PackedScene" path="res://scenes/ui/minigames/sharpening_minigame.tscn" id="3_minigame"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+
+[node name="SharpenMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+title = "Schleifstein"
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 50.0
+offset_right = 80.0
+offset_bottom = 140.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("90_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WeaponSlot" parent="Panel/VBox" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="InfoLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="SharpenButton" type="Button" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Schärfen"
+
+[node name="SharpeningMinigame" parent="." instance=ExtResource("3_minigame")]
+unique_name_in_owner = true
+visible = false

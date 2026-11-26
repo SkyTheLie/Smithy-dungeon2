@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scenes/actors/story_npc.gd" id="1_npc"]
+[ext_resource type="PackedScene" path="res://scenes/ui/dialogue/dialogue_box.tscn" id="2_dialogue"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/rent_sign.png" id="3_sign"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(44, 36)
+
+[node name="RentSign" type="StaticBody2D"]
+script = ExtResource("1_npc")
+npc_id = "smithy_sign"
+hidden_when_flag = "smithy_rented"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_sign")
+offset = Vector2(0, -30)
+
+[node name="Text" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -47.0
+offset_right = 19.0
+offset_bottom = -32.0
+theme_override_colors/font_color = Color(0.48, 0.12, 0.08, 1)
+theme_override_font_sizes/font_size = 11
+text = "Zu mieten"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Marker" type="Label" parent="."]
+offset_left = -6.0
+offset_top = -76.0
+offset_right = 6.0
+offset_bottom = -64.0
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "!"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_interaction")
+
+[node name="DialogueBox" parent="." instance=ExtResource("2_dialogue")]
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

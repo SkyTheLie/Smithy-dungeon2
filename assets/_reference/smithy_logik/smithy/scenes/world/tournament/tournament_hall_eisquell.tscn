@@ -1,0 +1,71 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/tournament/tournament_hall.tscn" id="1_hall"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/tournament_hall_eisquell_ground.png" id="2_tournament_hall_eisquell_ground"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_desk.png" id="3_ice_desk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_12.png" id="4_eis_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_13.png" id="5_eis_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/ice_10.png" id="6_ice_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_4.png" id="7_eis_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/eis_5.png" id="8_eis_5"]
+
+[sub_resource type="Resource" id="Look_city_master"]
+script = ExtResource("appearance")
+race = "half_fish"
+skin = "pearl"
+hair_style = "long"
+hair_color = "platinum"
+eye_type = "narrow"
+eye_color = "teal"
+size = "tall"
+outfit = "vest"
+clothes_color = "navy"
+
+[node name="TournamentHall" instance=ExtResource("1_hall")]
+
+[node name="Ground" parent="." index="1"]
+texture = ExtResource("2_tournament_hall_eisquell_ground")
+
+[node name="Sprite2D" parent="BannerL"]
+texture = ExtResource("4_eis_12")
+offset = Vector2(0, -20)
+
+[node name="Sprite2D" parent="BannerR"]
+texture = ExtResource("5_eis_13")
+offset = Vector2(0, -21)
+
+[node name="Sprite2D" parent="BrazierL"]
+texture = ExtResource("6_ice_10")
+offset = Vector2(0, -20)
+
+[node name="Light" parent="BrazierL"]
+color = Color(0.55, 0.85, 1, 1)
+
+[node name="Sprite2D" parent="BrazierR"]
+texture = ExtResource("6_ice_10")
+offset = Vector2(0, -20)
+
+[node name="Light" parent="BrazierR"]
+color = Color(0.55, 0.85, 1, 1)
+
+[node name="Sprite2D" parent="PlantL"]
+texture = ExtResource("7_eis_4")
+offset = Vector2(0, -16.5)
+
+[node name="Sprite2D" parent="PlantR"]
+texture = ExtResource("8_eis_5")
+offset = Vector2(0, -18.5)
+
+[node name="Master" parent="Desk"]
+appearance = SubResource("Look_city_master")
+
+[node name="Sprite2D" parent="Desk"]
+texture = ExtResource("3_ice_desk")
+
+[node name="DoorOut" parent="."]
+target_scene = "res://scenes/world/water/eisquell.tscn"
+
+[node name="TournamentDeskMenu" parent="."]
+venue = "eisquell"
+title = "Turnierhalle Eisquell"

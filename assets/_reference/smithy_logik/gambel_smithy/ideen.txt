@@ -1,0 +1,34 @@
+=====================================================================
+8) ROGUELIKE: VISUELLE EFFEKTE (Vorschläge 2026-11-24, alle eingebaut 2026-11-24)
+=====================================================================
+Treffer und Kampf
+   [x] Hammer-Einschlag: kurzer Bildschirm-Wackler (stärker bei Boss/Krit), Staubring am Boden, 2–3 Frames Hitstop.
+   [x] Weißes Aufblitzen des Gegners beim Treffer (Shader, 0,08 s), kleiner Rückstoß weg von der Schmiede.
+   [x] Schadenszahlen mit Schwung: springen hoch, fallen, Krits größer und gelb mit Ausrufezeichen.
+   [x] Gegner-Tod: zerplatzt in 4–6 Pixel-Splitter in seiner Farbe, statt nur zu verschwinden.
+   [x] Münzen fliegen beim Tod im Bogen zum Münzzähler im HUD, Zähler "ploppt" kurz größer.
+   [x] Kombo-Zähler für schnelle Hammer-Kills ("x5!"), Text wird mit der Zahl wärmer/röter.
+Kristalle und Einheiten
+   [x] Kristall pulsiert in seiner Elementfarbe (Licht-Halo), jeder Hammerschlag lässt Risse wachsen.
+   [x] Kristall zerbricht: Scherbenregen + Lichtsäule nach oben, Einheiten "fallen" mit Landestaub heraus.
+   [x] Seltenheit sichtbar: R3+ mit farbigem Schimmer unter den Füßen, R5 mit aufsteigenden Funken.
+   [x] Level-Aufstieg einer Einheit: goldener Ring nach oben + kurzer Ton.
+   [x] Element-Spuren: Feuer hinterlässt Glut, Eis Frost-Partikel, Blitz kurze Ketten zwischen Gegnern, Gift grüne Blasen.
+Schmiede und Welt
+   [x] Schmiede raucht und glüht aus dem Schornstein; je weniger Leben, desto mehr Rauch, Funken und Feuer.
+   [x] Schmiede wird getroffen: rotes Aufblitzen am Bildschirmrand (Vignette) statt nur Zahl.
+   [x] Tag/Nacht je Welle oder Teil: dunklere Wellen mit Lichtquellen um Schmiede und Einheiten.
+   [x] Wind-Partikel / Blätter / Asche je Dungeon (Wetter passend zum Boden).
+   [x] Weiche Schatten unter allen Figuren (Ellipse), damit sie "stehen" statt schweben.
+Wellen und Boss
+   [x] Wellen-Banner: "Welle 3/4" fliegt groß von der Seite herein und wieder raus.
+   [x] Pfeile am Bildschirmrand zeigen, wo Gegner außerhalb der Sicht kommen.
+   [x] Boss-Auftritt: Kamera zoomt kurz auf ihn, Name als Titelkarte, Boden bebt bei jedem Schritt.
+   [x] Boss besiegt: Zeitlupe 0,5 s, weißer Blitz, Relikt fällt mit Lichtstrahl.
+   [x] Fall der Schmiede: Zeitlupe, Einsturz-Staub, Bild wird grau, dann Ergebnisfenster.
+Menü zwischen den Runs
+   [x] Zahlen im Ergebnis zählen hoch (+0 » +87 Münzen) mit Klick-Ton.
+   [x] Kaufbare Felder im Baum pulsieren leicht golden; gekauftes Feld macht einen kleinen "Stempel"-Effekt mit Funken.
+   [x] Laden-Karten: beim Auffrischen drehen sie sich um (Karten-Flip), seltene/teure Kristalle mit Glitzer.
+   [x] Neue Bestleistung: Konfetti/Funken über dem Titel.
+   [x] Hintergrund des Fensters: Schmiedefeuer-Glimmen (langsam wandernde Glut-Partikel hinter dem Panel).

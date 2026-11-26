@@ -1,0 +1,568 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_0.png" id="wp_world_props_oasis_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_1.png" id="wp_world_props_oasis_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_22.png" id="wp_world_props_oasis_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_3.png" id="wp_world_props_oasis_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/sahrim_jail_lane.png" id="wp_desert_sahrim_jail_lane"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/sahrim_jail.png" id="wp_desert_sahrim_jail"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="wp_scenes_world_objects_sheet_animatio"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/fireflies.png" id="wp_effects_fireflies"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_6.png" id="wp_world_props_desert_6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/sand_6.png" id="wp_world_props_desert_21"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_17.png" id="wp_world_props_desert_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_23.png" id="wp_world_props_desert_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/sand_20.png" id="wp_world_props_desert_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_5.png" id="wp_world_props_desert_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_13.png" id="wp_world_props_desert_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_24.png" id="wp_world_props_desert_24"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_0.png" id="wp_world_props_desert_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_12.png" id="wp_world_props_desert_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_20.png" id="wp_world_props_desert_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_7.png" id="wp_world_props_desert_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_10.png" id="wp_world_props_desert_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_2.png" id="wp_world_props_desert_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_22.png" id="wp_world_props_desert_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/sand_3.png" id="wp_world_props_desert_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_8.png" id="wp_world_props_desert_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/sand_10.png" id="wp_world_props_desert_15"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/desert_1.png" id="wp_world_props_desert_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/oasis_22.png" id="wp_world_props_desert_3"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_desert.tscn" id="lamp_desert"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="1_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sahrim_center_ground.png" id="2_sahrim_cente"]
+[ext_resource type="Script" path="res://scenes/world/desert/dome_light.gd" id="3_dome_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/lights/sahrim_hex_light.png" id="4_sahrim_hex_l"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/sahrim_sky_beam.png" id="5_sahrim_sky_b"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="6_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/sahrim_jail_inside.png" id="7_sahrim_cells"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/sahrim_cells_front.png" id="8_sahrim_cells"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/palm_a.png" id="9_palm_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="11_night_light"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="12_story_npc"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="13_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/draft_camel.png" id="14_draft_camel"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="15_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="16_hud"]
+[ext_resource type="Script" path="res://scenes/world/desert/cage_cutscene.gd" id="17_cage_cut"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/sahrim_jail_door_open.png" id="18_door_open"]
+
+[sub_resource type="Gradient" id="Gradient_sky"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.55, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="Texture_sky"]
+gradient = SubResource("Gradient_sky")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CanvasItemMaterial" id="Material_beam"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="Rect_1064x16"]
+size = Vector2(1064, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x808"]
+size = Vector2(16, 808)
+
+[sub_resource type="Resource" id="Look_ulrich"]
+script = ExtResource("6_appearance")
+race = "beast_lizard"
+skin = "scale_teal"
+eye_type = "big"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_ssarok"]
+script = ExtResource("6_appearance")
+race = "beast_lizard"
+skin = "olive"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_spear"]
+script = ExtResource("6_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_spear2"]
+script = ExtResource("6_appearance")
+race = "beast_lizard"
+skin = "lizard_green"
+eye_type = "normal"
+eye_color = "amber"
+size = "tall"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="RectangleShape2D" id="Rect_50x4"]
+size = Vector2(50, 4)
+
+[sub_resource type="RectangleShape2D" id="Rect_4x30"]
+size = Vector2(4, 30)
+
+[sub_resource type="RectangleShape2D" id="Rect_12x6"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_40x10"]
+size = Vector2(40, 10)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_20x6"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_16x6"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_27x6"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_256x44"]
+size = Vector2(256, 44)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_56x66"]
+size = Vector2(56, 66)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_112x66"]
+size = Vector2(112, 66)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_256x12"]
+size = Vector2(256, 12)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_29x6"]
+size = Vector2(29, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[node name="DesertCage" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("1_day_tint")
+shade = Color(0.74, 0.7, 0.76, 1)
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("2_sahrim_cente")
+centered = false
+
+[node name="DomeLight" type="Node2D" parent="."]
+script = ExtResource("3_dome_light")
+
+[node name="HexLight" type="PointLight2D" parent="DomeLight"]
+position = Vector2(0, 0)
+color = Color(1, 0.95, 0.82, 1)
+texture = ExtResource("4_sahrim_hex_l")
+
+[node name="SkyLight" type="PointLight2D" parent="DomeLight"]
+position = Vector2(0, -40)
+scale = Vector2(1.2, 0.8)
+color = Color(1, 0.94, 0.78, 1)
+texture = SubResource("Texture_sky")
+texture_scale = 1.8
+
+[node name="Beam" type="Sprite2D" parent="DomeLight"]
+z_index = 20
+material = SubResource("Material_beam")
+position = Vector2(0, -210)
+texture = ExtResource("5_sahrim_sky_b")
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, -392)
+shape = SubResource("Rect_1064x16")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, 392)
+shape = SubResource("Rect_1064x16")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-520, 0)
+shape = SubResource("Rect_16x808")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(520, 0)
+shape = SubResource("Rect_16x808")
+
+[node name="DomeWall" type="StaticBody2D" parent="."]
+
+[node name="Polygon1" type="CollisionPolygon2D" parent="DomeWall"]
+polygon = PackedVector2Array(-530, 325, -490, 329, -450, 332, -410, 335, -370, 338, -330, 340, -290, 343, -250, 345, -210, 346, -170, 347, -130, 349, -90, 349, -50, 350, -34, 350, -34, 420, -530, 420)
+
+[node name="Polygon2" type="CollisionPolygon2D" parent="DomeWall"]
+polygon = PackedVector2Array(34, 350, 40, 350, 80, 349, 120, 349, 160, 348, 200, 347, 240, 345, 280, 343, 320, 341, 360, 339, 400, 336, 440, 333, 480, 329, 520, 326, 530, 325, 530, 420, 34, 420)
+
+[node name="Spring" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spring"]
+polygon = PackedVector2Array(118, -40, 114, -21, 102, -3, 83, 12, 59, 24, 31, 31, 0, 34, -31, 31, -59, 24, -83, 12, -102, -3, -114, -21, -118, -40, -114, -59, -102, -77, -83, -92, -59, -104, -31, -111, -0, -114, 31, -111, 59, -104, 83, -92, 102, -77, 114, -59)
+
+[node name="Cage" type="StaticBody2D" parent="."]
+position = Vector2(190, 255)
+
+[node name="Back" type="CollisionShape2D" parent="Cage"]
+position = Vector2(0, -24)
+shape = SubResource("Rect_50x4")
+
+[node name="Front" type="CollisionShape2D" parent="Cage"]
+position = Vector2(0, 2)
+shape = SubResource("Rect_50x4")
+
+[node name="Left" type="CollisionShape2D" parent="Cage"]
+position = Vector2(-25, -11)
+shape = SubResource("Rect_4x30")
+
+[node name="Right" type="CollisionShape2D" parent="Cage"]
+position = Vector2(25, -11)
+shape = SubResource("Rect_4x30")
+
+[node name="JailInside" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(218, 300)
+texture = ExtResource("7_sahrim_cells")
+offset = Vector2(0, -87)
+
+[node name="Nature" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="PalmA" type="StaticBody2D" parent="Nature"]
+position = Vector2(-90, 190)
+
+[node name="Sprite2D" type="Sprite2D" parent="Nature/PalmA"]
+texture = ExtResource("9_palm_a")
+offset = Vector2(0, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nature/PalmA"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_12x6")
+
+[node name="PalmB" type="StaticBody2D" parent="Nature"]
+position = Vector2(240, 110)
+
+[node name="Sprite2D" type="Sprite2D" parent="Nature/PalmB"]
+texture = ExtResource("9_palm_a")
+offset = Vector2(0, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nature/PalmB"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_12x6")
+
+[node name="PalmC" type="StaticBody2D" parent="Nature"]
+position = Vector2(440, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Nature/PalmC"]
+texture = ExtResource("9_palm_a")
+offset = Vector2(0, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nature/PalmC"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_12x6")
+
+[node name="Lights" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="BrazierGateWest" parent="Lights" instance=ExtResource("lamp_desert")]
+position = Vector2(-57, 333)
+facing = "east"
+
+[node name="BrazierGateEast" parent="Lights" instance=ExtResource("lamp_desert")]
+position = Vector2(32, 338)
+facing = "west"
+
+[node name="BrazierCells" parent="Lights" instance=ExtResource("lamp_desert")]
+position = Vector2(362, 306)
+
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Narrator" parent="People" instance=ExtResource("12_story_npc")]
+position = Vector2(190, 245)
+npc_id = "cage_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(4, 4)
+
+[node name="Camel" type="Node2D" parent="People"]
+y_sort_enabled = true
+script = ExtResource("13_story_prop")
+required_flag = "cage_morning_seen"
+hidden_when_flag = "ulrich_went_to_lord"
+
+[node name="Body" type="StaticBody2D" parent="People/Camel"]
+position = Vector2(96, 318)
+
+[node name="Sprite2D" type="Sprite2D" parent="People/Camel/Body"]
+texture = ExtResource("14_draft_camel")
+offset = Vector2(0, -29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="People/Camel/Body"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_40x10")
+
+[node name="Ulrich" parent="People" instance=ExtResource("12_story_npc")]
+position = Vector2(150, 318)
+npc_id = "first_customer"
+appearance = SubResource("Look_ulrich")
+resident = "ulrich"
+auto_talk = true
+keep_dialogue_open = true
+facing = "up"
+talk_area_scale = Vector2(3, 3)
+required_flag = "cage_morning_seen"
+hidden_when_flag = "ulrich_went_to_lord"
+
+[node name="Ssarok" parent="People" instance=ExtResource("12_story_npc")]
+position = Vector2(190, 312)
+npc_id = "desert_lord"
+resident = "desert_lord"
+appearance = SubResource("Look_ssarok")
+auto_talk = true
+keep_dialogue_open = true
+facing = "up"
+talk_area_scale = Vector2(3, 3)
+required_flag = "ulrich_went_to_lord"
+
+[node name="GuardA" parent="People" instance=ExtResource("12_story_npc")]
+position = Vector2(156, 316)
+npc_id = "desert_guard"
+resident = "desert_guard"
+appearance = SubResource("Look_spear")
+facing = "up"
+required_flag = "ulrich_went_to_lord"
+
+[node name="GuardB" parent="People" instance=ExtResource("12_story_npc")]
+position = Vector2(226, 316)
+npc_id = "desert_guard"
+resident = "desert_guard"
+appearance = SubResource("Look_spear2")
+facing = "up"
+required_flag = "ulrich_went_to_lord"
+
+[node name="UlrichWithLord" parent="People" instance=ExtResource("12_story_npc")]
+position = Vector2(262, 318)
+npc_id = "ulrich_escort"
+appearance = SubResource("Look_ulrich")
+resident = "ulrich"
+facing = "left"
+required_flag = "ulrich_went_to_lord"
+
+[node name="GateGuardWest" parent="People" instance=ExtResource("12_story_npc")]
+position = Vector2(-46, 316)
+npc_id = "desert_guard"
+resident = "desert_guard"
+appearance = SubResource("Look_spear")
+facing = "right"
+
+[node name="GateGuardEast" parent="People" instance=ExtResource("12_story_npc")]
+position = Vector2(46, 316)
+npc_id = "desert_guard"
+resident = "desert_guard"
+appearance = SubResource("Look_spear2")
+facing = "left"
+
+[node name="InCage" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(190, 246)
+
+[node name="OasisSparkle" type="Sprite2D" parent="."]
+z_index = 2
+modulate = Color(0.75, 0.95, 1, 0.75)
+position = Vector2(0, -40)
+texture = ExtResource("wp_effects_fireflies")
+hframes = 4
+vframes = 4
+script = ExtResource("wp_scenes_world_objects_sheet_animatio")
+frames_per_second = 6.0
+
+[node name="Jail" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="JailHouse" type="Sprite2D" parent="Jail"]
+position = Vector2(218, 300)
+texture = ExtResource("wp_desert_sahrim_jail")
+offset = Vector2(0, -87)
+
+[node name="DoorOpen" type="Sprite2D" parent="Jail/JailHouse"]
+visible = false
+position = Vector2(72, -40)
+texture = ExtResource("18_door_open")
+
+[node name="JailWalls" type="StaticBody2D" parent="Jail"]
+
+[node name="W0" type="CollisionShape2D" parent="Jail/JailWalls"]
+position = Vector2(218, 280)
+shape = SubResource("wp_rect_256x44")
+
+[node name="W1" type="CollisionShape2D" parent="Jail/JailWalls"]
+position = Vector2(118, 228)
+shape = SubResource("wp_rect_56x66")
+
+[node name="W2" type="CollisionShape2D" parent="Jail/JailWalls"]
+position = Vector2(290, 228)
+shape = SubResource("wp_rect_112x66")
+
+[node name="W3" type="CollisionShape2D" parent="Jail/JailWalls"]
+position = Vector2(218, 192)
+shape = SubResource("wp_rect_256x12")
+
+[node name="JailLane" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(170, 320)
+texture = ExtResource("wp_desert_sahrim_jail_lane")
+
+[node name="Groups" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Groups"]
+position = Vector2(-265, -85)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P1"]
+texture = ExtResource("wp_world_props_desert_6")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_21x6")
+
+[node name="P2" type="StaticBody2D" parent="Groups"]
+position = Vector2(-222, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P2"]
+texture = ExtResource("wp_world_props_desert_5")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P3" type="StaticBody2D" parent="Groups"]
+position = Vector2(-304, -70)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P3"]
+texture = ExtResource("wp_world_props_desert_8")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P4" type="StaticBody2D" parent="Groups"]
+position = Vector2(-336, -104)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P4"]
+texture = ExtResource("wp_world_props_oasis_3")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_29x6")
+
+[node name="P5" type="StaticBody2D" parent="Groups"]
+position = Vector2(286, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P5"]
+texture = ExtResource("wp_world_props_oasis_22")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P6" type="StaticBody2D" parent="Groups"]
+position = Vector2(322, -32)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P6"]
+texture = ExtResource("wp_world_props_oasis_1")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P7" type="StaticBody2D" parent="Groups"]
+position = Vector2(252, -36)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P7"]
+texture = ExtResource("wp_world_props_desert_10")
+offset = Vector2(0, -14.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P7"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P8" type="StaticBody2D" parent="Groups"]
+position = Vector2(-66, -276)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P8"]
+texture = ExtResource("wp_world_props_oasis_0")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P8"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_20x6")
+
+[node name="P9" type="StaticBody2D" parent="Groups"]
+position = Vector2(66, -276)
+
+[node name="Sprite2D" type="Sprite2D" parent="Groups/P9"]
+texture = ExtResource("wp_world_props_oasis_0")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groups/P9"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_20x6")
+
+[node name="Player" parent="." instance=ExtResource("15_player")]
+position = Vector2(190, 246)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -130
+limit_top = 24
+limit_right = 510
+limit_bottom = 384
+
+[node name="HUD" parent="." instance=ExtResource("16_hud")]
+
+[editable path="Player"]
+
+[node name="CageCutscene" type="Node2D" parent="."]
+script = ExtResource("17_cage_cut")
+camel = NodePath("../People/Camel/Body")
+ulrich = NodePath("../People/Ulrich")
+lord = NodePath("../People/Ssarok")
+guard_a = NodePath("../People/GuardA")
+guard_b = NodePath("../People/GuardB")
+escort = NodePath("../People/UlrichWithLord")
+door_open = NodePath("../Jail/JailHouse/DoorOpen")

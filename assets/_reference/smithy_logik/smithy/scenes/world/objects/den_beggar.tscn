@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/den_beggar.gd" id="1_beggar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/beggar_sit.png" id="2_texture"]
+
+[sub_resource type="RectangleShape2D" id="Shape_body"]
+size = Vector2(24, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_interaction"]
+size = Vector2(56, 40)
+
+[node name="DenBeggar" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_beggar")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+hframes = 9
+frame = 8
+texture = ExtResource("2_texture")
+offset = Vector2(0, -17)
+
+[node name="NameLabel" type="Label" parent="."]
+z_index = 1
+offset_left = -40.0
+offset_top = -46.0
+offset_right = 40.0
+offset_bottom = -34.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "Bettler"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("Shape_body")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 6)
+shape = SubResource("Shape_interaction")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

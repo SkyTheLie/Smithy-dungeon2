@@ -1,0 +1,277 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_fortress.tscn" id="lamp_fortress"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/sneak/sneak_zone.gd" id="3_sneak_zone"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="4_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sneak_ring_ground.png" id="5_sneak_ring_g"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="6_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sneak_ring_mask.png" id="7_sneak_ring_m"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="8_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="10_night_light"]
+[ext_resource type="Script" path="res://scenes/world/sneak/sneak_guard.gd" id="11_sneak_guard"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="12_door"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="13_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="14_hud"]
+[ext_resource type="Script" path="res://scenes/world/finster/finster_fog.gd" id="fog_script"]
+[ext_resource type="Shader" path="res://scenes/world/finster/finster_fog.gdshader" id="fog_shader"]
+[ext_resource type="Script" path="res://scenes/world/finster/fog_ghost.gd" id="ghost_script"]
+[ext_resource type="Script" path="res://scenes/world/finster/lamplighter.gd" id="lamplighter_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/crypt_wraith_walk.png" id="ghost_crypt_wraith"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/ghost_walk.png" id="ghost_ghost"]
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("8_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("8_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("8_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("8_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("8_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("8_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_dark_lake"]
+script = ExtResource("8_appearance")
+race = "human"
+skin = "pale"
+hair_style = "short"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_lizard"]
+script = ExtResource("8_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_warden"]
+script = ExtResource("8_appearance")
+race = "half_demon"
+skin = "ash"
+eye_type = "glowing"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_warden2"]
+script = ExtResource("8_appearance")
+race = "half_demon"
+skin = "slate"
+eye_type = "glowing"
+eye_color = "green"
+hair_style = "spiky"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="FastNoiseLite" id="fog_noise_gen"]
+frequency = 0.012
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="fog_noise"]
+width = 256
+height = 256
+seamless = true
+noise = SubResource("fog_noise_gen")
+
+[sub_resource type="ShaderMaterial" id="fog_material"]
+shader = ExtResource("fog_shader")
+shader_parameter/noise = SubResource("fog_noise")
+shader_parameter/clear_above_y = -10000.0
+
+[node name="SneakRing" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("3_sneak_zone")
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+color = Color(0.42, 0.42, 0.55, 1)
+script = ExtResource("4_gloom")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-480, -288)
+texture = ExtResource("5_sneak_ring_g")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-480, -288)
+script = ExtResource("6_cave_walls")
+mask = ExtResource("7_sneak_ring_m")
+
+[node name="Props" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Brazier1" parent="Props" instance=ExtResource("lamp_fortress")]
+position = Vector2(-374, -200)
+
+[node name="Brazier2" parent="Props" instance=ExtResource("lamp_fortress")]
+position = Vector2(331, -164)
+
+[node name="Brazier3" parent="Props" instance=ExtResource("lamp_fortress")]
+position = Vector2(-374, 214)
+
+[node name="Brazier4" parent="Props" instance=ExtResource("lamp_fortress")]
+position = Vector2(335, 188)
+
+[node name="Guards" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="RingGuardA" type="Node2D" parent="Guards"]
+position = Vector2(-352, -192)
+script = ExtResource("11_sneak_guard")
+appearance = SubResource("Look_warden")
+resident = "finster_warden_a"
+look_directions = PackedStringArray()
+turn_seconds = 2.0
+view_range = 120.0
+patrol = PackedVector2Array(0, 0, 640, 0, 640, 384, 0, 384)
+walk_speed = 55.0
+
+[node name="RingGuardB" type="Node2D" parent="Guards"]
+position = Vector2(288, 192)
+script = ExtResource("11_sneak_guard")
+appearance = SubResource("Look_warden2")
+resident = "finster_warden_b"
+look_directions = PackedStringArray()
+turn_seconds = 2.0
+view_range = 120.0
+patrol = PackedVector2Array(0, 0, -640, 0, -640, -384, 0, -384)
+walk_speed = 55.0
+
+[node name="Exit" parent="." instance=ExtResource("12_door")]
+position = Vector2(464, 80)
+target_scene = "res://scenes/world/fortress/fortress_yard.tscn"
+target_spawn_point = &"FromGatehouse"
+scale = Vector2(1, 2)
+
+[node name="Visual" parent="Exit" index="0"]
+visible = false
+
+[node name="RingHint" parent="." instance=ExtResource("13_story_npc")]
+position = Vector2(-432, 16)
+npc_id = "ring_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(2, 2)
+
+[node name="Start" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-432, 16)
+
+[node name="Fog" type="Node2D" parent="."]
+z_index = 60
+material = SubResource("fog_material")
+script = ExtResource("fog_script")
+map_rect = Rect2(-480, -288, 960, 576)
+
+[node name="Ghosts" type="Node2D" parent="."]
+z_index = 61
+
+[node name="HallGhost" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_ghost")
+area = Rect2(-460, -268, 920, 536)
+speed = 11.0
+max_alpha = 0.5
+hide_time = Vector2(6, 16)
+
+[node name="HallWraith" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_crypt_wraith")
+area = Rect2(-460, -268, 920, 536)
+speed = 10.0
+max_alpha = 0.5
+hide_time = Vector2(8, 20)
+
+[node name="CellGhost" type="Node2D" parent="Ghosts"]
+script = ExtResource("ghost_script")
+strip = ExtResource("ghost_ghost")
+area = Rect2(0, -268, 460, 536)
+speed = 9.0
+max_alpha = 0.45
+hide_time = Vector2(10, 25)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-432, 16)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -480
+limit_top = -288
+limit_right = 480
+limit_bottom = 288
+
+[node name="HUD" parent="." instance=ExtResource("14_hud")]
+
+[editable path="Exit"]
+[editable path="Player"]

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="RockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/rock_data.gd" id="1_rock"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rocks/platinum_rock.png" id="3_texture"]
+
+[resource]
+script = ExtResource("1_rock")
+display_name = "Platinstein"
+color = Color(0.62, 0.7, 0.75, 1)
+texture = ExtResource("3_texture")
+max_health = 60
+required_flag = "reached_to_swamp"
+drop_item_id = "platinum_ore"
+bonus_drop_item_id = "sand"
+bonus_drop_chance = 0.15
+better_rarity_chance = 0.05
+drop_amount = 1
+spawn_weight = 0.5

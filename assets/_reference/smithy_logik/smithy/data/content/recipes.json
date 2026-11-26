@@ -1,0 +1,1840 @@
+{
+	"_hilfe": {
+		"info": "Sonder-Rezepte, die nicht automatisch aus items.json entstehen. Felder: result (Item-id), station (forge | anvil | workbench | enchanting_table), name, ingredients [{item, amount} oder {part, amount}], amount, tab, category, locked, hot, group (Rezepte mit gleichem group stehen als ein Eintrag mit diesem Namen in der Liste; welches Rezept gebaut wird, entscheiden die eingelegten Items), group_slot (Name des Slots, der sich zwischen den Rezepten der Gruppe unterscheidet, z. B. Kristall). Zutat mit min_rarity (z. B. \"R3\") = nur Stücke ab dieser Seltenheit. Dieser Block wird vom Spiel ignoriert."
+	},
+	"wooden_staff": {
+		"result": "wooden_staff",
+		"station": "enchanting_table",
+		"name": "Holz-Zauberstab",
+		"ingredients": [
+			{
+				"item": "wood",
+				"amount": 3
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe"
+	},
+	"wooden_plank": {
+		"result": "wooden_plank",
+		"station": "workbench",
+		"name": "Holzbrett",
+		"ingredients": [
+			{
+				"item": "wood",
+				"amount": 1
+			}
+		],
+		"tab": "accessory",
+		"category": "Baumaterial",
+		"locked": true
+	},
+	"rope_hemp": {
+		"result": "rope",
+		"station": "workbench",
+		"name": "Seil aus Hanf",
+		"ingredients": [
+			{
+				"item": "hemp",
+				"amount": 2
+			}
+		],
+		"tab": "accessory",
+		"category": "Zusatz",
+		"locked": true
+	},
+	"rope_flax": {
+		"result": "rope",
+		"station": "workbench",
+		"name": "Seil aus Flachs",
+		"ingredients": [
+			{
+				"item": "flax",
+				"amount": 2
+			}
+		],
+		"tab": "accessory",
+		"category": "Zusatz",
+		"locked": true
+	},
+	"wooden_beam": {
+		"result": "wooden_beam",
+		"station": "workbench",
+		"name": "Holzbalken",
+		"ingredients": [
+			{
+				"item": "wood",
+				"amount": 2
+			}
+		],
+		"tab": "accessory",
+		"category": "Baumaterial",
+		"locked": true
+	},
+	"copper_nail": {
+		"result": "copper_nail",
+		"station": "workbench",
+		"name": "Kupfernagel",
+		"ingredients": [
+			{
+				"item": "copper_ingot",
+				"amount": 1
+			}
+		],
+		"tab": "accessory",
+		"category": "Baumaterial",
+		"locked": true
+	},
+	"iron_nail": {
+		"result": "iron_nail",
+		"station": "workbench",
+		"name": "Eisennagel",
+		"ingredients": [
+			{
+				"item": "iron_ingot",
+				"amount": 1
+			}
+		],
+		"tab": "accessory",
+		"category": "Baumaterial",
+		"locked": true
+	},
+	"iron_staff_fire": {
+		"result": "iron_staff_fire",
+		"group": "Eisen-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Eisen-Feuerstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": ["iron"],
+				"amount": 1
+			},
+			{
+				"item": "ruby",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"iron_staff_water": {
+		"result": "iron_staff_water",
+		"group": "Eisen-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Eisen-Wasserstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": ["iron"],
+				"amount": 1
+			},
+			{
+				"item": "sapphire",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"iron_staff_air": {
+		"result": "iron_staff_air",
+		"group": "Eisen-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Eisen-Windstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": ["iron"],
+				"amount": 1
+			},
+			{
+				"item": "emerald",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"iron_staff_earth": {
+		"result": "iron_staff_earth",
+		"group": "Eisen-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Eisen-Erdstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": ["iron"],
+				"amount": 1
+			},
+			{
+				"item": "topaz",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"iron_staff_dark": {
+		"result": "iron_staff_dark",
+		"group": "Eisen-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Eisen-Schattenstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": ["iron"],
+				"amount": 1
+			},
+			{
+				"item": "amethyst",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"iron_staff_light": {
+		"result": "iron_staff_light",
+		"group": "Eisen-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Eisen-Lichtstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": ["iron"],
+				"amount": 1
+			},
+			{
+				"item": "diamond",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"iron_staff_lightning": {
+		"result": "iron_staff_lightning",
+		"group": "Eisen-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Eisen-Blitzstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": ["iron"],
+				"amount": 1
+			},
+			{
+				"item": "citrine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"iron_staff_ice": {
+		"result": "iron_staff_ice",
+		"group": "Eisen-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Eisen-Froststab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": ["iron"],
+				"amount": 1
+			},
+			{
+				"item": "aquamarine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"iron_staff_poison": {
+		"result": "iron_staff_poison",
+		"group": "Eisen-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Eisen-Giftstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": ["iron"],
+				"amount": 1
+			},
+			{
+				"item": "jade",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"copper_staff_fire": {
+		"result": "copper_staff_fire",
+		"group": "Kupfer-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Kupfer-Feuerstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"copper"
+				],
+				"amount": 1
+			},
+			{
+				"item": "ruby",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"copper_staff_water": {
+		"result": "copper_staff_water",
+		"group": "Kupfer-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Kupfer-Wasserstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"copper"
+				],
+				"amount": 1
+			},
+			{
+				"item": "sapphire",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"copper_staff_air": {
+		"result": "copper_staff_air",
+		"group": "Kupfer-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Kupfer-Windstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"copper"
+				],
+				"amount": 1
+			},
+			{
+				"item": "emerald",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"copper_staff_earth": {
+		"result": "copper_staff_earth",
+		"group": "Kupfer-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Kupfer-Erdstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"copper"
+				],
+				"amount": 1
+			},
+			{
+				"item": "topaz",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"copper_staff_dark": {
+		"result": "copper_staff_dark",
+		"group": "Kupfer-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Kupfer-Schattenstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"copper"
+				],
+				"amount": 1
+			},
+			{
+				"item": "amethyst",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"copper_staff_light": {
+		"result": "copper_staff_light",
+		"group": "Kupfer-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Kupfer-Lichtstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"copper"
+				],
+				"amount": 1
+			},
+			{
+				"item": "diamond",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"copper_staff_lightning": {
+		"result": "copper_staff_lightning",
+		"group": "Kupfer-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Kupfer-Blitzstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"copper"
+				],
+				"amount": 1
+			},
+			{
+				"item": "citrine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"copper_staff_ice": {
+		"result": "copper_staff_ice",
+		"group": "Kupfer-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Kupfer-Froststab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"copper"
+				],
+				"amount": 1
+			},
+			{
+				"item": "aquamarine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"copper_staff_poison": {
+		"result": "copper_staff_poison",
+		"group": "Kupfer-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Kupfer-Giftstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"copper"
+				],
+				"amount": 1
+			},
+			{
+				"item": "jade",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"bronze_staff_fire": {
+		"result": "bronze_staff_fire",
+		"group": "Bronze-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Bronze-Feuerstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"bronze"
+				],
+				"amount": 1
+			},
+			{
+				"item": "ruby",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"bronze_staff_water": {
+		"result": "bronze_staff_water",
+		"group": "Bronze-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Bronze-Wasserstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"bronze"
+				],
+				"amount": 1
+			},
+			{
+				"item": "sapphire",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"bronze_staff_air": {
+		"result": "bronze_staff_air",
+		"group": "Bronze-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Bronze-Windstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"bronze"
+				],
+				"amount": 1
+			},
+			{
+				"item": "emerald",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"bronze_staff_earth": {
+		"result": "bronze_staff_earth",
+		"group": "Bronze-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Bronze-Erdstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"bronze"
+				],
+				"amount": 1
+			},
+			{
+				"item": "topaz",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"bronze_staff_dark": {
+		"result": "bronze_staff_dark",
+		"group": "Bronze-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Bronze-Schattenstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"bronze"
+				],
+				"amount": 1
+			},
+			{
+				"item": "amethyst",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"bronze_staff_light": {
+		"result": "bronze_staff_light",
+		"group": "Bronze-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Bronze-Lichtstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"bronze"
+				],
+				"amount": 1
+			},
+			{
+				"item": "diamond",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"bronze_staff_lightning": {
+		"result": "bronze_staff_lightning",
+		"group": "Bronze-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Bronze-Blitzstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"bronze"
+				],
+				"amount": 1
+			},
+			{
+				"item": "citrine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"bronze_staff_ice": {
+		"result": "bronze_staff_ice",
+		"group": "Bronze-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Bronze-Froststab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"bronze"
+				],
+				"amount": 1
+			},
+			{
+				"item": "aquamarine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"bronze_staff_poison": {
+		"result": "bronze_staff_poison",
+		"group": "Bronze-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Bronze-Giftstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"bronze"
+				],
+				"amount": 1
+			},
+			{
+				"item": "jade",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"silver_staff_fire": {
+		"result": "silver_staff_fire",
+		"group": "Silber-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Silber-Feuerstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"silver"
+				],
+				"amount": 1
+			},
+			{
+				"item": "ruby",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"silver_staff_water": {
+		"result": "silver_staff_water",
+		"group": "Silber-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Silber-Wasserstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"silver"
+				],
+				"amount": 1
+			},
+			{
+				"item": "sapphire",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"silver_staff_air": {
+		"result": "silver_staff_air",
+		"group": "Silber-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Silber-Windstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"silver"
+				],
+				"amount": 1
+			},
+			{
+				"item": "emerald",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"silver_staff_earth": {
+		"result": "silver_staff_earth",
+		"group": "Silber-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Silber-Erdstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"silver"
+				],
+				"amount": 1
+			},
+			{
+				"item": "topaz",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"silver_staff_dark": {
+		"result": "silver_staff_dark",
+		"group": "Silber-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Silber-Schattenstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"silver"
+				],
+				"amount": 1
+			},
+			{
+				"item": "amethyst",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"silver_staff_light": {
+		"result": "silver_staff_light",
+		"group": "Silber-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Silber-Lichtstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"silver"
+				],
+				"amount": 1
+			},
+			{
+				"item": "diamond",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"silver_staff_lightning": {
+		"result": "silver_staff_lightning",
+		"group": "Silber-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Silber-Blitzstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"silver"
+				],
+				"amount": 1
+			},
+			{
+				"item": "citrine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"silver_staff_ice": {
+		"result": "silver_staff_ice",
+		"group": "Silber-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Silber-Froststab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"silver"
+				],
+				"amount": 1
+			},
+			{
+				"item": "aquamarine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"silver_staff_poison": {
+		"result": "silver_staff_poison",
+		"group": "Silber-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Silber-Giftstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"silver"
+				],
+				"amount": 1
+			},
+			{
+				"item": "jade",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"gold_staff_fire": {
+		"result": "gold_staff_fire",
+		"group": "Gold-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Gold-Feuerstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"gold"
+				],
+				"amount": 1
+			},
+			{
+				"item": "ruby",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"gold_staff_water": {
+		"result": "gold_staff_water",
+		"group": "Gold-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Gold-Wasserstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"gold"
+				],
+				"amount": 1
+			},
+			{
+				"item": "sapphire",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"gold_staff_air": {
+		"result": "gold_staff_air",
+		"group": "Gold-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Gold-Windstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"gold"
+				],
+				"amount": 1
+			},
+			{
+				"item": "emerald",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"gold_staff_earth": {
+		"result": "gold_staff_earth",
+		"group": "Gold-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Gold-Erdstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"gold"
+				],
+				"amount": 1
+			},
+			{
+				"item": "topaz",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"gold_staff_dark": {
+		"result": "gold_staff_dark",
+		"group": "Gold-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Gold-Schattenstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"gold"
+				],
+				"amount": 1
+			},
+			{
+				"item": "amethyst",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"gold_staff_light": {
+		"result": "gold_staff_light",
+		"group": "Gold-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Gold-Lichtstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"gold"
+				],
+				"amount": 1
+			},
+			{
+				"item": "diamond",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"gold_staff_lightning": {
+		"result": "gold_staff_lightning",
+		"group": "Gold-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Gold-Blitzstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"gold"
+				],
+				"amount": 1
+			},
+			{
+				"item": "citrine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"gold_staff_ice": {
+		"result": "gold_staff_ice",
+		"group": "Gold-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Gold-Froststab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"gold"
+				],
+				"amount": 1
+			},
+			{
+				"item": "aquamarine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"gold_staff_poison": {
+		"result": "gold_staff_poison",
+		"group": "Gold-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Gold-Giftstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"gold"
+				],
+				"amount": 1
+			},
+			{
+				"item": "jade",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"platinum_staff_fire": {
+		"result": "platinum_staff_fire",
+		"group": "Platin-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Platin-Feuerstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"platinum"
+				],
+				"amount": 1
+			},
+			{
+				"item": "ruby",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"platinum_staff_water": {
+		"result": "platinum_staff_water",
+		"group": "Platin-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Platin-Wasserstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"platinum"
+				],
+				"amount": 1
+			},
+			{
+				"item": "sapphire",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"platinum_staff_air": {
+		"result": "platinum_staff_air",
+		"group": "Platin-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Platin-Windstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"platinum"
+				],
+				"amount": 1
+			},
+			{
+				"item": "emerald",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"platinum_staff_earth": {
+		"result": "platinum_staff_earth",
+		"group": "Platin-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Platin-Erdstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"platinum"
+				],
+				"amount": 1
+			},
+			{
+				"item": "topaz",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"platinum_staff_dark": {
+		"result": "platinum_staff_dark",
+		"group": "Platin-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Platin-Schattenstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"platinum"
+				],
+				"amount": 1
+			},
+			{
+				"item": "amethyst",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"platinum_staff_light": {
+		"result": "platinum_staff_light",
+		"group": "Platin-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Platin-Lichtstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"platinum"
+				],
+				"amount": 1
+			},
+			{
+				"item": "diamond",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"platinum_staff_lightning": {
+		"result": "platinum_staff_lightning",
+		"group": "Platin-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Platin-Blitzstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"platinum"
+				],
+				"amount": 1
+			},
+			{
+				"item": "citrine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"platinum_staff_ice": {
+		"result": "platinum_staff_ice",
+		"group": "Platin-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Platin-Froststab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"platinum"
+				],
+				"amount": 1
+			},
+			{
+				"item": "aquamarine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"platinum_staff_poison": {
+		"result": "platinum_staff_poison",
+		"group": "Platin-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Platin-Giftstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"platinum"
+				],
+				"amount": 1
+			},
+			{
+				"item": "jade",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"palladium_staff_fire": {
+		"result": "palladium_staff_fire",
+		"group": "Palladium-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Palladium-Feuerstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"palladium"
+				],
+				"amount": 1
+			},
+			{
+				"item": "ruby",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"palladium_staff_water": {
+		"result": "palladium_staff_water",
+		"group": "Palladium-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Palladium-Wasserstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"palladium"
+				],
+				"amount": 1
+			},
+			{
+				"item": "sapphire",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"palladium_staff_air": {
+		"result": "palladium_staff_air",
+		"group": "Palladium-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Palladium-Windstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"palladium"
+				],
+				"amount": 1
+			},
+			{
+				"item": "emerald",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"palladium_staff_earth": {
+		"result": "palladium_staff_earth",
+		"group": "Palladium-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Palladium-Erdstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"palladium"
+				],
+				"amount": 1
+			},
+			{
+				"item": "topaz",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"palladium_staff_dark": {
+		"result": "palladium_staff_dark",
+		"group": "Palladium-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Palladium-Schattenstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"palladium"
+				],
+				"amount": 1
+			},
+			{
+				"item": "amethyst",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"palladium_staff_light": {
+		"result": "palladium_staff_light",
+		"group": "Palladium-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Palladium-Lichtstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"palladium"
+				],
+				"amount": 1
+			},
+			{
+				"item": "diamond",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"palladium_staff_lightning": {
+		"result": "palladium_staff_lightning",
+		"group": "Palladium-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Palladium-Blitzstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"palladium"
+				],
+				"amount": 1
+			},
+			{
+				"item": "citrine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"palladium_staff_ice": {
+		"result": "palladium_staff_ice",
+		"group": "Palladium-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Palladium-Froststab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"palladium"
+				],
+				"amount": 1
+			},
+			{
+				"item": "aquamarine",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"palladium_staff_poison": {
+		"result": "palladium_staff_poison",
+		"group": "Palladium-Zauberstab",
+		"group_slot": "Kristall",
+		"station": "enchanting_table",
+		"name": "Palladium-Giftstab",
+		"ingredients": [
+			{
+				"part": "staff_rod",
+				"materials": [
+					"palladium"
+				],
+				"amount": 1
+			},
+			{
+				"item": "jade",
+				"amount": 1
+			}
+		],
+		"tab": "weapon",
+		"category": "Zauberstäbe",
+		"locked": true
+	},
+	"goblin_crown_cast": {
+		"result": "hot_goblin_crown_blank",
+		"station": "forge",
+		"name": "Kronenrohling",
+		"ingredients": [
+			{
+				"item": "bronze_ingot",
+				"amount": 5,
+				"min_rarity": "R3"
+			}
+		],
+		"tab": "armor",
+		"category": "Einzigartig",
+		"locked": true
+	},
+	"goblin_crown": {
+		"result": "goblin_crown",
+		"station": "anvil",
+		"name": "Goblinkrone",
+		"hot": true,
+		"ingredients": [
+			{
+				"item": "hot_goblin_crown_blank"
+			}
+		],
+		"tab": "armor",
+		"category": "Einzigartig",
+		"locked": true
+	},
+	"sun_seal_cast": {
+		"result": "hot_sun_seal_blank",
+		"station": "forge",
+		"name": "Sonnensiegel (Rohling)",
+		"ingredients": [
+			{
+				"item": "gold_ingot",
+				"amount": 2
+			}
+		],
+		"tab": "accessory",
+		"category": "Sturmtempel",
+		"locked": true
+	},
+	"sun_seal": {
+		"result": "sun_seal",
+		"station": "anvil",
+		"name": "Sonnensiegel",
+		"hot": true,
+		"ingredients": [
+			{
+				"item": "hot_sun_seal_blank"
+			}
+		],
+		"tab": "accessory",
+		"category": "Sturmtempel",
+		"locked": true
+	},
+	"moon_seal_cast": {
+		"result": "hot_moon_seal_blank",
+		"station": "forge",
+		"name": "Mondsiegel (Rohling)",
+		"ingredients": [
+			{
+				"item": "silver_ingot",
+				"amount": 2
+			}
+		],
+		"tab": "accessory",
+		"category": "Sturmtempel",
+		"locked": true
+	},
+	"moon_seal": {
+		"result": "moon_seal",
+		"station": "anvil",
+		"name": "Mondsiegel",
+		"hot": true,
+		"ingredients": [
+			{
+				"item": "hot_moon_seal_blank"
+			}
+		],
+		"tab": "accessory",
+		"category": "Sturmtempel",
+		"locked": true
+	},
+	"storm_seal_cast": {
+		"result": "hot_storm_seal_blank",
+		"station": "forge",
+		"name": "Sturmsiegel (Rohling)",
+		"ingredients": [
+			{
+				"item": "copper_ingot",
+				"amount": 2
+			}
+		],
+		"tab": "accessory",
+		"category": "Sturmtempel",
+		"locked": true
+	},
+	"storm_seal": {
+		"result": "storm_seal",
+		"station": "anvil",
+		"name": "Sturmsiegel",
+		"hot": true,
+		"ingredients": [
+			{
+				"item": "hot_storm_seal_blank"
+			}
+		],
+		"tab": "accessory",
+		"category": "Sturmtempel",
+		"locked": true
+	},
+	"lightning_rod_cast": {
+		"result": "hot_lightning_rod_blank",
+		"station": "forge",
+		"name": "Blitzableiter (Rohling)",
+		"ingredients": [
+			{
+				"item": "copper_ingot",
+				"amount": 3
+			}
+		],
+		"tab": "accessory",
+		"category": "Sturmtempel",
+		"locked": true
+	},
+	"lightning_rod": {
+		"result": "lightning_rod",
+		"station": "anvil",
+		"name": "Blitzableiter",
+		"hot": true,
+		"ingredients": [
+			{
+				"item": "hot_lightning_rod_blank"
+			}
+		],
+		"tab": "accessory",
+		"category": "Sturmtempel",
+		"locked": true
+	},
+	"mold_ice_mirror": {
+		"result": "hot_ice_mirror_blank",
+		"station": "forge",
+		"name": "Silberspiegel (Rohling)",
+		"ingredients": [
+			{
+				"item": "silver_ingot",
+				"amount": 2
+			}
+		],
+		"tab": "accessory",
+		"category": "Eismauer",
+		"locked": true
+	},
+	"ice_mirror": {
+		"result": "ice_mirror",
+		"station": "anvil",
+		"name": "Silberspiegel",
+		"hot": true,
+		"ingredients": [
+			{
+				"item": "hot_ice_mirror_blank"
+			}
+		],
+		"tab": "accessory",
+		"category": "Eismauer",
+		"locked": true
+	},
+	"mold_harpoon_tip": {
+		"result": "hot_harpoon_tip_blank",
+		"station": "forge",
+		"name": "Harpunenspitze (Rohling)",
+		"ingredients": [
+			{
+				"item": "silver_ingot",
+				"amount": 1
+			},
+			{
+				"item": "iron_ingot",
+				"amount": 1
+			}
+		],
+		"tab": "accessory",
+		"category": "Eisquell",
+		"locked": true
+	},
+	"harpoon_tip": {
+		"result": "harpoon_tip",
+		"station": "anvil",
+		"name": "Harpunenspitze",
+		"hot": true,
+		"ingredients": [
+			{
+				"item": "hot_harpoon_tip_blank"
+			}
+		],
+		"tab": "accessory",
+		"category": "Eisquell",
+		"locked": true
+	},
+	"mold_finster_lockpick": {
+		"result": "hot_finster_lockpick_blank",
+		"station": "forge",
+		"name": "Dietrich aus Silber (Rohling)",
+		"ingredients": [
+			{
+				"item": "silver_ingot",
+				"amount": 1
+			},
+			{
+				"item": "iron_ingot",
+				"amount": 1
+			}
+		],
+		"tab": "accessory",
+		"category": "Finsterstadt",
+		"locked": true
+	},
+	"finster_lockpick": {
+		"result": "finster_lockpick",
+		"station": "anvil",
+		"name": "Dietrich aus Silber",
+		"hot": true,
+		"ingredients": [
+			{
+				"item": "hot_finster_lockpick_blank"
+			}
+		],
+		"tab": "accessory",
+		"category": "Finsterstadt",
+		"locked": true
+	},
+	"mold_climbing_hook": {
+		"result": "hot_climbing_hook_blank",
+		"station": "forge",
+		"name": "Kletterhaken (Rohling)",
+		"ingredients": [
+			{
+				"item": "iron_ingot",
+				"amount": 2
+			}
+		],
+		"tab": "accessory",
+		"category": "Finsterstadt",
+		"locked": true
+	},
+	"climbing_hook": {
+		"result": "climbing_hook",
+		"station": "anvil",
+		"name": "Kletterhaken",
+		"hot": true,
+		"ingredients": [
+			{
+				"item": "hot_climbing_hook_blank"
+			}
+		],
+		"tab": "accessory",
+		"category": "Finsterstadt",
+		"locked": true
+	},
+	"open_shackle": {
+		"result": "broken_shackle",
+		"station": "anvil",
+		"name": "Fessel aufschmieden",
+		"ingredients": [
+			{
+				"item": "starsteel_shackle",
+				"amount": 1
+			}
+		],
+		"tab": "accessory",
+		"category": "Finsterburg",
+		"locked": true
+	},
+	"true_setting": {
+		"result": "true_setting",
+		"station": "anvil",
+		"name": "Die wahre Fassung",
+		"ingredients": [
+			{
+				"item": "starsteel_ingot",
+				"amount": 3
+			}
+		],
+		"tab": "accessory",
+		"category": "Altar der Neun",
+		"locked": true
+	},
+	"living_wind_orb": {
+		"result": "living_wind_orb",
+		"station": "enchanting_table",
+		"name": "Beseelter Windorb",
+		"ingredients": [
+			{
+				"item": "wind_orb",
+				"amount": 1
+			},
+			{
+				"item": "heartleaf",
+				"amount": 1
+			}
+		],
+		"tab": "accessory",
+		"category": "Fenns Flugmaschine",
+		"locked": true
+	}
+}

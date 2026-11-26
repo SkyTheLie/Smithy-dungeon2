@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Hero" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/hero.gd" id="1_hero"]
+[ext_resource type="Resource" path="res://data/hero_classes/mage.tres" id="2_class"]
+
+[resource]
+script = ExtResource("1_hero")
+id = &"mira"
+display_name = "Mira"
+hero_class = ExtResource("2_class")
+level = 1
+race = "half_demon"
+hire_cost = 100
+strength = 1
+agility = 3
+constitution = 3
+intelligence = 8
+wisdom = 5
+resistance = 4

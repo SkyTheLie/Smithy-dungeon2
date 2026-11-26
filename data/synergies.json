@@ -1,0 +1,19 @@
+{
+	"_info": "Synergien: gelten, wenn aus jeder Gruppe in requires mindestens ein Item da ist. Bonus wie bei Items (stats, flags). Das Verhalten entsteht meist von selbst aus den Flags (z. B. Strahl + zielsuchend = der Strahl biegt sich zum Gegner); der Bonus macht es stärker, und der Name erscheint als Meldung.",
+	"synergies": {
+		"feuerwerk": {"name": "Feuerwerk", "desc": "Viele suchende Funken auf einmal", "requires": [["suchender_funke"], ["zwillingsstab", "dreizack", "kohlenschrot"]], "stats": {"shot_speed": 1.0, "damage": 0.3}},
+		"suchender_strahl": {"name": "Suchender Strahl", "desc": "Der Feuerstrahl biegt sich zum Gegner", "requires": [["feuerlanze"], ["suchender_funke"]], "stats": {"damage": 0.5}},
+		"sprengstrahl": {"name": "Sprengstrahl", "desc": "Wo der Strahl auftrifft, knallt es", "requires": [["feuerlanze"], ["pulverhand"]], "flags": ["explosive"]},
+		"streubombe": {"name": "Streubombe", "desc": "Bomben zerplatzen in kleine Bomben", "requires": [["pulverhand"], ["splitterrubin"]], "stats": {"damage": 0.5}},
+		"meteor": {"name": "Meteor", "desc": "Aufgeladene Riesenglut schlägt ein und explodiert", "requires": [["glutsammler"], ["schwere_glut"]], "stats": {"damage": 1.0}, "flags": ["explosive"]},
+		"drachenatem": {"name": "Drachenatem", "desc": "Aufladen, loslassen: ein gewaltiger Feuerstrahl", "requires": [["glutsammler"], ["feuerlanze"]], "stats": {"damage_mult": 1.3}},
+		"flipper": {"name": "Flipper", "desc": "Durch Gegner hindurch und von Wand zu Wand", "requires": [["eisspiegel"], ["sternsplitter"]], "stats": {"damage": 0.5}},
+		"brotregen": {"name": "Brotregen", "desc": "Eine ganze Bäckerei auf einmal", "requires": [["brotkanone"], ["kohlenschrot", "dreizack"]], "stats": {"fire_delay_mult": 0.85}},
+		"mondsturm": {"name": "Mondsturm", "desc": "Noch ein Glutmond kreist um dich", "requires": [["glutmond"], ["zwillingsstab", "dreizack"]], "stats": {"orbitals": 1}},
+		"treue_funken": {"name": "Treue Funken", "desc": "Suchende Bumerangs finden immer ein Ziel", "requires": [["bumerang_haken"], ["suchender_funke"]], "stats": {"damage": 0.5}},
+		"frost_und_feuer": {"name": "Frost und Feuer", "desc": "Brennend und langsam: mehr Schaden", "requires": [["brandoel"], ["frostflechte"]], "stats": {"damage": 0.5}},
+		"kometenschweif": {"name": "Kometenschweif", "desc": "Lange Flugbahnen, gewaltiger Einschlag", "requires": [["kometenstein"], ["leichte_feder", "eisspiegel", "bumerang_haken"]], "stats": {"damage": 0.5}},
+		"feuerhieb": {"name": "Feuerhieb", "desc": "Schwert und Feuerstab: jeder Schwung schickt einen Feuerschweif nach vorne", "requires": [["kriegerschwert", "glutschwert", "kriegsaxt"], ["glutstab", "feuerstab", "hoellenstab"]], "flags": ["fire_slash"]},
+		"feuerfester_bomber": {"name": "Feuerfester Bomber", "desc": "Größere Bomben, und keine tut dir weh", "requires": [["schmiedeschuerze"], ["pulverhand"]], "stats": {"size": 0.3, "damage": 0.5}}
+	}
+}
