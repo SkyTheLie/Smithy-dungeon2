@@ -6,6 +6,9 @@ msgstr ""
 msgid "%d Herzen"
 msgstr "%d cœurs"
 
+msgid "Abbrechen"
+msgstr "Annuler"
+
 msgid "Acht Bomben"
 msgstr "Huit bombes"
 
@@ -62,6 +65,9 @@ msgstr "Vaincs : %s"
 
 msgid "Besiegte Gegner: %d"
 msgstr "Ennemis vaincus : %d"
+
+msgid "Betreten"
+msgstr "Entrer"
 
 msgid "Blasebalg"
 msgstr "Soufflet"
@@ -240,6 +246,12 @@ msgstr "Tu deviens minuscule et esquives parfois"
 msgid "Dungeon der Glut"
 msgstr "Donjon des Braises"
 
+msgid "Dungeon-Brett"
+msgstr "Tableau des donjons"
+
+msgid "Dungeons"
+msgstr "Donjons"
+
 msgid "Dunkler Zauberstab"
 msgstr "Baguette sombre"
 
@@ -266,6 +278,9 @@ msgstr "Étage : %d"
 
 msgid "Effekte"
 msgstr "Effets"
+
+msgid "Egons Laden"
+msgstr "La boutique d'Egon"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Tes propres explosions te soignent"
@@ -477,6 +492,9 @@ msgstr "Cinq clés"
 msgid "Fünfzehn Münzen"
 msgstr "Quinze pièces"
 
+msgid "Gebiete: %s"
+msgstr "Zones : %s"
+
 msgid "Gegabelter Stab"
 msgstr "Bâton fourchu"
 
@@ -566,6 +584,9 @@ msgstr "Bâton de poison"
 
 msgid "Giftzahn"
 msgstr "Croc venimeux"
+
+msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
+msgstr "Juste derrière la boutique d'Egon, ça descend. Tout en bas attend un boss, et soi-disant un trésor. C'est Egon qui le dit."
 
 msgid "Glutkern"
 msgstr "Cœur de braise"
@@ -854,6 +875,12 @@ msgstr "Rosée de vie"
 
 msgid "Lederstiefel"
 msgstr "Bottes de cuir"
+
+msgid "Leer"
+msgstr "Vide"
+
+msgid "Leertaste: weiter · Esc: überspringen"
+msgstr "Espace : continuer · Échap : passer"
 
 msgid "Legendenhandschuhe"
 msgstr "Gants légendaires"
@@ -1419,6 +1446,15 @@ msgstr "Tournesol"
 msgid "Spardose"
 msgstr "Tirelire"
 
+msgid "Spielstand %s"
+msgstr "Sauvegarde %s"
+
+msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
+msgstr "Écraser la sauvegarde %s ? L'ancienne progression sera perdue."
+
+msgid "Spielstand wählen"
+msgstr "Choisir une sauvegarde"
+
 msgid "Spinne"
 msgstr "Araignée"
 
@@ -1491,6 +1527,9 @@ msgstr "Bombe à fragmentation"
 msgid "Struppig und leicht angekaut."
 msgstr "Hirsute et un peu mâchouillée."
 
+msgid "Stufe %d · %d Ebenen"
+msgstr "Niveau %d · %d étages"
+
 msgid "Sturmessenz"
 msgstr "Essence de tempête"
 
@@ -1542,6 +1581,12 @@ msgstr "Synergie : %s !"
 msgid "Synergien: %s"
 msgstr "Synergies : %s"
 
+msgid "Tag %d"
+msgstr "Jour %d"
+
+msgid "Tag %d · %d Gold"
+msgstr "Jour %d · %d or"
+
 msgid "Taumelkraut"
 msgstr "Herbe titubante"
 
@@ -1580,6 +1625,9 @@ msgstr "Armure de troll"
 
 msgid "Truhenschlüssel"
 msgstr "Clé du coffre"
+
+msgid "Umgebung"
+msgstr "Environs"
 
 msgid "Ungewöhnlich"
 msgstr "Peu commun"
@@ -1692,6 +1740,9 @@ msgstr "Les shurikens traversent les ennemis et les font souvent saigner"
 msgid "Wähle deinen Charakter"
 msgstr "Choisis ton personnage"
 
+msgid "Wähle links einen Dungeon."
+msgstr "Choisis un donjon à gauche."
+
 msgid "Wählen"
 msgstr "Choisir"
 
@@ -1718,6 +1769,9 @@ msgstr "Pas assez de pièces"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "Poison, peur ou titubement au hasard"
+
+msgid "Zum Laden"
+msgstr "À la boutique"
 
 msgid "Zunderbüchse"
 msgstr "Boîte à amadou"
@@ -1772,3 +1826,6 @@ msgstr "Gants jumeaux"
 
 msgid "oder Leertaste"
 msgstr "ou appuyez sur Espace"
+
+msgid "Überschreiben"
+msgstr "Écraser"

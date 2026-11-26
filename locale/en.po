@@ -6,6 +6,9 @@ msgstr ""
 msgid "%d Herzen"
 msgstr "%d hearts"
 
+msgid "Abbrechen"
+msgstr "Cancel"
+
 msgid "Acht Bomben"
 msgstr "Eight bombs"
 
@@ -62,6 +65,9 @@ msgstr "Defeat: %s"
 
 msgid "Besiegte Gegner: %d"
 msgstr "Enemies defeated: %d"
+
+msgid "Betreten"
+msgstr "Enter"
 
 msgid "Blasebalg"
 msgstr "Bellows"
@@ -240,6 +246,12 @@ msgstr "You become tiny and sometimes dodge"
 msgid "Dungeon der Glut"
 msgstr "Dungeon of Embers"
 
+msgid "Dungeon-Brett"
+msgstr "Dungeon Board"
+
+msgid "Dungeons"
+msgstr "Dungeons"
+
 msgid "Dunkler Zauberstab"
 msgstr "Dark Wand"
 
@@ -266,6 +278,9 @@ msgstr "Floor: %d"
 
 msgid "Effekte"
 msgstr "Effects"
+
+msgid "Egons Laden"
+msgstr "Egon's Shop"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Your own explosions heal you"
@@ -477,6 +492,9 @@ msgstr "Five keys"
 msgid "Fünfzehn Münzen"
 msgstr "Fifteen coins"
 
+msgid "Gebiete: %s"
+msgstr "Areas: %s"
+
 msgid "Gegabelter Stab"
 msgstr "Forked Staff"
 
@@ -566,6 +584,9 @@ msgstr "Poison Staff"
 
 msgid "Giftzahn"
 msgstr "Venom Fang"
+
+msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
+msgstr "Right behind Egon's shop, the way leads down. At the very bottom a boss is waiting, and supposedly a treasure. Says Egon."
 
 msgid "Glutkern"
 msgstr "Ember Core"
@@ -854,6 +875,12 @@ msgstr "Life Dew"
 
 msgid "Lederstiefel"
 msgstr "Leather Boots"
+
+msgid "Leer"
+msgstr "Empty"
+
+msgid "Leertaste: weiter · Esc: überspringen"
+msgstr "Space: continue · Esc: skip"
 
 msgid "Legendenhandschuhe"
 msgstr "Legend Gloves"
@@ -1419,6 +1446,15 @@ msgstr "Sunflower"
 msgid "Spardose"
 msgstr "Money Box"
 
+msgid "Spielstand %s"
+msgstr "Save %s"
+
+msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
+msgstr "Overwrite save %s? The old progress will be gone."
+
+msgid "Spielstand wählen"
+msgstr "Choose a save"
+
 msgid "Spinne"
 msgstr "Spider"
 
@@ -1491,6 +1527,9 @@ msgstr "Cluster Bomb"
 msgid "Struppig und leicht angekaut."
 msgstr "Scruffy and a little chewed."
 
+msgid "Stufe %d · %d Ebenen"
+msgstr "Level %d · %d floors"
+
 msgid "Sturmessenz"
 msgstr "Storm Essence"
 
@@ -1542,6 +1581,12 @@ msgstr "Synergy: %s!"
 msgid "Synergien: %s"
 msgstr "Synergies: %s"
 
+msgid "Tag %d"
+msgstr "Day %d"
+
+msgid "Tag %d · %d Gold"
+msgstr "Day %d · %d gold"
+
 msgid "Taumelkraut"
 msgstr "Stagger Weed"
 
@@ -1580,6 +1625,9 @@ msgstr "Troll Armor"
 
 msgid "Truhenschlüssel"
 msgstr "Chest Key"
+
+msgid "Umgebung"
+msgstr "Surroundings"
 
 msgid "Ungewöhnlich"
 msgstr "Uncommon"
@@ -1692,6 +1740,9 @@ msgstr "Shuriken fly through enemies and often make them bleed"
 msgid "Wähle deinen Charakter"
 msgstr "Choose your character"
 
+msgid "Wähle links einen Dungeon."
+msgstr "Choose a dungeon on the left."
+
 msgid "Wählen"
 msgstr "Choose"
 
@@ -1718,6 +1769,9 @@ msgstr "Not enough coins"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "Random poison, fear or stagger"
+
+msgid "Zum Laden"
+msgstr "To the Shop"
 
 msgid "Zunderbüchse"
 msgstr "Tinderbox"
@@ -1772,3 +1826,6 @@ msgstr "Twin Gloves"
 
 msgid "oder Leertaste"
 msgstr "or press Space"
+
+msgid "Überschreiben"
+msgstr "Overwrite"

@@ -7,7 +7,8 @@ Exit code 1 if a text is missing in translations.json or a language is missing f
 Texts it finds by itself:
   - "text" and "title" of Labels/Buttons in .tscn files (only those with auto translate on)
   - Language.translate("...") in .gd files
-  - "name" and "desc" in data/items.json, data/synergies.json, data/enemies.json, data/characters.json, materials in data/loot.json, theme "name" in floors.json
+  - "name" and "desc" in data/items.json, data/synergies.json, data/enemies.json, data/characters.json, materials in data/loot.json, theme "name" in floors.json,
+    "name"/"region"/"desc" in data/dungeons.json
 """
 import json
 import os
@@ -47,6 +48,11 @@ def find_texts():
     loot = json.load(open(os.path.join(data, "loot.json"), encoding="utf-8"))
     for entry in loot["materials"].values():
         for field in ("name", "desc"):
+            if entry.get(field):
+                texts.add(entry[field])
+    dungeons = json.load(open(os.path.join(data, "dungeons.json"), encoding="utf-8"))
+    for entry in dungeons["dungeons"].values():
+        for field in ("name", "region", "desc"):
             if entry.get(field):
                 texts.add(entry[field])
     floors = json.load(open(os.path.join(data, "floors.json"), encoding="utf-8"))

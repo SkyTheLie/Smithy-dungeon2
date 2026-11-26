@@ -1,6 +1,9 @@
 class_name MetaState
 extends RefCounted
-## What the player owns between runs (user://save.cfg), saved after every change:
+## What the player owns between runs, in one save per slot (A, B, C: user://save_<slot>.cfg).
+## There is only this one save per slot, no saving by hand: it is written at the end of every day
+## (end_run, after the night the merchant may steal), and when gold leaves the safe home
+## (take_purse_for_run, deposit, withdraw), so quitting never doubles gold.
 ##   purse  gold the player carries. It goes into the dungeon with the next run (start coins) and
 ##          is lost there on death.
 ##   box    the small money box (Dose) outside the dungeon. Safe up to data/meta.json
@@ -8,11 +11,59 @@ extends RefCounted
 ##   stash  loot brought home (from the bag), to sell to the merchant later.
 ##   day    one run = one day.
 ## Rules about this gold live here (deposit / withdraw check the amounts); screens only call them.
+## The chosen slot is a setting (user://settings.cfg, "save" / "slot"); the slot choice after the
+## language choice sets it (SlotSelect).
 
-const PATH: String = "user://save.cfg"
+const SLOTS: PackedStringArray = ["a", "b", "c"]
 const SECTION: String = "meta"
+const SETTINGS_SECTION: String = "save"
 
 static var _config: ConfigFile
+## The slot in use ("" = not read from the settings yet).
+static var _slot: String = ""
+
+
+static func slot() -> String:
+	if _slot.is_empty():
+		_slot = String(WindowLayout.get_setting(SETTINGS_SECTION, "slot", SLOTS[0]))
+		if not SLOTS.has(_slot):
+			_slot = SLOTS[0]
+	return _slot
+
+
+## Uses slot `id` from now on (unknown ids are ignored) and remembers it in the settings.
+static func set_slot(id: String) -> void:
+	if not SLOTS.has(id):
+		return
+	_slot = id
+	_config = null
+	WindowLayout.set_setting(SETTINGS_SECTION, "slot", id)
+
+
+static func path_of(id: String) -> String:
+	return "user://save_%s.cfg" % id
+
+
+## true if slot `id` (default: the slot in use) holds a game ("Weiter" in the main menu).
+static func has_save(id: String = "") -> bool:
+	return FileAccess.file_exists(path_of(slot() if id.is_empty() else id))
+
+
+## {day, gold} of slot `id` without switching to it (the slot choice shows it); {} = empty.
+static func peek(id: String) -> Dictionary:
+	if not has_save(id):
+		return {}
+	var config := ConfigFile.new()
+	config.load(path_of(id))
+	return {"day": int(config.get_value(SECTION, "day", 1)),
+			"gold": int(config.get_value(SECTION, "purse", 0)) + int(config.get_value(SECTION, "box", 0))}
+
+
+## "Neues Spiel": the slot in use starts over (day 1, nothing owned) and is saved at once.
+static func start_new() -> void:
+	_config = ConfigFile.new()
+	_write("day", 1)
+	_save()
 
 
 static func purse() -> int:
@@ -131,16 +182,17 @@ static func _write(key: String, value: Variant) -> void:
 
 
 static func _save() -> void:
-	_load().save(PATH)
+	_load().save(path_of(slot()))
 
 
 static func _load() -> ConfigFile:
 	if _config == null:
 		_config = ConfigFile.new()
-		_config.load(PATH)
+		_config.load(path_of(slot()))
 	return _config
 
 
 ## Forgets the loaded file; the next call reads it again (tests).
 static func reload() -> void:
 	_config = null
+	_slot = ""

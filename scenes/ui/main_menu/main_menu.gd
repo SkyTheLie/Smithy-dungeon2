@@ -3,11 +3,13 @@ extends Control
 ## First scene (taken over from Smithy), in front of the moving smithy (TitleBackdrop):
 ## 1. Title page: the smithy door shut, "Hier klicken / oder Leertaste" on the door. A click, a key
 ##    or a gamepad button opens the door and pulls the camera inside; another one cuts it short.
-## 2. Main menu beside the anvil: Neues Spiel (starts a run), Lexikon (all items found so far),
-##    Einstellungen, Beenden. The chosen
+## 2. Main menu beside the anvil: Weiter (only if the save slot holds a game: Egon's shop),
+##    Neues Spiel (the slot starts over, after a question if it held a game; then the intro),
+##    Lexikon (all items found so far), Einstellungen, Beenden. The chosen
 ##    word flies onto the anvil and glows, the sledgehammer comes down on it, then the choice happens.
 ## 0. Before the title page on the first start: the language choice (LanguageSelect, flags); also
 ##    from the settings ("Sprache"). The menu then starts again in the chosen language.
+##    After it, once per program start: the save slot choice A, B, C (SlotSelect).
 ## Back from a run it starts at the anvil.
 
 ## How fast the door hint blinks (seconds per half cycle).
@@ -21,8 +23,14 @@ const WORD_FLIGHT: float = 0.3
 ## true = start at the anvil (back from a run or after a language change). A menu flag of this
 ## program start, not game state.
 static var skip_title_page: bool = false
+## true once a save slot was chosen in this program start (a menu flag, not game state).
+static var slot_chosen: bool = false
+## Seconds the screen needs to go black before the intro or the shop.
+const BLACK_TIME: float = 0.5
 
 var _busy: bool = false
+var _slot_select: SlotSelect
+var _black: ColorRect
 
 @onready var _backdrop: TitleBackdrop = $Backdrop
 @onready var _background: TextureRect = $Background
@@ -31,7 +39,6 @@ var _busy: bool = false
 @onready var _door_hint: Control = %DoorHint
 @onready var _settings_window: SettingsWindow = %SettingsWindow
 @onready var _lexicon_window: LexiconWindow = %LexiconWindow
-@onready var _character_select: CharacterSelect = %CharacterSelect
 @onready var _language_select: LanguageSelect = %LanguageSelect
 
 
@@ -42,7 +49,7 @@ func _ready() -> void:
 	_menu_page.hide()
 	_settings_window.hide()
 	_lexicon_window.hide()
-	_character_select.hide()
+	_build_black()
 	_backdrop.entered.connect(_on_entered)
 	if skip_title_page or Game.run != null:
 		_title_page.hide()
@@ -53,9 +60,13 @@ func _ready() -> void:
 	if _language_select.visible:
 		_title_page.hide()
 		_door_hint.hide()
+	elif not slot_chosen:
+		_show_slot_select()
 	_language_select.chosen.connect(_on_language_chosen)
 	_settings_window.language_requested.connect(_show_language_select)
-	%NewGameButton.pressed.connect(_choose.bind(%NewGameButton, _open_characters))
+	%ContinueButton.pressed.connect(_choose.bind(%ContinueButton, _begin.bind(Game.to_shop)))
+	%NewGameButton.pressed.connect(_choose.bind(%NewGameButton, _new_game))
+	_refresh_continue()
 	%LexiconButton.pressed.connect(_choose.bind(%LexiconButton, _toggle_lexicon))
 	%SettingsButton.pressed.connect(_choose.bind(%SettingsButton, _toggle_settings))
 	%ExitButton.pressed.connect(_choose.bind(%ExitButton, get_tree().quit))
@@ -75,7 +86,7 @@ func _process(_delta: float) -> void:
 ## Title page: any key, mouse button or gamepad button opens the door; while it opens, another one
 ## goes straight to the anvil. Main menu: Escape closes the settings.
 func _input(event: InputEvent) -> void:
-	if _language_select.visible:
+	if _language_select.visible or _slot_select != null or _busy:
 		return
 	if _title_page.visible:
 		if _is_any_key(event):
@@ -84,10 +95,9 @@ func _input(event: InputEvent) -> void:
 				_step_in()
 			else:
 				_backdrop.skip()
-	elif event.is_action_pressed("ui_cancel") and (_settings_window.visible or _lexicon_window.visible or _character_select.visible):
+	elif event.is_action_pressed("ui_cancel") and (_settings_window.visible or _lexicon_window.visible):
 		_settings_window.hide()
 		_lexicon_window.hide()
-		_character_select.hide()
 		get_viewport().set_input_as_handled()
 
 
@@ -188,8 +198,70 @@ func _toggle_lexicon() -> void:
 	_lexicon_window.open()
 
 
-## Neues Spiel: first the character.
-func _open_characters() -> void:
+# --- Save slot, Weiter, Neues Spiel -------------------------------------------------
+
+func _show_slot_select() -> void:
+	_title_page.hide()
+	_door_hint.hide()
+	_slot_select = SlotSelect.new()
+	_slot_select.chosen.connect(_on_slot_chosen)
+	add_child(_slot_select)
+
+
+## A slot was chosen: it is used from now on; then the title page (door) as usual.
+func _on_slot_chosen(id: String) -> void:
+	MetaState.set_slot(id)
+	slot_chosen = true
+	_slot_select.queue_free()
+	_slot_select = null
+	_refresh_continue()
+	if not _menu_page.visible:
+		_title_page.show()
+		_door_hint.show()
+
+
+## "Weiter" only when the slot holds a game; it is the first button then.
+func _refresh_continue() -> void:
+	%ContinueButton.visible = MetaState.has_save()
+
+
+## Neues Spiel: a slot with a game asks first (the old game would be gone).
+func _new_game() -> void:
 	_settings_window.hide()
 	_lexicon_window.hide()
-	_character_select.open()
+	if not MetaState.has_save():
+		_begin(Game.start_intro)
+		return
+	var dialog := ConfirmationDialog.new()
+	dialog.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	dialog.title = Language.translate("Neues Spiel")
+	dialog.dialog_text = Language.translate("Spielstand %s überschreiben? Der alte Fortschritt ist dann weg.") % MetaState.slot().to_upper()
+	dialog.ok_button_text = Language.translate("Überschreiben")
+	dialog.cancel_button_text = Language.translate("Abbrechen")
+	dialog.confirmed.connect(_begin.bind(Game.start_intro))
+	dialog.visibility_changed.connect(func() -> void:
+			if not dialog.visible:
+				dialog.queue_free())
+	add_child(dialog)
+	dialog.popup_centered()
+
+
+## The screen goes black, then `action` (the intro or the shop).
+func _begin(action: Callable) -> void:
+	_busy = true
+	var fade := create_tween()
+	fade.tween_property(_black, "modulate:a", 1.0, BLACK_TIME)
+	fade.tween_callback(action)
+
+
+## Black cover above everything (windows too), clear until _begin.
+func _build_black() -> void:
+	var layer := CanvasLayer.new()
+	layer.layer = 20
+	add_child(layer)
+	_black = ColorRect.new()
+	_black.color = Color.BLACK
+	_black.modulate.a = 0.0
+	_black.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_black.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	layer.add_child(_black)

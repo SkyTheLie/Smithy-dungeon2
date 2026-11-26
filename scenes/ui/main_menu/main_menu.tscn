@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu/main_menu.gd" id="1_menu"]
 [ext_resource type="PackedScene" path="res://scenes/ui/menus/settings_window.tscn" id="2_settings"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scenes/ui/main_menu/title_backdrop.gd" id="6_backdrop"]
 [ext_resource type="PackedScene" path="res://scenes/ui/main_menu/language_select.tscn" id="7_language"]
 [ext_resource type="PackedScene" path="res://scenes/ui/menus/lexicon_window.tscn" id="8_lexicon"]
-[ext_resource type="PackedScene" path="res://scenes/ui/menus/character_select.tscn" id="9_characters"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -123,9 +122,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 24.0
-offset_top = -104.0
+offset_top = -122.0
 offset_right = 184.0
-offset_bottom = 104.0
+offset_bottom = 122.0
 grow_vertical = 2
 theme_type_variation = &"HudPanel"
 
@@ -155,6 +154,13 @@ theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 22
 text = "Dungeon der Glut"
 horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="MenuPage/MenuBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 22
+text = "Weiter"
 
 [node name="NewGameButton" type="Button" parent="MenuPage/MenuBox"]
 unique_name_in_owner = true
@@ -196,9 +202,5 @@ unique_name_in_owner = true
 visible = false
 
 [node name="LexiconWindow" parent="Windows" instance=ExtResource("8_lexicon")]
-unique_name_in_owner = true
-visible = false
-
-[node name="CharacterSelect" parent="Windows" instance=ExtResource("9_characters")]
 unique_name_in_owner = true
 visible = false

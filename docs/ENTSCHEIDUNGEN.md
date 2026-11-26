@@ -35,4 +35,8 @@ Neue Entscheidungen unten anhängen (Datum, was, warum).
 - **2026-11-26 · Beute in eigener Datei** (`data/loot.json`, Gegner-Id → Tabelle) statt in `enemies.json`: dort steht jeder Gegner in einer langen Zeile; so bleibt die Beute an einem Ort und der Test prüft, dass jeder Gegner etwas fallen lässt.
 - **2026-11-26 · Münzen = Gold des Runs:** Die Run-Münzen sind das Gold, das man nach Hause bringt (bis 9999). Das Geldbündel im Inventar zeigt sie nur an, es belegt keinen Platz. `per_coin`-Items zählen höchstens 99 Münzen, damit mitgebrachtes Gold sie nicht zu stark macht. Freischaltung „Münzen erreicht“ zählt nur im Run gefundene Münzen (`bring_gold` zählt nicht).
 - **2026-11-26 · Tab = Inventar, M = Karte:** Wunsch des Entwicklers (Tab zeigt das Inventar).
-- **2026-11-26 · Spielstand als ConfigFile** (`user://save.cfg`, wie `progress.cfg`) statt JSON: gleiche Art wie der Fortschritt, einfach zu lesen.
+- **2026-11-26 · Spielstand als ConfigFile** (`user://save.cfg`, seit `feature/intro-laden` `user://save_<platz>.cfg`, wie `progress.cfg`) statt JSON: gleiche Art wie der Fortschritt, einfach zu lesen.
+- **2026-11-26 · Drei Spielstand-Plätze A, B, C** (Wunsch des Entwicklers): nach der Sprache wählt man einen Platz; je Platz nur ein Spielstand, gespeichert am Ende jedes Tages (kein Speichern von Hand). Der Fortschritt (`progress.cfg`: Lexikon, Freischaltungen) gilt weiter für alle Plätze gemeinsam.
+- **2026-11-26 · Intro statt Augen-auf-Animation** (Wunsch des Entwicklers): kurz schwarz, dann hell, Höhle, Egon winkt, man geht in 3 Bildern hin, dann der Laden. Die Hand ist im Code gezeichnet (`WavingHand`), weil es Egon nur als Einzelbild gibt.
+- **2026-11-26 · Charakter-Wahl nach „Betreten“** statt im Hauptmenü: „Neues Spiel“ startet jetzt das Intro. Die Klassen-Frage durch Egon (Phase 2, Schritt 4) ersetzt sie später.
+- **2026-11-26 · Run-Ende „Zum Laden“** statt „Neuer Run“: jeder Run ist ein Tag, danach ist man wieder bei Egon.

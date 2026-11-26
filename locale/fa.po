@@ -6,6 +6,9 @@ msgstr ""
 msgid "%d Herzen"
 msgstr "%d قلب"
 
+msgid "Abbrechen"
+msgstr "لغو"
+
 msgid "Acht Bomben"
 msgstr "هشت بمب"
 
@@ -62,6 +65,9 @@ msgstr "شکست بده: %s"
 
 msgid "Besiegte Gegner: %d"
 msgstr "دشمنان شکست‌خورده: %d"
+
+msgid "Betreten"
+msgstr "ورود"
 
 msgid "Blasebalg"
 msgstr "دم آهنگری"
@@ -240,6 +246,12 @@ msgstr "ریز می‌شوی و گاهی جاخالی می‌دهی"
 msgid "Dungeon der Glut"
 msgstr "سیاه‌چال اخگر"
 
+msgid "Dungeon-Brett"
+msgstr "تابلوی سیاه‌چال‌ها"
+
+msgid "Dungeons"
+msgstr "سیاه‌چال‌ها"
+
 msgid "Dunkler Zauberstab"
 msgstr "عصای تاریک"
 
@@ -266,6 +278,9 @@ msgstr "طبقه: %d"
 
 msgid "Effekte"
 msgstr "افکت‌ها"
+
+msgid "Egons Laden"
+msgstr "مغازهٔ اگون"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "انفجارهای خودت تو را شفا می‌دهند"
@@ -477,6 +492,9 @@ msgstr "پنج کلید"
 msgid "Fünfzehn Münzen"
 msgstr "پانزده سکه"
 
+msgid "Gebiete: %s"
+msgstr "مناطق: %s"
+
 msgid "Gegabelter Stab"
 msgstr "عصای دوشاخه"
 
@@ -566,6 +584,9 @@ msgstr "عصای زهر"
 
 msgid "Giftzahn"
 msgstr "دندان زهری"
+
+msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
+msgstr "درست پشت مغازهٔ اگون راه به پایین می‌رود. آن پایین یک غول منتظر است، و ظاهراً یک گنج. اگون این‌طور می‌گوید."
 
 msgid "Glutkern"
 msgstr "هسته‌ی اخگر"
@@ -854,6 +875,12 @@ msgstr "شبنم زندگی"
 
 msgid "Lederstiefel"
 msgstr "چکمه چرمی"
+
+msgid "Leer"
+msgstr "خالی"
+
+msgid "Leertaste: weiter · Esc: überspringen"
+msgstr "فاصله: ادامه · Esc: رد کردن"
 
 msgid "Legendenhandschuhe"
 msgstr "دستکش افسانه‌ای"
@@ -1419,6 +1446,15 @@ msgstr "آفتابگردان"
 msgid "Spardose"
 msgstr "قلک"
 
+msgid "Spielstand %s"
+msgstr "ذخیره %s"
+
+msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
+msgstr "ذخیره %s بازنویسی شود؟ پیشرفت قبلی از بین می‌رود."
+
+msgid "Spielstand wählen"
+msgstr "انتخاب ذخیره"
+
 msgid "Spinne"
 msgstr "عنکبوت"
 
@@ -1491,6 +1527,9 @@ msgstr "بمب خوشه‌ای"
 msgid "Struppig und leicht angekaut."
 msgstr "ژولیده و کمی جویده‌شده."
 
+msgid "Stufe %d · %d Ebenen"
+msgstr "سطح %d · %d طبقه"
+
 msgid "Sturmessenz"
 msgstr "جوهر طوفان"
 
@@ -1542,6 +1581,12 @@ msgstr "هم‌افزایی: %s!"
 msgid "Synergien: %s"
 msgstr "هم‌افزایی‌ها: %s"
 
+msgid "Tag %d"
+msgstr "روز %d"
+
+msgid "Tag %d · %d Gold"
+msgstr "روز %d · %d طلا"
+
 msgid "Taumelkraut"
 msgstr "علف تلوتلو"
 
@@ -1580,6 +1625,9 @@ msgstr "زره ترول"
 
 msgid "Truhenschlüssel"
 msgstr "کلید صندوق"
+
+msgid "Umgebung"
+msgstr "اطراف"
 
 msgid "Ungewöhnlich"
 msgstr "غیرمعمول"
@@ -1692,6 +1740,9 @@ msgstr "ستاره‌ها از دشمنان عبور می‌کنند و اغلب
 msgid "Wähle deinen Charakter"
 msgstr "شخصیتت را انتخاب کن"
 
+msgid "Wähle links einen Dungeon."
+msgstr "از سمت چپ یک سیاه‌چال انتخاب کن."
+
 msgid "Wählen"
 msgstr "انتخاب"
 
@@ -1718,6 +1769,9 @@ msgstr "سکه کافی نداری"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "زهر، ترس یا تلوتلو به‌طور تصادفی"
+
+msgid "Zum Laden"
+msgstr "به مغازه"
 
 msgid "Zunderbüchse"
 msgstr "جعبه آتش‌زنه"
@@ -1772,3 +1826,6 @@ msgstr "دستکش‌های دوقلو"
 
 msgid "oder Leertaste"
 msgstr "یا کلید فاصله"
+
+msgid "Überschreiben"
+msgstr "بازنویسی"
