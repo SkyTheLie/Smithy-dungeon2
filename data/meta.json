@@ -1,0 +1,5 @@
+{
+	"_info": "Was zwischen den Runs gilt (MetaState, user://save.cfg). bag: Plätze im Inventar (Tab) und sichere Plätze (bleiben beim Tod), stack = höchste Anzahl pro Platz. money_box = die kleine Dose des Spielers außerhalb des Dungeons: limit = so viel ist sicher; liegt mehr drin, greift der Händler jeden neuen Tag (= nach jedem Run) zu: steal_all_chance = alles weg, steal_part_chance = ein Teil des Geldes über dem Limit (steal_part_share [min, max] Anteil davon).",
+	"bag": {"slots": 12, "safe_slots": 1, "stack": 20},
+	"money_box": {"limit": 200, "steal_part_chance": 0.2, "steal_all_chance": 0.01, "steal_part_share": [0.3, 1.0]}
+}

@@ -25,6 +25,8 @@ func start_new_run(character: String = "") -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	run = RunState.new(rng.randi(), character)
+	# The purse from home goes into the dungeon (and is lost there on death).
+	run.bring_gold(MetaState.take_purse_for_run())
 	get_tree().paused = false
 	get_tree().change_scene_to_file.call_deferred(RUN_SCENE)
 

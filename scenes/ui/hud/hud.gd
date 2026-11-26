@@ -1,6 +1,6 @@
 class_name Hud
 extends CanvasLayer
-## Everything drawn over the 3D view: hearts, coins / bombs / keys, the map (Minimap, Tab), the
+## Everything drawn over the 3D view: hearts, coins / bombs / keys, the map (Minimap, M), the
 ## crosshair, collected items, the boss's life bar, the charge bar (Glutsammler), the name of a
 ## new item or synergy, short messages and the red flash when hit. Only shows values; the rules are
 ## in RunState and Dungeon.

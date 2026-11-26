@@ -6,7 +6,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 
 - **Dateien:** `scripts/core/game.gd` (Autoload `Game`), `scenes/run/run.tscn` + `run.gd`
 - „Neues Spiel“ im Hauptmenü → `Game.start_new_run()`: neuer `RunState` mit zufälligem Seed, lädt `run.tscn`.
-- `RunScene` baut die Ebene (`Dungeon.build`), verbindet HUD, Pause (Esc, auch beim Verlassen des Fensters), Tab (Karte) und gibt die Mausbewegung an den Spieler.
+- `RunScene` baut die Ebene (`Dungeon.build`), verbindet HUD, Pause (Esc, auch beim Verlassen des Fensters), Tab (Inventar), M (Karte) und gibt die Mausbewegung an den Spieler.
 - Falltür → `Game.next_floor()` (gleicher Run, nächste Ebene) oder nach der letzten Ebene der Sieg-Bildschirm. Tod → End-Bildschirm.
 - Szenenbaum: `Run` (Node) › `View` (SubViewportContainer, stretch) › `Viewport` (SubViewport 640×360) › `World` (Node3D: `Environment`, `Dungeon`, `Player`); daneben `HUD`, `PauseMenu`, `EndScreen` (CanvasLayer).
 
@@ -58,7 +58,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 ## Oberfläche (Hud, Minimap, Menüs)
 
 - **Dateien:** `scenes/ui/hud/` (`hud.tscn`, `minimap.gd`, `heart_bar.gd`, `crosshair.gd`), `scenes/ui/menus/` (Einstellungen, Pause, Ende), `scenes/ui/main_menu/` (aus Smithy)
-- Minimap oben rechts: aktueller Raum von oben, Türen (grau offen, braun zu, gold verschlossen), Steine, Beute (gelb), Gegner (rot), Spieler (grün mit Blickrichtung). **Tab** zoomt auf die Ebene. Nebel: nur besuchte Räume und ihre direkten Nachbarn sind zu sehen (`Dungeon.known_cells`), der Boss-Raum erscheint wie jeder Raum erst als Nachbar eines besuchten Raums und bekommt dann einen roten Rand. Geheimräume erscheinen erst nach dem Betreten.
+- Minimap oben rechts: aktueller Raum von oben, Türen (grau offen, braun zu, gold verschlossen), Steine, Beute (gelb), Gegner (rot), Spieler (grün mit Blickrichtung). **M** zoomt auf die Ebene. Nebel: nur besuchte Räume und ihre direkten Nachbarn sind zu sehen (`Dungeon.known_cells`), der Boss-Raum erscheint wie jeder Raum erst als Nachbar eines besuchten Raums und bekommt dann einen roten Rand. Geheimräume erscheinen erst nach dem Betreten.
 - Pause zeigt die aktuellen Werte und Synergien.
 - Herzanzeige: rote Herzen (voll, halb, leer), danach blaue Herzen (`RunState.blue`).
 
@@ -138,3 +138,22 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - Keine Decken. Steine 1,9 m hoch (man schießt nicht darüber). Muster je Ebene (`floors.json rock_patterns`, `scenes/run/room_patterns.gd`): scatter, walls, pillars, ring, corners, columns, checker; die Wege zwischen den Türen bleiben frei. Jede zweite Ebene eines Themas hat eigene Boden-, Wand- und Steinbilder.
 - Ende-Bildschirm: Werte in zwei Spalten, Items scrollbar.
 - Items haben eine Kategorie (offensiv / defensiv / utility), Liste: `docs/ITEMLISTE.md`.
+
+## Beute und Inventar (Bag, Pickup, BagWindow) – 2026-11-26, `feature/beute-inventar`
+
+- **Dateien:** `scripts/systems/bag.gd` (`Bag`), `scenes/objects/pickup.gd` (Art `loot`), `scenes/run/dungeon.gd` (`_drop_enemy_loot`, `_drop_loot`, `drop_from_bag`), `scenes/ui/hud/bag_window.gd` (`BagWindow`, im Code gebaut), `scripts/systems/rarity.gd` (`Rarity`, Farben aus Smithy), Daten `data/loot.json`, `data/meta.json` „bag“
+- Jeder Gegner würfelt beim Tod jede Zeile seiner Beute-Tabelle (`loot.json` „enemies“) einzeln (`chance` + Glück × `luck_bonus`), Menge `amount` [min, max]. Die Beute liegt als `Pickup` am Boden.
+- Drüberlaufen legt sie in die Tasche (`RunState.bag`): erst auf gleiche Stapel (höchstens `stack`), dann in leere Plätze. Passt nichts mehr: Meldung „Inventar voll!“, die Beute bleibt liegen. Nach dem Tod wird nichts mehr aufgehoben.
+- **Tab** (`Controls.BAG`) öffnet das Inventar und hält das Spiel an. Rahmen in Seltenheitsfarbe, Anzahl unten rechts, unten die Beschreibung des Platzes unter der Maus. Drag & Drop (`set_drag_forwarding`): auf einen Platz = stapeln oder tauschen (`Bag.move`), auf den dunklen Hintergrund = vor dem Spieler auf den Boden (`Dungeon.drop_from_bag`). Fallengelassenes wird erst wieder aufgehoben, wenn man einmal 1,6 m weg war.
+- Der **sichere Platz** (`safe_slots`, goldener Rahmen) wird nur von Hand gefüllt; beim Tod bleibt nur er (`Bag.lose_unsafe`).
+- Das **Geldbündel** zeigt `RunState.coins` (kein Platz der Tasche). Münzen gehen jetzt bis 9999 (`MAX_COINS`); `per_coin`-Items zählen höchstens 99.
+- **M** ist jetzt die Karte (vorher Tab).
+
+## Spielstand zwischen Runs (MetaState) – 2026-11-26, `feature/beute-inventar`
+
+- **Dateien:** `scripts/systems/meta_state.gd` (statische Klasse, `user://save.cfg`), Daten `data/meta.json` „money_box“
+- `purse` (Gold bei sich), `box` (die Dose), `stash` (mitgebrachte Beute), `day` (ein Run = ein Tag), `last_theft`.
+- `Game.start_new_run` nimmt die Geldbörse mit in den Run (`take_purse_for_run` → `RunState.bring_gold`).
+- Run-Ende (`RunScene`): Sieg → `end_run(coins, ganze Tasche)`, Tod → `end_run(0, nur sicherer Platz)`. Wer den Run über das Hauptmenü verlässt, verliert die mitgenommene Geldbörse auch.
+- `end_run` beginnt einen neuen Tag und würfelt den Diebstahl (`roll_theft`): bis `limit` nie; darüber `steal_all_chance` = alles, `steal_part_chance` = ein Anteil (`steal_part_share`) des Geldes über dem Limit.
+- `deposit` / `withdraw` prüfen die Menge (≤ 0 oder zu viel = abgelehnt). Noch kein Bildschirm dafür (kommt mit dem Laden).

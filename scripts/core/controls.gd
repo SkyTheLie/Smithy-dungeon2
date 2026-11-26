@@ -3,7 +3,7 @@ extends RefCounted
 ## The key bindings of the game, registered once at the start (Game._ready), so they are in one
 ## place and work in tests too:
 ##   W A S D / arrow keys  walk          left mouse button  shoot (hold: beam / charge)
-##   E / right mouse button  bomb        Tab  big map         Esc  pause
+##   E / right mouse button  bomb        Tab  bag (inventory)     M  big map      Esc  pause
 ##   P  test room (only in debug builds: started from the editor)
 ##   Shift  dash / blink (with the right item)
 
@@ -14,6 +14,8 @@ const MOVE_RIGHT: StringName = &"move_right"
 const SHOOT: StringName = &"shoot"
 const BOMB: StringName = &"bomb"
 const MAP: StringName = &"map"
+## Tab: the bag window (loot, drag and drop).
+const BAG: StringName = &"bag"
 const PAUSE: StringName = &"pause"
 const TEST_ROOM: StringName = &"test_room"
 ## Shift: dash / blink (only with an item that has "dash" or "blink").
@@ -26,7 +28,8 @@ static func register() -> void:
 	_add_keys(MOVE_LEFT, [KEY_A, KEY_LEFT])
 	_add_keys(MOVE_RIGHT, [KEY_D, KEY_RIGHT])
 	_add_keys(BOMB, [KEY_E])
-	_add_keys(MAP, [KEY_TAB])
+	_add_keys(MAP, [KEY_M])
+	_add_keys(BAG, [KEY_TAB])
 	_add_keys(PAUSE, [KEY_ESCAPE])
 	_add_keys(TEST_ROOM, [KEY_P])
 	_add_keys(DASH, [KEY_SHIFT])

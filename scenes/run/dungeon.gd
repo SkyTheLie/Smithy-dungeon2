@@ -227,7 +227,7 @@ func _build_doors() -> void:
 func _add_controls_hint(room: DungeonRoom) -> void:
 	var label := Label3D.new()
 	label.text = "%s\n%s" % [Language.translate("WASD: laufen · Maus: zielen · Linksklick: schießen"),
-			Language.translate("E: Bombe · Tab: Karte · Esc: Pause")]
+			Language.translate("E: Bombe · Tab: Inventar · M: Karte · Esc: Pause")]
 	var theme: Theme = ThemeDB.get_project_theme()
 	if theme and theme.default_font:
 		label.font = theme.default_font
@@ -438,6 +438,7 @@ func _on_enemy_died(enemy: Enemy) -> void:
 		run.announce(Progress.add_kills(1))
 		if enemy.is_boss:
 			run.announce(Progress.beat_boss(enemy.id))
+	_drop_enemy_loot(enemy)
 	if enemy == boss:
 		boss = null
 		for other: Enemy in enemies.duplicate():
@@ -499,6 +500,42 @@ func _drop(room: DungeonRoom, at: Vector3, kind: String) -> void:
 	room.add_child(pickup)
 	pickup.global_position = Vector3(at.x, 0, at.z)
 	room.loot.append(pickup)
+
+
+## Loot for the bag (data/loot.json "enemies"): every entry is rolled on its own; luck helps.
+func _drop_enemy_loot(enemy: Enemy) -> void:
+	var luck_bonus: float = float(Content.get_file("loot").get("luck_bonus", 0.03)) * run.stats.luck
+	for entry: Dictionary in Content.enemy_loot(enemy.id):
+		if _rng.randf() >= float(entry.get("chance", 0.0)) + luck_bonus:
+			continue
+		var range_of: Array = entry.get("amount", [1, 1])
+		var count: int = _rng.randi_range(int(range_of[0]), int(range_of[-1]))
+		var spot: Vector3 = enemy.global_position + Vector3(_rng.randf_range(-0.5, 0.5), 0, _rng.randf_range(-0.5, 0.5))
+		_drop_loot(rooms[current_cell], spot, String(entry.get("id", "")), count, false)
+
+
+func _drop_loot(room: DungeonRoom, at: Vector3, id: String, count: int, dropped: bool) -> Pickup:
+	if Content.material(id).is_empty() or count <= 0:
+		return null
+	var pickup := Pickup.new()
+	pickup.setup_loot(id, count, run, player, dropped)
+	pickup.bag_full.connect(func() -> void: message.emit("Inventar voll!"))
+	room.add_child(pickup)
+	var rect: Rect2 = RoomBuilder.inner_rect(room.cell, 0.6)
+	pickup.global_position = Vector3(clampf(at.x, rect.position.x, rect.end.x), 0, clampf(at.z, rect.position.y, rect.end.y))
+	room.loot.append(pickup)
+	return pickup
+
+
+## Bag window: place `index` is thrown on the floor in front of the player (to make room).
+func drop_from_bag(index: int) -> Pickup:
+	var place: Dictionary = run.bag.take(index)
+	if place.is_empty():
+		return null
+	var forward: Vector3 = -player.global_transform.basis.z
+	forward.y = 0.0
+	var at: Vector3 = player.global_position + forward.normalized() * 0.9
+	return _drop_loot(rooms[current_cell], at, String(place["id"]), int(place["count"]), true)
 
 
 ## Touching a locked door with a key opens it; without a key a message says so.

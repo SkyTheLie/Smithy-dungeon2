@@ -93,6 +93,9 @@ msgstr "Горящие взрывные выстрелы"
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "Горящие, медленные враги и два синих сердца"
 
+msgid "Brennt gut in jeder Esse."
+msgstr "Хорошо горит в любом горне."
+
 msgid "Bronzebogen"
 msgstr "Бронзовый лук"
 
@@ -107,6 +110,9 @@ msgstr "Хлебный дождь"
 
 msgid "Bumerang-Haken"
 msgstr "Крюк-бумеранг"
+
+msgid "Darin steckt ein kleines Krabbeltier."
+msgstr "Внутри застрял маленький жучок."
 
 msgid "Das kostet zu viel Leben"
 msgstr "Это стоит слишком много жизни"
@@ -246,8 +252,11 @@ msgstr "Сквозь камни, и иногда враги бегут"
 msgid "Durchschlag, Abprallen und Zerplatzen"
 msgstr "Пробивает, отскакивает и разлетается"
 
-msgid "E: Bombe · Tab: Karte · Esc: Pause"
-msgstr "E: бомба · Tab: карта · Esc: пауза"
+msgid "Dünne Haut aus einem Fledermausflügel."
+msgstr "Тонкая кожа с крыла летучей мыши."
+
+msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
+msgstr "E: бомба · Tab: инвентарь · M: карта · Esc: пауза"
 
 msgid "Ebene %d"
 msgstr "Уровень %d"
@@ -339,6 +348,9 @@ msgstr "Целая пекарня разом"
 msgid "Einstellungen"
 msgstr "Настройки"
 
+msgid "Eisenerz"
+msgstr "Железная руда"
+
 msgid "Eisenhaut"
 msgstr "Железная кожа"
 
@@ -360,6 +372,9 @@ msgstr "Найди %d предметов (%d / %d)"
 msgid "Entdeckt: %d / %d"
 msgstr "Найдено: %d / %d"
 
+msgid "Episch"
+msgstr "Эпический"
+
 msgid "Erdstab"
 msgstr "Посох земли"
 
@@ -377,6 +392,9 @@ msgstr "Наведи мышь на предмет"
 
 msgid "Feenstaub"
 msgstr "Пыльца фей"
+
+msgid "Fein"
+msgstr "Тонкий"
 
 msgid "Feuerfester Bomber"
 msgstr "Огнеупорный подрывник"
@@ -413,6 +431,12 @@ msgstr "Пинбол"
 
 msgid "Fluchskelett"
 msgstr "Проклятый скелет"
+
+msgid "Flughaut"
+msgstr "Перепонка"
+
+msgid "Flüstert leise, wenn es dunkel ist."
+msgstr "Тихо шепчет в темноте."
 
 msgid "Freigeschaltet: %s"
 msgstr "Открыто: %s"
@@ -477,8 +501,14 @@ msgstr "Призрачное стекло"
 msgid "Geisterstab"
 msgstr "Призрачный посох"
 
+msgid "Geldbündel: %d Gold"
+msgstr "Пачка денег: %d золота"
+
 msgid "Generalsklinge"
 msgstr "Клинок генерала"
+
+msgid "Gerettet (sicherer Platz): %d Beute"
+msgstr "Спасено (надёжное место): %d добычи"
 
 msgid "Geschafft!"
 msgstr "Победа!"
@@ -522,6 +552,9 @@ msgstr "Победи в одном забеге"
 msgid "Gewinne in unter %d Minuten"
 msgstr "Победи меньше чем за %d минут"
 
+msgid "Gewöhnlich"
+msgstr "Обычный"
+
 msgid "Ghul"
 msgstr "Упырь"
 
@@ -554,6 +587,9 @@ msgstr "Меч жара"
 
 msgid "Glutstab"
 msgstr "Посох углей"
+
+msgid "Glänzt grünlich. Der Händler mag es."
+msgstr "Отливает зеленью. Торговец его любит."
 
 msgid "Glück"
 msgstr "Удача"
@@ -702,6 +738,9 @@ msgstr "Адская кожа"
 msgid "Höllenstab"
 msgstr "Адский посох"
 
+msgid "Inventar"
+msgstr "Инвентарь"
+
 msgid "Jadefigur"
 msgstr "Нефритовая фигурка"
 
@@ -744,6 +783,9 @@ msgstr "Звезда клинков"
 msgid "Knochengeneral"
 msgstr "Костяной генерал"
 
+msgid "Kohle"
+msgstr "Уголь"
+
 msgid "Kohlenschrot"
 msgstr "Угольная дробь"
 
@@ -773,6 +815,9 @@ msgstr "Осколок кристалла"
 
 msgid "Kräuterbeutel"
 msgstr "Мешочек трав"
+
+msgid "Kupfererz"
+msgstr "Медная руда"
 
 msgid "Kupfernagel"
 msgstr "Медный гвоздь"
@@ -812,6 +857,9 @@ msgstr "Кожаные сапоги"
 
 msgid "Legendenhandschuhe"
 msgstr "Перчатки легенды"
+
+msgid "Legendär"
+msgstr "Легендарный"
 
 msgid "Leichte Feder"
 msgstr "Лёгкое перо"
@@ -882,6 +930,9 @@ msgstr "Метеор"
 msgid "Minotaurus"
 msgstr "Минотавр"
 
+msgid "Mit nach Hause: %d Gold, %d Beute"
+msgstr "Домой принесено: %d золота, %d добычи"
+
 msgid "Mondlilie"
 msgstr "Лунная лилия"
 
@@ -896,6 +947,9 @@ msgstr "Болотное сердце"
 
 msgid "Musik"
 msgstr "Музыка"
+
+msgid "Mythisch"
+msgstr "Мифический"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Монеты и сердца летят к тебе"
@@ -914,6 +968,9 @@ msgstr "Новый забег"
 
 msgid "Neues Spiel"
 msgstr "Новая игра"
+
+msgid "Nicht ablecken."
+msgstr "Не облизывать."
 
 msgid "Nicht während eines Kampfes"
 msgstr "Не во время боя"
@@ -1064,6 +1121,12 @@ msgstr "Тюлений мех"
 
 msgid "Robbenmantel"
 msgstr "Тюлений плащ"
+
+msgid "Rot wie Glut."
+msgstr "Красный, как угли."
+
+msgid "Rubin"
+msgstr "Рубин"
 
 msgid "Ruhmeskette"
 msgstr "Цепь славы"
@@ -1224,6 +1287,9 @@ msgstr "Скорость выстрела"
 msgid "Schwarzer Kristall"
 msgstr "Чёрный кристалл"
 
+msgid "Schwer und kalt."
+msgstr "Тяжёлая и холодная."
+
 msgid "Schwere Glut"
 msgstr "Тяжёлый уголь"
 
@@ -1287,11 +1353,20 @@ msgstr "Отвар провидца"
 msgid "Seite %d von %d"
 msgstr "Страница %d из %d"
 
+msgid "Selten"
+msgstr "Редкий"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: прыжок туда, куда целишься"
 
 msgid "Shift: ein schneller Sprint, kurz unverwundbar"
 msgstr "Shift: быстрый рывок, ненадолго неуязвим"
+
+msgid "Sicherer Platz"
+msgstr "Надёжное место"
+
+msgid "Sicherer Platz: bleibt, wenn du stirbst"
+msgstr "Надёжное место: остаётся после смерти"
 
 msgid "Siegerring"
 msgstr "Кольцо победителя"
@@ -1331,6 +1406,9 @@ msgstr "Изумруд"
 
 msgid "Smaragdjuwel"
 msgstr "Изумрудный самоцвет"
+
+msgid "Solide"
+msgstr "Прочный"
 
 msgid "Sonderraum"
 msgstr "Особая комната"
@@ -1395,6 +1473,9 @@ msgstr "Звёздный напиток"
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Стоя на месте, ты неуязвим"
 
+msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
+msgstr "Умрёшь — деньги пропадут. Отнеси их домой в свою коробку."
+
 msgid "Stollenhelm"
 msgstr "Шахтёрская каска"
 
@@ -1406,6 +1487,9 @@ msgstr "Булава"
 
 msgid "Streubombe"
 msgstr "Кассетная бомба"
+
+msgid "Struppig und leicht angekaut."
+msgstr "Лохматая и слегка погрызенная."
 
 msgid "Sturmessenz"
 msgstr "Эссенция бури"
@@ -1497,6 +1581,9 @@ msgstr "Броня тролля"
 msgid "Truhenschlüssel"
 msgstr "Ключ от сундука"
 
+msgid "Ungewöhnlich"
+msgstr "Необычный"
+
 msgid "Utility"
 msgstr "Польза"
 
@@ -1551,6 +1638,12 @@ msgstr "WASD: ходьба · Мышь: прицел · ЛКМ: выстрел"
 msgid "Wanderbündel"
 msgstr "Узелок странника"
 
+msgid "Warm und dicht."
+msgstr "Тёплая и густая."
+
+msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
+msgstr "То, что лежит здесь, не пропадёт после смерти."
+
 msgid "Wasserstab"
 msgstr "Посох воды"
 
@@ -1562,6 +1655,9 @@ msgstr "Посох миров"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Убивший выстрел летит дальше с остатком"
+
+msgid "Wert: %d Gold"
+msgstr "Цена: %d золота"
 
 msgid "Wettkampfstiefel"
 msgstr "Состязательные сапоги"
@@ -1580,6 +1676,9 @@ msgstr "Посох ветра"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Куда бьёт луч, там взрыв"
+
+msgid "Wolfsfell"
+msgstr "Волчья шкура"
 
 msgid "Wolfsmantel"
 msgstr "Волчий плащ"
@@ -1607,6 +1706,9 @@ msgstr "Десять бомб"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Десять монет, удача выше"
+
+msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
+msgstr "Перетащить: сортировать · За окно: выбросить · Tab: закрыть"
 
 msgid "Zombie"
 msgstr "Зомби"

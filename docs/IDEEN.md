@@ -23,7 +23,7 @@ Was gebaut wird, steht in `docs/ROADMAP.md`. Woher die Logik kommt: `docs/SMITHY
   > „Hey, ich bin der Gau… äh, der **Mann-Verkäufer**. Ich verkaufe Mann… *(Pause)* …**Ausrüstung**. Ja, genau. Ich verkaufe Ausrüstung.“
 - Beziehung „du hilfst mir, ich helfe dir“: Der Spieler riskiert sein Leben in gefährlichen Dungeons und bringt ihm gute Sachen; der Händler verkauft ihm dafür bessere Ausrüstung.
 - **Er betrügt dich** (zieht dich beim Verkauf über den Tisch) – aber genau so kommt man an neues Gear oder andere Relikte.
-- Offen: Name des Händlers (Arbeitsname: „der Händler“).
+- **Name: Egon Ehrlich** (entschieden 2026-11-26). Charakter, Sprechweise, Running Gags und Dialog-Regeln: `docs/figuren/EGON_EHRLICH.md` – jeder Dialog wird aus dieser Datei gebaut.
 
 ## 3. Der Shop (Glücksspiel-Laden)
 
@@ -50,11 +50,11 @@ Was gebaut wird, steht in `docs/ROADMAP.md`. Woher die Logik kommt: `docs/SMITHY
 ### Regeln (Nachricht vom 2026-11-26)
 
 - Dungeon → **Materialien, Items, Gold** → beim Händler **verkaufen** → Händler verkauft dafür **Glücksspiel-Ware**.
-- **Einmal pro Tag** darf man kostenlos würfeln (Tisch drehen). **Nochmal würfeln kostet Gold** (Preis steigt? offen).
+- **Einmal pro Tag** darf man kostenlos würfeln (Tisch drehen). **Nochmal würfeln kostet Gold**, und zwar **jedes Mal mehr** (entschieden; am nächsten Tag wieder billig).
 - Am Anfang gibt es nur **Kupfer-Sachen**, Seltenheit **R1**, meist 1–3 Stück auf dem Tisch.
 - „Shop ist voll Gamba“: gute Ausrüstung bekommt man nur durch Glück beim Würfeln, sonst liegt viel Schrott auf dem Tisch.
 - Materialien und **Gussformen** aus Dungeons **schalten beim Händler neue Items frei** (Eisen-Ware erst nach Eisen-Funden usw.).
-- Offen: Was ist ein „Tag“? Vorschlag: **ein Tag = ein Dungeon-Run** (nach jedem Run ist ein neuer Tag).
+- **Ein Tag = ein Dungeon-Run** (entschieden; nach jedem Run beginnt ein neuer Tag).
 
 ### Aussehen
 
@@ -76,6 +76,11 @@ Was gebaut wird, steht in `docs/ROADMAP.md`. Woher die Logik kommt: `docs/SMITHY
 - **Erstes Relikt:** Stirbt man im **nächsten Run** (dem Run nach dem Intro-Dungeon), verkauft der Händler einem danach ein Relikt: **Dreifach-Schuss** (3 Feuerbälle im Fächer, wie „Dreizack-Rune“ im Run). Der Händler erklärt dabei den Relikt-Slot.
 - **Relikte kaufen:** liegen auch auf dem Glücksspiel-Tisch, aber **sehr selten**. Am Anfang gibt es nur **3 Relikte**, alle verändern das Geschoss (Vorschlag: Dreifach-Schuss, Suchender Funke, Abprallen).
 - **Später** können alle Relikte auftauchen (viele Run-Items als Relikt-Version), dazu die dauerhaften.
+- **10 Relikt-Stufen** (Nachricht vom 2026-11-26), von schwach (Stufe 1) bis stark (Stufe 10). Jede Stufe enthält **auch schwächere, nicht so tolle Relikte**, gemischt, aber ihrer Seltenheit ebenbürtig (kein Stufe-1-Müll in Stufe 9, aber auch nicht nur Volltreffer).
+  - Jede Stufe ist ein eigener **Pool**. Am Anfang ist nur Stufe 1 offen (davon tauchen nur ein paar im Shop auf, siehe oben: 3 Stück).
+  - Weitere Stufen werden **freigeschaltet** durch: Dungeons beenden, bestimmte Sachen zum Händler bringen, Quests.
+  - Vorschlag für die Daten: `data/relics.json` mit `tier` 1–10 je Relikt und `data/relic_tiers.json` mit `unlock` je Stufe (wie `unlock` bei Items: `{"type": "wins", "count": 1}`, `{"type": "deliver", "id": "ruby", "count": 3}`, `{"type": "quest", "id": "…"}`).
+  - Offen: Wie hängen die 10 Relikt-Stufen mit den 8 Item-Seltenheiten (R1–R8, Rahmenfarbe) zusammen? Vorschlag: eigene Rahmenfarbe je Stufe.
 - Offen: Kann man ein kaputtes Relikt reparieren / schmieden? Zählt ein Relikt für Synergien mit Run-Items? *(Vorschlag: ja, das macht Spaß.)*
 
 - Schmieden: dieselben Minispiele wie in Smithy (Amboss-Takt, Schleifstein, Werkbank)? → offen, eher später.
@@ -104,6 +109,17 @@ Was gebaut wird, steht in `docs/ROADMAP.md`. Woher die Logik kommt: `docs/SMITHY
 - Dungeons farmen: mehrere Dungeons mit Gefahrenstufe; gefährlicher = bessere Materialien (Kupfer → Eisen → Bronze … wie in Smithy).
 - Beute, die den Run überlebt: Gold, Materialien, Gussformen, ggf. Ausrüstung. Run-Items verfallen.
 
+## 7a. Beute, Inventar und die Dose (Nachricht vom 2026-11-26, **gebaut** auf `feature/beute-inventar`)
+
+- Gegner lassen **Sachen fallen** (Fledermaus → Flughaut, Ratten → Rattenfell, Goblins → Kupfererz, Bosse immer etwas …), Tabelle in `data/loot.json`.
+- Aufheben = drüberlaufen. **Tab** öffnet das **Inventar** (12 Plätze), dort per **Drag & Drop** sortieren oder **aus dem Fenster ziehen = auf den Boden werfen** (Platz machen). Die Karte liegt jetzt auf **M**.
+- **Stirbt man, ist alles weg** – außer dem **sicheren Platz** (1 Platz mit goldenem Rahmen).
+- **Geld** wird gedroppt und als **Geldbündel** im Inventar angezeigt; auch das ist beim Tod weg.
+- Außerhalb des Dungeons hat der Spieler eine **kleine Dose** (hat er selbst mitgebracht). Bis **200 Gold** ist das Geld darin sicher. Liegt mehr darin, greift Egon an jedem neuen Tag zu: **20 %** Chance, dass ein Teil des Geldes **über** dem Limit fehlt, **1 %** Chance, dass **alles** weg ist (`data/meta.json`).
+- Gold, das man bei sich trägt (nicht in der Dose), geht mit in den nächsten Dungeon und ist beim Tod weg.
+- Ausrüstung bleibt beim Tod (entschieden).
+- Noch nicht gebaut: der Bildschirm, an dem man Geld in die Dose legt (kommt mit dem Laden).
+
 ## 8. Später / vielleicht
 
 - **Koop** (LAN wie in `smithy_lan`) – großer Umbau, erst wenn das Einzelspiel steht.
@@ -112,8 +128,9 @@ Was gebaut wird, steht in `docs/ROADMAP.md`. Woher die Logik kommt: `docs/SMITHY
 
 ## Offene Fragen
 
-1. Dungeon in 3D-Ego-Sicht (wie Dungeon Smithy) und der Laden in 2D – so lassen? *(Vorschlag: ja.)*
-2. Ein „Tag“ = ein Run?
-3. Preis fürs erneute Würfeln: fest oder steigend?
-4. Was passiert mit der Ausrüstung beim Tod? *(Vorschlag: bleibt, nur Run-Items und ein Teil des Goldes gehen verloren.)*
-5. Name des Händlers.
+Beantwortet am 2026-11-26: Dungeon bleibt 1 : 1 wie Dungeon Smithy (3D), ein Tag = ein Run, neu würfeln wird teurer, Ausrüstung bleibt beim Tod (Inventar und Geld bei sich sind weg), Händler = Egon Ehrlich.
+
+1. Relikt-Stufen 1–10 und Item-Seltenheit R1–R8: eigene Farben je Relikt-Stufe?
+2. Kann man ein kaputtes Relikt reparieren?
+3. Zählt ein Relikt für Synergien mit Run-Items? *(Vorschlag: ja.)*
+4. Wie viel steigt der Preis fürs erneute Würfeln? *(Vorschlag: 10, 20, 40, 80 … Gold, am nächsten Tag wieder 10.)*

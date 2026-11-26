@@ -93,6 +93,9 @@ msgstr "Burning, exploding shots"
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "Burning, slowed enemies and two blue hearts"
 
+msgid "Brennt gut in jeder Esse."
+msgstr "Burns well in any forge."
+
 msgid "Bronzebogen"
 msgstr "Bronze Bow"
 
@@ -107,6 +110,9 @@ msgstr "Bread Rain"
 
 msgid "Bumerang-Haken"
 msgstr "Boomerang Hook"
+
+msgid "Darin steckt ein kleines Krabbeltier."
+msgstr "There is a tiny bug stuck inside."
 
 msgid "Das kostet zu viel Leben"
 msgstr "That costs too much life"
@@ -246,8 +252,11 @@ msgstr "Through rocks, and sometimes enemies flee"
 msgid "Durchschlag, Abprallen und Zerplatzen"
 msgstr "Piercing, bouncing and bursting"
 
-msgid "E: Bombe · Tab: Karte · Esc: Pause"
-msgstr "E: bomb · Tab: map · Esc: pause"
+msgid "Dünne Haut aus einem Fledermausflügel."
+msgstr "Thin skin from a bat's wing."
+
+msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
+msgstr "E: bomb · Tab: inventory · M: map · Esc: pause"
 
 msgid "Ebene %d"
 msgstr "Floor %d"
@@ -339,6 +348,9 @@ msgstr "A whole bakery at once"
 msgid "Einstellungen"
 msgstr "Settings"
 
+msgid "Eisenerz"
+msgstr "Iron ore"
+
 msgid "Eisenhaut"
 msgstr "Iron Skin"
 
@@ -360,6 +372,9 @@ msgstr "Discover %d items (%d / %d)"
 msgid "Entdeckt: %d / %d"
 msgstr "Discovered: %d / %d"
 
+msgid "Episch"
+msgstr "Epic"
+
 msgid "Erdstab"
 msgstr "Earth Staff"
 
@@ -377,6 +392,9 @@ msgstr "Hover over an item"
 
 msgid "Feenstaub"
 msgstr "Fairy Dust"
+
+msgid "Fein"
+msgstr "Fine"
 
 msgid "Feuerfester Bomber"
 msgstr "Fireproof Bomber"
@@ -413,6 +431,12 @@ msgstr "Pinball"
 
 msgid "Fluchskelett"
 msgstr "Cursed Skeleton"
+
+msgid "Flughaut"
+msgstr "Bat skin"
+
+msgid "Flüstert leise, wenn es dunkel ist."
+msgstr "Whispers softly in the dark."
 
 msgid "Freigeschaltet: %s"
 msgstr "Unlocked: %s"
@@ -477,8 +501,14 @@ msgstr "Ghost Glass"
 msgid "Geisterstab"
 msgstr "Ghost Staff"
 
+msgid "Geldbündel: %d Gold"
+msgstr "Money bundle: %d gold"
+
 msgid "Generalsklinge"
 msgstr "General's Blade"
+
+msgid "Gerettet (sicherer Platz): %d Beute"
+msgstr "Saved (safe slot): %d loot"
 
 msgid "Geschafft!"
 msgstr "You made it!"
@@ -522,6 +552,9 @@ msgstr "Win a run"
 msgid "Gewinne in unter %d Minuten"
 msgstr "Win in under %d minutes"
 
+msgid "Gewöhnlich"
+msgstr "Common"
+
 msgid "Ghul"
 msgstr "Ghoul"
 
@@ -554,6 +587,9 @@ msgstr "Ember Sword"
 
 msgid "Glutstab"
 msgstr "Ember Staff"
+
+msgid "Glänzt grünlich. Der Händler mag es."
+msgstr "Shines greenish. The merchant likes it."
 
 msgid "Glück"
 msgstr "Luck"
@@ -702,6 +738,9 @@ msgstr "Hell Leather"
 msgid "Höllenstab"
 msgstr "Hell Staff"
 
+msgid "Inventar"
+msgstr "Inventory"
+
 msgid "Jadefigur"
 msgstr "Jade Figure"
 
@@ -744,6 +783,9 @@ msgstr "Blade Star"
 msgid "Knochengeneral"
 msgstr "Bone General"
 
+msgid "Kohle"
+msgstr "Coal"
+
 msgid "Kohlenschrot"
 msgstr "Coal Buckshot"
 
@@ -773,6 +815,9 @@ msgstr "Crystal Shard"
 
 msgid "Kräuterbeutel"
 msgstr "Herb Pouch"
+
+msgid "Kupfererz"
+msgstr "Copper ore"
 
 msgid "Kupfernagel"
 msgstr "Copper Nail"
@@ -812,6 +857,9 @@ msgstr "Leather Boots"
 
 msgid "Legendenhandschuhe"
 msgstr "Legend Gloves"
+
+msgid "Legendär"
+msgstr "Legendary"
 
 msgid "Leichte Feder"
 msgstr "Light Feather"
@@ -882,6 +930,9 @@ msgstr "Meteor"
 msgid "Minotaurus"
 msgstr "Minotaur"
 
+msgid "Mit nach Hause: %d Gold, %d Beute"
+msgstr "Brought home: %d gold, %d loot"
+
 msgid "Mondlilie"
 msgstr "Moon Lily"
 
@@ -896,6 +947,9 @@ msgstr "Bog Heart"
 
 msgid "Musik"
 msgstr "Music"
+
+msgid "Mythisch"
+msgstr "Mythic"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Coins and hearts fly to you"
@@ -914,6 +968,9 @@ msgstr "New Run"
 
 msgid "Neues Spiel"
 msgstr "New Game"
+
+msgid "Nicht ablecken."
+msgstr "Do not lick."
 
 msgid "Nicht während eines Kampfes"
 msgstr "Not during a fight"
@@ -1064,6 +1121,12 @@ msgstr "Seal Fur"
 
 msgid "Robbenmantel"
 msgstr "Seal Cloak"
+
+msgid "Rot wie Glut."
+msgstr "Red as embers."
+
+msgid "Rubin"
+msgstr "Ruby"
 
 msgid "Ruhmeskette"
 msgstr "Chain of Glory"
@@ -1224,6 +1287,9 @@ msgstr "Shot speed"
 msgid "Schwarzer Kristall"
 msgstr "Black Crystal"
 
+msgid "Schwer und kalt."
+msgstr "Heavy and cold."
+
 msgid "Schwere Glut"
 msgstr "Heavy Ember"
 
@@ -1287,11 +1353,20 @@ msgstr "Seer's Brew"
 msgid "Seite %d von %d"
 msgstr "Page %d of %d"
 
+msgid "Selten"
+msgstr "Rare"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: you jump to where you aim"
 
 msgid "Shift: ein schneller Sprint, kurz unverwundbar"
 msgstr "Shift: a quick dash, briefly invulnerable"
+
+msgid "Sicherer Platz"
+msgstr "Safe slot"
+
+msgid "Sicherer Platz: bleibt, wenn du stirbst"
+msgstr "Safe slot: kept when you die"
 
 msgid "Siegerring"
 msgstr "Victor's Ring"
@@ -1331,6 +1406,9 @@ msgstr "Emerald"
 
 msgid "Smaragdjuwel"
 msgstr "Emerald Jewel"
+
+msgid "Solide"
+msgstr "Sturdy"
 
 msgid "Sonderraum"
 msgstr "Special room"
@@ -1395,6 +1473,9 @@ msgstr "Starlight Draught"
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Standing still makes you invulnerable"
 
+msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
+msgstr "If you die, the money is gone. Bring it home to your money box."
+
 msgid "Stollenhelm"
 msgstr "Miner's Helmet"
 
@@ -1406,6 +1487,9 @@ msgstr "Mace"
 
 msgid "Streubombe"
 msgstr "Cluster Bomb"
+
+msgid "Struppig und leicht angekaut."
+msgstr "Scruffy and a little chewed."
 
 msgid "Sturmessenz"
 msgstr "Storm Essence"
@@ -1497,6 +1581,9 @@ msgstr "Troll Armor"
 msgid "Truhenschlüssel"
 msgstr "Chest Key"
 
+msgid "Ungewöhnlich"
+msgstr "Uncommon"
+
 msgid "Utility"
 msgstr "Utility"
 
@@ -1551,6 +1638,12 @@ msgstr "WASD: walk · Mouse: aim · Left click: shoot"
 msgid "Wanderbündel"
 msgstr "Wanderer's Bundle"
 
+msgid "Warm und dicht."
+msgstr "Warm and thick."
+
+msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
+msgstr "What lies here is not lost when you die."
+
 msgid "Wasserstab"
 msgstr "Water Staff"
 
@@ -1562,6 +1655,9 @@ msgstr "World Staff"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "A killing shot flies on with what is left"
+
+msgid "Wert: %d Gold"
+msgstr "Value: %d gold"
 
 msgid "Wettkampfstiefel"
 msgstr "Contest Boots"
@@ -1580,6 +1676,9 @@ msgstr "Wind Staff"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Wherever the beam hits, things go boom"
+
+msgid "Wolfsfell"
+msgstr "Wolf fur"
 
 msgid "Wolfsmantel"
 msgstr "Wolf Cloak"
@@ -1607,6 +1706,9 @@ msgstr "Ten bombs"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Ten coins, luck up"
+
+msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
+msgstr "Drag: sort · Drag out of the window: drop · Tab: close"
 
 msgid "Zombie"
 msgstr "Zombie"

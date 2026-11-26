@@ -3,7 +3,7 @@ extends Control
 ## The map at the top right. Small: the room the player is in, seen from above: walls, doors
 ## (grey open, brown closed, gold locked), rocks, things to take (yellow), enemies as red dots and
 ## the player as a green dot with a line for the view direction.
-## Tab (toggle): zooms out to the whole floor in the middle of the screen: every room (visited ones
+## M (toggle): zooms out to the whole floor in the middle of the screen: every room (visited ones
 ## lighter), the item room (chest), the shop (coin), the boss room (boss picture), and inside the
 ## current room again the red and green dots.
 
