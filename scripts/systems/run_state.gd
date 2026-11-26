@@ -65,11 +65,15 @@ var special_chance: float = 1.0
 var fought_bosses: Array[String] = []
 ## The chosen character (data/characters.json): its values count like an item for the whole run.
 var character: String = "magier"
+## Loot from the dungeon (Tab). Lost on death except the safe places.
+var bag: Bag = Bag.new()
 var _regen_left: float = 0.0
 var _kills_to_heal: int = 0
 
 const MAX_HEARTS_LIMIT: int = 12
 const MAX_COUNT: int = 99
+## Coins are the gold of the run (it goes home after a win), so they may go higher than bombs.
+const MAX_COINS: int = 9999
 
 
 func _init(run_seed: int = 0, character_id: String = "magier") -> void:
@@ -236,8 +240,17 @@ func heal(halves: int) -> bool:
 func add_coins(amount: int) -> void:
 	if amount <= 0:
 		return
-	coins = mini(MAX_COUNT, coins + amount)
+	coins = mini(MAX_COINS, coins + amount)
 	note_best("coins", coins)
+	_coins_changed()
+
+
+## The gold the player carries from home (MetaState purse) comes along into the dungeon. Not
+## counted as "coins reached" for unlocks (those are for coins found in the run).
+func bring_gold(amount: int) -> void:
+	if amount <= 0:
+		return
+	coins = mini(MAX_COINS, coins + amount)
 	_coins_changed()
 
 
@@ -301,7 +314,7 @@ func add_item(id: String) -> void:
 		health = max_hearts * 2
 	# "give": things that come with the item (Wanderbündel, Schmiedeschürze).
 	var give: Dictionary = data.get("give", {})
-	coins = mini(MAX_COUNT, coins + maxi(0, int(give.get("coins", 0))))
+	coins = mini(MAX_COINS, coins + maxi(0, int(give.get("coins", 0))))
 	bombs = mini(MAX_COUNT, bombs + maxi(0, int(give.get("bombs", 0))))
 	keys = mini(MAX_COUNT, keys + maxi(0, int(give.get("keys", 0))))
 	var before: Array[String] = synergies.duplicate()
@@ -390,7 +403,8 @@ func compute_stats() -> ShotStats:
 		result.apply_adds(source.get("stats", {}))
 		var per_coin: Dictionary = source.get("per_coin", {})
 		for key: String in per_coin:
-			result.apply_adds({key: float(per_coin[key]) * coins})
+			# Counted up to 99 coins only, so the gold from home does not make it too strong.
+			result.apply_adds({key: float(per_coin[key]) * mini(coins, MAX_COUNT)})
 		for flag: Variant in source.get("flags", []):
 			result.flags[String(flag)] = true
 		result.apply_chances(source.get("chance", {}))

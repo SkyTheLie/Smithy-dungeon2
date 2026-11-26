@@ -93,6 +93,9 @@ msgstr "Disparos ardientes que explotan"
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "Enemigos ardiendo y lentos, y dos corazones azules"
 
+msgid "Brennt gut in jeder Esse."
+msgstr "Arde bien en cualquier fragua."
+
 msgid "Bronzebogen"
 msgstr "Arco de bronce"
 
@@ -107,6 +110,9 @@ msgstr "Lluvia de pan"
 
 msgid "Bumerang-Haken"
 msgstr "Gancho bumerán"
+
+msgid "Darin steckt ein kleines Krabbeltier."
+msgstr "Dentro hay un bichito atrapado."
 
 msgid "Das kostet zu viel Leben"
 msgstr "Eso cuesta demasiada vida"
@@ -246,8 +252,11 @@ msgstr "A través de rocas, y a veces los enemigos huyen"
 msgid "Durchschlag, Abprallen und Zerplatzen"
 msgstr "Perfora, rebota y estalla"
 
-msgid "E: Bombe · Tab: Karte · Esc: Pause"
-msgstr "E: bomba · Tab: mapa · Esc: pausa"
+msgid "Dünne Haut aus einem Fledermausflügel."
+msgstr "Piel fina del ala de un murciélago."
+
+msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
+msgstr "E: bomba · Tab: inventario · M: mapa · Esc: pausa"
 
 msgid "Ebene %d"
 msgstr "Piso %d"
@@ -339,6 +348,9 @@ msgstr "Una panadería entera de golpe"
 msgid "Einstellungen"
 msgstr "Ajustes"
 
+msgid "Eisenerz"
+msgstr "Mineral de hierro"
+
 msgid "Eisenhaut"
 msgstr "Piel de hierro"
 
@@ -360,6 +372,9 @@ msgstr "Descubre %d objetos (%d / %d)"
 msgid "Entdeckt: %d / %d"
 msgstr "Descubiertos: %d / %d"
 
+msgid "Episch"
+msgstr "Épico"
+
 msgid "Erdstab"
 msgstr "Bastón de tierra"
 
@@ -377,6 +392,9 @@ msgstr "Pasa el ratón sobre un objeto"
 
 msgid "Feenstaub"
 msgstr "Polvo de hada"
+
+msgid "Fein"
+msgstr "Fino"
 
 msgid "Feuerfester Bomber"
 msgstr "Bombardero ignífugo"
@@ -413,6 +431,12 @@ msgstr "Pinball"
 
 msgid "Fluchskelett"
 msgstr "Esqueleto maldito"
+
+msgid "Flughaut"
+msgstr "Membrana de murciélago"
+
+msgid "Flüstert leise, wenn es dunkel ist."
+msgstr "Susurra en voz baja cuando está oscuro."
 
 msgid "Freigeschaltet: %s"
 msgstr "Desbloqueado: %s"
@@ -477,8 +501,14 @@ msgstr "Vidrio fantasma"
 msgid "Geisterstab"
 msgstr "Bastón fantasma"
 
+msgid "Geldbündel: %d Gold"
+msgstr "Fajo de dinero: %d de oro"
+
 msgid "Generalsklinge"
 msgstr "Hoja del general"
+
+msgid "Gerettet (sicherer Platz): %d Beute"
+msgstr "Salvado (hueco seguro): %d botín"
 
 msgid "Geschafft!"
 msgstr "¡Lo lograste!"
@@ -522,6 +552,9 @@ msgstr "Gana una partida"
 msgid "Gewinne in unter %d Minuten"
 msgstr "Gana en menos de %d minutos"
 
+msgid "Gewöhnlich"
+msgstr "Común"
+
 msgid "Ghul"
 msgstr "Ghoul"
 
@@ -554,6 +587,9 @@ msgstr "Espada de brasa"
 
 msgid "Glutstab"
 msgstr "Bastón de Brasas"
+
+msgid "Glänzt grünlich. Der Händler mag es."
+msgstr "Brilla verdoso. Al mercader le gusta."
 
 msgid "Glück"
 msgstr "Suerte"
@@ -702,6 +738,9 @@ msgstr "Cuero infernal"
 msgid "Höllenstab"
 msgstr "Bastón infernal"
 
+msgid "Inventar"
+msgstr "Inventario"
+
 msgid "Jadefigur"
 msgstr "Figura de jade"
 
@@ -744,6 +783,9 @@ msgstr "Estrella de cuchillas"
 msgid "Knochengeneral"
 msgstr "General de hueso"
 
+msgid "Kohle"
+msgstr "Carbón"
+
 msgid "Kohlenschrot"
 msgstr "Perdigones de carbón"
 
@@ -773,6 +815,9 @@ msgstr "Fragmento de cristal"
 
 msgid "Kräuterbeutel"
 msgstr "Bolsa de hierbas"
+
+msgid "Kupfererz"
+msgstr "Mineral de cobre"
 
 msgid "Kupfernagel"
 msgstr "Clavo de cobre"
@@ -812,6 +857,9 @@ msgstr "Botas de cuero"
 
 msgid "Legendenhandschuhe"
 msgstr "Guantes legendarios"
+
+msgid "Legendär"
+msgstr "Legendario"
 
 msgid "Leichte Feder"
 msgstr "Pluma ligera"
@@ -882,6 +930,9 @@ msgstr "Meteoro"
 msgid "Minotaurus"
 msgstr "Minotauro"
 
+msgid "Mit nach Hause: %d Gold, %d Beute"
+msgstr "Llevado a casa: %d de oro, %d botín"
+
 msgid "Mondlilie"
 msgstr "Lirio lunar"
 
@@ -896,6 +947,9 @@ msgstr "Corazón del pantano"
 
 msgid "Musik"
 msgstr "Música"
+
+msgid "Mythisch"
+msgstr "Mítico"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Las monedas y corazones vuelan hacia ti"
@@ -914,6 +968,9 @@ msgstr "Nueva partida"
 
 msgid "Neues Spiel"
 msgstr "Nueva partida"
+
+msgid "Nicht ablecken."
+msgstr "No lo lamas."
 
 msgid "Nicht während eines Kampfes"
 msgstr "No durante un combate"
@@ -1064,6 +1121,12 @@ msgstr "Piel de foca"
 
 msgid "Robbenmantel"
 msgstr "Capa de foca"
+
+msgid "Rot wie Glut."
+msgstr "Rojo como las brasas."
+
+msgid "Rubin"
+msgstr "Rubí"
 
 msgid "Ruhmeskette"
 msgstr "Cadena de gloria"
@@ -1224,6 +1287,9 @@ msgstr "Velocidad de disparo"
 msgid "Schwarzer Kristall"
 msgstr "Cristal negro"
 
+msgid "Schwer und kalt."
+msgstr "Pesado y frío."
+
 msgid "Schwere Glut"
 msgstr "Brasa pesada"
 
@@ -1287,11 +1353,20 @@ msgstr "Brebaje del vidente"
 msgid "Seite %d von %d"
 msgstr "Página %d de %d"
 
+msgid "Selten"
+msgstr "Raro"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: saltas a donde apuntas"
 
 msgid "Shift: ein schneller Sprint, kurz unverwundbar"
 msgstr "Shift: un sprint rápido, invulnerable un instante"
+
+msgid "Sicherer Platz"
+msgstr "Hueco seguro"
+
+msgid "Sicherer Platz: bleibt, wenn du stirbst"
+msgstr "Hueco seguro: se conserva al morir"
 
 msgid "Siegerring"
 msgstr "Anillo del vencedor"
@@ -1331,6 +1406,9 @@ msgstr "Esmeralda"
 
 msgid "Smaragdjuwel"
 msgstr "Joya de esmeralda"
+
+msgid "Solide"
+msgstr "Sólido"
 
 msgid "Sonderraum"
 msgstr "Sala especial"
@@ -1395,6 +1473,9 @@ msgstr "Trago estelar"
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Quedarte quieto te hace invulnerable"
 
+msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
+msgstr "Si mueres, el dinero se pierde. Llévalo a casa, a tu lata."
+
 msgid "Stollenhelm"
 msgstr "Casco de minero"
 
@@ -1406,6 +1487,9 @@ msgstr "Maza"
 
 msgid "Streubombe"
 msgstr "Bomba de racimo"
+
+msgid "Struppig und leicht angekaut."
+msgstr "Desgreñada y algo mordisqueada."
 
 msgid "Sturmessenz"
 msgstr "Esencia de tormenta"
@@ -1497,6 +1581,9 @@ msgstr "Armadura de trol"
 msgid "Truhenschlüssel"
 msgstr "Llave del cofre"
 
+msgid "Ungewöhnlich"
+msgstr "Poco común"
+
 msgid "Utility"
 msgstr "Utilidad"
 
@@ -1551,6 +1638,12 @@ msgstr "WASD: andar · Ratón: apuntar · Clic izquierdo: disparar"
 msgid "Wanderbündel"
 msgstr "Hatillo del viajero"
 
+msgid "Warm und dicht."
+msgstr "Cálido y espeso."
+
+msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
+msgstr "Lo que está aquí no se pierde al morir."
+
 msgid "Wasserstab"
 msgstr "Bastón de agua"
 
@@ -1562,6 +1655,9 @@ msgstr "Bastón del mundo"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "El disparo que mata sigue con lo que queda"
+
+msgid "Wert: %d Gold"
+msgstr "Valor: %d de oro"
 
 msgid "Wettkampfstiefel"
 msgstr "Botas de competición"
@@ -1580,6 +1676,9 @@ msgstr "Bastón de viento"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Donde impacta el rayo, todo explota"
+
+msgid "Wolfsfell"
+msgstr "Piel de lobo"
 
 msgid "Wolfsmantel"
 msgstr "Capa de lobo"
@@ -1607,6 +1706,9 @@ msgstr "Diez bombas"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Diez monedas, más suerte"
+
+msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
+msgstr "Arrastrar: ordenar · Sacar de la ventana: soltar · Tab: cerrar"
 
 msgid "Zombie"
 msgstr "Zombi"

@@ -119,6 +119,36 @@ func run() -> void:
 			check_eq(theme_of[index], theme_of[index - 1], "floors %d and %d share a theme" % [index, index + 1])
 		elif index > 0:
 			check(theme_of[index] != theme_of[index - 1], "floor %d has a new theme" % (index + 1))
+	_check_loot(content, enemies)
+
+
+## data/loot.json: every material has a picture, a name, a rarity 1-8 and a value; every enemy
+## with loot exists and only drops known materials; every enemy drops something.
+func _check_loot(content: Script, enemies: Dictionary) -> void:
+	var materials: Dictionary = content.call("materials")
+	check(materials.size() >= 5, "there is loot")
+	for id: String in materials:
+		var entry: Dictionary = materials[id]
+		check(ResourceLoader.exists(String(entry.get("icon", ""))), "loot %s picture" % id)
+		check(not String(entry.get("name", "")).is_empty() and not String(entry.get("desc", "")).is_empty(), "loot %s name and text" % id)
+		check(int(entry.get("rarity", 0)) >= 1 and int(entry.get("rarity", 0)) <= 8, "loot %s rarity 1-8" % id)
+		check(int(entry.get("value", 0)) > 0, "loot %s has a value" % id)
+	var tables: Dictionary = (content.call("get_file", "loot") as Dictionary).get("enemies", {})
+	for enemy_id: String in tables:
+		check(enemies.has(enemy_id), "loot for enemy %s: enemy exists" % enemy_id)
+		for drop: Dictionary in tables[enemy_id]:
+			check(materials.has(String(drop.get("id", ""))), "enemy %s drops known loot %s" % [enemy_id, drop.get("id")])
+			var chance: float = float(drop.get("chance", 0.0))
+			check(chance > 0.0 and chance <= 1.0, "enemy %s: chance 0-1" % enemy_id)
+			var amount: Array = drop.get("amount", [1, 1])
+			check(amount.size() == 2 and int(amount[0]) >= 1 and int(amount[1]) >= int(amount[0]), "enemy %s: amount [min, max]" % enemy_id)
+	for enemy_id: String in enemies:
+		check(tables.has(enemy_id), "enemy %s drops something (loot.json)" % enemy_id)
+	var bag: Dictionary = content.call("meta", "bag")
+	check(int(bag.get("slots", 0)) > 0 and int(bag.get("safe_slots", 0)) >= 1 and int(bag.get("stack", 0)) > 1, "bag sizes in meta.json")
+	var box: Dictionary = content.call("meta", "money_box")
+	check(int(box.get("limit", 0)) > 0, "money box limit")
+	check(float(box.get("steal_all_chance", 1.0)) + float(box.get("steal_part_chance", 1.0)) < 1.0, "theft chances below 100 %")
 
 
 func _check_bonus(what: String, source: Dictionary) -> void:

@@ -78,6 +78,25 @@ static func player() -> Dictionary:
 	return get_file("player")
 
 
+## Loot that goes into the bag (data/loot.json "materials").
+static func materials() -> Dictionary:
+	return get_file("loot").get("materials", {})
+
+
+static func material(id: String) -> Dictionary:
+	return materials().get(id, {})
+
+
+## What enemy `id` can drop into the bag: a list of {id, chance, amount}.
+static func enemy_loot(id: String) -> Array:
+	return (get_file("loot").get("enemies", {}) as Dictionary).get(id, [])
+
+
+## Values between runs (data/meta.json): "bag", "money_box".
+static func meta(section: String) -> Dictionary:
+	return get_file("meta").get(section, {})
+
+
 ## Ids of all items in `pool`: "item" (item room) = every item that is not "secret": true;
 ## "secret" (secret rooms) = the secret ones;
 ## "shop", "boss" = the items that list it in "pools". Locked items are still in here

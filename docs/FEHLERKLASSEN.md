@@ -32,6 +32,9 @@ Aus Smithy übernommen, was hier gilt (Smithy: `docs/FEHLERKLASSEN.md`). Kurz ha
 
 Format: `Datum · Branch · Ursache · Regel-Nummer (oder „neu“)`
 
+- 2026-11-26 · feature/beute-inventar · Nach dem Tod sammelte der Spieler in der Sekunde bis zum End-Bildschirm noch Beute auf, die dann in der schon geleerten Tasche landete · neu: Pickups prüfen `run.is_dead()`; was nach dem Run-Ende passiert, darf keine Regeln mehr ändern
+- 2026-11-26 · feature/beute-inventar · Hilfsfunktion `_set` in `MetaState` überschrieb Godots eingebautes `Object._set` · neu: keine Namen von Godot-Methoden (`_set`, `_get`, `_init` …) für eigene Hilfsfunktionen
+
 - 2026-11-26 · feature/schwertschwung · Kriegsaxt machte aus dem Feuerball des Magiers einen Schwung (Modus-Vorrang, Waffe hing am Charakter) · neu: Hauptwaffen sind Items (`start_items`); neue Waffen kombinieren über Synergien statt still zu ersetzen
 - 2026-11-26 · feature/schwertschwung · Boss-Test „Sonderraum 100 %“ hing davon ab, ob der Spieler vorher getroffen wurde · 13 (Test setzt alle Bedingungen selbst)
 - 2026-11-26 · feature/testraum · Boss-Raum stand immer auf der Karte (Sonderfall in `known_cells`), obwohl der Nebel ihn verbergen sollte · neu: Nebel-Regeln nur an einer Stelle (`Dungeon.known_cells`), keine Ausnahmen je Raumtyp ohne Absprache

@@ -23,6 +23,11 @@ func open(run: RunState, won: bool) -> void:
 		Language.translate("Ebene: %d") % (run.floor_index + 1),
 		Language.translate("Besiegte Gegner: %d") % run.kills,
 	]
+	# What comes home (MetaState.end_run already ran in RunScene).
+	if won:
+		lines.append(Language.translate("Mit nach Hause: %d Gold, %d Beute") % [run.coins, _count(run.bag.contents())])
+	else:
+		lines.append(Language.translate("Gerettet (sicherer Platz): %d Beute") % _count(run.bag.safe_contents()))
 	for line: String in PauseMenu.describe(run).split("\n"):
 		lines.append(line)
 	var half: int = ceili(lines.size() / 2.0)
@@ -43,3 +48,10 @@ func open(run: RunState, won: bool) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if won:
 		AudioManager.play_music("victory")
+
+
+static func _count(places: Array[Dictionary]) -> int:
+	var total: int = 0
+	for place: Dictionary in places:
+		total += int(place.get("count", 0))
+	return total

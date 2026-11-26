@@ -6,6 +6,10 @@
 - Die Grafik wurde noch nicht im Spiel angesehen, nur headless getestet. Beim ersten Start auf Größen achten (Gegner, Fackeln, Sockel, Texte auf dem Boden).
 - Platzhalter: Feuerball, Gegner-Kugel und Explosion sind im Code gezeichnete Kreise (`Fx`). Bombe = Smithy-Icon „Rauchbombe“, Herz = Arena-Herz, Item-Raum-Symbol = Truhe.
 - Kein Gamepad.
+- Beute: „Flughaut“ (Fledermaus) nutzt das Leder-Bild aus Smithy, es gibt kein Bild eines Fledermausflügels.
+- Die Dose hat noch keinen Bildschirm (Einzahlen/Abheben gibt es nur im Code und im Test). Mitgebrachte Beute (`stash`) kann man noch nicht verkaufen. Beides kommt mit dem Laden.
+- Wer einen Run über Pause → Hauptmenü verlässt, verliert die mitgenommene Geldbörse (wie beim Tod).
+- Das Repository hat gemischte Zeilenenden (LF/CRLF, von Dungeon Smithy geerbt). Geänderte Dateien behalten ihre Zeilenenden; eine `.gitattributes` zum Vereinheitlichen wäre ein eigener Schritt.
 - Waffen: Feuerlanze (Strahl) und Pulverhandschuh (Bomben) verdrängen noch die Hauptwaffe (z. B. das Schwert des Kriegers), weil der Modus Strahl > Bombe > Nahkampf > Feuer gilt. Abhilfe: weitere Waffen-Kreuzungen wie der Feuerhieb, Vorschläge in `docs/SYNERGIEN.md`. Die Kriegsaxt hat in der Hand nur das Bild des Axtkopfs.
 
 ## Ideen (Backlog)

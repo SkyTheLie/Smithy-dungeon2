@@ -57,3 +57,15 @@ Gilt, wenn aus **jeder** Gruppe in `requires` mindestens ein Item da ist. `stats
 ## Ebene (`data/floors.json`)
 
 Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` (32×48), `rooms` (normale Räume), `enemies` ([Id, Gewicht]), `enemy_count`, `first_room_enemies`, `boss`, `music` (Id aus `audio.json`), `light` (Farbe), `key_doors` (Raumarten mit Schlüssel-Tür). Die letzte Ebene endet mit dem Sieg. Dazu `room_styles`, `shop` (Preise, Händler-Bild), `room_drops`, `rocks`.
+
+## Beute (`data/loot.json`)
+
+- `materials`: `"id": {"name", "desc", "icon", "rarity": 1-8, "value"}`. `rarity` = Rahmenfarbe (R1 grau … R8 rosa), `value` = Gold beim Händler.
+- `enemies`: `"gegner_id": [{"id": "material", "chance": 0.3, "amount": [1, 2]}, …]`. Jede Zeile wird einzeln gewürfelt. **Jeder Gegner braucht eine Zeile** (der Test prüft das).
+- `luck_bonus`: zusätzliche Chance je Glückspunkt.
+- Neue Texte (`name`, `desc`) danach übersetzen (`build_po.py` findet sie selbst).
+
+## Spielstand-Regeln (`data/meta.json`)
+
+- `bag`: `slots` (normale Plätze), `safe_slots` (bleiben beim Tod), `stack` (höchste Anzahl pro Platz).
+- `money_box`: `limit` (so viel ist in der Dose sicher), `steal_all_chance`, `steal_part_chance`, `steal_part_share` [min, max].

@@ -17,8 +17,8 @@
 
 - **Engine:** Godot 4.7 (Standard, nicht .NET), Renderer GL Compatibility, GDScript statisch typisiert
 - **Ansicht:** Dungeon: 3D-Welt in einem `SubViewport` 640×360, scharf hochskaliert (Pixel-Look). Laden und Menüs: 2D, 640×360, Stretch `canvas_items`
-- **Daten:** alles Spielbare als JSON in `data/` (Items, Synergien, Gegner, Ebenen, Charaktere, Startwerte, Töne; später Ausrüstung, Laden, Story) – nie im Code. Anleitung: `docs/CONTENT.md`
-- **Speichern:** Ein Run wird nicht gespeichert. Gespeichert: Einstellungen (`user://settings.cfg`), Fortschritt (`user://progress.cfg`); kommt in Phase 1: Spielstand zwischen Runs (Gold, Inventar, Ausrüstung, Tag). Eigener `user://`-Ordner („Smithy Dungeon 2“), getrennt von Dungeon Smithy.
+- **Daten:** alles Spielbare als JSON in `data/` (Items, Synergien, Gegner, Ebenen, Charaktere, Startwerte, Töne, Beute `loot.json`, Spielstand-Regeln `meta.json`; später Ausrüstung, Laden, Story) – nie im Code. Anleitung: `docs/CONTENT.md`
+- **Speichern:** Ein Run wird nicht gespeichert. Gespeichert: Einstellungen (`user://settings.cfg`), Fortschritt (`user://progress.cfg`), Spielstand zwischen Runs (`user://save.cfg`, `MetaState`: Geldbörse, Dose, mitgebrachte Beute, Tag). Eigener `user://`-Ordner („Smithy Dungeon 2“), getrennt von Dungeon Smithy.
 - **Sprachen:** deutscher Text = Schlüssel, `locale/<sprache>.po`, 9 Sprachen. Ablauf: `docs/SPRACHEN.md`
 
 ## 3. Ordner
@@ -56,12 +56,15 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 8. Nach jeder Aufgabe: Tests (`bash assets/_reference/run_tests.sh`), sagen, was im Spiel zu testen ist, Doku nachziehen.
 9. Neue Texte: `py assets/_reference/i18n/build_po.py` muss „0 problems“ melden.
 10. Regeln gegen bekannte Fehler: `docs/FEHLERKLASSEN.md`.
+11. **Dialoge:** Jeder Text einer Figur wird aus ihrer Charakter-Datei in `docs/figuren/` gebaut (Egon Ehrlich: `docs/figuren/EGON_EHRLICH.md`). Neue Fakten über eine Figur dort eintragen.
 
 ## 6. Umfang
 
 **Übernommen aus Dungeon Smithy (läuft):** Hauptmenü und Sprachwahl, 6 Ebenen in 3 Themen, Item-Raum, Shop, Geheimraum, Opferstein, Glutpakt, Boss, 203 Items, 14 Synergien (Waffen-Kreuzung Feuerhieb), 28 Gegner, 3 Charaktere (Magier; Bogenschütze und Krieger freischaltbar) mit Hauptwaffe als Start-Item, Lexikon, Testraum (P im Editor).
 
-**Ziel Version 1 (neu):** Spielstand zwischen Runs, Laden mit Glücksspiel-Tisch, Ausrüstung mit Seltenheit, Trank-Slot, Intro mit dem Händler, erster Dungeon ohne Item-/Shop-Raum. Details und Reihenfolge: `docs/ROADMAP.md`.
+**Neu gebaut:** Beute von Gegnern, Inventar auf Tab (Drag & Drop, fallen lassen, sicherer Platz), Geldbündel, Spielstand zwischen Runs mit Dose und Diebstahl-Regel (noch ohne Bildschirm), Karte auf M.
+
+**Ziel Version 1 (neu):** Laden mit Glücksspiel-Tisch, Ausrüstung mit Seltenheit, Trank-Slot, Intro mit dem Händler, erster Dungeon ohne Item-/Shop-Raum. Details und Reihenfolge: `docs/ROADMAP.md`.
 
 **Später:** Schmieden mit Smithy-Minispielen, Zauberstab-Relikte, mehrere Dungeons mit Materialstufen, Koop.
 
@@ -70,20 +73,19 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 | Phase | Inhalt | Status |
 |---|---|---|
 | 0 | Projekt angelegt, Assets und Logik aller Smithy-Spiele, Ideen sortiert | erledigt (2026-11-26) |
-| 1 | Spielstand und Laden | offen |
+| 1 | Spielstand und Laden | Beute, Inventar, Spielstand, Dose: erledigt (2026-11-26); Laden offen |
 | 2 | Intro und Händler-Story | offen |
 | 3 | Ausrüstung im Run, Tränke | offen |
 
 ## 8. Aktuelle Aufgabe
 
-**Nächster Schritt:** Phase 1, Schritt 1–2 (Spielstand `MetaState`, Ausrüstung `data/gear.json` mit Kupfer-Sachen R1).
+**Zuletzt gebaut (2026-11-26, `feature/beute-inventar`):** Beute, Inventar (Tab), sicherer Platz, Geldbündel, `MetaState` mit Dose. Im Spiel testen: Gegner töten → Beute liegt am Boden (Fledermaus: Flughaut, Ratten: Rattenfell, Goblins: Kupfererz), drüberlaufen, **Tab** → Inventar, Sachen umsortieren, eine aus dem Fenster ziehen (fällt vor dir auf den Boden, wird erst nach Weggehen wieder aufgehoben), etwas in den goldenen sicheren Platz ziehen, sterben → End-Bildschirm „Gerettet (sicherer Platz)“. **M** = Karte.
 
-**Offene Entscheidungen (aus `docs/IDEEN.md`):**
-- [ ] Ein „Tag“ = ein Run?
-- [ ] Neu würfeln: fester oder steigender Preis?
-- [ ] Was bleibt beim Tod (Ausrüstung ja, Gold teilweise)?
-- [ ] Name des Händlers
-- [ ] Dungeon 3D, Laden 2D – so lassen?
+**Nächster Schritt:** Ausrüstung als Daten (`data/gear.json`, Kupfer-Sachen R1), dann der Laden-Bildschirm mit Tisch, Hebel, Verkauf und Dose.
+
+**Entschieden (2026-11-26):** Ein Tag = ein Run · neu würfeln wird teurer · Ausrüstung bleibt beim Tod, Inventar und Geld bei sich sind weg · Händler = Egon Ehrlich · Dungeon 1 : 1 wie Dungeon Smithy.
+
+**Offen:** Relikt-Stufen 1–10 und Seltenheitsfarben; Preis-Stufen fürs Würfeln (siehe `docs/IDEEN.md`).
 
 ## 9. Bekannte Probleme
 

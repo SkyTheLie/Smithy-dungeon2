@@ -93,6 +93,9 @@ msgstr "Tirs brûlants et explosifs"
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "Ennemis brûlés et ralentis, et deux cœurs bleus"
 
+msgid "Brennt gut in jeder Esse."
+msgstr "Brûle bien dans toute forge."
+
 msgid "Bronzebogen"
 msgstr "Arc de bronze"
 
@@ -107,6 +110,9 @@ msgstr "Pluie de pain"
 
 msgid "Bumerang-Haken"
 msgstr "Crochet boomerang"
+
+msgid "Darin steckt ein kleines Krabbeltier."
+msgstr "Une petite bestiole est coincée dedans."
 
 msgid "Das kostet zu viel Leben"
 msgstr "Cela coûte trop de vie"
@@ -246,8 +252,11 @@ msgstr "À travers les rochers, et parfois les ennemis fuient"
 msgid "Durchschlag, Abprallen und Zerplatzen"
 msgstr "Perce, rebondit et éclate"
 
-msgid "E: Bombe · Tab: Karte · Esc: Pause"
-msgstr "E : bombe · Tab : carte · Échap : pause"
+msgid "Dünne Haut aus einem Fledermausflügel."
+msgstr "Fine peau d'une aile de chauve-souris."
+
+msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
+msgstr "E : bombe · Tab : inventaire · M : carte · Échap : pause"
 
 msgid "Ebene %d"
 msgstr "Étage %d"
@@ -339,6 +348,9 @@ msgstr "Une boulangerie entière d'un coup"
 msgid "Einstellungen"
 msgstr "Paramètres"
 
+msgid "Eisenerz"
+msgstr "Minerai de fer"
+
 msgid "Eisenhaut"
 msgstr "Peau de fer"
 
@@ -360,6 +372,9 @@ msgstr "Découvre %d objets (%d / %d)"
 msgid "Entdeckt: %d / %d"
 msgstr "Découverts : %d / %d"
 
+msgid "Episch"
+msgstr "Épique"
+
 msgid "Erdstab"
 msgstr "Bâton de terre"
 
@@ -377,6 +392,9 @@ msgstr "Survole un objet avec la souris"
 
 msgid "Feenstaub"
 msgstr "Poussière de fée"
+
+msgid "Fein"
+msgstr "Fin"
 
 msgid "Feuerfester Bomber"
 msgstr "Bombardier ignifugé"
@@ -413,6 +431,12 @@ msgstr "Flipper"
 
 msgid "Fluchskelett"
 msgstr "Squelette maudit"
+
+msgid "Flughaut"
+msgstr "Peau de chauve-souris"
+
+msgid "Flüstert leise, wenn es dunkel ist."
+msgstr "Chuchote doucement quand il fait noir."
 
 msgid "Freigeschaltet: %s"
 msgstr "Débloqué : %s"
@@ -477,8 +501,14 @@ msgstr "Verre fantôme"
 msgid "Geisterstab"
 msgstr "Bâton fantôme"
 
+msgid "Geldbündel: %d Gold"
+msgstr "Liasse d'argent : %d or"
+
 msgid "Generalsklinge"
 msgstr "Lame du général"
+
+msgid "Gerettet (sicherer Platz): %d Beute"
+msgstr "Sauvé (emplacement sûr) : %d butin"
 
 msgid "Geschafft!"
 msgstr "Victoire !"
@@ -522,6 +552,9 @@ msgstr "Gagne une partie"
 msgid "Gewinne in unter %d Minuten"
 msgstr "Gagne en moins de %d minutes"
 
+msgid "Gewöhnlich"
+msgstr "Commun"
+
 msgid "Ghul"
 msgstr "Goule"
 
@@ -554,6 +587,9 @@ msgstr "Épée de braise"
 
 msgid "Glutstab"
 msgstr "Bâton de braise"
+
+msgid "Glänzt grünlich. Der Händler mag es."
+msgstr "Brille d'un éclat verdâtre. Le marchand adore."
 
 msgid "Glück"
 msgstr "Chance"
@@ -702,6 +738,9 @@ msgstr "Cuir infernal"
 msgid "Höllenstab"
 msgstr "Bâton infernal"
 
+msgid "Inventar"
+msgstr "Inventaire"
+
 msgid "Jadefigur"
 msgstr "Figurine de jade"
 
@@ -744,6 +783,9 @@ msgstr "Étoile de lames"
 msgid "Knochengeneral"
 msgstr "Général d'os"
 
+msgid "Kohle"
+msgstr "Charbon"
+
 msgid "Kohlenschrot"
 msgstr "Chevrotine de charbon"
 
@@ -773,6 +815,9 @@ msgstr "Éclat de cristal"
 
 msgid "Kräuterbeutel"
 msgstr "Sachet d'herbes"
+
+msgid "Kupfererz"
+msgstr "Minerai de cuivre"
 
 msgid "Kupfernagel"
 msgstr "Clou de cuivre"
@@ -812,6 +857,9 @@ msgstr "Bottes de cuir"
 
 msgid "Legendenhandschuhe"
 msgstr "Gants légendaires"
+
+msgid "Legendär"
+msgstr "Légendaire"
 
 msgid "Leichte Feder"
 msgstr "Plume légère"
@@ -882,6 +930,9 @@ msgstr "Météore"
 msgid "Minotaurus"
 msgstr "Minotaure"
 
+msgid "Mit nach Hause: %d Gold, %d Beute"
+msgstr "Rapporté à la maison : %d or, %d butin"
+
 msgid "Mondlilie"
 msgstr "Lys de lune"
 
@@ -896,6 +947,9 @@ msgstr "Cœur des marais"
 
 msgid "Musik"
 msgstr "Musique"
+
+msgid "Mythisch"
+msgstr "Mythique"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Les pièces et les cœurs volent vers toi"
@@ -914,6 +968,9 @@ msgstr "Nouvelle tentative"
 
 msgid "Neues Spiel"
 msgstr "Nouvelle partie"
+
+msgid "Nicht ablecken."
+msgstr "Ne pas lécher."
 
 msgid "Nicht während eines Kampfes"
 msgstr "Pas pendant un combat"
@@ -1064,6 +1121,12 @@ msgstr "Fourrure de phoque"
 
 msgid "Robbenmantel"
 msgstr "Cape de phoque"
+
+msgid "Rot wie Glut."
+msgstr "Rouge comme la braise."
+
+msgid "Rubin"
+msgstr "Rubis"
 
 msgid "Ruhmeskette"
 msgstr "Chaîne de gloire"
@@ -1224,6 +1287,9 @@ msgstr "Vitesse des tirs"
 msgid "Schwarzer Kristall"
 msgstr "Cristal noir"
 
+msgid "Schwer und kalt."
+msgstr "Lourd et froid."
+
 msgid "Schwere Glut"
 msgstr "Braise lourde"
 
@@ -1287,11 +1353,20 @@ msgstr "Breuvage du voyant"
 msgid "Seite %d von %d"
 msgstr "Page %d sur %d"
 
+msgid "Selten"
+msgstr "Rare"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Maj : tu sautes là où tu vises"
 
 msgid "Shift: ein schneller Sprint, kurz unverwundbar"
 msgstr "Maj : un sprint rapide, invulnérable un instant"
+
+msgid "Sicherer Platz"
+msgstr "Emplacement sûr"
+
+msgid "Sicherer Platz: bleibt, wenn du stirbst"
+msgstr "Emplacement sûr : gardé si tu meurs"
 
 msgid "Siegerring"
 msgstr "Anneau du vainqueur"
@@ -1331,6 +1406,9 @@ msgstr "Émeraude"
 
 msgid "Smaragdjuwel"
 msgstr "Joyau d'émeraude"
+
+msgid "Solide"
+msgstr "Solide"
 
 msgid "Sonderraum"
 msgstr "Salle spéciale"
@@ -1395,6 +1473,9 @@ msgstr "Breuvage étoilé"
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Rester immobile te rend invulnérable"
 
+msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
+msgstr "Si tu meurs, l'argent est perdu. Ramène-le dans ta boîte à la maison."
+
 msgid "Stollenhelm"
 msgstr "Casque de mineur"
 
@@ -1406,6 +1487,9 @@ msgstr "Masse d'armes"
 
 msgid "Streubombe"
 msgstr "Bombe à fragmentation"
+
+msgid "Struppig und leicht angekaut."
+msgstr "Hirsute et un peu mâchouillée."
 
 msgid "Sturmessenz"
 msgstr "Essence de tempête"
@@ -1497,6 +1581,9 @@ msgstr "Armure de troll"
 msgid "Truhenschlüssel"
 msgstr "Clé du coffre"
 
+msgid "Ungewöhnlich"
+msgstr "Peu commun"
+
 msgid "Utility"
 msgstr "Utilitaire"
 
@@ -1551,6 +1638,12 @@ msgstr "ZQSD : marcher · Souris : viser · Clic gauche : tirer"
 msgid "Wanderbündel"
 msgstr "Baluchon du voyageur"
 
+msgid "Warm und dicht."
+msgstr "Chaude et épaisse."
+
+msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
+msgstr "Ce qui est ici n'est pas perdu si tu meurs."
+
 msgid "Wasserstab"
 msgstr "Bâton d'eau"
 
@@ -1562,6 +1655,9 @@ msgstr "Bâton des mondes"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Un tir qui tue continue avec le reste"
+
+msgid "Wert: %d Gold"
+msgstr "Valeur : %d or"
 
 msgid "Wettkampfstiefel"
 msgstr "Bottes de compétition"
@@ -1580,6 +1676,9 @@ msgstr "Bâton du vent"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Là où frappe le rayon, ça explose"
+
+msgid "Wolfsfell"
+msgstr "Fourrure de loup"
 
 msgid "Wolfsmantel"
 msgstr "Cape de loup"
@@ -1607,6 +1706,9 @@ msgstr "Dix bombes"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Dix pièces, chance en hausse"
+
+msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
+msgstr "Glisser : trier · Glisser hors de la fenêtre : lâcher · Tab : fermer"
 
 msgid "Zombie"
 msgstr "Zombie"

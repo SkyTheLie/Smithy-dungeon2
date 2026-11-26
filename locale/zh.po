@@ -93,6 +93,9 @@ msgstr "燃烧并爆炸的射击"
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "敌人燃烧并减速，外加两颗蓝心"
 
+msgid "Brennt gut in jeder Esse."
+msgstr "在任何熔炉里都烧得很旺。"
+
 msgid "Bronzebogen"
 msgstr "青铜弓"
 
@@ -107,6 +110,9 @@ msgstr "面包雨"
 
 msgid "Bumerang-Haken"
 msgstr "回旋钩"
+
+msgid "Darin steckt ein kleines Krabbeltier."
+msgstr "里面封着一只小虫子。"
 
 msgid "Das kostet zu viel Leben"
 msgstr "这会消耗太多生命"
@@ -246,8 +252,11 @@ msgstr "穿过岩石，有时敌人会逃跑"
 msgid "Durchschlag, Abprallen und Zerplatzen"
 msgstr "穿透、反弹和爆裂"
 
-msgid "E: Bombe · Tab: Karte · Esc: Pause"
-msgstr "E：炸弹 · Tab：地图 · Esc：暂停"
+msgid "Dünne Haut aus einem Fledermausflügel."
+msgstr "蝙蝠翅膀上的薄皮。"
+
+msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
+msgstr "E:炸弹 · Tab:背包 · M:地图 · Esc:暂停"
 
 msgid "Ebene %d"
 msgstr "第%d层"
@@ -339,6 +348,9 @@ msgstr "一次射出整间面包店"
 msgid "Einstellungen"
 msgstr "设置"
 
+msgid "Eisenerz"
+msgstr "铁矿石"
+
 msgid "Eisenhaut"
 msgstr "铁肤"
 
@@ -360,6 +372,9 @@ msgstr "发现%d件物品（%d / %d）"
 msgid "Entdeckt: %d / %d"
 msgstr "已发现：%d / %d"
 
+msgid "Episch"
+msgstr "史诗"
+
 msgid "Erdstab"
 msgstr "大地之杖"
 
@@ -377,6 +392,9 @@ msgstr "将鼠标悬停在物品上"
 
 msgid "Feenstaub"
 msgstr "仙尘"
+
+msgid "Fein"
+msgstr "精良"
 
 msgid "Feuerfester Bomber"
 msgstr "防火爆破手"
@@ -413,6 +431,12 @@ msgstr "弹珠台"
 
 msgid "Fluchskelett"
 msgstr "诅咒骷髅"
+
+msgid "Flughaut"
+msgstr "蝙蝠皮"
+
+msgid "Flüstert leise, wenn es dunkel ist."
+msgstr "天黑时会轻声低语。"
 
 msgid "Freigeschaltet: %s"
 msgstr "已解锁：%s"
@@ -477,8 +501,14 @@ msgstr "幽灵玻璃"
 msgid "Geisterstab"
 msgstr "幽灵之杖"
 
+msgid "Geldbündel: %d Gold"
+msgstr "钱袋:%d 金币"
+
 msgid "Generalsklinge"
 msgstr "将军之刃"
+
+msgid "Gerettet (sicherer Platz): %d Beute"
+msgstr "保住(安全格):%d 件战利品"
 
 msgid "Geschafft!"
 msgstr "成功了！"
@@ -522,6 +552,9 @@ msgstr "通关一次"
 msgid "Gewinne in unter %d Minuten"
 msgstr "在%d分钟内通关"
 
+msgid "Gewöhnlich"
+msgstr "普通"
+
 msgid "Ghul"
 msgstr "食尸鬼"
 
@@ -554,6 +587,9 @@ msgstr "余烬之剑"
 
 msgid "Glutstab"
 msgstr "余烬法杖"
+
+msgid "Glänzt grünlich. Der Händler mag es."
+msgstr "泛着绿光。商人很喜欢。"
 
 msgid "Glück"
 msgstr "幸运"
@@ -702,6 +738,9 @@ msgstr "地狱皮革"
 msgid "Höllenstab"
 msgstr "地狱之杖"
 
+msgid "Inventar"
+msgstr "背包"
+
 msgid "Jadefigur"
 msgstr "玉雕像"
 
@@ -744,6 +783,9 @@ msgstr "刃之星"
 msgid "Knochengeneral"
 msgstr "白骨将军"
 
+msgid "Kohle"
+msgstr "煤炭"
+
 msgid "Kohlenschrot"
 msgstr "煤炭霰弹"
 
@@ -773,6 +815,9 @@ msgstr "水晶碎片"
 
 msgid "Kräuterbeutel"
 msgstr "草药袋"
+
+msgid "Kupfererz"
+msgstr "铜矿石"
 
 msgid "Kupfernagel"
 msgstr "铜钉"
@@ -812,6 +857,9 @@ msgstr "皮靴"
 
 msgid "Legendenhandschuhe"
 msgstr "传奇手套"
+
+msgid "Legendär"
+msgstr "传说"
 
 msgid "Leichte Feder"
 msgstr "轻羽"
@@ -882,6 +930,9 @@ msgstr "流星"
 msgid "Minotaurus"
 msgstr "牛头人"
 
+msgid "Mit nach Hause: %d Gold, %d Beute"
+msgstr "带回家:%d 金币,%d 件战利品"
+
 msgid "Mondlilie"
 msgstr "月百合"
 
@@ -896,6 +947,9 @@ msgstr "沼泽之心"
 
 msgid "Musik"
 msgstr "音乐"
+
+msgid "Mythisch"
+msgstr "神话"
 
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "硬币和心会飞向你"
@@ -914,6 +968,9 @@ msgstr "再来一局"
 
 msgid "Neues Spiel"
 msgstr "新游戏"
+
+msgid "Nicht ablecken."
+msgstr "别舔。"
 
 msgid "Nicht während eines Kampfes"
 msgstr "战斗中不可用"
@@ -1064,6 +1121,12 @@ msgstr "海豹皮"
 
 msgid "Robbenmantel"
 msgstr "海豹斗篷"
+
+msgid "Rot wie Glut."
+msgstr "红得像余烬。"
+
+msgid "Rubin"
+msgstr "红宝石"
 
 msgid "Ruhmeskette"
 msgstr "荣耀之链"
@@ -1224,6 +1287,9 @@ msgstr "弹速"
 msgid "Schwarzer Kristall"
 msgstr "黑水晶"
 
+msgid "Schwer und kalt."
+msgstr "又重又冷。"
+
 msgid "Schwere Glut"
 msgstr "沉重余烬"
 
@@ -1287,11 +1353,20 @@ msgstr "先知药剂"
 msgid "Seite %d von %d"
 msgstr "第%d页，共%d页"
 
+msgid "Selten"
+msgstr "稀有"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift：瞬移到你瞄准的位置"
 
 msgid "Shift: ein schneller Sprint, kurz unverwundbar"
 msgstr "Shift：快速冲刺，短暂无敌"
+
+msgid "Sicherer Platz"
+msgstr "安全格"
+
+msgid "Sicherer Platz: bleibt, wenn du stirbst"
+msgstr "安全格:死亡时保留"
 
 msgid "Siegerring"
 msgstr "胜者之戒"
@@ -1331,6 +1406,9 @@ msgstr "祖母绿"
 
 msgid "Smaragdjuwel"
 msgstr "祖母绿宝石"
+
+msgid "Solide"
+msgstr "坚固"
 
 msgid "Sonderraum"
 msgstr "特殊房间"
@@ -1395,6 +1473,9 @@ msgstr "星光药水"
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "静止不动时无敌"
 
+msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
+msgstr "死了钱就没了。把它带回家放进你的钱罐。"
+
 msgid "Stollenhelm"
 msgstr "矿工头盔"
 
@@ -1406,6 +1487,9 @@ msgstr "钉头锤"
 
 msgid "Streubombe"
 msgstr "集束炸弹"
+
+msgid "Struppig und leicht angekaut."
+msgstr "乱糟糟的,还被啃过一点。"
 
 msgid "Sturmessenz"
 msgstr "风暴精华"
@@ -1497,6 +1581,9 @@ msgstr "巨魔铠甲"
 msgid "Truhenschlüssel"
 msgstr "宝箱钥匙"
 
+msgid "Ungewöhnlich"
+msgstr "罕见"
+
 msgid "Utility"
 msgstr "辅助"
 
@@ -1551,6 +1638,12 @@ msgstr "WASD：移动 · 鼠标：瞄准 · 左键：射击"
 msgid "Wanderbündel"
 msgstr "旅人包裹"
 
+msgid "Warm und dicht."
+msgstr "又暖又厚。"
+
+msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
+msgstr "放在这里的东西死后也不会丢。"
+
 msgid "Wasserstab"
 msgstr "水之杖"
 
@@ -1562,6 +1655,9 @@ msgstr "世界之杖"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "击杀后射击带着剩余伤害继续飞行"
+
+msgid "Wert: %d Gold"
+msgstr "价值:%d 金币"
 
 msgid "Wettkampfstiefel"
 msgstr "竞技靴"
@@ -1580,6 +1676,9 @@ msgstr "风之杖"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "光束击中处会爆炸"
+
+msgid "Wolfsfell"
+msgstr "狼皮"
 
 msgid "Wolfsmantel"
 msgstr "狼皮斗篷"
@@ -1607,6 +1706,9 @@ msgstr "十枚炸弹"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "十枚硬币，幸运提升"
+
+msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
+msgstr "拖动:整理 · 拖出窗口:丢弃 · Tab:关闭"
 
 msgid "Zombie"
 msgstr "僵尸"
