@@ -57,3 +57,4 @@ Neue Entscheidungen unten anhängen (Datum, was, warum).
 - **2026-11-26 · Stufen und Skillbaum** (Wunsch des Entwicklers): EXP pro Kill, Skills kosten Gold und Skillpunkte, Stufen-Sperren 1/5/10/15/20/25/30. „+0,5 Herz“ als weißes Schild-Herz (wie die Rüstung), weil rote Herzen nur ganz gehen. Relikt-Plätze als Reihe unter der Ausrüstung. Trank-Skills folgen mit den Tränken.
 - **2026-11-26 · Verkaufen mit Rechtsklick und einem Ankauf-Platz** (Wunsch des Entwicklers) statt der früher geplanten 3 Verkaufs-/Verlaufsplätze. Egon zahlt 30 % für Ausrüstung und Relikte, für Beute ihren Wert.
 - **2026-11-26 · Stufe 0 zum Start, Skillbaum in drei Gruppen** (Wunsch des Entwicklers): weniger Abhängigkeiten, jede Gruppe hat ihren eigenen Anfang.
+- **2026-11-26 · Seltenheit und Relikt-Stufen wachsen mit der Spielerstufe** (Wunsch des Entwicklers: am Anfang nur Kupfer/R1 und Relikte R1). Relikt-Stufe = Rahmenfarbe R1–R4.

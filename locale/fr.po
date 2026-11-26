@@ -102,6 +102,9 @@ msgstr "Ennemis vaincus : %d"
 msgid "Betreten"
 msgstr "Entrer"
 
+msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
+msgstr "Je rachète ton butin : clic droit dans l'inventaire et il arrive en haut, à mon rachat. Prix honnêtes. Honnêtement !"
+
 msgid "Blasebalg"
 msgstr "Soufflet"
 
@@ -159,6 +162,9 @@ msgstr "Torse"
 msgid "Bumerang-Haken"
 msgstr "Crochet boomerang"
 
+msgid "Chancen auf dem Tisch:"
+msgstr "Chances sur la table :"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Là-derrière, c'est l'entrée du Donjon des Braises. Certains en ressortent même !"
 
@@ -167,6 +173,9 @@ msgstr "Ton or ne suffit pas pour ça, partenaire. Hélas, hélas."
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Une petite bestiole est coincée dedans."
+
+msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
+msgstr "Au-delà… disons qu'il y a des rats ici. Des gros rats. Avec des mains."
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "L'or de cette partie. Si tu meurs, il est perdu, sauf dans l'emplacement sûr."
@@ -194,6 +203,9 @@ msgstr "Tes objets"
 
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Tes tirs poursuivent les ennemis"
+
+msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
+msgstr "La barre au-dessus du levier montre ce qui peut tomber : gris commun, vert solide, etc. Plus tu as d'expérience, plus c'est coloré."
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "Le rayon de feu se courbe vers l'ennemi"
@@ -939,6 +951,9 @@ msgstr "Au plus un demi-cœur par coup, mais plus lent"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "Au plus un demi-cœur par coup, plus longtemps à l'abri"
 
+msgid "Höhere Stufen kommen mit deiner Spielerstufe."
+msgstr "Les niveaux supérieurs viennent avec ton niveau de joueur."
+
 msgid "Höhlentroll"
 msgstr "Troll des cavernes"
 
@@ -993,6 +1008,9 @@ msgstr "Sac de caravane"
 msgid "Karte"
 msgstr "Carte"
 
+msgid "Kein Relikt"
+msgstr "Pas une relique"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Aucun coup ne prend plus d'un demi-cœur"
 
@@ -1007,6 +1025,9 @@ msgstr "Plus petit, plus rapide et parfois esquiver"
 
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "Clique sur une touche, puis appuie sur la nouvelle. Échap = annuler."
+
+msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
+msgstr "Clique sur un objet de l'inventaire pour l'équiper. Clique sur ta silhouette pour l'enlever."
 
 msgid "Klicken, um weiterzumachen"
 msgstr "Clique pour continuer"
@@ -1392,6 +1413,9 @@ msgstr "Roi des Rats"
 msgid "Rechts"
 msgstr "Droite"
 
+msgid "Rechts steht deine Dose. Zieh den Münzsack drauf, bis 200 Gold ist es da sicher."
+msgstr "À droite, ta boîte. Glisse la bourse dessus ; jusqu'à 200 or, c'est en sécurité."
+
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "Clic droit sur un objet de l'inventaire pour le poser ici."
 
@@ -1430,6 +1454,9 @@ msgstr "Reliques"
 
 msgid "Relikte & Überleben"
 msgstr "Reliques et survie"
+
+msgid "Relikte: %d %% pro Hebel, Stufen %s"
+msgstr "Reliques : %d %% par levier, niveaux %s"
 
 msgid "Reliktpflege"
 msgstr "Soin des reliques"
@@ -1833,6 +1860,9 @@ msgstr "Sac de sprinteur"
 msgid "Standard wiederherstellen"
 msgstr "Rétablir par défaut"
 
+msgid "Steht dir! Fast so gut wie mir."
+msgstr "Ça te va bien ! Presque aussi bien qu'à moi."
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "Ça te va bien ! Presque aussi bien qu'à moi. À partir de demain, tout coûte une petite obole, bien sûr."
 
@@ -2010,6 +2040,9 @@ msgstr "Environs"
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "Et voici mon levier. Toute ma fierté. Regarde bien !"
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
+msgstr "Et voilà, une petite avance : 50 or. Ton or est dans l'inventaire, sous forme de bourse."
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "Et maintenant, au donjon ! Rapporte-moi quelque chose de beau. J'attends ici. On n'est jamais trop prudent."
 
@@ -2111,6 +2144,9 @@ msgstr "Continuer le combat"
 
 msgid "Weltenstab"
 msgstr "Bâton des mondes"
+
+msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
+msgstr "Quand tu deviens plus fort, tu apprends des compétences ici. Contre une petite obole, bien sûr."
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Un tir qui tue continue avec le reste"

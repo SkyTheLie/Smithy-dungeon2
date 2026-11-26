@@ -230,3 +230,10 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - Das Gold zu Hause ist der **Münzsack** im Inventar (Eintrag `gold` im `stash`, immer am Ende; `MetaState.purse` zählt ihn, `_set_purse` schreibt ihn; alte Spielstände mit Zahl „purse“ werden mitgezählt). Er kann nicht verkauft oder angezogen werden.
 - **Dose** unten rechts im Laden (`MetaState.box`, Limit `meta.json` `money_box.limit`): darüber „Dose 120/200“, grün bis zum Limit, rot darüber mit „Egon könnte klauen!“ (die Diebstahl-Regel `roll_theft` gab es schon). Münzsack auf die Dose ziehen = alles hinein, Dose ins Inventar ziehen oder anklicken = alles heraus, „+10“ / „−10“.
 - **Skillbaum in Gruppen** (2026-11-26, Skizze des Entwicklers): drei Gruppen ohne gemeinsame Wurzel, je mit Überschrift (`skills.json` `groups`): Kampf (Kraft → Leichtfuß → Flinke Hände → Weitblick / Glückspilz), Rucksack (Größerer Rucksack → Geheimtasche), Relikte & Überleben (Zähigkeit → Relikt-Platz → Reliktpflege → Dicke Haut / Goldnase). Beim Öffnen ist der ganze Baum zu sehen (`PanZoomView.fit_view`).
+
+## Laden-Tour mit Leuchten, Chancen-Balken, Lexikon nach Stufen – 2026-11-26, `feature/laden-erklaerung`
+
+- **Tour:** was Egon erklärt, leuchtet (goldene, pulsierende Rahmen, `MerchantShop._explain` / `_spotlight`): Tisch, Hebel, Ware, Chancen-Balken, Hebel-Preis (Neu-Würfeln), Geschenke, Inventar, Figur, Anziehen/Ausziehen, Münzsack + Goldanzeige (Egon schenkt `shop.json` `tutorial.gold` = 50), Dose, Ankauf, Skills, Dungeons. Texte `story.json` `tutorial_*`.
+- **Chancen-Balken** über dem Hebel (`scenes/shop/chance_bar.gd`): Abschnitte je Seltenheit in ihrer Farbe mit „R1 85 % · R2 15 %“, Tooltip mit Relikt-Chance und offenen Relikt-Stufen. Die Chancen hängen von der Spielerstufe ab (`shop.json` `rarity_by_level`, `ShopGoods.rarity_weights/rarity_chances`); am Anfang nur R1 (Kupfer).
+- **Relikt-Stufen nach Spielerstufe** (`relics.json` tiers `level`: R1 ab 0, R2 ab 5, R3 ab 10, R4 ab 20; Rahmenfarbe = Stufe). `ShopGoods.pick_relic` nimmt nur offene Stufen.
+- **Lexikon** gruppiert nach Relikt-Stufe (R1 … R4 mit Haltbarkeit, dann „Kein Relikt“).

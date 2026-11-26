@@ -352,6 +352,14 @@ static func run_character() -> String:
 	return String(characters.keys().front()) if not characters.is_empty() else ""
 
 
+## Egon's start money in his tour (shop.json tutorial.gold) into the coin bag. Amounts <= 0: nothing.
+static func gift_gold(amount: int) -> void:
+	if amount <= 0:
+		return
+	_set_purse(purse() + amount)
+	_save()
+
+
 ## true once Egon showed the shop (first visit after the intro).
 static func tutorial_done() -> bool:
 	return bool(_read("tutorial_done", false))

@@ -102,6 +102,9 @@ msgstr "دشمنان شکست‌خورده: %d"
 msgid "Betreten"
 msgstr "ورود"
 
+msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
+msgstr "غنیمت را از تو می‌خرم: در کوله راست‌کلیک کن، می‌رود بالا پیش خرید من. قیمت منصفانه. صادقانه!"
+
 msgid "Blasebalg"
 msgstr "دم آهنگری"
 
@@ -159,6 +162,9 @@ msgstr "سینه"
 msgid "Bumerang-Haken"
 msgstr "قلاب بومرنگی"
 
+msgid "Chancen auf dem Tisch:"
+msgstr "شانس‌های روی میز:"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "اون پشت راه سیاه‌چال اخگره. بعضی‌ها حتی برمی‌گردن بیرون!"
 
@@ -167,6 +173,9 @@ msgstr "طلات برای این کافی نیست، رفیق. حیف، حیف."
 
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "یک حشره‌ی کوچک داخلش گیر افتاده."
+
+msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
+msgstr "بیشتر از آن… بگذار بگوییم اینجا موش هست. موش‌های بزرگ. با دست."
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "طلای این دور. اگر بمیری از دست می‌رود، مگر در خانه‌ی امن."
@@ -194,6 +203,9 @@ msgstr "آیتم‌های تو"
 
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "گلوله‌هایت دشمن را دنبال می‌کنند"
+
+msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
+msgstr "نوار بالای اهرم نشان می‌دهد چه چیزی ممکن است بیاید: خاکستری معمولی، سبز محکم و غیره. هرچه باتجربه‌تر، رنگارنگ‌تر."
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "پرتو آتش به سمت دشمن خم می‌شود"
@@ -939,6 +951,9 @@ msgstr "حداکثر نیم قلب در هر ضربه، اما کندتر"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "حداکثر نیم قلب در هر ضربه، مدت امن بیشتر"
 
+msgid "Höhere Stufen kommen mit deiner Spielerstufe."
+msgstr "سطوح بالاتر با سطح بازیکن می‌آیند."
+
 msgid "Höhlentroll"
 msgstr "ترول غار"
 
@@ -993,6 +1008,9 @@ msgstr "کوله کاروان"
 msgid "Karte"
 msgstr "نقشه"
 
+msgid "Kein Relikt"
+msgstr "یادگار نیست"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "هیچ ضربه‌ای بیش از نیم قلب نمی‌گیرد"
 
@@ -1007,6 +1025,9 @@ msgstr "کوچک‌تر، سریع‌تر و گاهی جاخالی"
 
 msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
 msgstr "روی یک کلید کلیک کن، بعد کلید جدید را بزن. Esc = لغو."
+
+msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
+msgstr "روی چیزی در کوله کلیک کن تا بپوشی. روی قهرمانت کلیک کن تا درش بیاوری."
 
 msgid "Klicken, um weiterzumachen"
 msgstr "برای ادامه کلیک کن"
@@ -1392,6 +1413,9 @@ msgstr "شاه موش‌ها"
 msgid "Rechts"
 msgstr "راست"
 
+msgid "Rechts steht deine Dose. Zieh den Münzsack drauf, bis 200 Gold ist es da sicher."
+msgstr "سمت راست قوطی توست. کیسه‌ی سکه را رویش بکش؛ تا ۲۰۰ طلا آنجا امن است."
+
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "روی چیزی در کوله راست‌کلیک کن تا اینجا گذاشته شود."
 
@@ -1430,6 +1454,9 @@ msgstr "یادگارها"
 
 msgid "Relikte & Überleben"
 msgstr "یادگارها و بقا"
+
+msgid "Relikte: %d %% pro Hebel, Stufen %s"
+msgstr "یادگارها: %d %% برای هر اهرم، سطوح %s"
 
 msgid "Reliktpflege"
 msgstr "نگهداری یادگار"
@@ -1833,6 +1860,9 @@ msgstr "کوله دونده"
 msgid "Standard wiederherstellen"
 msgstr "بازگردانی پیش‌فرض"
 
+msgid "Steht dir! Fast so gut wie mir."
+msgstr "بهت میاد! تقریباً به خوبیِ من."
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "بهت میاد! تقریباً به خوبیِ من. از فردا همه‌چی یه پول ناقابل داره، البته."
 
@@ -2010,6 +2040,9 @@ msgstr "اطراف"
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "و این اهرم منه. افتخار من. نگاه کن!"
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
+msgstr "و این هم یه پیش‌پرداخت کوچیک: ۵۰ طلا. طلات به شکل کیسه‌ی سکه در کوله است."
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "و حالا برو تو سیاه‌چال! یه چیز خوب برام بیار. من همین‌جا منتظرم. احتیاط شرط عقله."
 
@@ -2111,6 +2144,9 @@ msgstr "ادامه‌ی نبرد"
 
 msgid "Weltenstab"
 msgstr "عصای جهان"
+
+msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
+msgstr "وقتی قوی‌تر شدی، اینجا مهارت یاد می‌گیری. با یه پول ناقابل، البته."
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "تیری که بکشد با باقیمانده ادامه می‌دهد"

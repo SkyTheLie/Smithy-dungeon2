@@ -147,7 +147,16 @@ func _relics() -> void:
 	check(goods.call("relic_tier", "dreizack") == 4 and goods.call("relic_runs", "dreizack") == 1, "Dreifachschuss is strong and holds one dungeon")
 	check_eq(goods.call("relic_tier", "glutstab"), 0, "the start weapons are no relics")
 	progress.call("discover", "dreizack")
-	check_eq(goods.call("pick_relic", rng), "dreizack", "a found item can come as a relic")
+	check_eq(goods.call("pick_relic", rng), "", "level 0: only relic tier R1 can come, the Dreifachschuss is R4")
+	progress.call("discover", "moorherz")
+	check_eq(goods.call("pick_relic", rng), "moorherz", "a found R1 item can come as a relic")
+	check_eq(goods.call("rarity_chances"), [[1, 100.0]], "level 0: only R1 on the table")
+	meta.call("add_exp", 100000)
+	check(int(meta.call("level")) >= 20, "level 20 or more (%d)" % meta.call("level"))
+	var chances: Array = goods.call("rarity_chances")
+	check(chances.size() >= 5 and is_equal_approx(chances.reduce(func(sum: float, part: Array) -> float: return sum + float(part[1]), 0.0), 100.0),
+			"higher level: more rarities, together 100 %")
+	check_eq(goods.call("open_relic_tiers"), [1, 2, 3, 4] as Array[int], "from level 20: every relic tier")
 	var found: bool = false
 	for i in 60:
 		var table: Array = goods.call("roll", rng)

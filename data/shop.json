@@ -1,10 +1,18 @@
 {
-	"_info": "Egons Laden. table_slots = Plätze auf dem Tisch, goods_count [min, max] = so viele Sachen liegen nach dem Hebel darauf (zufällige Plätze). roll_prices = Preis des Hebels am selben Tag: der 1., 2., 3. … Zug (der letzte Wert gilt für alle weiteren; am nächsten Tag wieder von vorn). pool = [gear-id, Gewicht] (Ware, die auftauchen kann), rarity_weights = [Seltenheit, Gewicht], rarity_price = Preis mal diesem Wert je Seltenheit R1..R8. sell_share = Anteil des Kaufpreises, den Egon beim Ankauf von Ausrüstung und Relikten zahlt (Beute: loot.json value). tutorial = der erste Besuch: goods = was Egon auf den Tisch legt ({id, rarity, cell}), gifts = was davon aufleuchtet und geschenkt wird (wird gleich angelegt).",
+	"_info": "Egons Laden. table_slots = Plätze auf dem Tisch, goods_count [min, max] = so viele Sachen liegen nach dem Hebel darauf (zufällige Plätze). roll_prices = Preis des Hebels am selben Tag: der 1., 2., 3. … Zug (der letzte Wert gilt für alle weiteren; am nächsten Tag wieder von vorn). pool = [gear-id, Gewicht] (Ware, die auftauchen kann), rarity_by_level = ab welcher Spielerstufe welche Seltenheiten wie oft kommen ([Seltenheit, Gewicht]; der Balken über dem Hebel zeigt es in Prozent), rarity_price = Preis mal diesem Wert je Seltenheit R1..R8. sell_share = Anteil des Kaufpreises, den Egon beim Ankauf von Ausrüstung und Relikten zahlt (Beute: loot.json value). tutorial = der erste Besuch: goods = was Egon auf den Tisch legt ({id, rarity, cell}), gifts = was davon aufleuchtet und geschenkt wird (wird gleich angelegt), gold = Startgeld (Münzsack).",
 	"table_slots": 10,
 	"goods_count": [1, 3],
 	"roll_prices": [0, 10, 20, 40, 80],
 	"pool": [["copper_staff", 3], ["copper_bow", 2], ["copper_sword", 2], ["copper_helmet", 4], ["copper_chest", 4], ["copper_gloves", 4], ["copper_legs", 4], ["copper_boots", 4]],
-	"rarity_weights": [[1, 100]],
+	"rarity_by_level": [
+		{"level": 0, "weights": [[1, 100]]},
+		{"level": 5, "weights": [[1, 85], [2, 15]]},
+		{"level": 10, "weights": [[1, 65], [2, 25], [3, 10]]},
+		{"level": 15, "weights": [[1, 50], [2, 30], [3, 15], [4, 5]]},
+		{"level": 20, "weights": [[1, 40], [2, 30], [3, 18], [4, 9], [5, 3]]},
+		{"level": 25, "weights": [[1, 32], [2, 30], [3, 20], [4, 11], [5, 5], [6, 2]]},
+		{"level": 30, "weights": [[1, 25], [2, 28], [3, 22], [4, 14], [5, 7], [6, 3], [7, 1]]}
+	],
 	"rarity_price": [1.0, 2.0, 4.0, 8.0, 15.0, 30.0, 60.0, 120.0],
 	"sell_share": 0.3,
 	"tutorial": {
@@ -15,6 +23,7 @@
 			{"id": "copper_chest", "rarity": 1, "cell": 7},
 			{"id": "copper_bow", "rarity": 1, "cell": 9}
 		],
-		"gifts": ["copper_staff", "copper_helmet", "copper_chest"]
+		"gifts": ["copper_staff", "copper_helmet", "copper_chest"],
+		"gold": 50
 	}
 }

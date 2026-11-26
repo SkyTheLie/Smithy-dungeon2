@@ -3,7 +3,9 @@ extends PanelContainer
 ## Lexikon (main menu): every item as a small picture. Items picked up at least once in some run
 ## (Progress) show their picture, name, effect and the synergies they are part of (once all
 ## partners of that synergy were found too). Others are dark: "???" and, if still locked, what
-## unlocks them. Hover or click a picture to read it.
+## unlocks them. Hover or click a picture to read it. Grouped by relic tier (data/relics.json):
+## R1, R2, R3, R4 (title in the rarity colour, how long such a relic holds), then the items that
+## are no relic.
 
 signal closed
 
@@ -20,10 +22,17 @@ const ICON_STATES: Array[String] = ["icon_normal_color", "icon_hover_color", "ic
 @onready var _extra: Label = %DetailExtra
 
 var _first_id: String = ""
+## Sections (title + grid per relic tier), built in code in place of the scene's Grid.
+var _sections: VBoxContainer
 
 
 func _ready() -> void:
 	%Close.pressed.connect(close)
+	var scroll: Node = _grid.get_parent()
+	scroll.remove_child(_grid)
+	_sections = VBoxContainer.new()
+	_sections.add_theme_constant_override("separation", 4)
+	scroll.add_child(_sections)
 
 
 func open() -> void:
@@ -37,32 +46,71 @@ func close() -> void:
 	closed.emit()
 
 
-## One slot per item, in the order of data/items.json.
+## One slot per item: grouped by relic tier (R1 … R4), then "Kein Relikt"; in each group in the
+## order of data/items.json.
 func _build() -> void:
-	for child: Node in _grid.get_children():
+	for child: Node in _sections.get_children():
 		child.queue_free()
 	var found: int = 0
 	_first_id = ""
+	var groups: Dictionary = {}
 	for id: String in Content.items():
-		if _first_id.is_empty():
-			_first_id = id
-		var known: bool = Progress.is_discovered(id)
-		if known:
+		var tier: int = ShopGoods.relic_tier(id)
+		if not groups.has(tier):
+			groups[tier] = []
+		(groups[tier] as Array).append(id)
+		if Progress.is_discovered(id):
 			found += 1
-		var slot := Button.new()
-		slot.custom_minimum_size = SLOT_SIZE
-		slot.focus_mode = Control.FOCUS_NONE
-		slot.expand_icon = true
-		slot.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		slot.icon = load(String(Content.item(id).get("icon", ""))) as Texture2D
-		if not known:
-			var tint: Color = HIDDEN_COLOR if Progress.is_unlocked(id) else LOCKED_COLOR
-			for state: String in ICON_STATES:
-				slot.add_theme_color_override(state, tint)
-		slot.mouse_entered.connect(_show_item.bind(id))
-		slot.pressed.connect(_show_item.bind(id))
-		_grid.add_child(slot)
+	var order: Array = groups.keys().filter(func(tier: int) -> bool: return tier > 0)
+	order.sort()
+	if groups.has(0):
+		order.append(0)
+	for tier: int in order:
+		_sections.add_child(_section_title(tier))
+		var grid := GridContainer.new()
+		grid.columns = _grid.columns
+		grid.add_theme_constant_override("h_separation", _grid.get_theme_constant("h_separation"))
+		grid.add_theme_constant_override("v_separation", _grid.get_theme_constant("v_separation"))
+		_sections.add_child(grid)
+		for id: String in groups[tier]:
+			if _first_id.is_empty():
+				_first_id = id
+			grid.add_child(_slot(id))
 	_count.text = Language.translate("Entdeckt: %d / %d") % [found, Content.items().size()]
+
+
+## "R2 · Relikt · Hält noch 3 Dungeons" in the colour of the tier ("Kein Relikt" for tier 0).
+func _section_title(tier: int) -> Label:
+	var title := Label.new()
+	title.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	title.add_theme_font_size_override("font_size", 11)
+	if tier <= 0:
+		title.text = Language.translate("Kein Relikt")
+		title.add_theme_color_override("font_color", Color(0.7, 0.65, 0.6))
+		return title
+	var data: Dictionary = (Content.relics().get("tiers", {}) as Dictionary).get(str(tier), {})
+	var runs: int = int(data.get("dungeons", 0))
+	var hold: String = Language.translate("Hält für immer") if runs <= 0 else Language.translate("Hält noch %d Dungeons") % runs
+	title.text = "R%d · %s · %s" % [tier, Language.translate("Relikt"), hold]
+	title.add_theme_color_override("font_color", Rarity.color(int(data.get("rarity", tier))))
+	return title
+
+
+func _slot(id: String) -> Button:
+	var known: bool = Progress.is_discovered(id)
+	var slot := Button.new()
+	slot.custom_minimum_size = SLOT_SIZE
+	slot.focus_mode = Control.FOCUS_NONE
+	slot.expand_icon = true
+	slot.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	slot.icon = load(String(Content.item(id).get("icon", ""))) as Texture2D
+	if not known:
+		var tint: Color = HIDDEN_COLOR if Progress.is_unlocked(id) else LOCKED_COLOR
+		for state: String in ICON_STATES:
+			slot.add_theme_color_override(state, tint)
+	slot.mouse_entered.connect(_show_item.bind(id))
+	slot.pressed.connect(_show_item.bind(id))
+	return slot
 
 
 func _show_item(id: String) -> void:
@@ -74,7 +122,9 @@ func _show_item(id: String) -> void:
 		_icon.modulate = Color.WHITE
 		_name.text = Language.translate(String(data.get("name", id)))
 		_desc.text = Language.translate(String(data.get("desc", "")))
-		_extra.text = (category_text(String(data.get("category", ""))) + "\n" + _synergy_text(id)).strip_edges()
+		var tier: int = ShopGoods.relic_tier(id)
+		var relic: String = "R%d %s" % [tier, Language.translate("Relikt")] if tier > 0 else ""
+		_extra.text = (category_text(String(data.get("category", ""))) + "\n" + relic + "\n" + _synergy_text(id)).strip_edges()
 		return
 	var open_to_find: bool = Progress.is_unlocked(id)
 	_icon.modulate = HIDDEN_COLOR if open_to_find else LOCKED_COLOR

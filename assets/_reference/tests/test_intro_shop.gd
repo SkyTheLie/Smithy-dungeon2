@@ -85,8 +85,9 @@ func _intro_and_tour() -> void:
 	var worn: Dictionary = meta.call("equipment")
 	check_eq([String(worn.get("weapon", {}).get("id")), String(worn.get("head", {}).get("id")), String(worn.get("chest", {}).get("id"))],
 			["copper_staff", "copper_helmet", "copper_chest"], "Egon put his three gifts on you")
-	check((meta.call("stash") as Array).is_empty(), "nothing left in the inventory")
-	check_eq(meta.call("purse"), 0, "the gifts were free")
+	var left: Array = meta.call("stash")
+	check(left.size() == 1 and left[0].get("id") == "gold", "only Egon's start money is left in the inventory (coin bag)")
+	check_eq(meta.call("purse"), 50, "the gifts were free, and 50 gold start money")
 	check(board.get("forced"), "the board cannot be closed: off into the dungeon")
 	var escape := InputEventAction.new()
 	escape.action = "ui_cancel"
