@@ -120,7 +120,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 
 ## Charaktere
 
-- **Dateien:** `data/characters.json`, `scenes/ui/menus/character_select.tscn/.gd`; „Neues Spiel“ öffnet die Auswahl, „Neuer Run“ nimmt den letzten Charakter.
+- **Dateien:** `data/characters.json`. Kein Auswahlfenster mehr: der Charakter eines Runs ist die Klasse der angelegten Waffe (`MetaState.run_character`, `gear.json` `class`); ohne Waffe oder solange die Klasse gesperrt ist (`Progress`), der erste Charakter (Magier).
 - Die Hauptwaffe ist ein **normales Item** (`start_items`, `RunState._add_start_items`): Magier = Glutstab (Feuerbälle), Bogenschütze (nach einem Sieg) = Jagdbogen (aufladen, viel Reichweite, Pfeil-Bild), Krieger (Ebene 3 erreicht) = Kriegerschwert (Schwung). Sie steht im Inventar, kombiniert sich mit anderen Items über Synergien („Waffen kreuzen“) und bleibt im Testraum beim Leeren. Die Start-Waffen liegen auch im Item-Raum, so findet z. B. der Magier das Schwert. Der Charakter selbst gibt nur noch Herzen (stats/flags dort gehen weiter).
 - Waffen kreuzen: **Feuerhieb** (Schwert/Glutschwert/Kriegsaxt + Glutstab/Feuerstab/Höllenstab, Flag `fire_slash`): jeder Schwung schickt ein gebogenes Feuerband nach vorne (`scenes/actors/fire_slash.gd`), Weg = Schwert-Reichweite + Feuer-Reichweite, Schaden x `fire_slash_damage`, trifft jeden Gegner einmal, schlägt Gegner-Schüsse weg, endet an Wand/Stein.
 - Das Bild in der Hand ist das neueste Nahkampf-Item (`hand`, sonst `icon`; `Weapon._update_blade_picture`).
@@ -166,7 +166,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - **Hauptmenü:** Sprache (erster Start) → Spielstand-Wahl A/B/C (einmal je Programmstart, `MainMenu.slot_chosen`) → Schmiede-Tür → Amboss-Menü. „Weiter“ steht oben, nur wenn der Platz einen Spielstand hat. „Neues Spiel“ fragt bei einem belegten Platz nach („überschreiben?“), dann wird es schwarz → Intro.
 - **Intro** (Einsteiger-Szene, Skizze `assets/_reference/vorlagen/intro_skizze.png`): kurz schwarz, dann hell; draußen vor der Felswand (`mine/cliff_open.png`) mit dem Dungeon-Eingang, davor ein glühender Weg (gezeichnet). Links daneben Egon an seinem Stand, er winkt (`WavingHand`) und ruft dich (`story.json` `intro_call`). Drei Bilder (`ZOOMS`): man geht in zwei Schritten auf ihn zu (Zoom mit Wippen), dann stellt er sich vor (`intro`). Danach schwarz → Laden. Leertaste/Klick = nächster Satz, Esc = überspringen.
 - **Laden:** siehe „Egons Laden“ unten.
-- **Dungeon-Brett** (wie das Brett der Abenteuergilde in Smithy): links Reiter je Gebiet (`region`) mit seinen Dungeons, rechts Name, Stufe, Anzahl Ebenen und Gebiete (aus `floors.json`), Beschreibung, „Betreten“ → Charakter-Wahl (`CharacterSelect`) → Run. Bisher spielen alle Dungeons die Ebenen aus `floors.json`.
+- **Dungeon-Brett** (wie das Brett der Abenteuergilde in Smithy): links Reiter je Gebiet (`region`) mit seinen Dungeons, rechts Name, Stufe, Anzahl Ebenen und Gebiete (aus `floors.json`), Beschreibung, „Betreten“ → sofort der Run (Charakter = Klasse der angelegten Waffe, `MetaState.run_character`). Bisher spielen alle Dungeons die Ebenen aus `floors.json`.
 
 ## Egons Laden, Ausrüstung, Sprechfenster – 2026-11-26, `feature/laden-tutorial`
 

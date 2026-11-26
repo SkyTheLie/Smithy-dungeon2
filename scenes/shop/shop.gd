@@ -7,7 +7,8 @@ extends Control
 ##   Lever: MetaState.pull_lever (first pull of a day free, then dearer); the table flips over.
 ##   Click on goods: buy (MetaState.buy). Click on gear in the inventory: put it on (equip),
 ##   click on a hero place: take it off (unequip).
-##   "Dungeons" (bottom right): the dungeon board; "Betreten" -> character -> run.
+##   "Dungeons" (bottom right): the dungeon board; "Betreten" starts the run at once, as the
+##   character of the weapon on the hero (MetaState.run_character), no choice window.
 ## First visit (MetaState.tutorial_done false): Egon shows everything himself: he pulls the lever,
 ## his gifts (data/shop.json tutorial) shine, he buys them, they land in the inventory, he puts
 ## them on the hero, then he sends you off: the dungeon board opens and cannot be closed.
@@ -18,7 +19,6 @@ const MERCHANT: Texture2D = preload("res://assets/sprites/npcs/black_market_deal
 const LEVER_UP: Texture2D = preload("res://assets/sprites/fortress/lever_up.png")
 const LEVER_DOWN: Texture2D = preload("res://assets/sprites/fortress/lever_down.png")
 const COIN: Texture2D = preload("res://assets/ui/icon_coin.png")
-const CHARACTER_SELECT: PackedScene = preload("res://scenes/ui/menus/character_select.tscn")
 const CAVE_SHADE := Color(0.45, 0.4, 0.4)
 const GOLD_COLOR := Color(1, 0.86, 0.35)
 const SCREEN := Vector2(640, 360)
@@ -44,7 +44,6 @@ var _dialog: DialogBox
 var _menu_button: Button
 var _dungeons_button: Button
 var _board: DungeonBoard
-var _characters: CharacterSelect
 var _black: ColorRect
 ## true while Egon does something by himself (tutorial, lever): clicks are ignored.
 var _locked: bool = false
@@ -175,13 +174,6 @@ func _build() -> void:
 	_board.hide()
 	_board.entered.connect(_on_dungeon_entered)
 	windows.add_child(_board)
-	_characters = CHARACTER_SELECT.instantiate()
-	_characters.hide()
-	windows.add_child(_characters)
-	# Egon does not let you off: closing the character choice brings his board back.
-	_characters.closed.connect(func() -> void:
-			if _board.forced:
-				_board.open(true))
 	var fade_layer := CanvasLayer.new()
 	fade_layer.layer = 10
 	add_child(fade_layer)
@@ -453,10 +445,6 @@ func get_board() -> DungeonBoard:
 	return _board
 
 
-func get_character_select() -> CharacterSelect:
-	return _characters
-
-
 func get_dialog() -> DialogBox:
 	return _dialog
 
@@ -464,17 +452,10 @@ func get_dialog() -> DialogBox:
 func _open_board() -> void:
 	if _locked:
 		return
-	_characters.hide()
 	_board.open()
 
 
-## "Betreten": now the character.
+## "Betreten": straight into the dungeon (every dungeon plays floors.json so far).
 func _on_dungeon_entered(_id: String) -> void:
 	_board.hide()
-	_characters.open()
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and _characters.visible:
-		get_viewport().set_input_as_handled()
-		_characters.close()
+	Game.start_new_run(MetaState.run_character())

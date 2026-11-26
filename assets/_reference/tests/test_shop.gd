@@ -90,6 +90,16 @@ func _buy_and_equip() -> void:
 
 
 func _tutorial_and_new_day() -> void:
+	check_eq(meta.call("run_character"), "magier", "with the staff on you play the Magier")
+	meta.call("lay_tutorial_table")
+	var bow: int = (meta.call("table") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "copper_bow")
+	meta.call("buy", bow, true)
+	var bow_index: int = (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "copper_bow")
+	meta.call("equip", bow_index)
+	check_eq(meta.call("run_character"), "magier", "a bow while the Bogenschütze is locked: still the Magier")
+	meta.call("unequip", "weapon")
+	check_eq(meta.call("run_character"), "magier", "no weapon: the Magier")
+
 	check(not meta.call("tutorial_done"), "Egon's tour has not happened yet")
 	meta.call("finish_tutorial")
 	meta.call("reload")

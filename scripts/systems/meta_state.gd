@@ -199,6 +199,18 @@ static func unequip(slot: String) -> bool:
 	return true
 
 
+## The character of the next run (data/characters.json id): the class of the weapon on the hero
+## (gear.json "class"); without a weapon, or while that character is still locked (Progress),
+## the first character (Magier).
+static func run_character() -> String:
+	var weapon: Dictionary = equipment().get("weapon", {})
+	var id: String = String(Content.gear_item(String(weapon.get("id", ""))).get("class", ""))
+	var characters: Dictionary = Content.characters()
+	if characters.has(id) and Progress.meets((characters[id] as Dictionary).get("unlock", {})):
+		return id
+	return String(characters.keys().front()) if not characters.is_empty() else ""
+
+
 ## true once Egon showed the shop (first visit after the intro).
 static func tutorial_done() -> bool:
 	return bool(_read("tutorial_done", false))

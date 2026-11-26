@@ -1,7 +1,7 @@
 extends "res://assets/_reference/_lib/base_test.gd"
 ## Save slots A, B, C (MetaState), "Neues Spiel" -> intro -> Egon's shop (skipped with Escape and
 ## clicked through), Egon's tour (gifts bought and put on, board forced open), the dungeon board
-## in the shop and the character choice after "Betreten".
+## in the shop, and "Betreten" goes straight into the dungeon as the character of the weapon.
 
 var meta: Script
 var game: Node
@@ -102,10 +102,10 @@ func _board() -> void:
 	await process_frame
 	var shop: Node = current_scene
 	var board: Control = shop.call("get_board")
-	var characters: Control = shop.call("get_character_select")
 	check(not board.visible, "the board is closed at first (no tour the second time)")
 	(shop.find_child("DungeonsButton", true, false) as Button).pressed.emit()
 	check(board.visible and not board.get("forced"), "the button at the bottom right opens the dungeon board")
 	check_eq(board.call("get_selected"), "glut", "the first dungeon is chosen")
 	board.emit_signal("entered", "glut")
-	check(not board.visible and characters.visible, "Betreten asks for the character")
+	check(await wait_until(_in_scene.bind("Run"), 3.0), "Betreten goes straight into the dungeon (no character window)")
+	check_eq(String((game.get("run") as Object).get("character")), "magier", "as the Magier (Egon's staff)")

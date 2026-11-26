@@ -60,7 +60,7 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 
 ## 6. Umfang
 
-**Übernommen aus Dungeon Smithy (läuft):** Hauptmenü und Sprachwahl, 6 Ebenen in 3 Themen, Item-Raum, Shop, Geheimraum, Opferstein, Glutpakt, Boss, 203 Items, 14 Synergien (Waffen-Kreuzung Feuerhieb), 28 Gegner, 3 Charaktere (Magier; Bogenschütze und Krieger freischaltbar) mit Hauptwaffe als Start-Item, Lexikon, Testraum (P im Editor).
+**Übernommen aus Dungeon Smithy (läuft):** Hauptmenü und Sprachwahl, 6 Ebenen in 3 Themen, Item-Raum, Shop, Geheimraum, Opferstein, Glutpakt, Boss, 203 Items, 14 Synergien (Waffen-Kreuzung Feuerhieb), 28 Gegner, 3 Charaktere (Magier; Bogenschütze und Krieger freischaltbar, gespielt wird die Klasse der angelegten Waffe) mit Hauptwaffe als Start-Item, Lexikon, Testraum (P im Editor).
 
 **Neu gebaut:** Beute von Gegnern, Inventar auf Tab (Drag & Drop, fallen lassen, sicherer Platz), Geldbündel, Spielstand A/B/C mit Dose und Diebstahl-Regel, Karte auf M, Intro mit Egon, Egons Laden (Hebel, Kaufen, Ausrüstung anlegen, Tour beim ersten Besuch), Dungeon-Brett.
 

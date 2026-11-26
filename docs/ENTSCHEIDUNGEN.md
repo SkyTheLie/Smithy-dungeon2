@@ -47,3 +47,4 @@ Neue Entscheidungen unten anhängen (Datum, was, warum).
 - **2026-11-26 · Flucht aus dem Startraum** (Wunsch des Entwicklers): Leiter in jedem Startraum, mit Rückfrage, damit man nicht aus Versehen hinausläuft. Flüchten zählt wie ein Sieg für die Beute (alles kommt heim), aber nicht als Sieg im Fortschritt.
 - **2026-11-26 · Tod: sicherer Platz bleibt** (Antwort des Entwicklers auf die Rückfrage). Bomben und Schlüssel bleiben im HUD, nur die Münz-Anzeige geht.
 - **2026-11-26 · Münzen 8–12 je Münze** (Wunsch des Entwicklers). Run-Shop-Preise noch nicht angepasst (offen).
+- **2026-11-26 · Kein Charakter-Auswahlfenster** (Wunsch des Entwicklers): „Betreten“ startet sofort. Der Charakter folgt der angelegten Waffe (Zauberstab = Magier, Bogen = Bogenschütze, Schwert = Krieger); gesperrte Klassen oder keine Waffe = Magier. `character_select` gelöscht.
