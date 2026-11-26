@@ -5,7 +5,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 ## Ablauf (Game, RunScene)
 
 - **Dateien:** `scripts/core/game.gd` (Autoload `Game`), `scenes/run/run.tscn` + `run.gd`
-- „Neues Spiel“ im Hauptmenü → `Game.start_new_run()`: neuer `RunState` mit zufälligem Seed, lädt `run.tscn`.
+- Ablauf: Hauptmenü → „Neues Spiel“ (`Game.start_intro`) → Intro → Laden (`Game.to_shop`) → Dungeon-Brett „Betreten“ → Charakter → `Game.start_new_run(id)`: neuer `RunState` mit zufälligem Seed, lädt `run.tscn`. Run-Ende „Zum Laden“ → Laden (nächster Tag). „Weiter“ im Hauptmenü → Laden.
 - `RunScene` baut die Ebene (`Dungeon.build`), verbindet HUD, Pause (Esc, auch beim Verlassen des Fensters), Tab (Inventar), M (Karte) und gibt die Mausbewegung an den Spieler.
 - Falltür → `Game.next_floor()` (gleicher Run, nächste Ebene) oder nach der letzten Ebene der Sieg-Bildschirm. Tod → End-Bildschirm.
 - Szenenbaum: `Run` (Node) › `View` (SubViewportContainer, stretch) › `Viewport` (SubViewport 640×360) › `World` (Node3D: `Environment`, `Dungeon`, `Player`); daneben `HUD`, `PauseMenu`, `EndScreen` (CanvasLayer).
@@ -151,9 +151,19 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 
 ## Spielstand zwischen Runs (MetaState) – 2026-11-26, `feature/beute-inventar`
 
-- **Dateien:** `scripts/systems/meta_state.gd` (statische Klasse, `user://save.cfg`), Daten `data/meta.json` „money_box“
+- **Dateien:** `scripts/systems/meta_state.gd` (statische Klasse, `user://save_<a|b|c>.cfg`), Daten `data/meta.json` „money_box“
+- **Drei Spielstand-Plätze** A, B, C (`SLOTS`), je Platz genau ein Spielstand. Der gewählte Platz steht in den Einstellungen (`save`/`slot`). `has_save`, `peek` (Tag und Gold eines Platzes für die Auswahl), `start_new` (Neues Spiel: Platz beginnt bei Tag 1).
+- Gespeichert wird am Ende jedes Tages (`end_run`, nach der Nacht mit Egons Griff in die Dose) und wenn Gold das sichere Zuhause verlässt (`take_purse_for_run`, `deposit`, `withdraw`), damit Beenden nie Gold verdoppelt. Ein Run selbst wird nie gespeichert.
 - `purse` (Gold bei sich), `box` (die Dose), `stash` (mitgebrachte Beute), `day` (ein Run = ein Tag), `last_theft`.
 - `Game.start_new_run` nimmt die Geldbörse mit in den Run (`take_purse_for_run` → `RunState.bring_gold`).
 - Run-Ende (`RunScene`): Sieg → `end_run(coins, ganze Tasche)`, Tod → `end_run(0, nur sicherer Platz)`. Wer den Run über das Hauptmenü verlässt, verliert die mitgenommene Geldbörse auch.
 - `end_run` beginnt einen neuen Tag und würfelt den Diebstahl (`roll_theft`): bis `limit` nie; darüber `steal_all_chance` = alles, `steal_part_chance` = ein Anteil (`steal_part_share`) des Geldes über dem Limit.
 - `deposit` / `withdraw` prüfen die Menge (≤ 0 oder zu viel = abgelehnt). Noch kein Bildschirm dafür (kommt mit dem Laden).
+
+## Spielstand-Wahl, Intro, Laden, Dungeon-Brett – 2026-11-26, `feature/intro-laden`
+
+- **Dateien:** `scenes/ui/main_menu/slot_select.gd` (`SlotSelect`), `scenes/story/intro.tscn/.gd` (`Intro`), `scenes/story/waving_hand.gd` (`WavingHand`), `scenes/shop/shop.tscn/.gd` (`MerchantShop`), `scenes/shop/dungeon_board.gd` (`DungeonBoard`), Daten `data/dungeons.json`
+- **Hauptmenü:** Sprache (erster Start) → Spielstand-Wahl A/B/C (einmal je Programmstart, `MainMenu.slot_chosen`) → Schmiede-Tür → Amboss-Menü. „Weiter“ steht oben, nur wenn der Platz einen Spielstand hat. „Neues Spiel“ fragt bei einem belegten Platz nach („überschreiben?“), dann wird es schwarz → Intro.
+- **Intro** (Einsteiger-Szene): kurz schwarz, dann hell; Mine (`battle/mine_rats.png`), hinten vor dem dunklen Schacht winkt Egon (`npcs/black_market_dealer.png` + `WavingHand`, ein gezeichneter Arm, der hin und her schwingt). Drei Bilder (`ZOOMS`): man geht in zwei Schritten auf ihn zu (Zoom mit leichtem Wippen wie Schritte). Danach schwarz → Laden. Leertaste/Klick = weiter, Esc = überspringen.
+- **Laden** (vorläufig): Egon hinter seinem Tisch in der Mine, „Tag N“, unten links „Hauptmenü“, unten rechts „Dungeons“ → Dungeon-Brett. Ware, Hebel, Verkauf, Dose kommen als Nächstes (Roadmap Phase 1, Schritte 3–6).
+- **Dungeon-Brett** (wie das Brett der Abenteuergilde in Smithy): links Reiter je Gebiet (`region`) mit seinen Dungeons, rechts Name, Stufe, Anzahl Ebenen und Gebiete (aus `floors.json`), Beschreibung, „Betreten“ → Charakter-Wahl (`CharacterSelect`) → Run. Bisher spielen alle Dungeons die Ebenen aus `floors.json`.

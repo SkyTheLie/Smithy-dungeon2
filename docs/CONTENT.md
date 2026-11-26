@@ -69,3 +69,9 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 
 - `bag`: `slots` (normale Plätze), `safe_slots` (bleiben beim Tod), `stack` (höchste Anzahl pro Platz).
 - `money_box`: `limit` (so viel ist in der Dose sicher), `steal_all_chance`, `steal_part_chance`, `steal_part_share` [min, max].
+
+## Dungeon auf Egons Brett (`data/dungeons.json`)
+
+- `"id": {"name", "region", "desc", "level"}`: `name`/`desc` = Text auf dem Brett, `region` = Reiter (z. B. „Umgebung“), `level` = empfohlene Stufe. Reihenfolge = Reihenfolge auf dem Brett.
+- Ebenen und Gebiete kommen aus `floors.json` (eigene Ebenen je Dungeon: Phase 4).
+- Neue Texte danach übersetzen (`build_po.py` findet `name`, `region`, `desc` selbst).

@@ -6,6 +6,9 @@ msgstr ""
 msgid "%d Herzen"
 msgstr "%d сердец"
 
+msgid "Abbrechen"
+msgstr "Отмена"
+
 msgid "Acht Bomben"
 msgstr "Восемь бомб"
 
@@ -62,6 +65,9 @@ msgstr "Победи: %s"
 
 msgid "Besiegte Gegner: %d"
 msgstr "Побеждено врагов: %d"
+
+msgid "Betreten"
+msgstr "Войти"
 
 msgid "Blasebalg"
 msgstr "Кузнечные мехи"
@@ -240,6 +246,12 @@ msgstr "Ты крошечный и иногда уклоняешься"
 msgid "Dungeon der Glut"
 msgstr "Подземелье углей"
 
+msgid "Dungeon-Brett"
+msgstr "Доска подземелий"
+
+msgid "Dungeons"
+msgstr "Подземелья"
+
 msgid "Dunkler Zauberstab"
 msgstr "Тёмный жезл"
 
@@ -266,6 +278,9 @@ msgstr "Уровень: %d"
 
 msgid "Effekte"
 msgstr "Эффекты"
+
+msgid "Egons Laden"
+msgstr "Лавка Эгона"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Твои взрывы тебя лечат"
@@ -477,6 +492,9 @@ msgstr "Пять ключей"
 msgid "Fünfzehn Münzen"
 msgstr "Пятнадцать монет"
 
+msgid "Gebiete: %s"
+msgstr "Области: %s"
+
 msgid "Gegabelter Stab"
 msgstr "Раздвоенный посох"
 
@@ -566,6 +584,9 @@ msgstr "Ядовитый посох"
 
 msgid "Giftzahn"
 msgstr "Ядовитый клык"
+
+msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
+msgstr "Сразу за лавкой Эгона начинается спуск. В самом низу ждёт босс и, говорят, сокровище. Так говорит Эгон."
 
 msgid "Glutkern"
 msgstr "Угольное ядро"
@@ -854,6 +875,12 @@ msgstr "Роса жизни"
 
 msgid "Lederstiefel"
 msgstr "Кожаные сапоги"
+
+msgid "Leer"
+msgstr "Пусто"
+
+msgid "Leertaste: weiter · Esc: überspringen"
+msgstr "Пробел: дальше · Esc: пропустить"
 
 msgid "Legendenhandschuhe"
 msgstr "Перчатки легенды"
@@ -1419,6 +1446,15 @@ msgstr "Подсолнух"
 msgid "Spardose"
 msgstr "Копилка"
 
+msgid "Spielstand %s"
+msgstr "Сохранение %s"
+
+msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
+msgstr "Перезаписать сохранение %s? Старый прогресс пропадёт."
+
+msgid "Spielstand wählen"
+msgstr "Выбери сохранение"
+
 msgid "Spinne"
 msgstr "Паук"
 
@@ -1491,6 +1527,9 @@ msgstr "Кассетная бомба"
 msgid "Struppig und leicht angekaut."
 msgstr "Лохматая и слегка погрызенная."
 
+msgid "Stufe %d · %d Ebenen"
+msgstr "Уровень %d · %d этажей"
+
 msgid "Sturmessenz"
 msgstr "Эссенция бури"
 
@@ -1542,6 +1581,12 @@ msgstr "Синергия: %s!"
 msgid "Synergien: %s"
 msgstr "Синергии: %s"
 
+msgid "Tag %d"
+msgstr "День %d"
+
+msgid "Tag %d · %d Gold"
+msgstr "День %d · %d золота"
+
 msgid "Taumelkraut"
 msgstr "Шатун-трава"
 
@@ -1580,6 +1625,9 @@ msgstr "Броня тролля"
 
 msgid "Truhenschlüssel"
 msgstr "Ключ от сундука"
+
+msgid "Umgebung"
+msgstr "Окрестности"
 
 msgid "Ungewöhnlich"
 msgstr "Необычный"
@@ -1692,6 +1740,9 @@ msgstr "Сюрикены пробивают врагов и часто вызы�
 msgid "Wähle deinen Charakter"
 msgstr "Выбери персонажа"
 
+msgid "Wähle links einen Dungeon."
+msgstr "Выбери подземелье слева."
+
 msgid "Wählen"
 msgstr "Выбрать"
 
@@ -1718,6 +1769,9 @@ msgstr "Не хватает монет"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "Случайно яд, страх или шатание"
+
+msgid "Zum Laden"
+msgstr "В лавку"
 
 msgid "Zunderbüchse"
 msgstr "Трутница"
@@ -1772,3 +1826,6 @@ msgstr "Перчатки-близнецы"
 
 msgid "oder Leertaste"
 msgstr "или пробел"
+
+msgid "Überschreiben"
+msgstr "Перезаписать"

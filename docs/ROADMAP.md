@@ -6,8 +6,8 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 | Phase | Inhalt | Status |
 |---|---|---|
 | 0 | Projekt angelegt: Kopie von Dungeon Smithy (Stand 2026-11-26, mit Startwaffen-Items), alle Smithy-Assets, Smithy-Logik als Nachschlage-Bibliothek, Ideen sortiert | erledigt (2026-11-26) |
-| 1 | Dauerhafter Spielstand und Laden | Beute, Inventar, Spielstand, Dose: erledigt (2026-11-26); Laden offen |
-| 2 | Intro und Händler-Story | offen |
+| 1 | Dauerhafter Spielstand und Laden | Beute, Inventar, Spielstand, Dose, Spielstand-Plätze, Laden-Gerüst mit Dungeon-Brett: erledigt (2026-11-26); Ware, Würfeln, Verkauf offen |
+| 2 | Intro und Händler-Story | Intro-Szene erledigt (2026-11-26); Dialog, Laden-Erklärung, Klassen-Frage offen |
 | 3 | Ausrüstung wirkt im Run, Tränke | offen |
 | 4 | Fortschritt: Materialien, Gussformen, neue Ware, mehrere Dungeons | offen |
 | 5 | Schmieden (Smithy-Minispiele), Zauberstab-Relikte | später |
@@ -23,11 +23,12 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 5. **Verkaufen:** Item auf einen der 3 Plätze ziehen → Gold (Händler zahlt wenig = „Betrug“). Mitgebrachte Beute (`MetaState.stash`) verkaufen.
 5a. **Dose:** Geld einzahlen/abheben (`MetaState.deposit/withdraw`); Egon kommentiert `last_theft` (Ausreden aus `docs/figuren/EGON_EHRLICH.md`).
 6. **Animierter Hintergrund:** Glut, Fackelflackern, Staub; Übergänge weich.
-7. Hauptmenü „Neues Spiel“ → Laden statt direkt Dungeon; „Los“ im Laden → Run; nach dem Run zurück in den Laden.
+7. ✅ (2026-11-26) Hauptmenü „Neues Spiel“ → Intro → Laden; „Dungeons“ unten rechts → Dungeon-Brett (`data/dungeons.json`) → „Betreten“ → Charakter → Run; nach dem Run „Zum Laden“.
+8. ✅ (2026-11-26) **Spielstand-Plätze A, B, C** nach der Sprachwahl; „Weiter“ im Hauptmenü, wenn der Platz belegt ist; gespeichert am Ende jedes Tages.
 
 ## Phase 2 – Intro
 
-1. Augen-auf-Animation, Händler winkt.
+1. ✅ (2026-11-26) Intro: schwarz → hell, Mine, Egon winkt, in 3 Bildern auf ihn zu, dann der Laden (`scenes/story/intro.gd`).
 2. Dialog-Fenster (Texte in `data/story.json`, übersetzt) mit dem Vorstellungs-Witz.
 3. Geführte Laden-Erklärung mit Hervorhebung (wie `Guide` in Smithy).
 4. Klassen-Frage → Kupfer-Startwaffe ins Inventar und ausgerüstet.

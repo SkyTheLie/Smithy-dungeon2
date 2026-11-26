@@ -6,6 +6,9 @@ msgstr ""
 msgid "%d Herzen"
 msgstr "%d corações"
 
+msgid "Abbrechen"
+msgstr "Cancelar"
+
 msgid "Acht Bomben"
 msgstr "Oito bombas"
 
@@ -62,6 +65,9 @@ msgstr "Derrote: %s"
 
 msgid "Besiegte Gegner: %d"
 msgstr "Inimigos derrotados: %d"
+
+msgid "Betreten"
+msgstr "Entrar"
 
 msgid "Blasebalg"
 msgstr "Fole"
@@ -240,6 +246,12 @@ msgstr "Você fica minúsculo e às vezes esquiva"
 msgid "Dungeon der Glut"
 msgstr "Masmorra das Brasas"
 
+msgid "Dungeon-Brett"
+msgstr "Quadro de masmorras"
+
+msgid "Dungeons"
+msgstr "Masmorras"
+
 msgid "Dunkler Zauberstab"
 msgstr "Varinha sombria"
 
@@ -266,6 +278,9 @@ msgstr "Andar: %d"
 
 msgid "Effekte"
 msgstr "Efeitos"
+
+msgid "Egons Laden"
+msgstr "A loja do Egon"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Suas próprias explosões te curam"
@@ -477,6 +492,9 @@ msgstr "Cinco chaves"
 msgid "Fünfzehn Münzen"
 msgstr "Quinze moedas"
 
+msgid "Gebiete: %s"
+msgstr "Áreas: %s"
+
 msgid "Gegabelter Stab"
 msgstr "Cajado bifurcado"
 
@@ -566,6 +584,9 @@ msgstr "Cajado venenoso"
 
 msgid "Giftzahn"
 msgstr "Presa venenosa"
+
+msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
+msgstr "Logo atrás da loja do Egon, o caminho desce. Lá no fundo espera um chefe e, supostamente, um tesouro. Diz o Egon."
 
 msgid "Glutkern"
 msgstr "Núcleo de brasa"
@@ -854,6 +875,12 @@ msgstr "Orvalho da vida"
 
 msgid "Lederstiefel"
 msgstr "Botas de couro"
+
+msgid "Leer"
+msgstr "Vazio"
+
+msgid "Leertaste: weiter · Esc: überspringen"
+msgstr "Espaço: continuar · Esc: pular"
 
 msgid "Legendenhandschuhe"
 msgstr "Luvas lendárias"
@@ -1419,6 +1446,15 @@ msgstr "Girassol"
 msgid "Spardose"
 msgstr "Cofrinho"
 
+msgid "Spielstand %s"
+msgstr "Jogo salvo %s"
+
+msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
+msgstr "Sobrescrever o jogo salvo %s? O progresso antigo será perdido."
+
+msgid "Spielstand wählen"
+msgstr "Escolha um jogo salvo"
+
 msgid "Spinne"
 msgstr "Aranha"
 
@@ -1491,6 +1527,9 @@ msgstr "Bomba de fragmentação"
 msgid "Struppig und leicht angekaut."
 msgstr "Desgrenhada e meio roída."
 
+msgid "Stufe %d · %d Ebenen"
+msgstr "Nível %d · %d andares"
+
 msgid "Sturmessenz"
 msgstr "Essência da tempestade"
 
@@ -1542,6 +1581,12 @@ msgstr "Sinergia: %s!"
 msgid "Synergien: %s"
 msgstr "Sinergias: %s"
 
+msgid "Tag %d"
+msgstr "Dia %d"
+
+msgid "Tag %d · %d Gold"
+msgstr "Dia %d · %d de ouro"
+
 msgid "Taumelkraut"
 msgstr "Erva cambaleante"
 
@@ -1580,6 +1625,9 @@ msgstr "Armadura de troll"
 
 msgid "Truhenschlüssel"
 msgstr "Chave do baú"
+
+msgid "Umgebung"
+msgstr "Arredores"
 
 msgid "Ungewöhnlich"
 msgstr "Incomum"
@@ -1692,6 +1740,9 @@ msgstr "Shurikens atravessam inimigos e muitas vezes os fazem sangrar"
 msgid "Wähle deinen Charakter"
 msgstr "Escolha seu personagem"
 
+msgid "Wähle links einen Dungeon."
+msgstr "Escolha uma masmorra à esquerda."
+
 msgid "Wählen"
 msgstr "Escolher"
 
@@ -1718,6 +1769,9 @@ msgstr "Moedas insuficientes"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "Veneno, medo ou cambaleio aleatório"
+
+msgid "Zum Laden"
+msgstr "Para a loja"
 
 msgid "Zunderbüchse"
 msgstr "Caixa de isca"
@@ -1772,3 +1826,6 @@ msgstr "Luvas gêmeas"
 
 msgid "oder Leertaste"
 msgstr "ou aperte Espaço"
+
+msgid "Überschreiben"
+msgstr "Sobrescrever"

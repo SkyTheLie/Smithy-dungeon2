@@ -1,7 +1,7 @@
 class_name EndScreen
 extends CanvasLayer
 ## End of a run: "Du bist gefallen" (dead) or "Geschafft!" (last boss beaten), with the floor,
-## kills, the run's values and its items. Neuer Run / Hauptmenü.
+## kills, the run's values and its items. Zum Laden (the next day at Egon's) / Hauptmenü.
 
 @onready var _title: Label = %Title
 @onready var _summary: Label = %Summary
@@ -11,7 +11,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 	hide()
-	%Again.pressed.connect(func() -> void: Game.start_new_run())
+	%Again.pressed.connect(Game.to_shop)
 	%Menu.pressed.connect(Game.to_main_menu)
 
 

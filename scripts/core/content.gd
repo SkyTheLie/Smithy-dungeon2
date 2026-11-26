@@ -92,6 +92,11 @@ static func enemy_loot(id: String) -> Array:
 	return (get_file("loot").get("enemies", {}) as Dictionary).get(id, [])
 
 
+## Dungeons on Egon's board (data/dungeons.json): id -> {name, region, desc, level}, in order.
+static func dungeons() -> Dictionary:
+	return get_file("dungeons").get("dungeons", {})
+
+
 ## Values between runs (data/meta.json): "bag", "money_box".
 static func meta(section: String) -> Dictionary:
 	return get_file("meta").get(section, {})

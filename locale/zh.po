@@ -6,6 +6,9 @@ msgstr ""
 msgid "%d Herzen"
 msgstr "%d颗心"
 
+msgid "Abbrechen"
+msgstr "取消"
+
 msgid "Acht Bomben"
 msgstr "八枚炸弹"
 
@@ -62,6 +65,9 @@ msgstr "击败：%s"
 
 msgid "Besiegte Gegner: %d"
 msgstr "击败敌人：%d"
+
+msgid "Betreten"
+msgstr "进入"
 
 msgid "Blasebalg"
 msgstr "风箱"
@@ -240,6 +246,12 @@ msgstr "你变得极小，有时闪避"
 msgid "Dungeon der Glut"
 msgstr "余烬地牢"
 
+msgid "Dungeon-Brett"
+msgstr "地牢告示板"
+
+msgid "Dungeons"
+msgstr "地牢"
+
 msgid "Dunkler Zauberstab"
 msgstr "暗之魔杖"
 
@@ -266,6 +278,9 @@ msgstr "层数：%d"
 
 msgid "Effekte"
 msgstr "音效"
+
+msgid "Egons Laden"
+msgstr "埃贡的商店"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "自己的爆炸会治疗你"
@@ -477,6 +492,9 @@ msgstr "五把钥匙"
 msgid "Fünfzehn Münzen"
 msgstr "十五枚硬币"
 
+msgid "Gebiete: %s"
+msgstr "区域：%s"
+
 msgid "Gegabelter Stab"
 msgstr "分叉法杖"
 
@@ -566,6 +584,9 @@ msgstr "毒杖"
 
 msgid "Giftzahn"
 msgstr "毒牙"
+
+msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
+msgstr "埃贡的商店后面就是往下的路。最深处有个首领在等着，据说还有宝藏。埃贡说的。"
 
 msgid "Glutkern"
 msgstr "余烬之核"
@@ -854,6 +875,12 @@ msgstr "生命之露"
 
 msgid "Lederstiefel"
 msgstr "皮靴"
+
+msgid "Leer"
+msgstr "空"
+
+msgid "Leertaste: weiter · Esc: überspringen"
+msgstr "空格：继续 · Esc：跳过"
 
 msgid "Legendenhandschuhe"
 msgstr "传奇手套"
@@ -1419,6 +1446,15 @@ msgstr "向日葵"
 msgid "Spardose"
 msgstr "存钱罐"
 
+msgid "Spielstand %s"
+msgstr "存档 %s"
+
+msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
+msgstr "覆盖存档 %s？旧的进度将会消失。"
+
+msgid "Spielstand wählen"
+msgstr "选择存档"
+
 msgid "Spinne"
 msgstr "蜘蛛"
 
@@ -1491,6 +1527,9 @@ msgstr "集束炸弹"
 msgid "Struppig und leicht angekaut."
 msgstr "乱糟糟的,还被啃过一点。"
 
+msgid "Stufe %d · %d Ebenen"
+msgstr "等级 %d · %d层"
+
 msgid "Sturmessenz"
 msgstr "风暴精华"
 
@@ -1542,6 +1581,12 @@ msgstr "协同：%s！"
 msgid "Synergien: %s"
 msgstr "协同：%s"
 
+msgid "Tag %d"
+msgstr "第%d天"
+
+msgid "Tag %d · %d Gold"
+msgstr "第%d天 · %d金币"
+
 msgid "Taumelkraut"
 msgstr "蹒跚草"
 
@@ -1580,6 +1625,9 @@ msgstr "巨魔铠甲"
 
 msgid "Truhenschlüssel"
 msgstr "宝箱钥匙"
+
+msgid "Umgebung"
+msgstr "周边"
 
 msgid "Ungewöhnlich"
 msgstr "罕见"
@@ -1692,6 +1740,9 @@ msgstr "飞镖穿透敌人并常使其流血"
 msgid "Wähle deinen Charakter"
 msgstr "选择你的角色"
 
+msgid "Wähle links einen Dungeon."
+msgstr "在左侧选择一个地牢。"
+
 msgid "Wählen"
 msgstr "选择"
 
@@ -1718,6 +1769,9 @@ msgstr "金币不足"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "随机中毒、恐惧或蹒跚"
+
+msgid "Zum Laden"
+msgstr "去商店"
 
 msgid "Zunderbüchse"
 msgstr "火绒盒"
@@ -1772,3 +1826,6 @@ msgstr "双子手套"
 
 msgid "oder Leertaste"
 msgstr "或按空格键"
+
+msgid "Überschreiben"
+msgstr "覆盖"
