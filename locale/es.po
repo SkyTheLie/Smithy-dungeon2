@@ -162,6 +162,9 @@ msgstr "No te alcanza el oro, socio. Qué pena, qué pena."
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Dentro hay un bichito atrapado."
 
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "El oro de esta partida. Si mueres, se pierde, salvo en el espacio seguro."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Eso no se puede poner, socio. Créeme, lo he intentado."
 
@@ -615,6 +618,9 @@ msgstr "Hoja del general"
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "Salvado (hueco seguro): %d botín"
 
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "Salvado (espacio seguro): %d de oro, %d de botín"
+
 msgid "Geschafft!"
 msgstr "¡Lo lograste!"
 
@@ -728,6 +734,9 @@ msgstr "Corona goblin"
 
 msgid "Goblinstollen"
 msgstr "Galerías Goblin"
+
+msgid "Gold"
+msgstr "Oro"
 
 msgid "Goldader"
 msgstr "Veta de oro"

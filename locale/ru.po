@@ -162,6 +162,9 @@ msgstr "На это золота не хватит, партнёр. Увы, ув
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Внутри застрял маленький жучок."
 
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "Золото этого забега. Если умрёшь, оно пропадёт, кроме лежащего в надёжной ячейке."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Это не наденешь, партнёр. Поверь, я пробовал."
 
@@ -615,6 +618,9 @@ msgstr "Клинок генерала"
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "Спасено (надёжное место): %d добычи"
 
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "Спасено (надёжная ячейка): %d золота, %d добычи"
+
 msgid "Geschafft!"
 msgstr "Победа!"
 
@@ -728,6 +734,9 @@ msgstr "Корона гоблинов"
 
 msgid "Goblinstollen"
 msgstr "Гоблинские штольни"
+
+msgid "Gold"
+msgstr "Золото"
 
 msgid "Goldader"
 msgstr "Золотая жила"

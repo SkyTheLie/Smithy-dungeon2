@@ -268,7 +268,7 @@ static func take_purse_for_run() -> int:
 
 
 ## A run is over (a new day begins): `coins` go into the purse, `kept` (bag places
-## {id, count}) into the stash, then the merchant may help himself from the box.
+## {id, count}) into the stash (its gold into the purse), then the merchant may help himself from the box.
 ## Death: coins 0 and only the safe places. Returns the gold stolen from the box.
 static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenerator) -> int:
 	if coins > 0:
@@ -278,6 +278,10 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 		var id: String = String(entry.get("id", ""))
 		var count: int = int(entry.get("count", 0))
 		if id.is_empty() or count <= 0:
+			continue
+		# The gold of the bag goes into the purse, not into the inventory.
+		if id == Bag.GOLD:
+			_write("purse", purse() + count)
 			continue
 		var merged: bool = false
 		for own: Dictionary in list:

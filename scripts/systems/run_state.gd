@@ -37,7 +37,11 @@ var blue: int = 0
 var shield: int = 0
 ## The stats of the equipment worn at the start (one source per piece, without shield_hearts).
 var gear_sources: Array[Dictionary] = []
-var coins: int = 0
+## The gold of the run: what lies in the bag as "gold" (Bag.GOLD). Only counted here, so there is
+## one source; change it with add_coins / spend / bring_gold.
+var coins: int:
+	get:
+		return bag.count_of(Bag.GOLD)
 var bombs: int = 0
 var keys: int = 0
 ## Collected item ids in the order they were picked up (the same item can come twice).
@@ -81,8 +85,6 @@ var _kills_to_heal: int = 0
 
 const MAX_HEARTS_LIMIT: int = 12
 const MAX_COUNT: int = 99
-## Coins are the gold of the run (it goes home after a win), so they may go higher than bombs.
-const MAX_COINS: int = 9999
 
 
 func _init(run_seed: int = 0, character_id: String = "magier") -> void:
@@ -92,7 +94,9 @@ func _init(run_seed: int = 0, character_id: String = "magier") -> void:
 	var base: Dictionary = Content.player()
 	max_hearts = int(Content.character(character).get("hearts", base.get("hearts", 3)))
 	health = max_hearts * 2
-	coins = int(base.get("coins", 0))
+	# Gold in the bag changes the coins (Goldglut items count them).
+	bag.changed.connect(_coins_changed)
+	bag.add(Bag.GOLD, int(base.get("coins", 0)))
 	bombs = int(base.get("bombs", 1))
 	keys = int(base.get("keys", 1))
 	compute_stats()
@@ -254,21 +258,20 @@ func heal(halves: int) -> bool:
 	return true
 
 
-## A coin on the floor was picked up: it is worth data/player.json coin_pickup [min, max] coins.
-## Returns how many it gave.
-func pick_up_coin() -> int:
+## What a coin on the floor is worth: data/player.json coin_pickup [min, max] gold (the pickup
+## then goes into the bag as gold, Pickup).
+func roll_coin_value() -> int:
 	var worth: Array = Content.player().get("coin_pickup", [1, 1])
-	var amount: int = _coin_rng.randi_range(int(worth[0]), int(worth[1]))
-	add_coins(amount)
-	return amount
+	return _coin_rng.randi_range(int(worth[0]), int(worth[1]))
 
 
-func add_coins(amount: int) -> void:
+## Puts `amount` gold into the bag. Returns what did not fit (full bag).
+func add_coins(amount: int) -> int:
 	if amount <= 0:
-		return
-	coins = mini(MAX_COINS, coins + amount)
+		return 0
+	var left: int = bag.add(Bag.GOLD, amount)
 	note_best("coins", coins)
-	_coins_changed()
+	return left
 
 
 ## The gold the player carries from home (MetaState purse) comes along into the dungeon. Not
@@ -276,8 +279,7 @@ func add_coins(amount: int) -> void:
 func bring_gold(amount: int) -> void:
 	if amount <= 0:
 		return
-	coins = mini(MAX_COINS, coins + amount)
-	_coins_changed()
+	bag.add(Bag.GOLD, amount)
 
 
 func add_bombs(amount: int) -> void:
@@ -298,8 +300,8 @@ func add_keys(amount: int) -> void:
 func spend(price: int) -> bool:
 	if price < 0 or coins < price:
 		return false
-	coins -= price
-	_coins_changed()
+	if price > 0:
+		bag.remove(Bag.GOLD, price)
 	return true
 
 
@@ -340,7 +342,7 @@ func add_item(id: String) -> void:
 		health = max_hearts * 2
 	# "give": things that come with the item (Wanderbündel, Schmiedeschürze).
 	var give: Dictionary = data.get("give", {})
-	coins = mini(MAX_COINS, coins + maxi(0, int(give.get("coins", 0))))
+	add_coins(int(give.get("coins", 0)))
 	bombs = mini(MAX_COUNT, bombs + maxi(0, int(give.get("bombs", 0))))
 	keys = mini(MAX_COUNT, keys + maxi(0, int(give.get("keys", 0))))
 	var before: Array[String] = synergies.duplicate()

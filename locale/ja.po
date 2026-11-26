@@ -162,6 +162,9 @@ msgstr "それには金が足りないな、相棒。残念、残念。"
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "中に小さな虫が閉じ込められている。"
 
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "この探索の金。死ぬと失う。安全枠に入れた分は残る。"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "それは着られないぜ、相棒。信じろ、俺も試した。"
 
@@ -615,6 +618,9 @@ msgstr "将軍の刃"
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "守れた(安全な枠):戦利品 %d"
 
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "救出（安全枠）：%dゴールド、戦利品%d個"
+
 msgid "Geschafft!"
 msgstr "クリア！"
 
@@ -728,6 +734,9 @@ msgstr "ゴブリンの王冠"
 
 msgid "Goblinstollen"
 msgstr "ゴブリンの坑道"
+
+msgid "Gold"
+msgstr "ゴールド"
 
 msgid "Goldader"
 msgstr "金脈"

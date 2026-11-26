@@ -162,6 +162,9 @@ msgstr "Ton or ne suffit pas pour ça, partenaire. Hélas, hélas."
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Une petite bestiole est coincée dedans."
 
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "L'or de cette partie. Si tu meurs, il est perdu, sauf dans l'emplacement sûr."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Ça ne se porte pas, partenaire. Crois-moi, j'ai essayé."
 
@@ -615,6 +618,9 @@ msgstr "Lame du général"
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "Sauvé (emplacement sûr) : %d butin"
 
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "Sauvé (emplacement sûr) : %d or, %d butin"
+
 msgid "Geschafft!"
 msgstr "Victoire !"
 
@@ -728,6 +734,9 @@ msgstr "Couronne gobeline"
 
 msgid "Goblinstollen"
 msgstr "Galeries des Gobelins"
+
+msgid "Gold"
+msgstr "Or"
 
 msgid "Goldader"
 msgstr "Filon d'or"

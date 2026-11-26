@@ -32,7 +32,7 @@ func open(run: RunState, won: bool, fled: bool = false) -> void:
 	if won or fled:
 		lines.append(Language.translate("Mit nach Hause: %d Gold, %d Beute") % [run.coins, _count(run.bag.contents())])
 	else:
-		lines.append(Language.translate("Gerettet (sicherer Platz): %d Beute") % _count(run.bag.safe_contents()))
+		lines.append(Language.translate("Gerettet (sicherer Platz): %d Gold, %d Beute") % [_gold(run.bag.safe_contents()), _count(run.bag.safe_contents())])
 	for line: String in PauseMenu.describe(run).split("\n"):
 		lines.append(line)
 	var half: int = ceili(lines.size() / 2.0)
@@ -55,8 +55,18 @@ func open(run: RunState, won: bool, fled: bool = false) -> void:
 		AudioManager.play_music("victory")
 
 
+## Pieces of loot (without the gold).
 static func _count(places: Array[Dictionary]) -> int:
 	var total: int = 0
 	for place: Dictionary in places:
-		total += int(place.get("count", 0))
+		if String(place.get("id", "")) != Bag.GOLD:
+			total += int(place.get("count", 0))
+	return total
+
+
+static func _gold(places: Array[Dictionary]) -> int:
+	var total: int = 0
+	for place: Dictionary in places:
+		if String(place.get("id", "")) == Bag.GOLD:
+			total += int(place.get("count", 0))
 	return total

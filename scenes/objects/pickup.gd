@@ -1,7 +1,7 @@
 class_name Pickup
 extends Node3D
 ## Something lying on the floor: a coin, a heart, a bomb, a key or loot for the bag ("loot":
-## data/loot.json materials, setup_loot). Walking over it picks it up (a heart only if the player
+## data/loot.json materials, setup_loot). A coin turns into gold for the bag when it is touched. Walking over it picks it up (a heart only if the player
 ## is hurt, loot only if there is room in the bag). Pops out of the floor when it appears.
 ## Loot the player dropped from the bag (Tab) waits until the player walked away once, so it is
 ## not picked up again at once.
@@ -95,9 +95,12 @@ func _physics_process(delta: float) -> void:
 func _take() -> bool:
 	match kind:
 		"coin":
-			run.pick_up_coin()
-			AudioManager.play_sound("coin")
-			return true
+			# A coin becomes gold for the bag (worth 8-12, RunState.roll_coin_value); with a full
+			# bag it stays here as that much gold.
+			kind = LOOT
+			material_id = Bag.GOLD
+			amount = run.roll_coin_value()
+			return _take()
 		"heart":
 			if not run.heal(run.heart_value()):
 				return false
@@ -106,7 +109,7 @@ func _take() -> bool:
 		"key":
 			run.add_keys(1)
 		LOOT:
-			var left: int = run.bag.add(material_id, amount)
+			var left: int = run.add_coins(amount) if material_id == Bag.GOLD else run.bag.add(material_id, amount)
 			if left > 0:
 				if left < amount:
 					AudioManager.play_sound("pickup")
@@ -115,5 +118,8 @@ func _take() -> bool:
 					_warned = true
 					bag_full.emit()
 				return false
+			if material_id == Bag.GOLD:
+				AudioManager.play_sound("coin")
+				return true
 	AudioManager.play_sound("pickup")
 	return true

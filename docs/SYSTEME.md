@@ -198,3 +198,9 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 ## Item-Raum nur mit Schlüssel – 2026-11-26, `feature/item-raum-schluessel`
 
 - Ebene 1 hat keinen Item-Raum (`floors.json` `"item_room": false` → `FloorLayout.remove_item_room`, der Raum wird ein normaler Raum; die Karte bleibt für denselben Seed gleich). Ab Ebene 2 steht `item` in `key_doors`: die Tür geht nur mit einem Schlüssel auf, drin liegt ein zufälliges Item aus dem Item-Pool auf einem Sockel.
+
+## Gold in der Tasche – 2026-11-26, `feature/geld-in-tasche`
+
+- Das Gold des Runs ist das Material `gold` (`loot.json`, Stapel bis 999 über `stack`) in der Tasche: fallen lassen, umsortieren, in den sicheren Platz legen wie alles andere. `RunState.coins` zählt nur das Gold in der Tasche (eine Quelle); `add_coins` legt hinein (gibt zurück, was nicht passt), `spend` nimmt heraus (`Bag.remove`, normale Plätze zuerst). Das Geldbündel-Feld im Tab-Fenster ist weg.
+- Münzen auf dem Boden werden beim Anfassen zu 8–12 Gold für die Tasche; ist sie voll, bleibt das Gold liegen („Inventar voll!“).
+- Run-Ende: Gold aus der Tasche geht in die Geldbörse zu Hause (`MetaState.end_run`), nicht ins Inventar. Beim Tod nur das Gold im sicheren Platz.

@@ -162,6 +162,9 @@ msgstr "Seu ouro não dá pra isso, parceiro. Que pena, que pena."
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Tem um bichinho preso dentro."
 
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "O ouro desta partida. Se você morrer, ele some, exceto no espaço seguro."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Isso não dá pra vestir, parceiro. Acredite, eu já tentei."
 
@@ -615,6 +618,9 @@ msgstr "Lâmina do general"
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "Salvo (espaço seguro): %d saque"
 
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "Salvo (espaço seguro): %d de ouro, %d de saque"
+
 msgid "Geschafft!"
 msgstr "Você conseguiu!"
 
@@ -728,6 +734,9 @@ msgstr "Coroa goblin"
 
 msgid "Goblinstollen"
 msgstr "Túneis dos Goblins"
+
+msgid "Gold"
+msgstr "Ouro"
 
 msgid "Goldader"
 msgstr "Veio de ouro"

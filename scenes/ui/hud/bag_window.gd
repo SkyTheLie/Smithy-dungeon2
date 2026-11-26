@@ -6,7 +6,8 @@ extends CanvasLayer
 ##   - dragging a place out of the window drops it on the floor in front of the player
 ##     (Dungeon.drop_from_bag), to make room;
 ##   - the safe place (golden frame) keeps its things when the player dies;
-##   - the money bundle shows the coins of the run (they are lost on death, too);
+##   - the gold of the run lies in the bag like everything else (Bag.GOLD): drop it, stack it,
+##     put it into the safe place;
 ##   - left the hero: his equipment from home (HeroPanel, only shown) and below it the values of
 ##     the run (damage, attack speed, walking speed, luck);
 ##   - right the whole floor (Minimap.always_big), zoomed out so every known room fits;
@@ -21,7 +22,6 @@ const COLUMNS: int = 6
 const MAP_SIZE := Vector2(180, 200)
 const ITEM_SIZE := Vector2(26, 26)
 const STATS_COLOR := Color(1, 0.9, 0.75)
-const PURSE_ICON: String = "res://assets/sprites/items/coin_purse.png"
 const SAFE_COLOR := Color(1.0, 0.78, 0.3)
 const EMPTY_BORDER := Color(0.32, 0.27, 0.24)
 const PANEL_COLOR := Color(0.11, 0.08, 0.07, 0.96)
@@ -39,7 +39,6 @@ var _items: HFlowContainer
 ## The floor map beside the bag.
 var map: Minimap
 var _slots: Array[Panel] = []
-var _coins: Label
 var _info_name: Label
 var _info_text: Label
 
@@ -54,13 +53,11 @@ func setup(run_state: RunState, the_dungeon: Dungeon) -> void:
 	dungeon = the_dungeon
 	_build()
 	run.bag.changed.connect(_refresh)
-	run.changed.connect(_refresh_coins)
 	hide()
 
 
 func open() -> void:
 	_refresh()
-	_refresh_coins()
 	_refresh_run()
 	_show_info(-1)
 	show()
@@ -162,7 +159,6 @@ func _build() -> void:
 	safe_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	safe_text.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	bottom.add_child(safe_text)
-	bottom.add_child(_make_purse())
 
 	_info_name = Label.new()
 	_info_name.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
@@ -213,34 +209,6 @@ func _make_slot(index: int) -> Panel:
 	slot.mouse_exited.connect(_show_info.bind(-1))
 	_slots.append(slot)
 	return slot
-
-
-## The money bundle: the coins of the run (not a place of the bag, cannot be dragged).
-func _make_purse() -> Control:
-	var box := HBoxContainer.new()
-	box.add_theme_constant_override("separation", 2)
-	var frame := Panel.new()
-	frame.custom_minimum_size = SLOT_SIZE
-	frame.add_theme_stylebox_override("panel", _box(SLOT_COLOR, Color(0.85, 0.7, 0.3), 2, 4))
-	var icon := TextureRect.new()
-	icon.texture = load(PURSE_ICON) as Texture2D
-	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	icon.size = ICON_SIZE
-	icon.position = (SLOT_SIZE - ICON_SIZE) / 2.0
-	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	frame.add_child(icon)
-	frame.mouse_entered.connect(_show_purse_info)
-	frame.mouse_exited.connect(_show_info.bind(-1))
-	box.add_child(frame)
-	_coins = Label.new()
-	_coins.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	_coins.add_theme_color_override("font_color", Color(1.0, 0.86, 0.35))
-	_coins.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_coins.custom_minimum_size = Vector2(36, 0)
-	box.add_child(_coins)
-	return box
 
 
 static func _box(fill: Color, border: Color, width: int, corner: int) -> StyleBoxFlat:
@@ -350,11 +318,6 @@ func _refresh() -> void:
 		slot.add_theme_stylebox_override("panel", _box(SLOT_COLOR, border, 3 if run.bag.is_safe(i) else 2, 4))
 
 
-func _refresh_coins() -> void:
-	if _coins:
-		_coins.text = str(run.coins)
-
-
 func _show_info(index: int) -> void:
 	var place: Dictionary = run.bag.get_place(index) if index >= 0 else {}
 	if place.is_empty():
@@ -367,12 +330,6 @@ func _show_info(index: int) -> void:
 	_info_name.text = "%s ×%d" % [Language.translate(String(data.get("name", ""))), int(place["count"])]
 	_info_name.modulate = Rarity.color(tier)
 	_info_text.text = "%s · %s\n%s" % [Rarity.label(tier), Language.translate("Wert: %d Gold") % int(data.get("value", 0)), Language.translate(String(data.get("desc", "")))]
-
-
-func _show_purse_info() -> void:
-	_info_name.text = Language.translate("Geldbündel: %d Gold") % run.coins
-	_info_name.modulate = Color(1.0, 0.86, 0.35)
-	_info_text.text = Language.translate("Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose.")
 
 
 # --- Drag and drop --------------------------------------------------------------

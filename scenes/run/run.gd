@@ -120,7 +120,7 @@ func _flee() -> void:
 	player.controls_enabled = false
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
-	MetaState.end_run(Game.run.coins, Game.run.bag.contents(), rng)
+	MetaState.end_run(0, Game.run.bag.contents(), rng)
 	end_screen.open(Game.run, false, true)
 
 
@@ -139,7 +139,7 @@ func _on_trapdoor_entered(final: bool) -> void:
 		# Made it out: the coins and the whole bag come home.
 		var rng := RandomNumberGenerator.new()
 		rng.randomize()
-		MetaState.end_run(Game.run.coins, Game.run.bag.contents(), rng)
+		MetaState.end_run(0, Game.run.bag.contents(), rng)
 		end_screen.open(Game.run, true)
 		return
 	AudioManager.play_sound("door", 0.6)

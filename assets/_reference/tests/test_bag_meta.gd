@@ -8,6 +8,7 @@ func run() -> void:
 	_purse_and_box()
 	_end_of_run()
 	_theft()
+	_gold_in_bag()
 
 
 func _bag() -> void:
@@ -151,3 +152,26 @@ func _rng(value: int) -> RandomNumberGenerator:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = value
 	return rng
+
+
+## The gold of a run lies in the bag (material "gold"): coins count it, paying takes it out, it
+## stacks to 999, the safe place keeps it on death and it goes into the purse at home.
+func _gold_in_bag() -> void:
+	var meta: Script = script("res://scripts/systems/meta_state.gd")
+	meta.call("start_new")
+	var wallet: Object = script("res://scripts/systems/run_state.gd").new(3)
+	var bag: Object = wallet.get("bag")
+	check_eq(wallet.call("add_coins", 30), 0, "30 gold fit")
+	check_eq(wallet.get("coins"), 30, "coins = gold in the bag")
+	check_eq((bag.call("get_place", 0) as Dictionary).get("id"), "gold", "the gold lies on a place of the bag")
+	wallet.call("add_coins", 990)
+	check_eq((bag.call("get_place", 0) as Dictionary).get("count"), 999, "gold stacks to 999 on one place")
+	check(wallet.call("spend", 20), "paying works")
+	check_eq(wallet.get("coins"), 1000, "and takes the gold out of the bag")
+	check(not wallet.call("spend", 5000), "not more than there is")
+	bag.call("move", 0, 12)
+	var kept: Array[Dictionary] = bag.call("lose_unsafe")
+	check_eq(wallet.get("coins"), 979, "death: the gold in the safe place stays")
+	meta.call("end_run", 0, kept, RandomNumberGenerator.new())
+	check_eq(meta.call("purse"), 979, "and goes into the purse at home")
+	check(not (meta.call("stash") as Array).any(func(place: Dictionary) -> bool: return place.get("id") == "gold"), "not into the inventory")

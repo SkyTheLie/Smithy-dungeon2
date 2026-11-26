@@ -162,6 +162,9 @@ msgstr "طلات برای این کافی نیست، رفیق. حیف، حیف."
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "یک حشره‌ی کوچک داخلش گیر افتاده."
 
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "طلای این دور. اگر بمیری از دست می‌رود، مگر در خانه‌ی امن."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "این پوشیدنی نیست، رفیق. باور کن، امتحان کردم."
 
@@ -615,6 +618,9 @@ msgstr "تیغ ژنرال"
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "نجات‌یافته (جای امن): %d غنیمت"
 
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "نجات‌یافته (خانه‌ی امن): %d طلا، %d غنیمت"
+
 msgid "Geschafft!"
 msgstr "موفق شدی!"
 
@@ -728,6 +734,9 @@ msgstr "تاج گابلین"
 
 msgid "Goblinstollen"
 msgstr "تونل‌های گابلین"
+
+msgid "Gold"
+msgstr "طلا"
 
 msgid "Goldader"
 msgstr "رگه طلا"

@@ -162,6 +162,9 @@ msgstr "You don't have enough gold for that, partner. Such a shame."
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "There is a tiny bug stuck inside."
 
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "The gold of this run. If you die it is gone, unless it is in the safe slot."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "You can't wear that, partner. Trust me, I've tried."
 
@@ -615,6 +618,9 @@ msgstr "General's Blade"
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "Saved (safe slot): %d loot"
 
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "Saved (safe slot): %d gold, %d loot"
+
 msgid "Geschafft!"
 msgstr "You made it!"
 
@@ -728,6 +734,9 @@ msgstr "Goblin Crown"
 
 msgid "Goblinstollen"
 msgstr "Goblin Tunnels"
+
+msgid "Gold"
+msgstr "Gold"
 
 msgid "Goldader"
 msgstr "Gold Vein"

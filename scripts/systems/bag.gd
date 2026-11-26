@@ -2,8 +2,9 @@ class_name Bag
 extends RefCounted
 ## The bag of a run (Tab): loot from the dungeon (data/loot.json "materials"). A fixed number of
 ## places (data/meta.json "bag": slots) plus safe places (safe_slots) at the end. Dying empties
-## the bag except the safe places (lose_unsafe). The coins are not in here: they stay in
-## RunState.coins and the bag window only shows them as a money bundle.
+## the bag except the safe places (lose_unsafe). The gold of the run is in here too (material
+## "gold", GOLD): it stacks higher (loot.json "stack"), can be dropped and put into the safe place
+## like everything else; RunState.coins only counts it.
 ##
 ## A place is {} (empty) or {"id": String, "count": int}. Indices 0 .. slots - 1 are normal,
 ## slots .. size() - 1 are safe.
@@ -13,6 +14,9 @@ signal changed
 var places: Array[Dictionary] = []
 var normal_count: int = 12
 var stack_limit: int = 20
+
+## The material id of the run's gold (data/loot.json).
+const GOLD: String = "gold"
 
 
 func _init() -> void:
@@ -38,14 +42,48 @@ func get_place(index: int) -> Dictionary:
 	return places[index]
 
 
+## How many of `id` fit on one place: data/loot.json "stack" of the material, else meta.json.
+func stack_of(id: String) -> int:
+	return maxi(1, int(Content.material(id).get("stack", stack_limit)))
+
+
+## How many of `id` are in the bag (normal and safe places).
+func count_of(id: String) -> int:
+	var total: int = 0
+	for place: Dictionary in places:
+		if not place.is_empty() and String(place["id"]) == id:
+			total += int(place["count"])
+	return total
+
+
+## Takes `amount` of `id` out (normal places first, then the safe ones). false (nothing taken) if
+## there is not that much or the amount is <= 0.
+func remove(id: String, amount: int) -> bool:
+	if amount <= 0 or count_of(id) < amount:
+		return false
+	var left: int = amount
+	for i in places.size():
+		if left <= 0:
+			break
+		if places[i].is_empty() or String(places[i]["id"]) != id:
+			continue
+		var taken: int = mini(left, int(places[i]["count"]))
+		places[i]["count"] = int(places[i]["count"]) - taken
+		left -= taken
+		if int(places[i]["count"]) <= 0:
+			places[i] = {}
+	changed.emit()
+	return true
+
+
 ## How many of `id` would still fit into the normal places (stacks first, then empty places).
 func room_for(id: String) -> int:
 	var room: int = 0
 	for i in normal_count:
 		if places[i].is_empty():
-			room += stack_limit
+			room += stack_of(id)
 		elif String(places[i]["id"]) == id:
-			room += stack_limit - int(places[i]["count"])
+			room += stack_of(id) - int(places[i]["count"])
 	return room
 
 
@@ -57,12 +95,12 @@ func add(id: String, amount: int) -> int:
 	var left: int = amount
 	for i in normal_count:
 		if left > 0 and not places[i].is_empty() and String(places[i]["id"]) == id:
-			var put: int = mini(left, stack_limit - int(places[i]["count"]))
+			var put: int = mini(left, stack_of(id) - int(places[i]["count"]))
 			places[i]["count"] = int(places[i]["count"]) + put
 			left -= put
 	for i in normal_count:
 		if left > 0 and places[i].is_empty():
-			var put: int = mini(left, stack_limit)
+			var put: int = mini(left, stack_of(id))
 			places[i] = {"id": id, "count": put}
 			left -= put
 	if left < amount:
@@ -80,7 +118,7 @@ func move(from: int, to: int) -> void:
 		return
 	var target: Dictionary = places[to]
 	if not target.is_empty() and String(target["id"]) == String(source["id"]):
-		var put: int = mini(int(source["count"]), stack_limit - int(target["count"]))
+		var put: int = mini(int(source["count"]), stack_of(String(source["id"])) - int(target["count"]))
 		target["count"] = int(target["count"]) + put
 		source["count"] = int(source["count"]) - put
 		if int(source["count"]) <= 0:

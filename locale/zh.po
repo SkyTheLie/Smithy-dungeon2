@@ -162,6 +162,9 @@ msgstr "你的金币不够，伙计。可惜，可惜。"
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "里面封着一只小虫子。"
 
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "本次冒险的金币。死亡后会丢失，安全格中的除外。"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "这个可穿不了，伙计。相信我，我试过。"
 
@@ -615,6 +618,9 @@ msgstr "将军之刃"
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "保住(安全格):%d 件战利品"
 
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "保住（安全格）：%d金币，%d件战利品"
+
 msgid "Geschafft!"
 msgstr "成功了！"
 
@@ -728,6 +734,9 @@ msgstr "哥布林王冠"
 
 msgid "Goblinstollen"
 msgstr "哥布林坑道"
+
+msgid "Gold"
+msgstr "金币"
 
 msgid "Goldader"
 msgstr "金矿脉"
