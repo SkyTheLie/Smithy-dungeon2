@@ -1,6 +1,7 @@
 extends "res://assets/_reference/_lib/base_test.gd"
-## Save slots A, B, C (MetaState), "Neues Spiel" -> intro -> Egon's shop (played through and
-## skipped with Escape), the dungeon board in the shop and the character choice after "Betreten".
+## Save slots A, B, C (MetaState), "Neues Spiel" -> intro -> Egon's shop (skipped with Escape and
+## clicked through), Egon's tour (gifts bought and put on, board forced open), the dungeon board
+## in the shop and the character choice after "Betreten".
 
 var meta: Script
 var game: Node
@@ -10,8 +11,8 @@ func run() -> void:
 	meta = script("res://scripts/systems/meta_state.gd")
 	game = root.get_node("Game")
 	_slots()
-	await _intro_played()
 	await _intro_skipped()
+	await _intro_and_tour()
 	await _board()
 
 
@@ -36,32 +37,75 @@ func _slots() -> void:
 	check_eq(meta.call("day"), 1, "Neues Spiel starts the slot over")
 
 
-func _intro_played() -> void:
-	game.call("start_intro")
-	check(await wait_until(func() -> bool: return current_scene != null and current_scene.name == "Intro", 2.0), "Neues Spiel opens the intro")
-	check(await wait_until(func() -> bool: return current_scene != null and current_scene.name == "Shop", 20.0),
-			"the intro walks to Egon by itself and ends in the shop")
+## Presses Space (Egon's next line) until `condition` holds or `max_seconds` passed.
+func _click_until(condition: Callable, max_seconds: float) -> bool:
+	var waited: float = 0.0
+	while not condition.call():
+		if waited >= max_seconds:
+			return false
+		var press := InputEventAction.new()
+		press.action = "ui_accept"
+		press.pressed = true
+		Input.parse_input_event(press)
+		var release := InputEventAction.new()
+		release.action = "ui_accept"
+		Input.parse_input_event(release)
+		for i in 12:
+			await physics_frame
+		waited += 12.0 / 60.0
+	return true
+
+
+func _in_scene(scene_name: String) -> bool:
+	return current_scene != null and current_scene.name == scene_name
 
 
 func _intro_skipped() -> void:
 	game.call("start_intro")
-	check(await wait_until(func() -> bool: return current_scene != null and current_scene.name == "Intro", 2.0), "intro again")
+	check(await wait_until(_in_scene.bind("Intro"), 2.0), "Neues Spiel opens the intro")
 	await process_frame
 	var escape := InputEventAction.new()
 	escape.action = "ui_cancel"
 	escape.pressed = true
 	Input.parse_input_event(escape)
-	check(await wait_until(func() -> bool: return current_scene != null and current_scene.name == "Shop", 2.0), "Escape skips to the shop")
+	check(await wait_until(_in_scene.bind("Shop"), 2.0), "Escape skips to the shop")
+
+
+## The whole intro by Space, then Egon's tour in the shop.
+func _intro_and_tour() -> void:
+	game.call("start_intro")
+	check(await wait_until(_in_scene.bind("Intro"), 2.0), "intro again (the slot started over)")
+	check(await _click_until(_in_scene.bind("Shop"), 40.0), "Egon calls, you walk to him, he talks, then the shop")
+	await process_frame
+	var shop: Node = current_scene
+	var board: Control = shop.call("get_board")
+	check(await _click_until(func() -> bool: return board.visible, 60.0), "after his tour Egon opens the dungeon board")
+	check(meta.call("tutorial_done"), "the tour is remembered")
+	var worn: Dictionary = meta.call("equipment")
+	check_eq([String(worn.get("weapon", {}).get("id")), String(worn.get("head", {}).get("id")), String(worn.get("chest", {}).get("id"))],
+			["copper_staff", "copper_helmet", "copper_chest"], "Egon put his three gifts on you")
+	check((meta.call("stash") as Array).is_empty(), "nothing left in the inventory")
+	check_eq(meta.call("purse"), 0, "the gifts were free")
+	check(board.get("forced"), "the board cannot be closed: off into the dungeon")
+	var escape := InputEventAction.new()
+	escape.action = "ui_cancel"
+	escape.pressed = true
+	Input.parse_input_event(escape)
+	await process_frame
+	await process_frame
+	check(board.visible, "Escape does not close it")
 
 
 func _board() -> void:
+	game.call("to_shop")
+	check(await wait_until(func() -> bool: return _in_scene("Shop") and current_scene.is_node_ready(), 2.0), "back in the shop (Weiter)")
 	await process_frame
 	var shop: Node = current_scene
 	var board: Control = shop.call("get_board")
 	var characters: Control = shop.call("get_character_select")
-	check(not board.visible, "the board is closed at first")
-	(shop.get_node("DungeonsButton") as Button).pressed.emit()
-	check(board.visible, "the button at the bottom right opens the dungeon board")
+	check(not board.visible, "the board is closed at first (no tour the second time)")
+	(shop.find_child("DungeonsButton", true, false) as Button).pressed.emit()
+	check(board.visible and not board.get("forced"), "the button at the bottom right opens the dungeon board")
 	check_eq(board.call("get_selected"), "glut", "the first dungeon is chosen")
 	board.emit_signal("entered", "glut")
 	check(not board.visible and characters.visible, "Betreten asks for the character")

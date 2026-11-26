@@ -3,11 +3,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ja\n"
 
+msgid "%d Gold"
+msgstr "%dゴールド"
+
 msgid "%d Herzen"
 msgstr "ハート%d個"
 
 msgid "Abbrechen"
 msgstr "キャンセル"
+
+msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
+msgstr "でも装備なしじゃだめだ。まずは俺の店を見ていきな。"
 
 msgid "Acht Bomben"
 msgstr "爆弾8個"
@@ -45,6 +51,9 @@ msgstr "チャージした巨大な火球が落ちて爆発する"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "溜めて放つ: 強大な火炎ビーム"
 
+msgid "Ausrüstung"
+msgstr "装備"
+
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "火の玉の代わりに斧：重い一撃、敵は出血"
 
@@ -53,6 +62,9 @@ msgstr "終了"
 
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "命中すると4つの火花に弾ける"
+
+msgid "Beine"
+msgstr "脚"
 
 msgid "Bernstein"
 msgstr "琥珀"
@@ -114,11 +126,23 @@ msgstr "パン大砲"
 msgid "Brotregen"
 msgstr "パンの雨"
 
+msgid "Brust"
+msgstr "胴"
+
 msgid "Bumerang-Haken"
 msgstr "ブーメランフック"
 
+msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
+msgstr "あっちが残り火のダンジョンの入口だ。戻ってくる奴もいるんだぜ！"
+
+msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
+msgstr "それには金が足りないな、相棒。残念、残念。"
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "中に小さな虫が閉じ込められている。"
+
+msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
+msgstr "それは着られないぜ、相棒。信じろ、俺も試した。"
 
 msgid "Das kostet zu viel Leben"
 msgstr "体力を払いすぎる"
@@ -279,6 +303,9 @@ msgstr "階層: %d"
 msgid "Effekte"
 msgstr "効果音"
 
+msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
+msgstr "エゴン・オネスト、よろしくな。正直が俺の名前で、正直が俺の商売。正直に！"
+
 msgid "Egons Laden"
 msgstr "エゴンの店"
 
@@ -333,6 +360,9 @@ msgstr "弾が1発増え、ダメージ上昇"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "弾が1発増えるが弱くなる"
 
+msgid "Ein Stab mit Feuer-Spitze. Für Magier."
+msgstr "炎の先端を持つ杖。魔法使い用。"
+
 msgid "Ein blaues Herz und Dornen"
 msgstr "青いハート1つと棘"
 
@@ -344,6 +374,9 @@ msgstr "青いハート1つ、被弾後の無敵が長い"
 
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "青いハート1つ、移動が速くなる"
+
+msgid "Ein einfacher Bogen. Für Bogenschützen."
+msgstr "簡素な弓。弓使い用。"
 
 msgid "Ein geheimer Raum!"
 msgstr "隠し部屋だ！"
@@ -359,6 +392,12 @@ msgstr "2つ目の命！"
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "パン屋まるごと一斉発射"
+
+msgid "Eine kurze Klinge. Für Krieger."
+msgstr "短い刃。戦士用。"
+
+msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
+msgstr "一日一回はテーブルをタダで回してやる。その後は友達価格だ。毎回ちょっとずつ友好的になる。"
 
 msgid "Einstellungen"
 msgstr "設定"
@@ -491,6 +530,12 @@ msgstr "鍵5本"
 
 msgid "Fünfzehn Münzen"
 msgstr "コイン15枚"
+
+msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
+msgstr "君にはこれだ：銅の杖、兜、胸当て。初回の買い物は店のおごりだ！"
+
+msgid "Füße"
+msgstr "足"
 
 msgid "Gebiete: %s"
 msgstr "エリア：%s"
@@ -672,6 +717,9 @@ msgstr "金の刃"
 msgid "Goldstiefel"
 msgstr "金のブーツ"
 
+msgid "Gratis"
+msgstr "無料"
+
 msgid "Greifenfell"
 msgstr "グリフォンの毛皮"
 
@@ -699,6 +747,9 @@ msgstr "爆弾が大きくなり、どれも自分を傷つけない"
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "火の玉が大きくなり、ダメージ上昇"
 
+msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
+msgstr "いい選択だ！コレクターズアイテムだぜ。正直に！"
+
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "ハートの器を同時に%d個持つ"
 
@@ -723,8 +774,14 @@ msgstr "全回復、移動が速くなる"
 msgid "Heißer Sand"
 msgstr "熱い砂"
 
+msgid "Hereinspaziert! Frische Ware!"
+msgstr "さあさあ！新鮮な品物だ！"
+
 msgid "Herzblatt"
 msgstr "ハートリーフ"
+
+msgid "Herzen"
+msgstr "ハート"
 
 msgid "Herzen heilen doppelt"
 msgstr "ハートの回復量が2倍"
@@ -740,6 +797,9 @@ msgstr "木の杖"
 
 msgid "Hydraschuppe"
 msgstr "ヒドラの鱗"
+
+msgid "Hände"
+msgstr "手"
 
 msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
 msgstr "被弾は最大ハート半分、ただし遅くなる"
@@ -758,6 +818,9 @@ msgstr "地獄の革"
 
 msgid "Höllenstab"
 msgstr "地獄の杖"
+
+msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
+msgstr "俺は詐欺… いや、商人だ。売ってるのは… …装備だ！そう、装備を売ってる。"
 
 msgid "Inventar"
 msgstr "持ち物"
@@ -795,6 +858,9 @@ msgstr "被弾は最大でもハート半分"
 msgid "Kinderschuhe"
 msgstr "子供の靴"
 
+msgid "Klappern bei jedem Schritt."
+msgstr "歩くたびにカチャカチャ鳴る。"
+
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "小さく速くなり、時々回避"
 
@@ -819,6 +885,9 @@ msgstr "彗星石"
 msgid "Kompassnadel"
 msgstr "羅針盤の針"
 
+msgid "Kopf"
+msgstr "頭"
+
 msgid "Krieger"
 msgstr "戦士"
 
@@ -836,6 +905,30 @@ msgstr "水晶の欠片"
 
 msgid "Kräuterbeutel"
 msgstr "薬草袋"
+
+msgid "Kupfer-Beinschienen"
+msgstr "銅のすね当て"
+
+msgid "Kupfer-Bogen"
+msgstr "銅の弓"
+
+msgid "Kupfer-Brustplatte"
+msgstr "銅の胸当て"
+
+msgid "Kupfer-Handschuhe"
+msgstr "銅の手袋"
+
+msgid "Kupfer-Helm"
+msgstr "銅の兜"
+
+msgid "Kupfer-Schwert"
+msgstr "銅の剣"
+
+msgid "Kupfer-Stiefel"
+msgstr "銅のブーツ"
+
+msgid "Kupfer-Zauberstab"
+msgstr "銅の杖"
 
 msgid "Kupfererz"
 msgstr "銅鉱石"
@@ -887,6 +980,9 @@ msgstr "伝説の手袋"
 
 msgid "Legendär"
 msgstr "レジェンダリー"
+
+msgid "Leicht und schnell."
+msgstr "軽くて速い。"
 
 msgid "Leichte Feder"
 msgstr "軽い羽根"
@@ -981,6 +1077,9 @@ msgstr "ミシック"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "コインとハートが飛んでくる"
 
+msgid "Na, Partner? Neu hier? Sieht man sofort."
+msgstr "よう、相棒。ここは初めてか？すぐわかるぜ。"
+
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "ボスの後にアイテムを2つから選べる"
 
@@ -1016,6 +1115,9 @@ msgstr "まだアイテムがない"
 
 msgid "Noch nicht entdeckt"
 msgstr "未発見"
+
+msgid "Nur für: %s"
+msgstr "専用：%s"
 
 msgid "Nächste Seite"
 msgstr "次のページ"
@@ -1059,6 +1161,9 @@ msgstr "パラジウムの刃"
 msgid "Pause"
 msgstr "ポーズ"
 
+msgid "Pause zwischen Schüssen"
+msgstr "射撃間隔"
+
 msgid "Pfeile aufladen und loslassen: weit und stark"
 msgstr "矢を溜めて放つ：遠く強い"
 
@@ -1085,6 +1190,12 @@ msgstr "プラチナの刃"
 
 msgid "Platinspitze"
 msgstr "プラチナの矢じり"
+
+msgid "Preis: %d Gold"
+msgstr "価格：%dゴールド"
+
+msgid "Psst! Hey, du! Ja, du mit den Augen! Komm mal her!"
+msgstr "おーい！そこの君！そう、目がある君だ！こっちへ来な！"
 
 msgid "Pulverfass"
 msgstr "火薬樽"
@@ -1155,11 +1266,17 @@ msgstr "残り火のように赤い。"
 msgid "Rubin"
 msgstr "ルビー"
 
+msgid "Ruhige Hände, schnellere Schüsse."
+msgstr "手が安定し、射撃が速くなる。"
+
 msgid "Ruhmeskette"
 msgstr "栄光の鎖"
 
 msgid "Rückenamulett"
 msgstr "背中の護符"
+
+msgid "Rückstoß"
+msgstr "ノックバック"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "砂の鍛冶屋の手袋"
@@ -1317,6 +1434,9 @@ msgstr "黒水晶"
 msgid "Schwer und kalt."
 msgstr "重くて冷たい。"
 
+msgid "Schwer, aber sicher."
+msgstr "重いが安心。"
+
 msgid "Schwere Glut"
 msgstr "重い残り火"
 
@@ -1364,6 +1484,9 @@ msgstr "弾が最後に弾け、岩を貫通する"
 
 msgid "Schüsse/s"
 msgstr "連射/秒"
+
+msgid "Schützt den Kopf. Meistens."
+msgstr "頭を守る。たいていは。"
 
 msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
 msgstr "コイン6枚、爆弾3個、鍵3本"
@@ -1485,6 +1608,9 @@ msgstr "爆裂ビーム"
 msgid "Sprinterrucksack"
 msgstr "俊足の背嚢"
 
+msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
+msgstr "似合ってるぜ！俺ほどじゃないがな。明日からは何でもちょっとした手数料がかかる、当然な。"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "岩を踏み砕き、戦利品が増える"
 
@@ -1581,6 +1707,9 @@ msgstr "シナジー: %s！"
 msgid "Synergien: %s"
 msgstr "シナジー: %s"
 
+msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
+msgstr "ジャーン！新鮮な品物、産地直送…どこかからな。完全に合法だ！"
+
 msgid "Tag %d"
 msgstr "%d日目"
 
@@ -1629,8 +1758,20 @@ msgstr "宝箱の鍵"
 msgid "Umgebung"
 msgstr "周辺"
 
+msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
+msgstr "そしてこれが俺のレバー。自慢の品だ。見てな！"
+
+msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
+msgstr "さあ、ダンジョンへ行ってこい！いい物を持ってきてくれ。俺はここで待ってる。念のためな。"
+
+msgid "Und links bist du. Halt still, ich zieh dich an…"
+msgstr "で、左がお前だ。じっとしてな、着せてやる…"
+
 msgid "Ungewöhnlich"
 msgstr "アンコモン"
+
+msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
+msgstr "下がお前のカバンだ。買った物やダンジョンから持ち帰った物は全部ここに入る。"
 
 msgid "Utility"
 msgstr "補助"
@@ -1683,6 +1824,9 @@ msgstr "フルスクリーン"
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: 移動 · マウス: 狙う · 左クリック: 撃つ"
 
+msgid "Waffe"
+msgstr "武器"
+
 msgid "Wanderbündel"
 msgstr "旅人の包み"
 
@@ -1709,6 +1853,9 @@ msgstr "価値:%d ゴールド"
 
 msgid "Wettkampfstiefel"
 msgstr "競技用ブーツ"
+
+msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
+msgstr "俺のささやかな店へようこそ！上のテーブルに品物がある。まあ…もうすぐな。"
 
 msgid "Windfeder"
 msgstr "風の羽"

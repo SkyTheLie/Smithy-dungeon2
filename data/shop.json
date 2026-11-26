@@ -1,0 +1,19 @@
+{
+	"_info": "Egons Laden. table_slots = Plätze auf dem Tisch, goods_count [min, max] = so viele Sachen liegen nach dem Hebel darauf (zufällige Plätze). roll_prices = Preis des Hebels am selben Tag: der 1., 2., 3. … Zug (der letzte Wert gilt für alle weiteren; am nächsten Tag wieder von vorn). pool = [gear-id, Gewicht] (Ware, die auftauchen kann), rarity_weights = [Seltenheit, Gewicht], rarity_price = Preis mal diesem Wert je Seltenheit R1..R8. tutorial = der erste Besuch: goods = was Egon auf den Tisch legt ({id, rarity, cell}), gifts = was davon aufleuchtet und geschenkt wird (wird gleich angelegt).",
+	"table_slots": 10,
+	"goods_count": [1, 3],
+	"roll_prices": [0, 10, 20, 40, 80],
+	"pool": [["copper_staff", 3], ["copper_bow", 2], ["copper_sword", 2], ["copper_helmet", 4], ["copper_chest", 4], ["copper_gloves", 4], ["copper_legs", 4], ["copper_boots", 4]],
+	"rarity_weights": [[1, 100]],
+	"rarity_price": [1.0, 2.0, 4.0, 8.0, 15.0, 30.0, 60.0, 120.0],
+	"tutorial": {
+		"goods": [
+			{"id": "copper_staff", "rarity": 1, "cell": 1},
+			{"id": "copper_boots", "rarity": 1, "cell": 3},
+			{"id": "copper_helmet", "rarity": 1, "cell": 5},
+			{"id": "copper_chest", "rarity": 1, "cell": 7},
+			{"id": "copper_bow", "rarity": 1, "cell": 9}
+		],
+		"gifts": ["copper_staff", "copper_helmet", "copper_chest"]
+	}
+}

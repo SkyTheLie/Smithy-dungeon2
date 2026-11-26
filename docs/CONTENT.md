@@ -75,3 +75,19 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - `"id": {"name", "region", "desc", "level"}`: `name`/`desc` = Text auf dem Brett, `region` = Reiter (z. B. „Umgebung“), `level` = empfohlene Stufe. Reihenfolge = Reihenfolge auf dem Brett.
 - Ebenen und Gebiete kommen aus `floors.json` (eigene Ebenen je Dungeon: Phase 4).
 - Neue Texte danach übersetzen (`build_po.py` findet `name`, `region`, `desc` selbst).
+
+## Ausrüstung (`data/gear.json`)
+
+- `slots`: Plätze an der Figur, `"id": {"name", "hint", "at": [x, y]}` (`hint` = Bild `assets/sprites/ui/slot_hints/equip_<hint>.png`, `at` = Mitte in der Helden-Ansicht).
+- `gear`: `"id": {"name", "desc", "slot", "icon", "price", "class"?, "stats"}`. `stats` wie in `player.json` (wirken ab Phase 3), mal `rarity_stats` je Seltenheit. `class` = nur für diese Klasse (Tooltip „Nur für“).
+- Neue Ausrüstung taucht im Laden erst auf, wenn sie in `shop.json` `pool` steht. Der Test prüft Bild und Platz.
+
+## Egons Laden (`data/shop.json`)
+
+- `table_slots`, `goods_count` [min, max], `roll_prices` (1., 2., 3. … Hebel-Zug am Tag), `pool` [[id, Gewicht]], `rarity_weights` [[Seltenheit, Gewicht]], `rarity_price` (Preis-Faktor R1..R8).
+- `tutorial.goods` [{id, rarity, cell}] = Egons erster Tisch, `tutorial.gifts` = was davon geschenkt und angelegt wird.
+
+## Texte der Figuren (`data/story.json`)
+
+- Jeder Schlüssel ist eine Liste von Sprechblasen (höchstens zwei Sätze), `barks` sind einzelne Sätze. Egons Texte werden aus `docs/figuren/EGON_EHRLICH.md` gebaut.
+- `build_po.py` findet alle Sätze selbst; danach übersetzen.

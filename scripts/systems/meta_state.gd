@@ -8,7 +8,8 @@ extends RefCounted
 ##          is lost there on death.
 ##   box    the small money box (Dose) outside the dungeon. Safe up to data/meta.json
 ##          money_box.limit; above it the merchant may steal on every new day (roll_theft).
-##   stash  loot brought home (from the bag), to sell to the merchant later.
+##   stash  the inventory at home: loot brought home (from the bag) and gear bought from Egon.
+##   table, pulls_today, equipment, tutorial_done  Egon's shop (see below).
 ##   day    one run = one day.
 ## Rules about this gold live here (deposit / withdraw check the amounts); screens only call them.
 ## The chosen slot is a setting (user://settings.cfg, "save" / "slot"); the slot choice after the
@@ -95,6 +96,126 @@ static func stash() -> Array[Dictionary]:
 	return list
 
 
+# --- Egon's shop: table, inventory (stash), equipment -----------------------------
+# The inventory is the stash: loot {id, count} and gear {id, count 1, rarity} in one list.
+# Rules about prices and goods: ShopGoods. Every change is saved at once (gold moves).
+
+## Egon's table: ShopGoods.empty_table() places, each {} or {id, rarity, price}. Empty before the
+## first pull of the lever.
+static func table() -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	for entry: Variant in _read("table", []):
+		list.append((entry as Dictionary).duplicate() if entry is Dictionary else {})
+	return list
+
+
+## Pulls of the lever today (the price grows with them, a new day starts at 0).
+static func pulls_today() -> int:
+	return int(_read("pulls_today", 0))
+
+
+static func lever_price() -> int:
+	return ShopGoods.roll_price(pulls_today())
+
+
+## The lever: pays lever_price() from the purse and lays new goods on the table. false (nothing
+## changes) without enough gold.
+static func pull_lever(rng: RandomNumberGenerator) -> bool:
+	var price: int = lever_price()
+	if price > purse():
+		return false
+	_write("purse", purse() - price)
+	_write("table", ShopGoods.roll(rng))
+	_write("pulls_today", pulls_today() + 1)
+	_save()
+	return true
+
+
+## Buys table place `index` into the inventory. `free` = Egon's gift (tutorial). false for an
+## empty place or too little gold.
+static func buy(index: int, free: bool = false) -> bool:
+	var list: Array[Dictionary] = table()
+	if index < 0 or index >= list.size() or list[index].is_empty():
+		return false
+	var piece: Dictionary = list[index]
+	var price: int = 0 if free else int(piece.get("price", 0))
+	if price < 0 or price > purse():
+		return false
+	_write("purse", purse() - price)
+	list[index] = {}
+	_write("table", list)
+	var own: Array[Dictionary] = stash()
+	own.append({"id": String(piece["id"]), "count": 1, "rarity": int(piece.get("rarity", 1))})
+	_write("stash", own)
+	_save()
+	return true
+
+
+## The hero's equipment: slot (data/gear.json slots) -> {id, rarity}.
+static func equipment() -> Dictionary:
+	var result: Dictionary = {}
+	var saved: Variant = _read("equipment", {})
+	if saved is Dictionary:
+		for slot: String in saved:
+			if saved[slot] is Dictionary and not (saved[slot] as Dictionary).is_empty():
+				result[slot] = (saved[slot] as Dictionary).duplicate()
+	return result
+
+
+## Puts inventory place `index` on (gear only); what was in that slot goes back into the
+## inventory. false for loot, an empty place or unknown gear.
+static func equip(index: int) -> bool:
+	var own: Array[Dictionary] = stash()
+	if index < 0 or index >= own.size():
+		return false
+	var entry: Dictionary = own[index]
+	var slot: String = String(Content.gear_item(String(entry.get("id", ""))).get("slot", ""))
+	if slot.is_empty() or not Content.gear_slots().has(slot):
+		return false
+	var worn: Dictionary = equipment()
+	own.remove_at(index)
+	if worn.has(slot):
+		var old: Dictionary = worn[slot]
+		own.insert(index, {"id": String(old["id"]), "count": 1, "rarity": int(old.get("rarity", 1))})
+	worn[slot] = {"id": String(entry["id"]), "rarity": int(entry.get("rarity", 1))}
+	_write("stash", own)
+	_write("equipment", worn)
+	_save()
+	return true
+
+
+## Takes `slot` off into the inventory. false if nothing is worn there.
+static func unequip(slot: String) -> bool:
+	var worn: Dictionary = equipment()
+	if not worn.has(slot):
+		return false
+	var old: Dictionary = worn[slot]
+	worn.erase(slot)
+	var own: Array[Dictionary] = stash()
+	own.append({"id": String(old["id"]), "count": 1, "rarity": int(old.get("rarity", 1))})
+	_write("stash", own)
+	_write("equipment", worn)
+	_save()
+	return true
+
+
+## true once Egon showed the shop (first visit after the intro).
+static func tutorial_done() -> bool:
+	return bool(_read("tutorial_done", false))
+
+
+## The first visit: Egon pulls the lever for free (the tutorial goods, data/shop.json tutorial).
+static func lay_tutorial_table() -> void:
+	_write("table", ShopGoods.tutorial_table())
+	_write("pulls_today", pulls_today() + 1)
+	_save()
+
+
+static func finish_tutorial() -> void:
+	_write("tutorial_done", true)
+	_save()
+
+
 ## Purse -> box. false (and nothing changes) for amounts <= 0 or more than in the purse.
 static func deposit(amount: int) -> bool:
 	if amount <= 0 or amount > purse():
@@ -138,7 +259,7 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 			continue
 		var merged: bool = false
 		for own: Dictionary in list:
-			if String(own["id"]) == id:
+			if String(own["id"]) == id and not own.has("rarity"):
 				own["count"] = int(own["count"]) + count
 				merged = true
 				break
@@ -146,6 +267,7 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 			list.append({"id": id, "count": count})
 	_write("stash", list)
 	_write("day", day() + 1)
+	_write("pulls_today", 0)
 	var stolen: int = roll_theft(rng)
 	_write("box", box() - stolen)
 	_write("last_theft", stolen)

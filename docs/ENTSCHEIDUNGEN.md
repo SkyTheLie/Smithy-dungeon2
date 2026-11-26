@@ -40,3 +40,7 @@ Neue Entscheidungen unten anhängen (Datum, was, warum).
 - **2026-11-26 · Intro statt Augen-auf-Animation** (Wunsch des Entwicklers): kurz schwarz, dann hell, Höhle, Egon winkt, man geht in 3 Bildern hin, dann der Laden. Die Hand ist im Code gezeichnet (`WavingHand`), weil es Egon nur als Einzelbild gibt.
 - **2026-11-26 · Charakter-Wahl nach „Betreten“** statt im Hauptmenü: „Neues Spiel“ startet jetzt das Intro. Die Klassen-Frage durch Egon (Phase 2, Schritt 4) ersetzt sie später.
 - **2026-11-26 · Run-Ende „Zum Laden“** statt „Neuer Run“: jeder Run ist ein Tag, danach ist man wieder bei Egon.
+- **2026-11-26 · Intro draußen vor dem Dungeon** (Skizze des Entwicklers): Felswand mit Eingang, Egon an seinem Stand daneben, er ruft dich, dann der Dialog. Sprechfenster mit Tipp-Text, weiter mit Leertaste/Klick.
+- **2026-11-26 · Laden nach Skizze:** Tisch oben, Hebel rechts, Helden-Ansicht links, Inventar unten. Das Inventar zu Hause ist der bisherige `stash` (Beute und Ausrüstung in einer Liste), keine zweite Liste.
+- **2026-11-26 · Egons Gratis-Zug im Tutorial zählt als Zug des Tages:** danach kostet der Hebel am ersten Tag schon 10 Gold (Egon: „Ab morgen kostet alles…“, am nächsten Tag ist er wieder gratis).
+- **2026-11-26 · Ausrüstungswerte noch ohne Wirkung im Run:** sie stehen in den Daten und im Tooltip; `RunState` nutzt sie ab Phase 3. Klassen-Beschränkung („Nur für“) steht nur im Tooltip, anlegen geht trotzdem (die Klasse wird erst mit der Klassen-Frage gespeichert).

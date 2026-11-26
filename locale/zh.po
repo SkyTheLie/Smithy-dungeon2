@@ -3,11 +3,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: zh\n"
 
+msgid "%d Gold"
+msgstr "%d金币"
+
 msgid "%d Herzen"
 msgstr "%d颗心"
 
 msgid "Abbrechen"
 msgstr "取消"
+
+msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
+msgstr "可别就这样去，一件装备都没有。来，先看看我的店。"
 
 msgid "Acht Bomben"
 msgstr "八枚炸弹"
@@ -45,6 +51,9 @@ msgstr "蓄力的巨型余烬撞击并爆炸"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "蓄力后松开：巨大的火焰光束"
 
+msgid "Ausrüstung"
+msgstr "装备"
+
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "用斧头代替火球：沉重挥砍，敌人流血"
 
@@ -53,6 +62,9 @@ msgstr "退出"
 
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "命中时子弹炸成四颗火花"
+
+msgid "Beine"
+msgstr "腿部"
 
 msgid "Bernstein"
 msgstr "琥珀"
@@ -114,11 +126,23 @@ msgstr "面包大炮"
 msgid "Brotregen"
 msgstr "面包雨"
 
+msgid "Brust"
+msgstr "胸部"
+
 msgid "Bumerang-Haken"
 msgstr "回旋钩"
 
+msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
+msgstr "那边就是余烬地牢的入口。有些人甚至还能出来！"
+
+msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
+msgstr "你的金币不够，伙计。可惜，可惜。"
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "里面封着一只小虫子。"
+
+msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
+msgstr "这个可穿不了，伙计。相信我，我试过。"
 
 msgid "Das kostet zu viel Leben"
 msgstr "这会消耗太多生命"
@@ -279,6 +303,9 @@ msgstr "层数：%d"
 msgid "Effekte"
 msgstr "音效"
 
+msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
+msgstr "埃贡·诚实，幸会。诚实是我的名字，诚实是我的生意。真的！"
+
 msgid "Egons Laden"
 msgstr "埃贡的商店"
 
@@ -333,6 +360,9 @@ msgstr "多一发射击，伤害更高"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "多一发射击，但更弱"
 
+msgid "Ein Stab mit Feuer-Spitze. Für Magier."
+msgstr "顶端带火的法杖。法师专用。"
+
 msgid "Ein blaues Herz und Dornen"
 msgstr "一颗蓝心和荆棘"
 
@@ -344,6 +374,9 @@ msgstr "一颗蓝心，受击后安全时间更长"
 
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "一颗蓝心，移动更快"
+
+msgid "Ein einfacher Bogen. Für Bogenschützen."
+msgstr "一把简单的弓。弓箭手专用。"
 
 msgid "Ein geheimer Raum!"
 msgstr "一个秘密房间！"
@@ -359,6 +392,12 @@ msgstr "第二条命！"
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "一次射出整间面包店"
+
+msgid "Eine kurze Klinge. Für Krieger."
+msgstr "一把短刃。战士专用。"
+
+msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
+msgstr "每天我免费转一次桌子。之后就是友情价。每次都更友情一点。"
 
 msgid "Einstellungen"
 msgstr "设置"
@@ -491,6 +530,12 @@ msgstr "五把钥匙"
 
 msgid "Fünfzehn Münzen"
 msgstr "十五枚硬币"
+
+msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
+msgstr "给你的：一根铜法杖、一顶头盔和一副胸甲。第一次购物算我的！"
+
+msgid "Füße"
+msgstr "脚部"
 
 msgid "Gebiete: %s"
 msgstr "区域：%s"
@@ -672,6 +717,9 @@ msgstr "黄金之刃"
 msgid "Goldstiefel"
 msgstr "黄金靴"
 
+msgid "Gratis"
+msgstr "免费"
+
 msgid "Greifenfell"
 msgstr "狮鹫毛皮"
 
@@ -699,6 +747,9 @@ msgstr "炸弹更大，而且不会伤到你"
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "火球更大，伤害更高"
 
+msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
+msgstr "好眼光！收藏级好货。真的！"
+
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "同时拥有%d个心之容器"
 
@@ -723,8 +774,14 @@ msgstr "完全治疗，移动更快"
 msgid "Heißer Sand"
 msgstr "热沙"
 
+msgid "Hereinspaziert! Frische Ware!"
+msgstr "快来看！新鲜货！"
+
 msgid "Herzblatt"
 msgstr "心叶草"
+
+msgid "Herzen"
+msgstr "心"
 
 msgid "Herzen heilen doppelt"
 msgstr "心的治疗量翻倍"
@@ -740,6 +797,9 @@ msgstr "木杖"
 
 msgid "Hydraschuppe"
 msgstr "九头蛇鳞"
+
+msgid "Hände"
+msgstr "手部"
 
 msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
 msgstr "每次受击最多半颗心，但更慢"
@@ -758,6 +818,9 @@ msgstr "地狱皮革"
 
 msgid "Höllenstab"
 msgstr "地狱之杖"
+
+msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
+msgstr "我是骗… 呃，卖货的。我卖… …装备！对，没错。我卖装备。"
 
 msgid "Inventar"
 msgstr "背包"
@@ -795,6 +858,9 @@ msgstr "任何攻击最多只扣半颗心"
 msgid "Kinderschuhe"
 msgstr "童鞋"
 
+msgid "Klappern bei jedem Schritt."
+msgstr "每走一步都哐当作响。"
+
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "更小、更快，有时闪避"
 
@@ -819,6 +885,9 @@ msgstr "彗星石"
 msgid "Kompassnadel"
 msgstr "罗盘指针"
 
+msgid "Kopf"
+msgstr "头部"
+
 msgid "Krieger"
 msgstr "战士"
 
@@ -836,6 +905,30 @@ msgstr "水晶碎片"
 
 msgid "Kräuterbeutel"
 msgstr "草药袋"
+
+msgid "Kupfer-Beinschienen"
+msgstr "铜护腿"
+
+msgid "Kupfer-Bogen"
+msgstr "铜弓"
+
+msgid "Kupfer-Brustplatte"
+msgstr "铜胸甲"
+
+msgid "Kupfer-Handschuhe"
+msgstr "铜手套"
+
+msgid "Kupfer-Helm"
+msgstr "铜头盔"
+
+msgid "Kupfer-Schwert"
+msgstr "铜剑"
+
+msgid "Kupfer-Stiefel"
+msgstr "铜靴"
+
+msgid "Kupfer-Zauberstab"
+msgstr "铜法杖"
 
 msgid "Kupfererz"
 msgstr "铜矿石"
@@ -887,6 +980,9 @@ msgstr "传奇手套"
 
 msgid "Legendär"
 msgstr "传说"
+
+msgid "Leicht und schnell."
+msgstr "轻便又快速。"
 
 msgid "Leichte Feder"
 msgstr "轻羽"
@@ -981,6 +1077,9 @@ msgstr "神话"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "硬币和心会飞向你"
 
+msgid "Na, Partner? Neu hier? Sieht man sofort."
+msgstr "怎么样，伙计？新来的？一眼就看出来了。"
+
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "每个首领后可从两件物品中选择"
 
@@ -1016,6 +1115,9 @@ msgstr "还没有物品"
 
 msgid "Noch nicht entdeckt"
 msgstr "尚未发现"
+
+msgid "Nur für: %s"
+msgstr "仅限：%s"
 
 msgid "Nächste Seite"
 msgstr "下一页"
@@ -1059,6 +1161,9 @@ msgstr "钯金之刃"
 msgid "Pause"
 msgstr "暂停"
 
+msgid "Pause zwischen Schüssen"
+msgstr "射击间隔"
+
 msgid "Pfeile aufladen und loslassen: weit und stark"
 msgstr "蓄力后放箭：又远又强"
 
@@ -1085,6 +1190,12 @@ msgstr "白金之刃"
 
 msgid "Platinspitze"
 msgstr "白金箭头"
+
+msgid "Preis: %d Gold"
+msgstr "价格：%d金币"
+
+msgid "Psst! Hey, du! Ja, du mit den Augen! Komm mal her!"
+msgstr "嘘！嘿，你！对，就是长着眼睛的你！过来一下！"
 
 msgid "Pulverfass"
 msgstr "火药桶"
@@ -1155,11 +1266,17 @@ msgstr "红得像余烬。"
 msgid "Rubin"
 msgstr "红宝石"
 
+msgid "Ruhige Hände, schnellere Schüsse."
+msgstr "手稳，射得更快。"
+
 msgid "Ruhmeskette"
 msgstr "荣耀之链"
 
 msgid "Rückenamulett"
 msgstr "背护符"
+
+msgid "Rückstoß"
+msgstr "击退"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "沙匠手套"
@@ -1317,6 +1434,9 @@ msgstr "黑水晶"
 msgid "Schwer und kalt."
 msgstr "又重又冷。"
 
+msgid "Schwer, aber sicher."
+msgstr "很重，但安全。"
+
 msgid "Schwere Glut"
 msgstr "沉重余烬"
 
@@ -1364,6 +1484,9 @@ msgstr "射击最后爆裂并穿过岩石"
 
 msgid "Schüsse/s"
 msgstr "射击/秒"
+
+msgid "Schützt den Kopf. Meistens."
+msgstr "保护头部。大多数时候。"
 
 msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
 msgstr "六枚硬币、三枚炸弹、三把钥匙"
@@ -1485,6 +1608,9 @@ msgstr "爆破光束"
 msgid "Sprinterrucksack"
 msgstr "疾跑者背包"
 
+msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
+msgstr "挺合身！差不多跟我一样帅。从明天起，一切都要收点小费，当然啦。"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "踩碎岩石，战利品更多"
 
@@ -1581,6 +1707,9 @@ msgstr "协同：%s！"
 msgid "Synergien: %s"
 msgstr "协同：%s"
 
+msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
+msgstr "噔噔！新鲜货，直接来自…随便哪儿。完全合法！"
+
 msgid "Tag %d"
 msgstr "第%d天"
 
@@ -1629,8 +1758,20 @@ msgstr "宝箱钥匙"
 msgid "Umgebung"
 msgstr "周边"
 
+msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
+msgstr "这是我的拉杆。我的骄傲。看好了！"
+
+msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
+msgstr "现在就去地牢吧！给我带点好东西回来。我在这儿等。安全第一。"
+
+msgid "Und links bist du. Halt still, ich zieh dich an…"
+msgstr "左边就是你。别动，我给你穿上…"
+
 msgid "Ungewöhnlich"
 msgstr "罕见"
+
+msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
+msgstr "下面是你的背包。买的东西和从地牢带回来的东西都放这儿。"
 
 msgid "Utility"
 msgstr "辅助"
@@ -1683,6 +1824,9 @@ msgstr "全屏"
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD：移动 · 鼠标：瞄准 · 左键：射击"
 
+msgid "Waffe"
+msgstr "武器"
+
 msgid "Wanderbündel"
 msgstr "旅人包裹"
 
@@ -1709,6 +1853,9 @@ msgstr "价值:%d 金币"
 
 msgid "Wettkampfstiefel"
 msgstr "竞技靴"
+
+msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
+msgstr "欢迎来到我的小店！货物摆在上面的桌子上。嗯…马上就有。"
 
 msgid "Windfeder"
 msgstr "风之羽"

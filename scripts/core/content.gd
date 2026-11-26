@@ -97,6 +97,30 @@ static func dungeons() -> Dictionary:
 	return get_file("dungeons").get("dungeons", {})
 
 
+## Equipment that stays between runs (data/gear.json "gear"): id -> {name, desc, slot, icon, price, stats}.
+static func gear() -> Dictionary:
+	return get_file("gear").get("gear", {})
+
+
+static func gear_item(id: String) -> Dictionary:
+	return gear().get(id, {})
+
+
+## The places on the hero (data/gear.json "slots"), in order: slot -> {name, hint, at}.
+static func gear_slots() -> Dictionary:
+	return get_file("gear").get("slots", {})
+
+
+## Egon's shop rules (data/shop.json).
+static func shop() -> Dictionary:
+	return get_file("shop")
+
+
+## Texts of the characters (data/story.json): `key` -> list of lines (or the barks dictionary).
+static func story(key: String) -> Variant:
+	return get_file("story").get(key, [])
+
+
 ## Values between runs (data/meta.json): "bag", "money_box".
 static func meta(section: String) -> Dictionary:
 	return get_file("meta").get(section, {})

@@ -3,11 +3,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: es\n"
 
+msgid "%d Gold"
+msgstr "%d de oro"
+
 msgid "%d Herzen"
 msgstr "%d corazones"
 
 msgid "Abbrechen"
 msgstr "Cancelar"
+
+msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
+msgstr "Pero así no, sin nada de equipo. Ven, mira primero mi tienda."
 
 msgid "Acht Bomben"
 msgstr "Ocho bombas"
@@ -45,6 +51,9 @@ msgstr "Las brasas gigantes cargadas impactan y explotan"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Carga, suelta: un rayo de fuego enorme"
 
+msgid "Ausrüstung"
+msgstr "Equipo"
+
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "Un hacha en vez de bolas de fuego: golpe pesado, los enemigos sangran"
 
@@ -53,6 +62,9 @@ msgstr "Salir"
 
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "Al impactar, el disparo estalla en cuatro chispas"
+
+msgid "Beine"
+msgstr "Piernas"
 
 msgid "Bernstein"
 msgstr "Ámbar"
@@ -114,11 +126,23 @@ msgstr "Cañón de pan"
 msgid "Brotregen"
 msgstr "Lluvia de pan"
 
+msgid "Brust"
+msgstr "Pecho"
+
 msgid "Bumerang-Haken"
 msgstr "Gancho bumerán"
 
+msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
+msgstr "Ahí detrás se entra a la Mazmorra de las Brasas. ¡Algunos hasta salen!"
+
+msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
+msgstr "No te alcanza el oro, socio. Qué pena, qué pena."
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Dentro hay un bichito atrapado."
+
+msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
+msgstr "Eso no se puede poner, socio. Créeme, lo he intentado."
 
 msgid "Das kostet zu viel Leben"
 msgstr "Eso cuesta demasiada vida"
@@ -279,6 +303,9 @@ msgstr "Piso: %d"
 msgid "Effekte"
 msgstr "Efectos"
 
+msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
+msgstr "Egon Honrado, encantado. Honrado es mi nombre, honrado mi negocio. ¡De verdad!"
+
 msgid "Egons Laden"
 msgstr "La tienda de Egon"
 
@@ -333,6 +360,9 @@ msgstr "Un disparo más y más daño"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "Un disparo más, pero más débil"
 
+msgid "Ein Stab mit Feuer-Spitze. Für Magier."
+msgstr "Una varita con punta de fuego. Para magos."
+
 msgid "Ein blaues Herz und Dornen"
 msgstr "Un corazón azul y espinas"
 
@@ -344,6 +374,9 @@ msgstr "Un corazón azul, más tiempo a salvo tras un golpe"
 
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "Un corazón azul, corres más rápido"
+
+msgid "Ein einfacher Bogen. Für Bogenschützen."
+msgstr "Un arco sencillo. Para arqueros."
 
 msgid "Ein geheimer Raum!"
 msgstr "¡Una sala secreta!"
@@ -359,6 +392,12 @@ msgstr "¡Una segunda vida!"
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "Una panadería entera de golpe"
+
+msgid "Eine kurze Klinge. Für Krieger."
+msgstr "Una hoja corta. Para guerreros."
+
+msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
+msgstr "Una vez al día giro la mesa gratis. Después hay precio de amigo. Cada vez un poco más amistoso."
 
 msgid "Einstellungen"
 msgstr "Ajustes"
@@ -491,6 +530,12 @@ msgstr "Cinco llaves"
 
 msgid "Fünfzehn Münzen"
 msgstr "Quince monedas"
+
+msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
+msgstr "Para ti: una varita de cobre, un casco y un peto. ¡La primera compra invita la casa!"
+
+msgid "Füße"
+msgstr "Pies"
 
 msgid "Gebiete: %s"
 msgstr "Zonas: %s"
@@ -672,6 +717,9 @@ msgstr "Hoja de oro"
 msgid "Goldstiefel"
 msgstr "Botas de oro"
 
+msgid "Gratis"
+msgstr "Gratis"
+
 msgid "Greifenfell"
 msgstr "Pelaje de grifo"
 
@@ -699,6 +747,9 @@ msgstr "Bombas más grandes, y ninguna te hace daño"
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "Bolas de fuego más grandes, más daño"
 
+msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
+msgstr "¡Buena elección! Una pieza de colección. ¡De verdad!"
+
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "Ten %d contenedores de corazón a la vez"
 
@@ -723,8 +774,14 @@ msgstr "Te cura por completo, corres más rápido"
 msgid "Heißer Sand"
 msgstr "Arena caliente"
 
+msgid "Hereinspaziert! Frische Ware!"
+msgstr "¡Pasen y vean! ¡Mercancía fresca!"
+
 msgid "Herzblatt"
 msgstr "Hoja corazón"
+
+msgid "Herzen"
+msgstr "Corazones"
 
 msgid "Herzen heilen doppelt"
 msgstr "Los corazones curan el doble"
@@ -740,6 +797,9 @@ msgstr "Bastón de madera"
 
 msgid "Hydraschuppe"
 msgstr "Escama de hidra"
+
+msgid "Hände"
+msgstr "Manos"
 
 msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
 msgstr "Como mucho medio corazón por golpe, pero más lento"
@@ -758,6 +818,9 @@ msgstr "Cuero infernal"
 
 msgid "Höllenstab"
 msgstr "Bastón infernal"
+
+msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
+msgstr "Soy el estaf… eh, el vendedor. Vendo… …¡equipo! Sí, eso. Vendo equipo."
 
 msgid "Inventar"
 msgstr "Inventario"
@@ -795,6 +858,9 @@ msgstr "Ningún golpe quita más de medio corazón"
 msgid "Kinderschuhe"
 msgstr "Zapatos de niño"
 
+msgid "Klappern bei jedem Schritt."
+msgstr "Traquetean a cada paso."
+
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Más pequeño, más rápido y a veces esquivas"
 
@@ -819,6 +885,9 @@ msgstr "Piedra cometa"
 msgid "Kompassnadel"
 msgstr "Aguja de brújula"
 
+msgid "Kopf"
+msgstr "Cabeza"
+
 msgid "Krieger"
 msgstr "Guerrero"
 
@@ -836,6 +905,30 @@ msgstr "Fragmento de cristal"
 
 msgid "Kräuterbeutel"
 msgstr "Bolsa de hierbas"
+
+msgid "Kupfer-Beinschienen"
+msgstr "Grebas de cobre"
+
+msgid "Kupfer-Bogen"
+msgstr "Arco de cobre"
+
+msgid "Kupfer-Brustplatte"
+msgstr "Peto de cobre"
+
+msgid "Kupfer-Handschuhe"
+msgstr "Guantes de cobre"
+
+msgid "Kupfer-Helm"
+msgstr "Casco de cobre"
+
+msgid "Kupfer-Schwert"
+msgstr "Espada de cobre"
+
+msgid "Kupfer-Stiefel"
+msgstr "Botas de cobre"
+
+msgid "Kupfer-Zauberstab"
+msgstr "Varita de cobre"
 
 msgid "Kupfererz"
 msgstr "Mineral de cobre"
@@ -887,6 +980,9 @@ msgstr "Guantes legendarios"
 
 msgid "Legendär"
 msgstr "Legendario"
+
+msgid "Leicht und schnell."
+msgstr "Ligeras y rápidas."
 
 msgid "Leichte Feder"
 msgstr "Pluma ligera"
@@ -981,6 +1077,9 @@ msgstr "Mítico"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Las monedas y corazones vuelan hacia ti"
 
+msgid "Na, Partner? Neu hier? Sieht man sofort."
+msgstr "¿Qué tal, socio? ¿Nuevo por aquí? Se nota enseguida."
+
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "Dos objetos a elegir tras cada jefe"
 
@@ -1016,6 +1115,9 @@ msgstr "Aún no hay objetos"
 
 msgid "Noch nicht entdeckt"
 msgstr "Aún no descubierto"
+
+msgid "Nur für: %s"
+msgstr "Solo para: %s"
 
 msgid "Nächste Seite"
 msgstr "Página siguiente"
@@ -1059,6 +1161,9 @@ msgstr "Hoja de paladio"
 msgid "Pause"
 msgstr "Pausa"
 
+msgid "Pause zwischen Schüssen"
+msgstr "Pausa entre disparos"
+
 msgid "Pfeile aufladen und loslassen: weit und stark"
 msgstr "Carga y suelta flechas: lejos y fuerte"
 
@@ -1085,6 +1190,12 @@ msgstr "Hoja de platino"
 
 msgid "Platinspitze"
 msgstr "Punta de platino"
+
+msgid "Preis: %d Gold"
+msgstr "Precio: %d de oro"
+
+msgid "Psst! Hey, du! Ja, du mit den Augen! Komm mal her!"
+msgstr "¡Psst! ¡Eh, tú! ¡Sí, tú, el de los ojos! ¡Ven aquí!"
 
 msgid "Pulverfass"
 msgstr "Barril de pólvora"
@@ -1155,11 +1266,17 @@ msgstr "Rojo como las brasas."
 msgid "Rubin"
 msgstr "Rubí"
 
+msgid "Ruhige Hände, schnellere Schüsse."
+msgstr "Manos firmes, disparos más rápidos."
+
 msgid "Ruhmeskette"
 msgstr "Cadena de gloria"
 
 msgid "Rückenamulett"
 msgstr "Amuleto de espalda"
+
+msgid "Rückstoß"
+msgstr "Retroceso"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "Guantes del herrero de arena"
@@ -1317,6 +1434,9 @@ msgstr "Cristal negro"
 msgid "Schwer und kalt."
 msgstr "Pesado y frío."
 
+msgid "Schwer, aber sicher."
+msgstr "Pesado, pero seguro."
+
 msgid "Schwere Glut"
 msgstr "Brasa pesada"
 
@@ -1364,6 +1484,9 @@ msgstr "Los disparos estallan al final y atraviesan rocas"
 
 msgid "Schüsse/s"
 msgstr "Disparos/s"
+
+msgid "Schützt den Kopf. Meistens."
+msgstr "Protege la cabeza. Casi siempre."
 
 msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
 msgstr "Seis monedas, tres bombas, tres llaves"
@@ -1485,6 +1608,9 @@ msgstr "Rayo explosivo"
 msgid "Sprinterrucksack"
 msgstr "Mochila de velocista"
 
+msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
+msgstr "¡Te queda bien! Casi tan bien como a mí. Desde mañana todo cuesta una pequeña propina, claro."
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "Aplasta rocas y más botín"
 
@@ -1581,6 +1707,9 @@ msgstr "¡Sinergia: %s!"
 msgid "Synergien: %s"
 msgstr "Sinergias: %s"
 
+msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
+msgstr "¡Tachán! Mercancía fresca, directa de… donde sea. ¡Todo legal!"
+
 msgid "Tag %d"
 msgstr "Día %d"
 
@@ -1629,8 +1758,20 @@ msgstr "Llave del cofre"
 msgid "Umgebung"
 msgstr "Alrededores"
 
+msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
+msgstr "Y esta es mi palanca. Mi mayor orgullo. ¡Mira!"
+
+msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
+msgstr "¡Y ahora, a la mazmorra! Tráeme algo bonito. Yo espero aquí. Por si acaso."
+
+msgid "Und links bist du. Halt still, ich zieh dich an…"
+msgstr "Y a la izquierda estás tú. Quieto, que te visto…"
+
 msgid "Ungewöhnlich"
 msgstr "Poco común"
+
+msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
+msgstr "Abajo está tu bolsa. Ahí va todo lo que compras o traes de la mazmorra."
 
 msgid "Utility"
 msgstr "Utilidad"
@@ -1683,6 +1824,9 @@ msgstr "Pantalla completa"
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: andar · Ratón: apuntar · Clic izquierdo: disparar"
 
+msgid "Waffe"
+msgstr "Arma"
+
 msgid "Wanderbündel"
 msgstr "Hatillo del viajero"
 
@@ -1709,6 +1853,9 @@ msgstr "Valor: %d de oro"
 
 msgid "Wettkampfstiefel"
 msgstr "Botas de competición"
+
+msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
+msgstr "¡Bienvenido a mi humilde tienda! Arriba, en la mesa, está la mercancía. Bueno… enseguida."
 
 msgid "Windfeder"
 msgstr "Pluma del viento"
