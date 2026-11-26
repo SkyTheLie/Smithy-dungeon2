@@ -1,0 +1,339 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-axt 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 1.png",
+   "frame": {
+    "x": 52,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 2.png",
+   "frame": {
+    "x": 104,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 3.png",
+   "frame": {
+    "x": 156,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 4.png",
+   "frame": {
+    "x": 0,
+    "y": 59,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 5.png",
+   "frame": {
+    "x": 52,
+    "y": 59,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 6.png",
+   "frame": {
+    "x": 104,
+    "y": 59,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 7.png",
+   "frame": {
+    "x": 156,
+    "y": 59,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 8.png",
+   "frame": {
+    "x": 0,
+    "y": 118,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 9.png",
+   "frame": {
+    "x": 52,
+    "y": 118,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 10.png",
+   "frame": {
+    "x": 104,
+    "y": 118,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-axt 11.png",
+   "frame": {
+    "x": 156,
+    "y": 118,
+    "w": 52,
+    "h": 59
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 59
+   },
+   "sourceSize": {
+    "w": 52,
+    "h": 59
+   },
+   "pivot": {
+    "x": 0.34615384615384615,
+    "y": 0.4915254237288136
+   },
+   "duration": 63
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-axt.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 208,
+   "h": 177
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 18,
+   "y": 29
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-axt",
+    "from": 0,
+    "to": 11,
+    "direction": "forward"
+   }
+  ]
+ }
+}

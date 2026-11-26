@@ -1,0 +1,460 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/_template/map_base.tscn" id="1_base"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="2_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/altar_outskirts_ground.png" id="3_ground"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="4_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/altar_outskirts_mask.png" id="5_mask"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/royal_carriage.png" id="6_carriage"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="7_door"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_fortress.tscn" id="8_lamp"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_6.png" id="9_dead_tree"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="10_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="11_story_npc"]
+[ext_resource type="Script" path="res://scenes/world/objects/skirmish_group.gd" id="12_skirmish"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="13_story_prop"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_texture.gd" id="14_story_texture"]
+[ext_resource type="Texture2D" path="res://assets/sprites/altar/gate.png" id="15_gate_closed"]
+[ext_resource type="Texture2D" path="res://assets/sprites/altar/gate_open.png" id="16_gate_open"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/gate_warden.png" id="17_warden"]
+[ext_resource type="Script" path="res://scenes/stations/story_station.gd" id="18_story_station"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/dungeon_board_menu.tscn" id="19_dungeon_board"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/bones.png" id="20_bones"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/teleporter.tscn" id="21_teleporter"]
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("10_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("10_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_nyra"]
+script = ExtResource("10_appearance")
+race = "half_demon"
+skin = "violet"
+hair_style = "long"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_halvard"]
+script = ExtResource("10_appearance")
+race = "human"
+skin = "tan"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "smith"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("10_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("10_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_ssarok"]
+script = ExtResource("10_appearance")
+race = "beast_lizard"
+skin = "olive"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="RectangleShape2D" id="Shape_carriage"]
+size = Vector2(150, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x6"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="Rect_warden_e"]
+size = Vector2(96, 90)
+
+[node name="AltarOutskirts" instance=ExtResource("1_base")]
+
+[node name="DayTint" parent="." index="0"]
+color = Color(0.58, 0.55, 0.72, 1)
+script = ExtResource("2_gloom")
+
+[node name="Ground" parent="." index="1"]
+texture = ExtResource("3_ground")
+
+[node name="Bottom" parent="Bounds" index="1"]
+position = Vector2(400, 488)
+
+[node name="Right" parent="Bounds" index="3"]
+position = Vector2(808, 240)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource("4_cave_walls")
+mask = ExtResource("5_mask")
+
+[node name="Gate" type="Sprite2D" parent="."]
+position = Vector2(400, 192)
+texture = ExtResource("15_gate_closed")
+offset = Vector2(0, -76)
+script = ExtResource("14_story_texture")
+flag = "altar_warden_fallen"
+texture_after = ExtResource("16_gate_open")
+
+[node name="ToAltar" parent="." instance=ExtResource("7_door")]
+position = Vector2(400, 200)
+scale = Vector2(2.5, 1)
+target_scene = "res://scenes/world/finster/altar_of_nine.tscn"
+target_spawn_point = &"FromOutskirts"
+required_flag = "altar_warden_fallen"
+locked_text = "Das Tor ist zu. Erst muss der Torwächter fallen."
+
+[node name="Visual" parent="ToAltar" index="0"]
+visible = false
+
+[node name="FromAltar" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(400, 222)
+
+[node name="Carriage" type="StaticBody2D" parent="."]
+position = Vector2(270, 452)
+
+[node name="Sprite2D" type="Sprite2D" parent="Carriage"]
+texture = ExtResource("6_carriage")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carriage"]
+position = Vector2(0, -6)
+shape = SubResource("Shape_carriage")
+
+[node name="Label" type="Label" parent="Carriage"]
+offset_left = -60.0
+offset_top = -96.0
+offset_right = 60.0
+offset_bottom = -84.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "Kutscher Jupp"
+horizontal_alignment = 1
+
+[node name="ToCarriage" parent="." instance=ExtResource("7_door")]
+position = Vector2(288, 462)
+target_scene = "res://scenes/world/finster/finster_gate.tscn"
+target_spawn_point = &"FromCarriage"
+fade = true
+needs_interact = true
+carriage_stop = "altar"
+
+[node name="Visual" parent="ToCarriage" index="0"]
+visible = false
+
+[node name="Teleporter" parent="." instance=ExtResource("21_teleporter")]
+position = Vector2(140, 432)
+spot_id = "altar"
+open_flag = "reached_to_altar"
+
+[node name="FromTeleporter" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(140, 466)
+
+[node name="FromCarriage" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(390, 450)
+
+[node name="Battle" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Fight1" type="StaticBody2D" parent="Battle"]
+position = Vector2(120, 236)
+script = ExtResource("12_skirmish")
+soldiers = PackedStringArray("leon_soldier_a")
+foes = PackedStringArray("dark_knight")
+hidden_when_flag = "altar_warden_fallen"
+
+[node name="Fight2" type="StaticBody2D" parent="Battle"]
+position = Vector2(250, 300)
+script = ExtResource("12_skirmish")
+soldiers = PackedStringArray("elf_fighter_a")
+foes = PackedStringArray("demon_hound", "shadow_spawn")
+hidden_when_flag = "altar_warden_fallen"
+
+[node name="Fight3" type="StaticBody2D" parent="Battle"]
+position = Vector2(110, 325)
+script = ExtResource("12_skirmish")
+soldiers = PackedStringArray("water_guard", "desert_guard", "leon_soldier_b")
+foes = PackedStringArray("dark_knight", "skeleton_knight", "shadow_spawn", "demon_hound")
+hidden_when_flag = "altar_warden_fallen"
+
+[node name="Fight4" type="StaticBody2D" parent="Battle"]
+position = Vector2(570, 236)
+script = ExtResource("12_skirmish")
+soldiers = PackedStringArray("lizard_brakk", "goblin_guard")
+foes = PackedStringArray("skeleton_knight", "dark_knight")
+hidden_when_flag = "altar_warden_fallen"
+
+[node name="Fight5" type="StaticBody2D" parent="Battle"]
+position = Vector2(690, 310)
+script = ExtResource("12_skirmish")
+soldiers = PackedStringArray("elf_fighter_b", "elf_fighter_c", "water_guard")
+foes = PackedStringArray("shadow_spawn", "dark_knight", "demon_hound", "skeleton_knight")
+hidden_when_flag = "altar_warden_fallen"
+
+[node name="Fight6" type="StaticBody2D" parent="Battle"]
+position = Vector2(560, 400)
+script = ExtResource("12_skirmish")
+soldiers = PackedStringArray("desert_guard")
+foes = PackedStringArray("demon_hound", "demon_hound")
+hidden_when_flag = "altar_warden_fallen"
+
+[node name="Fight7" type="StaticBody2D" parent="Battle"]
+position = Vector2(700, 440)
+script = ExtResource("12_skirmish")
+soldiers = PackedStringArray("leon_soldier_c")
+foes = PackedStringArray("dark_knight")
+hidden_when_flag = "altar_warden_fallen"
+
+[node name="Bones1" type="Sprite2D" parent="Battle"]
+position = Vector2(200, 250)
+texture = ExtResource("20_bones")
+
+[node name="Bones2" type="Sprite2D" parent="Battle"]
+position = Vector2(640, 260)
+texture = ExtResource("20_bones")
+
+[node name="Bones3" type="Sprite2D" parent="Battle"]
+position = Vector2(520, 340)
+texture = ExtResource("20_bones")
+
+[node name="Bones4" type="Sprite2D" parent="Battle"]
+position = Vector2(290, 380)
+texture = ExtResource("20_bones")
+
+[node name="Props" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="DeadTree1" type="StaticBody2D" parent="Props"]
+position = Vector2(40, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/DeadTree1"]
+texture = ExtResource("9_dead_tree")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/DeadTree1"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_16x6")
+
+[node name="DeadTree2" type="StaticBody2D" parent="Props"]
+position = Vector2(770, 236)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/DeadTree2"]
+texture = ExtResource("9_dead_tree")
+offset = Vector2(0, -21)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/DeadTree2"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_16x6")
+
+[node name="DeadTree3" type="StaticBody2D" parent="Props"]
+position = Vector2(620, 474)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/DeadTree3"]
+texture = ExtResource("9_dead_tree")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/DeadTree3"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_16x6")
+
+[node name="Warden" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("13_story_prop")
+required_flag = "reached_altar_siege"
+hidden_when_flag = "altar_warden_fallen"
+
+[node name="Talk" parent="Warden" instance=ExtResource("11_story_npc")]
+position = Vector2(400, 250)
+npc_id = "altar_warden"
+figure_texture = ExtResource("17_warden")
+figure_scale = 2.0
+auto_talk = true
+wait_for_player = true
+keep_dialogue_open = true
+silent_without_news = true
+talk_area_scale = Vector2(2.5, 2)
+
+[node name="Fight" type="StaticBody2D" parent="Warden"]
+position = Vector2(400, 250)
+script = ExtResource("18_story_station")
+open_flag = "altar_warden_met"
+close_flag = "altar_warden_fallen"
+
+[node name="InteractionArea" type="Area2D" parent="Warden/Fight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Warden/Fight/InteractionArea"]
+position = Vector2(0, 30)
+shape = SubResource("Rect_warden_e")
+
+[node name="DungeonBoardMenu" parent="Warden/Fight" instance=ExtResource("19_dungeon_board")]
+only_dungeons = PackedStringArray("altar_gate")
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Bertold" parent="People" instance=ExtResource("11_story_npc")]
+position = Vector2(306, 266)
+npc_id = "leon_captain"
+resident = "city_guard"
+facing = "right"
+required_flag = "reached_altar_siege"
+hidden_when_flag = "altar_warden_fallen"
+leave_path = PackedVector2Array(392, 236, 400, 196)
+
+[node name="Aurelius" parent="People" instance=ExtResource("11_story_npc")]
+position = Vector2(319, 300)
+npc_id = "magician"
+resident = "aurelius"
+appearance = SubResource("Look_magician")
+facing = "up"
+required_flag = "reached_altar_siege"
+hidden_when_flag = "altar_warden_fallen"
+leave_path = PackedVector2Array(400, 236, 400, 196)
+
+[node name="Faelan" parent="People" instance=ExtResource("11_story_npc")]
+position = Vector2(344, 327)
+npc_id = "faelan"
+resident = "faelan"
+appearance = SubResource("Look_faelan")
+facing = "up"
+required_flag = "reached_altar_siege"
+hidden_when_flag = "altar_warden_fallen"
+leave_path = PackedVector2Array(408, 236, 400, 196)
+
+[node name="Nyra" parent="People" instance=ExtResource("11_story_npc")]
+position = Vector2(374, 341)
+npc_id = "nyra"
+resident = "nyra"
+appearance = SubResource("Look_nyra")
+facing = "up"
+required_flag = "reached_altar_siege"
+hidden_when_flag = "altar_warden_fallen"
+leave_path = PackedVector2Array(392, 236, 400, 196)
+
+[node name="Halvard" parent="People" instance=ExtResource("11_story_npc")]
+position = Vector2(426, 341)
+npc_id = "halvard"
+resident = "halvard"
+appearance = SubResource("Look_halvard")
+facing = "up"
+required_flag = "reached_altar_siege"
+hidden_when_flag = "altar_warden_fallen"
+leave_path = PackedVector2Array(400, 236, 400, 196)
+
+[node name="Kahn" parent="People" instance=ExtResource("11_story_npc")]
+position = Vector2(456, 327)
+npc_id = "kahn"
+resident = "kahn"
+appearance = SubResource("Look_kahn")
+facing = "up"
+required_flag = "reached_altar_siege"
+hidden_when_flag = "altar_warden_fallen"
+leave_path = PackedVector2Array(408, 236, 400, 196)
+
+[node name="Torgai" parent="People" instance=ExtResource("11_story_npc")]
+position = Vector2(481, 300)
+npc_id = "kahn_son"
+resident = "kahn_son"
+appearance = SubResource("Look_torgai")
+facing = "up"
+required_flag = "reached_altar_siege"
+hidden_when_flag = "altar_warden_fallen"
+leave_path = PackedVector2Array(392, 236, 400, 196)
+
+[node name="Ssarok" parent="People" instance=ExtResource("11_story_npc")]
+position = Vector2(494, 266)
+npc_id = "desert_lord"
+resident = "desert_lord"
+appearance = SubResource("Look_ssarok")
+facing = "left"
+required_flag = "reached_altar_siege"
+hidden_when_flag = "altar_warden_fallen"
+leave_path = PackedVector2Array(400, 236, 400, 196)
+
+[node name="Narrator" parent="People" instance=ExtResource("11_story_npc")]
+position = Vector2(390, 450)
+npc_id = "altar_outskirts_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(4, 4)
+
+[node name="Lights" parent="." index="3"]
+y_sort_enabled = true
+
+[node name="Lantern1" parent="Lights" instance=ExtResource("8_lamp")]
+position = Vector2(330, 206)
+
+[node name="Lantern2" parent="Lights" instance=ExtResource("8_lamp")]
+position = Vector2(470, 206)
+
+[node name="Lantern3" parent="Lights" instance=ExtResource("8_lamp")]
+position = Vector2(306, 352)
+
+[node name="Lantern4" parent="Lights" instance=ExtResource("8_lamp")]
+position = Vector2(494, 352)
+
+[node name="Lantern5" parent="Lights" instance=ExtResource("8_lamp")]
+position = Vector2(78, 418)
+
+[node name="FromStart" parent="." index="4"]
+position = Vector2(390, 450)
+
+[node name="Player" parent="." index="5"]
+position = Vector2(390, 450)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 800
+limit_bottom = 480
+
+[connection signal="body_entered" from="Warden/Fight/InteractionArea" to="Warden/Fight" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Warden/Fight/InteractionArea" to="Warden/Fight" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="Warden/Fight" to="Warden/Fight/DungeonBoardMenu" method="toggle"]
+[connection signal="player_left" from="Warden/Fight" to="Warden/Fight/DungeonBoardMenu" method="close"]
+
+[editable path="ToAltar"]
+[editable path="ToCarriage"]

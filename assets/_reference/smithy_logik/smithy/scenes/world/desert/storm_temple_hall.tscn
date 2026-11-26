@@ -1,0 +1,230 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_storm.tscn" id="lamp_storm"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/desert/storm_temple_hall.gd" id="3_storm_temple"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/temple_hall_ground.png" id="4_temple_hall_"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/temple_slab.png" id="6_temple_slab"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/temple_pillar_1.png" id="7_temple_pilla"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="8_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/temple_pillar_2.png" id="9_temple_pilla"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/temple_pillar_3.png" id="10_temple_pilla"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/temple_pillar_4.png" id="11_temple_pilla"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="13_night_light"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="14_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="15_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/temple_mural_hall.png" id="16_mural_pic"]
+
+[sub_resource type="RectangleShape2D" id="Rect_680x16"]
+size = Vector2(680, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x520"]
+size = Vector2(16, 520)
+
+[sub_resource type="RectangleShape2D" id="Rect_640x20"]
+size = Vector2(640, 20)
+
+[sub_resource type="RectangleShape2D" id="Rect_48x10"]
+size = Vector2(48, 10)
+
+[sub_resource type="RectangleShape2D" id="Rect_24x8"]
+size = Vector2(24, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[node name="StormTempleHall" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("3_storm_temple")
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("2_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-320, -240)
+texture = ExtResource("4_temple_hall_")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, -248)
+shape = SubResource("Rect_680x16")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, 248)
+shape = SubResource("Rect_680x16")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-328, 0)
+shape = SubResource("Rect_16x520")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(328, 0)
+shape = SubResource("Rect_16x520")
+
+[node name="BackWall" type="StaticBody2D" parent="."]
+position = Vector2(0, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackWall"]
+shape = SubResource("Rect_640x20")
+
+[node name="Slab" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Stone" type="StaticBody2D" parent="Slab"]
+position = Vector2(0, -138)
+
+[node name="Sprite2D" type="Sprite2D" parent="Slab/Stone"]
+texture = ExtResource("6_temple_slab")
+offset = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slab/Stone"]
+position = Vector2(0, -5)
+shape = SubResource("Rect_48x10")
+
+[node name="Pillars" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Pillar1" type="StaticBody2D" parent="Pillars"]
+position = Vector2(-150, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pillars/Pillar1"]
+texture = ExtResource("7_temple_pilla")
+offset = Vector2(0, -33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillars/Pillar1"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_24x8")
+
+[node name="Talk" parent="Pillars/Pillar1" instance=ExtResource("8_story_npc")]
+position = Vector2(0, 6)
+npc_id = "temple_pillar_1"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Pillar2" type="StaticBody2D" parent="Pillars"]
+position = Vector2(-50, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pillars/Pillar2"]
+texture = ExtResource("9_temple_pilla")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillars/Pillar2"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_24x8")
+
+[node name="Talk" parent="Pillars/Pillar2" instance=ExtResource("8_story_npc")]
+position = Vector2(0, 6)
+npc_id = "temple_pillar_2"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Pillar3" type="StaticBody2D" parent="Pillars"]
+position = Vector2(50, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pillars/Pillar3"]
+texture = ExtResource("10_temple_pilla")
+offset = Vector2(0, -45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillars/Pillar3"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_24x8")
+
+[node name="Talk" parent="Pillars/Pillar3" instance=ExtResource("8_story_npc")]
+position = Vector2(0, 6)
+npc_id = "temple_pillar_3"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Pillar4" type="StaticBody2D" parent="Pillars"]
+position = Vector2(150, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pillars/Pillar4"]
+texture = ExtResource("11_temple_pilla")
+offset = Vector2(0, -28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillars/Pillar4"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_24x8")
+
+[node name="Talk" parent="Pillars/Pillar4" instance=ExtResource("8_story_npc")]
+position = Vector2(0, 6)
+npc_id = "temple_pillar_4"
+narrator = true
+talk_area_scale = Vector2(1, 1)
+
+[node name="Brazier1" parent="." instance=ExtResource("lamp_storm")]
+position = Vector2(-256, -124)
+
+[node name="Brazier2" parent="." instance=ExtResource("lamp_storm")]
+position = Vector2(252, -125)
+
+[node name="Brazier3" parent="." instance=ExtResource("lamp_storm")]
+position = Vector2(-254, 164)
+
+[node name="Brazier4" parent="." instance=ExtResource("lamp_storm")]
+position = Vector2(264, 158)
+
+[node name="Talk" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Mural" parent="Talk" instance=ExtResource("8_story_npc")]
+position = Vector2(-190, -134)
+npc_id = "temple_mural_hall"
+narrator = true
+talk_area_scale = Vector2(2, 1.5)
+
+[node name="MuralPicture" type="Sprite2D" parent="Talk"]
+z_index = -1
+position = Vector2(-190, -170)
+texture = ExtResource("16_mural_pic")
+
+[node name="Narrator" parent="Talk" instance=ExtResource("8_story_npc")]
+position = Vector2(0, 180)
+npc_id = "temple_hall_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(4, 3)
+
+[node name="ToSanctum" parent="." instance=ExtResource("14_door")]
+position = Vector2(0, -142)
+target_scene = "res://scenes/world/desert/storm_temple_sanctum.tscn"
+target_spawn_point = &"FromHall"
+required_flag = "temple_pillars_done"
+locked_text = "Eine schwere Steinplatte versperrt den Weg."
+
+[node name="Visual" parent="ToSanctum" index="0"]
+visible = false
+
+[node name="ToCourt" parent="." instance=ExtResource("14_door")]
+position = Vector2(0, 236)
+target_scene = "res://scenes/world/desert/storm_temple.tscn"
+target_spawn_point = &"FromHall"
+scale = Vector2(3, 1)
+
+[node name="Visual" parent="ToCourt" index="0"]
+visible = false
+
+[node name="FromCourt" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 200)
+
+[node name="FromSanctum" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, -110)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 200)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("15_hud")]
+
+[editable path="ToSanctum"]
+[editable path="ToCourt"]
+[editable path="Player"]

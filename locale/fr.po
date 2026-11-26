@@ -1,0 +1,1672 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fr\n"
+
+msgid "%d Herzen"
+msgstr "%d cœurs"
+
+msgid "Acht Bomben"
+msgstr "Huit bombes"
+
+msgid "Alle Items abgelegt"
+msgstr "Tous les objets lâchés"
+
+msgid "Alle Items ablegen"
+msgstr "Lâcher tous les objets"
+
+msgid "Alle Werte ein bisschen hoch"
+msgstr "Toutes les stats un peu en hausse"
+
+msgid "Alle paar Besiegten heilst du ein halbes Herz"
+msgstr "Tous les quelques ennemis vaincus, tu soignes un demi-cœur"
+
+msgid "Alles im Laden kostet die Hälfte"
+msgstr "Tout coûte moitié prix au magasin"
+
+msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
+msgstr "À la fin chaque tir éclate en quatre étincelles"
+
+msgid "Amethyst"
+msgstr "Améthyste"
+
+msgid "Arena-Amulett"
+msgstr "Amulette de l'arène"
+
+msgid "Arenaherz"
+msgstr "Cœur de l'arène"
+
+msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
+msgstr "Les braises géantes chargées s'écrasent et explosent"
+
+msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
+msgstr "Charge, relâche : un rayon de feu colossal"
+
+msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
+msgstr "Une hache au lieu de boules de feu : coup lourd, les ennemis saignent"
+
+msgid "Beenden"
+msgstr "Quitter"
+
+msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
+msgstr "À l'impact, le tir éclate en quatre étincelles"
+
+msgid "Bernstein"
+msgstr "Ambre"
+
+msgid "Besiege %d Gegner (%d / %d)"
+msgstr "Vaincs %d ennemis (%d / %d)"
+
+msgid "Besiege: %s"
+msgstr "Vaincs : %s"
+
+msgid "Besiegte Gegner: %d"
+msgstr "Ennemis vaincus : %d"
+
+msgid "Blasebalg"
+msgstr "Soufflet"
+
+msgid "Blutphiole"
+msgstr "Fiole de sang"
+
+msgid "Bogenschütze"
+msgstr "Archer"
+
+msgid "Bomben schießen beim Explodieren Feuerbälle"
+msgstr "Les bombes tirent des boules de feu en explosant"
+
+msgid "Bomben zerplatzen in kleine Bomben"
+msgstr "Les bombes éclatent en petites bombes"
+
+msgid "Bombengürtel"
+msgstr "Ceinture de bombes"
+
+msgid "Brandöl"
+msgstr "Huile de feu"
+
+msgid "Brennend und langsam: mehr Schaden"
+msgstr "En feu et ralenti : plus de dégâts"
+
+msgid "Brennende, explodierende Schüsse"
+msgstr "Tirs brûlants et explosifs"
+
+msgid "Brennende, langsame Gegner und zwei blaue Herzen"
+msgstr "Ennemis brûlés et ralentis, et deux cœurs bleus"
+
+msgid "Bronzebogen"
+msgstr "Arc de bronze"
+
+msgid "Bronzeschild"
+msgstr "Bouclier de bronze"
+
+msgid "Brotkanone"
+msgstr "Canon à pain"
+
+msgid "Brotregen"
+msgstr "Pluie de pain"
+
+msgid "Bumerang-Haken"
+msgstr "Crochet boomerang"
+
+msgid "Das kostet zu viel Leben"
+msgstr "Cela coûte trop de vie"
+
+msgid "Defensiv"
+msgstr "Défensif"
+
+msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
+msgstr "Tes boules de feu détruisent les tirs ennemis"
+
+msgid "Deine Items"
+msgstr "Tes objets"
+
+msgid "Deine Schüsse verfolgen Gegner"
+msgstr "Tes tirs poursuivent les ennemis"
+
+msgid "Der Feuerstrahl biegt sich zum Gegner"
+msgstr "Le rayon de feu se courbe vers l'ennemi"
+
+msgid "Der Stein nimmt dein Opfer an"
+msgstr "La pierre accepte ton sacrifice"
+
+msgid "Der Weg nach unten ist frei!"
+msgstr "Le chemin vers le bas est ouvert !"
+
+msgid "Diamantherz"
+msgstr "Cœur de diamant"
+
+msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
+msgstr "L'arme de l'archer : charge tes flèches et relâche, loin et fort"
+
+msgid "Die Waffe des Kriegers: ein Schwertschwung trifft alle vor dir"
+msgstr "L'arme du guerrier : un coup d'épée frappe tous ceux devant toi"
+
+msgid "Die Waffe des Magiers: schießt Feuerbälle"
+msgstr "L'arme du mage : lance des boules de feu"
+
+msgid "Dietrich"
+msgstr "Crochet"
+
+msgid "Doppelschuss"
+msgstr "Tir double"
+
+msgid "Dornenpanzer"
+msgstr "Armure d'épines"
+
+msgid "Drachenatem"
+msgstr "Souffle du dragon"
+
+msgid "Drachenhaut"
+msgstr "Peau de dragon"
+
+msgid "Drachenleder"
+msgstr "Cuir de dragon"
+
+msgid "Drachenmantel"
+msgstr "Cape de dragon"
+
+msgid "Drei Funken folgen dir und schießen"
+msgstr "Trois étincelles te suivent et tirent"
+
+msgid "Drei Schlüssel, Rabatt im Laden"
+msgstr "Trois clés, réduction au magasin"
+
+msgid "Drei blaue Herzen"
+msgstr "Trois cœurs bleus"
+
+msgid "Drei blaue Herzen und manchmal ausweichen"
+msgstr "Trois cœurs bleus et parfois esquiver"
+
+msgid "Dreifachschuss"
+msgstr "Tir triple"
+
+msgid "Dreizack-Rune"
+msgstr "Rune du trident"
+
+msgid "Dreißig Münzen und zehn Schlüssel"
+msgstr "Trente pièces et dix clés"
+
+msgid "Du bist gefallen"
+msgstr "Tu es tombé"
+
+msgid "Du brauchst einen Schlüssel"
+msgstr "Il te faut une clé"
+
+msgid "Du hast den Dungeon bezwungen!"
+msgstr "Tu as vaincu le donjon !"
+
+msgid "Du hast nicht genug Leben"
+msgstr "Tu n'as pas assez de vie"
+
+msgid "Du läufst schneller"
+msgstr "Tu cours plus vite"
+
+msgid "Du schießt Brotlaibe. Getroffene Gegner vergessen dich und rennen weg"
+msgstr "Tu tires des miches de pain. Les ennemis touchés t'oublient et s'enfuient"
+
+msgid "Du schießt auch nach hinten"
+msgstr "Tu tires aussi vers l'arrière"
+
+msgid "Du schießt schneller"
+msgstr "Tu tires plus vite"
+
+msgid "Du wirfst Bomben statt Feuerbällen"
+msgstr "Tu lances des bombes au lieu de boules de feu"
+
+msgid "Du wirfst Wurfsterne, getroffene Gegner bluten"
+msgstr "Tu lances des shurikens, les ennemis touchés saignent"
+
+msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
+msgstr "Tu grandis : plus de cœurs et de dégâts, plus facile à toucher"
+
+msgid "Du wirst kleiner und schneller"
+msgstr "Tu deviens plus petit et plus rapide"
+
+msgid "Du wirst kleiner: schwerer zu treffen, schneller"
+msgstr "Tu rétrécis : plus difficile à toucher, plus rapide"
+
+msgid "Du wirst viel größer und stärker, aber langsamer"
+msgstr "Tu deviens bien plus grand et fort, mais plus lent"
+
+msgid "Du wirst winzig und manchmal weichst du aus"
+msgstr "Tu deviens minuscule et esquives parfois"
+
+msgid "Dungeon der Glut"
+msgstr "Donjon des Braises"
+
+msgid "Dunkler Zauberstab"
+msgstr "Baguette sombre"
+
+msgid "Durch Gegner hindurch und von Wand zu Wand"
+msgstr "À travers les ennemis et de mur en mur"
+
+msgid "Durch Steine, und manchmal fliehen Gegner"
+msgstr "À travers les rochers, et parfois les ennemis fuient"
+
+msgid "Durchschlag, Abprallen und Zerplatzen"
+msgstr "Perce, rebondit et éclate"
+
+msgid "E: Bombe · Tab: Karte · Esc: Pause"
+msgstr "E : bombe · Tab : carte · Échap : pause"
+
+msgid "Ebene %d"
+msgstr "Étage %d"
+
+msgid "Ebene: %d"
+msgstr "Étage : %d"
+
+msgid "Effekte"
+msgstr "Effets"
+
+msgid "Eigene Explosionen heilen dich"
+msgstr "Tes propres explosions te soignent"
+
+msgid "Ein Feuerball kreist um dich und blockt Schüsse"
+msgstr "Une boule de feu tourne autour de toi et bloque les tirs"
+
+msgid "Ein Funke folgt dir und schießt"
+msgstr "Une étincelle te suit et tire"
+
+msgid "Ein Funke und ein Glutmond"
+msgstr "Une étincelle et une lune de braise"
+
+msgid "Ein Funke und mehr Glück"
+msgstr "Une étincelle et plus de chance"
+
+msgid "Ein Glutpakt hat sich geöffnet"
+msgstr "Un pacte de braise s'est ouvert"
+
+msgid "Ein Herz mehr"
+msgstr "Un cœur de plus"
+
+msgid "Ein Herz mehr, Glück hoch"
+msgstr "Un cœur de plus, chance en hausse"
+
+msgid "Ein Herz mehr, Schaden hoch"
+msgstr "Un cœur de plus, dégâts en hausse"
+
+msgid "Ein Herz mehr, heilt dich ganz"
+msgstr "Un cœur de plus, te soigne entièrement"
+
+msgid "Ein Herz und ein blaues Herz"
+msgstr "Un cœur et un cœur bleu"
+
+msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
+msgstr "Un cœur, des épines, les explosions ne te blessent pas"
+
+msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "Un cœur, une pièce, une bombe et une clé"
+
+msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
+msgstr "Un cœur, deux cœurs bleus, dégâts en hausse"
+
+msgid "Ein Schrein hat sich geöffnet"
+msgstr "Un sanctuaire s'est ouvert"
+
+msgid "Ein Schuss mehr und mehr Schaden"
+msgstr "Un tir de plus et plus de dégâts"
+
+msgid "Ein Schuss mehr, aber schwächer"
+msgstr "Un tir de plus, mais plus faible"
+
+msgid "Ein blaues Herz und Dornen"
+msgstr "Un cœur bleu et des épines"
+
+msgid "Ein blaues Herz, Schaden hoch"
+msgstr "Un cœur bleu, dégâts en hausse"
+
+msgid "Ein blaues Herz, länger sicher nach Treffern"
+msgstr "Un cœur bleu, plus longtemps à l'abri après un coup"
+
+msgid "Ein blaues Herz, schneller laufen"
+msgstr "Un cœur bleu, tu cours plus vite"
+
+msgid "Ein geheimer Raum!"
+msgstr "Une salle secrète !"
+
+msgid "Ein zweites Leben"
+msgstr "Une seconde vie"
+
+msgid "Ein zweites Leben und ein Funke"
+msgstr "Une seconde vie et une étincelle"
+
+msgid "Ein zweites Leben!"
+msgstr "Une seconde vie !"
+
+msgid "Eine ganze Bäckerei auf einmal"
+msgstr "Une boulangerie entière d'un coup"
+
+msgid "Einstellungen"
+msgstr "Paramètres"
+
+msgid "Eisenhaut"
+msgstr "Peau de fer"
+
+msgid "Eisfeder"
+msgstr "Plume de glace"
+
+msgid "Eisspiegel"
+msgstr "Miroir de glace"
+
+msgid "Eisstab"
+msgstr "Bâton de glace"
+
+msgid "Elfenbrief"
+msgstr "Lettre elfique"
+
+msgid "Entdecke %d Items (%d / %d)"
+msgstr "Découvre %d objets (%d / %d)"
+
+msgid "Entdeckt: %d / %d"
+msgstr "Découverts : %d / %d"
+
+msgid "Erdstab"
+msgstr "Bâton de terre"
+
+msgid "Erreiche Ebene %d"
+msgstr "Atteins l'étage %d"
+
+msgid "Erstglut"
+msgstr "Braise première"
+
+msgid "Explosive Schüsse, langsamer schießen"
+msgstr "Tirs explosifs, cadence plus lente"
+
+msgid "Fahre mit der Maus über ein Item"
+msgstr "Survole un objet avec la souris"
+
+msgid "Feenstaub"
+msgstr "Poussière de fée"
+
+msgid "Feuerfester Bomber"
+msgstr "Bombardier ignifugé"
+
+msgid "Feuerhieb"
+msgstr "Taille de feu"
+
+msgid "Feuerkranz"
+msgstr "Couronne de feu"
+
+msgid "Feuerlanze"
+msgstr "Lance de feu"
+
+msgid "Feuerstab"
+msgstr "Bâton de feu"
+
+msgid "Feuerstrahl statt Feuerbällen: Maustaste halten"
+msgstr "Rayon de feu au lieu de boules : maintiens le bouton"
+
+msgid "Feuerwerk"
+msgstr "Feu d'artifice"
+
+msgid "Flechtenleder"
+msgstr "Cuir de lichen"
+
+msgid "Flechtenmantel"
+msgstr "Cape de lichen"
+
+msgid "Fledermaus"
+msgstr "Chauve-souris"
+
+msgid "Flipper"
+msgstr "Flipper"
+
+msgid "Fluchskelett"
+msgstr "Squelette maudit"
+
+msgid "Freigeschaltet: %s"
+msgstr "Débloqué : %s"
+
+msgid "Frost und Feuer"
+msgstr "Givre et feu"
+
+msgid "Frostflechte"
+msgstr "Lichen de givre"
+
+msgid "Frostkristall"
+msgstr "Cristal de givre"
+
+msgid "Frostmähne"
+msgstr "Crinière de givre"
+
+msgid "Funkenbüchse"
+msgstr "Boîte à étincelles"
+
+msgid "Funkenfänger"
+msgstr "Attrape-étincelles"
+
+msgid "Funkenstein"
+msgstr "Pierre d'étincelles"
+
+msgid "Fängt in jedem Raum den ersten Treffer ab"
+msgstr "Bloque le premier coup dans chaque salle"
+
+msgid "Fünf Bomben, und Explosionen tun dir nichts mehr"
+msgstr "Cinq bombes, et les explosions ne te blessent plus"
+
+msgid "Fünf Münzen, drei Bomben, drei Schlüssel"
+msgstr "Cinq pièces, trois bombes, trois clés"
+
+msgid "Fünf Schlüssel"
+msgstr "Cinq clés"
+
+msgid "Fünfzehn Münzen"
+msgstr "Quinze pièces"
+
+msgid "Gegabelter Stab"
+msgstr "Bâton fourchu"
+
+msgid "Gegner brennen, Schaden hoch"
+msgstr "Les ennemis brûlent, dégâts en hausse"
+
+msgid "Gegner werden langsamer, Reichweite hoch"
+msgstr "Les ennemis ralentissent, portée en hausse"
+
+msgid "Gegner, die dich berühren, nehmen Schaden"
+msgstr "Les ennemis qui te touchent subissent des dégâts"
+
+msgid "Geist"
+msgstr "Fantôme"
+
+msgid "Geisterfürst"
+msgstr "Seigneur fantôme"
+
+msgid "Geisterglas"
+msgstr "Verre fantôme"
+
+msgid "Geisterstab"
+msgstr "Bâton fantôme"
+
+msgid "Generalsklinge"
+msgstr "Lame du général"
+
+msgid "Geschafft!"
+msgstr "Victoire !"
+
+msgid "Gesperrt"
+msgstr "Verrouillé"
+
+msgid "Gesprengte Fessel"
+msgstr "Entrave brisée"
+
+msgid "Getroffene Gegner brennen weiter"
+msgstr "Les ennemis touchés continuent de brûler"
+
+msgid "Getroffene Gegner fliehen vor dir"
+msgstr "Les ennemis touchés te fuient"
+
+msgid "Getroffene Gegner frieren ein"
+msgstr "Les ennemis touchés gèlent"
+
+msgid "Getroffene Gegner frieren kurz ein"
+msgstr "Les ennemis touchés gèlent un instant"
+
+msgid "Getroffene Gegner torkeln herum"
+msgstr "Les ennemis touchés titubent"
+
+msgid "Getroffene Gegner werden langsam und vergiftet"
+msgstr "Les ennemis touchés sont ralentis et empoisonnés"
+
+msgid "Getroffene Gegner werden langsamer"
+msgstr "Les ennemis touchés ralentissent"
+
+msgid "Getroffene Gegner werden vergiftet"
+msgstr "Les ennemis touchés sont empoisonnés"
+
+msgid "Gewinne %d Runs"
+msgstr "Gagne %d parties"
+
+msgid "Gewinne einen Run"
+msgstr "Gagne une partie"
+
+msgid "Gewinne in unter %d Minuten"
+msgstr "Gagne en moins de %d minutes"
+
+msgid "Ghul"
+msgstr "Goule"
+
+msgid "Giftratte"
+msgstr "Rat venimeux"
+
+msgid "Giftstab"
+msgstr "Bâton de poison"
+
+msgid "Giftzahn"
+msgstr "Croc venimeux"
+
+msgid "Glutkern"
+msgstr "Cœur de braise"
+
+msgid "Glutklinge"
+msgstr "Lame de braise"
+
+msgid "Glutmantel"
+msgstr "Cape de braise"
+
+msgid "Glutmond"
+msgstr "Lune de braise"
+
+msgid "Glutsammler"
+msgstr "Collecteur de braises"
+
+msgid "Glutschwert"
+msgstr "Épée de braise"
+
+msgid "Glutstab"
+msgstr "Bâton de braise"
+
+msgid "Glück"
+msgstr "Chance"
+
+msgid "Glück hoch"
+msgstr "Chance en hausse"
+
+msgid "Glück und Schaden hoch"
+msgstr "Chance et dégâts en hausse"
+
+msgid "Glück viel höher"
+msgstr "Beaucoup plus de chance"
+
+msgid "Glücksflachs"
+msgstr "Lin porte-bonheur"
+
+msgid "Glühender Schlüssel"
+msgstr "Clé ardente"
+
+msgid "Goblin"
+msgstr "Gobelin"
+
+msgid "Goblin-Schamane"
+msgstr "Chaman gobelin"
+
+msgid "Goblinkrone"
+msgstr "Couronne gobeline"
+
+msgid "Goblinstollen"
+msgstr "Galeries des Gobelins"
+
+msgid "Goldader"
+msgstr "Filon d'or"
+
+msgid "Goldamulett"
+msgstr "Amulette d'or"
+
+msgid "Goldbarren"
+msgstr "Lingot d'or"
+
+msgid "Goldbogen"
+msgstr "Arc d'or"
+
+msgid "Goldener Schattenstab"
+msgstr "Bâton d'ombre doré"
+
+msgid "Goldglut"
+msgstr "Braise dorée"
+
+msgid "Goldhammer"
+msgstr "Marteau d'or"
+
+msgid "Goldhelm"
+msgstr "Casque d'or"
+
+msgid "Goldklinge"
+msgstr "Lame d'or"
+
+msgid "Goldstiefel"
+msgstr "Bottes d'or"
+
+msgid "Greifenfell"
+msgstr "Fourrure de griffon"
+
+msgid "Greifenmantel"
+msgstr "Cape de griffon"
+
+msgid "Große, schwere Schüsse mit viel Rückstoß"
+msgstr "Gros tirs lourds avec beaucoup de recul"
+
+msgid "Grubenhacke"
+msgstr "Pioche de mine"
+
+msgid "Gruftgespenst"
+msgstr "Spectre de la crypte"
+
+msgid "Gruftschild"
+msgstr "Bouclier de la crypte"
+
+msgid "Größere Bomben und drei Bomben"
+msgstr "Bombes plus grosses et trois bombes"
+
+msgid "Größere Bomben, und keine tut dir weh"
+msgstr "Des bombes plus grosses, et aucune ne te blesse"
+
+msgid "Größere Feuerbälle, mehr Schaden"
+msgstr "Boules de feu plus grosses, plus de dégâts"
+
+msgid "Habe %d Herz-Container gleichzeitig"
+msgstr "Aie %d réceptacles de cœur à la fois"
+
+msgid "Habe %d Münzen gleichzeitig"
+msgstr "Aie %d pièces à la fois"
+
+msgid "Habe %d blaue Herzen gleichzeitig"
+msgstr "Aie %d cœurs bleus à la fois"
+
+msgid "Hauptmenü"
+msgstr "Menu principal"
+
+msgid "Heilen durch Besiegte, Schaden hoch"
+msgstr "Soin en tuant, dégâts en hausse"
+
+msgid "Heilerkräuter"
+msgstr "Herbes de guérisseur"
+
+msgid "Heilt dich ganz, schneller laufen"
+msgstr "Te soigne entièrement, tu cours plus vite"
+
+msgid "Heißer Sand"
+msgstr "Sable brûlant"
+
+msgid "Herzblatt"
+msgstr "Feuille-cœur"
+
+msgid "Herzen heilen doppelt"
+msgstr "Les cœurs soignent deux fois plus"
+
+msgid "Hexenkessel"
+msgstr "Chaudron de sorcière"
+
+msgid "Hier klicken"
+msgstr "Cliquez ici"
+
+msgid "Holzstab"
+msgstr "Bâton de bois"
+
+msgid "Hydraschuppe"
+msgstr "Écaille d'hydre"
+
+msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
+msgstr "Au plus un demi-cœur par coup, mais plus lent"
+
+msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
+msgstr "Au plus un demi-cœur par coup, plus longtemps à l'abri"
+
+msgid "Höhlentroll"
+msgstr "Troll des cavernes"
+
+msgid "Höllenhundfell"
+msgstr "Fourrure de chien des enfers"
+
+msgid "Höllenleder"
+msgstr "Cuir infernal"
+
+msgid "Höllenstab"
+msgstr "Bâton infernal"
+
+msgid "Jadefigur"
+msgstr "Figurine de jade"
+
+msgid "Jagdbogen"
+msgstr "Arc de chasse"
+
+msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
+msgstr "Plus le tir va loin, plus il fait de dégâts"
+
+msgid "Jeder Treffer jagt Gegnern Angst ein"
+msgstr "Chaque coup effraie les ennemis"
+
+msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
+msgstr "Chaque coup reçu te rend plus fort à cet étage"
+
+msgid "Jeder zweite Schuss ist viel stärker"
+msgstr "Un tir sur deux est bien plus fort"
+
+msgid "Kamille"
+msgstr "Camomille"
+
+msgid "Kann ab jetzt im Dungeon auftauchen"
+msgstr "Peut maintenant apparaître dans le donjon"
+
+msgid "Karawanenrucksack"
+msgstr "Sac de caravane"
+
+msgid "Kein Treffer nimmt mehr als ein halbes Herz"
+msgstr "Aucun coup ne prend plus d'un demi-cœur"
+
+msgid "Kinderschuhe"
+msgstr "Chaussures d'enfant"
+
+msgid "Kleiner, schneller und manchmal ausweichen"
+msgstr "Plus petit, plus rapide et parfois esquiver"
+
+msgid "Klingenstern"
+msgstr "Étoile de lames"
+
+msgid "Knochengeneral"
+msgstr "Général d'os"
+
+msgid "Kohlenschrot"
+msgstr "Chevrotine de charbon"
+
+msgid "Kometenschweif"
+msgstr "Queue de comète"
+
+msgid "Kometenstein"
+msgstr "Pierre de comète"
+
+msgid "Kompassnadel"
+msgstr "Aiguille de boussole"
+
+msgid "Krieger"
+msgstr "Guerrier"
+
+msgid "Kriegerschwert"
+msgstr "Épée du guerrier"
+
+msgid "Kriegsaxt"
+msgstr "Hache de guerre"
+
+msgid "Kristallkarte"
+msgstr "Carte de cristal"
+
+msgid "Kristallsplitter"
+msgstr "Éclat de cristal"
+
+msgid "Kräuterbeutel"
+msgstr "Sachet d'herbes"
+
+msgid "Kupfernagel"
+msgstr "Clou de cuivre"
+
+msgid "Königsbrief"
+msgstr "Lettre royale"
+
+msgid "Labyrinthaxt"
+msgstr "Hache du labyrinthe"
+
+msgid "Ladenschild"
+msgstr "Enseigne de boutique"
+
+msgid "Lange Flugbahnen, gewaltiger Einschlag"
+msgstr "Longues trajectoires, impact énorme"
+
+msgid "Langsam heilen und ein blaues Herz"
+msgstr "Soin lent et un cœur bleu"
+
+msgid "Langsam heilst du dich"
+msgstr "Tu te soignes lentement"
+
+msgid "Lautstärke"
+msgstr "Volume"
+
+msgid "Lebendiger Wind"
+msgstr "Vent vivant"
+
+msgid "Lebensholz"
+msgstr "Bois de vie"
+
+msgid "Lebenstau"
+msgstr "Rosée de vie"
+
+msgid "Lederstiefel"
+msgstr "Bottes de cuir"
+
+msgid "Legendenhandschuhe"
+msgstr "Gants légendaires"
+
+msgid "Leichte Feder"
+msgstr "Plume légère"
+
+msgid "Letzte Glut"
+msgstr "Dernière braise"
+
+msgid "Lexikon"
+msgstr "Lexique"
+
+msgid "Lichtstab"
+msgstr "Bâton de lumière"
+
+msgid "Länger sicher nach einem Treffer"
+msgstr "Plus longtemps à l'abri après un coup"
+
+msgid "Läufersandalen"
+msgstr "Sandales de coureur"
+
+msgid "Läuferschuhe"
+msgstr "Chaussures de coureur"
+
+msgid "Magier"
+msgstr "Mage"
+
+msgid "Makelloser Schild"
+msgstr "Bouclier sans faille"
+
+msgid "Manchmal Schüsse in alle vier Richtungen"
+msgstr "Parfois des tirs dans les quatre directions"
+
+msgid "Manchmal ausweichen, schneller laufen"
+msgstr "Parfois esquiver, courir plus vite"
+
+msgid "Manchmal brennen getroffene Gegner"
+msgstr "Les ennemis touchés brûlent parfois"
+
+msgid "Manchmal explodieren deine Schüsse"
+msgstr "Tes tirs explosent parfois"
+
+msgid "Manchmal frieren Gegner ein"
+msgstr "Les ennemis gèlent parfois"
+
+msgid "Manchmal vergiften deine Schüsse"
+msgstr "Tes tirs empoisonnent parfois"
+
+msgid "Manchmal weichst du Treffern aus"
+msgstr "Tu esquives parfois les coups"
+
+msgid "Maus"
+msgstr "Souris"
+
+msgid "Maustaste halten zum Aufladen: größer und stärker"
+msgstr "Maintiens pour charger : plus gros et plus fort"
+
+msgid "Mehr Beute nach jedem Raum"
+msgstr "Plus de butin après chaque salle"
+
+msgid "Mehr Rückstoß und Schaden"
+msgstr "Plus de recul et de dégâts"
+
+msgid "Mehr Schaden für jede Münze, die du hast"
+msgstr "Plus de dégâts pour chaque pièce que tu possèdes"
+
+msgid "Meteor"
+msgstr "Météore"
+
+msgid "Minotaurus"
+msgstr "Minotaure"
+
+msgid "Mondlilie"
+msgstr "Lys de lune"
+
+msgid "Mondsiegel"
+msgstr "Sceau de lune"
+
+msgid "Mondsturm"
+msgstr "Tempête lunaire"
+
+msgid "Moorherz"
+msgstr "Cœur des marais"
+
+msgid "Musik"
+msgstr "Musique"
+
+msgid "Münzen und Herzen fliegen zu dir"
+msgstr "Les pièces et les cœurs volent vers toi"
+
+msgid "Nach jedem Boss zwei Items zur Wahl"
+msgstr "Deux objets au choix après chaque boss"
+
+msgid "Nachtschatten"
+msgstr "Morelle"
+
+msgid "Nachtschattensamen"
+msgstr "Graines de morelle"
+
+msgid "Neuer Run"
+msgstr "Nouvelle tentative"
+
+msgid "Neues Spiel"
+msgstr "Nouvelle partie"
+
+msgid "Nicht während eines Kampfes"
+msgstr "Pas pendant un combat"
+
+msgid "Nichts geschieht"
+msgstr "Rien ne se passe"
+
+msgid "Nimm %d Glutpakte in einem Run"
+msgstr "Prends %d pactes de braise en une partie"
+
+msgid "Noch ein Glutmond kreist um dich"
+msgstr "Une autre lune de braise tourne autour de toi"
+
+msgid "Noch keine Items"
+msgstr "Pas encore d'objets"
+
+msgid "Noch nicht entdeckt"
+msgstr "Pas encore découvert"
+
+msgid "Nächste Seite"
+msgstr "Page suivante"
+
+msgid "Offensiv"
+msgstr "Offensif"
+
+msgid "Oger"
+msgstr "Ogre"
+
+msgid "Onyx"
+msgstr "Onyx"
+
+msgid "Opaljuwel"
+msgstr "Joyau d'opale"
+
+msgid "Opferdolch"
+msgstr "Couteau rituel"
+
+msgid "Opferstein: ein Herz für eine Gabe"
+msgstr "Pierre sacrificielle : un cœur pour un don"
+
+msgid "Ork"
+msgstr "Orc"
+
+msgid "Ork-Häuptling"
+msgstr "Chef orc"
+
+msgid "Paktschatulle"
+msgstr "Coffret du pacte"
+
+msgid "Palladiumamulett"
+msgstr "Amulette de palladium"
+
+msgid "Palladiumbarren"
+msgstr "Lingot de palladium"
+
+msgid "Palladiumklinge"
+msgstr "Lame de palladium"
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Pfeile aufladen und loslassen: weit und stark"
+msgstr "Charge et lâche les flèches : loin et fort"
+
+msgid "Pickups fliegen zu dir, Glück hoch"
+msgstr "Les objets au sol volent vers toi, chance en hausse"
+
+msgid "Platin-Großschwert"
+msgstr "Espadon de platine"
+
+msgid "Platin-Lichtstab"
+msgstr "Bâton de lumière en platine"
+
+msgid "Platin-Sturmstab"
+msgstr "Bâton de tempête en platine"
+
+msgid "Platinamulett"
+msgstr "Amulette de platine"
+
+msgid "Platinbarren"
+msgstr "Lingot de platine"
+
+msgid "Platinklinge"
+msgstr "Lame de platine"
+
+msgid "Platinspitze"
+msgstr "Pointe de platine"
+
+msgid "Pulverfass"
+msgstr "Baril de poudre"
+
+msgid "Pulverhandschuh"
+msgstr "Gant à poudre"
+
+msgid "Ratte"
+msgstr "Rat"
+
+msgid "Rattenfell"
+msgstr "Fourrure de rat"
+
+msgid "Rattenkeller"
+msgstr "Cave aux Rats"
+
+msgid "Rattenkönig"
+msgstr "Roi des Rats"
+
+msgid "Reichweite"
+msgstr "Portée"
+
+msgid "Reichweite +2 m, schnellere Schüsse"
+msgstr "Portée +2 m, tirs plus rapides"
+
+msgid "Reichweite hoch"
+msgstr "Portée en hausse"
+
+msgid "Reichweite und Schaden hoch"
+msgstr "Portée et dégâts en hausse"
+
+msgid "Reichweite und Schusstempo hoch"
+msgstr "Portée et vitesse des tirs en hausse"
+
+msgid "Reichweite: %s m"
+msgstr "Portée : %s m"
+
+msgid "Reine Fassung"
+msgstr "Monture pure"
+
+msgid "Riesenratte"
+msgstr "Rat géant"
+
+msgid "Riesentrank"
+msgstr "Potion de géant"
+
+msgid "Riesige Schüsse, die im Flug schrumpfen"
+msgstr "Tirs énormes qui rétrécissent en vol"
+
+msgid "Riesige, langsame Feuerbälle mit viel Schaden"
+msgstr "Boules de feu énormes et lentes, très puissantes"
+
+msgid "Riesiger Rückstoß und viel Schaden"
+msgstr "Recul énorme et beaucoup de dégâts"
+
+msgid "Ritterhelm"
+msgstr "Heaume de chevalier"
+
+msgid "Robbenfell"
+msgstr "Fourrure de phoque"
+
+msgid "Robbenmantel"
+msgstr "Cape de phoque"
+
+msgid "Ruhmeskette"
+msgstr "Chaîne de gloire"
+
+msgid "Rückenamulett"
+msgstr "Amulette dorsale"
+
+msgid "Sandschmied-Handschuhe"
+msgstr "Gants du forgeron des sables"
+
+msgid "Saphir"
+msgstr "Saphir"
+
+msgid "Saphirjuwel"
+msgstr "Joyau de saphir"
+
+msgid "Schaden"
+msgstr "Dégâts"
+
+msgid "Schaden für jede Münze, Glück hoch"
+msgstr "Dégâts pour chaque pièce, chance en hausse"
+
+msgid "Schaden hoch"
+msgstr "Dégâts augmentés"
+
+msgid "Schaden hoch, etwas schneller schießen"
+msgstr "Dégâts en hausse, tir un peu plus rapide"
+
+msgid "Schaden hoch, größere Feuerbälle"
+msgstr "Dégâts en hausse, boules de feu plus grosses"
+
+msgid "Schaden hoch, schneller laufen"
+msgstr "Dégâts en hausse, tu cours plus vite"
+
+msgid "Schaden mal 1,15"
+msgstr "Dégâts x1,15"
+
+msgid "Schaden mal 1,2"
+msgstr "Dégâts x1,2"
+
+msgid "Schaden mal 1,2, etwas langsamer schießen"
+msgstr "Dégâts x1,2, tir un peu plus lent"
+
+msgid "Schaden mal 1,25"
+msgstr "Dégâts x1,25"
+
+msgid "Schaden mal 1,3 und zehn Münzen"
+msgstr "Dégâts x1,3 et dix pièces"
+
+msgid "Schaden mal 1,4 und Durchschlag"
+msgstr "Dégâts x1,4 et perforation"
+
+msgid "Schaden mal 1,5"
+msgstr "Dégâts x1,5"
+
+msgid "Schaden und Reichweite hoch"
+msgstr "Dégâts et portée en hausse"
+
+msgid "Schaden und Rückstoß hoch"
+msgstr "Dégâts et recul en hausse"
+
+msgid "Schaden und Schusstempo hoch"
+msgstr "Dégâts et vitesse des tirs en hausse"
+
+msgid "Schaden, Reichweite und Glück hoch"
+msgstr "Dégâts, portée et chance en hausse"
+
+msgid "Schaden, Schusstempo und Reichweite hoch"
+msgstr "Dégâts, cadence et portée en hausse"
+
+msgid "Schaden: %s"
+msgstr "Dégâts : %s"
+
+msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
+msgstr "Termine %d étages d'affilée sans être touché"
+
+msgid "Schattenmantel"
+msgstr "Cape d'ombre"
+
+msgid "Schattenschritt"
+msgstr "Pas d'ombre"
+
+msgid "Schattenstab"
+msgstr "Bâton d'ombre"
+
+msgid "Schatzbeutel"
+msgstr "Sac au trésor"
+
+msgid "Schatzkarte"
+msgstr "Carte au trésor"
+
+msgid "Schießt Feuerbälle"
+msgstr "Tire des boules de feu"
+
+msgid "Schildwache"
+msgstr "Garde au bouclier"
+
+msgid "Schlachtkeil"
+msgstr "Coin de bataille"
+
+msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
+msgstr "Feu serpent : les tirs ondulent, un peu plus de dégâts"
+
+msgid "Schlangenschüsse, die Gegner verfolgen"
+msgstr "Tirs sinueux qui poursuivent les ennemis"
+
+msgid "Schleim"
+msgstr "Gelée"
+
+msgid "Schließen"
+msgstr "Fermer"
+
+msgid "Schlängelnde Schüsse, die abprallen"
+msgstr "Tirs sinueux qui rebondissent"
+
+msgid "Schlüsselform"
+msgstr "Moule à clé"
+
+msgid "Schmiedehammer"
+msgstr "Marteau de forgeron"
+
+msgid "Schmiedeschlüssel"
+msgstr "Clé de la forge"
+
+msgid "Schmiedeschwert"
+msgstr "Épée de forgeron"
+
+msgid "Schmiedeschürze"
+msgstr "Tablier de forgeron"
+
+msgid "Schneller laufen, Glück hoch"
+msgstr "Tu cours plus vite, chance en hausse"
+
+msgid "Schneller laufen, mehr Reichweite"
+msgstr "Tu cours plus vite, plus de portée"
+
+msgid "Schneller schießen und laufen"
+msgstr "Tu tires et cours plus vite"
+
+msgid "Schneller schießen, Schüsse zerplatzen am Ende"
+msgstr "Tir plus rapide, les tirs éclatent à la fin"
+
+msgid "Schnellere Schüsse fliegen durch Gegner"
+msgstr "Des tirs plus rapides traversent les ennemis"
+
+msgid "Schreckensbrief"
+msgstr "Lettre d'effroi"
+
+msgid "Schrotflinte: sechs Glutbrocken auf kurze Distanz"
+msgstr "Fusil à pompe : six braises à courte portée"
+
+msgid "Schrumpftrank"
+msgstr "Potion de rétrécissement"
+
+msgid "Schusstempo"
+msgstr "Vitesse des tirs"
+
+msgid "Schwarzer Kristall"
+msgstr "Cristal noir"
+
+msgid "Schwere Glut"
+msgstr "Braise lourde"
+
+msgid "Schwerer zu treffen und schneller"
+msgstr "Plus difficile à toucher et plus rapide"
+
+msgid "Schwert statt Feuerbällen: der Schwung trifft alle vor dir, Gegner brennen"
+msgstr "Une épée au lieu de boules de feu : le coup touche tous ceux devant toi, les ennemis brûlent"
+
+msgid "Schwert und Feuerstab: jeder Schwung schickt einen Feuerschweif nach vorne"
+msgstr "Épée et bâton de feu : chaque coup projette une traînée de feu vers l'avant"
+
+msgid "Schwertschwung: kurze Reichweite, trifft mehrere Gegner"
+msgstr "Coup d'épée : courte portée, touche plusieurs ennemis"
+
+msgid "Schüsse auf einmal: %d"
+msgstr "Tirs simultanés : %d"
+
+msgid "Schüsse fliegen durch Gegner hindurch"
+msgstr "Les tirs traversent les ennemis"
+
+msgid "Schüsse fliegen durch Steine"
+msgstr "Les tirs traversent les rochers"
+
+msgid "Schüsse fliegen durch Steine und suchen Gegner"
+msgstr "Les tirs traversent les rochers et cherchent les ennemis"
+
+msgid "Schüsse fliegen zu dir zurück"
+msgstr "Les tirs reviennent vers toi"
+
+msgid "Schüsse prallen ab, fliegen durch Gegner und suchen sie"
+msgstr "Les tirs rebondissent, percent et cherchent les ennemis"
+
+msgid "Schüsse prallen von Wänden ab"
+msgstr "Les tirs rebondissent sur les murs"
+
+msgid "Schüsse pro Sekunde: %s"
+msgstr "Tirs par seconde : %s"
+
+msgid "Schüsse suchen Gegner und fliegen durch sie"
+msgstr "Les tirs cherchent les ennemis et les traversent"
+
+msgid "Schüsse zerplatzen am Ende und fliegen durch Steine"
+msgstr "Les tirs éclatent à la fin et traversent les rochers"
+
+msgid "Schüsse/s"
+msgstr "Tirs/s"
+
+msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
+msgstr "Six pièces, trois bombes, trois clés"
+
+msgid "Seelensplitter"
+msgstr "Éclat d'âme"
+
+msgid "Seelenstab"
+msgstr "Bâton des âmes"
+
+msgid "Seherbräu"
+msgstr "Breuvage du voyant"
+
+msgid "Seite %d von %d"
+msgstr "Page %d sur %d"
+
+msgid "Shift: du springst dorthin, wo du hinzielst"
+msgstr "Maj : tu sautes là où tu vises"
+
+msgid "Shift: ein schneller Sprint, kurz unverwundbar"
+msgstr "Maj : un sprint rapide, invulnérable un instant"
+
+msgid "Siegerring"
+msgstr "Anneau du vainqueur"
+
+msgid "Silberader"
+msgstr "Filon d'argent"
+
+msgid "Silberamulett"
+msgstr "Amulette d'argent"
+
+msgid "Silberdolch"
+msgstr "Dague d'argent"
+
+msgid "Silberhammer"
+msgstr "Marteau d'argent"
+
+msgid "Silberharnisch"
+msgstr "Cuirasse d'argent"
+
+msgid "Silberklinge"
+msgstr "Lame d'argent"
+
+msgid "Silberring"
+msgstr "Anneau d'argent"
+
+msgid "Silberspitze"
+msgstr "Pointe d'argent"
+
+msgid "Skelett"
+msgstr "Squelette"
+
+msgid "Skelettritter"
+msgstr "Chevalier squelette"
+
+msgid "Smaragd"
+msgstr "Émeraude"
+
+msgid "Smaragdjuwel"
+msgstr "Joyau d'émeraude"
+
+msgid "Sonderraum"
+msgstr "Salle spéciale"
+
+msgid "Sonnenblume"
+msgstr "Tournesol"
+
+msgid "Spardose"
+msgstr "Tirelire"
+
+msgid "Spinne"
+msgstr "Araignée"
+
+msgid "Spinnenmutter"
+msgstr "Mère araignée"
+
+msgid "Spinnenseil"
+msgstr "Corde d'araignée"
+
+msgid "Splitterrubin"
+msgstr "Rubis éclaté"
+
+msgid "Sprache"
+msgstr "Langue"
+
+msgid "Sprengmeisterhelm"
+msgstr "Casque d'artificier"
+
+msgid "Sprengrune"
+msgstr "Rune explosive"
+
+msgid "Sprengsack"
+msgstr "Sac d'explosifs"
+
+msgid "Sprengstrahl"
+msgstr "Rayon explosif"
+
+msgid "Sprinterrucksack"
+msgstr "Sac de sprinteur"
+
+msgid "Steine zertreten und mehr Beute"
+msgstr "Écrase les rochers et plus de butin"
+
+msgid "Steine zertreten, fünf Bomben"
+msgstr "Écrase les rochers, cinq bombes"
+
+msgid "Sternenfessel"
+msgstr "Entrave stellaire"
+
+msgid "Sternenstahl"
+msgstr "Acier stellaire"
+
+msgid "Sternenstahl-Splitter"
+msgstr "Éclat d'acier stellaire"
+
+msgid "Sternenstaub"
+msgstr "Poussière d'étoiles"
+
+msgid "Sternentrunk"
+msgstr "Breuvage étoilé"
+
+msgid "Stillstehen macht dich unverwundbar"
+msgstr "Rester immobile te rend invulnérable"
+
+msgid "Stollenhelm"
+msgstr "Casque de mineur"
+
+msgid "Stollenratte"
+msgstr "Rat des galeries"
+
+msgid "Streitkolben"
+msgstr "Masse d'armes"
+
+msgid "Streubombe"
+msgstr "Bombe à fragmentation"
+
+msgid "Sturmessenz"
+msgstr "Essence de tempête"
+
+msgid "Sturmkarte"
+msgstr "Carte des tempêtes"
+
+msgid "Sturmsiegel"
+msgstr "Sceau de tempête"
+
+msgid "Sturmstab"
+msgstr "Bâton de tempête"
+
+msgid "Stärketrank"
+msgstr "Potion de force"
+
+msgid "Suchende Bumerangs finden immer ein Ziel"
+msgstr "Les boomerangs chercheurs trouvent toujours une cible"
+
+msgid "Suchende Schüsse und alle Werte hoch"
+msgstr "Tirs à tête chercheuse et toutes les stats en hausse"
+
+msgid "Suchende Schüsse und ein blaues Herz"
+msgstr "Tirs à tête chercheuse et un cœur bleu"
+
+msgid "Suchende Schüsse, Glück hoch"
+msgstr "Tirs à tête chercheuse, chance en hausse"
+
+msgid "Suchende Schüsse, etwas mehr Schaden"
+msgstr "Tirs à tête chercheuse, un peu plus de dégâts"
+
+msgid "Suchender Funke"
+msgstr "Étincelle chercheuse"
+
+msgid "Suchender Strahl"
+msgstr "Rayon chercheur"
+
+msgid "Sumpfhaut"
+msgstr "Peau des marais"
+
+msgid "Sumpfleder"
+msgstr "Cuir des marais"
+
+msgid "Sumpfmantel"
+msgstr "Cape des marais"
+
+msgid "Synergie: %s!"
+msgstr "Synergie : %s !"
+
+msgid "Synergien: %s"
+msgstr "Synergies : %s"
+
+msgid "Taumelkraut"
+msgstr "Herbe titubante"
+
+msgid "Tausendklinge"
+msgstr "Lame des mille"
+
+msgid "Tempo"
+msgstr "Vitesse"
+
+msgid "Tempo: %s"
+msgstr "Vitesse : %s"
+
+msgid "Testraum · P: zurück"
+msgstr "Salle de test · P : retour"
+
+msgid "Topasjuwel"
+msgstr "Joyau de topaze"
+
+msgid "Totenbeschwörer"
+msgstr "Nécromancien"
+
+msgid "Totengruft"
+msgstr "Crypte des morts"
+
+msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
+msgstr "Les impacts éclatent, les tirs traversent les rochers"
+
+msgid "Treue Funken"
+msgstr "Étincelles fidèles"
+
+msgid "Trollblut"
+msgstr "Sang de troll"
+
+msgid "Trollpanzer"
+msgstr "Armure de troll"
+
+msgid "Truhenschlüssel"
+msgstr "Clé du coffre"
+
+msgid "Utility"
+msgstr "Utilitaire"
+
+msgid "Vampir"
+msgstr "Vampire"
+
+msgid "Vergiftet Gegner, Schaden etwas hoch"
+msgstr "Empoisonne les ennemis, dégâts un peu en hausse"
+
+msgid "Viel größere Bomben"
+msgstr "Bombes bien plus grosses"
+
+msgid "Viel mehr Schaden"
+msgstr "Beaucoup plus de dégâts"
+
+msgid "Viel mehr Schaden mit nur einem Herz"
+msgstr "Beaucoup plus de dégâts avec un seul cœur"
+
+msgid "Viel mehr Schaden, langsamer schießen"
+msgstr "Beaucoup plus de dégâts, tirs plus lents"
+
+msgid "Viel schneller laufen"
+msgstr "Tu cours bien plus vite"
+
+msgid "Viel schneller laufen und schießen"
+msgstr "Tu cours et tires bien plus vite"
+
+msgid "Viel schneller schießen und laufen"
+msgstr "Tu tires et cours bien plus vite"
+
+msgid "Viel schneller schießen, etwas weniger Schaden"
+msgstr "Tu tires bien plus vite, un peu moins de dégâts"
+
+msgid "Viel schnellere Schüsse"
+msgstr "Tirs bien plus rapides"
+
+msgid "Viel schnellere Schüsse und mehr Reichweite"
+msgstr "Tirs bien plus rapides et plus de portée"
+
+msgid "Viele suchende Funken auf einmal"
+msgstr "Plein d'étincelles chercheuses d'un coup"
+
+msgid "Vier Schlüssel"
+msgstr "Quatre clés"
+
+msgid "Vollbild"
+msgstr "Plein écran"
+
+msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
+msgstr "ZQSD : marcher · Souris : viser · Clic gauche : tirer"
+
+msgid "Wanderbündel"
+msgstr "Baluchon du voyageur"
+
+msgid "Wasserstab"
+msgstr "Bâton d'eau"
+
+msgid "Weiter"
+msgstr "Reprendre"
+
+msgid "Weltenstab"
+msgstr "Bâton des mondes"
+
+msgid "Wer tötet, fliegt mit dem Rest weiter"
+msgstr "Un tir qui tue continue avec le reste"
+
+msgid "Wettkampfstiefel"
+msgstr "Bottes de compétition"
+
+msgid "Windfeder"
+msgstr "Plume du vent"
+
+msgid "Windläufer-Stiefel"
+msgstr "Bottes du coureur des vents"
+
+msgid "Windrose"
+msgstr "Rose des vents"
+
+msgid "Windstab"
+msgstr "Bâton du vent"
+
+msgid "Wo der Strahl auftrifft, knallt es"
+msgstr "Là où frappe le rayon, ça explose"
+
+msgid "Wolfsmantel"
+msgstr "Cape de loup"
+
+msgid "Wurfsterne"
+msgstr "Shurikens"
+
+msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
+msgstr "Les shurikens traversent les ennemis et les font souvent saigner"
+
+msgid "Wähle deinen Charakter"
+msgstr "Choisis ton personnage"
+
+msgid "Wählen"
+msgstr "Choisir"
+
+msgid "Wüstenkompass"
+msgstr "Boussole du désert"
+
+msgid "Zauberbuch"
+msgstr "Grimoire"
+
+msgid "Zehn Bomben"
+msgstr "Dix bombes"
+
+msgid "Zehn Münzen, Glück hoch"
+msgstr "Dix pièces, chance en hausse"
+
+msgid "Zombie"
+msgstr "Zombie"
+
+msgid "Zu wenig Münzen"
+msgstr "Pas assez de pièces"
+
+msgid "Zufällig Gift, Furcht oder Taumeln"
+msgstr "Poison, peur ou titubement au hasard"
+
+msgid "Zunderbüchse"
+msgstr "Boîte à amadou"
+
+msgid "Zwanzig Münzen"
+msgstr "Vingt pièces"
+
+msgid "Zwei Funken folgen dir und schießen"
+msgstr "Deux étincelles te suivent et tirent"
+
+msgid "Zwei Funken und Schaden hoch"
+msgstr "Deux étincelles et dégâts en hausse"
+
+msgid "Zwei Glutmonde kreisen um dich"
+msgstr "Deux lunes de braise tournent autour de toi"
+
+msgid "Zwei Herzen mehr"
+msgstr "Deux cœurs de plus"
+
+msgid "Zwei Herzen mehr und Dornen"
+msgstr "Deux cœurs de plus et des épines"
+
+msgid "Zwei Herzen mehr und langsam heilen"
+msgstr "Deux cœurs de plus et soin lent"
+
+msgid "Zwei Herzen mehr, aber langsamer"
+msgstr "Deux cœurs de plus, mais plus lent"
+
+msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
+msgstr "Deux cœurs, deux cœurs bleus, dégâts en hausse"
+
+msgid "Zwei Schüsse mehr, etwas schwächer"
+msgstr "Deux tirs de plus, un peu plus faibles"
+
+msgid "Zwei blaue Herzen"
+msgstr "Deux cœurs bleus"
+
+msgid "Zwei blaue Herzen und Dornen"
+msgstr "Deux cœurs bleus et des épines"
+
+msgid "Zwei blaue Herzen, Schaden hoch"
+msgstr "Deux cœurs bleus, dégâts en hausse"
+
+msgid "Zwei blaue Herzen, länger sicher nach Treffern"
+msgstr "Deux cœurs bleus, plus longtemps à l'abri après un coup"
+
+msgid "Zwei blaue Herzen; geht eins verloren, trifft es alle Gegner"
+msgstr "Deux cœurs bleus ; en perdre un frappe tous les ennemis"
+
+msgid "Zwillingshandschuhe"
+msgstr "Gants jumeaux"
+
+msgid "oder Leertaste"
+msgstr "ou appuyez sur Espace"

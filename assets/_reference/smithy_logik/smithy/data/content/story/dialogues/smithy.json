@@ -1,0 +1,266 @@
+{
+	"dialogues": {
+		"chest_recipes": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "In der alten Truhe liegen vergilbte Aufzeichnungen des früheren Schmieds."
+				},
+				{
+					"speaker": "",
+					"text": "Neue Rezepte: Gussform und Amboss-Rezept für den Kupfer-Holzfälleraxtkopf, dazu Holzstiel und Holzfälleraxt."
+				},
+				{
+					"speaker": "player",
+					"text": "Damit kann ich Holgers Axt bauen! Jetzt fehlen nur noch Kupfer und ein Wassertrog."
+				}
+			],
+			"on_end": "unlock_recipes:mold_copper_lumber_axe_head,copper_lumber_axe_head,wooden_shaft,lumber_axe;advance:buy_supplies"
+		},
+		"raid_wake_up": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein dumpfer Knall reißt dich aus dem Schlaf.",
+					"action": "cutscene:act:raid_narrator:boom",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "",
+					"text": "Es ist mitten in der Nacht. Durch die Ritzen der Fensterläden zieht beißender Rauch. Draußen schreit jemand, dann kracht es, als würde Holz splittern.",
+					"action": "cutscene:act:raid_narrator:firelight",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "player",
+					"text": "Was ist da los? Brennt es etwa?"
+				},
+				{
+					"speaker": "",
+					"text": "Du springst aus dem Bett. Für Gold oder Werkzeug ist keine Zeit, du rennst los, so wie du bist."
+				}
+			],
+			"on_end": "set_flag:raid_woken"
+		},
+		"raid_yard": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Draußen ist es kalt. Über den Dächern im Osten steht ein orangefarbener Schein am Himmel, dicke Rauchwolken ziehen über das Dorf."
+				},
+				{
+					"speaker": "",
+					"text": "Wieder ein Knall. Dann ein langes Heulen, das dir die Haare zu Berge stehen lässt. Das war kein Tier.",
+					"action": "cutscene:act:raid_narrator:boom",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "player",
+					"text": "Das kommt aus Richtung Dorfplatz ... oder noch weiter. Ich muss nachsehen!"
+				}
+			],
+			"on_end": "set_flag:raid_yard_seen"
+		},
+		"raid_market_scene": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der Marktplatz brennt. Mehrere Stände stehen in Flammen, Balken knacken und stürzen ein. In zwei Häusern klaffen schwarze, rauchende Löcher, als hätten Feuerbälle sie getroffen."
+				},
+				{
+					"speaker": "bruno",
+					"text": "Bei allen Fässern im Keller ..."
+				},
+				{
+					"speaker": "",
+					"text": "Zwischen den Ständen torkeln Gestalten umher. Graue Haut, leere, weiß leuchtende Augen. Sie stöhnen und schlagen gegen Türen und Fensterläden."
+				},
+				{
+					"speaker": "player",
+					"text": "Sind das ... Zombies?"
+				},
+				{
+					"speaker": "",
+					"text": "In der Mitte des Platzes, direkt am Lebensbaum, steht eine hagere Gestalt in einer zerfetzten Robe. Der Lich. Seine knochige Hand steckt tief in der Rinde des Baumes.",
+					"action": "set_flag:tree_drain_start"
+				},
+				{
+					"speaker": "",
+					"text": "Grünes Licht strömt aus dem Baum in seinen Arm. Die Laternen in den Zweigen flackern."
+				},
+				{
+					"speaker": "lich",
+					"text": "Jahrhunderte hast du es vor mir versteckt, altes Holz. Jahrhunderte! Jetzt gehört es mir."
+				},
+				{
+					"speaker": "",
+					"text": "Mit einem Ruck reißt der Lich etwas aus dem Stamm, so groß wie eine Faust. Das grüne Licht erlischt, und in seiner Hand glüht ein Stein, tiefbraun.",
+					"action": "set_flag:tree_withered"
+				},
+				{
+					"speaker": "",
+					"text": "Der Baum ächzt. Die Blätter werden braun und fallen wie Regen, die Rinde wird grau und rissig, die Laternen erlöschen. In wenigen Augenblicken ist der Lebensbaum alt und verwelkt."
+				},
+				{
+					"speaker": "bruno",
+					"text": "Der Lebensbaum ... Der stand hier schon, als mein Großvater ein Kind war."
+				},
+				{
+					"speaker": "",
+					"text": "Der Lich dreht sich um. Seine leeren Augen bleiben an dir hängen.",
+					"action": "cutscene:lich_turns",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "lich",
+					"text": "Ein Schmied. An dir klebt Eisen und Ruß. Und noch etwas ... etwas Altes."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich wasche mich eigentlich regelmäßig. Meistens."
+				},
+				{
+					"speaker": "",
+					"text": "Zwischen den Knochenfingern des Lichs wächst ein Feuerball. Er schleudert ihn direkt auf dich.",
+					"action": "cutscene:lich_fireball",
+					"hide_for": 1.3
+				},
+				{
+					"speaker": "",
+					"text": "Bruno wirft sich dazwischen und stößt dich zu Boden. Der Feuerball trifft ihn mitten in die Brust. Er taumelt, aber er fällt nicht.",
+					"action": "cutscene:bruno_shields",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "player",
+					"text": "Bruno!"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Geht schon ... Hat schon mal einer einen Bierkrug nach mir geworfen. Der hat mehr wehgetan."
+				},
+				{
+					"speaker": "lich",
+					"text": "Ein alter Säufer, der sich für einen Schmied verbrennt. Wie rührend."
+				},
+				{
+					"speaker": "",
+					"text": "Da hörst du ein leises Weinen. Drüben in der Ecke des Platzes liegt jemand auf dem Boden."
+				},
+				{
+					"speaker": "player",
+					"text": "Bruno, da drüben! Das ist Oma Hilde!"
+				},
+				{
+					"speaker": "",
+					"text": "Oma Hilde rührt sich kaum. Neben ihr kauert ein kleines Mädchen mit roten Zöpfen und weint."
+				},
+				{
+					"speaker": "",
+					"text": "Plötzlich fliegt die Tür der Gildenhalle auf. Hedwig stürmt heraus, hinter ihr ein paar Abenteurer mit gezogenen Waffen.",
+					"action": "set_flag:raid_heroes;cutscene:guild_charge",
+					"hide_for": 3.0
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Schützt die Leute! Jeder nimmt sich einen von den Untoten vor!"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Schmied, hör mir zu. Nimm die Kleine und hau ab! Bring sie in Sicherheit."
+				},
+				{
+					"speaker": "player",
+					"text": "Und du?"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Ich halte das Knochengerippe auf. Ich war mal der stärkste Krieger im Dorf, schon vergessen?"
+				},
+				{
+					"speaker": "player",
+					"text": "Bruno, du brennst ja noch ..."
+				},
+				{
+					"speaker": "bruno",
+					"text": "Nüchtern und angekokelt. Schlechter Tag für den Lich. Und, Schmied ... danke für das Schwert. Los jetzt!"
+				},
+				{
+					"speaker": "",
+					"text": "Die Abenteurer schwärmen aus, jeder stellt sich einem Zombie in den Weg. Bruno zieht sein Schwert und stapft auf den Lich zu. Der Weg zu Oma Hilde ist frei.",
+					"action": "cutscene:bruno_charges",
+					"hide_for": 4.8
+				}
+			],
+			"on_end": "advance:raid_rescue"
+		},
+		"raid_robbed_scene": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Drinnen sieht es aus, als wäre ein Sturm hindurchgefegt. Die Truhen sind aufgebrochen, die Regale leer."
+				},
+				{
+					"speaker": "",
+					"text": "Nur deine Aufzeichnungen und die Gussformen liegen noch verstreut auf dem Boden. Mit denen konnten die Untoten wohl nichts anfangen."
+				},
+				{
+					"speaker": "player",
+					"text": "Alles, wofür ich gearbeitet habe ... Aber wir leben. Nur das zählt."
+				},
+				{
+					"speaker": "niece",
+					"text": "Was will ein Zombie mit Gold und Waffen?"
+				},
+				{
+					"speaker": "player",
+					"text": "Keine Ahnung. Irgendwer schickt sie. Ihr Meister. Und der will mehr als nur Gold."
+				},
+				{
+					"speaker": "niece",
+					"text": "Darf ... darf ich heute Nacht hierbleiben? Ich hab Angst."
+				},
+				{
+					"speaker": "player",
+					"text": "Natürlich. Du kannst in meinem Bett schlafen. Ich halte Wache."
+				},
+				{
+					"speaker": "",
+					"text": "Lotte rollt sich unter der Decke zusammen und schläft vor Erschöpfung sofort ein. Du setzt dich an die Tür und hältst Wache. Draußen wird es langsam still.",
+					"action": "cutscene:act:niece:sleep",
+					"hide_for": 1.8
+				}
+			],
+			"on_end": "set_flag:raid_over;advance:raid_night;sleep"
+		},
+		"ending_wake_up": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Sonne fällt durch die Fensterläden. Du liegst in deinem eigenen Bett."
+				},
+				{
+					"speaker": "",
+					"text": "Für einen Moment ist alles wie früher. Kein Tor, keine Steine, keine Schlacht."
+				},
+				{
+					"speaker": "",
+					"text": "Dann siehst du deine Hände. Sie leuchten noch, ganz schwach.",
+					"action": "cutscene:act:player:glow",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "player",
+					"text": "Also doch kein Traum. Schade eigentlich. Im Traum hatte ich ausgeschlafen."
+				},
+				{
+					"speaker": "",
+					"text": "Unten in der Werkstatt schlägt jemand auf deinen Amboss. Zu schnell und ein wenig schief.",
+					"action": "cutscene:act:ending_narrator:hammering",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "set_flag:ending_woken"
+		}
+	}
+}

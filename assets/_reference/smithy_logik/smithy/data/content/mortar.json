@@ -1,0 +1,466 @@
+{
+	"_hilfe": {
+		"info": "Mörser am Zaubertisch (Reiter Mörser): 3 Felder für Zutaten + 1 Feld für eine Phiole. Eine einzelne Zutat ohne Phiole wird zu Staub zerkleinert (gleiche Seltenheit). Kristall (oder sein Staub) + Pflanze (oder ihr Staub) + Phiole = Verzauberungstrank des Kristalls; Seltenheit gemischt aus Kristall und Pflanze. Jede andere Mischung mit Phiole misslingt und gibt 1 Asche (Dünger). Der Trank verzaubert am Zaubertisch (Reiter Verzaubern) eine Waffe oder ein Rüstungsteil. Anleitung: docs/CONTENT.md, Abschnitt mortar.json. Dieser Block wird vom Spiel ignoriert.",
+		"felder": {
+			"plant": "Item-id der Pflanze, die jeder Trank braucht",
+			"vial": "Item-id der Phiole",
+			"failed": "Item-id, die bei einer misslungenen Mischung entsteht",
+			"dusts.<id>": "name, from (Item-id, die im Mörser zu diesem Staub wird), color (Farbe des Staub-Bilds) oder icon, value",
+			"potions.<id>": "name, crystal (Item-id), plant (andere Pflanze als oben, z. B. nightshade), crystal2 (zweiter, anderer Kristall = Kombi-Trank), weapon (Bonus aus sockets.json für Waffen), armor (Bonus für Rüstung und Schilde), color (Farbe des Trank-Bilds) oder icon, value",
+			"brews.<id>": "Weitere Tränke aus festen Zutaten + Phiole: name, description, effect (Text im Tooltip), ingredients (Item-ids, eine pro Mörser-Feld, Staub zählt wie die Zutat), rarity_from (Item-id: der Trank bekommt die Seltenheit dieser Zutat, bei mehreren die niedrigste; sonst R1), color oder icon, value, stack; Heldentrank: hero_potion (z. B. iq), hero_potion_value, hero_potion_per_rarity (so viel mehr pro Stufe über R1); Qualitätstrank: quality_points, quality_per_rarity (am Zaubertisch im Reiter Verzaubern auf Waffe oder Rüstung, 100 Punkte = eine Seltenheit höher); Würfeltrank: reroll = attributes (Zufalls-Attribute neu, Werte bleiben) oder sockets (alle Sockel neu, Bonus und Stufe), beliebig oft; locked: true = erst nach unlock_recipes:<id> in der Story brau- und sichtbar; gibt es die id schon in items.json und fehlt name, braut der Mörser dieses Item (Story-Tränke wie seers_brew)"
+		}
+	},
+	"plant": "moon_lily",
+	"vial": "vial",
+	"failed": "ash",
+	"dusts": {
+		"moon_lily_dust": {
+			"name": "Mondlilienstaub",
+			"from": "moon_lily",
+			"color": "#7fb8ff",
+			"value": 12
+		},
+		"ruby_dust": {
+			"name": "Rubinstaub",
+			"from": "ruby",
+			"color": "#e8503a",
+			"value": 12
+		},
+		"sapphire_dust": {
+			"name": "Saphirstaub",
+			"from": "sapphire",
+			"color": "#3a7ae8",
+			"value": 12
+		},
+		"emerald_dust": {
+			"name": "Smaragdstaub",
+			"from": "emerald",
+			"color": "#4ad07a",
+			"value": 12
+		},
+		"topaz_dust": {
+			"name": "Topasstaub",
+			"from": "topaz",
+			"color": "#d8a040",
+			"value": 12
+		},
+		"amethyst_dust": {
+			"name": "Amethyststaub",
+			"from": "amethyst",
+			"color": "#9a5ad8",
+			"value": 12
+		},
+		"aquamarine_dust": {
+			"name": "Aquamarinstaub",
+			"from": "aquamarine",
+			"color": "#8ad8f0",
+			"value": 12
+		},
+		"diamond_dust": {
+			"name": "Diamantstaub",
+			"from": "diamond",
+			"color": "#f4f4ff",
+			"value": 12
+		},
+		"citrine_dust": {
+			"name": "Citrinstaub",
+			"from": "citrine",
+			"color": "#f0e040",
+			"value": 12
+		},
+		"jade_dust": {
+			"name": "Jadestaub",
+			"from": "jade",
+			"color": "#5aa05a",
+			"value": 12
+		},
+		"nightshade_dust": {
+			"name": "Nachtschattenstaub",
+			"from": "nightshade",
+			"color": "#5a3a78",
+			"value": 10
+		},
+		"sunflower_dust": {
+			"name": "Sonnenblumenstaub",
+			"from": "sunflower",
+			"color": "#f0c030",
+			"value": 10
+		}
+	},
+	"potions": {
+		"fire_potion": {
+			"name": "Feuertrank",
+			"crystal": "ruby",
+			"weapon": "enchant_fire",
+			"armor": "ward_fire",
+			"color": "#e8503a",
+			"value": 60
+		},
+		"water_potion": {
+			"name": "Wassertrank",
+			"crystal": "sapphire",
+			"weapon": "enchant_water",
+			"armor": "ward_water",
+			"color": "#3a7ae8",
+			"value": 60
+		},
+		"air_potion": {
+			"name": "Windtrank",
+			"crystal": "emerald",
+			"weapon": "enchant_air",
+			"armor": "ward_air",
+			"color": "#4ad07a",
+			"value": 60
+		},
+		"earth_potion": {
+			"name": "Erdtrank",
+			"crystal": "topaz",
+			"weapon": "enchant_earth",
+			"armor": "ward_earth",
+			"color": "#d8a040",
+			"value": 60
+		},
+		"dark_potion": {
+			"name": "Schattentrank",
+			"crystal": "amethyst",
+			"weapon": "enchant_dark",
+			"armor": "ward_dark",
+			"color": "#9a5ad8",
+			"value": 60
+		},
+		"ice_potion": {
+			"name": "Eistrank",
+			"crystal": "aquamarine",
+			"weapon": "enchant_ice",
+			"armor": "ward_ice",
+			"color": "#8ad8f0",
+			"value": 60
+		},
+		"light_potion": {
+			"name": "Lichttrank",
+			"crystal": "diamond",
+			"weapon": "enchant_light",
+			"armor": "ward_light",
+			"color": "#f4f4ff",
+			"value": 60
+		},
+		"lightning_potion": {
+			"name": "Blitztrank",
+			"crystal": "citrine",
+			"weapon": "enchant_lightning",
+			"armor": "ward_lightning",
+			"color": "#f0e040",
+			"value": 60
+		},
+		"poison_potion": {
+			"name": "Gifttrank",
+			"crystal": "jade",
+			"weapon": "enchant_poison",
+			"armor": "ward_poison",
+			"color": "#5aa05a",
+			"value": 60
+		},
+		"feather_potion": {
+			"name": "Federtrank",
+			"crystal": "harpy_feather",
+			"weapon": "enchant_haste",
+			"color": "#b8a8d8",
+			"value": 80
+		},
+		"fire_curse_potion": {
+			"name": "Feuerfluch-Trank",
+			"crystal": "ruby",
+			"plant": "nightshade",
+			"weapon": "curse_fire",
+			"color": "#e8503a",
+			"value": 70
+		},
+		"water_curse_potion": {
+			"name": "Wasserfluch-Trank",
+			"crystal": "sapphire",
+			"plant": "nightshade",
+			"weapon": "curse_water",
+			"color": "#3a7ae8",
+			"value": 70
+		},
+		"air_curse_potion": {
+			"name": "Windfluch-Trank",
+			"crystal": "emerald",
+			"plant": "nightshade",
+			"weapon": "curse_air",
+			"color": "#4ad07a",
+			"value": 70
+		},
+		"earth_curse_potion": {
+			"name": "Erdfluch-Trank",
+			"crystal": "topaz",
+			"plant": "nightshade",
+			"weapon": "curse_earth",
+			"color": "#d8a040",
+			"value": 70
+		},
+		"dark_curse_potion": {
+			"name": "Schattenfluch-Trank",
+			"crystal": "amethyst",
+			"plant": "nightshade",
+			"weapon": "curse_dark",
+			"color": "#9a5ad8",
+			"value": 70
+		},
+		"ice_curse_potion": {
+			"name": "Eisfluch-Trank",
+			"crystal": "aquamarine",
+			"plant": "nightshade",
+			"weapon": "curse_ice",
+			"color": "#8ad8f0",
+			"value": 70
+		},
+		"light_curse_potion": {
+			"name": "Lichtfluch-Trank",
+			"crystal": "diamond",
+			"plant": "nightshade",
+			"weapon": "curse_light",
+			"color": "#f4f4ff",
+			"value": 70
+		},
+		"lightning_curse_potion": {
+			"name": "Blitzfluch-Trank",
+			"crystal": "citrine",
+			"plant": "nightshade",
+			"weapon": "curse_lightning",
+			"color": "#f0e040",
+			"value": 70
+		},
+		"poison_curse_potion": {
+			"name": "Giftfluch-Trank",
+			"crystal": "jade",
+			"plant": "nightshade",
+			"weapon": "curse_poison",
+			"color": "#5aa05a",
+			"value": 70
+		},
+		"fire_blessing_potion": {
+			"name": "Feuersegen-Trank",
+			"crystal": "ruby",
+			"plant": "sunflower",
+			"weapon": "blessing_str",
+			"armor": "blessing_str",
+			"color": "#e8503a",
+			"value": 70
+		},
+		"water_blessing_potion": {
+			"name": "Wassersegen-Trank",
+			"crystal": "sapphire",
+			"plant": "sunflower",
+			"weapon": "blessing_wis",
+			"armor": "blessing_wis",
+			"color": "#3a7ae8",
+			"value": 70
+		},
+		"air_blessing_potion": {
+			"name": "Windsegen-Trank",
+			"crystal": "emerald",
+			"plant": "sunflower",
+			"weapon": "blessing_agi",
+			"armor": "blessing_agi",
+			"color": "#4ad07a",
+			"value": 70
+		},
+		"earth_blessing_potion": {
+			"name": "Erdsegen-Trank",
+			"crystal": "topaz",
+			"plant": "sunflower",
+			"weapon": "blessing_con",
+			"armor": "blessing_con",
+			"color": "#d8a040",
+			"value": 70
+		},
+		"dark_blessing_potion": {
+			"name": "Schattensegen-Trank",
+			"crystal": "amethyst",
+			"plant": "sunflower",
+			"weapon": "blessing_int",
+			"armor": "blessing_int",
+			"color": "#9a5ad8",
+			"value": 70
+		},
+		"ice_blessing_potion": {
+			"name": "Eissegen-Trank",
+			"crystal": "aquamarine",
+			"plant": "sunflower",
+			"weapon": "blessing_res",
+			"armor": "blessing_res",
+			"color": "#8ad8f0",
+			"value": 70
+		},
+		"light_blessing_potion": {
+			"name": "Lichtsegen-Trank",
+			"crystal": "diamond",
+			"plant": "sunflower",
+			"weapon": "blessing_wis",
+			"armor": "blessing_wis",
+			"color": "#f4f4ff",
+			"value": 70
+		},
+		"lightning_blessing_potion": {
+			"name": "Blitzsegen-Trank",
+			"crystal": "citrine",
+			"plant": "sunflower",
+			"weapon": "blessing_agi",
+			"armor": "blessing_agi",
+			"color": "#f0e040",
+			"value": 70
+		},
+		"poison_blessing_potion": {
+			"name": "Giftsegen-Trank",
+			"crystal": "jade",
+			"plant": "sunflower",
+			"weapon": "blessing_int",
+			"armor": "blessing_int",
+			"color": "#5aa05a",
+			"value": 70
+		},
+		"magma_potion": {
+			"name": "Magmatrank",
+			"crystal": "ruby",
+			"crystal2": "topaz",
+			"weapon": "combo_magma",
+			"armor": "combo_magma_ward",
+			"color": "#e07028",
+			"value": 140
+		},
+		"steam_potion": {
+			"name": "Dampftrank",
+			"crystal": "ruby",
+			"crystal2": "sapphire",
+			"weapon": "combo_steam",
+			"armor": "combo_steam_ward",
+			"color": "#d8d8e8",
+			"value": 140
+		},
+		"thunderstorm_potion": {
+			"name": "Gewittertrank",
+			"crystal": "emerald",
+			"crystal2": "citrine",
+			"weapon": "combo_thunderstorm",
+			"armor": "combo_thunderstorm_ward",
+			"color": "#c8e868",
+			"value": 140
+		},
+		"glacier_potion": {
+			"name": "Gletschertrank",
+			"crystal": "sapphire",
+			"crystal2": "aquamarine",
+			"weapon": "combo_glacier",
+			"armor": "combo_glacier_ward",
+			"color": "#68b8f0",
+			"value": 140
+		},
+		"dusk_potion": {
+			"name": "Dämmerungstrank",
+			"crystal": "diamond",
+			"crystal2": "amethyst",
+			"weapon": "combo_dusk",
+			"armor": "combo_dusk_ward",
+			"color": "#c8a0d8",
+			"value": 140
+		},
+		"swamp_potion": {
+			"name": "Sumpftrank",
+			"crystal": "jade",
+			"crystal2": "topaz",
+			"weapon": "combo_swamp",
+			"armor": "combo_swamp_ward",
+			"color": "#7a9040",
+			"value": 140
+		},
+		"firestorm_potion": {
+			"name": "Feuersturmtrank",
+			"crystal": "ruby",
+			"crystal2": "emerald",
+			"weapon": "combo_firestorm",
+			"armor": "combo_firestorm_ward",
+			"color": "#f09048",
+			"value": 140
+		}
+	},
+	"brews": {
+		"clarity_potion": {
+			"name": "Klarkopf-Trank",
+			"description": "Ein milder Kräutertrank aus Kamille und Salbei. Er macht den Kopf frei: Ein Held, der ihn trinkt, denkt im Kampf ein wenig klarer.",
+			"effect": "Rechtsklick bei offenem Heldenfenster: IQ +2",
+			"ingredients": ["chamomile", "sage"],
+			"hero_potion": "iq",
+			"hero_potion_value": 2,
+			"color": "#9fe0b0",
+			"value": 30
+		},
+		"moon_wisdom_elixir": {
+			"name": "Mondweisheits-Elixier",
+			"description": "Kamille und Salbei, gebunden im Licht einer Mondlilie. Je seltener die Mondlilie, desto klüger macht das Elixier.",
+			"effect": "Rechtsklick bei offenem Heldenfenster: IQ +4 (Gewöhnlich), +1 pro Seltenheitsstufe darüber",
+			"ingredients": ["chamomile", "sage", "moon_lily"],
+			"rarity_from": "moon_lily",
+			"hero_potion": "iq",
+			"hero_potion_value": 4,
+			"hero_potion_per_rarity": 1,
+			"color": "#b8a0ff",
+			"value": 90
+		},
+		"moonglow_potion": {
+			"name": "Mondglanz-Trank",
+			"description": "Drei Mondlilien, zu einem silbrig leuchtenden Trank verrieben. Über eine Waffe oder ein Rüstungsteil gegossen, hebt er dessen Qualität um eine ganze Seltenheitsstufe.",
+			"effect": "Am Zaubertisch (Reiter Verzaubern): Qualität +100 (Gewöhnlich), +15 pro Seltenheitsstufe darüber",
+			"ingredients": ["moon_lily", "moon_lily", "moon_lily"],
+			"rarity_from": "moon_lily",
+			"quality_points": 100,
+			"quality_per_rarity": 15,
+			"color": "#fff0a0",
+			"value": 150
+		},
+		"change_potion": {
+			"name": "Trank des Wandels",
+			"description": "Mondlilie, Kamille und Sonnenblume, verrieben zu einem Trank, der in allen Farben schillert. Über ein Stück gegossen, verwandeln sich seine Eigenschaften.",
+			"effect": "Am Zaubertisch (Reiter Verzaubern): würfelt die Zufalls-Attribute einer Waffe oder eines Rüstungsteils neu (die Werte bleiben, sie hängen an der Seltenheit). Beliebig oft.",
+			"ingredients": ["moon_lily", "chamomile", "sunflower"],
+			"reroll": "attributes",
+			"color": "#ff9ad8",
+			"value": 120
+		},
+		"spark_potion": {
+			"name": "Funkentrank",
+			"description": "Glut- und Sturmessenz mit einer Mondlilie gebändigt. Im Glas springen kleine Funken. Über ein Stück gegossen, glühen seine Sockel auf und formen sich neu.",
+			"effect": "Am Zaubertisch (Reiter Verzaubern): würfelt alle Sockel einer Waffe oder eines Rüstungsteils neu, Bonus und Stufe. Beliebig oft.",
+			"ingredients": ["ember_essence", "storm_essence", "moon_lily"],
+			"reroll": "sockets",
+			"color": "#ffb040",
+			"value": 300
+		},
+		"skill_point_potion": {
+			"name": "Trank des Wissens",
+			"description": "Zwei Glutessenzen aus dem Vulkan, gebunden in einer Mondlilie. Ein schimmernder Trank, der einem Helden neue Einsichten schenkt. Mehr als drei verträgt kein Held.",
+			"effect": "Rechtsklick bei offenem Heldenfenster: +1 Skillpunkt (höchstens 3 pro Held)",
+			"ingredients": ["ember_essence", "ember_essence", "moon_lily"],
+			"hero_potion": "skill_point",
+			"icon": "res://assets/sprites/items/skill_point_potion.png",
+			"value": 250
+		},
+		"attribute_point_potion": {
+			"name": "Trank der Stärkung",
+			"description": "Sturmessenz vom Sturmgipfel, gebunden in einer Mondlilie. Ein kräftiger Trank, der einen Helden über sich hinauswachsen lässt. Mehr als sechs verträgt kein Held.",
+			"effect": "Rechtsklick bei offenem Heldenfenster: +1 Attributpunkt (höchstens 6 pro Held)",
+			"ingredients": ["storm_essence", "moon_lily"],
+			"hero_potion": "attribute_point",
+			"icon": "res://assets/sprites/items/attribute_point_potion.png",
+			"value": 150
+		},
+		"seers_brew": {
+			"ingredients": ["wisp_ember", "bog_heart", "hydra_scale"],
+			"locked": true
+		},
+		"starlight_tonic": {
+			"ingredients": ["moon_lily", "hemp", "chamomile"],
+			"locked": true
+		}
+	}
+}

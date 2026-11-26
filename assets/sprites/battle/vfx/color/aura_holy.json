@@ -1,0 +1,225 @@
+{
+ "frames": [
+  {
+   "filename": "aura_holy 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 1.png",
+   "frame": {
+    "x": 25,
+    "y": 0,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 2.png",
+   "frame": {
+    "x": 50,
+    "y": 0,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 3.png",
+   "frame": {
+    "x": 75,
+    "y": 0,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 4.png",
+   "frame": {
+    "x": 0,
+    "y": 33,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 5.png",
+   "frame": {
+    "x": 25,
+    "y": 33,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 6.png",
+   "frame": {
+    "x": 50,
+    "y": 33,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 7.png",
+   "frame": {
+    "x": 75,
+    "y": 33,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 8.png",
+   "frame": {
+    "x": 0,
+    "y": 66,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 9.png",
+   "frame": {
+    "x": 25,
+    "y": 66,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 10.png",
+   "frame": {
+    "x": 50,
+    "y": 66,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_holy 11.png",
+   "frame": {
+    "x": 75,
+    "y": 66,
+    "w": 25,
+    "h": 33
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 33
+   },
+   "pivot": {
+    "x": 0.48,
+    "y": 1.121212121212121
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "behind"
+ }
+}

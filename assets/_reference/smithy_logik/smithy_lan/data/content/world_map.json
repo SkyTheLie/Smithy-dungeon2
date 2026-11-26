@@ -1,0 +1,92 @@
+{
+	"_hilfe": {
+		"info": "Die Weltkarte (Kristallkarte und Karte des Teleporters, CrystalMapView). Koordinaten in Karten-Einheiten: 1180 breit, 600 hoch (wie die Skizze weltmap.png), das Spiel verkleinert sie. Anleitung: docs/CONTENT.md, Abschnitt world_map.json. Dieser Block wird vom Spiel ignoriert.",
+		"size": "[breite, höhe] der Karte in Karten-Einheiten",
+		"regions": "Gebiete in Zeichen-Reihenfolge: name, flag (Kartenteil, ab dem das Gebiet zu sehen ist), piece (Nummer des Kartenteils für die Anzeige 'x von n'), color (Grundfarbe), label ([x, y] des Namens), polygon (Umriss als Liste von [x, y]) oder circle ([x, y, radius]).",
+		"places": "Orte, die auf einem sichtbaren Gebiet gezeichnet werden: name, region, at ([x, y]), kind (village, city, volcano, castle, hut, tree, water_city, ice_wall, tent_city, dome_city (Glaskuppel), temple, camp, altar, mine, forest, dunes, waves), label (true = Name daneben).",
+		"crystals": "Die neun Elementkristalle: name, place (Ort in der Legende), region, at, color, gone_flag (ab hier vom Lich bzw. König geraubt = durchgestrichen), owned_flag (ab hier hat ihn der Spieler = Ring), title (statt 'Kristall des <name>s').",
+		"teleporters": "Wo der Teleporter jedes Ziels (data/destinations/<id>.tres) auf der Karte steht: at ([x, y]), region.",
+		"carriage": "Kutschen: units_per_day (so viele Karten-Einheiten schafft die Kutsche pro Tag, die Fahrt dauert mindestens min_days Tage, aufgerundet), arrival_hour (Ankunft um diese Uhrzeit), stops (Haltestellen: name, scene, spawn = Ankunftspunkt, at = Platz auf der Karte, flag = ab hier fährt die Kutsche dorthin)."
+	},
+	"size": [1180, 600],
+	"regions": {
+		"sea_west": {"name": "", "flag": "map_piece_1", "piece": 1, "color": "#6694b8",
+			"polygon": [[0, 30], [110, 105], [130, 200], [140, 330], [125, 420], [130, 450], [100, 560], [0, 560]]},
+		"volcano": {"name": "Lavaberg", "flag": "map_piece_1", "piece": 1, "color": "#8a6f5e", "label": [250, 30],
+			"polygon": [[0, 0], [585, 0], [500, 125], [445, 225], [330, 205], [250, 158], [110, 105], [0, 30]]},
+		"human": {"name": "Land der Menschen", "flag": "map_piece_1", "piece": 1, "color": "#b8bc80", "label": [300, 400],
+			"polygon": [[110, 105], [250, 158], [330, 205], [445, 225], [670, 235], [700, 262], [680, 300], [680, 385], [625, 410], [360, 445], [130, 450], [125, 420], [140, 330], [130, 200]]},
+		"finster": {"name": "Land der Halbdämonen", "flag": "map_piece_5", "piece": 5, "color": "#7e6a8c", "label": [700, 160],
+			"polygon": [[585, 0], [895, 0], [850, 175], [780, 190], [745, 222], [670, 235], [445, 225], [500, 125]]},
+		"elves": {"name": "Wald der Elfen", "flag": "map_piece_2", "piece": 2, "color": "#6f9a5c", "label": [815, 425],
+			"polygon": [[745, 222], [820, 212], [870, 215], [915, 255], [945, 300], [945, 410], [880, 445], [760, 440], [690, 410], [680, 385], [680, 300], [700, 262]]},
+		"water": {"name": "Eisquell", "flag": "map_piece_3", "piece": 3, "color": "#7fa6c4", "label": [1030, 300],
+			"polygon": [[895, 0], [1180, 0], [1180, 470], [970, 442], [880, 445], [945, 410], [945, 300], [915, 255], [870, 215], [820, 212], [745, 222], [780, 190], [850, 175]]},
+		"desert": {"name": "Wüste", "flag": "map_piece_4", "piece": 4, "color": "#e6c780", "label": [300, 560],
+			"polygon": [[0, 560], [100, 560], [130, 450], [360, 445], [625, 410], [680, 385], [690, 410], [760, 440], [880, 445], [970, 442], [1180, 470], [1180, 600], [0, 600]]},
+		"swamp": {"name": "Sumpf", "flag": "map_piece_5", "piece": 5, "color": "#94a84a", "label": [705, 290],
+			"circle": [705, 235, 42]}
+	},
+	"places": [
+		{"name": "Dorf", "region": "human", "at": [232, 320], "kind": "village", "label": true},
+		{"name": "Leonheim", "region": "human", "at": [360, 300], "kind": "city", "label": true},
+		{"name": "Wald", "region": "human", "at": [170, 280], "kind": "forest"},
+		{"name": "Mine", "region": "human", "at": [205, 395], "kind": "mine"},
+		{"name": "Lavaberg", "region": "volcano", "at": [365, 75], "kind": "volcano"},
+		{"name": "Goblinburg", "region": "volcano", "at": [410, 55], "kind": "castle"},
+		{"name": "Finsterburg", "region": "finster", "at": [670, 55], "kind": "castle", "label": true},
+		{"name": "Finsterstadt", "region": "finster", "at": [600, 110], "kind": "village"},
+		{"name": "Altar der Neun", "region": "finster", "at": [800, 90], "kind": "altar"},
+		{"name": "Heerlager", "region": "finster", "at": [640, 190], "kind": "camp"},
+		{"name": "Muhme Grisla", "region": "swamp", "at": [705, 232], "kind": "hut"},
+		{"name": "Sylvaris", "region": "elves", "at": [800, 330], "kind": "tree", "label": true},
+		{"name": "Eisquell", "region": "water", "at": [1035, 170], "kind": "water_city", "label": true},
+		{"name": "Eismauer", "region": "water", "at": [1080, 130], "kind": "ice_wall"},
+		{"name": "Meer", "region": "water", "at": [1120, 380], "kind": "waves"},
+		{"name": "Sahrim", "region": "desert", "at": [465, 515], "kind": "dome_city", "label": true},
+		{"name": "Sturmtempel", "region": "desert", "at": [660, 560], "kind": "temple"},
+		{"name": "Dünen", "region": "desert", "at": [880, 520], "kind": "dunes"}
+	],
+	"crystals": [
+		{"name": "Erde", "place": "Dorf", "region": "human", "at": [255, 340], "color": "#8c5c33", "gone_flag": "tree_withered"},
+		{"name": "Licht", "place": "Leonheim", "region": "human", "at": [390, 290], "color": "#fff5b3"},
+		{"name": "Feuer", "place": "Lavaberg", "region": "volcano", "at": [335, 95], "color": "#f24d26", "gone_flag": "king_taken", "owned_flag": "fire_crystal_owned"},
+		{"name": "Wind", "place": "Sylvaris", "region": "elves", "at": [835, 310], "color": "#b3ffeb", "gone_flag": "wind_crystal_taken"},
+		{"name": "Wasser", "place": "Eisquell", "region": "water", "at": [1005, 200], "color": "#4d8cf2", "gone_flag": "king_taken", "owned_flag": "water_crystal_given"},
+		{"name": "Eis", "place": "Eismauer", "region": "water", "at": [1110, 90], "color": "#ccf2ff", "gone_flag": "ice_crystal_lost", "owned_flag": "ice_crystal_taken",
+			"title": "Kristall des Eises, er hält die Mauer"},
+		{"name": "Blitz", "place": "Sturmtempel", "region": "desert", "at": [690, 545], "color": "#ffdb40", "gone_flag": "lightning_crystal_lost", "owned_flag": "lightning_crystal_owned",
+			"title": "Kristall des Blitzes"},
+		{"name": "Gift", "place": "Sumpf", "region": "swamp", "at": [735, 215], "color": "#7fd94a", "gone_flag": "reached_meet_witch"},
+		{"name": "Dunkelheit", "place": "Finsterburg", "region": "finster", "at": [700, 75], "color": "#3a2a4a", "gone_flag": "lake_fallen",
+			"title": "Kristall der Dunkelheit, er gehört dem König"}
+	],
+	"teleporters": {
+		"home": {"at": [222, 312], "region": "human"},
+		"forest": {"at": [165, 285], "region": "human"},
+		"mine": {"at": [205, 400], "region": "human"},
+		"leonheim": {"at": [360, 318], "region": "human"},
+		"lavaberg": {"at": [365, 100], "region": "volcano"},
+		"sylvaris": {"at": [785, 350], "region": "elves"},
+		"eisquell": {"at": [1035, 190], "region": "water"},
+		"desert_gate": {"at": [300, 455], "region": "desert"},
+		"desert_town": {"at": [465, 530], "region": "desert"},
+		"swamp": {"at": [700, 250], "region": "swamp"},
+		"fortress_camp": {"at": [640, 205], "region": "finster"},
+		"finster_city": {"at": [600, 125], "region": "finster"}
+	},
+	"carriage": {
+		"units_per_day": 100,
+		"min_days": 1,
+		"arrival_hour": 9,
+		"stops": {
+			"village": {"name": "Dorf", "scene": "res://scenes/world/village/village_gate.tscn", "spawn": "FromCarriage", "at": [232, 330], "flag": "king_audience_done"},
+			"leonheim": {"name": "Leonheim", "scene": "res://scenes/world/capital/capital_street.tscn", "spawn": "FromCarriage", "at": [360, 300], "flag": "king_audience_done"},
+			"lavaberg": {"name": "Lavaberg", "scene": "res://scenes/world/volcano/lava_mountain.tscn", "spawn": "FromCarriage", "at": [365, 90], "flag": "volcano_route_open"},
+			"sylvaris": {"name": "Sylvaris", "scene": "res://scenes/world/elves/elf_grove.tscn", "spawn": "FromCarriage", "at": [800, 340], "flag": "elf_route_open"},
+			"eisquell": {"name": "Eisquell", "scene": "res://scenes/world/water/eisquell.tscn", "spawn": "FromCarriage", "at": [1035, 175], "flag": "water_route_open"},
+			"swamp": {"name": "Sumpf", "scene": "res://scenes/world/swamp/swamp.tscn", "spawn": "FromCarriage", "at": [700, 250], "flag": "swamp_road_open"},
+			"finster": {"name": "Finsterstadt", "scene": "res://scenes/world/finster/finster_gate.tscn", "spawn": "FromCarriage", "at": [600, 125], "flag": "reached_to_finster_city"}
+		}
+	}
+}

@@ -1,0 +1,59 @@
+# Inhalte anlegen (ohne Code)
+
+Alles in `data/`. Nach jeder Änderung: `bash assets/_reference/run_tests.sh test_content` und bei neuen Texten `py assets/_reference/i18n/build_po.py` (Übersetzungen in `assets/_reference/i18n/translations.json` eintragen).
+
+## Item (`data/items.json`)
+
+```json
+"glutkern": {"name": "Glutkern", "desc": "Schaden hoch", "icon": "res://assets/sprites/items/ember_essence.png",
+             "stats": {"damage": 1.0}, "flags": [], "mode": "fire", "pools": ["shop", "boss"]}
+```
+
+- `stats`: `damage`, `fire_delay` (Sekunden zwischen Schüssen), `reach` (Meter), `shot_speed`, `size`, `spread` (Grad, größter Wert gilt), `move_speed`, `knockback`, `shots` (zusätzliche Schüsse), `orbitals` (Glutmonde), `hearts` (Herz-Container). Mit `_mult` dahinter wird multipliziert (`"fire_delay_mult": 0.65` = schneller).
+- `flags`: `homing`, `pierce`, `bounce`, `boomerang`, `split`, `wave`, `bread`, `charge`, `jitter`, `explosive`, `burn` (Gegner brennen), `slow` (Gegner langsamer), `grow` (mehr Schaden, je weiter der Schuss fliegt), `shield` (Feuerbälle zerstören Gegner-Schüsse), `blast_proof` (Explosionen schaden dir nicht), `mantle` (erster Treffer pro Raum wird abgefangen). Zahlen für `burn`, `slow`, `grow` stehen in `data/player.json` unter `effects`.
+- `per_coin`: Werte je Münze, die du hast, z. B. `{"damage": 0.04}` (Goldglut).
+- `give`: gibt es beim Aufheben dazu: `{"coins": 5, "bombs": 3, "keys": 3}`.
+- `mode`: `beam` (Feuerstrahl) oder `bomb` (Bomben werfen).
+- `heal_full: true` heilt beim Aufheben ganz.
+- Item-Raum: **jedes** Item kann kommen, außer `"secret": true` (für spätere Geheimräume) und noch gesperrte.
+- `pools`: zusätzlich `shop` (Laden) und/oder `boss` (Boss-Belohnung: nur einfache Werte- und Herz-Items, keine `flags`/`mode`; das prüft `test_run_state`).
+- `stats` kennt auch `blue_hearts` (blaue Herzen: kommen oben drauf, Treffer nehmen sie zuerst, nicht heilbar). Negative `hearts` nehmen Herzen weg.
+- `unlock`: das Item ist erst nach einer Freischaltung im Spiel: `{"type": "boss", "id": "rat_king"}`, `{"type": "wins", "count": 1}`, `{"type": "kills", "count": 200}`, `{"type": "discovered", "count": 25}`. Der Text im Lexikon entsteht daraus von selbst.
+- Es sind genau 203 Items: 200 plus die drei Start-Waffen der Helden (`test_content` prüft das).
+- `chance`: Zufallseffekte, z. B. `{"freeze": 0.15}` (15 % pro Schuss, Glück erhöht das).
+- `spawn`: Pickups, die beim Aufheben erscheinen (`coin`, `heart`, `bomb`, `key`).
+- `secret: true`: nur im Geheimraum (dann keine `pools`). Weitere `pools`: `pact` (Glutpakt) und `shrine` (Schrein).
+- Neue `stats`: `bomb_size`, `luck`, `guard_time` (Sekunden), `helpers` (Funken).
+- Neue `flags` und alle Zahlen dazu: `data/items.json` „_info“ und `data/player.json` „effects“.
+- `unlock` auch `{"type": "best", "key": "coins", "count": 55}` (hearts, coins, blue, clean_floors, pacts, floor) und `{"type": "fast_win", "count": 30}`.
+
+- `category`: offensiv, defensiv oder utility (Pflicht). `docs/ITEMLISTE.md` wird daraus erzeugt.
+- Neue Werte/Flags: `body` (Größe, mit `body_mult`), `bleed`, `shuriken`, `dash`, `blink`, `mode: melee`.
+
+## Charakter (`data/characters.json`)
+
+`name`, `desc`, `icon`, `hearts`, dazu `stats`/`flags`/`mode` wie bei Items und optional `weapon` (Bild in der Hand) und `unlock`.
+
+## Gegner-Extras (`data/enemies.json`)
+
+`leap` {every, range, height}, `burrow` {every, time}, `front_guard` true, `voice` {wave, freq, slide, length, noise, vibrato}. `cries` {idle, wake, near, attack}: je eine Stimme wie `voice`, dazu `noise_end` (Rauschen am Ende, „Wa-chhh“), `rough` (1 = Zischen, 6 = Knurren), `rise` (Anschwellen), `fade`, `tremolo` (Klicken/Rattern), `repeat`/`gap`/`repeat_pitch` („fiep fiep“), `volume` in dB; `idle.every` [min, max], `near.range`/`near.cooldown`. `leap.windup` = Ducken vor dem Sprung. Bosse: `attacks` (siehe `boss_brain.gd`), `traits` (regen, lifesteal).
+
+## Thema und Ebene (`data/floors.json`)
+
+Ein neues Thema in `themes` (mit 2–4 `bosses`, `rock_texture`), dann zwei Einträge in `floors` mit diesem `theme` (eigene `rock_patterns`, gern eigene Texturen). Neue Gegner in `data/enemies.json`.
+
+## Synergie (`data/synergies.json`)
+
+```json
+"feuerwerk": {"name": "Feuerwerk", "desc": "…", "requires": [["suchender_funke"], ["zwillingsstab", "dreizack"]], "stats": {"damage": 0.3}}
+```
+
+Gilt, wenn aus **jeder** Gruppe in `requires` mindestens ein Item da ist. `stats`/`flags` wie bei Items.
+
+## Gegner (`data/enemies.json`)
+
+`sprite` = Pfad ohne Endung; es braucht `<sprite>_walk.png` und `<sprite>_death.png` (6 Bilder à 48×48 nebeneinander, wie alle Smithy-Gegner in `assets/sprites/enemies/`). Werte: `hp`, `speed` (m/s), `damage` (halbe Herzen), `radius`, `height` (Meter), `ai` (`lurk`, `chase`, `fly`, `hop`, `shooter`, `boss`), `wake` [min, max] für `lurk`, `shot_speed`, `fire_interval`, `keep_distance`, `spray` für Schützen, `attacks`, `summon`, `ring` für Bosse, `drop_chance`.
+
+## Ebene (`data/floors.json`)
+
+Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` (32×48), `rooms` (normale Räume), `enemies` ([Id, Gewicht]), `enemy_count`, `first_room_enemies`, `boss`, `music` (Id aus `audio.json`), `light` (Farbe), `key_doors` (Raumarten mit Schlüssel-Tür). Die letzte Ebene endet mit dem Sieg. Dazu `room_styles`, `shop` (Preise, Händler-Bild), `room_drops`, `rocks`.

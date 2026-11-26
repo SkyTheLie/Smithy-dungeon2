@@ -1,0 +1,1455 @@
+{
+	"dialogues": {
+		"grove_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Kutsche hält, wo die Straße endet. Vor dir stehen Bäume, so dick wie Häuser und so hoch, dass ihre Kronen im Dunst verschwinden."
+				},
+				{
+					"speaker": "",
+					"text": "Das ist Sylvaris. Die halbe Stadt hängt in den Kronen, der Rest schwebt darüber."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich habe mal einen Baum gefällt. Mit Holgers Axt. Der hier würde mich auslachen."
+				},
+				{
+					"speaker": "",
+					"text": "Der König und Aurelius sind schon vorausgegangen."
+				}
+			],
+			"on_end": "set_flag:grove_intro_seen"
+		},
+		"grove_return": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Am Fuß der großen Bäume stehen jetzt Zelte. Soldaten aus Leonheim üben mit Elfen, die Klingen aus dem Turnier blitzen in der Sonne."
+				},
+				{
+					"speaker": "player",
+					"text": "Das da ist mein Schwert. Das da auch. Das da nicht, das ist hässlich."
+				},
+				{
+					"speaker": "",
+					"text": "General Hadmar erwartet dich hier unten am Waldboden."
+				}
+			],
+			"on_end": "set_flag:grove_return_seen"
+		},
+		"elf_guard_idle": {
+			"lines": [
+				{
+					"speaker": "elf_guard",
+					"text": "Kind der Sonne. Die Plattform im Stamm trägt Euch hinauf. Haltet Euch fest. Oder auch nicht, sie lässt niemanden fallen."
+				}
+			]
+		},
+		"elder_meeting": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Auf der höchsten Insel steht ein Mann mit dunklem Haar und einem silbernen Reif auf der Stirn. Hinter ihm schwebt ein Kristall, hell wie ein Morgenhimmel."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Willkommen in Sylvaris, Schmied. Ich bin Elarion. Die Jungen nennen mich den Ältesten, und sie haben recht."
+				},
+				{
+					"speaker": "player",
+					"text": "Hallo. Ich bin {name}. Schöne Insel. Fliegt die immer? Auch nachts?"
+				},
+				{
+					"speaker": "faelan",
+					"text": "Sie fliegt seit dreitausend Jahren, Mensch. Sie wird es auch heute Nacht tun."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Faelan, Hauptmann meiner Windwache. Verzeiht ihm. Er ist jung, kaum vierhundert."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Aurelius sagt, Ihr habt gesehen, wie der Lebensbaum Eures Dorfes starb. Erzählt es mir."
+				},
+				{
+					"speaker": "",
+					"text": "Du erzählst. Vom Dorffest, vom Feuer auf dem Markt, vom grünen Licht in der Hand des Lichs. Von Oma Hilde. Von Bruno.",
+					"action": "cutscene:fade",
+					"wait": 2.4
+				},
+				{
+					"speaker": "",
+					"text": "Als du fertig bist, ist die Sonne ein gutes Stück weitergewandert. Niemand sagt etwas."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Der Stein der Erde. Er hat ihn aus dem Herzen eines Baumes gerissen, den meine Vorfahren gepflanzt haben."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Er wird kommen. Und wir haben Bögen, aber kaum Klingen. Unsere Essen sind seit Jahrhunderten kalt."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Ältester, bei allem Respekt: Sylvaris kann niemand erobern. Die halbe Stadt liegt in den Kronen. Die andere Hälfte fliegt."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Untote klettern nicht. Und fliegen schon gar nicht."
+				},
+				{
+					"speaker": "magician",
+					"text": "Das dachte man in seinem Dorf auch, Faelan. Von Palisaden. Bis der Lich auf dem Marktplatz stand."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Ich habe viele Winter gesehen, Faelan. In jedem glaubte jemand, er sei sicher."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Ich wette kein einziges Leben darauf, dass unsere Häuser hoch hängen. Majestät, Sylvaris bittet Euch um Hilfe."
+				},
+				{
+					"speaker": "king",
+					"text": "Und Ihr sollt sie bekommen. Ich habe da eine Idee."
+				},
+				{
+					"speaker": "king",
+					"text": "Früher gab es in Leonheim jedes Jahr ein großes Schmiedeturnier. Der Schmied aus deinem Dorf hat es fast immer gewonnen. Bis er verschwand."
+				},
+				{
+					"speaker": "king",
+					"text": "Ich richte es wieder aus. Ihm zu Ehren. Die besten Schmiede des Landes treten an, und alles, was sie schmieden, geht nach Sylvaris."
+				},
+				{
+					"speaker": "lake",
+					"text": "Menschen, die für Elfen schmieden. Das gab es noch nie."
+				},
+				{
+					"speaker": "king",
+					"text": "Dann wird es Zeit, Lake. Wenn der Wald brennt, fragt das Feuer nicht, wem die Bäume gehören."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Weise Worte für einen so jungen König."
+				},
+				{
+					"speaker": "king",
+					"text": "Jung? Ich bin siebzig! ... Na gut. Für Euch vielleicht."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Und Ihr, Schmied? Werdet Ihr antreten?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Klar. Ich schmiede schon mal die Siegerrede.",
+					"then": "elder_meeting_end"
+				},
+				{
+					"text": "Ich trete an. Für Bruno. Und für Oma Hilde.",
+					"then": "elder_meeting_end"
+				},
+				{
+					"text": "Gibt es da auch Häppchen?",
+					"then": "elder_meeting_snacks"
+				}
+			]
+		},
+		"elder_meeting_snacks": {
+			"lines": [
+				{
+					"speaker": "elf_elder",
+					"text": "Elfenbrot. Es schmeckt nach nichts, aber man wird drei Tage lang satt."
+				},
+				{
+					"speaker": "player",
+					"text": "Verkauft. Ich bin dabei."
+				}
+			],
+			"then": "elder_meeting_end"
+		},
+		"elder_meeting_end": {
+			"lines": [
+				{
+					"speaker": "elf_elder",
+					"text": "Gut. Gebt mir Eure Hand, Schmied."
+				},
+				{
+					"speaker": "",
+					"text": "Der Älteste nimmt deine Hand und dreht sie im Licht des Kristalls. Für einen Atemzug leuchten deine Fingerspitzen blau.",
+					"action": "cutscene:act:player:glow",
+					"hide_for": 1.2
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Ich kannte einmal einen Schmied mit solchen Händen. Vor sehr langer Zeit."
+				},
+				{
+					"speaker": "player",
+					"text": "Den Schmied aus meinem Dorf? Den, der verschwunden ist?"
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Vielleicht. Vielleicht einen viel älteren. Doch eines noch, bevor Ihr geht."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Hinter Sylvaris steigt der Sturmgipfel auf. Seit dreitausend Jahren wacht dort oben ein Greif über die Pässe. Sturmschwinge. Er war unser Wächter."
+				},
+				{
+					"speaker": "faelan",
+					"text": "War. Seit das Heer des Lichs am Waldrand lagert, greift er alles an, was sich dem Gipfel nähert. Die Harpyien folgen ihm wie Krähen einem Wolf."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Drei meiner Späher sind hinaufgestiegen. Einer kam zurück. Er sagt, in der Brust des Greifen steckt etwas Schwarzes."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ein Splitter. Der Lich macht sich Wächter zu Dienern, so hat er es schon einmal getan. Wer den Gipfel hält, sieht ganz Sylvaris von oben."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Und über den Gipfel führt der einzige Pass, den meine Windwache nicht überblickt. Ich kann keinen Elfen aus dem Wald schicken, nicht jetzt."
+				},
+					{
+						"speaker": "faelan",
+						"text": "Solange der Greif dort oben tobt, kommt über diesen Pass, wer will. Auch Vögel aus Knochen."
+					},
+				{
+					"speaker": "elf_elder",
+					"text": "Aber Ihr habt Helden, Schmied. Schickt sie hinauf. Am Berg findet Ihr, was Euch fehlt: Felle der Hippogreife für Rüstungen, die leichter sind als Silber und ebenso zäh."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Und den Wind selbst. Was von den Sturmgeistern bleibt, macht einen Krieger stärker, als er geboren wurde."
+				},
+				{
+					"speaker": "player",
+					"text": "Federn, Felle und Wind in Flaschen. Und ein verrückter Greif. Ich schreib's auf."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Euer Dungeon-Brett kennt den Weg. Geht jetzt. Gewinnt Euer Turnier und kommt mit Klingen zurück."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich bleibe hier und helfe bei den Wachen. Schmiede gut, junger Freund."
+				},
+				{
+					"speaker": "",
+					"text": "Die Kutsche bringt dich und den König zurück nach Leonheim. Am Ende der Schmiedegasse öffnen Arbeiter das Tor zum alten Turnierplatz."
+				}
+			],
+			"on_end": "set_flag:tournament_open;hint:mountain_dungeons;advance:tournament_announced;travel_fade:res://scenes/world/capital/smith_lane.tscn,FromTournament"
+		},
+		"general_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Zwischen den Zelten am Waldboden steht ein breiter Mann mit grauem Bart und zerkratztem Brustpanzer. Neben ihm stapeln Soldaten Kisten mit den Klingen aus dem Turnier."
+				},
+				{
+					"speaker": "general",
+					"text": "Du bist der Schmied vom Turnier? Hadmar. General des Königs, solange er keinen besseren findet."
+				},
+				{
+					"speaker": "general",
+					"text": "Ich habe die Brücken gezählt. Zwanzig. Und auf jeder stehen Elfen mit Jagdbögen und Messern, die man zum Brotschneiden nimmt."
+				},
+				{
+					"speaker": "general",
+					"text": "Deine Turnierstücke tragen jetzt Faelans Windwache. Für den Rest brauche ich mehr. Viel mehr."
+				},
+				{
+					"speaker": "player",
+					"text": "Wie viel ist viel mehr?"
+				},
+				{
+					"speaker": "general",
+					"text": "Bring, was du hast. Schwerter, Speere, Bögen, Helme, Schilde. Gutes Metall rettet mehr Leben als viel schlechtes. Ich sag dir schon, wann es reicht."
+				},
+				{
+					"speaker": "general",
+					"text": "Und der Gipfel hinter der Stadt. Solange der Greif dort oben den Pass hält, sieht die Windwache nicht, was darüber kommt. Wenn deine Helden ihn befreien, schlafe ich ruhiger."
+				},
+				{
+					"speaker": "player",
+					"text": "Waffen schmieden und einen Greifen beruhigen. Klingt nach einer ganz normalen Woche."
+				}
+			],
+			"on_end": "advance:elf_armory"
+		},
+		"general_armory": {
+			"lines": [
+				{
+					"speaker": "general",
+					"text": "Schmied. Was bringst du mir?"
+				},
+				{
+					"speaker": "general",
+					"if_flag": "elf_defense_griffin_open",
+					"text": "Und vergiss den Gipfel nicht. Solange der Greif den Pass hält, fliegen die Knochenvögel des Lichs ungesehen herein."
+				}
+			],
+			"choices": [
+				{
+					"text": "Waffen abgeben",
+					"action": "elf_defense_update;open_menu:armory"
+				},
+				{
+					"text": "Wie steht es?",
+					"action": "elf_defense_update",
+					"then": "general_verdict"
+				},
+				{
+					"text": "Mehr habe ich nicht",
+					"action": "elf_defense_update",
+					"then": "general_done"
+				},
+				{
+					"text": "Bis später"
+				}
+			]
+		},
+		"general_verdict": {
+			"lines": [
+				{
+					"speaker": "general",
+					"if_flag": "elf_defense_level_0",
+					"text": "Ehrlich? Damit halte ich nicht mal die Ostbrücke."
+				},
+				{
+					"speaker": "general",
+					"if_flag": "elf_defense_level_1",
+					"text": "Ein Anfang. Die unteren Brücken sind bewaffnet. Oben kämpfen die Elfen noch mit Messern."
+				},
+				{
+					"speaker": "general",
+					"if_flag": "elf_defense_level_2",
+					"text": "Fast. Noch ein paar gute Stücke, dann hält jede Brücke."
+				},
+				{
+					"speaker": "general",
+					"if_flag": "elf_defense_level_3",
+					"text": "Das reicht, Schmied. Jeder Elf hat eine Klinge, jede Brücke eine Wand aus Schilden. Mehr brauche ich nicht."
+				},
+				{
+					"speaker": "general",
+					"if_flag": "elf_defense_griffin_open",
+					"text": "Und der Greif tobt noch auf dem Gipfel. Das macht mir Sorgen."
+				}
+			],
+			"then": "general_armory"
+		},
+		"general_done": {
+			"lines": [
+				{
+					"speaker": "general",
+					"if_flag": "elf_defense_level_3",
+					"text": "Gut. Mehr brauche ich auch nicht. Den Rest erledigen meine Leute."
+				},
+				{
+					"speaker": "general",
+					"unless_flag": "elf_defense_level_3",
+					"text": "Das ist alles? Schmied ... ich will dich nicht drängen. Aber der Lich zählt seine Untoten nicht nach Stück."
+				}
+			],
+			"choices": [
+				{
+					"text": "Dann ruh ich mich aus.",
+					"if_flag": "elf_defense_level_3",
+					"action": "advance:elf_elder_evening",
+					"then": "general_send_up",
+					"decision": true
+				},
+				{
+					"text": "Ja. Mehr habe ich nicht.",
+					"unless_flag": "elf_defense_level_3",
+					"action": "advance:elf_elder_evening",
+					"then": "general_send_up",
+					"decision": true
+				},
+				{
+					"text": "Ich hole noch etwas.",
+					"unless_flag": "elf_defense_level_3"
+				}
+			]
+		},
+		"general_send_up": {
+			"lines": [
+				{
+					"speaker": "general",
+					"text": "Der Älteste will dich sehen, bevor es dunkel wird. Fahr hinauf. Ich verteile, was wir haben."
+				}
+			]
+		},
+		"general_after": {
+			"lines": [
+				{
+					"speaker": "general",
+					"text": "Die Brücken sind besetzt. Geh zum Ältesten und dann schlafen, Schmied. Das ist ein Befehl. Fast."
+				}
+			]
+		},
+		"general_idle": {
+			"lines": [
+				{
+					"speaker": "general",
+					"text": "Ein General ohne Krieg ist ein Mann, der Kisten zählt. Ich zähle gern Kisten."
+				}
+			]
+		},
+		"elder_thanks": {
+			"lines": [
+				{
+					"speaker": "elf_elder",
+					"unless_flag": "elf_defense_level_0",
+					"text": "Schmied. Hadmar hat Eure Waffen auf die Brücken verteilt. Meine Wächter tragen jetzt Metall, das singt, wenn man es schwingt."
+				},
+				{
+					"speaker": "elf_elder",
+					"if_flag": "elf_defense_level_0",
+					"text": "Schmied. Hadmar hat verteilt, was da war. Es ist wenig. Meine Wächter kämpfen noch mit Holz und Messern."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Seit tausend Jahren hat kein Mensch etwas für Sylvaris geschmiedet. Ich danke Euch. Und Eurem König."
+				},
+				{
+					"speaker": "faelan",
+					"unless_flag": "elf_defense_level_0",
+					"text": "Die Axt, die man mir gegeben hat ... gutes Gleichgewicht."
+				},
+				{
+					"speaker": "player",
+					"unless_flag": "elf_defense_level_0",
+					"text": "War das gerade ein Lob? Von einem Elfen? Kann das bitte jemand aufschreiben?"
+				},
+				{
+					"speaker": "faelan",
+					"unless_flag": "elf_defense_level_0",
+					"text": "Bild dir nichts darauf ein, Mensch."
+				},
+				{
+					"speaker": "lake",
+					"text": "Hundert Soldaten stehen am Waldboden, zwanzig auf jeder Brücke. Der Lich kommt nicht an uns vorbei."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich traue der Ruhe nicht. Die Untoten am Waldrand haben sich seit gestern nicht bewegt. Als würden sie auf etwas warten."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Dann warten wir mit ihnen. Bleibt heute Nacht hier, Schmied. Auf der Kronenebene ist ein Gästezimmer für Euch bereit."
+				},
+				{
+					"speaker": "king",
+					"text": "Ich schlafe unten bei meinen Soldaten. Ein König gehört zu seinen Leuten."
+				},
+				{
+					"speaker": "player",
+					"text": "Und was mache ich? Ich kann noch Pfeilspitzen schleifen. Oder Fackeln halten. Fackeln halten kann ich gut."
+				},
+				{
+					"speaker": "lake",
+					"text": "Du hast heute genug geholfen, Schmied. Ruh dich aus. Die Verteidigung bereiten wir vor."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Geh schlafen, Mensch. Ein müder Schmied steht uns nur im Weg."
+				},
+				{
+					"speaker": "magician",
+					"text": "Sie haben recht, junger Freund. Wenn heute Nacht etwas geschieht, brauchen wir dich wach. Wir bleiben noch ein wenig hier am Tisch."
+				}
+			],
+			"on_end": "advance:elf_rest"
+		},
+		"elf_child_talk": {
+			"lines": [
+				{
+					"speaker": "elf_child",
+					"text": "Bist du der Schmied aus dem Turnier? Machst du mir auch ein Schwert? Ein kleines? Mit Glitzer?"
+				},
+				{
+					"speaker": "player",
+					"text": "Mit Glitzer. Natürlich. Was wäre ein Schwert ohne Glitzer."
+				}
+			]
+		},
+		"elf_inventor_meet": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Ein Mensch! Ein echter, mit Werkzeug und Ruß an den Fingern! Komm her zu Fenn, schnell, bevor wieder einer von denen guckt."
+				},
+				{
+					"speaker": "player",
+					"text": "Äh, hallo? Bist du sicher, dass du ein Elf bist? Du redest schneller als ich. Und das will was heißen."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Fennoriel Sternwind vom dritten Ast. Viel zu lang. Sag Fenn. Fenn sagt auch Fenn. Die anderen sagen „der Junge“. Fenn ist zweihundertzwölf."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Siehst du die da? Die fliegt. Also, noch nicht. Aber bald! Die anderen warten tausend Jahre, bis der Wind sie trägt. Fenn baut sich seinen Wind selbst."
+				},
+				{
+					"speaker": "player",
+					"text": "Flügel aus Blättern, ein Propeller aus Federn. Mutig. Ich hätte wenigstens ein Kissen unten hingelegt."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Ein Kissen! Das ist klug. Das ist so klug! Siehst du, deshalb braucht Fenn einen Menschen. Ihr habt keine Zeit, also denkt ihr schneller."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Und du bist Schmied. Irgendwann braucht Fenn Metall, das nicht schmilzt, wenn sie wieder brennt. Nicht heute. Erst muss sie überhaupt abheben. Komm wieder zu Fenn, ja? Gut!"
+				}
+			],
+			"on_end": "set_flag:met_fenn"
+		},
+		"elf_inventor_idle": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Hörst du das? Nein? Genau! Sie hat gerade NICHT gequietscht. Fenn nennt das Fortschritt!"
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Die anderen sagen, ein Elf soll warten, bis der Wind ihn trägt. Fenn sagt: Der Wind ist langsam. Und er hört nicht zu."
+				}
+			]
+		},
+		"elf_grumbler_talk": {
+			"lines": [
+				{
+					"speaker": "elf_grumbler",
+					"text": "Ihr wart bei Fennoriel, Mensch. Man riecht den Rauch an Euch."
+				},
+				{
+					"speaker": "elf_grumbler",
+					"text": "Er ist einer von uns, also lassen wir ihn. Der Wald duldet auch die Eichhörnchen, obwohl sie Nüsse vergraben, die sie nie wiederfinden."
+				},
+				{
+					"speaker": "elf_grumbler",
+					"text": "Zweimal in jedem Mond fliegt etwas von seiner Plattform. Angekommen ist es noch nie."
+				},
+				{
+					"speaker": "player",
+					"text": "Also eher ein Fallen mit Anlauf. Verstehe. Ich sag ihm nichts."
+				}
+			]
+		},
+		"leon_soldier_talk": {
+			"lines": [
+				{
+					"speaker": "leon_soldier",
+					"text": "Ich war noch nie so hoch oben. Wenn ich runterschaue, wird mir schlecht. Also schaue ich nicht runter."
+				}
+			]
+		},
+		"elf_bed_sleep": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein Bett aus weichem Moos, darüber ein rundes Fenster voller Sterne."
+				}
+			],
+			"choices": [
+				{
+					"text": "Schlafen gehen",
+					"action": "cutscene:fade;set_time:25;advance:elf_attack_wake"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"elf_bed_idle": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein Bett aus weichem Moos."
+				}
+			]
+		},
+		"elf_attack_wake": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein Horn reißt dich aus dem Schlaf. Dann noch eins. Das ganze Zimmer zittert, als hätte der Baum selbst Angst.",
+					"action": "cutscene:act:elf_guest_narrator:quake",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "player",
+					"text": "Das ist kein Frühstückshorn. Oder?"
+				},
+				{
+					"speaker": "",
+					"text": "Draußen schreit jemand. Feuerschein flackert am Fenster.",
+					"action": "cutscene:act:elf_guest_narrator:firelight",
+					"hide_for": 1.4
+				}
+			]
+		},
+		"lich_attack": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Oben ist es still. Zu still. Der Älteste steht vor dem Windkristall, Faelan mit gezogenem Schwert neben ihm."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Schmied! Was machst du hier? Geh zurück!"
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Lass ihn, Faelan. Er gehört hierher. Mehr, als er weiß."
+				},
+				{
+					"speaker": "",
+					"text": "Eine schwarze Wolke senkt sich auf die Insel, Knochenvögel kreisen darin. Aus ihr tritt eine Gestalt in zerfetzten Gewändern.",
+					"action": "cutscene:lich_arrives",
+					"wait": 1.6
+				},
+				{
+					"speaker": "lich",
+					"text": "Elarion. Wie lange ist es her? Tausend Jahre? Du bist alt geworden."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Und du bist tot geworden. Ich kannte dich, als du noch einen Namen hattest."
+				},
+				{
+					"speaker": "lich",
+					"text": "Namen. Fleisch. Atem. Dinge, die vergehen. Ich habe sie abgelegt wie einen alten Mantel."
+				},
+				{
+					"speaker": "player",
+					"text": "Entschuldigung, dass ich störe. Was willst du eigentlich? So ganz grundsätzlich?"
+				},
+				{
+					"speaker": "lich",
+					"text": "Du schon wieder. Der kleine Schmied, der mir nicht aus dem Weg geht."
+				},
+				{
+					"speaker": "lich",
+					"text": "Was ich will? Das Siegel wird schwach, Schmied. Tausend Jahre sind fast um. Mein Herr wartet hinter dem Tor."
+				},
+				{
+					"speaker": "lich",
+					"text": "Neun Steine. Ein Schlüssel. Und wer ihm das Tor öffnet, dem schenkt er die Ewigkeit."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Er hat dir schon einmal die Ewigkeit versprochen. Sieh, was daraus geworden ist."
+				},
+				{
+					"speaker": "lich",
+					"text": "Genug. Den Stein."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Du bekommst ihn nicht.",
+					"action": "cutscene:wind_shield",
+					"wait": 1.0
+				},
+				{
+					"speaker": "",
+					"text": "Ein Ring aus Wind erhebt sich um den Ältesten und den Kristall. Der Lich hebt die Hand. In ihr glüht es braun.",
+					"action": "cutscene:lich_stone_glow",
+					"hide_for": 1.0
+				},
+				{
+					"speaker": "lich",
+					"text": "Der Stein der Erde. Er erinnert sich, wie man Bäume bricht."
+				},
+				{
+					"speaker": "",
+					"text": "Ein Blitz. Der Ring aus Wind zerreißt, der Älteste und Faelan stürzen zu Boden.",
+					"action": "cutscene:lich_strike;set_flag:elder_fallen",
+					"wait": 1.4
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich stelle mich vor den Kristall.",
+					"then": "lich_attack_stand"
+				},
+				{
+					"text": "Ich werfe meinen Hammer!",
+					"then": "lich_attack_hammer"
+				}
+			]
+		},
+		"lich_attack_hammer": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du wirfst deinen Hammer. Er fliegt gut. Wirklich gut. Und prallt einen Schritt vor dem Lich an etwas Unsichtbarem ab.",
+					"action": "cutscene:hammer_bounce",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "player",
+					"text": "... Okay. Plan B."
+				}
+			],
+			"then": "lich_attack_stand"
+		},
+		"crisis_council": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Am Morgen sitzen alle auf der Spitze zusammen. Der Älteste trägt einen Verband um die Stirn. Wo der Kristall schwebte, ist nur noch Luft."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "king",
+					"text": "Meine Soldaten haben unten gekämpft wie die Löwen. Und trotzdem ..."
+				},
+					{
+						"speaker": "king",
+						"if_flag": "elf_defense_won",
+						"text": "Die Elfen haben gekämpft wie die Löwen. Mit Klingen aus deinem Dorf, mein Schmied. Und trotzdem ..."
+					},
+				{
+					"speaker": "faelan",
+					"text": "Trotzdem stand er hier oben. Als hätte ihm jemand den Weg gezeigt."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Er hat es selbst gesagt: Jemand hat ihm verraten, wo er suchen muss. Einer von euch, Mensch."
+				},
+				{
+					"speaker": "lake",
+					"text": "Pass auf, was du sagst, Elf. Ich habe die ganze Nacht die Ostbrücke gehalten."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "faelan",
+					"text": "Allein. Wie praktisch."
+				},
+					{
+						"speaker": "faelan",
+						"if_flag": "elf_defense_won",
+						"text": "Du kamst spät, Mensch. Sehr spät. Wo warst du bis dahin?"
+					},
+					{
+						"speaker": "lake",
+						"if_flag": "elf_defense_won",
+						"text": "Auf der Ostbrücke. Wie ich gesagt habe. Und am Ende hier, bei deinem Ältesten. Wo warst du, Elf? Am Boden."
+					},
+				{
+					"speaker": "king",
+					"text": "Genug. Wir suchen keine Schuldigen, wir suchen Steine. Streiten können wir, wenn der Lich besiegt ist."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "magician",
+					"text": "Der König hat recht. Das Heer des Lichs ist größer als zuvor. Und er hat jetzt zwei Steine. Erde und Wind."
+				},
+					{
+						"speaker": "magician",
+						"if_flag": "elf_defense_won",
+						"text": "Der König hat recht. Der Lich ist geflohen, nicht besiegt. Er hat nur den Stein der Erde. Und er wird wiederkommen."
+					},
+					{
+						"speaker": "elf_elder",
+						"if_flag": "elf_defense_won",
+						"text": "Darum bleibt der Wind nicht hier. Der Lich weiß jetzt, wo er liegt."
+					},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"text": "Der Älteste löst den Windkristall aus seiner Halterung. Er summt leise, als er ihn dir in die Hände legt.",
+						"action": "cutscene:crystal_handover;set_flag:wind_crystal_taken",
+						"wait": 2.4
+					},
+					{
+						"speaker": "elf_elder",
+						"if_flag": "elf_defense_won",
+						"text": "Ihr habt ihn gerettet, Schmied. Ihr sollt entscheiden, wer ihn hütet."
+					},
+					{
+						"speaker": "king",
+						"if_flag": "elf_defense_won",
+						"text": "In meiner Schatzkammer liegt schon das Feuer. Hundert Mann bewachen sie, Tag und Nacht. Gib ihn mir, mein Schmied."
+					},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"text": "Du gibst dem König den Kristall. Er wiegt ihn lange in der Hand. Dann lächelt er.",
+						"action": "cutscene:crystal_to_king;set_flag:wind_crystal_to_king",
+						"wait": 1.4
+					},
+					{
+						"speaker": "faelan",
+						"if_flag": "elf_defense_won",
+						"text": "Elfenwind in einer Menschenkammer."
+					},
+					{
+						"speaker": "elf_elder",
+						"if_flag": "elf_defense_won",
+						"text": "Lieber dort als in der Hand eines Toten, Faelan."
+					},
+				{
+					"speaker": "",
+					"text": "Faelan wirft eine Klinge vor euch auf den Boden. Sie gehörte einem Untoten, der auf der Kronenebene gefallen ist. Kein Rost, keine Scharte.",
+					"action": "cutscene:blade_thrown",
+					"hide_for": 1.0
+				},
+				{
+					"speaker": "faelan",
+					"text": "Zu gut für Tote. Seit wann schmieden Knochen so etwas?"
+				},
+				{
+					"speaker": "",
+					"text": "Du hebst die Klinge auf. Am Ansatz der Klinge ist ein kleines Zeichen eingeschlagen. Dasselbe Zeichen trägst du auf deinen Meisterhandschuhen.",
+					"action": "cutscene:blade_picked",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "player",
+					"text": "Das ist sein Zeichen. Das Zeichen des Schmieds aus meinem Dorf. Dessen Handschuhe ich trage."
+				},
+				{
+					"speaker": "magician",
+					"text": "Die Untoten haben deine Schmiede ausgeräumt, nicht wahr? Dann haben sie wohl auch alte Klingen von ihm gefunden. Ein Toter nimmt, was er kriegt."
+				},
+				{
+					"speaker": "player",
+					"text": "... Ja. Wahrscheinlich."
+				},
+				{
+					"speaker": "",
+					"text": "Du sagst nichts mehr. Aber du legst die Klinge nicht sofort wieder hin.",
+					"action": "set_flag:master_mark_seen"
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "player",
+					"text": "Und wir haben ein Viertel einer Karte. Und einen Kristall in der Schatzkammer. Das ist ... ein Anfang? Ein kleiner? Ein sehr kleiner Anfang."
+				},
+					{
+						"speaker": "player",
+						"if_flag": "elf_defense_won",
+						"text": "Und wir haben ein Viertel einer Karte. Und zwei Kristalle in der Schatzkammer. Das ist ... ein Anfang? Ein kleiner?"
+					},
+				{
+					"speaker": "king",
+					"text": "Ein Viertel. Drei Teile fehlen uns. Lake sucht sie seit Wochen."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Einer davon liegt vor Euch."
+				},
+				{
+					"speaker": "",
+					"text": "Der Älteste zieht eine Rolle aus seinem Gewand. Altes Pergament, die Ränder ausgefranst. Genau wie das Stück aus der Schatzkammer.",
+					"action": "cutscene:act:elf_elder:hold:crystal_map",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Ich war dabei, vor tausend Jahren, als der Dämonenlord fiel. Ich war jünger als Faelan heute."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Der Held sperrte ihn hinter ein Tor, und der Schlüssel bekam neun Steine. Dann trugen wir die Steine in alle Länder."
+				},
+				{
+					"speaker": "player",
+					"text": "Aber warum hat man aufgeschrieben, wo sie liegen? Wer etwas versteckt, malt doch keine Karte. Also, ich würde keine malen."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Weil kein Siegel ewig hält. Alle tausend Jahre wird es schwach. Dann müssen die neun Steine zurück in den Schlüssel, um es zu erneuern. Wer sie aber alle in der Hand hält, kann das Tor stattdessen öffnen."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Darum schrieben wir auf, wo sie liegen. Aber kein Volk sollte sie allein finden. Darum bekam jedes nur sein Stück der Karte."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Die Menschen, wir Elfen, das Volk des Wassers und die Halbdämonen. Vier Völker, vier Stücke."
+				},
+				{
+					"speaker": "magician",
+					"text": "Tausend Jahre. Elarion ... wann genau?"
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Bald. Darum sammelt er jetzt."
+				},
+				{
+					"speaker": "",
+					"text": "Der Älteste legt sein Stück neben das des Königs. Die Ränder passen genau. Zwei Punkte leuchten auf: ein blasser im Osten, wo Sylvaris liegt, und ein gelber weit im Süden.",
+					"action": "cutscene:pieces_match",
+					"hide_for": 2.2
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "elf_elder",
+					"text": "Der Wind war unser Stein. Den hat er jetzt. Der Blitz liegt in der Wüste im Süden, wo genau, weiß niemand. Die Wüste verschluckt jeden, der zu lange sucht."
+				},
+					{
+						"speaker": "elf_elder",
+						"if_flag": "elf_defense_won",
+						"text": "Der Wind war unser Stein. Ihn hütet jetzt Euer König. Der Blitz liegt in der Wüste im Süden, wo genau, weiß niemand. Die Wüste verschluckt jeden, der zu lange sucht."
+					},
+				{
+					"speaker": "elf_elder",
+					"text": "Aber eines weiß ich: Das Volk des Wassers hütet seinen Stein in seiner eigenen Stadt. Den Wasserkristall. Und es hat das dritte Stück der Karte."
+				},
+				{
+					"speaker": "lake",
+					"text": "Die Fischmenschen. Sie lassen niemanden in ihre Stadt."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Ihr Anführer Kahn lässt jeden hinein. Er lässt nur nicht jeden wieder hinaus."
+				},
+				{
+					"speaker": "player",
+					"text": "Super. Klingt einladend. Ich packe schon mal Schwimmflügel ein."
+				},
+				{
+					"speaker": "king",
+					"text": "Dann gehen wir zu Kahn. Aurelius, Lake, mein Schmied. Wir reden mit ihm, bevor es der Lich tut."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Und wir Elfen sitzen nicht herum. Wir suchen das letzte Stück. Bei den Halbdämonen, wenn es sein muss."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Schmied. Du hast dich vor den Kristall gestellt, mit nichts als deinen Händen. Das vergesse ich nicht."
+				},
+					{
+						"speaker": "faelan",
+						"if_flag": "elf_defense_won",
+						"text": "Und deine Klingen haben heute Nacht mehr Elfen gerettet als meine Windwache. Das vergesse ich auch nicht."
+					},
+				{
+					"speaker": "elf_elder",
+					"text": "Nehmt das Stück der Karte mit, Schmied. Ihr sollt es tragen."
+				},
+				{
+					"speaker": "king",
+					"text": "Er? Natürlich. Eine weise Wahl."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Nicht aus Misstrauen, Majestät. Seine Hände wissen, wie man Steine hält."
+				},
+				{
+					"speaker": "player",
+					"text": "Meine Hände wissen vor allem, wie man einen Hammer hält. Aber gut. Ich passe darauf auf."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "",
+					"text": "Die Kristallkarte hat jetzt zwei Stücke. Zwei verlorene Steine, zwei gefundene Kartenteile. Und irgendwo am Meer eine Stadt des Wasservolks."
+				},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"text": "Die Kristallkarte hat jetzt zwei Stücke. Ein verlorener Stein, ein geretteter, zwei Kartenteile. Und irgendwo am Meer eine Stadt des Wasservolks."
+					}
+			],
+			"on_end": "set_flag:map_piece_2;set_flag:water_city_next;hint:crystal_map_2;advance:part3_end"
+		},
+		"elder_idle": {
+			"lines": [
+				{
+					"speaker": "elf_elder",
+					"text": "Möge der Wind Euch tragen, Schmied."
+				}
+			]
+		},
+		"elder_ask": {
+			"lines": [
+				{
+					"speaker": "elf_elder",
+					"text": "Seid willkommen auf den Wipfeln von Sylvaris, junger Schmied. Die Kunde aus Leonheim hat der Wind bereits zu uns getragen."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Ein König wird mitten aus seiner Festung geraubt, während alle Wachen schlafen. Und der strahlende Ritter des Lichts war zufällig wieder nicht im Raum. Allein. Wie praktisch."
+				},
+				{
+					"speaker": "player",
+					"text": "Hör auf damit, Faelan. Lake zerfleischt sich gerade selbst vor Schuld, und der König hat ihn persönlich auf die Mauer geschickt. Haben eure Späher etwas gesehen?"
+				},
+				{
+					"speaker": "faelan",
+					"text": "Nein, Schmied. Kein Schatten hat unsere Wälder durchquert, und aus der Luft war keine Spur des Lichs zu entdecken."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Die Bäume schweigen, weil der Tote das Lebendige meidet. Doch mein Gedächtnis reicht weiter zurück als die Kronen dieser Eichen – auch wenn Aurelius behauptet, ich würde langsam vergesslich."
+				},
+				{
+					"speaker": "player",
+					"text": "Aurelius reibt sich meistens nur sein Knie und murmelt über alte Bücher. Was wisst Ihr noch über den Lich?"
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Vor tausend Jahren, als jenes Wesen noch ein Mensch war und einen Namen trug, kam es aus dem fernen Osten. Dort, hinter den Sümpfen, wo das Land fault und selbst das Licht müde wird."
+				},
+				{
+					"speaker": "player",
+					"text": "Schon wieder der Osten, wo alles fault. Langsam ergibt das ein ziemlich unappetitliches Muster."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Sucht jemanden, der mit den Schatten des Ostens vertraut ist, Ihr tapferer Handwerker. Und wisset: Wenn Ihr das Versteck findet, stehen die Bögen von Sylvaris an Eurer Seite."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Richtet Lake aus, dass ich ebenfalls dort sein werde, Schmied. Ich lasse ihn dieses Mal nicht aus den Augen."
+				}
+			],
+			"on_end": "set_flag:asked_elder"
+		},
+		"elder_after": {
+			"lines": [
+				{
+					"speaker": "elf_elder",
+					"text": "Möge der Wind Eure Schritte leiten, junger Schmied. Unsere Klingen und Bögen warten auf Euren Ruf."
+				}
+			]
+		},
+		"fenn_frame_offer": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Du! Gut, dass du da bist! Schau, schau her. Heute fliegt sie. Fenn ist ganz sicher. Fast sicher."
+				},
+				{
+					"speaker": "player",
+					"text": "Das hast du beim letzten Mal auch gesagt. Und beim vorletzten. Ich hab mitgezählt."
+				},
+				{
+					"speaker": "",
+					"text": "Fenn zieht an einem Seil. Die Maschine rollt über die Kante der Plattform.",
+					"action": "cutscene:fade",
+					"wait": 1.0
+				},
+				{
+					"speaker": "",
+					"text": "Ein Knacken. Das Gestell bricht in der Mitte. Die Hälfte segelt in die Baumkrone, die andere fällt nach unten.",
+					"action": "cutscene:act:elf_inventor:crash",
+					"hide_for": 1.2
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "... Sie ist geflogen. Ein Stück. Fenn findet, nach unten zählt auch. Oder?"
+				},
+				{
+					"speaker": "player",
+					"text": "Technisch gesehen ja. Das nennt man Schwerkraft. Die funktioniert bei dir hervorragend."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Das Holz ist schuld! Holz biegt sich im Wind, und dann bricht es. Fenn braucht Metall. Leichtes Metall. Silber!"
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Aber kein gewöhnliches. Fenn hat es dreimal mit gekauftem Silber probiert. Dreimal kaputt. Es muss selten sein, mindestens. Kannst du so was?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich bau dir ein Gestell",
+					"action": "set_flag:fenn_frame_accepted;unlock_recipes:flight_frame",
+					"then": "fenn_frame_accepted"
+				},
+				{
+					"text": "Ich hätte da ein Kissen für unten",
+					"then": "fenn_frame_pillow"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"fenn_frame_pillow": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Das Kissen! Liegt schon da. Siehst du? Es hat nichts gebracht. Fenn ist daneben gefallen."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Also: Gestell. Ja? Bitte? Fenn ist auch ganz still, solange du schmiedest. Fast ganz."
+				}
+			],
+			"choices": [
+				{
+					"text": "Na gut, ich bau dir eins",
+					"action": "set_flag:fenn_frame_accepted;unlock_recipes:flight_frame",
+					"then": "fenn_frame_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"fenn_frame_accepted": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Ja! JA! Eine Silberplatte für den Rumpf, ein Stiel als Mast, zwei Seile zum Verspannen. Hat Fenn alles aufgezeichnet!"
+				},
+				{
+					"speaker": "player",
+					"text": "Silberplatte, Stiel, zwei Seile. An der Werkbank. Und es muss selten sein. Schon klar, kein Druck."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Gar kein Druck! Nur Fenns Lebenstraum. Beeil dich!"
+				}
+			]
+		},
+		"fenn_frame_hand_in": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Hast du es? Das Gestell? Zeig es Fenn, zeig!"
+				}
+			],
+			"choices": [
+				{
+					"text": "Gestell geben",
+					"action": "hand_in_set:fenn_frame",
+					"then": "fenn_frame_done",
+					"else": "fenn_frame_weak"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"fenn_frame_weak": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Nein, nein, nein. Das hält nicht. Unter selten bricht es, Fenn hat es dreimal gesehen. Von unten."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Ein Fluggestell aus einer Silberplatte, mindestens selten. Sonst sammelt Fenn die Teile wieder aus der Krone."
+				}
+			]
+		},
+		"fenn_frame_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Fenn hängt sich mit seinem ganzen Gewicht an das Gestell. Es biegt sich nicht.",
+					"action": "cutscene:act:elf_inventor:tremble",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Es hält. Es HÄLT! Caladen, siehst du das? Fenns Gestell hält!"
+				},
+				{
+					"speaker": "elf_grumbler",
+					"text": "Ich sehe einen Elfen, der an einem Stück Metall hängt, Fennoriel. Das konnten die Affen im Süden schon immer."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Hör nicht auf ihn. Fenns Mutter sagt, Fenn soll Leute für ihre Arbeit bezahlen. Hier."
+				},
+				{
+					"speaker": "",
+					"text": "Fenn gibt dir 600 Gold.",
+					"action": "cutscene:act:elf_inventor:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				}
+			],
+			"on_end": "give_gold:600;set_flag:fenn_frame_done"
+		},
+		"fenn_wings_hand_in": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Jetzt die Schwingen! Blätter waren dumm. Blätter fallen im Herbst ab, das hätte Fenn wissen müssen."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Fenn braucht Hippogreifleder für die Segel, drei Stück. Acht Harpyienfedern für die Kanten. Und vier Seile."
+				},
+				{
+					"speaker": "player",
+					"text": "Hippogreife und Harpyien. Klar. Ich frag die einfach nett, ob sie was abgeben."
+				}
+			],
+			"choices": [
+				{
+					"text": "Material geben",
+					"action": "take_items:hippogriff_leather*3,harpy_feather*8,rope*4;set_flag:fenn_wings_done",
+					"then": "fenn_wings_thanks",
+					"else": "fenn_wings_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"fenn_wings_missing": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Das reicht nicht. Drei Hippogreifleder, acht Harpyienfedern, vier Seile. Fenn hat es in sein Buch geschrieben. Zweimal."
+				}
+			]
+		},
+		"fenn_wings_thanks": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Fenn spannt die Segel. Die Schwingen breiten sich aus und fangen den Wind. Die Maschine zerrt am Seil.",
+					"action": "cutscene:wings_spread",
+					"hide_for": 1.7
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Sie will! Sie will fliegen! Sie weiß nur nicht wohin. Und womit. Aber Fenn weiß es!"
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Antrieb. Du hast noch keinen Antrieb. Du baust seit hundert Jahren eine Flugmaschine ohne Antrieb?"
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Fenn wollte den Wind nehmen! Aber der Wind hört nicht zu. Fenn braucht einen eigenen. Einen Windorb."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Der Älteste weiß, wo es so was gibt. Er weiß alles. Aber mit Fenn redet er nicht. Mit dir vielleicht. Fragst du ihn? Oben auf der Spitze."
+				}
+			]
+		},
+		"elder_fenn_orb": {
+			"lines": [
+				{
+					"speaker": "elf_elder",
+					"text": "Ihr kommt von Fennoriel, Schmied. Der Wind erzählt mir, dass seine Maschine diesmal ganz geblieben ist. Das ist neu."
+				},
+				{
+					"speaker": "player",
+					"text": "Er braucht einen Antrieb. Einen Windorb. Er sagt, Ihr wüsstet, wo man so etwas findet."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Im Süden, jenseits des Sandes, steht der Tempel des Sturms. Dort haben die Alten einen Sturm gebunden, bevor die Jungen ihre ersten Städte bauten."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Wo der Kristall in der innersten Kammer ruht, bleibt immer ein Rest dieses Sturms zurück. Wer ihn in die Hand nimmt, hält einen Windorb."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Geht mit Bedacht. Und sagt Fennoriel nicht, dass ich ihm geholfen habe. Er würde es nie wieder vergessen. Und das ist bei uns sehr lange."
+				}
+			],
+			"on_end": "set_flag:fenn_orb_search"
+		},
+		"fenn_orb_hand_in": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Und? Hat er geredet? Der Älteste? Hast du einen Windorb für Fenn?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Windorb zeigen",
+					"action": "has_items:wind_orb;set_flag:fenn_orb_done;unlock_recipes:living_wind_orb",
+					"then": "fenn_orb_dead",
+					"else": "fenn_orb_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"fenn_orb_missing": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Noch nicht? Der Älteste weiß, wo einer ist. Frag ihn. Oben auf der Spitze. Er beißt nicht. Glaubt Fenn."
+				}
+			]
+		},
+		"fenn_orb_dead": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Fenn setzt den Windorb in die Mitte des Gestells. Er dreht sich, summt und pfeift. Die Maschine bewegt sich nicht.",
+					"action": "cutscene:orb_spins",
+					"hide_for": 1.5
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Warum? Warum, warum, warum? Der Wind ist da. Die Schwingen sind da. Fenn ist da. Alles ist da!"
+				},
+				{
+					"speaker": "player",
+					"text": "Der Orb dreht sich, aber er weiß nicht, wofür. Wie ein Hammer ohne Schmied. Er braucht jemanden, der ihn führt."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Leben. Sie braucht Leben! Ein Ding ohne Leben fliegt nicht, es fällt nur. Das hat Ithiel mal gesagt. Fenn dachte, sie meint Fenn."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Ithiel hat Herzblatt. Das wächst ganz oben und pocht wie ein Herz. Mit deinem Zaubertisch kannst du es dem Orb einhauchen. Kannst du doch, oder? Fenn glaubt, du kannst alles!"
+				},
+				{
+					"speaker": "",
+					"text": "Fenn gibt dir den Windorb zurück.",
+					"action": "cutscene:act:elf_inventor:give:wind_orb",
+					"hide_for": 1.0
+				}
+			]
+		},
+		"fenn_life_hand_in": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Pocht er? Lebt er? Zeig ihn Fenn!"
+				}
+			],
+			"choices": [
+				{
+					"text": "Beseelten Windorb geben",
+					"action": "take_items:living_wind_orb",
+					"then": "fenn_maiden_flight",
+					"else": "fenn_life_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"fenn_life_missing": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Der Orb muss leben. Ein Herzblatt von Ithiel, und dann an deinen Zaubertisch. Herzblatt und Windorb. Bitte beeil dich, Fenn hält das Warten nicht aus."
+				}
+			]
+		},
+		"fenn_maiden_flight": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Fenn setzt den beseelten Windorb ein. Die Maschine zittert. Dann hebt sie die Schwingen, ganz von allein.",
+					"action": "cutscene:flight_wings",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Steig ein. Schnell! Fenn fliegt los, bevor sie es sich anders überlegt."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich? Da rein? Ich bin Schmied. Wir stehen mit beiden Beinen auf dem Boden. Meistens neben einem Amboss."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Du hast sie gebaut. Du fliegst mit. Das ist das Gesetz. Das hat Fenn gerade gemacht."
+				},
+				{
+					"speaker": "",
+					"text": "Die Maschine stößt sich von der Plattform ab. Sie fällt nicht. Sie steigt, über die Kronen von Sylvaris, bis zur Spitze und weiter.",
+					"action": "cutscene:flight_takeoff",
+					"hide_for": 3.6,
+					"wait": 1.5
+				},
+				{
+					"speaker": "",
+					"text": "Unten stehen Elfen auf den Brücken und schauen nach oben. Als ihr landet, steht Caladen noch immer auf dem Flugfeld."
+				},
+				{
+					"speaker": "elf_grumbler",
+					"text": "Fennoriel. Es ist ... angekommen."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Sie! Sie ist angekommen! Und sie heißt Sternwind. Wie Fenn. Weil sie ein Teil von Fenn ist."
+				},
+				{
+					"speaker": "player",
+					"text": "Und ich hab nur zweimal geschrien. Einmal davon war vor Freude. Glaube ich."
+				},
+				{
+					"speaker": "elf_inventor",
+					"text": "Ab heute fliegt Fenn dich, wohin du willst. Jederzeit! Und das hier ist für dich. Die Hälfte von allem, was Fenn gespart hat."
+				},
+				{
+					"speaker": "",
+					"text": "Fenn gibt dir 1500 Gold. Ab jetzt fliegt er dich vom Flugfeld zu anderen Orten.",
+					"action": "cutscene:act:elf_inventor:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				}
+			],
+			"on_end": "give_gold:1500;set_flag:fenn_flight_done"
+		},
+		"fenn_fly_offer": {
+			"lines": [
+				{
+					"speaker": "elf_inventor",
+					"text": "Sternwind ist bereit! Wohin? Fenn kennt den Weg. Fast immer."
+				}
+			],
+			"choices": [
+				{
+					"text": "Nach Hause",
+					"action": "travel_fade:res://scenes/world/village/village.tscn,FromTeleporter"
+				},
+				{
+					"text": "Nach Leonheim",
+					"action": "travel_fade:res://scenes/world/capital/capital_street.tscn,FromTeleporter"
+				},
+				{
+					"text": "Nach Eisquell",
+					"if_flag": "reached_water_arrival",
+					"action": "travel_fade:res://scenes/world/water/eisquell.tscn,FromTeleporter"
+				},
+				{
+					"text": "Nach Sahrim",
+					"if_flag": "desert_town_found",
+					"action": "travel_fade:res://scenes/world/desert/desert_town.tscn,FromTeleporter"
+				},
+				{
+					"text": "Heute nicht"
+				}
+			]
+		},
+		"elf_grumbler_after": {
+			"lines": [
+				{
+					"speaker": "elf_grumbler",
+					"text": "Er fliegt jetzt jeden Morgen eine Runde um die Spitze, Mensch. Er singt dabei. Laut."
+				},
+				{
+					"speaker": "elf_grumbler",
+					"text": "Ich sage nicht, dass es mir gefällt. Ich sage nur, dass ich es mir ansehe."
+				}
+			]
+		}
+	}
+}

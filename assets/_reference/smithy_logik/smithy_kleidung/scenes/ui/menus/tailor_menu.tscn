@@ -1,0 +1,168 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/tailor_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+
+[node name="TailorMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+title = "Schneiderin"
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -135.0
+offset_right = 210.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("90_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ModeButtons" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="ShopButton" type="Button" parent="Panel/VBox/ModeButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 18)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 11
+toggle_mode = true
+text = "Neue Kleidung kaufen"
+
+[node name="WardrobeButton" type="Button" parent="Panel/VBox/ModeButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 18)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 11
+toggle_mode = true
+text = "Umziehen"
+
+[node name="Body" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="PreviewColumn" type="VBoxContainer" parent="Panel/VBox/Body"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Preview" type="TextureRect" parent="Panel/VBox/Body/PreviewColumn"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+size_flags_vertical = 0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TurnButtons" type="HBoxContainer" parent="Panel/VBox/Body/PreviewColumn"]
+layout_mode = 2
+alignment = 1
+
+[node name="TurnLeftButton" type="Button" parent="Panel/VBox/Body/PreviewColumn/TurnButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 11
+text = "<"
+
+[node name="TurnLabel" type="Label" parent="Panel/VBox/Body/PreviewColumn/TurnButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Drehen"
+
+[node name="TurnRightButton" type="Button" parent="Panel/VBox/Body/PreviewColumn/TurnButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 11
+text = ">"
+
+[node name="Right" type="VBoxContainer" parent="Panel/VBox/Body"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="OutfitTitle" type="Label" parent="Panel/VBox/Body/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 11
+text = "Kleidung"
+
+[node name="Outfits" type="HFlowContainer" parent="Panel/VBox/Body/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+
+[node name="EmptyLabel" type="Label" parent="Panel/VBox/Body/Right"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.78, 0.6, 1)
+theme_override_font_sizes/font_size = 11
+autowrap_mode = 3
+
+[node name="ColorTitle" type="Label" parent="Panel/VBox/Body/Right"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 11
+autowrap_mode = 3
+
+[node name="Colors" type="HFlowContainer" parent="Panel/VBox/Body/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+
+[node name="WheelHolder" type="HBoxContainer" parent="Panel/VBox/Body/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/VBox/Body/Right"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionRow" type="HBoxContainer" parent="Panel/VBox/Body/Right"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PriceLabel" type="Label" parent="Panel/VBox/Body/Right/ActionRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+
+[node name="ActionButton" type="Button" parent="Panel/VBox/Body/Right/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 18)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 11
+text = "Kaufen"
+
+[node name="StatusLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.55, 0.45, 1)
+theme_override_font_sizes/font_size = 11

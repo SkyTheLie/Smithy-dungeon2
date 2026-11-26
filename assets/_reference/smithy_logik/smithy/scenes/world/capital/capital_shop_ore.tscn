@@ -1,0 +1,184 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/capital_shop_ore.png" id="5_room"]
+[ext_resource type="PackedScene" path="res://scenes/actors/market_stall.tscn" id="6_stall"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/shop_counter.png" id="7_counter"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/candelabra.png" id="8_candelabra"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="9_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/city_ore_merchant.png" id="20_merchant"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/crates.png" id="30_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/chest.png" id="31_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/sacks.png" id="32_c"]
+
+[sub_resource type="RectangleShape2D" id="Shape_top"]
+size = Vector2(304, 64)
+
+[sub_resource type="RectangleShape2D" id="Shape_side"]
+size = Vector2(8, 232)
+
+[sub_resource type="RectangleShape2D" id="Shape_bottom"]
+size = Vector2(132, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_prop"]
+size = Vector2(20, 8)
+
+[node name="Shop_ore" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("4_day_tint")
+strength = 0.6
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-152, -116)
+texture = ExtResource("5_room")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -84)
+shape = SubResource("Shape_top")
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-148, 0)
+shape = SubResource("Shape_side")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(148, 0)
+shape = SubResource("Shape_side")
+
+[node name="BottomLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-86, 112)
+shape = SubResource("Shape_bottom")
+
+[node name="BottomRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(86, 112)
+shape = SubResource("Shape_bottom")
+
+[node name="Decor" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Merchant" parent="." instance=ExtResource("6_stall")]
+position = Vector2(0, 0)
+merchant_name = "Erzkontor Brandbart"
+stall_texture = ExtResource("7_counter")
+merchant_texture = ExtResource("20_merchant")
+greeting = "Erz aus den besten Minen des Königreichs! Kupfer, Eisen und Kohle."
+offers = Array[String]([])
+stock_id = "leonheim_ore"
+merchant_feet = -16.0
+
+[node name="CandleW" type="StaticBody2D" parent="Decor"]
+position = Vector2(-128, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CandleW"]
+texture = ExtResource("8_candelabra")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CandleW"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Light" parent="Decor/CandleW" instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+
+[node name="CandleE" type="StaticBody2D" parent="Decor"]
+position = Vector2(128, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CandleE"]
+texture = ExtResource("8_candelabra")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CandleE"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Light" parent="Decor/CandleE" instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+
+[node name="CratesW" type="StaticBody2D" parent="Decor"]
+position = Vector2(-110, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CratesW"]
+texture = ExtResource("30_a")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CratesW"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="CratesE" type="StaticBody2D" parent="Decor"]
+position = Vector2(110, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CratesE"]
+flip_h = true
+texture = ExtResource("30_a")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CratesE"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="ChestW" type="StaticBody2D" parent="Decor"]
+position = Vector2(-110, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ChestW"]
+texture = ExtResource("31_b")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ChestW"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="SackE" type="StaticBody2D" parent="Decor"]
+position = Vector2(110, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/SackE"]
+texture = ExtResource("32_c")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/SackE"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="DoorOut" parent="." instance=ExtResource("2_door")]
+position = Vector2(0, 118)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"From_ore"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromStreet" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 94)
+
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 94)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+
+[editable path="DoorOut"]
+[editable path="Player"]

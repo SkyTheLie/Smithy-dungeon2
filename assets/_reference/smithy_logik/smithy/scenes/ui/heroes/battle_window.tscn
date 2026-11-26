@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/heroes/battle_window.gd" id="1_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+[ext_resource type="Script" path="res://scenes/ui/heroes/battle_stage.gd" id="2_stage"]
+
+[node name="BattleWindow" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -255.0
+offset_top = 46.0
+offset_right = 255.0
+offset_bottom = 320.0
+grow_horizontal = 2
+script = ExtResource("1_window")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="TitleBar" parent="VBox" instance=ExtResource("90_title_bar")]
+layout_mode = 2
+
+[node name="Stage" type="Control" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(496, 112)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_stage")
+
+[node name="Header" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="BackButton" type="Button" parent="VBox/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Zurück zum Dungeon-Brett"
+text = "« Brett"
+
+[node name="GiveUpButton" type="Button" parent="VBox/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Die Helden zurückrufen: Das Abenteuer endet ohne Belohnung."
+text = "Aufgeben"
+
+[node name="HeroesLabel" type="Label" parent="VBox/Header"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Helden"
+
+[node name="StageLabel" type="Label" parent="VBox/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+horizontal_alignment = 1
+
+[node name="DamageTab" type="Button" parent="VBox/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+button_pressed = true
+text = "Schaden"
+
+[node name="BuffsTab" type="Button" parent="VBox/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+text = "Buffs"
+
+[node name="HeroColumns" type="HBoxContainer" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="ResultLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(496, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="RewardRow" type="HBoxContainer" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2

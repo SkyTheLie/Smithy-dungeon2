@@ -1,0 +1,126 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/hall_of_fame.png" id="4_background"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="5_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/objects/house_editor.gd" id="6_editor"]
+[ext_resource type="Script" path="res://scenes/world/smithy/room_style_layer.gd" id="7_style"]
+[ext_resource type="Script" path="res://scenes/world/smithy/hall_plaque.gd" id="8_plaque"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/hall_plaque_menu.tscn" id="9_plaque_menu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_back"]
+size = Vector2(336, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_side"]
+size = Vector2(8, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bottom"]
+size = Vector2(154, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plaque"]
+size = Vector2(28, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plaque_interaction"]
+size = Vector2(36, 28)
+
+[node name="HallOfFame" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-168, -104)
+texture = ExtResource("4_background")
+centered = false
+
+[node name="RoomStyle" type="Node2D" parent="Background"]
+script = ExtResource("7_style")
+room = "hall"
+floor_rect = Rect2(1, 49, 334, 142)
+wall_rect = Rect2(1, 1, 334, 43)
+door_rects = Array[Rect2]([])
+keep_rects = Array[Rect2]([Rect2(58, 3, 21, 38), Rect2(154, 10, 29, 25), Rect2(258, 3, 21, 38)])
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("5_day_tint")
+strength = 0.6
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="BackWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -72)
+shape = SubResource("RectangleShape2D_back")
+
+[node name="WestWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-171, 0)
+shape = SubResource("RectangleShape2D_side")
+
+[node name="EastWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(171, 0)
+shape = SubResource("RectangleShape2D_side")
+
+[node name="BottomWallLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-91, 91)
+shape = SubResource("RectangleShape2D_bottom")
+
+[node name="BottomWallRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(91, 91)
+shape = SubResource("RectangleShape2D_bottom")
+
+[node name="Plaque" type="StaticBody2D" parent="."]
+position = Vector2(0, -54)
+script = ExtResource("8_plaque")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaque"]
+shape = SubResource("RectangleShape2D_plaque")
+
+[node name="InteractionArea" type="Area2D" parent="Plaque"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaque/InteractionArea"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_plaque_interaction")
+
+[node name="HallPlaqueMenu" parent="Plaque" instance=ExtResource("9_plaque_menu")]
+
+[node name="HouseEditor" type="Node2D" parent="."]
+script = ExtResource("6_editor")
+room = "hall"
+floor_rect = Rect2(-164, -54, 328, 140)
+
+[node name="DoorToBedroom" parent="." instance=ExtResource("2_door")]
+position = Vector2(0, 98)
+target_scene = "res://scenes/world/smithy/bedroom.tscn"
+target_spawn_point = &"FromHall"
+
+[node name="Visual" parent="DoorToBedroom" index="0"]
+visible = false
+
+[node name="FromBedroom" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 72)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 72)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[connection signal="body_entered" from="Plaque/InteractionArea" to="Plaque" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Plaque/InteractionArea" to="Plaque" method="_on_interaction_area_body_exited"]
+
+[editable path="DoorToBedroom"]
+[editable path="Player"]

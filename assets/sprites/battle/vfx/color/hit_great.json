@@ -1,0 +1,261 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-zweih-nder 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "sourceSize": {
+    "w": 85,
+    "h": 78
+   },
+   "pivot": {
+    "x": 0.4470588235294118,
+    "y": 0.5897435897435898
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-zweih-nder 1.png",
+   "frame": {
+    "x": 85,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "sourceSize": {
+    "w": 85,
+    "h": 78
+   },
+   "pivot": {
+    "x": 0.4470588235294118,
+    "y": 0.5897435897435898
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-zweih-nder 2.png",
+   "frame": {
+    "x": 170,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "sourceSize": {
+    "w": 85,
+    "h": 78
+   },
+   "pivot": {
+    "x": 0.4470588235294118,
+    "y": 0.5897435897435898
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-zweih-nder 3.png",
+   "frame": {
+    "x": 0,
+    "y": 78,
+    "w": 85,
+    "h": 78
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "sourceSize": {
+    "w": 85,
+    "h": 78
+   },
+   "pivot": {
+    "x": 0.4470588235294118,
+    "y": 0.5897435897435898
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-zweih-nder 4.png",
+   "frame": {
+    "x": 85,
+    "y": 78,
+    "w": 85,
+    "h": 78
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "sourceSize": {
+    "w": 85,
+    "h": 78
+   },
+   "pivot": {
+    "x": 0.4470588235294118,
+    "y": 0.5897435897435898
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-zweih-nder 5.png",
+   "frame": {
+    "x": 170,
+    "y": 78,
+    "w": 85,
+    "h": 78
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "sourceSize": {
+    "w": 85,
+    "h": 78
+   },
+   "pivot": {
+    "x": 0.4470588235294118,
+    "y": 0.5897435897435898
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-zweih-nder 6.png",
+   "frame": {
+    "x": 0,
+    "y": 156,
+    "w": 85,
+    "h": 78
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "sourceSize": {
+    "w": 85,
+    "h": 78
+   },
+   "pivot": {
+    "x": 0.4470588235294118,
+    "y": 0.5897435897435898
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-zweih-nder 7.png",
+   "frame": {
+    "x": 85,
+    "y": 156,
+    "w": 85,
+    "h": 78
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "sourceSize": {
+    "w": 85,
+    "h": 78
+   },
+   "pivot": {
+    "x": 0.4470588235294118,
+    "y": 0.5897435897435898
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-zweih-nder 8.png",
+   "frame": {
+    "x": 170,
+    "y": 156,
+    "w": 85,
+    "h": 78
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 85,
+    "h": 78
+   },
+   "sourceSize": {
+    "w": 85,
+    "h": 78
+   },
+   "pivot": {
+    "x": 0.4470588235294118,
+    "y": 0.5897435897435898
+   },
+   "duration": 63
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-zweih-nder.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 255,
+   "h": 234
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 38,
+   "y": 46
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-zweih-nder",
+    "from": 0,
+    "to": 8,
+    "direction": "forward"
+   }
+  ]
+ }
+}

@@ -1,0 +1,1089 @@
+{
+	"dialogues": {
+		"woodcutter_market": {
+			"lines": [
+				{
+					"speaker": "woodcutter_market",
+					"text": "Hört mal her, Leute! Kann mir jemand eine Axt schmieden? Meine alte ist zerbrochen, und ohne Axt kein Holz."
+				},
+				{
+					"speaker": "",
+					"text": "Die Händler schütteln nur den Kopf. \"Ohne Gold keine Axt, Holger!\""
+				},
+				{
+					"speaker": "woodcutter_market",
+					"text": "Gold hab ich keins, aber ich mach es wieder gut, Ehrenwort! Sobald ich wieder Holz schlagen kann."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich bin Schmied. Mit eigener Schmiede. Seit heute, aber das zählt."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich schmiede dir eine Axt",
+					"action": "accept_quest:woodcutter_axe;set_flag:axe_quest_accepted;advance:find_axe_recipe",
+					"then": "woodcutter_route"
+				},
+				{
+					"text": "Vielleicht später"
+				}
+			]
+		},
+		"woodcutter_route": {
+			"lines": [
+				{
+					"speaker": "woodcutter_market",
+					"text": "Wirklich? Danke! Eine Holzfälleraxt aus Kupfer wäre perfekt."
+				},
+				{
+					"speaker": "woodcutter_market",
+					"text": "Ich warte an meiner Hütte im Wald. Von deiner Schmiede nach Osten zum Dorfplatz, dann nach Süden durch das Dorftor, und an der Kreuzung nach Westen."
+				},
+				{
+					"speaker": "woodcutter_market",
+					"text": "Bis bald, Schmied!"
+				}
+			]
+		},
+		"nina_intro": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "He, du da! Warte mal!"
+				},
+				{
+					"speaker": "nina",
+					"text": "Bist du nicht der, der die alte Schmiede von der Hexe gemietet hat?"
+				},
+				{
+					"speaker": "player",
+					"text": "Von der Hexe? Du meinst Oma Hilde? Ja, das bin ich. Ich heiße {name}."
+				},
+				{
+					"speaker": "nina",
+					"text": "Ich bin Nina. Mir gehört der Laden da oben am Markt, am Ende der Straße nach Norden. Und keine Sorge, Oma Hilde beißt nicht ... meistens."
+				},
+				{
+					"speaker": "nina",
+					"text": "Verkauf deine Waffen bloß nicht bei den Händlern hier. Die sind so geizig, die lassen dir kaum mehr als das Material!"
+				},
+				{
+					"speaker": "nina",
+					"text": "Stell deine Sachen doch in meinem Laden aus. Ich verkaufe sie für dich und behalte nur 15 % Provision."
+				},
+				{
+					"speaker": "player",
+					"text": "Und was verkauft sich bei dir?"
+				},
+				{
+					"speaker": "nina",
+					"text": "Schwerter gehen immer! Bring mir drei Schwerter, dann sehen wir, wie es läuft."
+				}
+			],
+			"choices": [
+				{
+					"text": "Abgemacht!",
+					"action": "set_flag:nina_met;set_flag:nina_shop_unlocked;advance:display_swords",
+					"then": "nina_deal"
+				},
+				{
+					"text": "Ich überlege es mir"
+				}
+			]
+		},
+		"nina_deal": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Sehr schön! Leg die Schwerter in meinem Laden auf die Tische. Das Geld holst du bei mir an der Kasse ab. Bis gleich!"
+				}
+			]
+		},
+		"nina_shop": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Willkommen in meinem Laden! Leg deine Waffen auf die Tische, ich verkaufe sie für dich."
+				}
+			],
+			"choices": [
+				{
+					"text": "Geld abholen",
+					"action": "collect_shop_gold",
+					"then": "nina_paid",
+					"else": "nina_nothing"
+				},
+				{
+					"text": "Tschüss"
+				}
+			]
+		},
+		"nina_paid": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Hier sind deine {shop_gold} Gold, meine Provision hab ich schon abgezogen. Komm bald wieder!"
+				}
+			]
+		},
+		"nina_nothing": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Bisher hat noch niemand etwas gekauft. Hab Geduld!"
+				}
+			]
+		},
+		"nina_sold": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Da bist du ja! Deine Schwerter waren der Renner. Alle drei sind weg!"
+				}
+			],
+			"choices": [
+				{
+					"text": "Geld abholen",
+					"action": "collect_shop_gold",
+					"then": "nina_paid_miner",
+					"else": "nina_chest_miner"
+				}
+			]
+		},
+		"nina_paid_miner": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Hier, {shop_gold} Gold, abzüglich meiner Provision. Ehrlich verdient!"
+				},
+				{
+					"speaker": "nina",
+					"text": "Ach, und noch was: Gustav, der alte Bergmann, sucht einen Schmied. Seine Spitzhacke ist hin."
+				},
+				{
+					"speaker": "nina",
+					"text": "Er wartet vor der Mine: vom Dorfplatz nach Süden, am Dorftor weiter nach Süden und dann nach Osten."
+				},
+				{
+					"speaker": "player",
+					"text": "Spitzhacken kann ich. Danke, Nina, ich schau bei ihm vorbei."
+				}
+			],
+			"on_end": "advance:meet_miner"
+		},
+		"nina_chest_miner": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Dein Geld hab ich dir schon in die Loot-Kiste in deiner Werkstatt gelegt."
+				},
+				{
+					"speaker": "nina",
+					"text": "Ach, und noch was: Gustav, der alte Bergmann, sucht einen Schmied. Seine Spitzhacke ist hin."
+				},
+				{
+					"speaker": "nina",
+					"text": "Er wartet vor der Mine: vom Dorfplatz nach Süden, am Dorftor weiter nach Süden und dann nach Osten."
+				},
+				{
+					"speaker": "player",
+					"text": "Spitzhacken kann ich. Danke, Nina, ich schau bei ihm vorbei."
+				}
+			],
+			"on_end": "advance:meet_miner"
+		},
+		"rumors": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Mitten auf dem Marktplatz stecken zwei Leute die Köpfe zusammen und flüstern."
+				},
+				{
+					"speaker": "gossip_a",
+					"text": "Hast du's schon gehört? Drüben in Birkenfeld ..."
+				},
+				{
+					"speaker": "gossip_b",
+					"text": "Die Orks? Ja! Sie sollen das ganze Dorf überfallen haben."
+				},
+				{
+					"speaker": "gossip_a",
+					"text": "Mitten in der Nacht. Kaum ein Haus steht noch, sagen sie."
+				},
+				{
+					"speaker": "gossip_b",
+					"text": "Birkenfeld ist keine zwei Tagesreisen von hier ..."
+				},
+				{
+					"speaker": "gossip_a",
+					"text": "Pssst! Nicht so laut, da hört jemand zu."
+				},
+				{
+					"speaker": "player",
+					"text": "Orks ... so nah am Dorf?"
+				}
+			],
+			"on_end": "set_flag:heard_rumors;advance:train_hero"
+		},
+		"gossip_idle": {
+			"lines": [
+				{
+					"speaker": "gossip_a",
+					"text": "Schönes Wetter heute, nicht wahr?"
+				}
+			]
+		},
+		"nina_calendar": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Da bist du ja! Weißt du, dass wir mit deinen Waffen schon über 200 Gold umgesetzt haben?"
+				},
+				{
+					"speaker": "nina",
+					"text": "Hier, ein kleines Geschenk: ein Kalender. Damit du deine Fristen nicht verschwitzt."
+				},
+				{
+					"speaker": "",
+					"text": "Du bekommst einen Kalender. Er hängt jetzt in deinem Schlafzimmer.",
+					"action": "cutscene:act:nina:give:res://assets/sprites/props/wall_calendar.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "nina",
+					"text": "Und merk dir den Sonntag: Da steht ein Reisender mit seinem Planwagen vor dem Dorftor, mit Waren, die du sonst nirgends kriegst. Teuer, aber besonders!"
+				}
+			],
+			"on_end": "set_flag:calendar_owned;set_flag:traveler_told;hint:calendar"
+		},
+		"gossip_b_idle": {
+			"lines": [
+				{
+					"speaker": "gossip_b",
+					"text": "Miau ... äh, ich meine: Guten Tag!"
+				}
+			]
+		},
+		"guild_deep_cellar": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Ah, da ist ja der Schmied, dessen Helden neuerdings alle Ratten im Keller platt machen."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Ich bin Hedwig, ich leite hier die Gilde. Ich habe deinen Helden kämpfen sehen. Level 3, nicht schlecht für den Anfang."
+				},
+				{
+					"speaker": "player",
+					"text": "Danke. Aber mit Ratten allein werden wir die Orks nicht aufhalten."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Orks? Ach, du hast das Gerede auf dem Markt gehört. Ob da was dran ist ... Stärker werden schadet jedenfalls nie."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Hör zu: Im Rattenkeller ist letzte Woche eine Wand eingestürzt. Dahinter geht es weiter nach unten. Die Ratten dort sind so groß wie Hunde."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Ich schreibe den Tiefen Rattenkeller ans Brett. Schick deine Leute hin, aber nicht allein und nicht mit leeren Händen!"
+				},
+				{
+					"speaker": "",
+					"text": "Neuer Dungeon auf dem Dungeon-Brett: Tiefer Rattenkeller."
+				}
+			],
+			"on_end": "set_flag:rat_cellar_deep_unlocked;advance:clear_deep_cellar"
+		},
+		"guild_rat_king": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Ein Gang unter dem Tiefen Keller? Dann stimmt es also ... da unten hockt der Rattenkönig."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Ein fettes, gieriges Biest mit einer ganzen Leibgarde. Wer ihn erledigt, hat in diesem Dorf ein Bier frei. Mindestens."
+				},
+				{
+					"speaker": "player",
+					"text": "Und meine Helden?"
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Die brauchen gute Rüstung. Heiltränke hab ich keine, aber einen Schmied haben sie ja."
+				},
+				{
+					"speaker": "",
+					"text": "Das Rattennest steht auf dem Dungeon-Brett."
+				}
+			]
+		},
+		"guild_idle": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Willkommen in der Abenteurergilde! Am Brett hinter mir stehen alle Dungeons. Und am Tresen findest du Leute, die Arbeit suchen."
+				}
+			]
+		},
+		"guild_set_offer": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "He, Schmied! Mir ist zu Ohren gekommen, dass du eine Gussform für Rüstungen gefunden hast."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Weißt du, was meinen Helden am meisten fehlt? Keine Schwerter. Rüstungen! Die Hälfte kommt mit Rattenbissen am ganzen Körper zurück."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Mach mir ein komplettes Kupferset: eine Waffe, einen Helm, eine Rüstung, Handschuhe, einen Beinschutz, Stiefel und einen Schulterschutz."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein ganzes Set? Dafür brauche ich die passenden Gussformen."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Die bekommst du beim Gussform-Händler auf dem Markt, oder deine Helden bringen sie aus den Dungeons mit. Und Leder gibt es aus Rattenfell, wenn du es gerbst."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Bring mir die Teile hierher, gern auch einzeln, sobald eins fertig ist. Wenn das Set komplett ist, gibt es eine ordentliche Prämie."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich schmiede das Set",
+					"action": "set_flag:copper_set_accepted",
+					"then": "guild_set_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"guild_set_hand_in": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Na, wie steht's mit meinem Kupferset? Hast du Teile dabei?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Teile abgeben",
+					"action": "hand_in_set:copper_set",
+					"then": "guild_set_handed",
+					"else": "guild_set_nothing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"guild_set_handed": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Sehr schön, die nehme ich gleich."
+				}
+			],
+			"choices": [
+				{
+					"text": "Weiter",
+					"if_flag": "copper_set_complete",
+					"then": "guild_set_done"
+				},
+				{
+					"text": "Weiter",
+					"unless_flag": "copper_set_complete",
+					"then": "guild_set_more"
+				}
+			]
+		},
+		"guild_set_more": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Den Rest bringst du mir, wenn er fertig ist. Was noch fehlt, steht in deinem Auftragsbuch."
+				}
+			]
+		},
+		"guild_set_nothing": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Hm, ich sehe kein Kupferteil, das mir noch fehlt. Bring mir die Teile im Rucksack mit, nicht an einem Helden."
+				}
+			]
+		},
+		"guild_set_done": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Zeig her ... Helm, Rüstung, Schultern, Handschuhe, Beinschutz, Stiefel und eine Waffe. Alles aus Kupfer!"
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Das ist ehrliche Arbeit. Damit überlebt man auch mal einen Biss von einer Riesenratte."
+				},
+				{
+					"speaker": "",
+					"text": "Hedwig gibt dir 250 Gold.",
+					"action": "cutscene:act:guild_master:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Wenn das so weitergeht, erzähle ich bald jedem Helden in der Gilde von dir."
+				}
+			],
+			"on_end": "give_gold:250;set_flag:copper_set_paid"
+		},
+		"guild_set_accepted": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Abgemacht! Pass auf: Die Brustplatte frisst zwei Barren. Und die Handschuhe kommen bei deinen Helden rechts neben die Rüstung."
+				}
+			]
+		},
+		"holger_saw_lotte": {
+			"lines": [
+				{
+					"speaker": "woodcutter_market",
+					"text": "He, Schmied! Ich bring gerade Holz zum Markt. Deine Axt schlägt jeden Tag ihre Bäume, ganz ohne Murren."
+				},
+				{
+					"speaker": "player",
+					"text": "Freut mich, Holger. Sag mal, hast du Lotte gesehen? Oma Hildes Nichte. Sie ist seit heute früh verschwunden."
+				},
+				{
+					"speaker": "woodcutter_market",
+					"text": "Lotte? Die mit den neuen roten Schuhen? Ja, heute ganz früh, an meiner Hütte! Sie hatte einen Korb dabei und wollte Pilze sammeln."
+				},
+				{
+					"speaker": "woodcutter_market",
+					"text": "Ich hab ihr noch gesagt: Nicht zu tief rein, da hinten sind die Wölfe. Aber sie meinte, die besten Pilze wachsen da, wo keiner hingeht."
+				},
+				{
+					"speaker": "player",
+					"text": "Und sie ist nicht zurückgekommen ..."
+				},
+				{
+					"speaker": "woodcutter_market",
+					"text": "Bei allen Bäumen. Lauf zu Hilde, schnell!"
+				}
+			],
+			"on_end": "set_flag:holger_told;advance:report_grandma"
+		},
+		"festival_gossip": {
+			"lines": [
+				{
+					"speaker": "gossip_a",
+					"text": "Morgen ist es endlich so weit! Das Dorffest!"
+				},
+				{
+					"speaker": "gossip_b",
+					"text": "Ich hab schon meine guten Schuhe geputzt."
+				},
+				{
+					"speaker": "gossip_a",
+					"text": "Glaubst du, er kommt wieder? Der Magier?"
+				},
+				{
+					"speaker": "gossip_b",
+					"text": "Meister Aurelius? Letztes Jahr hat er Tauben aus Feuer gezaubert. Der Bäcker hat drei Tage lang nach verbrannten Federn gerochen."
+				},
+				{
+					"speaker": "gossip_a",
+					"text": "Hoffentlich kommt er. Ohne ihn ist das Fest nur halb so schön."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Magier? Hier im Dorf?"
+				},
+				{
+					"speaker": "gossip_b",
+					"text": "Morgen auf dem Marktplatz, unter dem großen Baum. Da musst du hin!"
+				}
+			],
+			"on_end": "set_flag:heard_festival;advance:festival_eve"
+		},
+		"nina_enchanting": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Nina, weißt du, wie man Waffen verzaubert?"
+				},
+				{
+					"speaker": "nina",
+					"text": "Verzaubern? Ich weiß, wie man sie verkauft! Aber eine verzauberte Klinge ... die würde ein Vermögen bringen."
+				},
+				{
+					"speaker": "nina",
+					"text": "Frag mal Hedwig in der Gilde. Die Abenteurer schleppen allerlei magisches Zeug an."
+				}
+			],
+			"on_end": "set_flag:asked_nina"
+		},
+		"guild_enchanting": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Hedwig, weißt du, wie man verzaubert?"
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Ich? Ich hau Sachen. Mit Magie hab ich nichts am Hut."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Es gab mal einen, der das konnte. Der alte Schmied. Seine Klingen haben im Dunkeln geleuchtet. Aber wie er das gemacht hat, hat er niemandem verraten."
+				}
+			],
+			"on_end": "set_flag:asked_hedwig"
+		},
+		"nina_expansion": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Guten Morgen, Partner! Ich hab Neuigkeiten. Gute Neuigkeiten!"
+				},
+				{
+					"speaker": "nina",
+					"text": "Deine Waffen verkaufen sich wie warme Brötchen. Über 2000 Gold Umsatz! Die Leute kommen von weit her, nur wegen deiner Klingen."
+				},
+				{
+					"speaker": "nina",
+					"text": "Von meinem Anteil hab ich den Laden erweitert: Jetzt passen 6 Waffen auf die Tische. Und ich hab eine Rüstungspuppe! Da kannst du ihr Helm, Rüstung, Stiefel und so weiter anziehen. Alles außer Waffen und Schmuck."
+				},
+				{
+					"speaker": "player",
+					"text": "Und das verkauft sich auch?"
+				},
+				{
+					"speaker": "nina",
+					"text": "Na klar! Es kommen jetzt so viele Kunden, dass jeden Tag mindestens zwei Sachen weggehen. Versprochen."
+				},
+				{
+					"speaker": "nina",
+					"text": "Mach mir die Puppe mal richtig voll, dann sieht der Laden aus wie eine echte Rüstkammer."
+				},
+				{
+					"speaker": "nina",
+					"text": "Weißt du, mit solchen Klingen hättest du früher beim großen Schmiedeturnier antreten können. Wer gewinnt, darf sich Meisterschmied nennen."
+				},
+				{
+					"speaker": "player",
+					"text": "Früher?"
+				},
+				{
+					"speaker": "nina",
+					"text": "Seit der alte Schmied verschwunden ist, richtet es keiner mehr aus. Schade. Ich hätte auf dich gewettet. Mit Provision natürlich."
+				}
+			],
+			"on_end": "expand_nina_shop;set_flag:nina_expanded;hint:nina_expanded"
+		},
+		"nina_dummy_done": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Wow! Die Puppe sieht aus wie ein echter Ritter. Die Kunden bleiben jetzt schon am Fenster stehen."
+				},
+				{
+					"speaker": "nina",
+					"text": "Hier, eine kleine Belohnung, Partner. Sag's keinem."
+				},
+				{
+					"speaker": "",
+					"text": "Nina gibt dir 300 Gold.",
+					"action": "cutscene:act:nina:give:res://assets/sprites/items/coin_purse.png",
+					"hide_for": 1.1
+				}
+			],
+			"on_end": "give_gold:300;set_flag:nina_dummy_paid"
+		},
+		"shoe_window_idea": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Im Schaufenster stehen die roten Kinderschuhe. Weiches Leder, kleine Schnüre aus Seil, eine einfache Sohle."
+				},
+				{
+					"speaker": "player",
+					"text": "Hm. Ein Stück Leder, etwas Seil ... das ist keine Hexerei."
+				},
+				{
+					"speaker": "player",
+					"text": "Ja, das könnte funktionieren."
+				},
+				{
+					"speaker": "",
+					"text": "Neue Rezepte an der Werkbank (Zubehör » Zusatz): Seil (2 Hanf oder 2 Flachs) und Kinderschuhe (1 Leder + 1 Seil)."
+				}
+			],
+			"on_end": "unlock_recipes:rope_hemp,rope_flax,child_shoes;set_flag:shoe_idea;hint:child_shoes;advance:shoes_for_lotte"
+		},
+		"lotte_shop_lesson": {"lines": [{"speaker": "niece", "text": "Hier riecht's nach Kohle! Ist das Erna?"}, {"speaker": "player", "text": "Das ist Erna. Bei ihr gibt es Erz, Kohle und Sand. Du sagst, was du brauchst, sie sagt den Preis, und du zahlst."}, {"speaker": "player", "text": "Und schau immer, wie viel sie noch hat. Was weg ist, ist weg. Bis morgen."}, {"speaker": "niece", "text": "Das kann ich! Das kann ich für dich machen! Du schmiedest, und ich kauf ein."}, {"speaker": "player", "text": "Dann komm jeden Morgen in die Werkstatt. Bis neun Uhr. Wenn ich was brauche, sag ich es dir und geb dir das Gold."}, {"speaker": "niece", "text": "Und ich krieg was dafür? Tante Hilde hat gesagt, ein Lehrling kriegt Lohn."}, {"speaker": "player", "text": "Von jedem Einkauf darfst du ein Zehntel behalten. Ehrlich verdient."}, {"speaker": "niece", "text": "Abgemacht! Handschlag!"}, {"speaker": "niece", "text": "Und weißt du was? Ich kann auch verkaufen! Das ganze Zeug in deiner Loot-Kiste, das du nicht brauchst. Oma Hilde sagt, ich feilsche schon fast so gut wie sie."}, {"speaker": "player", "text": "Gut. Dann leg ich dir in die Loot-Kiste, was weg kann. Du nimmst es morgens mit, und am Tag danach liegt das Gold in der Kiste."}, {"speaker": "niece", "text": "Vier Fünftel für dich, der Rest ist mein Lohn. Wenn ich besser feilschen lerne, kriegst du mehr!"}, {"speaker": "", "text": "Lotte schüttelt dir die Hand und läuft los.", "action": "cutscene:act:player:nod;cutscene:act:niece:hop>run_off", "hide_for": 1.8}], "on_end": "set_flag:lotte_shop_done;set_flag:lotte_errands;hint:lotte_errands"},
+		"mayor_meeting": {
+			"lines": [
+				{
+					"speaker": "mayor",
+					"text": "Ah, du musst {name} sein, der Schmied. Ich bin Wendelin, der Bürgermeister. Danke, dass du gekommen bist."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Otto sagt, du warst in der Nacht hier auf dem Platz. Ich habe mit dem Dorfrat im Keller des Rathauses gesessen, während draußen alles brannte. Ein Bürgermeister gehört zu seinem Dorf, nicht in den Keller. Eine Schande."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Erzähl mir: Was hast du gesehen?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Einen Lich am Lebensbaum.",
+					"then": "mayor_lich"
+				},
+				{
+					"text": "Zombies und Feuer, überall.",
+					"then": "mayor_zombies"
+				}
+			]
+		},
+		"mayor_zombies": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Zombies, mindestens acht. Die Stände haben gebrannt, zwei Häuser hatten Löcher von Feuerbällen."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Zombies laufen nicht einfach so in ein Dorf. Jemand muss sie gerufen haben."
+				},
+				{
+					"speaker": "player",
+					"text": "Da war jemand. Ein Lich, am Lebensbaum."
+				}
+			],
+			"choices": [
+				{
+					"text": "Weiter erzählen",
+					"then": "mayor_lich"
+				}
+			]
+		},
+		"mayor_lich": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Er hatte die Hand im Lebensbaum, grünes Licht ist in seinen Arm geflossen. Dann hat er etwas Leuchtendes herausgerissen, und der Baum ist vor meinen Augen verwelkt."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Der Kern des Baums ... Die Alten haben immer gesagt, der Baum beschützt das Dorf. Ich habe das für Märchen gehalten."
+				},
+				{
+					"speaker": "player",
+					"text": "Bruno hat einen Feuerball abgefangen, der mir galt. Danach hat er sich dem Lich allein in den Weg gestellt. Ohne ihn stünde ich nicht hier."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Einen Helden erkennt man nicht an seinen Worten, sondern an seinem letzten Schritt. Bruno bekommt einen Gedenkstein, hier auf dem Platz. Und Hilde ... sie hat mir jedes Jahr die Standgebühr vorgerechnet, auf die Münze genau. Sie wird mir fehlen."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Aber wir müssen nach vorn schauen. Darf ich vorstellen: Baumeister Konrad. Er baut uns den Marktplatz wieder auf."
+				},
+				{
+					"speaker": "builder",
+					"text": "Tag, Schmied. Hände habe ich genug, und ein paar Zimmerleute aus dem Nachbardorf helfen mit. Aber kein Material."
+				},
+				{
+					"speaker": "builder",
+					"text": "Ohne Nägel hält kein Balken, und ohne Beschläge keine Tür. Ich brauche 20 Holzbretter, 20 Holzbalken, 20 Kupfernägel und 5 Kupferbarren für die Beschläge."
+				},
+				{
+					"speaker": "player",
+					"text": "Das Dorf hat Bruno und Oma Hilde verloren. Ich helfe, wo ich kann."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Das hätte Bruno gefallen. Bring alles zu Konrad, er wartet hier auf dem Markt."
+				}
+			],
+			"on_end": "unlock_recipes:wooden_plank,wooden_beam,copper_nail;advance:rebuild_gather"
+		},
+		"mayor_waiting": {
+			"lines": [
+				{
+					"speaker": "mayor",
+					"text": "Konrad wartet auf dein Material. Ohne Nägel geht hier gar nichts."
+				},
+				{
+					"speaker": "mayor",
+					"if_flag": "asked_coachman",
+					"text": "Jupp sagt, du hast nach der Kutsche gefragt. Erst das Dorf, Schmied. Wer ein Haus baut, fängt nicht beim Dach an."
+				}
+			]
+		},
+		"mayor_working": {
+			"lines": [
+				{
+					"speaker": "mayor",
+					"text": "Hörst du das? Hämmern und Sägen, wohin man hört. Geh schlafen, Schmied, morgen sieht der Platz anders aus."
+				},
+				{
+					"speaker": "mayor",
+					"if_flag": "asked_coachman",
+					"text": "Und wegen der Kutsche: Morgen reden wir darüber. Versprochen."
+				}
+			]
+		},
+		"mayor_thanks": {
+			"lines": [
+				{
+					"speaker": "mayor",
+					"text": "Und? Was sagst du?"
+				},
+				{
+					"speaker": "",
+					"text": "Die Häuser sind repariert, die Brandlöcher geflickt, die Löcher im Pflaster zugeschüttet. Die Händler stehen wieder an ihren Ständen."
+				},
+				{
+					"speaker": "player",
+					"text": "Als wäre nie etwas gewesen."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Fast. Den Baum kriegt keiner wieder grün."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Der Dorfrat dankt dir. Hier, 300 Gold. Nicht viel für das, was du getan hast, aber von Herzen."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Und noch etwas. Was hier geschehen ist, muss der König erfahren. Von jemandem, der dabei war, nicht nur aus einem Brief."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich? Zum König? Ich hab nicht mal ein sauberes Hemd."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Dann kauf dir eins. Ab heute darfst du die Dorfkutsche benutzen, ich sage Jupp Bescheid."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Ich schreibe dem König, dass du kommst. Sobald seine Antwort da ist, fährst du los."
+				},
+				{
+					"speaker": "mayor",
+					"text": "Ein Bote mit einem guten Wort ist mehr wert als zehn Briefe."
+				},
+				{
+					"speaker": "builder",
+					"text": "Gute Arbeit, Schmied. Mir gefällt es hier, ich bleibe in der Gegend. Jeden Dienstag und Donnerstag findest du mich hier auf dem Markt."
+				},
+				{
+					"speaker": "builder",
+					"text": "Wenn du dein Haus ausbauen willst, sprich mich an. Und Otto sagt, du interessierst dich für Zauberkram?"
+				},
+				{
+					"speaker": "builder",
+					"text": "Links neben deiner Schmiede stand früher das Glashaus vom alten Schmied. Für 20 Holzbalken, 20 Scheiben Glas und 500 Gold baue ich dir ein neues."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Gewächshaus? Hm. Wer weiß, wofür ich das mal brauche."
+				},
+				{
+					"speaker": "builder",
+					"text": "Der alte Schmied hat darin allerlei seltsame Kräuter gezogen. Überleg es dir."
+				},
+				{
+					"speaker": "builder",
+					"text": "Ach, übrigens: Heute Morgen war ich im tiefen Wald, Holz aussuchen. Da stand ein alter Mann im Sternenmantel und hat mit den Pilzen geredet."
+				},
+				{
+					"speaker": "builder",
+					"text": "Ein Magier, wenn du mich fragst. Vielleicht weiß der, was man mit deinem Zaubertisch anfängt."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Magier im Wald ... Das kann nur Meister Aurelius sein!"
+				}
+			],
+			"on_end": "give_gold:300;set_flag:builder_weekly;set_flag:greenhouse_offer;set_flag:carriage_allowed;hint:greenhouse;advance:forest_mage"
+		},
+		"mayor_idle": {
+			"lines": [
+				{
+					"speaker": "mayor",
+					"text": "Ein Dorf ist mehr als seine Häuser, Schmied. Aber Häuser helfen."
+				}
+			]
+		},
+		"mage_gossip_return": {
+			"lines": [
+				{
+					"speaker": "gossip_a",
+					"text": "Fritz, Fritz! Weißt du, wen der Sohn vom Jäger heute früh gesehen hat?"
+				},
+				{
+					"speaker": "gossip_b",
+					"text": "Den Bürgermeister, wie er heimlich Kuchen isst?"
+				},
+				{
+					"speaker": "gossip_a",
+					"text": "Nein! Den Zauberer vom Dorffest! Wieder im tiefen Wald, wieder auf allen vieren zwischen den Pilzen."
+				},
+				{
+					"speaker": "gossip_b",
+					"text": "Der kann es einfach nicht lassen."
+				},
+				{
+					"speaker": "player",
+					"text": "Aurelius ist zurück? Den muss ich sofort sprechen!"
+				}
+			],
+			"on_end": "set_flag:heard_mage_return;advance:find_mage_again"
+		},
+		"guild_upgrade_intro": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "He, Schmied! Komm mal her!"
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Seit dem Überfall will jeder zur Gilde. Bauernsöhne, Jäger, sogar der Bäcker! Aber die Halle ist zu klein, und Betten haben wir auch keine."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Ich will anbauen. Schlafsäle, eine Waffenkammer und eine Tafel für Suchtrupps. Dann kommen auch bessere Leute zu uns."
+				},
+				{
+					"speaker": "player",
+					"text": "Und dafür brauchst du mich, weil ... lass mich raten: Nägel."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Nägel, Balken, Kupfer und Gold! 30 Holzbalken, 30 Kupfernägel, 10 Kupferbarren und 1500 Gold."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Dafür kannst du einen Helden mehr anheuern, und meine Suchtrupps holen dir, was du brauchst. Abgemacht?"
+				},
+				{
+					"speaker": "",
+					"text": "Neue Neben-Aufgabe im Auftragsbuch: Die Gilde ausbauen."
+				}
+			],
+			"on_end": "set_flag:guild_upgrade_heard"
+		},
+		"guild_upgrade_missing": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Da fehlt noch was! Steht alles in deinem Auftragsbuch."
+				}
+			]
+		},
+		"guild_upgrade_1": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Na? Hast du das Material für den Anbau?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Alles abgeben (1500 Gold)",
+					"action": "has_items:wooden_beam*30,copper_nail*30,copper_ingot*10;has_gold:1500;take_items:wooden_beam*30,copper_nail*30,copper_ingot*10;pay_gold:1500;set_flag:guild_level_1",
+					"then": "guild_upgrade_1_done",
+					"else": "guild_upgrade_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"guild_upgrade_2": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Na? Bringst du das Material für den zweiten Anbau?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Alles abgeben (5000 Gold)",
+					"action": "has_items:wooden_plank*40,bronze_ingot*15,leather*10;has_gold:5000;take_items:wooden_plank*40,bronze_ingot*15,leather*10;pay_gold:5000;set_flag:guild_level_2",
+					"then": "guild_upgrade_2_done",
+					"else": "guild_upgrade_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"guild_upgrade_3": {
+			"lines": [
+				{
+					"speaker": "guild_master",
+					"text": "Na? Wird das heute noch was mit der größten Gilde im Land?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Alles abgeben (12000 Gold)",
+					"action": "has_items:wooden_beam*40,silver_ingot*15,glass*20;has_gold:12000;take_items:wooden_beam*40,silver_ingot*15,glass*20;pay_gold:12000;set_flag:guild_level_3",
+					"then": "guild_upgrade_3_done",
+					"else": "guild_upgrade_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"guild_upgrade_1_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Hedwig pfeift durch die Finger. Ein halbes Dutzend Abenteurer schnappt sich Balken und Nägel, und schon wird gesägt und gehämmert.",
+					"action": "cutscene:act:guild_master:whistle;cutscene:act:guild_master:build",
+					"hide_for": 2.2
+				},
+				{
+					"speaker": "guild_master",
+					"text": "So! Hinten stehen jetzt Betten. Du kannst einen Helden mehr anheuern, und die Neuen haben schon mal ein Schwert von vorne gesehen."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Und am Tresen gibt's Suchaufträge: Du sagst, was du brauchst, zahlst, und meine Leute legen es dir in ein, zwei Tagen in die Loot-Kiste."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Lieferdienst für Kupferbarren. Ich glaube, ich liebe diese Gilde."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Wenn du mehr willst: Der nächste Anbau braucht 40 Holzbretter, 15 Bronzebarren, 10 Leder und 5000 Gold. Dann kommen richtig gute Leute!"
+				}
+			],
+			"on_end": "hint:guild_search"
+		},
+		"guild_upgrade_2_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Diesmal packt das halbe Dorf mit an. Am Abend hat die Gilde einen zweiten Stock.",
+					"action": "cutscene:act:guild_master:build",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Ha! Sieh dir das an! Noch ein Heldenplatz für dich, und die Leute, die jetzt kommen, haben schon echte Narben."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Meine Suchtrupps sind jetzt zu zweit unterwegs und finden auch feinere Ware."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Einen Anbau hab ich noch im Kopf. 40 Holzbalken, 15 Silberbarren, 20 Glas und 12000 Gold. Dann sind wir die beste Gilde diesseits von Leonheim!"
+				}
+			]
+		},
+		"guild_upgrade_3_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Glasfenster, ein Turm mit Wimpel, eine Waffenkammer voller Ständer. Die kleine Gilde ist nicht wiederzuerkennen.",
+					"action": "cutscene:act:guild_master:build",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Die größte Gilde diesseits von Leonheim! Thora wird grün vor Neid, wenn sie davon hört."
+				},
+				{
+					"speaker": "guild_master",
+					"text": "Noch ein Heldenplatz, erfahrene Kämpfer und drei Suchtrupps, die auch ungewöhnliche Ware finden. Mehr geht nicht. Danke, Schmied!"
+				},
+				{
+					"speaker": "player",
+					"text": "Ich will nur eine Sache: Wenn sie dir ein Denkmal bauen, kommt mein Name auf den Sockel. Klein. Unten. Reicht völlig."
+				}
+			]
+		},
+		"nina_hideout": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Ein Plan. Endlich. Ich hab schon angefangen, Ritter zu zählen."
+				}
+			]
+		},
+		"nina_ruse": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Drei Eisenbarren für mein Schaufenster. Mit deinem Zeichen drauf. Dann sieht es aus, als hättest du alles verkauft."
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier, drei Barren.",
+					"action": "take_items:iron_ingot*3",
+					"then": "nina_ruse_done",
+					"else": "nina_ruse_missing",
+					"unless_flag": "ruse_nina"
+				},
+				{
+					"text": "Gleich."
+				}
+			]
+		},
+		"nina_ruse_missing": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Ich zähle beruflich, Schmied. Das sind keine drei."
+				}
+			]
+		},
+		"nina_ruse_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du gibst Nina drei Eisenbarren. Sie zählt sie nach, zweimal.",
+					"action": "cutscene:act:player:give:iron_ingot|iron_ingot|iron_ingot;cutscene:act:nina:receive>count:iron_ingot",
+					"hide_for": 4.4
+				},
+				{
+					"speaker": "nina",
+					"text": "Die kommen in die Mitte, gleich neben das Schild ‚Restposten‘. Wer fragt, dem sage ich: Der Schmied wollte Reisegeld. Nach Süden.",
+					"action": "set_flag:ruse_nina"
+				}
+			]
+		},
+		"nina_night": {
+			"lines": [
+				{
+					"speaker": "nina",
+					"text": "Die Barren liegen im Fenster. Einer der Ritter hat schon zweimal hingeschaut."
+				}
+			]
+		}
+	}
+}

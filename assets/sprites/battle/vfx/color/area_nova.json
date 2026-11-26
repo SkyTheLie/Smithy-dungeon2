@@ -1,0 +1,391 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-frostnova 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 1.png",
+   "frame": {
+    "x": 54,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 2.png",
+   "frame": {
+    "x": 108,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 3.png",
+   "frame": {
+    "x": 162,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 4.png",
+   "frame": {
+    "x": 0,
+    "y": 82,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 5.png",
+   "frame": {
+    "x": 54,
+    "y": 82,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 6.png",
+   "frame": {
+    "x": 108,
+    "y": 82,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 7.png",
+   "frame": {
+    "x": 162,
+    "y": 82,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 8.png",
+   "frame": {
+    "x": 0,
+    "y": 164,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 9.png",
+   "frame": {
+    "x": 54,
+    "y": 164,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 10.png",
+   "frame": {
+    "x": 108,
+    "y": 164,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 11.png",
+   "frame": {
+    "x": 162,
+    "y": 164,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 12.png",
+   "frame": {
+    "x": 0,
+    "y": 246,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-frostnova 13.png",
+   "frame": {
+    "x": 54,
+    "y": 246,
+    "w": 54,
+    "h": 82
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 82
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 82
+   },
+   "pivot": {
+    "x": 0.5370370370370371,
+    "y": 0.5121951219512195
+   },
+   "duration": 71
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-frostnova.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 216,
+   "h": 328
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 29,
+   "y": 42
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-frostnova",
+    "from": 0,
+    "to": 13,
+    "direction": "forward"
+   }
+  ]
+ }
+}

@@ -1,0 +1,225 @@
+{
+ "frames": [
+  {
+   "filename": "aura_invulnerable 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 1.png",
+   "frame": {
+    "x": 56,
+    "y": 0,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 2.png",
+   "frame": {
+    "x": 112,
+    "y": 0,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 3.png",
+   "frame": {
+    "x": 168,
+    "y": 0,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 4.png",
+   "frame": {
+    "x": 0,
+    "y": 55,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 5.png",
+   "frame": {
+    "x": 56,
+    "y": 55,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 6.png",
+   "frame": {
+    "x": 112,
+    "y": 55,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 7.png",
+   "frame": {
+    "x": 168,
+    "y": 55,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 8.png",
+   "frame": {
+    "x": 0,
+    "y": 110,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 9.png",
+   "frame": {
+    "x": 56,
+    "y": 110,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 10.png",
+   "frame": {
+    "x": 112,
+    "y": 110,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  },
+  {
+   "filename": "aura_invulnerable 11.png",
+   "frame": {
+    "x": 168,
+    "y": 110,
+    "w": 56,
+    "h": 55
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 55
+   },
+   "pivot": {
+    "x": 0.48214285714285715,
+    "y": 0.8181818181818182
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "both"
+ }
+}

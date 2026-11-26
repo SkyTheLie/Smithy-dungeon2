@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/smithy_room.png" id="1_background"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/barrel.png" id="2_barrel"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/sacks.png" id="3_sacks"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/coal.png" id="4_coal"]
+[ext_resource type="Script" path="res://scenes/world/smithy/room_style_layer.gd" id="rs_layer"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal"]
+size = Vector2(342, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical"]
+size = Vector2(16, 211)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_barrel"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sacks"]
+size = Vector2(20, 6)
+
+[node name="Room" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-163, -106)
+texture = ExtResource("1_background")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="TopCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -66)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="BottomCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 105)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-163, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="RightCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(163, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Barrel" type="StaticBody2D" parent="."]
+position = Vector2(-141, 52)
+
+[node name="Sprite2D" type="Sprite2D" parent="Barrel"]
+position = Vector2(-8, -21)
+texture = ExtResource("2_barrel")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_barrel")
+
+[node name="Sacks" type="StaticBody2D" parent="."]
+position = Vector2(-125, 68)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sacks"]
+position = Vector2(-12, -22)
+texture = ExtResource("3_sacks")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sacks"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_sacks")
+
+[node name="Coal" type="Sprite2D" parent="."]
+position = Vector2(141, -14)
+texture = ExtResource("4_coal")
+offset = Vector2(0, -6)
+
+[node name="RoomStyle" type="Node2D" parent="Background"]
+script = ExtResource("rs_layer")
+room = "smithy_small"
+floor_rect = Rect2(9, 49, 308, 153)
+wall_rect = Rect2(9, 1, 308, 47)
+door_rects = Array[Rect2]([Rect2(109, 16, 17, 32)])
+keep_rects = Array[Rect2]([Rect2(157, 3, 19, 21)])

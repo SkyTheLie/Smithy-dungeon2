@@ -1,0 +1,426 @@
+{
+ "_info": "Battle figure of the paladin (assets/_reference/paladin_battle). <tier>_<pose>.png: 6 frames, feet on row 'feet'; hands per frame: weapon fist, weapon angle (0 = up, + = forward), shield fist.",
+ "frame": 64,
+ "feet": 61,
+ "weapon_class": "one",
+ "tiers": [
+  "bronze",
+  "cloth",
+  "copper",
+  "gold",
+  "iron",
+  "palladium",
+  "platinum",
+  "silver"
+ ],
+ "poses": {
+  "stand": [
+   {
+    "weapon": [
+     40,
+     37
+    ],
+    "angle": 20,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     40,
+     37
+    ],
+    "angle": 20,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     40,
+     37
+    ],
+    "angle": 20,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     40,
+     37
+    ],
+    "angle": 20,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     40,
+     37
+    ],
+    "angle": 20,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     40,
+     37
+    ],
+    "angle": 20,
+    "shield": [
+     25,
+     39
+    ]
+   }
+  ],
+  "walk": [
+   {
+    "weapon": [
+     41,
+     37
+    ],
+    "angle": 5,
+    "shield": [
+     24,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     41,
+     37
+    ],
+    "angle": 5,
+    "shield": [
+     23,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     41,
+     37
+    ],
+    "angle": 5,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     41,
+     36
+    ],
+    "angle": 5,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     41,
+     36
+    ],
+    "angle": 5,
+    "shield": [
+     24,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     41,
+     36
+    ],
+    "angle": 5,
+    "shield": [
+     25,
+     39
+    ]
+   }
+  ],
+  "swing": [
+   {
+    "weapon": [
+     30,
+     15
+    ],
+    "angle": -60,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     30,
+     15
+    ],
+    "angle": -60,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     44,
+     40
+    ],
+    "angle": 110,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     25,
+     44
+    ],
+    "angle": -140,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     23,
+     46
+    ],
+    "angle": -150,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     41,
+     37
+    ],
+    "angle": 20,
+    "shield": [
+     25,
+     39
+    ]
+   }
+  ],
+  "chop": [
+   {
+    "weapon": [
+     31,
+     13
+    ],
+    "angle": -80,
+    "shield": [
+     23,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     31,
+     13
+    ],
+    "angle": -80,
+    "shield": [
+     23,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     45,
+     39
+    ],
+    "angle": 120,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     39,
+     44
+    ],
+    "angle": 150,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     42,
+     40
+    ],
+    "angle": 10,
+    "shield": [
+     24,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     40,
+     36
+    ],
+    "angle": 20,
+    "shield": [
+     24,
+     39
+    ]
+   }
+  ],
+  "thrust": [
+   {
+    "weapon": [
+     32,
+     36
+    ],
+    "angle": 90,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     32,
+     36
+    ],
+    "angle": 90,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     45,
+     37
+    ],
+    "angle": 90,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     48,
+     42
+    ],
+    "angle": 88,
+    "shield": [
+     25,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     44,
+     37
+    ],
+    "angle": 90,
+    "shield": [
+     24,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     42,
+     37
+    ],
+    "angle": 90,
+    "shield": [
+     25,
+     39
+    ]
+   }
+  ],
+  "cast": [
+   {
+    "weapon": [
+     37,
+     36
+    ],
+    "angle": 20,
+    "shield": [
+     24,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     36,
+     22
+    ],
+    "angle": -10,
+    "shield": [
+     24,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     35,
+     15
+    ],
+    "angle": 0,
+    "shield": [
+     24,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     34,
+     16
+    ],
+    "angle": 0,
+    "shield": [
+     24,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     35,
+     16
+    ],
+    "angle": 0,
+    "shield": [
+     24,
+     39
+    ]
+   },
+   {
+    "weapon": [
+     41,
+     36
+    ],
+    "angle": 10,
+    "shield": [
+     25,
+     39
+    ]
+   }
+  ]
+ }
+}

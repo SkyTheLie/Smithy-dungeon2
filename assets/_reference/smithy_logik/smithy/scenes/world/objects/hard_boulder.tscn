@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/hard_boulder.gd" id="1_boulder"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_boulder.png" id="2_texture"]
+
+[sub_resource type="RectangleShape2D" id="Shape_body"]
+size = Vector2(30, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_area"]
+size = Vector2(52, 36)
+
+[node name="HardBoulder" type="StaticBody2D"]
+script = ExtResource("1_boulder")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(0.78, 0.72, 0.8, 1)
+texture = ExtResource("2_texture")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("Shape_body")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -2)
+shape = SubResource("Shape_area")
+
+[node name="HealthBar" type="ColorRect" parent="."]
+offset_left = -12.0
+offset_top = -34.0
+offset_right = 12.0
+offset_bottom = -32.0
+color = Color(0.15, 0.1, 0.1, 1)
+
+[node name="Fill" type="ColorRect" parent="HealthBar"]
+offset_right = 24.0
+offset_bottom = 2.0
+color = Color(0.85, 0.75, 0.4, 1)
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

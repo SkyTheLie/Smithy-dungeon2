@@ -1,0 +1,124 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/minigames/higher_lower_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="2_title_bar"]
+[ext_resource type="PackedScene" path="res://scenes/ui/minigames/playing_card.tscn" id="3_card"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/slot/coin.png" id="4_coin"]
+
+[node name="HigherLowerMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+title = "Höher oder Tiefer"
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 30.0
+offset_right = 115.0
+offset_bottom = 240.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("2_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CoinsRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="Panel/VBox/CoinsRow"]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinsLabel" type="Label" parent="Panel/VBox/CoinsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Rules" type="Label" parent="Panel/VBox"]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+text = "Kommt die nächste Karte höher oder tiefer? Gleich gewinnt er."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Cards" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ShownCard" parent="Panel/VBox/Cards" instance=ExtResource("3_card")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NextCard" parent="Panel/VBox/Cards" instance=ExtResource("3_card")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PotLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="BetRow" type="HBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="BetLabel" type="Label" parent="Panel/VBox/BetRow"]
+layout_mode = 2
+text = "Einsatz:"
+
+[node name="Bets" type="HBoxContainer" parent="Panel/VBox/BetRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="DealButton" type="Button" parent="Panel/VBox/BetRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Austeilen"
+
+[node name="GuessRow" type="HBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="HigherButton" type="Button" parent="Panel/VBox/GuessRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Höher"
+
+[node name="LowerButton" type="Button" parent="Panel/VBox/GuessRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Tiefer"
+
+[node name="TakeButton" type="Button" parent="Panel/VBox/GuessRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Kassieren"
+
+[node name="ResultLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3

@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/jewel_display.gd" id="1_case"]
+
+[node name="JewelDisplay" type="StaticBody2D"]
+script = ExtResource("1_case")

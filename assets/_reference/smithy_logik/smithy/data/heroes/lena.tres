@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Hero" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/hero.gd" id="1_hero"]
+[ext_resource type="Resource" path="res://data/hero_classes/ranger.tres" id="2_class"]
+
+[resource]
+script = ExtResource("1_hero")
+id = &"lena"
+display_name = "Lena"
+hero_class = ExtResource("2_class")
+level = 1
+race = "elf"
+hire_cost = 80
+strength = 3
+agility = 7
+constitution = 4
+intelligence = 2
+wisdom = 3
+resistance = 3

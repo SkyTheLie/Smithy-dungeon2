@@ -1,0 +1,410 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/_template/map_base.tscn" id="map_base"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/homes/fw_house5.png" id="room"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="door"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="night_light"]
+[ext_resource type="Script" path="res://scenes/actors/village_roads.gd" id="roads"]
+[ext_resource type="Script" path="res://scenes/actors/villager_spot.gd" id="spot"]
+[ext_resource type="PackedScene" path="res://scenes/actors/villager.tscn" id="villager"]
+[ext_resource type="Script" path="res://scenes/actors/home_dweller.gd" id="dweller"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/bed_narrow_2.png" id="f_bed_narrow_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/nightstand.png" id="f_nightstand"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/td_stove.png" id="f_td_stove"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/td_counter.png" id="f_td_counter"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/td_fireplace.png" id="f_td_fireplace"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/table_cloth_14.png" id="f_table_cloth_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/chair_side_1.png" id="f_chair_side_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/chair_front_11.png" id="f_chair_front_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/shop_rug_long.png" id="f_shop_rug_long"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/armchair_25.png" id="f_armchair_25"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/td_side_table.png" id="f_td_side_table"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/dark_4.png" id="f_dark_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/dark_0.png" id="f_dark_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/dark_9.png" id="f_dark_9"]
+
+[sub_resource type="RectangleShape2D" id="Rect_0"]
+size = Vector2(256, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_1"]
+size = Vector2(16, 192)
+
+[sub_resource type="RectangleShape2D" id="Rect_2"]
+size = Vector2(16, 192)
+
+[sub_resource type="RectangleShape2D" id="Rect_3"]
+size = Vector2(96, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_4"]
+size = Vector2(96, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_5"]
+size = Vector2(30, 59)
+
+[sub_resource type="RectangleShape2D" id="Rect_6"]
+size = Vector2(15, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_7"]
+size = Vector2(18, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_8"]
+size = Vector2(49, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_9"]
+size = Vector2(40, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_10"]
+size = Vector2(51, 42)
+
+[sub_resource type="RectangleShape2D" id="Rect_11"]
+size = Vector2(11, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_12"]
+size = Vector2(11, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_13"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_14"]
+size = Vector2(24, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_15"]
+size = Vector2(24, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_16"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_17"]
+size = Vector2(32, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_18"]
+size = Vector2(34, 8)
+
+[node name="FwHouse5" instance=ExtResource("map_base")]
+
+[node name="Ground" parent="." index="1"]
+texture = ExtResource("room")
+
+[node name="Top" parent="Bounds"]
+position = Vector2(128, -8)
+
+[node name="Bottom" parent="Bounds"]
+position = Vector2(128, 264)
+
+[node name="Left" parent="Bounds"]
+position = Vector2(-8, 128)
+
+[node name="Right" parent="Bounds"]
+position = Vector2(264, 128)
+
+[node name="FromStart" parent="." index="5"]
+position = Vector2(128, 226)
+
+[node name="Player" parent="." index="6"]
+position = Vector2(128, 226)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -192
+limit_top = -52
+limit_right = 448
+limit_bottom = 308
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1400.0
+offset_bottom = 1400.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall0" type="CollisionShape2D" parent="Walls"]
+position = Vector2(128, 32)
+shape = SubResource("Rect_0")
+
+[node name="Wall1" type="CollisionShape2D" parent="Walls"]
+position = Vector2(8, 160)
+shape = SubResource("Rect_1")
+
+[node name="Wall2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(248, 160)
+shape = SubResource("Rect_2")
+
+[node name="Wall3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(64, 248)
+shape = SubResource("Rect_3")
+
+[node name="Wall4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(192, 248)
+shape = SubResource("Rect_4")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Furniture" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="BedNarrow2" type="StaticBody2D" parent="Furniture"]
+position = Vector2(39, 123)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/BedNarrow2"]
+texture = ExtResource("f_bed_narrow_2")
+offset = Vector2(0, -29.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/BedNarrow2"]
+position = Vector2(0, -29.5)
+shape = SubResource("Rect_5")
+
+[node name="Nightstand" type="StaticBody2D" parent="Furniture"]
+position = Vector2(68, 78)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Nightstand"]
+texture = ExtResource("f_nightstand")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Nightstand"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_6")
+
+[node name="TdStove" type="StaticBody2D" parent="Furniture"]
+position = Vector2(223, 78)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/TdStove"]
+texture = ExtResource("f_td_stove")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/TdStove"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_7")
+
+[node name="NightLight" parent="Furniture/TdStove" instance=ExtResource("night_light")]
+position = Vector2(0, -25.2)
+
+[node name="TdCounter" type="StaticBody2D" parent="Furniture"]
+position = Vector2(182, 78)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/TdCounter"]
+texture = ExtResource("f_td_counter")
+offset = Vector2(0, -21.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/TdCounter"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_8")
+
+[node name="TdFireplace" type="StaticBody2D" parent="Furniture"]
+position = Vector2(129, 78)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/TdFireplace"]
+texture = ExtResource("f_td_fireplace")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/TdFireplace"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_9")
+
+[node name="NightLight" parent="Furniture/TdFireplace" instance=ExtResource("night_light")]
+position = Vector2(0, -28.8)
+
+[node name="TableCloth14" type="StaticBody2D" parent="Furniture"]
+position = Vector2(133, 191)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/TableCloth14"]
+texture = ExtResource("f_table_cloth_14")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/TableCloth14"]
+position = Vector2(0, -21)
+shape = SubResource("Rect_10")
+
+[node name="ChairSide1" type="StaticBody2D" parent="Furniture"]
+position = Vector2(96, 177)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/ChairSide1"]
+texture = ExtResource("f_chair_side_1")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/ChairSide1"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_11")
+
+[node name="ChairSide12" type="StaticBody2D" parent="Furniture"]
+position = Vector2(170, 177)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/ChairSide12"]
+texture = ExtResource("f_chair_side_1")
+offset = Vector2(0, -15.5)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/ChairSide12"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_12")
+
+[node name="ChairFront11" type="StaticBody2D" parent="Furniture"]
+position = Vector2(133, 155)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/ChairFront11"]
+texture = ExtResource("f_chair_front_11")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/ChairFront11"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_13")
+
+[node name="ShopRugLong" type="Sprite2D" parent="Furniture"]
+z_index = -1
+position = Vector2(67, 207)
+texture = ExtResource("f_shop_rug_long")
+offset = Vector2(0, -22)
+
+[node name="Armchair25" type="StaticBody2D" parent="Furniture"]
+position = Vector2(67, 193)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Armchair25"]
+texture = ExtResource("f_armchair_25")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Armchair25"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_14")
+
+[node name="TdSideTable" type="StaticBody2D" parent="Furniture"]
+position = Vector2(93, 185)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/TdSideTable"]
+texture = ExtResource("f_td_side_table")
+offset = Vector2(0, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/TdSideTable"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_15")
+
+[node name="Dark4" type="StaticBody2D" parent="Furniture"]
+position = Vector2(221, 203)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Dark4"]
+texture = ExtResource("f_dark_4")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Dark4"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_16")
+
+[node name="NightLight" parent="Furniture/Dark4" instance=ExtResource("night_light")]
+position = Vector2(0, -22.8)
+
+[node name="Dark0" type="StaticBody2D" parent="Furniture"]
+position = Vector2(219, 153)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Dark0"]
+texture = ExtResource("f_dark_0")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Dark0"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_17")
+
+[node name="Dark9" type="StaticBody2D" parent="Furniture"]
+position = Vector2(38, 235)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Dark9"]
+texture = ExtResource("f_dark_9")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Dark9"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_18")
+
+[node name="DoorOut" parent="." instance=ExtResource("door")]
+position = Vector2(128, 252)
+scale = Vector2(1, 0.5)
+target_scene = "res://scenes/world/finster/finster_west.tscn"
+target_spawn_point = &"FromFwHouse5"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromOutside" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(128, 226)
+
+[node name="Home" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Roads" type="Node2D" parent="Home"]
+script = ExtResource("roads")
+area = Rect2(16, 64, 224, 176)
+clearance = 5.0
+
+[node name="Hub" type="Marker2D" parent="Home/Roads"]
+position = Vector2(128, 226)
+
+[node name="Spots" type="Node2D" parent="Home"]
+
+[node name="Spot0" type="Marker2D" parent="Home/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(39, 135)
+script = ExtResource("spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 18)
+road = NodePath("../../Roads/Hub")
+
+[node name="Spot1" type="Marker2D" parent="Home/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(223, 90)
+script = ExtResource("spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 18)
+road = NodePath("../../Roads/Hub")
+
+[node name="Spot2" type="Marker2D" parent="Home/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(182, 90)
+script = ExtResource("spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 18)
+road = NodePath("../../Roads/Hub")
+
+[node name="Spot3" type="Marker2D" parent="Home/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(129, 90)
+script = ExtResource("spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 18)
+road = NodePath("../../Roads/Hub")
+
+[node name="Spot4" type="Marker2D" parent="Home/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(133, 203)
+script = ExtResource("spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 18)
+road = NodePath("../../Roads/Hub")
+
+[node name="Spot5" type="Marker2D" parent="Home/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(104, 152)
+script = ExtResource("spot")
+kind = 0
+facing = "down"
+duration = Vector2(6, 18)
+road = NodePath("../../Roads/Hub")
+
+[node name="Spot6" type="Marker2D" parent="Home/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(152, 152)
+script = ExtResource("spot")
+kind = 0
+facing = "down"
+duration = Vector2(6, 18)
+road = NodePath("../../Roads/Hub")
+
+[node name="FinResFerryman" parent="Home" node_paths=PackedStringArray("spots", "roads") instance=ExtResource("villager")]
+position = Vector2(39, 135)
+script = ExtResource("dweller")
+resident = "fin_res_ferryman"
+night_key = "FinViolet|fin_res_ferryman|villager"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(3, 8)
+
+[editable path="DoorOut"]
+
+[editable path="Player"]

@@ -1,0 +1,770 @@
+[gd_scene load_steps=54 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_goblin.tscn" id="lamp_goblin"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="5_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/volcano/depth_layer.gd" id="6_depth_layer"]
+[ext_resource type="Script" path="res://scenes/world/volcano/goblin_worker.gd" id="7_goblin_worke"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="8_cave_walls"]
+[ext_resource type="Shader" path="res://scenes/world/volcano/lava.gdshader" id="9_lava"]
+[ext_resource type="Shader" path="res://scenes/world/volcano/haze.gdshader" id="10_haze"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/lavaberg_ground.png" id="11_lavaberg_gro"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/lavaberg_depth.png" id="12_lavaberg_dep"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/lavaberg_lava.png" id="13_lavaberg_lav"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/lavaberg_walk_mask.png" id="14_lavaberg_wal"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/lavaberg_bridge.png" id="15_lavaberg_bri"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_cart.png" id="16_goblin_cart"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_tent_a.png" id="17_goblin_tent_"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_tent_c.png" id="18_goblin_tent_"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_tent_b.png" id="19_goblin_tent_"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_ore_pile.png" id="20_goblin_ore_p"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_crates.png" id="21_goblin_crate"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_campfire.png" id="22_goblin_campf"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_barrel.png" id="23_goblin_barre"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_slag.png" id="24_goblin_slag"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/goblins/pusher_walk.png" id="25_pusher_walk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/goblins/carrier_walk.png" id="26_carrier_walk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/goblins/smith_hammer.png" id="27_smith_hammer"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/goblins/miner_mine.png" id="28_miner_mine"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_boulder_glow.png" id="29_volcano_boul"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_boulder.png" id="30_volcano_boul"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_rocks.png" id="31_volcano_rock"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_stump.png" id="32_volcano_stum"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_dead_tree.png" id="33_volcano_dead"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_vent.png" id="34_volcano_vent"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_columns_a.png" id="35_volcano_colu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_columns_b.png" id="36_volcano_colu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_columns_c.png" id="37_volcano_colu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/ruby_shard_a.png" id="38_ruby_shard_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/ruby_shard_b.png" id="39_ruby_shard_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/ruby_shard_c.png" id="40_ruby_shard_c"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/props/royal_carriage.png" id="92_carriage"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/teleporter.tscn" id="93_teleporter"]
+[sub_resource type="Gradient" id="LightGradient"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.45, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="LightTexture"]
+gradient = SubResource("LightGradient")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="FastNoiseLite" id="Noise"]
+frequency = 0.03
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture"]
+width = 256
+height = 256
+seamless = true
+noise = SubResource("Noise")
+
+[sub_resource type="ShaderMaterial" id="LavaMaterial"]
+shader = ExtResource("9_lava")
+shader_parameter/noise_tex = SubResource("NoiseTexture")
+
+[sub_resource type="ShaderMaterial" id="HazeMaterial"]
+shader = ExtResource("10_haze")
+shader_parameter/noise_tex = SubResource("NoiseTexture")
+
+[sub_resource type="Gradient" id="EmberGradient"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 0.8, 0.4, 0, 1, 0.65, 0.25, 1, 0.9, 0.3, 0.12, 0.8, 0.5, 0.1, 0.05, 0)
+
+[sub_resource type="RectangleShape2D" id="Shape20"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape18"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape12"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape8"]
+size = Vector2(8, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape30"]
+size = Vector2(30, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape10"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_carriage"]
+size = Vector2(150, 16)
+
+[node name="LavaMountain" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("5_day_tint")
+
+[node name="Depth" type="Node2D" parent="."]
+z_index = -30
+script = ExtResource("6_depth_layer")
+factor = 0.78
+anchor = Vector2(512, 1040)
+
+[node name="Floor" type="Sprite2D" parent="Depth"]
+self_modulate = Color(0.62, 0.55, 0.56, 1)
+position = Vector2(-112, -112)
+texture = ExtResource("12_lavaberg_dep")
+centered = false
+
+[node name="Lava" type="Sprite2D" parent="Depth"]
+modulate = Color(0.74, 0.66, 0.62, 1)
+material = SubResource("LavaMaterial")
+position = Vector2(-112, -112)
+texture = ExtResource("13_lavaberg_lav")
+centered = false
+
+[node name="Workers" type="Node2D" parent="Depth"]
+modulate = Color(0.95, 0.88, 0.84, 1)
+y_sort_enabled = true
+
+[node name="GoblinTentA1" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(700, 1000)
+texture = ExtResource("17_goblin_tent_")
+offset = Vector2(0, -7)
+flip_h = false
+
+[node name="GoblinTentC2" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(930, 992)
+texture = ExtResource("18_goblin_tent_")
+offset = Vector2(0, -8)
+flip_h = true
+
+[node name="GoblinTentB3" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(150, 1046)
+texture = ExtResource("19_goblin_tent_")
+offset = Vector2(0, -7)
+flip_h = false
+
+[node name="GoblinOrePile4" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(790, 1062)
+texture = ExtResource("20_goblin_ore_p")
+offset = Vector2(0, -5)
+flip_h = true
+
+[node name="GoblinOrePile5" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(760, 1094)
+texture = ExtResource("20_goblin_ore_p")
+offset = Vector2(0, -5)
+flip_h = false
+
+[node name="GoblinCrates6" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(984, 1096)
+texture = ExtResource("21_goblin_crate")
+offset = Vector2(0, -6)
+flip_h = true
+
+[node name="GoblinCrates7" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(26, 980)
+texture = ExtResource("21_goblin_crate")
+offset = Vector2(0, -6)
+flip_h = false
+
+[node name="GoblinCampfire8" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(862, 1006)
+texture = ExtResource("22_goblin_campf")
+offset = Vector2(0, -5)
+flip_h = true
+
+[node name="GoblinBarrel9" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(1006, 1104)
+texture = ExtResource("23_goblin_barre")
+offset = Vector2(0, -6)
+flip_h = false
+
+[node name="GoblinSlag10" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(684, 1104)
+texture = ExtResource("24_goblin_slag")
+offset = Vector2(0, -6)
+flip_h = true
+
+[node name="GoblinSlag11" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(30, 820)
+texture = ExtResource("24_goblin_slag")
+offset = Vector2(0, -6)
+flip_h = false
+
+[node name="GoblinBarrel12" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(120, 540)
+texture = ExtResource("23_goblin_barre")
+offset = Vector2(0, -6)
+flip_h = true
+
+[node name="Cart" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(635, 1132)
+texture = ExtResource("16_goblin_cart")
+offset = Vector2(0, -8)
+
+[node name="Pusher" type="Node2D" parent="Depth/Workers" node_paths=PackedStringArray("pushed")]
+position = Vector2(620, 1132)
+script = ExtResource("7_goblin_worke")
+sheet = ExtResource("25_pusher_walk")
+frames = 4
+fps = 5.0
+walk_to = Vector2(340, 0)
+speed = 11.0
+rest = 3.0
+pushed = NodePath("../Cart")
+
+[node name="Carrier" type="Node2D" parent="Depth/Workers"]
+position = Vector2(94, 300)
+script = ExtResource("7_goblin_worke")
+sheet = ExtResource("26_carrier_walk")
+frames = 4
+rows = 4
+fps = 5.0
+walk_to = Vector2(0, 280)
+speed = 9.0
+rest = 2.5
+
+[node name="Smith" type="Node2D" parent="Depth/Workers"]
+position = Vector2(40, 650)
+script = ExtResource("7_goblin_worke")
+sheet = ExtResource("27_smith_hammer")
+frames = 7
+fps = 7.0
+
+[node name="Miner" type="Node2D" parent="Depth/Workers"]
+position = Vector2(836, 1050)
+script = ExtResource("7_goblin_worke")
+sheet = ExtResource("28_miner_mine")
+frames = 7
+fps = 7.0
+
+[node name="OreRock" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(814, 1050)
+texture = ExtResource("29_volcano_boul")
+offset = Vector2(0, -11)
+
+[node name="LavaLights" type="Node2D" parent="Depth"]
+
+[node name="Glow1" type="PointLight2D" parent="Depth/LavaLights"]
+position = Vector2(232, 120)
+color = Color(1, 0.45, 0.16, 1)
+energy = 0.9
+texture = SubResource("LightTexture")
+texture_scale = 1.6
+
+[node name="Glow2" type="PointLight2D" parent="Depth/LavaLights"]
+position = Vector2(218, 420)
+color = Color(1, 0.45, 0.16, 1)
+energy = 0.9
+texture = SubResource("LightTexture")
+texture_scale = 1.6
+
+[node name="Glow3" type="PointLight2D" parent="Depth/LavaLights"]
+position = Vector2(226, 700)
+color = Color(1, 0.45, 0.16, 1)
+energy = 0.9
+texture = SubResource("LightTexture")
+texture_scale = 1.6
+
+[node name="Glow4" type="PointLight2D" parent="Depth/LavaLights"]
+position = Vector2(330, 975)
+color = Color(1, 0.45, 0.16, 1)
+energy = 1.1
+texture = SubResource("LightTexture")
+texture_scale = 1.6
+
+[node name="Glow5" type="PointLight2D" parent="Depth/LavaLights"]
+position = Vector2(600, 1010)
+color = Color(1, 0.45, 0.16, 1)
+energy = 0.9
+texture = SubResource("LightTexture")
+texture_scale = 1.6
+
+[node name="Glow6" type="PointLight2D" parent="Depth/LavaLights"]
+position = Vector2(820, 930)
+color = Color(1, 0.45, 0.16, 1)
+energy = 0.9
+texture = SubResource("LightTexture")
+texture_scale = 1.6
+
+[node name="Glow7" type="PointLight2D" parent="Depth/LavaLights"]
+position = Vector2(1040, 1040)
+color = Color(1, 0.45, 0.16, 1)
+energy = 0.9
+texture = SubResource("LightTexture")
+texture_scale = 1.6
+
+[node name="Glow8" type="PointLight2D" parent="Depth/LavaLights"]
+position = Vector2(820, 1185)
+color = Color(1, 0.45, 0.16, 1)
+energy = 0.8
+texture = SubResource("LightTexture")
+texture_scale = 1.6
+
+[node name="CampfireGlow" type="PointLight2D" parent="Depth/LavaLights"]
+position = Vector2(862, 996)
+color = Color(1, 0.6, 0.3, 1)
+energy = 0.8
+texture = SubResource("LightTexture")
+texture_scale = 0.35
+
+[node name="Haze" type="Node2D" parent="."]
+z_index = -20
+script = ExtResource("6_depth_layer")
+factor = 0.9
+anchor = Vector2(512, 1040)
+
+[node name="Smoke" type="ColorRect" parent="Haze"]
+material = SubResource("HazeMaterial")
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 1088.0
+offset_bottom = 1344.0
+mouse_filter = 2
+
+[node name="Embers" type="CPUParticles2D" parent="Haze"]
+position = Vector2(512, 700)
+amount = 140
+lifetime = 5.0
+preprocess = 5.0
+emission_shape = 3
+emission_rect_extents = Vector2(520, 600)
+direction = Vector2(0, -1)
+spread = 25.0
+gravity = Vector2(0, -6)
+initial_velocity_min = 6.0
+initial_velocity_max = 16.0
+scale_amount_min = 1.0
+scale_amount_max = 2.0
+color_ramp = SubResource("EmberGradient")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("11_lavaberg_gro")
+centered = false
+
+[node name="Bridge" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(505, 852)
+texture = ExtResource("15_lavaberg_bri")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource("8_cave_walls")
+mask = ExtResource("14_lavaberg_wal")
+
+[node name="Props" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Rockfall" type="Node2D" parent="Props"]
+y_sort_enabled = true
+
+[node name="BasaltColumns" type="Node2D" parent="Props"]
+y_sort_enabled = true
+
+[node name="BurntGrove" type="Node2D" parent="Props"]
+y_sort_enabled = true
+
+[node name="VentField" type="Node2D" parent="Props"]
+y_sort_enabled = true
+
+[node name="Rubble" type="Node2D" parent="Props"]
+y_sort_enabled = true
+
+[node name="Crystals" type="Node2D" parent="Props"]
+y_sort_enabled = true
+
+[node name="VolcanoBoulderGlow1" type="StaticBody2D" parent="Props/Rockfall"]
+position = Vector2(446, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Rockfall/VolcanoBoulderGlow1"]
+texture = ExtResource("29_volcano_boul")
+offset = Vector2(0, -11)
+flip_h = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Rockfall/VolcanoBoulderGlow1"]
+position = Vector2(0, -2)
+shape = SubResource("Shape20")
+
+[node name="VolcanoBoulderGlow2" type="StaticBody2D" parent="Props/VentField"]
+position = Vector2(940, 620)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/VentField/VolcanoBoulderGlow2"]
+texture = ExtResource("29_volcano_boul")
+offset = Vector2(0, -11)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/VentField/VolcanoBoulderGlow2"]
+position = Vector2(0, -2)
+shape = SubResource("Shape20")
+
+[node name="VolcanoBoulder3" type="StaticBody2D" parent="Props/Rockfall"]
+position = Vector2(400, 136)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Rockfall/VolcanoBoulder3"]
+texture = ExtResource("30_volcano_boul")
+offset = Vector2(0, -11)
+flip_h = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Rockfall/VolcanoBoulder3"]
+position = Vector2(0, -2)
+shape = SubResource("Shape20")
+
+[node name="VolcanoBoulder4" type="StaticBody2D" parent="Props/Rubble"]
+position = Vector2(976, 790)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Rubble/VolcanoBoulder4"]
+texture = ExtResource("30_volcano_boul")
+offset = Vector2(0, -11)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Rubble/VolcanoBoulder4"]
+position = Vector2(0, -2)
+shape = SubResource("Shape20")
+
+[node name="VolcanoRocks6" type="StaticBody2D" parent="Props/Rockfall"]
+position = Vector2(424, 162)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Rockfall/VolcanoRocks6"]
+texture = ExtResource("31_volcano_rock")
+offset = Vector2(0, -10)
+flip_h = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Rockfall/VolcanoRocks6"]
+position = Vector2(0, -2)
+shape = SubResource("Shape18")
+
+[node name="VolcanoRocks7" type="StaticBody2D" parent="Props/Rubble"]
+position = Vector2(950, 804)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Rubble/VolcanoRocks7"]
+texture = ExtResource("31_volcano_rock")
+offset = Vector2(0, -10)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Rubble/VolcanoRocks7"]
+position = Vector2(0, -2)
+shape = SubResource("Shape18")
+
+[node name="VolcanoRocks8" type="StaticBody2D" parent="Props/Rockfall"]
+position = Vector2(474, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Rockfall/VolcanoRocks8"]
+texture = ExtResource("31_volcano_rock")
+offset = Vector2(0, -10)
+flip_h = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Rockfall/VolcanoRocks8"]
+position = Vector2(0, -2)
+shape = SubResource("Shape18")
+
+[node name="VolcanoStump10" type="StaticBody2D" parent="Props/BurntGrove"]
+position = Vector2(512, 578)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/BurntGrove/VolcanoStump10"]
+texture = ExtResource("32_volcano_stum")
+offset = Vector2(0, -11)
+flip_h = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/BurntGrove/VolcanoStump10"]
+position = Vector2(0, -2)
+shape = SubResource("Shape12")
+
+[node name="VolcanoStump11" type="StaticBody2D" parent="Props/BurntGrove"]
+position = Vector2(500, 700)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/BurntGrove/VolcanoStump11"]
+texture = ExtResource("32_volcano_stum")
+offset = Vector2(0, -11)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/BurntGrove/VolcanoStump11"]
+position = Vector2(0, -2)
+shape = SubResource("Shape12")
+
+[node name="VolcanoDeadTree12" type="StaticBody2D" parent="Props/BurntGrove"]
+position = Vector2(468, 586)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/BurntGrove/VolcanoDeadTree12"]
+texture = ExtResource("33_volcano_dead")
+offset = Vector2(0, -11)
+flip_h = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/BurntGrove/VolcanoDeadTree12"]
+position = Vector2(0, -2)
+shape = SubResource("Shape8")
+
+[node name="VolcanoDeadTree13" type="StaticBody2D" parent="Props/BurntGrove"]
+position = Vector2(522, 636)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/BurntGrove/VolcanoDeadTree13"]
+texture = ExtResource("33_volcano_dead")
+offset = Vector2(0, -11)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/BurntGrove/VolcanoDeadTree13"]
+position = Vector2(0, -2)
+shape = SubResource("Shape8")
+
+[node name="VolcanoDeadTree14" type="StaticBody2D" parent="Props/BurntGrove"]
+position = Vector2(470, 690)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/BurntGrove/VolcanoDeadTree14"]
+texture = ExtResource("33_volcano_dead")
+offset = Vector2(0, -11)
+flip_h = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/BurntGrove/VolcanoDeadTree14"]
+position = Vector2(0, -2)
+shape = SubResource("Shape8")
+
+[node name="VolcanoVent15" type="Sprite2D" parent="Props/VentField"]
+position = Vector2(900, 640)
+texture = ExtResource("34_volcano_vent")
+offset = Vector2(0, -9)
+flip_h = false
+
+[node name="VolcanoVent16" type="Sprite2D" parent="Props/VentField"]
+position = Vector2(946, 676)
+texture = ExtResource("34_volcano_vent")
+offset = Vector2(0, -9)
+flip_h = true
+
+[node name="VolcanoVent17" type="Sprite2D" parent="Props/VentField"]
+position = Vector2(884, 702)
+texture = ExtResource("34_volcano_vent")
+offset = Vector2(0, -9)
+flip_h = false
+
+[node name="VolcanoColumnsA18" type="StaticBody2D" parent="Props/BasaltColumns"]
+position = Vector2(790, 236)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/BasaltColumns/VolcanoColumnsA18"]
+texture = ExtResource("35_volcano_colu")
+offset = Vector2(0, -17)
+flip_h = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/BasaltColumns/VolcanoColumnsA18"]
+position = Vector2(0, -2)
+shape = SubResource("Shape30")
+
+[node name="VolcanoColumnsB19" type="StaticBody2D" parent="Props/BasaltColumns"]
+position = Vector2(826, 314)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/BasaltColumns/VolcanoColumnsB19"]
+texture = ExtResource("36_volcano_colu")
+offset = Vector2(0, -16)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/BasaltColumns/VolcanoColumnsB19"]
+position = Vector2(0, -2)
+shape = SubResource("Shape30")
+
+[node name="VolcanoColumnsC20" type="StaticBody2D" parent="Props/BasaltColumns"]
+position = Vector2(800, 276)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/BasaltColumns/VolcanoColumnsC20"]
+texture = ExtResource("37_volcano_colu")
+offset = Vector2(0, -18)
+flip_h = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/BasaltColumns/VolcanoColumnsC20"]
+position = Vector2(0, -2)
+shape = SubResource("Shape30")
+
+[node name="VolcanoColumnsA21" type="StaticBody2D" parent="Props/BasaltColumns"]
+position = Vector2(862, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/BasaltColumns/VolcanoColumnsA21"]
+texture = ExtResource("35_volcano_colu")
+offset = Vector2(0, -17)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/BasaltColumns/VolcanoColumnsA21"]
+position = Vector2(0, -2)
+shape = SubResource("Shape30")
+
+[node name="RubyShardA22" type="StaticBody2D" parent="Props/Crystals"]
+position = Vector2(924, 506)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crystals/RubyShardA22"]
+texture = ExtResource("38_ruby_shard_a")
+offset = Vector2(0, -9)
+flip_h = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crystals/RubyShardA22"]
+position = Vector2(0, -2)
+shape = SubResource("Shape10")
+
+[node name="RubyShardB23" type="StaticBody2D" parent="Props/Crystals"]
+position = Vector2(998, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crystals/RubyShardB23"]
+texture = ExtResource("39_ruby_shard_b")
+offset = Vector2(0, -7)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crystals/RubyShardB23"]
+position = Vector2(0, -2)
+shape = SubResource("Shape10")
+
+[node name="RubyShardC24" type="Sprite2D" parent="Props/Crystals"]
+position = Vector2(776, 148)
+texture = ExtResource("40_ruby_shard_c")
+offset = Vector2(0, -8)
+flip_h = false
+
+[node name="Lights" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="FirePoleWest" parent="Lights" instance=ExtResource("lamp_goblin")]
+position = Vector2(494, 836)
+facing = "east"
+
+[node name="FirePoleEast" parent="Lights" instance=ExtResource("lamp_goblin")]
+position = Vector2(562, 836)
+facing = "west"
+
+[node name="FissureGlow1" type="PointLight2D" parent="Lights"]
+position = Vector2(595, 400)
+color = Color(1, 0.5, 0.2, 1)
+energy = 0.7
+texture = SubResource("LightTexture")
+texture_scale = 0.45
+
+[node name="FissureGlow2" type="PointLight2D" parent="Lights"]
+position = Vector2(790, 690)
+color = Color(1, 0.5, 0.2, 1)
+energy = 0.7
+texture = SubResource("LightTexture")
+texture_scale = 0.45
+
+[node name="FissureGlow3" type="PointLight2D" parent="Lights"]
+position = Vector2(480, 635)
+color = Color(1, 0.5, 0.2, 1)
+energy = 0.7
+texture = SubResource("LightTexture")
+texture_scale = 0.45
+
+[node name="FissureGlow4" type="PointLight2D" parent="Lights"]
+position = Vector2(784, 300)
+color = Color(1, 0.5, 0.2, 1)
+energy = 0.7
+texture = SubResource("LightTexture")
+texture_scale = 0.45
+
+[node name="FissureGlow5" type="PointLight2D" parent="Lights"]
+position = Vector2(640, 542)
+color = Color(1, 0.5, 0.2, 1)
+energy = 0.7
+texture = SubResource("LightTexture")
+texture_scale = 0.45
+
+[node name="FissureGlow6" type="PointLight2D" parent="Lights"]
+position = Vector2(950, 760)
+color = Color(1, 0.5, 0.2, 1)
+energy = 0.7
+texture = SubResource("LightTexture")
+texture_scale = 0.45
+
+[node name="FissureGlow7" type="PointLight2D" parent="Lights"]
+position = Vector2(754, 196)
+color = Color(1, 0.5, 0.2, 1)
+energy = 0.7
+texture = SubResource("LightTexture")
+texture_scale = 0.45
+
+[node name="CaveGlow" type="PointLight2D" parent="Lights"]
+position = Vector2(960, 480)
+color = Color(1, 0.25, 0.25, 1)
+energy = 0.7
+texture = SubResource("LightTexture")
+texture_scale = 0.5
+
+[node name="DoorToCave" parent="." instance=ExtResource("2_door")]
+position = Vector2(960, 486)
+scale = Vector2(0.7, 0.5)
+target_scene = "res://scenes/world/volcano/crystal_cave.tscn"
+target_spawn_point = &"FromLavaberg"
+
+[node name="Visual" parent="DoorToCave" index="0"]
+visible = false
+
+[node name="FromCave" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(960, 524)
+
+[node name="FromSouth" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(528, 1208)
+
+[node name="DoorToGoblinCave" parent="." instance=ExtResource("2_door")]
+position = Vector2(684, 98)
+scale = Vector2(2, 0.5)
+target_scene = "res://scenes/world/volcano/goblin_cave.tscn"
+target_spawn_point = &"FromLavaberg"
+
+[node name="Visual" parent="DoorToGoblinCave" index="0"]
+visible = false
+
+[node name="FromGoblinCave" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(684, 140)
+
+[node name="Carriage" type="StaticBody2D" parent="."]
+position = Vector2(250, 1262)
+
+[node name="Sprite2D" type="Sprite2D" parent="Carriage"]
+texture = ExtResource("92_carriage")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carriage"]
+position = Vector2(0, -6)
+shape = SubResource("Shape_carriage")
+
+[node name="CarriageLabel" type="Label" parent="Carriage"]
+offset_left = -60.0
+offset_top = -96.0
+offset_right = 60.0
+offset_bottom = -84.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "Kutscher Jupp"
+horizontal_alignment = 1
+
+[node name="ToLeonheim" parent="." instance=ExtResource("2_door")]
+position = Vector2(268, 1240)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"FromCarriage"
+fade = true
+needs_interact = true
+carriage_stop = "lavaberg"
+
+[node name="Visual" parent="ToLeonheim" index="0"]
+visible = false
+
+[node name="FromCarriage" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(380, 1240)
+
+[node name="Teleporter" parent="." instance=ExtResource("93_teleporter")]
+position = Vector2(690, 740)
+spot_id = "lavaberg"
+
+[node name="FromTeleporter" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(640, 748)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(528, 1208)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 1024
+limit_bottom = 1280
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[editable path="DoorToCave"]
+[editable path="DoorToGoblinCave"]
+[editable path="ToLeonheim"]
+[editable path="Player"]

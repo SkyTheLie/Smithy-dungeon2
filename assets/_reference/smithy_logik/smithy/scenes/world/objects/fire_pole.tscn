@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/props/fire_pole_sheet.png" id="1_texture"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="2_anim"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="3_light"]
+
+[sub_resource type="RectangleShape2D" id="Shape_base"]
+size = Vector2(6, 4)
+
+[node name="FirePole" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_texture")
+offset = Vector2(0, -25)
+hframes = 7
+script = ExtResource("2_anim")
+frames_per_second = 9.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("Shape_base")
+
+[node name="NightLight" parent="." instance=ExtResource("3_light")]
+position = Vector2(0, -44)

@@ -1,0 +1,295 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_fortress.tscn" id="lamp_fortress"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="3_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/fortress_throne_ground.png" id="4_fortress_thr"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="5_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/fortress_throne_mask.png" id="6_fortress_thr"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/dark_throne.png" id="8_dark_throne"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="10_night_light"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="11_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/chains.png" id="12_chains"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/lich_still.png" id="13_lich_still"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="14_story_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/king.png" id="15_king"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="16_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="17_hud"]
+[ext_resource type="Script" path="res://scenes/world/fortress/throne_duel_cutscene.gd" id="18_duel"]
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_dark_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "pale"
+hair_style = "short"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_lizard"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_warden"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "ash"
+eye_type = "glowing"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_warden2"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "slate"
+eye_type = "glowing"
+eye_color = "green"
+hair_style = "spiky"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="RectangleShape2D" id="Rect_56x12"]
+size = Vector2(56, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="Rect_20x8"]
+size = Vector2(20, 8)
+
+[node name="FortressThrone" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+color = Color(0.5, 0.45, 0.6, 1)
+script = ExtResource("3_gloom")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-320, -240)
+texture = ExtResource("4_fortress_thr")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-320, -240)
+script = ExtResource("5_cave_walls")
+mask = ExtResource("6_fortress_thr")
+
+[node name="Throne" type="StaticBody2D" parent="."]
+position = Vector2(0, -120)
+
+[node name="Sprite2D" type="Sprite2D" parent="Throne"]
+texture = ExtResource("8_dark_throne")
+offset = Vector2(0, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Throne"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_56x12")
+
+[node name="Brazier1" parent="." instance=ExtResource("lamp_fortress")]
+position = Vector2(-200, -110)
+
+[node name="Brazier2" parent="." instance=ExtResource("lamp_fortress")]
+position = Vector2(200, -110)
+
+[node name="Brazier3" parent="." instance=ExtResource("lamp_fortress")]
+position = Vector2(-200, 150)
+
+[node name="Brazier4" parent="." instance=ExtResource("lamp_fortress")]
+position = Vector2(206, 158)
+
+[node name="Chains" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("11_story_prop")
+hidden_when_flag = "chains_off"
+
+[node name="Post" type="StaticBody2D" parent="Chains"]
+position = Vector2(-150, -86)
+
+[node name="Sprite2D" type="Sprite2D" parent="Chains/Post"]
+texture = ExtResource("12_chains")
+offset = Vector2(0, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chains/Post"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_20x8")
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Lich" parent="People" instance=ExtResource("14_story_npc")]
+position = Vector2(0, -100)
+npc_id = "lich"
+figure_texture = ExtResource("13_lich_still")
+hidden_when_flag = "lich_slain"
+vanish_on_leave = true
+
+[node name="King" parent="People" instance=ExtResource("14_story_npc")]
+position = Vector2(-150, -80)
+npc_id = "king"
+resident = "king"
+hidden_when_flag = "king_left"
+vanish_on_leave = true
+
+[node name="Lake" parent="People" instance=ExtResource("14_story_npc")]
+position = Vector2(-20, -30)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+facing = "up"
+hidden_when_flag = "lake_fallen"
+
+[node name="DarkLake" parent="People" instance=ExtResource("14_story_npc")]
+position = Vector2(-20, -30)
+npc_id = "lake"
+appearance = SubResource("Look_dark_lake")
+resident = "lake_dark"
+facing = "up"
+required_flag = "lake_fallen"
+hidden_when_flag = "king_left"
+vanish_on_leave = true
+
+[node name="Aurelius" parent="People" instance=ExtResource("14_story_npc")]
+position = Vector2(0, 200)
+npc_id = "magician"
+appearance = SubResource("Look_magician")
+resident = "aurelius"
+facing = "up"
+required_flag = "aurelius_burst_in"
+hidden_when_flag = "reached_part5_end"
+
+[node name="Faelan" parent="People" instance=ExtResource("14_story_npc")]
+position = Vector2(36, 186)
+npc_id = "faelan"
+resident = "faelan"
+appearance = SubResource("Look_faelan")
+facing = "up"
+required_flag = "aurelius_burst_in"
+hidden_when_flag = "reached_part5_end"
+
+[node name="Narrator" parent="People" instance=ExtResource("14_story_npc")]
+position = Vector2(0, 180)
+npc_id = "fortress_narrator"
+narrator = true
+keep_dialogue_open = true
+talk_area_scale = Vector2(4, 3)
+
+[node name="DuelCutscene" type="Node2D" parent="."]
+script = ExtResource("18_duel")
+lich = NodePath("../People/Lich")
+lake = NodePath("../People/Lake")
+dark_lake = NodePath("../People/DarkLake")
+narrator = NodePath("../People/Narrator")
+aurelius = NodePath("../People/Aurelius")
+faelan = NodePath("../People/Faelan")
+king = NodePath("../People/King")
+walk_in_path = PackedVector2Array(0, 120, 30, 10)
+
+[node name="ToYard" parent="." instance=ExtResource("16_door")]
+position = Vector2(0, 236)
+target_scene = "res://scenes/world/fortress/fortress_yard.tscn"
+target_spawn_point = &"FromThrone"
+scale = Vector2(3, 1)
+
+[node name="Visual" parent="ToYard" index="0"]
+visible = false
+
+[node name="FromYard" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 190)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 190)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("17_hud")]
+
+[editable path="ToYard"]
+[editable path="Player"]

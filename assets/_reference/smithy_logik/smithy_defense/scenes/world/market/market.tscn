@@ -1,0 +1,1911 @@
+[gd_scene format=3 uid="uid://bvd3jwm07jim8"]
+
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/actors/market_stall.tscn" id="4_stall"]
+[ext_resource type="Texture2D" uid="uid://kxjngjxdilt5" path="res://assets/sprites/maps/market_square_ground.png" id="5_ground"]
+[ext_resource type="Texture2D" uid="uid://bklesodi7dx18" path="res://assets/sprites/market/stalls/herbalist.png" id="10_s_herbalist"]
+[ext_resource type="Texture2D" uid="uid://bsm1jywd006aa" path="res://assets/sprites/market/stalls/enchanter.png" id="11_s_enchanter"]
+[ext_resource type="Texture2D" uid="uid://dl7ew8xm2bqnm" path="res://assets/sprites/market/stalls/ore_trader.png" id="12_s_ore"]
+[ext_resource type="Texture2D" uid="uid://cphy310w6dxfm" path="res://assets/sprites/market/stalls/component_trader.png" id="13_s_component"]
+[ext_resource type="Texture2D" uid="uid://b8a14vax53ide" path="res://assets/sprites/market/stalls/weapon_trader.png" id="14_s_weapon"]
+[ext_resource type="Texture2D" uid="uid://beom1kbymb80g" path="res://assets/sprites/market/stalls/mold_trader.png" id="15_s_mold"]
+[ext_resource type="Texture2D" uid="uid://dkn0xg8114c5y" path="res://assets/sprites/market/stalls/furniture_trader.png" id="16_s_furniture"]
+[ext_resource type="Texture2D" uid="uid://vjgrahuwwan0" path="res://assets/sprites/npcs/herbalist.png" id="20_n_herbalist"]
+[ext_resource type="Texture2D" uid="uid://bku6cj4e0tdq" path="res://assets/sprites/npcs/enchanter.png" id="21_n_enchanter"]
+[ext_resource type="Texture2D" uid="uid://2v6hhoacuf71" path="res://assets/sprites/npcs/ore_trader.png" id="22_n_ore"]
+[ext_resource type="Texture2D" uid="uid://wyacd7fabic6" path="res://assets/sprites/npcs/component_trader.png" id="23_n_component"]
+[ext_resource type="Texture2D" uid="uid://v2wfbdoqalbd" path="res://assets/sprites/npcs/weapon_trader.png" id="24_n_weapon"]
+[ext_resource type="Texture2D" uid="uid://cj5i6433hhsvb" path="res://assets/sprites/npcs/mold_trader.png" id="25_n_mold"]
+[ext_resource type="Texture2D" uid="uid://c8oynreyu0vc2" path="res://assets/sprites/npcs/furniture_trader.png" id="26_n_furniture"]
+[ext_resource type="Texture2D" uid="uid://knbisj75blqo" path="res://assets/sprites/buildings/market_house_a.png" id="30_house_a"]
+[ext_resource type="Texture2D" uid="uid://ce5bwfq345lur" path="res://assets/sprites/buildings/market_house_b.png" id="31_house_b"]
+[ext_resource type="Texture2D" uid="uid://beouyuyofsqmv" path="res://assets/sprites/buildings/market_house_c.png" id="32_house_c"]
+[ext_resource type="Texture2D" uid="uid://jlpobp5ahsqo" path="res://assets/sprites/buildings/market_house_d.png" id="33_house_d"]
+[ext_resource type="Texture2D" uid="uid://cwxdjh0vljc46" path="res://assets/sprites/buildings/market_house_e.png" id="34_house_e"]
+[ext_resource type="Texture2D" uid="uid://dcpkookndc5lc" path="res://assets/sprites/buildings/nina_shop.png" id="35_nina_shop"]
+[ext_resource type="Texture2D" uid="uid://w0el4588svux" path="res://assets/sprites/buildings/guild_hall.png" id="36_guild"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/well.tscn" id="41_well"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/bush.tscn" id="43_bush"]
+[ext_resource type="Texture2D" uid="uid://ckpu7vo83toac" path="res://assets/sprites/props/sacks.png" id="44_sacks"]
+[ext_resource type="Texture2D" uid="uid://cyhuy5dvc3nxc" path="res://assets/sprites/props/barrel.png" id="45_barrel"]
+[ext_resource type="Texture2D" uid="uid://cpqv8ohwulgkr" path="res://assets/sprites/props/crates.png" id="46_crates"]
+[ext_resource type="Texture2D" uid="uid://brrqbthn0up3j" path="res://assets/sprites/objects/tree_of_life.png" id="60_tree"]
+[ext_resource type="Texture2D" uid="uid://dc1lybr078xxd" path="res://assets/sprites/effects/fireflies.png" id="61_fireflies"]
+[ext_resource type="Texture2D" uid="uid://c3d2oihy61t81" path="res://assets/sprites/props/banner_red.png" id="64_banner_red"]
+[ext_resource type="Texture2D" uid="uid://b23h8pw2o5io0" path="res://assets/sprites/props/banner_blue.png" id="65_banner_blue"]
+[ext_resource type="Texture2D" uid="uid://ctbodhwilt3qd" path="res://assets/sprites/npcs/market_guard_a.png" id="66_guard_a"]
+[ext_resource type="Texture2D" uid="uid://bbw06m5spb4dl" path="res://assets/sprites/npcs/market_guard_b.png" id="67_guard_b"]
+[ext_resource type="Script" uid="uid://ds0hynlqqpeua" path="res://scenes/actors/village_roads.gd" id="80_roads"]
+[ext_resource type="Script" uid="uid://c0pf3sbup4rhn" path="res://scenes/actors/villager_spot.gd" id="81_spot"]
+[ext_resource type="PackedScene" path="res://scenes/actors/villager.tscn" id="82_villager"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="90_day_tint"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="91_door"]
+[ext_resource type="Script" uid="uid://xmy5qhn5t30p" path="res://scripts/resources/appearance.gd" id="94_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/magic_sword_blade.png" id="97_magic_sword_blade"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/magic_sword_ground.png" id="97_magic_sword_ground"]
+[ext_resource type="Texture2D" uid="uid://dv5hngp5pn4cy" path="res://assets/sprites/residents/baker.png" id="98_res_baker"]
+[ext_resource type="Texture2D" uid="uid://bh4k6aws3txn4" path="res://assets/sprites/residents/farmer.png" id="98_res_farmer"]
+[ext_resource type="Texture2D" uid="uid://dm6ieeqm7u67p" path="res://assets/sprites/residents/fisher.png" id="98_res_fisher"]
+[ext_resource type="Texture2D" uid="uid://bt0ite3vmos7x" path="res://assets/sprites/residents/flower_girl.png" id="98_res_flower_girl"]
+[ext_resource type="Texture2D" uid="uid://6vije4r5m8jd" path="res://assets/sprites/residents/girl_braids.png" id="98_res_girl_braids"]
+[ext_resource type="Texture2D" uid="uid://dhwx776eyki8s" path="res://assets/sprites/residents/girl_red.png" id="98_res_girl_red"]
+[ext_resource type="Texture2D" uid="uid://bvted8d2w4unl" path="res://assets/sprites/residents/hunter.png" id="98_res_hunter"]
+[ext_resource type="Texture2D" uid="uid://drwfof37c4we4" path="res://assets/sprites/residents/merchant.png" id="98_res_merchant"]
+[ext_resource type="Texture2D" uid="uid://bm7hdjios8r5y" path="res://assets/sprites/residents/milkmaid.png" id="98_res_milkmaid"]
+[ext_resource type="Texture2D" uid="uid://ba2cd2s8p5ioi" path="res://assets/sprites/residents/monk.png" id="98_res_monk"]
+[ext_resource type="Texture2D" uid="uid://bnr5f1ibhiv3o" path="res://assets/sprites/residents/noble.png" id="98_res_noble"]
+[ext_resource type="Texture2D" uid="uid://c4h1yvohyawcc" path="res://assets/sprites/residents/scholar.png" id="98_res_scholar"]
+[ext_resource type="Script" uid="uid://cno422e6auv4r" path="res://scenes/world/objects/story_prop.gd" id="r1_story_prop"]
+[ext_resource type="Script" uid="uid://bs2q8njd7naxe" path="res://scenes/actors/companion.gd" id="r2_companion"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="r3_night_light"]
+[ext_resource type="Texture2D" uid="uid://5ys2out1gem7" path="res://assets/sprites/effects/chimney_smoke.png" id="r4_smoke"]
+[ext_resource type="Script" uid="uid://3btvbhn62ngj" path="res://scenes/world/objects/sheet_animation.gd" id="r5_sheet"]
+[ext_resource type="Script" uid="uid://tvu2hma5xxfa" path="res://scenes/world/objects/story_hider.gd" id="r6_hider"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="r7_story_npc"]
+[ext_resource type="Resource" uid="uid://c512aj1tl676a" path="res://data/heroes/bruno.tres" id="r8_bruno"]
+[ext_resource type="Script" uid="uid://dukjonhreu0lt" path="res://scenes/world/market/raid_tree.gd" id="r10_raid_tree"]
+[ext_resource type="Script" path="res://scenes/world/market/tree_bloom_cutscene.gd" id="tb_bloom_cut"]
+[ext_resource type="Script" uid="uid://fue35om4jyce" path="res://scenes/actors/zombie.gd" id="r11_zombie"]
+[ext_resource type="Texture2D" uid="uid://cn2yereopqoc7" path="res://assets/sprites/props/raid_fire.png" id="r12_fire"]
+[ext_resource type="Texture2D" uid="uid://riody37okevn" path="res://assets/sprites/props/raid_debris.png" id="r13_debris"]
+[ext_resource type="Texture2D" uid="uid://c78hp1mbelawg" path="res://assets/sprites/props/raid_scorch.png" id="r14_scorch"]
+[ext_resource type="Texture2D" uid="uid://dm6pin8214qc1" path="res://assets/sprites/props/raid_stall_wreck.png" id="r15_wreck"]
+[ext_resource type="Texture2D" uid="uid://dxikoq1m8nvrl" path="res://assets/sprites/enemies/lich_cast.png" id="r16_lich_cast"]
+[ext_resource type="Texture2D" uid="uid://b7soi2cplffm2" path="res://assets/sprites/props/tree_heart.png" id="r17_heart"]
+[ext_resource type="Texture2D" uid="uid://31wgskn70nsh" path="res://scenes/world/objects/night_light_texture.tres" id="r18_light_texture"]
+[ext_resource type="Script" uid="uid://dgscivvklgpug" path="res://scenes/world/market/festival_show.gd" id="r19_festival_show"]
+[ext_resource type="Texture2D" uid="uid://da4i0o4x7cc00" path="res://assets/sprites/objects/tree_of_life_wither_1.png" id="r21_wither"]
+[ext_resource type="Texture2D" uid="uid://bkhultajocpbj" path="res://assets/sprites/objects/tree_of_life_wither_2.png" id="r22_wither"]
+[ext_resource type="Texture2D" uid="uid://tvstkgw7nbtd" path="res://assets/sprites/objects/tree_of_life_wither_3.png" id="r23_wither"]
+[ext_resource type="Texture2D" uid="uid://die4bypbyjycq" path="res://assets/sprites/objects/tree_of_life_wither_4.png" id="r24_wither"]
+[ext_resource type="Texture2D" uid="uid://swc5jby15sb5" path="res://assets/sprites/objects/tree_of_life_wither_5.png" id="r25_wither"]
+[ext_resource type="Script" uid="uid://cbesebic18lja" path="res://scenes/world/objects/story_texture.gd" id="r30_story_texture"]
+[ext_resource type="Texture2D" uid="uid://bonslbnq6ane3" path="res://assets/sprites/buildings/market_house_b_burnt.png" id="r31_house_b_burnt"]
+[ext_resource type="Texture2D" uid="uid://cu5wy6wxwm7cr" path="res://assets/sprites/buildings/market_house_d_burnt.png" id="r32_house_d_burnt"]
+[ext_resource type="Texture2D" uid="uid://q8mlt1rjb1yk" path="res://assets/sprites/residents/emma_crying.png" id="r33_emma_crying"]
+[ext_resource type="Resource" path="res://data/heroes/anselm.tres" id="r34_anselm"]
+[ext_resource type="Resource" path="res://data/heroes/gerold.tres" id="r34_gerold"]
+[ext_resource type="Resource" path="res://data/heroes/kira.tres" id="r34_kira"]
+[ext_resource type="Resource" path="res://data/heroes/lena.tres" id="r34_lena"]
+[ext_resource type="Resource" path="res://data/heroes/mira.tres" id="r34_mira"]
+[ext_resource type="PackedScene" path="res://scenes/actors/builder_npc.tscn" id="r40_builder"]
+[ext_resource type="Script" uid="uid://p35onfrk6lx2" path="res://scenes/actors/raid_fighter.gd" id="r40_fighter"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_cherry_a.tscn" id="tree_cherry_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_chestnut_a.tscn" id="tree_chestnut_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_poplar_a.tscn" id="tree_poplar_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_poplar_b.tscn" id="tree_poplar_b"]
+[ext_resource type="Texture2D" uid="uid://dl1h4uhm27060" path="res://assets/sprites/npcs/walk/component_trader.png" id="walk_component_trader"]
+[ext_resource type="Texture2D" uid="uid://du2n24dr0jiio" path="res://assets/sprites/npcs/walk/enchanter.png" id="walk_enchanter"]
+[ext_resource type="Texture2D" uid="uid://d2vgp66l4bxh4" path="res://assets/sprites/npcs/walk/furniture_trader.png" id="walk_furniture_trader"]
+[ext_resource type="Texture2D" uid="uid://6oxpimlgq4vq" path="res://assets/sprites/npcs/walk/herbalist.png" id="walk_herbalist"]
+[ext_resource type="Texture2D" uid="uid://dln234rxk5ejl" path="res://assets/sprites/npcs/walk/mold_trader.png" id="walk_mold_trader"]
+[ext_resource type="Texture2D" uid="uid://cra8u01htaxx5" path="res://assets/sprites/npcs/walk/weapon_trader.png" id="walk_weapon_trader"]
+[ext_resource type="Script" uid="uid://df3rjike61gat" path="res://scenes/world/objects/window_lights.gd" id="window_lights"]
+[ext_resource type="Texture2D" uid="uid://wl3w3a8q1ibg" path="res://assets/sprites/world_props/front_2.png" id="wp_world_props_front_2"]
+[ext_resource type="Texture2D" uid="uid://co21c0lg3rfpf" path="res://assets/sprites/world_props/front_9.png" id="wp_world_props_front_9"]
+[ext_resource type="Texture2D" uid="uid://20ohqo2cweqn" path="res://assets/sprites/world_props/front_18.png" id="wp_world_props_front_18"]
+[ext_resource type="Texture2D" uid="uid://b2kqhpp2b0eni" path="res://assets/sprites/world_props/village_23.png" id="wp_world_props_village_23"]
+[ext_resource type="Script" path="res://scenes/world/market/rebuild_cutscene.gd" id="r90_rebuild_cut"]
+[ext_resource type="Script" path="res://scenes/world/market/raid_charge_cutscene.gd" id="rc_charge"]
+[ext_resource type="Script" path="res://scenes/world/market/guild_building.gd" id="gb_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/buildings/guild_hall_0.png" id="gb_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/buildings/guild_hall_1.png" id="gb_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/buildings/guild_hall_2.png" id="gb_2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal"]
+size = Vector2(1056, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical"]
+size = Vector2(16, 800)
+
+[sub_resource type="RectangleShape2D" id="Shape_HouseC"]
+size = Vector2(93, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_HouseA"]
+size = Vector2(115, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_NinaShop"]
+size = Vector2(143, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_HouseD"]
+size = Vector2(141, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_HouseB"]
+size = Vector2(112, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_Guild"]
+size = Vector2(201, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_HouseE"]
+size = Vector2(123, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_HouseB2"]
+size = Vector2(112, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_HouseA2"]
+size = Vector2(115, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_HouseD2"]
+size = Vector2(141, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_pole"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="Shape_tree"]
+size = Vector2(106, 51)
+
+[sub_resource type="RectangleShape2D" id="Shape_guard"]
+size = Vector2(12, 6)
+
+[sub_resource type="Resource" id="Appearance_nina"]
+script = ExtResource("94_appearance")
+skin = "tan"
+hair_style = "ponytail"
+hair_color = "red"
+eye_type = "big"
+eye_color = "green"
+
+[sub_resource type="Resource" id="Appearance_gossip_a"]
+script = ExtResource("94_appearance")
+skin = "tan"
+hair_style = "long"
+eye_type = "big"
+size = "small"
+
+[sub_resource type="Resource" id="Appearance_gossip_b"]
+script = ExtResource("94_appearance")
+race = "beast_cat"
+hair_color = "black"
+eye_color = "green"
+
+[sub_resource type="Resource" id="Appearance_mayor"]
+script = ExtResource("94_appearance")
+hair_color = "white"
+eye_type = "narrow"
+eye_color = "blue"
+size = "tall"
+outfit = "vest"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Appearance_grandma"]
+script = ExtResource("94_appearance")
+skin = "pale"
+hair_style = "long"
+hair_color = "white"
+eye_type = "sleepy"
+eye_color = "grey"
+size = "small"
+
+[sub_resource type="Resource" id="Appearance_magician"]
+script = ExtResource("94_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Appearance_miner"]
+script = ExtResource("94_appearance")
+outfit = "gustav"
+
+[sub_resource type="RectangleShape2D" id="wp_rect_17x6"]
+size = Vector2(17, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="Gradient" id="Gradient_drain"]
+colors = PackedColorArray(0.6, 1, 0.6, 1, 0.3, 0.9, 0.45, 0)
+
+[sub_resource type="Gradient" id="Gradient_leaves"]
+offsets = PackedFloat32Array(0, 0.8, 1)
+colors = PackedColorArray(0.62, 0.45, 0.2, 1, 0.45, 0.3, 0.16, 1, 0.4, 0.28, 0.15, 0)
+
+[node name="Market" type="Node2D" unique_id=49276767]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="." unique_id=1826266092]
+script = ExtResource("90_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=1751453083]
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("5_ground")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="." unique_id=834116456]
+
+[node name="TopCollision" type="CollisionShape2D" parent="Bounds" unique_id=1667728222]
+position = Vector2(0, -392)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="BottomCollision" type="CollisionShape2D" parent="Bounds" unique_id=195148771]
+position = Vector2(0, 392)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="Bounds" unique_id=1971672025]
+position = Vector2(-520, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="RightCollision" type="CollisionShape2D" parent="Bounds" unique_id=197675744]
+position = Vector2(520, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Buildings" type="Node2D" parent="." unique_id=889795577]
+y_sort_enabled = true
+
+[node name="HouseC" type="StaticBody2D" parent="Buildings" unique_id=942517779]
+position = Vector2(-391, -200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/HouseC" unique_id=627552928]
+texture = ExtResource("32_house_c")
+offset = Vector2(0, -76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseC" unique_id=1769181781]
+position = Vector2(0, -18)
+shape = SubResource("Shape_HouseC")
+
+[node name="HouseA" type="StaticBody2D" parent="Buildings" unique_id=537211382]
+position = Vector2(-208, -208)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/HouseA" unique_id=243758295]
+texture = ExtResource("30_house_a")
+offset = Vector2(0, -71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseA" unique_id=1968229427]
+position = Vector2(0, -18)
+shape = SubResource("Shape_HouseA")
+
+[node name="NinaShop" type="StaticBody2D" parent="Buildings" unique_id=1069175347]
+position = Vector2(-13, -216)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/NinaShop" unique_id=927643056]
+texture = ExtResource("35_nina_shop")
+offset = Vector2(0, -63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/NinaShop" unique_id=672443949]
+position = Vector2(0, -18)
+shape = SubResource("Shape_NinaShop")
+
+[node name="HouseD" type="StaticBody2D" parent="Buildings" unique_id=504605997]
+position = Vector2(176, -208)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/HouseD" unique_id=1649050110]
+texture = ExtResource("33_house_d")
+offset = Vector2(0, -69)
+script = ExtResource("r30_story_texture")
+flag = "raid_started"
+texture_after = ExtResource("r32_house_d_burnt")
+until_flag = "village_rebuilt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseD" unique_id=823719568]
+position = Vector2(0, -18)
+shape = SubResource("Shape_HouseD")
+
+[node name="HouseB" type="StaticBody2D" parent="Buildings" unique_id=1557755628]
+position = Vector2(388, -208)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/HouseB" unique_id=1245168171]
+texture = ExtResource("31_house_b")
+offset = Vector2(0, -53)
+script = ExtResource("r30_story_texture")
+flag = "raid_started"
+texture_after = ExtResource("r31_house_b_burnt")
+until_flag = "village_rebuilt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseB" unique_id=1592018596]
+position = Vector2(0, -18)
+shape = SubResource("Shape_HouseB")
+
+[node name="Guild" type="StaticBody2D" parent="Buildings" unique_id=488700068]
+position = Vector2(388, 56)
+script = ExtResource("gb_script")
+textures = Array[Texture2D]([ExtResource("gb_0"), ExtResource("gb_1"), ExtResource("gb_2"), ExtResource("36_guild")])
+door_x = Array[float]([48.0, 61.0, 66.0, 106.5])
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Guild" unique_id=462441887]
+texture = ExtResource("36_guild")
+offset = Vector2(0, -99)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Guild" unique_id=55663687]
+position = Vector2(0, -18)
+shape = SubResource("Shape_Guild")
+
+[node name="HouseE" type="StaticBody2D" parent="Buildings" unique_id=2095593667]
+position = Vector2(-362, 256)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/HouseE" unique_id=1653038001]
+texture = ExtResource("34_house_e")
+offset = Vector2(0, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseE" unique_id=1765994872]
+position = Vector2(0, -18)
+shape = SubResource("Shape_HouseE")
+
+[node name="HouseB2" type="StaticBody2D" parent="Buildings" unique_id=886323411]
+position = Vector2(-182, 339)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/HouseB2" unique_id=1605875915]
+texture = ExtResource("31_house_b")
+offset = Vector2(0, -53)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseB2" unique_id=1613316041]
+position = Vector2(0, -18)
+shape = SubResource("Shape_HouseB2")
+
+[node name="HouseA2" type="StaticBody2D" parent="Buildings" unique_id=986306147]
+position = Vector2(188, 338)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/HouseA2" unique_id=73093970]
+texture = ExtResource("30_house_a")
+offset = Vector2(0, -71)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseA2" unique_id=1003854223]
+position = Vector2(0, -18)
+shape = SubResource("Shape_HouseA2")
+
+[node name="HouseD2" type="StaticBody2D" parent="Buildings" unique_id=1300121600]
+position = Vector2(393, 348)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/HouseD2" unique_id=136424900]
+texture = ExtResource("33_house_d")
+offset = Vector2(0, -69)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseD2" unique_id=1850382115]
+position = Vector2(0, -18)
+shape = SubResource("Shape_HouseD2")
+
+[node name="Stalls" type="Node2D" parent="." unique_id=1581446895]
+y_sort_enabled = true
+
+[node name="Herbalist" parent="Stalls" unique_id=1606901891 instance=ExtResource("4_stall")]
+position = Vector2(-170, -60)
+merchant_name = "Kräuterhändlerin"
+stall_texture = ExtResource("10_s_herbalist")
+merchant_texture = ExtResource("20_n_herbalist")
+greeting = "Holz, Flachs und was die Wiese hergibt! Mit etwas Glück hab ich auch Federn da."
+merchant_feet = -12.0
+stock_id = "herbalist"
+walk_sheet = ExtResource("walk_herbalist")
+
+[node name="Enchanter" parent="Stalls" unique_id=2089774644 instance=ExtResource("4_stall")]
+position = Vector2(-62, 148)
+merchant_name = "Verzauberer"
+stall_texture = ExtResource("11_s_enchanter")
+merchant_texture = ExtResource("21_n_enchanter")
+greeting = "Kristalle, Tränke, Samen, Erde, Rezepte: alles, was zaubert, gibt's bei mir. Die Rezepte verrate ich erst, wenn sie bezahlt sind."
+offers = Array[String](["potion_recipe:magma", "potion_recipe:steam", "potion_recipe:thunderstorm", "potion_recipe:glacier", "potion_recipe:dusk", "potion_recipe:swamp", "potion_recipe:firestorm", "potion_recipe:curses", "potion_recipe:blessings"])
+merchant_feet = -8.0
+stock_id = "enchanter"
+walk_sheet = ExtResource("walk_enchanter")
+
+[node name="OreTrader" parent="Stalls" unique_id=717601911 instance=ExtResource("4_stall")]
+position = Vector2(170, -60)
+merchant_name = "Erzhändlerin Erna"
+stall_texture = ExtResource("12_s_ore")
+merchant_texture = ExtResource("22_n_ore")
+greeting = "Bestes Erz aus den Bergen, frisch geschürft! Kohle und Sand gibt's auch nur bei mir."
+npc_id = "erna"
+stock_id = "ore"
+
+[node name="ComponentTrader" parent="Stalls" unique_id=1656236717 instance=ExtResource("4_stall")]
+position = Vector2(-170, 72)
+merchant_name = "Rüstungshändlerin"
+stall_texture = ExtResource("13_s_component")
+merchant_texture = ExtResource("23_n_component")
+greeting = "Rüstungen und Platten, jeden Tag was anderes. Je besser dein Ruf, desto edler die Ware!"
+stock_id = "armor"
+walk_sheet = ExtResource("walk_component_trader")
+
+[node name="WeaponTrader" parent="Stalls" unique_id=1067123403 instance=ExtResource("4_stall")]
+position = Vector2(62, 148)
+merchant_name = "Waffenhändler"
+stall_texture = ExtResource("14_s_weapon")
+merchant_texture = ExtResource("24_n_weapon")
+greeting = "Waffen und Klingen, jeden Tag was anderes. Je besser dein Ruf, desto edler die Ware!"
+merchant_feet = -16.0
+stock_id = "weapons"
+walk_sheet = ExtResource("walk_weapon_trader")
+
+[node name="MoldTrader" parent="Stalls" unique_id=549474239 instance=ExtResource("4_stall")]
+position = Vector2(170, 72)
+merchant_name = "Gussform-Händler"
+stall_texture = ExtResource("15_s_mold")
+merchant_texture = ExtResource("25_n_mold")
+greeting = "Gussformen, frisch aus der Werkstatt! Für den Anfang hab ich die fürs Kupferschwert und die Kupferrüstung."
+offers = Array[String](["recipe:copper_blade", "recipe:copper_handle", "recipe:copper_chest_plate", "recipe:copper_helmet_plate", "recipe:copper_shoulder_plate", "recipe:copper_boot_plate", "recipe:copper_leg_plate", "recipe:copper_glove_plate", "recipe:iron_lumber_axe_head", "recipe:copper_backpack_frame", "recipe:iron_backpack_frame", "recipe:bronze_backpack_frame", "recipe:silver_backpack_frame", "recipe:gold_backpack_frame", "recipe:copper_can_body", "recipe:iron_can_body", "recipe:bronze_can_body", "recipe:silver_can_body", "recipe:gold_can_body", "mold:copper_bow_frame=20", "mold:copper_longbow_frame=30", "mold:copper_arrow_tip=15", "mold:copper_arrow_shaft=15"])
+merchant_feet = -6.0
+walk_sheet = ExtResource("walk_mold_trader")
+
+[node name="FurnitureTrader" parent="Stalls" unique_id=1463201138 instance=ExtResource("4_stall")]
+position = Vector2(-319, -138)
+merchant_name = "Möbelhändlerin"
+stall_texture = ExtResource("16_s_furniture")
+merchant_texture = ExtResource("26_n_furniture")
+greeting = "Möbel und Geräte für dein Haus: Wassertrog, Gerberbank, Schleifstein, Deko. Je größer dein Haus, desto mehr hab ich für dich!"
+offers = Array[String](["station:water_trough", "station:tanning_rack", "station:grindstone", "station:polishing_table", "station:enchanting_table", "station:bow_table", "station:vial_table", "station:jewel_table", "furniture:plant_tall", "furniture:flower_box", "furniture:rug_round", "furniture:rug_long", "furniture:side_table", "furniture:crates", "furniture:chest", "furniture:storage_small", "furniture:storage_medium", "furniture:storage_large", "furniture:storage_huge", "chest_sign=25", "forge_sign=150", "furniture:barrel_weapons", "furniture:weapon_rack", "furniture:shield_stand", "furniture:armor_stand", "furniture:jewel_display", "furniture:bookshelf", "furniture:candelabra", "furniture:brazier", "furniture:banner_anvil", "furniture:potion_shelf", "furniture:display_case", "furniture:bear_trophy", "furniture:planter_2x2", "furniture:planter_3x3", "furniture:planter_4x4", "garden_soil"])
+walk_sheet = ExtResource("walk_furniture_trader")
+
+[node name="Decor" type="Node2D" parent="." unique_id=1936340657]
+y_sort_enabled = true
+
+[node name="Oak1" parent="Decor" unique_id=1673405779 instance=ExtResource("tree_poplar_a")]
+position = Vector2(-482, -94)
+
+[node name="Oak3" parent="Decor" unique_id=1962904607 instance=ExtResource("tree_cherry_a")]
+position = Vector2(500, -150)
+
+[node name="Oak4" parent="Decor" unique_id=416499822 instance=ExtResource("tree_chestnut_a")]
+position = Vector2(-490, 300)
+scale = Vector2(-1, 1)
+
+[node name="Oak5" parent="Decor" unique_id=756258591 instance=ExtResource("tree_poplar_b")]
+position = Vector2(488, 136)
+
+[node name="Oak6" parent="Decor" unique_id=1009651418 instance=ExtResource("tree_chestnut_a")]
+position = Vector2(-262, 176)
+scale = Vector2(-1, 1)
+
+[node name="Bush1" parent="Decor" unique_id=530254735 instance=ExtResource("43_bush")]
+position = Vector2(-430, 120)
+
+[node name="Bush2" parent="Decor" unique_id=1113455504 instance=ExtResource("43_bush")]
+position = Vector2(-300, 120)
+
+[node name="Bush3" parent="Decor" unique_id=1635579557 instance=ExtResource("43_bush")]
+position = Vector2(300, 250)
+
+[node name="Bush4" parent="Decor" unique_id=1387123570 instance=ExtResource("43_bush")]
+position = Vector2(470, 250)
+
+[node name="Bush5" parent="Decor" unique_id=1734346309 instance=ExtResource("43_bush")]
+position = Vector2(-121, -240)
+
+[node name="Bush6" parent="Decor" unique_id=1109460455 instance=ExtResource("43_bush")]
+position = Vector2(78, -240)
+
+[node name="Bush7" parent="Decor" unique_id=1550416989 instance=ExtResource("43_bush")]
+position = Vector2(500, -60)
+
+[node name="Well" parent="Decor" unique_id=792026457 instance=ExtResource("41_well")]
+position = Vector2(-351, 117)
+
+[node name="Barrel" type="Sprite2D" parent="Decor" unique_id=1425596359]
+position = Vector2(-120, -62)
+texture = ExtResource("45_barrel")
+offset = Vector2(0, -12)
+
+[node name="Sacks" type="Sprite2D" parent="Decor" unique_id=554387740]
+position = Vector2(-122, 70)
+texture = ExtResource("44_sacks")
+offset = Vector2(0, -10)
+
+[node name="Crates" type="Sprite2D" parent="Decor" unique_id=2142869546]
+position = Vector2(122, 70)
+texture = ExtResource("46_crates")
+offset = Vector2(0, -10)
+
+[node name="Banner1" type="StaticBody2D" parent="Decor" unique_id=320717873]
+position = Vector2(-120, -128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Banner1" unique_id=973040081]
+texture = ExtResource("64_banner_red")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Banner1" unique_id=388443732]
+position = Vector2(0, -2)
+shape = SubResource("Shape_pole")
+
+[node name="Banner2" type="StaticBody2D" parent="Decor" unique_id=2140013842]
+position = Vector2(120, -128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Banner2" unique_id=247931932]
+texture = ExtResource("65_banner_blue")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Banner2" unique_id=940409110]
+position = Vector2(0, -2)
+shape = SubResource("Shape_pole")
+
+[node name="Banner3" type="StaticBody2D" parent="Decor" unique_id=61342413]
+position = Vector2(-238, 62)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Banner3" unique_id=2122287608]
+texture = ExtResource("65_banner_blue")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Banner3" unique_id=884815001]
+position = Vector2(0, -2)
+shape = SubResource("Shape_pole")
+
+[node name="Banner4" type="StaticBody2D" parent="Decor" unique_id=2046624291]
+position = Vector2(238, 62)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Banner4" unique_id=1106488990]
+texture = ExtResource("64_banner_red")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Banner4" unique_id=988521297]
+position = Vector2(0, -2)
+shape = SubResource("Shape_pole")
+
+[node name="Banner5" type="StaticBody2D" parent="Decor" unique_id=173481233]
+position = Vector2(-108, 178)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Banner5" unique_id=983318066]
+texture = ExtResource("64_banner_red")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Banner5" unique_id=1886217616]
+position = Vector2(0, -2)
+shape = SubResource("Shape_pole")
+
+[node name="Banner6" type="StaticBody2D" parent="Decor" unique_id=539309973]
+position = Vector2(108, 178)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Banner6" unique_id=1705906049]
+texture = ExtResource("65_banner_blue")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Banner6" unique_id=1897817892]
+position = Vector2(0, -2)
+shape = SubResource("Shape_pole")
+
+[node name="TreeOfLife" type="StaticBody2D" parent="." unique_id=1736542120]
+position = Vector2(0, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="TreeOfLife" unique_id=1949704081]
+texture = ExtResource("60_tree")
+offset = Vector2(0, -79)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeOfLife" unique_id=932313182]
+position = Vector2(0, -22.5)
+shape = SubResource("Shape_tree")
+
+[node name="Fireflies" type="Sprite2D" parent="TreeOfLife" unique_id=362660233]
+z_index = 2
+position = Vector2(0, -92)
+texture = ExtResource("61_fireflies")
+centered = false
+offset = Vector2(-97, -62)
+hframes = 4
+vframes = 4
+script = ExtResource("r5_sheet")
+frames_per_second = 10.0
+
+[node name="NightLight" parent="TreeOfLife" unique_id=936183893 instance=ExtResource("r3_night_light")]
+position = Vector2(0, -60)
+color = Color(1, 0.85, 0.5, 1)
+texture_scale = 3.0
+night_energy = 0.9
+flicker = 0.03
+
+[node name="GuardSouth" type="StaticBody2D" parent="." unique_id=1520933312]
+position = Vector2(-48, 196)
+
+[node name="Sprite2D" type="Sprite2D" parent="GuardSouth" unique_id=1071848298]
+position = Vector2(0, -13)
+texture = ExtResource("66_guard_a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardSouth" unique_id=1205918910]
+shape = SubResource("Shape_guard")
+
+[node name="GuardEast" type="StaticBody2D" parent="." unique_id=1781151390]
+position = Vector2(236, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="GuardEast" unique_id=890944538]
+position = Vector2(0, -13)
+texture = ExtResource("67_guard_b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardEast" unique_id=6026493]
+shape = SubResource("Shape_guard")
+
+[node name="Roads" type="Node2D" parent="." unique_id=88944639]
+script = ExtResource("80_roads")
+
+[node name="N" type="Marker2D" parent="Roads" unique_id=1439131047]
+position = Vector2(0, -150)
+
+[node name="NW" type="Marker2D" parent="Roads" unique_id=604908546]
+position = Vector2(-110, -110)
+
+[node name="NE" type="Marker2D" parent="Roads" unique_id=623052857]
+position = Vector2(110, -110)
+
+[node name="W" type="Marker2D" parent="Roads" unique_id=1859356796]
+position = Vector2(-110, 6)
+
+[node name="E" type="Marker2D" parent="Roads" unique_id=1213627677]
+position = Vector2(110, 6)
+
+[node name="SW" type="Marker2D" parent="Roads" unique_id=305413638]
+position = Vector2(-110, 110)
+
+[node name="SE" type="Marker2D" parent="Roads" unique_id=2032609506]
+position = Vector2(110, 110)
+
+[node name="S" type="Marker2D" parent="Roads" unique_id=1121470396]
+position = Vector2(0, 200)
+
+[node name="FarW" type="Marker2D" parent="Roads" unique_id=1427990981]
+position = Vector2(-330, 0)
+
+[node name="FarE" type="Marker2D" parent="Roads" unique_id=732996008]
+position = Vector2(280, 6)
+
+[node name="NorthStreetW" type="Marker2D" parent="Roads" unique_id=1620271103]
+position = Vector2(-300, -150)
+
+[node name="NorthStreetE" type="Marker2D" parent="Roads" unique_id=212043971]
+position = Vector2(300, -150)
+
+[node name="Spots" type="Node2D" parent="." unique_id=1734857817]
+
+[node name="DoorHouseC" type="Marker2D" parent="Spots" unique_id=1830153033 node_paths=PackedStringArray("road")]
+position = Vector2(-400, -194)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/NorthStreetW")
+
+[node name="DoorHouseA" type="Marker2D" parent="Spots" unique_id=700885175 node_paths=PackedStringArray("road")]
+position = Vector2(-208, -202)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/NorthStreetW")
+
+[node name="DoorHouseD" type="Marker2D" parent="Spots" unique_id=228367387 node_paths=PackedStringArray("road")]
+position = Vector2(176, -202)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/NorthStreetE")
+
+[node name="DoorHouseB" type="Marker2D" parent="Spots" unique_id=974149973 node_paths=PackedStringArray("road")]
+position = Vector2(388, -202)
+script = ExtResource("81_spot")
+kind = 1
+facing = "up"
+duration = Vector2(10, 30)
+road = NodePath("../../Roads/NorthStreetE")
+
+[node name="StallHerbs" type="Marker2D" parent="Spots" unique_id=1165376251 node_paths=PackedStringArray("road")]
+position = Vector2(-170, -44)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+road = NodePath("../../Roads/NW")
+
+[node name="StallOre" type="Marker2D" parent="Spots" unique_id=1243540704 node_paths=PackedStringArray("road")]
+position = Vector2(170, -44)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+road = NodePath("../../Roads/NE")
+
+[node name="StallComponents" type="Marker2D" parent="Spots" unique_id=1441970194 node_paths=PackedStringArray("road")]
+position = Vector2(-170, 88)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+road = NodePath("../../Roads/SW")
+
+[node name="StallMolds" type="Marker2D" parent="Spots" unique_id=1723194812 node_paths=PackedStringArray("road")]
+position = Vector2(170, 88)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+road = NodePath("../../Roads/SE")
+
+[node name="StallEnchanter" type="Marker2D" parent="Spots" unique_id=226933283 node_paths=PackedStringArray("road")]
+position = Vector2(-62, 164)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+road = NodePath("../../Roads/S")
+
+[node name="StallWeapons" type="Marker2D" parent="Spots" unique_id=1814535224 node_paths=PackedStringArray("road")]
+position = Vector2(62, 164)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+road = NodePath("../../Roads/S")
+
+[node name="TreeLook" type="Marker2D" parent="Spots" unique_id=28281424 node_paths=PackedStringArray("road")]
+position = Vector2(0, 74)
+script = ExtResource("81_spot")
+kind = 3
+facing = "up"
+duration = Vector2(4, 9)
+road = NodePath("../../Roads/S")
+
+[node name="WellLook" type="Marker2D" parent="Spots" unique_id=1512283191 node_paths=PackedStringArray("road")]
+position = Vector2(-284, -60)
+script = ExtResource("81_spot")
+kind = 3
+facing = "left"
+duration = Vector2(4, 8)
+road = NodePath("../../Roads/FarW")
+
+[node name="TalkTreeA" type="Marker2D" parent="Spots" unique_id=495963929 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-96, -40)
+script = ExtResource("81_spot")
+kind = 4
+facing = "right"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/NW")
+partner = NodePath("../TalkTreeB")
+
+[node name="TalkTreeB" type="Marker2D" parent="Spots" unique_id=586500871 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(-68, -40)
+script = ExtResource("81_spot")
+kind = 4
+facing = "left"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/NW")
+partner = NodePath("../TalkTreeA")
+
+[node name="TalkEastA" type="Marker2D" parent="Spots" unique_id=1491567589 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(68, -40)
+script = ExtResource("81_spot")
+kind = 4
+facing = "right"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/NE")
+partner = NodePath("../TalkEastB")
+
+[node name="TalkEastB" type="Marker2D" parent="Spots" unique_id=1555930258 node_paths=PackedStringArray("road", "partner")]
+position = Vector2(96, -40)
+script = ExtResource("81_spot")
+kind = 4
+facing = "left"
+duration = Vector2(6, 12)
+road = NodePath("../../Roads/NE")
+partner = NodePath("../TalkEastA")
+
+[node name="StrollSouth" type="Marker2D" parent="Spots" unique_id=1877268482 node_paths=PackedStringArray("road")]
+position = Vector2(0, 200)
+script = ExtResource("81_spot")
+duration = Vector2(2, 5)
+road = NodePath("../../Roads/S")
+
+[node name="Resident1" parent="." unique_id=1159524495 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorHouseA")
+position = Vector2(-110, -110)
+resident = "baker"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Resident2" parent="." unique_id=957584316 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorHouseB")
+position = Vector2(110, -110)
+resident = "merchant"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Resident3" parent="." unique_id=1681926614 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorHouseD")
+position = Vector2(0, 200)
+resident = "noble"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Resident4" parent="." unique_id=1027895026 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorHouseC")
+position = Vector2(-110, 6)
+resident = "flower_girl"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="Resident5" parent="." unique_id=1877842837 node_paths=PackedStringArray("spots", "roads", "home_spot") instance=ExtResource("82_villager")]
+home_spot = NodePath("../Spots/DoorHouseC")
+position = Vector2(110, 110)
+resident = "milkmaid"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+
+[node name="DoorToGuild" parent="." unique_id=709888207 instance=ExtResource("91_door")]
+position = Vector2(386, 54)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/village/guild_hall.tscn"
+target_spawn_point = &"FromMarket"
+blocked_flag = "raid_started"
+unblocked_flag = "raid_over"
+blocked_text = "Die Tür ist verbarrikadiert."
+
+[node name="Visual" parent="DoorToGuild" index="0"]
+visible = false
+
+[node name="FromGuild" type="Marker2D" parent="." unique_id=1040726526 groups=["spawn_points"]]
+position = Vector2(386, 82)
+
+[node name="DoorToNinaShop" parent="." unique_id=1773406565 instance=ExtResource("91_door")]
+position = Vector2(0, -218)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/market/nina_shop.tscn"
+target_spawn_point = &"FromMarket"
+required_flag = "nina_met"
+locked_text = "Der Laden ist geschlossen."
+blocked_flag = "raid_started"
+unblocked_flag = "raid_over"
+blocked_text = "Der Laden ist voller Rauch."
+shop_hours = true
+hours_of = "nina_shop"
+
+[node name="Visual" parent="DoorToNinaShop" index="0"]
+visible = false
+
+[node name="FromNinaShop" type="Marker2D" parent="." unique_id=1603203412 groups=["spawn_points"]]
+position = Vector2(22, -190)
+
+[node name="Nina" parent="." unique_id=1680987387 instance=ExtResource("r7_story_npc")]
+position = Vector2(22, -186)
+npc_id = "nina"
+appearance = SubResource("Appearance_nina")
+resident = "nina"
+hidden_when_flag = "nina_met"
+auto_talk = true
+walk_to_player = true
+required_flag = "reached_go_to_market"
+
+[node name="GossipA" parent="." unique_id=261088342 instance=ExtResource("r7_story_npc")]
+position = Vector2(-138, 150)
+npc_id = "gossip_a"
+appearance = SubResource("Appearance_gossip_a")
+resident = "gossip_a"
+hidden_when_flag = "heard_rumors"
+auto_talk = true
+talk_area_scale = Vector2(3, 3)
+wait_for_player = true
+required_flag = "reached_market_rumors"
+
+[node name="GossipB" parent="." unique_id=1128861540 instance=ExtResource("r7_story_npc")]
+position = Vector2(-112, 152)
+npc_id = "gossip_b"
+appearance = SubResource("Appearance_gossip_b")
+resident = "gossip_b"
+hidden_when_flag = "heard_rumors"
+required_flag = "reached_market_rumors"
+
+[node name="GossipMageA" parent="." unique_id=1966534857 instance=ExtResource("r7_story_npc")]
+position = Vector2(-138, 150)
+npc_id = "gossip_a"
+appearance = SubResource("Appearance_gossip_a")
+resident = "gossip_a"
+hidden_when_flag = "heard_mage_return"
+auto_talk = true
+talk_area_scale = Vector2(3, 3)
+wait_for_player = true
+required_flag = "reached_mage_rumors_return"
+
+[node name="GossipMageB" parent="." unique_id=1121804656 instance=ExtResource("r7_story_npc")]
+position = Vector2(-112, 152)
+npc_id = "gossip_b"
+appearance = SubResource("Appearance_gossip_b")
+resident = "gossip_b"
+hidden_when_flag = "heard_mage_return"
+required_flag = "reached_mage_rumors_return"
+
+[node name="ExitWest" parent="." unique_id=1185539234 instance=ExtResource("91_door")]
+position = Vector2(-500, 0)
+scale = Vector2(1, 3)
+target_scene = "res://scenes/world/village/village_center.tscn"
+target_spawn_point = &"FromEast"
+blocked_flag = "raid_started"
+unblocked_flag = "emma_follows"
+blocked_text = "Du kannst Nina und die Kleine nicht einfach liegen lassen!"
+
+[node name="Visual" parent="ExitWest" index="0"]
+visible = false
+
+[node name="FromCenter" type="Marker2D" parent="." unique_id=2000586664 groups=["spawn_points"]]
+position = Vector2(-462, 0)
+
+[node name="Mayor" parent="." unique_id=2080999547 instance=ExtResource("r7_story_npc")]
+position = Vector2(-380, 40)
+npc_id = "mayor"
+appearance = SubResource("Appearance_mayor")
+resident = "mayor"
+hidden_when_flag = "builder_weekly"
+auto_talk = true
+wait_for_player = true
+talk_on_new_step = true
+required_flag = "reached_meet_mayor"
+
+[node name="Builder" parent="." unique_id=1414530101 instance=ExtResource("r40_builder")]
+position = Vector2(-344, 46)
+required_flag = "reached_meet_mayor"
+
+[node name="RebuildCutscene" type="Node2D" parent="."]
+script = ExtResource("r90_rebuild_cut")
+builder = NodePath("../Builder")
+starts = PackedVector2Array(-560, 46, -344, 250, -150, 250, -560, 110)
+houses = PackedVector2Array(166, -186, 186, -186, 378, -186, 398, -186)
+
+[node name="FromBuilder" type="Marker2D" parent="." unique_id=1914351367 groups=["spawn_points"]]
+position = Vector2(-344, 72)
+
+[node name="Woodcutter" parent="." unique_id=1898968641 instance=ExtResource("r7_story_npc")]
+position = Vector2(-400, 30)
+npc_id = "woodcutter_market"
+resident = "woodcutter"
+hidden_when_flag = "axe_quest_accepted"
+auto_talk = true
+required_flag = "reached_find_customer"
+
+[node name="HolgerAskAround" parent="." unique_id=1320147786 instance=ExtResource("r7_story_npc")]
+position = Vector2(-380, 40)
+npc_id = "woodcutter_market"
+resident = "woodcutter"
+hidden_when_flag = "holger_told"
+auto_talk = true
+talk_area_scale = Vector2(2, 2)
+wait_for_player = true
+required_flag = "reached_ask_around"
+
+[node name="ShoeGrandma" parent="." unique_id=2057735314 instance=ExtResource("r7_story_npc")]
+position = Vector2(-228, -174)
+npc_id = "landlady"
+appearance = SubResource("Appearance_grandma")
+resident = "landlady"
+hidden_when_flag = "shoe_scene_seen"
+auto_talk = true
+talk_area_scale = Vector2(3, 3)
+wait_for_player = true
+facing = "up"
+required_flag = "reached_market_shoes"
+
+[node name="ShoeLotte" parent="." unique_id=380773747 instance=ExtResource("r7_story_npc")]
+position = Vector2(-206, -176)
+npc_id = "niece"
+resident = "emma"
+hidden_when_flag = "shoe_scene_seen"
+facing = "up"
+required_flag = "reached_market_shoes"
+
+[node name="ShoeWindow" parent="." unique_id=1080040029 instance=ExtResource("r7_story_npc")]
+position = Vector2(-208, -186)
+npc_id = "shoe_window"
+hidden_when_flag = "shoe_idea"
+auto_talk = true
+talk_area_scale = Vector2(1.5, 1.5)
+wait_for_player = true
+narrator = true
+required_flag = "reached_look_at_shoes"
+
+[node name="FestivalCrowd" type="Node2D" parent="." unique_id=786295144]
+y_sort_enabled = true
+script = ExtResource("r1_story_prop")
+required_flag = "festival_started"
+hidden_when_flag = "festival_over"
+walk_out = true
+
+[node name="Noble0" type="Sprite2D" parent="FestivalCrowd" unique_id=594446646]
+position = Vector2(-96, 118)
+texture = ExtResource("98_res_noble")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="FlowerGirl1" type="Sprite2D" parent="FestivalCrowd" unique_id=397536545]
+position = Vector2(84, 122)
+texture = ExtResource("98_res_flower_girl")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="Scholar2" type="Sprite2D" parent="FestivalCrowd" unique_id=1764711090]
+position = Vector2(112, 112)
+texture = ExtResource("98_res_scholar")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="Leaving" type="Node2D" parent="FestivalCrowd" unique_id=1147370427]
+y_sort_enabled = true
+script = ExtResource("r1_story_prop")
+hidden_when_flag = "crowd_thins"
+walk_out = true
+
+[node name="Baker0" type="Sprite2D" parent="FestivalCrowd/Leaving" unique_id=1115598324]
+position = Vector2(-110, 140)
+texture = ExtResource("98_res_baker")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="Farmer1" type="Sprite2D" parent="FestivalCrowd/Leaving" unique_id=2045460968]
+position = Vector2(-76, 146)
+texture = ExtResource("98_res_farmer")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="Fisher2" type="Sprite2D" parent="FestivalCrowd/Leaving" unique_id=356338815]
+position = Vector2(-128, 104)
+texture = ExtResource("98_res_fisher")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="GirlBraids3" type="Sprite2D" parent="FestivalCrowd/Leaving" unique_id=2006252005]
+position = Vector2(-2, 150)
+texture = ExtResource("98_res_girl_braids")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="GirlRed4" type="Sprite2D" parent="FestivalCrowd/Leaving" unique_id=1950530418]
+position = Vector2(24, 146)
+texture = ExtResource("98_res_girl_red")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="Hunter5" type="Sprite2D" parent="FestivalCrowd/Leaving" unique_id=1849775950]
+position = Vector2(70, 148)
+texture = ExtResource("98_res_hunter")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="Merchant6" type="Sprite2D" parent="FestivalCrowd/Leaving" unique_id=1721413731]
+position = Vector2(100, 140)
+texture = ExtResource("98_res_merchant")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="Milkmaid7" type="Sprite2D" parent="FestivalCrowd/Leaving" unique_id=1366260864]
+position = Vector2(128, 132)
+texture = ExtResource("98_res_milkmaid")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="Monk8" type="Sprite2D" parent="FestivalCrowd/Leaving" unique_id=503431963]
+position = Vector2(-46, 152)
+texture = ExtResource("98_res_monk")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="Baker9" type="Sprite2D" parent="FestivalCrowd/Leaving" unique_id=1327178079]
+position = Vector2(46, 160)
+texture = ExtResource("98_res_baker")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+
+[node name="FestivalSword" type="Node2D" parent="." unique_id=530838120]
+position = Vector2(0, 84)
+script = ExtResource("r1_story_prop")
+required_flag = "sword_conjured"
+hidden_when_flag = "sword_gone"
+
+[node name="Blade" type="Sprite2D" parent="FestivalSword" unique_id=328119210]
+position = Vector2(-8, -45)
+texture = ExtResource("97_magic_sword_blade")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 43)
+
+[node name="NightLight" parent="FestivalSword/Blade" unique_id=1753403840 instance=ExtResource("r3_night_light")]
+position = Vector2(8, 31)
+color = Color(0.45, 0.75, 1, 1)
+texture_scale = 1.2
+night_energy = 1.2
+
+[node name="FestivalSwordGround" type="Node2D" parent="." unique_id=530838121]
+position = Vector2(0, 84)
+script = ExtResource("r1_story_prop")
+required_flag = "sword_conjured"
+hidden_when_flag = "festival_over"
+
+[node name="Sprite2D" type="Sprite2D" parent="FestivalSwordGround" unique_id=328119211]
+position = Vector2(-8, -6)
+texture = ExtResource("97_magic_sword_ground")
+centered = false
+
+[node name="Magician" parent="." unique_id=193192068 instance=ExtResource("r7_story_npc")]
+position = Vector2(0, 62)
+npc_id = "magician"
+appearance = SubResource("Appearance_magician")
+resident = "aurelius"
+hidden_when_flag = "festival_over"
+required_flag = "festival_started"
+
+[node name="FestivalGrandma" parent="." unique_id=1151134918 instance=ExtResource("r7_story_npc")]
+position = Vector2(-44, 118)
+npc_id = "landlady"
+appearance = SubResource("Appearance_grandma")
+resident = "landlady"
+hidden_when_flag = "festival_over"
+facing = "up"
+required_flag = "festival_started"
+
+[node name="FestivalLotte" parent="." unique_id=740615225 instance=ExtResource("r7_story_npc")]
+position = Vector2(-22, 120)
+npc_id = "niece"
+resident = "emma"
+hidden_when_flag = "festival_over"
+facing = "up"
+required_flag = "festival_started"
+
+[node name="FestivalBruno" parent="." unique_id=1093219745 instance=ExtResource("r7_story_npc")]
+position = Vector2(26, 118)
+npc_id = "bruno"
+hero = ExtResource("r8_bruno")
+hidden_when_flag = "festival_over"
+facing = "up"
+required_flag = "festival_started"
+
+[node name="FestivalGustav" parent="." unique_id=671595394 instance=ExtResource("r7_story_npc")]
+position = Vector2(50, 124)
+npc_id = "miner"
+appearance = SubResource("Appearance_miner")
+hidden_when_flag = "festival_over"
+facing = "up"
+required_flag = "festival_started"
+
+[node name="FestivalHolger" parent="." unique_id=342314701 instance=ExtResource("r7_story_npc")]
+position = Vector2(-66, 126)
+npc_id = "woodcutter_market"
+resident = "woodcutter"
+hidden_when_flag = "festival_over"
+required_flag = "festival_started"
+
+[node name="FestivalShow" type="Node2D" parent="." unique_id=1314949534 node_paths=PackedStringArray("magician", "sword", "sword_blade", "sword_ground")]
+script = ExtResource("r19_festival_show")
+magician = NodePath("../Magician")
+tries = {
+"sword_try_bruno": NodePath("../FestivalBruno"),
+"sword_try_grandma": NodePath("../FestivalGrandma"),
+"sword_try_gustav": NodePath("../FestivalGustav")
+}
+sword = NodePath("../FestivalSword")
+sword_blade = NodePath("../FestivalSword/Blade")
+sword_ground = NodePath("../FestivalSwordGround")
+
+[node name="Vignettes" type="Node2D" parent="." unique_id=83995596]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Vignettes" unique_id=1996850634]
+position = Vector2(-274, -186)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P1" unique_id=450511155]
+texture = ExtResource("wp_world_props_front_2")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P1" unique_id=1130470380]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P2" type="StaticBody2D" parent="Vignettes" unique_id=375437979]
+position = Vector2(-246, -186)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P2" unique_id=1592850430]
+texture = ExtResource("wp_world_props_front_18")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P2" unique_id=1312202605]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P3" type="StaticBody2D" parent="Vignettes" unique_id=1658343045]
+position = Vector2(-307, -51)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P3" unique_id=1589097761]
+texture = ExtResource("wp_world_props_village_23")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P3" unique_id=653858323]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_14x6")
+
+[node name="P4" type="StaticBody2D" parent="Vignettes" unique_id=301467822]
+position = Vector2(132, -122)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vignettes/P4" unique_id=1278226285]
+texture = ExtResource("wp_world_props_front_9")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vignettes/P4" unique_id=2008078725]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="Player" parent="." unique_id=766914175 instance=ExtResource("1_player")]
+position = Vector2(0, 336)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -512
+limit_top = -384
+limit_right = 512
+limit_bottom = 384
+
+[node name="HUD" parent="." unique_id=1754691140 instance=ExtResource("2_hud")]
+
+[node name="RaidHider" type="Node" parent="." unique_id=1234638510]
+script = ExtResource("r6_hider")
+from_flag = "raid_started"
+until_flag = "raid_over"
+nodes = Array[NodePath]([NodePath("../Stalls/Herbalist/MerchantSprite"), NodePath("../Stalls/Herbalist/NameLabel"), NodePath("../Stalls/Herbalist/InteractionArea"), NodePath("../Stalls/Enchanter/MerchantSprite"), NodePath("../Stalls/Enchanter/NameLabel"), NodePath("../Stalls/Enchanter/InteractionArea"), NodePath("../Stalls/OreTrader/MerchantSprite"), NodePath("../Stalls/OreTrader/NameLabel"), NodePath("../Stalls/OreTrader/InteractionArea"), NodePath("../Stalls/ComponentTrader/MerchantSprite"), NodePath("../Stalls/ComponentTrader/NameLabel"), NodePath("../Stalls/ComponentTrader/InteractionArea"), NodePath("../Stalls/WeaponTrader/MerchantSprite"), NodePath("../Stalls/WeaponTrader/NameLabel"), NodePath("../Stalls/WeaponTrader/InteractionArea"), NodePath("../Stalls/MoldTrader/MerchantSprite"), NodePath("../Stalls/MoldTrader/NameLabel"), NodePath("../Stalls/MoldTrader/InteractionArea"), NodePath("../Stalls/FurnitureTrader/MerchantSprite"), NodePath("../Stalls/FurnitureTrader/NameLabel"), NodePath("../Stalls/FurnitureTrader/InteractionArea"), NodePath("../GuardSouth"), NodePath("../GuardEast")])
+
+[node name="RaidFires" type="Node2D" parent="." unique_id=1396872905]
+y_sort_enabled = true
+script = ExtResource("r1_story_prop")
+required_flag = "raid_started"
+hidden_when_flag = "raid_over"
+
+[node name="FireHerbs" type="Sprite2D" parent="RaidFires" unique_id=2127700655]
+position = Vector2(-170, -58)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("r12_fire")
+offset = Vector2(0, -55)
+hframes = 7
+script = ExtResource("r5_sheet")
+frames_per_second = 10.0
+
+[node name="Light" parent="RaidFires/FireHerbs" unique_id=481972414 instance=ExtResource("r3_night_light")]
+position = Vector2(0, -55)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.5
+flicker = 0.25
+
+[node name="FireOre" type="Sprite2D" parent="RaidFires" unique_id=1618831434]
+position = Vector2(170, -58)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("r12_fire")
+offset = Vector2(0, -55)
+hframes = 7
+script = ExtResource("r5_sheet")
+frames_per_second = 10.0
+
+[node name="Light" parent="RaidFires/FireOre" unique_id=1323358295 instance=ExtResource("r3_night_light")]
+position = Vector2(0, -55)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.5
+flicker = 0.25
+
+[node name="FireComponents" type="Sprite2D" parent="RaidFires" unique_id=1276844602]
+position = Vector2(-170, 74)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("r12_fire")
+offset = Vector2(0, -53)
+hframes = 7
+script = ExtResource("r5_sheet")
+frames_per_second = 10.0
+
+[node name="Light" parent="RaidFires/FireComponents" unique_id=711199026 instance=ExtResource("r3_night_light")]
+position = Vector2(0, -53)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.5
+flicker = 0.25
+
+[node name="FireEnchanter" type="Sprite2D" parent="RaidFires" unique_id=937092409]
+position = Vector2(-62, 150)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("r12_fire")
+offset = Vector2(0, -53)
+hframes = 7
+script = ExtResource("r5_sheet")
+frames_per_second = 10.0
+
+[node name="Light" parent="RaidFires/FireEnchanter" unique_id=679898174 instance=ExtResource("r3_night_light")]
+position = Vector2(0, -53)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.5
+flicker = 0.25
+
+[node name="FireCrates" type="Sprite2D" parent="RaidFires" unique_id=1765864191]
+position = Vector2(122, 72)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("r12_fire")
+offset = Vector2(0, -19)
+hframes = 7
+script = ExtResource("r5_sheet")
+frames_per_second = 10.0
+
+[node name="Light" parent="RaidFires/FireCrates" unique_id=783532420 instance=ExtResource("r3_night_light")]
+position = Vector2(0, -19)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.5
+flicker = 0.25
+
+[node name="FireHouseB" type="Sprite2D" parent="RaidFires" unique_id=2029883708]
+z_index = 1
+position = Vector2(370, -258)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("r12_fire")
+offset = Vector2(0, -15)
+hframes = 7
+script = ExtResource("r5_sheet")
+frames_per_second = 10.0
+
+[node name="Light" parent="RaidFires/FireHouseB" unique_id=1431080818 instance=ExtResource("r3_night_light")]
+position = Vector2(0, -15)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.5
+flicker = 0.25
+
+[node name="FireHouseB2" type="Sprite2D" parent="RaidFires" unique_id=134706389]
+z_index = 1
+position = Vector2(420, -216)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("r12_fire")
+offset = Vector2(0, -15)
+hframes = 7
+script = ExtResource("r5_sheet")
+frames_per_second = 10.0
+
+[node name="Light" parent="RaidFires/FireHouseB2" unique_id=949308717 instance=ExtResource("r3_night_light")]
+position = Vector2(0, -15)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.5
+flicker = 0.25
+
+[node name="FireHouseD" type="Sprite2D" parent="RaidFires" unique_id=607167105]
+z_index = 1
+position = Vector2(163, -294)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("r12_fire")
+offset = Vector2(0, -15)
+hframes = 7
+script = ExtResource("r5_sheet")
+frames_per_second = 10.0
+
+[node name="Light" parent="RaidFires/FireHouseD" unique_id=1344261314 instance=ExtResource("r3_night_light")]
+position = Vector2(0, -15)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.5
+flicker = 0.25
+
+[node name="FireHouseD2" type="Sprite2D" parent="RaidFires" unique_id=2125831570]
+z_index = 1
+position = Vector2(227, -270)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("r12_fire")
+offset = Vector2(0, -15)
+hframes = 7
+script = ExtResource("r5_sheet")
+frames_per_second = 10.0
+
+[node name="Light" parent="RaidFires/FireHouseD2" unique_id=2083931311 instance=ExtResource("r3_night_light")]
+position = Vector2(0, -15)
+color = Color(1, 0.5, 0.18, 1)
+night_energy = 0.5
+flicker = 0.25
+
+[node name="Smoke1" type="Sprite2D" parent="RaidFires" unique_id=1613915257]
+modulate = Color(0.45, 0.42, 0.42, 0.55)
+position = Vector2(-170, -120)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("r4_smoke")
+offset = Vector2(0, -39)
+hframes = 4
+vframes = 4
+script = ExtResource("r5_sheet")
+frames_per_second = 7.0
+
+[node name="Smoke2" type="Sprite2D" parent="RaidFires" unique_id=1725116798]
+modulate = Color(0.45, 0.42, 0.42, 0.55)
+position = Vector2(170, -120)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("r4_smoke")
+offset = Vector2(0, -39)
+hframes = 4
+vframes = 4
+script = ExtResource("r5_sheet")
+frames_per_second = 7.0
+
+[node name="Smoke3" type="Sprite2D" parent="RaidFires" unique_id=1954420838]
+modulate = Color(0.45, 0.42, 0.42, 0.55)
+position = Vector2(380, -300)
+scale = Vector2(2, 2)
+texture = ExtResource("r4_smoke")
+offset = Vector2(0, -39)
+hframes = 4
+vframes = 4
+script = ExtResource("r5_sheet")
+frames_per_second = 7.0
+
+[node name="Smoke4" type="Sprite2D" parent="RaidFires" unique_id=1708761527]
+modulate = Color(0.45, 0.42, 0.42, 0.55)
+position = Vector2(190, -330)
+scale = Vector2(2, 2)
+texture = ExtResource("r4_smoke")
+offset = Vector2(0, -39)
+hframes = 4
+vframes = 4
+script = ExtResource("r5_sheet")
+frames_per_second = 7.0
+
+[node name="Smoke5" type="Sprite2D" parent="RaidFires" unique_id=1261691122]
+modulate = Color(0.45, 0.42, 0.42, 0.55)
+position = Vector2(-62, 90)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("r4_smoke")
+offset = Vector2(0, -39)
+hframes = 4
+vframes = 4
+script = ExtResource("r5_sheet")
+frames_per_second = 7.0
+
+[node name="RaidDamage" type="Node2D" parent="." unique_id=869455061]
+y_sort_enabled = true
+script = ExtResource("r1_story_prop")
+required_flag = "raid_started"
+hidden_when_flag = "village_rebuilt"
+
+[node name="Scorch1" type="Sprite2D" parent="RaidDamage" unique_id=1006567902]
+z_index = -1
+position = Vector2(60, -60)
+texture = ExtResource("r14_scorch")
+
+[node name="Scorch2" type="Sprite2D" parent="RaidDamage" unique_id=1002057821]
+z_index = -1
+position = Vector2(-90, -112)
+texture = ExtResource("r14_scorch")
+
+[node name="Scorch3" type="Sprite2D" parent="RaidDamage" unique_id=1168885766]
+z_index = -1
+position = Vector2(200, 96)
+texture = ExtResource("r14_scorch")
+
+[node name="Scorch4" type="Sprite2D" parent="RaidDamage" unique_id=1597820872]
+z_index = -1
+position = Vector2(-240, 140)
+texture = ExtResource("r14_scorch")
+
+[node name="Scorch5" type="Sprite2D" parent="RaidDamage" unique_id=1293266647]
+z_index = -1
+position = Vector2(20, 210)
+texture = ExtResource("r14_scorch")
+
+[node name="Scorch6" type="Sprite2D" parent="RaidDamage" unique_id=2011494144]
+z_index = -1
+position = Vector2(320, -70)
+texture = ExtResource("r14_scorch")
+
+[node name="Scorch7" type="Sprite2D" parent="RaidDamage" unique_id=1498238262]
+z_index = -1
+position = Vector2(-330, -40)
+texture = ExtResource("r14_scorch")
+
+[node name="Debris1" type="Sprite2D" parent="RaidDamage" unique_id=490882465]
+position = Vector2(148, -118)
+texture = ExtResource("r13_debris")
+offset = Vector2(0, -12)
+
+[node name="Debris2" type="Sprite2D" parent="RaidDamage" unique_id=1230530189]
+position = Vector2(-112, 102)
+texture = ExtResource("r13_debris")
+offset = Vector2(0, -12)
+
+[node name="Debris3" type="Sprite2D" parent="RaidDamage" unique_id=1408594123]
+position = Vector2(300, 140)
+texture = ExtResource("r13_debris")
+offset = Vector2(0, -12)
+
+[node name="Debris4" type="Sprite2D" parent="RaidDamage" unique_id=540070810]
+position = Vector2(-200, 250)
+texture = ExtResource("r13_debris")
+offset = Vector2(0, -12)
+
+[node name="Debris5" type="Sprite2D" parent="RaidDamage" unique_id=2134646395]
+position = Vector2(262, -150)
+texture = ExtResource("r13_debris")
+offset = Vector2(0, -12)
+
+[node name="StallWreck" type="Sprite2D" parent="RaidDamage" unique_id=2131374049]
+position = Vector2(-262, -104)
+texture = ExtResource("r15_wreck")
+offset = Vector2(0, -18)
+
+[node name="RaidZombies" type="Node2D" parent="." unique_id=784046934]
+y_sort_enabled = true
+script = ExtResource("r1_story_prop")
+required_flag = "raid_started"
+hidden_when_flag = "raid_over"
+
+[node name="Zombie1" type="CharacterBody2D" parent="RaidZombies" unique_id=1468307308]
+position = Vector2(-140, -130)
+script = ExtResource("r11_zombie")
+
+[node name="Zombie2" type="CharacterBody2D" parent="RaidZombies" unique_id=759361059]
+position = Vector2(60, -120)
+script = ExtResource("r11_zombie")
+
+[node name="Zombie3" type="CharacterBody2D" parent="RaidZombies" unique_id=118573314]
+position = Vector2(130, -20)
+script = ExtResource("r11_zombie")
+
+[node name="Zombie4" type="CharacterBody2D" parent="RaidZombies" unique_id=41269700]
+position = Vector2(250, 30)
+script = ExtResource("r11_zombie")
+
+[node name="Zombie5" type="CharacterBody2D" parent="RaidZombies" unique_id=359948238]
+position = Vector2(150, 200)
+script = ExtResource("r11_zombie")
+
+[node name="Zombie6" type="CharacterBody2D" parent="RaidZombies" unique_id=343640759]
+position = Vector2(300, -110)
+script = ExtResource("r11_zombie")
+
+[node name="Zombie7" type="CharacterBody2D" parent="RaidZombies" unique_id=1361674710]
+position = Vector2(230, 140)
+script = ExtResource("r11_zombie")
+
+[node name="Zombie8" type="CharacterBody2D" parent="RaidZombies" unique_id=286391807]
+position = Vector2(-40, -160)
+script = ExtResource("r11_zombie")
+
+[node name="RaidTree" type="Node2D" parent="." unique_id=1271429244 node_paths=PackedStringArray("tree_sprite", "fireflies", "tree_light")]
+y_sort_enabled = true
+script = ExtResource("r10_raid_tree")
+tree_sprite = NodePath("../TreeOfLife/Sprite2D")
+fireflies = NodePath("../TreeOfLife/Fireflies")
+tree_light = NodePath("../TreeOfLife/NightLight")
+stage_textures = Array[Texture2D]([ExtResource("r21_wither"), ExtResource("r22_wither"), ExtResource("r23_wither"), ExtResource("r24_wither"), ExtResource("r25_wither")])
+
+[node name="Lich" type="Sprite2D" parent="RaidTree" unique_id=1042066805]
+position = Vector2(34, 52)
+texture = ExtResource("r16_lich_cast")
+offset = Vector2(0, -23)
+hframes = 6
+vframes = 4
+frame = 6
+
+[node name="Heart" type="Sprite2D" parent="RaidTree" unique_id=1619919921]
+z_index = 2
+position = Vector2(19, 30)
+texture = ExtResource("r17_heart")
+
+[node name="Light" type="PointLight2D" parent="RaidTree/Heart" unique_id=2031846643]
+position = Vector2(-2, -1)
+color = Color(0.85, 0.6, 0.3, 1)
+energy = 1.2
+texture = ExtResource("r18_light_texture")
+texture_scale = 0.8
+
+[node name="Drain" type="CPUParticles2D" parent="RaidTree" unique_id=524331085]
+z_index = 2
+position = Vector2(0, -40)
+emitting = false
+amount = 50
+lifetime = 1.3
+emission_shape = 1
+emission_sphere_radius = 40.0
+direction = Vector2(0.26, 0.96)
+spread = 12.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 45.0
+initial_velocity_max = 70.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_drain")
+
+[node name="Leaves" type="CPUParticles2D" parent="RaidTree" unique_id=131175807]
+z_index = 2
+position = Vector2(0, -50)
+emitting = false
+amount = 70
+lifetime = 2.5
+emission_shape = 3
+emission_rect_extents = Vector2(60, 30)
+direction = Vector2(0, 1)
+spread = 60.0
+gravity = Vector2(0, 35)
+initial_velocity_min = 8.0
+initial_velocity_max = 25.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_leaves")
+hue_variation_min = -0.04
+hue_variation_max = 0.04
+
+[node name="RaidNarrator" parent="." unique_id=33787718 instance=ExtResource("r7_story_npc")]
+position = Vector2(-462, 0)
+npc_id = "raid_narrator"
+hidden_when_flag = "reached_raid_rescue"
+auto_talk = true
+talk_area_scale = Vector2(30, 30)
+narrator = true
+required_flag = "reached_raid_market"
+
+[node name="BrunoCompanion" type="Node2D" parent="." unique_id=247334906]
+script = ExtResource("r2_companion")
+npc_id = "bruno"
+hero = ExtResource("r8_bruno")
+required_flag = "bruno_follows"
+hidden_when_flag = "raid_bruno_charges"
+
+[node name="LotteCompanion" type="Node2D" parent="." unique_id=221279249]
+script = ExtResource("r2_companion")
+npc_id = "niece"
+resident = "emma"
+required_flag = "emma_follows"
+hidden_when_flag = "reached_raid_robbed"
+
+[node name="RaidLotte" parent="." unique_id=334088982 instance=ExtResource("r7_story_npc")]
+position = Vector2(-180, 120)
+npc_id = "niece"
+figure_texture = ExtResource("r33_emma_crying")
+hidden_when_flag = "emma_follows"
+required_flag = "reached_raid_market"
+
+[node name="RaidGrandma" parent="." unique_id=2129919886 instance=ExtResource("r7_story_npc")]
+position = Vector2(-208, 122)
+npc_id = "landlady"
+appearance = SubResource("Appearance_grandma")
+resident = "landlady"
+hidden_when_flag = "raid_over"
+lying = true
+required_flag = "reached_raid_market"
+
+[node name="RaidHedwig" type="Node2D" parent="." unique_id=2115292303 node_paths=PackedStringArray("target")]
+position = Vector2(380, 92)
+script = ExtResource("r40_fighter")
+npc_id = "guild_master"
+resident = "hedwig"
+target = NodePath("../RaidZombies/Zombie4")
+start_flag = "raid_heroes"
+hidden_when_flag = "raid_over"
+
+[node name="RaidKira" type="Node2D" parent="." unique_id=849834696 node_paths=PackedStringArray("target")]
+position = Vector2(364, 104)
+script = ExtResource("r40_fighter")
+hero = ExtResource("r34_kira")
+target = NodePath("../RaidZombies/Zombie7")
+start_flag = "raid_heroes"
+hidden_when_flag = "raid_over"
+
+[node name="RaidGerold" type="Node2D" parent="." unique_id=1855495504 node_paths=PackedStringArray("target")]
+position = Vector2(396, 104)
+script = ExtResource("r40_fighter")
+hero = ExtResource("r34_gerold")
+target = NodePath("../RaidZombies/Zombie3")
+start_flag = "raid_heroes"
+hidden_when_flag = "raid_over"
+
+[node name="RaidAnselm" type="Node2D" parent="." unique_id=650151945 node_paths=PackedStringArray("target")]
+position = Vector2(372, 116)
+script = ExtResource("r40_fighter")
+hero = ExtResource("r34_anselm")
+target = NodePath("../RaidZombies/Zombie5")
+start_flag = "raid_heroes"
+hidden_when_flag = "raid_over"
+
+[node name="RaidLena" type="Node2D" parent="." unique_id=1834762976 node_paths=PackedStringArray("target")]
+position = Vector2(404, 92)
+script = ExtResource("r40_fighter")
+hero = ExtResource("r34_lena")
+target = NodePath("../RaidZombies/Zombie6")
+start_flag = "raid_heroes"
+hidden_when_flag = "raid_over"
+
+[node name="RaidMira" type="Node2D" parent="." unique_id=908510912 node_paths=PackedStringArray("target")]
+position = Vector2(388, 120)
+script = ExtResource("r40_fighter")
+hero = ExtResource("r34_mira")
+target = NodePath("../RaidZombies/Zombie2")
+start_flag = "raid_heroes"
+hidden_when_flag = "raid_over"
+
+[node name="RaidCharge" type="Node2D" parent="."]
+script = ExtResource("rc_charge")
+bruno_companion = NodePath("../BrunoCompanion")
+lich = NodePath("../RaidTree/Lich")
+
+[node name="RaidBrunoFight" type="Node2D" parent="." unique_id=1147660951 node_paths=PackedStringArray("target", "start_from")]
+script = ExtResource("r40_fighter")
+npc_id = "bruno"
+hero = ExtResource("r8_bruno")
+target = NodePath("../RaidTree/Lich")
+start_flag = "raid_bruno_charges"
+hidden_when_flag = "raid_over"
+start_from = NodePath("../BrunoCompanion")
+fight_distance = 26.0
+
+[node name="RoamLotte" parent="." unique_id=2130364608 instance=ExtResource("r7_story_npc")]
+position = Vector2(-22, 120)
+npc_id = "niece"
+resident = "emma"
+roam_spot = "market"
+roam_exits = {
+"default": Vector2(-500, 0),
+"nina_shop": Vector2(22, -214)
+}
+required_flag = "hilde_dead"
+
+[node name="MayorTree" parent="." instance=ExtResource("r7_story_npc")]
+position = Vector2(-68, 44)
+npc_id = "mayor"
+appearance = SubResource("Appearance_mayor")
+resident = "mayor"
+roam_spot = "market"
+roam_exits = {
+"default": Vector2(-500, 0)
+}
+required_flag = "ending_done"
+
+[node name="TreeOfLifeTalk" parent="." instance=ExtResource("r7_story_npc")]
+position = Vector2(0, 54)
+npc_id = "tree_of_life"
+talk_area_scale = Vector2(2, 1)
+narrator = true
+required_flag = "ending_done"
+
+[node name="TreeBloomCutscene" type="Node2D" parent="."]
+script = ExtResource("tb_bloom_cut")
+raid_tree = NodePath("../RaidTree")
+
+[node name="WindowLights" type="Node" parent="." unique_id=504007890]
+script = ExtResource("window_lights")
+
+[node name="LotteShopCompanion" type="Node2D" parent="." unique_id=1137810830]
+script = ExtResource("r2_companion")
+npc_id = "niece"
+resident = "emma"
+required_flag = "lotte_shop_accepted"
+hidden_when_flag = "lotte_shop_done"
+
+[node name="LotteShopLesson" parent="." unique_id=1164307508 instance=ExtResource("r7_story_npc")]
+position = Vector2(170, -30)
+npc_id = "lotte_market_narrator"
+hidden_when_flag = "lotte_shop_done"
+auto_talk = true
+talk_area_scale = Vector2(4, 3)
+wait_for_player = true
+narrator = true
+required_flag = "lotte_shop_accepted"
+
+[node name="DoorToMarketHouseA" parent="." instance=ExtResource("91_door")]
+position = Vector2(-208, -196)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/market_house_a.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToMarketHouseA" index="0"]
+visible = false
+
+[node name="FromMarketHouseA" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-208, -178)
+
+[node name="DoorToMarketHouseB" parent="." instance=ExtResource("91_door")]
+position = Vector2(388, -196)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/market_house_b.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToMarketHouseB" index="0"]
+visible = false
+
+[node name="FromMarketHouseB" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(388, -178)
+
+[node name="DoorToMarketHouseC" parent="." instance=ExtResource("91_door")]
+position = Vector2(-400, -188)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/market_house_c.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToMarketHouseC" index="0"]
+visible = false
+
+[node name="FromMarketHouseC" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-400, -170)
+
+[node name="DoorToMarketHouseD" parent="." instance=ExtResource("91_door")]
+position = Vector2(176, -196)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/market_house_d.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToMarketHouseD" index="0"]
+visible = false
+
+[node name="FromMarketHouseD" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(176, -178)
+
+[node name="DoorToMarketHouseE" parent="." instance=ExtResource("91_door")]
+position = Vector2(-373, 266)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/market_house_e.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToMarketHouseE" index="0"]
+visible = false
+
+[node name="FromMarketHouseE" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-373, 284)
+
+[node name="DoorToMarketHouseB2" parent="." instance=ExtResource("91_door")]
+position = Vector2(-156, 349)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/market_house_b2.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToMarketHouseB2" index="0"]
+visible = false
+
+[node name="FromMarketHouseB2" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-156, 367)
+
+[node name="DoorToMarketHouseA2" parent="." instance=ExtResource("91_door")]
+position = Vector2(191, 348)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/market_house_a2.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToMarketHouseA2" index="0"]
+visible = false
+
+[node name="FromMarketHouseA2" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(191, 366)
+
+[node name="DoorToMarketHouseD2" parent="." instance=ExtResource("91_door")]
+position = Vector2(392, 358)
+scale = Vector2(0.6, 0.6)
+target_scene = "res://scenes/world/homes/market_house_d2.tscn"
+target_spawn_point = &"FromOutside"
+house_door = true
+
+[node name="Visual" parent="DoorToMarketHouseD2" index="0"]
+visible = false
+
+[node name="FromMarketHouseD2" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(392, 376)
+
+[editable path="DoorToGuild"]
+[editable path="DoorToNinaShop"]
+[editable path="ExitWest"]
+[editable path="Player"]
+[editable path="DoorToMarketHouseA"]
+[editable path="DoorToMarketHouseB"]
+[editable path="DoorToMarketHouseC"]
+[editable path="DoorToMarketHouseD"]
+[editable path="DoorToMarketHouseE"]
+[editable path="DoorToMarketHouseB2"]
+[editable path="DoorToMarketHouseA2"]
+[editable path="DoorToMarketHouseD2"]

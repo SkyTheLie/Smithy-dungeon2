@@ -1,0 +1,1606 @@
+{
+	"dialogues": {
+		"finster_gate_arrival": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Kutsche hält vor einer Mauer aus schwarzem Stein. Zwei Türme mit roten Bannern, dazwischen ein Torbogen. Dahinter ragt die Finsterburg in den grauen Himmel."
+				},
+				{
+					"speaker": "coachman",
+					"text": "Weiter fahr ich nicht, Schmied. Liese mag die Gegend nicht. Ich auch nicht, aber mich fragt ja keiner."
+				},
+				{
+					"speaker": "",
+					"text": "Vor der Mauer gehen Finsterwachen auf und ab. Einer gähnt, ein anderer zählt Münzen. Neben dem Tor hängen Steckbriefe."
+				},
+				{
+					"speaker": "player",
+					"text": "Ruhig, {name}. Wachen am Tor schauen auf Wagen, nicht auf Gesichter. Hoffentlich."
+				},
+				{
+					"speaker": "coachman",
+					"text": "Wenn du zurück willst: Liese und ich stehen hier. Wir sind gut im Warten."
+				}
+			],
+			"on_end": "set_flag:finster_gate_seen"
+		},
+		"finster_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Hinter dem Südtor die Finsterstadt. Enge Gassen aus dunklem Stein, rote Laternen, die kaum Licht geben. Die Straße führt nach Norden zum Platz in der Mitte. Über allem ragt die Finsterburg auf."
+				},
+				{
+					"speaker": "",
+					"text": "Halbdämonen gehen ihrer Arbeit nach, die Köpfe gesenkt. Niemand sieht einem anderen in die Augen. An den Wänden hängen Steckbriefe."
+				},
+				{
+					"speaker": "player",
+					"text": "Ganz ruhig, {name}. Kopf runter. Unauffällig. Du bist nur ein ... Mensch. In einer Stadt voller Halbdämonen. Mit leuchtenden Händen."
+				}
+			],
+			"on_end": "set_flag:finster_intro_seen"
+		},
+		"finster_poster_take": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Nyras Steckbrief ist weg, jemand hat ihn abgerissen. Deiner hängt noch da. „Gesucht: der Schmied {name}. 10.000 Gold.“"
+				},
+				{
+					"speaker": "player",
+					"text": "Hier sucht mich keiner mehr. Aber zehntausend Gold ... so ein schönes Bild von mir hab ich nirgends. Der kommt an meine Schmiede."
+				},
+				{
+					"speaker": "",
+					"text": "Du ziehst die Nägel heraus und rollst den Steckbrief zusammen. Vor deiner Schmiede kannst du ihn im Einrichten-Modus an die Hauswand hängen."
+				}
+			],
+			"on_end": "set_flag:wanted_poster_taken"
+		},
+		"finster_posters_read": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Zwei Steckbriefe nebeneinander. Auf dem linken eine Gestalt im Kapuzenmantel, das Gesicht kaum zu sehen. „Gesucht: die Verräterin. 5.000 Gold.“"
+				},
+				{
+					"speaker": "",
+					"text": "Auf dem rechten ein Gesicht, das du jeden Morgen im Wassertrog siehst. „Gesucht: der Schmied {name}. 10.000 Gold.“"
+				},
+				{
+					"speaker": "player",
+					"text": "Ha. Ich bin doppelt so viel wert wie sie. Das ist ... eigentlich gar nicht gut für mich."
+				}
+			]
+		},
+		"finster_citizen_a_talk": {
+			"lines": [
+				{
+					"speaker": "finster_citizen_a",
+					"text": "Frisches Brot? Nein? Dann geh weiter, Mensch. Die Wachen sehen es nicht gern, wenn man mit Fremden spricht."
+				}
+			]
+		},
+		"finster_citizen_b_talk": {
+			"lines": [
+				{
+					"speaker": "finster_citizen_b",
+					"text": "Früher hat es hier einen Fürsten gegeben. Einen von uns. Dann kam der König aus Leonheim, und der Fürst starb an einem Fieber. Sagt man."
+				}
+			]
+		},
+		"finster_citizen_c_talk": {
+			"lines": [
+				{
+					"speaker": "finster_citizen_c",
+					"text": "Deine Hände leuchten. Ist das ein Trick? Kannst du mir das beibringen?"
+				}
+			]
+		},
+		"finster_free_a": {
+			"lines": [
+				{
+					"speaker": "finster_citizen_a",
+					"text": "Frisches Brot! Und heute darf ich es sogar laut rufen. Frisches Brot!"
+				}
+			]
+		},
+		"finster_free_b": {
+			"lines": [
+				{
+					"speaker": "finster_citizen_b",
+					"text": "Die Wachen des Statthalters sind fort. Die Prinzessin ist zurück. Ich habe zwanzig Jahre auf diesen Tag gewartet."
+				}
+			]
+		},
+		"finster_free_c": {
+			"lines": [
+				{
+					"speaker": "finster_citizen_c",
+					"text": "Nyra hat gesagt, du bist ein Held. Bist du ein Held? Deine Hände leuchten immer noch."
+				}
+			]
+		},
+		"finster_uprising": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Finsterstadt ist kaum wiederzuerkennen. Die roten Laternen brennen heller, an jeder Ecke stehen Halbdämonen mit Speeren."
+				},
+				{
+					"speaker": "",
+					"text": "Die Wachen des Statthalters sind geflohen. Auf dem Platz hängt Nyras Steckbrief, quer durchgestrichen."
+				}
+			],
+			"on_end": "set_flag:uprising_seen"
+		},
+		"finster_chase": {
+			"lines": [
+				{
+					"speaker": "finster_citizen_a",
+					"text": "Ey! Moment mal ... dich kenn ich doch! Vom Steckbrief am Platz! Das ist der Schmied! WACHEN! WAAACHEN!",
+					"action": "cutscene:chase_spotted"
+				},
+				{
+					"speaker": "finster_guard_voice",
+					"text": "Ergreift ihn! Zehntausend Gold!",
+					"action": "cutscene:chase_guards",
+					"hide_for": 1.3
+				},
+				{
+					"speaker": "player",
+					"text": "Ich hab's gewusst. Die Nase war zu krumm, und trotzdem erkennt mich jeder. Weg hier!"
+				},
+				{
+					"speaker": "player",
+					"text": "Gasse, Vorhang, rein. Wer versteckt sich schon hinter einem Vorhang? Genau. Ich.",
+					"action": "cutscene:chase_run",
+					"hide_for": 4.6
+				},
+				{
+					"speaker": "",
+					"text": "Du hechtest durch den Vorhang in den Hinterhof der Weinkelterei. Draußen rennen die Wachen vorbei."
+				},
+				{
+					"speaker": "",
+					"text": "Nicht alle. Hinten im Hof haben zwei Finsterwachen eine Gestalt im Kapuzenmantel an die Wand gedrängt."
+				},
+				{
+					"speaker": "finster_guard_voice",
+					"text": "Da ist ja die andere vom Steckbrief. Zweimal Belohnung in einer Nacht."
+				},
+				{
+					"speaker": "",
+					"text": "Über den Wachen ragt ein Gerüst voller Weinfässer. Ein einzelner Holzkeil hält es."
+				},
+				{
+					"speaker": "player",
+					"text": "Solche Gerüste kenne ich. Wer den Keil zieht, braucht danach ein neues. Entschuldigung! Kurze Frage zur Statik!"
+				},
+				{
+					"speaker": "",
+					"text": "Du trittst den Keil weg. Das Gerüst kippt, und ein Schwall Rotwein begräbt beide Wachen unter Fässern und Brettern.",
+					"action": "cutscene:scaffold_fall",
+					"hide_for": 2.8
+				},
+				{
+					"speaker": "hooded",
+					"text": "Du ... hast mich gerettet. Ein Mensch."
+				},
+				{
+					"speaker": "",
+					"text": "Unter der Kapuze leuchten zwei bernsteinfarbene Augen.",
+					"action": "cutscene:act:hooded:eyes:ffb030",
+					"hide_for": 1.2
+				},
+				{
+					"speaker": "player",
+					"text": "Und du bist ... die Verräterin vom Steckbrief? Du siehst auf dem Bild größer aus."
+				},
+				{
+					"speaker": "hooded",
+					"text": "Und du siehst auf deinem dümmer aus. Knapp."
+				},
+				{
+					"speaker": "hooded",
+					"text": "Nenn mich Nyra. Du bist der Schmied mit den leuchtenden Händen. Der, den der König sucht."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Ich will den alten Schmied aus der Burg holen. Halvard. Als ich klein war, hat er mir aus Eisenresten ein Pferd geschmiedet. Damals hat niemand mit uns geredet. Er schon."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Wenn der Schlüssel fertig ist, lässt der König ihn töten. Dann braucht er ihn nicht mehr."
+				},
+				{
+					"speaker": "player",
+					"text": "Dann haben wir dasselbe Ziel. Halvard ist der Grund, warum ich Schmied geworden bin."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Gut. Dann komm, ehe die beiden den Wein aus den Augen haben."
+				},
+				{
+					"speaker": "",
+					"text": "Nyra schlüpft durch den Vorhang, du folgst ihr. Durch Hinterhöfe und Kellergänge geht es zur alten Färberei.",
+					"action": "cutscene:yard_exit",
+					"hide_for": 3.4
+				}
+			],
+			"on_end": "advance:resistance_hideout;travel_fade:res://scenes/world/finster/finster_hideout.tscn,FromAlley"
+		},
+		"nyra_hideout": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Eine Treppe hinunter, unter eine Färberei. Bunte Tücher hängen von der Decke. Ein paar Halbdämonen sehen auf, als ihr hereinkommt.",
+					"action": "cutscene:act:corvin:face_player"
+				},
+				{
+					"speaker": "nyra",
+					"text": "Das ist der Widerstand. Viel ist es nicht. Aber wir sind noch da."
+				},
+				{
+					"speaker": "corvin",
+					"text": "Ihr bringt einen Menschen mit. Einen gesuchten Menschen."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Corvin, das ist der Schmied. Er hat mich vor zwei Wachen gerettet, mit einem Gerüst voller Weinfässer. Er will Halvard genauso dringend herausholen wie wir."
+				},
+				{
+					"speaker": "corvin",
+					"text": "Hm. Wenn er so gut schmiedet, wie seine Hände leuchten, kann er uns helfen."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Hör zu. Zuerst die Außenmauer, dort gibt es keine Tür, nur Kletterhaken. Zwei Stück. Dann der Wachgang und der Kerkertrakt. Die Schlösser dort sind alt und hart, mein Eisendietrich ist daran zerbrochen. Einer aus Silber biegt sich nicht."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Und wir brauchen den Wachplan. Wer wann wo steht. Die Stadtwache hat eine Abschrift in ihrer Wachstube, im Haus nördlich vom Platz."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Nachts schlafen dort nur zwei. Die anderen gehen ihre Runden zwischen den Kisten. Wer leise ist, kommt bis zum Tisch des Hauptmanns."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Und zieh das über. Dein Gesicht hängt an jeder Wand der Stadt. Mit der Kapuze bist du nur noch ein Mantel unter vielen.",
+					"action": "set_flag:finster_cloak"
+				},
+				{
+					"speaker": "player",
+					"text": "Dietrich, Kletterhaken, Wachplan. Zwei davon schmiede ich, den dritten klaue ich. Mein erster Einbruch. Ich bin ... ein bisschen aufgeregt. Ist das schlimm?"
+				},
+				{
+					"speaker": "nyra",
+					"text": "Nur wenn man es hört. Am Dungeon-Brett kannst du deine Helden durch die Gassen, die Kanäle und gegen Mordreks Türme schicken, wenn du willst. Je weniger Wachen er hat, desto besser. Bring alles hierher, wenn du es hast."
+				}
+			],
+			"on_end": "unlock_molds:mold_finster_lockpick,mold_climbing_hook;set_flag:resistance_joined;hint:finster_dungeons;advance:resistance_prep"
+		},
+		"nyra_prep": {
+			"lines": [
+				{
+					"speaker": "nyra",
+					"text": "Hast du alles? Den Dietrich aus Silber, zwei Kletterhaken und den Wachplan aus der Wachstube?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich habe alles dabei.",
+					"action": "take_items:finster_lockpick,climbing_hook*2,guard_roster",
+					"then": "nyra_ready",
+					"else": "nyra_not_ready"
+				},
+				{
+					"text": "Noch nicht."
+				}
+			]
+		},
+		"nyra_not_ready": {
+			"lines": [
+				{
+					"speaker": "nyra",
+					"text": "Da fehlt noch etwas. Dietrich, zwei Haken, Wachplan. Ohne die kommen wir nicht hinein."
+				}
+			]
+		},
+		"nyra_ready": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du legst den Dietrich, die zwei Kletterhaken und den Wachplan vor Nyra auf den Tisch.",
+					"action": "cutscene:act:player:give:finster_lockpick|climbing_hook|climbing_hook|guard_roster",
+					"hide_for": 3.6
+				},
+				{
+					"speaker": "",
+					"text": "Nyra breitet den Wachplan auf dem Tisch aus und fährt mit dem Finger die Gänge entlang.",
+					"action": "cutscene:act:nyra:trace:guard_roster",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "nyra",
+					"text": "Hier. Die Nachtwache am Kerker ist dünn. Drei Gebiete: die Außenmauer, der Wachgang, der Kerkertrakt. Dahinter liegt die Kerkerschmiede."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Die Wachen tragen Laternen. Bleib aus dem Licht, versteck dich hinter Kisten. Wenn sie dich sehen, lauf zurück und versuch es noch einmal."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Du gehst vor, vom Nordende der Stadt. Ich komme durch die Kanäle nach und treffe dich unten in der Schmiede."
+				},
+				{
+					"speaker": "corvin",
+					"text": "Pass auf sie auf, Schmied."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich? Auf sie? Beim letzten Mal habe ich ein Gerüst auf zwei Wachen gekippt. Aber gut. Ich passe auf. Auf alle. Vor allem auf mich."
+				}
+			],
+			"on_end": "hint:sneak_castle;advance:sneak_castle"
+		},
+		"corvin_idle": {
+			"lines": [
+				{
+					"speaker": "corvin",
+					"text": "Ich diene diesem Haus seit vierzig Jahren. Ich habe schon schlechtere Pläne gesehen. Nicht viele."
+				}
+			]
+		},
+		"nyra_idle": {
+			"lines": [
+				{
+					"speaker": "nyra",
+					"text": "Die Finsterstadt war einmal schön, weißt du. Bevor der König kam."
+				}
+			]
+		},
+		"castle_sneak_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Außenmauer der Finsterburg. Wachen mit Laternen gehen auf den Wehrgängen auf und ab. Ihre Lichtkegel fallen weit über den Stein."
+				},
+				{
+					"speaker": "player",
+					"text": "Haken, Dietrich, Wachplan. Und kein Hammer, mit dem ich jemandem helfen könnte. Na gut. Leise jetzt."
+				}
+			],
+			"on_end": "set_flag:castle_sneak_seen"
+		},
+		"halvard_meet": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Kerkerschmiede. Ruß bedeckt die Wände, in der Esse glüht Kohle. Überall liegen Klingen, Hunderte, sauber gestapelt."
+				},
+				{
+					"speaker": "",
+					"text": "Am Amboss steht ein alter Mann mit langem weißem Haar. Seine Arme sind dünn, aber der Hammer in seiner Hand fällt im gleichen ruhigen Takt. Seine Handgelenke stecken in einer schweren Fessel, die Kette klirrt bei jedem Schlag. Seine Hände leuchten blau.",
+					"action": "cutscene:act:halvard:strike:iron_hammer_head+iron_shaft",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "player",
+					"text": "Meister ... Halvard?"
+				},
+				{
+					"speaker": "",
+					"text": "Der Hammer hält inne. Der alte Mann dreht sich um und sieht dich lange an.",
+					"action": "cutscene:act:halvard:face_player",
+					"hide_for": 0.6
+				},
+				{
+					"speaker": "halvard",
+					"text": "Der Junge von der Werkstatttür. Du hast jeden Tag dort gestanden, mit offenem Mund. Du hast immer gefragt, warum der Stahl blau wird."
+				},
+				{
+					"speaker": "player",
+					"text": "Ihr erinnert Euch an mich?"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Ich habe zwanzig Jahre lang nichts anderes getan als zu schmieden und mich zu erinnern. Und jetzt leuchten deine Hände. Wie meine."
+				},
+				{
+					"speaker": "",
+					"text": "Hinter dir knarrt eine Tür. Nyra schlüpft herein, nass von den Kanälen.",
+					"action": "cutscene:nyra_slips_in",
+					"hide_for": 2.5
+				},
+				{
+					"speaker": "halvard",
+					"text": "Die kleine Nyra. Du bist groß geworden. Hast du das Pferd noch?"
+				},
+				{
+					"speaker": "nyra",
+					"text": "Jeden Tag in der Tasche, Meister."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Die Fessel ist aus Sternenstahl. Ich habe sie selbst geschmiedet, der König hat es befohlen. Kein Schlüssel öffnet sie. Nur die Glut."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Allein bekomme ich sie nicht auf. Ich kann mir schlecht selbst auf die Hände schlagen. Aber zu zweit geht es. Ich halte still, du schlägst."
+				},
+				{
+					"speaker": "",
+					"text": "Halvard schlurft zum Amboss und legt seine gefesselten Hände darauf. Die Kette klirrt auf dem Eisen.",
+					"action": "cutscene:hands_on_anvil",
+					"hide_for": 2.6
+				},
+				{
+					"speaker": "halvard",
+					"text": "Drei Schläge, Junge. Alle drei genau auf den Takt. Und triff das Eisen, nicht meine Finger. Die brauche ich noch."
+				}
+			],
+			"on_end": "hint:open_shackle;advance:break_shackle"
+		},
+		"halvard_shackle_wait": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Ich halte still. Stell dich an den Amboss und schlag zu. Eins, zwei, drei. Wie früher, Junge."
+				}
+			]
+		},
+		"halvard_shackle_miss_1": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Zu hastig. Sternenstahl verzeiht nichts. Hör auf das Feuer, nicht auf dein Herz. Noch einmal."
+				}
+			]
+		},
+		"halvard_shackle_miss_2": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Au. Das war knapp neben meinem Daumen. Ich habe noch neun Finger, aber ich hänge an allen. Noch einmal."
+				},
+				{
+					"speaker": "player",
+					"text": "Entschuldigung! Ich bin nervös. Ihr seid Meister Halvard. Und das sind Eure Hände."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Eben. Also ruhig. Atme mit dem Blasebalg."
+				}
+			]
+		},
+		"halvard_shackle_failed": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Auch der dritte Versuch geht daneben. Doch dann knackt es leise. Ein feiner Riss läuft durch den Sternenstahl, und die Fessel fällt von selbst auseinander.",
+					"action": "cutscene:shackle_off",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "halvard",
+					"text": "Huh."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Hmpf. Zwanzig Jahre warte ich auf diesen Tag. Und dann bricht sie, weil sie müde ist. Nicht, weil einer sie richtig getroffen hat."
+				},
+				{
+					"speaker": "player",
+					"text": "Hauptsache offen, oder?"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Hauptsache offen. Aber wenn das hier vorbei ist, stehst du jeden Morgen an meinem Amboss. Bis der Takt sitzt."
+				}
+			],
+			"on_end": "advance:halvard_freed",
+			"then": "halvard_free"
+		},
+		"halvard_free": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Fessel springt auseinander und fällt klirrend vom Amboss. Halvard reibt sich die Handgelenke, zum ersten Mal seit zwanzig Jahren ohne Eisen daran. Er schwankt. Nyra stützt ihn.",
+					"action": "cutscene:shackle_off",
+					"hide_for": 1.6,
+					"unless_flag": "shackle_forced"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Frei. Hm. Ich hatte vergessen, wie leicht zwei Hände sein können.",
+					"unless_flag": "shackle_forced"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Frei ist frei. Auch wenn es kein schöner Schlag war.",
+					"if_flag": "shackle_forced"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Hör zu, Junge, die Zeit ist knapp. Der König hat mich die Fassung für die neun Steine schmieden lassen. Ich habe sie so gebaut, dass sie zerbricht. Sobald alle neun drin sind, hält sie ihrer Kraft nicht stand."
+				},
+				{
+					"speaker": "player",
+					"text": "Das ist ... genial. Dann kann er das Tor gar nicht öffnen!"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Das dachte ich auch. Bis er vor einem Jahr in diese Schmiede kam und gelacht hat. Er hat es gemerkt. Er hat die Fassung verzaubert, damit sie hält."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Er hat mich trotzdem weiterarbeiten lassen. Aus Spott. Und weil er meine Hände noch braucht, um den Schlüssel im Tor zu drehen."
+				},
+				{
+					"speaker": "player",
+					"text": "Aber der Riss ist noch da. Euer Riss. Er ist nur zugedeckt. Wenn wir den Zauber brechen ..."
+				},
+				{
+					"speaker": "halvard",
+					"text": "... bricht die Fassung, wie ich sie gebaut habe. Ja. Du denkst wie ein Schmied. Gut."
+				},
+				{
+					"speaker": "",
+					"text": "Schritte auf der Treppe. Schwere, gleichmäßige Schritte. Dann steht Lake in der Tür, das schwarze Schwert in der Hand.",
+					"action": "cutscene:lake_door;set_flag:lake_in_forge",
+					"hide_for": 2.4
+				},
+				{
+					"speaker": "nyra",
+					"text": "Der dunkle Ritter ..."
+				},
+				{
+					"speaker": "",
+					"text": "Du stellst dich vor Nyra und Halvard. Ohne Waffe. Deine Hände leuchten so hell, dass das Licht über Lakes schwarze Rüstung fällt.",
+					"action": "cutscene:stand_before",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "player",
+					"text": "Lake. Du musst das nicht tun. Du hast mir am Feuer gesagt, du würdest alles tun, was er verlangt. Aber das hier willst du nicht."
+				},
+				{
+					"speaker": "",
+					"text": "Lake hebt das Schwert. Dann trifft ihn das blaue Licht, und er hält inne. Für einen Herzschlag flackert etwas in seinen Augen. Ein goldener Schimmer, ganz tief unten.",
+					"action": "cutscene:lake_halt",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "halvard",
+					"text": "Ich habe den Knaben gekannt, den der König aus der Gosse holte. Der hatte Augen. Du hast nur noch eine Rüstung."
+				},
+				{
+					"speaker": "",
+					"text": "Lake senkt das Schwert. Ohne ein Wort tritt er zur Seite und gibt die Tür frei.",
+					"action": "cutscene:lake_aside",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "nyra",
+					"text": "Jetzt. Schnell, bevor er es sich anders überlegt."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Schnell ist gut. Meine Beine wissen nicht mehr, wie das geht."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Dann leg den Arm um mich, Meister. Ich trage dich zur Not die ganze Treppe hinauf."
+				},
+				{
+					"speaker": "",
+					"text": "Nyra legt sich Halvards Arm über die Schulter. Er ist so schwach, dass sie ihn fast trägt. Schritt für Schritt gehen die beiden an Lake vorbei zur Tür. Du bleibst vor ihm stehen.",
+					"action": "cutscene:leave_forge",
+					"hide_for": 7.0
+				},
+				{
+					"speaker": "",
+					"text": "Dann seid ihr allein. Lake steht reglos neben der Tür, das schwarze Schwert zeigt auf den Boden."
+				},
+				{
+					"speaker": "player",
+					"text": "Danke."
+				},
+				{
+					"speaker": "",
+					"text": "Lake antwortet nicht. Aber er hebt das Schwert auch nicht. Du gehst an ihm vorbei, ohne dich umzudrehen.",
+					"action": "cutscene:player_leaves",
+					"hide_for": 2.2
+				}
+			],
+			"on_end": "set_flag:lake_stepped_aside;advance:princess_reveal;travel_fade:res://scenes/world/finster/finster_hideout.tscn,FromCity"
+		},
+		"nyra_princess": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Zurück im Versteck. Halvard sitzt auf einem Strohbett und isst zum ersten Mal seit Jahren etwas, das nicht nach Ruß schmeckt.",
+					"action": "cutscene:act:halvard:eat:res://assets/sprites/items/rye_bread.png",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "",
+					"text": "Corvin tritt vor Nyra. Dann kniet er nieder, langsam, mit knackenden Knien.",
+					"action": "cutscene:act:corvin:kneel",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "corvin",
+					"text": "Hoheit. Ihr seid zurück. Und Ihr habt den Meister mitgebracht."
+				},
+				{
+					"speaker": "player",
+					"text": "Hoheit?"
+				},
+				{
+					"speaker": "",
+					"text": "Nyra seufzt und schiebt die Kapuze zurück. Langes schwarzes Haar, bernsteinfarbene Augen, auf der Stirn ein feiner silberner Reif, den du vorher nicht gesehen hast.",
+					"action": "cutscene:hood_back;set_flag:nyra_unhooded",
+					"wait": 1.0
+				},
+				{
+					"speaker": "nyra",
+					"text": "Mein Vater war der Fürst dieser Stadt. Der König kam vor zwanzig Jahren. Kurz danach starb mein Vater an einem Fieber, das niemand je hatte.",
+					"action": "cutscene:act:corvin:rise"
+				},
+				{
+					"speaker": "nyra",
+					"text": "Corvin hat mich versteckt. Seitdem bin ich die Verräterin auf dem Steckbrief. Und die rechtmäßige Fürstin der Finsterstadt."
+				},
+				{
+					"speaker": "player",
+					"text": "Moment. Ich habe in einem Weinhof eine Prinzessin gerettet? Das glaubt mir im Dorf keiner. Lotte wird es mir nie glauben."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Ich habe es dir nicht gesagt, weil man in dieser Stadt Prinzessinnen verkauft, nicht rettet."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Zwanzig Jahre. Zur selben Zeit hat er mich geholt. Er brauchte die Burg, die Stadt und den Schmied. Alles auf einmal."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Mein Volk sind nicht die Diener des Dämonenlords, Schmied. Wir waren seine ersten Gefangenen. Wir wissen besser als alle, was hinter dem Tor wartet."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Wenn du die Völker zusammenrufst, stehen die Halbdämonen an deiner Seite. Und wenn ich meine Stadt zurückhole, dann mit dir."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Dann ruf sie zusammen, Junge. Alle. Und schick mich nach Hause in mein Dorf. Ich habe da noch eine Schmiede stehen, oder?"
+				},
+				{
+					"speaker": "player",
+					"text": "Äh. Ja. Die. Also, technisch gesehen wohne ich da jetzt. Ich hab sie gemietet. Von Oma Hilde. Es ist eine lange Geschichte."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Ha. Dann erzählst du sie mir unterwegs."
+				}
+			],
+			"on_end": "set_flag:nyra_revealed;advance:part7_end"
+		},
+		"halvard_idle": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Zwanzig Jahre am selben Amboss. Weißt du, was das Schlimmste war? Nicht die Fessel. Dass ich nie sehen durfte, wofür meine Klingen gut sind."
+				}
+			]
+		},
+		"grand_council_forge": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Jetzt hört alle zu. Wenn der Zauber des Königs bricht, zerspringt meine Fassung. Gut. Aber dann liegen die Steine frei, und das Siegel ist noch immer schwach."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Das Tor muss wieder zu. Für tausend Jahre. Dafür braucht es eine neue Fassung. Eine echte. Aus Sternenstahl, geschmiedet von zwei Händen mit Glut. Am Altar selbst."
+				},
+				{
+					"speaker": "player",
+					"text": "Sternenstahl. Woher bekommen wir den?"
+				},
+				{
+					"speaker": "faelan",
+					"text": "Hinter dem Sturmgipfel liegt ein Krater. Vor langer Zeit fiel dort ein Stern. Seine Splitter sind lebendig geworden. Die Windwache meidet ihn."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Sternenerz. Drei Barren reichen. Und die Völker brauchen Waffen, Junge. Keine Ware vom Markt. Jedes Stück so gut, dass man es dir glaubt."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Für mich eine Axt aus Gold, Schmied. Für beide Hände. Einen Anführer muss man von weitem sehen."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Zwei Speere aus Bronze, für Subar und mich. Bronze bricht nicht im Eis."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Meine Speerkrieger tragen Kupfer, seit es Sahrim gibt. Zwei Speere. Und für mich einen Dolch aus Gold. Er fängt die Sonne."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Eine Klinge aus Silber. Silber schneidet, was im Dunkeln lebt."
+				},
+				{
+					"speaker": "magician",
+					"text": "Für Nyra zwei Dolche aus Bronze, für Bertold einen Hammer aus Silber. Und Goldzahns Helm aus Gold."
+				},
+				{
+					"speaker": "player",
+					"text": "Eine Axt, vier Speere, drei Dolche, ein Schwert, ein Hammer und ein goldener Helm für einen Goblin. Klingt nach einer ruhigen Woche."
+				},
+				{
+					"speaker": "magician",
+					"text": "Bring mir die Waffen fürs Bündnis, und Halvard den Sternenstahl. Dann ziehen wir zum Altar."
+				}
+			],
+			"on_end": "set_flag:star_crater_open;hint:alliance_forge;advance:alliance_forge"
+		},
+		"council_starsteel": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Hast du Sternenstahl? Drei Barren. Sternenerz aus dem Krater, in der Schmelze geschmolzen."
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier, drei Barren.",
+					"action": "has_items:starsteel_ingot*3",
+					"then": "council_starsteel_done",
+					"else": "council_starsteel_missing"
+				},
+				{
+					"text": "Noch nicht."
+				}
+			]
+		},
+		"council_starsteel_missing": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Drei Barren, Junge. Nicht zwei. Sternenstahl ist stur."
+				}
+			]
+		},
+		"council_starsteel_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du gibst Halvard einen Barren Sternenstahl.",
+					"action": "cutscene:act:player:give:starsteel_ingot",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "",
+					"text": "Halvard nimmt einen Barren in die Hand. Er wird weich wie Wachs zwischen seinen Fingern, dann wieder hart.",
+					"action": "cutscene:act:halvard:knead:starsteel_ingot",
+					"hide_for": 2.2
+				},
+				{
+					"speaker": "halvard",
+					"text": "Gut. Behalt sie bei dir. Wir schmieden am Altar, nirgendwo sonst.",
+					"action": "cutscene:act:halvard:give:starsteel_ingot"
+				}
+			],
+			"on_end": "set_flag:starsteel_ready"
+		},
+		"altar_outskirts_arrival": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Kutsche hält auf einer Hochebene aus Asche und Geröll. Vor dir ragt die Mauer des Altars der Neun auf, in der Mitte ein Tor mit einem Fallgitter.",
+					"action": "set_flag:altar_outskirts_seen"
+				},
+				{
+					"speaker": "coachman",
+					"text": "Hier ist Schluss, Schmied. Liese geht keinen Schritt näher an das Geklirre. Ich warte hier, falls ihr schnell wegmüsst."
+				},
+				{
+					"speaker": "",
+					"text": "Überall auf dem Feld wird gekämpft. Menschen, Elfen, Fischvolk, Wüstenkrieger, Echsen und Goblins stehen gegen die Finsterritter und die Schattenbrut des Königs."
+				},
+				{
+					"speaker": "",
+					"text": "Vor dem Tor steht ein Torwächter, groß wie zwei Männer. Das Bündnis hat ihn umstellt, aber keiner kommt an ihm vorbei."
+				}
+			]
+		},
+		"altar_warden_challenge": {
+			"lines": [
+				{
+					"speaker": "altar_warden",
+					"text": "Der König hat mir dieses Tor gegeben. Niemand geht hindurch, solange ich stehe."
+				},
+				{
+					"speaker": "leon_captain",
+					"text": "Wir halten ihn hier fest, Meister Schmied. Aber umwerfen müssen ihn Eure Helden."
+				},
+				{
+					"speaker": "player",
+					"text": "Dann schicke ich sie. Haltet den Kreis."
+				},
+				{
+					"speaker": "altar_warden",
+					"text": "Schick sie nur. Hinter mir wartet der König, und vor mir wartet nur der Staub.",
+					"action": "set_flag:altar_warden_met"
+				}
+			]
+		},
+		"altar_boss_west_challenge": {
+			"lines": [
+				{
+					"speaker": "altar_boss_west",
+					"text": "Ein Schmied. Du riechst nach Feuer und Angst. Beides schmeckt mir."
+				},
+				{
+					"speaker": "player",
+					"text": "Meine Helden schmecken dir sicher weniger."
+				},
+				{
+					"speaker": "altar_boss_west",
+					"text": "Dann schick sie in meinen Schatten. Keiner ist je wieder herausgekommen.",
+					"action": "set_flag:altar_west_boss_met"
+				}
+			]
+		},
+		"altar_boss_south_challenge": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Garm knurrt. Aus seinem Maul tropft Glut auf den schwarzen Stein und zischt."
+				},
+				{
+					"speaker": "player",
+					"text": "Braver Hund. Ganz ruhig. Ich hole dir jemanden zum Spielen.",
+					"action": "set_flag:altar_south_boss_met"
+				}
+			]
+		},
+		"altar_boss_east_challenge": {
+			"lines": [
+				{
+					"speaker": "altar_boss_east",
+					"text": "Ich bin Kargoth, der Champion des Königs. Kein Krieger des Bündnisses hat mich je zurückweichen sehen."
+				},
+				{
+					"speaker": "player",
+					"text": "Dann wird es Zeit. Meine Helden haben einen Drachen besiegt."
+				},
+				{
+					"speaker": "altar_boss_east",
+					"text": "Einen Drachen. Schick sie, Schmied. Ich zähle mit, wie viele zurückkommen.",
+					"action": "set_flag:altar_east_boss_met"
+				}
+			]
+		},
+		"lake_challenge": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Lake steht unter dem König vor der Tafel. Seine Augen sind leer, das schwarze Schwert zeigt auf dich."
+				},
+				{
+					"speaker": "player",
+					"text": "Lake. Ich bin es. Weißt du noch, das Feuer vor der Burg?"
+				},
+				{
+					"speaker": "lake",
+					"text": "Ich diene dem König. Tritt zurück, Schmied, oder ich schlage dich nieder."
+				},
+				{
+					"speaker": "king",
+					"text": "Siehst du? Er gehört mir. Er hat schon immer mir gehört."
+				},
+				{
+					"speaker": "player",
+					"text": "Dann hole ich dich zurück. Meine Helden halten dich fest, Lake. Mehr nicht.",
+					"action": "set_flag:lake_challenge_met"
+				}
+			]
+		},
+		"gate_opens": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ihr geht durch das Tor im Berg. Dahinter liegt eine Halle aus schwarzem Stein, offen zum Himmel. Neun Säulen stehen im Kreis, dunkel und still.",
+					"action": "cutscene:altar_enter",
+					"hide_for": 2.6
+				},
+				{
+					"speaker": "halvard",
+					"text": "Der Altar der Neun. Und in der Mitte der Amboss des ersten Schmieds. Auf ihm hat er den ersten Schlüssel geschmiedet."
+				},
+				{
+					"speaker": "",
+					"text": "Am Amboss steht König Albrecht, neben ihm Lake in schwarzer Rüstung. Der König dreht sich nicht einmal um.",
+					"action": "cutscene:camera_up",
+					"hide_for": 2.4
+				},
+				{
+					"speaker": "king",
+					"text": "Ihr kommt zu spät. Alle zusammen, wie rührend. Elfen, Fische, Echsen, Halbdämonen und mein kleines Dorf."
+				},
+				{
+					"speaker": "king",
+					"text": "Ihr hättet in euren Betten bleiben sollen. Dann müsstet ihr nicht zusehen, wie die Welt neu geschmiedet wird."
+				},
+				{
+					"speaker": "",
+					"text": "Der König hebt seine Fassung, einen Ring aus schwarzem Eisen mit neun leeren Kerben, und legt sie in die Mulde des Ambosses.",
+					"action": "cutscene:king_insert",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "player",
+					"text": "Nicht! Die Fassung ist falsch geschmiedet. Halvard hat sie gebrochen, damit sie nie wieder jemand füllt!"
+				},
+				{
+					"speaker": "king",
+					"text": "Und ich habe sie wieder zusammengefügt. Hör gut zu, Schmied. So klingt ein Altar, der erwacht."
+				},
+				{
+					"speaker": "",
+					"text": "Er öffnet seinen Mantel. Darunter leuchten die neun heiligen Kristalle. Einer nach dem anderen steigt in die Luft und kreist über dem Altar.",
+					"action": "cutscene:crystals_rise",
+					"hide_for": 3.4
+				},
+				{
+					"speaker": "",
+					"text": "Die Kristalle kreisen immer schneller. Dann stürzen sie hinab, einer nach dem anderen, mitten in die Fassung.",
+					"action": "cutscene:crystals_fall",
+					"hide_for": 3.4
+				},
+				{
+					"speaker": "",
+					"text": "Der Altar erwacht. Aus der Fassung fließt die Kraft der Kristalle über den Boden zu den neun Säulen, und jede Säule flammt in ihrer Farbe auf.",
+					"action": "set_flag:altar_awakened;cutscene:altar_awaken",
+					"hide_for": 6.4
+				},
+				{
+					"speaker": "magician",
+					"text": "Feuer, Blitz, Gift, Licht und Dunkelheit. Eis, Wind, Wasser und Erde. Alle neun Säulen brennen. So weit offen war das Siegel noch nie."
+				},
+				{
+					"speaker": "king",
+					"text": "Und jetzt, meine Diener: holt sie euch."
+				},
+				{
+					"speaker": "",
+					"text": "Von links und rechts quellen Finsterritter, Höllenhunde und Schattenbrut in die Halle. Hinter euch brüllt jemand: Die Krieger des Bündnisses stürmen durch das Tor herein.",
+					"action": "set_flag:altar_battle_started;cutscene:battle_start",
+					"hide_for": 4.4
+				},
+				{
+					"speaker": "kahn",
+					"text": "Wasservolk, zu mir! Haltet den Osten!",
+					"action": "cutscene:act:kahn:point:right"
+				},
+				{
+					"speaker": "nyra",
+					"text": "Halbdämonen, mit den Soldaten in den Westen! Heute holen wir uns alles zurück!",
+					"action": "cutscene:act:nyra:point:left"
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Echsen und Goblins, den Süden halten! Und nichts einstecken, bevor es tot ist.",
+					"action": "cutscene:act:desert_lord:point:down"
+				},
+				{
+					"speaker": "leon_captain",
+					"text": "Leonheim, Schilde hoch! Für die Stadt, nicht für die Krone!"
+				},
+				{
+					"speaker": "faelan",
+					"text": "Windwache, auf die Säulen! Schießt von oben!"
+				},
+				{
+					"speaker": "magician",
+					"text": "{name}, das sind nur seine Soldaten. Seine Heerführer kommen gleich. Deine Helden müssen sie aufhalten, einen nach dem anderen."
+				}
+			],
+			"on_end": "hint:altar_battle;advance:altar_west"
+		},
+		"report_altar_east": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Garm liegt still. Die Goblins durchsuchen schon sein Fell nach Gold."
+				},
+				{
+					"speaker": "",
+					"text": "Im Osten weicht das Wasservolk zurück. Ein Ritter in roter Rüstung schlägt sich durch ihre Reihen, das Schwert in der Hand, den Schild auf dem Rücken.",
+					"action": "cutscene:boss_east",
+					"hide_for": 2.8
+				},
+				{
+					"speaker": "kahn",
+					"text": "Kargoth, sein Champion. Er hat Subar gestern eine Narbe mehr gegeben. Heute zahlt er dafür."
+				}
+			]
+		},
+		"report_altar_south": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Vrak zerfließt zu Rauch und kehrt nicht zurück. Im Westen jubeln die Halbdämonen."
+				},
+				{
+					"speaker": "",
+					"text": "Da heult es vom Eingang im Süden. Ein Höllenhund, groß wie ein Pferd, springt über die Echsen hinweg in die Halle.",
+					"action": "cutscene:boss_south",
+					"hide_for": 3.6
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Garm! Der Hund des Königs. Er hat schon drei meiner Krieger gebissen. Schick deine Helden, Schmied!"
+				}
+			]
+		},
+		"report_altar_west": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Im Westen bricht die Reihe der Halbdämonen. Durch die Lücke schreitet eine Gestalt aus lebendigem Schatten.",
+					"action": "cutscene:boss_west",
+					"hide_for": 2.8
+				},
+				{
+					"speaker": "nyra",
+					"text": "Der Schattenfürst Vrak! Er frisst jeden, der ihm zu nahe kommt. Schmied, deine Helden!"
+				},
+				{
+					"speaker": "magician",
+					"text": "Sprich ihn an, dann schick deine Helden. Wir halten die anderen von dir fern."
+				}
+			]
+		},
+		"report_altar_lake": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Kargoth fällt auf die Knie. Die Finsterritter um ihn herum weichen zurück."
+				},
+				{
+					"speaker": "king",
+					"text": "Unfähig. Alle. Dann mache ich es eben selbst."
+				},
+				{
+					"speaker": "",
+					"text": "Der König lässt den Altar stehen und geht zur Tafel im Norden, zum Tor des Bösen. Lake folgt ihm und stellt sich unter ihn, das schwarze Schwert gezogen.",
+					"action": "cutscene:king_to_tablet",
+					"hide_for": 3.8
+				},
+				{
+					"speaker": "",
+					"text": "Der König legt die Hände auf die Tafel. Die Säulen flackern. Ein Spalt öffnet sich im Stein, und Dunkelheit quillt heraus wie schwarzer Rauch.",
+					"action": "set_flag:king_at_tablet;set_flag:gate_cracked;cutscene:king_hands;cutscene:gate_open",
+					"hide_for": 2.2
+				},
+				{
+					"speaker": "halvard",
+					"text": "Lake steht zwischen dir und dem König, Junge. Er wird dich nicht durchlassen."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Schick deine Helden. Aber schick sie nicht, um ihn zu töten."
+				}
+			]
+		},
+		"lake_awakens": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Lake sinkt vor der Tafel auf ein Knie. Deine Helden haben ihn niedergerungen. Er will wieder aufstehen. Er kann nicht.",
+					"action": "cutscene:lake_kneel",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "king",
+					"text": "Steh auf, Lake. Steh auf und töte ihn. Ich befehle es dir."
+				},
+				{
+					"speaker": "player",
+					"text": "Stopp, Lake! Hör auf! Das bist nicht du. Komm zu dir!"
+				},
+				{
+					"speaker": "",
+					"text": "Du gehst auf Lake zu. Ohne Hammer, ohne Schwert. Halvard ruft deinen Namen, aber du gehst weiter.",
+					"action": "cutscene:lake_approach",
+					"hide_for": 3.2
+				},
+				{
+					"speaker": "",
+					"text": "Lake hebt das schwarze Schwert. Seine Hand zittert.",
+					"action": "cutscene:act:lake:tremble",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "",
+					"text": "Du kniest dich vor ihn und legst deine glühenden Hände auf die schwarze Rüstung. Genau dorthin, wo das Herz schlägt.",
+					"action": "cutscene:lake_hands",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "player",
+					"text": "Du musst niemandem mehr gehorchen, Lake. Nicht ihm. Nicht mir. Nur dir."
+				},
+				{
+					"speaker": "player",
+					"text": "Am Feuer vor der Burg hast du gesagt, du bist allein. Das stimmt nicht. Das hat noch nie gestimmt."
+				},
+				{
+					"speaker": "player",
+					"text": "Im Rat habe ich für dich gebürgt. Ich nehme es nicht zurück. Nicht heute.",
+					"if_flag": "vouched_for_lake"
+				},
+				{
+					"speaker": "player",
+					"text": "Im Rat habe ich an dir gezweifelt. Das war falsch. Ich bin trotzdem gekommen.",
+					"if_flag": "doubted_lake"
+				},
+				{
+					"speaker": "",
+					"text": "Die Siegelglut fließt aus deinen Händen in die Rüstung. Blau zuerst, dann golden. Tief in Lake entzündet sich ein Licht, das nicht vom König kommt.",
+					"action": "cutscene:lake_glow",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "",
+					"text": "Lake schreit. Aus seiner Brust reißt sich die Dunkelheit wie ein Schatten mit Klauen, kreischend, und will zurück in ihn hinein.",
+					"action": "cutscene:lake_shadow",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "",
+					"text": "Lake packt sein Schwert mit beiden Händen und schlägt den Schatten entzwei. Er zerstiebt wie Asche im Wind.",
+					"action": "cutscene:lake_strike",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "",
+					"text": "Die schwarze Rüstung bekommt Risse. Darunter schimmert Gold. Das Schwert in seiner Hand leuchtet wieder weiß.",
+					"action": "cutscene:lake_gold",
+					"hide_for": 2.8
+				},
+				{
+					"speaker": "lake",
+					"text": "Ich ... sehe wieder."
+				},
+				{
+					"speaker": "lake",
+					"text": "Ihr habt mir gesagt, das Licht war immer Ihr, mein König. Ihr habt gelogen."
+				},
+				{
+					"speaker": "king",
+					"text": "Lake. Mein Sohn. Komm zurück zu mir."
+				},
+				{
+					"speaker": "lake",
+					"text": "Ich bin nicht Euer Sohn. Ich bin ein Junge aus der Gosse, der einen Freund hat."
+				},
+				{
+					"speaker": "lake",
+					"text": "Einen Freund, der für mich gebürgt hat, als es keiner tat.",
+					"if_flag": "vouched_for_lake"
+				},
+				{
+					"speaker": "lake",
+					"text": "Einen Freund, der an mir gezweifelt hat und trotzdem gekommen ist. Das zählt mehr.",
+					"if_flag": "doubted_lake"
+				},
+				{
+					"speaker": "",
+					"text": "Lake steht auf und stellt sich neben dich. Das weiße Schwert zeigt auf den König.",
+					"action": "cutscene:lake_beside",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "set_flag:lake_redeemed;advance:final_forge"
+		},
+		"king_shatters": {
+			"lines": [
+				{
+					"speaker": "king",
+					"text": "Ein rührendes Bild. Ein Schmied, ein Ritter, ein alter Mann. Aber das Tor hört nur noch auf mich."
+				},
+				{
+					"speaker": "",
+					"text": "Der König presst beide Hände auf die Tafel. Die Säulen lodern auf. Aus dem Spalt im Stein sehen zwei Augen heraus, groß wie Mühlräder.",
+					"action": "cutscene:king_eyes",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "king",
+					"text": "Komm! Ich habe dir neun Steine gebracht. Du hast mir die Ewigkeit versprochen!"
+				},
+				{
+					"speaker": "",
+					"text": "Etwas löst sich aus dem Spalt. Ein Schatten mit Klauen, kreischend. Er stürzt sich nicht auf euch. Er fährt in den König.",
+					"action": "cutscene:evil_into_king",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "",
+					"text": "König Albrecht krümmt sich. Als er sich aufrichtet, sind seine Augen schwarz, und zwei Stimmen sprechen aus seinem Mund."
+				},
+				{
+					"speaker": "king",
+					"text": "Endlich ... ein Körper. Danke, kleiner König. Und jetzt reiße ich das Tor ganz auf."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Das ist nicht mehr der König, Junge. Das Böse hat ihn. Wenn es den Spalt aufreißt, ist alles verloren."
+				},
+				{
+					"speaker": "magician",
+					"text": "Schnell, {name}! Die wahre Fassung! Schmiede sie und schließ das Siegel wieder, zusammen mit Halvard!"
+				},
+				{
+					"speaker": "lake",
+					"text": "Ich halte ihn fest. Geh, Schmied!"
+				},
+				{
+					"speaker": "",
+					"text": "Lake wirft sich auf den König und packt ihn mit beiden Armen. Der König tobt, aber Lake lässt nicht los.",
+					"action": "cutscene:lake_holds_king",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "lake",
+					"text": "Ich ... halte ... nicht ewig! Beeil dich!"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Die wahre Fassung, Junge. Am Amboss in der Mitte. Drei Barren Sternenstahl. Du schlägst, ich halte."
+				}
+			],
+			"on_end": "set_flag:king_possessed;unlock_recipes:true_setting;hint:true_setting;advance:forge_true_setting"
+		},
+		"halvard_true_setting": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Am Amboss in der Mitte. Drei Barren Sternenstahl. Schlag, Junge. Ich halte."
+				}
+			]
+		},
+		"seal_the_gate": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die wahre Fassung liegt glühend auf dem Amboss des ersten Schmieds. Neun Kerben, sauber und tief. Halvard hebt die Fassung des Königs aus der Mulde, und die neun Kristalle springen heraus.",
+					"action": "cutscene:seal_gather",
+					"hide_for": 2.6
+				},
+				{
+					"speaker": "halvard",
+					"text": "Jetzt die Steine. Einer nach dem anderen. Erde, Wind, Feuer, Wasser, Licht, Dunkel, Blitz, Gift. Und zuletzt das Eis."
+				},
+				{
+					"speaker": "",
+					"text": "Du setzt die Steine ein. Mit jedem lodert eine der Säulen um den Altar heller auf. Bei jedem schließt sich der Spalt im Tor ein Stück.",
+					"action": "cutscene:seal_stones",
+					"hide_for": 4.8
+				},
+				{
+					"speaker": "",
+					"text": "Beim neunten Stein legt Halvard seine Hände auf deine. Seine Glut fließt in die Fassung, deine fließt hinterher.",
+					"action": "cutscene:seal_hands",
+					"hide_for": 2.4
+				},
+				{
+					"speaker": "halvard",
+					"text": "Gib ihm alles, Junge. Alles, was ich habe, gebe ich auch."
+				},
+				{
+					"speaker": "",
+					"text": "Im Spalt schreit es mit zwei Stimmen. Schwarze Hände greifen aus dem Tor nach dem König, nach dem, was in ihm wohnt.",
+					"action": "cutscene:king_grab",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "lake",
+					"text": "Jetzt lasse ich ihn los!"
+				},
+				{
+					"speaker": "king",
+					"text": "Mein Schmied ... du hättest ein guter Diener sein können."
+				},
+				{
+					"speaker": "",
+					"text": "Die Hände ziehen den König in den Spalt. Dann ist er fort. Nur sein weißer Handschuh liegt noch auf dem Stein.",
+					"action": "cutscene:king_pulled",
+					"hide_for": 2.4
+				},
+				{
+					"speaker": "",
+					"text": "Ein letzter Schlag mit dem Hammer. Ein Klang wie eine Glocke über dem ganzen Land. Das Tor schließt sich mit einem tiefen Grollen.",
+					"action": "set_flag:gate_sealed;cutscene:seal_strike;cutscene:gate_close",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "",
+					"text": "Stille. Dann Jubel, von allen Seiten. Elfen, Fische, Echsen, Halbdämonen, Soldaten. Irgendwo ruft ein Goblin: „Gold!“",
+					"action": "cutscene:act:altar_narrator:cheer",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "",
+					"text": "Die Windwache singt schon ein Lied über die Nordtreppe. Dein Name kommt darin vor, leider falsch ausgesprochen.",
+					"if_flag": "council_lead_elves"
+				},
+				{
+					"speaker": "",
+					"text": "Zum ersten Mal seit Jahrhunderten jubeln Menschen und Halbdämonen im selben Takt.",
+					"if_flag": "council_lead_finster"
+				},
+				{
+					"speaker": "",
+					"text": "Bertolds Soldaten heben ihren Hauptmann auf die Schultern. Er flucht und lacht gleichzeitig.",
+					"if_flag": "council_lead_leon",
+					"action": "cutscene:act:leon_captain:hop",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "",
+					"text": "Halvard sieht auf seine Hände. Sie leuchten nicht mehr. Deine schon.",
+					"action": "cutscene:act:player:glow",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "halvard",
+					"text": "Hm. Fort. Zwanzig Jahre hat sie mich am Leben gehalten, und jetzt ist sie fort."
+				},
+				{
+					"speaker": "player",
+					"text": "Meister ... das tut mir leid."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Muss es nicht. Jetzt bist du dran."
+				},
+				{
+					"speaker": "lake",
+					"text": "Ich bleibe hier. Jemand muss das Tor bewachen, und ich habe viel gutzumachen. Wenn die Fürstin es erlaubt."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Die Finsterstadt braucht einen Ritter, der weiß, wie Dunkelheit aussieht. Bleib, Lake."
+				},
+				{
+					"speaker": "magician",
+					"text": "Leonheim hat keinen König mehr. Der Rat der Völker hat einen Vorschlag, {name}."
+				},
+				{
+					"speaker": "player",
+					"text": "Nein. Nein, nein, nein. Ich bin Schmied. Ich kann euch höchstens eine Krone machen. Eine schöne. Mit Rabatt."
+				},
+				{
+					"speaker": "leon_captain",
+					"text": "Dann führen Thora und ich die Stadt, bis sich jemand findet, der es freiwillig will. Das Schloss steht Euch offen, Meister Schmied. Immer."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Der Fluss vergisst nicht, Schmied. Eisquell auch nicht."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Und Subar lässt dir ausrichten: Die nächste Harpunenspitze bezahlt er. Das hat er noch nie zu einem Südling gesagt.",
+					"if_flag": "subar_saved"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Und jetzt bring mich nach Hause. Ich will wissen, was du aus meiner Schmiede gemacht hast."
+				},
+				{
+					"speaker": "",
+					"text": "Ihr geht nach Hause. Der Weg ist lang, und keiner von euch sagt viel."
+				}
+			],
+			"on_end": "take_items:true_setting;set_flag:story_complete;set_flag:castle_reopened;advance:ending_night;show_ending"
+		},
+		"halvard_home": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Du hältst den Hammer immer noch zu weit vorn, Junge. Aber gut. Besser als ich in deinem Alter."
+				},
+				{
+					"speaker": "halvard",
+					"text": "In Leonheim laufen jetzt die Ligen der Schmiede. Steig dort weit genug auf, dann reden wir über den Titel Meisterschmied. Vielleicht richten bald auch die anderen Völker welche aus."
+				}
+			]
+		},
+		"nyra_ally": {
+			"lines": [
+				{
+					"speaker": "nyra",
+					"text": "Mein Vater hätte dich gemocht. Er mochte Leute, die zu viel reden."
+				}
+			]
+		},
+		"guardhouse_enter": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Drinnen ist es dunkel und riecht nach kaltem Bier. Zwischen Kisten und Fässern gehen Wachen ihre Runden."
+				},
+				{
+					"speaker": "",
+					"text": "Irgendwo hier steht der Tisch des Hauptmanns. Bleib aus dem Blick der Wachen. Wer gesehen wird, rettet sich zurück zur Tür."
+				}
+			]
+		},
+		"roster_desk": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Auf dem Tisch liegen Würfel, ein halbes Brot und eine Rolle Pergament mit dem Siegel der Burg."
+				},
+				{
+					"speaker": "player",
+					"text": "Wachplan der Finsterburg. Mit Siegel. Und mit Fettflecken. Danke, ihr ordentlichen Leute."
+				},
+				{
+					"speaker": "",
+					"text": "Du steckst den Plan ein und schleichst durch die Hintertür hinaus. Hinter dir schnarcht jemand weiter.",
+					"action": "give_items:guard_roster;set_flag:roster_stolen;cutscene:act:roster_desk:give:guard_roster",
+					"hide_for": 1.1
+				}
+			],
+			"on_end": "travel_fade:res://scenes/world/finster/finster_city.tscn,FromGuardhouse"
+		},
+		"roster_desk_empty": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Auf dem Tisch liegen nur noch Würfel und ein halbes Brot."
+				}
+			]
+		},
+		"halvard_hammer_offer": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Junge. Setz dich einen Moment. Ich will dich um etwas bitten. Das tue ich nicht oft."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Mein Hammer liegt noch unten in der Kerkerschmiede. Zwanzig Jahre hab ich mit ihm geschmiedet, was der König wollte. Ich will ihn nicht zurück."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Aber ein Schmied ohne Hammer ist nur ein alter Mann. Schmiede mir einen neuen. Aus Platin, mindestens selten. Damit will ich wieder etwas machen, das ich selbst will."
+				},
+				{
+					"speaker": "player",
+					"text": "Einen Hammer für Meister Halvard. Kein Druck. Nur der beste Schmied, den es je gab. Und er guckt zu."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich schmiede dir einen",
+					"action": "set_flag:halvard_hammer_accepted",
+					"then": "halvard_hammer_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"halvard_hammer_accepted": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Und halt ihn nicht so weit vorn. Ich sehe das. Auch durch die Wand."
+				}
+			]
+		},
+		"halvard_hammer_hand_in": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Hast du ihn, Junge?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Hammer geben",
+					"action": "hand_in_set:halvard_hammer",
+					"then": "halvard_hammer_done",
+					"else": "halvard_hammer_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"halvard_hammer_missing": {
+			"lines": [
+				{
+					"speaker": "halvard",
+					"text": "Platin. Mindestens selten. Ich hab zwanzig Jahre gewartet, Junge. Ein paar Tage mehr schaffe ich auch."
+				}
+			]
+		},
+		"halvard_hammer_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du gibst Halvard den Platinhammer.",
+					"action": "cutscene:act:player:give:platinum_hammer_head+platinum_shaft",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "",
+					"text": "Halvard wiegt den Hammer in der Hand. Er schlägt dreimal auf den Amboss, langsam, dann schnell.",
+					"action": "cutscene:act:halvard:strike:platinum_hammer_head+platinum_shaft",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "halvard",
+					"text": "Gutes Gleichgewicht. Der Stiel sitzt. Das hätte ich in deinem Alter nicht gekonnt."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Den letzten Sternenstahl hab ich für einen Tag wie diesen aufgehoben. Nimm ihn. Du weißt jetzt, was man damit macht."
+				},
+				{
+					"speaker": "",
+					"text": "Halvard gibt dir 2 Sternenstahl.",
+					"action": "cutscene:act:halvard:give:starsteel_ingot",
+					"hide_for": 1.1
+				}
+			],
+			"on_end": "give_items:starsteel_ingot*2;set_flag:halvard_hammer_paid"
+		},
+		"tournament_messenger_finster_talk": {
+			"lines": [
+				{
+					"speaker": "tournament_messenger_finster",
+					"text": "Mensch. Früher hat man hier um sein Leben gekämpft. Heute um Pokale. Nyra sagt, das ist ein Fortschritt."
+				},
+				{
+					"speaker": "tournament_messenger_finster",
+					"text": "Turnierhalle oder Arena? In der Halle meldest du dich für die Schmiedegrube an. Ich bring dich hin. Kostet nichts. Ausnahmsweise."
+				},
+				{
+					"speaker": "tournament_messenger_finster",
+					"text": "Die Arena ist nur für Helden, die schon ein großes Heldenturnier gewonnen haben.",
+					"unless_flag": "hero_tournament_won"
+				}
+			],
+			"choices": [
+				{
+					"text": "Zur Turnierhalle",
+					"action": "travel_fade:res://scenes/world/tournament/tournament_hall_finster.tscn,FromCity"
+				},
+				{
+					"text": "Zur Arena",
+					"if_flag": "hero_tournament_won",
+					"action": "travel_fade:res://scenes/world/tournament/arena_hall_finster.tscn,FromCity"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,1672 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "%d Herzen"
+msgstr "%d قلب"
+
+msgid "Acht Bomben"
+msgstr "هشت بمب"
+
+msgid "Alle Items abgelegt"
+msgstr "همه آیتم‌ها رها شدند"
+
+msgid "Alle Items ablegen"
+msgstr "رها کردن همه آیتم‌ها"
+
+msgid "Alle Werte ein bisschen hoch"
+msgstr "همه ویژگی‌ها کمی بالاتر"
+
+msgid "Alle paar Besiegten heilst du ein halbes Herz"
+msgstr "هر چند دشمن که شکست دهی نیم قلب شفا می‌گیری"
+
+msgid "Alles im Laden kostet die Hälfte"
+msgstr "همه چیز در مغازه نصف قیمت است"
+
+msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
+msgstr "هر تیر در پایان به چهار جرقه می‌ترکد"
+
+msgid "Amethyst"
+msgstr "آمتیست"
+
+msgid "Arena-Amulett"
+msgstr "طلسم میدان"
+
+msgid "Arenaherz"
+msgstr "قلب میدان"
+
+msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
+msgstr "اخگر عظیم شارژشده فرود می‌آید و منفجر می‌شود"
+
+msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
+msgstr "شارژ کن، رها کن: یک پرتو آتش عظیم"
+
+msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
+msgstr "تبر به جای گلوله آتشین: ضربه سنگین، دشمنان خونریزی می‌کنند"
+
+msgid "Beenden"
+msgstr "خروج"
+
+msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
+msgstr "هنگام برخورد، گلوله به چهار جرقه تبدیل می‌شود"
+
+msgid "Bernstein"
+msgstr "کهربا"
+
+msgid "Besiege %d Gegner (%d / %d)"
+msgstr "%d دشمن را شکست بده (%d / %d)"
+
+msgid "Besiege: %s"
+msgstr "شکست بده: %s"
+
+msgid "Besiegte Gegner: %d"
+msgstr "دشمنان شکست‌خورده: %d"
+
+msgid "Blasebalg"
+msgstr "دم آهنگری"
+
+msgid "Blutphiole"
+msgstr "شیشه خون"
+
+msgid "Bogenschütze"
+msgstr "کماندار"
+
+msgid "Bomben schießen beim Explodieren Feuerbälle"
+msgstr "بمب‌ها هنگام انفجار گلوله آتشین شلیک می‌کنند"
+
+msgid "Bomben zerplatzen in kleine Bomben"
+msgstr "بمب‌ها به بمب‌های کوچک تقسیم می‌شوند"
+
+msgid "Bombengürtel"
+msgstr "کمربند بمب"
+
+msgid "Brandöl"
+msgstr "روغن آتش"
+
+msgid "Brennend und langsam: mehr Schaden"
+msgstr "سوزان و کند: آسیب بیشتر"
+
+msgid "Brennende, explodierende Schüsse"
+msgstr "تیرهای سوزان و منفجرشونده"
+
+msgid "Brennende, langsame Gegner und zwei blaue Herzen"
+msgstr "دشمنان سوزان و کند، و دو قلب آبی"
+
+msgid "Bronzebogen"
+msgstr "کمان برنزی"
+
+msgid "Bronzeschild"
+msgstr "سپر برنزی"
+
+msgid "Brotkanone"
+msgstr "توپ نان"
+
+msgid "Brotregen"
+msgstr "باران نان"
+
+msgid "Bumerang-Haken"
+msgstr "قلاب بومرنگی"
+
+msgid "Das kostet zu viel Leben"
+msgstr "این زندگی زیادی می‌گیرد"
+
+msgid "Defensiv"
+msgstr "دفاعی"
+
+msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
+msgstr "گلوله‌های آتشین تو تیرهای دشمن را نابود می‌کنند"
+
+msgid "Deine Items"
+msgstr "آیتم‌های تو"
+
+msgid "Deine Schüsse verfolgen Gegner"
+msgstr "گلوله‌هایت دشمن را دنبال می‌کنند"
+
+msgid "Der Feuerstrahl biegt sich zum Gegner"
+msgstr "پرتو آتش به سمت دشمن خم می‌شود"
+
+msgid "Der Stein nimmt dein Opfer an"
+msgstr "سنگ قربانی تو را می‌پذیرد"
+
+msgid "Der Weg nach unten ist frei!"
+msgstr "راه پایین باز شد!"
+
+msgid "Diamantherz"
+msgstr "قلب الماس"
+
+msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
+msgstr "سلاح کماندار: تیر را پر کن و رها کن، دور و قوی"
+
+msgid "Die Waffe des Kriegers: ein Schwertschwung trifft alle vor dir"
+msgstr "سلاح جنگجو: یک ضربه‌ی شمشیر به همه‌ی جلوی تو می‌خورد"
+
+msgid "Die Waffe des Magiers: schießt Feuerbälle"
+msgstr "سلاح جادوگر: گلوله‌های آتشین شلیک می‌کند"
+
+msgid "Dietrich"
+msgstr "شاه‌کلید"
+
+msgid "Doppelschuss"
+msgstr "شلیک دوتایی"
+
+msgid "Dornenpanzer"
+msgstr "زره خاردار"
+
+msgid "Drachenatem"
+msgstr "نفس اژدها"
+
+msgid "Drachenhaut"
+msgstr "پوست اژدها"
+
+msgid "Drachenleder"
+msgstr "چرم اژدها"
+
+msgid "Drachenmantel"
+msgstr "ردای اژدها"
+
+msgid "Drei Funken folgen dir und schießen"
+msgstr "سه جرقه دنبالت می‌آیند و شلیک می‌کنند"
+
+msgid "Drei Schlüssel, Rabatt im Laden"
+msgstr "سه کلید، تخفیف در مغازه"
+
+msgid "Drei blaue Herzen"
+msgstr "سه قلب آبی"
+
+msgid "Drei blaue Herzen und manchmal ausweichen"
+msgstr "سه قلب آبی و گاهی جاخالی"
+
+msgid "Dreifachschuss"
+msgstr "شلیک سه‌تایی"
+
+msgid "Dreizack-Rune"
+msgstr "رون سه‌شاخه"
+
+msgid "Dreißig Münzen und zehn Schlüssel"
+msgstr "سی سکه و ده کلید"
+
+msgid "Du bist gefallen"
+msgstr "از پا افتادی"
+
+msgid "Du brauchst einen Schlüssel"
+msgstr "به یک کلید نیاز داری"
+
+msgid "Du hast den Dungeon bezwungen!"
+msgstr "سیاه‌چال را فتح کردی!"
+
+msgid "Du hast nicht genug Leben"
+msgstr "زندگی کافی نداری"
+
+msgid "Du läufst schneller"
+msgstr "سریع‌تر می‌دوی"
+
+msgid "Du schießt Brotlaibe. Getroffene Gegner vergessen dich und rennen weg"
+msgstr "نان شلیک می‌کنی. دشمنانِ خورده تو را فراموش می‌کنند و فرار می‌کنند"
+
+msgid "Du schießt auch nach hinten"
+msgstr "به عقب هم شلیک می‌کنی"
+
+msgid "Du schießt schneller"
+msgstr "سریع‌تر شلیک می‌کنی"
+
+msgid "Du wirfst Bomben statt Feuerbällen"
+msgstr "به جای گوی آتش بمب پرتاب می‌کنی"
+
+msgid "Du wirfst Wurfsterne, getroffene Gegner bluten"
+msgstr "ستاره پرتابی می‌اندازی، دشمنان آسیب‌دیده خونریزی می‌کنند"
+
+msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
+msgstr "بزرگ‌تر می‌شوی: قلب و آسیب بیشتر، راحت‌تر مورد اصابت"
+
+msgid "Du wirst kleiner und schneller"
+msgstr "کوچک‌تر و سریع‌تر می‌شوی"
+
+msgid "Du wirst kleiner: schwerer zu treffen, schneller"
+msgstr "کوچک می‌شوی: سخت‌تر مورد اصابت، سریع‌تر"
+
+msgid "Du wirst viel größer und stärker, aber langsamer"
+msgstr "خیلی بزرگ‌تر و قوی‌تر، اما کندتر می‌شوی"
+
+msgid "Du wirst winzig und manchmal weichst du aus"
+msgstr "ریز می‌شوی و گاهی جاخالی می‌دهی"
+
+msgid "Dungeon der Glut"
+msgstr "سیاه‌چال اخگر"
+
+msgid "Dunkler Zauberstab"
+msgstr "عصای تاریک"
+
+msgid "Durch Gegner hindurch und von Wand zu Wand"
+msgstr "از میان دشمنان و از دیوار به دیوار"
+
+msgid "Durch Steine, und manchmal fliehen Gegner"
+msgstr "از میان سنگ‌ها، و گاهی دشمنان فرار می‌کنند"
+
+msgid "Durchschlag, Abprallen und Zerplatzen"
+msgstr "نفوذ، کمانه و ترکیدن"
+
+msgid "E: Bombe · Tab: Karte · Esc: Pause"
+msgstr "E: بمب · Tab: نقشه · Esc: توقف"
+
+msgid "Ebene %d"
+msgstr "طبقه %d"
+
+msgid "Ebene: %d"
+msgstr "طبقه: %d"
+
+msgid "Effekte"
+msgstr "افکت‌ها"
+
+msgid "Eigene Explosionen heilen dich"
+msgstr "انفجارهای خودت تو را شفا می‌دهند"
+
+msgid "Ein Feuerball kreist um dich und blockt Schüsse"
+msgstr "یک گوی آتش دورت می‌چرخد و گلوله‌ها را دفع می‌کند"
+
+msgid "Ein Funke folgt dir und schießt"
+msgstr "جرقه‌ای دنبالت می‌آید و شلیک می‌کند"
+
+msgid "Ein Funke und ein Glutmond"
+msgstr "یک جرقه و یک ماه اخگر"
+
+msgid "Ein Funke und mehr Glück"
+msgstr "یک جرقه و شانس بیشتر"
+
+msgid "Ein Glutpakt hat sich geöffnet"
+msgstr "یک پیمان اخگر باز شد"
+
+msgid "Ein Herz mehr"
+msgstr "یک قلب بیشتر"
+
+msgid "Ein Herz mehr, Glück hoch"
+msgstr "یک قلب بیشتر، شانس بالاتر"
+
+msgid "Ein Herz mehr, Schaden hoch"
+msgstr "یک قلب بیشتر، آسیب بالاتر"
+
+msgid "Ein Herz mehr, heilt dich ganz"
+msgstr "یک قلب بیشتر، کاملاً درمانت می‌کند"
+
+msgid "Ein Herz und ein blaues Herz"
+msgstr "یک قلب و یک قلب آبی"
+
+msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
+msgstr "یک قلب، خار، و انفجارها آسیبی نمی‌زنند"
+
+msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "یک قلب، یک سکه، یک بمب و یک کلید"
+
+msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
+msgstr "یک قلب، دو قلب آبی، آسیب بالاتر"
+
+msgid "Ein Schrein hat sich geöffnet"
+msgstr "یک زیارتگاه باز شد"
+
+msgid "Ein Schuss mehr und mehr Schaden"
+msgstr "یک تیر بیشتر و آسیب بیشتر"
+
+msgid "Ein Schuss mehr, aber schwächer"
+msgstr "یک تیر بیشتر، اما ضعیف‌تر"
+
+msgid "Ein blaues Herz und Dornen"
+msgstr "یک قلب آبی و خار"
+
+msgid "Ein blaues Herz, Schaden hoch"
+msgstr "یک قلب آبی، آسیب بالاتر"
+
+msgid "Ein blaues Herz, länger sicher nach Treffern"
+msgstr "یک قلب آبی، بعد از ضربه مدت بیشتری امنی"
+
+msgid "Ein blaues Herz, schneller laufen"
+msgstr "یک قلب آبی، سریع‌تر راه می‌روی"
+
+msgid "Ein geheimer Raum!"
+msgstr "یک اتاق مخفی!"
+
+msgid "Ein zweites Leben"
+msgstr "زندگی دوم"
+
+msgid "Ein zweites Leben und ein Funke"
+msgstr "زندگی دوم و یک جرقه"
+
+msgid "Ein zweites Leben!"
+msgstr "زندگی دوم!"
+
+msgid "Eine ganze Bäckerei auf einmal"
+msgstr "یک نانوایی کامل یک‌جا"
+
+msgid "Einstellungen"
+msgstr "تنظیمات"
+
+msgid "Eisenhaut"
+msgstr "پوست آهنین"
+
+msgid "Eisfeder"
+msgstr "پر یخی"
+
+msgid "Eisspiegel"
+msgstr "آینه‌ی یخی"
+
+msgid "Eisstab"
+msgstr "عصای یخ"
+
+msgid "Elfenbrief"
+msgstr "نامه الف"
+
+msgid "Entdecke %d Items (%d / %d)"
+msgstr "%d آیتم کشف کن (%d / %d)"
+
+msgid "Entdeckt: %d / %d"
+msgstr "کشف‌شده: %d / %d"
+
+msgid "Erdstab"
+msgstr "عصای زمین"
+
+msgid "Erreiche Ebene %d"
+msgstr "به طبقه %d برس"
+
+msgid "Erstglut"
+msgstr "نخستین اخگر"
+
+msgid "Explosive Schüsse, langsamer schießen"
+msgstr "تیرهای انفجاری، شلیک کندتر"
+
+msgid "Fahre mit der Maus über ein Item"
+msgstr "ماوس را روی یک آیتم ببر"
+
+msgid "Feenstaub"
+msgstr "گرد پری"
+
+msgid "Feuerfester Bomber"
+msgstr "بمب‌انداز نسوز"
+
+msgid "Feuerhieb"
+msgstr "ضربه‌ی آتشین"
+
+msgid "Feuerkranz"
+msgstr "تاج آتش"
+
+msgid "Feuerlanze"
+msgstr "نیزه‌ی آتش"
+
+msgid "Feuerstab"
+msgstr "عصای آتش"
+
+msgid "Feuerstrahl statt Feuerbällen: Maustaste halten"
+msgstr "پرتو آتش به جای گوی آتش: دکمه را نگه دار"
+
+msgid "Feuerwerk"
+msgstr "آتش‌بازی"
+
+msgid "Flechtenleder"
+msgstr "چرم گلسنگ"
+
+msgid "Flechtenmantel"
+msgstr "ردای گلسنگ"
+
+msgid "Fledermaus"
+msgstr "خفاش"
+
+msgid "Flipper"
+msgstr "پین‌بال"
+
+msgid "Fluchskelett"
+msgstr "اسکلت نفرین‌شده"
+
+msgid "Freigeschaltet: %s"
+msgstr "باز شد: %s"
+
+msgid "Frost und Feuer"
+msgstr "یخ و آتش"
+
+msgid "Frostflechte"
+msgstr "گلسنگ یخی"
+
+msgid "Frostkristall"
+msgstr "بلور یخ"
+
+msgid "Frostmähne"
+msgstr "یال یخی"
+
+msgid "Funkenbüchse"
+msgstr "قوطی جرقه"
+
+msgid "Funkenfänger"
+msgstr "شکارچی جرقه"
+
+msgid "Funkenstein"
+msgstr "سنگ جرقه"
+
+msgid "Fängt in jedem Raum den ersten Treffer ab"
+msgstr "در هر اتاق اولین ضربه را دفع می‌کند"
+
+msgid "Fünf Bomben, und Explosionen tun dir nichts mehr"
+msgstr "پنج بمب، و انفجارها دیگر به تو آسیب نمی‌زنند"
+
+msgid "Fünf Münzen, drei Bomben, drei Schlüssel"
+msgstr "پنج سکه، سه بمب، سه کلید"
+
+msgid "Fünf Schlüssel"
+msgstr "پنج کلید"
+
+msgid "Fünfzehn Münzen"
+msgstr "پانزده سکه"
+
+msgid "Gegabelter Stab"
+msgstr "عصای دوشاخه"
+
+msgid "Gegner brennen, Schaden hoch"
+msgstr "دشمنان می‌سوزند، آسیب بالاتر"
+
+msgid "Gegner werden langsamer, Reichweite hoch"
+msgstr "دشمنان کند می‌شوند، برد بالاتر"
+
+msgid "Gegner, die dich berühren, nehmen Schaden"
+msgstr "دشمنانی که به تو برخورد کنند آسیب می‌بینند"
+
+msgid "Geist"
+msgstr "روح"
+
+msgid "Geisterfürst"
+msgstr "سرور ارواح"
+
+msgid "Geisterglas"
+msgstr "شیشه روح"
+
+msgid "Geisterstab"
+msgstr "عصای روح"
+
+msgid "Generalsklinge"
+msgstr "تیغ ژنرال"
+
+msgid "Geschafft!"
+msgstr "موفق شدی!"
+
+msgid "Gesperrt"
+msgstr "قفل"
+
+msgid "Gesprengte Fessel"
+msgstr "زنجیر شکسته"
+
+msgid "Getroffene Gegner brennen weiter"
+msgstr "دشمنان آسیب‌دیده به سوختن ادامه می‌دهند"
+
+msgid "Getroffene Gegner fliehen vor dir"
+msgstr "دشمنان آسیب‌دیده از تو فرار می‌کنند"
+
+msgid "Getroffene Gegner frieren ein"
+msgstr "دشمنان آسیب‌دیده یخ می‌زنند"
+
+msgid "Getroffene Gegner frieren kurz ein"
+msgstr "دشمنان آسیب‌دیده لحظه‌ای یخ می‌زنند"
+
+msgid "Getroffene Gegner torkeln herum"
+msgstr "دشمنان آسیب‌دیده تلوتلو می‌خورند"
+
+msgid "Getroffene Gegner werden langsam und vergiftet"
+msgstr "دشمنان آسیب‌دیده کند و مسموم می‌شوند"
+
+msgid "Getroffene Gegner werden langsamer"
+msgstr "دشمنان آسیب‌دیده کند می‌شوند"
+
+msgid "Getroffene Gegner werden vergiftet"
+msgstr "دشمنان آسیب‌دیده مسموم می‌شوند"
+
+msgid "Gewinne %d Runs"
+msgstr "%d بار برنده شو"
+
+msgid "Gewinne einen Run"
+msgstr "یک بار برنده شو"
+
+msgid "Gewinne in unter %d Minuten"
+msgstr "در کمتر از %d دقیقه برنده شو"
+
+msgid "Ghul"
+msgstr "غول"
+
+msgid "Giftratte"
+msgstr "موش سمی"
+
+msgid "Giftstab"
+msgstr "عصای زهر"
+
+msgid "Giftzahn"
+msgstr "دندان زهری"
+
+msgid "Glutkern"
+msgstr "هسته‌ی اخگر"
+
+msgid "Glutklinge"
+msgstr "تیغ اخگر"
+
+msgid "Glutmantel"
+msgstr "ردای اخگر"
+
+msgid "Glutmond"
+msgstr "ماه اخگر"
+
+msgid "Glutsammler"
+msgstr "گردآورنده‌ی اخگر"
+
+msgid "Glutschwert"
+msgstr "شمشیر اخگر"
+
+msgid "Glutstab"
+msgstr "عصای اخگر"
+
+msgid "Glück"
+msgstr "شانس"
+
+msgid "Glück hoch"
+msgstr "شانس بالاتر"
+
+msgid "Glück und Schaden hoch"
+msgstr "شانس و آسیب بالاتر"
+
+msgid "Glück viel höher"
+msgstr "شانس خیلی بیشتر"
+
+msgid "Glücksflachs"
+msgstr "کتان شانس"
+
+msgid "Glühender Schlüssel"
+msgstr "کلید گداخته"
+
+msgid "Goblin"
+msgstr "گابلین"
+
+msgid "Goblin-Schamane"
+msgstr "شمن گابلین"
+
+msgid "Goblinkrone"
+msgstr "تاج گابلین"
+
+msgid "Goblinstollen"
+msgstr "تونل‌های گابلین"
+
+msgid "Goldader"
+msgstr "رگه طلا"
+
+msgid "Goldamulett"
+msgstr "طلسم طلایی"
+
+msgid "Goldbarren"
+msgstr "شمش طلا"
+
+msgid "Goldbogen"
+msgstr "کمان طلایی"
+
+msgid "Goldener Schattenstab"
+msgstr "عصای سایه طلایی"
+
+msgid "Goldglut"
+msgstr "اخگر طلایی"
+
+msgid "Goldhammer"
+msgstr "چکش طلایی"
+
+msgid "Goldhelm"
+msgstr "کلاهخود طلایی"
+
+msgid "Goldklinge"
+msgstr "تیغ طلایی"
+
+msgid "Goldstiefel"
+msgstr "چکمه طلایی"
+
+msgid "Greifenfell"
+msgstr "پوست گریفون"
+
+msgid "Greifenmantel"
+msgstr "ردای گریفون"
+
+msgid "Große, schwere Schüsse mit viel Rückstoß"
+msgstr "تیرهای بزرگ و سنگین با پس‌زنی زیاد"
+
+msgid "Grubenhacke"
+msgstr "کلنگ معدن"
+
+msgid "Gruftgespenst"
+msgstr "شبح دخمه"
+
+msgid "Gruftschild"
+msgstr "سپر دخمه"
+
+msgid "Größere Bomben und drei Bomben"
+msgstr "بمب‌های بزرگ‌تر و سه بمب"
+
+msgid "Größere Bomben, und keine tut dir weh"
+msgstr "بمب‌های بزرگ‌تر، و هیچ‌کدام به تو آسیب نمی‌زنند"
+
+msgid "Größere Feuerbälle, mehr Schaden"
+msgstr "گلوله‌های آتشین بزرگ‌تر، آسیب بیشتر"
+
+msgid "Habe %d Herz-Container gleichzeitig"
+msgstr "همزمان %d ظرف قلب داشته باش"
+
+msgid "Habe %d Münzen gleichzeitig"
+msgstr "همزمان %d سکه داشته باش"
+
+msgid "Habe %d blaue Herzen gleichzeitig"
+msgstr "همزمان %d قلب آبی داشته باش"
+
+msgid "Hauptmenü"
+msgstr "منوی اصلی"
+
+msgid "Heilen durch Besiegte, Schaden hoch"
+msgstr "با شکست دشمنان شفا، آسیب بالاتر"
+
+msgid "Heilerkräuter"
+msgstr "گیاهان شفا"
+
+msgid "Heilt dich ganz, schneller laufen"
+msgstr "تو را کامل درمان می‌کند، سریع‌تر راه می‌روی"
+
+msgid "Heißer Sand"
+msgstr "شن داغ"
+
+msgid "Herzblatt"
+msgstr "برگ دل"
+
+msgid "Herzen heilen doppelt"
+msgstr "قلب‌ها دو برابر شفا می‌دهند"
+
+msgid "Hexenkessel"
+msgstr "دیگ جادوگر"
+
+msgid "Hier klicken"
+msgstr "اینجا کلیک کن"
+
+msgid "Holzstab"
+msgstr "عصای چوبی"
+
+msgid "Hydraschuppe"
+msgstr "فلس هیدرا"
+
+msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
+msgstr "حداکثر نیم قلب در هر ضربه، اما کندتر"
+
+msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
+msgstr "حداکثر نیم قلب در هر ضربه، مدت امن بیشتر"
+
+msgid "Höhlentroll"
+msgstr "ترول غار"
+
+msgid "Höllenhundfell"
+msgstr "پوست سگ جهنمی"
+
+msgid "Höllenleder"
+msgstr "چرم جهنمی"
+
+msgid "Höllenstab"
+msgstr "عصای جهنمی"
+
+msgid "Jadefigur"
+msgstr "پیکره یشم"
+
+msgid "Jagdbogen"
+msgstr "کمان شکار"
+
+msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
+msgstr "هرچه تیر دورتر برود، آسیب بیشتر است"
+
+msgid "Jeder Treffer jagt Gegnern Angst ein"
+msgstr "هر ضربه دشمنان را می‌ترساند"
+
+msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
+msgstr "هر ضربه‌ای که می‌خوری تو را در این طبقه قوی‌تر می‌کند"
+
+msgid "Jeder zweite Schuss ist viel stärker"
+msgstr "هر تیر دوم خیلی قوی‌تر است"
+
+msgid "Kamille"
+msgstr "بابونه"
+
+msgid "Kann ab jetzt im Dungeon auftauchen"
+msgstr "از حالا ممکن است در سیاه‌چال پیدا شود"
+
+msgid "Karawanenrucksack"
+msgstr "کوله کاروان"
+
+msgid "Kein Treffer nimmt mehr als ein halbes Herz"
+msgstr "هیچ ضربه‌ای بیش از نیم قلب نمی‌گیرد"
+
+msgid "Kinderschuhe"
+msgstr "کفش کودک"
+
+msgid "Kleiner, schneller und manchmal ausweichen"
+msgstr "کوچک‌تر، سریع‌تر و گاهی جاخالی"
+
+msgid "Klingenstern"
+msgstr "ستاره تیغه"
+
+msgid "Knochengeneral"
+msgstr "ژنرال استخوانی"
+
+msgid "Kohlenschrot"
+msgstr "ساچمه‌ی زغالی"
+
+msgid "Kometenschweif"
+msgstr "دنباله ستاره دنباله‌دار"
+
+msgid "Kometenstein"
+msgstr "سنگ دنباله‌دار"
+
+msgid "Kompassnadel"
+msgstr "عقربه قطب‌نما"
+
+msgid "Krieger"
+msgstr "جنگجو"
+
+msgid "Kriegerschwert"
+msgstr "شمشیر جنگجو"
+
+msgid "Kriegsaxt"
+msgstr "تبر جنگی"
+
+msgid "Kristallkarte"
+msgstr "نقشه بلورین"
+
+msgid "Kristallsplitter"
+msgstr "تکه بلور"
+
+msgid "Kräuterbeutel"
+msgstr "کیسه گیاهان"
+
+msgid "Kupfernagel"
+msgstr "میخ مسی"
+
+msgid "Königsbrief"
+msgstr "نامه سلطنتی"
+
+msgid "Labyrinthaxt"
+msgstr "تبر هزارتو"
+
+msgid "Ladenschild"
+msgstr "تابلو مغازه"
+
+msgid "Lange Flugbahnen, gewaltiger Einschlag"
+msgstr "پرواز طولانی، برخورد سهمگین"
+
+msgid "Langsam heilen und ein blaues Herz"
+msgstr "شفای آرام و یک قلب آبی"
+
+msgid "Langsam heilst du dich"
+msgstr "به آرامی شفا می‌گیری"
+
+msgid "Lautstärke"
+msgstr "صدا"
+
+msgid "Lebendiger Wind"
+msgstr "باد زنده"
+
+msgid "Lebensholz"
+msgstr "چوب زندگی"
+
+msgid "Lebenstau"
+msgstr "شبنم زندگی"
+
+msgid "Lederstiefel"
+msgstr "چکمه چرمی"
+
+msgid "Legendenhandschuhe"
+msgstr "دستکش افسانه‌ای"
+
+msgid "Leichte Feder"
+msgstr "پَر سبک"
+
+msgid "Letzte Glut"
+msgstr "آخرین اخگر"
+
+msgid "Lexikon"
+msgstr "دانشنامه"
+
+msgid "Lichtstab"
+msgstr "عصای نور"
+
+msgid "Länger sicher nach einem Treffer"
+msgstr "بعد از ضربه مدت بیشتری امنی"
+
+msgid "Läufersandalen"
+msgstr "صندل دونده"
+
+msgid "Läuferschuhe"
+msgstr "کفش دونده"
+
+msgid "Magier"
+msgstr "جادوگر"
+
+msgid "Makelloser Schild"
+msgstr "سپر بی‌نقص"
+
+msgid "Manchmal Schüsse in alle vier Richtungen"
+msgstr "گاهی تیر به هر چهار جهت"
+
+msgid "Manchmal ausweichen, schneller laufen"
+msgstr "گاهی جاخالی، سریع‌تر راه می‌روی"
+
+msgid "Manchmal brennen getroffene Gegner"
+msgstr "دشمنان آسیب‌دیده گاهی می‌سوزند"
+
+msgid "Manchmal explodieren deine Schüsse"
+msgstr "تیرهایت گاهی منفجر می‌شوند"
+
+msgid "Manchmal frieren Gegner ein"
+msgstr "دشمنان گاهی یخ می‌زنند"
+
+msgid "Manchmal vergiften deine Schüsse"
+msgstr "تیرهایت گاهی مسموم می‌کنند"
+
+msgid "Manchmal weichst du Treffern aus"
+msgstr "گاهی از ضربه‌ها جاخالی می‌دهی"
+
+msgid "Maus"
+msgstr "ماوس"
+
+msgid "Maustaste halten zum Aufladen: größer und stärker"
+msgstr "برای شارژ نگه دار: بزرگ‌تر و قوی‌تر"
+
+msgid "Mehr Beute nach jedem Raum"
+msgstr "غنیمت بیشتر بعد از هر اتاق"
+
+msgid "Mehr Rückstoß und Schaden"
+msgstr "پس‌زنی و آسیب بیشتر"
+
+msgid "Mehr Schaden für jede Münze, die du hast"
+msgstr "آسیب بیشتر برای هر سکه‌ای که داری"
+
+msgid "Meteor"
+msgstr "شهاب"
+
+msgid "Minotaurus"
+msgstr "مینوتور"
+
+msgid "Mondlilie"
+msgstr "سوسن ماه"
+
+msgid "Mondsiegel"
+msgstr "مهر ماه"
+
+msgid "Mondsturm"
+msgstr "طوفان ماه"
+
+msgid "Moorherz"
+msgstr "قلب مرداب"
+
+msgid "Musik"
+msgstr "موسیقی"
+
+msgid "Münzen und Herzen fliegen zu dir"
+msgstr "سکه‌ها و قلب‌ها به سمتت پرواز می‌کنند"
+
+msgid "Nach jedem Boss zwei Items zur Wahl"
+msgstr "بعد از هر رئیس دو آیتم برای انتخاب"
+
+msgid "Nachtschatten"
+msgstr "تاجریزی"
+
+msgid "Nachtschattensamen"
+msgstr "دانه تاجریزی"
+
+msgid "Neuer Run"
+msgstr "دور جدید"
+
+msgid "Neues Spiel"
+msgstr "بازی جدید"
+
+msgid "Nicht während eines Kampfes"
+msgstr "نه در حین نبرد"
+
+msgid "Nichts geschieht"
+msgstr "اتفاقی نمی‌افتد"
+
+msgid "Nimm %d Glutpakte in einem Run"
+msgstr "در یک دور %d پیمان اخگر ببند"
+
+msgid "Noch ein Glutmond kreist um dich"
+msgstr "یک ماه اخگر دیگر دورت می‌چرخد"
+
+msgid "Noch keine Items"
+msgstr "هنوز آیتمی نداری"
+
+msgid "Noch nicht entdeckt"
+msgstr "هنوز کشف نشده"
+
+msgid "Nächste Seite"
+msgstr "صفحه بعد"
+
+msgid "Offensiv"
+msgstr "تهاجمی"
+
+msgid "Oger"
+msgstr "غول‌پیکر"
+
+msgid "Onyx"
+msgstr "عقیق سیاه"
+
+msgid "Opaljuwel"
+msgstr "جواهر عقیق"
+
+msgid "Opferdolch"
+msgstr "خنجر قربانی"
+
+msgid "Opferstein: ein Herz für eine Gabe"
+msgstr "سنگ قربانی: یک قلب برای یک هدیه"
+
+msgid "Ork"
+msgstr "اورک"
+
+msgid "Ork-Häuptling"
+msgstr "رئیس اورک‌ها"
+
+msgid "Paktschatulle"
+msgstr "صندوقچه پیمان"
+
+msgid "Palladiumamulett"
+msgstr "طلسم پالادیوم"
+
+msgid "Palladiumbarren"
+msgstr "شمش پالادیوم"
+
+msgid "Palladiumklinge"
+msgstr "تیغ پالادیوم"
+
+msgid "Pause"
+msgstr "توقف"
+
+msgid "Pfeile aufladen und loslassen: weit und stark"
+msgstr "تیر را شارژ و رها کن: دور و قوی"
+
+msgid "Pickups fliegen zu dir, Glück hoch"
+msgstr "اشیای روی زمین به سمتت می‌آیند، شانس بالاتر"
+
+msgid "Platin-Großschwert"
+msgstr "شمشیر بزرگ پلاتینی"
+
+msgid "Platin-Lichtstab"
+msgstr "عصای نور پلاتینی"
+
+msgid "Platin-Sturmstab"
+msgstr "عصای طوفان پلاتینی"
+
+msgid "Platinamulett"
+msgstr "طلسم پلاتینی"
+
+msgid "Platinbarren"
+msgstr "شمش پلاتین"
+
+msgid "Platinklinge"
+msgstr "تیغ پلاتینی"
+
+msgid "Platinspitze"
+msgstr "نوک پلاتینی"
+
+msgid "Pulverfass"
+msgstr "بشکه باروت"
+
+msgid "Pulverhandschuh"
+msgstr "دستکش باروت"
+
+msgid "Ratte"
+msgstr "موش"
+
+msgid "Rattenfell"
+msgstr "پوست موش"
+
+msgid "Rattenkeller"
+msgstr "زیرزمین موش‌ها"
+
+msgid "Rattenkönig"
+msgstr "شاه موش‌ها"
+
+msgid "Reichweite"
+msgstr "برد"
+
+msgid "Reichweite +2 m, schnellere Schüsse"
+msgstr "برد +۲ متر، گلوله‌های سریع‌تر"
+
+msgid "Reichweite hoch"
+msgstr "برد بالاتر"
+
+msgid "Reichweite und Schaden hoch"
+msgstr "برد و آسیب بالاتر"
+
+msgid "Reichweite und Schusstempo hoch"
+msgstr "برد و سرعت تیر بالاتر"
+
+msgid "Reichweite: %s m"
+msgstr "برد: %s متر"
+
+msgid "Reine Fassung"
+msgstr "قاب ناب"
+
+msgid "Riesenratte"
+msgstr "موش غول‌پیکر"
+
+msgid "Riesentrank"
+msgstr "معجون غول"
+
+msgid "Riesige Schüsse, die im Flug schrumpfen"
+msgstr "تیرهای عظیمی که در پرواز کوچک می‌شوند"
+
+msgid "Riesige, langsame Feuerbälle mit viel Schaden"
+msgstr "گوی‌های آتش عظیم و کُند با آسیب زیاد"
+
+msgid "Riesiger Rückstoß und viel Schaden"
+msgstr "پس‌زنی عظیم و آسیب زیاد"
+
+msgid "Ritterhelm"
+msgstr "کلاهخود شوالیه"
+
+msgid "Robbenfell"
+msgstr "پوست فوک"
+
+msgid "Robbenmantel"
+msgstr "ردای فوک"
+
+msgid "Ruhmeskette"
+msgstr "زنجیر افتخار"
+
+msgid "Rückenamulett"
+msgstr "طلسم پشت"
+
+msgid "Sandschmied-Handschuhe"
+msgstr "دستکش آهنگر شن"
+
+msgid "Saphir"
+msgstr "یاقوت کبود"
+
+msgid "Saphirjuwel"
+msgstr "جواهر یاقوت کبود"
+
+msgid "Schaden"
+msgstr "آسیب"
+
+msgid "Schaden für jede Münze, Glück hoch"
+msgstr "آسیب برای هر سکه، شانس بالاتر"
+
+msgid "Schaden hoch"
+msgstr "آسیب بیشتر"
+
+msgid "Schaden hoch, etwas schneller schießen"
+msgstr "آسیب بالاتر، کمی سریع‌تر شلیک"
+
+msgid "Schaden hoch, größere Feuerbälle"
+msgstr "آسیب بالاتر، گلوله‌های آتشین بزرگ‌تر"
+
+msgid "Schaden hoch, schneller laufen"
+msgstr "آسیب بالاتر، سریع‌تر راه می‌روی"
+
+msgid "Schaden mal 1,15"
+msgstr "آسیب ×۱٫۱۵"
+
+msgid "Schaden mal 1,2"
+msgstr "آسیب ×۱٫۲"
+
+msgid "Schaden mal 1,2, etwas langsamer schießen"
+msgstr "آسیب ×۱٫۲، کمی کندتر شلیک"
+
+msgid "Schaden mal 1,25"
+msgstr "آسیب ×۱٫۲۵"
+
+msgid "Schaden mal 1,3 und zehn Münzen"
+msgstr "آسیب ×۱٫۳ و ده سکه"
+
+msgid "Schaden mal 1,4 und Durchschlag"
+msgstr "آسیب ×۱٫۴ و نفوذ"
+
+msgid "Schaden mal 1,5"
+msgstr "آسیب ×۱٫۵"
+
+msgid "Schaden und Reichweite hoch"
+msgstr "آسیب و برد بالاتر"
+
+msgid "Schaden und Rückstoß hoch"
+msgstr "آسیب و پس‌زنی بالاتر"
+
+msgid "Schaden und Schusstempo hoch"
+msgstr "آسیب و سرعت تیر بالاتر"
+
+msgid "Schaden, Reichweite und Glück hoch"
+msgstr "آسیب، برد و شانس بالاتر"
+
+msgid "Schaden, Schusstempo und Reichweite hoch"
+msgstr "آسیب، سرعت شلیک و برد بالاتر"
+
+msgid "Schaden: %s"
+msgstr "آسیب: %s"
+
+msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
+msgstr "%d طبقه پشت سر هم بدون ضربه رد شو"
+
+msgid "Schattenmantel"
+msgstr "ردای سایه"
+
+msgid "Schattenschritt"
+msgstr "گام سایه"
+
+msgid "Schattenstab"
+msgstr "عصای سایه"
+
+msgid "Schatzbeutel"
+msgstr "کیسه گنج"
+
+msgid "Schatzkarte"
+msgstr "نقشه گنج"
+
+msgid "Schießt Feuerbälle"
+msgstr "گلوله آتشین شلیک می‌کند"
+
+msgid "Schildwache"
+msgstr "نگهبان سپردار"
+
+msgid "Schlachtkeil"
+msgstr "گوه نبرد"
+
+msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
+msgstr "آتش ماری: گلوله‌ها مارپیچ می‌روند، کمی آسیب بیشتر"
+
+msgid "Schlangenschüsse, die Gegner verfolgen"
+msgstr "تیرهای مارپیچ که دشمنان را دنبال می‌کنند"
+
+msgid "Schleim"
+msgstr "لجن"
+
+msgid "Schließen"
+msgstr "بستن"
+
+msgid "Schlängelnde Schüsse, die abprallen"
+msgstr "تیرهای مارپیچ که کمانه می‌کنند"
+
+msgid "Schlüsselform"
+msgstr "قالب کلید"
+
+msgid "Schmiedehammer"
+msgstr "چکش آهنگری"
+
+msgid "Schmiedeschlüssel"
+msgstr "کلید آهنگری"
+
+msgid "Schmiedeschwert"
+msgstr "شمشیر آهنگر"
+
+msgid "Schmiedeschürze"
+msgstr "پیش‌بند آهنگر"
+
+msgid "Schneller laufen, Glück hoch"
+msgstr "سریع‌تر راه می‌روی، شانس بالاتر"
+
+msgid "Schneller laufen, mehr Reichweite"
+msgstr "سریع‌تر راه می‌روی، برد بیشتر"
+
+msgid "Schneller schießen und laufen"
+msgstr "سریع‌تر شلیک می‌کنی و راه می‌روی"
+
+msgid "Schneller schießen, Schüsse zerplatzen am Ende"
+msgstr "سریع‌تر شلیک، تیرها در پایان می‌ترکند"
+
+msgid "Schnellere Schüsse fliegen durch Gegner"
+msgstr "تیرهای سریع‌تر از دشمنان عبور می‌کنند"
+
+msgid "Schreckensbrief"
+msgstr "نامه وحشت"
+
+msgid "Schrotflinte: sechs Glutbrocken auf kurze Distanz"
+msgstr "شاتگان: شش اخگر در فاصله‌ی کوتاه"
+
+msgid "Schrumpftrank"
+msgstr "معجون کوچک‌شدن"
+
+msgid "Schusstempo"
+msgstr "سرعت تیر"
+
+msgid "Schwarzer Kristall"
+msgstr "بلور سیاه"
+
+msgid "Schwere Glut"
+msgstr "اخگر سنگین"
+
+msgid "Schwerer zu treffen und schneller"
+msgstr "سخت‌تر مورد اصابت و سریع‌تر"
+
+msgid "Schwert statt Feuerbällen: der Schwung trifft alle vor dir, Gegner brennen"
+msgstr "شمشیر به جای گلوله آتشین: ضربه به همه جلوی تو می‌خورد، دشمنان می‌سوزند"
+
+msgid "Schwert und Feuerstab: jeder Schwung schickt einen Feuerschweif nach vorne"
+msgstr "شمشیر و عصای آتش: هر ضربه یک دنباله‌ی آتش به جلو می‌فرستد"
+
+msgid "Schwertschwung: kurze Reichweite, trifft mehrere Gegner"
+msgstr "ضربه شمشیر: برد کوتاه، به چند دشمن می‌خورد"
+
+msgid "Schüsse auf einmal: %d"
+msgstr "شلیک هم‌زمان: %d"
+
+msgid "Schüsse fliegen durch Gegner hindurch"
+msgstr "گلوله‌ها از دشمن عبور می‌کنند"
+
+msgid "Schüsse fliegen durch Steine"
+msgstr "تیرها از سنگ‌ها عبور می‌کنند"
+
+msgid "Schüsse fliegen durch Steine und suchen Gegner"
+msgstr "تیرها از سنگ‌ها عبور و دشمنان را دنبال می‌کنند"
+
+msgid "Schüsse fliegen zu dir zurück"
+msgstr "گلوله‌ها به سمتت برمی‌گردند"
+
+msgid "Schüsse prallen ab, fliegen durch Gegner und suchen sie"
+msgstr "تیرها کمانه می‌کنند، نفوذ می‌کنند و دشمنان را دنبال می‌کنند"
+
+msgid "Schüsse prallen von Wänden ab"
+msgstr "گلوله‌ها از دیوار کمانه می‌کنند"
+
+msgid "Schüsse pro Sekunde: %s"
+msgstr "شلیک در ثانیه: %s"
+
+msgid "Schüsse suchen Gegner und fliegen durch sie"
+msgstr "تیرها دشمنان را دنبال و از آن‌ها عبور می‌کنند"
+
+msgid "Schüsse zerplatzen am Ende und fliegen durch Steine"
+msgstr "تیرها در پایان می‌ترکند و از سنگ‌ها عبور می‌کنند"
+
+msgid "Schüsse/s"
+msgstr "تیر/ثانیه"
+
+msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
+msgstr "شش سکه، سه بمب، سه کلید"
+
+msgid "Seelensplitter"
+msgstr "تکه روح"
+
+msgid "Seelenstab"
+msgstr "عصای روح‌ها"
+
+msgid "Seherbräu"
+msgstr "معجون پیشگو"
+
+msgid "Seite %d von %d"
+msgstr "صفحه %d از %d"
+
+msgid "Shift: du springst dorthin, wo du hinzielst"
+msgstr "Shift: به جایی که نشانه می‌گیری می‌پری"
+
+msgid "Shift: ein schneller Sprint, kurz unverwundbar"
+msgstr "Shift: دویدن سریع، لحظه‌ای آسیب‌ناپذیر"
+
+msgid "Siegerring"
+msgstr "انگشتر پیروز"
+
+msgid "Silberader"
+msgstr "رگه نقره"
+
+msgid "Silberamulett"
+msgstr "طلسم نقره‌ای"
+
+msgid "Silberdolch"
+msgstr "خنجر نقره‌ای"
+
+msgid "Silberhammer"
+msgstr "چکش نقره‌ای"
+
+msgid "Silberharnisch"
+msgstr "جوشن نقره‌ای"
+
+msgid "Silberklinge"
+msgstr "تیغ نقره‌ای"
+
+msgid "Silberring"
+msgstr "انگشتر نقره‌ای"
+
+msgid "Silberspitze"
+msgstr "نوک نقره‌ای"
+
+msgid "Skelett"
+msgstr "اسکلت"
+
+msgid "Skelettritter"
+msgstr "شوالیه اسکلتی"
+
+msgid "Smaragd"
+msgstr "زمرد"
+
+msgid "Smaragdjuwel"
+msgstr "جواهر زمرد"
+
+msgid "Sonderraum"
+msgstr "اتاق ویژه"
+
+msgid "Sonnenblume"
+msgstr "آفتابگردان"
+
+msgid "Spardose"
+msgstr "قلک"
+
+msgid "Spinne"
+msgstr "عنکبوت"
+
+msgid "Spinnenmutter"
+msgstr "مادر عنکبوت"
+
+msgid "Spinnenseil"
+msgstr "طناب عنکبوت"
+
+msgid "Splitterrubin"
+msgstr "یاقوت ترکشی"
+
+msgid "Sprache"
+msgstr "زبان"
+
+msgid "Sprengmeisterhelm"
+msgstr "کلاهخود استاد انفجار"
+
+msgid "Sprengrune"
+msgstr "رون انفجار"
+
+msgid "Sprengsack"
+msgstr "کیسه مواد منفجره"
+
+msgid "Sprengstrahl"
+msgstr "پرتو انفجاری"
+
+msgid "Sprinterrucksack"
+msgstr "کوله دونده"
+
+msgid "Steine zertreten und mehr Beute"
+msgstr "سنگ‌ها را خرد کن و غنیمت بیشتر"
+
+msgid "Steine zertreten, fünf Bomben"
+msgstr "سنگ‌ها را خرد کن، پنج بمب"
+
+msgid "Sternenfessel"
+msgstr "زنجیر ستاره"
+
+msgid "Sternenstahl"
+msgstr "فولاد ستاره"
+
+msgid "Sternenstahl-Splitter"
+msgstr "تراشه‌ی فولاد ستاره‌ای"
+
+msgid "Sternenstaub"
+msgstr "گرد ستاره"
+
+msgid "Sternentrunk"
+msgstr "معجون نور ستاره"
+
+msgid "Stillstehen macht dich unverwundbar"
+msgstr "بی‌حرکت ایستادن تو را آسیب‌ناپذیر می‌کند"
+
+msgid "Stollenhelm"
+msgstr "کلاه معدنچی"
+
+msgid "Stollenratte"
+msgstr "موش تونل"
+
+msgid "Streitkolben"
+msgstr "گرز"
+
+msgid "Streubombe"
+msgstr "بمب خوشه‌ای"
+
+msgid "Sturmessenz"
+msgstr "جوهر طوفان"
+
+msgid "Sturmkarte"
+msgstr "نقشه طوفان"
+
+msgid "Sturmsiegel"
+msgstr "مهر طوفان"
+
+msgid "Sturmstab"
+msgstr "عصای طوفان"
+
+msgid "Stärketrank"
+msgstr "معجون قدرت"
+
+msgid "Suchende Bumerangs finden immer ein Ziel"
+msgstr "بومرنگ‌های جوینده همیشه هدفی پیدا می‌کنند"
+
+msgid "Suchende Schüsse und alle Werte hoch"
+msgstr "تیرهای ردیاب و همه ویژگی‌ها بالاتر"
+
+msgid "Suchende Schüsse und ein blaues Herz"
+msgstr "تیرهای ردیاب و یک قلب آبی"
+
+msgid "Suchende Schüsse, Glück hoch"
+msgstr "تیرهای ردیاب، شانس بالاتر"
+
+msgid "Suchende Schüsse, etwas mehr Schaden"
+msgstr "تیرهای ردیاب، کمی آسیب بیشتر"
+
+msgid "Suchender Funke"
+msgstr "جرقه‌ی جوینده"
+
+msgid "Suchender Strahl"
+msgstr "پرتو جوینده"
+
+msgid "Sumpfhaut"
+msgstr "پوست مرداب"
+
+msgid "Sumpfleder"
+msgstr "چرم مرداب"
+
+msgid "Sumpfmantel"
+msgstr "ردای مرداب"
+
+msgid "Synergie: %s!"
+msgstr "هم‌افزایی: %s!"
+
+msgid "Synergien: %s"
+msgstr "هم‌افزایی‌ها: %s"
+
+msgid "Taumelkraut"
+msgstr "علف تلوتلو"
+
+msgid "Tausendklinge"
+msgstr "تیغ هزار"
+
+msgid "Tempo"
+msgstr "سرعت"
+
+msgid "Tempo: %s"
+msgstr "سرعت: %s"
+
+msgid "Testraum · P: zurück"
+msgstr "اتاق آزمایش · P: بازگشت"
+
+msgid "Topasjuwel"
+msgstr "جواهر توپاز"
+
+msgid "Totenbeschwörer"
+msgstr "احضارگر مردگان"
+
+msgid "Totengruft"
+msgstr "دخمه مردگان"
+
+msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
+msgstr "برخوردها می‌ترکند، تیرها از سنگ‌ها عبور می‌کنند"
+
+msgid "Treue Funken"
+msgstr "جرقه‌های وفادار"
+
+msgid "Trollblut"
+msgstr "خون ترول"
+
+msgid "Trollpanzer"
+msgstr "زره ترول"
+
+msgid "Truhenschlüssel"
+msgstr "کلید صندوق"
+
+msgid "Utility"
+msgstr "کاربردی"
+
+msgid "Vampir"
+msgstr "خون‌آشام"
+
+msgid "Vergiftet Gegner, Schaden etwas hoch"
+msgstr "دشمنان را مسموم می‌کند، کمی آسیب بیشتر"
+
+msgid "Viel größere Bomben"
+msgstr "بمب‌های خیلی بزرگ‌تر"
+
+msgid "Viel mehr Schaden"
+msgstr "آسیب خیلی بیشتر"
+
+msgid "Viel mehr Schaden mit nur einem Herz"
+msgstr "با فقط یک قلب آسیب خیلی بیشتر"
+
+msgid "Viel mehr Schaden, langsamer schießen"
+msgstr "آسیب خیلی بیشتر، شلیک کندتر"
+
+msgid "Viel schneller laufen"
+msgstr "خیلی سریع‌تر راه می‌روی"
+
+msgid "Viel schneller laufen und schießen"
+msgstr "خیلی سریع‌تر راه می‌روی و شلیک می‌کنی"
+
+msgid "Viel schneller schießen und laufen"
+msgstr "خیلی سریع‌تر شلیک می‌کنی و راه می‌روی"
+
+msgid "Viel schneller schießen, etwas weniger Schaden"
+msgstr "خیلی سریع‌تر شلیک می‌کنی، آسیب کمی کمتر"
+
+msgid "Viel schnellere Schüsse"
+msgstr "تیرهای خیلی سریع‌تر"
+
+msgid "Viel schnellere Schüsse und mehr Reichweite"
+msgstr "تیرهای خیلی سریع‌تر و برد بیشتر"
+
+msgid "Viele suchende Funken auf einmal"
+msgstr "جرقه‌های جوینده‌ی زیاد با هم"
+
+msgid "Vier Schlüssel"
+msgstr "چهار کلید"
+
+msgid "Vollbild"
+msgstr "تمام‌صفحه"
+
+msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
+msgstr "WASD: راه رفتن · ماوس: نشانه‌گیری · کلیک چپ: شلیک"
+
+msgid "Wanderbündel"
+msgstr "بقچه مسافر"
+
+msgid "Wasserstab"
+msgstr "عصای آب"
+
+msgid "Weiter"
+msgstr "ادامه"
+
+msgid "Weltenstab"
+msgstr "عصای جهان"
+
+msgid "Wer tötet, fliegt mit dem Rest weiter"
+msgstr "تیری که بکشد با باقیمانده ادامه می‌دهد"
+
+msgid "Wettkampfstiefel"
+msgstr "چکمه مسابقه"
+
+msgid "Windfeder"
+msgstr "پر باد"
+
+msgid "Windläufer-Stiefel"
+msgstr "چکمه بادپیما"
+
+msgid "Windrose"
+msgstr "گل باد"
+
+msgid "Windstab"
+msgstr "عصای باد"
+
+msgid "Wo der Strahl auftrifft, knallt es"
+msgstr "هرجا پرتو بخورد، منفجر می‌شود"
+
+msgid "Wolfsmantel"
+msgstr "ردای گرگ"
+
+msgid "Wurfsterne"
+msgstr "ستاره‌های پرتابی"
+
+msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
+msgstr "ستاره‌ها از دشمنان عبور می‌کنند و اغلب خونریزی ایجاد می‌کنند"
+
+msgid "Wähle deinen Charakter"
+msgstr "شخصیتت را انتخاب کن"
+
+msgid "Wählen"
+msgstr "انتخاب"
+
+msgid "Wüstenkompass"
+msgstr "قطب‌نمای صحرا"
+
+msgid "Zauberbuch"
+msgstr "کتاب جادو"
+
+msgid "Zehn Bomben"
+msgstr "ده بمب"
+
+msgid "Zehn Münzen, Glück hoch"
+msgstr "ده سکه، شانس بالاتر"
+
+msgid "Zombie"
+msgstr "زامبی"
+
+msgid "Zu wenig Münzen"
+msgstr "سکه کافی نداری"
+
+msgid "Zufällig Gift, Furcht oder Taumeln"
+msgstr "زهر، ترس یا تلوتلو به‌طور تصادفی"
+
+msgid "Zunderbüchse"
+msgstr "جعبه آتش‌زنه"
+
+msgid "Zwanzig Münzen"
+msgstr "بیست سکه"
+
+msgid "Zwei Funken folgen dir und schießen"
+msgstr "دو جرقه دنبالت می‌آیند و شلیک می‌کنند"
+
+msgid "Zwei Funken und Schaden hoch"
+msgstr "دو جرقه و آسیب بالاتر"
+
+msgid "Zwei Glutmonde kreisen um dich"
+msgstr "دو ماه اخگر دور تو می‌چرخند"
+
+msgid "Zwei Herzen mehr"
+msgstr "دو قلب بیشتر"
+
+msgid "Zwei Herzen mehr und Dornen"
+msgstr "دو قلب بیشتر و خار"
+
+msgid "Zwei Herzen mehr und langsam heilen"
+msgstr "دو قلب بیشتر و شفای آرام"
+
+msgid "Zwei Herzen mehr, aber langsamer"
+msgstr "دو قلب بیشتر، اما کندتر"
+
+msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
+msgstr "دو قلب، دو قلب آبی، آسیب بالاتر"
+
+msgid "Zwei Schüsse mehr, etwas schwächer"
+msgstr "دو تیر بیشتر، کمی ضعیف‌تر"
+
+msgid "Zwei blaue Herzen"
+msgstr "دو قلب آبی"
+
+msgid "Zwei blaue Herzen und Dornen"
+msgstr "دو قلب آبی و خار"
+
+msgid "Zwei blaue Herzen, Schaden hoch"
+msgstr "دو قلب آبی، آسیب بالاتر"
+
+msgid "Zwei blaue Herzen, länger sicher nach Treffern"
+msgstr "دو قلب آبی، بعد از ضربه مدت امن بیشتر"
+
+msgid "Zwei blaue Herzen; geht eins verloren, trifft es alle Gegner"
+msgstr "دو قلب آبی؛ از دست دادن یکی به همه دشمنان ضربه می‌زند"
+
+msgid "Zwillingshandschuhe"
+msgstr "دستکش‌های دوقلو"
+
+msgid "oder Leertaste"
+msgstr "یا کلید فاصله"

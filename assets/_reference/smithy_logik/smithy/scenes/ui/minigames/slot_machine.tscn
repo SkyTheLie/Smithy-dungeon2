@@ -1,0 +1,114 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/minigames/slot_machine.gd" id="1_slot"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+
+[node name="SlotMachine" type="CanvasLayer"]
+script = ExtResource("1_slot")
+title = "Spielautomat"
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 50.0
+offset_right = 90.0
+offset_bottom = 210.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("90_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Info" type="Label" parent="Panel/VBox"]
+custom_minimum_size = Vector2(166, 0)
+layout_mode = 2
+autowrap_mode = 3
+text = "Drei Gleiche gewinnen. Drei Kronen: der Jackpot!"
+horizontal_alignment = 1
+
+[node name="Reels" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Box1" type="ColorRect" parent="Panel/VBox/Reels"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="Reel1" type="TextureRect" parent="Panel/VBox/Reels/Box1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 30.0
+offset_bottom = 30.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Box2" type="ColorRect" parent="Panel/VBox/Reels"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="Reel2" type="TextureRect" parent="Panel/VBox/Reels/Box2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 30.0
+offset_bottom = 30.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Box3" type="ColorRect" parent="Panel/VBox/Reels"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="Reel3" type="TextureRect" parent="Panel/VBox/Reels/Box3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 30.0
+offset_bottom = 30.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BetLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "Einsatz:"
+horizontal_alignment = 1
+
+[node name="Bets" type="HBoxContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="SpinButton" type="Button" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Drehen"
+
+[node name="ResultLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1

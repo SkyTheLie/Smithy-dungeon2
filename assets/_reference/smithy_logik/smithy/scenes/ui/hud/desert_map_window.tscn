@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/desert_map_window.gd" id="1_window"]
+[ext_resource type="Script" path="res://scenes/ui/hud/desert_map_view.gd" id="2_view"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+
+[node name="DesertMapWindow" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -110.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_window")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TitleBar" parent="VBox" instance=ExtResource("90_title_bar")]
+layout_mode = 2
+title = "Sandkarte"
+
+[node name="MapView" type="Control" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("2_view")
+
+[node name="Legend" type="Label" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+autowrap_mode = 3

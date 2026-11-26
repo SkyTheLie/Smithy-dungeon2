@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TravelDestination" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/travel_destination.gd" id="1_destination"]
+
+[resource]
+script = ExtResource("1_destination")
+id = &"sylvaris"
+display_name = "Sylvaris"
+scene_path = "res://scenes/world/elves/elf_grove.tscn"
+spawn_point = &"FromTeleporter"

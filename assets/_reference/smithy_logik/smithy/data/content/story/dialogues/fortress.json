@@ -1,0 +1,2641 @@
+{
+	"dialogues": {
+		"magician_show": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Vor dem großen Baum drängt sich das halbe Dorf. Darunter steht ein Mann in einem sternenblauen Mantel und lässt bunte Lichter tanzen.",
+					"action": "cutscene:act:magician:cheer",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "magician",
+					"text": "Und nun, verehrtes Publikum: der fliegende Kürbis!"
+				},
+				{
+					"speaker": "",
+					"text": "Ein Kürbis steigt in die Luft, dreht sich dreimal und platzt in einem Regen aus Blütenblättern. Die Leute jubeln.",
+					"action": "set_flag:pumpkin_flies",
+					"wait": 4.5
+				},
+				{
+					"speaker": "landlady",
+					"text": "Ooooh!"
+				},
+				{
+					"speaker": "niece",
+					"text": "Tante, du hast doch letztes Jahr gesagt, das sind alles nur Tricks."
+				},
+				{
+					"speaker": "landlady",
+					"text": "Pssst! Ich genieße."
+				},
+				{
+					"speaker": "",
+					"text": "Der Magier zaubert und zaubert. Die Stunden vergehen wie im Flug, bis die Sonne hinter den Dächern versinkt.",
+					"action": "set_time:19"
+				},
+				{
+					"speaker": "magician",
+					"text": "Und nun das Finale! Ein Schwert aus reinem Licht!"
+				},
+				{
+					"speaker": "",
+					"text": "Er reißt die Arme hoch. Ein blau leuchtendes Schwert erscheint in der Luft, schwebt herab und bohrt sich vor dem Baum in den Boden.",
+					"action": "set_flag:sword_conjured",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "magician",
+					"text": "Wer es aus dem Boden zieht, dem gehört mein Respekt! Wer will es versuchen?"
+				},
+				{
+					"speaker": "bruno",
+					"text": "Ich! *hicks* Ich war mal der stärkste Krieger im Dorf!"
+				},
+				{
+					"speaker": "",
+					"text": "Bruno zieht und zerrt, bis sein Gesicht so rot ist wie seine Nase. Das Schwert bewegt sich keinen Fingerbreit.",
+					"action": "set_flag:sword_try_bruno",
+					"wait": 4.5
+				},
+				{
+					"speaker": "miner",
+					"text": "Lass mich mal. Ich hab mein Leben lang Fels geschlagen."
+				},
+				{
+					"speaker": "",
+					"text": "Gustav stemmt sich mit aller Kraft dagegen. Nichts.",
+					"action": "set_flag:sword_try_gustav",
+					"wait": 5.5
+				},
+				{
+					"speaker": "",
+					"text": "Sogar Oma Hilde krempelt die Ärmel hoch. Nichts.",
+					"action": "set_flag:sword_try_grandma",
+					"wait": 5
+				},
+				{
+					"speaker": "landlady",
+					"text": "Pah. Das Ding ist doch festgerostet."
+				},
+				{
+					"speaker": "",
+					"text": "Nach und nach gehen die Leute nach Hause. Die Menge wird kleiner und kleiner.",
+					"action": "set_flag:crowd_thins",
+					"wait": 3
+				},
+				{
+					"speaker": "niece",
+					"text": "{name}, du bist noch nicht dran gewesen!"
+				},
+				{
+					"speaker": "magician",
+					"text": "Ah, der junge Schmied. Nur zu, versuch dein Glück."
+				}
+			],
+			"choices": [
+				{
+					"text": "Das Schwert berühren",
+					"then": "magician_sword"
+				}
+			]
+		},
+		"magician_idle": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Geduld, junger Freund. Das Beste kommt zum Schluss."
+				}
+			]
+		},
+		"mage_forest_meet": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Hmm ... Waldmeister, nein ... Farn, nein ... wo bist du nur, du kleines Kraut?"
+				},
+				{
+					"speaker": "player",
+					"text": "Meister Aurelius?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Hm? Ach! Dich kenne ich doch! Du bist der Schmied vom Dorffest. Der mit dem Schwert."
+				},
+				{
+					"speaker": "magician",
+					"text": "Seit zwanzig Jahren stecke ich dieses Schwert in den Boden, und noch nie hat es jemand herausgezogen. Und dann kommst du und hebst es hoch wie eine Feder."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich weiß selbst nicht, wie das passiert ist. Und der Zaubertisch steht jetzt in meiner Schmiede, aber ich weiß nicht, wie man damit verzaubert."
+				},
+				{
+					"speaker": "magician",
+					"text": "Alles der Reihe nach, junger Freund. Ich suche gerade nach Zutaten, und meine Knie sind nicht mehr die jüngsten."
+				},
+				{
+					"speaker": "magician",
+					"text": "Bring mir ein Bündel Hanf, der wächst hier irgendwo im tiefen Wald. Dann reden wir übers Verzaubern."
+				}
+			],
+			"on_end": "set_flag:mage_wants_hemp;advance:forest_hemp"
+		},
+		"mage_hemp_check": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Hast du den Hanf gefunden?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier ist der Hanf",
+					"action": "has_items:hemp;take_items:hemp",
+					"then": "mage_hemp_given",
+					"else": "mage_hemp_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"mage_hemp_missing": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Hmm, ich sehe keinen Hanf. Er wächst hier im tiefen Wald, aber nur selten. Schau dich gut um."
+				}
+			]
+		},
+		"mage_hemp_given": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Wunderbar, danke! Genau so einer."
+				},
+				{
+					"speaker": "player",
+					"text": "Also ... wie verzaubert man eigentlich?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Mit einem Trank. Am Zaubertisch steckt ein Mörser. Darin zerstößt du Kristalle und Mondlilien zu Staub."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ein Kristall und eine Mondlilie, ganz oder als Staub, dazu eine Phiole: Daraus wird ein Verzauberungstrank."
+				},
+				{
+					"speaker": "magician",
+					"text": "Jeder Kristall trägt sein eigenes Element. Rubin Feuer, Saphir Wasser, Diamant Licht ... Auf einer Waffe brennt, friert oder blitzt es, auf einer Rüstung schützt es davor."
+				},
+				{
+					"speaker": "player",
+					"text": "Und wenn ich etwas Falsches zusammenmische?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Dann bleibt nur Asche. Aber Asche ist der beste Dünger, den es gibt. Streu sie auf eine wachsende Pflanze, und die Ernte wird prächtiger."
+				},
+				{
+					"speaker": "magician",
+					"text": "Hier, nimm meine Notizen. Und diese Samen. Mondlilien. Draußen wachsen sie nicht, sie brauchen ein Gewächshaus."
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius gibt dir seine Notizen und 3 Mondlilien-Samen. Die Notizen liegen jetzt in deinem Charakterfenster (C) im Platz Rezeptbuch.",
+					"action": "cutscene:act:magician:give:res://assets/sprites/props/recipe_book.png|moon_lily_seed",
+					"hide_for": 2.2
+				},
+				{
+					"speaker": "magician",
+					"text": "Konrad kann dir ein Gewächshaus bauen, und die Möbelhändlerin am Markt hat Pflanztöpfe und gute Erde. Lass dir Zeit, die Lilien laufen nicht weg."
+				}
+			],
+			"on_end": "give_items:enchanting_book,moon_lily_seed*3;set_flag:enchanting_book_owned;hint:mortar;advance:chapter11_end"
+		},
+		"mage_forest_idle": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Mondlilien, Kamille, ein wenig Geduld. Mehr braucht man nicht für den Anfang."
+				}
+			]
+		},
+		"mage_stones_legend": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Mondkraut ... nein ... Sternmoos ... ach, wo wächst du denn nur?"
+				},
+				{
+					"speaker": "player",
+					"text": "Meister Aurelius! Endlich. Der König sucht Euch. Und ich auch."
+				},
+				{
+					"speaker": "magician",
+					"text": "Der König? Bestimmt wegen des Feuerwerks. Das schulde ich ihm seit ... ach, egal. Was führt dich zu mir, junger Schmied?"
+				},
+				{
+					"speaker": "player",
+					"text": "Der Lich hat unser Dorf überfallen. Er hat aus dem Lebensbaum etwas herausgerissen, wie ein Herz. Es war braun und hat geglüht. Danach ist der Baum gestorben."
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius lässt seinen Kräuterbeutel fallen.",
+					"action": "cutscene:act:magician:drop:res://assets/sprites/items/herb_pouch.png",
+					"hide_for": 1.2
+				},
+				{
+					"speaker": "magician",
+					"text": "Braun ... dann war es der Stein der Erde. Setz dich. Das ist eine lange Geschichte."
+				},
+				{
+					"speaker": "magician",
+					"text": "Vor langer Zeit herrschte ein Dämonenlord über diese Lande. Kein König und kein Heer konnte ihn aufhalten. Bis ein einzelner Held kam."
+				},
+				{
+					"speaker": "magician",
+					"text": "Der Held besiegte den Dämonenlord und sperrte ihn weg, für immer. Mit einem magischen Schlüssel."
+				},
+				{
+					"speaker": "magician",
+					"text": "In den Schlüssel waren neun heilige Steine eingesetzt, Kristalle der Elemente, für jedes einen. Wer den Schlüssel geschmiedet hat, weiß heute niemand mehr."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Schmied, an den sich keiner erinnert. Großartig. Genau die Art Ruhm, von der ich immer geträumt habe."
+				},
+				{
+					"speaker": "magician",
+					"text": "Danach nahm er die Steine wieder heraus und versteckte sie überall im Land. Ohne alle neun Steine ist der Schlüssel nur ein Stück Metall. Einen Stein verbarg er im Herzen eures Lebensbaums."
+				},
+				{
+					"speaker": "player",
+					"text": "Und der Lich sammelt die Steine. Damit er den Schlüssel wieder zusammensetzen kann."
+				},
+				{
+					"speaker": "magician",
+					"text": "Und das Gefängnis des Dämonenlords öffnet. Ja. Das fürchte ich auch."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich mache mich auf die Suche nach dem Lich. Ein alter Zauberer hat ein paar Tricks, von denen so ein Knochengerippe nichts ahnt."
+				},
+				{
+					"speaker": "magician",
+					"text": "Du gehst zum König. In der Schatzkammer des Schlosses liegt eine alte Karte, auf der die Verstecke der heiligen Steine eingezeichnet sind. Bitte ihn darum."
+				},
+				{
+					"speaker": "magician",
+					"text": "Und nimm das hier."
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius drückt dir einen blau schimmernden Kristall in die Hand. Er ist warm und summt leise.",
+					"action": "cutscene:act:magician:give:res://assets/sprites/items/portal_crystal.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "magician",
+					"text": "Ein Portalkristall. Überall im Land stehen alte Teleport-Kristalle, aber sie schlafen, seit der Held den Schlüssel zerlegt hat. Mit diesem hier weckst du sie auf. Fang bei dem vor deiner Schmiede an."
+				},
+				{
+					"speaker": "magician",
+					"text": "Einer steht auch in Leonheim, andere wachen erst später auf. Ich muss los. Pass auf dich auf, junger Schmied. Und auf das Schwert."
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius murmelt etwas, ein Windstoß wirbelt die Blätter auf, und er ist verschwunden.",
+					"action": "cutscene:aurelius_wind",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "set_flag:mage_left_for_lich;set_flag:portal_crystal_owned;advance:build_teleporter"
+		},
+		"lake_idle": {
+			"lines": [
+				{
+					"speaker": "lake",
+					"text": "Der König sieht alles."
+				}
+			]
+		},
+		"aurelius_stars": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Sieh nur, junger Freund. Von hier oben sieht man jeden Stern."
+				},
+				{
+					"speaker": "magician",
+					"text": "Der Älteste hat deine Hand angesehen, nicht wahr? Das blaue Licht."
+				},
+				{
+					"speaker": "player",
+					"text": "Ja. Was ist das? Ist das schlimm? Ist das ansteckend?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Es ist selten. Sehr selten. Mehr weiß ich noch nicht. Aber ich finde es heraus, versprochen."
+				}
+			]
+		},
+		"faelan_night_watch": {
+			"lines": [
+				{
+					"speaker": "faelan",
+					"text": "Du bist noch wach, Mensch? Ich auch. Ich zähle die Fackeln am Waldrand."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Es sind mehr als gestern."
+				},
+				{
+					"speaker": "player",
+					"text": "Das ist bestimmt ganz normal. Fackeln vermehren sich nachts. Wie Kaninchen."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Geh schlafen, Schmied."
+				}
+			]
+		},
+		"lake_bridge": {
+			"lines": [
+				{
+					"speaker": "lake",
+					"text": "Ich halte heute Nacht die Ostbrücke. Allein."
+				},
+				{
+					"speaker": "lake",
+					"text": "Der König sieht alles. Aber auch er braucht jemanden, der für ihn wacht."
+				}
+			]
+		},
+		"aurelius_attack": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Kronenebene brennt. Aus der Tiefe wachsen dicke Wurzeln an den Stämmen herauf, wie Leitern. Und an ihnen klettern Untote."
+				},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"text": "Aber auf jeder Brücke stehen Elfen in Rüstungen aus deiner Schmiede. Schild an Schild drängen sie die Untoten über die Geländer zurück."
+					},
+				{
+					"speaker": "magician",
+					"text": "Junger Schmied! Er klettert nicht. Er lässt die Bäume für sich klettern!"
+				},
+				{
+					"speaker": "magician",
+					"text": "Der Stein der Erde. Er benutzt ihn gegen uns. Gegen den Wald selbst."
+				},
+					{
+						"speaker": "magician",
+						"if_flag": "elf_defense_won",
+						"text": "Deine Klingen halten die Brücken, junger Freund! Hörst du? Sie weichen!"
+					},
+				{
+					"speaker": "player",
+					"text": "Natürlich. Bäume als Leitern. Was kommt als Nächstes, fliegende ..."
+				},
+				{
+					"speaker": "",
+					"text": "Ein Schwarm schwarzer Vögel aus Knochen rauscht über die Brücke, hinauf zur Spitze.",
+					"action": "cutscene:act:magician:swarm",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "player",
+					"text": "... fliegende Knochenvögel. Ich sag nie wieder was."
+				},
+				{
+					"speaker": "magician",
+					"text": "Der Älteste! Der Kristall! Lauf über die Brücke nach Norden zur Plattform, ich halte sie hier auf. Ich bin direkt hinter dir!"
+				},
+				{
+					"speaker": "player",
+					"text": "Wo ist Lake? Wo sind die Soldaten?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Lake wollte die Ostbrücke halten. Seit Mitternacht hat ihn niemand gesehen. Lauf!"
+				}
+			]
+		},
+		"lich_attack_stand": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du stellst dich vor den Kristall. Deine Hände zittern. Dann fangen sie an zu leuchten. Blau.",
+					"action": "cutscene:act:player:glow",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "lich",
+					"text": "Dieses Licht ... Er hatte es auch."
+				},
+				{
+					"speaker": "player",
+					"text": "Wer? Wer hatte es? Der Schmied aus meinem Dorf? Wo ist er?"
+				},
+				{
+					"speaker": "lich",
+					"text": "Wer sagt, dass er nicht genau das tut, was er am besten kann? Schmieden."
+				},
+				{
+					"speaker": "lich",
+					"text": "Aus dem Weg."
+				},
+				{
+					"speaker": "",
+					"text": "Eine Faust aus Luft und Asche schleudert dich über die Insel.",
+					"action": "cutscene:player_thrown",
+					"wait": 1.0
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "",
+					"text": "Durch das Rauschen in deinen Ohren siehst du, wie der Windkristall aus seiner Halterung steigt und in die Hand des Lichs schwebt.",
+					"action": "cutscene:crystal_taken;set_flag:wind_crystal_taken",
+					"wait": 2.0
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "lich",
+					"text": "Zwei."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "",
+					"text": "Aurelius stürzt von der Plattform herüber, einen Zauber auf den Lippen.",
+					"action": "set_flag:aurelius_on_summit",
+					"wait": 2.6
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "magician",
+					"text": "Nein!"
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "lich",
+					"text": "Zu spät, alter Mann. Wie immer."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "lich",
+					"text": "Bedankt euch bei eurem Freund. Er hat mir genau gesagt, wo ich suchen muss."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "",
+					"text": "Die Wolke schließt sich um ihn. Als sie verweht, ist er fort. Unten am Waldboden verstummt das Stöhnen der Untoten, eins nach dem anderen.",
+					"action": "cutscene:lich_vanish",
+					"wait": 1.4
+				},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"text": "Durch das Rauschen in deinen Ohren siehst du, wie der Lich die Hand nach dem Kristall ausstreckt. Da fährt ein heller Streif über die Insel.",
+						"action": "set_flag:lake_on_summit;cutscene:lake_strikes",
+						"wait": 1.2
+					},
+					{
+						"speaker": "lake",
+						"if_flag": "elf_defense_won",
+						"text": "Nicht heute."
+					},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"text": "Lake steht zwischen dem Lich und dem Kristall, das Schwert erhoben. Hinter ihm stürmen Elfen in deinen Rüstungen von der Plattform herauf, die Bögen gespannt."
+					},
+					{
+						"speaker": "lich",
+						"if_flag": "elf_defense_won",
+						"text": "Der Ritter des Königs. Du stellst dich mir in den Weg?"
+					},
+					{
+						"speaker": "lake",
+						"if_flag": "elf_defense_won",
+						"text": "Dieser Stein verlässt Sylvaris nicht in deiner Hand."
+					},
+					{
+						"speaker": "faelan",
+						"if_flag": "elf_defense_won",
+						"text": "Windwache! Schießt!"
+					},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"action": "cutscene:arrow_volley",
+						"text": "Ein Hagel aus Pfeilen fährt in die schwarze Wolke. Der Lich weicht zurück, einen Schritt, dann noch einen. Unten am Waldboden weichen die Untoten vor den Klingen der Elfen."
+					},
+					{
+						"speaker": "lich",
+						"if_flag": "elf_defense_won",
+						"text": "Gut geschmiedet, kleiner Schmied. Behaltet ihn. Für eine Weile."
+					},
+					{
+						"speaker": "lich",
+						"if_flag": "elf_defense_won",
+						"text": "Bedankt euch bei eurem Freund. Er hat mir genau gesagt, wo ich suchen muss. Beim nächsten Mal sagt er mir mehr."
+					},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"text": "Die Wolke schließt sich um ihn und verweht. Unten verstummt das Stöhnen der Untoten, eins nach dem anderen.",
+						"action": "cutscene:lich_vanish",
+						"wait": 1.4
+					},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"text": "Aurelius stürzt von der Plattform herüber, einen Zauber auf den Lippen.",
+						"action": "set_flag:aurelius_on_summit",
+						"wait": 2.6
+					},
+					{
+						"speaker": "magician",
+						"if_flag": "elf_defense_won",
+						"text": "Ihr ... habt ihn vertrieben?"
+					},
+					{
+						"speaker": "lake",
+						"if_flag": "elf_defense_won",
+						"text": "Der Schmied hat ihn vertrieben. Mit seinen Klingen. Ich habe nur zugeschlagen."
+					},
+				{
+					"speaker": "magician",
+					"text": "Elarion! ... Er atmet. Gut. Gut."
+				},
+				{
+					"speaker": "",
+					"text": "Die Nacht wird sehr lang."
+				}
+			],
+			"on_end": "clear_flags:elder_fallen;set_flag:elf_attack_over;advance:crisis_council;sleep_at:res://scenes/world/elves/elf_summit.tscn,FromCanopy"
+		},
+		"faelan_idle": {
+			"lines": [
+				{
+					"speaker": "faelan",
+					"text": "Die Windwache sieht alles, Mensch."
+				}
+			]
+		},
+		"aurelius_compass": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Meister Aurelius! Ich wollte mich nur kurz im Süden umsehen und bin drei Stunden im Kreis gelaufen. Der Sand sieht überall gleich aus. Rein mineralogisch betrachtet natürlich."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ah, der junge Schmied. Setz dich zu mir, meine alten Knie verlangen nach einer Rast. Eigentlich sollte ich am Feuerwerk für den König arbeiten ... das schulde ich ihm seit Jahren."
+				},
+				{
+					"speaker": "player",
+					"text": "Keine Eile, versprochen. Eher reine Orientierungslosigkeit. Gibt es denn gar keinen Weg durch das Dünenmeer?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Es gab einen. Das Echsenvolk schenkte mir vor langer Zeit einen Wüstenkompass. Seine Nadel weist nicht nach Norden, sondern direkt nach Sahrim – und manchmal zu Dingen, die der Sand verbirgt."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Kompass, der nicht nach Norden zeigt? Das widerspricht so ziemlich allem, was ich über Eisen weiß. Wo ist das gute Stück?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Zerbrochen, junger Freund. Als die Untoten in Sylvaris die Kronen stürmten, warf mich einer gegen das Geländer einer Brücke. Das Gehäuse splitterte, die Nadel brach."
+				},
+				{
+					"speaker": "magician",
+					"text": "Doch die vier Gussformen existieren noch. Ich habe sie vor vielen Jahren an vier Orten versteckt – nie alles an einem Ort, alter Zauberertrick. Seit der Lich umgeht, hausen dort allerdings gefährliche Kreaturen."
+				},
+				{
+					"speaker": "magician",
+					"text": "Tief unter Leonheim birgt eine vergessene Gießerei die Form für das Gehäuse aus Gold. Im Lavaberg liegt eine Obsidiankammer mit der Gussform für die Nadel – sie muss aus Eisen sein, denn nur Eisen spürt den Weg."
+				},
+				{
+					"speaker": "magician",
+					"text": "Auf dem Sturmgipfel versteckt eine Windhöhle die Form für die Windrose aus Silber. Und im tiefen Wald, im Wurzelhort unter einer uralten Eiche, ruht die Gussform für den Deckel aus Bronze."
+				},
+				{
+					"speaker": "player",
+					"text": "Bronze, Eisen, Silber und Gold. Eine schöne Sammlung. Aber gegen Monster hilft mein Hammer nur bedingt ... also, eigentlich gar nicht."
+				},
+				{
+					"speaker": "magician",
+					"text": "Dafür hast du deine Helden. Ich habe der Abenteurergilde Bescheid gegeben, die vier Orte stehen jetzt auf dem Dungeon-Brett."
+				},
+				{
+					"speaker": "magician",
+					"text": "Gieß die vier Teile, schmiede sie sorgfältig und setz sie an deiner Werkbank mit etwas Glas zusammen."
+				},
+				{
+					"speaker": "player",
+					"text": "Vier Metalle, vier Formen und ein Stück Glas. Klingt machbar. Hoffentlich hält mein Amboss durch ... ich meine, natürlich hält er."
+				},
+				{
+					"speaker": "magician",
+					"text": "Lass dir Zeit, junger Freund. Wenn der Kompass erst vollendet ist, wird er dir den Weg durch den Sand weisen."
+				}
+			],
+			"on_end": "set_flag:compass_dungeons_unlocked;hint:compass_dungeons"
+		},
+		"aurelius_compass_idle": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Denk an die vier Gussformen, junger Schmied: Leonheim, Lavaberg, Sturmgipfel und der Wurzelhort im Wald. Deine Helden finden die Orte auf dem Dungeon-Brett."
+				},
+				{
+					"speaker": "magician",
+					"text": "Gehäuse, Nadel, Windrose und Deckel. An der Werkbank fügst du sie mit etwas Glas zusammen."
+				}
+			]
+		},
+		"aurelius_compass_done": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Meister Aurelius, seht mal! Bronze, Eisen, Silber, Gold und ein Stück Glas. Perfekt ausgewogen, wenn ich das so unbescheiden sagen darf."
+				},
+				{
+					"speaker": "magician",
+					"text": "Erstaunlich. So schön war der alte nicht einmal, als er neu war."
+				},
+				{
+					"speaker": "magician",
+					"text": "Zieh nun nach Süden. Und wenn du Sahrim erreichst, grüß die alte Ishra von mir."
+				}
+			],
+			"on_end": "set_flag:aurelius_saw_compass"
+		},
+		"lake_eisquell_idle": {
+			"lines": [
+				{
+					"speaker": "lake",
+					"text": "Dass man den König hier mit Prüfungen hinhält, ist eine Schande. Bring die Sache schnell zu Ende, Schmied."
+				},
+				{
+					"speaker": "lake",
+					"text": "Der König sieht alles, auch wer seine Geduld auf die Probe stellt."
+				}
+			]
+		},
+		"king_gone": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du betrittst den Thronsaal von Leonheim. Der Thron am Ende der Halle ist leer."
+				},
+				{
+					"speaker": "",
+					"text": "Vor den Stufen kniet Lake mit gesenktem Haupt auf dem kalten Steinboden. Neben ihm steht Meister Aurelius, das Gesicht grau und ernst."
+				},
+				{
+					"speaker": "player",
+					"text": "Hallo? Ich habe frischen Wüstensand und einen leuchtenden Blitzkristall mitgebracht … Moment. Was ist hier passiert?"
+				},
+				{
+					"speaker": "lake",
+					"text": "Er ist fort, Schmied. Unser König ist fort."
+				},
+				{
+					"speaker": "player",
+					"text": "Wie meinst du das, er ist fort? Wo ist König Albrecht?"
+				},
+				{
+					"speaker": "lake",
+					"text": "Heute Nacht ist der Lich mitten in das Schloss eingedrungen. Kein Tor wurde aufgebrochen, kein Alarmhorn hat geklungen."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "lake",
+					"text": "Die Wachen vor der Schatzkammer und vor den königlichen Gemächern lagen am Boden und schliefen wie die Toten. Als wir sie weckten, waren der König, der Feuerkristall und der Wasserkristall verschwunden."
+				},
+					{
+						"speaker": "lake",
+						"if_flag": "elf_defense_won",
+						"text": "Die Wachen vor der Schatzkammer und vor den königlichen Gemächern lagen am Boden und schliefen wie die Toten. Als wir sie weckten, waren der König und die Kristalle verschwunden. Feuer, Wind und Wasser."
+					},
+				{
+					"speaker": "lake",
+					"text": "Ich hätte hier sein müssen! Mein Platz ist an seiner Seite, jede Stunde, jede Nacht!"
+				},
+				{
+					"speaker": "lake",
+					"text": "Aber der König selbst hat mich gestern Abend zur Inspektion auf die äußere Stadtmauer geschickt. Er sagte, er wolle allein über den Karten brüten … und ich Narr habe gehorcht!"
+				},
+				{
+					"speaker": "magician",
+					"text": "Kein Wächter im Schloss konnte diesem Zauber widerstehen, Lake. Es war schwarze Magie von ungeheurer Macht."
+				},
+				{
+					"speaker": "magician",
+					"text": "Sieh her, junger Freund. Dieses schwarze Pergament lag heute Morgen auf dem leeren Thron."
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius reicht dir den dunklen Brief. Die Buchstaben darauf wirken, als wären sie mit kalter Asche gezogen worden.",
+					"action": "cutscene:act:magician:give:res://assets/sprites/items/dark_letter.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "magician",
+					"text": "Dort steht nur eine einzige Forderung des Lichs: „Der König gegen den Blitz. Der Schmied soll ihn allein bringen – Ort und Stunde folgen.“"
+				},
+				{
+					"speaker": "lake",
+					"text": "Er benutzt das Leben unseres Herrn als Köder für den Stein in deiner Tasche!"
+				},
+				{
+					"speaker": "lake",
+					"text": "Bei meinem heiligen Eid und beim Licht: Ich hole König Albrecht zurück. Mit dir oder ohne dich, Schmied!"
+				},
+				{
+					"speaker": "magician",
+					"text": "Bewahre einen kühlen Kopf, Lake. Blinder Zorn führt uns genau in die Falle, die der Feind gestellt hat."
+				},
+				{
+					"speaker": "magician",
+					"text": "Erde, Wind, Feuer und Wasser sind nun in seiner Hand. Was sagst du dazu, {name}?"
+				},
+				{
+					"speaker": "player",
+					"text": "Ich …"
+				},
+				{
+					"speaker": "",
+					"text": "Du ziehst den Blitzkristall aus deiner Tasche und siehst auf das zuckende Licht in deiner Hand. Zum ersten Mal fällt dir kein einziger Spruch ein.",
+					"action": "cutscene:act:player:hold:holy_lightning_crystal",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "player",
+					"text": "Er hat den König. Und er wartet auf mich."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "",
+					"text": "Der König ist fort, mit ihm Feuer und Wasser. Und der Lich will den Blitz."
+				},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"text": "Der König ist fort, mit ihm Feuer, Wind und Wasser. Und der Lich will den Blitz."
+					}
+			],
+			"on_end": "set_flag:king_taken;advance:part4_end"
+		},
+		"aurelius_departure": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Sprich zuerst mit dem König, junger Freund. Danach muss ich dir etwas gestehen. Meine Knie auch."
+				}
+			]
+		},
+		"rescue_council": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der Morgen graut über Leonheim. Der Thron aus weißem Stein ist leer."
+				},
+				{
+					"speaker": "lake",
+					"text": "Keine Nachricht. Kein Bote. Ich reite jetzt los und kehre jeden Stein im Land um, bis ich diesen Knochenfürsten finde!"
+				},
+				{
+					"speaker": "magician",
+					"text": "Halt ein, Lake. Zorn ist ein schlechter Schmied. Wer blind zuschlägt, trifft nur die Luft."
+				},
+				{
+					"speaker": "player",
+					"text": "Außerdem heizt man keine Esse an, bevor man weiß, welches Erz man überhaupt schmelzen will. Äh, will sagen: Auf dem schwarzen Brief stand weder Ort noch Stunde."
+				},
+				{
+					"speaker": "lake",
+					"text": "Und deshalb sollen wir warten? Jede Stunde, die verstreicht, ist der König in den Händen dieses Monsters! Ich hätte gestern Nacht hier sein müssen, nicht auf der Mauer."
+				},
+				{
+					"speaker": "magician",
+					"text": "Der König hat dich selbst auf die Mauer geschickt, Lake. Niemand gibt dir die Schuld."
+				},
+				{
+					"speaker": "lake",
+					"text": "Doch. Ich mir selbst. Und die anderen tuscheln bereits hinter meinem Rücken."
+				},
+				{
+					"speaker": "player",
+					"text": "Hey, hier tuschelt keiner. Zumindest nicht ich, ich rede bekanntlich viel zu laut, um zu tuscheln. Aber der Lich wollte den Blitzkristall und mich allein – er wird sich melden müssen."
+				},
+				{
+					"speaker": "magician",
+					"text": "Wir sollten nicht warten, bis er uns die Bedingungen diktiert, junger Freund. Mein Knie zieht heute zwar scheußlich, aber mein Kopf funktioniert noch."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ein Geschöpf der Finsternis kann nicht mit zwei gestohlenen Kristallen und einem König verschwinden, ohne Spuren zu hinterlassen. Wir haben Verbündete, die überall Augen und Ohren haben."
+				},
+				{
+					"speaker": "player",
+					"text": "Stimmt! Goldzahn und seine Goblins hören jedes Kratzen unter den Bergen. Wenn irgendwo eine Kette rasselt, weiß er es."
+				},
+				{
+					"speaker": "magician",
+					"text": "Und der Älteste Elarion in Sylvaris. Seine Windwache überblickt die Wälder von den höchsten Wipfeln aus."
+				},
+				{
+					"speaker": "player",
+					"text": "Und Kahn in Eisquell! Sein Volk kennt jede Strömung und jede Küste. Ich klappere alle drei ab."
+				},
+				{
+					"speaker": "lake",
+					"text": "Ich komme mit dir, Schmied. Mein Schwert gehört an die Spitze der Suche."
+				},
+				{
+					"speaker": "magician",
+					"text": "Nein, Lake. Leonheim ist ohne König, und die Menschen haben Angst. Du musst hierbleiben und die Stadt halten."
+				},
+				{
+					"speaker": "lake",
+					"text": "Die Stadt halten ... In diesen Hallen sieht mich jeder an, als wäre ich ein Fremder. Ohne den König habe ich hier niemanden."
+				},
+				{
+					"speaker": "player",
+					"text": "Du hast uns, Lake. Wir finden ihn, versprochen. Halt einfach das Tor dicht, bis ich zurück bin."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich kehre derweil auf meine Lichtung zurück und wälze die alten Chroniken. Irgendwo muss stehen, wo dieser Tote einst sein Nest hatte."
+				},
+				{
+					"speaker": "lake",
+					"text": "Also gut. Beeil dich, Schmied. Der König sieht alles – auch, wer ihn im Stich lässt."
+				}
+			],
+			"on_end": "advance:ask_allies"
+		},
+		"camp_arrival": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Auf der kargen Ebene jenseits des Sumpfes brennen hunderte Lagerfeuer. Zum ersten Mal seit Menschengedenken wehen hier die Banner aller Völker nebeneinander."
+				},
+				{
+					"speaker": "",
+					"text": "Soldaten aus Leonheim schärfen ihre Schwerter neben den Bogenschützen aus Sylvaris. Dahinter stehen die Krieger des Wasservolks und die Speerträger der Wüstenechsen in geschlossenen Reihen."
+				},
+				{
+					"speaker": "",
+					"text": "Im Norden erhebt sich die Finsterburg aus dem dunklen Fels. Ihre schwarzen Türme kratzen an den Wolken, und ein riesiges Eisentor versperrt den einzigen Zugang."
+				},
+				{
+					"speaker": "",
+					"text": "In der Mitte des Lagers stehen Meister Aurelius und die Anführer der Heere um einen großen Kartentisch."
+				}
+			],
+			"on_end": "set_flag:camp_intro_seen"
+		},
+		"camp_council": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Da bist du ja, {name}. Nun sind alle versammelt, die dem Ruf gegen die Finsternis gefolgt sind."
+				},
+				{
+					"speaker": "leon_captain",
+					"text": "Und wir stehen vor einer verflucht dicken Wand, wenn Ihr mir das Wort erlaubt, Meister Schmied. Dieses Haupttor ist aus dreifach vernietetem Schwarzeisen – da splittert jeder Rammbock wie trockenes Reisig."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich hab es mir von weitem angesehen: keine äußeren Scharniere, keine Bolzen, die man aufsprengen könnte. Solche Falltore werden von innen über eine Winde und einen großen Hebel im Torhaus bewegt."
+				},
+				{
+					"speaker": "desert_guard",
+					"text": "Meine Späher sind im Dunkeln einmal um die ganze Burg geschlichen. Vorn am Haupttor wimmelt es von Wachen. Aber an der Westflanke, wo die Mauer über dem Abgrund steht, gibt es eine alte Pforte. Dorthin schaut kaum jemand."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Ein Felsband, gerade breit genug für eine einzelne Person. Und hinter der Pforte liegen Gänge und Kasernen voller Knochenwachen, die jeden Winkel absuchen."
+				},
+				{
+					"speaker": "lake",
+					"text": "Dann ist die Aufgabe klar. Ich schleiche um die Burg herum, durch die Pforte ins Torhaus und lege den Hebel um."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Ihr, Lake? In einer Rüstung, die im Dunkeln leuchtet wie ein Leuchtfeuer? Oder hofft Ihr nur, dort drinnen wieder ganz allein und ohne Zeugen zu sein?"
+				},
+				{
+					"speaker": "lake",
+					"text": "Hütet Eure Zunge, Hauptmann! Mein Leben gehört dem König, und ich lasse mir von keinem Elfen Feigheit oder Verrat vorwerfen!"
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich bürge für Lake.",
+					"action": "set_flag:vouched_for_lake",
+					"then": "camp_vouch",
+					"decision": true
+				},
+				{
+					"text": "Faelan hat nicht ganz unrecht.",
+					"action": "set_flag:doubted_lake",
+					"then": "camp_doubt",
+					"decision": true
+				}
+			]
+		},
+		"camp_vouch": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Lake will nicht allein da rein, um sich zu verstecken. Er will rein, weil er seinen König liebt. Ich bürge für ihn."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Ihr bürgt für einen Mann, den Ihr kaum kennt, Schmied."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich kenne ihn gut genug. Und wenn ich falschliege, dürft Ihr mir das jeden Tag vorhalten. Schriftlich."
+				},
+				{
+					"speaker": "lake",
+					"text": "... Danke, Schmied."
+				}
+			],
+			"then": "camp_council_plan"
+		},
+		"camp_doubt": {
+			"lines": [
+				{
+					"speaker": "player",
+					"text": "Faelan, lass ihn. Aber ... Vorsicht schadet nicht. Bei keinem von uns. Auch nicht bei mir."
+				},
+				{
+					"speaker": "lake",
+					"text": "Auch du, Schmied? ... Gut. Dann beweise ich es euch allen."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Wir werden sehen."
+				}
+			],
+			"then": "camp_council_plan"
+		},
+		"camp_council_plan": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Genug, ihr beiden! Faelan hat in einem Punkt recht: Ein Ritter in schwerer Platte ist für diesen Weg ungeeignet. Doch es gibt einen zweiten Grund, warum keiner von uns gehen kann."
+				},
+				{
+					"speaker": "magician",
+					"text": "Es muss jemand gehen, der leise tritt und sich auf alte Mechanik versteht. Jemand, der Ketten, Zahnräder und Gegengewichte mit geschlossenen Augen bedienen kann."
+				},
+				{
+					"speaker": "desert_guard",
+					"text": "Ich war mit den Spähern an der Pforte. Sie hat keine Klinke und kein Schlüsselloch. Nur drei Fassungen und Zeichen im Stein. Dieselben Zeichen wie am Tor des Sturmtempels."
+				},
+				{
+					"speaker": "magician",
+					"text": "Die Finsterburg ist älter als ihr Herr. Dieselben alten Meister, die den Sturmtempel bauten, haben auch ihre Mauern gesetzt. Und ihre Türen öffnet kein Krieger, kein Fürst und kein Magier."
+				},
+				{
+					"speaker": "magician",
+					"text": "Nur das Handwerk eines Schmieds. Wer am Sturmtempel die Siegel geschmiedet hat, liest auch dieses Schloss. Und hier ist nur einer, der das getan hat."
+				},
+				{
+					"speaker": "player",
+					"text": "Äh ... warum schauen mich plötzlich alle so erwartungsvoll an? Leute, ich bin der Kerl, der die Schwerter schmiedet, nicht der heimliche Schattenläufer!"
+				},
+				{
+					"speaker": "leon_captain",
+					"text": "Ihr habt uns schon durch ganz andere Stürme geführt, Meister Schmied. Und kein Soldat im Lager kennt sich mit verrosteten Hebelwerken besser aus als Ihr."
+				},
+				{
+					"speaker": "player",
+					"text": "Na großartig. Erst koche ich Sumpfbrühe, jetzt schleiche ich auf einem Felsband über dem Abgrund um eine Burg voller klappriger Wachen. Wenn ich das überlebe, schreibe ich das als Überstunden ins Auftragsbuch."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Während du drinnen am Eisen ziehst, machen wir draußen ordentlich Lärm! Mein Speer zittert schon vor Ungeduld!"
+				},
+				{
+					"speaker": "desert_guard",
+					"text": "Das Echsenvolk rückt mit dem Wasservolk gegen das Haupttor vor. Wir ziehen die Blicke der Wachen auf den Zinnen nach außen."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Und meine Bogenschützen decken die Mauerkronen mit Pfeilen ein, damit kein Schütze auf den Hof hinabschauen kann."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich werde hinter den ersten Reihen stehen und einen Zauberschild über unser Heer spannen. Die dunkle Magie dieser Mauern soll keinen unserer Krieger niederstrecken."
+				},
+				{
+					"speaker": "lake",
+					"text": "Sobald das Tor sich hebt, führe ich die Sturmspitze in den Hof und breche den Weg zum Bergfried auf. Der Lich gehört mir."
+				},
+				{
+					"speaker": "leon_captain",
+					"text": "Die Männer von Leonheim halten Euch den Rücken im Hof frei, Lord Lake. Eure Helden, Meister Schmied, sollten sich bereithalten, um die schwersten Brocken im Bergfried aus dem Weg zu räumen."
+				},
+				{
+					"speaker": "player",
+					"text": "Meine Helden sind bereit, Hauptmann Bertold. Ich laufe also außen um die Burg herum, öffne die alte Pforte, weiche den Knochenköpfen aus, ziehe am Hebel und mache euch die Haustür auf. Klingt kinderleicht, wenn man es schnell ausspricht."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Lass uns nicht zu lange vor der Tür stehen, Schmied, sonst lassen deine Helden mir keinen einzigen Gegner übrig!"
+				},
+				{
+					"speaker": "magician",
+					"text": "Ruht euch noch eine Stunde aus. Wir schlagen im Schutz der letzten Nachtschatten zu, bevor der Morgen dämmert."
+				},
+				{
+					"speaker": "lake",
+					"text": "Schmied. Ehe du zur Westflanke aufbrichst ... komm noch für einen Moment an mein Feuer am Rand des Lagers."
+				},
+				{
+					"speaker": "player",
+					"text": "Klar, Lake. Ich bin gleich bei dir."
+				}
+			],
+			"on_end": "advance:lake_talk"
+		},
+		"lake_campfire": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Abseits der Zelte brennen nur wenige Kohlen. Lake sitzt auf einem flachen Stein und starrt in die Glut, das bloße Schwert über den Knien."
+				},
+				{
+					"speaker": "player",
+					"text": "Du wolltest mich sprechen, Lake? Ich wollte gerade noch meine Stiefel einfetten, damit sie beim Schleichen nicht quietschen wie ein ungeöltes Scheunentor ..."
+				},
+				{
+					"speaker": "lake",
+					"text": "Weißt du, woher mein Name stammt, Schmied? Lake des Lichts."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich dachte immer, das wäre ein altes Adelsgeschlecht aus dem Norden."
+				},
+				{
+					"speaker": "lake",
+					"text": "Ich komme aus der Gosse von Leonheim. Ein Findelkind ohne Eltern, das im Winter hinter den Backstuben um trockene Krusten bettelte."
+				},
+				{
+					"speaker": "lake",
+					"text": "König Albrecht fand mich dort an einem Regentag, als ich versuchte, einem betrunkenen Söldner den Dolch zu stehlen. Er hat mich nicht bestraft. Er nahm mich mit ins Schloss."
+				},
+				{
+					"speaker": "player",
+					"text": "Er hat dich bei sich aufgenommen?"
+				},
+				{
+					"speaker": "lake",
+					"text": "Er gab mir einen Namen, ein Dach, dieses Schwert und den Glauben an das Licht. Alles, was ich bin, jeder Atemzug, jede Faser meiner Ehre – ich verdanke es allein ihm."
+				},
+				{
+					"speaker": "lake",
+					"text": "Und in der einzigen Nacht, in der er mein Schwert wirklich brauchte, stand ich auf einer kalten Mauer und blickte ins Leere."
+				},
+				{
+					"speaker": "player",
+					"text": "Lake ... hör mir mal zu. Du konntest nicht wissen, was passiert. Du hast nur seinen Befehl ausgeführt."
+				},
+				{
+					"speaker": "lake",
+					"text": "Sag das dem Elfen. Sag das den Soldaten, die verstummen, sobald ich an ihrem Feuer vorbeigehe. In ihren Augen bin ich längst der Verräter."
+				},
+				{
+					"speaker": "lake",
+					"text": "Nur du hast im Rat für mich gesprochen. Ich weiß nicht, ob das mutig war oder dumm.",
+					"if_flag": "vouched_for_lake"
+				},
+				{
+					"speaker": "lake",
+					"text": "Selbst du hast im Rat gezögert. Ich kann es dir nicht einmal verübeln.",
+					"if_flag": "doubted_lake"
+				},
+				{
+					"speaker": "lake",
+					"text": "Ich habe keine Familie, Schmied. Keine Gefährten. Wenn der König fällt, bleibt von mir nichts übrig als ein Name, dem niemand mehr glaubt."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich wollte gerade irgendeinen lockeren Spruch machen, aber ... vergiss es. Ich glaube dir, Lake. Und solange ich einen Hammer halten kann, stehst du nicht allein da."
+				},
+				{
+					"speaker": "",
+					"text": "Lake hebt langsam den Kopf. Einen Moment lang weicht die Strenge aus seinem Gesicht, als wüsste er nicht, was er auf diese Worte antworten soll.",
+					"action": "cutscene:act:lake:nod",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "lake",
+					"text": "Du bist ein seltsamer Mensch, Schmied. Zu laut, zu sorglos ... aber ohne Falschheit."
+				},
+				{
+					"speaker": "",
+					"text": "Dann schließt er die Finger wieder fest um das Heft seines Schwertes, und sein Blick wird hart wie Stahl.",
+					"action": "cutscene:act:lake:tremble",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "lake",
+					"text": "Heute Nacht hole ich ihn zurück. Und ich schwöre dir beim Licht: Ich würde alles tun, was er von mir verlangt. Alles."
+				},
+				{
+					"speaker": "lake",
+					"text": "Gib da drinnen auf dich acht. Knochenwachen haben keinen eigenen Geist – sie sehen nur stur geradeaus in ihr Blickfeld. Bleib hinter Mauern und in ihrem Rücken."
+				},
+				{
+					"speaker": "player",
+					"text": "In ihrem Rücken bleiben. Verstanden. Wir sehen uns im Torhof, Lake."
+				}
+			],
+			"on_end": "hint:sneaking;advance:sneak_in"
+		},
+		"sneak_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Außen um die Burg herum führt nur ein schmales Felsband: links die schwarze Mauer, rechts der Abgrund. Ganz am Ende, an der Westflanke, liegt die alte Pforte."
+				},
+				{
+					"speaker": "",
+					"text": "Die untoten Wächter nehmen nur wahr, was direkt im Lichtkegel vor ihren Augenhöhlen liegt. Hinter Mauern, Felsen und Kisten bist du für sie unsichtbar."
+				},
+				{
+					"speaker": "",
+					"text": "Sollte dich eine Wache entdecken, bleibt dir nur die Flucht zurück in die Schatten am Beginn des jeweiligen Abschnitts."
+				},
+				{
+					"speaker": "player",
+					"text": "Alles klar: schön geduckt bleiben, nicht mit dem Werkzeug klappern und auf keinen Fall nach unten schauen."
+				}
+			],
+			"on_end": "set_flag:sneak_intro_seen"
+		},
+		"smith_gate_open": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Pforte ist aus dunklem Stein, ohne Griff und ohne Schlüsselloch. Drei Fassungen sind in den Rahmen eingelassen, darunter laufen verwitterte Zeichen."
+				},
+				{
+					"speaker": "player",
+					"text": "Das ist keine Schrift. Das ist eine Gebrauchsanweisung: drehen, drücken, heben. Für jeden anderen sieht das aus wie Kritzelei."
+				},
+				{
+					"speaker": "player",
+					"text": "Die Fassungen sind Stellringe, wie bei einem Kombinationsschloss. Und tief drinnen sitzt ein Riegel mit Gegengewicht ... der alte Meister hatte Humor."
+				},
+				{
+					"speaker": "",
+					"text": "Du drehst den ersten Ring, bis er einrastet, dann den zweiten, dann den dritten. Tief in der Mauer springt ein Riegel zurück.",
+					"action": "cutscene:act:smith_gate:unlock:16,-40",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "",
+					"text": "Lautlos schwingt die Pforte nach innen. Dahinter liegt ein dunkler Gang, und es riecht nach kaltem Stein und altem Öl.",
+					"action": "set_flag:smith_gate_open",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "player",
+					"text": "Nicht einmal gequietscht. Respekt, alter Meister. So, und jetzt rein in die Höhle des Löwen ..."
+				}
+			],
+			"on_end": "set_flag:smith_gate_open;travel_fade:res://scenes/world/fortress/sneak_walls.tscn,Start"
+		},
+		"smith_gate_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die alte Pforte steht offen. Dahinter liegen die Gänge der Burg."
+				}
+			],
+			"on_end": "travel_fade:res://scenes/world/fortress/sneak_walls.tscn,Start"
+		},
+		"lever_pull": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Im Windenraum des Torhauses ragt ein eiserner Hebel aus dem Boden, verbunden mit einer armdicken Kette und einem schweren steinernen Gegengewicht."
+				},
+				{
+					"speaker": "player",
+					"text": "Ha! Klassische Sperrklinkenwinde mit doppeltem Gegengewicht – der Erbauer hatte zwar einen schrecklichen Geschmack bei der Inneneinrichtung, aber von Hebelgesetzen verstand er was."
+				},
+				{
+					"speaker": "player",
+					"text": "Man muss nur den Sperrbolzen entlasten, das Gewicht arbeiten lassen und ... kräftig ziehen!"
+				},
+				{
+					"speaker": "",
+					"text": "Mit einem lauten Kreischen greifen die Zahnräder ineinander. Das steinerne Gegengewicht sinkt in die Tiefe, und die schwere Kette zieht das Haupttor nach oben.",
+					"action": "cutscene:lever_crank",
+					"hide_for": 2.4
+				},
+				{
+					"speaker": "player",
+					"text": "Und damit es auch oben bleibt ..."
+				},
+				{
+					"speaker": "",
+					"text": "Du setzt den Hammer an die Sperrklinke und schlägst einmal kräftig zu. Die Klinke bricht ab und verkeilt sich zwischen den Zahnrädern. Die Winde sitzt fest.",
+					"action": "cutscene:lever_jam",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "",
+					"text": "Draußen erklingen die Hörner von Leonheim. Im Gang poltern Schritte, und du duckst dich gerade noch in den Schatten neben der Winde.",
+					"action": "cutscene:fade;set_flag:fortress_gate_open"
+				},
+				{
+					"speaker": "finster_knight",
+					"text": "Das Haupttor ist offen! Wer war das?! Alle Mann zum Tor, haltet sie im Hof auf!"
+				},
+				{
+					"speaker": "finster_knight",
+					"text": "Ihr zwei! Runter mit dem Gitter, sofort!"
+				},
+				{
+					"speaker": "",
+					"text": "Die Knochenwachen stürzen hinaus. Nur zwei bleiben zurück und zerren mit aller Kraft an der Winde. Sie rührt sich keinen Fingerbreit.",
+					"action": "cutscene:guards_rush;cutscene:winch_strain",
+					"hide_for": 2.6
+				},
+				{
+					"speaker": "finster_knight",
+					"text": "Es klemmt? Dann reißt es mit bloßen Knochen runter! Und dass mir keiner diesen Raum verlässt, ehe das Tor zu ist!"
+				},
+				{
+					"speaker": "player",
+					"text": "Tja. Zerbrochene Sperrklinke. Da hätte mal jemand einen ordentlichen Schmied ranlassen sollen.",
+					"action": "cutscene:knight_leaves"
+				},
+				{
+					"speaker": "player",
+					"text": "Die zwei schauen nur auf die Winde. Wenn ich leise hinter ihrem Rücken bleibe, komme ich durch den Gang im Osten raus. Und dann zu den anderen."
+				}
+			],
+			"on_end": "set_flag:gatehouse_cleared;advance:sneak_out;hint:sneak_escape"
+		},
+		"lever_jammed": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Winde sitzt fest. Die zerbrochene Sperrklinke hält das Tor oben."
+				}
+			]
+		},
+		"ring_entry": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein Ringgang führt rund um eine alte Kapelle. Zwei Knochenwachen gehen darin im Kreis, eine hinter der anderen, und schauen nur nach vorn."
+				},
+				{
+					"speaker": "player",
+					"text": "Gegen den Strom komme ich nicht durch. Also hinter einer her, im gleichen Schritt. Nicht zu nah, nicht zu weit, und bloß nicht stehen bleiben, wenn die andere um die Ecke kommt."
+				}
+			],
+			"on_end": "set_flag:ring_entry_seen"
+		},
+		"yard_battle": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Am Ende des Ringgangs stößt du eine Tür auf und stehst mitten im Torhof, zwischen den Schilden von Leonheim."
+				},
+				{
+					"speaker": "",
+					"text": "Im Torhof tobt die Schlacht. Schwerter schlagen auf Knochen und dunkles Eisen, während goldene Funken von Aurelius' Zauberschild über den Mauern tanzen."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Haha! Seht sie euch an, wie sie klappern! Gute Arbeit am Tor, Schmied – jetzt bricht die Flut über diese Mauern herein!"
+				},
+				{
+					"speaker": "lake",
+					"text": "Haltet euch nicht im Hof auf! Der König ist oben im Bergfried, wir müssen sofort durch das innere Portal!"
+				},
+				{
+					"speaker": "leon_captain",
+					"text": "Unmöglich, Lord Lake! Im Bergfried hat sich ein riesiger Knochengeneral mit seiner schwarzen Garde verschanzt – wer da einzeln hineinrennt, wird in Stücke gehauen!"
+				},
+				{
+					"speaker": "",
+					"text": "Von der Treppe stürmt eine Reihe untoter Schildträger herab. Ein schwarzer Speer zischt aus dem Schatten direkt auf Lakes ungedeckte Flanke zu.",
+					"action": "cutscene:shield_charge",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "",
+					"text": "Ein silberner Pfeil schlägt den Speer im Flug entzwei. Faelan springt mit gezogener Klinge an Lakes Seite, und für einen Augenblick kämpfen Elf und Ritter Rücken an Rücken.",
+					"action": "cutscene:silver_arrow",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "lake",
+					"text": "Danke, Hauptmann."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Spart Euch den Dank, bis der König frei ist, Lake. Deckt links, ich nehme die rechte Seite!"
+				},
+				{
+					"speaker": "leon_captain",
+					"text": "Meister Schmied, wir halten mit dem Heer den Hof und die Treppen! Aber um den Knochengeneral im Bergfried zu brechen, brauchen wir Eure besten Helden!"
+				},
+				{
+					"speaker": "player",
+					"text": "Schon verstanden, Hauptmann Bertold! Dafür haben wir schließlich trainiert und die besten Klingen geschmiedet."
+				},
+				{
+					"speaker": "leon_captain",
+					"text": "Seht Ihr ihn, oben vor dem Tor zum Bergfried? Der Knochengeneral hält es mit seiner Garde. Schickt Eure Helden gegen ihn. Sobald der General fällt, stürmen wir nach oben!",
+					"action": "cutscene:act:leon_captain:point:up"
+				},
+				{
+					"speaker": "player",
+					"text": "Bin schon unterwegs! Haltet mir hier bloß den Rücken frei."
+				}
+			],
+			"on_end": "set_flag:yard_battle_seen;hint:dark_keep"
+		},
+		"bertold_yard_idle": {
+			"lines": [
+				{
+					"speaker": "leon_captain",
+					"text": "Wir halten den Hof, Meister Schmied! Der Knochengeneral steht oben vor dem Tor zum Bergfried. Schickt Eure Helden gegen ihn!",
+					"action": "cutscene:act:leon_captain:point:up"
+				}
+			]
+		},
+		"keep_won": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Aus dem Inneren des Bergfrieds dringt das Krachen berstender Rüstung. Der Knochengeneral und seine Garde sind unter den Schlägen deiner Helden gefallen."
+				},
+				{
+					"speaker": "",
+					"text": "Die schweren Flügeltüren zur großen Treppe schwingen auf. Der Weg zum Thronsaal der Finsterburg ist frei.",
+					"action": "cutscene:keep_doors",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "lake",
+					"text": "Endlich! Mir nach, Schmied – wir holen den König zurück!"
+				},
+				{
+					"speaker": "",
+					"text": "Mit leuchtender Klinge stürmt Lake die Stufen hinauf. Du greifst den Blitzkristall fester und läufst ihm nach.",
+					"action": "cutscene:lake_storms",
+					"hide_for": 1.8
+				}
+			],
+			"on_end": "set_flag:keep_won_seen"
+		},
+		"bertold_keep_idle": {
+			"lines": [
+				{
+					"speaker": "leon_captain",
+					"text": "Lake ist schon oben, Meister Schmied! Lauft ihm nach, wir halten hier unten die Treppe.",
+					"action": "cutscene:act:leon_captain:point:up"
+				}
+			]
+		},
+		"faelan_camp": {
+			"lines": [
+				{
+					"speaker": "faelan",
+					"text": "Meine Schützen liegen bereit, Schmied. Öffnet uns das Tor, den Rest erledigen unsere Pfeile."
+				}
+			]
+		},
+		"bone_general_challenge": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Vor dem Tor zum Bergfried steht ein Hüne aus Knochen und schwarzem Eisen. In seinen leeren Augenhöhlen glimmt kaltes Feuer."
+				},
+				{
+					"speaker": "bone_general",
+					"text": "Ein Schmied. Wie lächerlich. Mein Herr hat mir befohlen, dieses Tor zu halten, bis der letzte von euch zu Staub zerfallen ist."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich habe Helden dabei. Und ehrlich gesagt kämpfen die besser als ich."
+				},
+				{
+					"speaker": "bone_general",
+					"text": "Dann schick sie. Ich warte. Ich habe Zeit, Schmied. Sehr viel Zeit.",
+					"action": "set_flag:bone_general_met"
+				}
+			]
+		},
+		"escape_start": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ihr stolpert aus dem Bergfried in den brennenden Torhof. Wagen und Zelte stehen in Flammen.",
+					"action": "cutscene:escape_hide"
+				},
+				{
+					"speaker": "",
+					"text": "Hinter euch fliegt die Tür auf.",
+					"action": "cutscene:escape_lake_out"
+				},
+				{
+					"speaker": "lake",
+					"text": "Schmied! Ich weiß, dass du hier bist!"
+				},
+				{
+					"speaker": "",
+					"text": "Lake späht über den Hof. Dann rennt er nach Süden, zum Haupttor. Er glaubt, ihr flieht zum Heer.",
+					"action": "cutscene:escape_lake_runs"
+				},
+				{
+					"speaker": "player",
+					"text": "Puh. Gut, dass er nicht weiß, wie langsam ich mit einem Zauberer auf dem Rücken bin."
+				},
+				{
+					"speaker": "",
+					"text": "Oben auf den Mauern klappern Knochen. Fackeln wandern über die Zinnen. Die Wachen suchen den Hof ab."
+				},
+				{
+					"speaker": "",
+					"text": "Der Weg hinaus führt über den ganzen Hof nach Westen, zur Ausfallpforte am Graben.",
+					"action": "set_flag:escape_intro_done"
+				}
+			]
+		},
+		"bertold_camp": {
+			"lines": [
+				{
+					"speaker": "leon_captain",
+					"text": "Die Männer von Leonheim sind müde vom Gewaltmarsch, Meister Schmied, aber für unseren König gehen wir durch jedes Feuer. Gebt uns im Torhaus einfach das Zeichen."
+				}
+			]
+		},
+		"bertold_after": {
+			"lines": [
+				{
+					"speaker": "leon_captain",
+					"text": "Wir halten die Burg, Meister Schmied. Aber für wen? Die Männer fragen, ob sie noch einen König haben."
+				},
+				{
+					"speaker": "leon_captain",
+					"text": "Ich sage ihnen: Wir haben unser Wort. Das reicht für heute."
+				}
+			]
+		},
+		"aurelius_camp": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Sei vorsichtig in den dunklen Gängen, junger Freund. Meine alten Knochen sagen mir, dass über dieser Burg ein tieferer Schatten liegt, als wir ahnen."
+				}
+			]
+		},
+		"lake_camp": {
+			"lines": [
+				{
+					"speaker": "lake",
+					"text": "Der Weg um die Burg ist frei, Schmied. Öffne das Tor – heute Nacht endet meine Schuld."
+				}
+			]
+		},
+		"throne_finale": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ihr stürmt in den hohen Thronsaal aus schwarzem Stein. Vor dem dunklen Thron steht der Lich, auf seinen Knochenstab gestützt."
+				},
+				{
+					"speaker": "",
+					"text": "Seitlich an einer Säule sitzt König Albrecht in schweren Eisenketten. Er hebt matt den Kopf, als er euch erblickt."
+				},
+				{
+					"speaker": "lich",
+					"text": "Jahrhunderte! Jahrhunderte habe ich auf diesen Augenblick gewartet, und nun trampeln der kleine Schmied und sein goldener Wachhund durch meine Hallen!"
+				},
+				{
+					"speaker": "lake",
+					"text": "Lass den König frei, du Ausgeburt der Finsternis! Deine letzte Stunde hat geschlagen!"
+				},
+				{
+					"speaker": "lich",
+					"text": "Narren! Ihr habt den Blitzkristall direkt zu mir getragen, genau wie es bestimmt war!"
+				},
+				{
+					"speaker": "",
+					"text": "Lake antwortet nicht mehr mit Worten. Ein blendendes weißes Leuchten bricht aus seiner Klinge hervor, als er sich auf den Lich wirft.",
+					"action": "cutscene:duel_charge"
+				},
+				{
+					"speaker": "",
+					"text": "Schwarze Blitze schlagen aus dem Knochenstab und prallen kreischend auf den goldenen Schild des Ritters. Licht und Schatten ringen mitten im Saal miteinander.",
+					"action": "cutscene:duel_clash"
+				},
+				{
+					"speaker": "",
+					"text": "Der Lich weicht zurück, doch Lakes Zorn treibt ihn unaufhaltsam Schritt für Schritt vor sich her. Mit einem gewaltigen Hieb durchschlägt das Schwert den dunklen Zauber.",
+					"action": "cutscene:duel_push"
+				},
+				{
+					"speaker": "",
+					"text": "Der Knochenstab zerbricht mit einem trockenen Knall in zwei Hälften. Der Lich bricht auf die Knie zusammen und hält zitternd die knochigen Hände hoch.",
+					"action": "cutscene:lich_kneel"
+				},
+				{
+					"speaker": "lich",
+					"text": "Halt ein! Nicht zuschlagen, ich bin wehrlos! Mein Stab ist gebrochen, meine Macht ist erschöpft – verschont mich!"
+				},
+				{
+					"speaker": "player",
+					"text": "Wir haben ihn! Es ist vorbei, er kann keinen Zauber mehr wirken."
+				},
+				{
+					"speaker": "king",
+					"text": "Lake. Töte ihn."
+				},
+				{
+					"speaker": "lake",
+					"text": "Mein König ... Ihr lebt! Aber ... sein Stab ist zerbrochen, er kniet wehrlos am Boden."
+				},
+				{
+					"speaker": "lake",
+					"text": "Das Gesetz des Lichts verbietet es, einen Wehrlosen zu richten. Er gehört in Ketten vor das hohe Gericht in Leonheim."
+				},
+				{
+					"speaker": "lich",
+					"text": "Was ... was sagst du da, Albrecht?! Warum befiehlst du ihm meinen Tod?!"
+				},
+				{
+					"speaker": "lich",
+					"text": "Du hast es versprochen! Ich habe dir die Steine aus dem Staub und dem Moor geholt! Du hast mir gesagt, ich bekomme die Ewigkeit, wenn ..."
+				},
+				{
+					"speaker": "king",
+					"text": "Schweig, du Kreatur! Hör nicht auf sein Gift, Lake, er versucht deinen Geist zu verwirren!"
+				},
+				{
+					"speaker": "king",
+					"text": "Er lügt, Lake. Er hat das Dorf unseres Schmieds verbrannt, Bruno getötet, Sylvaris verraten. Er wird wiederkommen. Tu es."
+				},
+				{
+					"speaker": "",
+					"text": "Lakes Hände zittern am Griff seines Schwertes. Er blickt vom flehenden Lich zu seinem König an der Säule, während der Zorn in seinen Augen aufflammt.",
+					"action": "cutscene:act:lake:tremble",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "",
+					"text": "Der Lich kriecht über den Boden zu dir herüber. Seine Knochenfinger krallen sich in deinen Ärmel, seine Stimme ist nur noch ein Rascheln.",
+					"action": "cutscene:lich_crawl"
+				},
+				{
+					"speaker": "lich",
+					"text": "Glutträger ... er lebt. Er schmiedet. Unter ... diesen Mauern ...",
+					"action": "set_flag:lich_whispered"
+				},
+				{
+					"speaker": "player",
+					"text": "Warte mal, was hat der Lich gerade gesagt?! Lake, nicht!"
+				},
+				{
+					"speaker": "",
+					"text": "Lake hebt das leuchtende Schwert mit beiden Händen und schlägt zu. Die Klinge fährt nieder und trennt den Schädel des Lichs vom Rumpf.",
+					"action": "cutscene:lake_execute"
+				},
+				{
+					"speaker": "",
+					"text": "Der leblose Knochenkörper zerfällt zu grauem Staub. Im weiten Thronsaal herrscht vollkommene Stille.",
+					"action": "cutscene:lich_dust;set_flag:lich_slain"
+				},
+				{
+					"speaker": "",
+					"text": "An der steinernen Säule erklingt ein leises Klicken. Die schweren Eisenketten gleiten von den Handgelenken des Königs und fallen zu Boden. Sie waren nie verschlossen.",
+					"action": "cutscene:chains_fall",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "",
+					"text": "König Albrecht beginnt zu lachen, erst ganz leise, dann klar und hallend. Er erhebt sich ohne jede Mühe und klopft sich ruhig den Staub vom Mantel.",
+					"action": "cutscene:king_laughs;set_flag:chains_off",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "king",
+					"text": "Vortrefflich, mein guter Lake. Wirklich ein sauberer Hieb. Dieses alte Gerippe wurde am Ende doch recht geschwätzig."
+				},
+				{
+					"speaker": "player",
+					"text": "Was ... was soll das heißen? Eure Ketten ... Ihr wart überhaupt nicht gefangen!"
+				},
+				{
+					"speaker": "king",
+					"text": "Aber natürlich nicht, mein Schmied. Wie könnte man auch ein Gefangener in seiner eigenen Burg sein? Willkommen in meiner Finsterburg."
+				},
+				{
+					"speaker": "",
+					"text": "Du willst nach deiner Waffe greifen, doch ein eiserner Griff aus dunkler Magie schnürt dir die Glieder ab. Das blaue Licht in deinen Händen flackert kurz auf und erlischt.",
+					"action": "cutscene:player_bound",
+					"hide_for": 1.0
+				},
+				{
+					"speaker": "player",
+					"text": "Ich ... ich kann mich nicht rühren! Der Lich ... er hat für Euch gearbeitet?!"
+				},
+				{
+					"speaker": "king",
+					"text": "Ein nützlicher Diener, weiter nichts. Ein sterblicher Narr von einst, dem ich die Ewigkeit versprach, wenn er mir die Steine aus dem Dreck der Welt zusammensucht."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "king",
+					"text": "Er hat mir die Erde aus deinem kleinen Dorf geholt und das Gift aus dem tiefen Moor. Den Wald der Elfen fand er allein. Aber wo genau sie ihren Windkristall hüten, verriet mir der gute, arglose Aurelius nach seinem Besuch in Sylvaris. Ich musste es meinem Diener nur zuflüstern."
+				},
+					{
+						"speaker": "king",
+						"if_flag": "elf_defense_won",
+						"text": "Er hat mir die Erde aus deinem kleinen Dorf geholt und das Gift aus dem tiefen Moor. Wo die Elfen ihren Windkristall hüten, verriet mir der gute, arglose Aurelius. Ich musste es meinem Diener nur zuflüstern."
+					},
+					{
+						"speaker": "king",
+						"if_flag": "elf_defense_won",
+						"text": "Und als die Elfen ihn mit deinen Klingen vertrieben, hast du mir den Wind selbst in die Hand gelegt. So oder so, er wäre zu mir gekommen."
+					},
+				{
+					"speaker": "king",
+					"text": "Doch vor dem Sturmtempel der Wüste hatte die Kreatur Angst. Also brauchte ich einen fleißigen jungen Helden, der den Blitz für mich birgt – und ein kleines Schauspiel in Leonheim, damit du ihn mir bis vor die Füße trägst."
+				},
+				{
+					"speaker": "king",
+					"text": "Ort und Stunde musste ich dir nicht einmal nennen. Ich wusste, dass du von selbst kommst. Du kommst immer."
+				},
+				{
+					"speaker": "",
+					"text": "König Albrecht tritt lächelnd auf dich zu und greift in deine Tasche. Mit sanfter, fast väterlicher Ruhe nimmt er dir den Blitzkristall ab.",
+					"action": "cutscene:king_takes_crystal",
+					"hide_for": 2.6
+				},
+				{
+					"speaker": "king",
+					"text": "Sieh nur, wie schön er funkelt, {name}. Damit sind es acht Steine in meiner Hand.",
+					"action": "take_items:holy_lightning_crystal;set_flag:lightning_crystal_lost"
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "king",
+					"text": "Erde, Wind und Gift von meinem Staub gewordenen Diener. Feuer und Wasser, die ihr mir so treu nach Leonheim gebracht habt. Dazu mein eigener Stein des Lichts, der Stein der Dunkelheit aus dieser Burg – und nun dein Blitz."
+				},
+					{
+						"speaker": "king",
+						"if_flag": "elf_defense_won",
+						"text": "Erde und Gift von meinem Staub gewordenen Diener. Feuer, Wind und Wasser, die ihr mir so treu nach Leonheim gebracht habt. Dazu mein eigener Stein des Lichts, der Stein der Dunkelheit aus dieser Burg – und nun dein Blitz."
+					},
+				{
+					"speaker": "player",
+					"text": "Ihr wollt das Siegel brechen ... Ihr wollt den Dämonenlord befreien! Aber der neunte Stein fehlt Euch! Kahn wird den Eiskristall niemals hergeben!"
+				},
+				{
+					"speaker": "king",
+					"text": "Ach, mein Schmied, mach dir um den Eiskristall keine Sorgen. Den holt mir einer, der jetzt noch nicht weiß, dass er es tun wird."
+				},
+				{
+					"speaker": "king",
+					"text": "Und die Fassung für die neun Steine wartet bereits in meiner Kammer. Ein wahres Meisterwerk, geschmiedet im tiefsten Verlies – von Händen wie deinen."
+				},
+				{
+					"speaker": "player",
+					"text": "Von Händen wie meinen ... Der verschwundene Meisterschmied! Ihr haltet ihn gefangen!"
+				},
+				{
+					"speaker": "lake",
+					"text": "Mein König ... alles ... war ...?"
+				},
+				{
+					"speaker": "",
+					"text": "Lake steht wie erstarrt neben dem Staub des Lichs. Das weiße Leuchten seiner Klinge ist vollständig erloschen.",
+					"action": "cutscene:lake_dim"
+				},
+				{
+					"speaker": "king",
+					"text": "Sieh mich nicht so erschrocken an, mein Junge. Glaubst du wirklich, für dich gäbe es jetzt noch einen Weg zurück nach Leonheim?"
+				},
+				{
+					"speaker": "king",
+					"text": "Die Elfen haben dich vom ersten Tag an des Verrats bezichtigt. Und soeben hast du vor den Augen eines Zeugen einen wehrlosen Gefangenen geköpft, der meine Wahrheit aussprechen wollte."
+				},
+				{
+					"speaker": "lake",
+					"text": "Ihr ... Ihr habt es mir befohlen! Ich habe Euch vertraut!"
+				},
+				{
+					"speaker": "king",
+					"text": "Und wer da draußen wird dir das glauben, Lake? Faelan? Die Soldaten, die dich ohnehin schon meiden? Niemand auf dieser Welt wird dir mehr glauben – außer mir."
+				},
+				{
+					"speaker": "king",
+					"text": "Begreif doch endlich, mein Sohn: Das Licht war nie irgendein starres Gesetz in alten Schriften. Ich habe dich aus der Gosse geholt. Ich habe dir deinen Namen gegeben. Das Licht war immer ich."
+				},
+				{
+					"speaker": "king",
+					"text": "Für die neue Zeit, die anbricht, brauche ich keinen Zweifler. Ich brauche einen Ritter, der nicht zögert, wenn ich befehle – und du hast eben nicht gezögert."
+				},
+				{
+					"speaker": "player",
+					"text": "Hör nicht auf ihn, Lake! Er hat dich benutzt, genau wie uns alle! Du bist ein guter Mensch, du musst ihm nicht folgen!"
+				},
+				{
+					"speaker": "",
+					"text": "Lake starrt auf sein beflecktes Schwert, dann auf dich und schließlich in das ruhige, lächelnde Gesicht des Königs. Seine Schultern sinken herab, und der letzte Widerstand weicht aus seinem Blick."
+				},
+				{
+					"speaker": "",
+					"text": "Langsam lässt sich der Ritter vor dem Thron auf ein Knie nieder und senkt das Haupt.",
+					"action": "cutscene:lake_kneels",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "",
+					"text": "Der König legt ihm väterlich die Hand auf die Schulter und zieht den Kristall der Dunkelheit hervor. Schwarzer Glanz fließt über Lakes Rüstung und frisst das Gold, bis nur noch kaltes, dunkles Eisen bleibt.",
+					"action": "cutscene:lake_darkened",
+					"hide_for": 2.8
+				},
+				{
+					"speaker": "king",
+					"text": "Erhebe dich, mein dunkler Ritter.",
+					"action": "set_flag:lake_fallen"
+				},
+				{
+					"speaker": "lake",
+					"text": "Ja, mein König."
+				},
+				{
+					"speaker": "king",
+					"text": "Eigentlich schätze ich gute Handwerker, {name}. Aber du hast heute zu viel gesehen."
+				},
+				{
+					"speaker": "king",
+					"text": "Lake. Mein Schmied und ich sind fertig miteinander."
+				},
+				{
+					"speaker": "",
+					"text": "Lake erhebt sich. Ohne ein Wort zieht er das schwarze Schwert und kommt auf dich zu. Du kannst dich noch immer nicht rühren.",
+					"action": "cutscene:dark_lake_approach"
+				},
+				{
+					"speaker": "player",
+					"text": "Lake ... hey. Gestern Abend saßen wir noch am Feuer. Weißt du noch? Du hast gesagt, du bist allein. Du bist nicht ..."
+				},
+				{
+					"speaker": "",
+					"text": "Lake hebt die Klinge.",
+					"action": "cutscene:dark_lake_raise"
+				},
+				{
+					"speaker": "",
+					"text": "Da fliegen die Torflügel auf. Ein Schild aus kaltem Sternenlicht schiebt sich zwischen dich und das Schwert. Die Klinge kracht dagegen, Funken regnen über den schwarzen Stein.",
+					"action": "set_flag:aurelius_burst_in;cutscene:aurelius_shield"
+				},
+				{
+					"speaker": "magician",
+					"text": "Nicht ihn, Lake!"
+				},
+				{
+					"speaker": "king",
+					"text": "Aurelius. Wie schön. Du kommst immer pünktlich, wenn es zu spät ist."
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius sieht den Staub des Lichs, die offenen Ketten, den lächelnden König. Sein Gesicht wird bleich wie Kreide.",
+					"action": "cutscene:act:magician:tremble",
+					"hide_for": 0.9
+				},
+				{
+					"speaker": "magician",
+					"text": "Albrecht ... Der Windkristall. Ich habe es dir erzählt. Nur dir."
+				},
+				{
+					"speaker": "king",
+					"text": "Und ich danke dir dafür, alter Freund. Lake, beende es."
+				},
+				{
+					"speaker": "",
+					"text": "Lake schlägt wieder und wieder auf den Schild. Bei jedem Hieb bekommt das Sternenlicht feine Risse. Aurelius' Arme zittern.",
+					"action": "cutscene:shield_hammer"
+				},
+				{
+					"speaker": "faelan",
+					"text": "Zauberer! Von unten kommen Schatten die Treppe herauf. Wir halten sie nicht lange!"
+				},
+				{
+					"speaker": "magician",
+					"text": "Dann führ alle hinaus, Faelan! Das ganze Heer, sofort!",
+					"action": "cutscene:faelan_leaves"
+				},
+				{
+					"speaker": "magician",
+					"text": "{name}, wenn der Schild bricht, lauf. Und nimm mich mit, wenn du kannst."
+				},
+				{
+					"speaker": "player",
+					"text": "Weglaufen. Klar. Darin bin ich gut. Na ja, ich übe noch. Wann bricht er?"
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius stößt seinen Stab in den Boden. Der Schild zerspringt in tausend weiße Splitter, und ein Licht, hell wie ein Sommermittag, verschluckt den Thronsaal.",
+					"action": "cutscene:shield_burst"
+				},
+				{
+					"speaker": "king",
+					"text": "Lauf nur, mein Schmied. Du kommst zurück. Du kommst immer."
+				},
+				{
+					"speaker": "",
+					"text": "Als das Licht verblasst, taumelt Lake mit den Händen vor den Augen zurück. Aurelius sackt neben dir zusammen, sein Stab ist in zwei Stücke zerbrochen.",
+					"action": "cutscene:aurelius_collapse"
+				},
+				{
+					"speaker": "player",
+					"text": "Aurelius! Steh auf, Lake sieht gerade nichts. Bitte!"
+				},
+				{
+					"speaker": "magician",
+					"text": "Das war alles, was ich hatte, Junge. Für meine Beine ist nichts mehr übrig."
+				},
+				{
+					"speaker": "player",
+					"text": "Gut. Dann trage ich dich. Ich trage jeden Tag Eisenbarren. Du wiegst bestimmt weniger. Hoffentlich."
+				},
+				{
+					"speaker": "",
+					"text": "Du legst dir seinen Arm um die Schultern, ziehst ihn hoch und rennst los, auf die Tür zu.",
+					"action": "set_flag:carrying_mage;cutscene:flee_start"
+				},
+				{
+					"speaker": "king",
+					"text": "Lake! Steh nicht herum. Hol sie mir zurück!",
+					"action": "cutscene:dark_lake_chase"
+				},
+				{
+					"speaker": "",
+					"text": "Ihr stolpert die Treppe hinunter, Stufe um Stufe. Über euch hallen schwere Schritte.",
+					"action": "cutscene:act:fortress_narrator:stomp",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "set_flag:king_left;advance:carry_mage;hint:carry_mage;travel_fade:res://scenes/world/fortress/fortress_escape.tscn,Start"
+		},
+		"escape_faelan": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Hinter dem letzten Wagen steht die kleine Ausfallpforte offen. Davor wartet eine Gestalt im Schatten."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Schmied! Ich habe das Licht über der Burg gesehen und gehofft, dass ihr irgendwo darunter seid."
+				},
+				{
+					"speaker": "player",
+					"text": "Darunter, daneben, mittendrin. Nimm ihn, Faelan. Meine Arme sind aus Pudding."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Du hast ihn über den ganzen Hof getragen. An den Wachen vorbei."
+				},
+				{
+					"speaker": "magician",
+					"text": "Er hat mich nicht losgelassen. Ich habe es ihm ja gesagt."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Folgt mir. Durch die Pforte und den Westgraben entlang, dann sind wir draußen, bevor sie merken, wo ihr seid."
+				},
+				{
+					"speaker": "",
+					"text": "Faelan schlüpft als Erster durch die enge Pforte. Du ziehst Aurelius hinter dir her.",
+					"action": "cutscene:sally_out"
+				}
+			],
+			"on_end": "set_flag:escape_left_yard;travel_fade:res://scenes/world/fortress/fortress_moat_escape.tscn,Start"
+		},
+		"escape_out": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Hinter der Pforte fällt der Weg steil in den Westgraben ab. Kalte Nachtluft, endlich kein Rauch mehr."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Den Graben entlang, bis zur Mitte. Dort führt ein Pfad hinauf zum Felsband, und von da in den Wald.",
+					"action": "cutscene:moat_lead"
+				},
+				{
+					"speaker": "",
+					"text": "Ihr hastet durch den Schlamm. Aurelius hängt schwer an deinem Arm, aber er hält Schritt."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Gleich geschafft. Da vorn ist der Pfad.",
+					"action": "cutscene:moat_meet"
+				},
+				{
+					"speaker": "",
+					"text": "Hinter euch knarrt die Pforte. Fackeln tauchen im Graben auf, erst eine, dann viele, von beiden Seiten.",
+					"action": "cutscene:moat_surround"
+				},
+				{
+					"speaker": "",
+					"text": "„Da sind sie! Der Schmied und der Zauberer!“"
+				},
+				{
+					"speaker": "",
+					"text": "„Waffen weg! Ergebt euch, im Namen des Königs! Keiner kommt hier raus!“"
+				},
+				{
+					"speaker": "faelan",
+					"text": "Bleibt hinter mir. Das sind zu viele für ein Schwert."
+				},
+				{
+					"speaker": "player",
+					"text": "Ergeben? Ich habe gerade einen Zauberer durch eine brennende Burg getragen. Jetzt aufzugeben wäre schade um die Mühe."
+				},
+				{
+					"speaker": "",
+					"text": "„Letzte Warnung! Auf die Knie, oder wir holen euch!“"
+				},
+				{
+					"speaker": "player",
+					"text": "Aurelius ... hast du noch irgendeinen Trick? Einen ganz kleinen?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Einen. Den allerletzten Funken. Danach bin ich nur noch ein alter Mann mit einem kaputten Stock."
+				},
+				{
+					"speaker": "magician",
+					"text": "Haltet euch an mir fest. Alle beide."
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius legt dir die Hand auf die Schulter. Weißes Licht quillt zwischen seinen Fingern hervor, heller und heller, bis die Wachen die Arme vor die Augen reißen.",
+					"action": "cutscene:moat_teleport"
+				},
+				{
+					"speaker": "",
+					"text": "Dann ist der Graben fort. Kein Boden, kein Laut. Nur Weiß."
+				}
+			],
+			"on_end": "set_flag:escaped_castle;set_flag:fled_to_forest;advance:part5_end;sleep_at:res://scenes/world/forest/deep_forest.tscn,AureliusClearing"
+		},
+		"aurelius_wake": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Weißes Licht, dann lange nichts. Irgendwann raschelt Laub. Am Rand der Lichtung steht Faelan, nickt dir zu und läuft zurück zum Heer.",
+					"action": "cutscene:faelan_off",
+					"hide_for": 2.8
+				},
+				{
+					"speaker": "",
+					"text": "Gras unter deinem Rücken. Vogelstimmen. Der Geruch von Moos. Du liegst auf Aurelius' Lichtung im tiefen Wald."
+				},
+				{
+					"speaker": "",
+					"text": "Neben dir liegt Aurelius. Sein Stab ist in zwei Stücke zerbrochen, sein Gesicht ist grau wie Asche."
+				},
+				{
+					"speaker": "player",
+					"text": "Aurelius? Hey. Aurelius! Sag, dass du nur ein Nickerchen machst. Ein sehr dramatisches Nickerchen."
+				},
+				{
+					"speaker": "magician",
+					"text": "Nicht so laut, Junge. Ich lebe. Mehr oder weniger."
+				},
+				{
+					"speaker": "magician",
+					"text": "Erst der Schild im Saal, dann der Sprung aus dem Graben. Das war alles, was ich hatte. Den Rest hast du erledigt."
+				},
+				{
+					"speaker": "magician",
+					"text": "Mich über den ganzen Hof zu tragen ... Das hätte ich dir nicht zugetraut. Mir selbst übrigens auch nicht."
+				},
+				{
+					"speaker": "player",
+					"text": "Und Faelan? Ist er schon weg?"
+				},
+				{
+					"speaker": "magician",
+					"text": "Er wollte hören, was man in Leonheim erzählt. Er kommt zurück."
+				},
+				{
+					"speaker": "magician",
+					"text": "Hör zu. In meinen Notizen steht ein Trank. Sternentau. Eine Mondlilie, Hanf und Kamille in eine Phiole."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich kann ihn nicht mehr selbst brauen. Meine Hände hören mir nicht mehr zu."
+				},
+				{
+					"speaker": "player",
+					"text": "Mondlilie, Hanf, Kamille. Klingt nach Kräutertee. Sehr magischem Kräutertee. Ich bin gleich zurück. Lauf nicht weg."
+				},
+				{
+					"speaker": "magician",
+					"text": "Sehr witzig."
+				}
+			],
+			"on_end": "unlock_recipes:starlight_tonic;advance:brew_tonic"
+		},
+		"aurelius_waits_tonic": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Eine Mondlilie, Hanf, Kamille und eine Phiole. Am Zaubertisch."
+				},
+				{
+					"speaker": "magician",
+					"text": "Ich warte hier. Etwas anderes kann ich gerade ohnehin nicht."
+				}
+			]
+		},
+		"aurelius_tonic": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Ist das Sternentau? Gib her.",
+					"action": "take_items:starlight_tonic"
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius trinkt die Phiole in einem Zug leer. Etwas Farbe kehrt in sein Gesicht zurück. Langsam setzt er sich auf.",
+					"action": "cutscene:act:magician:drink>get_up:starlight_tonic",
+					"hide_for": 2.6
+				},
+				{
+					"speaker": "magician",
+					"text": "Besser. Viel besser. Aber ...",
+					"action": "set_flag:mage_recovered"
+				},
+				{
+					"speaker": "",
+					"text": "Er hebt die Hand und murmelt ein paar Worte. Nichts geschieht. Kein Funke, kein Licht.",
+					"action": "cutscene:act:magician:fizzle",
+					"hide_for": 1.2
+				},
+				{
+					"speaker": "magician",
+					"text": "Fort. Meine Magie ist fort. Vielleicht kommt sie zurück. Vielleicht nicht."
+				},
+				{
+					"speaker": "player",
+					"text": "Das tut mir leid. Wirklich. Du hast mich da rausgeholt, und jetzt ..."
+				},
+				{
+					"speaker": "magician",
+					"text": "Du hast mich aus der Burg getragen, {name}. Für so ein Ende war sie gut."
+				},
+				{
+					"speaker": "",
+					"text": "Zwischen den Bäumen raschelt es. Faelan tritt auf die Lichtung, den Bogen in der Hand, die Kleider voller Ruß.",
+					"action": "set_flag:faelan_at_clearing",
+					"wait": 3.0
+				},
+				{
+					"speaker": "faelan",
+					"text": "Gut, ihr seid noch hier. Ich komme aus Leonheim. Und was ich dort gehört habe, gefällt euch nicht."
+				},
+				{
+					"speaker": "player",
+					"text": "Faelan! Was ist mit dem Heer?"
+				},
+				{
+					"speaker": "faelan",
+					"text": "Draußen, fast alle. Torgai führt das Wasservolk nach Eisquell zurück, Bertold die Soldaten nach Leonheim. Die Schatten sind uns nicht gefolgt."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Aber das hier hängt seit heute Morgen an jedem Tor in Leonheim."
+				},
+				{
+					"speaker": "",
+					"text": "Faelan reicht dir ein Blatt. Darauf dein Gesicht, nicht sehr schmeichelhaft gezeichnet, und daneben das von Aurelius.",
+					"action": "cutscene:act:faelan:give:res://assets/sprites/finster/poster_smith.png",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "",
+					"text": "„Gesucht: der Schmied {name} und der Zauberer Aurelius. Sie haben den Lich befreit und den König verraten. Belohnung: 10.000 Gold.“"
+				},
+				{
+					"speaker": "player",
+					"text": "Zehntausend Gold. Für mich. Das ist ehrlich gesagt ein bisschen schmeichelhaft. Und meine Nase ist nicht so krumm."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Der König war vor euch zurück. Er erzählt, ihr hättet ihn in eine Falle gelockt und Lake habe ihn gerettet."
+				},
+				{
+					"speaker": "magician",
+					"text": "Und die Leute glauben ihm. Natürlich. Ich habe ihm vierzig Jahre lang selbst geglaubt."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Ins Schloss kommt ihr nicht mehr. Aber Bertold sagt, seine Wachen in der Stadt schauen weg, wenn sie euch sehen. Die Gildenmeisterin auch.",
+					"action": "set_flag:castle_closed"
+				},
+				{
+					"speaker": "faelan",
+					"text": "Und in Sylvaris seid ihr willkommen. Das soll ich euch vom Ältesten ausrichten."
+				}
+			],
+			"on_end": "advance:glow_lesson"
+		},
+		"aurelius_glow": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Setz dich, {name}. Ich muss dir etwas sagen. Ich habe es hier in meinen Büchern gefunden, kurz bevor alles zusammenbrach."
+				},
+				{
+					"speaker": "magician",
+					"text": "Das blaue Licht in deinen Händen. Die Alten nannten es Siegelglut."
+				},
+				{
+					"speaker": "magician",
+					"text": "Vor tausend Jahren hat ein Schmied mit dieser Glut den Schlüssel für das Tor des Dämonenlords geschmiedet. Aus Sternenstahl, einem Metall, das nur solche Hände formen können."
+				},
+				{
+					"speaker": "magician",
+					"text": "Die Glut wird nicht vererbt. Sie erwacht, in einem Schmied pro Generation. Meistens dann, wenn das Siegel schwach wird."
+				},
+				{
+					"speaker": "player",
+					"text": "Also bin ich so eine Art Ersatzteil für das Ende der Welt. Super. Wollte ich schon immer sein."
+				},
+				{
+					"speaker": "magician",
+					"text": "Du bist der, der es reparieren kann. Gib mir deinen Kompass."
+				},
+				{
+					"speaker": "",
+					"text": "Du reichst ihm den Wüstenkompass. In seiner Hand zittert die Nadel kurz und bleibt dann stur nach Süden stehen, Richtung Sahrim.",
+					"action": "cutscene:act:player:give:desert_compass",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "magician",
+					"text": "Siehst du? Bei mir zeigt er nur nach Sahrim. Genau wie mein alter."
+				},
+				{
+					"speaker": "",
+					"text": "Er gibt ihn dir zurück. Kaum liegt er in deiner Hand, schwenkt die Nadel unruhig hin und her, als suche sie etwas.",
+					"action": "cutscene:act:magician:give:desert_compass",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "magician",
+					"text": "Der Kompass hat dir nie den Weg gezeigt, {name}. Du hast ihn dem Kompass gezeigt. Beim Schmieden ist deine Glut in die Nadel geflossen."
+				},
+				{
+					"speaker": "player",
+					"text": "In der Burg hat der Lich mir etwas zugeflüstert. Kurz bevor Lake ... Er sagte: „Er lebt. Er schmiedet. Unter diesen Mauern.“"
+				},
+				{
+					"speaker": "magician",
+					"text": "Unter diesen Mauern. In der Finsterburg?"
+				},
+				{
+					"speaker": "faelan",
+					"text": "Dann standen wir im Thronsaal direkt über ihm. Und haben es nicht gewusst."
+				},
+				{
+					"speaker": "player",
+					"text": "Meister Halvard. So hieß er. Im Dorf hat ihn keiner mehr beim Namen genannt, seit er fort ist. Als ob der Name wehtut."
+				},
+				{
+					"speaker": "magician",
+					"text": "Halvard. Ja. Das passt zu der Klinge, die Faelan in Sylvaris gefunden hat. Sie war nicht alt. Sie war neu."
+				},
+				{
+					"speaker": "magician",
+					"text": "Und noch etwas. Der König hat gesagt, den Eiskristall hole ihm einer, der noch nicht weiß, dass er es tun wird."
+				},
+				{
+					"speaker": "magician",
+					"text": "Das Eis in Kahns Mauer öffnet sich nur der Siegelglut. Er braucht dich, {name}. Darum hat er dich am Leben gelassen."
+				},
+				{
+					"speaker": "player",
+					"text": "Dann suchen wir den Kristall lieber nicht. Sonst führen wir ihn ja direkt hin."
+				},
+				{
+					"speaker": "magician",
+					"text": "Wenn wir ihn nicht suchen, findet er einen anderen Weg, dich zu zwingen. Über Lotte zum Beispiel."
+				},
+				{
+					"speaker": "player",
+					"text": "... Gut. Dann holen wir ihn zuerst. Und passen auf ihn auf."
+				},
+				{
+					"speaker": "magician",
+					"text": "Aber nicht mit leeren Händen. Ohne Amboss bist du nur ein Junge mit leuchtenden Fingern."
+				},
+				{
+					"speaker": "magician",
+					"text": "Geh zuerst nach Hause und hol dein Werkzeug. Und sieh nach Lotte. Wenn der König über sie an dich will, solltest du dort sein."
+				},
+				{
+					"speaker": "magician",
+					"text": "Danach geh nach Eisquell und sprich mit Kahn. Ich komme nach, sobald ich wieder gerade stehen kann. Und den Schmied holen wir danach. Das verspreche ich dir."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Ich gehe zurück nach Sylvaris und sage dem Ältesten, was ihr gefunden habt."
+				}
+			],
+			"on_end": "set_flag:glow_explained;hint:return_home;advance:return_home"
+		},
+		"faelan_clearing": {
+			"lines": [
+				{
+					"speaker": "faelan",
+					"text": "Ich habe Lake vom ersten Tag an verfolgt, Schmied. Ich hätte seinen König verfolgen sollen."
+				}
+			]
+		},
+		"dark_lake_silent": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Lake sieht dich an. Er sagt nichts. In seinen Augen ist nichts mehr von dem Licht, das du kanntest."
+				}
+			]
+		},
+		"aurelius_east": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Da bist du, junger Freund. Lotte hat dich also gefunden. Ich habe gehört, was auf der Mauer geschehen ist. Neun Steine. Er hat sie alle."
+				},
+				{
+					"speaker": "player",
+					"text": "Und Subar hat einen gebrochenen Arm, weil ich zu langsam war."
+				},
+				{
+					"speaker": "magician",
+					"text": "Weil du lebst, {name}. Das ist kein Fehler. Das ist der Grund, warum wir noch eine Chance haben."
+				},
+				{
+					"speaker": "magician",
+					"text": "Der König braucht Halvard noch. Nur die Siegelglut kann den Schlüssel im Tor drehen. Solange Halvard lebt, steht das Tor noch zu."
+				},
+				{
+					"speaker": "player",
+					"text": "Und wo ist er? Die Finsterburg ist groß, und ich habe nur zwei Hände. Leuchtende, zugegeben."
+				},
+				{
+					"speaker": "magician",
+					"text": "Faelans Späher haben vor drei Nächten einen Gefangenenzug gesehen. Ketten, Fackeln, und in der Mitte ein alter Mann, dessen Hände blau glühten."
+				},
+				{
+					"speaker": "magician",
+					"text": "Der Zug ist durch das Südtor in die Finsterstadt gezogen. Wenn Halvard noch lebt, dann wohl dort, irgendwo in der Stadt oder in der Burg darüber."
+				},
+				{
+					"speaker": "magician",
+					"text": "Die Finsterstadt gehört den Halbdämonen. Sie fürchten den König, aber sie lieben ihn nicht. Vielleicht findest du dort jemanden, der dir hilft."
+				},
+				{
+					"speaker": "magician",
+					"text": "Geh allein. Ein Heer fällt auf, ein Schmied in einer Kutsche nicht. Ich bin zu schwach, um dich zu begleiten, und ohne Magie wäre ich dir nur im Weg."
+				},
+				{
+					"speaker": "magician",
+					"text": "Jupp fährt dich bis vor das Südtor. Ich habe ihm gesagt, es geht um Halvard. Er hat nur genickt und Liese gestriegelt."
+				},
+				{
+					"speaker": "player",
+					"text": "Allein in eine Stadt voller Halbdämonen, in der mein Gesicht an jeder Wand hängt. Klingt nach einem großartigen Plan."
+				},
+				{
+					"speaker": "magician",
+					"text": "Es ist der einzige, den wir haben. Am Tor den Kopf unten lassen, junger Freund. Und nicht zu viel reden. Das fällt dir schwer, ich weiß."
+				}
+			],
+			"on_end": "advance:to_finster_city"
+		},
+		"aurelius_east_wait": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Jupp wartet an der Kutsche. Er bringt dich bis vor das Südtor der Finsterstadt. Sei vorsichtig, {name}."
+				}
+			]
+		},
+		"grand_council": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ganz oben in Sylvaris weht der Wind durch die Blätter. Am Ratstisch sitzt der Älteste, Faelan steht neben ihm. Aurelius, Halvard und Nyra sind schon da. Sonst niemand."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Ein Rat der Völker. Bis jetzt sind es Elfen, ein Zauberer, zwei Schmiede und eine Halbdämonin. Der Wind lacht über uns."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Fürstin, Hauptmann. Merk dir das Wort. Du wirst es noch öfter brauchen."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Geduld, Faelan. Ihr seid jung, kaum vierhundert. Wer tausend Jahre auf diesen Tag gewartet hat, wartet auch noch einen Vormittag."
+				},
+				{
+					"speaker": "magician",
+					"text": "Sie kommen, {name}. Ich habe jedem Volk geschrieben. Und jedem denselben Grund genannt: dich."
+				},
+				{
+					"speaker": "player",
+					"text": "Geschrieben hast du. Ich hab nur zufällig ein paar Leute befreit. Und ein paar Kristalle ... egal. Laut klingt das schlimmer, als es war."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Zufällig. Hm. So redet einer, der noch nicht weiß, was seine Hände können. War bei mir genauso."
+				},
+				{
+					"speaker": "",
+					"text": "Die schwebenden Steine fliegen zu einer Brücke zusammen. Kahn kommt herüber, Torgai und Subar dicht hinter ihm. Aus Kahns Bart tropft noch Wasser.",
+					"action": "set_flag:council_kahn",
+					"hide_for": 6.2
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Vater. Sie haben keine Stühle für uns."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Dann stehen wir. Im Stehen redet man kürzer."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Hoch hier. Zu hoch. Ein Fisch gehört nicht in einen Baum, Südling.",
+					"if_flag": "subar_saved"
+				},
+				{
+					"speaker": "",
+					"text": "Subar trägt den linken Arm in einer Schlinge aus Netzgarn. Die Harpune hält er mit der rechten.",
+					"unless_flag": "subar_saved"
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Ein Arm reicht für eine Harpune. Sag das keinem Heiler, Südling.",
+					"unless_flag": "subar_saved"
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Kahn von Eisquell. Man sagt, Ihr lasst jeden hinein und nicht jeden wieder hinaus. Heute seid Ihr selbst gekommen. Das ehrt diesen Tisch."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Der Schmied ist auf der Mauer nicht weggelaufen. Das ehrt ihn. Ich bin seinetwegen hier, alter Baum. Nicht wegen deines Tisches."
+				},
+				{
+					"speaker": "",
+					"text": "Faelan breitet eine Karte über den Tisch. Kahn legt die Hand auf den Osten, Torgai zählt Boote an den Fingern ab.",
+					"action": "cutscene:act:faelan:trace:res://assets/sprites/items/crystal_map.png",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "faelan",
+					"text": "Die Windwache bringt zweihundert Bogenschützen. Wer den Wind halten will, braucht viele Hände."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Unsere Boote tragen dreihundert Krieger. Keiner davon ist je vor einem Sturm geflohen."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Einer. Einmal. Wir reden nicht darüber."
+				},
+				{
+					"speaker": "",
+					"text": "Wieder fliegen die Steine zusammen. Fürst Ssarok schiebt sich langsam über die Brücke, ohne nach unten zu sehen. Zwei Speerkrieger gehen dicht neben ihm.",
+					"action": "set_flag:council_ssarok",
+					"hide_for": 5.0
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Möge dein Schatten kühl sein, Schmied. Hier oben gibt es zu wenig Schatten und zu viel Luft."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Die Echse geht über die Brücke, als wäre sie aus Glas."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Und das Wasservolk tropft auf den Tisch der Elfen. Jeder bewahrt seine Würde, wie er kann."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Mein Volk bringt Speere und Augen, die im Dunkeln sehen. Ich habe dir gesagt, dass jemand hinter dem Lich steht. Ich wollte nicht recht behalten."
+				},
+				{
+					"speaker": "nyra",
+					"text": "Die Finsterstadt steht bereit. Meine Leute kennen jeden Gang unter der Burg. Auch die, die der König vergessen hat."
+				},
+				{
+					"speaker": "magician",
+					"text": "Bertold sammelt die Soldaten aus Leonheim im Heerlager. Und Goldzahn hat einen Boten geschickt."
+				},
+				{
+					"speaker": "magician",
+					"text": "Er kommt, wenn man ihn bezahlt. Mit der Schatzkammer des Königs. Und einem Helm aus Gold, für ihn ganz allein."
+				},
+				{
+					"speaker": "player",
+					"text": "Natürlich. Was auch sonst."
+				},
+				{
+					"speaker": "elf_elder",
+					"text": "Nun sind wir genug. Meister Halvard, Ihr wart zwanzig Jahre in seiner Nähe. Sagt uns, was der König vorhat."
+				},
+				{
+					"speaker": "",
+					"text": "Halvard stützt beide Hände auf den Tisch. Es wird still, sogar der Wind.",
+					"action": "cutscene:act:halvard:bow",
+					"hide_for": 0.8
+				},
+				{
+					"speaker": "halvard",
+					"text": "Er will das Tor des Dämonenlords öffnen. Nicht, um zu herrschen. Er ist alt und hat Angst vor dem Tod, und der Dämonenlord verspricht ihm Ewigkeit."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Das Tor liegt am Altar der Neun. Eine Hochebene östlich der Finsterstadt, neun Säulen im Kreis. Die Finsterburg bewacht den einzigen Weg dorthin."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Die Fassung mit den neun Steinen ist der Schlüssel. Ich habe sie geschmiedet. Er dreht sie im Tor, und ein Spalt genügt ihm. Den Rest erledigt die Dunkelheit."
+				},
+				{
+					"speaker": "desert_lord",
+					"text": "Ein Toter will nichts mehr. Ein alter Mann, der nicht sterben will, will alles. Ich hätte nach dem fragen sollen, der am meisten zu verlieren hat."
+				},
+				{
+					"speaker": "faelan",
+					"text": "Wann?"
+				},
+				{
+					"speaker": "halvard",
+					"text": "Er hat alle neun. Er wartet auf nichts mehr. Wer zu spät kommt, sieht das Tor nur noch offen."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Dann schwimmen wir nicht hinterher. Wir sind vor ihm da."
+				},
+				{
+					"speaker": "magician",
+					"text": "Am Altar gibt es vier Zugänge, aber nur einen Hauptstoß. Wer ihn führt, hält das Tor für alle anderen offen."
+				},
+				{
+					"speaker": "magician",
+					"text": "Sie sind deinetwegen gekommen, {name}. Du entscheidest."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich? Ich entscheide sonst nur, ob Kupfer oder Eisen. ... Gut. Gebt mir einen Moment."
+				}
+			],
+			"choices": [
+				{
+					"text": "Faelan und die Windwache.",
+					"action": "set_flag:council_lead_elves",
+					"then": "council_lead_elves",
+					"decision": true
+				},
+				{
+					"text": "Nyra und die Finsterstadt.",
+					"action": "set_flag:council_lead_finster",
+					"then": "council_lead_finster",
+					"decision": true
+				},
+				{
+					"text": "Bertold und die Soldaten aus Leonheim.",
+					"action": "set_flag:council_lead_leon",
+					"then": "council_lead_leon",
+					"decision": true
+				}
+			]
+		},
+		"council_lead_elves": {
+			"lines": [
+				{
+					"speaker": "faelan",
+					"text": "Wir? ... Gut. Die Elfen haben tausend Jahre gewartet. Wir werden nicht als Erste weichen."
+				},
+				{
+					"speaker": "player",
+					"text": "Ihr seht am weitesten, und ihr trefft, was ihr seht. Das reicht mir."
+				}
+			],
+			"then": "grand_council_forge"
+		},
+		"council_weapons": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Hast du die Waffen fürs Bündnis? Kahns goldene Axt, zwei Bronzespeere, Faelans Silberschwert, zwei Kupferspeere und Ssaroks Golddolch, zwei Bronzedolche, Bertolds Silberhammer und Goldzahns Helm."
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier ist alles.",
+					"action": "take_items:two_handed_axe:gold_greataxe_head@R4+,polearm:bronze_spear_head*2@R4+,sword:silver_blade@R4+,polearm:copper_spear_head*2@R4+,dagger:gold_dagger_blade@R4+,dagger:bronze_dagger_blade*2@R4+,hammer:silver_hammer_head@R4+,helmet:gold_helmet_plate@R4+",
+					"then": "council_weapons_done",
+					"else": "council_weapons_missing"
+				},
+				{
+					"text": "Noch nicht."
+				}
+			]
+		},
+		"council_weapons_missing": {
+			"lines": [
+				{
+					"speaker": "magician",
+					"text": "Da fehlt noch etwas. Sieh ins Auftragsbuch, dort steht alles, was die Völker brauchen."
+				}
+			]
+		},
+		"council_weapons_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du legst die Waffen vor Aurelius aus: Axt, Speere, Dolche, Schwert, Hammer und den goldenen Helm.",
+					"action": "cutscene:act:player:give:gold_greataxe_head|bronze_spear_head|silver_blade+silver_handle|gold_dagger_blade|silver_hammer_head|gold_helmet_plate",
+					"hide_for": 4.6
+				},
+				{
+					"speaker": "",
+					"text": "Aurelius verteilt die Waffen. Kahn hebt die goldene Axt ins Licht, Torgai und Subar wiegen ihre Speere. Ssarok hält den Dolch in die Sonne. Goldzahns Bote setzt den Helm auf und beißt in den Rand.",
+					"action": "cutscene:act:magician:give:gold_greataxe_head",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "magician",
+					"text": "Das Bündnis ist bewaffnet, {name}. Von deinen Händen."
+				}
+			],
+			"on_end": "set_flag:allies_armed"
+		},
+		"lake_redeemed_talk": {
+			"lines": [
+				{
+					"speaker": "lake",
+					"text": "Danke, Schmied. Ich weiß nicht, wie ich das je zurückzahlen soll. Aber ich werde es versuchen."
+				}
+			]
+		},
+		"faelan_ally": {
+			"lines": [
+				{
+					"speaker": "faelan",
+					"text": "Ich habe Lake verfolgt, statt seinen König. Diesmal sehe ich genau hin, Schmied."
+				}
+			]
+		},
+		"bertold_ally": {
+			"lines": [
+				{
+					"speaker": "leon_captain",
+					"text": "Die Männer stehen, Meister Schmied. Sie folgen Euch."
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,209 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-stich 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 21,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 21,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 21,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.19047619047619047,
+    "y": 0.3125
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-stich 1.png",
+   "frame": {
+    "x": 21,
+    "y": 0,
+    "w": 21,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 21,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 21,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.19047619047619047,
+    "y": 0.3125
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-stich 2.png",
+   "frame": {
+    "x": 42,
+    "y": 0,
+    "w": 21,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 21,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 21,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.19047619047619047,
+    "y": 0.3125
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-stich 3.png",
+   "frame": {
+    "x": 0,
+    "y": 16,
+    "w": 21,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 21,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 21,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.19047619047619047,
+    "y": 0.3125
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-stich 4.png",
+   "frame": {
+    "x": 21,
+    "y": 16,
+    "w": 21,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 21,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 21,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.19047619047619047,
+    "y": 0.3125
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-stich 5.png",
+   "frame": {
+    "x": 42,
+    "y": 16,
+    "w": 21,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 21,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 21,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.19047619047619047,
+    "y": 0.3125
+   },
+   "duration": 63
+  },
+  {
+   "filename": "smithy-kampf-stich 6.png",
+   "frame": {
+    "x": 0,
+    "y": 32,
+    "w": 21,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 21,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 21,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.19047619047619047,
+    "y": 0.3125
+   },
+   "duration": 63
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-stich.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 63,
+   "h": 48
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 4,
+   "y": 5
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-stich",
+    "from": 0,
+    "to": 6,
+    "direction": "forward"
+   }
+  ]
+ }
+}

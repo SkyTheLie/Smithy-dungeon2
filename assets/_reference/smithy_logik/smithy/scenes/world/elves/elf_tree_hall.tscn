@@ -1,0 +1,71 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="1_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_tree_hall.png" id="2_elf_tree_hal"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="3_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_tree_hall_mask.png" id="4_elf_tree_hal"]
+[ext_resource type="Script" path="res://scenes/world/elves/elf_lift.gd" id="5_elf_lift"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="6_door"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="8_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="9_hud"]
+
+[node name="ElfTreeHall" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -40
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1480.0
+offset_bottom = 1320.0
+mouse_filter = 2
+color = Color(0.06, 0.09, 0.07, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("1_day_tint")
+strength = 0.5
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("2_elf_tree_hal")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource("3_cave_walls")
+mask = ExtResource("4_elf_tree_hal")
+
+[node name="LiftUp" type="StaticBody2D" parent="."]
+position = Vector2(240, 207)
+script = ExtResource("5_elf_lift")
+target_scene = "res://scenes/world/elves/elf_canopy.tscn"
+target_spawn_point = &"FromGroveLift"
+text = "Hinauf zu den Kronen"
+
+[node name="FromCanopyLift" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(240, 236)
+
+[node name="DoorOut" parent="." instance=ExtResource("6_door")]
+position = Vector2(240, 276)
+target_scene = "res://scenes/world/elves/elf_grove.tscn"
+target_spawn_point = &"FromTree"
+scale = Vector2(2, 1)
+
+[node name="Visual" parent="DoorOut"]
+visible = false
+
+[node name="FromGrove" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(240, 254)
+
+[node name="Player" parent="." instance=ExtResource("8_player")]
+position = Vector2(240, 254)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -80
+limit_top = -20
+limit_right = 560
+limit_bottom = 340
+
+[node name="HUD" parent="." instance=ExtResource("9_hud")]
+
+[editable path="DoorOut"]
+[editable path="Player"]

@@ -1,0 +1,391 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 1.png",
+   "frame": {
+    "x": 42,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 2.png",
+   "frame": {
+    "x": 84,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 3.png",
+   "frame": {
+    "x": 126,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 4.png",
+   "frame": {
+    "x": 0,
+    "y": 70,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 5.png",
+   "frame": {
+    "x": 42,
+    "y": 70,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 6.png",
+   "frame": {
+    "x": 84,
+    "y": 70,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 7.png",
+   "frame": {
+    "x": 126,
+    "y": 70,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 8.png",
+   "frame": {
+    "x": 0,
+    "y": 140,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 9.png",
+   "frame": {
+    "x": 42,
+    "y": 140,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 10.png",
+   "frame": {
+    "x": 84,
+    "y": 140,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 11.png",
+   "frame": {
+    "x": 126,
+    "y": 140,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 12.png",
+   "frame": {
+    "x": 0,
+    "y": 210,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-heilstrahl 13.png",
+   "frame": {
+    "x": 42,
+    "y": 210,
+    "w": 42,
+    "h": 70
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 42,
+    "h": 70
+   },
+   "sourceSize": {
+    "w": 42,
+    "h": 70
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8428571428571429
+   },
+   "duration": 71
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-flaeche-heilstrahl.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 168,
+   "h": 280
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 21,
+   "y": 59
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-flaeche-heilstrahl",
+    "from": 0,
+    "to": 13,
+    "direction": "forward"
+   }
+  ]
+ }
+}

@@ -1,0 +1,204 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/main_menu/main_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/settings_window.tscn" id="2_settings"]
+[ext_resource type="Texture2D" path="res://assets/ui/title_background.png" id="4_background"]
+[ext_resource type="Texture2D" path="res://assets/ui/title_emblem.png" id="5_emblem"]
+[ext_resource type="Script" path="res://scenes/ui/main_menu/title_backdrop.gd" id="6_backdrop"]
+[ext_resource type="PackedScene" path="res://scenes/ui/main_menu/language_select.tscn" id="7_language"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/lexicon_window.tscn" id="8_lexicon"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/character_select.tscn" id="9_characters"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Backdrop" type="SubViewport" parent="."]
+script = ExtResource("6_backdrop")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_background")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Shade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.08, 0.04, 0.08, 0.35)
+
+[node name="TitlePage" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 14.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="PlaqueMargin" type="MarginContainer" parent="TitlePage"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TitlePlaque" type="PanelContainer" parent="TitlePage/PlaqueMargin"]
+layout_mode = 2
+theme_type_variation = &"HudPanel"
+
+[node name="Box" type="VBoxContainer" parent="TitlePage/PlaqueMargin/TitlePlaque"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Emblem" type="TextureRect" parent="TitlePage/PlaqueMargin/TitlePlaque/Box"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_emblem")
+stretch_mode = 3
+
+[node name="Title" type="Label" parent="TitlePage/PlaqueMargin/TitlePlaque/Box"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 66
+text = "Smithy"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="TitlePage/PlaqueMargin/TitlePlaque/Box"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.55, 0.3, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+text = "Dungeon der Glut"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="TitlePage"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="DoorHint" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Click" type="Label" parent="DoorHint"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+text = "Hier klicken"
+horizontal_alignment = 1
+
+[node name="Key" type="Label" parent="DoorHint"]
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 16
+text = "oder Leertaste"
+horizontal_alignment = 1
+
+[node name="MenuPage" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -104.0
+offset_right = 184.0
+offset_bottom = 104.0
+grow_vertical = 2
+theme_type_variation = &"HudPanel"
+
+[node name="MenuBox" type="VBoxContainer" parent="MenuPage"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 6
+
+[node name="Emblem" type="TextureRect" parent="MenuPage/MenuBox"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_emblem")
+stretch_mode = 3
+
+[node name="Title" type="Label" parent="MenuPage/MenuBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 44
+text = "Smithy"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MenuPage/MenuBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.55, 0.3, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+text = "Dungeon der Glut"
+horizontal_alignment = 1
+
+[node name="NewGameButton" type="Button" parent="MenuPage/MenuBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 22
+text = "Neues Spiel"
+
+[node name="LexiconButton" type="Button" parent="MenuPage/MenuBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 22
+text = "Lexikon"
+
+[node name="SettingsButton" type="Button" parent="MenuPage/MenuBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 22
+text = "Einstellungen"
+
+[node name="ExitButton" type="Button" parent="MenuPage/MenuBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 22
+text = "Beenden"
+
+[node name="LanguageSelect" parent="." instance=ExtResource("7_language")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Windows" type="CanvasLayer" parent="."]
+
+[node name="SettingsWindow" parent="Windows" instance=ExtResource("2_settings")]
+unique_name_in_owner = true
+visible = false
+
+[node name="LexiconWindow" parent="Windows" instance=ExtResource("8_lexicon")]
+unique_name_in_owner = true
+visible = false
+
+[node name="CharacterSelect" parent="Windows" instance=ExtResource("9_characters")]
+unique_name_in_owner = true
+visible = false

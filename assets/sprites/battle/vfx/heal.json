@@ -1,0 +1,391 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-heilung 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 1.png",
+   "frame": {
+    "x": 20,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 2.png",
+   "frame": {
+    "x": 40,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 3.png",
+   "frame": {
+    "x": 60,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 4.png",
+   "frame": {
+    "x": 0,
+    "y": 32,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 5.png",
+   "frame": {
+    "x": 20,
+    "y": 32,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 6.png",
+   "frame": {
+    "x": 40,
+    "y": 32,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 7.png",
+   "frame": {
+    "x": 60,
+    "y": 32,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 8.png",
+   "frame": {
+    "x": 0,
+    "y": 64,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 9.png",
+   "frame": {
+    "x": 20,
+    "y": 64,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 10.png",
+   "frame": {
+    "x": 40,
+    "y": 64,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 11.png",
+   "frame": {
+    "x": 60,
+    "y": 64,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 12.png",
+   "frame": {
+    "x": 0,
+    "y": 96,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-heilung 13.png",
+   "frame": {
+    "x": 20,
+    "y": 96,
+    "w": 20,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 32
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.6875
+   },
+   "duration": 71
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-heilung.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 80,
+   "h": 128
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 10,
+   "y": 22
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-heilung",
+    "from": 0,
+    "to": 13,
+    "direction": "forward"
+   }
+  ]
+ }
+}

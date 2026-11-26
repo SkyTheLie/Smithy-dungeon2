@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/defense/defense_pause_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="2_title_bar"]
+
+[sub_resource type="StyleBoxFlat" id="menu_box"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.06, 0.09, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.4, 0.25, 1)
+
+[node name="DefensePauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="Menu" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -70.0
+offset_right = 85.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("menu_box")
+
+[node name="Box" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="Menu/Box"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.45, 1)
+theme_override_font_sizes/font_size = 18
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Menu/Box"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+text = "Weiterspielen"
+
+[node name="SettingsButton" type="Button" parent="Menu/Box"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+text = "Einstellungen"
+
+[node name="GiveUpButton" type="Button" parent="Menu/Box"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.5, 1)
+text = "Run aufgeben"
+
+[node name="MainMenuButton" type="Button" parent="Menu/Box"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+text = "Zum Hauptmenü"
+
+[node name="QuitButton" type="Button" parent="Menu/Box"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+text = "Spiel beenden"
+
+[node name="SettingsWindow" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -120.0
+offset_right = 125.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="SettingsWindow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SettingsTitleBar" parent="SettingsWindow/VBox" instance=ExtResource("2_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+title = "Einstellungen"
+window_id = "Defense/SettingsWindow"
+
+[node name="Hint" type="Label" parent="SettingsWindow/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+theme_override_font_sizes/font_size = 11
+text = "Esc: schließen"
+horizontal_alignment = 1

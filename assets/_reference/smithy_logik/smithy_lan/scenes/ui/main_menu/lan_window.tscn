@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/main_menu/lan_window.gd" id="1_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+
+[node name="LanWindow" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -110.0
+offset_right = 130.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_window")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TitleBar" parent="VBox" instance=ExtResource("90_title_bar")]
+layout_mode = 2
+title = "LAN"
+window_id = "MainMenu/LanWindow"
+
+[node name="FoundLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Spiele im Netzwerk:"
+
+[node name="Scroll" type="ScrollContainer" parent="VBox"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ServerList" type="VBoxContainer" parent="VBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="EmptyLabel" type="Label" parent="VBox/Scroll/ServerList"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+text = "Suche ... (der Host öffnet im Adminpanel den Reiter LAN)"
+autowrap_mode = 3
+
+[node name="AddressRow" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="AddressEdit" type="LineEdit" parent="VBox/AddressRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "IP-Adresse des Hosts"
+
+[node name="JoinButton" type="Button" parent="VBox/AddressRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Beitreten"
+
+[node name="StatusLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.75, 0.5, 1)
+autowrap_mode = 3
+
+[node name="Hint" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+theme_override_font_sizes/font_size = 11
+text = "Esc: schließen"
+horizontal_alignment = 1

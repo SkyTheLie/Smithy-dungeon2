@@ -1,0 +1,103 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/minigames/den_bar_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="2_title_bar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/slot/coin.png" id="4_coin"]
+
+[node name="DenBarMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+title = "Vex' Bar"
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 30.0
+offset_right = 115.0
+offset_bottom = 170.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="Panel/VBox" instance=ExtResource("2_title_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Greeting" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.8, 0.5, 1)
+autowrap_mode = 3
+
+[node name="CoinsRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="Panel/VBox/CoinsRow"]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinsLabel" type="Label" parent="Panel/VBox/CoinsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GoldLabel" type="Label" parent="Panel/VBox/CoinsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.8, 0.5, 1)
+
+[node name="RateLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+horizontal_alignment = 1
+
+[node name="ExchangeRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Buy1" type="Button" parent="Panel/VBox/ExchangeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "+1"
+
+[node name="Buy10" type="Button" parent="Panel/VBox/ExchangeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "+10"
+
+[node name="Buy50" type="Button" parent="Panel/VBox/ExchangeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "+50"
+
+[node name="ResultLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Separator2" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="ShopButton" type="Button" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Schwarzmarkt-Ware ansehen"

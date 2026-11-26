@@ -1,0 +1,282 @@
+[gd_scene load_steps=20 format=3]
+
+[ext_resource type="Script" path="res://scenes/world/mine/mine_cave_cutscene.gd" id="96_cave_cut"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/rock_spawner.gd" id="4_spawner"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/ore_rock.tscn" id="5_rock"]
+[ext_resource type="Script" path="res://scripts/resources/rock_data.gd" id="6_rock_data"]
+[ext_resource type="Resource" path="res://data/rocks/coal_rock.tres" id="7_coal"]
+[ext_resource type="Resource" path="res://data/rocks/mine_iron_rock.tres" id="8_iron"]
+[ext_resource type="Resource" path="res://data/rocks/copper_rock.tres" id="9_copper"]
+[ext_resource type="Texture2D" path="res://assets/sprites/mine/mine_small_640.png" id="10_background"]
+[ext_resource type="Texture2D" path="res://assets/sprites/mine/mine_small_mask.png" id="11_mask"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="12_cave_walls"]
+[ext_resource type="Script" path="res://scenes/world/mine/mine.gd" id="13_mine"]
+[ext_resource type="Texture2D" path="res://assets/sprites/mine/mine_medium_640.png" id="14_background_medium"]
+[ext_resource type="Texture2D" path="res://assets/sprites/mine/mine_medium_mask.png" id="15_mask_medium"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="50_story_npc"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="51_story_prop"]
+[ext_resource type="Resource" path="res://data/heroes/bruno.tres" id="53_bruno"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/rockfall.png" id="54_rockfall"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/mine_hole.png" id="55_hole"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/rat.png" id="56_rat"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="60_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/mine_board.png" id="mb_board"]
+
+[sub_resource type="Gradient" id="Gradient_light"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.45, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_light"]
+gradient = SubResource("Gradient_light")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Resource" id="Appearance_miner"]
+script = ExtResource("60_appearance")
+outfit = "gustav"
+
+[node name="Mine" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("13_mine")
+expanded_background = ExtResource("14_background_medium")
+expanded_mask = ExtResource("15_mask_medium")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, -48)
+z_index = -1
+texture = ExtResource("10_background")
+centered = false
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0.36, 0.33, 0.4, 1)
+
+[node name="CaveWalls" type="StaticBody2D" parent="."]
+script = ExtResource("12_cave_walls")
+mask = ExtResource("11_mask")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Daylight" type="PointLight2D" parent="Lights"]
+position = Vector2(328, 384)
+color = Color(1, 0.95, 0.85, 1)
+energy = 1.1
+texture = SubResource("GradientTexture2D_light")
+
+[node name="Chamber" type="PointLight2D" parent="Lights"]
+position = Vector2(312, 232)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.9
+texture = SubResource("GradientTexture2D_light")
+
+[node name="LeftPassage" type="PointLight2D" parent="Lights"]
+position = Vector2(184, 136)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_light")
+
+[node name="RightPassage" type="PointLight2D" parent="Lights"]
+position = Vector2(456, 120)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_light")
+
+[node name="NorthPassage" type="PointLight2D" parent="Lights"]
+position = Vector2(312, 72)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.7
+texture = SubResource("GradientTexture2D_light")
+
+[node name="ExpandedLights" type="Node2D" parent="."]
+visible = false
+
+[node name="WestChamber" type="PointLight2D" parent="ExpandedLights"]
+position = Vector2(72, 248)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_light")
+
+[node name="NorthWestChamber" type="PointLight2D" parent="ExpandedLights"]
+position = Vector2(184, 56)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.7
+texture = SubResource("GradientTexture2D_light")
+
+[node name="EastGallery" type="PointLight2D" parent="ExpandedLights"]
+position = Vector2(568, 200)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.9
+texture = SubResource("GradientTexture2D_light")
+
+[node name="SouthEastPassage" type="PointLight2D" parent="ExpandedLights"]
+position = Vector2(536, 296)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_light")
+
+[node name="DoorToEntrance" parent="." instance=ExtResource("2_door")]
+position = Vector2(328, 378)
+scale = Vector2(2.5, 1)
+target_scene = "res://scenes/world/mine/mine_entrance.tscn"
+target_spawn_point = &"FromMine"
+
+[node name="Visual" parent="DoorToEntrance" index="0"]
+visible = false
+
+[node name="FromEntrance" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(328, 340)
+
+[node name="RockSpawner" type="Node2D" parent="." node_paths=PackedStringArray("walls")]
+y_sort_enabled = true
+script = ExtResource("4_spawner")
+rock_scene = ExtResource("5_rock")
+rock_types = Array[ExtResource("6_rock_data")]([ExtResource("7_coal"), ExtResource("9_copper"), ExtResource("8_iron")])
+rock_count = 5
+area_id = "mine_small"
+area = Rect2(0, 0, 640, 384)
+min_distance = 40.0
+walls = NodePath("../CaveWalls")
+keep_clear = Rect2(268, 290, 120, 94)
+empty_hint = "mine_empty"
+
+[node name="CaveInRubble" type="Node2D" parent="."]
+position = Vector2(232, 40)
+script = ExtResource("51_story_prop")
+required_flag = "reached_mine_tour"
+hidden_when_flag = "mine_cave_in"
+
+[node name="Sprite2D" type="Sprite2D" parent="CaveInRubble"]
+texture = ExtResource("54_rockfall")
+offset = Vector2(0, -22)
+
+[node name="MineHole" type="Node2D" parent="."]
+position = Vector2(232, 38)
+script = ExtResource("51_story_prop")
+required_flag = "mine_cave_in"
+
+[node name="Sprite2D" type="Sprite2D" parent="MineHole"]
+texture = ExtResource("55_hole")
+offset = Vector2(0, -12)
+
+[node name="DoorToOldMine" parent="MineHole" instance=ExtResource("2_door")]
+position = Vector2(0, 2)
+target_scene = "res://scenes/world/mine/old_mine.tscn"
+target_spawn_point = &"FromEntrance"
+required_flag = "old_mine_open"
+locked_text = "Hinter dem Loch geht es steil nach unten. Ohne abgestützten Gang ist das zu gefährlich."
+
+[node name="Visual" parent="MineHole/DoorToOldMine" index="0"]
+visible = false
+
+[node name="BoardedHole" type="Node2D" parent="."]
+position = Vector2(232, 38)
+script = ExtResource("51_story_prop")
+required_flag = "mine_hole_boarded"
+hidden_when_flag = "old_mine_open"
+
+[node name="Board1" type="Sprite2D" parent="BoardedHole"]
+position = Vector2(0, -20)
+texture = ExtResource("mb_board")
+
+[node name="Board2" type="Sprite2D" parent="BoardedHole"]
+position = Vector2(-1, -12)
+texture = ExtResource("mb_board")
+flip_h = true
+
+[node name="Board3" type="Sprite2D" parent="BoardedHole"]
+position = Vector2(1, -4)
+texture = ExtResource("mb_board")
+
+[node name="FromOldMine" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(232, 72)
+
+[node name="MineRats" type="Node2D" parent="."]
+position = Vector2(232, 56)
+script = ExtResource("51_story_prop")
+required_flag = "mine_rats_out"
+hidden_when_flag = "mine_rats_cleared"
+
+[node name="Rat1" type="Sprite2D" parent="MineRats"]
+position = Vector2(-22, -2)
+texture = ExtResource("56_rat")
+flip_h = true
+
+[node name="Rat2" type="Sprite2D" parent="MineRats"]
+position = Vector2(-10, 4)
+texture = ExtResource("56_rat")
+
+[node name="Rat3" type="Sprite2D" parent="MineRats"]
+position = Vector2(14, 2)
+texture = ExtResource("56_rat")
+
+[node name="Rat4" type="Sprite2D" parent="MineRats"]
+position = Vector2(26, -4)
+texture = ExtResource("56_rat")
+flip_h = true
+
+[node name="GiantRat" type="Sprite2D" parent="MineRats"]
+modulate = Color(0.78, 0.63, 0.48, 1)
+position = Vector2(2, -8)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("56_rat")
+
+[node name="MineCaveCutscene" type="Node2D" parent="."]
+script = ExtResource("96_cave_cut")
+miner = NodePath("../StoryGustav")
+rubble = NodePath("../CaveInRubble")
+hole = NodePath("../MineHole")
+rats = NodePath("../MineRats")
+boards = NodePath("../BoardedHole")
+
+[node name="StoryGustav" parent="." instance=ExtResource("50_story_npc")]
+position = Vector2(232, 80)
+required_flag = "reached_explore_mine"
+npc_id = "miner"
+appearance = SubResource("Appearance_miner")
+hidden_when_flag = "gustav_deal"
+leave_path = PackedVector2Array(240, 104, 320, 112, 328, 378)
+auto_talk = true
+talk_area_scale = Vector2(3, 3)
+wait_for_player = true
+talk_on_new_step = true
+absent_steps = PackedStringArray("rat_fight_lost")
+facing = "up"
+
+[node name="StoryBruno" parent="." instance=ExtResource("50_story_npc")]
+position = Vector2(204, 88)
+required_flag = "bruno_joins_fight"
+npc_id = "bruno"
+hero = ExtResource("53_bruno")
+hidden_when_flag = "bruno_left_mine"
+leave_path = PackedVector2Array(240, 104, 320, 112, 328, 378)
+auto_talk = true
+talk_area_scale = Vector2(3, 3)
+wait_for_player = true
+absent_steps = PackedStringArray("rat_fight_lost")
+facing = "up"
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(328, 340)
+
+[node name="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = -48
+limit_right = 640
+limit_bottom = 432
+
+[node name="Lantern" type="PointLight2D" parent="Player"]
+position = Vector2(0, -12)
+color = Color(1, 0.88, 0.7, 1)
+texture = SubResource("GradientTexture2D_light")
+texture_scale = 1.4
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[editable path="DoorToEntrance"]
+[editable path="MineHole/DoorToOldMine"]
+[editable path="Player"]

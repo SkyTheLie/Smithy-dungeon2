@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LevelTable" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/level_table.gd" id="1_table"]
+
+[resource]
+script = ExtResource("1_table")
+experience_to_next = Array[int]([30, 90, 180, 300, 1080, 1510, 2640, 2880, 3085, 3300, 3530, 3780, 4045, 4320, 4620, 4945, 5290, 5665, 6060, 6490, 6935, 7430, 7945, 8510, 9095, 9730, 10415, 11150, 11930, 12755, 13655, 14605, 15635, 16730, 17890, 19150, 20485, 21925, 23460, 25105, 26855, 28740, 30745, 32905, 35210, 37670, 40310, 43130, 46140, 49380, 52835])

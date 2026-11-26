@@ -1,0 +1,418 @@
+[gd_scene load_steps=40 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/_template/map_base.tscn" id="1_base"]
+[ext_resource type="Script" path="res://scenes/world/tournament/tournament_hall.gd" id="2_hall"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/tournament_hall_ground.png" id="3_ground"]
+[ext_resource type="Script" path="res://scenes/stations/station.gd" id="4_station"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/royal_desk.png" id="5_desk"]
+[ext_resource type="Script" path="res://scenes/world/volcano/goblin_figure.gd" id="6_figure"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/tournament_desk_menu.tscn" id="8_desk_menu"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="9_door"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="10_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/banner_anvil.png" id="11_banner"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/marble_pillar.png" id="12_pillar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/display_table.png" id="13_table"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/trophies/trophy_smith_gold.png" id="14_trophy_gold"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/trophies/trophy_smith_silver.png" id="15_trophy_silver"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/trophies/trophy_hero_bronze.png" id="16_trophy_bronze"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/trophies/trophy_smith_copper.png" id="17_trophy_copper"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/brazier.png" id="18_brazier"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/bench_east.png" id="19_bench_east"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/bench_west.png" id="20_bench_west"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/plant_tall.png" id="21_plant"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/lectern.png" id="22_lectern"]
+
+[sub_resource type="RectangleShape2D" id="Shape_wall"]
+size = Vector2(640, 104)
+
+[sub_resource type="RectangleShape2D" id="Shape_desk"]
+size = Vector2(150, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_desk_area"]
+size = Vector2(110, 34)
+
+[sub_resource type="RectangleShape2D" id="Shape_prop"]
+size = Vector2(26, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_bench"]
+size = Vector2(16, 36)
+
+[sub_resource type="Resource" id="Look_master"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "grey"
+eye_type = "normal"
+eye_color = "brown"
+size = "tall"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_ilsa"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "red"
+eye_type = "big"
+eye_color = "green"
+size = "normal"
+outfit = "smith"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_gorm"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "dark"
+hair_style = "spiky"
+hair_color = "black"
+eye_type = "sleepy"
+eye_color = "amber"
+size = "small"
+outfit = "smith"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_kasim"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "dark"
+hair_style = "long"
+hair_color = "black"
+eye_type = "narrow"
+eye_color = "amber"
+size = "tall"
+outfit = "vest"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_ssiva"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "lizard_green"
+hair_style = "bald"
+hair_color = "black"
+eye_type = "narrow"
+eye_color = "amber"
+size = "normal"
+outfit = "smith"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_kuno"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "brown"
+eye_type = "big"
+eye_color = "blue"
+size = "small"
+outfit = "smith"
+clothes_color = "brown"
+
+[node name="TournamentHall" instance=ExtResource("1_base")]
+script = ExtResource("2_hall")
+
+[node name="Ground" parent="." index="1"]
+texture = ExtResource("3_ground")
+
+[node name="BackWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackWall"]
+position = Vector2(320, 52)
+shape = SubResource("Shape_wall")
+
+[node name="BannerL" type="StaticBody2D" parent="."]
+position = Vector2(196, 106)
+
+[node name="Sprite2D" type="Sprite2D" parent="BannerL"]
+texture = ExtResource("11_banner")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BannerL"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="BannerR" type="StaticBody2D" parent="."]
+position = Vector2(444, 106)
+
+[node name="Sprite2D" type="Sprite2D" parent="BannerR"]
+texture = ExtResource("11_banner")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BannerR"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="PillarL" type="StaticBody2D" parent="."]
+position = Vector2(36, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="PillarL"]
+texture = ExtResource("12_pillar")
+offset = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PillarL"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="PillarR" type="StaticBody2D" parent="."]
+position = Vector2(604, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="PillarR"]
+texture = ExtResource("12_pillar")
+offset = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PillarR"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="TrophyTableL" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(100, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="TrophyTableL"]
+texture = ExtResource("13_table")
+offset = Vector2(0, -18.5)
+
+[node name="TrophyA" type="Sprite2D" parent="TrophyTableL/Sprite2D"]
+position = Vector2(-7, -36)
+texture = ExtResource("14_trophy_gold")
+offset = Vector2(0, -14)
+scale = Vector2(0.6, 0.6)
+
+[node name="TrophyB" type="Sprite2D" parent="TrophyTableL/Sprite2D"]
+position = Vector2(8, -34)
+texture = ExtResource("15_trophy_silver")
+offset = Vector2(0, -14)
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrophyTableL"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="TrophyTableR" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(540, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="TrophyTableR"]
+texture = ExtResource("13_table")
+offset = Vector2(0, -18.5)
+
+[node name="TrophyA" type="Sprite2D" parent="TrophyTableR/Sprite2D"]
+position = Vector2(-7, -36)
+texture = ExtResource("16_trophy_bronze")
+offset = Vector2(0, -14)
+scale = Vector2(0.6, 0.6)
+
+[node name="TrophyB" type="Sprite2D" parent="TrophyTableR/Sprite2D"]
+position = Vector2(8, -34)
+texture = ExtResource("17_trophy_copper")
+offset = Vector2(0, -14)
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrophyTableR"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Desk" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(320, 166)
+script = ExtResource("4_station")
+
+[node name="Master" type="Node2D" parent="Desk"]
+position = Vector2(0, -34)
+script = ExtResource("6_figure")
+appearance = SubResource("Look_master")
+
+[node name="Sprite2D" type="Sprite2D" parent="Desk"]
+texture = ExtResource("5_desk")
+offset = Vector2(0, -28.5)
+
+[node name="NameLabel" type="Label" parent="Desk"]
+z_index = 1
+offset_left = -60.0
+offset_top = -96.0
+offset_right = 60.0
+offset_bottom = -84.0
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "Turnierleiter"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_desk")
+
+[node name="InteractionArea" type="Area2D" parent="Desk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/InteractionArea"]
+position = Vector2(0, 14)
+shape = SubResource("Shape_desk_area")
+
+[node name="BrazierL" type="StaticBody2D" parent="."]
+position = Vector2(214, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="BrazierL"]
+texture = ExtResource("18_brazier")
+offset = Vector2(0, -19.5)
+
+[node name="Light" parent="BrazierL" instance=ExtResource("10_light")]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrazierL"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="BrazierR" type="StaticBody2D" parent="."]
+position = Vector2(426, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="BrazierR"]
+texture = ExtResource("18_brazier")
+offset = Vector2(0, -19.5)
+
+[node name="Light" parent="BrazierR" instance=ExtResource("10_light")]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrazierR"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Plan" type="StaticBody2D" parent="."]
+position = Vector2(468, 236)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plan"]
+texture = ExtResource("22_lectern")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plan"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Waiting" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="BenchL1" type="StaticBody2D" parent="Waiting"]
+position = Vector2(64, 236)
+
+[node name="Sprite2D" type="Sprite2D" parent="Waiting/BenchL1"]
+texture = ExtResource("19_bench_east")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Waiting/BenchL1"]
+position = Vector2(0, -18)
+shape = SubResource("Shape_bench")
+
+[node name="BenchL2" type="StaticBody2D" parent="Waiting"]
+position = Vector2(64, 310)
+
+[node name="Sprite2D" type="Sprite2D" parent="Waiting/BenchL2"]
+texture = ExtResource("19_bench_east")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Waiting/BenchL2"]
+position = Vector2(0, -18)
+shape = SubResource("Shape_bench")
+
+[node name="BenchR1" type="StaticBody2D" parent="Waiting"]
+position = Vector2(576, 236)
+
+[node name="Sprite2D" type="Sprite2D" parent="Waiting/BenchR1"]
+texture = ExtResource("20_bench_west")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Waiting/BenchR1"]
+position = Vector2(0, -18)
+shape = SubResource("Shape_bench")
+
+[node name="BenchR2" type="StaticBody2D" parent="Waiting"]
+position = Vector2(576, 310)
+
+[node name="Sprite2D" type="Sprite2D" parent="Waiting/BenchR2"]
+texture = ExtResource("20_bench_west")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Waiting/BenchR2"]
+position = Vector2(0, -18)
+shape = SubResource("Shape_bench")
+
+[node name="Ilsa" type="Node2D" parent="Waiting"]
+position = Vector2(92, 226)
+script = ExtResource("6_figure")
+appearance = SubResource("Look_ilsa")
+facing = "right"
+
+[node name="Gorm" type="Node2D" parent="Waiting"]
+position = Vector2(94, 300)
+script = ExtResource("6_figure")
+appearance = SubResource("Look_gorm")
+facing = "right"
+
+[node name="Kasim" type="Node2D" parent="Waiting"]
+position = Vector2(548, 228)
+script = ExtResource("6_figure")
+appearance = SubResource("Look_kasim")
+facing = "left"
+
+[node name="Ssiva" type="Node2D" parent="Waiting"]
+position = Vector2(546, 302)
+script = ExtResource("6_figure")
+appearance = SubResource("Look_ssiva")
+facing = "left"
+
+[node name="Kuno" type="Node2D" parent="Waiting"]
+position = Vector2(492, 244)
+script = ExtResource("6_figure")
+appearance = SubResource("Look_kuno")
+facing = "left"
+
+[node name="PlantL" type="StaticBody2D" parent="."]
+position = Vector2(244, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlantL"]
+texture = ExtResource("21_plant")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantL"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="PlantR" type="StaticBody2D" parent="."]
+position = Vector2(396, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlantR"]
+texture = ExtResource("21_plant")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantR"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="DoorOut" parent="." instance=ExtResource("9_door")]
+position = Vector2(320, 356)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"FromTeleporter"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromStart" parent="." index="4"]
+position = Vector2(320, 316)
+
+[node name="FromCity" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(320, 316)
+
+[node name="FromArena" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(320, 222)
+
+[node name="Player" parent="." index="5"]
+position = Vector2(320, 316)
+
+[node name="TournamentDeskMenu" parent="." instance=ExtResource("8_desk_menu")]
+
+[connection signal="interacted" from="Desk" to="TournamentDeskMenu" method="toggle"]
+[connection signal="player_left" from="Desk" to="TournamentDeskMenu" method="close"]
+[connection signal="body_entered" from="Desk/InteractionArea" to="Desk" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Desk/InteractionArea" to="Desk" method="_on_interaction_area_body_exited"]
+
+[editable path="DoorOut"]

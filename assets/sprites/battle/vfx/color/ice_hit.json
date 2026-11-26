@@ -1,0 +1,287 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-eis-einschlag 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3888888888888889
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-einschlag 1.png",
+   "frame": {
+    "x": 28,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3888888888888889
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-einschlag 2.png",
+   "frame": {
+    "x": 56,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3888888888888889
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-einschlag 3.png",
+   "frame": {
+    "x": 84,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3888888888888889
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-einschlag 4.png",
+   "frame": {
+    "x": 0,
+    "y": 36,
+    "w": 28,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3888888888888889
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-einschlag 5.png",
+   "frame": {
+    "x": 28,
+    "y": 36,
+    "w": 28,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3888888888888889
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-einschlag 6.png",
+   "frame": {
+    "x": 56,
+    "y": 36,
+    "w": 28,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3888888888888889
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-einschlag 7.png",
+   "frame": {
+    "x": 84,
+    "y": 36,
+    "w": 28,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3888888888888889
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-einschlag 8.png",
+   "frame": {
+    "x": 0,
+    "y": 72,
+    "w": 28,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3888888888888889
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-eis-einschlag 9.png",
+   "frame": {
+    "x": 28,
+    "y": 72,
+    "w": 28,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 36
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.3888888888888889
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-eis-einschlag.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 112,
+   "h": 108
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 14,
+   "y": 14
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-eis-einschlag",
+    "from": 0,
+    "to": 9,
+    "direction": "forward"
+   }
+  ]
+ }
+}

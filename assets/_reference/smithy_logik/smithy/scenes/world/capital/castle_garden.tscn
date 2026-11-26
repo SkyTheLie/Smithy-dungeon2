@@ -1,0 +1,848 @@
+[gd_scene format=3 uid="uid://mqpclq0bjvvi"]
+
+[ext_resource type="Material" path="res://scenes/world/objects/pond_water_material.tres" id="pond_water"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/city_8.png" id="wp_world_props_city_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/city_7.png" id="wp_world_props_city_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/city_14.png" id="wp_world_props_city_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/city_10.png" id="wp_world_props_city_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/city_9.png" id="wp_world_props_city_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/city_0.png" id="wp_world_props_city_0"]
+[ext_resource type="Script" path="res://scenes/world/objects/critter.gd" id="wp_scenes_world_objects_critte"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" uid="uid://dlw28gg56kkq1" path="res://assets/sprites/maps/castle_garden_ground.png" id="5_ground"]
+[ext_resource type="Texture2D" uid="uid://hktdr7usrbi1" path="res://assets/sprites/buildings/royal_castle.png" id="6_castle"]
+[ext_resource type="Texture2D" uid="uid://dvgslno2d3mej" path="res://assets/sprites/objects/garden_fountain.png" id="7_fountain"]
+[ext_resource type="Texture2D" uid="uid://hxhwhhlnqs2" path="res://assets/sprites/props/lion_statue.png" id="8_lion"]
+[ext_resource type="Texture2D" uid="uid://dho6xnhbyluys" path="res://assets/sprites/props/hedge.png" id="9_hedge"]
+[ext_resource type="Texture2D" uid="uid://ml8dkam4hiss" path="res://assets/sprites/props/cypress_pot.png" id="10_cypress"]
+[ext_resource type="Texture2D" uid="uid://83hdw3xydurn" path="res://assets/sprites/props/royal_carriage.png" id="11_carriage"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern.tscn" id="12_lantern"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/flower_bed.tscn" id="13_flower_bed"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_cherry_c.tscn" id="tree_cherry_c"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/tree_cherry_a.tscn" id="tree_cherry_a"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/bench.tscn" id="15_bench"]
+[ext_resource type="Texture2D" uid="uid://dsg6cgdah3llb" path="res://assets/sprites/props/swan.png" id="16_swan"]
+[ext_resource type="Texture2D" uid="uid://djeq4o2133ooo" path="res://assets/sprites/plants/lily_a.png" id="17_lily_a"]
+[ext_resource type="Texture2D" uid="uid://ccasc650spvje" path="res://assets/sprites/plants/lily_b.png" id="18_lily_b"]
+[ext_resource type="Texture2D" uid="uid://bc82o26xam2md" path="res://assets/sprites/plants/reeds.png" id="19_reeds"]
+[ext_resource type="Texture2D" uid="uid://b23h8pw2o5io0" path="res://assets/sprites/props/banner_blue.png" id="20_banner"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="21_story_npc"]
+[ext_resource type="Texture2D" uid="uid://u06ovwbwv8wl" path="res://assets/sprites/npcs/envoy_mohammad.png" id="22_envoy"]
+[ext_resource type="Texture2D" uid="uid://bta4jmbvaa286" path="res://assets/sprites/npcs/castle_guard_a.png" id="23_guard_a"]
+[ext_resource type="Texture2D" uid="uid://cvtnmnrmhap0x" path="res://assets/sprites/npcs/castle_guard_b.png" id="24_guard_b"]
+[ext_resource type="Script" uid="uid://cno422e6auv4r" path="res://scenes/world/objects/story_prop.gd" id="25_story_prop"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="90_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/king.png" id="91_king"]
+[ext_resource type="Script" path="res://scenes/world/objects/window_lights.gd" id="window_lights"]
+
+[sub_resource type="RectangleShape2D" id="Shape_h"]
+size = Vector2(1024, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_v"]
+size = Vector2(16, 768)
+
+[sub_resource type="RectangleShape2D" id="Shape_pond"]
+size = Vector2(176, 150)
+
+[sub_resource type="RectangleShape2D" id="Shape_castle_wing"]
+size = Vector2(176, 56)
+
+[sub_resource type="RectangleShape2D" id="Shape_castle_gate"]
+size = Vector2(56, 20)
+
+[sub_resource type="RectangleShape2D" id="Shape_fountain"]
+size = Vector2(80, 30)
+
+[sub_resource type="RectangleShape2D" id="Shape_lion"]
+size = Vector2(22, 10)
+
+[sub_resource type="RectangleShape2D" id="Shape_small"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_hedge"]
+size = Vector2(52, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_carriage_block"]
+size = Vector2(176, 96)
+
+[sub_resource type="RectangleShape2D" id="Shape_carriage"]
+size = Vector2(150, 16)
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("90_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("90_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_20x6"]
+size = Vector2(20, 6)
+
+[node name="CastleGarden" type="Node2D" unique_id=1775975689]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="." unique_id=1133730786]
+script = ExtResource("4_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=212947014]
+material = ExtResource("pond_water")
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("5_ground")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="." unique_id=1620460546]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds" unique_id=1236216203]
+position = Vector2(0, -392)
+shape = SubResource("Shape_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds" unique_id=1843888592]
+position = Vector2(0, 392)
+shape = SubResource("Shape_h")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds" unique_id=655656582]
+position = Vector2(-520, 0)
+shape = SubResource("Shape_v")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds" unique_id=1266874453]
+position = Vector2(520, 0)
+shape = SubResource("Shape_v")
+
+[node name="PondWest" type="CollisionShape2D" parent="Bounds" unique_id=1016452975]
+position = Vector2(-320, 112)
+shape = SubResource("Shape_pond")
+
+[node name="PondEast" type="CollisionShape2D" parent="Bounds" unique_id=1536527112]
+position = Vector2(320, 112)
+shape = SubResource("Shape_pond")
+
+[node name="Castle" type="StaticBody2D" parent="." unique_id=1741631872]
+position = Vector2(0, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Castle" unique_id=505189617]
+texture = ExtResource("6_castle")
+offset = Vector2(0, -144)
+
+[node name="WingWest" type="CollisionShape2D" parent="Castle" unique_id=824933200]
+position = Vector2(-116, -26)
+shape = SubResource("Shape_castle_wing")
+
+[node name="WingEast" type="CollisionShape2D" parent="Castle" unique_id=1085820205]
+position = Vector2(116, -26)
+shape = SubResource("Shape_castle_wing")
+
+[node name="BehindGate" type="CollisionShape2D" parent="Castle" unique_id=1255789015]
+position = Vector2(0, -40)
+shape = SubResource("Shape_castle_gate")
+
+[node name="Fountain" type="StaticBody2D" parent="." unique_id=802224928]
+position = Vector2(0, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fountain" unique_id=2106891026]
+texture = ExtResource("7_fountain")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fountain" unique_id=710677514]
+position = Vector2(0, -16)
+shape = SubResource("Shape_fountain")
+
+[node name="Decor" type="Node2D" parent="." unique_id=877994206]
+y_sort_enabled = true
+
+[node name="LionWest" type="StaticBody2D" parent="Decor" unique_id=1967598527]
+position = Vector2(-132, -70)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/LionWest" unique_id=508977717]
+texture = ExtResource("8_lion")
+offset = Vector2(0, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/LionWest" unique_id=103404789]
+position = Vector2(0, -4)
+shape = SubResource("Shape_lion")
+
+[node name="LionEast" type="StaticBody2D" parent="Decor" unique_id=892382663]
+position = Vector2(132, -70)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/LionEast" unique_id=451051481]
+texture = ExtResource("8_lion")
+offset = Vector2(0, -25)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/LionEast" unique_id=1110515497]
+position = Vector2(0, -4)
+shape = SubResource("Shape_lion")
+
+[node name="BannerWest" type="Sprite2D" parent="Decor" unique_id=1931767677]
+position = Vector2(-250, -70)
+texture = ExtResource("20_banner")
+offset = Vector2(0, -32)
+
+[node name="BannerEast" type="Sprite2D" parent="Decor" unique_id=2090897377]
+position = Vector2(250, -70)
+texture = ExtResource("20_banner")
+offset = Vector2(0, -32)
+
+[node name="CypressW_40" type="StaticBody2D" parent="Decor" unique_id=1415225824]
+position = Vector2(-84, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CypressW_40" unique_id=469459771]
+texture = ExtResource("10_cypress")
+offset = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CypressW_40" unique_id=25541318]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="CypressE_40" type="StaticBody2D" parent="Decor" unique_id=189288270]
+position = Vector2(84, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CypressE_40" unique_id=1701681871]
+texture = ExtResource("10_cypress")
+offset = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CypressE_40" unique_id=1733168905]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="CypressW_10" type="StaticBody2D" parent="Decor" unique_id=1725491059]
+position = Vector2(-84, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CypressW_10" unique_id=916510700]
+texture = ExtResource("10_cypress")
+offset = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CypressW_10" unique_id=2061125122]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="CypressE_10" type="StaticBody2D" parent="Decor" unique_id=211819467]
+position = Vector2(84, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CypressE_10" unique_id=265811519]
+texture = ExtResource("10_cypress")
+offset = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CypressE_10" unique_id=1147546360]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="CypressW_220" type="StaticBody2D" parent="Decor" unique_id=82758651]
+position = Vector2(-84, 220)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CypressW_220" unique_id=2029692911]
+texture = ExtResource("10_cypress")
+offset = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CypressW_220" unique_id=2015080162]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="CypressE_220" type="StaticBody2D" parent="Decor" unique_id=1812593522]
+position = Vector2(84, 220)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CypressE_220" unique_id=1628395538]
+texture = ExtResource("10_cypress")
+offset = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CypressE_220" unique_id=1106141916]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="CypressW_270" type="StaticBody2D" parent="Decor" unique_id=1127698788]
+position = Vector2(-84, 270)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CypressW_270" unique_id=1375082031]
+texture = ExtResource("10_cypress")
+offset = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CypressW_270" unique_id=2111844707]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="CypressE_270" type="StaticBody2D" parent="Decor" unique_id=1504875845]
+position = Vector2(84, 270)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CypressE_270" unique_id=1228168460]
+texture = ExtResource("10_cypress")
+offset = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CypressE_270" unique_id=974978250]
+position = Vector2(0, -3)
+shape = SubResource("Shape_small")
+
+[node name="HedgeNW_150" type="StaticBody2D" parent="Decor" unique_id=299141187]
+position = Vector2(-150, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNW_150" unique_id=383409639]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNW_150" unique_id=851995215]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNE_150" type="StaticBody2D" parent="Decor" unique_id=1595195144]
+position = Vector2(150, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNE_150" unique_id=881859603]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNE_150" unique_id=1956741637]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSW_150" type="StaticBody2D" parent="Decor" unique_id=813509689]
+position = Vector2(-150, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSW_150" unique_id=1581109811]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSW_150" unique_id=1313751255]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSE_150" type="StaticBody2D" parent="Decor" unique_id=1900301435]
+position = Vector2(150, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSE_150" unique_id=904550684]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSE_150" unique_id=103891404]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNW_206" type="StaticBody2D" parent="Decor" unique_id=1108772491]
+position = Vector2(-206, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNW_206" unique_id=972177904]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNW_206" unique_id=1340791788]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNE_206" type="StaticBody2D" parent="Decor" unique_id=2136722859]
+position = Vector2(206, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNE_206" unique_id=1060839670]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNE_206" unique_id=903897563]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSW_206" type="StaticBody2D" parent="Decor" unique_id=56584651]
+position = Vector2(-206, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSW_206" unique_id=2023605010]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSW_206" unique_id=1509063712]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSE_206" type="StaticBody2D" parent="Decor" unique_id=771090820]
+position = Vector2(206, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSE_206" unique_id=381976252]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSE_206" unique_id=1856367850]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNW_262" type="StaticBody2D" parent="Decor" unique_id=2010239322]
+position = Vector2(-262, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNW_262" unique_id=769197502]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNW_262" unique_id=918018587]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNE_262" type="StaticBody2D" parent="Decor" unique_id=1731377074]
+position = Vector2(262, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNE_262" unique_id=1208595958]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNE_262" unique_id=1663687563]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSW_262" type="StaticBody2D" parent="Decor" unique_id=623798888]
+position = Vector2(-262, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSW_262" unique_id=2141376124]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSW_262" unique_id=2024907029]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSE_262" type="StaticBody2D" parent="Decor" unique_id=1885386214]
+position = Vector2(262, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSE_262" unique_id=64856742]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSE_262" unique_id=526636358]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNW_318" type="StaticBody2D" parent="Decor" unique_id=992631877]
+position = Vector2(-318, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNW_318" unique_id=240365179]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNW_318" unique_id=1016418280]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNE_318" type="StaticBody2D" parent="Decor" unique_id=2036509174]
+position = Vector2(318, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNE_318" unique_id=918895098]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNE_318" unique_id=327276618]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSW_318" type="StaticBody2D" parent="Decor" unique_id=348047855]
+position = Vector2(-318, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSW_318" unique_id=627220310]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSW_318" unique_id=381372399]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSE_318" type="StaticBody2D" parent="Decor" unique_id=709717632]
+position = Vector2(318, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSE_318" unique_id=374280119]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSE_318" unique_id=1184660985]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNW_374" type="StaticBody2D" parent="Decor" unique_id=1726600732]
+position = Vector2(-374, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNW_374" unique_id=2120199565]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNW_374" unique_id=2055590669]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNE_374" type="StaticBody2D" parent="Decor" unique_id=1360535291]
+position = Vector2(374, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNE_374" unique_id=507849371]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNE_374" unique_id=1035022483]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSW_374" type="StaticBody2D" parent="Decor" unique_id=958660236]
+position = Vector2(-374, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSW_374" unique_id=1335360384]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSW_374" unique_id=1984993401]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSE_374" type="StaticBody2D" parent="Decor" unique_id=787568747]
+position = Vector2(374, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSE_374" unique_id=720103022]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSE_374" unique_id=1437142961]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNW_430" type="StaticBody2D" parent="Decor" unique_id=234687671]
+position = Vector2(-430, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNW_430" unique_id=856251780]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNW_430" unique_id=923708849]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeNE_430" type="StaticBody2D" parent="Decor" unique_id=2046105296]
+position = Vector2(430, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeNE_430" unique_id=464808841]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeNE_430" unique_id=280204938]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSW_430" type="StaticBody2D" parent="Decor" unique_id=1914684053]
+position = Vector2(-430, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSW_430" unique_id=1475207261]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSW_430" unique_id=835565412]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="HedgeSE_430" type="StaticBody2D" parent="Decor" unique_id=806749692]
+position = Vector2(430, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/HedgeSE_430" unique_id=1585416560]
+texture = ExtResource("9_hedge")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/HedgeSE_430" unique_id=884433465]
+position = Vector2(0, -4)
+shape = SubResource("Shape_hedge")
+
+[node name="Lantern1" parent="Decor" unique_id=1740224116 instance=ExtResource("12_lantern")]
+position = Vector2(-172, 23)
+
+[node name="Lantern2" parent="Decor" unique_id=87300534 instance=ExtResource("12_lantern")]
+position = Vector2(174, 21)
+
+[node name="Lantern3" parent="Decor" unique_id=23060925 instance=ExtResource("12_lantern")]
+position = Vector2(-176, 212)
+
+[node name="Lantern4" parent="Decor" unique_id=1468302729 instance=ExtResource("12_lantern")]
+position = Vector2(176, 216)
+
+[node name="Lantern5" parent="Decor" unique_id=1030878607 instance=ExtResource("12_lantern")]
+position = Vector2(-84, -70)
+
+[node name="Lantern6" parent="Decor" unique_id=534261804 instance=ExtResource("12_lantern")]
+position = Vector2(84, -70)
+
+[node name="FlowerBed7" parent="Decor" unique_id=134089995 instance=ExtResource("13_flower_bed")]
+position = Vector2(-300, -60)
+
+[node name="FlowerBed8" parent="Decor" unique_id=243474486 instance=ExtResource("13_flower_bed")]
+position = Vector2(300, -60)
+
+[node name="FlowerBed9" parent="Decor" unique_id=469742725 instance=ExtResource("13_flower_bed")]
+position = Vector2(-470, -60)
+
+[node name="FlowerBed10" parent="Decor" unique_id=1501628140 instance=ExtResource("13_flower_bed")]
+position = Vector2(470, -60)
+
+[node name="FlowerBed11" parent="Decor" unique_id=1294550720 instance=ExtResource("13_flower_bed")]
+position = Vector2(-468, 150)
+
+[node name="FlowerBed12" parent="Decor" unique_id=1466902402 instance=ExtResource("13_flower_bed")]
+position = Vector2(468, 150)
+
+[node name="BenchW" parent="Decor" unique_id=366404455 instance=ExtResource("15_bench")]
+position = Vector2(-130, 112)
+
+[node name="BenchE" parent="Decor" unique_id=650429993 instance=ExtResource("15_bench")]
+position = Vector2(130, 112)
+
+[node name="OakNW" parent="Decor" unique_id=1753389360 instance=ExtResource("tree_cherry_a")]
+position = Vector2(-460, -150)
+
+[node name="OakNE" parent="Decor" unique_id=2115780465 instance=ExtResource("tree_cherry_a")]
+position = Vector2(460, -150)
+scale = Vector2(-1, 1)
+
+[node name="OakSW" parent="Decor" unique_id=1317185231 instance=ExtResource("tree_cherry_c")]
+position = Vector2(-470, 300)
+
+[node name="OakSE" parent="Decor" unique_id=1675698544 instance=ExtResource("tree_cherry_c")]
+position = Vector2(470, 300)
+scale = Vector2(-1, 1)
+
+[node name="SwanW" type="Sprite2D" parent="Decor" unique_id=1569858953]
+script = ExtResource("wp_scenes_world_objects_critte")
+reach = 18.0
+hop = 16.0
+speed = 6.0
+z_index = -1
+position = Vector2(-330, 110)
+texture = ExtResource("16_swan")
+offset = Vector2(0, -16)
+
+[node name="SwanE" type="Sprite2D" parent="Decor" unique_id=491236580]
+script = ExtResource("wp_scenes_world_objects_critte")
+reach = 18.0
+hop = 16.0
+speed = 6.0
+z_index = -1
+position = Vector2(300, 140)
+texture = ExtResource("16_swan")
+offset = Vector2(0, -16)
+
+[node name="Lily13" type="Sprite2D" parent="Decor" unique_id=2023465109]
+z_index = -1
+position = Vector2(-390, 60)
+texture = ExtResource("17_lily_a")
+offset = Vector2(0, -12)
+
+[node name="Lily14" type="Sprite2D" parent="Decor" unique_id=1539152893]
+z_index = -1
+position = Vector2(-260, 150)
+texture = ExtResource("18_lily_b")
+offset = Vector2(0, -12)
+
+[node name="Lily15" type="Sprite2D" parent="Decor" unique_id=697929228]
+z_index = -1
+position = Vector2(-300, 70)
+texture = ExtResource("17_lily_a")
+offset = Vector2(0, -12)
+
+[node name="Lily16" type="Sprite2D" parent="Decor" unique_id=933484797]
+z_index = -1
+position = Vector2(380, 70)
+texture = ExtResource("18_lily_b")
+offset = Vector2(0, -12)
+
+[node name="Lily17" type="Sprite2D" parent="Decor" unique_id=618952579]
+z_index = -1
+position = Vector2(260, 90)
+texture = ExtResource("17_lily_a")
+offset = Vector2(0, -12)
+
+[node name="Lily18" type="Sprite2D" parent="Decor" unique_id=1139309994]
+z_index = -1
+position = Vector2(350, 170)
+texture = ExtResource("17_lily_a")
+offset = Vector2(0, -12)
+
+[node name="Reeds19" type="Sprite2D" parent="Decor" unique_id=1044558954]
+position = Vector2(-410, 40)
+texture = ExtResource("19_reeds")
+offset = Vector2(0, -16)
+
+[node name="Reeds20" type="Sprite2D" parent="Decor" unique_id=132635095]
+position = Vector2(-235, 180)
+texture = ExtResource("19_reeds")
+offset = Vector2(0, -16)
+
+[node name="Reeds21" type="Sprite2D" parent="Decor" unique_id=563875767]
+position = Vector2(410, 40)
+texture = ExtResource("19_reeds")
+offset = Vector2(0, -16)
+
+[node name="Reeds22" type="Sprite2D" parent="Decor" unique_id=788106230]
+position = Vector2(235, 180)
+texture = ExtResource("19_reeds")
+offset = Vector2(0, -16)
+
+[node name="Guards" type="Node2D" parent="." unique_id=310123907]
+y_sort_enabled = true
+
+[node name="GuardWest" parent="Guards" unique_id=318615398 instance=ExtResource("21_story_npc")]
+position = Vector2(-48, -78)
+npc_id = "castle_guard"
+resident = "castle_guard_a"
+
+[node name="GuardEast" parent="Guards" unique_id=1119082613 instance=ExtResource("21_story_npc")]
+position = Vector2(48, -78)
+npc_id = "castle_guard"
+resident = "castle_guard_b"
+
+[node name="Envoy" parent="." unique_id=966184097 instance=ExtResource("21_story_npc")]
+position = Vector2(48, 262)
+npc_id = "envoy"
+resident = "envoy_mohammad"
+auto_talk = true
+
+[node name="CarriageBlocking" type="Node2D" parent="." unique_id=2081230299]
+y_sort_enabled = true
+script = ExtResource("25_story_prop")
+hidden_when_flag = "king_audience_done"
+
+[node name="Carriage" type="StaticBody2D" parent="CarriageBlocking" unique_id=1857436758]
+position = Vector2(0, 340)
+
+[node name="Sprite2D" type="Sprite2D" parent="CarriageBlocking/Carriage" unique_id=98842429]
+texture = ExtResource("11_carriage")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarriageBlocking/Carriage" unique_id=1630309635]
+shape = SubResource("Shape_carriage_block")
+
+[node name="CarriageParked" type="Node2D" parent="." unique_id=79816389]
+y_sort_enabled = true
+script = ExtResource("25_story_prop")
+required_flag = "king_audience_done"
+
+[node name="Carriage" type="StaticBody2D" parent="CarriageParked" unique_id=663616256]
+position = Vector2(330, 340)
+
+[node name="Sprite2D" type="Sprite2D" parent="CarriageParked/Carriage" unique_id=191942429]
+texture = ExtResource("11_carriage")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarriageParked/Carriage" unique_id=1212601346]
+position = Vector2(0, -6)
+shape = SubResource("Shape_carriage")
+
+[node name="Label" type="Label" parent="CarriageParked/Carriage" unique_id=638434519]
+offset_left = -60.0
+offset_top = -96.0
+offset_right = 60.0
+offset_bottom = -84.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "Kutscher Jupp"
+horizontal_alignment = 1
+
+[node name="ToVillage" parent="CarriageParked" unique_id=2058521826 instance=ExtResource("2_door")]
+position = Vector2(348, 352)
+target_scene = "res://scenes/world/village/village_gate.tscn"
+target_spawn_point = &"FromCarriage"
+fade = true
+needs_interact = true
+carriage_stop = "leonheim"
+
+[node name="Visual" parent="CarriageParked/ToVillage" index="0"]
+visible = false
+
+[node name="CastleDoor" parent="." unique_id=841382473 instance=ExtResource("2_door")]
+position = Vector2(0, -106)
+target_scene = "res://scenes/world/capital/castle_hall.tscn"
+target_spawn_point = &"FromGarden"
+blocked_flag = "castle_closed"
+unblocked_flag = "castle_reopened"
+blocked_text = "Die Schlosswachen kreuzen die Speere. Neben dem Tor hängt ein Steckbrief mit deinem Gesicht."
+
+[node name="Visual" parent="CastleDoor" index="0"]
+visible = false
+
+[node name="ExitSouth" parent="." unique_id=1175868978 instance=ExtResource("2_door")]
+position = Vector2(0, 376)
+scale = Vector2(4, 1)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"FromCastle"
+required_flag = "king_audience_done"
+locked_text = "Die Kutsche versperrt den Weg. Erst zum König!"
+
+[node name="Visual" parent="ExitSouth" index="0"]
+visible = false
+
+[node name="KingDeparture" parent="." instance=ExtResource("21_story_npc")]
+position = Vector2(250, 300)
+npc_id = "king"
+resident = "king"
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(3, 3)
+required_flag = "reached_water_departure"
+hidden_when_flag = "reached_water_arrival"
+
+[node name="LakeDeparture" parent="." instance=ExtResource("21_story_npc")]
+position = Vector2(220, 300)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+facing = "right"
+required_flag = "reached_water_departure"
+hidden_when_flag = "reached_water_arrival"
+
+[node name="AureliusDeparture" parent="." instance=ExtResource("21_story_npc")]
+position = Vector2(280, 300)
+npc_id = "magician"
+appearance = SubResource("Look_magician")
+resident = "aurelius"
+facing = "left"
+required_flag = "reached_water_departure"
+hidden_when_flag = "reached_water_arrival"
+
+[node name="FromCarriage" type="Marker2D" parent="." unique_id=1122752370 groups=["spawn_points"]]
+position = Vector2(0, 262)
+
+[node name="FromCastle" type="Marker2D" parent="." unique_id=1197200770 groups=["spawn_points"]]
+position = Vector2(0, -62)
+
+[node name="FromCity" type="Marker2D" parent="." unique_id=623822158 groups=["spawn_points"]]
+position = Vector2(0, 340)
+
+[node name="Player" parent="." unique_id=1453615495 instance=ExtResource("1_player")]
+position = Vector2(0, 262)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -512
+limit_top = -384
+limit_right = 512
+limit_bottom = 384
+
+[node name="HUD" parent="." unique_id=720177755 instance=ExtResource("3_hud")]
+
+[node name="WindowLights" type="Node" parent="."]
+script = ExtResource("window_lights")
+
+[editable path="CarriageParked/ToVillage"]
+[editable path="CastleDoor"]
+[editable path="ExitSouth"]
+[editable path="Player"]

@@ -1,0 +1,287 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-beschwoerung-weiss 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 33,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.48484848484848486,
+    "y": 0.8163265306122449
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-beschwoerung-weiss 1.png",
+   "frame": {
+    "x": 33,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 33,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.48484848484848486,
+    "y": 0.8163265306122449
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-beschwoerung-weiss 2.png",
+   "frame": {
+    "x": 66,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 33,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.48484848484848486,
+    "y": 0.8163265306122449
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-beschwoerung-weiss 3.png",
+   "frame": {
+    "x": 99,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 33,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.48484848484848486,
+    "y": 0.8163265306122449
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-beschwoerung-weiss 4.png",
+   "frame": {
+    "x": 0,
+    "y": 49,
+    "w": 33,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 33,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.48484848484848486,
+    "y": 0.8163265306122449
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-beschwoerung-weiss 5.png",
+   "frame": {
+    "x": 33,
+    "y": 49,
+    "w": 33,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 33,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.48484848484848486,
+    "y": 0.8163265306122449
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-beschwoerung-weiss 6.png",
+   "frame": {
+    "x": 66,
+    "y": 49,
+    "w": 33,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 33,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.48484848484848486,
+    "y": 0.8163265306122449
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-beschwoerung-weiss 7.png",
+   "frame": {
+    "x": 99,
+    "y": 49,
+    "w": 33,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 33,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.48484848484848486,
+    "y": 0.8163265306122449
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-beschwoerung-weiss 8.png",
+   "frame": {
+    "x": 0,
+    "y": 98,
+    "w": 33,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 33,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.48484848484848486,
+    "y": 0.8163265306122449
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-beschwoerung-weiss 9.png",
+   "frame": {
+    "x": 33,
+    "y": 98,
+    "w": 33,
+    "h": 49
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 33,
+    "h": 49
+   },
+   "sourceSize": {
+    "w": 33,
+    "h": 49
+   },
+   "pivot": {
+    "x": 0.48484848484848486,
+    "y": 0.8163265306122449
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-beschwoerung-weiss.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 132,
+   "h": 147
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 16,
+   "y": 40
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-beschwoerung-weiss",
+    "from": 0,
+    "to": 9,
+    "direction": "forward"
+   }
+  ]
+ }
+}

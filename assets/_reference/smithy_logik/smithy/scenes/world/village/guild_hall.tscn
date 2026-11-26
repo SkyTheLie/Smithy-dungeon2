@@ -1,0 +1,721 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/dungeon_board.tscn" id="5_dungeon_board"]
+[ext_resource type="Script" path="res://scenes/stations/station.gd" id="6_station"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/guild_menu.tscn" id="7_guild_menu"]
+[ext_resource type="Script" path="res://scripts/resources/hero.gd" id="8_hero_script"]
+[ext_resource type="Resource" path="res://data/heroes/lena.tres" id="9_lena"]
+[ext_resource type="Resource" path="res://data/heroes/mira.tres" id="10_mira"]
+[ext_resource type="Resource" path="res://data/heroes/anselm.tres" id="11_anselm"]
+[ext_resource type="Resource" path="res://data/heroes/kira.tres" id="12_kira"]
+[ext_resource type="Resource" path="res://data/heroes/gerold.tres" id="13_gerold"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="9_light"]
+[ext_resource type="Script" path="res://scenes/world/village/guild_patrons.gd" id="14_patrons"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/guild_hall.png" id="15_bg"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_counter.png" id="16_counter"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/guild_recruiter.png" id="17_recruiter"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_runner.png" id="18_runner"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_barrels.png" id="19_barrels"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_table.png" id="20_table"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_chair.png" id="21_chair"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_weapon_rack.png" id="22_rack"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_armor_stand.png" id="23_armor"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/plant_tall.png" id="24_plant"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_dummy.png" id="25_dummy"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_chest.png" id="26_chest"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/crates.png" id="27_crates"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/sacks.png" id="28_sacks"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="29_story_npc"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="g_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_stairs.png" id="g_stairs"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_archery_target.png" id="g_target"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/guild_trophy_cabinet.png" id="g_cabinet"]
+[ext_resource type="Script" path="res://scenes/world/village/guild_hall_layout.gd" id="gl_layout"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/guild_hall_0.png" id="gl_room0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/guild_hall_1.png" id="gl_room1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/guild_hall_2.png" id="gl_room2"]
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_top"]
+size = Vector2(544, 48)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_side"]
+size = Vector2(16, 360)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_bottom"]
+size = Vector2(544, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_counter_area"]
+size = Vector2(110, 30)
+
+[sub_resource type="RectangleShape2D" id="Shape_156x14"]
+size = Vector2(156, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_44x10"]
+size = Vector2(44, 10)
+
+[sub_resource type="RectangleShape2D" id="Shape_42x8"]
+size = Vector2(42, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_20x8"]
+size = Vector2(20, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_26x8"]
+size = Vector2(26, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_22x50"]
+size = Vector2(38, 58)
+
+[sub_resource type="RectangleShape2D" id="Shape_18x8"]
+size = Vector2(18, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_post"]
+size = Vector2(6, 10)
+
+[sub_resource type="RectangleShape2D" id="Shape_cabinet"]
+size = Vector2(32, 8)
+
+[node name="GuildHall" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Layout" type="Node" parent="."]
+script = ExtResource("gl_layout")
+backgrounds = Array[Texture2D]([ExtResource("gl_room0"), ExtResource("gl_room1"), ExtResource("gl_room2"), ExtResource("15_bg")])
+runner_lengths = Array[int]([0, 98, 129, 160])
+positions = {
+"Counter": [Vector2(-24, 50), Vector2(-40, 19), Vector2(-80, -12), Vector2(-130, -43)],
+"DungeonBoard": [Vector2(80, -14), Vector2(120, -45), Vector2(164, -76), Vector2(208, -107)],
+"GuildMaster": [Vector2(104, 15), Vector2(72, -16), Vector2(116, -47), Vector2(160, -78)],
+"Decor/WeaponRack": [null, Vector2(40, -43), Vector2(70, -74), Vector2(103, -105)],
+"Decor/ArmorStand": [null, Vector2(160, -9), null, Vector2(248, -71)],
+"Decor/Chest": [null, null, Vector2(-10, -69), Vector2(-50, -100)],
+"Decor/Barrels": [Vector2(-108, 110), Vector2(148, 160), Vector2(130, 158), Vector2(-234, 60)],
+"Decor/PlantLeft": [null, null, null, Vector2(-248, 160)],
+"Decor/PlantRight": [null, null, null, Vector2(248, 160)],
+"Decor/Dummy": [null, null, Vector2(205, 50), Vector2(226, 52)],
+"Decor/Storage/Crates": [Vector2(-116, 150), null, null, Vector2(-246, 104)],
+"Decor/Storage/Sacks": [Vector2(-70, 158), null, null, Vector2(-246, 132)],
+"Decor/GuildLevel2/Target": [null, null, Vector2(205, -5), Vector2(234, -14)],
+"Decor/GuildLevel2/WeaponRack2": [null, null, Vector2(200, 125), Vector2(236, 108)],
+"Decor/GuildLevel3/TrophyCabinet": [null, null, null, Vector2(26, -104)],
+"Stairs": [null, Vector2(-148, -31), Vector2(-192, -62), Vector2(-236, -93)],
+"Tables/TableA": [null, Vector2(0, 83), Vector2(0, 13), Vector2(0, 0)],
+"Tables/TableB": [Vector2(0, 83), Vector2(0, 83), Vector2(0, 13), Vector2(0, 0)],
+"Tables/TableC": [null, null, Vector2(0, 7), Vector2(0, 0)],
+"Tables/TableD": [null, null, null, Vector2(0, 0)]
+}
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("4_day_tint")
+strength = 0.5
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-272, -187)
+texture = ExtResource("15_bg")
+centered = false
+
+[node name="Runner" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 84)
+texture = ExtResource("18_runner")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -139)
+shape = SubResource("Shape_wall_top")
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-272, 0)
+shape = SubResource("Shape_wall_side")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(272, 0)
+shape = SubResource("Shape_wall_side")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 170)
+shape = SubResource("Shape_wall_bottom")
+
+[node name="Counter" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-152, -43)
+script = ExtResource("6_station")
+
+[node name="Recruiter" type="Sprite2D" parent="Counter"]
+position = Vector2(0, -29)
+texture = ExtResource("17_recruiter")
+offset = Vector2(0, -17)
+
+[node name="Sprite2D" type="Sprite2D" parent="Counter"]
+texture = ExtResource("16_counter")
+offset = Vector2(0, -28)
+
+[node name="NameLabel" type="Label" parent="Counter"]
+offset_left = -50.0
+offset_top = -88.0
+offset_right = 50.0
+offset_bottom = -76.0
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "Helden anheuern"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Counter"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_156x14")
+
+[node name="InteractionArea" type="Area2D" parent="Counter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Counter/InteractionArea"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_counter_area")
+
+[node name="GuildMenu" parent="Counter" instance=ExtResource("7_guild_menu")]
+heroes = Array[ExtResource("8_hero_script")]([ExtResource("9_lena"), ExtResource("10_mira"), ExtResource("11_anselm"), ExtResource("12_kira"), ExtResource("13_gerold")])
+
+[node name="DungeonBoard" parent="." instance=ExtResource("5_dungeon_board")]
+position = Vector2(208, -107)
+
+[node name="GuildMaster" parent="." instance=ExtResource("29_story_npc")]
+position = Vector2(160, -78)
+npc_id = "guild_master"
+resident = "hedwig"
+auto_talk = true
+wait_for_player = true
+
+[node name="Decor" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Barrels" type="StaticBody2D" parent="Decor"]
+position = Vector2(-234, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Barrels"]
+texture = ExtResource("19_barrels")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Barrels"]
+position = Vector2(0, -5)
+shape = SubResource("Shape_44x10")
+
+[node name="WeaponRack" type="StaticBody2D" parent="Decor"]
+position = Vector2(103, -105)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/WeaponRack"]
+texture = ExtResource("22_rack")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/WeaponRack"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_42x8")
+
+[node name="ArmorStand" type="StaticBody2D" parent="Decor"]
+position = Vector2(248, -71)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ArmorStand"]
+texture = ExtResource("23_armor")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ArmorStand"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_20x8")
+
+[node name="PlantLeft" type="StaticBody2D" parent="Decor"]
+position = Vector2(-248, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/PlantLeft"]
+texture = ExtResource("24_plant")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/PlantLeft"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_26x8")
+
+[node name="PlantRight" type="StaticBody2D" parent="Decor"]
+position = Vector2(248, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/PlantRight"]
+texture = ExtResource("24_plant")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/PlantRight"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_26x8")
+
+[node name="Dummy" type="StaticBody2D" parent="Decor"]
+position = Vector2(226, 52)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Dummy"]
+texture = ExtResource("25_dummy")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Dummy"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_20x8")
+
+[node name="Chest" type="StaticBody2D" parent="Decor"]
+position = Vector2(-50, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Chest"]
+texture = ExtResource("26_chest")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Chest"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_26x8")
+
+[node name="Storage" type="Node2D" parent="Decor"]
+y_sort_enabled = true
+script = ExtResource("g_story_prop")
+hidden_when_flag = "guild_level_1"
+
+[node name="Crates" type="StaticBody2D" parent="Decor/Storage"]
+position = Vector2(-246, 104)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Storage/Crates"]
+texture = ExtResource("27_crates")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Storage/Crates"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_26x8")
+
+[node name="Sacks" type="StaticBody2D" parent="Decor/Storage"]
+position = Vector2(-246, 132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Storage/Sacks"]
+texture = ExtResource("28_sacks")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Storage/Sacks"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_20x8")
+
+[node name="GuildLevel2" type="Node2D" parent="Decor"]
+y_sort_enabled = true
+script = ExtResource("g_story_prop")
+required_flag = "guild_level_2"
+
+[node name="Target" type="StaticBody2D" parent="Decor/GuildLevel2"]
+position = Vector2(234, -14)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/GuildLevel2/Target"]
+texture = ExtResource("g_target")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/GuildLevel2/Target"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_20x8")
+
+[node name="WeaponRack2" type="StaticBody2D" parent="Decor/GuildLevel2"]
+position = Vector2(236, 108)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/GuildLevel2/WeaponRack2"]
+texture = ExtResource("22_rack")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/GuildLevel2/WeaponRack2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_42x8")
+
+[node name="GuildLevel3" type="Node2D" parent="Decor"]
+y_sort_enabled = true
+script = ExtResource("g_story_prop")
+required_flag = "guild_level_3"
+
+[node name="TrophyCabinet" type="StaticBody2D" parent="Decor/GuildLevel3"]
+position = Vector2(26, -104)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/GuildLevel3/TrophyCabinet"]
+texture = ExtResource("g_cabinet")
+offset = Vector2(0, -28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/GuildLevel3/TrophyCabinet"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_cabinet")
+
+[node name="Tables" type="Node2D" parent="." node_paths=PackedStringArray("guild_menu")]
+y_sort_enabled = true
+script = ExtResource("14_patrons")
+guild_menu = NodePath("../Counter/GuildMenu")
+
+[node name="TableA" type="Node2D" parent="Tables"]
+y_sort_enabled = true
+
+[node name="Table" type="StaticBody2D" parent="Tables/TableA"]
+position = Vector2(-72, 47)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableA/Table"]
+texture = ExtResource("20_table")
+offset = Vector2(0, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableA/Table"]
+position = Vector2(0, -30)
+shape = SubResource("Shape_22x50")
+
+[node name="Candle" parent="Tables/TableA/Table" instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+night_energy = 0.7
+texture_scale = 0.9
+
+[node name="ChairL1" type="StaticBody2D" parent="Tables/TableA"]
+position = Vector2(-101, 9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableA/ChairL1"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableA/ChairL1"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairL2" type="StaticBody2D" parent="Tables/TableA"]
+position = Vector2(-101, 45)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableA/ChairL2"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableA/ChairL2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairR1" type="StaticBody2D" parent="Tables/TableA"]
+position = Vector2(-43, 9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableA/ChairR1"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableA/ChairR1"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairR2" type="StaticBody2D" parent="Tables/TableA"]
+position = Vector2(-43, 45)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableA/ChairR2"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableA/ChairR2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="SeatL1" type="Marker2D" parent="Tables/TableA"]
+position = Vector2(-101, 9)
+
+[node name="SeatL2" type="Marker2D" parent="Tables/TableA"]
+position = Vector2(-101, 45)
+
+[node name="SeatR1" type="Marker2D" parent="Tables/TableA"]
+position = Vector2(-43, 9)
+
+[node name="SeatR2" type="Marker2D" parent="Tables/TableA"]
+position = Vector2(-43, 45)
+
+[node name="TableB" type="Node2D" parent="Tables"]
+y_sort_enabled = true
+
+[node name="Table" type="StaticBody2D" parent="Tables/TableB"]
+position = Vector2(72, 47)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableB/Table"]
+texture = ExtResource("20_table")
+offset = Vector2(0, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableB/Table"]
+position = Vector2(0, -30)
+shape = SubResource("Shape_22x50")
+
+[node name="Candle" parent="Tables/TableB/Table" instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+night_energy = 0.7
+texture_scale = 0.9
+
+[node name="ChairL1" type="StaticBody2D" parent="Tables/TableB"]
+position = Vector2(43, 9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableB/ChairL1"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableB/ChairL1"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairL2" type="StaticBody2D" parent="Tables/TableB"]
+position = Vector2(43, 45)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableB/ChairL2"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableB/ChairL2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairR1" type="StaticBody2D" parent="Tables/TableB"]
+position = Vector2(101, 9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableB/ChairR1"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableB/ChairR1"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairR2" type="StaticBody2D" parent="Tables/TableB"]
+position = Vector2(101, 45)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableB/ChairR2"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableB/ChairR2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="SeatL1" type="Marker2D" parent="Tables/TableB"]
+position = Vector2(43, 9)
+
+[node name="SeatL2" type="Marker2D" parent="Tables/TableB"]
+position = Vector2(43, 45)
+
+[node name="SeatR1" type="Marker2D" parent="Tables/TableB"]
+position = Vector2(101, 9)
+
+[node name="SeatR2" type="Marker2D" parent="Tables/TableB"]
+position = Vector2(101, 45)
+
+[node name="TableC" type="Node2D" parent="Tables"]
+y_sort_enabled = true
+
+[node name="Table" type="StaticBody2D" parent="Tables/TableC"]
+position = Vector2(-72, 139)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableC/Table"]
+texture = ExtResource("20_table")
+offset = Vector2(0, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableC/Table"]
+position = Vector2(0, -30)
+shape = SubResource("Shape_22x50")
+
+[node name="Candle" parent="Tables/TableC/Table" instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+night_energy = 0.7
+texture_scale = 0.9
+
+[node name="ChairL1" type="StaticBody2D" parent="Tables/TableC"]
+position = Vector2(-101, 101)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableC/ChairL1"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableC/ChairL1"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairL2" type="StaticBody2D" parent="Tables/TableC"]
+position = Vector2(-101, 137)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableC/ChairL2"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableC/ChairL2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairR1" type="StaticBody2D" parent="Tables/TableC"]
+position = Vector2(-43, 101)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableC/ChairR1"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableC/ChairR1"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairR2" type="StaticBody2D" parent="Tables/TableC"]
+position = Vector2(-43, 137)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableC/ChairR2"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableC/ChairR2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="SeatL1" type="Marker2D" parent="Tables/TableC"]
+position = Vector2(-101, 101)
+
+[node name="SeatL2" type="Marker2D" parent="Tables/TableC"]
+position = Vector2(-101, 137)
+
+[node name="SeatR1" type="Marker2D" parent="Tables/TableC"]
+position = Vector2(-43, 101)
+
+[node name="SeatR2" type="Marker2D" parent="Tables/TableC"]
+position = Vector2(-43, 137)
+
+[node name="TableD" type="Node2D" parent="Tables"]
+y_sort_enabled = true
+
+[node name="Table" type="StaticBody2D" parent="Tables/TableD"]
+position = Vector2(72, 139)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableD/Table"]
+texture = ExtResource("20_table")
+offset = Vector2(0, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableD/Table"]
+position = Vector2(0, -30)
+shape = SubResource("Shape_22x50")
+
+[node name="Candle" parent="Tables/TableD/Table" instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+night_energy = 0.7
+texture_scale = 0.9
+
+[node name="ChairL1" type="StaticBody2D" parent="Tables/TableD"]
+position = Vector2(43, 101)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableD/ChairL1"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableD/ChairL1"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairL2" type="StaticBody2D" parent="Tables/TableD"]
+position = Vector2(43, 137)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableD/ChairL2"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableD/ChairL2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairR1" type="StaticBody2D" parent="Tables/TableD"]
+position = Vector2(101, 101)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableD/ChairR1"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableD/ChairR1"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="ChairR2" type="StaticBody2D" parent="Tables/TableD"]
+position = Vector2(101, 137)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tables/TableD/ChairR2"]
+texture = ExtResource("21_chair")
+offset = Vector2(0, -15.5)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tables/TableD/ChairR2"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_18x8")
+
+[node name="SeatL1" type="Marker2D" parent="Tables/TableD"]
+position = Vector2(43, 101)
+
+[node name="SeatL2" type="Marker2D" parent="Tables/TableD"]
+position = Vector2(43, 137)
+
+[node name="SeatR1" type="Marker2D" parent="Tables/TableD"]
+position = Vector2(101, 101)
+
+[node name="SeatR2" type="Marker2D" parent="Tables/TableD"]
+position = Vector2(101, 137)
+
+[node name="Stairs" type="StaticBody2D" parent="."]
+position = Vector2(-236, -93)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stairs"]
+z_index = -1
+texture = ExtResource("g_stairs")
+offset = Vector2(0, -43)
+
+[node name="PostLeft" type="CollisionShape2D" parent="Stairs"]
+position = Vector2(-21, -5)
+shape = SubResource("Shape_post")
+
+[node name="PostRight" type="CollisionShape2D" parent="Stairs"]
+position = Vector2(21, -5)
+shape = SubResource("Shape_post")
+
+[node name="DoorToDorm" parent="Stairs" instance=ExtResource("2_door")]
+position = Vector2(0, -16)
+target_scene = "res://scenes/world/village/guild_dorm.tscn"
+target_spawn_point = &"FromHall"
+
+[node name="Visual" parent="Stairs/DoorToDorm" index="0"]
+visible = false
+
+[node name="FromDorm" type="Marker2D" parent="Stairs" groups=["spawn_points"]]
+position = Vector2(0, 14)
+
+[node name="DoorOut" parent="." instance=ExtResource("2_door")]
+position = Vector2(0, 168)
+scale = Vector2(1, 0.6)
+target_scene = "res://scenes/world/market/market.tscn"
+target_spawn_point = &"FromGuild"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromMarket" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 142)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 142)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[connection signal="body_entered" from="Counter/InteractionArea" to="Counter" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Counter/InteractionArea" to="Counter" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="Counter" to="Counter/GuildMenu" method="toggle"]
+[connection signal="player_left" from="Counter" to="Counter/GuildMenu" method="close"]
+
+[editable path="Stairs/DoorToDorm"]
+[editable path="DoorOut"]
+[editable path="Player"]

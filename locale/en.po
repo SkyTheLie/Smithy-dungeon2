@@ -1,0 +1,1672 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+
+msgid "%d Herzen"
+msgstr "%d hearts"
+
+msgid "Acht Bomben"
+msgstr "Eight bombs"
+
+msgid "Alle Items abgelegt"
+msgstr "All items dropped"
+
+msgid "Alle Items ablegen"
+msgstr "Drop all items"
+
+msgid "Alle Werte ein bisschen hoch"
+msgstr "All stats up a little"
+
+msgid "Alle paar Besiegten heilst du ein halbes Herz"
+msgstr "Every few kills heal half a heart"
+
+msgid "Alles im Laden kostet die Hälfte"
+msgstr "Everything in the shop costs half"
+
+msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
+msgstr "At the end every shot bursts into four sparks"
+
+msgid "Amethyst"
+msgstr "Amethyst"
+
+msgid "Arena-Amulett"
+msgstr "Arena Amulet"
+
+msgid "Arenaherz"
+msgstr "Arena Heart"
+
+msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
+msgstr "Charged giant embers crash down and explode"
+
+msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
+msgstr "Charge, release: a mighty fire beam"
+
+msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
+msgstr "An axe instead of fireballs: heavy swing, enemies bleed"
+
+msgid "Beenden"
+msgstr "Quit"
+
+msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
+msgstr "On a hit the shot bursts into four sparks"
+
+msgid "Bernstein"
+msgstr "Amber"
+
+msgid "Besiege %d Gegner (%d / %d)"
+msgstr "Defeat %d enemies (%d / %d)"
+
+msgid "Besiege: %s"
+msgstr "Defeat: %s"
+
+msgid "Besiegte Gegner: %d"
+msgstr "Enemies defeated: %d"
+
+msgid "Blasebalg"
+msgstr "Bellows"
+
+msgid "Blutphiole"
+msgstr "Blood Vial"
+
+msgid "Bogenschütze"
+msgstr "Archer"
+
+msgid "Bomben schießen beim Explodieren Feuerbälle"
+msgstr "Bombs shoot fireballs when they explode"
+
+msgid "Bomben zerplatzen in kleine Bomben"
+msgstr "Bombs burst into little bombs"
+
+msgid "Bombengürtel"
+msgstr "Bomb Belt"
+
+msgid "Brandöl"
+msgstr "Fire Oil"
+
+msgid "Brennend und langsam: mehr Schaden"
+msgstr "Burning and slow: more damage"
+
+msgid "Brennende, explodierende Schüsse"
+msgstr "Burning, exploding shots"
+
+msgid "Brennende, langsame Gegner und zwei blaue Herzen"
+msgstr "Burning, slowed enemies and two blue hearts"
+
+msgid "Bronzebogen"
+msgstr "Bronze Bow"
+
+msgid "Bronzeschild"
+msgstr "Bronze Shield"
+
+msgid "Brotkanone"
+msgstr "Bread Cannon"
+
+msgid "Brotregen"
+msgstr "Bread Rain"
+
+msgid "Bumerang-Haken"
+msgstr "Boomerang Hook"
+
+msgid "Das kostet zu viel Leben"
+msgstr "That costs too much life"
+
+msgid "Defensiv"
+msgstr "Defensive"
+
+msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
+msgstr "Your fireballs destroy enemy shots"
+
+msgid "Deine Items"
+msgstr "Your items"
+
+msgid "Deine Schüsse verfolgen Gegner"
+msgstr "Your shots chase enemies"
+
+msgid "Der Feuerstrahl biegt sich zum Gegner"
+msgstr "The fire beam bends toward enemies"
+
+msgid "Der Stein nimmt dein Opfer an"
+msgstr "The stone accepts your sacrifice"
+
+msgid "Der Weg nach unten ist frei!"
+msgstr "The way down is open!"
+
+msgid "Diamantherz"
+msgstr "Diamond Heart"
+
+msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
+msgstr "The archer's weapon: charge arrows and let go, far and strong"
+
+msgid "Die Waffe des Kriegers: ein Schwertschwung trifft alle vor dir"
+msgstr "The warrior's weapon: a sword swing hits everyone in front of you"
+
+msgid "Die Waffe des Magiers: schießt Feuerbälle"
+msgstr "The mage's weapon: shoots fireballs"
+
+msgid "Dietrich"
+msgstr "Lockpick"
+
+msgid "Doppelschuss"
+msgstr "Double shot"
+
+msgid "Dornenpanzer"
+msgstr "Thorn Armor"
+
+msgid "Drachenatem"
+msgstr "Dragon Breath"
+
+msgid "Drachenhaut"
+msgstr "Dragon Hide"
+
+msgid "Drachenleder"
+msgstr "Dragon Leather"
+
+msgid "Drachenmantel"
+msgstr "Dragon Cloak"
+
+msgid "Drei Funken folgen dir und schießen"
+msgstr "Three sparks follow you and shoot"
+
+msgid "Drei Schlüssel, Rabatt im Laden"
+msgstr "Three keys, shop discount"
+
+msgid "Drei blaue Herzen"
+msgstr "Three blue hearts"
+
+msgid "Drei blaue Herzen und manchmal ausweichen"
+msgstr "Three blue hearts and sometimes dodge"
+
+msgid "Dreifachschuss"
+msgstr "Triple shot"
+
+msgid "Dreizack-Rune"
+msgstr "Trident Rune"
+
+msgid "Dreißig Münzen und zehn Schlüssel"
+msgstr "Thirty coins and ten keys"
+
+msgid "Du bist gefallen"
+msgstr "You have fallen"
+
+msgid "Du brauchst einen Schlüssel"
+msgstr "You need a key"
+
+msgid "Du hast den Dungeon bezwungen!"
+msgstr "You have conquered the dungeon!"
+
+msgid "Du hast nicht genug Leben"
+msgstr "You don't have enough life"
+
+msgid "Du läufst schneller"
+msgstr "You run faster"
+
+msgid "Du schießt Brotlaibe. Getroffene Gegner vergessen dich und rennen weg"
+msgstr "You shoot loaves of bread. Hit enemies forget you and run away"
+
+msgid "Du schießt auch nach hinten"
+msgstr "You also shoot backwards"
+
+msgid "Du schießt schneller"
+msgstr "You shoot faster"
+
+msgid "Du wirfst Bomben statt Feuerbällen"
+msgstr "You throw bombs instead of fireballs"
+
+msgid "Du wirfst Wurfsterne, getroffene Gegner bluten"
+msgstr "You throw shuriken, hit enemies bleed"
+
+msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
+msgstr "You grow bigger: more hearts and damage, easier to hit"
+
+msgid "Du wirst kleiner und schneller"
+msgstr "You get smaller and faster"
+
+msgid "Du wirst kleiner: schwerer zu treffen, schneller"
+msgstr "You shrink: harder to hit, faster"
+
+msgid "Du wirst viel größer und stärker, aber langsamer"
+msgstr "You grow much bigger and stronger, but slower"
+
+msgid "Du wirst winzig und manchmal weichst du aus"
+msgstr "You become tiny and sometimes dodge"
+
+msgid "Dungeon der Glut"
+msgstr "Dungeon of Embers"
+
+msgid "Dunkler Zauberstab"
+msgstr "Dark Wand"
+
+msgid "Durch Gegner hindurch und von Wand zu Wand"
+msgstr "Through enemies and from wall to wall"
+
+msgid "Durch Steine, und manchmal fliehen Gegner"
+msgstr "Through rocks, and sometimes enemies flee"
+
+msgid "Durchschlag, Abprallen und Zerplatzen"
+msgstr "Piercing, bouncing and bursting"
+
+msgid "E: Bombe · Tab: Karte · Esc: Pause"
+msgstr "E: bomb · Tab: map · Esc: pause"
+
+msgid "Ebene %d"
+msgstr "Floor %d"
+
+msgid "Ebene: %d"
+msgstr "Floor: %d"
+
+msgid "Effekte"
+msgstr "Effects"
+
+msgid "Eigene Explosionen heilen dich"
+msgstr "Your own explosions heal you"
+
+msgid "Ein Feuerball kreist um dich und blockt Schüsse"
+msgstr "A fireball circles you and blocks shots"
+
+msgid "Ein Funke folgt dir und schießt"
+msgstr "A spark follows you and shoots"
+
+msgid "Ein Funke und ein Glutmond"
+msgstr "A spark and an ember moon"
+
+msgid "Ein Funke und mehr Glück"
+msgstr "A spark and more luck"
+
+msgid "Ein Glutpakt hat sich geöffnet"
+msgstr "An ember pact has opened"
+
+msgid "Ein Herz mehr"
+msgstr "One more heart"
+
+msgid "Ein Herz mehr, Glück hoch"
+msgstr "One more heart, luck up"
+
+msgid "Ein Herz mehr, Schaden hoch"
+msgstr "One more heart, damage up"
+
+msgid "Ein Herz mehr, heilt dich ganz"
+msgstr "One more heart, heals you fully"
+
+msgid "Ein Herz und ein blaues Herz"
+msgstr "One heart and one blue heart"
+
+msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
+msgstr "A heart, thorns, explosions don't hurt you"
+
+msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "A heart, a coin, a bomb and a key"
+
+msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
+msgstr "A heart, two blue hearts, damage up"
+
+msgid "Ein Schrein hat sich geöffnet"
+msgstr "A shrine has opened"
+
+msgid "Ein Schuss mehr und mehr Schaden"
+msgstr "One more shot and more damage"
+
+msgid "Ein Schuss mehr, aber schwächer"
+msgstr "One more shot, but weaker"
+
+msgid "Ein blaues Herz und Dornen"
+msgstr "A blue heart and thorns"
+
+msgid "Ein blaues Herz, Schaden hoch"
+msgstr "One blue heart, damage up"
+
+msgid "Ein blaues Herz, länger sicher nach Treffern"
+msgstr "A blue heart, safe longer after hits"
+
+msgid "Ein blaues Herz, schneller laufen"
+msgstr "One blue heart, move faster"
+
+msgid "Ein geheimer Raum!"
+msgstr "A secret room!"
+
+msgid "Ein zweites Leben"
+msgstr "A second life"
+
+msgid "Ein zweites Leben und ein Funke"
+msgstr "A second life and a spark"
+
+msgid "Ein zweites Leben!"
+msgstr "A second life!"
+
+msgid "Eine ganze Bäckerei auf einmal"
+msgstr "A whole bakery at once"
+
+msgid "Einstellungen"
+msgstr "Settings"
+
+msgid "Eisenhaut"
+msgstr "Iron Skin"
+
+msgid "Eisfeder"
+msgstr "Ice Feather"
+
+msgid "Eisspiegel"
+msgstr "Ice Mirror"
+
+msgid "Eisstab"
+msgstr "Ice Staff"
+
+msgid "Elfenbrief"
+msgstr "Elven Letter"
+
+msgid "Entdecke %d Items (%d / %d)"
+msgstr "Discover %d items (%d / %d)"
+
+msgid "Entdeckt: %d / %d"
+msgstr "Discovered: %d / %d"
+
+msgid "Erdstab"
+msgstr "Earth Staff"
+
+msgid "Erreiche Ebene %d"
+msgstr "Reach floor %d"
+
+msgid "Erstglut"
+msgstr "First Ember"
+
+msgid "Explosive Schüsse, langsamer schießen"
+msgstr "Explosive shots, slower fire rate"
+
+msgid "Fahre mit der Maus über ein Item"
+msgstr "Hover over an item"
+
+msgid "Feenstaub"
+msgstr "Fairy Dust"
+
+msgid "Feuerfester Bomber"
+msgstr "Fireproof Bomber"
+
+msgid "Feuerhieb"
+msgstr "Fire Slash"
+
+msgid "Feuerkranz"
+msgstr "Fire Wreath"
+
+msgid "Feuerlanze"
+msgstr "Fire Lance"
+
+msgid "Feuerstab"
+msgstr "Fire Staff"
+
+msgid "Feuerstrahl statt Feuerbällen: Maustaste halten"
+msgstr "Fire beam instead of fireballs: hold the mouse button"
+
+msgid "Feuerwerk"
+msgstr "Fireworks"
+
+msgid "Flechtenleder"
+msgstr "Lichen Leather"
+
+msgid "Flechtenmantel"
+msgstr "Lichen Cloak"
+
+msgid "Fledermaus"
+msgstr "Bat"
+
+msgid "Flipper"
+msgstr "Pinball"
+
+msgid "Fluchskelett"
+msgstr "Cursed Skeleton"
+
+msgid "Freigeschaltet: %s"
+msgstr "Unlocked: %s"
+
+msgid "Frost und Feuer"
+msgstr "Frost and Fire"
+
+msgid "Frostflechte"
+msgstr "Frost Lichen"
+
+msgid "Frostkristall"
+msgstr "Frost Crystal"
+
+msgid "Frostmähne"
+msgstr "Frost Mane"
+
+msgid "Funkenbüchse"
+msgstr "Spark Tin"
+
+msgid "Funkenfänger"
+msgstr "Spark Catcher"
+
+msgid "Funkenstein"
+msgstr "Spark Stone"
+
+msgid "Fängt in jedem Raum den ersten Treffer ab"
+msgstr "Blocks the first hit in every room"
+
+msgid "Fünf Bomben, und Explosionen tun dir nichts mehr"
+msgstr "Five bombs, and explosions no longer hurt you"
+
+msgid "Fünf Münzen, drei Bomben, drei Schlüssel"
+msgstr "Five coins, three bombs, three keys"
+
+msgid "Fünf Schlüssel"
+msgstr "Five keys"
+
+msgid "Fünfzehn Münzen"
+msgstr "Fifteen coins"
+
+msgid "Gegabelter Stab"
+msgstr "Forked Staff"
+
+msgid "Gegner brennen, Schaden hoch"
+msgstr "Enemies burn, damage up"
+
+msgid "Gegner werden langsamer, Reichweite hoch"
+msgstr "Enemies slow down, range up"
+
+msgid "Gegner, die dich berühren, nehmen Schaden"
+msgstr "Enemies that touch you take damage"
+
+msgid "Geist"
+msgstr "Ghost"
+
+msgid "Geisterfürst"
+msgstr "Ghost Lord"
+
+msgid "Geisterglas"
+msgstr "Ghost Glass"
+
+msgid "Geisterstab"
+msgstr "Ghost Staff"
+
+msgid "Generalsklinge"
+msgstr "General's Blade"
+
+msgid "Geschafft!"
+msgstr "You made it!"
+
+msgid "Gesperrt"
+msgstr "Locked"
+
+msgid "Gesprengte Fessel"
+msgstr "Broken Shackle"
+
+msgid "Getroffene Gegner brennen weiter"
+msgstr "Hit enemies keep burning"
+
+msgid "Getroffene Gegner fliehen vor dir"
+msgstr "Hit enemies flee from you"
+
+msgid "Getroffene Gegner frieren ein"
+msgstr "Hit enemies freeze"
+
+msgid "Getroffene Gegner frieren kurz ein"
+msgstr "Hit enemies freeze for a moment"
+
+msgid "Getroffene Gegner torkeln herum"
+msgstr "Hit enemies stagger around"
+
+msgid "Getroffene Gegner werden langsam und vergiftet"
+msgstr "Hit enemies are slowed and poisoned"
+
+msgid "Getroffene Gegner werden langsamer"
+msgstr "Hit enemies slow down"
+
+msgid "Getroffene Gegner werden vergiftet"
+msgstr "Hit enemies are poisoned"
+
+msgid "Gewinne %d Runs"
+msgstr "Win %d runs"
+
+msgid "Gewinne einen Run"
+msgstr "Win a run"
+
+msgid "Gewinne in unter %d Minuten"
+msgstr "Win in under %d minutes"
+
+msgid "Ghul"
+msgstr "Ghoul"
+
+msgid "Giftratte"
+msgstr "Poison Rat"
+
+msgid "Giftstab"
+msgstr "Poison Staff"
+
+msgid "Giftzahn"
+msgstr "Venom Fang"
+
+msgid "Glutkern"
+msgstr "Ember Core"
+
+msgid "Glutklinge"
+msgstr "Ember Blade"
+
+msgid "Glutmantel"
+msgstr "Ember Cloak"
+
+msgid "Glutmond"
+msgstr "Ember Moon"
+
+msgid "Glutsammler"
+msgstr "Ember Gatherer"
+
+msgid "Glutschwert"
+msgstr "Ember Sword"
+
+msgid "Glutstab"
+msgstr "Ember Staff"
+
+msgid "Glück"
+msgstr "Luck"
+
+msgid "Glück hoch"
+msgstr "Luck up"
+
+msgid "Glück und Schaden hoch"
+msgstr "Luck and damage up"
+
+msgid "Glück viel höher"
+msgstr "Much more luck"
+
+msgid "Glücksflachs"
+msgstr "Lucky Flax"
+
+msgid "Glühender Schlüssel"
+msgstr "Glowing Key"
+
+msgid "Goblin"
+msgstr "Goblin"
+
+msgid "Goblin-Schamane"
+msgstr "Goblin Shaman"
+
+msgid "Goblinkrone"
+msgstr "Goblin Crown"
+
+msgid "Goblinstollen"
+msgstr "Goblin Tunnels"
+
+msgid "Goldader"
+msgstr "Gold Vein"
+
+msgid "Goldamulett"
+msgstr "Gold Amulet"
+
+msgid "Goldbarren"
+msgstr "Gold Bar"
+
+msgid "Goldbogen"
+msgstr "Gold Bow"
+
+msgid "Goldener Schattenstab"
+msgstr "Golden Shadow Staff"
+
+msgid "Goldglut"
+msgstr "Golden Ember"
+
+msgid "Goldhammer"
+msgstr "Gold Hammer"
+
+msgid "Goldhelm"
+msgstr "Gold Helmet"
+
+msgid "Goldklinge"
+msgstr "Gold Blade"
+
+msgid "Goldstiefel"
+msgstr "Gold Boots"
+
+msgid "Greifenfell"
+msgstr "Griffin Fur"
+
+msgid "Greifenmantel"
+msgstr "Griffin Cloak"
+
+msgid "Große, schwere Schüsse mit viel Rückstoß"
+msgstr "Big, heavy shots with lots of knockback"
+
+msgid "Grubenhacke"
+msgstr "Mine Pick"
+
+msgid "Gruftgespenst"
+msgstr "Crypt Wraith"
+
+msgid "Gruftschild"
+msgstr "Crypt Shield"
+
+msgid "Größere Bomben und drei Bomben"
+msgstr "Bigger bombs and three bombs"
+
+msgid "Größere Bomben, und keine tut dir weh"
+msgstr "Bigger bombs, and none of them hurt you"
+
+msgid "Größere Feuerbälle, mehr Schaden"
+msgstr "Bigger fireballs, more damage"
+
+msgid "Habe %d Herz-Container gleichzeitig"
+msgstr "Have %d heart containers at once"
+
+msgid "Habe %d Münzen gleichzeitig"
+msgstr "Have %d coins at once"
+
+msgid "Habe %d blaue Herzen gleichzeitig"
+msgstr "Have %d blue hearts at once"
+
+msgid "Hauptmenü"
+msgstr "Main Menu"
+
+msgid "Heilen durch Besiegte, Schaden hoch"
+msgstr "Heal from kills, damage up"
+
+msgid "Heilerkräuter"
+msgstr "Healer's Herbs"
+
+msgid "Heilt dich ganz, schneller laufen"
+msgstr "Heals you fully, move faster"
+
+msgid "Heißer Sand"
+msgstr "Hot Sand"
+
+msgid "Herzblatt"
+msgstr "Heartleaf"
+
+msgid "Herzen heilen doppelt"
+msgstr "Hearts heal twice as much"
+
+msgid "Hexenkessel"
+msgstr "Witch's Cauldron"
+
+msgid "Hier klicken"
+msgstr "Click here"
+
+msgid "Holzstab"
+msgstr "Wooden Staff"
+
+msgid "Hydraschuppe"
+msgstr "Hydra Scale"
+
+msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
+msgstr "At most half a heart per hit, but slower"
+
+msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
+msgstr "At most half a heart per hit, safe longer"
+
+msgid "Höhlentroll"
+msgstr "Cave Troll"
+
+msgid "Höllenhundfell"
+msgstr "Hellhound Fur"
+
+msgid "Höllenleder"
+msgstr "Hell Leather"
+
+msgid "Höllenstab"
+msgstr "Hell Staff"
+
+msgid "Jadefigur"
+msgstr "Jade Figure"
+
+msgid "Jagdbogen"
+msgstr "Hunting Bow"
+
+msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
+msgstr "The farther the shot flies, the more damage"
+
+msgid "Jeder Treffer jagt Gegnern Angst ein"
+msgstr "Every hit frightens enemies"
+
+msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
+msgstr "Every hit you take makes you stronger on this floor"
+
+msgid "Jeder zweite Schuss ist viel stärker"
+msgstr "Every second shot is much stronger"
+
+msgid "Kamille"
+msgstr "Chamomile"
+
+msgid "Kann ab jetzt im Dungeon auftauchen"
+msgstr "Can now appear in the dungeon"
+
+msgid "Karawanenrucksack"
+msgstr "Caravan Pack"
+
+msgid "Kein Treffer nimmt mehr als ein halbes Herz"
+msgstr "No hit takes more than half a heart"
+
+msgid "Kinderschuhe"
+msgstr "Child's Shoes"
+
+msgid "Kleiner, schneller und manchmal ausweichen"
+msgstr "Smaller, faster and sometimes dodge"
+
+msgid "Klingenstern"
+msgstr "Blade Star"
+
+msgid "Knochengeneral"
+msgstr "Bone General"
+
+msgid "Kohlenschrot"
+msgstr "Coal Buckshot"
+
+msgid "Kometenschweif"
+msgstr "Comet Tail"
+
+msgid "Kometenstein"
+msgstr "Comet Stone"
+
+msgid "Kompassnadel"
+msgstr "Compass Needle"
+
+msgid "Krieger"
+msgstr "Warrior"
+
+msgid "Kriegerschwert"
+msgstr "Warrior's Sword"
+
+msgid "Kriegsaxt"
+msgstr "War Axe"
+
+msgid "Kristallkarte"
+msgstr "Crystal Map"
+
+msgid "Kristallsplitter"
+msgstr "Crystal Shard"
+
+msgid "Kräuterbeutel"
+msgstr "Herb Pouch"
+
+msgid "Kupfernagel"
+msgstr "Copper Nail"
+
+msgid "Königsbrief"
+msgstr "Royal Letter"
+
+msgid "Labyrinthaxt"
+msgstr "Labyrinth Axe"
+
+msgid "Ladenschild"
+msgstr "Shop Sign"
+
+msgid "Lange Flugbahnen, gewaltiger Einschlag"
+msgstr "Long flights, mighty impact"
+
+msgid "Langsam heilen und ein blaues Herz"
+msgstr "Slow healing and a blue heart"
+
+msgid "Langsam heilst du dich"
+msgstr "You slowly heal"
+
+msgid "Lautstärke"
+msgstr "Volume"
+
+msgid "Lebendiger Wind"
+msgstr "Living Wind"
+
+msgid "Lebensholz"
+msgstr "Lifewood"
+
+msgid "Lebenstau"
+msgstr "Life Dew"
+
+msgid "Lederstiefel"
+msgstr "Leather Boots"
+
+msgid "Legendenhandschuhe"
+msgstr "Legend Gloves"
+
+msgid "Leichte Feder"
+msgstr "Light Feather"
+
+msgid "Letzte Glut"
+msgstr "Last Ember"
+
+msgid "Lexikon"
+msgstr "Lexicon"
+
+msgid "Lichtstab"
+msgstr "Light Staff"
+
+msgid "Länger sicher nach einem Treffer"
+msgstr "Safe longer after a hit"
+
+msgid "Läufersandalen"
+msgstr "Runner's Sandals"
+
+msgid "Läuferschuhe"
+msgstr "Runner's Shoes"
+
+msgid "Magier"
+msgstr "Mage"
+
+msgid "Makelloser Schild"
+msgstr "Flawless Shield"
+
+msgid "Manchmal Schüsse in alle vier Richtungen"
+msgstr "Sometimes shots in all four directions"
+
+msgid "Manchmal ausweichen, schneller laufen"
+msgstr "Sometimes dodge, move faster"
+
+msgid "Manchmal brennen getroffene Gegner"
+msgstr "Hit enemies sometimes burn"
+
+msgid "Manchmal explodieren deine Schüsse"
+msgstr "Your shots sometimes explode"
+
+msgid "Manchmal frieren Gegner ein"
+msgstr "Enemies sometimes freeze"
+
+msgid "Manchmal vergiften deine Schüsse"
+msgstr "Your shots sometimes poison"
+
+msgid "Manchmal weichst du Treffern aus"
+msgstr "You sometimes dodge hits"
+
+msgid "Maus"
+msgstr "Mouse"
+
+msgid "Maustaste halten zum Aufladen: größer und stärker"
+msgstr "Hold the mouse button to charge: bigger and stronger"
+
+msgid "Mehr Beute nach jedem Raum"
+msgstr "More loot after every room"
+
+msgid "Mehr Rückstoß und Schaden"
+msgstr "More knockback and damage"
+
+msgid "Mehr Schaden für jede Münze, die du hast"
+msgstr "More damage for every coin you have"
+
+msgid "Meteor"
+msgstr "Meteor"
+
+msgid "Minotaurus"
+msgstr "Minotaur"
+
+msgid "Mondlilie"
+msgstr "Moon Lily"
+
+msgid "Mondsiegel"
+msgstr "Moon Seal"
+
+msgid "Mondsturm"
+msgstr "Moon Storm"
+
+msgid "Moorherz"
+msgstr "Bog Heart"
+
+msgid "Musik"
+msgstr "Music"
+
+msgid "Münzen und Herzen fliegen zu dir"
+msgstr "Coins and hearts fly to you"
+
+msgid "Nach jedem Boss zwei Items zur Wahl"
+msgstr "Two items to choose from after every boss"
+
+msgid "Nachtschatten"
+msgstr "Nightshade"
+
+msgid "Nachtschattensamen"
+msgstr "Nightshade Seeds"
+
+msgid "Neuer Run"
+msgstr "New Run"
+
+msgid "Neues Spiel"
+msgstr "New Game"
+
+msgid "Nicht während eines Kampfes"
+msgstr "Not during a fight"
+
+msgid "Nichts geschieht"
+msgstr "Nothing happens"
+
+msgid "Nimm %d Glutpakte in einem Run"
+msgstr "Take %d ember pacts in one run"
+
+msgid "Noch ein Glutmond kreist um dich"
+msgstr "Another Ember Moon circles you"
+
+msgid "Noch keine Items"
+msgstr "No items yet"
+
+msgid "Noch nicht entdeckt"
+msgstr "Not discovered yet"
+
+msgid "Nächste Seite"
+msgstr "Next page"
+
+msgid "Offensiv"
+msgstr "Offensive"
+
+msgid "Oger"
+msgstr "Ogre"
+
+msgid "Onyx"
+msgstr "Onyx"
+
+msgid "Opaljuwel"
+msgstr "Opal Jewel"
+
+msgid "Opferdolch"
+msgstr "Sacrificial Knife"
+
+msgid "Opferstein: ein Herz für eine Gabe"
+msgstr "Sacrifice stone: a heart for a gift"
+
+msgid "Ork"
+msgstr "Orc"
+
+msgid "Ork-Häuptling"
+msgstr "Orc Chieftain"
+
+msgid "Paktschatulle"
+msgstr "Pact Casket"
+
+msgid "Palladiumamulett"
+msgstr "Palladium Amulet"
+
+msgid "Palladiumbarren"
+msgstr "Palladium Bar"
+
+msgid "Palladiumklinge"
+msgstr "Palladium Blade"
+
+msgid "Pause"
+msgstr "Paused"
+
+msgid "Pfeile aufladen und loslassen: weit und stark"
+msgstr "Charge and release arrows: far and strong"
+
+msgid "Pickups fliegen zu dir, Glück hoch"
+msgstr "Pickups fly to you, luck up"
+
+msgid "Platin-Großschwert"
+msgstr "Platinum Greatsword"
+
+msgid "Platin-Lichtstab"
+msgstr "Platinum Light Staff"
+
+msgid "Platin-Sturmstab"
+msgstr "Platinum Storm Staff"
+
+msgid "Platinamulett"
+msgstr "Platinum Amulet"
+
+msgid "Platinbarren"
+msgstr "Platinum Bar"
+
+msgid "Platinklinge"
+msgstr "Platinum Blade"
+
+msgid "Platinspitze"
+msgstr "Platinum Tip"
+
+msgid "Pulverfass"
+msgstr "Powder Keg"
+
+msgid "Pulverhandschuh"
+msgstr "Powder Glove"
+
+msgid "Ratte"
+msgstr "Rat"
+
+msgid "Rattenfell"
+msgstr "Rat Fur"
+
+msgid "Rattenkeller"
+msgstr "Rat Cellar"
+
+msgid "Rattenkönig"
+msgstr "Rat King"
+
+msgid "Reichweite"
+msgstr "Range"
+
+msgid "Reichweite +2 m, schnellere Schüsse"
+msgstr "Range +2 m, faster shots"
+
+msgid "Reichweite hoch"
+msgstr "Range up"
+
+msgid "Reichweite und Schaden hoch"
+msgstr "Range and damage up"
+
+msgid "Reichweite und Schusstempo hoch"
+msgstr "Range and shot speed up"
+
+msgid "Reichweite: %s m"
+msgstr "Range: %s m"
+
+msgid "Reine Fassung"
+msgstr "Pure Setting"
+
+msgid "Riesenratte"
+msgstr "Giant Rat"
+
+msgid "Riesentrank"
+msgstr "Giant Potion"
+
+msgid "Riesige Schüsse, die im Flug schrumpfen"
+msgstr "Huge shots that shrink in flight"
+
+msgid "Riesige, langsame Feuerbälle mit viel Schaden"
+msgstr "Huge, slow fireballs with lots of damage"
+
+msgid "Riesiger Rückstoß und viel Schaden"
+msgstr "Huge knockback and lots of damage"
+
+msgid "Ritterhelm"
+msgstr "Knight's Helmet"
+
+msgid "Robbenfell"
+msgstr "Seal Fur"
+
+msgid "Robbenmantel"
+msgstr "Seal Cloak"
+
+msgid "Ruhmeskette"
+msgstr "Chain of Glory"
+
+msgid "Rückenamulett"
+msgstr "Back Amulet"
+
+msgid "Sandschmied-Handschuhe"
+msgstr "Sandsmith Gloves"
+
+msgid "Saphir"
+msgstr "Sapphire"
+
+msgid "Saphirjuwel"
+msgstr "Sapphire Jewel"
+
+msgid "Schaden"
+msgstr "Damage"
+
+msgid "Schaden für jede Münze, Glück hoch"
+msgstr "Damage for every coin, luck up"
+
+msgid "Schaden hoch"
+msgstr "Damage up"
+
+msgid "Schaden hoch, etwas schneller schießen"
+msgstr "Damage up, shoot a bit faster"
+
+msgid "Schaden hoch, größere Feuerbälle"
+msgstr "Damage up, bigger fireballs"
+
+msgid "Schaden hoch, schneller laufen"
+msgstr "Damage up, move faster"
+
+msgid "Schaden mal 1,15"
+msgstr "Damage x1.15"
+
+msgid "Schaden mal 1,2"
+msgstr "Damage x1.2"
+
+msgid "Schaden mal 1,2, etwas langsamer schießen"
+msgstr "Damage x1.2, slightly slower fire rate"
+
+msgid "Schaden mal 1,25"
+msgstr "Damage x1.25"
+
+msgid "Schaden mal 1,3 und zehn Münzen"
+msgstr "Damage x1.3 and ten coins"
+
+msgid "Schaden mal 1,4 und Durchschlag"
+msgstr "Damage x1.4 and piercing"
+
+msgid "Schaden mal 1,5"
+msgstr "Damage x1.5"
+
+msgid "Schaden und Reichweite hoch"
+msgstr "Damage and range up"
+
+msgid "Schaden und Rückstoß hoch"
+msgstr "Damage and knockback up"
+
+msgid "Schaden und Schusstempo hoch"
+msgstr "Damage and shot speed up"
+
+msgid "Schaden, Reichweite und Glück hoch"
+msgstr "Damage, range and luck up"
+
+msgid "Schaden, Schusstempo und Reichweite hoch"
+msgstr "Damage, fire rate and range up"
+
+msgid "Schaden: %s"
+msgstr "Damage: %s"
+
+msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
+msgstr "Clear %d floors in a row without a hit"
+
+msgid "Schattenmantel"
+msgstr "Shadow Cloak"
+
+msgid "Schattenschritt"
+msgstr "Shadow Step"
+
+msgid "Schattenstab"
+msgstr "Shadow Staff"
+
+msgid "Schatzbeutel"
+msgstr "Treasure Bag"
+
+msgid "Schatzkarte"
+msgstr "Treasure Map"
+
+msgid "Schießt Feuerbälle"
+msgstr "Shoots fireballs"
+
+msgid "Schildwache"
+msgstr "Shield Guard"
+
+msgid "Schlachtkeil"
+msgstr "Battle Wedge"
+
+msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
+msgstr "Serpent fire: shots snake along, a bit more damage"
+
+msgid "Schlangenschüsse, die Gegner verfolgen"
+msgstr "Snaking shots that chase enemies"
+
+msgid "Schleim"
+msgstr "Slime"
+
+msgid "Schließen"
+msgstr "Close"
+
+msgid "Schlängelnde Schüsse, die abprallen"
+msgstr "Snaking shots that bounce"
+
+msgid "Schlüsselform"
+msgstr "Key Mold"
+
+msgid "Schmiedehammer"
+msgstr "Smith's Hammer"
+
+msgid "Schmiedeschlüssel"
+msgstr "Smithy Key"
+
+msgid "Schmiedeschwert"
+msgstr "Smith's Sword"
+
+msgid "Schmiedeschürze"
+msgstr "Smith's Apron"
+
+msgid "Schneller laufen, Glück hoch"
+msgstr "Move faster, luck up"
+
+msgid "Schneller laufen, mehr Reichweite"
+msgstr "Move faster, more range"
+
+msgid "Schneller schießen und laufen"
+msgstr "Shoot and move faster"
+
+msgid "Schneller schießen, Schüsse zerplatzen am Ende"
+msgstr "Shoot faster, shots burst at the end"
+
+msgid "Schnellere Schüsse fliegen durch Gegner"
+msgstr "Faster shots fly through enemies"
+
+msgid "Schreckensbrief"
+msgstr "Letter of Dread"
+
+msgid "Schrotflinte: sechs Glutbrocken auf kurze Distanz"
+msgstr "Shotgun: six embers at short range"
+
+msgid "Schrumpftrank"
+msgstr "Shrinking Potion"
+
+msgid "Schusstempo"
+msgstr "Shot speed"
+
+msgid "Schwarzer Kristall"
+msgstr "Black Crystal"
+
+msgid "Schwere Glut"
+msgstr "Heavy Ember"
+
+msgid "Schwerer zu treffen und schneller"
+msgstr "Harder to hit and faster"
+
+msgid "Schwert statt Feuerbällen: der Schwung trifft alle vor dir, Gegner brennen"
+msgstr "A sword instead of fireballs: the swing hits everyone in front of you, enemies burn"
+
+msgid "Schwert und Feuerstab: jeder Schwung schickt einen Feuerschweif nach vorne"
+msgstr "Sword and fire staff: every swing sends a trail of fire forward"
+
+msgid "Schwertschwung: kurze Reichweite, trifft mehrere Gegner"
+msgstr "Sword swing: short range, hits several enemies"
+
+msgid "Schüsse auf einmal: %d"
+msgstr "Shots at once: %d"
+
+msgid "Schüsse fliegen durch Gegner hindurch"
+msgstr "Shots fly through enemies"
+
+msgid "Schüsse fliegen durch Steine"
+msgstr "Shots fly through rocks"
+
+msgid "Schüsse fliegen durch Steine und suchen Gegner"
+msgstr "Shots fly through rocks and seek enemies"
+
+msgid "Schüsse fliegen zu dir zurück"
+msgstr "Shots fly back to you"
+
+msgid "Schüsse prallen ab, fliegen durch Gegner und suchen sie"
+msgstr "Shots bounce, pierce enemies and seek them"
+
+msgid "Schüsse prallen von Wänden ab"
+msgstr "Shots bounce off walls"
+
+msgid "Schüsse pro Sekunde: %s"
+msgstr "Shots per second: %s"
+
+msgid "Schüsse suchen Gegner und fliegen durch sie"
+msgstr "Shots seek enemies and fly through them"
+
+msgid "Schüsse zerplatzen am Ende und fliegen durch Steine"
+msgstr "Shots burst at the end and fly through rocks"
+
+msgid "Schüsse/s"
+msgstr "Shots/s"
+
+msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
+msgstr "Six coins, three bombs, three keys"
+
+msgid "Seelensplitter"
+msgstr "Soul Shard"
+
+msgid "Seelenstab"
+msgstr "Soul Staff"
+
+msgid "Seherbräu"
+msgstr "Seer's Brew"
+
+msgid "Seite %d von %d"
+msgstr "Page %d of %d"
+
+msgid "Shift: du springst dorthin, wo du hinzielst"
+msgstr "Shift: you jump to where you aim"
+
+msgid "Shift: ein schneller Sprint, kurz unverwundbar"
+msgstr "Shift: a quick dash, briefly invulnerable"
+
+msgid "Siegerring"
+msgstr "Victor's Ring"
+
+msgid "Silberader"
+msgstr "Silver Vein"
+
+msgid "Silberamulett"
+msgstr "Silver Amulet"
+
+msgid "Silberdolch"
+msgstr "Silver Dagger"
+
+msgid "Silberhammer"
+msgstr "Silver Hammer"
+
+msgid "Silberharnisch"
+msgstr "Silver Breastplate"
+
+msgid "Silberklinge"
+msgstr "Silver Blade"
+
+msgid "Silberring"
+msgstr "Silver Ring"
+
+msgid "Silberspitze"
+msgstr "Silver Tip"
+
+msgid "Skelett"
+msgstr "Skeleton"
+
+msgid "Skelettritter"
+msgstr "Skeleton Knight"
+
+msgid "Smaragd"
+msgstr "Emerald"
+
+msgid "Smaragdjuwel"
+msgstr "Emerald Jewel"
+
+msgid "Sonderraum"
+msgstr "Special room"
+
+msgid "Sonnenblume"
+msgstr "Sunflower"
+
+msgid "Spardose"
+msgstr "Money Box"
+
+msgid "Spinne"
+msgstr "Spider"
+
+msgid "Spinnenmutter"
+msgstr "Spider Mother"
+
+msgid "Spinnenseil"
+msgstr "Spider Rope"
+
+msgid "Splitterrubin"
+msgstr "Shatter Ruby"
+
+msgid "Sprache"
+msgstr "Language"
+
+msgid "Sprengmeisterhelm"
+msgstr "Blastmaster Helmet"
+
+msgid "Sprengrune"
+msgstr "Blast Rune"
+
+msgid "Sprengsack"
+msgstr "Blasting Sack"
+
+msgid "Sprengstrahl"
+msgstr "Blast Beam"
+
+msgid "Sprinterrucksack"
+msgstr "Sprinter's Pack"
+
+msgid "Steine zertreten und mehr Beute"
+msgstr "Crush rocks and more loot"
+
+msgid "Steine zertreten, fünf Bomben"
+msgstr "Crush rocks, five bombs"
+
+msgid "Sternenfessel"
+msgstr "Star Shackle"
+
+msgid "Sternenstahl"
+msgstr "Starsteel"
+
+msgid "Sternenstahl-Splitter"
+msgstr "Starsteel Shard"
+
+msgid "Sternenstaub"
+msgstr "Stardust"
+
+msgid "Sternentrunk"
+msgstr "Starlight Draught"
+
+msgid "Stillstehen macht dich unverwundbar"
+msgstr "Standing still makes you invulnerable"
+
+msgid "Stollenhelm"
+msgstr "Miner's Helmet"
+
+msgid "Stollenratte"
+msgstr "Tunnel Rat"
+
+msgid "Streitkolben"
+msgstr "Mace"
+
+msgid "Streubombe"
+msgstr "Cluster Bomb"
+
+msgid "Sturmessenz"
+msgstr "Storm Essence"
+
+msgid "Sturmkarte"
+msgstr "Storm Map"
+
+msgid "Sturmsiegel"
+msgstr "Storm Seal"
+
+msgid "Sturmstab"
+msgstr "Storm Staff"
+
+msgid "Stärketrank"
+msgstr "Strength Potion"
+
+msgid "Suchende Bumerangs finden immer ein Ziel"
+msgstr "Seeking boomerangs always find a target"
+
+msgid "Suchende Schüsse und alle Werte hoch"
+msgstr "Seeking shots and all stats up"
+
+msgid "Suchende Schüsse und ein blaues Herz"
+msgstr "Seeking shots and a blue heart"
+
+msgid "Suchende Schüsse, Glück hoch"
+msgstr "Seeking shots, luck up"
+
+msgid "Suchende Schüsse, etwas mehr Schaden"
+msgstr "Seeking shots, a bit more damage"
+
+msgid "Suchender Funke"
+msgstr "Seeking Spark"
+
+msgid "Suchender Strahl"
+msgstr "Seeking Beam"
+
+msgid "Sumpfhaut"
+msgstr "Swamp Hide"
+
+msgid "Sumpfleder"
+msgstr "Swamp Leather"
+
+msgid "Sumpfmantel"
+msgstr "Swamp Cloak"
+
+msgid "Synergie: %s!"
+msgstr "Synergy: %s!"
+
+msgid "Synergien: %s"
+msgstr "Synergies: %s"
+
+msgid "Taumelkraut"
+msgstr "Stagger Weed"
+
+msgid "Tausendklinge"
+msgstr "Thousand Blade"
+
+msgid "Tempo"
+msgstr "Speed"
+
+msgid "Tempo: %s"
+msgstr "Speed: %s"
+
+msgid "Testraum · P: zurück"
+msgstr "Test room · P: back"
+
+msgid "Topasjuwel"
+msgstr "Topaz Jewel"
+
+msgid "Totenbeschwörer"
+msgstr "Necromancer"
+
+msgid "Totengruft"
+msgstr "Death Crypt"
+
+msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
+msgstr "Hits burst, shots fly through rocks"
+
+msgid "Treue Funken"
+msgstr "Loyal Sparks"
+
+msgid "Trollblut"
+msgstr "Troll Blood"
+
+msgid "Trollpanzer"
+msgstr "Troll Armor"
+
+msgid "Truhenschlüssel"
+msgstr "Chest Key"
+
+msgid "Utility"
+msgstr "Utility"
+
+msgid "Vampir"
+msgstr "Vampire"
+
+msgid "Vergiftet Gegner, Schaden etwas hoch"
+msgstr "Poisons enemies, damage a bit up"
+
+msgid "Viel größere Bomben"
+msgstr "Much bigger bombs"
+
+msgid "Viel mehr Schaden"
+msgstr "Much more damage"
+
+msgid "Viel mehr Schaden mit nur einem Herz"
+msgstr "Much more damage with only one heart"
+
+msgid "Viel mehr Schaden, langsamer schießen"
+msgstr "Much more damage, slower fire rate"
+
+msgid "Viel schneller laufen"
+msgstr "Move much faster"
+
+msgid "Viel schneller laufen und schießen"
+msgstr "Move and shoot much faster"
+
+msgid "Viel schneller schießen und laufen"
+msgstr "Shoot and move much faster"
+
+msgid "Viel schneller schießen, etwas weniger Schaden"
+msgstr "Shoot much faster, slightly less damage"
+
+msgid "Viel schnellere Schüsse"
+msgstr "Much faster shots"
+
+msgid "Viel schnellere Schüsse und mehr Reichweite"
+msgstr "Much faster shots and more range"
+
+msgid "Viele suchende Funken auf einmal"
+msgstr "Many seeking sparks at once"
+
+msgid "Vier Schlüssel"
+msgstr "Four keys"
+
+msgid "Vollbild"
+msgstr "Fullscreen"
+
+msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
+msgstr "WASD: walk · Mouse: aim · Left click: shoot"
+
+msgid "Wanderbündel"
+msgstr "Wanderer's Bundle"
+
+msgid "Wasserstab"
+msgstr "Water Staff"
+
+msgid "Weiter"
+msgstr "Resume"
+
+msgid "Weltenstab"
+msgstr "World Staff"
+
+msgid "Wer tötet, fliegt mit dem Rest weiter"
+msgstr "A killing shot flies on with what is left"
+
+msgid "Wettkampfstiefel"
+msgstr "Contest Boots"
+
+msgid "Windfeder"
+msgstr "Wind Feather"
+
+msgid "Windläufer-Stiefel"
+msgstr "Windrunner Boots"
+
+msgid "Windrose"
+msgstr "Compass Rose"
+
+msgid "Windstab"
+msgstr "Wind Staff"
+
+msgid "Wo der Strahl auftrifft, knallt es"
+msgstr "Wherever the beam hits, things go boom"
+
+msgid "Wolfsmantel"
+msgstr "Wolf Cloak"
+
+msgid "Wurfsterne"
+msgstr "Shuriken"
+
+msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
+msgstr "Shuriken fly through enemies and often make them bleed"
+
+msgid "Wähle deinen Charakter"
+msgstr "Choose your character"
+
+msgid "Wählen"
+msgstr "Choose"
+
+msgid "Wüstenkompass"
+msgstr "Desert Compass"
+
+msgid "Zauberbuch"
+msgstr "Spellbook"
+
+msgid "Zehn Bomben"
+msgstr "Ten bombs"
+
+msgid "Zehn Münzen, Glück hoch"
+msgstr "Ten coins, luck up"
+
+msgid "Zombie"
+msgstr "Zombie"
+
+msgid "Zu wenig Münzen"
+msgstr "Not enough coins"
+
+msgid "Zufällig Gift, Furcht oder Taumeln"
+msgstr "Random poison, fear or stagger"
+
+msgid "Zunderbüchse"
+msgstr "Tinderbox"
+
+msgid "Zwanzig Münzen"
+msgstr "Twenty coins"
+
+msgid "Zwei Funken folgen dir und schießen"
+msgstr "Two sparks follow you and shoot"
+
+msgid "Zwei Funken und Schaden hoch"
+msgstr "Two sparks and damage up"
+
+msgid "Zwei Glutmonde kreisen um dich"
+msgstr "Two ember moons circle you"
+
+msgid "Zwei Herzen mehr"
+msgstr "Two more hearts"
+
+msgid "Zwei Herzen mehr und Dornen"
+msgstr "Two more hearts and thorns"
+
+msgid "Zwei Herzen mehr und langsam heilen"
+msgstr "Two more hearts and slow healing"
+
+msgid "Zwei Herzen mehr, aber langsamer"
+msgstr "Two more hearts, but slower"
+
+msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
+msgstr "Two hearts, two blue hearts, damage up"
+
+msgid "Zwei Schüsse mehr, etwas schwächer"
+msgstr "Two more shots, a bit weaker"
+
+msgid "Zwei blaue Herzen"
+msgstr "Two blue hearts"
+
+msgid "Zwei blaue Herzen und Dornen"
+msgstr "Two blue hearts and thorns"
+
+msgid "Zwei blaue Herzen, Schaden hoch"
+msgstr "Two blue hearts, damage up"
+
+msgid "Zwei blaue Herzen, länger sicher nach Treffern"
+msgstr "Two blue hearts, safe longer after hits"
+
+msgid "Zwei blaue Herzen; geht eins verloren, trifft es alle Gegner"
+msgstr "Two blue hearts; losing one hits all enemies"
+
+msgid "Zwillingshandschuhe"
+msgstr "Twin Gloves"
+
+msgid "oder Leertaste"
+msgstr "or press Space"

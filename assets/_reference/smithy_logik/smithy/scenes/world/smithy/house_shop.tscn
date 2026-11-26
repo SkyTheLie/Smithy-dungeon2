@@ -1,0 +1,363 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/objects/house_level_gate.gd" id="5_gate"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/house_shop_small.png" id="6_room_small"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/house_shop_big.png" id="7_room_big"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/display_stand.tscn" id="8_stand"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/display_table.png" id="9_table"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/cash_box.tscn" id="10_cash_box"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/furnish_book.tscn" id="11_book"]
+[ext_resource type="Script" path="res://scenes/world/smithy/furniture_layer.gd" id="12_layer"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/shop_display_menu.tscn" id="13_display_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/furniture_menu.tscn" id="14_furniture_menu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/shop_counter.png" id="15_counter"]
+[ext_resource type="Script" path="res://scenes/world/objects/house_editor.gd" id="16_editor"]
+[ext_resource type="Script" path="res://scenes/world/smithy/room_style_layer.gd" id="rs_layer"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/nina/armor_stand.png" id="as1_armor_stand"]
+
+[sub_resource type="RectangleShape2D" id="Shape_small_h"]
+size = Vector2(342, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_small_v"]
+size = Vector2(16, 211)
+
+[sub_resource type="RectangleShape2D" id="Shape_big_h"]
+size = Vector2(497, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_big_v"]
+size = Vector2(16, 242)
+
+[node name="HouseShop" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("4_day_tint")
+strength = 0.6
+
+[node name="SmallShop" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("5_gate")
+min_level = 4
+max_level = 4
+
+[node name="Background" type="Sprite2D" parent="SmallShop"]
+z_index = -1
+position = Vector2(-163, -106)
+texture = ExtResource("6_room_small")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="SmallShop"]
+
+[node name="Top" type="CollisionShape2D" parent="SmallShop/Walls"]
+position = Vector2(0, -66)
+shape = SubResource("Shape_small_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="SmallShop/Walls"]
+position = Vector2(0, 105)
+shape = SubResource("Shape_small_h")
+
+[node name="Left" type="CollisionShape2D" parent="SmallShop/Walls"]
+position = Vector2(-163, 0)
+shape = SubResource("Shape_small_v")
+
+[node name="Right" type="CollisionShape2D" parent="SmallShop/Walls"]
+position = Vector2(164, 0)
+shape = SubResource("Shape_small_v")
+
+[node name="Table1" parent="SmallShop" instance=ExtResource("8_stand")]
+position = Vector2(-130, -14)
+index = 0
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table2" parent="SmallShop" instance=ExtResource("8_stand")]
+position = Vector2(-130, 36)
+index = 1
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table3" parent="SmallShop" instance=ExtResource("8_stand")]
+position = Vector2(-130, 86)
+index = 2
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table4" parent="SmallShop" instance=ExtResource("8_stand")]
+position = Vector2(130, -14)
+index = 3
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table5" parent="SmallShop" instance=ExtResource("8_stand")]
+position = Vector2(130, 36)
+index = 4
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table6" parent="SmallShop" instance=ExtResource("8_stand")]
+position = Vector2(130, 86)
+index = 5
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="CashBox" parent="SmallShop" instance=ExtResource("10_cash_box")]
+position = Vector2(0, -16)
+counter_texture = ExtResource("15_counter")
+
+[node name="ArmorStand" parent="SmallShop" instance=ExtResource("8_stand")]
+position = Vector2(84, -22)
+shop = "house"
+table_texture = ExtResource("as1_armor_stand")
+dummy = true
+
+[node name="FurnishBook" parent="SmallShop" instance=ExtResource("11_book")]
+position = Vector2(-84, -22)
+
+[node name="Furniture" type="Node2D" parent="SmallShop"]
+y_sort_enabled = true
+script = ExtResource("12_layer")
+floor_rect = Rect2(-155, -58, 310, 155)
+
+[node name="FurnitureMenu" parent="SmallShop" node_paths=PackedStringArray("furniture_layer") instance=ExtResource("14_furniture_menu")]
+furniture_layer = NodePath("../Furniture")
+
+[node name="HouseEditor" type="Node2D" parent="SmallShop" node_paths=PackedStringArray("furniture_layer")]
+script = ExtResource("16_editor")
+room = "shop_small"
+floor_rect = Rect2(-155, -58, 310, 155)
+movables = Array[NodePath]([NodePath("../Table1"), NodePath("../Table2"), NodePath("../Table3"), NodePath("../Table4"), NodePath("../Table5"), NodePath("../Table6"), NodePath("../CashBox"), NodePath("../ArmorStand"), NodePath("../FurnishBook")])
+furniture_layer = NodePath("../Furniture")
+
+[node name="DoorOut" parent="SmallShop" instance=ExtResource("2_door")]
+position = Vector2(0, 101)
+target_scene = "res://scenes/world/village/village.tscn"
+target_spawn_point = &"FromShop"
+
+[node name="Visual" parent="SmallShop/DoorOut" index="0"]
+visible = false
+
+[node name="FromVillage" type="Marker2D" parent="SmallShop" groups=["spawn_points"]]
+position = Vector2(0, 80)
+
+[node name="BigShop" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("5_gate")
+min_level = 5
+max_level = 5
+
+[node name="Background" type="Sprite2D" parent="BigShop"]
+z_index = -1
+position = Vector2(-240, -121)
+texture = ExtResource("7_room_big")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="BigShop"]
+
+[node name="Top" type="CollisionShape2D" parent="BigShop/Walls"]
+position = Vector2(0, -81)
+shape = SubResource("Shape_big_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="BigShop/Walls"]
+position = Vector2(0, 121)
+shape = SubResource("Shape_big_h")
+
+[node name="Left" type="CollisionShape2D" parent="BigShop/Walls"]
+position = Vector2(-240, 0)
+shape = SubResource("Shape_big_v")
+
+[node name="Right" type="CollisionShape2D" parent="BigShop/Walls"]
+position = Vector2(241, 0)
+shape = SubResource("Shape_big_v")
+
+[node name="Table1" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(-208, -26)
+index = 0
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table2" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(-208, 18)
+index = 1
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table3" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(-208, 62)
+index = 2
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table4" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(-208, 106)
+index = 3
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table5" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(208, -26)
+index = 4
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table6" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(208, 18)
+index = 5
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table7" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(208, 62)
+index = 6
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table8" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(208, 106)
+index = 7
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table9" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(-104, -30)
+index = 8
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="Table10" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(104, -30)
+index = 9
+shop = "house"
+table_texture = ExtResource("9_table")
+
+[node name="CashBox" parent="BigShop" instance=ExtResource("10_cash_box")]
+position = Vector2(0, -30)
+counter_texture = ExtResource("15_counter")
+
+[node name="ArmorStand" parent="BigShop" instance=ExtResource("8_stand")]
+position = Vector2(150, -34)
+shop = "house"
+table_texture = ExtResource("as1_armor_stand")
+dummy = true
+
+[node name="FurnishBook" parent="BigShop" instance=ExtResource("11_book")]
+position = Vector2(-150, -34)
+
+[node name="Furniture" type="Node2D" parent="BigShop"]
+y_sort_enabled = true
+script = ExtResource("12_layer")
+floor_rect = Rect2(-232, -73, 464, 186)
+
+[node name="FurnitureMenu" parent="BigShop" node_paths=PackedStringArray("furniture_layer") instance=ExtResource("14_furniture_menu")]
+furniture_layer = NodePath("../Furniture")
+
+[node name="HouseEditor" type="Node2D" parent="BigShop" node_paths=PackedStringArray("furniture_layer")]
+script = ExtResource("16_editor")
+room = "shop_big"
+floor_rect = Rect2(-232, -73, 464, 186)
+movables = Array[NodePath]([NodePath("../Table1"), NodePath("../Table2"), NodePath("../Table3"), NodePath("../Table4"), NodePath("../Table5"), NodePath("../Table6"), NodePath("../Table7"), NodePath("../Table8"), NodePath("../Table9"), NodePath("../Table10"), NodePath("../CashBox"), NodePath("../ArmorStand"), NodePath("../FurnishBook")])
+furniture_layer = NodePath("../Furniture")
+
+[node name="DoorOut" parent="BigShop" instance=ExtResource("2_door")]
+position = Vector2(0, 117)
+target_scene = "res://scenes/world/village/village.tscn"
+target_spawn_point = &"FromShop"
+
+[node name="Visual" parent="BigShop/DoorOut" index="0"]
+visible = false
+
+[node name="FromVillage" type="Marker2D" parent="BigShop" groups=["spawn_points"]]
+position = Vector2(0, 96)
+
+[node name="HouseDisplayMenu" parent="." instance=ExtResource("13_display_menu")]
+title = "Verkaufstische"
+shop = "house"
+
+[node name="ArmorStandMenu" parent="." instance=ExtResource("13_display_menu")]
+title = "Rüstungsständer"
+shop = "house"
+dummy = true
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 80)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="RoomStyle" type="Node2D" parent="SmallShop/Background"]
+script = ExtResource("rs_layer")
+room = "shop"
+floor_rect = Rect2(8, 46, 310, 157)
+wall_rect = Rect2(8, 1, 310, 44)
+door_rects = Array[Rect2]([])
+keep_rects = Array[Rect2]([])
+
+[node name="RoomStyle" type="Node2D" parent="BigShop/Background"]
+script = ExtResource("rs_layer")
+room = "shop"
+floor_rect = Rect2(8, 46, 465, 188)
+wall_rect = Rect2(8, 1, 465, 44)
+door_rects = Array[Rect2]([])
+keep_rects = Array[Rect2]([])
+
+[connection signal="interacted" from="SmallShop/ArmorStand" to="ArmorStandMenu" method="toggle"]
+[connection signal="player_left" from="SmallShop/ArmorStand" to="ArmorStandMenu" method="close"]
+[connection signal="interacted" from="BigShop/ArmorStand" to="ArmorStandMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/ArmorStand" to="ArmorStandMenu" method="close"]
+[connection signal="interacted" from="SmallShop/Table1" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="SmallShop/Table1" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="SmallShop/Table2" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="SmallShop/Table2" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="SmallShop/Table3" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="SmallShop/Table3" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="SmallShop/Table4" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="SmallShop/Table4" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="SmallShop/Table5" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="SmallShop/Table5" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="SmallShop/Table6" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="SmallShop/Table6" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="SmallShop/FurnishBook" to="SmallShop/FurnitureMenu" method="toggle"]
+[connection signal="player_left" from="SmallShop/FurnishBook" to="SmallShop/FurnitureMenu" method="close"]
+[connection signal="interacted" from="BigShop/Table1" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/Table1" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="BigShop/Table2" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/Table2" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="BigShop/Table3" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/Table3" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="BigShop/Table4" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/Table4" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="BigShop/Table5" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/Table5" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="BigShop/Table6" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/Table6" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="BigShop/Table7" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/Table7" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="BigShop/Table8" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/Table8" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="BigShop/Table9" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/Table9" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="BigShop/Table10" to="HouseDisplayMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/Table10" to="HouseDisplayMenu" method="close"]
+[connection signal="interacted" from="BigShop/FurnishBook" to="BigShop/FurnitureMenu" method="toggle"]
+[connection signal="player_left" from="BigShop/FurnishBook" to="BigShop/FurnitureMenu" method="close"]
+
+[editable path="SmallShop/DoorOut"]
+[editable path="BigShop/DoorOut"]
+[editable path="Player"]

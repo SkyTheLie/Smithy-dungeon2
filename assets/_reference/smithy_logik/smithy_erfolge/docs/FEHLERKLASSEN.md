@@ -1,0 +1,182 @@
+# Fehlerklassen und Regeln dagegen
+
+Diese Fehler sind im Projekt mehrfach passiert (Herleitung und Fundstellen: `docs/CODE_REVIEW_2026-11-12.md`).
+Vor jeder Aufgabe lesen. **Jeder `fix/`-Branch trägt unten in der Liste „Ursachen“ eine Zeile ein;** passt keine Regel, kommt eine neue dazu. Diese Datei kurz halten.
+
+## Speichern und Laden
+
+1. Jedes neue Feld, das sich im Spiel ändert, kommt sofort in `to_save_data` **und** `load_save_data` (Felder von GameState: in `SaveData.collect` und `SaveData.apply`, `scripts/core/save_data.gd`), oder bekommt den Kommentar `# not saved on purpose`. Auch Warteschlangen und „schon gezeigt“-Merker. Der Test `_lib/test_save_roundtrip.gd` vergleicht einen ganzen Spielstand vor und nach dem Laden: neuen Zustand dort in `_build_state` mit aufbauen.
+2. Gespeichert wird nach ID oder Schlüssel, nie nach Position in einer Liste und nie nach Dateipfad.
+3. Kein Spielzustand in `static var`.
+4. Jeder Weg zu speichern (Slot, Schnellspeichern, Autosave) prüft dieselben Sperren: nicht im Turnier, nicht in einer Cutscene, nicht beim automatischen Laufen.
+5. Laden löst keine Spiel-Ereignisse aus (kein `story_event`, keine Tipps, keine Erfolge).
+6. Wird eine ID, ein Flag oder ein Schritt umbenannt: Umwandlung für alte Spielstände eintragen und mit einem alten Spielstand laden.
+
+## Sprache
+
+7. Jeder sichtbare Text läuft durch `Language.translate`, auch Textstücke, die angehängt werden; bei `%`-Texten erst übersetzen, dann einsetzen. Zahlen über `DamageKinds.format_number`.
+8. Nie übersetzten Text vergleichen (`button.text == "..."`); Zustand in einer Variable halten.
+9. `Language.translate` nie auf Namen von Knoten, Typen oder IDs anwenden.
+10. Nach neuen Texten `extract_po.py` laufen lassen, bevor die Aufgabe als fertig gilt.
+
+## Oberfläche und Performance
+
+11. Ein Fenster, das zu ist, baut nichts: Bei einem Signal nur „veraltet“ merken, beim Öffnen neu bauen, höchstens einmal pro Frame (Vorlagen: `hero_window._on_hero_changed` mit `_stale`, `crafting_menu._on_supplies_changed`, `quest_log_window._refresh_if_visible`). Signale von GameState, Inventar, Story oder Helden nie direkt mit `_refresh` verbinden.
+12. In `_process` und `_draw` nichts neu anlegen und nichts durchsuchen (kein `load`, kein `find_children`, kein Neuaufbau von Listen).
+13. Spielregeln (EXP, Erfolge, Flags, Gold, Bestand) stehen in `scripts/systems`, nie im Fenster-Skript. Das Fenster ruft auf und zeigt an.
+14. Abfragen ändern nichts: `is_*` und `get_*` setzen keine Flags und zeigen keine Tipps.
+15. Bei `bind` kommen die gebundenen Argumente **hinter** die Argumente des Signals.
+16. Eine Lambda an einem Signal von `GameState` muss mit dem Knoten enden: als Methode des Knotens verbinden oder in `_exit_tree` trennen.
+
+## Story und Cutscenes
+
+17. Jede Cutscene erbt von `StoryCutscene` (Knoten in der Szene: `Node2D`), ruft in `_ready` `super()` und spielt ihre Teile in `_play_beat(id) -> bool`; das Signal `Events.cutscene_requested` nie selbst verbinden (sonst läuft jeder Teil doppelt). Lokale Variablen nicht `player`, `wait`, `fx`, `shake`, `flash`, `extra` nennen (so heißen Funktionen der Basis). Warten nur mit `wait()`, nie mit rohem `await get_tree().create_timer(...)`. Nach jedem `await` kann die Szene weg sein.
+18. Ob eine Story-Figur da ist, hängt an genau einer Quelle (Flags in den Story-Dateien), nie zusätzlich fest in der Karte.
+19. Schritte, Flags und Aktionen der Story nicht frei tippen: aus den Story-Dateien (`data/content/story/`, früher story.json) kopieren. Nach jeder Änderung dort `bash assets/_reference/run_tests.sh kern` (Prüfer `_lib/test_story_data.gd`: unbekannte Aktionen, Schritte, Tipps, Dialoge, Sprecher, Items) und `py assets/_reference/story_anims/check_beats.py` (Cutscene-Beats).
+20. Wer den Spieler sperrt, entsperrt ihn auf jedem Weg wieder (Ende, Esc, Laden, Szenenwechsel). Sperren nur mit `Player.lock(grund)` / `unlock(grund)` (eigener Grund je Cutscene, als Konstante), nie mit `set_physics_process(false)`.
+21. Start einer Cutscene hängt an einem Signal (`story.step_started`), nicht an der Reihenfolge der Knoten.
+
+## Karten
+
+22. Keine Position nur aus Koordinaten setzen: Karte danach rendern und ansehen, Begehbarkeit prüfen (`collision_audit/`).
+23. E-Taste: jedes Objekt nimmt E nur an, wenn es das nächste ist und kein Dialog offen ist (`INTERACT_GROUP`).
+24. Gegner schauen nach links, Helden nach rechts; nichts in der Welt steht schräg.
+
+## Daten
+
+25. Jeder Wert und jede Namensliste hat genau eine Quelle (JSON oder `CombatRules`). Kein zweiter Standardwert im Code, keine zweite Liste.
+26. Was eine Funktion verbraucht, prüft sie vorher in genau derselben Menge. Mengen ≤ 0 und negative Preise abweisen.
+27. Jeder Cache hängt an `ContentDB.reload()`. Kein JSON an ContentDB vorbei lesen. Neue Inhalte prüft ContentDB beim Laden mit `push_error`; der Test `_lib/test_content_loads.gd` verlangt 0 Meldungen.
+28. Preise, Beute und Kampfwerte nur mit einem Lauf des Simulators ändern.
+41. Ein Item mit `sell_price` bekommt auch `value` (sonst kostet es beim Händler 1–3 Gold); `balancing/test_buy_above_sell.gd` prüft das.
+
+## Tests
+
+29. Ein neuer Test erbt von `assets/_reference/_lib/base_test.gd` (`check`, `check_eq`, `wait_until`, `fresh_game`), prüft etwas und endet über die Basis. Skripte, die nur etwas ausgeben, heißen `sim_*` oder `shot_*`.
+30. Tests nur über `run_tests.sh` starten: nur dort bekommt jeder Test ein eigenes, leeres `user://`. Einzeln mit Godot gestartet schreibt ein Test in die echten Spielstände (`GameState.sleep()` schreibt den Autosave).
+31. Deutsche Texte erst nach `TranslationServer.set_locale("de")` **und** `ContentDB.reload()` vergleichen. Besser IDs und Zahlen prüfen als Texte.
+32. Bei Zufall `seed(1)` setzen. Auf Bedingungen warten, nicht auf feste Sekunden.
+33. Tests benutzen öffentliche Funktionen, keine `_privaten` Felder.
+34. Wer Verhalten ändert, passt die Tests im selben Commit an. `test_known_failures.txt` ist nur für Fehler, die man nicht selbst verursacht hat, mit Datum und Grund.
+35. Nach Änderungen an `game_state.gd`, `content_db.gd` oder `data/content/*.json` zusätzlich die passende Gruppe laufen lassen (`kampf`, `story`, `wirtschaft`); die automatische Auswahl findet dafür keine Tests.
+
+57. In einer Lambda (z. B. für `wait_until`) äußere Variablen nie neu zuweisen: GDScript ändert dann nur die Kopie der Lambda. Messwerte in ein Dictionary schreiben.
+
+39. Test-Funktionen fragen nur `DevTools.enabled()` (bzw. `GameState.has_dev_tools()`) und tragen den Kommentar `DEV-ONLY`. Nie `OS.is_debug_build()` dafür nehmen.
+40. Nach einer neuen `class_name` einmal `--headless --path . --import` laufen lassen, sonst kennt ein Test die Klasse nicht.
+
+## Grafik-Dateien
+
+36. Alte Grafik im Spiel trotz neuer PNG: Import-Cache löschen (`.ctex` + `.md5`) und neu importieren.
+37. In Szenen schlägt die `uid` den Pfad: beim Ersetzen einer Datei beide prüfen.
+38. Ein Eintrag in `PIXELLAB_TODO.md` wird erst gelöscht, wenn das ganze Bild echt ist.
+
+## Godot-Aufbau
+
+41. Signale, die nur etwas anfordern (Fenster öffnen, Meldung zeigen, Cutscene-Teil abspielen, `*_requested`), stehen im Autoload `Events`, nicht in GameState. GameState sendet nur Änderungen seines Zustands.
+42. Neue Karten erben von `scenes/world/_template/map_base.tscn` (Player, HUD, DayTint, Kamera-Grenzen, Spawnpunkt). `map_tools/test_map_setup.gd` prüft jede Karte.
+43. JSON-Daten, die an mehreren Stellen gelesen werden, bekommen eine kleine Klasse mit `from_json` und Prüfung beim Laden (Vorlage `NpcInfo`), statt überall `.get("schluessel", standard)`. Neue Dictionaries typisieren (`Dictionary[String, int]`).
+44. Neue Fenster als `.tscn` bauen; im Code nur Listeneinträge erzeugen. Alte Fenster nur beim Anfassen umbauen.
+45. Timer pausieren mit dem Spiel: `create_timer(t, false)` (nur Knoten mit `PROCESS_MODE_ALWAYS` lassen `false` weg). Keine echten Zeilenumbrüche in Strings, immer `\n`.
+
+46. Wer eine Grafik (Pose, Sheet) erzeugt, baut sie im selben Branch ein und prüft es im Test (Textur der Figur). Knien nimmt `residents/<id>_kneel.png`, wenn es das gibt; Stauchen ist nur der Rückfall. Eine Schleife, die beim Abbrechen ein Bild zurücksetzt, prüft vorher, ob es noch ihr Bild ist.
+47. Eine Szene, die nur einmal laufen soll, hängt nicht am Schritt (`npcs.<id>.dialogues.<schritt>`), sondern ist ein Nebendialog mit `done_flag`; danach ein kurzer Nebendialog (`quiet`).
+48. Eine Figur, die in einem Dialog noch spricht oder sich bewegt, geht erst mit dessen `done_flag`/`on_end`-Flag (`hidden_when_flag`), nicht mit dem Flag, das den Dialog auslöst. Soll sie mitten in einem Gespräch gehen, dann als Cutscene-Teil mit `hide_for` (Fenster zu, sie geht sichtbar ab), nie per `set_flag` in einer normalen Zeile.
+49. Requisiten passen zum Ort: kein Lagerfeuer, Marktstand o. Ä. aus einem anderen Gebiet in Innenräumen oder Burgen; Licht drinnen über die Lampe des Themas (`lantern_<thema>.tscn`).
+
+50. Was ein Erzähltext an Handlung behauptet (schlafen, gehen, aufstehen, übergeben), spielt die Szene auch: Cutscene-Teil mit `hide_for`. Figuren, die gehen, gehen dorthin, wohin die Geschichte sie schickt (`leave_path`), nicht aus der Karte.
+51. Eine Szene, die es gibt, muss auch starten: Bringt ein Dialog den Spieler mit `travel` in eine Karte, steht dort jede Figur, die im neuen Schritt eine Szene hat (`check_arrivals.py`, läuft mit `check_beats.py`; soll der Spieler erst hinlaufen: Ausnahme in `ELSEWHERE`). Story-Tests starten Szenen über den echten Auslöser (Karte betreten, Schritt beginnt, Figur kommt von selbst), nicht mit `box.play(...)`, sonst prüfen sie nur die Animation, nicht dass das Spiel sie zeigt.
+52. In Cutscenes nie Bilder zählen (`for i in 240: await process_frame`): Tests laufen mit festen 60 fps, auf schnellen Bildschirmen ist die Zeit viel kürzer. Auf Signale/Bedingungen warten, als Grenze Spielzeit (`get_process_delta_time()` aufsummieren oder `wait()`).
+53. Eine Figur, die eine Karte verlässt oder betritt, bekommt einen `leave_path`/`arrive_path` über begehbaren Boden (Brücken, Wege), wenn der gerade Weg zum nächsten Ausgang über Unbegehbares führt.
+54. Figuren, die an einer verschiebbaren Station stehen (Amboss, Ofen …), hängen per `watch_node` an der Station, nie an festen Koordinaten.
+55. Eine `StoryStation` mit `DungeonBoardMenu` braucht in der Szene die vier Verbindungen (`body_entered`/`body_exited` der InteractionArea, `interacted` » `toggle`, `player_left` » `close`); der Test prüft `get_signal_connection_list("interacted")`.
+56. Ein Flag, das ein Cutscene-Skript setzt (`run_story_action("set_flag:…")`), kommt in `future_flags` (general.json) mit dem ersten Schritt, an dem ein Spielstand es haben kann; sonst bleibt es beim Kapitel-Sprung zurück stehen.
+
+## Ursachen (neueste oben)
+
+Format: `Datum · Branch · was war die Ursache · Regel-Nummer (oder „neu“)`
+
+- 2026-11-16 · fix/altar-ankunft-handschuh · Erzähler vor dem Altar („Die Kutsche hält …“) kam bei jedem Betreten/Laden wieder, Fenns Kennenlernen ebenso (und seine Flugmaschinen-Aufgabe startete nie): beide Nebendialoge hatten ein `done_flag`, aber nichts setzte es (kein `on_end`); der Test setzte `met_fenn` direkt. Jetzt prüft `altar_outskirts/test_arrival_once.gd` jedes `done_flag` · 47, 51
+- 2026-11-16 · fix/tipp-nach-dialog · Tipp eines neuen Schritts ging hinter einem noch offenen Dialog auf (Miete-Tipp während Hilde weiterredet); `HintPanel` hielt Tipps nur beim Szenenwechsel zurück · neu im HUD, keine Regel
+- 2026-11-16 · fix/altar-nach-ende-leer · Nach dem Ende standen alle acht Gefährten weiter im Altar der Neun, obwohl Text und Abspann sagen „Ihr geht nach Hause“ und nur Lake dort wacht (die Figuren hatten nur `required_flag`, kein `hidden_when_flag`) · 50
+- 2026-11-16 · fix/playtest-texte · Playtest: Texte widersprachen dem Spiel (Sylvaris im Westen statt Osten laut `world_map.json`, Silber- statt Bronze-Gussformen, „fast Mittag“ um 6 Uhr, Frühlingsfest im Herbst, Lob für nie gelieferte Waffen ohne `if_flag`); Tipps hingen am Schritt statt an der ersten Benutzung (4 Tipps bei der Ankunft, Stations-Tipps beim Putzen) · 25 (Texte aus der Quelle prüfen), neu keine Regel
+- 2026-11-16 · fix/playtest-texte · `DialogueBox._find_portrait` rief `is_shown()` auch bei `Companion`/`RaidFighter` (gleiche Gruppe, Methode fehlt): Skriptfehler, Lotte ohne Bild · 18
+- 2026-11-16 · feature/balancing-rest · `Hero.add_experience` holte AudioManager über `get_node("/root/…")` von GameState aus; in Simulatoren ohne Szenenbaum brach jeder Levelaufstieg vor `emit_changed` ab (Logs voller Fehler, seit Wochen bekannt, nie behoben) · neu, keine Regel
+- 2026-11-16 · fix/playtest-visuell · Playtest: leere Schmiede rauchte und glühte schon (Bild immer „an“); Schlüsselübergabe, Klopfen, Bruno zum Lich, Bruno zum Brunnen, Bretter vor dem Loch und Flucht aus der Goblinburg standen nur im Text · 50
+- 2026-11-16 · fix/playtest-visuell · Rote Lava-Tönung beim Einsturz lag als CanvasLayer 50 über HUD und Dialog (jetzt `world_tint` in der Welt) · neu im Cutscene, keine Regel
+- 2026-11-16 · fix/playtest-visuell · `aspect="expand"`: in einem hohen oder breiten Fenster zeigte die Kamera mehr als die Kartengrenzen (Leere am Rand); jetzt zoomt `FitCamera` nach · 13
+- 2026-11-16 · fix/playtest-visuell · Eigene Klasse `ForgeFire` angelegt, die es als System schon gab (`scripts/systems/forge_fire.gd`): der Name überschrieb das System, GameState brach beim Laden; erst der neue Test fand es · 40 (vor neuer `class_name` nach dem Namen suchen)
+- 2026-11-16 · feature/erfolge-erweitert · Laden eines Spielstands im laufenden Spiel meldete Story-Erfolge neu: `story.changed` prüfte die Erfolge auch während des Ladens, `mark_known` lief schon vor dem Laden der Story-Folgen (Helden, Lexikon) · 5
+- 2026-11-16 · feature/erfolge-erweitert · Zwei Erfolge zeigten Trank-Icons (`fire_potion`, `light_potion`), ohne dass etwas die ids prüfte · 27
+- 2026-11-15 · fix/schlacht-blick-und-idle · Altar, Schlachtbeginn: `SkirmishGroup._march` ließ Soldaten beim Einmarsch immer nach rechts und Gegner immer nach links schauen, auch wenn sie in die andere Richtung liefen (Laufrichtung jetzt `walk_look`, Gegner gespiegelt) · 24
+- 2026-11-15 · fix/alte-staende-erzaehlt · „Die wahre Fassung“: der Sternenstahl lag in den Haustruhen, der Amboss im Altar sieht nur das Inventar, der Tracker zeigte keinen Stand (jetzt `show_items` Sternenstahl x/3) · neu, keine Regel
+- 2026-11-15 · fix/alte-staende-erzaehlt · Erlöster Lake sprach mit dem Bild des dunklen Lake: das Dialogfenster nahm das Bild der ersten Figur mit der ID in der Szene (im Altar fünf Lake-Figuren), nicht der sichtbaren (jetzt `StoryNpc.is_shown`); Name „Lake des Licht“ statt „Lichts“ · 18
+- 2026-11-15 · fix/alte-staende-erzaehlt · Der neue Merker `told_steps` fehlte in Spielständen von vor dem Fix; jedes Laden eines solchen Stands spielte den Altar-Bericht erneut (keine Umwandlung für alte Stände) · 6
+- 2026-11-15 · fix/szene-nur-einmal · Beim erneuten Betreten einer Karte spielte jede Figur mit `auto_talk` ihren Schritt-Dialog samt Cutscene von vorn (Altar: der König ging wieder zur Tafel): „hat Neuigkeiten“ hieß nur „es gibt einen Dialog für den Schritt“, ob er schon erzählt war, merkte sich niemand (jetzt `Story.told_steps`, gespeichert) · 1, 47
+- 2026-11-15 · fix/altar-ausdauer · Altar-Schlacht: Torwächter und vier Heerführer-/Lake-Kämpfe kosteten je 30 Ausdauer (150) ohne Nacht dazwischen, Helden haben höchstens 100; jeder Kampf wurde einzeln mit dem Standardwert angelegt, nie die Kette zusammengerechnet · 25 (Wert bewusst gesetzt, jetzt mit Test)
+- 2026-11-15 · fix/heerfuehrer-dann-text · Altar-Heerführer liefen herein, während ihre Zeile schon im Fenster stand (`wait` statt `hide_for`), das Fenster unten verdeckte Garms Weg vom Südeingang: man sah ihn nur noch dastehen; der Test wies das nicht nach, und seine Checks „springt nie“/„nicht durch die Säule“ waren wirkungslos (Lambda wies äußere Variablen neu zu) · 50, neu: 57
+- 2026-11-14 · fix/altar-kristalle-statt-fassung · Altar-Heerführer kamen vor ihrem Text: der 8-s-Notfall lief, während das Kampffenster des Sieges noch offen war (der Erzähler wartet darauf), und die Zeile versteckte das Fenster (`hide_for`), sodass der Text erst nach dem Einmarsch kam; der Test verließ sich auf den Notfall statt auf den Erzähler · 52, 51
+- 2026-11-14 · fix/altar-lake-tafel · Lake an der Tafel sagte nur „Er sagt nichts“: der Schritt-Dialog `altar_lake` » `dark_lake_silent` in npcs.json schlug den Nebendialog `lake_challenge`, der Lake-Kampf ließ sich nie öffnen (Test setzte `lake_challenge_met` direkt); „Der König legt die Hände auf die Tafel“ nur als Text, Kamera blieb unten · 47, 50, 51
+- 2026-11-14 · fix/heerfuehrer-ansprechen · Altar: E zwischen Heerführer und Altar ging an den Erzähler (großer Bereich), sein Bericht spielte den Auftritts-Beat erneut, der Heerführer sprang aus dem Bild und lief nochmal herein (`_boss_arrives` schickte jeden nicht wartenden Heerführer zum Rand); Test stand nur direkt neben ihm · 51
+- 2026-11-14 · fix/buendnis-questlog · „Der Schmied des Bündnisses“: die abgegebenen Waffen standen danach wieder als 0/1 im Aufgaben-Tracker (`show_items` zählt nur das Inventar, es gab keine Möglichkeit, einen erledigten Teil auszublenden; jetzt `show_items_until`) · neu, keine Regel
+- 2026-11-14 · fix/heerfuehrer-auftritt · Amboss des Altars nahm ab dem Betreten E an, die wahre Fassung ließ sich mitten in der Schlacht schmieden (Station kannte nur „gibt es“ oder „gibt es nicht“, jetzt `usable_flag`) · 26
+- 2026-11-14 · fix/heerfuehrer-auftritt · Garm schwebte beim Einmarsch per Tween gerade durch die Südsäule, ohne Laufbilder · 22
+- 2026-11-14 · fix/heerfuehrer-auftritt · Heerführer im Altar standen ab Beginn ihres Schritts an ihrem Platz (`StoryProp` mit `reached_altar_*`) und sprangen erst beim Erzähler-Teil nach außen, um einzumarschieren: erst da, dann weg, dann wieder da · 22
+- 2026-11-14 · fix/torwaechter-ansprechen · Kapitel-Sprung zurück ließ alles stehen, was nicht in den Haupt-Dialogen der späteren Schritte steht (Cutscenes, Nebendialoge, Rätsel), und Briefe übersprungener Schritte galten als ungelesen (Lotte rannte nach jedem Sprung los); jetzt `Story.flag_steps` · 56
+- 2026-11-14 · fix/torwaechter-ansprechen · Speicherliste zeigte bei den meisten Karten „?“: zwei Namenslisten (Speichern 18 Karten, Admin 55), keine prüfte neue Karten; jetzt `map_names.json` und Test · 25
+- 2026-11-14 · fix/torwaechter-ansprechen · Im Altar standen beim Betreten heller Lake und Handschuh statt dunklem Lake und König: Kapitel-Sprung zurück ließ Flags stehen, die Cutscene-Skripte setzen (`king_fell` …), und meine `implied_flags` (König gefallen » Lake erlöst) machten daraus mehr; ein `implied_flags`-Eintrag setzte `king_fell` schon zu Beginn von `seal_the_gate`. Jetzt `future_flags` (Flag » erster Schritt), beim Laden und beim Sprung · 6, neu: 56
+- 2026-11-14 · fix/torwaechter-ansprechen · Torwächter blieb stumm: seine Herausforderung hing am `done_flag` des Ankunfts-Erzählers (`altar_outskirts_seen`); wurde der Erzähler vor dem Ende geschlossen oder der Stand dazwischen geladen, kam sie nie (echter Spielstand: Schritt `altar_siege` ohne das Flag) · 47
+- 2026-11-14 · fix/halvard-amboss · Kerkerschmiede: Halvard stand auf festen Koordinaten oben links an der Wand, der Text sagt „Am Amboss steht ein alter Mann“ und seine Schlag-Geste ging in die Luft · 22, 54
+- 2026-11-14 · fix/finster-nyra-ketten-schlafen · `nyra_hooded.png` war ein Standbild 7× kopiert (Nyra glitt ohne Laufen); Zellentrakt: zwei Ketten standen mitten im Gang statt an der Wand (nur nach Koordinaten gesetzt); Corvins Kniefall nur Stauchen (kein Kniebogen); die offene Fessel war das Item-Icon, verkleinert und schräg gedreht; Namensschilder nebeneinander stehender Figuren lagen übereinander · 46, 22, 24
+- 2026-11-15 · fix/finster-umhang-wachstube · Wachstube: „Hinter dir schnarcht jemand weiter“ und Nyras „Nachts schlafen dort nur zwei“, aber alle Betten waren leer; der Spieler lief nach dem Versteck als gesuchtes Gesicht unbehelligt durch die Stadt (kein Umhang); Burg-Schleichkarte: der Ausgang war ein unsichtbares Feld vor einer geschlossenen Wand · 50, 22
+- 2026-11-15 · fix/eistreppe-und-vorhang · Finsterstadt-Verfolgung: die Wachen liefen bei `chase_run` sofort die ganze Straße entlang an der Gasse vorbei, bevor der Spieler hinter dem Vorhang war; `Player.auto_walk` leerte die übergebene Liste (Packed-Array als Referenz), dadurch war `run_path` der Szene nach dem ersten Laufen leer · 50, neu im Player (`auto_walk` kopiert jetzt)
+- 2026-11-15 · fix/eistreppe-und-vorhang · Finsterstadt-Hof: Nyra und die Wachen erschienen erst, als der Spieler schon hinsah (Flag beim Ankommen), der Spieler stand unsichtbar hinter dem Vorhang und „trat den Keil weg“, ohne hinzugehen; das Fassgerüst stand mitten auf einer Straße · 50, 49
+- 2026-11-15 · fix/eistreppe-und-vorhang · Finsterstadt-Einleitung (`auto_talk` am Südtor) startete im echten Spiel nicht, wenn der Spieler direkt beim Schrittwechsel im Bereich erschien (Test lief nur zufällig, weil er früher fertig war); die Verfolgung hing daran · 21
+- 2026-11-15 · fix/eistreppe-und-vorhang · Eisquell: Text und Sperre sprachen von einer „Treppe aus Eis“, auf der Karte stand nur Schnee (jetzt `IceStair` + Wachen bis `ice_crown_open`) · 50
+- 2026-11-14 · fix/rat-zur-teleporter-plattform · Torwächter vor dem Altar nahm kein E: sein E-Bereich (80×50) endete 6 px über der Stelle, an der der Spieler am doppelt großen Wächter hängen bleibt, und Halvard/Nyra mit „!“ standen im Halbkreis näher als er; der Test prüfte nur `is_open`, nie einen echten E-Druck · 23, 22
+- 2026-11-14 · fix/rat-zur-teleporter-plattform · Rat verschwand mitten auf der Mittelinsel (Weg endete dort); die Steine bilden nur eine Brücke gleichzeitig, wer an der zweiten Lücke ankam, während hinten noch jemand die erste überquerte, wäre ins Leere gelaufen · 53
+- 2026-11-14 · fix/rat-elarion-faelan · Halvard und Lotte gingen nach dem Ende durch die Schlafzimmertür (nächster Ausgang statt Haupteingang, jetzt `leave_doors`); Halvard blieb beim Gehen stehen, weil sein verzögertes `auto_talk` erst startete, als er schon ging · 53
+- 2026-11-14 · fix/rat-elarion-faelan · Am Altar standen dunkler und heller Lake nebeneinander (beide „der dunkle Ritter“): Spielstand von vor dem Altar-Umbau hatte `king_fell` ohne `lake_redeemed`; der Umbau brachte neue Flags (`king_at_tablet`, `king_possessed`) ohne `implied_flags` für alte Stände · 6
+- 2026-11-14 · fix/rat-elarion-faelan · Elarion und Faelan blieben am Ratstisch stehen, als der Rat zum Altar aufbrach (die Altar-Schritte fehlten in ihren `absent_steps`, Faelan stand dann zweimal: in Sylvaris und vor dem Altar); wer per `absent_steps` ging, nahm nie seinen `leave_path`, sondern den geraden Weg zum Ausgang · 53, 18
+- 2026-11-14 · fix/rat-elarion-faelan · Altar-Umbau: Kapitel-Sprung zeigte auf den umbenannten Schritt `altar_north`, `test_story_anims` zählte noch 6 statt 8 Teile; beide Tests liefen beim Umbau nicht mit · 34
+
+- 2026-11-14 · feature/altar-bergwand-portal · Großer Rat in Sylvaris ging „durch die Luft“: drei Anführer hatten keinen `leave_path` (liefen gerade aus der Karte), die Steinbrücke hatte nur 8 Steine mit 35 px Lücken und stand erst, wenn der Erste schon darüber lief; Pfad nur auf der Maske geprüft, nie mit den Steinen angesehen · 22
+- 2026-11-14 · fix/altar-steinbruecke · Torwächter vor dem Altar ohne die Signal-Verbindungen `interacted`/`player_left` zum `DungeonBoardMenu` gebaut (E hätte nichts geöffnet; der Test prüfte nur `is_open`) · neu: 52
+- 2026-11-14 · fix/altar-steinbruecke · `SkirmishGroup._march` lief nach einem Szenenwechsel weiter und griff auf `get_tree()` zu · 17
+- 2026-11-14 · fix/altar-steinbruecke · Aurelius, Halvard und Nyra hatten keinen `leave_path` und liefen beim Aufbruch geradeaus durch die Luft zum Lift (Kahn & Co. hatten einen über die Steinbrücke) · neu: 53
+- 2026-11-13 · fix/altar-steinbruecke · Halvard und Lotte am Morgen nach dem Ende standen auf festen Koordinaten neben dem Standard-Platz des Ambosses und schmiedeten nach dem Verschieben in der Luft · neu: 54
+- 2026-11-14 · fix/mauerkrone-sturz · Mauerkrone: „Lake taumelt zurück“ war nur 12 px Verschieben und ein festes Kniebild (der vorhandene Kniebogen `lake_dark_kneel.png` lief nicht); Subar stieß den Spieler und fiel dann 150 px weiter rechts über die Kante, der Kristall rollte erst nach einem weiteren Klick, obwohl der Text „im selben Augenblick“ sagt · 50, 46
+- 2026-11-14 · fix/hafen-brand-eissaeulen · Hafen-Angriff zeigte sechs aufgeschichtete Lagerfeuer im Schnee, drei davon bei Kutsche und Teleporter fern vom Hafen (wirkte gemütlich statt wie ein Angriff); `StoryProp` übersetzte den Typnamen `CollisionShape2D` · 49, 9
+- 2026-11-14 · fix/hafen-brand-eissaeulen · Eissäulen nahmen die kleine Geste `strike`, die Tempelsäulen schon die echte Hammer-Pose `hammer` (gleiche Rätselart, zweimal gebaut) · 25
+- 2026-11-14 · fix/hafen-angriff-schuetzen · Neue Schützen-Bögen zweimal gebacken (erst zu groß, Köpfe außerhalb des 48er-Felds), dazwischen importiert: im Spiel blieb der alte Bogen mit abgeschnittenen Köpfen, obwohl die PNG richtig war · 36
+- 2026-11-14 · fix/hafen-angriff-schuetzen · Boote mit `create_object_pro_flash` erzeugt: dessen erstes Bild schaut immer nach Süden (Bug zum Betrachter), für Seitenansichten `create_image_pro_flash`; Teil `harbor_burning` sammelte beim erneuten Abspielen Schützen doppelt an (Index außerhalb) · neu, keine Regel
+- 2026-11-14 · fix/hafen-angriff-sichtbar · Kahns Halle: die Szene wartete 240 Bilder statt einer Zeit auf das Ende des Laufwegs, bei hoher Bildrate legte sich der Spieler unterwegs hin · neu: 52
+- 2026-11-14 · fix/hafen-angriff-sichtbar · `advance` vor `travel_fade` in einer Aktionskette: der Tipp des neuen Schritts ging im alten HUD auf und mit dem Szenenwechsel sofort zu (jetzt hält `HintPanel` Tipps während `GameState.scene_changing` zurück) · neu im HUD, keine Regel
+- 2026-11-14 · fix/hafen-angriff-sichtbar · Hafen-Angriff: der Dialog `harbor_subar` hing an Subar, der nur in Kahns Halle stand; nach dem Aufwachen draußen in Eisquell passierte nichts (jetzt `SubarHarbor` mit `auto_talk`); `check_beats.py` prüfte nur, ob die Figur in *irgendeiner* Karte steht, der Test startete den Dialog per `box.play` · neu: 51
+- 2026-11-14 · fix/uebergaben-und-kahns-nacht · Übergabe in einer Zeile: `give` des Spielers und `count`/`hold` der Empfängerin starteten gleichzeitig, das Stück war doppelt zu sehen (jetzt `receive>…`, `check_beats.py` prüft es) · 46
+- 2026-11-14 · fix/uebergaben-und-kahns-nacht · Kahns Halle: „Mitten in der Nacht reißt dich ein Horn aus dem Schlaf“ nur als Text, der Spieler stand noch vor dem Thron (jetzt Teile `hall_night`/`hall_wake`); Subar und Torgai liefen beim Gehen aus der Karte statt in die Halle (`leave_path` fehlte) · neu: 50
+- 2026-11-13 · fix/lake-schlag-aurelius-stuetzen · Thronsaal: Aurelius lief per `lerp` auf 55 % zwischen Spieler und dunklen Lake, der aber nur 22 px entfernt stand: Aurelius stand auf Lakes Platz, Lake verschwand beim Schlagen hinter ihm und dem Schild (nur in Bildern sichtbar, Position allein sah richtig aus) · 22
+- 2026-11-13 · fix/lake-schlag-aurelius-stuetzen · Eisquell `eisquell_blade`: Subar spricht im Dialog, seine Figur war aber schon mit `kahn_hall_open` weg; Torgai und Subar standen zugleich vor und in Kahns Halle (`absent_steps` fehlten) · 18
+- 2026-11-13 · fix/lake-schlag-aurelius-stuetzen · Lotte im Versteck mit `auto_talk` + `talk_on_new_step`: sprach beim Hereinkommen und öffnete ein zweites Fenster, als Ninas Zeile den Schritt weiterschob · 23
+- 2026-11-13 · fix/rote-tests · 31 Tests waren rot, weil Verhalten geändert wurde, ohne die Tests nachzuziehen (Karten, Reiter, Level-Tabelle ×1,2, Kutschen entfernt, Story-Zeilen verschoben); 7 davon hingen bis zum Timeout und wurden zusätzlich wiederholt (ein Skriptfehler beendet nur die Coroutine, `quit()` kommt nie), feste Wartezeiten statt Bedingungen, Klassen-Typ `Garden` im Test; nach `await` lief Code ohne Baum weiter (DialogueBox, SkirmishPair); Wackeln und Überblend-Fenster maßen echte statt Spielzeit (fünf Kopien statt `StoryCutscene.shake`); `StoryNpc.is_player_close` nahm den Maßstab des Talk-Bereichs nur für die Größe heraus, nicht für den Versatz; zwei Tests waren nur zufällig grün (Selbstgespräch öffnete die Box zur richtigen Zeit) · 34, 32, 40, 17, 25
+- 2026-11-13 · fix/zauberstab-material · Die Werkbank kopierte beim Aufteilen in einzelne Plätze nur `item` und `part_type` einer Zutat, nicht `materials`/`min_rarity`; der Zauberstab-Platz nahm jeden Schaft, kein Rezept passte, Absturz bei „Herstellen“ · 26
+- 2026-11-13 · fix/lake-bleibt-bis-bergfried · Lichtung: Faelan ging mit `set_flag` in einer normalen Zeile mitten in Aurelius' Gespräch weg (jetzt Cutscene-Teil `faelan_off` bei verstecktem Fenster) · 48
+- 2026-11-13 · fix/lake-bleibt-bis-bergfried · Fluchtkarte der Finsterburg hatte 8 Hafen-Lagerfeuer aus Eisquell auf dem Burgboden (jetzt Burg-Fackelständer) · neu: 49
+- 2026-11-13 · fix/lake-bleibt-bis-bergfried · Thronsaal: Aurelius „sackt zusammen“ nur im Text, die Figur stand weiter (es gab kein Kniebild, jetzt `aurelius_kneel.png` + Teil `aurelius_collapse`); beim Fliehen lief er 13 px neben dem Spieler her statt sich auf ihn zu stützen · 46
+- 2026-11-13 · fix/lake-bleibt-bis-bergfried · Morgen-Bildschirm: Datum + Meldungen in einem Label fester Höhe, ab 3–4 Meldungen lief es in „Gestern/Heute“ (jetzt nach echter Höhe gestapelt) · neu im HUD, keine Regel
+- 2026-11-13 · fix/lake-bleibt-bis-bergfried · Lake und Faelan gingen im Torhof schon mit `keep_taken` (liefen nach Süden aus der Karte), danach sprach Lake in `keep_won` „Mir nach“ und ein Ersatz-Lake rannte vom Spieler aus los; jetzt bleibt Lake bis `keep_won_seen` und rennt selbst, Faelan hält den Hof bis `aurelius_burst_in` · neu: 48
+
+- 2026-11-13 · fix/kriegstisch-kollision · Fertige PixelLab-Posen nicht eingebaut: `lich_crawl.png` war geladen, aber nie benutzt (der Lich wurde nur verschoben), `lake_kneel.png` lag ungenutzt, Knien war nur Stauchen; dazu setzte die abbrechende Kampfschleife das Stehbild über das Kniebild. Bertolds Torhof-Szene hing am Schritt und lief bei jedem Gespräch neu · neu: 46, 47
+- 2026-11-13 · fix/kriegstisch-kollision · Kriegstisch (Torhof, Altar, Mauerkrone) hatte nur einen 52×10-Streifen am Fuß als Kollision, das 84 px breite Bild ist aber rund 55 px tief: man lief in die Tischplatte und stand hinter ihr; Kollision jetzt über die ganze Grundfläche · 22
+- 2026-11-13 · (main, nicht committet) · Schleich-Karten: Wachen hinter Betten/Tischen, Patrouillen durch Fässer und Feuerschalen, eine Wache stand mitten in einem 1-Feld-Gang und schaute nur längs (unpassierbar); Torhaus: `walk_player` schickte den Spieler vom Hebel geradeaus durch die Wand zur Winde (Laufwege einer Cutscene laufen durch alles); Wände per Pixel-Spalte gemalt (Ziegel mitten durchgeschnitten, dünne Wände ohne Krone, jetzt `map_tools/rewall.py`) · 22
+- 2026-11-13 · fix/pruefbericht-kleinreste · Brennstoff-Logik gab es dreimal (Esse, Schmelze, Phiolen-Tisch); jeder Regler-Schritt schrieb `settings.cfg`; Kundenaufträge und Händler-Ware durchsuchten für jede Zutat alle Items und Rezepte; der Rezept-Cache in `Economy` überlebte `ContentDB.reload()` · 25, 12, 27
+- 2026-11-13 · feature/cutscenes-storycutscene · 15 Cutscene-Skripte bauten Signal, Warten, Laufen und Wackeln selbst (63 rohe Timer, vier Kopien von `_walk_npc`), zwei schalteten den Spieler mit `set_physics_process(false)` ab · 17, 20
+- 2026-11-13 · feature/fenster-performance · Werkbank meldete pro Teil ein `inventory.changed` (jetzt `Inventory.begin_batch()/end_batch()`); Laden, Raum-Designer und Werkstatt-Upgrades bauten sich pro Kauf doppelt (jetzt `StationMenu._queue_refresh`); Turnier- und Pflanztopf-Fenster bauten sich in `_process` jeden Frame; die Kampfbühne legte pro Frame `AtlasTexture`s an, sortierte die Gegner bei jedem Aufruf und leitete das Helden-Aussehen neu ab · 11, 12
+- 2026-11-13 · fix/rote-kampf-tests · Quest-Teile aus Gussformen (Siegel, Dietrich, Kletterhaken, Fassung …) hatten `sell_price` ohne `value`; zwei Tests nicht nachgezogen, als Story-Kämpfe an `start_adventure` und Monster an eigene Sterbe-Animationen gingen · neu: 41, 34
+- 2026-11-13 · feature/godot-architektur · Ein Übersetzungs-Umbau (2026-10-27) hatte `"\n"` in echte Zeilenumbrüche verwandelt; mit Windows-Zeilenenden wurden daraus `\r\n`, die Gussform-Gruppen im Charakterfenster trennten sich nicht mehr, der Pflanztopf zeigte „Language.translate(“; Timer liefen in der Pause weiter, Tweens nicht · neu: 45
+
+- 2026-11-13 · fix/fenster-nur-sichtbar-neu · Fenster hörten auf Signale von GameState/Inventar und bauten sich auch geschlossen komplett neu (Heldenfenster bei jedem Pfeil, Dungeon-Brett jede Spielstunde, jedes Schmiede-Fenster der Szene bei jeder Inventar-Änderung) · 11
+- 2026-11-13 · fix/speichern-rundlauf · Felder, die sich im Spiel ändern, fehlten im Spielstand (Boss-Phase, Helfer-Wellen, Einmal-Skills, wartende Tipps, letzte Spende); Laden-Ware nach Platznummer gespeichert; Laden löste `adventure_started` aus; kein Test verglich einen ganzen Spielstand · 1, 2, 5
+- 2026-11-13 · fix/kleine-fehler-review · „Hauptmenü“ verglich übersetzten Knopftext mit dem deutschen Wort; Esc/X schlossen Dialoge mit offenen Aktionen; Speichern mitten in Cutscenes und Autosave im Turnier ohne Sperre; „Sofort“ hing an einem anderen Schalter als das Admin-Panel · 8, 4, 20, neu: 39
+- 2026-11-13 · fix/tests-eigene-daten · Tests liefen auf den echten Spielständen und Einstellungen (Sprache vom Rechner, Autosave überschrieben); 38 Tests waren unbemerkt rot, weil nie alle liefen · 30, 34
+- 2026-11-12 · fix/schmiede-ruckler · Fenster bauten sich bei jedem Signal neu auf, auch geschlossen · 11

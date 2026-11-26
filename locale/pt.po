@@ -1,0 +1,1672 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: pt\n"
+
+msgid "%d Herzen"
+msgstr "%d corações"
+
+msgid "Acht Bomben"
+msgstr "Oito bombas"
+
+msgid "Alle Items abgelegt"
+msgstr "Todos os itens largados"
+
+msgid "Alle Items ablegen"
+msgstr "Largar todos os itens"
+
+msgid "Alle Werte ein bisschen hoch"
+msgstr "Todos os atributos sobem um pouco"
+
+msgid "Alle paar Besiegten heilst du ein halbes Herz"
+msgstr "A cada poucos inimigos derrotados você cura meio coração"
+
+msgid "Alles im Laden kostet die Hälfte"
+msgstr "Tudo na loja custa metade"
+
+msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
+msgstr "No fim cada tiro explode em quatro faíscas"
+
+msgid "Amethyst"
+msgstr "Ametista"
+
+msgid "Arena-Amulett"
+msgstr "Amuleto da arena"
+
+msgid "Arenaherz"
+msgstr "Coração da arena"
+
+msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
+msgstr "Brasas gigantes carregadas caem e explodem"
+
+msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
+msgstr "Carregue, solte: um raio de fogo enorme"
+
+msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
+msgstr "Um machado em vez de bolas de fogo: golpe pesado, inimigos sangram"
+
+msgid "Beenden"
+msgstr "Sair"
+
+msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
+msgstr "Ao acertar, o tiro explode em quatro faíscas"
+
+msgid "Bernstein"
+msgstr "Âmbar"
+
+msgid "Besiege %d Gegner (%d / %d)"
+msgstr "Derrote %d inimigos (%d / %d)"
+
+msgid "Besiege: %s"
+msgstr "Derrote: %s"
+
+msgid "Besiegte Gegner: %d"
+msgstr "Inimigos derrotados: %d"
+
+msgid "Blasebalg"
+msgstr "Fole"
+
+msgid "Blutphiole"
+msgstr "Frasco de sangue"
+
+msgid "Bogenschütze"
+msgstr "Arqueiro"
+
+msgid "Bomben schießen beim Explodieren Feuerbälle"
+msgstr "Bombas disparam bolas de fogo ao explodir"
+
+msgid "Bomben zerplatzen in kleine Bomben"
+msgstr "Bombas explodem em bombinhas"
+
+msgid "Bombengürtel"
+msgstr "Cinto de bombas"
+
+msgid "Brandöl"
+msgstr "Óleo incendiário"
+
+msgid "Brennend und langsam: mehr Schaden"
+msgstr "Queimando e lento: mais dano"
+
+msgid "Brennende, explodierende Schüsse"
+msgstr "Tiros flamejantes que explodem"
+
+msgid "Brennende, langsame Gegner und zwei blaue Herzen"
+msgstr "Inimigos queimando e lentos, e dois corações azuis"
+
+msgid "Bronzebogen"
+msgstr "Arco de bronze"
+
+msgid "Bronzeschild"
+msgstr "Escudo de bronze"
+
+msgid "Brotkanone"
+msgstr "Canhão de pão"
+
+msgid "Brotregen"
+msgstr "Chuva de pão"
+
+msgid "Bumerang-Haken"
+msgstr "Gancho bumerangue"
+
+msgid "Das kostet zu viel Leben"
+msgstr "Isso custa vida demais"
+
+msgid "Defensiv"
+msgstr "Defensivo"
+
+msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
+msgstr "Suas bolas de fogo destroem os tiros inimigos"
+
+msgid "Deine Items"
+msgstr "Seus itens"
+
+msgid "Deine Schüsse verfolgen Gegner"
+msgstr "Seus tiros perseguem inimigos"
+
+msgid "Der Feuerstrahl biegt sich zum Gegner"
+msgstr "O raio de fogo se curva até o inimigo"
+
+msgid "Der Stein nimmt dein Opfer an"
+msgstr "A pedra aceita seu sacrifício"
+
+msgid "Der Weg nach unten ist frei!"
+msgstr "O caminho para baixo está livre!"
+
+msgid "Diamantherz"
+msgstr "Coração de diamante"
+
+msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
+msgstr "A arma do arqueiro: carregue flechas e solte, longe e forte"
+
+msgid "Die Waffe des Kriegers: ein Schwertschwung trifft alle vor dir"
+msgstr "A arma do guerreiro: um golpe de espada acerta todos à sua frente"
+
+msgid "Die Waffe des Magiers: schießt Feuerbälle"
+msgstr "A arma do mago: dispara bolas de fogo"
+
+msgid "Dietrich"
+msgstr "Gazua"
+
+msgid "Doppelschuss"
+msgstr "Tiro duplo"
+
+msgid "Dornenpanzer"
+msgstr "Armadura de espinhos"
+
+msgid "Drachenatem"
+msgstr "Bafo de dragão"
+
+msgid "Drachenhaut"
+msgstr "Pele de dragão"
+
+msgid "Drachenleder"
+msgstr "Couro de dragão"
+
+msgid "Drachenmantel"
+msgstr "Manto de dragão"
+
+msgid "Drei Funken folgen dir und schießen"
+msgstr "Três faíscas te seguem e atiram"
+
+msgid "Drei Schlüssel, Rabatt im Laden"
+msgstr "Três chaves, desconto na loja"
+
+msgid "Drei blaue Herzen"
+msgstr "Três corações azuis"
+
+msgid "Drei blaue Herzen und manchmal ausweichen"
+msgstr "Três corações azuis e às vezes esquiva"
+
+msgid "Dreifachschuss"
+msgstr "Tiro triplo"
+
+msgid "Dreizack-Rune"
+msgstr "Runa do tridente"
+
+msgid "Dreißig Münzen und zehn Schlüssel"
+msgstr "Trinta moedas e dez chaves"
+
+msgid "Du bist gefallen"
+msgstr "Você caiu"
+
+msgid "Du brauchst einen Schlüssel"
+msgstr "Você precisa de uma chave"
+
+msgid "Du hast den Dungeon bezwungen!"
+msgstr "Você conquistou a masmorra!"
+
+msgid "Du hast nicht genug Leben"
+msgstr "Você não tem vida suficiente"
+
+msgid "Du läufst schneller"
+msgstr "Você corre mais rápido"
+
+msgid "Du schießt Brotlaibe. Getroffene Gegner vergessen dich und rennen weg"
+msgstr "Você atira pães. Inimigos atingidos esquecem você e fogem"
+
+msgid "Du schießt auch nach hinten"
+msgstr "Você também atira para trás"
+
+msgid "Du schießt schneller"
+msgstr "Você atira mais rápido"
+
+msgid "Du wirfst Bomben statt Feuerbällen"
+msgstr "Você joga bombas em vez de bolas de fogo"
+
+msgid "Du wirfst Wurfsterne, getroffene Gegner bluten"
+msgstr "Você arremessa shurikens, inimigos atingidos sangram"
+
+msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
+msgstr "Você fica maior: mais corações e dano, mais fácil de acertar"
+
+msgid "Du wirst kleiner und schneller"
+msgstr "Você fica menor e mais rápido"
+
+msgid "Du wirst kleiner: schwerer zu treffen, schneller"
+msgstr "Você encolhe: mais difícil de acertar, mais rápido"
+
+msgid "Du wirst viel größer und stärker, aber langsamer"
+msgstr "Você fica muito maior e mais forte, porém mais lento"
+
+msgid "Du wirst winzig und manchmal weichst du aus"
+msgstr "Você fica minúsculo e às vezes esquiva"
+
+msgid "Dungeon der Glut"
+msgstr "Masmorra das Brasas"
+
+msgid "Dunkler Zauberstab"
+msgstr "Varinha sombria"
+
+msgid "Durch Gegner hindurch und von Wand zu Wand"
+msgstr "Através dos inimigos e de parede em parede"
+
+msgid "Durch Steine, und manchmal fliehen Gegner"
+msgstr "Através de pedras, e às vezes inimigos fogem"
+
+msgid "Durchschlag, Abprallen und Zerplatzen"
+msgstr "Perfura, ricocheteia e explode"
+
+msgid "E: Bombe · Tab: Karte · Esc: Pause"
+msgstr "E: bomba · Tab: mapa · Esc: pausa"
+
+msgid "Ebene %d"
+msgstr "Andar %d"
+
+msgid "Ebene: %d"
+msgstr "Andar: %d"
+
+msgid "Effekte"
+msgstr "Efeitos"
+
+msgid "Eigene Explosionen heilen dich"
+msgstr "Suas próprias explosões te curam"
+
+msgid "Ein Feuerball kreist um dich und blockt Schüsse"
+msgstr "Uma bola de fogo gira ao seu redor e bloqueia tiros"
+
+msgid "Ein Funke folgt dir und schießt"
+msgstr "Uma faísca te segue e atira"
+
+msgid "Ein Funke und ein Glutmond"
+msgstr "Uma faísca e uma lua de brasa"
+
+msgid "Ein Funke und mehr Glück"
+msgstr "Uma faísca e mais sorte"
+
+msgid "Ein Glutpakt hat sich geöffnet"
+msgstr "Um pacto de brasa se abriu"
+
+msgid "Ein Herz mehr"
+msgstr "Um coração a mais"
+
+msgid "Ein Herz mehr, Glück hoch"
+msgstr "Um coração a mais, mais sorte"
+
+msgid "Ein Herz mehr, Schaden hoch"
+msgstr "Um coração a mais, mais dano"
+
+msgid "Ein Herz mehr, heilt dich ganz"
+msgstr "Um coração a mais, cura você totalmente"
+
+msgid "Ein Herz und ein blaues Herz"
+msgstr "Um coração e um coração azul"
+
+msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
+msgstr "Um coração, espinhos, explosões não te ferem"
+
+msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "Um coração, uma moeda, uma bomba e uma chave"
+
+msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
+msgstr "Um coração, dois corações azuis, mais dano"
+
+msgid "Ein Schrein hat sich geöffnet"
+msgstr "Um santuário se abriu"
+
+msgid "Ein Schuss mehr und mehr Schaden"
+msgstr "Um tiro a mais e mais dano"
+
+msgid "Ein Schuss mehr, aber schwächer"
+msgstr "Um tiro a mais, porém mais fraco"
+
+msgid "Ein blaues Herz und Dornen"
+msgstr "Um coração azul e espinhos"
+
+msgid "Ein blaues Herz, Schaden hoch"
+msgstr "Um coração azul, mais dano"
+
+msgid "Ein blaues Herz, länger sicher nach Treffern"
+msgstr "Um coração azul, mais tempo seguro após golpes"
+
+msgid "Ein blaues Herz, schneller laufen"
+msgstr "Um coração azul, corre mais rápido"
+
+msgid "Ein geheimer Raum!"
+msgstr "Uma sala secreta!"
+
+msgid "Ein zweites Leben"
+msgstr "Uma segunda vida"
+
+msgid "Ein zweites Leben und ein Funke"
+msgstr "Uma segunda vida e uma faísca"
+
+msgid "Ein zweites Leben!"
+msgstr "Uma segunda vida!"
+
+msgid "Eine ganze Bäckerei auf einmal"
+msgstr "Uma padaria inteira de uma vez"
+
+msgid "Einstellungen"
+msgstr "Configurações"
+
+msgid "Eisenhaut"
+msgstr "Pele de ferro"
+
+msgid "Eisfeder"
+msgstr "Pena de gelo"
+
+msgid "Eisspiegel"
+msgstr "Espelho de gelo"
+
+msgid "Eisstab"
+msgstr "Cajado de gelo"
+
+msgid "Elfenbrief"
+msgstr "Carta élfica"
+
+msgid "Entdecke %d Items (%d / %d)"
+msgstr "Descubra %d itens (%d / %d)"
+
+msgid "Entdeckt: %d / %d"
+msgstr "Descobertos: %d / %d"
+
+msgid "Erdstab"
+msgstr "Cajado de terra"
+
+msgid "Erreiche Ebene %d"
+msgstr "Chegue ao andar %d"
+
+msgid "Erstglut"
+msgstr "Brasa primeira"
+
+msgid "Explosive Schüsse, langsamer schießen"
+msgstr "Tiros explosivos, atira mais devagar"
+
+msgid "Fahre mit der Maus über ein Item"
+msgstr "Passe o mouse sobre um item"
+
+msgid "Feenstaub"
+msgstr "Pó de fada"
+
+msgid "Feuerfester Bomber"
+msgstr "Bombardeiro à prova de fogo"
+
+msgid "Feuerhieb"
+msgstr "Corte de Fogo"
+
+msgid "Feuerkranz"
+msgstr "Coroa de fogo"
+
+msgid "Feuerlanze"
+msgstr "Lança de fogo"
+
+msgid "Feuerstab"
+msgstr "Cajado de fogo"
+
+msgid "Feuerstrahl statt Feuerbällen: Maustaste halten"
+msgstr "Raio de fogo em vez de bolas: segure o botão"
+
+msgid "Feuerwerk"
+msgstr "Fogos de artifício"
+
+msgid "Flechtenleder"
+msgstr "Couro de líquen"
+
+msgid "Flechtenmantel"
+msgstr "Manto de líquen"
+
+msgid "Fledermaus"
+msgstr "Morcego"
+
+msgid "Flipper"
+msgstr "Fliperama"
+
+msgid "Fluchskelett"
+msgstr "Esqueleto amaldiçoado"
+
+msgid "Freigeschaltet: %s"
+msgstr "Desbloqueado: %s"
+
+msgid "Frost und Feuer"
+msgstr "Gelo e fogo"
+
+msgid "Frostflechte"
+msgstr "Líquen gélido"
+
+msgid "Frostkristall"
+msgstr "Cristal de gelo"
+
+msgid "Frostmähne"
+msgstr "Juba de gelo"
+
+msgid "Funkenbüchse"
+msgstr "Lata de faíscas"
+
+msgid "Funkenfänger"
+msgstr "Apanha-faíscas"
+
+msgid "Funkenstein"
+msgstr "Pedra de faíscas"
+
+msgid "Fängt in jedem Raum den ersten Treffer ab"
+msgstr "Bloqueia o primeiro golpe em cada sala"
+
+msgid "Fünf Bomben, und Explosionen tun dir nichts mehr"
+msgstr "Cinco bombas, e explosões não te ferem mais"
+
+msgid "Fünf Münzen, drei Bomben, drei Schlüssel"
+msgstr "Cinco moedas, três bombas, três chaves"
+
+msgid "Fünf Schlüssel"
+msgstr "Cinco chaves"
+
+msgid "Fünfzehn Münzen"
+msgstr "Quinze moedas"
+
+msgid "Gegabelter Stab"
+msgstr "Cajado bifurcado"
+
+msgid "Gegner brennen, Schaden hoch"
+msgstr "Inimigos queimam, mais dano"
+
+msgid "Gegner werden langsamer, Reichweite hoch"
+msgstr "Inimigos ficam lentos, mais alcance"
+
+msgid "Gegner, die dich berühren, nehmen Schaden"
+msgstr "Inimigos que te tocam sofrem dano"
+
+msgid "Geist"
+msgstr "Fantasma"
+
+msgid "Geisterfürst"
+msgstr "Senhor fantasma"
+
+msgid "Geisterglas"
+msgstr "Vidro fantasma"
+
+msgid "Geisterstab"
+msgstr "Cajado fantasma"
+
+msgid "Generalsklinge"
+msgstr "Lâmina do general"
+
+msgid "Geschafft!"
+msgstr "Você conseguiu!"
+
+msgid "Gesperrt"
+msgstr "Bloqueado"
+
+msgid "Gesprengte Fessel"
+msgstr "Grilhão partido"
+
+msgid "Getroffene Gegner brennen weiter"
+msgstr "Inimigos atingidos continuam queimando"
+
+msgid "Getroffene Gegner fliehen vor dir"
+msgstr "Inimigos atingidos fogem de você"
+
+msgid "Getroffene Gegner frieren ein"
+msgstr "Inimigos atingidos congelam"
+
+msgid "Getroffene Gegner frieren kurz ein"
+msgstr "Inimigos atingidos congelam por um instante"
+
+msgid "Getroffene Gegner torkeln herum"
+msgstr "Inimigos atingidos cambaleiam"
+
+msgid "Getroffene Gegner werden langsam und vergiftet"
+msgstr "Inimigos atingidos ficam lentos e envenenados"
+
+msgid "Getroffene Gegner werden langsamer"
+msgstr "Inimigos atingidos ficam mais lentos"
+
+msgid "Getroffene Gegner werden vergiftet"
+msgstr "Inimigos atingidos são envenenados"
+
+msgid "Gewinne %d Runs"
+msgstr "Vença %d partidas"
+
+msgid "Gewinne einen Run"
+msgstr "Vença uma partida"
+
+msgid "Gewinne in unter %d Minuten"
+msgstr "Vença em menos de %d minutos"
+
+msgid "Ghul"
+msgstr "Carniçal"
+
+msgid "Giftratte"
+msgstr "Rato venenoso"
+
+msgid "Giftstab"
+msgstr "Cajado venenoso"
+
+msgid "Giftzahn"
+msgstr "Presa venenosa"
+
+msgid "Glutkern"
+msgstr "Núcleo de brasa"
+
+msgid "Glutklinge"
+msgstr "Lâmina de brasa"
+
+msgid "Glutmantel"
+msgstr "Manto de brasas"
+
+msgid "Glutmond"
+msgstr "Lua de brasa"
+
+msgid "Glutsammler"
+msgstr "Coletor de brasas"
+
+msgid "Glutschwert"
+msgstr "Espada de brasa"
+
+msgid "Glutstab"
+msgstr "Cajado de Brasa"
+
+msgid "Glück"
+msgstr "Sorte"
+
+msgid "Glück hoch"
+msgstr "Mais sorte"
+
+msgid "Glück und Schaden hoch"
+msgstr "Mais sorte e dano"
+
+msgid "Glück viel höher"
+msgstr "Muito mais sorte"
+
+msgid "Glücksflachs"
+msgstr "Linho da sorte"
+
+msgid "Glühender Schlüssel"
+msgstr "Chave incandescente"
+
+msgid "Goblin"
+msgstr "Goblin"
+
+msgid "Goblin-Schamane"
+msgstr "Xamã goblin"
+
+msgid "Goblinkrone"
+msgstr "Coroa goblin"
+
+msgid "Goblinstollen"
+msgstr "Túneis dos Goblins"
+
+msgid "Goldader"
+msgstr "Veio de ouro"
+
+msgid "Goldamulett"
+msgstr "Amuleto de ouro"
+
+msgid "Goldbarren"
+msgstr "Barra de ouro"
+
+msgid "Goldbogen"
+msgstr "Arco de ouro"
+
+msgid "Goldener Schattenstab"
+msgstr "Cajado sombrio dourado"
+
+msgid "Goldglut"
+msgstr "Brasa dourada"
+
+msgid "Goldhammer"
+msgstr "Martelo de ouro"
+
+msgid "Goldhelm"
+msgstr "Elmo de ouro"
+
+msgid "Goldklinge"
+msgstr "Lâmina de ouro"
+
+msgid "Goldstiefel"
+msgstr "Botas de ouro"
+
+msgid "Greifenfell"
+msgstr "Pelo de grifo"
+
+msgid "Greifenmantel"
+msgstr "Manto de grifo"
+
+msgid "Große, schwere Schüsse mit viel Rückstoß"
+msgstr "Tiros grandes e pesados com muito recuo"
+
+msgid "Grubenhacke"
+msgstr "Picareta de mina"
+
+msgid "Gruftgespenst"
+msgstr "Espectro da cripta"
+
+msgid "Gruftschild"
+msgstr "Escudo da cripta"
+
+msgid "Größere Bomben und drei Bomben"
+msgstr "Bombas maiores e três bombas"
+
+msgid "Größere Bomben, und keine tut dir weh"
+msgstr "Bombas maiores, e nenhuma te fere"
+
+msgid "Größere Feuerbälle, mehr Schaden"
+msgstr "Bolas de fogo maiores, mais dano"
+
+msgid "Habe %d Herz-Container gleichzeitig"
+msgstr "Tenha %d recipientes de coração ao mesmo tempo"
+
+msgid "Habe %d Münzen gleichzeitig"
+msgstr "Tenha %d moedas ao mesmo tempo"
+
+msgid "Habe %d blaue Herzen gleichzeitig"
+msgstr "Tenha %d corações azuis ao mesmo tempo"
+
+msgid "Hauptmenü"
+msgstr "Menu principal"
+
+msgid "Heilen durch Besiegte, Schaden hoch"
+msgstr "Cura ao derrotar inimigos, mais dano"
+
+msgid "Heilerkräuter"
+msgstr "Ervas curativas"
+
+msgid "Heilt dich ganz, schneller laufen"
+msgstr "Cura você totalmente, corre mais rápido"
+
+msgid "Heißer Sand"
+msgstr "Areia quente"
+
+msgid "Herzblatt"
+msgstr "Folha-coração"
+
+msgid "Herzen heilen doppelt"
+msgstr "Corações curam o dobro"
+
+msgid "Hexenkessel"
+msgstr "Caldeirão de bruxa"
+
+msgid "Hier klicken"
+msgstr "Clique aqui"
+
+msgid "Holzstab"
+msgstr "Cajado de madeira"
+
+msgid "Hydraschuppe"
+msgstr "Escama de hidra"
+
+msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
+msgstr "No máximo meio coração por golpe, porém mais lento"
+
+msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
+msgstr "No máximo meio coração por golpe, mais tempo seguro"
+
+msgid "Höhlentroll"
+msgstr "Troll das cavernas"
+
+msgid "Höllenhundfell"
+msgstr "Pelo de cão infernal"
+
+msgid "Höllenleder"
+msgstr "Couro infernal"
+
+msgid "Höllenstab"
+msgstr "Cajado infernal"
+
+msgid "Jadefigur"
+msgstr "Figura de jade"
+
+msgid "Jagdbogen"
+msgstr "Arco de Caça"
+
+msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
+msgstr "Quanto mais longe o tiro voa, mais dano"
+
+msgid "Jeder Treffer jagt Gegnern Angst ein"
+msgstr "Cada golpe assusta os inimigos"
+
+msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
+msgstr "Cada golpe recebido te deixa mais forte neste andar"
+
+msgid "Jeder zweite Schuss ist viel stärker"
+msgstr "A cada dois tiros, um é muito mais forte"
+
+msgid "Kamille"
+msgstr "Camomila"
+
+msgid "Kann ab jetzt im Dungeon auftauchen"
+msgstr "Agora pode aparecer na masmorra"
+
+msgid "Karawanenrucksack"
+msgstr "Mochila de caravana"
+
+msgid "Kein Treffer nimmt mehr als ein halbes Herz"
+msgstr "Nenhum golpe tira mais de meio coração"
+
+msgid "Kinderschuhe"
+msgstr "Sapatos de criança"
+
+msgid "Kleiner, schneller und manchmal ausweichen"
+msgstr "Menor, mais rápido e às vezes esquiva"
+
+msgid "Klingenstern"
+msgstr "Estrela de lâminas"
+
+msgid "Knochengeneral"
+msgstr "General de ossos"
+
+msgid "Kohlenschrot"
+msgstr "Chumbo de carvão"
+
+msgid "Kometenschweif"
+msgstr "Cauda de cometa"
+
+msgid "Kometenstein"
+msgstr "Pedra cometa"
+
+msgid "Kompassnadel"
+msgstr "Agulha de bússola"
+
+msgid "Krieger"
+msgstr "Guerreiro"
+
+msgid "Kriegerschwert"
+msgstr "Espada do Guerreiro"
+
+msgid "Kriegsaxt"
+msgstr "Machado de guerra"
+
+msgid "Kristallkarte"
+msgstr "Mapa de cristal"
+
+msgid "Kristallsplitter"
+msgstr "Fragmento de cristal"
+
+msgid "Kräuterbeutel"
+msgstr "Bolsa de ervas"
+
+msgid "Kupfernagel"
+msgstr "Prego de cobre"
+
+msgid "Königsbrief"
+msgstr "Carta real"
+
+msgid "Labyrinthaxt"
+msgstr "Machado do labirinto"
+
+msgid "Ladenschild"
+msgstr "Placa da loja"
+
+msgid "Lange Flugbahnen, gewaltiger Einschlag"
+msgstr "Voos longos, impacto enorme"
+
+msgid "Langsam heilen und ein blaues Herz"
+msgstr "Cura lenta e um coração azul"
+
+msgid "Langsam heilst du dich"
+msgstr "Você se cura lentamente"
+
+msgid "Lautstärke"
+msgstr "Volume"
+
+msgid "Lebendiger Wind"
+msgstr "Vento vivo"
+
+msgid "Lebensholz"
+msgstr "Madeira da vida"
+
+msgid "Lebenstau"
+msgstr "Orvalho da vida"
+
+msgid "Lederstiefel"
+msgstr "Botas de couro"
+
+msgid "Legendenhandschuhe"
+msgstr "Luvas lendárias"
+
+msgid "Leichte Feder"
+msgstr "Pena leve"
+
+msgid "Letzte Glut"
+msgstr "Última brasa"
+
+msgid "Lexikon"
+msgstr "Léxico"
+
+msgid "Lichtstab"
+msgstr "Cajado de luz"
+
+msgid "Länger sicher nach einem Treffer"
+msgstr "Mais tempo seguro após um golpe"
+
+msgid "Läufersandalen"
+msgstr "Sandálias de corredor"
+
+msgid "Läuferschuhe"
+msgstr "Tênis de corredor"
+
+msgid "Magier"
+msgstr "Mago"
+
+msgid "Makelloser Schild"
+msgstr "Escudo impecável"
+
+msgid "Manchmal Schüsse in alle vier Richtungen"
+msgstr "Às vezes tiros nas quatro direções"
+
+msgid "Manchmal ausweichen, schneller laufen"
+msgstr "Às vezes esquiva, corre mais rápido"
+
+msgid "Manchmal brennen getroffene Gegner"
+msgstr "Inimigos atingidos às vezes queimam"
+
+msgid "Manchmal explodieren deine Schüsse"
+msgstr "Seus tiros às vezes explodem"
+
+msgid "Manchmal frieren Gegner ein"
+msgstr "Inimigos às vezes congelam"
+
+msgid "Manchmal vergiften deine Schüsse"
+msgstr "Seus tiros às vezes envenenam"
+
+msgid "Manchmal weichst du Treffern aus"
+msgstr "Às vezes você esquiva golpes"
+
+msgid "Maus"
+msgstr "Mouse"
+
+msgid "Maustaste halten zum Aufladen: größer und stärker"
+msgstr "Segure para carregar: maior e mais forte"
+
+msgid "Mehr Beute nach jedem Raum"
+msgstr "Mais saque após cada sala"
+
+msgid "Mehr Rückstoß und Schaden"
+msgstr "Mais recuo e dano"
+
+msgid "Mehr Schaden für jede Münze, die du hast"
+msgstr "Mais dano para cada moeda que você tem"
+
+msgid "Meteor"
+msgstr "Meteoro"
+
+msgid "Minotaurus"
+msgstr "Minotauro"
+
+msgid "Mondlilie"
+msgstr "Lírio lunar"
+
+msgid "Mondsiegel"
+msgstr "Selo lunar"
+
+msgid "Mondsturm"
+msgstr "Tempestade lunar"
+
+msgid "Moorherz"
+msgstr "Coração do pântano"
+
+msgid "Musik"
+msgstr "Música"
+
+msgid "Münzen und Herzen fliegen zu dir"
+msgstr "Moedas e corações voam até você"
+
+msgid "Nach jedem Boss zwei Items zur Wahl"
+msgstr "Dois itens para escolher após cada chefe"
+
+msgid "Nachtschatten"
+msgstr "Erva-moura"
+
+msgid "Nachtschattensamen"
+msgstr "Sementes de erva-moura"
+
+msgid "Neuer Run"
+msgstr "Nova jornada"
+
+msgid "Neues Spiel"
+msgstr "Novo jogo"
+
+msgid "Nicht während eines Kampfes"
+msgstr "Não durante um combate"
+
+msgid "Nichts geschieht"
+msgstr "Nada acontece"
+
+msgid "Nimm %d Glutpakte in einem Run"
+msgstr "Aceite %d pactos de brasa em uma partida"
+
+msgid "Noch ein Glutmond kreist um dich"
+msgstr "Mais uma lua de brasa gira ao seu redor"
+
+msgid "Noch keine Items"
+msgstr "Ainda sem itens"
+
+msgid "Noch nicht entdeckt"
+msgstr "Ainda não descoberto"
+
+msgid "Nächste Seite"
+msgstr "Próxima página"
+
+msgid "Offensiv"
+msgstr "Ofensivo"
+
+msgid "Oger"
+msgstr "Ogro"
+
+msgid "Onyx"
+msgstr "Ônix"
+
+msgid "Opaljuwel"
+msgstr "Joia de opala"
+
+msgid "Opferdolch"
+msgstr "Faca ritual"
+
+msgid "Opferstein: ein Herz für eine Gabe"
+msgstr "Pedra do sacrifício: um coração por um presente"
+
+msgid "Ork"
+msgstr "Orc"
+
+msgid "Ork-Häuptling"
+msgstr "Chefe orc"
+
+msgid "Paktschatulle"
+msgstr "Cofre do pacto"
+
+msgid "Palladiumamulett"
+msgstr "Amuleto de paládio"
+
+msgid "Palladiumbarren"
+msgstr "Barra de paládio"
+
+msgid "Palladiumklinge"
+msgstr "Lâmina de paládio"
+
+msgid "Pause"
+msgstr "Pausa"
+
+msgid "Pfeile aufladen und loslassen: weit und stark"
+msgstr "Carregue e solte flechas: longe e forte"
+
+msgid "Pickups fliegen zu dir, Glück hoch"
+msgstr "Itens do chão voam até você, mais sorte"
+
+msgid "Platin-Großschwert"
+msgstr "Montante de platina"
+
+msgid "Platin-Lichtstab"
+msgstr "Cajado de luz de platina"
+
+msgid "Platin-Sturmstab"
+msgstr "Cajado da tempestade de platina"
+
+msgid "Platinamulett"
+msgstr "Amuleto de platina"
+
+msgid "Platinbarren"
+msgstr "Barra de platina"
+
+msgid "Platinklinge"
+msgstr "Lâmina de platina"
+
+msgid "Platinspitze"
+msgstr "Ponta de platina"
+
+msgid "Pulverfass"
+msgstr "Barril de pólvora"
+
+msgid "Pulverhandschuh"
+msgstr "Luva de pólvora"
+
+msgid "Ratte"
+msgstr "Rato"
+
+msgid "Rattenfell"
+msgstr "Pelo de rato"
+
+msgid "Rattenkeller"
+msgstr "Porão dos Ratos"
+
+msgid "Rattenkönig"
+msgstr "Rei dos Ratos"
+
+msgid "Reichweite"
+msgstr "Alcance"
+
+msgid "Reichweite +2 m, schnellere Schüsse"
+msgstr "Alcance +2 m, tiros mais velozes"
+
+msgid "Reichweite hoch"
+msgstr "Mais alcance"
+
+msgid "Reichweite und Schaden hoch"
+msgstr "Mais alcance e dano"
+
+msgid "Reichweite und Schusstempo hoch"
+msgstr "Mais alcance e velocidade de tiro"
+
+msgid "Reichweite: %s m"
+msgstr "Alcance: %s m"
+
+msgid "Reine Fassung"
+msgstr "Engaste puro"
+
+msgid "Riesenratte"
+msgstr "Rato gigante"
+
+msgid "Riesentrank"
+msgstr "Poção de gigante"
+
+msgid "Riesige Schüsse, die im Flug schrumpfen"
+msgstr "Tiros enormes que encolhem no voo"
+
+msgid "Riesige, langsame Feuerbälle mit viel Schaden"
+msgstr "Bolas de fogo enormes e lentas com muito dano"
+
+msgid "Riesiger Rückstoß und viel Schaden"
+msgstr "Recuo enorme e muito dano"
+
+msgid "Ritterhelm"
+msgstr "Elmo de cavaleiro"
+
+msgid "Robbenfell"
+msgstr "Pele de foca"
+
+msgid "Robbenmantel"
+msgstr "Manto de foca"
+
+msgid "Ruhmeskette"
+msgstr "Corrente da glória"
+
+msgid "Rückenamulett"
+msgstr "Amuleto das costas"
+
+msgid "Sandschmied-Handschuhe"
+msgstr "Luvas do ferreiro da areia"
+
+msgid "Saphir"
+msgstr "Safira"
+
+msgid "Saphirjuwel"
+msgstr "Joia de safira"
+
+msgid "Schaden"
+msgstr "Dano"
+
+msgid "Schaden für jede Münze, Glück hoch"
+msgstr "Dano por cada moeda, mais sorte"
+
+msgid "Schaden hoch"
+msgstr "Mais dano"
+
+msgid "Schaden hoch, etwas schneller schießen"
+msgstr "Mais dano, atira um pouco mais rápido"
+
+msgid "Schaden hoch, größere Feuerbälle"
+msgstr "Mais dano, bolas de fogo maiores"
+
+msgid "Schaden hoch, schneller laufen"
+msgstr "Mais dano, corre mais rápido"
+
+msgid "Schaden mal 1,15"
+msgstr "Dano x1,15"
+
+msgid "Schaden mal 1,2"
+msgstr "Dano x1,2"
+
+msgid "Schaden mal 1,2, etwas langsamer schießen"
+msgstr "Dano x1,2, atira um pouco mais devagar"
+
+msgid "Schaden mal 1,25"
+msgstr "Dano x1,25"
+
+msgid "Schaden mal 1,3 und zehn Münzen"
+msgstr "Dano x1,3 e dez moedas"
+
+msgid "Schaden mal 1,4 und Durchschlag"
+msgstr "Dano x1,4 e perfuração"
+
+msgid "Schaden mal 1,5"
+msgstr "Dano x1,5"
+
+msgid "Schaden und Reichweite hoch"
+msgstr "Mais dano e alcance"
+
+msgid "Schaden und Rückstoß hoch"
+msgstr "Mais dano e recuo"
+
+msgid "Schaden und Schusstempo hoch"
+msgstr "Mais dano e velocidade de tiro"
+
+msgid "Schaden, Reichweite und Glück hoch"
+msgstr "Mais dano, alcance e sorte"
+
+msgid "Schaden, Schusstempo und Reichweite hoch"
+msgstr "Mais dano, cadência e alcance"
+
+msgid "Schaden: %s"
+msgstr "Dano: %s"
+
+msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
+msgstr "Passe %d andares seguidos sem ser atingido"
+
+msgid "Schattenmantel"
+msgstr "Manto sombrio"
+
+msgid "Schattenschritt"
+msgstr "Passo sombrio"
+
+msgid "Schattenstab"
+msgstr "Cajado sombrio"
+
+msgid "Schatzbeutel"
+msgstr "Bolsa do tesouro"
+
+msgid "Schatzkarte"
+msgstr "Mapa do tesouro"
+
+msgid "Schießt Feuerbälle"
+msgstr "Atira bolas de fogo"
+
+msgid "Schildwache"
+msgstr "Guarda de escudo"
+
+msgid "Schlachtkeil"
+msgstr "Cunha de batalha"
+
+msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
+msgstr "Fogo serpente: tiros serpenteiam, um pouco mais de dano"
+
+msgid "Schlangenschüsse, die Gegner verfolgen"
+msgstr "Tiros serpenteantes que perseguem inimigos"
+
+msgid "Schleim"
+msgstr "Gosma"
+
+msgid "Schließen"
+msgstr "Fechar"
+
+msgid "Schlängelnde Schüsse, die abprallen"
+msgstr "Tiros serpenteantes que ricocheteiam"
+
+msgid "Schlüsselform"
+msgstr "Molde de chave"
+
+msgid "Schmiedehammer"
+msgstr "Martelo de ferreiro"
+
+msgid "Schmiedeschlüssel"
+msgstr "Chave da forja"
+
+msgid "Schmiedeschwert"
+msgstr "Espada de ferreiro"
+
+msgid "Schmiedeschürze"
+msgstr "Avental de ferreiro"
+
+msgid "Schneller laufen, Glück hoch"
+msgstr "Corre mais rápido, mais sorte"
+
+msgid "Schneller laufen, mehr Reichweite"
+msgstr "Corre mais rápido, mais alcance"
+
+msgid "Schneller schießen und laufen"
+msgstr "Atira e corre mais rápido"
+
+msgid "Schneller schießen, Schüsse zerplatzen am Ende"
+msgstr "Atira mais rápido, tiros explodem no fim"
+
+msgid "Schnellere Schüsse fliegen durch Gegner"
+msgstr "Tiros mais rápidos atravessam inimigos"
+
+msgid "Schreckensbrief"
+msgstr "Carta do pavor"
+
+msgid "Schrotflinte: sechs Glutbrocken auf kurze Distanz"
+msgstr "Escopeta: seis brasas a curta distância"
+
+msgid "Schrumpftrank"
+msgstr "Poção encolhedora"
+
+msgid "Schusstempo"
+msgstr "Velocidade do tiro"
+
+msgid "Schwarzer Kristall"
+msgstr "Cristal negro"
+
+msgid "Schwere Glut"
+msgstr "Brasa pesada"
+
+msgid "Schwerer zu treffen und schneller"
+msgstr "Mais difícil de atingir e mais rápido"
+
+msgid "Schwert statt Feuerbällen: der Schwung trifft alle vor dir, Gegner brennen"
+msgstr "Uma espada em vez de bolas de fogo: o golpe atinge todos à frente, inimigos queimam"
+
+msgid "Schwert und Feuerstab: jeder Schwung schickt einen Feuerschweif nach vorne"
+msgstr "Espada e cajado de fogo: cada golpe lança um rastro de fogo para frente"
+
+msgid "Schwertschwung: kurze Reichweite, trifft mehrere Gegner"
+msgstr "Golpe de espada: curto alcance, atinge vários inimigos"
+
+msgid "Schüsse auf einmal: %d"
+msgstr "Tiros de uma vez: %d"
+
+msgid "Schüsse fliegen durch Gegner hindurch"
+msgstr "Tiros atravessam inimigos"
+
+msgid "Schüsse fliegen durch Steine"
+msgstr "Tiros atravessam pedras"
+
+msgid "Schüsse fliegen durch Steine und suchen Gegner"
+msgstr "Tiros atravessam pedras e buscam inimigos"
+
+msgid "Schüsse fliegen zu dir zurück"
+msgstr "Tiros voltam para você"
+
+msgid "Schüsse prallen ab, fliegen durch Gegner und suchen sie"
+msgstr "Tiros ricocheteiam, perfuram e buscam inimigos"
+
+msgid "Schüsse prallen von Wänden ab"
+msgstr "Tiros ricocheteiam nas paredes"
+
+msgid "Schüsse pro Sekunde: %s"
+msgstr "Tiros por segundo: %s"
+
+msgid "Schüsse suchen Gegner und fliegen durch sie"
+msgstr "Tiros buscam inimigos e os atravessam"
+
+msgid "Schüsse zerplatzen am Ende und fliegen durch Steine"
+msgstr "Tiros explodem no fim e atravessam pedras"
+
+msgid "Schüsse/s"
+msgstr "Tiros/s"
+
+msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
+msgstr "Seis moedas, três bombas, três chaves"
+
+msgid "Seelensplitter"
+msgstr "Fragmento de alma"
+
+msgid "Seelenstab"
+msgstr "Cajado das almas"
+
+msgid "Seherbräu"
+msgstr "Poção do vidente"
+
+msgid "Seite %d von %d"
+msgstr "Página %d de %d"
+
+msgid "Shift: du springst dorthin, wo du hinzielst"
+msgstr "Shift: você salta para onde mira"
+
+msgid "Shift: ein schneller Sprint, kurz unverwundbar"
+msgstr "Shift: uma arrancada rápida, invulnerável por um instante"
+
+msgid "Siegerring"
+msgstr "Anel do vencedor"
+
+msgid "Silberader"
+msgstr "Veio de prata"
+
+msgid "Silberamulett"
+msgstr "Amuleto de prata"
+
+msgid "Silberdolch"
+msgstr "Adaga de prata"
+
+msgid "Silberhammer"
+msgstr "Martelo de prata"
+
+msgid "Silberharnisch"
+msgstr "Couraça de prata"
+
+msgid "Silberklinge"
+msgstr "Lâmina de prata"
+
+msgid "Silberring"
+msgstr "Anel de prata"
+
+msgid "Silberspitze"
+msgstr "Ponta de prata"
+
+msgid "Skelett"
+msgstr "Esqueleto"
+
+msgid "Skelettritter"
+msgstr "Cavaleiro esqueleto"
+
+msgid "Smaragd"
+msgstr "Esmeralda"
+
+msgid "Smaragdjuwel"
+msgstr "Joia de esmeralda"
+
+msgid "Sonderraum"
+msgstr "Sala especial"
+
+msgid "Sonnenblume"
+msgstr "Girassol"
+
+msgid "Spardose"
+msgstr "Cofrinho"
+
+msgid "Spinne"
+msgstr "Aranha"
+
+msgid "Spinnenmutter"
+msgstr "Mãe aranha"
+
+msgid "Spinnenseil"
+msgstr "Corda de aranha"
+
+msgid "Splitterrubin"
+msgstr "Rubi estilhaçado"
+
+msgid "Sprache"
+msgstr "Idioma"
+
+msgid "Sprengmeisterhelm"
+msgstr "Elmo do mestre explosivo"
+
+msgid "Sprengrune"
+msgstr "Runa explosiva"
+
+msgid "Sprengsack"
+msgstr "Saco de explosivos"
+
+msgid "Sprengstrahl"
+msgstr "Raio explosivo"
+
+msgid "Sprinterrucksack"
+msgstr "Mochila de velocista"
+
+msgid "Steine zertreten und mehr Beute"
+msgstr "Esmaga pedras e mais saque"
+
+msgid "Steine zertreten, fünf Bomben"
+msgstr "Esmaga pedras, cinco bombas"
+
+msgid "Sternenfessel"
+msgstr "Grilhão estelar"
+
+msgid "Sternenstahl"
+msgstr "Aço estelar"
+
+msgid "Sternenstahl-Splitter"
+msgstr "Lasca de aço estelar"
+
+msgid "Sternenstaub"
+msgstr "Poeira estelar"
+
+msgid "Sternentrunk"
+msgstr "Trago estelar"
+
+msgid "Stillstehen macht dich unverwundbar"
+msgstr "Ficar parado te deixa invulnerável"
+
+msgid "Stollenhelm"
+msgstr "Capacete de mineiro"
+
+msgid "Stollenratte"
+msgstr "Rato do túnel"
+
+msgid "Streitkolben"
+msgstr "Maça"
+
+msgid "Streubombe"
+msgstr "Bomba de fragmentação"
+
+msgid "Sturmessenz"
+msgstr "Essência da tempestade"
+
+msgid "Sturmkarte"
+msgstr "Mapa da tempestade"
+
+msgid "Sturmsiegel"
+msgstr "Selo da tempestade"
+
+msgid "Sturmstab"
+msgstr "Cajado da tempestade"
+
+msgid "Stärketrank"
+msgstr "Poção de força"
+
+msgid "Suchende Bumerangs finden immer ein Ziel"
+msgstr "Bumerangues teleguiados sempre acham um alvo"
+
+msgid "Suchende Schüsse und alle Werte hoch"
+msgstr "Tiros teleguiados e todos os atributos sobem"
+
+msgid "Suchende Schüsse und ein blaues Herz"
+msgstr "Tiros teleguiados e um coração azul"
+
+msgid "Suchende Schüsse, Glück hoch"
+msgstr "Tiros teleguiados, mais sorte"
+
+msgid "Suchende Schüsse, etwas mehr Schaden"
+msgstr "Tiros teleguiados, um pouco mais de dano"
+
+msgid "Suchender Funke"
+msgstr "Faísca teleguiada"
+
+msgid "Suchender Strahl"
+msgstr "Raio teleguiado"
+
+msgid "Sumpfhaut"
+msgstr "Pele do pântano"
+
+msgid "Sumpfleder"
+msgstr "Couro do pântano"
+
+msgid "Sumpfmantel"
+msgstr "Manto do pântano"
+
+msgid "Synergie: %s!"
+msgstr "Sinergia: %s!"
+
+msgid "Synergien: %s"
+msgstr "Sinergias: %s"
+
+msgid "Taumelkraut"
+msgstr "Erva cambaleante"
+
+msgid "Tausendklinge"
+msgstr "Lâmina dos mil"
+
+msgid "Tempo"
+msgstr "Velocidade"
+
+msgid "Tempo: %s"
+msgstr "Velocidade: %s"
+
+msgid "Testraum · P: zurück"
+msgstr "Sala de teste · P: voltar"
+
+msgid "Topasjuwel"
+msgstr "Joia de topázio"
+
+msgid "Totenbeschwörer"
+msgstr "Necromante"
+
+msgid "Totengruft"
+msgstr "Cripta dos mortos"
+
+msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
+msgstr "Acertos explodem, tiros atravessam pedras"
+
+msgid "Treue Funken"
+msgstr "Faíscas leais"
+
+msgid "Trollblut"
+msgstr "Sangue de troll"
+
+msgid "Trollpanzer"
+msgstr "Armadura de troll"
+
+msgid "Truhenschlüssel"
+msgstr "Chave do baú"
+
+msgid "Utility"
+msgstr "Utilidade"
+
+msgid "Vampir"
+msgstr "Vampiro"
+
+msgid "Vergiftet Gegner, Schaden etwas hoch"
+msgstr "Envenena inimigos, um pouco mais de dano"
+
+msgid "Viel größere Bomben"
+msgstr "Bombas muito maiores"
+
+msgid "Viel mehr Schaden"
+msgstr "Muito mais dano"
+
+msgid "Viel mehr Schaden mit nur einem Herz"
+msgstr "Muito mais dano com só um coração"
+
+msgid "Viel mehr Schaden, langsamer schießen"
+msgstr "Muito mais dano, atira mais devagar"
+
+msgid "Viel schneller laufen"
+msgstr "Corre muito mais rápido"
+
+msgid "Viel schneller laufen und schießen"
+msgstr "Corre e atira muito mais rápido"
+
+msgid "Viel schneller schießen und laufen"
+msgstr "Atira e corre muito mais rápido"
+
+msgid "Viel schneller schießen, etwas weniger Schaden"
+msgstr "Atira muito mais rápido, um pouco menos de dano"
+
+msgid "Viel schnellere Schüsse"
+msgstr "Tiros muito mais rápidos"
+
+msgid "Viel schnellere Schüsse und mehr Reichweite"
+msgstr "Tiros muito mais rápidos e mais alcance"
+
+msgid "Viele suchende Funken auf einmal"
+msgstr "Muitas faíscas teleguiadas de uma vez"
+
+msgid "Vier Schlüssel"
+msgstr "Quatro chaves"
+
+msgid "Vollbild"
+msgstr "Tela cheia"
+
+msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
+msgstr "WASD: andar · Mouse: mirar · Clique esquerdo: atirar"
+
+msgid "Wanderbündel"
+msgstr "Trouxa do viajante"
+
+msgid "Wasserstab"
+msgstr "Cajado de água"
+
+msgid "Weiter"
+msgstr "Continuar"
+
+msgid "Weltenstab"
+msgstr "Cajado dos mundos"
+
+msgid "Wer tötet, fliegt mit dem Rest weiter"
+msgstr "Um tiro que mata segue com o que sobra"
+
+msgid "Wettkampfstiefel"
+msgstr "Botas de competição"
+
+msgid "Windfeder"
+msgstr "Pena do vento"
+
+msgid "Windläufer-Stiefel"
+msgstr "Botas do corredor do vento"
+
+msgid "Windrose"
+msgstr "Rosa dos ventos"
+
+msgid "Windstab"
+msgstr "Cajado do vento"
+
+msgid "Wo der Strahl auftrifft, knallt es"
+msgstr "Onde o raio acerta, tudo explode"
+
+msgid "Wolfsmantel"
+msgstr "Manto de lobo"
+
+msgid "Wurfsterne"
+msgstr "Shurikens"
+
+msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
+msgstr "Shurikens atravessam inimigos e muitas vezes os fazem sangrar"
+
+msgid "Wähle deinen Charakter"
+msgstr "Escolha seu personagem"
+
+msgid "Wählen"
+msgstr "Escolher"
+
+msgid "Wüstenkompass"
+msgstr "Bússola do deserto"
+
+msgid "Zauberbuch"
+msgstr "Livro de feitiços"
+
+msgid "Zehn Bomben"
+msgstr "Dez bombas"
+
+msgid "Zehn Münzen, Glück hoch"
+msgstr "Dez moedas, mais sorte"
+
+msgid "Zombie"
+msgstr "Zumbi"
+
+msgid "Zu wenig Münzen"
+msgstr "Moedas insuficientes"
+
+msgid "Zufällig Gift, Furcht oder Taumeln"
+msgstr "Veneno, medo ou cambaleio aleatório"
+
+msgid "Zunderbüchse"
+msgstr "Caixa de isca"
+
+msgid "Zwanzig Münzen"
+msgstr "Vinte moedas"
+
+msgid "Zwei Funken folgen dir und schießen"
+msgstr "Duas faíscas te seguem e atiram"
+
+msgid "Zwei Funken und Schaden hoch"
+msgstr "Duas faíscas e mais dano"
+
+msgid "Zwei Glutmonde kreisen um dich"
+msgstr "Duas luas de brasa giram ao seu redor"
+
+msgid "Zwei Herzen mehr"
+msgstr "Dois corações a mais"
+
+msgid "Zwei Herzen mehr und Dornen"
+msgstr "Dois corações a mais e espinhos"
+
+msgid "Zwei Herzen mehr und langsam heilen"
+msgstr "Dois corações a mais e cura lenta"
+
+msgid "Zwei Herzen mehr, aber langsamer"
+msgstr "Dois corações a mais, porém mais lento"
+
+msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
+msgstr "Dois corações, dois corações azuis, mais dano"
+
+msgid "Zwei Schüsse mehr, etwas schwächer"
+msgstr "Dois tiros a mais, um pouco mais fracos"
+
+msgid "Zwei blaue Herzen"
+msgstr "Dois corações azuis"
+
+msgid "Zwei blaue Herzen und Dornen"
+msgstr "Dois corações azuis e espinhos"
+
+msgid "Zwei blaue Herzen, Schaden hoch"
+msgstr "Dois corações azuis, mais dano"
+
+msgid "Zwei blaue Herzen, länger sicher nach Treffern"
+msgstr "Dois corações azuis, mais tempo seguro após golpes"
+
+msgid "Zwei blaue Herzen; geht eins verloren, trifft es alle Gegner"
+msgstr "Dois corações azuis; perder um atinge todos os inimigos"
+
+msgid "Zwillingshandschuhe"
+msgstr "Luvas gêmeas"
+
+msgid "oder Leertaste"
+msgstr "ou aperte Espaço"

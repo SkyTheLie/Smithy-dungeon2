@@ -1,0 +1,167 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/main_menu/character_creator.gd" id="1_creator"]
+[ext_resource type="Texture2D" path="res://assets/ui/title_background.png" id="2_background"]
+
+[node name="CharacterCreator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_creator")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_background")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Shade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.08, 0.04, 0.08, 0.55)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Columns" type="HBoxContainer" parent="Center"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PreviewColumn" type="VBoxContainer" parent="Center/Columns"]
+layout_mode = 2
+alignment = 1
+
+[node name="Preview" type="TextureRect" parent="Center/Columns/PreviewColumn"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TurnButtons" type="HBoxContainer" parent="Center/Columns/PreviewColumn"]
+layout_mode = 2
+alignment = 1
+
+[node name="TurnLeftButton" type="Button" parent="Center/Columns/PreviewColumn/TurnButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "<"
+
+[node name="TurnLabel" type="Label" parent="Center/Columns/PreviewColumn/TurnButtons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+text = "drehen"
+
+[node name="TurnRightButton" type="Button" parent="Center/Columns/PreviewColumn/TurnButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = ">"
+
+[node name="Panel" type="PanelContainer" parent="Center/Columns"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBox" type="VBoxContainer" parent="Center/Columns/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="Center/Columns/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Charakter erstellen"
+horizontal_alignment = 1
+
+[node name="NameRow" type="HBoxContainer" parent="Center/Columns/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="NameLabel" type="Label" parent="Center/Columns/Panel/VBox/NameRow"]
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+text = "Name"
+
+[node name="NameEdit" type="LineEdit" parent="Center/Columns/Panel/VBox/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_length = 16
+
+[node name="Menu" type="HBoxContainer" parent="Center/Columns/Panel/VBox"]
+custom_minimum_size = Vector2(260, 240)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Options" type="Control" parent="Center/Columns/Panel/VBox/Menu"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+
+[node name="OptionsScroll" type="ScrollContainer" parent="Center/Columns/Panel/VBox/Menu/Options"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 240.0
+horizontal_scroll_mode = 0
+
+[node name="OptionsList" type="VBoxContainer" parent="Center/Columns/Panel/VBox/Menu/Options/OptionsScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="CategoryScroll" type="ScrollContainer" parent="Center/Columns/Panel/VBox/Menu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="Categories" type="VBoxContainer" parent="Center/Columns/Panel/VBox/Menu/CategoryScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Buttons" type="HBoxContainer" parent="Center/Columns/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="RandomButton" type="Button" parent="Center/Columns/Panel/VBox/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Zufällig"
+
+[node name="BackButton" type="Button" parent="Center/Columns/Panel/VBox/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Zurück"
+
+[node name="StartButton" type="Button" parent="Center/Columns/Panel/VBox/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Los geht's"

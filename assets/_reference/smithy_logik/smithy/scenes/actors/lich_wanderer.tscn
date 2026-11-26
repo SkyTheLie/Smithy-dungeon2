@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scenes/actors/lich_wanderer.gd" id="1_lich"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/lich_walk.png" id="2_walk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/lich_cast.png" id="3_cast"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feet"]
+size = Vector2(12, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bubble"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 3.0
+bg_color = Color(0.95, 0.91, 0.82, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.129, 0.075, 0.118, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Lich" type="CharacterBody2D"]
+script = ExtResource("1_lich")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_feet")
+
+[node name="Walk" type="Sprite2D" parent="."]
+texture = ExtResource("2_walk")
+offset = Vector2(0, -23)
+hframes = 6
+vframes = 4
+
+[node name="Cast" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_cast")
+offset = Vector2(0, -23)
+hframes = 6
+vframes = 4
+
+[node name="Bubble" type="PanelContainer" parent="."]
+z_index = 3
+offset_left = -64.0
+offset_top = -78.0
+offset_right = 64.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bubble")
+
+[node name="Label" type="Label" parent="Bubble"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.129, 0.075, 0.118, 1)
+horizontal_alignment = 1
+autowrap_mode = 3

@@ -1,0 +1,531 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_14.png" id="wp_world_props_fortress_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_7.png" id="wp_world_props_fortress_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_8.png" id="wp_world_props_fortress_8"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_fortress.tscn" id="lamp_fortress"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/sneak/sneak_zone.gd" id="3_sneak_zone"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="4_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sneak_barracks_ground.png" id="5_sneak_barrac"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="6_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sneak_barracks_mask.png" id="7_sneak_barrac"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="8_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/bed.png" id="9_bed"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/td_dining_table.png" id="10_td_dining_ta"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_0.png" id="11_crates"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_1.png" id="12_barrels_sack"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="14_night_light"]
+[ext_resource type="Script" path="res://scenes/world/sneak/sneak_guard.gd" id="15_sneak_guard"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="16_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="17_hud"]
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("8_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("8_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("8_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("8_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("8_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("8_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_dark_lake"]
+script = ExtResource("8_appearance")
+race = "human"
+skin = "pale"
+hair_style = "short"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_lizard"]
+script = ExtResource("8_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_warden"]
+script = ExtResource("8_appearance")
+race = "half_demon"
+skin = "ash"
+eye_type = "glowing"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_warden2"]
+script = ExtResource("8_appearance")
+race = "half_demon"
+skin = "slate"
+eye_type = "glowing"
+eye_color = "green"
+hair_style = "spiky"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="RectangleShape2D" id="Rect_24x20"]
+size = Vector2(24, 20)
+
+[sub_resource type="RectangleShape2D" id="Rect_50x14"]
+size = Vector2(50, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_28x12"]
+size = Vector2(28, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_30x12"]
+size = Vector2(30, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[node name="SneakBarracks" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("3_sneak_zone")
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+color = Color(0.42, 0.42, 0.55, 1)
+script = ExtResource("4_gloom")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-480, -256)
+texture = ExtResource("5_sneak_barrac")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-480, -256)
+script = ExtResource("6_cave_walls")
+mask = ExtResource("7_sneak_barrac")
+
+[node name="Props" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Bed1" type="StaticBody2D" parent="Props"]
+position = Vector2(-432, -198)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed1"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed1"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Bed2" type="StaticBody2D" parent="Props"]
+position = Vector2(-368, -198)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed2"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed2"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Bed3" type="StaticBody2D" parent="Props"]
+position = Vector2(-304, -198)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed3"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed3"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Table1" type="StaticBody2D" parent="Props"]
+position = Vector2(-112, -166)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Table1"]
+texture = ExtResource("10_td_dining_ta")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Table1"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_50x14")
+
+[node name="Table2" type="StaticBody2D" parent="Props"]
+position = Vector2(-16, -166)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Table2"]
+texture = ExtResource("10_td_dining_ta")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Table2"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_50x14")
+
+[node name="Crates1" type="StaticBody2D" parent="Props"]
+position = Vector2(176, -166)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crates1"]
+texture = ExtResource("11_crates")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crates1"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_28x12")
+
+[node name="Crates2" type="StaticBody2D" parent="Props"]
+position = Vector2(272, -166)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crates2"]
+texture = ExtResource("11_crates")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crates2"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_28x12")
+
+[node name="Crates3" type="StaticBody2D" parent="Props"]
+position = Vector2(368, -166)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crates3"]
+texture = ExtResource("11_crates")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crates3"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_28x12")
+
+[node name="Bed4" type="StaticBody2D" parent="Props"]
+position = Vector2(-432, -134)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed4"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed4"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Bed5" type="StaticBody2D" parent="Props"]
+position = Vector2(-368, -134)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed5"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed5"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Bed6" type="StaticBody2D" parent="Props"]
+position = Vector2(-304, -134)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed6"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed6"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Table3" type="StaticBody2D" parent="Props"]
+position = Vector2(-112, -102)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Table3"]
+texture = ExtResource("10_td_dining_ta")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Table3"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_50x14")
+
+[node name="Table4" type="StaticBody2D" parent="Props"]
+position = Vector2(-16, -102)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Table4"]
+texture = ExtResource("10_td_dining_ta")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Table4"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_50x14")
+
+[node name="Barrels1" type="StaticBody2D" parent="Props"]
+position = Vector2(240, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Barrels1"]
+texture = ExtResource("12_barrels_sack")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Barrels1"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_30x12")
+
+[node name="Brazier1" parent="Props" instance=ExtResource("lamp_fortress")]
+position = Vector2(437, 1)
+
+[node name="Crates4" type="StaticBody2D" parent="Props"]
+position = Vector2(144, 90)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Crates4"]
+texture = ExtResource("11_crates")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Crates4"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_28x12")
+
+[node name="Bed7" type="StaticBody2D" parent="Props"]
+position = Vector2(-432, 122)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed7"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed7"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Bed8" type="StaticBody2D" parent="Props"]
+position = Vector2(-368, 122)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed8"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed8"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Bed9" type="StaticBody2D" parent="Props"]
+position = Vector2(-304, 122)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed9"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed9"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Barrels2" type="StaticBody2D" parent="Props"]
+position = Vector2(-144, 122)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Barrels2"]
+texture = ExtResource("12_barrels_sack")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Barrels2"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_30x12")
+
+[node name="Bed10" type="StaticBody2D" parent="Props"]
+position = Vector2(-432, 186)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed10"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed10"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Bed11" type="StaticBody2D" parent="Props"]
+position = Vector2(-368, 186)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed11"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed11"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Bed12" type="StaticBody2D" parent="Props"]
+position = Vector2(-304, 186)
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Bed12"]
+texture = ExtResource("9_bed")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Bed12"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_24x20")
+
+[node name="Guards" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Guard1" type="Node2D" parent="Guards"]
+position = Vector2(-80, 16)
+script = ExtResource("15_sneak_guard")
+appearance = SubResource("Look_warden")
+resident = "finster_warden_a"
+look_directions = PackedStringArray("up", "down")
+turn_seconds = 2.2
+view_range = 110.0
+
+[node name="Guard2" type="Node2D" parent="Guards"]
+position = Vector2(-64, -176)
+script = ExtResource("15_sneak_guard")
+appearance = SubResource("Look_warden2")
+resident = "finster_warden_b"
+look_directions = PackedStringArray("down", "left", "up", "right")
+turn_seconds = 1.5
+view_range = 110.0
+
+[node name="Guard3" type="Node2D" parent="Guards"]
+position = Vector2(192, -16)
+script = ExtResource("15_sneak_guard")
+appearance = SubResource("Look_warden")
+resident = "finster_warden_a"
+look_directions = PackedStringArray("right", "left")
+turn_seconds = 1.8
+view_range = 110.0
+
+[node name="Guard4" type="Node2D" parent="Guards"]
+position = Vector2(304, -176)
+script = ExtResource("15_sneak_guard")
+appearance = SubResource("Look_warden2")
+resident = "finster_warden_b"
+look_directions = PackedStringArray("left", "down")
+turn_seconds = 2.0
+view_range = 110.0
+
+[node name="Guard5" type="Node2D" parent="Guards"]
+position = Vector2(144, 112)
+script = ExtResource("15_sneak_guard")
+appearance = SubResource("Look_warden")
+resident = "finster_warden_a"
+look_directions = PackedStringArray("up", "left", "down", "right")
+turn_seconds = 1.7
+view_range = 110.0
+
+[node name="Guard6" type="Node2D" parent="Guards"]
+position = Vector2(400, 80)
+script = ExtResource("15_sneak_guard")
+appearance = SubResource("Look_warden2")
+resident = "finster_warden_b"
+look_directions = PackedStringArray("up", "down")
+turn_seconds = 1.6
+view_range = 110.0
+
+[node name="Guard7" type="Node2D" parent="Guards"]
+position = Vector2(-400, 144)
+script = ExtResource("15_sneak_guard")
+appearance = SubResource("Look_warden")
+resident = "finster_warden_a"
+look_directions = PackedStringArray("right", "up")
+turn_seconds = 2.4
+view_range = 110.0
+
+[node name="Exit" parent="." instance=ExtResource("16_door")]
+position = Vector2(464, 112)
+target_scene = "res://scenes/world/fortress/sneak_ring.tscn"
+target_spawn_point = &"Start"
+scale = Vector2(1, 2)
+
+[node name="Visual" parent="Exit" index="0"]
+visible = false
+
+[node name="Start" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-432, -16)
+
+[node name="Clutter" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="Sprite2D" parent="Clutter"]
+position = Vector2(403, -199)
+texture = ExtResource("wp_world_props_fortress_8")
+offset = Vector2(0, -15.5)
+
+[node name="P2" type="Sprite2D" parent="Clutter"]
+position = Vector2(273, 59)
+texture = ExtResource("wp_world_props_fortress_7")
+offset = Vector2(0, -20.5)
+
+[node name="P3" type="Sprite2D" parent="Clutter"]
+position = Vector2(342, 124)
+texture = ExtResource("wp_world_props_fortress_14")
+offset = Vector2(0, -19.5)
+
+[node name="P4" type="Sprite2D" parent="Clutter"]
+position = Vector2(-239, -20)
+texture = ExtResource("wp_world_props_fortress_8")
+offset = Vector2(0, -15.5)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-432, -16)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -480
+limit_top = -256
+limit_right = 480
+limit_bottom = 256
+
+[node name="HUD" parent="." instance=ExtResource("17_hud")]
+
+[editable path="Exit"]
+[editable path="Player"]

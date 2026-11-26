@@ -1,0 +1,4595 @@
+{
+	"_comment": "Schmiede-Verteidigung (DefenseRun). Ein Run geht, bis die Schmiede fällt. Nach jeder Welle: Verbesserungsphase (Laden mit zufälligen Kristall-Angeboten zu festen Preisen, Verbesserungen, Relikte). Nach dem Fall: Meisterschaft (bleibt, gespeichert). Erster Vorschlag, nicht ausbalanciert.",
+	"castle_hp": 25,
+	"start_coins": 45,
+	"hammer": {
+		"radius": 20,
+		"damage": 10,
+		"interval": 0.8
+	},
+	"waves": {
+		"_comment": "Ein Run beginnt beim ersten nicht besiegten Teil und geht, bis die Schmiede fällt. Jeder Teil ist ein Dungeon (parts), die letzte Welle hat den Boss. Leben noch early_next Gegner (und kein Boss), kommt sofort die nächste Welle. Gegnerwerte × part_*_growth^Teil; nach dem letzten Teil wieder Teil 1, × loop_factor / reward_loop_factor. enemy_range: aus so vielen px schlägt ein Gegner eine Einheit (die Schmiede entsprechend früher); einzelne Gegner können range haben. hammer_part_growth: der Hammerschaden wächst je Teil mit (× hammer_part_growth^Teil), sonst macht er später keinen Schaden mehr. boss_alone_speed: [Sekunden, Tempo]: lebt nur noch der Boss, läuft das Spiel nach so vielen echten Sekunden so viel schneller.",
+		"loop_factor": 4,
+		"reward_loop_factor": 3,
+		"income": 10,
+		"shiny_chance": 0.03,
+		"shiny_coins": 5,
+		"part_hp_growth": 2.0,
+		"part_damage_growth": 1.4,
+		"part_coin_growth": 1.2,
+		"early_next": 3,
+		"enemy_range": 26,
+		"boss_music": "boss",
+		"hammer_part_growth": 1.7,
+		"boss_alone_speed": [
+			[
+				10,
+				1.5
+			],
+			[
+				15,
+				2.0
+			]
+		],
+		"boss_enrage": {
+			"_comment": "Raserei des Bosses: bei jeder Tempo-Stufe (boss_alone_speed) und danach alle every echten Sekunden, solange nur noch er (und seine Gerufenen) lebt, Schaden × damage und Angriffstempo × attack_speed. So endet ein Bosskampf gegen viele Einheiten trotzdem bald.",
+			"damage": 1.5,
+			"attack_speed": 1.25,
+			"every": 8
+		},
+		"boss_default": {
+			"_comment": "Für jeden Boss, wenn sein Gebiet (themes[].boss) nichts anderes sagt: cleave = so viele Einheiten trifft ein Schlag (die nächsten in seiner Reichweite). hp_part_factor: das Leben jedes Bosses × hp_part_factor^Teil (Teil 1 = 0), so wachsen späte Bosse langsamer als die übrigen Gegner (seit 2026-11-25: Mumie in Teil 18 ×0,6).",
+			"cleave": 3,
+			"hp_part_factor": 0.97
+		}
+	},
+	"parts": [
+		{
+			"_comment": "Jeder Teil ist ein Dungeon (dungeons.json: Name). ground: Bodenbild des Feldes in diesem Teil. Je Welle: Gegner-id » Anzahl, alle gleichzeitig, rundherum vom Rand. Den Boss eines Teils zum ersten Mal besiegt » Teil freigeschaltet (unlock_part bei Kristallen und Verbesserungen). music: Musikstück des Teils (audio.json music); in der Bosswelle boss_music. Reihenfolge nach Thema (seit 2026-11-25): jedes Thema einmal am Stück (Ratten, Kanalisation, Wald, Banditen, Untote, Vulkan, Sturmgipfel, Küste, Sumpf, Finsterstadt, Finsterburg, Eismauer, Sternkrater, Altar), kein Thema kommt später wieder; die Stärke hängt nur an der Nummer des Teils.",
+			"dungeon": "rat_cellar",
+			"theme": "rats",
+			"ground": "res://assets/sprites/maps/mine_entrance_ground.png",
+			"waves": [
+				{
+					"rat": 15
+				},
+				{
+					"rat": 20,
+					"poison_rat": 5
+				},
+				{
+					"rat": 30,
+					"poison_rat": 10
+				},
+				{
+					"rat": 35,
+					"poison_rat": 15,
+					"poison_rat_boss": 1
+				}
+			],
+			"music": "mine"
+		},
+		{
+			"dungeon": "rat_cellar_deep",
+			"theme": "rats",
+			"ground": "res://assets/sprites/maps/mine_entrance_ground.png",
+			"waves": [
+				{
+					"rat": 15
+				},
+				{
+					"rat": 25
+				},
+				{
+					"rat": 40
+				},
+				{
+					"rat": 45,
+					"giant_rat": 5,
+					"rat_king": 1
+				}
+			],
+			"music": "mine"
+		},
+		{
+			"dungeon": "rat_nest",
+			"theme": "rats",
+			"ground": "res://assets/sprites/maps/goblin_mine_ground.png",
+			"waves": [
+				{
+					"rat": 15
+				},
+				{
+					"rat": 20,
+					"giant_rat": 5
+				},
+				{
+					"rat": 30,
+					"giant_rat": 10
+				},
+				{
+					"rat": 35,
+					"giant_rat": 15,
+					"rat_king": 1
+				}
+			],
+			"music": "mine"
+		},
+		{
+			"dungeon": "mine_rats",
+			"theme": "rats",
+			"ground": "res://assets/sprites/maps/goblin_deep_mine_ground.png",
+			"waves": [
+				{
+					"rat": 15
+				},
+				{
+					"rat": 25
+				},
+				{
+					"rat": 40
+				},
+				{
+					"rat": 50,
+					"mine_rat_boss": 1
+				}
+			],
+			"music": "mine"
+		},
+		{
+			"dungeon": "mine_tunnels",
+			"theme": "rats",
+			"ground": "res://assets/sprites/maps/goblin_deep_mine_ground.png",
+			"waves": [
+				{
+					"rat": 15
+				},
+				{
+					"rat": 20,
+					"giant_rat": 5
+				},
+				{
+					"rat": 30,
+					"giant_rat": 10
+				},
+				{
+					"rat": 35,
+					"giant_rat": 15,
+					"mine_rat_boss": 1
+				}
+			],
+			"music": "mine"
+		},
+		{
+			"dungeon": "capital_sewers",
+			"theme": "sewers",
+			"ground": "res://assets/sprites/maps/castle_cells_ground.png",
+			"waves": [
+				{
+					"slime": 15,
+					"bat": 5
+				},
+				{
+					"slime": 20,
+					"bat": 10
+				},
+				{
+					"slime": 25,
+					"bat": 15,
+					"giant_rat": 5
+				},
+				{
+					"slime": 30,
+					"bat": 15,
+					"venom_slime_boss": 1
+				}
+			],
+			"music": "underworld"
+		},
+		{
+			"dungeon": "forest_edge",
+			"theme": "forest",
+			"ground": "res://assets/sprites/maps/forest_entrance_ground.png",
+			"waves": [
+				{
+					"wolf": 15
+				},
+				{
+					"wolf": 25
+				},
+				{
+					"wolf": 40
+				},
+				{
+					"wolf": 50,
+					"wolf_boss": 1
+				}
+			],
+			"music": "forest"
+		},
+		{
+			"dungeon": "forest_thicket",
+			"theme": "forest",
+			"ground": "res://assets/sprites/maps/deep_forest_ground.png",
+			"waves": [
+				{
+					"wolf": 15
+				},
+				{
+					"wolf": 20,
+					"wild_boar": 5
+				},
+				{
+					"wolf": 30,
+					"wild_boar": 10
+				},
+				{
+					"wolf": 35,
+					"wild_boar": 15,
+					"wild_boar_boss": 1
+				}
+			],
+			"music": "forest"
+		},
+		{
+			"dungeon": "forest_den",
+			"theme": "forest",
+			"ground": "res://assets/sprites/maps/deep_forest_ground.png",
+			"waves": [
+				{
+					"wolf": 15
+				},
+				{
+					"wolf": 20,
+					"wild_boar": 5
+				},
+				{
+					"wolf": 30,
+					"wild_boar": 10
+				},
+				{
+					"wolf": 35,
+					"wild_boar": 10,
+					"black_wolf": 1
+				}
+			],
+			"music": "forest"
+		},
+		{
+			"dungeon": "compass_roots",
+			"theme": "forest",
+			"ground": "res://assets/sprites/maps/sylvaris_grove_ground.png",
+			"waves": [
+				{
+					"wolf": 15
+				},
+				{
+					"wolf": 20,
+					"wild_boar": 5
+				},
+				{
+					"wolf": 30,
+					"wild_boar": 5,
+					"black_wolf_soldier": 5
+				},
+				{
+					"wolf": 35,
+					"wild_boar": 10,
+					"black_wolf_soldier": 5,
+					"black_wolf": 1
+				}
+			],
+			"music": "elves"
+		},
+		{
+			"dungeon": "gutter_alleys",
+			"theme": "bandits",
+			"ground": "res://assets/sprites/maps/black_market_ground.png",
+			"waves": [
+				{
+					"bandit_thug": 15
+				},
+				{
+					"bandit_thug": 20,
+					"bandit_archer": 5
+				},
+				{
+					"bandit_thug": 25,
+					"bandit_archer": 10,
+					"sneak": 5
+				},
+				{
+					"bandit_thug": 30,
+					"bandit_archer": 10,
+					"sneak": 5,
+					"bandit_ratzo": 1
+				}
+			],
+			"music": "den"
+		},
+		{
+			"dungeon": "gutter_warehouse",
+			"theme": "bandits",
+			"ground": "res://assets/sprites/maps/smith_lane_ground.png",
+			"waves": [
+				{
+					"bandit_thug": 15
+				},
+				{
+					"bandit_thug": 20,
+					"bandit_archer": 5
+				},
+				{
+					"bandit_thug": 30,
+					"bandit_archer": 5,
+					"bandit_knifer": 5
+				},
+				{
+					"bandit_thug": 35,
+					"bandit_archer": 10,
+					"bandit_knifer": 5,
+					"bandit_grimbald": 1
+				}
+			],
+			"music": "den"
+		},
+		{
+			"dungeon": "gutter_tavern",
+			"theme": "bandits",
+			"ground": "res://assets/sprites/maps/capital_street_ground.png",
+			"waves": [
+				{
+					"bandit_thug": 15
+				},
+				{
+					"bandit_thug": 20,
+					"bandit_archer": 5
+				},
+				{
+					"bandit_thug": 30,
+					"bandit_archer": 5,
+					"bandit_knifer": 5
+				},
+				{
+					"bandit_thug": 35,
+					"bandit_archer": 10,
+					"bandit_knifer": 5,
+					"bandit_brakk": 1
+				}
+			],
+			"music": "den"
+		},
+		{
+			"dungeon": "gutter_nest",
+			"theme": "bandits",
+			"ground": "res://assets/sprites/maps/capital_street_ground.png",
+			"waves": [
+				{
+					"bandit_thug": 15
+				},
+				{
+					"bandit_thug": 20,
+					"bandit_archer": 5
+				},
+				{
+					"bandit_thug": 30,
+					"bandit_archer": 5,
+					"bandit_knifer": 5
+				},
+				{
+					"bandit_thug": 35,
+					"bandit_archer": 10,
+					"bandit_knifer": 5,
+					"bandit_varrik": 1
+				}
+			],
+			"music": "den"
+		},
+		{
+			"dungeon": "capital_catacombs",
+			"theme": "undead",
+			"ground": "res://assets/sprites/maps/underworld_ground.png",
+			"waves": [
+				{
+					"skeleton": 15
+				},
+				{
+					"skeleton": 20,
+					"zombie": 5
+				},
+				{
+					"skeleton": 25,
+					"zombie": 10,
+					"giant_bat": 5
+				},
+				{
+					"skeleton": 30,
+					"zombie": 10,
+					"giant_bat": 5,
+					"skeleton_knight": 1
+				}
+			],
+			"music": "underworld"
+		},
+		{
+			"dungeon": "capital_crypt",
+			"theme": "undead",
+			"ground": "res://assets/sprites/maps/temple_sanctum_ground.png",
+			"waves": [
+				{
+					"skeleton": 15
+				},
+				{
+					"skeleton": 20,
+					"ghoul": 5
+				},
+				{
+					"skeleton": 30,
+					"ghoul": 5,
+					"ghost": 5
+				},
+				{
+					"skeleton": 35,
+					"ghoul": 10,
+					"ghost": 5,
+					"mummy": 1
+				}
+			],
+			"music": "palace"
+		},
+		{
+			"dungeon": "capital_crypt_cursed",
+			"theme": "undead",
+			"ground": "res://assets/sprites/maps/temple_sanctum_ground.png",
+			"waves": [
+				{
+					"cursed_skeleton": 15
+				},
+				{
+					"cursed_skeleton": 20,
+					"crypt_wraith": 5
+				},
+				{
+					"cursed_skeleton": 30,
+					"crypt_wraith": 10
+				},
+				{
+					"cursed_skeleton": 35,
+					"crypt_wraith": 15,
+					"castellan_morwald": 1
+				}
+			],
+			"music": "palace"
+		},
+		{
+			"dungeon": "compass_foundry",
+			"theme": "undead",
+			"ground": "res://assets/sprites/maps/kerker_forge_ground.png",
+			"waves": [
+				{
+					"cursed_skeleton": 15
+				},
+				{
+					"cursed_skeleton": 20,
+					"ghoul": 5
+				},
+				{
+					"cursed_skeleton": 30,
+					"ghoul": 5,
+					"crypt_wraith": 5
+				},
+				{
+					"cursed_skeleton": 35,
+					"ghoul": 10,
+					"crypt_wraith": 5,
+					"mummy": 1
+				}
+			],
+			"music": "fortress"
+		},
+		{
+			"dungeon": "underworld_road",
+			"theme": "undead",
+			"ground": "res://assets/sprites/maps/underworld_ground.png",
+			"waves": [
+				{
+					"skeleton_knight_soldier": 15
+				},
+				{
+					"skeleton_knight_soldier": 20,
+					"ghoul": 5
+				},
+				{
+					"skeleton_knight_soldier": 30,
+					"ghoul": 10
+				},
+				{
+					"skeleton_knight_soldier": 35,
+					"ghoul": 15,
+					"ghoul_boss": 1
+				}
+			],
+			"music": "underworld"
+		},
+		{
+			"dungeon": "underworld_tower",
+			"theme": "undead",
+			"ground": "res://assets/sprites/maps/underworld_ground.png",
+			"waves": [
+				{
+					"skeleton_knight_soldier": 15
+				},
+				{
+					"skeleton_knight_soldier": 25
+				},
+				{
+					"skeleton_knight_soldier": 40
+				},
+				{
+					"skeleton_knight_soldier": 50,
+					"skeleton_knight": 1
+				}
+			],
+			"music": "underworld"
+		},
+		{
+			"dungeon": "volcano_ash_tunnels",
+			"theme": "volcano",
+			"ground": "res://assets/sprites/maps/lavaberg_ground.png",
+			"waves": [
+				{
+					"magma_slime": 15
+				},
+				{
+					"magma_slime": 20,
+					"lava_hound": 5
+				},
+				{
+					"magma_slime": 25,
+					"lava_hound": 10,
+					"ember_imp": 5
+				},
+				{
+					"magma_slime": 30,
+					"lava_hound": 10,
+					"ember_imp": 10,
+					"magma_brute": 1
+				}
+			],
+			"music": "volcano"
+		},
+		{
+			"dungeon": "volcano_magma_halls",
+			"theme": "volcano",
+			"ground": "res://assets/sprites/maps/lavaberg_ground.png",
+			"waves": [
+				{
+					"lava_hound": 15
+				},
+				{
+					"lava_hound": 20,
+					"obsidian_guardian": 5
+				},
+				{
+					"lava_hound": 30,
+					"obsidian_guardian": 5,
+					"fire_salamander": 5
+				},
+				{
+					"lava_hound": 35,
+					"obsidian_guardian": 10,
+					"fire_salamander": 5,
+					"salamander_queen": 1
+				}
+			],
+			"music": "volcano"
+		},
+		{
+			"dungeon": "volcano_golem_forge",
+			"theme": "volcano",
+			"ground": "res://assets/sprites/maps/lavaberg_ground.png",
+			"waves": [
+				{
+					"magma_slime": 15
+				},
+				{
+					"magma_slime": 20,
+					"obsidian_guardian": 5
+				},
+				{
+					"magma_slime": 30,
+					"obsidian_guardian": 5,
+					"ember_imp": 5
+				},
+				{
+					"magma_slime": 35,
+					"obsidian_guardian": 10,
+					"ember_imp": 5,
+					"lava_golem": 1
+				}
+			],
+			"music": "volcano"
+		},
+		{
+			"dungeon": "dragon_lair",
+			"theme": "volcano",
+			"ground": "res://assets/sprites/maps/lavaberg_ground.png",
+			"waves": [
+				{
+					"ember_spirit": 15
+				},
+				{
+					"ember_spirit": 25
+				},
+				{
+					"ember_spirit": 40
+				},
+				{
+					"ember_spirit": 50,
+					"ember_spirit_boss": 1
+				}
+			],
+			"music": "volcano"
+		},
+		{
+			"dungeon": "compass_obsidian",
+			"theme": "volcano",
+			"ground": "res://assets/sprites/maps/lavaberg_ground.png",
+			"waves": [
+				{
+					"magma_slime": 15
+				},
+				{
+					"magma_slime": 20,
+					"lava_hound": 5
+				},
+				{
+					"magma_slime": 30,
+					"lava_hound": 5,
+					"obsidian_guardian": 5
+				},
+				{
+					"magma_slime": 35,
+					"lava_hound": 10,
+					"obsidian_guardian": 5,
+					"lava_golem": 1
+				}
+			],
+			"music": "volcano"
+		},
+		{
+			"dungeon": "mountain_foot",
+			"theme": "storm",
+			"ground": "res://assets/sprites/maps/storm_temple_ground.png",
+			"waves": [
+				{
+					"mountain_hawk": 15
+				},
+				{
+					"mountain_hawk": 20,
+					"storm_crow": 5
+				},
+				{
+					"mountain_hawk": 30,
+					"storm_crow": 5,
+					"hippogriff": 5
+				},
+				{
+					"mountain_hawk": 35,
+					"storm_crow": 10,
+					"hippogriff": 5,
+					"hippogriff_boss": 1
+				}
+			],
+			"music": "storm_temple"
+		},
+		{
+			"dungeon": "mountain_slope",
+			"theme": "storm",
+			"ground": "res://assets/sprites/maps/storm_temple_ground.png",
+			"waves": [
+				{
+					"harpy": 15
+				},
+				{
+					"harpy": 20,
+					"mountain_hawk": 5
+				},
+				{
+					"harpy": 30,
+					"mountain_hawk": 5,
+					"hippogriff": 5
+				},
+				{
+					"harpy": 35,
+					"mountain_hawk": 10,
+					"hippogriff": 5,
+					"harpy_matriarch": 1
+				}
+			],
+			"music": "storm_temple"
+		},
+		{
+			"dungeon": "mountain_summit",
+			"theme": "storm",
+			"ground": "res://assets/sprites/maps/storm_temple_ground.png",
+			"waves": [
+				{
+					"harpy": 15
+				},
+				{
+					"harpy": 20,
+					"storm_spirit": 5
+				},
+				{
+					"harpy": 30,
+					"storm_spirit": 5,
+					"hippogriff": 5
+				},
+				{
+					"harpy": 35,
+					"storm_spirit": 10,
+					"hippogriff": 5,
+					"griffin": 1
+				}
+			],
+			"music": "storm_temple"
+		},
+		{
+			"dungeon": "compass_windcave",
+			"theme": "storm",
+			"ground": "res://assets/sprites/maps/storm_temple_ground.png",
+			"waves": [
+				{
+					"harpy": 15
+				},
+				{
+					"harpy": 20,
+					"storm_spirit": 5
+				},
+				{
+					"harpy": 30,
+					"storm_spirit": 5,
+					"hippogriff": 5
+				},
+				{
+					"harpy": 35,
+					"storm_spirit": 10,
+					"hippogriff": 5,
+					"harpy_matriarch": 1
+				}
+			],
+			"music": "storm_temple"
+		},
+		{
+			"dungeon": "water_coast",
+			"theme": "coast",
+			"ground": "res://assets/sprites/maps/eisquell_ground.png",
+			"waves": [
+				{
+					"surf_crab": 15
+				},
+				{
+					"surf_crab": 20,
+					"tide_fishman": 5
+				},
+				{
+					"surf_crab": 30,
+					"tide_fishman": 5,
+					"tide_eel": 5
+				},
+				{
+					"surf_crab": 35,
+					"tide_fishman": 10,
+					"tide_eel": 5,
+					"reef_warden": 1
+				}
+			],
+			"music": "ice"
+		},
+		{
+			"dungeon": "water_cave",
+			"theme": "coast",
+			"ground": "res://assets/sprites/maps/eisquell_cave_ground.png",
+			"waves": [
+				{
+					"tide_fishman": 15
+				},
+				{
+					"tide_fishman": 20,
+					"ice_seal": 5
+				},
+				{
+					"tide_fishman": 30,
+					"ice_seal": 5,
+					"tide_eel": 5
+				},
+				{
+					"tide_fishman": 35,
+					"ice_seal": 10,
+					"tide_eel": 5,
+					"grotto_kraken": 1
+				}
+			],
+			"music": "ice"
+		},
+		{
+			"dungeon": "water_grotto",
+			"theme": "coast",
+			"ground": "res://assets/sprites/maps/eisquell_cave_ground.png",
+			"waves": [
+				{
+					"crystal_crab": 15
+				},
+				{
+					"crystal_crab": 20,
+					"ice_seal": 5
+				},
+				{
+					"crystal_crab": 30,
+					"ice_seal": 5,
+					"fishman_shaman": 5
+				},
+				{
+					"crystal_crab": 35,
+					"ice_seal": 10,
+					"fishman_shaman": 5,
+					"grotto_kraken": 1
+				}
+			],
+			"music": "ice"
+		},
+		{
+			"dungeon": "water_deep_grotto",
+			"theme": "coast",
+			"ground": "res://assets/sprites/maps/eisquell_cave_ground.png",
+			"waves": [
+				{
+					"crystal_crab": 15
+				},
+				{
+					"crystal_crab": 20,
+					"ice_seal": 5
+				},
+				{
+					"crystal_crab": 30,
+					"ice_seal": 5,
+					"fishman_shaman": 5
+				},
+				{
+					"crystal_crab": 35,
+					"ice_seal": 10,
+					"fishman_shaman": 5,
+					"frost_mane": 1
+				}
+			],
+			"music": "ice"
+		},
+		{
+			"dungeon": "swamp_mire",
+			"theme": "swamp",
+			"ground": "res://assets/sprites/maps/swamp_ground.png",
+			"waves": [
+				{
+					"mire_toad": 15
+				},
+				{
+					"mire_toad": 20,
+					"bog_leech": 5
+				},
+				{
+					"mire_toad": 30,
+					"bog_leech": 5,
+					"will_o_wisp": 5
+				},
+				{
+					"mire_toad": 35,
+					"bog_leech": 10,
+					"will_o_wisp": 5,
+					"wisp_queen": 1
+				}
+			],
+			"music": "swamp"
+		},
+		{
+			"dungeon": "swamp_bones",
+			"theme": "swamp",
+			"ground": "res://assets/sprites/maps/swamp_ground.png",
+			"waves": [
+				{
+					"swamp_serpent": 15
+				},
+				{
+					"swamp_serpent": 20,
+					"mire_toad": 5
+				},
+				{
+					"swamp_serpent": 30,
+					"mire_toad": 5,
+					"swamp_slime": 5
+				},
+				{
+					"swamp_serpent": 35,
+					"mire_toad": 10,
+					"swamp_slime": 5,
+					"hydra_head_bite": 1
+				}
+			],
+			"music": "swamp"
+		},
+		{
+			"dungeon": "swamp_hydra",
+			"theme": "swamp",
+			"ground": "res://assets/sprites/maps/swamp_ground.png",
+			"waves": [
+				{
+					"bog_corpse": 15
+				},
+				{
+					"bog_corpse": 20,
+					"swamp_shaman": 5
+				},
+				{
+					"bog_corpse": 30,
+					"swamp_shaman": 5,
+					"swamp_slime": 5
+				},
+				{
+					"bog_corpse": 35,
+					"swamp_shaman": 10,
+					"swamp_slime": 5,
+					"ghost_lord": 1
+				}
+			],
+			"music": "swamp"
+		},
+		{
+			"dungeon": "finster_canals",
+			"theme": "finster",
+			"ground": "res://assets/sprites/maps/finster_west_ground.png",
+			"waves": [
+				{
+					"canal_beast": 15
+				},
+				{
+					"canal_beast": 20,
+					"finster_guard": 5
+				},
+				{
+					"canal_beast": 30,
+					"finster_guard": 5,
+					"bog_leech": 5
+				},
+				{
+					"canal_beast": 35,
+					"finster_guard": 10,
+					"bog_leech": 5,
+					"canal_beast_boss": 1
+				}
+			],
+			"music": "finster"
+		},
+		{
+			"dungeon": "finster_towers",
+			"theme": "finster",
+			"ground": "res://assets/sprites/maps/finster_ring_ground.png",
+			"waves": [
+				{
+					"shadow_hound": 15
+				},
+				{
+					"shadow_hound": 20,
+					"tower_archer": 5
+				},
+				{
+					"shadow_hound": 30,
+					"tower_archer": 5,
+					"finster_guard": 5
+				},
+				{
+					"shadow_hound": 35,
+					"tower_archer": 10,
+					"finster_guard": 5,
+					"finster_warden": 1
+				}
+			],
+			"music": "finster"
+		},
+		{
+			"dungeon": "finster_ash",
+			"theme": "finster",
+			"ground": "res://assets/sprites/maps/finster_city_ground.png",
+			"waves": [
+				{
+					"shadow_hound": 15
+				},
+				{
+					"shadow_hound": 20,
+					"finster_guard": 5
+				},
+				{
+					"shadow_hound": 30,
+					"finster_guard": 5,
+					"dark_archer": 5
+				},
+				{
+					"shadow_hound": 35,
+					"finster_guard": 10,
+					"dark_archer": 5,
+					"dark_captain": 1
+				}
+			],
+			"music": "finster"
+		},
+		{
+			"dungeon": "eisquell_burning",
+			"theme": "keep",
+			"ground": "res://assets/sprites/maps/eisquell_ground.png",
+			"waves": [
+				{
+					"dark_knight": 15
+				},
+				{
+					"dark_knight": 20,
+					"dark_archer": 5
+				},
+				{
+					"dark_knight": 30,
+					"dark_archer": 5,
+					"skeleton_knight_soldier": 5
+				},
+				{
+					"dark_knight": 35,
+					"dark_archer": 10,
+					"skeleton_knight_soldier": 5,
+					"dark_captain": 1
+				}
+			],
+			"music": "ice"
+		},
+		{
+			"dungeon": "dark_keep",
+			"theme": "keep",
+			"ground": "res://assets/sprites/maps/fortress_yard_ground.png",
+			"waves": [
+				{
+					"dark_knight": 15
+				},
+				{
+					"dark_knight": 20,
+					"skeleton_knight_soldier": 5
+				},
+				{
+					"dark_knight": 30,
+					"skeleton_knight_soldier": 5,
+					"cursed_skeleton": 5
+				},
+				{
+					"dark_knight": 35,
+					"skeleton_knight_soldier": 10,
+					"cursed_skeleton": 5,
+					"bone_general": 1
+				}
+			],
+			"music": "fortress"
+		},
+		{
+			"dungeon": "ice_wall_lake",
+			"theme": "ice",
+			"ground": "res://assets/sprites/maps/ice_wall_crown_ground.png",
+			"waves": [
+				{
+					"dark_knight": 15
+				},
+				{
+					"dark_knight": 25
+				},
+				{
+					"dark_knight": 40
+				},
+				{
+					"dark_knight": 50,
+					"dark_lake": 1
+				}
+			],
+			"music": "ice"
+		},
+		{
+			"dungeon": "ice_falls",
+			"theme": "ice",
+			"ground": "res://assets/sprites/maps/ice_wall_crown_ground.png",
+			"waves": [
+				{
+					"frost_spirit": 15
+				},
+				{
+					"frost_spirit": 20,
+					"frost_golem": 5
+				},
+				{
+					"frost_spirit": 30,
+					"frost_golem": 5,
+					"wall_harpy": 5
+				},
+				{
+					"frost_spirit": 35,
+					"frost_golem": 10,
+					"wall_harpy": 5,
+					"frost_golem_boss": 1
+				}
+			],
+			"music": "ice"
+		},
+		{
+			"dungeon": "ice_bridges",
+			"theme": "ice",
+			"ground": "res://assets/sprites/maps/ice_wall_crown_ground.png",
+			"waves": [
+				{
+					"frost_golem": 15
+				},
+				{
+					"frost_golem": 20,
+					"wall_harpy": 5
+				},
+				{
+					"frost_golem": 30,
+					"wall_harpy": 5,
+					"frost_spirit": 5
+				},
+				{
+					"frost_golem": 35,
+					"wall_harpy": 10,
+					"frost_spirit": 5,
+					"frost_golem_boss": 1
+				}
+			],
+			"music": "ice"
+		},
+		{
+			"dungeon": "ice_windbreak",
+			"theme": "ice",
+			"ground": "res://assets/sprites/maps/ice_wall_crown_ground.png",
+			"waves": [
+				{
+					"wall_harpy": 15
+				},
+				{
+					"wall_harpy": 20,
+					"frost_spirit": 5
+				},
+				{
+					"wall_harpy": 30,
+					"frost_spirit": 5,
+					"frost_golem": 5
+				},
+				{
+					"wall_harpy": 35,
+					"frost_spirit": 10,
+					"frost_golem": 5,
+					"frost_golem_boss": 1
+				}
+			],
+			"music": "ice"
+		},
+		{
+			"dungeon": "star_crater",
+			"theme": "stars",
+			"ground": "res://assets/sprites/maps/desert_ground.png",
+			"waves": [
+				{
+					"star_golem": 15
+				},
+				{
+					"star_golem": 20,
+					"wall_harpy": 5
+				},
+				{
+					"star_golem": 30,
+					"wall_harpy": 5,
+					"frost_spirit": 5
+				},
+				{
+					"star_golem": 35,
+					"wall_harpy": 10,
+					"frost_spirit": 5,
+					"star_colossus": 1
+				}
+			],
+			"music": "desert"
+		},
+		{
+			"dungeon": "altar_gate",
+			"theme": "altar",
+			"ground": "res://assets/sprites/maps/altar_outskirts_ground.png",
+			"waves": [
+				{
+					"dark_knight": 15
+				},
+				{
+					"dark_knight": 20,
+					"demon_hound": 5
+				},
+				{
+					"dark_knight": 30,
+					"demon_hound": 5,
+					"shadow_spawn": 5
+				},
+				{
+					"dark_knight": 35,
+					"demon_hound": 10,
+					"shadow_spawn": 5,
+					"gate_warden": 1
+				}
+			],
+			"music": "altar"
+		},
+		{
+			"dungeon": "altar_north",
+			"theme": "altar",
+			"ground": "res://assets/sprites/maps/altar_of_nine_ground.png",
+			"waves": [
+				{
+					"shadow_spawn": 15
+				},
+				{
+					"shadow_spawn": 20,
+					"demon_hound": 5
+				},
+				{
+					"shadow_spawn": 30,
+					"demon_hound": 5,
+					"dark_knight": 5
+				},
+				{
+					"shadow_spawn": 35,
+					"demon_hound": 10,
+					"dark_knight": 5,
+					"gate_warden": 1
+				}
+			],
+			"music": "altar"
+		},
+		{
+			"dungeon": "altar_west",
+			"theme": "altar",
+			"ground": "res://assets/sprites/maps/altar_of_nine_ground.png",
+			"waves": [
+				{
+					"shadow_spawn": 15
+				},
+				{
+					"shadow_spawn": 20,
+					"demon_hound": 5
+				},
+				{
+					"shadow_spawn": 30,
+					"demon_hound": 5,
+					"finster_guard": 5
+				},
+				{
+					"shadow_spawn": 35,
+					"demon_hound": 10,
+					"finster_guard": 5,
+					"altar_shadow_lord": 1
+				}
+			],
+			"music": "altar"
+		},
+		{
+			"dungeon": "altar_south",
+			"theme": "altar",
+			"ground": "res://assets/sprites/maps/altar_of_nine_ground.png",
+			"waves": [
+				{
+					"finster_guard": 15
+				},
+				{
+					"finster_guard": 20,
+					"shadow_spawn": 5
+				},
+				{
+					"finster_guard": 30,
+					"shadow_spawn": 5,
+					"tower_archer": 5
+				},
+				{
+					"finster_guard": 35,
+					"shadow_spawn": 10,
+					"tower_archer": 5,
+					"altar_hellhound": 1
+				}
+			],
+			"music": "altar"
+		},
+		{
+			"dungeon": "altar_east",
+			"theme": "altar",
+			"ground": "res://assets/sprites/maps/altar_of_nine_ground.png",
+			"waves": [
+				{
+					"demon_hound": 15
+				},
+				{
+					"demon_hound": 20,
+					"dark_knight": 5
+				},
+				{
+					"demon_hound": 30,
+					"dark_knight": 5,
+					"shadow_spawn": 5
+				},
+				{
+					"demon_hound": 35,
+					"dark_knight": 10,
+					"shadow_spawn": 5,
+					"altar_champion": 1
+				}
+			],
+			"music": "altar"
+		},
+		{
+			"dungeon": "altar_lake",
+			"theme": "altar",
+			"ground": "res://assets/sprites/maps/altar_of_nine_ground.png",
+			"waves": [
+				{
+					"shadow_spawn": 15
+				},
+				{
+					"shadow_spawn": 25
+				},
+				{
+					"shadow_spawn": 40
+				},
+				{
+					"shadow_spawn": 50,
+					"dark_lake": 1
+				}
+			],
+			"music": "altar"
+		}
+	],
+	"enemies": {
+		"_comment": "Grundwerte je Gegner (Teil 1). Im Teil k (0 = erster) × part_hp_growth^k (Leben), part_damage_growth^k (Schaden), part_coin_growth^k (Münzen), siehe waves. Schnelle 30 Leben, normale 45, zähe 90, Bosse 3000 (erster Boss 1500); der Hammer macht 10. sprite: Name in assets/sprites/enemies (<sprite>_walk/_attack/_death.png, 6 Bilder). Alle greifen zuerst die Einheiten an. elite: Boss mit Lebensbalken, besiegt » ein Relikt. sneaky: unsichtbar für Einheiten. faces_right: Bild schaut nach rechts. tint: Einfärbung. kind: zählt für Aufträge wie dieser Gegner (z. B. ein früherer Boss als normaler Gegner).",
+		"rat": {
+			"name": "Ratte",
+			"sprite": "rat",
+			"hp": 30,
+			"damage": 2,
+			"speed": 109,
+			"attack_interval": 1.5,
+			"coins": 1
+		},
+		"giant_rat": {
+			"name": "Riesenratte",
+			"sprite": "giant_rat",
+			"hp": 90,
+			"damage": 4,
+			"speed": 91,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"sneak": {
+			"name": "Schleicher",
+			"sprite": "bandit_knifer",
+			"hp": 45,
+			"damage": 4,
+			"speed": 118,
+			"attack_interval": 1.0,
+			"coins": 2,
+			"sneaky": true
+		},
+		"rat_king": {
+			"name": "Rattenkönig",
+			"sprite": "rat_king",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"wolf": {
+			"name": "Wolf",
+			"sprite": "wolf",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 0.9,
+			"coins": 1
+		},
+		"wild_boar": {
+			"name": "Wildschwein",
+			"sprite": "wild_boar",
+			"hp": 90,
+			"damage": 4,
+			"speed": 113,
+			"attack_interval": 1.2,
+			"coins": 3
+		},
+		"black_wolf": {
+			"name": "Schwarzer Wolf",
+			"sprite": "black_wolf",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.0,
+			"coins": 30,
+			"elite": true
+		},
+		"slime": {
+			"name": "Schleim",
+			"sprite": "slime",
+			"hp": 45,
+			"damage": 2,
+			"speed": 69,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"bat": {
+			"name": "Fledermaus",
+			"sprite": "bat",
+			"hp": 30,
+			"damage": 2,
+			"speed": 204,
+			"attack_interval": 0.6,
+			"coins": 1
+		},
+		"venom_slime_boss": {
+			"name": "Giftschleim",
+			"sprite": "venom_slime",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.1,
+			"coins": 30,
+			"elite": true
+		},
+		"skeleton": {
+			"name": "Skelett",
+			"sprite": "skeleton",
+			"hp": 45,
+			"damage": 2,
+			"speed": 91,
+			"attack_interval": 1.0,
+			"coins": 2,
+			"faces_right": true
+		},
+		"zombie": {
+			"name": "Zombie",
+			"sprite": "zombie",
+			"hp": 90,
+			"damage": 4,
+			"speed": 59,
+			"attack_interval": 1.3,
+			"coins": 3
+		},
+		"giant_bat": {
+			"name": "Riesenfledermaus",
+			"sprite": "giant_bat",
+			"hp": 30,
+			"damage": 2,
+			"speed": 182,
+			"attack_interval": 0.8,
+			"coins": 1
+		},
+		"skeleton_knight": {
+			"name": "Skelettritter",
+			"sprite": "skeleton_knight",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"faces_right": true
+		},
+		"bandit_thug": {
+			"name": "Schläger",
+			"sprite": "bandit_thug",
+			"hp": 90,
+			"damage": 4,
+			"speed": 109,
+			"attack_interval": 1.1,
+			"coins": 3
+		},
+		"bandit_archer": {
+			"name": "Banditenschütze",
+			"sprite": "bandit_archer",
+			"hp": 45,
+			"damage": 2,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 2
+		},
+		"bandit_ratzo": {
+			"name": "Ratzo",
+			"sprite": "bandit_ratzo",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.0,
+			"coins": 30,
+			"elite": true
+		},
+		"magma_slime": {
+			"name": "Magmaschleim",
+			"sprite": "magma_slime",
+			"hp": 90,
+			"damage": 4,
+			"speed": 77,
+			"attack_interval": 1.1,
+			"coins": 3
+		},
+		"lava_hound": {
+			"name": "Lavahund",
+			"sprite": "lava_hound",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 0.9,
+			"coins": 1
+		},
+		"ember_imp": {
+			"name": "Glutkobold",
+			"sprite": "ember_imp",
+			"hp": 30,
+			"damage": 2,
+			"speed": 113,
+			"attack_interval": 1.0,
+			"coins": 1
+		},
+		"magma_brute": {
+			"name": "Magmaschläger",
+			"sprite": "magma_brute",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.4,
+			"coins": 30,
+			"elite": true,
+			"faces_right": true
+		},
+		"poison_rat": {
+			"name": "Giftratte",
+			"sprite": "poison_rat",
+			"hp": 30,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 1
+		},
+		"poison_rat_boss": {
+			"name": "Giftratte",
+			"sprite": "poison_rat",
+			"hp": 1500,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"kind": "poison_rat"
+		},
+		"mine_rat_boss": {
+			"name": "Alte Bergratte",
+			"sprite": "mine_rat_boss",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"wolf_boss": {
+			"name": "Wolf",
+			"sprite": "wolf",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"kind": "wolf"
+		},
+		"wild_boar_boss": {
+			"name": "Wildschwein",
+			"sprite": "wild_boar",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"kind": "wild_boar"
+		},
+		"bandit_knifer": {
+			"name": "Messerstecher",
+			"sprite": "bandit_knifer",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"bandit_shield": {
+			"name": "Schildbandit",
+			"sprite": "bandit_shield",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"bandit_grimbald": {
+			"name": "Lagermeister Grimbald",
+			"sprite": "bandit_grimbald",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"faces_right": true
+		},
+		"ghoul": {
+			"name": "Ghul",
+			"sprite": "ghoul",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"ghost": {
+			"name": "Geist",
+			"sprite": "ghost",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"skeleton_knight_soldier": {
+			"name": "Skelett-Ritter",
+			"sprite": "skeleton_knight",
+			"hp": 90,
+			"damage": 4,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 3,
+			"faces_right": true,
+			"kind": "skeleton_knight"
+		},
+		"mummy": {
+			"name": "Mumie",
+			"sprite": "mummy",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"bandit_brute": {
+			"name": "Zweihand-Bandit",
+			"sprite": "bandit_brute",
+			"hp": 90,
+			"damage": 4,
+			"speed": 64,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"bandit_brakk": {
+			"name": "Bulle Brakk",
+			"sprite": "bandit_brakk",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"bandit_varrik": {
+			"name": "Varrik, der Krähenkönig",
+			"sprite": "bandit_varrik",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"cursed_skeleton": {
+			"name": "Verfluchter Skelettkrieger",
+			"sprite": "cursed_skeleton",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"crypt_wraith": {
+			"name": "Gruftgeist",
+			"sprite": "crypt_wraith",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"castellan_morwald": {
+			"name": "Kastellan Morwald",
+			"sprite": "castellan_morwald",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"obsidian_guardian": {
+			"name": "Obsidianwächter",
+			"sprite": "obsidian_guardian",
+			"hp": 90,
+			"damage": 4,
+			"speed": 64,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"fire_salamander": {
+			"name": "Feuersalamander",
+			"sprite": "fire_salamander",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"ember_spirit": {
+			"name": "Glutgeist",
+			"sprite": "ember_spirit",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"ember_drake": {
+			"name": "Glutdrachling",
+			"sprite": "ember_drake",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"salamander_queen": {
+			"name": "Salamanderkönigin",
+			"sprite": "salamander_queen",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"lava_golem": {
+			"name": "Lavagolem",
+			"sprite": "lava_golem",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"ember_spirit_boss": {
+			"name": "Glutgeist",
+			"sprite": "ember_spirit",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"kind": "ember_spirit"
+		},
+		"mountain_hawk": {
+			"name": "Felsfalke",
+			"sprite": "mountain_hawk",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 1.0,
+			"coins": 1
+		},
+		"storm_crow": {
+			"name": "Sturmkrähe",
+			"sprite": "storm_crow",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 1.0,
+			"coins": 1
+		},
+		"hippogriff": {
+			"name": "Hippogreif",
+			"sprite": "hippogriff",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 1.0,
+			"coins": 1
+		},
+		"harpy": {
+			"name": "Harpyie",
+			"sprite": "harpy",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 1.0,
+			"coins": 1
+		},
+		"hippogriff_boss": {
+			"name": "Hippogreif",
+			"sprite": "hippogriff",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"kind": "hippogriff"
+		},
+		"storm_spirit": {
+			"name": "Sturmgeist",
+			"sprite": "storm_spirit",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"harpy_matriarch": {
+			"name": "Harpyienmutter",
+			"sprite": "harpy_matriarch",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"surf_crab": {
+			"name": "Brandungskrebs",
+			"sprite": "surf_crab",
+			"hp": 90,
+			"damage": 4,
+			"speed": 64,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"tide_fishman": {
+			"name": "Küstenkrieger",
+			"sprite": "tide_fishman",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"tide_eel": {
+			"name": "Gezeitenaal",
+			"sprite": "tide_eel",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 1.0,
+			"coins": 1
+		},
+		"reef_warden": {
+			"name": "Riffwächter",
+			"sprite": "reef_warden",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"griffin": {
+			"name": "Sturmschwinge, der Greif",
+			"sprite": "griffin",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"ice_seal": {
+			"name": "Eisrobbe",
+			"sprite": "ice_seal",
+			"hp": 90,
+			"damage": 4,
+			"speed": 64,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"fishman_shaman": {
+			"name": "Fischmensch-Schamane",
+			"sprite": "fishman_shaman",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"grotto_kraken": {
+			"name": "Grottenkrake",
+			"sprite": "grotto_kraken",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"faces_right": true
+		},
+		"ghost_41": {
+			"name": "Geist",
+			"sprite": "ghost",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"black_wolf_soldier": {
+			"name": "Schwarzer Wolf",
+			"sprite": "black_wolf",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 1.0,
+			"coins": 1,
+			"kind": "black_wolf"
+		},
+		"crystal_crab": {
+			"name": "Kristallkrabbe",
+			"sprite": "crystal_crab",
+			"hp": 90,
+			"damage": 4,
+			"speed": 64,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"fire_salamander_42": {
+			"name": "Feuersalamander",
+			"sprite": "fire_salamander",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"ember_spirit_42": {
+			"name": "Glutgeist",
+			"sprite": "ember_spirit",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"frost_mane": {
+			"name": "Frostmähne",
+			"sprite": "frost_mane",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"mire_toad": {
+			"name": "Moorkröte",
+			"sprite": "mire_toad",
+			"hp": 45,
+			"damage": 2,
+			"speed": 64,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"bog_leech": {
+			"name": "Riesenegel",
+			"sprite": "bog_leech",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"will_o_wisp": {
+			"name": "Irrlicht",
+			"sprite": "will_o_wisp",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"swamp_slime": {
+			"name": "Moorschleim",
+			"sprite": "swamp_slime",
+			"hp": 45,
+			"damage": 2,
+			"speed": 64,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"wisp_queen": {
+			"name": "Irrlichtkönigin",
+			"sprite": "wisp_queen",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"swamp_serpent": {
+			"name": "Sumpfnatter",
+			"sprite": "swamp_serpent",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"hydra_head_bite": {
+			"name": "Hydrakopf (Biss)",
+			"sprite": "swamp_hydra",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"bog_corpse": {
+			"name": "Moorleiche",
+			"sprite": "bog_corpse",
+			"hp": 90,
+			"damage": 4,
+			"speed": 64,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"swamp_shaman": {
+			"name": "Sumpfschamane",
+			"sprite": "swamp_shaman",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"swamp_ghost": {
+			"name": "Sumpfgeist",
+			"sprite": "swamp_ghost",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"ghost_lord": {
+			"name": "Der Nebelfürst",
+			"sprite": "ghost_lord",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"dark_knight": {
+			"name": "Finsterritter",
+			"sprite": "dark_knight",
+			"hp": 90,
+			"damage": 4,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"crypt_wraith_45": {
+			"name": "Gruftgeist",
+			"sprite": "crypt_wraith",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"bone_general": {
+			"name": "Knochengeneral Varg",
+			"sprite": "bone_general",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"dark_archer": {
+			"name": "Finsterschütze",
+			"sprite": "dark_archer",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"dark_captain": {
+			"name": "Hauptmann der Finsterritter",
+			"sprite": "dark_captain",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"frost_spirit": {
+			"name": "Frostgeist",
+			"sprite": "frost_spirit",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"frost_golem": {
+			"name": "Eisgolem",
+			"sprite": "frost_golem",
+			"hp": 90,
+			"damage": 4,
+			"speed": 64,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"wall_harpy": {
+			"name": "Eisharpyie",
+			"sprite": "wall_harpy",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 1.0,
+			"coins": 1
+		},
+		"frost_golem_boss": {
+			"name": "Eisgolem",
+			"sprite": "frost_golem",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"kind": "frost_golem"
+		},
+		"dark_lake": {
+			"name": "Lake, der dunkle Ritter",
+			"sprite": "dark_lake",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"shadow_hound": {
+			"name": "Schattenhund",
+			"sprite": "demon_hound",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 1.0,
+			"coins": 1,
+			"tint": "#7a6aa8"
+		},
+		"finster_guard": {
+			"name": "Wache der Finsterstadt",
+			"sprite": "finster_guard",
+			"hp": 90,
+			"damage": 4,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"canal_beast": {
+			"name": "Kanalbestie",
+			"sprite": "canal_beast",
+			"hp": 90,
+			"damage": 4,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"canal_beast_boss": {
+			"name": "Kanalbestie",
+			"sprite": "canal_beast",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"kind": "canal_beast"
+		},
+		"tower_archer": {
+			"name": "Turmschütze",
+			"sprite": "tower_archer",
+			"hp": 45,
+			"damage": 2,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 2
+		},
+		"dark_knight_53": {
+			"name": "Finsterritter",
+			"sprite": "dark_knight",
+			"hp": 90,
+			"damage": 4,
+			"speed": 102,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"finster_warden": {
+			"name": "Turmhauptmann Mordrek",
+			"sprite": "finster_warden",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"star_golem": {
+			"name": "Sternengolem",
+			"sprite": "star_golem",
+			"hp": 90,
+			"damage": 4,
+			"speed": 64,
+			"attack_interval": 1.0,
+			"coins": 3
+		},
+		"star_colossus": {
+			"name": "Der Sternenkoloss",
+			"sprite": "star_colossus",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"demon_hound": {
+			"name": "Höllenhund",
+			"sprite": "demon_hound",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 1.0,
+			"coins": 1
+		},
+		"shadow_spawn": {
+			"name": "Schattenbrut",
+			"sprite": "shadow_spawn",
+			"hp": 30,
+			"damage": 2,
+			"speed": 160,
+			"attack_interval": 1.0,
+			"coins": 1
+		},
+		"gate_warden": {
+			"name": "Torwächter",
+			"sprite": "gate_warden",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"faces_right": true
+		},
+		"altar_shadow_lord": {
+			"name": "Schattenfürst Vrak",
+			"sprite": "altar_shadow_lord",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"altar_hellhound": {
+			"name": "Höllenhund Garm",
+			"sprite": "altar_hellhound",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"altar_champion": {
+			"name": "Finsterchampion Kargoth",
+			"sprite": "altar_champion",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true
+		},
+		"ghoul_boss": {
+			"name": "Ghul",
+			"sprite": "ghoul",
+			"hp": 3000,
+			"damage": 9,
+			"speed": 101,
+			"attack_interval": 1.2,
+			"coins": 30,
+			"elite": true,
+			"kind": "ghoul"
+		}
+	},
+	"rarities": {
+		"_comment": "Seltenheit jeder gerufenen Einheit: factor = Leben und Schaden ×. Chancen nach Glücksstufe (rarity_odds[Stufe], Prozent für r1, r2 ...): Stufe aus Meisterschaft m_luck und Relikten.",
+		"r1": {
+			"name": "R1",
+			"factor": 1.0,
+			"color": "#d8d8d8"
+		},
+		"r2": {
+			"name": "R2",
+			"factor": 1.4,
+			"color": "#6fd38a"
+		},
+		"r3": {
+			"name": "R3",
+			"factor": 2.0,
+			"color": "#5aa0ff"
+		},
+		"r4": {
+			"name": "R4",
+			"factor": 3.0,
+			"color": "#c070ff"
+		},
+		"r5": {
+			"name": "R5",
+			"factor": 5.0,
+			"color": "#ffb040"
+		}
+	},
+	"rarity_odds": [
+		[
+			100
+		],
+		[
+			80,
+			20
+		],
+		[
+			65,
+			28,
+			7
+		],
+		[
+			55,
+			30,
+			12,
+			3
+		],
+		[
+			45,
+			30,
+			17,
+			6,
+			2
+		]
+	],
+	"giant_chance": 0.1,
+	"giant_factor": 1.4,
+	"shiny_unit_chance": 0.03,
+	"shiny_unit_factor": 2.0,
+	"level_kills": 3,
+	"level_factor": 1.15,
+	"max_level": 3,
+	"units": {
+		"_comment": "Einheiten der Kristalle (welche aus welchem Kristall: crystals[].units). range: unter 30 Nahkampf, sonst Fernkampf; alle laufen auf den nächsten Gegner los. speed: Lauftempo. bolt: Farbe des Geschosses. Leben und Schaden × Seltenheit (rarities). faces_right: das Bild schaut nach rechts. Leben bewusst niedrig: schwache und mittlere Einheit 3 Leben, starke 4: nach 2-3 Rattenbissen sind sie tot. skill: besondere Einheiten setzen alle interval Sekunden eine Fähigkeit ein: fireball (Kugel auf den entferntesten Gegner in range, Flächenschaden radius beim Einschlag), quake (Flächenschaden radius um sich), lightning (zufälliger Gegner in range, kleiner Flächenschaden). damage = × Schaden der Einheit. Rollen (2026-11-23): Feuer Fernkampf, Erde Tanks, Gift Schwarm, Eis schnell, Wasser ausgewogen, Dunkel viele, Blitz Fernkampf mit Blitzen, Wind schnell aus der Luft, Licht zäh mit großen Flächen. Leben passt zum Gegnerschaden (2–4), Schaden zum Gegnerleben (×10). Die Stärke des Kristalls (crystals[].power) kommt noch dazu.",
+		"fire_salamander": {
+			"name": "Feuersalamander",
+			"sprite": "fire_salamander",
+			"element": "fire",
+			"hp": 6,
+			"damage": 20,
+			"attack_interval": 1.0,
+			"range": 80,
+			"speed": 90,
+			"bolt": "#ffb040"
+		},
+		"ember_imp": {
+			"name": "Glutkobold",
+			"sprite": "ember_imp",
+			"element": "fire",
+			"hp": 6,
+			"damage": 31,
+			"attack_interval": 0.9,
+			"range": 90,
+			"speed": 80,
+			"bolt": "#ff8a30",
+			"skill": {
+				"type": "fireball",
+				"interval": 6.0,
+				"damage": 3,
+				"radius": 32,
+				"range": 260,
+				"name": "Feuerball",
+				"color": "#ff8a30"
+			}
+		},
+		"fire_elemental": {
+			"name": "Feuerelementar",
+			"sprite": "fire_elemental",
+			"element": "fire",
+			"hp": 9,
+			"damage": 40,
+			"attack_interval": 1.0,
+			"range": 14,
+			"speed": 70,
+			"faces_right": true,
+			"skill": {
+				"type": "fireball",
+				"interval": 5.0,
+				"damage": 4,
+				"radius": 42,
+				"range": 260,
+				"name": "Großer Feuerball",
+				"color": "#ff6020"
+			}
+		},
+		"wild_boar": {
+			"name": "Wildschwein",
+			"sprite": "wild_boar",
+			"element": "earth",
+			"hp": 9,
+			"damage": 15,
+			"attack_interval": 1.2,
+			"range": 14,
+			"speed": 80
+		},
+		"stone_golem": {
+			"name": "Steingolem",
+			"sprite": "stone_golem",
+			"element": "earth",
+			"hp": 12,
+			"damage": 23,
+			"attack_interval": 1.4,
+			"range": 14,
+			"speed": 50,
+			"skill": {
+				"type": "quake",
+				"interval": 7.0,
+				"damage": 2,
+				"radius": 44,
+				"range": 260,
+				"name": "Erdbeben",
+				"color": "#c8a070"
+			}
+		},
+		"earth_elemental": {
+			"name": "Erdelementar",
+			"sprite": "earth_elemental",
+			"element": "earth",
+			"hp": 18,
+			"damage": 30,
+			"attack_interval": 1.3,
+			"range": 14,
+			"speed": 50,
+			"skill": {
+				"type": "quake",
+				"interval": 6.0,
+				"damage": 3,
+				"radius": 56,
+				"range": 260,
+				"name": "Großes Erdbeben",
+				"color": "#b08850"
+			}
+		},
+		"poison_rat": {
+			"name": "Giftratte",
+			"sprite": "poison_rat",
+			"element": "poison",
+			"hp": 7,
+			"damage": 30,
+			"attack_interval": 0.7,
+			"range": 14,
+			"speed": 110
+		},
+		"venom_slime": {
+			"name": "Giftschleim",
+			"sprite": "venom_slime",
+			"element": "poison",
+			"hp": 9,
+			"damage": 46,
+			"attack_interval": 0.9,
+			"range": 75,
+			"speed": 60,
+			"bolt": "#90ff60",
+			"skill": {
+				"type": "fireball",
+				"interval": 6.0,
+				"damage": 2,
+				"radius": 34,
+				"range": 260,
+				"name": "Giftbrocken",
+				"color": "#90ff60"
+			}
+		},
+		"giant_spider": {
+			"name": "Riesenspinne",
+			"sprite": "giant_spider",
+			"element": "poison",
+			"hp": 14,
+			"damage": 60,
+			"attack_interval": 0.8,
+			"range": 14,
+			"speed": 90,
+			"skill": {
+				"type": "quake",
+				"interval": 6.0,
+				"damage": 3,
+				"radius": 48,
+				"range": 260,
+				"name": "Giftwolke",
+				"color": "#7cc35a"
+			}
+		},
+		"ice_wolf": {
+			"name": "Eiswolf",
+			"sprite": "ice_wolf",
+			"element": "ice",
+			"hp": 8,
+			"damage": 25,
+			"attack_interval": 0.9,
+			"range": 14,
+			"speed": 110,
+			"faces_right": true
+		},
+		"frost_spirit": {
+			"name": "Frostgeist",
+			"sprite": "frost_spirit",
+			"element": "ice",
+			"hp": 6,
+			"damage": 31,
+			"attack_interval": 1.0,
+			"range": 95,
+			"speed": 80,
+			"bolt": "#a8e8ff",
+			"skill": {
+				"type": "lightning",
+				"interval": 5.0,
+				"damage": 3,
+				"radius": 18,
+				"range": 260,
+				"name": "Eissplitter",
+				"color": "#c8f0ff"
+			}
+		},
+		"frost_golem": {
+			"name": "Frostgolem",
+			"sprite": "frost_golem",
+			"element": "ice",
+			"hp": 20,
+			"damage": 40,
+			"attack_interval": 1.3,
+			"range": 14,
+			"speed": 50,
+			"skill": {
+				"type": "quake",
+				"interval": 6.0,
+				"damage": 3,
+				"radius": 50,
+				"range": 260,
+				"name": "Frostschlag",
+				"color": "#a8e8ff"
+			}
+		},
+		"tide_fishman": {
+			"name": "Küstenkrieger",
+			"sprite": "tide_fishman",
+			"element": "water",
+			"hp": 9,
+			"damage": 25,
+			"attack_interval": 1.0,
+			"range": 14,
+			"speed": 80
+		},
+		"fishman_shaman": {
+			"name": "Fischmensch-Schamane",
+			"sprite": "fishman_shaman",
+			"element": "water",
+			"hp": 6,
+			"damage": 31,
+			"attack_interval": 1.0,
+			"range": 90,
+			"speed": 70,
+			"bolt": "#6ab8ff",
+			"skill": {
+				"type": "lightning",
+				"interval": 5.0,
+				"damage": 3,
+				"radius": 18,
+				"range": 260,
+				"name": "Wasserstrahl",
+				"color": "#6ab8ff"
+			}
+		},
+		"grotto_kraken": {
+			"name": "Grottenkrake",
+			"sprite": "grotto_kraken",
+			"element": "water",
+			"hp": 25,
+			"damage": 40,
+			"attack_interval": 1.2,
+			"range": 14,
+			"speed": 50,
+			"faces_right": true,
+			"skill": {
+				"type": "quake",
+				"interval": 6.0,
+				"damage": 3,
+				"radius": 52,
+				"range": 260,
+				"name": "Tintenwirbel",
+				"color": "#5a6aa8"
+			}
+		},
+		"skeleton": {
+			"name": "Skelett",
+			"sprite": "skeleton",
+			"element": "dark",
+			"hp": 8,
+			"damage": 25,
+			"attack_interval": 1.0,
+			"range": 14,
+			"speed": 70,
+			"faces_right": true
+		},
+		"vampire": {
+			"name": "Vampir",
+			"sprite": "vampire",
+			"element": "dark",
+			"hp": 10,
+			"damage": 38,
+			"attack_interval": 0.9,
+			"range": 14,
+			"speed": 90,
+			"skill": {
+				"type": "lightning",
+				"interval": 5.0,
+				"damage": 3,
+				"radius": 14,
+				"range": 260,
+				"name": "Blutpfeil",
+				"color": "#c0405a"
+			}
+		},
+		"demon": {
+			"name": "Dämon",
+			"sprite": "demon",
+			"element": "dark",
+			"hp": 19,
+			"damage": 50,
+			"attack_interval": 1.1,
+			"range": 14,
+			"speed": 70,
+			"skill": {
+				"type": "fireball",
+				"interval": 5.0,
+				"damage": 4,
+				"radius": 44,
+				"range": 260,
+				"name": "Höllenfeuer",
+				"color": "#c070ff"
+			}
+		},
+		"storm_crow": {
+			"name": "Sturmkrähe",
+			"sprite": "storm_crow",
+			"element": "lightning",
+			"hp": 5,
+			"damage": 25,
+			"attack_interval": 0.7,
+			"range": 85,
+			"speed": 120,
+			"bolt": "#fff27a"
+		},
+		"will_o_wisp": {
+			"name": "Irrlicht",
+			"sprite": "will_o_wisp",
+			"element": "lightning",
+			"hp": 6,
+			"damage": 31,
+			"attack_interval": 1.0,
+			"range": 95,
+			"speed": 80,
+			"bolt": "#d8f0ff",
+			"skill": {
+				"type": "lightning",
+				"interval": 4.0,
+				"damage": 3,
+				"radius": 24,
+				"range": 260,
+				"name": "Kugelblitz",
+				"color": "#fff27a"
+			}
+		},
+		"hippogriff": {
+			"name": "Hippogreif",
+			"sprite": "hippogriff",
+			"element": "lightning",
+			"hp": 15,
+			"damage": 40,
+			"attack_interval": 1.0,
+			"range": 14,
+			"speed": 120,
+			"skill": {
+				"type": "quake",
+				"interval": 6.0,
+				"damage": 3,
+				"radius": 46,
+				"range": 260,
+				"name": "Donnerhuf",
+				"color": "#fff27a"
+			}
+		},
+		"mountain_hawk": {
+			"name": "Felsfalke",
+			"sprite": "mountain_hawk",
+			"element": "wind",
+			"hp": 6,
+			"damage": 20,
+			"attack_interval": 0.8,
+			"range": 85,
+			"speed": 120,
+			"bolt": "#e8f4ff"
+		},
+		"storm_spirit": {
+			"name": "Sturmgeist",
+			"sprite": "storm_spirit",
+			"element": "wind",
+			"hp": 6,
+			"damage": 31,
+			"attack_interval": 1.2,
+			"range": 100,
+			"speed": 90,
+			"bolt": "#fff27a",
+			"skill": {
+				"type": "lightning",
+				"interval": 4.0,
+				"damage": 3,
+				"radius": 22,
+				"range": 260,
+				"name": "Blitz",
+				"color": "#fff27a"
+			}
+		},
+		"griffin": {
+			"name": "Greif",
+			"sprite": "griffin",
+			"element": "wind",
+			"hp": 15,
+			"damage": 40,
+			"attack_interval": 1.0,
+			"range": 14,
+			"speed": 120,
+			"skill": {
+				"type": "quake",
+				"interval": 6.0,
+				"damage": 3,
+				"radius": 46,
+				"range": 260,
+				"name": "Sturzflug",
+				"color": "#e8f4ff"
+			}
+		},
+		"crystal_crab": {
+			"name": "Kristallkrabbe",
+			"sprite": "crystal_crab",
+			"element": "light",
+			"hp": 12,
+			"damage": 15,
+			"attack_interval": 1.2,
+			"range": 14,
+			"speed": 60
+		},
+		"star_golem": {
+			"name": "Sternengolem",
+			"sprite": "star_golem",
+			"element": "light",
+			"hp": 15,
+			"damage": 23,
+			"attack_interval": 1.3,
+			"range": 14,
+			"speed": 50,
+			"skill": {
+				"type": "quake",
+				"interval": 6.0,
+				"damage": 2,
+				"radius": 50,
+				"range": 260,
+				"name": "Sternenstoß",
+				"color": "#fff0b0"
+			}
+		},
+		"star_colossus": {
+			"name": "Der Sternenkoloss",
+			"sprite": "star_colossus",
+			"element": "light",
+			"hp": 21,
+			"damage": 37,
+			"attack_interval": 1.3,
+			"range": 14,
+			"speed": 50,
+			"skill": {
+				"type": "fireball",
+				"interval": 5.0,
+				"damage": 4,
+				"radius": 50,
+				"range": 260,
+				"name": "Sternenregen",
+				"color": "#fff0b0"
+			}
+		}
+	},
+	"crystals": [
+		{
+			"_comment": "Kristalle im Laden: Preis in Kristallmünzen, power = Leben und Schaden seiner Einheiten ×, hp = Hammerschläge, min Einheiten, dazu bis max mit extra_chance je weitere (seit 2026-11-25: 1, mit 30 % 2; die Einheiten wurden dafür um die frühere Durchschnittsanzahl / 1,3 stärker); jede Einheit nach units[].chance (Prozent), dazu eine zufällige Seltenheit. Leiter: jeder Kristall kostet das 1,5-fache des vorigen, seine Einheiten sind doppelt so stark. Freigeschaltet über den Kristall-Pfad im Münz-Baum (upgrades mit crystal); ohne Feld dort (Feuer, Erde) von Anfang an im Laden.",
+			"id": "holy_fire_crystal",
+			"element": "fire",
+			"price": 10,
+			"power": 1,
+			"hp": 2,
+			"min": 1,
+			"max": 2,
+			"units": [
+				{
+					"unit": "fire_salamander",
+					"chance": 80
+				},
+				{
+					"unit": "ember_imp",
+					"chance": 19
+				},
+				{
+					"unit": "fire_elemental",
+					"chance": 1
+				}
+			],
+			"extra_chance": 0.3
+		},
+		{
+			"id": "holy_earth_crystal",
+			"element": "earth",
+			"price": 10,
+			"power": 1,
+			"hp": 3,
+			"min": 1,
+			"max": 2,
+			"units": [
+				{
+					"unit": "wild_boar",
+					"chance": 80
+				},
+				{
+					"unit": "stone_golem",
+					"chance": 19
+				},
+				{
+					"unit": "earth_elemental",
+					"chance": 1
+				}
+			],
+			"extra_chance": 0.3
+		},
+		{
+			"id": "holy_poison_crystal",
+			"element": "poison",
+			"price": 15,
+			"power": 2,
+			"hp": 4,
+			"min": 1,
+			"max": 2,
+			"units": [
+				{
+					"unit": "poison_rat",
+					"chance": 80
+				},
+				{
+					"unit": "venom_slime",
+					"chance": 19
+				},
+				{
+					"unit": "giant_spider",
+					"chance": 1
+				}
+			],
+			"extra_chance": 0.3
+		},
+		{
+			"id": "holy_ice_crystal",
+			"element": "ice",
+			"price": 22,
+			"power": 4,
+			"hp": 5,
+			"min": 1,
+			"max": 2,
+			"units": [
+				{
+					"unit": "ice_wolf",
+					"chance": 80
+				},
+				{
+					"unit": "frost_spirit",
+					"chance": 19
+				},
+				{
+					"unit": "frost_golem",
+					"chance": 1
+				}
+			],
+			"extra_chance": 0.3
+		},
+		{
+			"id": "holy_water_crystal",
+			"element": "water",
+			"price": 34,
+			"power": 8,
+			"hp": 5,
+			"min": 1,
+			"max": 2,
+			"units": [
+				{
+					"unit": "tide_fishman",
+					"chance": 80
+				},
+				{
+					"unit": "fishman_shaman",
+					"chance": 19
+				},
+				{
+					"unit": "grotto_kraken",
+					"chance": 1
+				}
+			],
+			"extra_chance": 0.3
+		},
+		{
+			"id": "holy_dark_crystal",
+			"element": "dark",
+			"price": 51,
+			"power": 16,
+			"hp": 6,
+			"min": 1,
+			"max": 2,
+			"units": [
+				{
+					"unit": "skeleton",
+					"chance": 80
+				},
+				{
+					"unit": "vampire",
+					"chance": 19
+				},
+				{
+					"unit": "demon",
+					"chance": 1
+				}
+			],
+			"extra_chance": 0.3
+		},
+		{
+			"id": "holy_lightning_crystal",
+			"element": "lightning",
+			"price": 76,
+			"power": 32,
+			"hp": 5,
+			"min": 1,
+			"max": 2,
+			"units": [
+				{
+					"unit": "storm_crow",
+					"chance": 80
+				},
+				{
+					"unit": "will_o_wisp",
+					"chance": 19
+				},
+				{
+					"unit": "hippogriff",
+					"chance": 1
+				}
+			],
+			"extra_chance": 0.3
+		},
+		{
+			"id": "holy_wind_crystal",
+			"element": "wind",
+			"price": 114,
+			"power": 64,
+			"hp": 5,
+			"min": 1,
+			"max": 2,
+			"units": [
+				{
+					"unit": "mountain_hawk",
+					"chance": 80
+				},
+				{
+					"unit": "storm_spirit",
+					"chance": 19
+				},
+				{
+					"unit": "griffin",
+					"chance": 1
+				}
+			],
+			"extra_chance": 0.3
+		},
+		{
+			"id": "holy_light_crystal",
+			"element": "light",
+			"price": 171,
+			"power": 128,
+			"hp": 6,
+			"min": 1,
+			"max": 2,
+			"units": [
+				{
+					"unit": "crystal_crab",
+					"chance": 80
+				},
+				{
+					"unit": "star_golem",
+					"chance": 19
+				},
+				{
+					"unit": "star_colossus",
+					"chance": 1
+				}
+			],
+			"extra_chance": 0.3
+		}
+	],
+	"shop": {
+		"_comment": "Laden zwischen den Runs: Angebote, Auffrischen kostet reroll_cost und danach je + reroll_step. discount_chance: Sonderangebot mit discount Rabatt. Pakete: bundle_size Kristalle zum Preis von bundle_price einzelnen (abgerundet, also immer billiger als einzeln, auch als Sonderangebot); das erste Angebot ist immer ein Paket, die übrigen mit bundle_chance; ein Paket ist mit mixed_chance gemischt (bundle_size verschiedene Kristalle), sobald so viele im Laden sind. Kristalle kosten Kristallmünzen (nicht Münzen): ein Vorrat mit Höchstwert, nach jedem Run wieder voll. Höchstwert = crystal_coins_max + je erfülltem Auftrag quests[].crystal_coins + Meisterschaft Kristallbeutel. Auffrischen kostet Münzen. crystal_coins_per_part: Höchstwert + so viel je besiegtem Teil. min_crystals: so viele verschiedene Kristalle bleiben mindestens im Laden (Filter). relic_chance: so oft liegt beim Auffüllen ein Relikt für Münzen im Laden (Preis: relic_tiers). Glück beim Auffrischen (seit 2026-11-25): jedes Auffrischen seit dem letzten Run macht ein Angebot um discount_step wahrscheinlicher (höchstens discount_max); mit jackpot_chance (+ jackpot_step je Auffrischen) ein Jackpot: alle Angebote derselbe Kristall, jackpot_discount billiger.",
+		"offers": 4,
+		"reroll_cost": 2,
+		"reroll_step": 1,
+		"discount_chance": 0.1,
+		"discount": 0.3,
+		"bundle_size": 3,
+		"bundle_price": 2.0,
+		"bundle_chance": 0.2,
+		"crystal_coins_max": 10,
+		"crystal_coins_per_part": 3,
+		"mixed_chance": 0.5,
+		"min_crystals": 4,
+		"relic_chance": 0.08,
+		"discount_step": 0.05,
+		"discount_max": 0.5,
+		"jackpot_chance": 0.06,
+		"jackpot_step": 0.02,
+		"jackpot_discount": 0.5
+	},
+	"unit_upgrade": {
+		"_comment": "Sammlung: jede entdeckte Einheit einzeln verbessern (Meisterschaft), je Stufe Leben und Schaden × factor. Preis: cost × cost_factor je Stufe × (Preis ihres Kristalls / crystal_price_base): Feuer und Erde ×1, Gift ×1,5, Finster ×5,1, Licht ×17,1 (seit 2026-11-25, stärkere Einheiten kosten mehr).",
+		"cost": 20,
+		"crystal_price_base": 10,
+		"cost_factor": 2,
+		"factor": 1.25,
+		"max_level": 5
+	},
+	"upgrades": [
+		{
+			"_comment": "Verbesserungen für Münzen, dauerhaft (zwischen den Runs kaufen). stat: castle_hp/unit_damage/unit_hp/unit_speed (× factor je Stufe), hammer_damage/income/offers (+ add je Stufe), hammer_radius/hammer_speed (× factor). Baum: pos = [Spalte, Zeile], requires = erst sichtbar, wenn dieses Feld gekauft ist; unlock_part = erst kaufbar, wenn so viele Teile besiegt sind. crystal: Kristall-Pfad rechts von Dicke Mauern, schaltet den Kristall im Laden frei (max_level 1, Icon = Icon des Kristalls).",
+			"id": "walls",
+			"name": "Dicke Mauern",
+			"description": "Schmiede: +10 Leben.",
+			"icon": "res://assets/sprites/buildings/smithy_level_1.png",
+			"stat": "castle_hp",
+			"cost": 80,
+			"cost_factor": 1.6,
+			"max_level": 20,
+			"pos": [
+				2,
+				0
+			],
+			"add": 10
+		},
+		{
+			"id": "hammer_weight",
+			"name": "Schwerer Hammer",
+			"description": "Hammer: Schaden ×1,25.",
+			"icon": "res://assets/sprites/ui/forging_tutorial_hammer.png",
+			"stat": "hammer_damage",
+			"cost": 70,
+			"cost_factor": 1.6,
+			"max_level": 20,
+			"pos": [
+				1,
+				1
+			],
+			"requires": "walls",
+			"factor": 1.25
+		},
+		{
+			"id": "hammer_reach",
+			"name": "Weiter Schwung",
+			"description": "Hammer: Kreis ×1,25.",
+			"icon": "res://assets/sprites/ui/forging_tutorial_hammer.png",
+			"stat": "hammer_radius",
+			"factor": 1.25,
+			"cost": 100,
+			"cost_factor": 1.6,
+			"max_level": 5,
+			"pos": [
+				0,
+				2
+			],
+			"requires": "hammer_weight"
+		},
+		{
+			"id": "hammer_pace",
+			"name": "Schneller Takt",
+			"description": "Hammer: schlägt 25 % schneller.",
+			"icon": "res://assets/sprites/ui/forging_tutorial_hammer.png",
+			"stat": "hammer_speed",
+			"factor": 1.25,
+			"cost": 100,
+			"cost_factor": 1.6,
+			"max_level": 6,
+			"pos": [
+				1,
+				2
+			],
+			"requires": "hammer_weight"
+		},
+		{
+			"id": "unit_might",
+			"name": "Kampfgeist",
+			"description": "Alle Einheiten: Schaden ×1,25.",
+			"icon": "res://assets/sprites/items/harpy_feather.png",
+			"stat": "unit_damage",
+			"factor": 1.25,
+			"cost": 120,
+			"cost_factor": 1.6,
+			"max_level": 20,
+			"pos": [
+				3,
+				1
+			],
+			"requires": "walls"
+		},
+		{
+			"id": "unit_toughness",
+			"name": "Zähigkeit",
+			"description": "Alle Einheiten: Leben ×1,25.",
+			"icon": "res://assets/sprites/items/ember_essence.png",
+			"stat": "unit_hp",
+			"factor": 1.25,
+			"cost": 120,
+			"cost_factor": 1.6,
+			"max_level": 20,
+			"pos": [
+				3,
+				2
+			],
+			"requires": "unit_might"
+		},
+		{
+			"id": "unit_haste",
+			"name": "Eile",
+			"description": "Alle Einheiten: greifen 20 % schneller an.",
+			"icon": "res://assets/sprites/items/feather.png",
+			"stat": "unit_speed",
+			"factor": 1.2,
+			"cost": 180,
+			"cost_factor": 1.6,
+			"max_level": 20,
+			"pos": [
+				4,
+				2
+			],
+			"requires": "unit_might",
+			"unlock_part": 4
+		},
+		{
+			"id": "trade",
+			"name": "Handel",
+			"description": "+3 Einkommen nach jedem Run.",
+			"icon": "res://assets/ui/icon_coin.png",
+			"stat": "income",
+			"add": 3,
+			"cost": 80,
+			"cost_factor": 1.6,
+			"max_level": 20,
+			"pos": [
+				2,
+				1
+			],
+			"requires": "walls"
+		},
+		{
+			"id": "stall",
+			"name": "Größerer Stand",
+			"description": "+1 Angebot im Laden.",
+			"icon": "res://assets/sprites/items/wind_orb.png",
+			"stat": "offers",
+			"add": 1,
+			"cost": 240,
+			"cost_factor": 1.6,
+			"max_level": 2,
+			"pos": [
+				2,
+				2
+			],
+			"requires": "trade",
+			"unlock_part": 2
+		},
+		{
+			"id": "c_poison",
+			"name": "Heiliger Giftkristall",
+			"description": "Neuer Kristall im Laden. Seine Einheiten sind doppelt so stark wie die des vorigen Kristalls.",
+			"stat": "crystal",
+			"crystal": "holy_poison_crystal",
+			"cost": 150,
+			"max_level": 1,
+			"pos": [
+				3,
+				0
+			],
+			"requires": "walls",
+			"unlock_part": 2
+		},
+		{
+			"id": "c_ice",
+			"name": "Heiliger Eiskristall",
+			"description": "Neuer Kristall im Laden. Seine Einheiten sind doppelt so stark wie die des vorigen Kristalls.",
+			"stat": "crystal",
+			"crystal": "holy_ice_crystal",
+			"cost": 225,
+			"max_level": 1,
+			"pos": [
+				4,
+				0
+			],
+			"requires": "c_poison",
+			"unlock_part": 4
+		},
+		{
+			"id": "c_water",
+			"name": "Heiliger Wasserkristall",
+			"description": "Neuer Kristall im Laden. Seine Einheiten sind doppelt so stark wie die des vorigen Kristalls.",
+			"stat": "crystal",
+			"crystal": "holy_water_crystal",
+			"cost": 338,
+			"max_level": 1,
+			"pos": [
+				5,
+				0
+			],
+			"requires": "c_ice",
+			"unlock_part": 7
+		},
+		{
+			"id": "c_dark",
+			"name": "Heiliger Dunkelkristall",
+			"description": "Neuer Kristall im Laden. Seine Einheiten sind doppelt so stark wie die des vorigen Kristalls.",
+			"stat": "crystal",
+			"crystal": "holy_dark_crystal",
+			"cost": 506,
+			"max_level": 1,
+			"pos": [
+				6,
+				0
+			],
+			"requires": "c_water",
+			"unlock_part": 10
+		},
+		{
+			"id": "c_lightning",
+			"name": "Heiliger Blitzkristall",
+			"description": "Neuer Kristall im Laden. Seine Einheiten sind doppelt so stark wie die des vorigen Kristalls.",
+			"stat": "crystal",
+			"crystal": "holy_lightning_crystal",
+			"cost": 759,
+			"max_level": 1,
+			"pos": [
+				7,
+				0
+			],
+			"requires": "c_dark",
+			"unlock_part": 14
+		},
+		{
+			"id": "c_wind",
+			"name": "Heiliger Windkristall",
+			"description": "Neuer Kristall im Laden. Seine Einheiten sind doppelt so stark wie die des vorigen Kristalls.",
+			"stat": "crystal",
+			"crystal": "holy_wind_crystal",
+			"cost": 1139,
+			"max_level": 1,
+			"pos": [
+				8,
+				0
+			],
+			"requires": "c_lightning",
+			"unlock_part": 19
+		},
+		{
+			"id": "c_light",
+			"name": "Heiliger Lichtkristall",
+			"description": "Neuer Kristall im Laden. Seine Einheiten sind doppelt so stark wie die des vorigen Kristalls.",
+			"stat": "crystal",
+			"crystal": "holy_light_crystal",
+			"cost": 1709,
+			"max_level": 1,
+			"pos": [
+				9,
+				0
+			],
+			"requires": "c_wind",
+			"unlock_part": 25
+		}
+	],
+	"mastery": {
+		"_comment": "Meisterschaft (sofort, bleibt, user://defense_meta.json): per_kill je Gegner, per_wave je geschaffter Welle, per_open je geöffnetem Kristall, per_discovery je neuer Einheit in der Sammlung. part_growth: Gegner, Wellen und Kristalle geben je Teil (Teil 1 = 0) so viel mehr (× 1 + part_growth · Teil), weil die Preise je Stufe ×2 steigen.",
+		"per_kill": 1,
+		"per_wave": 5,
+		"per_open": 2,
+		"per_discovery": 10,
+		"part_growth": 0.25
+	},
+	"mastery_upgrades": [
+		{
+			"_comment": "Dauerhaft (Meisterschaft). stat wie upgrades, Preis: cost × cost_factor je Stufe oder costs (ein Preis je Stufe), dazu start_coins (+add), relic_slots (+add), free_reroll (+add Gratis-Auffrischen je Phase), mastery_gain (× factor). Felder, die erst später freigeschaltet werden (unlock_part), haben eigene Preise (seit 2026-11-25, Simulator): Stufe 1 etwa so viel, wie ein Run in diesem Teil bringt, Stufe 2 das 2,5-Fache (im Run des Freischaltens nicht mehr bezahlbar), danach je das Doppelte.",
+			"id": "m_walls",
+			"name": "Grundmauern",
+			"description": "Schmiede: +5 Leben, in jedem Run.",
+			"icon": "res://assets/sprites/buildings/smithy_level_1.png",
+			"stat": "castle_hp",
+			"cost": 30,
+			"cost_factor": 2,
+			"max_level": 5,
+			"pos": [
+				2,
+				0
+			],
+			"add": 5
+		},
+		{
+			"id": "m_purse",
+			"name": "Startkapital",
+			"description": "+10 Münzen nach jedem Run.",
+			"icon": "res://assets/ui/icon_coin.png",
+			"stat": "income",
+			"add": 10,
+			"cost": 25,
+			"cost_factor": 2,
+			"max_level": 5,
+			"pos": [
+				2,
+				1
+			],
+			"requires": "m_walls"
+		},
+		{
+			"id": "m_hammer",
+			"name": "Meisterhammer",
+			"description": "Hammer: Schaden ×1,2.",
+			"icon": "res://assets/sprites/ui/forging_tutorial_hammer.png",
+			"stat": "hammer_damage",
+			"cost": 40,
+			"cost_factor": 2,
+			"max_level": 5,
+			"pos": [
+				1,
+				1
+			],
+			"requires": "m_walls",
+			"factor": 1.2
+		},
+		{
+			"id": "m_units",
+			"name": "Kristallkunde",
+			"description": "Alle Einheiten: Schaden und Leben ×1,2.",
+			"icon": "res://assets/sprites/items/holy_crystals/holy_fire_crystal.png",
+			"stat": "unit_all",
+			"factor": 1.2,
+			"cost": 40,
+			"cost_factor": 2,
+			"max_level": 5,
+			"pos": [
+				3,
+				1
+			],
+			"requires": "m_walls"
+		},
+		{
+			"id": "m_luck",
+			"name": "Glückskristalle",
+			"description": "Gerufene Einheiten haben öfter eine höhere Seltenheit (R2 bis R5).",
+			"icon": "res://assets/sprites/items/wind_orb.png",
+			"stat": "rarity_luck",
+			"add": 1,
+			"cost": 40,
+			"cost_factor": 2.5,
+			"max_level": 4,
+			"pos": [
+				3,
+				2
+			],
+			"requires": "m_units"
+		},
+		{
+			"id": "m_slot",
+			"name": "Reliktplatz",
+			"description": "+1 Platz für Relikte.",
+			"icon": "res://assets/sprites/items/wind_orb.png",
+			"stat": "relic_slots",
+			"add": 1,
+			"costs": [
+				100,
+				800,
+				1600
+			],
+			"max_level": 3,
+			"pos": [
+				4,
+				2
+			],
+			"requires": "m_units",
+			"unlock_part": 8
+		},
+		{
+			"id": "m_reroll",
+			"name": "Gute Kontakte",
+			"description": "1× Auffrischen gratis nach jedem Run.",
+			"icon": "res://assets/sprites/items/feather.png",
+			"stat": "free_reroll",
+			"add": 1,
+			"cost": 35,
+			"cost_factor": 3,
+			"max_level": 2,
+			"pos": [
+				2,
+				2
+			],
+			"requires": "m_purse"
+		},
+		{
+			"id": "m_tavern",
+			"name": "Taverne",
+			"description": "Gebäude: legt im Run regelmäßig einen Kristall auf die Straße (alle 20 s, je Stufe 2 s schneller).",
+			"icon": "res://assets/sprites/buildings/smithy_level_1.png",
+			"stat": "tavern",
+			"add": 1,
+			"costs": [
+				400,
+				1200,
+				2500,
+				5000,
+				10000
+			],
+			"max_level": 5,
+			"pos": [
+				1,
+				2
+			],
+			"requires": "m_hammer",
+			"unlock_part": 3
+		},
+		{
+			"id": "m_barracks",
+			"name": "Kaserne",
+			"description": "Gebäude: legt im Run regelmäßig einen Erdkristall neben die Schmiede (alle 30 s, je Stufe 3 s schneller).",
+			"icon": "res://assets/sprites/buildings/village_tower_house.png",
+			"stat": "barracks",
+			"add": 1,
+			"costs": [
+				900,
+				2500,
+				5000,
+				10000,
+				20000
+			],
+			"max_level": 5,
+			"pos": [
+				1,
+				3
+			],
+			"requires": "m_tavern",
+			"unlock_part": 6
+		},
+		{
+			"id": "m_temple",
+			"name": "Tempel",
+			"description": "Gebäude: legt im Run regelmäßig deinen stärksten Kristall neben die Schmiede (alle 45 s, je Stufe 4 s schneller).",
+			"icon": "res://assets/sprites/buildings/sahrim_dome.png",
+			"stat": "temple",
+			"add": 1,
+			"costs": [
+				1000,
+				2500,
+				5000,
+				10000,
+				20000
+			],
+			"max_level": 5,
+			"pos": [
+				1,
+				4
+			],
+			"requires": "m_barracks",
+			"unlock_part": 12
+		},
+		{
+			"id": "m_breaker",
+			"name": "Kristallbrecher",
+			"description": "Kristalle brauchen einen Hammerschlag weniger.",
+			"icon": "res://assets/sprites/ui/forging_tutorial_hammer.png",
+			"stat": "crystal_hits",
+			"add": -1,
+			"cost": 30,
+			"cost_factor": 3,
+			"max_level": 3,
+			"pos": [
+				0,
+				2
+			],
+			"requires": "m_hammer"
+		},
+		{
+			"id": "m_study",
+			"name": "Lehrjahre",
+			"description": "Meisterschaft ×1,25.",
+			"icon": "res://assets/sprites/items/harpy_feather.png",
+			"stat": "mastery_gain",
+			"factor": 1.25,
+			"costs": [
+				800,
+				2000,
+				4000,
+				8000
+			],
+			"max_level": 4,
+			"pos": [
+				2,
+				3
+			],
+			"requires": "m_reroll",
+			"unlock_part": 12
+		},
+		{
+			"id": "m_crystal_purse",
+			"name": "Kristallbeutel",
+			"description": "+5 Kristallmünzen im Vorrat.",
+			"icon": "res://assets/sprites/items/wind_orb.png",
+			"stat": "crystal_coin_max",
+			"add": 5,
+			"cost": 40,
+			"cost_factor": 2.5,
+			"max_level": 5,
+			"pos": [
+				4,
+				1
+			],
+			"requires": "m_walls"
+		}
+	],
+	"quests": [
+		{
+			"_comment": "Aufträge: bleiben über Runs. kind: kill (target = Gegner-id, elite oder leer = alle), open (Kristalle), summon (target = Seltenheit oder leer), day (Welle im Run erreicht). Belohnung: crystal_coins (der Kristallmünzen-Vorrat wird dauerhaft so viel größer) und mastery. Seit 2026-11-25 geben nur die 6 frühen Aufträge 10 Kristallmünzen, alle übrigen 4 (der Vorrat wuchs sonst ab Teil 3 zu schnell).",
+			"id": "q_open_2",
+			"name": "Öffne 2 Kristalle",
+			"kind": "open",
+			"count": 2,
+			"mastery": 10,
+			"crystal_coins": 10
+		},
+		{
+			"id": "q_rats_50",
+			"name": "Besiege 50 Ratten",
+			"kind": "kill",
+			"target": "rat",
+			"count": 50,
+			"mastery": 20,
+			"crystal_coins": 10
+		},
+		{
+			"id": "q_summon_10",
+			"name": "Rufe 10 Einheiten",
+			"kind": "summon",
+			"count": 10,
+			"mastery": 20,
+			"crystal_coins": 10
+		},
+		{
+			"id": "q_day_3",
+			"name": "Erreiche Welle 4",
+			"kind": "day",
+			"count": 4,
+			"mastery": 20,
+			"crystal_coins": 10
+		},
+		{
+			"id": "q_wolves_20",
+			"name": "Besiege 20 Wölfe",
+			"kind": "kill",
+			"target": "wolf",
+			"count": 20,
+			"mastery": 30,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_open_10",
+			"name": "Öffne 10 Kristalle",
+			"kind": "open",
+			"count": 10,
+			"mastery": 30,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_rare_3",
+			"name": "Rufe 3 Einheiten mit R2",
+			"kind": "summon",
+			"target": "r2",
+			"count": 3,
+			"mastery": 30,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_sneak_10",
+			"name": "Besiege 30 Riesenratten",
+			"kind": "kill",
+			"target": "giant_rat",
+			"count": 30,
+			"mastery": 40,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_elite_1",
+			"name": "Besiege einen Boss",
+			"kind": "kill",
+			"target": "elite",
+			"count": 1,
+			"mastery": 50,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_epic_1",
+			"name": "Rufe eine Einheit mit R3",
+			"kind": "summon",
+			"target": "r3",
+			"count": 1,
+			"mastery": 50,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_kill_500",
+			"name": "Besiege 500 Gegner",
+			"kind": "kill",
+			"count": 500,
+			"mastery": 80,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_open_50",
+			"name": "Öffne 50 Kristalle",
+			"kind": "open",
+			"count": 50,
+			"mastery": 100,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_day_8",
+			"name": "Erreiche Teil 3",
+			"kind": "day",
+			"count": 9,
+			"mastery": 120,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_skeletons_30",
+			"name": "Besiege 30 Skelette",
+			"kind": "kill",
+			"target": "skeleton",
+			"count": 30,
+			"mastery": 100,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_poison_rats_30",
+			"name": "Besiege 30 Giftratten",
+			"kind": "kill",
+			"target": "poison_rat",
+			"count": 30,
+			"mastery": 20,
+			"crystal_coins": 10
+		},
+		{
+			"id": "q_kill_100",
+			"name": "Besiege 100 Gegner",
+			"kind": "kill",
+			"count": 100,
+			"mastery": 30,
+			"crystal_coins": 10
+		},
+		{
+			"id": "q_part_2",
+			"name": "Erreiche Teil 2",
+			"kind": "day",
+			"count": 5,
+			"mastery": 40,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_summon_30",
+			"name": "Rufe 30 Einheiten",
+			"kind": "summon",
+			"count": 30,
+			"mastery": 40,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_open_25",
+			"name": "Öffne 25 Kristalle",
+			"kind": "open",
+			"count": 25,
+			"mastery": 60,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_rat_king_3",
+			"name": "Besiege den Rattenkönig 3-mal",
+			"kind": "kill",
+			"target": "rat_king",
+			"count": 3,
+			"mastery": 60,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_rare_15",
+			"name": "Rufe 15 Einheiten mit R2",
+			"kind": "summon",
+			"target": "r2",
+			"count": 15,
+			"mastery": 60,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_part_5",
+			"name": "Erreiche Teil 5",
+			"kind": "day",
+			"count": 17,
+			"mastery": 150,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_bosses_5",
+			"name": "Besiege 5 Bosse",
+			"kind": "kill",
+			"target": "elite",
+			"count": 5,
+			"mastery": 100,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_wolves_200",
+			"name": "Besiege 200 Wölfe",
+			"kind": "kill",
+			"target": "wolf",
+			"count": 200,
+			"mastery": 100,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_boars_50",
+			"name": "Besiege 50 Wildschweine",
+			"kind": "kill",
+			"target": "wild_boar",
+			"count": 50,
+			"mastery": 100,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_slimes_50",
+			"name": "Besiege 50 Schleime",
+			"kind": "kill",
+			"target": "slime",
+			"count": 50,
+			"mastery": 120,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_epic_10",
+			"name": "Rufe 10 Einheiten mit R3",
+			"kind": "summon",
+			"target": "r3",
+			"count": 10,
+			"mastery": 120,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_kill_2000",
+			"name": "Besiege 2000 Gegner",
+			"kind": "kill",
+			"count": 2000,
+			"mastery": 200,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_bandits_100",
+			"name": "Besiege 100 Banditen",
+			"kind": "kill",
+			"target": "bandit_thug",
+			"count": 100,
+			"mastery": 200,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_part_10",
+			"name": "Erreiche Teil 10",
+			"kind": "day",
+			"count": 37,
+			"mastery": 250,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_legend_1",
+			"name": "Rufe eine Einheit mit R4",
+			"kind": "summon",
+			"target": "r4",
+			"count": 1,
+			"mastery": 200,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_open_150",
+			"name": "Öffne 150 Kristalle",
+			"kind": "open",
+			"count": 150,
+			"mastery": 250,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_ghouls_100",
+			"name": "Besiege 100 Ghule",
+			"kind": "kill",
+			"target": "ghoul",
+			"count": 100,
+			"mastery": 300,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_bosses_20",
+			"name": "Besiege 20 Bosse",
+			"kind": "kill",
+			"target": "elite",
+			"count": 20,
+			"mastery": 400,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_magma_slimes_100",
+			"name": "Besiege 100 Magmaschleime",
+			"kind": "kill",
+			"target": "magma_slime",
+			"count": 100,
+			"mastery": 400,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_part_20",
+			"name": "Erreiche Teil 20",
+			"kind": "day",
+			"count": 77,
+			"mastery": 500,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_mythic_1",
+			"name": "Rufe eine Einheit mit R5",
+			"kind": "summon",
+			"target": "r5",
+			"count": 1,
+			"mastery": 500,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_harpies_100",
+			"name": "Besiege 100 Harpyien",
+			"kind": "kill",
+			"target": "harpy",
+			"count": 100,
+			"mastery": 500,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_kill_10000",
+			"name": "Besiege 10000 Gegner",
+			"kind": "kill",
+			"count": 10000,
+			"mastery": 600,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_dark_knights_100",
+			"name": "Besiege 100 Finsterritter",
+			"kind": "kill",
+			"target": "dark_knight",
+			"count": 100,
+			"mastery": 700,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_part_35",
+			"name": "Erreiche Teil 35",
+			"kind": "day",
+			"count": 137,
+			"mastery": 800,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_part_52",
+			"name": "Erreiche den letzten Teil",
+			"kind": "day",
+			"count": 205,
+			"mastery": 1000,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_assault_1",
+			"name": "Wehre einen Ansturm ab",
+			"kind": "assault",
+			"count": 1,
+			"mastery": 30,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_assault_10",
+			"name": "Wehre 10 Anstürme ab",
+			"kind": "assault",
+			"count": 10,
+			"mastery": 150,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_assault_40",
+			"name": "Wehre 40 Anstürme ab",
+			"kind": "assault",
+			"count": 40,
+			"mastery": 500,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_grow_r3",
+			"name": "Bringe eine Einheit durch Siege auf R3",
+			"kind": "grow",
+			"count": 3,
+			"mastery": 40,
+			"crystal_coins": 4
+		},
+		{
+			"id": "q_grow_r5",
+			"name": "Bringe eine Einheit durch Siege auf R5",
+			"kind": "grow",
+			"count": 5,
+			"mastery": 300,
+			"crystal_coins": 4
+		}
+	],
+	"relic_slots": 1,
+	"relics": [
+		{
+			"_comment": "Relikte: von Elite-Gegnern (ein zufälliges je Boss), bleiben für immer, wirken nur eingesetzt. element: wirkt nur auf Einheiten dieses Elements (ohne: auf alle). Felder: damage, hp, attack_speed (×), count (+), giant_chance (+), coins (+ je Gegner), hammer_third (× Schaden jedes 3. Schlags), rarity_luck (+ Glücksstufe). tier: Stufe (relic_tiers).",
+			"id": "storm_feather",
+			"name": "Sturmfeder",
+			"description": "Feuer-Einheiten: doppelter Schaden.",
+			"icon": "res://assets/sprites/items/harpy_feather.png",
+			"element": "fire",
+			"damage": 2,
+			"tier": 1
+		},
+		{
+			"id": "ember_heart",
+			"name": "Glutherz",
+			"description": "Feuer-Einheiten: doppeltes Leben, 1 Einheit mehr je Kristall.",
+			"icon": "res://assets/sprites/items/ember_essence.png",
+			"element": "fire",
+			"hp": 2,
+			"count": 1,
+			"tier": 1
+		},
+		{
+			"id": "root_stone",
+			"name": "Wurzelstein",
+			"description": "Erd-Einheiten: doppeltes Leben und Schaden ×1,5.",
+			"icon": "res://assets/sprites/items/arena_heart.png",
+			"element": "earth",
+			"hp": 2,
+			"damage": 1.5,
+			"tier": 1
+		},
+		{
+			"id": "frost_shard",
+			"name": "Frostsplitter",
+			"description": "Eis-Einheiten: greifen doppelt so schnell an.",
+			"icon": "res://assets/sprites/items/wind_orb.png",
+			"element": "ice",
+			"attack_speed": 2,
+			"tier": 1
+		},
+		{
+			"id": "venom_fang",
+			"name": "Giftzahn",
+			"description": "Gift-Einheiten: Schaden ×2, Leben ×1,5.",
+			"icon": "res://assets/sprites/items/feather.png",
+			"element": "poison",
+			"damage": 2,
+			"hp": 1.5,
+			"tier": 1
+		},
+		{
+			"id": "night_sigil",
+			"name": "Nachtsiegel",
+			"description": "Dunkel-Einheiten: 1 Einheit mehr je Kristall, Leben ×1,5.",
+			"icon": "res://assets/sprites/items/ember_essence.png",
+			"element": "dark",
+			"count": 1,
+			"hp": 1.5,
+			"tier": 2
+		},
+		{
+			"id": "gale_wing",
+			"name": "Windschwinge",
+			"description": "Wind-Einheiten: greifen doppelt so schnell an, Schaden ×1,5.",
+			"icon": "res://assets/sprites/items/feather.png",
+			"element": "wind",
+			"attack_speed": 2,
+			"damage": 1.5,
+			"tier": 2
+		},
+		{
+			"id": "titan_blood",
+			"name": "Titanenblut",
+			"description": "Einheiten sind viel öfter Riesen (+25 %).",
+			"icon": "res://assets/sprites/items/arena_heart.png",
+			"giant_chance": 0.25,
+			"tier": 1
+		},
+		{
+			"id": "lucky_coin",
+			"name": "Glücksmünze",
+			"description": "+1 Münze je besiegtem Gegner.",
+			"icon": "res://assets/ui/icon_coin.png",
+			"coins": 1,
+			"tier": 1
+		},
+		{
+			"id": "thunder_hammer",
+			"name": "Donnerhammer",
+			"description": "Jeder dritte Hammerschlag macht dreifachen Schaden.",
+			"icon": "res://assets/sprites/ui/forging_tutorial_hammer.png",
+			"hammer_third": 3,
+			"tier": 2
+		},
+		{
+			"id": "star_prism",
+			"name": "Sternprisma",
+			"description": "Gerufene Einheiten haben öfter eine höhere Seltenheit.",
+			"icon": "res://assets/sprites/items/wind_orb.png",
+			"rarity_luck": 1,
+			"tier": 2
+		}
+	],
+	"relic_tiers": [
+		{
+			"_comment": "Relikt-Stufen (Eintrag 1 = Stufe 1). from_part: ab diesem Teil (1 = erster) lassen Bosse Truhen mit dieser Stufe fallen und der Laden kann sie anbieten. chest: so viele Relikte der Stufe kommen höchstens aus Truhen, die übrigen nur aus dem Laden. price: Münzen im Laden.",
+			"from_part": 1,
+			"chest": 4,
+			"price": 600
+		},
+		{
+			"from_part": 10,
+			"chest": 2,
+			"price": 4000
+		}
+	],
+	"effects": {
+		"_comment": "Nur Aussehen (DefenseFx, DefenseWeather). element_colors: Farbe je Kristall-Element (Leuchten des Kristalls, Scherben, Lichtsäule). weather: Bodenbild (Dateiname ohne .png) » Wetter auf dem Feld: ash, snow, leaves, spores, sand, rain, dust, none; nicht aufgeführt = weather_default. night: wie dunkel jede Welle eines Teils ist (0 = Tag, 1 = Nacht), die letzte = Bosswelle.",
+		"element_colors": {
+			"fire": "#ff8a30",
+			"earth": "#c8a060",
+			"poison": "#90ff60",
+			"ice": "#a8e8ff",
+			"water": "#4aa0ff",
+			"dark": "#b070ff",
+			"lightning": "#fff27a",
+			"wind": "#d8f0ff",
+			"light": "#fff8d0"
+		},
+		"weather_default": "dust",
+		"weather": {
+			"lavaberg_ground": "ash",
+			"underworld_ground": "ash",
+			"kerker_forge_ground": "ash",
+			"ice_wall_crown_ground": "snow",
+			"eisquell_ground": "snow",
+			"eisquell_cave_ground": "snow",
+			"deep_forest_ground": "leaves",
+			"forest_entrance_ground": "leaves",
+			"sylvaris_grove_ground": "leaves",
+			"swamp_ground": "spores",
+			"desert_ground": "sand",
+			"storm_temple_ground": "rain",
+			"capital_street_ground": "none",
+			"smith_lane_ground": "none",
+			"black_market_ground": "none"
+		},
+		"night": [0.0, 0.15, 0.35, 0.7]
+	},
+	"rarity_growth": {
+		"_comment": "Einheiten werden durch Siege seltener (zusätzlich zu den Stufen): kills[i] = so viele Siege seit dem Ruf heben eine Einheit von R(i+1) auf R(i+2) (R1 » R2 bei 5 …); Leben und Schaden wachsen mit dem Faktor der neuen Seltenheit (rarities).",
+		"kills": [
+			5,
+			15,
+			35,
+			70
+		]
+	},
+	"unit_quests": {
+		"_comment": "Aufträge je Einheit, für jede Einheit in units erzeugt (DefenseRun.quests): summon = rufe sie counts[Platz im Kristall] Mal (80-%-Einheit 10, 19-%-Einheit 5, 1-%-Einheit 1), grow = bringe sie durch Siege auf rarity. Belohnung: income (Münzen nach jedem Run, dauerhaft) und mastery × (Platz des Kristalls in der Leiter + 1).",
+		"summon": {
+			"counts": [
+				10,
+				5,
+				1
+			],
+			"mastery": 20,
+			"income": 1
+		},
+		"grow": {
+			"rarity": "r3",
+			"mastery": 40,
+			"income": 1
+		}
+	},
+	"themes": {
+		"_comment": "Gebietsregel je Thema (parts[].theme), gilt in jedem Teil des Themas, angesagt bei seiner ersten Welle (erst ab Teil from_part, 1 = erster; so bleibt der Einstieg ruhig). rules (beliebig kombinierbar): more_enemies (× Anzahl normaler Gegner), enemy_speed / enemy_hp (× normaler Gegner), sneaky_chance (so viele normale Gegner sind Schleicher), revive (normale Gegner stehen einmal mit diesem Teil ihres Lebens wieder auf), poison (Giftpfützen: every s, hält time s, Radius radius, Einheiten darin verlieren dps × Höchstleben je s), strikes (Einschläge: every s, Radius radius, Warnzeit warn s, Gegner nehmen hammer × Hammerschaden, Einheiten unit_part × Höchstleben; kind fire/lightning/meteor/dark nur Aussehen), frozen (Kristalle brauchen so viele Hammerschläge mehr), unit_speed (× Lauftempo der Einheiten), night (Nacht mindestens so dunkel). boss: was der Boss des Gebiets kann (cleave wie waves.boss_default; skills, je alle every s, der erste nach der Hälfte): summon (count Gegner der Gebietsart neben ihm), poison (count Giftpfützen unter Einheiten, radius, time, dps), strikes (count Einschläge auf Einheiten, nur Einheiten: unit_part × Höchstleben; kind fire/lightning/meteor/dark), slam (Einheiten im radius um ihn: damage × sein Schaden, weggestoßen), freeze (Einheiten im radius stehen time s still), shield (time s nimmt er nur factor des Schadens). name: wird beim Einsatz über ihm angezeigt.",
+		"rats": {
+			"name": "Rattenflut",
+			"description": "Viel mehr Ratten in jeder Welle.",
+			"rules": {
+				"more_enemies": 1.3
+			},
+			"from_part": 2,
+			"boss": {
+				"skills": [
+					{
+						"type": "summon",
+						"name": "Rattenruf",
+						"every": 8,
+						"count": 5
+					}
+				]
+			}
+		},
+		"sewers": {
+			"name": "Giftige Brühe",
+			"description": "Giftpfützen am Boden schaden deinen Einheiten.",
+			"rules": {
+				"poison": {
+					"every": 6,
+					"time": 8,
+					"radius": 26,
+					"dps": 0.15
+				}
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "poison",
+						"name": "Giftschwall",
+						"every": 7,
+						"count": 3,
+						"radius": 26,
+						"time": 7,
+						"dps": 0.2
+					},
+					{
+						"type": "summon",
+						"name": "Aus den Rohren",
+						"every": 12,
+						"count": 3
+					}
+				]
+			}
+		},
+		"forest": {
+			"name": "Rudeljagd",
+			"description": "Die Gegner sind schneller.",
+			"rules": {
+				"enemy_speed": 1.3
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "summon",
+						"name": "Heulen",
+						"every": 9,
+						"count": 3
+					},
+					{
+						"type": "slam",
+						"name": "Prankenhieb",
+						"every": 10,
+						"radius": 50,
+						"damage": 1.5
+					}
+				]
+			}
+		},
+		"bandits": {
+			"name": "Hinterhalt",
+			"description": "Viele Gegner schleichen: nur der Hammer deckt sie auf.",
+			"rules": {
+				"sneaky_chance": 0.35
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "summon",
+						"name": "Pfiff",
+						"every": 10,
+						"count": 4
+					},
+					{
+						"type": "shield",
+						"name": "Deckung",
+						"every": 14,
+						"time": 4,
+						"factor": 0.3
+					}
+				]
+			}
+		},
+		"undead": {
+			"name": "Die Toten erwachen",
+			"description": "Besiegte Gegner stehen einmal wieder auf.",
+			"rules": {
+				"revive": 0.5
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "summon",
+						"name": "Die Gräber öffnen sich",
+						"every": 9,
+						"count": 4
+					}
+				]
+			}
+		},
+		"volcano": {
+			"name": "Feuerregen",
+			"description": "Glutbrocken schlagen ein und treffen alle: Gegner und Einheiten.",
+			"rules": {
+				"strikes": {
+					"every": 4,
+					"radius": 34,
+					"warn": 1.2,
+					"hammer": 2,
+					"unit_part": 0.4,
+					"kind": "fire"
+				}
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "strikes",
+						"name": "Lavaregen",
+						"every": 7,
+						"count": 4,
+						"radius": 30,
+						"unit_part": 0.4,
+						"kind": "fire"
+					},
+					{
+						"type": "slam",
+						"name": "Beben",
+						"every": 11,
+						"radius": 60,
+						"damage": 1.2
+					}
+				]
+			}
+		},
+		"storm": {
+			"name": "Gewitter",
+			"description": "Blitze schlagen ein und treffen alle: Gegner und Einheiten.",
+			"rules": {
+				"strikes": {
+					"every": 3,
+					"radius": 26,
+					"warn": 0.9,
+					"hammer": 2,
+					"unit_part": 0.35,
+					"kind": "lightning"
+				}
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "strikes",
+						"name": "Kettenblitz",
+						"every": 6,
+						"count": 5,
+						"radius": 24,
+						"unit_part": 0.35,
+						"kind": "lightning"
+					}
+				]
+			}
+		},
+		"coast": {
+			"name": "Nasser Sand",
+			"description": "Deine Einheiten laufen langsamer.",
+			"rules": {
+				"unit_speed": 0.7
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "slam",
+						"name": "Flutwelle",
+						"every": 8,
+						"radius": 75,
+						"damage": 1.0
+					},
+					{
+						"type": "summon",
+						"name": "Aus der Tiefe",
+						"every": 12,
+						"count": 3
+					}
+				]
+			}
+		},
+		"swamp": {
+			"name": "Sumpfgift",
+			"description": "Viele Giftpfützen am Boden schaden deinen Einheiten.",
+			"rules": {
+				"poison": {
+					"every": 3.5,
+					"time": 9,
+					"radius": 30,
+					"dps": 0.2
+				}
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "poison",
+						"name": "Sumpfatem",
+						"every": 6,
+						"count": 4,
+						"radius": 30,
+						"time": 8,
+						"dps": 0.2
+					},
+					{
+						"type": "summon",
+						"name": "Aus dem Moor",
+						"every": 12,
+						"count": 3
+					}
+				]
+			}
+		},
+		"finster": {
+			"name": "Ewige Nacht",
+			"description": "Es bleibt dunkel, und manche Gegner schleichen.",
+			"rules": {
+				"night": 0.55,
+				"sneaky_chance": 0.2
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "freeze",
+						"name": "Schattengriff",
+						"every": 9,
+						"radius": 70,
+						"time": 2.5
+					},
+					{
+						"type": "summon",
+						"name": "Schatten",
+						"every": 11,
+						"count": 4
+					}
+				]
+			}
+		},
+		"keep": {
+			"name": "Gepanzerte Wachen",
+			"description": "Die Gegner halten mehr aus.",
+			"rules": {
+				"enemy_hp": 1.5
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "shield",
+						"name": "Schildwall",
+						"every": 12,
+						"time": 5,
+						"factor": 0.25
+					},
+					{
+						"type": "slam",
+						"name": "Schwerthieb",
+						"every": 8,
+						"radius": 55,
+						"damage": 1.5
+					}
+				]
+			}
+		},
+		"ice": {
+			"name": "Frost",
+			"description": "Kristalle kommen eingefroren und brauchen mehr Hammerschläge; Einheiten laufen langsamer.",
+			"rules": {
+				"frozen": 2,
+				"unit_speed": 0.85
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "freeze",
+						"name": "Frostatem",
+						"every": 8,
+						"radius": 75,
+						"time": 3
+					},
+					{
+						"type": "summon",
+						"name": "Eisgeister",
+						"every": 12,
+						"count": 3
+					}
+				]
+			}
+		},
+		"stars": {
+			"name": "Sternschnuppen",
+			"description": "Meteore schlagen ein und treffen alle: Gegner und Einheiten.",
+			"rules": {
+				"strikes": {
+					"every": 3,
+					"radius": 40,
+					"warn": 1.4,
+					"hammer": 3,
+					"unit_part": 0.5,
+					"kind": "meteor"
+				}
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "strikes",
+						"name": "Sternenfall",
+						"every": 6,
+						"count": 4,
+						"radius": 36,
+						"unit_part": 0.5,
+						"kind": "meteor"
+					}
+				]
+			}
+		},
+		"altar": {
+			"name": "Dunkle Weihe",
+			"description": "Besiegte Gegner stehen wieder auf, und es wird dunkel.",
+			"rules": {
+				"revive": 0.4,
+				"night": 0.4
+			},
+			"boss": {
+				"skills": [
+					{
+						"type": "summon",
+						"name": "Ruf der Finsternis",
+						"every": 9,
+						"count": 4
+					},
+					{
+						"type": "strikes",
+						"name": "Dunkler Blitz",
+						"every": 8,
+						"count": 4,
+						"radius": 30,
+						"unit_part": 0.4,
+						"kind": "dark"
+					},
+					{
+						"type": "shield",
+						"name": "Dunkler Schild",
+						"every": 15,
+						"time": 4,
+						"factor": 0.3
+					}
+				]
+			}
+		}
+	},
+	"assault": {
+		"_comment": "Ansturm: ab Teil from_part (1 = erster) einmal je Teil in Welle wave kommt mit der Welle ein Elite-Trupp aus einer Richtung (count Gegner der ersten Art der Welle, Leben × hp, Schaden × damage, größer × scale, weiter draußen um distance px, kommt also etwas später). Alle besiegt: coins × Münzen eines normalen Gegners, mastery, ein Kristall bei der Schmiede.",
+		"from_part": 2,
+		"wave": 2,
+		"count": 6,
+		"hp": 4,
+		"damage": 1.5,
+		"scale": 1.25,
+		"distance": 160,
+		"coins": 12,
+		"mastery": 25
+	},
+	"buildings": [
+		{
+			"_comment": "Gebäude (Meisterschaft, stat = Feld im Baum): legen im Run alle interval − step × (Stufe−1) s (mindestens 3) einen Kristall neben die Schmiede: crystal = feste id, \"\" = zufällig aus dem Laden, \"best\" = der stärkste freigeschaltete. Sichtbar als Banner an der Schmiede (color, \"\" = Farbe des Kristalls) mit einem Ring, der sich bis zum nächsten Kristall füllt.",
+			"id": "tavern",
+			"name": "Taverne",
+			"stat": "tavern",
+			"crystal": "",
+			"interval": 20,
+			"step": 2,
+			"color": "#e0a050"
+		},
+		{
+			"id": "barracks",
+			"name": "Kaserne",
+			"stat": "barracks",
+			"crystal": "holy_earth_crystal",
+			"interval": 30,
+			"step": 3,
+			"color": ""
+		},
+		{
+			"id": "temple",
+			"name": "Tempel",
+			"stat": "temple",
+			"crystal": "best",
+			"interval": 45,
+			"step": 4,
+			"color": ""
+		}
+	]
+}

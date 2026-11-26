@@ -1,0 +1,288 @@
+# IDEEN – SMITHY
+
+(Stand 2026-10-17. Oben die Story-Grundidee, dann alles, was noch OFFEN ist, unten alles, was FERTIG ist.
+[ ] offen, [~] teilweise, [x] erledigt. Details zu fertigen Systemen: PROJEKT.md Abschnitt 7 und docs/SYSTEME.md,
+Inhalte per JSON: docs/CONTENT.md, Story-Stand: docs/STORY.md.)
+
+=====================================================================
+STORY-GRUNDIDEE
+=====================================================================
+
+Der legendäre Schmied des Dorfes ist verschollen, und das Dorf sucht einen neuen Schmied. Viele Schmiede haben deshalb eine Schmiede eröffnet und konkurrieren nun um den Titel.
+
+Der Spieler hat sich den legendären Schmied als Kind zum Vorbild genommen und wollte selbst Schmied werden. Als Jugendlicher hat er hart gearbeitet und Geld gespart, um sich eine Schmiede leisten zu können.
+
+Zu Beginn mietet er eine kleine Schmiede am Rand des Dorfes. Die Besitzerin ist eine alte, kauzige Oma. Die Miete zahlt er von seinem Ersparten; um sie weiter zahlen zu können, braucht er Kunden und geht in die Dorfmitte.
+
+In der Dorfmitte sucht ein Holzfäller jemanden, der ihm eine Axt schmiedet, aber kein Schmied macht das umsonst. Der Spieler hat Mitleid und schmiedet ihm die Axt umsonst. Als Dank gibt der Holzfäller ihm jeden Tag ein Holz.
+
+Ein Betrunkener von der Straße wird unser erster Held: Wir schmieden ihm Waffe und Rüstung und schicken ihn in den ersten Dungeon.
+
+
+#####################################################################
+#                              OFFEN                                #
+#####################################################################
+
+=====================================================================
+1) STORY
+=====================================================================
+   [ ] Wettbewerb um den Titel des Schmieds (Konkurrenten, Siegbedingung).
+   [ ] Holger und Bruno zahlen später wirklich zurück (bisher nur Text; Bruno stirbt in Kapitel 10).
+   [ ] Aufträge mit gewünschten Attributen (z. B. +5 Stärke).
+   [ ] Kunden in der Dorfmitte (laut Story; bisher warten sie vor der Schmiede).
+   [ ] Story nach Kapitel 12 (Leonheim) weiter; Ideen in docs/STORY.md.
+   [ ] Spielende in Version 1? (offene Entscheidung, PROJEKT.md Abschnitt 8)
+
+=====================================================================
+2) ELEMENTE FÜR HELDEN
+=====================================================================
+   [ ] Element-Attribute für Helden:
+       Jeder Held besitzt genau ein Element-Attribut aus:
+       fire, water, earth, air, dark, light, lightning, ice, poison.
+
+       Das Element beeinflusst die Fähigkeiten des Helden. Skills können abhängig vom Element angepasst werden, z. B.:
+         - Feuerheld: Feuerschlag statt normalem Schlag.
+         - Wasserheld: Wasserschlag statt normalem Schlag.
+       Die elementabhängigen Skill-Varianten sollen sich in Namen, Darstellung und Element-Schadensart unterscheiden.
+
+   [ ] Elementare Zusatzeffekte bei Angriffen:
+       Elementare Zusatzeffekte können durch elementare Angriffe ausgelöst werden.
+       Jeder Angriff, der Elementarschaden verursacht, hat eine Grundchance von 5 %, den zugehörigen Effekt auszulösen.
+       Die Effekte gelten für das jeweilige Element:
+
+         - Feuer (fire): Brand
+           Verursacht zusätzlichen Schaden am betroffenen Gegner.
+           Schaden: Heldenlevel × 5 + Intelligenz.
+
+         - Wasser (water): Heilung
+           Heilt den angreifenden Helden.
+           Heilung: Heldenlevel × 5 + Intelligenz.
+
+         - Erde (earth): Erdschutzschild
+           Gewährt dem angreifenden Helden einen zusätzlichen Schildwert, der eingehenden Schaden blockiert.
+           Der Schild wird als zusätzliche Lebensleiste oberhalb der normalen HP-Leiste angezeigt.
+           Schildstärke: Heldenlevel × 5 + Konstitution (CON).
+
+         - Luft (air): Ausweichbuff
+           Erhöht die Ausweichwahrscheinlichkeit des angreifenden Helden für 5 Sekunden um (5 + Geschicklichkeit (DEX)) %.
+
+         - Dunkelheit (dark): Treffsicherheits-Debuff
+           Verringert die Trefferwahrscheinlichkeit des betroffenen Gegners für 5 Sekunden um 20 %.
+
+         - Licht (light): Magie-Debuff
+           Der nächste Zauber des betroffenen Gegners verursacht keinen Schaden.
+           Der Effekt wird beim nächsten Zauber verbraucht, der Schaden verursachen würde.
+
+         - Blitz (lightning): Betäubung
+           Betäubt den betroffenen Gegner für 2,5 Sekunden. Während der Betäubung kann er keine Aktionen ausführen.
+
+         - Eis (ice): Verlangsamung
+           Verringert die Angriffsgeschwindigkeit des betroffenen Gegners für die Dauer des Effekts um 35 %.
+           Die genaue Dauer muss noch festgelegt werden.
+
+         - Gift (poison): Vergiftung
+           Löst den bereits vorhandenen Gift-Debuff aus. Vorhandene Giftmechaniken und Regeln zur Dauer bzw. zum Schaden sollen wiederverwendet werden.
+
+       Technische Hinweise:
+         - Die Effekte sollen die vorhandenen Buff-/Debuff- und Status-Effekt-Systeme verwenden, soweit möglich.
+         - Die 5-%-Chance gilt für Angriffe mit dem jeweiligen Element, nicht für rein physische Angriffe.
+         - Bei Skills mit mehreren Schadensarten muss festgelegt werden, ob bereits ein beliebiger Elementarschadensanteil für einen Effektversuch genügt.
+         - Es muss festgelegt werden, wie erneute Auslösungen mit bereits aktiven Effekten umgehen (z. B. Dauer erneuern, Stärke stapeln oder Effekt ignorieren).
+         - Für den Erdschutzschild muss geregelt werden, wie der Schild bei weiteren Auslösungen erneuert oder verstärkt wird.
+         - Die Effekte müssen mit den vorhandenen Elementresistenzen, Status-Effekten und Kampfregeln kompatibel sein.
+
+   [ ] Items mit Resistenzen, Krit-Boni, Magieschaden und Element-Anteil (die Felder gibt es, Inhalte fehlen noch).
+
+=====================================================================
+3) SCHMIEDEN UND STATIONEN
+=====================================================================
+   [~] Zaubertisch, Reiter "Verzaubern": Gegenstände verzaubern für Extra-Effekte. Reiter und Zauberstaub sind da, die Verzauberung selbst und die Wirkung des Staubs fehlen noch.
+   [~] Zauberstäbe haben Magieschaden + Grundelement-Schaden. Holz-Zauberstab gibt es; Zweihand-Zauberstäbe, Folianten und Element-Anteile fehlen.
+   [ ] Feuerorb für die Esse (20 Schmiedevorgänge, mit Magie wieder auffüllbar).
+   [~] Legieren als Ablauf: nach dem Amboss neu erhitzen -> in Öl abkühlen -> neu erhitzen -> im Wasser abkühlen. (Legierungen in der Schmelze, z. B. Bronze, gibt es schon; dieser Ablauf nicht.)
+   [ ] Minispiel beim Schärfen (der Schleifstein gibt bisher einfach +10 Qualität).
+   [~] Ausstattung aufwerten oder kaufen: besserer Hammer, Ofen, Amboss. (Wassertrog, Schleifstein und Gerberbank kann man kaufen; Aufwerten fehlt. Werte liegen schon in PlayerStats.)
+   [~] Weitere Stationen: Fell zu Leder ist fertig (Gerberbank); Sehnen (Bogen) und Pflanzen-Station fehlen. Feder, Kamille und Salbei haben noch keine Verwendung.
+   [~] Bögen und Langbögen: Bogentisch, Rahmen aus Holz/Kupfer/Eisen, Pfeile (Holz Stich, Kupfer Schnitt, Eisen Stumpf) sind fertig; Giftpfeile über den Aufwertungstisch (Rattengiftzahn) und Lederköcher mit 2 Plätzen sind fertig; offen: eigene Bilder, weitere Metalle, weitere Aufwertungs-Materialien (z. B. Feuer), größere Köcher. Kristalle aus Eisenstein (Resistenzen) und Waffen pro Klasse mit Klassen-Freischaltung sind fertig.
+   [ ] Eigene Bilder für alle Waffenteile außer Kupfer/Eisen-Schwert und Kupfer-Axt (bisher Standard-Bild).
+   [ ] Seltene Erze (Silber, Gold, Platin, Palladium) brauchen einen Abbau-Ort (z. B. tiefere Mine).
+   [ ] Rüstungsplatten aus Bronze, Silber, Gold, Platin, Palladium (bisher nur Kupfer und Eisen; die Set-Erfolge dafür sind noch nicht schaffbar).
+
+=====================================================================
+4) HELDEN, KAMPF, DUNGEONS
+=====================================================================
+   [~] Weitere Dungeons und Monster mit eigenen Grafiken (Wald- und Leonheim-Dungeons gibt es; viele der 39 neuen Gegner nutzen das Standard-Bild und kommen in keinem Dungeon vor).
+   [ ] Bosse mit eigenen Fähigkeiten und Phasen.
+   [ ] Mehr Skills pro Baum, z. B. Dolchwurf, Federschuss.
+   [ ] Angriffs- und Skill-Animationen der Helden; Ausrüstung im Kampf mit Leuchten und Effekten.
+   [ ] Items, Tränke oder Bücher, die den IQ der Helden erhöhen (Befehle für Skills).
+
+
+=====================================================================
+5) NEUE IDEEN (2026-11-01)
+=====================================================================
+   Story und Figuren
+   [ ] Am Ende wird Lake König der Stadt, die Prinzessin wird Königin der Dämonenstadt.
+   [ ] Goblinkönig erzählt von seiner Vergangenheit: wie tolle Schmieden die Goblins hatten und dass dort Turniere abgehalten wurden.
+   [ ] Wachen beim König wollen immer Geld: einmal zahlen = einmal durchgehen, kurz rausgehen = neu zahlen.
+       Der Goblin sagt immer „Katsching“, wenn er Geld bekommt.
+   [ ] Spätere Stadt-Quest: die Goblinstadt aufbauen (Turniere, Kolosseum, Stadt-Gebäude).
+
+   Aufträge und Jagd
+   [ ] Bürgermeister gibt Jagd-Aufträge (böser Bär / Monster jagen). Danach kann man einen Dungeon machen,
+       in dem das Quest-Monster auftauchen kann. Ziel: x Gegner besiegen oder 1 Mini-Boss/Boss.
+   [~] Gilde listet eigene Aufträge auf („suche xyz“, „töte xyz“), damit nicht nur der Schmied Aufträge anbietet.
+       (Suchaufträge der Gilde gibt es schon, aber vom Spieler bezahlt; Aufträge der Gilde an den Spieler fehlen.)
+
+   Städte und Welt
+   [ ] Klassenräume, Baracken und Soldaten in den Städten.
+   [ ] Geister fliegen als Spezialeffekt durch die Finsterstadt, blau leuchtend (passend zum dunklen Violett-Thema).
+   [ ] Reittiere pro Stadt/Volk statt Kamelen: Riesenechsen für das Echsenvolk, Rehe für die Elfen, Riesenmolche
+       für das Wasservolk; für Menschen menschenähnliche Kreaturen mit dunkler Hautfarbe, die beim Galopp Affengeräusche machen.
+   [ ] Reiter-Ausrüstung bauen (Sattel, Zaumzeug o. Ä.).
+
+   Spieler und Aussehen
+   [ ] Kleidung ändern: neue kaufen, neue freischalten.
+   [ ] Aussehen später ändern (Frisur usw.); mit einem Trank auch Geschlecht, mit einem weiteren Trank auch die Rasse.
+   [ ] Die neun Kristalle als Items im Inventar.
+   [ ] Kurzer Schlaf (Powernap): schlafen bis 8, 12, 16 oder 20 Uhr statt bis zum nächsten Morgen.
+
+   Bücher und Übersicht
+   [ ] Bestiarium (Buch): alle Monster, was sie droppen, wo sie vorkommen, Skills, Resistenzwerte.
+
+   Schmieden
+   [~] Schmelze, Amboss und Werkbank aufwerten: Minispiele einfacher, mehr Bonus.
+       (Werkstatt-Upgrades bei Konrad gibt es seit 2026-11-01 für Amboss, Schmelze und Gussofen mit mehr Qualität/Tempo/Güssen;
+       offen: Werkbank-Upgrade und leichtere Minispiele.)
+
+
+#####################################################################
+#                              FERTIG                               #
+#####################################################################
+
+=====================================================================
+STORY
+=====================================================================
+   [x] Story-Einstieg: Intro, Dorfplatz, Schmiede mieten bei Oma Hilde (500 Gold/Woche, unbezahlt = -10 Karma pro Tag), aufräumen.
+   [x] Holzfäller Holger: Auftrag Kupferaxt (Rezepte in der Truhe, Kupfer und Wassertrog kaufen, Abgabe an der Hütte), danach jeden Morgen 1 Holz in der Loot-Kiste.
+   [x] Bruno, der Betrunkene, bettelt und wird der erste Held; „Hallo Dungeon“ mit Gussform-Händler, Gilde östlich vom Markt, Rattenkeller, Loot-Kiste.
+   [x] Weiter nach dem ersten Dungeon: Kapitel 4–12 (Nina und ihr Laden, Gustav und die Mine, erste Miete, Rattenkönig, Ratten in der Mine, Lotte im Wald, Frühlingsfest, Zauberstaub, Überfall, Wiederaufbau, Königsstadt Leonheim).
+   [x] Kunden mit Aufträgen (warten vor der Schmiede, Abgabe am Auftragsbrett), Preise und Karma; Aufträge zahlen mindestens 35 Gold.
+
+=====================================================================
+MECHANIKEN
+=====================================================================
+   [x] Standard-Bilder (Platzhalter) für Items, Gegner und Skills, wenn in der JSON das Bild fehlt.
+   [x] Schadensformel: Schaden = Rohschaden × [100 / (100 + Resistenz)]; kritische Treffer (150 %, 5 % Grund-Chance + 0,2 % pro Beweglichkeit, combat.json).
+   [x] Elemente (Feuer, Wasser, Erde, Luft, Dunkel, Licht, Blitz, Eis) mit Resistenzen und Schadensanteilen in Skills (z. B. Feuerball, Feuerschwerthieb); True Damage; Rüstung nur gegen physischen Schaden.
+   [x] Physischer Schaden in Stich, Stumpf und Schnitt mit eigenen Resistenzen; Klingen machen Schnitt.
+   [x] Shift + Hover zeigt mehr Details; Element-Schaden in der Farbe des Elements.
+   [x] Waffentypen (Schwert, Zweihandschwert, Dolch, Stangenwaffe, Hammer, Keule, Axt, Zweihandaxt, Bogen, Langbogen, Schild; Zauberstäbe, Zweihand-Zauberstäbe, Folianten) mit Händen und Angriffstempo; Zweihand-Waffen sperren die linke Hand.
+   [x] Gussformen/Teile pro Waffentyp in allen 7 Metallen, Waffen an der Werkbank baubar.
+   [x] Rezepte und Gussformen: an der Esse, am Amboss und an der Werkbank, automatisch aus items.json; gesperrte Rezepte über Dungeons, Aufträge, Story und Händler.
+   [x] Esse braucht Hitze: Holz = 1, Kohle = 5 Schmiedevorgänge.
+   [x] Erze und Barren aus allen 7 Metallen; Grund-Seltenheit pro Metall; Bronze als Legierung in der Schmelze, Sand zu Glas.
+   [x] Kompletter Ablauf: Barren -> Gussform -> Amboss-Minispiel -> Wassertrog -> Werkbank (mit Minispiel), Qualität und Seltenheit.
+   [x] Schleifstein (+10 Qualität), Gerberbank (Fell zu Leder), Rüstungen aus Platte + Leder, Lederumhang, Seil aus Hanf/Flachs.
+   [x] Zaubertisch (Geschenk in Kapitel 8) mit Reiter Waffen und Zauberstaub; Anbau im Gewächshaus (Mondlilien).
+   [x] Pflanztöpfe 2×2/3×3/4×4 im Gewächshaus (Möbelhändlerin), Gartenerde bleibt im Topf, Wachstum je Samenart.
+   [ ] Gießkanne bauen (Kupfer 2 Wasser-Ladungen, Eisen 3 usw.), am Wasserhahn im Gewächshaus füllen, Pflanzen gießen.
+   [ ] Pflanz-Muster: wie Pflanzen im Topf zueinander stehen, lässt sie besser wachsen oder gibt bessere Seltenheit.
+   [ ] Weitere Erdsorten (Erde im Topf tauschen).
+   [x] Hausausbau in 5 Stufen mit eigenem Laden, Möbeln und Verschieben (Taste B).
+   [x] Dungeon-Brett, Idle-Kampf mit Gruppen bis 3 Helden, Kampffenster, Monster-Beute, Belohnungs-Truhe; Dungeons als JSON mit Stufen, Zeitlimit, Gegner-Pool, Mini-Boss/Boss, Belohnungen.
+   [x] Abenteurergilde (jeden Tag neue Helden), Helden-Limit (1, ab dem Rattennest 2, Anzeige „1/2“).
+   [x] Helden Level 1–100, Skillpunkte, Attributpunkte, Skillbäume für 6 Klassen (Krieger, Waldläufer, Magier, Priester, Schurke, Paladin), Status-Effekte, Flächen-Skills, Schilde, IQ und Befehle.
+
+=====================================================================
+WELT, FIGUREN, OBERFLÄCHE
+=====================================================================
+   [x] Charakter-Baukasten (7 Rassen, Haut, Frisur, Haar-/Augenfarbe, Augenform, Größe) und Charakter-Editor bei "Neues Spiel".
+   [x] Kleidung/Farben der Kleidung variieren (3 Kleidungen, 7 Farben), Ausrüstung im Kampf sichtbar (Kupfer/Eisen …).
+   [x] Tageszeit mit Schlafen, Schlafzimmer, Zeit-Kompass; Datum und Kalender.
+   [x] Speichern/Laden (3 Plätze + Autospeicherung), Spieldauer pro Spielstand.
+   [x] Aufträge mit Auftragsbuch und versteckten Belohnungen "[?]".
+   [x] Wald (Bäume fällen mit Axt, Hanf/Flachs, Feder), Mine, Marktplatz mit Händlern, Dorfplatz, Wohnviertel, Dorftor, Südweg, Leonheim.
+   [x] Tages-Ressourcen (entstehen morgens, verfallen am Ende des Tages), Belohnungs-Truhe, Lagertruhe neben dem Bett.
+   [x] Spieler-Level und -Skills, Charakter-Fenster mit Werkzeug-Slots (Spitzhacke, Handschuhe, Rucksack, Axt, Schuhe).
+   [x] Heldenfenster mit 12 Ausrüstungs-Slots; Rechtsklick legt Ausrüstung an.
+   [x] Erfolge im Charakter-Fenster (Kategorien, Stufen 1–5, geheime Story-Erfolge, per JSON erweiterbar).
+   [x] Ninas Laden (Kommission) mit Erweiterung und Rüstungspuppe; Reisender am Sonntag; feste Dorfbewohner mit Tagesablauf.
+   [x] Musik und Geräusche (Platzhalter) mit Lautstärke in den Einstellungen.
+   [x] Fenster anpinnen, Art-Style und UI-Theme.
+
+=====================================================================
+UMGESETZTE STORY-IDEE (Originaltext vom 15.10., umgesetzt als Kapitel 6–8 am 16.10., Details in docs/STORY.md)
+=====================================================================
+
+Am nächsten Tag läuft der Held zur mine. Vor der mine stehen der miner und warte auf den Spieler, der spiele spricht ihn an, Dialog zwischen denn, er habe die mine erweitert lass uns das mal ansehen. Die gehen gemeinsam rein. Gehen bis zum Ende der mine und sehen ein Geröll das etwas einbricht, da wird ein Loch frei und ratten kommen da raus, Dialog findet statt, dann stehen die ratten vor dem Spieler und dem miner, der Spieler sagt das er Hilfe holen wir, er rennt raus. Der Spieler geht zum Brunnen, dort liegt der Bruno daneben, der Spieler spricht ihn an, er weiger sich, der Spieler erwähnt das er ihm noch etwas Schulden, er akzeptiert und die gehen dann zu mine. Dann findet ein Kampf statt, so eine Art dungeo Abenteuer. 3 stages, erst mal 3 raten, dann 2raten und eine große ratte, dann boss ratte und eine große. (Wenn Bruno versagt/ 0hp dann geht der Spieler raus aus der Höhle und kann dann wider rein für denn Kampf). Nach dem Kampf gibt es ein Dialog zwischen denn 3 Leuten. Dem miner läuft zum Loch und ihm fällt auf das dahinter eine Höhle ist. Dialog. Der miner sagt zu dem Spieler er soll ihm 1000 Gold, eine eisenspitzhacke, 40 holzbalcken, 40 Nägel geben dann würde er denn minen Eingang für die nächste Ebene frei räumen. Dannach wartet der minen Arbeiter immer vor der mine auf die sachen( das soll so eine Hauptnebenquest sein, die muss fertig sein bis um das übernächste Kapitel zu beginnen).
+Nächstes Kapitel, die alte Oma kommt zum Schmied und flehte ihn an ihr zu helfen, er soll nun nach ihrsuchen. Auf dem Marktplatztrifft er auf den Holzfäller, die reden einwenig, dabei erwähnteder Spieler das er das Mädchensucht und der Holzfäller sagt ihm er habe sie im Wald gesehen, er geht zur Oma berichten, dann soll er helden anheuern um nach der nichte im Wald zu suchen. Dungeon Gebiet Wald freigeschaltete, nun muss der Spieler Wald 1 Wald 2 und Wald 3 beenden, denke die passende Namen aus. Wald 3 hat ein Boss und nach dem der Boss besiegt ist( im dungeon Abenteuer) laufen die helden weiter und finden die niechte. ( im Wald sollen wölfe, Wildschweine und ein schwarzer Boss Wolf sein, das balancing wie start die mobs sein sollen mache ich später manuel) nachdem das Mädchen gerettet ist, beim nächsten dungeon abenteuer im Wald 3 endet der dungeon mit dem besiegen des bosses. Nach dem die nichte gerettet ist soll der Held zur Oma gehen, dort gibt es ein Dialog, das sie die Miete reduzieren will, um 100 Gold die Tochter geht dazwischen, es geht hin und her, bis die Tochter die Oma dazu bringt das er umsonst dort schieden darf, zumindestens für ein Jahr ( soll ein humorvoller Dialog sein zwischen der lieben nichte und der gierigen oma). Nun kann der Spieler die Oma ansprechen und die schmiede für 100000 Gold kaufen. Kapitel ende
+
+Nächstes Kapitel. Am nächsten Tagen wird der Spieler ein paar Leute reden hören, das morgen wieder frühlingsfest ist und hoffentlich der Magier vorbeikommen wird.
+Am nächsten Tag schläft der Spiel etwas länger und wacht um 10 Uhr auf, schön ausgeschlafen läuft er zum centrum und wunder sich das niemand da ist. Dann hört er gejubel vom Osten und geht dorthin. Die Leute haben sich vor dem Baum versammelt ( südlich davon, und direkt unter dem Baum ist ein Magier, der Zauber Stücke Vorzeigt, der Spieler stellt sich dazu und schaut die Show an( da ist die Oma da mit ihrer niechte, Holzfäller, Bruno,miner) time skip zum Abend. Die Show neigt sich dem Ende zu und alle freuen sich und jubeln. Am ende Zauber der Zauberer ein magische blau leuchtendes Schwert. Er steckt es in denn Boden und jeder darf versuchen es raus zu ziehen. Bei keinem klappt es, (die leute lösen sich auf und die gruppe wird immer kleiner) dann ist der  Spieler  dran. Er geht vor, berührt das Schwert, es fängt an zu leuchten und er zieht es in die Luft als wäre das Schwert aus Luft. Die geblieben Leute wundern sich und ablaudieren dem Spieler zu. Der Magier flüstert "das kann doch nicht sein" ja gut dann ist es halt so, dann sagt er dem Spieler das er magische Kräfte hat usw. (Bischen mit Dialog schmücken). Da er es geschafft hat schenkt er dem Spieler ein Verzauberungs Tisch( der wird im Haus eingebaut). Bischen Dialog, es wird später und der Spieler geht schlafen. Der nächste Tag verläuft ganz normal. Der Spieler wunder sich wie man denn nun verzaubert und fängt in der Stadt an zu fragen. (Wenn Nina durch denn Spiel 2000 Gold gemacht hat, wird sie denn Spieler am nächsten Morgen besuchen kommen und ihm sagen, dass sie mit ihm Geld gemacht hat und davon ihren Laden erweitert hat, der Spieler kann nun 6 Waffen aufstellen und hat ein rüstungs Dummy wo er jedes eq teil anlegen kann ausser schmuck und Ringe und Waffen, die dann auch verkauft werden. Zudem kommen nun mehr Kunden zu ihrem Laden das zufällig jeden Tag mindestens 2 Sachen verkaufen werden.)
+
+Der Spieler bekommt einen Nebenquest denn Dummy zu füllen.
+
+-------------------------------------------------------------------------
+
+todo für später:
+twitter account: news und updates
+discord -> feedback, sachen erlebnisse teilen, buggs
+
+-------------------------------------------------------------------------
+
+1) Tränke herstellen 
+   » teilweise 2026-10-21: Phiolen-Tisch (Sand + Holz/Kohle » Phiole), kaufbar nach dem Gewächshaus; Mörser und Trank-Station fehlen noch
+ein tisch an dem man fiolen herstellen kann, mit sand als input und etwas zum heizen. dann ein mörser Station
+dort hat man 3 slots und kann sachen mörsern, z.b. kristalle, federn, pflanzen, das was sinn macht und bekommt
+dann ein gemisch mit effekten, kommt halt drauf an was man in denn mörser reintut.
+nun kann man an der trank station das gemisch + eine fiole reintun und mit holz erhitzen. dabei soll 
+ein minigame passieren, man sieht unten ein feuer und man hält denn trank drüber, dazu aht man rechts einen
+balken und irgendwo unten ist dann eine gelbe und grüne zonne, nun muss man linksklicken damit der balken, der oben ist nach unten geht, also pro klick ein bischen runter
+wenn man nicht klick geht der balken wieder hoch automatisch. dabei hat man unten noch eine bar die sich füllt
+je nachdem wie weit man in der gelben oder grünen zone ist. wenn man zu lange auserhalb der gelben oder grünen zone ist, ist der trank verbrant oder so also fehlgeschlagen
+die zone fängt erst sich an zu füllen wenn man das erste mal die gelbe zone erreich hat. 
+
+[x] 2) Icons slots für helden mit einem hintergrund belegen so wie für denn spieler, damit man weiß was da reinkommt.
+      » erledigt 2026-10-18: blasse Silhouetten in allen 12 Helden-Slots und den 5 Werkzeug-Slots des Spielers (slot_hints/equip_*.png)
+[x] 3) Esse umbennen oder so?!?
+      » erledigt 2026-10-18: heißt jetzt „Gussofen“ (Station, Rezeptbuch, Tooltips, Story- und Auftragstexte)
+[x] 4) wassertrog, bau mehrere "Tshhh shhhh Schssss TZShhh"
+      » erledigt 2026-10-18: beim Abkühlen steigen zufällige Zisch-Wörter neben dem Slot auf
+[x] 5) Abenteuerfenster soll sich schließen mit e oder escape und es fehlt ein pfeil für die zurück für die andere ansicht.
+      » erledigt 2026-10-18: Kampffenster schließt mit E/Esc; „Verfolgen“ schließt das Dungeon-Brett, „« Brett“ führt zurück
+[x] 6) Nachdem man denn wassertrog kauft, sol tooltip kommen das man mit b sachen verschieben kann.
+      » erledigt 2026-10-18: Tipp „Einrichten“ nach dem Kauf (story.json purchase_hints)
+[x] 7) Klingen nicht stacken lassen und alles andere von komponenten typen
+      » erledigt 2026-10-18: alle Teile (Klingen, Griffe, Köpfe, Platten, Rahmen, Pfeilspitzen ...) stapeln nicht mehr, nur Leder
+[x] 8) unter einstellung eine einleitung einbauen mit allen tooltipps
+      » erledigt 2026-10-18: Knopf „Einleitung“ in beiden Einstellungs-Fenstern; Grund-Tipps immer, Story-Tipps erst, wenn schon gesehen
+[x] 9) Selbst geschmiedete Waffen bringen beim Verkauf 7 Gold mehr
+      » erledigt 2026-10-18: Händler, Ninas und eigener Laden (economy.json crafted_weapon_bonus); gekaufte Waffen zählen nicht
+
+
+
+2) insider jokes
+1.2) justin als penner auf der straße in der gosse. das einzige was er sagen kann ist "Eiergame", 
+1.3) El homo im kerker. Warum? Free cake und keine steuern zahlen. 
+1.4) Eine scene mit viktor und el homo, viktor hat eine zauberkugel das er überall das geschähen sehen kann. 
+El Homo sagt ihm, das er mit der kugel die scene sehen kann, darauf antworter viktor "Das ist zu kompliziert, ich gehe selber hin und schau mir das an"
+1.5) Phillip der Rich boy chillt denn ganzen tag mit justin in der gosse, aber hat dick Geld und wenn man ihn anspricht 
+gibt er einem tipps (wie man geld zu sparen, rezepte für tränke und andere nützliche sachen).
+1.6) Schmidi irgendwo in der wüste mit leuten die für ihn arbeiten, wenn man ihre leute anspricht, antworten die wie KI modelle.
+1.7) Anton ist ein Clown "SkyTheLie", der leute trollt und die mad macht.
+1.8) Marvin ist Arena Champion und trägt sein sm Anzug der ihm brutalle kräfte gibt wie arbeitszeit betrug. also der anzug kämpft für ihn
+wehrend er irgendwo am chillen ist.
+1.9) Lea die sich um weisen kinder kümmert.
+1.10) Annika die viktors termine Platin.
+1.11) Azadeh die zwei master abschlüße hat und sich über das trollen von Anton lacht.
+1.12) Vlada die Kuchen am backen ist. und el homo füttert.  
+1.13) jascha der beim bogen schießen danneben schießt und rum brüllt.
+1.14) lexy die immer sagt "verpiss dich" wenn man sie anspricht. Die soll etwas für denn spieler erledigen aber sie macht es nicht.
+1.15) 
+
+=====================================================================
+SPÄTER: WEITERE SCHMIEDETURNIERE (2026-10-26)
+=====================================================================
+   [ ] Weitere Turniere mit Verzaubern (Zaubertisch), Pfeilen und Bögen (Bogentisch), Zauberstäben und Schmuck (Juweliertisch) als Aufgaben: dafür die Tische auf den Turnierplatz stellen und economy.json smith_tournament.pieces erweitern.
+   [ ] Amulettfassungen aus Gold, Platin, Palladium; Minispiel am Juweliertisch.

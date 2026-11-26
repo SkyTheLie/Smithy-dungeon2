@@ -1,0 +1,441 @@
+{
+ "frames": [
+  {
+   "filename": "aura_arcane 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 1.png",
+   "frame": {
+    "x": 31,
+    "y": 0,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 2.png",
+   "frame": {
+    "x": 62,
+    "y": 0,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 3.png",
+   "frame": {
+    "x": 93,
+    "y": 0,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 4.png",
+   "frame": {
+    "x": 124,
+    "y": 0,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 5.png",
+   "frame": {
+    "x": 0,
+    "y": 16,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 6.png",
+   "frame": {
+    "x": 31,
+    "y": 16,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 7.png",
+   "frame": {
+    "x": 62,
+    "y": 16,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 8.png",
+   "frame": {
+    "x": 93,
+    "y": 16,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 9.png",
+   "frame": {
+    "x": 124,
+    "y": 16,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 10.png",
+   "frame": {
+    "x": 0,
+    "y": 32,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 11.png",
+   "frame": {
+    "x": 31,
+    "y": 32,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 12.png",
+   "frame": {
+    "x": 62,
+    "y": 32,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 13.png",
+   "frame": {
+    "x": 93,
+    "y": 32,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 14.png",
+   "frame": {
+    "x": 124,
+    "y": 32,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 15.png",
+   "frame": {
+    "x": 0,
+    "y": 48,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 16.png",
+   "frame": {
+    "x": 31,
+    "y": 48,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 17.png",
+   "frame": {
+    "x": 62,
+    "y": 48,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 18.png",
+   "frame": {
+    "x": 93,
+    "y": 48,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 19.png",
+   "frame": {
+    "x": 124,
+    "y": 48,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 20.png",
+   "frame": {
+    "x": 0,
+    "y": 64,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 21.png",
+   "frame": {
+    "x": 31,
+    "y": 64,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 22.png",
+   "frame": {
+    "x": 62,
+    "y": 64,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_arcane 23.png",
+   "frame": {
+    "x": 93,
+    "y": 64,
+    "w": 31,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 31,
+    "h": 16
+   },
+   "pivot": {
+    "x": 0.45161290322580644,
+    "y": 1.625
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "behind"
+ }
+}

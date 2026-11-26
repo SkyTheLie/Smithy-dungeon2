@@ -1,0 +1,339 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-buff 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 1.png",
+   "frame": {
+    "x": 34,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 2.png",
+   "frame": {
+    "x": 68,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 3.png",
+   "frame": {
+    "x": 102,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 4.png",
+   "frame": {
+    "x": 0,
+    "y": 37,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 5.png",
+   "frame": {
+    "x": 34,
+    "y": 37,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 6.png",
+   "frame": {
+    "x": 68,
+    "y": 37,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 7.png",
+   "frame": {
+    "x": 102,
+    "y": 37,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 8.png",
+   "frame": {
+    "x": 0,
+    "y": 74,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 9.png",
+   "frame": {
+    "x": 34,
+    "y": 74,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 10.png",
+   "frame": {
+    "x": 68,
+    "y": 74,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-buff 11.png",
+   "frame": {
+    "x": 102,
+    "y": 74,
+    "w": 34,
+    "h": 37
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 37
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 37
+   },
+   "pivot": {
+    "x": 0.47058823529411764,
+    "y": 0.7027027027027027
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-buff.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 136,
+   "h": 111
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 16,
+   "y": 26
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-buff",
+    "from": 0,
+    "to": 11,
+    "direction": "forward"
+   }
+  ]
+ }
+}

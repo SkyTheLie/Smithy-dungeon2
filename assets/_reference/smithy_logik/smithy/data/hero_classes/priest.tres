@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HeroClass" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/hero_class.gd" id="1_class"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/skill_trees/priest.png" id="2_tree"]
+
+[resource]
+script = ExtResource("1_class")
+id = &"priest"
+display_name = "Priester"
+color = Color(0.95, 0.95, 0.92, 1)
+description = "Heilt und schützt die Gruppe."
+skill_ids = Array[String]([])
+skill_background = ExtResource("2_tree")
+attribute_bonuses = {4: 3}

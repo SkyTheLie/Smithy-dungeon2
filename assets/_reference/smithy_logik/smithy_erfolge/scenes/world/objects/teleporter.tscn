@@ -1,0 +1,346 @@
+[gd_scene load_steps=54 format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/teleporter.gd" id="1_station"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/teleport_menu.tscn" id="2_menu"]
+[ext_resource type="Script" path="res://scripts/resources/travel_destination.gd" id="3_destination"]
+[ext_resource type="Resource" path="res://data/destinations/home.tres" id="4_home"]
+[ext_resource type="Resource" path="res://data/destinations/mine.tres" id="5_mine"]
+[ext_resource type="Resource" path="res://data/destinations/forest.tres" id="8_forest"]
+[ext_resource type="Resource" path="res://data/destinations/leonheim.tres" id="9_leonheim"]
+[ext_resource type="Resource" path="res://data/destinations/lavaberg.tres" id="10_lavaberg"]
+[ext_resource type="Resource" path="res://data/destinations/desert_town.tres" id="11_desert_town"]
+[ext_resource type="Resource" path="res://data/destinations/eisquell.tres" id="12_eisquell"]
+[ext_resource type="Texture2D" path="res://assets/sprites/objects/teleporter_sheet.png" id="6_sheet"]
+[ext_resource type="Resource" path="res://data/destinations/finster_city.tres" id="13_finster_city"]
+[ext_resource type="Resource" path="res://data/destinations/sylvaris.tres" id="14_sylvaris"]
+[ext_resource type="Resource" path="res://data/destinations/swamp.tres" id="15_swamp"]
+[ext_resource type="Resource" path="res://data/destinations/fortress_camp.tres" id="16_fortress_cam"]
+[ext_resource type="Resource" path="res://data/destinations/desert_gate.tres" id="17_desert_gate"]
+[ext_resource type="Resource" path="res://data/destinations/altar.tres" id="18_altar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crystal"]
+size = Vector2(40, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(64, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0"]
+atlas = ExtResource("6_sheet")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1"]
+atlas = ExtResource("6_sheet")
+region = Rect2(64, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2"]
+atlas = ExtResource("6_sheet")
+region = Rect2(128, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3"]
+atlas = ExtResource("6_sheet")
+region = Rect2(192, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4"]
+atlas = ExtResource("6_sheet")
+region = Rect2(256, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5"]
+atlas = ExtResource("6_sheet")
+region = Rect2(320, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6"]
+atlas = ExtResource("6_sheet")
+region = Rect2(384, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7"]
+atlas = ExtResource("6_sheet")
+region = Rect2(448, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8"]
+atlas = ExtResource("6_sheet")
+region = Rect2(512, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_9"]
+atlas = ExtResource("6_sheet")
+region = Rect2(576, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10"]
+atlas = ExtResource("6_sheet")
+region = Rect2(640, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11"]
+atlas = ExtResource("6_sheet")
+region = Rect2(704, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12"]
+atlas = ExtResource("6_sheet")
+region = Rect2(768, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13"]
+atlas = ExtResource("6_sheet")
+region = Rect2(832, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14"]
+atlas = ExtResource("6_sheet")
+region = Rect2(896, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15"]
+atlas = ExtResource("6_sheet")
+region = Rect2(960, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1024, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1088, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1152, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_19"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1216, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1280, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1344, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1408, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1472, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1536, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1600, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1664, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1728, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1792, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_29"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1856, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1920, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31"]
+atlas = ExtResource("6_sheet")
+region = Rect2(1984, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32"]
+atlas = ExtResource("6_sheet")
+region = Rect2(2048, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33"]
+atlas = ExtResource("6_sheet")
+region = Rect2(2112, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34"]
+atlas = ExtResource("6_sheet")
+region = Rect2(2176, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35"]
+atlas = ExtResource("6_sheet")
+region = Rect2(2240, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36"]
+atlas = ExtResource("6_sheet")
+region = Rect2(2304, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37"]
+atlas = ExtResource("6_sheet")
+region = Rect2(2368, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38"]
+atlas = ExtResource("6_sheet")
+region = Rect2(2432, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_39"]
+atlas = ExtResource("6_sheet")
+region = Rect2(2496, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40"]
+atlas = ExtResource("6_sheet")
+region = Rect2(2560, 0, 64, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_portal"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_9")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_19")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_29")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_39")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.333
+}]
+
+[node name="Teleporter" type="StaticBody2D"]
+script = ExtResource("1_station")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+sprite_frames = SubResource("SpriteFrames_portal")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_crystal")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_interaction")
+
+[node name="TeleportMenu" parent="." instance=ExtResource("2_menu")]
+destinations = Array[ExtResource("3_destination")]([ExtResource("4_home"), ExtResource("5_mine"), ExtResource("8_forest"), ExtResource("9_leonheim"), ExtResource("10_lavaberg"), ExtResource("11_desert_town"), ExtResource("12_eisquell"), ExtResource("13_finster_city"), ExtResource("14_sylvaris"), ExtResource("15_swamp"), ExtResource("16_fortress_cam"), ExtResource("17_desert_gate"), ExtResource("18_altar")])
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="." to="TeleportMenu" method="toggle"]
+[connection signal="player_left" from="." to="TeleportMenu" method="close"]

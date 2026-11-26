@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/tournament/tournament_hall.tscn" id="1_hall"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_desk.png" id="2_desk"]
+
+[node name="TournamentHall" instance=ExtResource("1_hall")]
+
+[node name="Sprite2D" parent="Desk"]
+texture = ExtResource("2_desk")
+
+[node name="DoorOut" parent="."]
+target_scene = "res://scenes/world/finster/finster_city.tscn"
+
+[node name="TournamentDeskMenu" parent="."]
+venue = "finster"
+title = "Turnierhalle Finsterstadt"

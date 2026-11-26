@@ -1,0 +1,1164 @@
+{
+	"npcs": {
+		"lotte_market_narrator": {"name": ""},
+		"pyramid_keeper": {
+			"name": "Grabhüter Sethek",
+			"dialogues": {
+				"default": "pyramid_keeper_closed"
+			}
+		},
+		"lich_echo": {
+			"name": "Der Nachhall",
+			"dialogues": {
+				"default": "lich_echo_talk"
+			}
+		},
+		"warrior_hagen": {
+			"name": "Hagen",
+			"dialogues": {
+				"default": "hagen_idle"
+			}
+		},
+		"lane_smith_brandolf": {
+			"name": "Meister Brandolf",
+			"dialogues": {
+				"default": "brandolf_idle"
+			}
+		},
+		"lane_smith_ilsa": {
+			"name": "Ilsa Funkenhand",
+			"dialogues": {
+				"default": "ilsa_idle"
+			}
+		},
+		"lane_smith_gorm": {
+			"name": "Gorm",
+			"dialogues": {
+				"default": "gorm_idle"
+			}
+		},
+		"smithy_sign": {
+			"name": "Mietschild",
+			"dialogues": {
+				"find_smithy": "sign_read",
+				"default": "sign_read"
+			}
+		},
+		"landlady": {
+			"name": "Oma Hilde",
+			"dialogues": {
+				"visit_landlady": "landlady_offer",
+				"default": "landlady_idle",
+				"first_rent": "landlady_rent_due",
+				"grandma_begs": "landlady_begs",
+				"report_grandma": "landlady_report",
+				"niece_found": "landlady_niece_back",
+				"market_shoes": "shoe_shop_argument",
+				"raid_rescue": "landlady_dying"
+			},
+			"gone_flag": "hilde_dead"
+		},
+		"woodcutter_market": {
+			"name": "Holger",
+			"dialogues": {
+				"find_customer": "woodcutter_market",
+				"ask_around": "holger_saw_lotte"
+			}
+		},
+		"old_chest": {
+			"name": "Alte Truhe",
+			"dialogues": {
+				"find_axe_recipe": "chest_recipes"
+			}
+		},
+		"bruno": {
+			"name": "Bruno",
+			"dialogues": {
+				"meet_bruno": "bruno_begging",
+				"default": "bruno_idle",
+				"get_help": "bruno_fountain",
+				"rat_fight": "bruno_fight",
+				"rat_fight_running": "bruno_fighting",
+				"raid_bruno": "bruno_raid_meet",
+				"raid_rescue": "bruno_raid_go"
+			},
+			"gone_flag": "bruno_dead"
+		},
+		"nina": {
+			"name": "Nina",
+			"dialogues": {
+				"go_to_market": "nina_intro",
+				"collect_shop_money": "nina_sold",
+				"default": "nina_shop",
+				"lotte_hideout": "nina_hideout",
+				"village_ruse": "nina_ruse",
+				"village_night": "nina_night"
+			}
+		},
+		"miner": {
+			"name": "Gustav",
+			"dialogues": {
+				"meet_miner": "miner_intro",
+				"deliver_pickaxe": "miner_pickaxe",
+				"mine_ores": "miner_check",
+				"default": "miner_idle",
+				"miner_visit": "miner_visit",
+				"build_supplies": "miner_supplies_check",
+				"visit_mine": "miner_mine_open",
+				"mine_tour": "miner_tour",
+				"explore_mine": "miner_cave_in",
+				"get_help": "miner_hold",
+				"rat_fight_lost": "miner_retreat",
+				"after_rat_fight": "miner_hole",
+				"lotte_hideout": "gustav_hideout",
+				"village_ruse": "gustav_ruse",
+				"village_night": "gustav_night"
+			}
+		},
+		"first_customer": {
+			"name": "Ulrich",
+			"dialogues": {
+				"first_customer": "first_customer_order",
+				"default": "first_customer_idle",
+				"desert_cage": "ulrich_cage"
+			},
+			"voice": "hiss"
+		},
+		"gossip_a": {
+			"name": "Berta",
+			"dialogues": {
+				"market_rumors": "rumors",
+				"default": "gossip_idle",
+				"festival_rumors": "festival_gossip",
+				"mage_rumors_return": "mage_gossip_return"
+			}
+		},
+		"gossip_b": {
+			"name": "Fritz",
+			"dialogues": {
+				"default": "gossip_b_idle"
+			}
+		},
+		"guild_master": {
+			"name": "Hedwig",
+			"dialogues": {
+				"guild_news": "guild_deep_cellar",
+				"beat_rat_king": "guild_rat_king",
+				"default": "guild_idle"
+			}
+		},
+		"niece": {
+			"name": "Lotte",
+			"menu": "lotte_menu",
+			"dialogues": {
+				"default": "niece_idle",
+				"ending_morning": "ending_workshop",
+				"raid_rescue": "lotte_rescue",
+				"raid_morning": "lotte_morning",
+				"lotte_hideout": "lotte_hideout",
+				"village_ruse": "lotte_ruse",
+				"village_night": "lotte_night",
+				"village_morning": "lotte_morning_after"
+			}
+		},
+		"magician": {
+			"name": "Meister Aurelius",
+			"dialogues": {
+				"festival_show": "magician_show",
+				"default": "magician_idle",
+				"find_mage_again": "mage_stones_legend",
+				"forest_mage": "mage_forest_meet",
+				"forest_hemp": "mage_hemp_check",
+				"chapter11_end": "mage_forest_idle",
+				"elf_rest": "aurelius_stars",
+				"elf_attack_canopy": "aurelius_attack",
+				"water_departure": "aurelius_departure",
+				"camp_council": "camp_council",
+				"forest_wake": "aurelius_wake",
+				"brew_tonic": "aurelius_waits_tonic",
+				"tonic_for_mage": "aurelius_tonic",
+				"glow_lesson": "aurelius_glow",
+				"finster_start": "aurelius_east",
+				"to_finster_city": "aurelius_east_wait",
+				"grand_council": "grand_council"
+			}
+		},
+		"empty_square": {
+			"name": "Dorfplatz",
+			"dialogues": {
+				"festival_morning": "square_empty"
+			}
+		},
+		"shoe_window": {
+			"name": "Schuhladen",
+			"dialogues": {
+				"look_at_shoes": "shoe_window_idea"
+			}
+		},
+		"ending_narrator": {
+			"name": "Morgen",
+			"dialogues": {
+				"ending_morning": "ending_wake_up"
+			}
+		},
+		"raid_narrator": {
+			"name": "Nacht",
+			"dialogues": {
+				"raid_wake": "raid_wake_up",
+				"raid_outside": "raid_yard",
+				"raid_market": "raid_market_scene",
+				"raid_robbed": "raid_robbed_scene"
+			}
+		},
+		"raid_looter": {
+			"name": "Untoter Plünderer",
+			"dialogues": {
+				"raid_ambush": "raid_looter_threat"
+			}
+		},
+		"raid_monster": {
+			"name": "Untoter",
+			"dialogues": {}
+		},
+		"lich": {
+			"name": "Lich",
+			"dialogues": {}
+		},
+		"raid_heroes": {
+			"name": "Abenteurer",
+			"dialogues": {
+				"default": "raid_heroes_busy"
+			}
+		},
+		"raid_guard": {
+			"name": "Wachmann Otto",
+			"dialogues": {
+				"raid_morning": "guard_raid_morning",
+				"rebuild_call": "guard_rebuild_call",
+				"default": "guard_idle"
+			}
+		},
+		"coachman": {
+			"name": "Kutscher Jupp",
+			"dialogues": {
+				"royal_carriage": "coachman_to_king",
+				"default": "coachman_no_permission"
+			}
+		},
+		"envoy": {
+			"name": "Mohammad",
+			"dialogues": {
+				"castle_arrival": "envoy_castle_garden",
+				"meet_king": "envoy_waiting",
+				"default": "envoy_idle"
+			}
+		},
+		"king": {
+			"name": "König Albrecht",
+			"dialogues": {
+				"meet_king": "king_audience",
+				"default": "king_idle",
+				"king_question": "king_gutter_deal",
+				"ask_king_map": "king_map",
+				"key_to_king": "king_treasury",
+				"chapter15_end": "king_fire_waiting",
+				"to_volcano": "king_fire_waiting",
+				"goblin_cave_arrival": "king_fire_waiting",
+				"goblin_guards": "king_fire_waiting",
+				"goblin_king_audience": "king_fire_waiting",
+				"goblin_gold": "king_fire_waiting",
+				"crown_recipe": "king_fire_waiting",
+				"forge_crown": "king_fire_waiting",
+				"deliver_crown": "king_fire_waiting",
+				"chapter16_end": "king_fire_waiting",
+				"to_goblin_castle": "king_fire_waiting",
+				"goblin_forge_tasks": "king_fire_waiting",
+				"open_treasury": "king_fire_waiting",
+				"fight_dragon": "king_fire_waiting",
+				"dragon_defeated": "king_fire_waiting",
+				"crystal_to_king": "king_fire_crystal",
+				"part2_end": "king_crystal_safe",
+				"council_call": "king_war_council",
+				"water_departure": "water_departure",
+				"singing_wall": "king_waiting",
+				"wall_battle": "king_waiting",
+				"grand_council": "king_waiting",
+				"alliance_forge": "king_waiting",
+				"to_altar": "king_waiting",
+				"gate_opens": "king_waiting",
+				"altar_east": "king_waiting",
+				"altar_south": "king_waiting",
+				"altar_west": "king_waiting",
+				"altar_lake": "king_waiting",
+				"lake_awakens": "king_waiting",
+				"final_forge": "king_waiting",
+				"forge_true_setting": "king_waiting",
+				"seal_the_gate": "king_waiting"
+			}
+		},
+		"castle_guard": {
+			"name": "Schlosswache",
+			"dialogues": {
+				"default": "castle_guard_idle"
+			}
+		},
+		"capital_guild_master": {
+			"name": "Gildenmeisterin Thora",
+			"dialogues": {
+				"meet_guild_master": "capital_guild_welcome",
+				"default": "capital_guild_idle"
+			}
+		},
+		"mayor": {
+			"name": "Bürgermeister Wendelin",
+			"dialogues": {
+				"meet_mayor": "mayor_meeting",
+				"rebuild_gather": "mayor_waiting",
+				"rebuild_night": "mayor_working",
+				"rebuild_thanks": "mayor_thanks",
+				"story_end": "mayor_old_tree",
+				"default": "mayor_idle"
+			}
+		},
+		"tree_of_life": {
+			"name": "Lebensbaum",
+			"dialogues": {
+				"default": "tree_of_life_withered"
+			}
+		},
+		"builder": {
+			"name": "Baumeister Konrad",
+			"dialogues": {
+				"meet_mayor": "builder_wait_mayor",
+				"rebuild_gather": "builder_rebuild_check",
+				"rebuild_night": "builder_rebuild_working",
+				"rebuild_done": "builder_wait_mayor",
+				"rebuild_thanks": "builder_wait_mayor",
+				"default": "builder_idle"
+			}
+		},
+		"gutter_boss": {
+			"name": "Varrik",
+			"dialogues": {}
+		},
+		"throne_narrator": {
+			"name": "Thronsaal",
+			"dialogues": {
+				"varrik_caught": "varrik_sentenced"
+			}
+		},
+		"lake": {
+			"name": "Lake des Lichts",
+			"names": [{"name": "Lake, der dunkle Ritter", "if_flag": "lake_fallen", "unless_flag": "lake_redeemed"}],
+			"dialogues": {
+				"default": "lake_idle",
+				"elf_rest": "lake_bridge",
+				"return_leonheim": "king_gone",
+				"rescue_council": "rescue_council",
+				"lake_talk": "lake_campfire",
+				"wall_battle": "dark_lake_silent",
+				"halvard_freed": "dark_lake_silent",
+				"gate_opens": "dark_lake_silent",
+				"altar_east": "dark_lake_silent",
+				"altar_south": "dark_lake_silent",
+				"altar_west": "dark_lake_silent",
+				"final_forge": "lake_redeemed_talk",
+				"forge_true_setting": "lake_redeemed_talk",
+				"seal_the_gate": "lake_redeemed_talk"
+			}
+		},
+		"jailer": {
+			"name": "Kerkermeister",
+			"dialogues": {
+				"default": "jailer_idle"
+			}
+		},
+		"goblin_cave_narrator": {
+			"name": "",
+			"dialogues": {
+				"goblin_cave_arrival": "goblin_cave_intro"
+			}
+		},
+		"goblin_guard": {
+			"name": "Goblinwache",
+			"dialogues": {
+				"goblin_guards": "goblin_guard_toll",
+				"default": "goblin_guard_idle"
+			}
+		},
+		"goblin_king": {
+			"name": "Goldzahn der Prächtige",
+			"dialogues": {
+				"goblin_king_audience": "goblin_king_audience",
+				"goblin_gold": "goblin_king_gold_check",
+				"crown_recipe": "goblin_king_waiting_crown",
+				"forge_crown": "goblin_king_waiting_crown",
+				"deliver_crown": "goblin_king_crown_check",
+				"chapter16_end": "goblin_king_waiting_dragon",
+				"to_goblin_castle": "goblin_king_waiting_dragon",
+				"goblin_forge_tasks": "goblin_king_waiting_dragon",
+				"open_treasury": "goblin_king_waiting_dragon",
+				"fight_dragon": "goblin_king_waiting_dragon",
+				"dragon_defeated": "goblin_king_waiting_dragon",
+				"crystal_to_king": "goblin_king_castle_lost",
+				"part2_end": "goblin_king_castle_lost",
+				"default": "goblin_king_idle"
+			}
+		},
+		"goblin_crowd": {
+			"name": "Goblins",
+			"dialogues": {}
+		},
+		"goblin_hungry": {
+			"name": "Dünner Goblin",
+			"dialogues": {
+				"default": "goblin_hungry_mine"
+			}
+		},
+		"goblin_overseer": {
+			"name": "Aufseher Schlackbart",
+			"dialogues": {
+				"default": "overseer_idle"
+			}
+		},
+		"goblin_gate_sign": {
+			"name": "",
+			"dialogues": {
+				"to_goblin_castle": "goblin_gate_intro"
+			}
+		},
+		"goblin_castle_narrator": {
+			"name": "",
+			"dialogues": {}
+		},
+		"dragon": {
+			"name": "Ignar",
+			"dialogues": {
+				"open_treasury": "dragon_meet",
+				"dragon_defeated": "dragon_beaten"
+			}
+		},
+		"varrik_jailed": {
+			"name": "Varrik",
+			"dialogues": {
+				"default": "varrik_cell"
+			}
+		},
+		"elf_elder": {
+			"name": "Der Älteste Elarion",
+			"dialogues": {
+				"elf_arrival": "elder_meeting",
+				"elf_elder_evening": "elder_thanks",
+				"elf_attack_summit": "lich_attack",
+				"crisis_council": "crisis_council",
+				"default": "elder_idle"
+			}
+		},
+		"general": {
+			"name": "General Hadmar",
+			"dialogues": {
+				"elf_return": "general_intro",
+				"elf_armory": "general_armory",
+				"elf_elder_evening": "general_after",
+				"elf_rest": "general_after",
+				"default": "general_idle"
+			}
+		},
+		"faelan": {
+			"name": "Hauptmann Faelan",
+			"dialogues": {
+				"elf_rest": "faelan_night_watch",
+				"default": "faelan_idle",
+				"tonic_for_mage": "faelan_clearing",
+				"glow_lesson": "faelan_clearing",
+				"grand_council": "faelan_ally",
+				"alliance_forge": "faelan_ally",
+				"to_altar": "faelan_ally",
+				"altar_siege": "faelan_ally",
+				"altar_gate_open": "faelan_ally",
+				"gate_opens": "faelan_ally",
+				"altar_east": "faelan_ally",
+				"altar_south": "faelan_ally",
+				"altar_west": "faelan_ally",
+				"altar_lake": "faelan_ally",
+				"lake_awakens": "faelan_ally",
+				"final_forge": "faelan_ally",
+				"forge_true_setting": "faelan_ally",
+				"seal_the_gate": "faelan_ally"
+			}
+		},
+		"elf_guard": {
+			"name": "Wächterin Liriel",
+			"dialogues": {
+				"default": "elf_guard_idle"
+			}
+		},
+		"elf_child": {
+			"name": "Nimeriel",
+			"dialogues": {
+				"default": "elf_child_talk"
+			}
+		},
+		"elf_inventor": {
+			"name": "Fenn",
+			"dialogues": {
+				"default": "elf_inventor_idle"
+			}
+		},
+		"elf_grumbler": {
+			"name": "Laubhüter Caladen",
+			"dialogues": {
+				"default": "elf_grumbler_talk"
+			}
+		},
+		"leon_soldier": {
+			"name": "Soldat aus Leonheim",
+			"dialogues": {
+				"default": "leon_soldier_talk"
+			}
+		},
+		"elf_guest_bed": {
+			"name": "Gästebett",
+			"dialogues": {
+				"elf_rest": "elf_bed_sleep",
+				"default": "elf_bed_idle"
+			}
+		},
+		"elf_guest_narrator": {
+			"name": "",
+			"dialogues": {
+				"elf_attack_wake": "elf_attack_wake"
+			}
+		},
+		"grove_narrator": {
+			"name": "Sylvaris",
+			"dialogues": {}
+		},
+		"arena_narrator": {
+			"name": "Turnierplatz",
+			"dialogues": {
+				"tournament_ceremony": "tournament_ceremony"
+			}
+		},
+		"desert_sign": {
+			"name": "Warnschild",
+			"dialogues": {
+				"default": "desert_sign"
+			}
+		},
+		"desert_bones": {
+			"name": "Skelett",
+			"dialogues": {
+				"default": "desert_bones"
+			}
+		},
+		"desert_ruins": {
+			"name": "Säulen",
+			"dialogues": {
+				"default": "desert_ruins"
+			}
+		},
+		"lizard_elder": {
+			"name": "Die alte Ishra",
+			"dialogues": {
+				"default": "lizard_elder_idle"
+			},
+			"voice": "hiss"
+		},
+		"lizard_kesh": {
+			"name": "Kesh",
+			"dialogues": {
+				"default": "lizard_kesh_hint"
+			},
+			"voice": "hiss"
+		},
+		"lizard_mira": {
+			"name": "Mira",
+			"dialogues": {
+				"default": "lizard_mira_hint"
+			},
+			"voice": "hiss"
+		},
+		"lizard_brakk": {
+			"name": "Brakk",
+			"dialogues": {
+				"default": "lizard_brakk_hint"
+			},
+			"voice": "hiss"
+		},
+		"treasure_hunter": {
+			"name": "Zahir",
+			"dialogues": {
+				"daily": [
+					"treasure_hunter_day_1",
+					"treasure_hunter_day_2",
+					"treasure_hunter_day_3",
+					"treasure_hunter_day_4",
+					"treasure_hunter_day_5",
+					"treasure_hunter_day_6"
+				]
+			},
+			"voice": "hiss"
+		},
+		"kahn": {
+			"name": "Kahn",
+			"dialogues": {
+				"kahn_audience": "kahn_first_audience",
+				"tournament_kahn": "tournament_won",
+				"kahn_council": "kahn_council",
+				"default": "kahn_waiting",
+				"kahn_refuses": "kahn_refuses",
+				"harbor_attack": "kahn_climb_wait",
+				"kahn_decides": "kahn_decides",
+				"climb_wall": "kahn_climb_wait",
+				"wall_crown": "kahn_crown",
+				"singing_wall": "kahn_crown",
+				"wall_battle": "wall_battle_kahn",
+				"wall_aftermath": "kahn_after_wall",
+				"part6_end": "kahn_after_wall",
+				"grand_council": "kahn_ally",
+				"alliance_forge": "kahn_ally",
+				"to_altar": "kahn_ally",
+				"altar_siege": "kahn_ally",
+				"altar_gate_open": "kahn_ally",
+				"gate_opens": "kahn_ally",
+				"altar_east": "kahn_ally",
+				"altar_south": "kahn_ally",
+				"altar_west": "kahn_ally",
+				"altar_lake": "kahn_ally",
+				"lake_awakens": "kahn_ally",
+				"final_forge": "kahn_ally",
+				"forge_true_setting": "kahn_ally",
+				"seal_the_gate": "kahn_ally"
+			}
+		},
+		"kahn_son": {
+			"name": "Torgai",
+			"dialogues": {
+				"hero_tournament": "torgai_before",
+				"default": "torgai_waiting",
+				"eisquell_blade": "torgai_blade",
+				"wall_crown": "torgai_lullaby",
+				"singing_wall": "torgai_lullaby",
+				"grand_council": "torgai_ally",
+				"alliance_forge": "torgai_ally",
+				"to_altar": "torgai_ally",
+				"altar_siege": "torgai_ally",
+				"altar_gate_open": "torgai_ally",
+				"gate_opens": "torgai_ally",
+				"altar_east": "torgai_ally",
+				"altar_south": "torgai_ally",
+				"altar_west": "torgai_ally",
+				"altar_lake": "torgai_ally",
+				"lake_awakens": "torgai_ally",
+				"final_forge": "torgai_ally",
+				"forge_true_setting": "torgai_ally",
+				"seal_the_gate": "torgai_ally",
+				"subar_test": "torgai_test"
+			}
+		},
+		"kahn_right_hand": {
+			"name": "Subar",
+			"dialogues": {
+				"water_arrival": "subar_stop",
+				"frost_proof": "subar_proof",
+				"default": "subar_idle",
+				"grand_council": "subar_council",
+				"alliance_forge": "subar_council",
+				"eisquell_blade": "subar_wait_torgai",
+				"wall_crown": "subar_crown",
+				"singing_wall": "subar_crown",
+				"wall_aftermath": "subar_wounded_talk",
+				"part6_end": "subar_wounded_talk",
+				"subar_test": "subar_test"
+			}
+		},
+		"arena_crier": {
+			"name": "Ausrufer",
+			"dialogues": {
+				"default": "arena_crier_idle"
+			}
+		},
+		"water_guard": {
+			"name": "Wache von Eisquell",
+			"dialogues": {
+				"default": "water_guard_idle"
+			}
+		},
+		"eisquell_fisher": {
+			"name": "Fischer Olm",
+			"dialogues": {
+				"default": "eisquell_fisher_idle"
+			}
+		},
+		"eisquell_child": {
+			"name": "Nixa",
+			"dialogues": {
+				"default": "eisquell_child_idle"
+			}
+		},
+		"eisquell_narrator": {
+			"name": "Eisquell",
+			"dialogues": {}
+		},
+		"desert_guard": {
+			"name": "Echsenwache",
+			"dialogues": {
+				"desert_arrest": "desert_arrest",
+				"default": "desert_guard_idle",
+				"grand_council": "desert_guard_council",
+				"alliance_forge": "desert_guard_council"
+			},
+			"voice": "hiss"
+		},
+		"desert_lord": {
+			"name": "Fürst Ssarok",
+			"dialogues": {
+				"desert_cage": "desert_lord_cage",
+				"crystal_to_lord": "crystal_to_desert_lord",
+				"default": "desert_lord_idle",
+				"ask_ssarok": "ssarok_ask",
+				"grand_council": "ssarok_ally",
+				"alliance_forge": "ssarok_ally",
+				"to_altar": "ssarok_ally",
+				"altar_siege": "ssarok_ally",
+				"altar_gate_open": "ssarok_ally",
+				"gate_opens": "ssarok_ally",
+				"altar_east": "ssarok_ally",
+				"altar_south": "ssarok_ally",
+				"altar_west": "ssarok_ally",
+				"altar_lake": "ssarok_ally",
+				"lake_awakens": "ssarok_ally",
+				"final_forge": "ssarok_ally",
+				"forge_true_setting": "ssarok_ally",
+				"seal_the_gate": "ssarok_ally"
+			},
+			"voice": "hiss"
+		},
+		"cage_narrator": {
+			"name": "Der Käfig",
+			"dialogues": {}
+		},
+		"ulrich_escort": {
+			"name": "Ulrich",
+			"dialogues": {}
+		},
+		"temple_narrator": {
+			"name": "Der Sturmtempel",
+			"dialogues": {}
+		},
+		"temple_mural_gate": {
+			"name": "Wandbild",
+			"dialogues": {
+				"default": "temple_mural_gate"
+			}
+		},
+		"temple_mural_hall": {
+			"name": "Wandbild",
+			"dialogues": {
+				"default": "temple_mural_hall"
+			}
+		},
+		"temple_mural_sanctum": {
+			"name": "Wandbild",
+			"dialogues": {
+				"default": "temple_mural_sanctum"
+			}
+		},
+		"temple_hall_narrator": {
+			"name": "Die Säulenhalle",
+			"dialogues": {}
+		},
+		"temple_sanctum_narrator": {
+			"name": "Die innerste Kammer",
+			"dialogues": {}
+		},
+		"temple_crystal": {
+			"name": "Der Blitzkristall",
+			"dialogues": {
+				"default": "temple_crystal_blocked"
+			}
+		},
+		"temple_rod_stand": {
+			"name": "Steinsockel",
+			"dialogues": {
+				"default": "temple_rod_stand"
+			}
+		},
+		"temple_socket_0": {
+			"name": "Vertiefung",
+			"dialogues": {
+				"default": "temple_socket_0"
+			}
+		},
+		"temple_socket_1": {
+			"name": "Vertiefung",
+			"dialogues": {
+				"default": "temple_socket_1"
+			}
+		},
+		"temple_socket_2": {
+			"name": "Vertiefung",
+			"dialogues": {
+				"default": "temple_socket_2"
+			}
+		},
+		"temple_pillar_1": {
+			"name": "Säule",
+			"dialogues": {
+				"default": "temple_pillar_1"
+			}
+		},
+		"temple_pillar_2": {
+			"name": "Säule",
+			"dialogues": {
+				"default": "temple_pillar_2"
+			}
+		},
+		"temple_pillar_3": {
+			"name": "Säule",
+			"dialogues": {
+				"default": "temple_pillar_3"
+			}
+		},
+		"temple_pillar_4": {
+			"name": "Säule",
+			"dialogues": {
+				"default": "temple_pillar_4"
+			}
+		},
+		"swamp_witch": {
+			"name": "Muhme Grisla",
+			"dialogues": {
+				"meet_witch": "witch_meet",
+				"witch_potion": "witch_waiting",
+				"witch_vision": "witch_vision",
+				"default": "witch_idle"
+			},
+			"voice": "hiss"
+		},
+		"swamp_narrator": {
+			"name": "Der Sumpf",
+			"dialogues": {}
+		},
+		"camp_narrator": {
+			"name": "Das Heerlager",
+			"dialogues": {}
+		},
+		"sneak_narrator": {
+			"name": "Die Westflanke",
+			"dialogues": {}
+		},
+		"smith_gate": {
+			"name": "Die alte Pforte",
+			"dialogues": {
+				"sneak_in": "smith_gate_open",
+				"default": "smith_gate_done"
+			}
+		},
+		"ring_narrator": {
+			"name": "Der Ringgang",
+			"dialogues": {}
+		},
+		"fortress_lever": {
+			"name": "Der Hebel",
+			"dialogues": {
+				"sneak_in": "lever_pull",
+				"default": "lever_jammed"
+			}
+		},
+		"fortress_narrator": {
+			"name": "Der Thronsaal",
+			"dialogues": {
+				"throne_hall": "throne_finale"
+			}
+		},
+		"leon_captain": {
+			"name": "Hauptmann Bertold",
+			"dialogues": {
+				"default": "bertold_camp",
+				"grand_council": "bertold_ally",
+				"alliance_forge": "bertold_ally",
+				"to_altar": "bertold_ally",
+				"altar_siege": "bertold_ally",
+				"altar_gate_open": "bertold_ally",
+				"gate_opens": "bertold_ally",
+				"altar_east": "bertold_ally",
+				"altar_south": "bertold_ally",
+				"altar_west": "bertold_ally",
+				"altar_lake": "bertold_ally",
+				"lake_awakens": "bertold_ally",
+				"final_forge": "bertold_ally",
+				"forge_true_setting": "bertold_ally",
+				"seal_the_gate": "bertold_ally"
+			}
+		},
+		"ice_pillar_1": {
+			"name": "Eissäule",
+			"dialogues": {
+				"default": "ice_pillar_1"
+			}
+		},
+		"ice_pillar_2": {
+			"name": "Eissäule",
+			"dialogues": {
+				"default": "ice_pillar_2"
+			}
+		},
+		"ice_pillar_3": {
+			"name": "Eissäule",
+			"dialogues": {
+				"default": "ice_pillar_3"
+			}
+		},
+		"ice_pillar_4": {
+			"name": "Eissäule",
+			"dialogues": {
+				"default": "ice_pillar_4"
+			}
+		},
+		"ice_pillar_5": {
+			"name": "Eissäule",
+			"dialogues": {
+				"default": "ice_pillar_5"
+			}
+		},
+		"ice_relief": {
+			"name": "Eisrelief",
+			"dialogues": {
+				"default": "ice_relief_read"
+			}
+		},
+		"ice_mirror_socket_1": {
+			"name": "Sockel",
+			"dialogues": {
+				"default": "ice_mirror_socket_1"
+			}
+		},
+		"ice_mirror_socket_2": {
+			"name": "Sockel",
+			"dialogues": {
+				"default": "ice_mirror_socket_2"
+			}
+		},
+		"ice_mirror_socket_3": {
+			"name": "Sockel",
+			"dialogues": {
+				"default": "ice_mirror_socket_3"
+			}
+		},
+		"ice_singing_wall": {
+			"name": "Die Wand im Norden",
+			"dialogues": {
+				"default": "singing_wall_silent",
+				"singing_wall": "singing_wall_open"
+			}
+		},
+		"finster_posters": {
+			"name": "Steckbriefe",
+			"dialogues": {
+				"default": "finster_posters_read"
+			}
+		},
+		"halvard": {
+			"name": "Meister Halvard",
+			"dialogues": {
+				"default": "halvard_idle",
+				"free_halvard": "halvard_meet",
+				"break_shackle": "halvard_shackle_wait",
+				"halvard_freed": "halvard_free",
+				"final_forge": "halvard_true_setting",
+				"forge_true_setting": "halvard_true_setting",
+				"ending_morning": "ending_workshop"
+			}
+		},
+		"nyra": {
+			"name": "Nyra",
+			"dialogues": {
+				"default": "nyra_idle",
+				"resistance_hideout": "nyra_hideout",
+				"resistance_prep": "nyra_prep",
+				"princess_reveal": "nyra_princess",
+				"grand_council": "nyra_ally",
+				"alliance_forge": "nyra_ally",
+				"to_altar": "nyra_ally",
+				"altar_siege": "nyra_ally",
+				"altar_gate_open": "nyra_ally",
+				"gate_opens": "nyra_ally",
+				"altar_east": "nyra_ally",
+				"altar_south": "nyra_ally",
+				"altar_west": "nyra_ally",
+				"altar_lake": "nyra_ally",
+				"lake_awakens": "nyra_ally",
+				"final_forge": "nyra_ally",
+				"forge_true_setting": "nyra_ally",
+				"seal_the_gate": "nyra_ally"
+			}
+		},
+		"hooded": {
+			"name": "Gestalt im Kapuzenmantel",
+			"dialogues": {}
+		},
+		"corvin": {
+			"name": "Corvin",
+			"dialogues": {
+				"default": "corvin_idle"
+			}
+		},
+		"finster_guard_voice": {
+			"name": "Wache",
+			"dialogues": {}
+		},
+		"finster_citizen_a": {
+			"name": "Bäckerin Vessa",
+			"dialogues": {
+				"default": "finster_citizen_a_talk"
+			}
+		},
+		"finster_citizen_b": {
+			"name": "Der alte Grat",
+			"dialogues": {
+				"default": "finster_citizen_b_talk"
+			}
+		},
+		"finster_citizen_c": {
+			"name": "Pip",
+			"dialogues": {
+				"default": "finster_citizen_c_talk"
+			}
+		},
+		"finster_narrator": {
+			"name": "Die Finsterstadt",
+			"dialogues": {}
+		},
+		"finster_gate_narrator": {
+			"name": "Das Südtor",
+			"dialogues": {}
+		},
+		"finster_chase": {
+			"name": "Die Finsterstadt",
+			"dialogues": {
+				"finster_wanted": "finster_chase"
+			}
+		},
+		"castle_sneak_narrator": {
+			"name": "Die Außenmauer",
+			"dialogues": {}
+		},
+		"ice_crown_narrator": {
+			"name": "Die Mauerkrone",
+			"dialogues": {
+				"wall_aftermath": "wall_aftermath"
+			}
+		},
+		"altar_narrator": {
+			"name": "Der Altar der Neun",
+			"dialogues": {
+				"gate_opens": "gate_opens",
+				"altar_west": "report_altar_west",
+				"altar_south": "report_altar_south",
+				"altar_east": "report_altar_east",
+				"altar_lake": "report_altar_lake",
+				"lake_awakens": "lake_awakens",
+				"final_forge": "king_shatters",
+				"seal_the_gate": "seal_the_gate"
+			}
+		},
+		"altar_boss_west": {
+			"name": "Schattenfürst Vrak",
+			"dialogues": {}
+		},
+		"altar_boss_south": {
+			"name": "Höllenhund Garm",
+			"dialogues": {}
+		},
+		"altar_boss_east": {
+			"name": "Finsterchampion Kargoth",
+			"dialogues": {}
+		},
+		"bone_general": {
+			"name": "Knochengeneral",
+			"dialogues": {}
+		},
+		"altar_warden": {
+			"name": "Torwächter",
+			"dialogues": {}
+		},
+		"altar_outskirts_narrator": {
+			"name": "Vor dem Altar",
+			"dialogues": {}
+		},
+		"escape_narrator": {
+			"name": "Der Torhof",
+			"dialogues": {}
+		},
+		"escape_faelan": {
+			"name": "Faelan",
+			"dialogues": {
+				"carry_mage": "escape_faelan"
+			}
+		},
+		"escape_exit": {
+			"name": "Der Westgraben",
+			"dialogues": {
+				"carry_mage": "escape_out"
+			}
+		},
+		"guardhouse_narrator": {
+			"name": "Die Wachstube",
+			"dialogues": {
+				"resistance_prep": "guardhouse_enter"
+			}
+		},
+		"roster_desk": {
+			"name": "Tisch des Hauptmanns",
+			"dialogues": {
+				"resistance_prep": "roster_desk",
+				"default": "roster_desk_empty"
+			}
+		},
+		"finster_knight": {
+			"name": "Finsterritter",
+			"dialogues": {
+				"default": "finster_knight_idle"
+			}
+		},
+		"finster_knight_b": {
+			"name": "Finsterritter",
+			"dialogues": {
+				"default": "finster_knight_idle"
+			}
+		},
+		"occupied_square": {
+			"name": "Der Dorfplatz",
+			"dialogues": {
+				"village_occupied": "village_occupied"
+			}
+		},
+		"tournament_messenger_leonheim": {
+			"name": "Turnierbote Wido",
+			"dialogues": {
+				"default": "tournament_messenger_leonheim_talk"
+			}
+		},
+		"tournament_messenger_eisquell": {
+			"name": "Turnierbotin Nalu",
+			"dialogues": {
+				"default": "tournament_messenger_eisquell_talk"
+			}
+		},
+		"tournament_messenger_sahrim": {
+			"name": "Turnierbote Rakesh",
+			"dialogues": {
+				"default": "tournament_messenger_sahrim_talk"
+			},
+			"voice": "hiss"
+		},
+		"tournament_messenger_finster": {
+			"name": "Turnierbotin Vesna",
+			"dialogues": {
+				"default": "tournament_messenger_finster_talk"
+			}
+		}
+	}
+}

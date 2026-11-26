@@ -1,0 +1,4222 @@
+{
+	"_hilfe": {
+		"info": "Skills für Helden und Monster. Welche Klasse welche Skills hat: data/hero_classes/*.tres (skill_ids). Alle Felder mit Beispielen: docs/CONTENT.md. Dieser Block wird vom Spiel ignoriert (Schlüssel mit _ am Anfang).",
+		"standard_bilder": {
+			"icon fehlt": "res://assets/sprites/skills/default.png (16×16)"
+		},
+		"felder": {
+			"name / description": "Name und Tooltip-Text",
+			"icon": "Bild 16×16 (fehlt es: Standard-Bild)",
+			"cooldown / mana": "Sekunden / Manakosten",
+			"damage": "Faktor auf Stufe 1 (1.5 = 150 %), 0 = kein Schaden",
+			"damage_per_level / max_level": "Zuwachs pro Stufe / höchste Stufe. max_level ist bei allen Skills 5.",
+			"damage_kind": "physical | magic",
+			"scaling": "str | agi | con | int | wis | res",
+			"weapon_damage": "true = Waffenschaden kommt dazu",
+			"element / damage_type / damage_split": "wie bei Items",
+			"armor_pen / magic_pen": "Durchdringung dieses Skills in %, z. B. 30 = ignoriert 30 % der Rüstung / Magieresistenz des Ziels (kommt zur Durchdringung des Helden dazu)",
+			"armor_pen_flat / magic_pen_flat": "Durchdringung in Punkten (nach den %), z. B. 10 = 10 Rüstung weniger",
+			"target": "enemy | self | ally | all_enemies | all_allies",
+			"effects": "[{\"effect\": id, \"chance\": 0–1, \"target\": ...}]",
+			"requires_weapon": "Waffentypen aus weapon_types.json, von denen der Held einen in der Hand halten muss, damit er den Skill im Kampf einsetzt (z. B. [\"shield\"] für Schildstoß, [\"bow\", \"longbow\"]); weglassen = jede Waffe. Lernen geht trotzdem.",
+			"anim / vfx": "Nur Aussehen im Kampffenster (beide optional). anim = Bewegung: swing | thrust | slam | shoot | cast | lunge (weglassen: Zauber und Hilfs-Skills cast, sonst wie die Waffe, attack_anim in weapon_types.json). vfx = Effekt am Ziel: slash | pierce | impact | arrow | bolt | heal | buff | debuff | glow | none (weglassen: passend zur Bewegung, z. B. cast = bolt). Farbe kommt vom Element.",
+			"mana_balance": "Grundregel: einfache Skills 0–4 Mana, mittlere 5–9, starke 10–16, ultimative Skills 17–25.",
+			"tier / points / requires": "Reihe im Skillbaum (0 = unten) / Punkte, die vorher im selben Baum ausgegeben sein müssen / vorheriger Skill (requires_also = zweiter Vorgänger)",
+			"passive": "Passiver Skill: {\"wert\": [Stufe 1, pro Stufe]}, z. B. {\"armor\": [8, 8]} = Rüstung +8 % (+8 % pro Stufe). Werte-Liste: docs/CONTENT.md",
+			"heal": "[%, % pro Stufe]: heilt die Ziele um diesen Anteil ihres max. Lebens (× Heilkraft)",
+			"self_damage": "% des eigenen max. Lebens, die der Skill den Anwender kostet",
+			"hits / random_targets / hit_splits": "Anzahl Treffer (jeder würfelt Krit und Effekte) / jeder Treffer auf einen zufälligen Gegner / eigene Aufteilung pro Treffer",
+			"chain / chain_falloff": "Ziele insgesamt (erstes + Sprünge) / weniger Schaden pro Sprung in %",
+			"execute_below / execute_factor": "Gegner unter X % Leben erleiden Schaden × Faktor",
+			"bonus_vs / bonus_vs_factor": "Schadensart des Gegners (z. B. dark), gegen die der Skill × Faktor macht",
+			"crit_damage / crit_from_stealth": "Krit-Schaden in % / aus dem Verschleiern immer kritisch",
+			"reset_on_kill / once_per_dungeon": "Abklingzeit vorbei, wenn der Treffer tötet / nur einmal pro Dungeon",
+			"base_from": "Schaden aus eigenen Werten statt aus der Waffe, z. B. {\"armor\": 0.5, \"max_health\": 0.08}",
+			"summon / summon_share / summon_duration / summon_upgrades": "Beschwörung aus summons.json / [% der Werte, + pro Stufe] / Sekunden (0 = bis zum Tod) / [{skill, summon, share}]: gelernter Skill macht daraus eine stärkere Beschwörung",
+			"pet_attack / pet_effects / sacrifice_summon": "die eigene Beschwörung führt den Treffer aus / Effekte auf die Beschwörung / opfert die eigene Beschwörung (Schaden in ihrem Element)",
+			"detonate": "Effekt-id (z. B. poison): Schaden pro Stapel, der Effekt verschwindet",
+			"allies_refresh": "{\"cooldown\": Sekunden weniger, \"mana_percent\": [%, pro Stufe]} für alle Verbündeten",
+			"heal_allies_from_damage": "% des Schadens, um den sich alle Verbündeten heilen",
+			"unlock_weapons": "{\"right_hand\": [Waffentypen], \"left_hand\": [...]}: erlaubt diese Waffen (passive Skills)",
+			"effects (Zusatz)": "\"chance_per_level\": Chance pro Stufe; \"set\": {Felder aus status_effects.json}; \"per_level\": {Feld: Zuwachs pro Stufe} – so wird ein Effekt pro Stufe stärker",
+			"summon_enemies / summon_count / summon_max": "nur Monster: ruft diese Gegner, so viele pro Einsatz, solange weniger als summon_max leben",
+			"hits_self": "true = trifft auch den Anwender (Lava-Ausbruch)",
+			"random_ally / requires_effect": "nur Monster: Verbündeten-Skill trifft einen zufälligen Verbündeten / nur nutzbar, solange der Anwender diesen Effekt trägt (Nebelfürst)"
+		},
+		"vorlage": {
+			"name": "Schildbruch",
+			"description": "Rüstung des Gegners −40 % (−5 % pro Stufe) für 5 s (+1 s pro Stufe).",
+			"icon": "res://assets/sprites/skills/default.png",
+			"cooldown": 14,
+			"mana": 8,
+			"damage": 0.8,
+			"damage_per_level": 0.05,
+			"max_level": 5,
+			"damage_kind": "physical",
+			"damage_split": {
+				"blunt": 100
+			},
+			"target": "enemy",
+			"effects": [
+				{
+					"effect": "armor_break",
+					"chance": 1.0,
+					"target": "enemy",
+					"set": {
+						"armor_percent": -40,
+						"duration": 5
+					},
+					"per_level": {
+						"armor_percent": -5,
+						"duration": 1
+					}
+				}
+			],
+			"points": 8,
+			"tier": 2
+		}
+	},
+	"sword_strike": {
+		"name": "Schwertschlag",
+		"description": "Ein wuchtiger Hieb mit dem Schwert.",
+		"icon": "res://assets/sprites/skills/sword_strike.png",
+		"cooldown": 5,
+		"mana": 0,
+		"damage": 1.5,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "agi": 30},
+		"damage_split": {
+			"slash": 100
+		},
+		"target": "enemy",
+		"requires_weapon": [
+			"sword",
+			"two_handed_sword"
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"battle_cry": {
+		"name": "Kampfschrei",
+		"description": "Rage für alle Verbündeten: Stärke +10 % (+2 % pro Stufe), 8 s.",
+		"icon": "res://assets/sprites/skills/battle_cry.png",
+		"cooldown": 18,
+		"mana": 4,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "all_allies",
+		"effects": [
+			{
+				"effect": "rage",
+				"chance": 1.0,
+				"target": "all_allies",
+				"set": {
+					"duration": 8
+				},
+				"per_level": {
+					"attributes": {
+						"str": 0.02
+					}
+				}
+			}
+		],
+		"points": 4,
+		"tier": 1
+	},
+	"deep_cut": {
+		"name": "Tiefer Schnitt",
+		"description": "Ein tiefer Schnitt, der immer eine Blutung verursacht.",
+		"icon": "res://assets/sprites/skills/deep_cut.png",
+		"cooldown": 8,
+		"mana": 4,
+		"damage": 1.0,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "agi": 40},
+		"damage_split": {
+			"slash": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "bleed",
+				"chance": 1.0,
+				"target": "enemy"
+			}
+		],
+		"points": 4,
+		"tier": 1,
+		"requires": "sword_strike"
+	},
+	"fire_slash": {
+		"name": "Feuerhieb",
+		"description": "Ein brennender Hieb: 120 % Schnitt + 30 % Feuer, 20 % Chance auf Brand.",
+		"icon": "res://assets/sprites/skills/fire_slash.png",
+		"cooldown": 6,
+		"mana": 3,
+		"damage": 1.5,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "int": 40},
+		"damage_split": {
+			"slash": 80,
+			"fire": 20
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 0.2,
+				"target": "enemy"
+			}
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"poison_arrow": {
+		"name": "Giftpfeil",
+		"description": "Ein Pfeil mit 60 % (+8 % pro Stufe) Chance auf Gift.",
+		"icon": "res://assets/sprites/skills/poison_arrow.png",
+		"cooldown": 6,
+		"mana": 3,
+		"damage": 1.1,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "str": 40},
+		"damage_split": {
+			"stab": 70,
+			"poison": 30
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "poison",
+				"chance": 0.6,
+				"target": "enemy",
+				"stacks": 1,
+				"chance_per_level": 0.08
+			}
+		],
+		"requires_weapon": [
+			"bow",
+			"longbow"
+		],
+		"points": 2,
+		"tier": 0,
+		"requires": "rapid_shot"
+	},
+	"fireball": {
+		"name": "Feuerball",
+		"description": "Ein Feuerball mit 20 % Chance auf Brand.",
+		"icon": "res://assets/sprites/skills/fireball.png",
+		"cooldown": 6,
+		"mana": 4,
+		"damage": 1.5,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"int": 100, "wis": 30},
+		"damage_split": {
+			"fire": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 0.2,
+				"target": "enemy"
+			}
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"healing_light": {
+		"name": "Heilendes Licht",
+		"description": "Heilt den schwächsten Verbündeten um 21 % (+4 % pro Stufe) und gibt Recovery.",
+		"icon": "res://assets/sprites/skills/healing_light.png",
+		"cooldown": 8,
+		"mana": 4,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "recovery",
+				"chance": 1.0,
+				"target": "ally"
+			}
+		],
+		"heal": [
+			21,
+			4
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"poison_bite": {
+		"name": "Giftbiss",
+		"description": "Ein Biss, der mit 25 % Chance vergiftet.",
+		"icon": "res://assets/sprites/skills/poison_bite.png",
+		"cooldown": 4,
+		"mana": 2,
+		"damage": 1.0,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": "str",
+		"effects": [
+			{
+				"effect": "poison",
+				"chance": 0.25,
+				"target": "enemy"
+			}
+		],
+		"tier": 0
+	},
+	"poison_cloud": {
+		"name": "Giftwolke",
+		"description": "Eine Wolke aus Gift: Zauberschaden der Art Gift an allen Gegnern, vergiftet sie alle.",
+		"icon": "res://assets/sprites/skills/poison_cloud.png",
+		"cooldown": 8,
+		"mana": 4,
+		"damage": 1.0,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"element": "poison",
+		"effects": [
+			{
+				"effect": "poison",
+				"chance": 1.0,
+				"target": "all_enemies"
+			}
+		],
+		"tier": 0,
+		"target": "all_enemies"
+	},
+	"prayer_shield": {
+		"name": "Schutzgebet",
+		"description": "Schutzschild auf den schwächsten Verbündeten (Level + 5 × Weisheit, +20 % pro Stufe), 5 s.",
+		"icon": "res://assets/sprites/effects/barrier.png",
+		"cooldown": 10,
+		"mana": 4,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "barrier",
+				"chance": 1.0,
+				"target": "ally",
+				"per_level": {
+					"shield_factor": 0.2
+				}
+			}
+		],
+		"points": 2,
+		"tier": 0
+	},
+	"shield_bash": {
+		"anim": "lunge",
+		"vfx": "impact",
+		"name": "Schildschlag",
+		"description": "Schlägt mit dem Schild zu: Schaden aus 50 % Rüstung + 8 % max. Leben (+10 % pro Stufe), 20 % (+10 % pro Stufe) Chance auf Betäubung (1,5 s). Nur mit Schild.",
+		"icon": "res://assets/sprites/skills/shield_bash.png",
+		"cooldown": 8,
+		"mana": 3,
+		"damage": 1.0,
+		"damage_per_level": 0.1,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"damage_split": {
+			"blunt": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 0.2,
+				"target": "enemy",
+				"duration": 1.5,
+				"chance_per_level": 0.1
+			}
+		],
+		"base_from": {
+			"armor": 0.5,
+			"max_health": 0.08
+		},
+		"requires_weapon": [
+			"shield"
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"whirlwind": {
+		"area_vfx": "area_storm",
+		"name": "Wirbelwind",
+		"description": "Dreht sich mit der Klinge und trifft alle Gegner.",
+		"icon": "res://assets/sprites/skills/whirlwind.png",
+		"cooldown": 12,
+		"mana": 10,
+		"damage": 1.2,
+		"damage_per_level": 0.075,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "con": 30},
+		"damage_split": {
+			"slash": 100
+		},
+		"target": "all_enemies",
+		"points": 6,
+		"tier": 1,
+		"requires": "sword_strike"
+	},
+	"execute": {
+		"anim": "slam",
+		"name": "Hinrichten",
+		"description": "Ein tödlicher Hieb: doppelter Schaden gegen Gegner unter 30 % Leben.",
+		"icon": "res://assets/sprites/skills/execute.png",
+		"cooldown": 25,
+		"mana": 20,
+		"damage": 3.0,
+		"damage_per_level": 0.4,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "agi": 30},
+		"damage_split": {
+			"slash": 100
+		},
+		"target": "enemy",
+		"execute_below": 30,
+		"execute_factor": 2.0,
+		"points": 19,
+		"tier": 4,
+		"requires": "deep_cut"
+	},
+	"rapid_shot": {
+		"name": "Schnellschuss",
+		"description": "Ein schneller Schuss.",
+		"icon": "res://assets/sprites/skills/rapid_shot.png",
+		"cooldown": 4,
+		"mana": 0,
+		"damage": 1.25,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "str": 40},
+		"damage_split": {
+			"stab": 100
+		},
+		"target": "enemy",
+		"requires_weapon": [
+			"bow",
+			"longbow"
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"aimed_shot": {
+		"name": "Gezielter Schuss",
+		"description": "Ein genau gezielter Schuss mit +20 % Krit-Chance.",
+		"icon": "res://assets/sprites/skills/aimed_shot.png",
+		"cooldown": 10,
+		"mana": 7,
+		"damage": 2.0,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "str": 40},
+		"damage_split": {
+			"stab": 100
+		},
+		"target": "enemy",
+		"crit_chance": 20,
+		"requires_weapon": [
+			"bow",
+			"longbow"
+		],
+		"points": 8,
+		"tier": 2,
+		"requires": "rapid_shot"
+	},
+	"rain_of_arrows": {
+		"area_vfx": "area_arrows",
+		"name": "Pfeilhagel",
+		"description": "Pfeile regnen auf alle Gegner.",
+		"icon": "res://assets/sprites/skills/rain_of_arrows.png",
+		"cooldown": 18,
+		"mana": 16,
+		"damage": 1.6,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "str": 40},
+		"damage_split": {
+			"stab": 100
+		},
+		"target": "all_enemies",
+		"requires_weapon": [
+			"bow",
+			"longbow"
+		],
+		"points": 16,
+		"tier": 4
+	},
+	"backstab": {
+		"anim": "thrust",
+		"vfx": "pierce",
+		"name": "Meuchelschlag",
+		"description": "Ein Stich in den Rücken: Krit-Chance +25 %, Krit-Schaden +50 %.",
+		"icon": "res://assets/sprites/skills/backstab.png",
+		"cooldown": 8,
+		"mana": 4,
+		"damage": 1.7,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "str": 40},
+		"damage_split": {
+			"stab": 100
+		},
+		"target": "enemy",
+		"crit_chance": 25,
+		"crit_damage": 50,
+		"points": 4,
+		"tier": 1,
+		"requires": "quick_stab"
+	},
+	"smoke_bomb": {
+		"name": "Rauchbombe",
+		"description": "Alle Verbündeten: Ausweichen +20 % (+3 % pro Stufe), 5 s.",
+		"icon": "res://assets/sprites/skills/smoke_bomb.png",
+		"cooldown": 20,
+		"mana": 9,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "all_allies",
+		"effects": [
+			{
+				"effect": "evasion",
+				"chance": 1.0,
+				"target": "all_allies",
+				"set": {
+					"evasion": 20
+				},
+				"per_level": {
+					"evasion": 3
+				}
+			}
+		],
+		"points": 8,
+		"tier": 2
+	},
+	"chain_lightning": {
+		"name": "Kettenblitz",
+		"description": "Ein Blitz, der auf bis zu 3 weitere Gegner springt (−25 % pro Sprung).",
+		"icon": "res://assets/sprites/skills/chain_lightning.png",
+		"cooldown": 12,
+		"mana": 12,
+		"damage": 1.8,
+		"damage_per_level": 0.25,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"int": 100, "wis": 30},
+		"damage_split": {
+			"lightning": 100
+		},
+		"target": "enemy",
+		"chain": 4,
+		"chain_falloff": 25,
+		"points": 6,
+		"tier": 1
+	},
+	"ice_lance": {
+		"name": "Eislanze",
+		"description": "Eine Lanze aus Eis, verlangsamt 3 s.",
+		"icon": "res://assets/sprites/skills/ice_lance.png",
+		"cooldown": 8,
+		"mana": 5,
+		"damage": 1.6,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"int": 100, "wis": 30},
+		"damage_split": {
+			"ice": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "slow",
+				"chance": 1.0,
+				"target": "enemy",
+				"duration": 3
+			}
+		],
+		"points": 2,
+		"tier": 0
+	},
+	"meteor": {
+		"area_vfx": "area_meteor",
+		"name": "Meteor",
+		"description": "Ein Meteor schlägt ein: riesiger Schaden an allen Gegnern, 1 s betäubt.",
+		"icon": "res://assets/sprites/skills/meteor.png",
+		"cooldown": 35,
+		"mana": 30,
+		"damage": 3.8,
+		"damage_per_level": 0.4,
+		"max_level": 3,
+		"damage_kind": "magic",
+		"scaling": {"int": 100, "wis": 30},
+		"damage_split": {
+			"fire": 70,
+			"earth": 30
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"duration": 1
+			}
+		],
+		"points": 19,
+		"tier": 4
+	},
+	"arcane_bolt": {
+		"name": "Arkaner Pfeil",
+		"description": "Ein schneller Pfeil aus reiner Magie.",
+		"icon": "res://assets/sprites/skills/arcane_bolt.png",
+		"cooldown": 3,
+		"mana": 2,
+		"damage": 1.0,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"int": 100, "wis": 30},
+		"damage_split": {
+			"magic": 100
+		},
+		"target": "enemy",
+		"points": 0,
+		"tier": 0
+	},
+	"mana_surge": {
+		"name": "Manaschub",
+		"description": "Arkane Kraft: Intelligenz +15 % (+3 % pro Stufe), 8 s.",
+		"icon": "res://assets/sprites/skills/mana_surge.png",
+		"cooldown": 18,
+		"mana": 5,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "arcane_power",
+				"chance": 1.0,
+				"target": "self",
+				"set": {
+					"duration": 8,
+					"attributes": {
+						"int": 1.15
+					}
+				},
+				"per_level": {
+					"attributes": {
+						"int": 0.03
+					}
+				}
+			}
+		],
+		"points": 6,
+		"tier": 1
+	},
+	"blizzard": {
+		"name": "Blizzard",
+		"description": "Ein Eissturm über allen Gegnern, verlangsamt 4 s.",
+		"icon": "res://assets/sprites/skills/blizzard.png",
+		"cooldown": 22,
+		"mana": 18,
+		"damage": 1.8,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"int": 100, "wis": 30},
+		"damage_split": {
+			"ice": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "slow",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"duration": 4
+			}
+		],
+		"points": 10,
+		"tier": 2,
+		"requires": "ice_lance"
+	},
+	"greater_heal": {
+		"name": "Große Heilung",
+		"description": "Heilt den schwächsten Verbündeten um 56 % (+11 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/greater_heal.png",
+		"cooldown": 16,
+		"mana": 12,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"heal": [
+			56,
+			11
+		],
+		"points": 8,
+		"tier": 2,
+		"requires": "healing_light"
+	},
+	"holy_smite": {
+		"name": "Heiliger Zorn",
+		"description": "Ein Strahl aus Licht.",
+		"icon": "res://assets/sprites/skills/holy_smite.png",
+		"cooldown": 7,
+		"mana": 4,
+		"damage": 1.3,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": "wis",
+		"damage_split": {
+			"light": 100
+		},
+		"target": "enemy",
+		"points": 0,
+		"tier": 0
+	},
+	"resurrection": {
+		"name": "Wiederbelebung",
+		"description": "Belebt einen gefallenen Verbündeten mit 25 % (+15 % pro Stufe) Leben.",
+		"icon": "res://assets/sprites/skills/resurrection.png",
+		"cooldown": 90,
+		"mana": 20,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "resurrection",
+				"chance": 1.0,
+				"target": "ally",
+				"set": {
+					"revive_percent": 25
+				},
+				"per_level": {
+					"revive_percent": 15
+				}
+			}
+		],
+		"points": 19,
+		"tier": 4
+	},
+	"purify": {
+		"name": "Läuterung",
+		"description": "Entfernt 1 Debuff (+1 pro Stufe) vom schwächsten Verbündeten.",
+		"icon": "res://assets/sprites/skills/purify.png",
+		"cooldown": 12,
+		"mana": 5,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "cleanse",
+				"chance": 1.0,
+				"target": "ally",
+				"set": {
+					"cleanse_count": 1
+				},
+				"per_level": {
+					"cleanse_count": 1
+				}
+			}
+		],
+		"points": 4,
+		"tier": 1
+	},
+	"earthquake": {
+		"anim": "slam",
+		"vfx": "impact",
+		"name": "Erdbeben",
+		"description": "Lässt die Erde beben: Schaden an allen Gegnern, 3 s verlangsamt.",
+		"icon": "res://assets/sprites/skills/earthquake.png",
+		"cooldown": 22,
+		"mana": 18,
+		"damage": 2.0,
+		"damage_per_level": 0.25,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 80, "int": 60},
+		"damage_split": {
+			"blunt": 50,
+			"earth": 50
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "slow",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"duration": 3
+			}
+		],
+		"points": 16,
+		"tier": 4
+	},
+	"lifesteal_strike": {
+		"name": "Lebensraub",
+		"description": "Ein Hieb, der um 30 % des Schadens heilt.",
+		"icon": "res://assets/sprites/skills/lifesteal_strike.png",
+		"cooldown": 11,
+		"mana": 9,
+		"damage": 1.5,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "con": 40},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "lifesteal",
+				"chance": 1.0,
+				"target": "self"
+			}
+		],
+		"points": 14,
+		"tier": 3
+	},
+	"thunder_strike": {
+		"anim": "slam",
+		"vfx": "impact",
+		"name": "Donnerschlag",
+		"description": "Der Hammer ruft den Donner: Schaden an allen Gegnern (Stumpf und Blitz), 20 % (+5 % pro Stufe) Chance auf Betäubung (1,5 s).",
+		"icon": "res://assets/sprites/skills/thunder_strike.png",
+		"cooldown": 14,
+		"mana": 10,
+		"damage": 1.1,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 80, "con": 50},
+		"damage_split": {
+			"blunt": 50,
+			"lightning": 50
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 0.2,
+				"target": "all_enemies",
+				"duration": 1.5,
+				"chance_per_level": 0.05
+			}
+		],
+		"points": 6,
+		"tier": 1,
+		"requires": "hammer_blow"
+	},
+	"quick_stab": {
+		"anim": "thrust",
+		"vfx": "pierce",
+		"name": "Schneller Stich",
+		"description": "Ein blitzschneller Stich.",
+		"icon": "res://assets/sprites/skills/quick_stab.png",
+		"cooldown": 3,
+		"mana": 0,
+		"damage": 1.2,
+		"damage_per_level": 0.12,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "str": 40},
+		"damage_split": {
+			"stab": 100
+		},
+		"target": "enemy",
+		"points": 0,
+		"tier": 0
+	},
+	"poisoned_blade": {
+		"name": "Giftklinge",
+		"description": "Passiv: jeder Angriff vergiftet mit 10 % Chance (+5 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/poisoned_blade.png",
+		"max_level": 5,
+		"passive": {
+			"poison_chance": [
+				10,
+				5
+			]
+		},
+		"points": 0,
+		"tier": 0
+	},
+	"cheap_shot": {
+		"anim": "lunge",
+		"vfx": "impact",
+		"name": "Tiefschlag",
+		"description": "Ein gemeiner Schlag, betäubt 1,5 s (+0,2 s pro Stufe).",
+		"icon": "res://assets/sprites/skills/cheap_shot.png",
+		"cooldown": 10,
+		"mana": 5,
+		"damage": 0.8,
+		"damage_per_level": 0.1,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "str": 40},
+		"damage_split": {
+			"blunt": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 1.0,
+				"target": "enemy",
+				"set": {
+					"duration": 1.5
+				},
+				"per_level": {
+					"duration": 0.2
+				}
+			}
+		],
+		"points": 2,
+		"tier": 0
+	},
+	"shadow_step": {
+		"anim": "lunge",
+		"vfx": "pierce",
+		"name": "Schattenschritt",
+		"description": "Ein Stich aus dem Schatten (Stich und Dunkelheit): aus dem Verschleiern immer kritisch; danach 3 s Ausweichen.",
+		"icon": "res://assets/sprites/skills/shadow_step.png",
+		"cooldown": 14,
+		"mana": 10,
+		"damage": 1.9,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "int": 40},
+		"damage_split": {
+			"stab": 60,
+			"dark": 40
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "evasion",
+				"chance": 1.0,
+				"target": "self",
+				"duration": 3
+			}
+		],
+		"crit_from_stealth": true,
+		"points": 12,
+		"tier": 3,
+		"requires": "veil"
+	},
+	"assassinate": {
+		"anim": "thrust",
+		"vfx": "pierce",
+		"name": "Meucheln",
+		"description": "Ein tödlicher Stich aus der Dunkelheit (Stich und Dunkelheit), ignoriert 30 % Rüstung; dreifacher Schaden unter 25 % Leben. Tötet er, ist die Abklingzeit sofort vorbei.",
+		"icon": "res://assets/sprites/skills/assassinate.png",
+		"cooldown": 30,
+		"mana": 20,
+		"damage": 3.0,
+		"damage_per_level": 0.35,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "int": 40},
+		"damage_split": {
+			"stab": 60,
+			"dark": 40
+		},
+		"target": "enemy",
+		"armor_pen": 30,
+		"execute_below": 25,
+		"execute_factor": 3.0,
+		"reset_on_kill": true,
+		"points": 19,
+		"tier": 4,
+		"requires": "shadow_step"
+	},
+	"hammer_blow": {
+		"anim": "slam",
+		"name": "Hammerschlag",
+		"description": "Ein schwerer Schlag mit Hammer oder Keule.",
+		"icon": "res://assets/sprites/skills/hammer_blow.png",
+		"cooldown": 5,
+		"mana": 0,
+		"damage": 1.4,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "con": 40},
+		"damage_split": {
+			"blunt": 100
+		},
+		"target": "enemy",
+		"requires_weapon": [
+			"hammer",
+			"mace"
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"divine_shield": {
+		"name": "Göttlicher Schild",
+		"description": "Schutzschild auf sich und Magieresistenz +30 %, 5 s (+0,5 s pro Stufe).",
+		"icon": "res://assets/sprites/skills/divine_shield.png",
+		"cooldown": 14,
+		"mana": 6,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "barrier",
+				"chance": 1.0,
+				"target": "self",
+				"per_level": {
+					"duration": 0.5
+				}
+			},
+			{
+				"effect": "magic_ward",
+				"chance": 1.0,
+				"target": "self",
+				"per_level": {
+					"duration": 0.5
+				}
+			}
+		],
+		"points": 8,
+		"tier": 2
+	},
+	"blessing_of_might": {
+		"name": "Segen der Stärke",
+		"description": "Stärke +10 % (+2 % pro Stufe) für einen Verbündeten, 12 s.",
+		"icon": "res://assets/sprites/skills/blessing_of_might.png",
+		"cooldown": 15,
+		"mana": 3,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "rage",
+				"chance": 1.0,
+				"target": "ally",
+				"set": {
+					"duration": 12
+				},
+				"per_level": {
+					"attributes": {
+						"str": 0.02
+					}
+				}
+			}
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"holy_strike": {
+		"name": "Lichtschlag",
+		"description": "Ein Schlag voller Licht.",
+		"icon": "res://assets/sprites/skills/holy_strike.png",
+		"cooldown": 8,
+		"mana": 6,
+		"damage": 1.5,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 80, "wis": 50},
+		"damage_split": {
+			"blunt": 60,
+			"light": 40
+		},
+		"target": "enemy",
+		"points": 4,
+		"tier": 1,
+		"requires": "hammer_blow"
+	},
+	"lay_on_hands": {
+		"name": "Handauflegen",
+		"description": "Heilt den schwächsten Verbündeten um 21 % (+7 % pro Stufe) des max. Lebens und gibt Recovery.",
+		"icon": "res://assets/sprites/skills/lay_on_hands.png",
+		"cooldown": 14,
+		"mana": 7,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "recovery",
+				"chance": 1.0,
+				"target": "ally"
+			}
+		],
+		"heal": [
+			21,
+			7
+		],
+		"points": 2,
+		"tier": 0
+	},
+	"judgment": {
+		"name": "Richtspruch",
+		"description": "Ein Urteil aus Licht: 50 % Chance auf Betäubung (1,5 s), +50 % Schaden gegen Dunkelheits-Gegner (Untote, Dämonen).",
+		"icon": "res://assets/sprites/skills/judgment.png",
+		"cooldown": 14,
+		"mana": 11,
+		"damage": 2.0,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"wis": 100, "con": 40},
+		"base": "weapon",
+		"damage_split": {
+			"light": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 0.5,
+				"target": "enemy",
+				"duration": 1.5
+			}
+		],
+		"bonus_vs": "dark",
+		"bonus_vs_factor": 1.5,
+		"points": 10,
+		"tier": 2,
+		"requires": "holy_strike"
+	},
+	"divine_wrath": {
+		"anim": "slam",
+		"vfx": "impact",
+		"name": "Hammer des Himmels",
+		"description": "Ein Hammer aus Licht und Blitz fällt auf alle Gegner, 1,5 s betäubt.",
+		"icon": "res://assets/sprites/skills/divine_wrath.png",
+		"cooldown": 35,
+		"mana": 20,
+		"damage": 3.0,
+		"damage_per_level": 0.3,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"scaling": {"str": 80, "wis": 50},
+		"damage_split": {
+			"light": 50,
+			"lightning": 30,
+			"blunt": 20
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"duration": 1.5
+			}
+		],
+		"points": 19,
+		"tier": 4,
+		"requires": "judgment"
+	},
+	"bandit_taunt": {
+		"name": "Herausfordern",
+		"description": "Schlägt auf den Schild und brüllt: Wer mit einzelnen Angriffen kämpft, muss ihn treffen.",
+		"icon": "res://assets/sprites/skills/bandit_taunt.png",
+		"cooldown": 14,
+		"mana": 0,
+		"damage": 0,
+		"max_level": 1,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "taunt",
+				"chance": 1.0,
+				"target": "self"
+			}
+		],
+		"tier": 0
+	},
+	"bear_blood_drink": {
+		"name": "Bärenblut",
+		"description": "Trinkt ein Fläschchen Bärenblut: mehr Schaden, schnellere Schläge und dickere Haut, sehr lange.",
+		"icon": "res://assets/sprites/skills/bear_blood_drink.png",
+		"cooldown": 45,
+		"mana": 10,
+		"damage": 0,
+		"max_level": 1,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "bear_blood",
+				"chance": 1.0,
+				"target": "self"
+			}
+		],
+		"tier": 0
+	},
+	"spear_thrust": {
+		"anim": "thrust",
+		"vfx": "pierce",
+		"name": "Speerstoß",
+		"description": "Ein tiefer Stoß mit dem Speer, der bluten lässt.",
+		"icon": "res://assets/sprites/skills/spear_thrust.png",
+		"cooldown": 7,
+		"mana": 4,
+		"damage": 1.4,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": "str",
+		"damage_type": "stab",
+		"effects": [
+			{
+				"effect": "bleed",
+				"chance": 0.4,
+				"target": "enemy"
+			}
+		],
+		"tier": 0
+	},
+	"blade_sharpness": {
+		"name": "Klingenschärfe",
+		"description": "Schnittschaden +10 % (+5 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/blade_sharpness.png",
+		"max_level": 5,
+		"passive": {
+			"damage_slash": [
+				10,
+				5
+			]
+		},
+		"points": 2,
+		"tier": 0
+	},
+	"shield_break": {
+		"anim": "lunge",
+		"vfx": "impact",
+		"name": "Schildbruch",
+		"description": "Zertrümmert die Deckung: Rüstung des Gegners −40 % (−5 % pro Stufe) für 5 s (+1 s pro Stufe).",
+		"icon": "res://assets/sprites/skills/shield_break.png",
+		"cooldown": 14,
+		"mana": 8,
+		"damage": 0.8,
+		"damage_per_level": 0.05,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "con": 30},
+		"damage_split": {
+			"blunt": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "armor_break",
+				"chance": 1.0,
+				"target": "enemy",
+				"set": {
+					"armor_percent": -40,
+					"duration": 5
+				},
+				"per_level": {
+					"armor_percent": -5,
+					"duration": 1
+				}
+			}
+		],
+		"points": 8,
+		"tier": 2
+	},
+	"parry": {
+		"name": "Parade",
+		"description": "8 % (+3 % pro Stufe) Chance, einen Einzelangriff komplett abzuwehren. Nur mit Schwert.",
+		"icon": "res://assets/sprites/skills/parry.png",
+		"max_level": 5,
+		"passive": {
+			"parry": [
+				8,
+				3
+			]
+		},
+		"requires_weapon": [
+			"sword",
+			"two_handed_sword"
+		],
+		"points": 12,
+		"tier": 3
+	},
+	"mighty_blow": {
+		"anim": "slam",
+		"name": "Mächtiger Hieb",
+		"description": "Ein gewaltiger Schlag mit dem Zweihandschwert, ignoriert 30 % Rüstung.",
+		"icon": "res://assets/sprites/skills/mighty_blow.png",
+		"cooldown": 20,
+		"mana": 16,
+		"damage": 2.8,
+		"damage_per_level": 0.3,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "con": 30},
+		"damage_split": {
+			"slash": 100
+		},
+		"target": "enemy",
+		"armor_pen": 30,
+		"requires_weapon": [
+			"two_handed_sword"
+		],
+		"points": 16,
+		"tier": 4
+	},
+	"toughness": {
+		"name": "Abhärtung",
+		"description": "Max. Leben +5 % (+3 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/toughness.png",
+		"max_level": 5,
+		"passive": {
+			"max_health": [
+				5,
+				3
+			]
+		},
+		"points": 0,
+		"tier": 0
+	},
+	"heal_wounds": {
+		"name": "Wunden heilen",
+		"description": "Heilt 14 % (+7 % pro Stufe) des max. Lebens.",
+		"icon": "res://assets/sprites/skills/heal_wounds.png",
+		"cooldown": 20,
+		"mana": 5,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"heal": [
+			14,
+			7
+		],
+		"points": 2,
+		"tier": 0
+	},
+	"pain": {
+		"name": "PAIN!",
+		"description": "Verletzt sich selbst (10 % Leben und Blutung) und gerät in Raserei: Stärke +25 % (+5 % pro Stufe), Angriffstempo +15 %, 8 s.",
+		"icon": "res://assets/sprites/skills/pain.png",
+		"cooldown": 25,
+		"mana": 0,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "bleed",
+				"chance": 1.0,
+				"target": "self"
+			},
+			{
+				"effect": "frenzy",
+				"chance": 1.0,
+				"target": "self",
+				"per_level": {
+					"attributes": {
+						"str": 0.05
+					}
+				}
+			}
+		],
+		"self_damage": 10,
+		"points": 6,
+		"tier": 1
+	},
+	"iron_will": {
+		"name": "Eiserner Wille",
+		"description": "Zähigkeit +5 % (+3 % pro Stufe), Rüstung +5 % (+2 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/iron_will.png",
+		"max_level": 5,
+		"passive": {
+			"tenacity": [
+				5,
+				3
+			],
+			"armor": [
+				5,
+				2
+			]
+		},
+		"points": 8,
+		"tier": 2
+	},
+	"bloodlust": {
+		"name": "Blutdurst",
+		"description": "Unter 50 % Leben: Schaden +10 % (+4 % pro Stufe) und 3 % (+1 % pro Stufe) Lebensraub.",
+		"icon": "res://assets/sprites/skills/bloodlust.png",
+		"max_level": 5,
+		"passive": {
+			"low_health_damage": [
+				10,
+				4
+			],
+			"low_health_lifesteal": [
+				3,
+				1
+			]
+		},
+		"points": 10,
+		"tier": 2,
+		"requires": "pain"
+	},
+	"unbreakable": {
+		"name": "Unbeugsam",
+		"description": "10 s: fällt nicht unter 1 Leben und erleidet −30 % (−5 % pro Stufe) Schaden; danach Heilung um 20 % des max. Lebens.",
+		"icon": "res://assets/sprites/skills/unbreakable.png",
+		"cooldown": 60,
+		"mana": 20,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "undying",
+				"chance": 1.0,
+				"target": "self",
+				"per_level": {
+					"damage_taken": -5
+				}
+			}
+		],
+		"points": 19,
+		"tier": 4,
+		"requires": "heal_wounds"
+	},
+	"arcane_blade": {
+		"name": "Arkane Klinge",
+		"description": "Normale Angriffe machen +5 % (+2 % pro Stufe) Magieschaden (aus Intelligenz).",
+		"icon": "res://assets/sprites/skills/arcane_blade.png",
+		"max_level": 5,
+		"passive": {
+			"arcane_blade": [
+				5,
+				2
+			]
+		},
+		"points": 2,
+		"tier": 0
+	},
+	"frost_blade": {
+		"name": "Glutklinge",
+		"description": "Ein glühender Hieb (Schnitt und Feuer), der den Gegner in Brand setzt.",
+		"icon": "res://assets/sprites/skills/ember_blade.png",
+		"cooldown": 9,
+		"mana": 5,
+		"damage": 1.4,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "int": 40},
+		"damage_split": {
+			"slash": 70,
+			"fire": 30
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 1.0,
+				"target": "enemy"
+			}
+		],
+		"points": 4,
+		"tier": 1,
+		"requires": "fire_slash"
+	},
+	"rune_shield": {
+		"name": "Runenschild",
+		"description": "Schutzschild aus 10 % (+3 % pro Stufe) des max. Lebens; Angreifer erleiden 15 % ihres Schadens als Magie.",
+		"icon": "res://assets/sprites/skills/rune_shield.png",
+		"cooldown": 18,
+		"mana": 8,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "rune_shield",
+				"chance": 1.0,
+				"target": "self",
+				"per_level": {
+					"shield_percent": 4
+				}
+			}
+		],
+		"points": 8,
+		"tier": 2
+	},
+	"elemental_flow": {
+		"name": "Elementarfluss",
+		"description": "Magiedurchdringung +4 % (+4 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/elemental_flow.png",
+		"max_level": 5,
+		"passive": {
+			"magic_pen": [
+				4,
+				4
+			]
+		},
+		"points": 12,
+		"tier": 3
+	},
+	"elemental_blade": {
+		"name": "Vulkanklinge",
+		"description": "3 Hiebe à 120 % (+15 % pro Stufe): Feuer (Brand), Erde (verlangsamt), Feuer und Erde (20 % Betäubung).",
+		"icon": "res://assets/sprites/skills/volcano_blade.png",
+		"cooldown": 30,
+		"mana": 20,
+		"damage": 1.2,
+		"damage_per_level": 0.15,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"scaling": {"str": 80, "int": 60},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 1.0,
+				"target": "enemy"
+			},
+			{
+				"effect": "slow",
+				"chance": 1.0,
+				"target": "enemy",
+				"duration": 3
+			},
+			{
+				"effect": "stun",
+				"chance": 0.2,
+				"target": "enemy",
+				"duration": 1
+			}
+		],
+		"hits": 3,
+		"hit_splits": [
+			{
+				"slash": 50,
+				"fire": 50
+			},
+			{
+				"slash": 50,
+				"earth": 50
+			},
+			{
+				"slash": 50,
+				"fire": 25,
+				"earth": 25
+			}
+		],
+		"points": 19,
+		"tier": 4,
+		"requires": "ground_slam"
+	},
+	"elemental_mastery": {
+		"name": "Elementarmeister",
+		"description": "Element-Schaden +6 % (+6 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/elemental_mastery.png",
+		"max_level": 5,
+		"passive": {
+			"damage_element": [
+				6,
+				6
+			]
+		},
+		"points": 4,
+		"tier": 1
+	},
+	"inferno": {
+		"name": "Inferno",
+		"description": "Ein Flammenmeer: Schaden und Brand an allen Gegnern.",
+		"icon": "res://assets/sprites/skills/inferno.png",
+		"cooldown": 20,
+		"mana": 20,
+		"damage": 1.6,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"int": 100, "wis": 30},
+		"damage_split": {
+			"fire": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 1.0,
+				"target": "all_enemies"
+			}
+		],
+		"points": 14,
+		"tier": 3,
+		"requires": "fireball"
+	},
+	"summon_fire_elemental": {
+		"name": "Feuerelementar",
+		"description": "Ruft ein kleines Feuerwesen (20 s). Es erbt 10 % (+10 % pro Stufe) der Werte und wirft Feuerkugeln.",
+		"icon": "res://assets/sprites/skills/summon_fire_elemental.png",
+		"cooldown": 30,
+		"mana": 15,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"summon": "fire_elemental",
+		"summon_share": [
+			10,
+			10
+		],
+		"summon_duration": 20,
+		"points": 0,
+		"tier": 0
+	},
+	"binding": {
+		"name": "Bindung",
+		"description": "Beschwörungen bleiben 2 s (+2 s pro Stufe) länger.",
+		"icon": "res://assets/sprites/skills/binding.png",
+		"max_level": 5,
+		"passive": {
+			"summon_duration": [
+				2,
+				2
+			]
+		},
+		"points": 2,
+		"tier": 0
+	},
+	"summon_ice_elemental": {
+		"name": "Eiselementar",
+		"description": "Ruft einen Eis-Tank (20 s): erbt 15 % (+10 % pro Stufe), doppeltes Leben, zieht Angriffe auf sich, Treffer verlangsamen.",
+		"icon": "res://assets/sprites/skills/summon_ice_elemental.png",
+		"cooldown": 35,
+		"mana": 18,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"summon": "ice_elemental",
+		"summon_share": [
+			15,
+			10
+		],
+		"summon_duration": 20,
+		"points": 4,
+		"tier": 1,
+		"requires": "summon_fire_elemental"
+	},
+	"sacrifice_elemental": {
+		"name": "Elementar opfern",
+		"description": "Lässt die eigene Beschwörung explodieren: Schaden im Element der Beschwörung an allen Gegnern.",
+		"icon": "res://assets/sprites/skills/sacrifice_elemental.png",
+		"cooldown": 15,
+		"mana": 10,
+		"damage": 1.5,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"int": 100, "con": 30},
+		"target": "all_enemies",
+		"sacrifice_summon": true,
+		"points": 6,
+		"tier": 1,
+		"requires": "summon_fire_elemental"
+	},
+	"summon_storm_spirit": {
+		"name": "Sturmgeist",
+		"description": "Ruft einen schnellen Sturmgeist (20 s): erbt 20 % (+10 % pro Stufe), greift doppelt so schnell an, 15 % Betäubung.",
+		"icon": "res://assets/sprites/skills/summon_storm_spirit.png",
+		"cooldown": 40,
+		"mana": 24,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"summon": "storm_spirit",
+		"summon_share": [
+			20,
+			10
+		],
+		"summon_duration": 20,
+		"points": 10,
+		"tier": 2,
+		"requires": "summon_ice_elemental"
+	},
+	"soul_bond": {
+		"name": "Seelenband",
+		"description": "Solange eine Beschwörung lebt: Schaden +5 % (+5 % pro Stufe), Mana-Regeneration +0,5/s (+0,5 pro Stufe).",
+		"icon": "res://assets/sprites/skills/soul_bond.png",
+		"max_level": 5,
+		"passive": {
+			"bond_damage": [
+				5,
+				5
+			],
+			"bond_mana_regen": [
+				0.5,
+				0.5
+			]
+		},
+		"points": 12,
+		"tier": 3
+	},
+	"summon_earth_golem": {
+		"name": "Erdgolem",
+		"description": "Ruft einen Erdgolem (30 s): erbt 40 % (+10 % pro Stufe), dreifaches Leben, stampft alle 6 s auf alle Gegner.",
+		"icon": "res://assets/sprites/skills/summon_earth_golem.png",
+		"cooldown": 60,
+		"mana": 35,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"summon": "earth_golem",
+		"summon_share": [
+			40,
+			10
+		],
+		"summon_duration": 30,
+		"points": 16,
+		"tier": 4,
+		"requires": "summon_ice_elemental"
+	},
+	"summon_elemental_lord": {
+		"name": "Elementarfürst",
+		"description": "Ruft den Elementarfürsten (25 s): erbt 80 % (+10 % pro Stufe), wirft Feuerbälle, Eislanzen und Meteore.",
+		"icon": "res://assets/sprites/skills/summon_elemental_lord.png",
+		"cooldown": 90,
+		"mana": 50,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"target": "self",
+		"summon": "elemental_lord",
+		"summon_share": [
+			80,
+			10
+		],
+		"summon_duration": 25,
+		"points": 19,
+		"tier": 4
+	},
+	"arcane_might": {
+		"name": "Arkane Kraft",
+		"description": "Mana-Regeneration +0,5/s (+0,5 pro Stufe).",
+		"icon": "res://assets/sprites/skills/arcane_might.png",
+		"max_level": 5,
+		"passive": {
+			"mana_regen": [
+				0.5,
+				0.5
+			]
+		},
+		"points": 2,
+		"tier": 0
+	},
+	"arcane_shield": {
+		"name": "Arkaner Schild",
+		"description": "Schutzschild auf den schwächsten Verbündeten: Level + 5 × Intelligenz (+20 % pro Stufe), 5 s.",
+		"icon": "res://assets/sprites/skills/arcane_shield.png",
+		"cooldown": 14,
+		"mana": 6,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "arcane_barrier",
+				"chance": 1.0,
+				"target": "ally",
+				"per_level": {
+					"shield_factor": 0.2
+				}
+			}
+		],
+		"points": 4,
+		"tier": 1
+	},
+	"hex": {
+		"name": "Bannfluch",
+		"description": "Alle Gegner: Magieresistenz −30 % für 5 s (+1 s pro Stufe).",
+		"icon": "res://assets/sprites/skills/hex.png",
+		"cooldown": 16,
+		"mana": 8,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "magic_break",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"set": {
+					"duration": 5
+				},
+				"per_level": {
+					"duration": 1
+				}
+			}
+		],
+		"points": 8,
+		"tier": 2
+	},
+	"arcane_bind": {
+		"name": "Arkane Fessel",
+		"description": "Fesselt den Gegner 2 s (+0,25 s pro Stufe).",
+		"icon": "res://assets/sprites/skills/arcane_bind.png",
+		"cooldown": 14,
+		"mana": 9,
+		"damage": 0.8,
+		"damage_per_level": 0.1,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"int": 100, "wis": 30},
+		"damage_split": {
+			"magic": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 1.0,
+				"target": "enemy",
+				"set": {
+					"duration": 2
+				},
+				"per_level": {
+					"duration": 0.25
+				}
+			}
+		],
+		"points": 10,
+		"tier": 2,
+		"requires": "arcane_bolt"
+	},
+	"spell_flow": {
+		"name": "Zauberflut",
+		"description": "Abklingzeiten −3 % (+3 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/spell_flow.png",
+		"max_level": 5,
+		"passive": {
+			"cooldown": [
+				3,
+				3
+			]
+		},
+		"points": 14,
+		"tier": 3
+	},
+	"time_stop": {
+		"name": "Zeitstillstand",
+		"description": "Hält die Zeit an: alle Gegner 2,5 s (+0,5 s pro Stufe) betäubt, die Abklingzeiten aller Verbündeten −3 s.",
+		"icon": "res://assets/sprites/skills/time_stop.png",
+		"cooldown": 45,
+		"mana": 28,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"set": {
+					"duration": 2.5
+				},
+				"per_level": {
+					"duration": 0.5
+				}
+			}
+		],
+		"allies_refresh": {
+			"cooldown": 3
+		},
+		"points": 19,
+		"tier": 4,
+		"requires": "arcane_bind"
+	},
+	"armored": {
+		"name": "Gepanzert",
+		"description": "Rüstung +8 % (+8 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/armored.png",
+		"max_level": 5,
+		"passive": {
+			"armor": [
+				8,
+				8
+			]
+		},
+		"points": 2,
+		"tier": 0
+	},
+	"challenge": {
+		"name": "Herausfordern",
+		"description": "Alle Gegner greifen 4 s (+0,5 s pro Stufe) nur den Paladin an; Rüstung +30 %.",
+		"icon": "res://assets/sprites/skills/challenge.png",
+		"cooldown": 18,
+		"mana": 5,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "taunt",
+				"chance": 1.0,
+				"target": "self",
+				"set": {
+					"duration": 4
+				},
+				"per_level": {
+					"duration": 0.5
+				}
+			},
+			{
+				"effect": "fortify",
+				"chance": 1.0,
+				"target": "self",
+				"set": {
+					"duration": 4
+				},
+				"per_level": {
+					"duration": 0.5
+				}
+			}
+		],
+		"points": 4,
+		"tier": 1
+	},
+	"holy_regeneration": {
+		"name": "Heilige Regeneration",
+		"description": "Regeneriert 0,4 % (+0,4 % pro Stufe) des max. Lebens pro Sekunde.",
+		"icon": "res://assets/sprites/skills/holy_regeneration.png",
+		"max_level": 5,
+		"passive": {
+			"health_regen": [
+				0.4,
+				0.4
+			]
+		},
+		"points": 6,
+		"tier": 1
+	},
+	"elemental_ward": {
+		"name": "Elementarschutz",
+		"description": "Alle Element-Resistenzen +4 (+4 pro Stufe).",
+		"icon": "res://assets/sprites/skills/elemental_ward.png",
+		"max_level": 5,
+		"passive": {
+			"element_resist": [
+				4,
+				4
+			]
+		},
+		"points": 12,
+		"tier": 3
+	},
+	"shield_wall": {
+		"name": "Schutzwall",
+		"description": "6 s (+1 s pro Stufe): fängt 50 % des Schadens ab, der Verbündete trifft; erleidet selbst 20 % weniger Schaden.",
+		"icon": "res://assets/sprites/skills/shield_wall.png",
+		"cooldown": 40,
+		"mana": 18,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "guardian",
+				"chance": 1.0,
+				"target": "self",
+				"per_level": {
+					"duration": 1
+				}
+			}
+		],
+		"points": 16,
+		"tier": 4,
+		"requires": "challenge"
+	},
+	"bastion": {
+		"name": "Bastion",
+		"description": "8 s: Rüstung und Magieresistenz verdoppelt, immun gegen Betäubung; die Gruppe erhält Bollwerk.",
+		"icon": "res://assets/sprites/skills/bastion.png",
+		"cooldown": 60,
+		"mana": 20,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "bastion",
+				"chance": 1.0,
+				"target": "self"
+			},
+			{
+				"effect": "bulwark",
+				"chance": 1.0,
+				"target": "all_allies",
+				"set": {
+					"duration": 8
+				}
+			}
+		],
+		"points": 19,
+		"tier": 4,
+		"requires": "shield_wall"
+	},
+	"blessing_of_wisdom": {
+		"name": "Segen der Weisheit",
+		"description": "Intelligenz +10 % (+2 % pro Stufe) und Mana-Regeneration +1/s für einen Verbündeten, 12 s. Dazu ein kleiner Schild auf alle Verbündeten, 8 s: (Level + 5 × (Weisheit + Widerstand)) × 12,5 % (+2,5 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/blessing_of_wisdom.png",
+		"cooldown": 15,
+		"mana": 5,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "wisdom_blessing",
+				"chance": 1.0,
+				"target": "ally",
+				"per_level": {
+					"attributes": {
+						"int": 0.02
+					}
+				}
+			},
+			{
+				"effect": "wisdom_ward",
+				"chance": 1.0,
+				"target": "all_allies",
+				"per_level": {
+					"shield_factor": 0.025
+				}
+			}
+		],
+		"points": 4,
+		"tier": 1
+	},
+	"devotion_aura": {
+		"name": "Aura der Hingabe",
+		"description": "Alle Verbündeten: Rüstung +3 % (+3 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/devotion_aura.png",
+		"max_level": 5,
+		"passive": {
+			"aura_armor": [
+				3,
+				3
+			]
+		},
+		"points": 6,
+		"tier": 1
+	},
+	"consecration": {
+		"name": "Lichtweihe",
+		"description": "10 s: Angriffe aller Verbündeten machen +20 % (+4 % pro Stufe) zusätzlichen Lichtschaden.",
+		"icon": "res://assets/sprites/skills/consecration.png",
+		"cooldown": 25,
+		"mana": 12,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "all_allies",
+		"effects": [
+			{
+				"effect": "consecration",
+				"chance": 1.0,
+				"target": "all_allies",
+				"per_level": {
+					"extra_damage": 4
+				}
+			}
+		],
+		"points": 10,
+		"tier": 2,
+		"requires": "blessing_of_might"
+	},
+	"martyr": {
+		"name": "Märtyrer",
+		"description": "Fällt ein Verbündeter unter 25 % Leben, heilt der Paladin ihn um 10 % (+3 % pro Stufe) des max. Lebens.",
+		"icon": "res://assets/sprites/skills/martyr.png",
+		"cooldown": 20,
+		"max_level": 5,
+		"passive": {
+			"martyr": [
+				10,
+				3
+			]
+		},
+		"points": 14,
+		"tier": 3
+	},
+	"divine_intervention": {
+		"name": "Göttliche Intervention",
+		"description": "Belebt einen gefallenen Verbündeten mit 30 % (+10 % pro Stufe) Leben, 3 s unverwundbar. Einmal pro Dungeon.",
+		"icon": "res://assets/sprites/skills/divine_intervention.png",
+		"cooldown": 120,
+		"mana": 20,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "resurrection",
+				"chance": 1.0,
+				"target": "ally",
+				"set": {
+					"revive_percent": 30
+				},
+				"per_level": {
+					"revive_percent": 10
+				}
+			},
+			{
+				"effect": "invulnerable",
+				"chance": 1.0,
+				"target": "ally"
+			}
+		],
+		"once_per_dungeon": true,
+		"points": 19,
+		"tier": 4,
+		"requires": "lay_on_hands"
+	},
+	"momentum": {
+		"name": "Wucht",
+		"description": "Stumpfschaden +6 % (+6 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/momentum.png",
+		"max_level": 5,
+		"passive": {
+			"damage_blunt": [
+				6,
+				6
+			]
+		},
+		"points": 2,
+		"tier": 0
+	},
+	"ground_slam": {
+		"anim": "slam",
+		"vfx": "impact",
+		"name": "Bodenschlag",
+		"description": "Ein glühender Schlag auf den Boden: Schaden an allen Gegnern (Stumpf und Erde), 3 s verlangsamt.",
+		"icon": "res://assets/sprites/skills/ground_slam.png",
+		"cooldown": 14,
+		"mana": 10,
+		"damage": 1.1,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"str": 100, "con": 40},
+		"damage_split": {
+			"blunt": 50,
+			"earth": 50
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "slow",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"duration": 3
+			}
+		],
+		"points": 6,
+		"tier": 1,
+		"requires": "fire_slash"
+	},
+	"holy_zeal": {
+		"name": "Heiliger Eifer",
+		"description": "3 % (+1 % pro Stufe) des Skill-Schadens heilen den Paladin.",
+		"icon": "res://assets/sprites/skills/holy_zeal.png",
+		"max_level": 5,
+		"passive": {
+			"skill_lifesteal": [
+				3,
+				1
+			]
+		},
+		"points": 14,
+		"tier": 3
+	},
+	"blessed_hands": {
+		"name": "Gesegnete Hände",
+		"description": "Heilkraft +6 % (+6 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/blessed_hands.png",
+		"max_level": 5,
+		"passive": {
+			"heal_power": [
+				6,
+				6
+			]
+		},
+		"points": 6,
+		"tier": 1
+	},
+	"circle_of_healing": {
+		"name": "Kreis der Heilung",
+		"description": "Heilt alle Verbündeten um 28 % (+7 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/circle_of_healing.png",
+		"cooldown": 22,
+		"mana": 16,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "all_allies",
+		"heal": [
+			28,
+			7
+		],
+		"points": 12,
+		"tier": 3,
+		"requires": "greater_heal"
+	},
+	"shield_of_faith": {
+		"name": "Schild des Glaubens",
+		"description": "Schutzschild auf alle Verbündeten (Level + 5 × Weisheit, +15 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/shield_of_faith.png",
+		"cooldown": 25,
+		"mana": 18,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "all_allies",
+		"effects": [
+			{
+				"effect": "barrier",
+				"chance": 1.0,
+				"target": "all_allies",
+				"per_level": {
+					"shield_factor": 0.15
+				}
+			}
+		],
+		"points": 16,
+		"tier": 4,
+		"requires": "prayer_shield"
+	},
+	"blessing_of_power": {
+		"name": "Segen der Kraft",
+		"description": "Physischer Schaden +10 % (+3 % pro Stufe) für einen Verbündeten, 10 s.",
+		"icon": "res://assets/sprites/skills/blessing_of_power.png",
+		"cooldown": 12,
+		"mana": 3,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "might",
+				"chance": 1.0,
+				"target": "ally",
+				"per_level": {
+					"physical_damage": 3
+				}
+			}
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"blessing_of_spirit": {
+		"name": "Segen des Geistes",
+		"description": "Magieschaden +10 % (+3 % pro Stufe) und Mana-Regeneration +1/s für einen Verbündeten, 10 s.",
+		"icon": "res://assets/sprites/skills/blessing_of_spirit.png",
+		"cooldown": 12,
+		"mana": 3,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "spirit",
+				"chance": 1.0,
+				"target": "ally",
+				"per_level": {
+					"magic_damage": 3
+				}
+			}
+		],
+		"points": 2,
+		"tier": 0
+	},
+	"haste": {
+		"name": "Eile",
+		"description": "Angriffstempo +15 % (+3 % pro Stufe) für einen Verbündeten, 8 s.",
+		"icon": "res://assets/sprites/skills/haste.png",
+		"cooldown": 15,
+		"mana": 5,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "haste",
+				"chance": 1.0,
+				"target": "ally",
+				"per_level": {
+					"attack_speed": 3
+				}
+			}
+		],
+		"points": 4,
+		"tier": 1
+	},
+	"lasting_blessing": {
+		"name": "Langer Segen",
+		"description": "Buffs halten 10 % (+10 % pro Stufe) länger.",
+		"icon": "res://assets/sprites/skills/lasting_blessing.png",
+		"max_level": 5,
+		"passive": {
+			"buff_duration": [
+				10,
+				10
+			]
+		},
+		"points": 6,
+		"tier": 1
+	},
+	"divine_armor": {
+		"name": "Göttliche Rüstung",
+		"description": "Alle Verbündeten: Rüstung und Magieresistenz +30 %, 6 s (+0,5 s pro Stufe).",
+		"icon": "res://assets/sprites/skills/divine_armor.png",
+		"cooldown": 22,
+		"mana": 12,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "all_allies",
+		"effects": [
+			{
+				"effect": "bulwark",
+				"chance": 1.0,
+				"target": "all_allies",
+				"set": {
+					"duration": 6
+				},
+				"per_level": {
+					"duration": 0.5
+				}
+			}
+		],
+		"points": 10,
+		"tier": 2
+	},
+	"inspiration": {
+		"name": "Inspiration",
+		"description": "Alle Verbündeten: Abklingzeiten sofort −2 s, Mana +10 % (+2 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/inspiration.png",
+		"cooldown": 30,
+		"mana": 14,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "all_allies",
+		"allies_refresh": {
+			"cooldown": 2,
+			"mana_percent": [
+				10,
+				2
+			]
+		},
+		"points": 14,
+		"tier": 3
+	},
+	"divine_favor": {
+		"name": "Göttliche Gunst",
+		"description": "Alle Verbündeten 10 s: Schaden +25 % (+5 % pro Stufe), Angriffstempo +20 %, Krit +10 %.",
+		"icon": "res://assets/sprites/skills/divine_favor.png",
+		"cooldown": 45,
+		"mana": 20,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"target": "all_allies",
+		"effects": [
+			{
+				"effect": "divine_favor",
+				"chance": 1.0,
+				"target": "all_allies",
+				"per_level": {
+					"damage_bonus": 5
+				}
+			}
+		],
+		"points": 19,
+		"tier": 4,
+		"requires": "blessing_of_power"
+	},
+	"shadow_pain": {
+		"name": "Schattenwort: Schmerz",
+		"description": "Ein Wort aus den Schatten: kleiner Dunkelschaden, dann 8 s Schmerz (Dunkelschaden pro Sekunde, wächst mit Weisheit und dem Zauberschaden der Waffe; +8 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/shadow_pain.png",
+		"cooldown": 5,
+		"mana": 3,
+		"damage": 0.8,
+		"damage_per_level": 0.1,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"wis": 100, "int": 40},
+		"damage_split": {
+			"dark": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "shadow_pain",
+				"chance": 1.0,
+				"target": "enemy",
+				"per_level": {
+					"damage_from_magic": 8
+				}
+			}
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"soul_drain": {
+		"name": "Seelenentzug",
+		"description": "Zieht dem Gegner Lebenskraft aus der Seele (Dunkelschaden); alle Verbündeten heilen sich um 30 % des Schadens.",
+		"icon": "res://assets/sprites/skills/soul_drain.png",
+		"cooldown": 12,
+		"mana": 6,
+		"damage": 1.6,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"wis": 100, "int": 40},
+		"damage_split": {
+			"dark": 100
+		},
+		"target": "enemy",
+		"heal_allies_from_damage": 30,
+		"points": 4,
+		"tier": 1,
+		"requires": "shadow_pain"
+	},
+	"shadow_flood": {
+		"name": "Schattenflut",
+		"description": "Schatten überfluten alle Gegner: Dunkelschaden und 10 s starker Schmerz bei allen (+10 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/shadow_flood.png",
+		"cooldown": 40,
+		"mana": 20,
+		"damage": 1.8,
+		"damage_per_level": 0.25,
+		"max_level": 3,
+		"damage_kind": "magic",
+		"scaling": {"wis": 100, "int": 40},
+		"damage_split": {
+			"dark": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "shadow_pain",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"set": {
+					"duration": 10,
+					"damage_from_magic": 60
+				},
+				"per_level": {
+					"damage_from_magic": 10
+				}
+			}
+		],
+		"points": 19,
+		"tier": 4,
+		"requires": "shadow_pain"
+	},
+	"weaken": {
+		"name": "Schwächen",
+		"description": "Der Gegner macht 15 % (+3 % pro Stufe) weniger Schaden, 6 s.",
+		"icon": "res://assets/sprites/skills/weaken.png",
+		"cooldown": 12,
+		"mana": 4,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "weaken",
+				"chance": 1.0,
+				"target": "enemy",
+				"per_level": {
+					"damage_bonus": -3
+				}
+			}
+		],
+		"points": 2,
+		"tier": 0
+	},
+	"frost_shackle": {
+		"name": "Frostfessel",
+		"description": "Friert den Gegner 1,5 s (+0,3 s pro Stufe) ein.",
+		"icon": "res://assets/sprites/skills/frost_shackle.png",
+		"cooldown": 14,
+		"mana": 7,
+		"damage": 0.8,
+		"damage_per_level": 0.1,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": "wis",
+		"damage_split": {
+			"ice": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "frozen",
+				"chance": 1.0,
+				"target": "enemy",
+				"per_level": {
+					"duration": 0.3
+				}
+			}
+		],
+		"points": 4,
+		"tier": 1
+	},
+	"strict_faith": {
+		"name": "Finsterer Glaube",
+		"description": "Dunkelschaden +8 % (+8 % pro Stufe), Debuffs halten 8 % (+8 % pro Stufe) länger.",
+		"icon": "res://assets/sprites/skills/strict_faith.png",
+		"max_level": 5,
+		"passive": {
+			"damage_dark": [
+				8,
+				8
+			],
+			"debuff_duration": [
+				8,
+				8
+			]
+		},
+		"points": 6,
+		"tier": 1
+	},
+	"curse_of_vulnerability": {
+		"name": "Fluch der Verwundbarkeit",
+		"description": "Der Gegner erleidet 15 % (+3 % pro Stufe) mehr Schaden, 8 s.",
+		"icon": "res://assets/sprites/skills/curse_of_vulnerability.png",
+		"cooldown": 18,
+		"mana": 10,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "vulnerable",
+				"chance": 1.0,
+				"target": "enemy",
+				"per_level": {
+					"damage_taken": 3
+				}
+			}
+		],
+		"points": 10,
+		"tier": 2,
+		"requires": "weaken"
+	},
+	"ban_circle": {
+		"name": "Psychischer Schrei",
+		"description": "Ein Schrei aus den Schatten: alle Gegner verstummen 3 s (+0,5 s pro Stufe) und sind verlangsamt.",
+		"icon": "res://assets/sprites/skills/ban_circle.png",
+		"cooldown": 26,
+		"mana": 16,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "silence",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"per_level": {
+					"duration": 0.5
+				}
+			},
+			{
+				"effect": "slow",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"duration": 3
+			}
+		],
+		"points": 14,
+		"tier": 3,
+		"requires": "soul_drain"
+	},
+	"last_judgment": {
+		"name": "Strafgericht",
+		"description": "Licht straft alle Gegner, 2 s betäubt, doppelter Schaden gegen Dunkelheits-Gegner.",
+		"icon": "res://assets/sprites/skills/last_judgment.png",
+		"cooldown": 40,
+		"mana": 20,
+		"damage": 2.5,
+		"damage_per_level": 0.3,
+		"max_level": 3,
+		"damage_kind": "magic",
+		"scaling": "wis",
+		"damage_split": {
+			"light": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"duration": 2
+			}
+		],
+		"bonus_vs": "dark",
+		"bonus_vs_factor": 2.0,
+		"points": 19,
+		"tier": 4,
+		"requires": "holy_smite"
+	},
+	"fire_arrow": {
+		"name": "Feuerpfeil",
+		"description": "Ein brennender Pfeil mit 50 % (+10 % pro Stufe) Chance auf Brand.",
+		"icon": "res://assets/sprites/skills/fire_arrow.png",
+		"cooldown": 8,
+		"mana": 5,
+		"damage": 1.2,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "int": 40},
+		"damage_split": {
+			"stab": 50,
+			"fire": 50
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 0.5,
+				"target": "enemy",
+				"chance_per_level": 0.1
+			}
+		],
+		"requires_weapon": [
+			"bow",
+			"longbow"
+		],
+		"points": 4,
+		"tier": 1,
+		"requires": "rapid_shot"
+	},
+	"eagle_eye": {
+		"name": "Adlerauge",
+		"description": "Mit Bogen: Krit-Chance +3 % (+3 % pro Stufe), Krit-Schaden +5 % (+5 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/eagle_eye.png",
+		"max_level": 5,
+		"passive": {
+			"crit_chance": [
+				3,
+				3
+			],
+			"crit_damage": [
+				5,
+				5
+			]
+		},
+		"requires_weapon": [
+			"bow",
+			"longbow"
+		],
+		"points": 6,
+		"tier": 1
+	},
+	"piercing_shot": {
+		"name": "Durchschuss",
+		"description": "Durchschlägt alle Gegner (−30 % pro weiterem Gegner), ignoriert 20 % Rüstung.",
+		"icon": "res://assets/sprites/skills/piercing_shot.png",
+		"cooldown": 14,
+		"mana": 12,
+		"damage": 2.5,
+		"damage_per_level": 0.25,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "str": 40},
+		"damage_split": {
+			"stab": 100
+		},
+		"target": "enemy",
+		"chain": 99,
+		"chain_falloff": 30,
+		"armor_pen": 20,
+		"requires_weapon": [
+			"bow",
+			"longbow"
+		],
+		"points": 12,
+		"tier": 3,
+		"requires": "aimed_shot"
+	},
+	"storm_volley": {
+		"area_vfx": "area_arrows",
+		"name": "Sturmsalve",
+		"description": "6 Pfeile auf zufällige Gegner, je +30 % Krit-Chance.",
+		"icon": "res://assets/sprites/skills/storm_volley.png",
+		"cooldown": 30,
+		"mana": 20,
+		"damage": 0.9,
+		"damage_per_level": 0.1,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "int": 40},
+		"damage_split": {
+			"stab": 100
+		},
+		"target": "enemy",
+		"hits": 6,
+		"random_targets": true,
+		"crit_chance": 30,
+		"requires_weapon": [
+			"bow",
+			"longbow"
+		],
+		"points": 19,
+		"tier": 4,
+		"requires": "rain_of_arrows"
+	},
+	"gust": {
+		"name": "Windstoß",
+		"description": "Ein Windstoß, der den Gegner 1 s verlangsamt.",
+		"icon": "res://assets/sprites/skills/gust.png",
+		"cooldown": 5,
+		"mana": 2,
+		"damage": 1.0,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"agi": 70, "int": 70},
+		"base": "weapon",
+		"damage_split": {
+			"air": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "slow",
+				"chance": 1.0,
+				"target": "enemy",
+				"duration": 1
+			}
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"healing_herbs": {
+		"name": "Heilkräuter",
+		"description": "Heilt den schwächsten Verbündeten um 14 % (+6 % pro Stufe) und gibt 4 s Recovery.",
+		"icon": "res://assets/sprites/skills/healing_herbs.png",
+		"cooldown": 15,
+		"mana": 5,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "recovery",
+				"chance": 1.0,
+				"target": "ally",
+				"duration": 4
+			}
+		],
+		"heal": [
+			14,
+			6
+		],
+		"points": 2,
+		"tier": 0
+	},
+	"thorn_vines": {
+		"name": "Dornenranken",
+		"description": "Ranken verwurzeln den Gegner 3 s, 30 % Chance auf Blutung.",
+		"icon": "res://assets/sprites/skills/thorn_vines.png",
+		"cooldown": 10,
+		"mana": 6,
+		"damage": 1.2,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"agi": 60, "int": 80},
+		"base": "weapon",
+		"damage_split": {
+			"earth": 80,
+			"stab": 20
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "rooted",
+				"chance": 1.0,
+				"target": "enemy"
+			},
+			{
+				"effect": "bleed",
+				"chance": 0.3,
+				"target": "enemy"
+			}
+		],
+		"points": 4,
+		"tier": 1
+	},
+	"nature_harmony": {
+		"name": "Einklang mit der Natur",
+		"description": "Lebens- und Mana-Regeneration +0,3/s (+0,3 pro Stufe), Ausweichen +2 % (+2 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/nature_harmony.png",
+		"max_level": 5,
+		"passive": {
+			"health_regen_flat": [
+				0.3,
+				0.3
+			],
+			"mana_regen": [
+				0.3,
+				0.3
+			],
+			"evasion": [
+				2,
+				2
+			]
+		},
+		"points": 6,
+		"tier": 1
+	},
+	"stone_skin": {
+		"name": "Steinhaut",
+		"description": "Rüstung +30 % und Schutzschild aus 10 % (+3 % pro Stufe) des max. Lebens für den schwächsten Verbündeten, 6 s.",
+		"icon": "res://assets/sprites/skills/stone_skin.png",
+		"cooldown": 20,
+		"mana": 9,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "ally",
+		"effects": [
+			{
+				"effect": "fortify",
+				"chance": 1.0,
+				"target": "ally",
+				"set": {
+					"duration": 6
+				}
+			},
+			{
+				"effect": "stone_shield",
+				"chance": 1.0,
+				"target": "ally",
+				"per_level": {
+					"shield_percent": 4
+				}
+			}
+		],
+		"points": 10,
+		"tier": 2,
+		"requires": "thorn_vines"
+	},
+	"cyclone": {
+		"area_vfx": "area_storm",
+		"name": "Wirbelsturm",
+		"description": "Ein Sturm trifft alle Gegner; die Gruppe weicht 4 s um 10 % besser aus.",
+		"icon": "res://assets/sprites/skills/cyclone.png",
+		"cooldown": 20,
+		"mana": 16,
+		"damage": 1.7,
+		"damage_per_level": 0.2,
+		"max_level": 5,
+		"damage_kind": "magic",
+		"scaling": {"agi": 70, "int": 70},
+		"base": "weapon",
+		"damage_split": {
+			"air": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "tailwind",
+				"chance": 1.0,
+				"target": "all_allies"
+			}
+		],
+		"points": 14,
+		"tier": 3,
+		"requires": "gust"
+	},
+	"wrath_of_the_forest": {
+		"name": "Zorn des Waldes",
+		"description": "Der Wald schlägt zu: Schaden an allen Gegnern, 3 s verwurzelt; die Gruppe heilt sich um 10 % des Schadens.",
+		"icon": "res://assets/sprites/skills/wrath_of_the_forest.png",
+		"cooldown": 40,
+		"mana": 20,
+		"damage": 2.8,
+		"damage_per_level": 0.3,
+		"max_level": 3,
+		"damage_kind": "magic",
+		"scaling": {"agi": 60, "int": 80},
+		"base": "weapon",
+		"damage_split": {
+			"earth": 60,
+			"air": 40
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "rooted",
+				"chance": 1.0,
+				"target": "all_enemies"
+			}
+		],
+		"heal_allies_from_damage": 10,
+		"points": 19,
+		"tier": 4,
+		"requires": "cyclone"
+	},
+	"call_wolf_pup": {
+		"name": "Wolfsjunges rufen",
+		"description": "Ruft einen kleinen Wolf, der bis zu seinem Tod mitkämpft (einmal pro Dungeon). Er erbt 50 % der Werte, Biss mit 20 % Blutung.",
+		"icon": "res://assets/sprites/skills/call_wolf_pup.png",
+		"cooldown": 5,
+		"mana": 10,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 1,
+		"damage_kind": "physical",
+		"target": "self",
+		"summon": "wolf_pup",
+		"summon_share": [
+			50,
+			0
+		],
+		"summon_duration": 0,
+		"once_per_dungeon": true,
+		"summon_upgrades": [
+			{
+				"skill": "grown_wolf",
+				"summon": "wolf",
+				"share": 100
+			},
+			{
+				"skill": "giant_wolf",
+				"summon": "giant_wolf",
+				"share": 125
+			}
+		],
+		"points": 0,
+		"tier": 0
+	},
+	"pack_instinct": {
+		"name": "Rudelinstinkt",
+		"description": "Wolf: Schaden +8 % (+8 % pro Stufe), Leben +5 % (+5 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/pack_instinct.png",
+		"max_level": 5,
+		"passive": {
+			"pet_damage": [
+				8,
+				8
+			],
+			"pet_health": [
+				5,
+				5
+			]
+		},
+		"points": 0,
+		"tier": 0
+	},
+	"grown_wolf": {
+		"name": "Wolf",
+		"description": "Das Junge ist jetzt ein ausgewachsener Wolf: erbt 100 % der Werte.",
+		"icon": "res://assets/sprites/skills/grown_wolf.png",
+		"max_level": 1,
+		"passive": {},
+		"points": 4,
+		"tier": 1,
+		"requires": "call_wolf_pup"
+	},
+	"protect": {
+		"name": "Schützen",
+		"description": "10 % (+10 % pro Stufe) Chance: der Wolf wirft sich vor einen Angriff auf den Waldläufer und nimmt den ganzen Schaden.",
+		"icon": "res://assets/sprites/skills/protect.png",
+		"max_level": 5,
+		"passive": {
+			"pet_guard": [
+				10,
+				10
+			]
+		},
+		"points": 6,
+		"tier": 1,
+		"requires": "grown_wolf"
+	},
+	"sic_em": {
+		"name": "Fass!",
+		"description": "Der Wolf springt den Gegner an: 200 % (+25 % pro Stufe) seines Angriffs, Blutung.",
+		"icon": "res://assets/sprites/skills/sic_em.png",
+		"cooldown": 12,
+		"mana": 5,
+		"damage": 2.0,
+		"damage_per_level": 0.25,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "bleed",
+				"chance": 1.0,
+				"target": "enemy"
+			}
+		],
+		"pet_attack": true,
+		"points": 8,
+		"tier": 2,
+		"requires": "grown_wolf"
+	},
+	"giant_wolf": {
+		"name": "Riesenwolf",
+		"description": "Der Wolf wird zum Riesenwolf: erbt 125 % der Werte.",
+		"icon": "res://assets/sprites/skills/giant_wolf.png",
+		"max_level": 1,
+		"passive": {},
+		"points": 12,
+		"tier": 3,
+		"requires": "grown_wolf"
+	},
+	"howl": {
+		"name": "Heulen",
+		"description": "Alle Verbündeten: Stärke und Geschick +15 % (+3 % pro Stufe), 8 s; Gegner 2 s verlangsamt.",
+		"icon": "res://assets/sprites/skills/howl.png",
+		"cooldown": 25,
+		"mana": 10,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "all_allies",
+		"effects": [
+			{
+				"effect": "howl",
+				"chance": 1.0,
+				"target": "all_allies",
+				"per_level": {
+					"attributes": {
+						"str": 0.03,
+						"agi": 0.03
+					}
+				}
+			},
+			{
+				"effect": "slow",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"duration": 2
+			}
+		],
+		"points": 16,
+		"tier": 4
+	},
+	"wild_hunt": {
+		"name": "Wilde Jagd",
+		"description": "10 s: Waldläufer und Wolf greifen 50 % schneller an, Bisse und Schüsse treffen alle Gegner, 20 % Lebensraub.",
+		"icon": "res://assets/sprites/skills/wild_hunt.png",
+		"cooldown": 60,
+		"mana": 20,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "wild_hunt",
+				"chance": 1.0,
+				"target": "self"
+			}
+		],
+		"pet_effects": [
+			{
+				"effect": "wild_hunt",
+				"chance": 1.0,
+				"target": "self"
+			}
+		],
+		"points": 19,
+		"tier": 4,
+		"requires": "giant_wolf"
+	},
+	"double_stab": {
+		"anim": "thrust",
+		"vfx": "pierce",
+		"name": "Doppelstich",
+		"description": "Zwei Stiche à 75 % (+8 % pro Stufe), jeder kann kritisch treffen.",
+		"icon": "res://assets/sprites/skills/double_stab.png",
+		"cooldown": 6,
+		"mana": 2,
+		"damage": 0.75,
+		"damage_per_level": 0.08,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "str": 40},
+		"damage_split": {
+			"stab": 100
+		},
+		"target": "enemy",
+		"hits": 2,
+		"points": 2,
+		"tier": 0,
+		"requires": "quick_stab"
+	},
+	"ambidextrous": {
+		"name": "Beidhändig",
+		"description": "Die Waffe in der linken Hand trifft härter: +20 % Schaden (+20 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/ambidextrous.png",
+		"max_level": 5,
+		"passive": {
+			"offhand": [
+				20,
+				20
+			]
+		},
+		"points": 6,
+		"tier": 1,
+		"requires": "double_stab"
+	},
+	"sword_art": {
+		"name": "Schwertkunst",
+		"description": "Erlaubt ein Schwert in der rechten Hand.",
+		"icon": "res://assets/sprites/skills/sword_art.png",
+		"max_level": 1,
+		"passive": {},
+		"unlock_weapons": {
+			"right_hand": [
+				"sword"
+			]
+		},
+		"points": 10,
+		"tier": 2
+	},
+	"twin_swords": {
+		"name": "Zwei Schwerter",
+		"description": "Erlaubt auch in der linken Hand ein Schwert (braucht Beidhändig).",
+		"icon": "res://assets/sprites/skills/twin_swords.png",
+		"max_level": 1,
+		"passive": {},
+		"unlock_weapons": {
+			"left_hand": [
+				"sword"
+			]
+		},
+		"requires_also": "ambidextrous",
+		"points": 14,
+		"tier": 3,
+		"requires": "sword_art"
+	},
+	"thousand_cuts": {
+		"anim": "thrust",
+		"vfx": "pierce",
+		"name": "Tausend Schnitte",
+		"description": "8 Treffer à 50 % (+6 % pro Stufe), jeder mit 15 % Chance auf Blutung.",
+		"icon": "res://assets/sprites/skills/thousand_cuts.png",
+		"cooldown": 30,
+		"mana": 20,
+		"damage": 0.5,
+		"damage_per_level": 0.06,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "str": 40},
+		"damage_split": {
+			"slash": 50,
+			"stab": 50
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "bleed",
+				"chance": 0.15,
+				"target": "enemy"
+			}
+		],
+		"hits": 8,
+		"points": 19,
+		"tier": 4,
+		"requires": "backstab"
+	},
+	"nimble": {
+		"name": "Flink",
+		"description": "Ausweichen +2 % (+2 % pro Stufe).",
+		"icon": "res://assets/sprites/skills/nimble.png",
+		"max_level": 5,
+		"passive": {
+			"evasion": [
+				2,
+				2
+			]
+		},
+		"points": 0,
+		"tier": 0
+	},
+	"veil": {
+		"name": "Verschleiern",
+		"description": "5 s (+1 s pro Stufe) nicht angreifbar, außer durch Flächenangriffe.",
+		"icon": "res://assets/sprites/skills/veil.png",
+		"cooldown": 25,
+		"mana": 8,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"target": "self",
+		"effects": [
+			{
+				"effect": "stealth",
+				"chance": 1.0,
+				"target": "self",
+				"per_level": {
+					"duration": 1
+				}
+			}
+		],
+		"points": 4,
+		"tier": 1
+	},
+	"from_the_shadows": {
+		"name": "Aus dem Schatten",
+		"description": "Angriffe während Verschleiern: +20 % (+5 % pro Stufe) Schaden.",
+		"icon": "res://assets/sprites/skills/from_the_shadows.png",
+		"max_level": 5,
+		"passive": {
+			"stealth_damage": [
+				20,
+				5
+			]
+		},
+		"points": 6,
+		"tier": 1,
+		"requires": "veil"
+	},
+	"corrosive_poisons": {
+		"name": "Ätzende Gifte",
+		"description": "Giftschaden +10 % (+10 % pro Stufe), dazu +0,5 % pro Punkt Intelligenz.",
+		"icon": "res://assets/sprites/skills/corrosive_poisons.png",
+		"max_level": 5,
+		"passive": {
+			"damage_poison": [
+				10,
+				10
+			]
+		},
+		"passive_scaling": {
+			"damage_poison": {
+				"int": 0.5
+			}
+		},
+		"points": 2,
+		"tier": 0
+	},
+	"poison_bomb": {
+		"anim": "cast",
+		"vfx": "bolt",
+		"name": "Giftbombe",
+		"description": "Eine Bombe: Giftschaden und 2 Stapel Gift an allen Gegnern.",
+		"icon": "res://assets/sprites/skills/poison_bomb.png",
+		"cooldown": 14,
+		"mana": 8,
+		"damage": 0.9,
+		"damage_per_level": 0.12,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "int": 40},
+		"damage_split": {
+			"poison": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "poison",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"stacks": 2
+			}
+		],
+		"points": 4,
+		"tier": 1
+	},
+	"crippling_poison": {
+		"name": "Lähmgift",
+		"description": "Vergiftet und lähmt: 1 Stapel Gift, 4 s 50 % langsamer.",
+		"icon": "res://assets/sprites/skills/crippling_poison.png",
+		"cooldown": 12,
+		"mana": 5,
+		"damage": 1.0,
+		"damage_per_level": 0.12,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "int": 40},
+		"damage_split": {
+			"poison": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "poison",
+				"chance": 1.0,
+				"target": "enemy"
+			},
+			{
+				"effect": "cripple",
+				"chance": 1.0,
+				"target": "enemy"
+			}
+		],
+		"points": 6,
+		"tier": 1,
+		"requires": "poisoned_blade"
+	},
+	"virulence": {
+		"name": "Virulenz",
+		"description": "Vergiftete Gegner erleiden 4 % (+4 % pro Stufe) mehr Schaden vom Schurken.",
+		"icon": "res://assets/sprites/skills/virulence.png",
+		"max_level": 5,
+		"passive": {
+			"poisoned_target_damage": [
+				4,
+				4
+			]
+		},
+		"points": 10,
+		"tier": 2
+	},
+	"toxic_burst": {
+		"anim": "cast",
+		"vfx": "impact",
+		"name": "Toxischer Ausbruch",
+		"description": "Löst das Gift aller Gegner aus: pro Stapel sofort 40 % (+5 % pro Stufe) Schaden.",
+		"icon": "res://assets/sprites/skills/toxic_burst.png",
+		"cooldown": 22,
+		"mana": 14,
+		"damage": 0.4,
+		"damage_per_level": 0.05,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": {"agi": 100, "int": 40},
+		"damage_split": {
+			"poison": 100
+		},
+		"target": "all_enemies",
+		"detonate": "poison",
+		"points": 14,
+		"tier": 3,
+		"requires": "poison_bomb"
+	},
+	"plague": {
+		"name": "Seuche",
+		"description": "Alle Gegner: 5 Stapel Gift für 10 s; stirbt ein Vergifteter, springt sein Gift auf einen anderen Gegner über.",
+		"icon": "res://assets/sprites/skills/plague.png",
+		"cooldown": 40,
+		"mana": 20,
+		"damage": 0.0,
+		"damage_per_level": 0.0,
+		"max_level": 3,
+		"damage_kind": "physical",
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "poison",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"stacks": 5,
+				"duration": 10
+			},
+			{
+				"effect": "plague",
+				"chance": 1.0,
+				"target": "all_enemies"
+			}
+		],
+		"points": 19,
+		"tier": 4,
+		"requires": "toxic_burst"
+	},
+	"monster_shield_bash": {
+		"anim": "lunge",
+		"vfx": "impact",
+		"requires_weapon": [
+			"shield"
+		],
+		"name": "Schildstoß",
+		"description": "Ein Stoß mit dem Schild, der kurz betäuben kann.",
+		"icon": "res://assets/sprites/skills/shield_bash.png",
+		"cooldown": 8,
+		"mana": 3,
+		"damage": 1.1,
+		"damage_per_level": 0.15,
+		"max_level": 5,
+		"damage_kind": "physical",
+		"scaling": "con",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 0.3,
+				"target": "enemy"
+			}
+		]
+	},
+	"elemental_taunt": {
+		"name": "Eisige Herausforderung",
+		"description": "Zieht alle Angriffe auf sich.",
+		"icon": "res://assets/sprites/skills/elemental_taunt.png",
+		"cooldown": 8,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"effects": [
+			{
+				"effect": "taunt",
+				"chance": 1.0,
+				"target": "self",
+				"duration": 4
+			}
+		]
+	},
+	"golem_stomp": {
+		"anim": "slam",
+		"vfx": "impact",
+		"name": "Stampfer",
+		"description": "Stampft auf: Schaden an allen Gegnern.",
+		"icon": "res://assets/sprites/skills/golem_stomp.png",
+		"cooldown": 6,
+		"mana": 0,
+		"damage": 1.2,
+		"damage_kind": "physical",
+		"damage_split": {
+			"blunt": 50,
+			"earth": 50
+		},
+		"target": "all_enemies"
+	},
+	"lord_meteor": {
+		"area_vfx": "area_meteor",
+		"name": "Kleiner Meteor",
+		"description": "Ein kleiner Meteor auf alle Gegner.",
+		"icon": "res://assets/sprites/skills/lord_meteor.png",
+		"cooldown": 10,
+		"mana": 0,
+		"damage": 2.0,
+		"damage_kind": "magic",
+		"damage_split": {
+			"fire": 70,
+			"earth": 30
+		},
+		"target": "all_enemies"
+	},
+	"bone_slash": {
+		"name": "Knochenhieb",
+		"description": "Ein rostiger Hieb, der bluten lässt.",
+		"icon": "res://assets/sprites/skills/deep_cut.png",
+		"cooldown": 7,
+		"mana": 0,
+		"damage": 1.4,
+		"damage_kind": "physical",
+		"damage_type": "slash",
+		"effects": [
+			{
+				"effect": "bleed",
+				"chance": 0.35,
+				"target": "enemy"
+			}
+		]
+	},
+	"wraith_wail": {
+		"area_vfx": "area_shadow",
+		"name": "Klagegeheul",
+		"description": "Ein Schrei aus dem Grab: Dunkelschaden an allen Gegnern, sie werden geschwächt.",
+		"icon": "res://assets/sprites/skills/wraith_wail.png",
+		"cooldown": 14,
+		"mana": 10,
+		"damage": 0.9,
+		"damage_kind": "magic",
+		"damage_split": {
+			"dark": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "weaken",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"duration": 5
+			}
+		]
+	},
+	"morwald_cleave": {
+		"anim": "slam",
+		"vfx": "hit_great",
+		"name": "Gruftklinge",
+		"description": "Morwalds schwerer Schlag: Schnitt und Dunkelheit, bricht die Rüstung.",
+		"icon": "res://assets/sprites/skills/morwald_cleave.png",
+		"cooldown": 8,
+		"mana": 0,
+		"damage": 1.8,
+		"damage_kind": "physical",
+		"damage_split": {
+			"slash": 60,
+			"dark": 40
+		},
+		"effects": [
+			{
+				"effect": "armor_break",
+				"chance": 0.6,
+				"target": "enemy"
+			}
+		]
+	},
+	"raise_skeleton": {
+		"anim": "cast",
+		"name": "Gebeine erwecken",
+		"description": "Ruft einen verfluchten Skelettkrieger aus dem Boden.",
+		"icon": "res://assets/sprites/skills/raise_skeleton.png",
+		"cooldown": 16,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"summon_enemies": [
+			"cursed_skeleton"
+		],
+		"summon_count": 1,
+		"summon_max": 2
+	},
+	"lava_bite": {
+		"name": "Lavabiss",
+		"description": "Ein glühender Biss: Stich und Feuer, kann Brand auslösen.",
+		"icon": "res://assets/sprites/skills/fire_slash.png",
+		"cooldown": 5,
+		"mana": 0,
+		"damage": 1.3,
+		"damage_kind": "physical",
+		"damage_split": {
+			"stab": 50,
+			"fire": 50
+		},
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 0.4,
+				"target": "enemy"
+			}
+		]
+	},
+	"magma_fist": {
+		"anim": "slam",
+		"vfx": "hit_hammer",
+		"name": "Magmafaust",
+		"description": "Ein Schlag mit glühender Faust: Stumpf und Feuer, kann betäuben.",
+		"icon": "res://assets/sprites/skills/magma_fist.png",
+		"cooldown": 9,
+		"mana": 0,
+		"damage": 1.7,
+		"damage_kind": "physical",
+		"damage_split": {
+			"blunt": 50,
+			"fire": 50
+		},
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 0.3,
+				"target": "enemy",
+				"duration": 1
+			}
+		]
+	},
+	"ember_rain": {
+		"area_vfx": "area_meteor",
+		"anim": "cast",
+		"name": "Glutregen",
+		"description": "Glühende Funken regnen auf alle Gegner, Brand möglich.",
+		"icon": "res://assets/sprites/skills/meteor.png",
+		"cooldown": 15,
+		"mana": 12,
+		"damage": 1.0,
+		"damage_kind": "magic",
+		"damage_split": {
+			"fire": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 0.5,
+				"target": "all_enemies"
+			}
+		]
+	},
+	"salamander_call": {
+		"anim": "cast",
+		"name": "Brut rufen",
+		"description": "Ruft einen Feuersalamander herbei.",
+		"icon": "res://assets/sprites/skills/salamander_call.png",
+		"cooldown": 18,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"summon_enemies": [
+			"fire_salamander"
+		],
+		"summon_count": 1,
+		"summon_max": 2
+	},
+	"lava_eruption": {
+		"area_vfx": "area_quake",
+		"anim": "slam",
+		"vfx": "impact",
+		"name": "Lava-Ausbruch",
+		"description": "Der Boden bricht auf: Feuerschaden an allen - auch am Lavagolem selbst, den das Feuer heilt.",
+		"icon": "res://assets/sprites/skills/meteor.png",
+		"cooldown": 13,
+		"mana": 0,
+		"damage": 1.6,
+		"damage_kind": "magic",
+		"damage_split": {
+			"fire": 100
+		},
+		"target": "all_enemies",
+		"hits_self": true,
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 0.6,
+				"target": "all_enemies"
+			}
+		]
+	},
+	"dragon_claw": {
+		"anim": "swing",
+		"vfx": "slash",
+		"name": "Drachenklaue",
+		"description": "Ein Hieb mit den Krallen: Schnitt und Feuer.",
+		"icon": "res://assets/sprites/skills/fire_slash.png",
+		"cooldown": 5,
+		"mana": 0,
+		"damage": 1.4,
+		"damage_kind": "physical",
+		"damage_split": {
+			"slash": 60,
+			"fire": 40
+		},
+		"effects": [
+			{
+				"effect": "bleed",
+				"chance": 0.3,
+				"target": "enemy"
+			}
+		]
+	},
+	"dragon_breath": {
+		"area_vfx": "none",
+		"anim": "cast",
+		"name": "Feueratem",
+		"description": "Ein Feuerstrahl über alle Gegner, setzt sie in Brand.",
+		"icon": "res://assets/sprites/skills/fireball.png",
+		"cooldown": 12,
+		"mana": 0,
+		"damage": 1.2,
+		"damage_kind": "magic",
+		"damage_split": {
+			"fire": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"stacks": 2
+			}
+		]
+	},
+	"dragon_tail": {
+		"area_vfx": "area_quake",
+		"anim": "slam",
+		"vfx": "hit_axe",
+		"name": "Schwanzhieb",
+		"description": "Der Schwanz fegt über alle Gegner und betäubt sie kurz.",
+		"icon": "res://assets/sprites/skills/dragon_tail.png",
+		"cooldown": 16,
+		"mana": 0,
+		"damage": 1.0,
+		"damage_kind": "physical",
+		"damage_split": {
+			"blunt": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 0.6,
+				"target": "all_enemies",
+				"duration": 1
+			}
+		]
+	},
+	"dragon_inferno": {
+		"anim": "cast",
+		"name": "Inferno",
+		"description": "Der Drache speit ein Flammenmeer: riesiger Feuerschaden an allen Gegnern.",
+		"icon": "res://assets/sprites/skills/meteor.png",
+		"cooldown": 22,
+		"mana": 0,
+		"damage": 2.6,
+		"damage_kind": "magic",
+		"damage_split": {
+			"fire": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "burn",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"stacks": 3
+			}
+		]
+	},
+	"dragon_summon": {
+		"anim": "cast",
+		"name": "Kinder der Glut",
+		"description": "Der Drache ruft Feuerelementare aus der Lava.",
+		"icon": "res://assets/sprites/skills/dragon_summon.png",
+		"cooldown": 25,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"summon_enemies": [
+			"ember_spirit"
+		],
+		"summon_count": 1,
+		"summon_max": 1
+	},
+	"dragon_summon_rage": {
+		"anim": "cast",
+		"name": "Kinder der Glut",
+		"description": "Der Drache ruft zwei Feuerelementare aus der Lava.",
+		"icon": "res://assets/sprites/skills/dragon_summon_rage.png",
+		"cooldown": 22,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"summon_enemies": [
+			"ember_spirit"
+		],
+		"summon_count": 2,
+		"summon_max": 2
+	},
+	"dragon_fury": {
+		"anim": "cast",
+		"name": "Drachenzorn",
+		"description": "Der Drache brüllt: mehr Schaden für eine Weile.",
+		"icon": "res://assets/sprites/skills/dragon_fury.png",
+		"cooldown": 30,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"effects": [
+			{
+				"effect": "rage",
+				"chance": 1.0,
+				"target": "self",
+				"duration": 12,
+				"set": {
+					"damage_bonus": 25
+				}
+			}
+		]
+	},
+	"talon_rake": {
+		"name": "Krallenhieb",
+		"description": "Reißt mit den Krallen: Schnitt, lässt oft bluten.",
+		"icon": "res://assets/sprites/skills/deep_cut.png",
+		"cooldown": 7,
+		"mana": 0,
+		"damage": 1.3,
+		"damage_kind": "physical",
+		"damage_split": {"slash": 100},
+		"target": "enemy",
+		"effects": [{"effect": "bleed", "chance": 0.4, "target": "enemy"}]
+	},
+	"storm_gust": {
+		"area_vfx": "area_storm",
+		"anim": "cast",
+		"name": "Sturmböe",
+		"description": "Eine Böe fegt über alle Gegner: Luftschaden, verlangsamt 3 s.",
+		"icon": "res://assets/sprites/skills/storm_gust.png",
+		"cooldown": 14,
+		"mana": 10,
+		"damage": 0.8,
+		"damage_kind": "magic",
+		"damage_split": {"air": 100},
+		"target": "all_enemies",
+		"effects": [{"effect": "slow", "chance": 0.6, "target": "all_enemies", "duration": 3}]
+	},
+	"harpy_shriek": {
+		"area_vfx": "area_shriek",
+		"anim": "cast",
+		"name": "Harpyienschrei",
+		"description": "Ein schriller Schrei: Luftschaden an allen Gegnern, sie werden geschwächt.",
+		"icon": "res://assets/sprites/skills/harpy_shriek.png",
+		"cooldown": 16,
+		"mana": 8,
+		"damage": 0.7,
+		"damage_kind": "magic",
+		"damage_split": {"air": 100},
+		"target": "all_enemies",
+		"effects": [{"effect": "weaken", "chance": 0.7, "target": "all_enemies", "duration": 4}]
+	},
+	"harpy_call": {
+		"anim": "cast",
+		"name": "Schwarm rufen",
+		"description": "Ruft eine Harpyie vom Felsen herab.",
+		"icon": "res://assets/sprites/skills/harpy_call.png",
+		"cooldown": 20,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"summon_enemies": ["harpy"],
+		"summon_count": 1,
+		"summon_max": 2
+	},
+	"griffin_dive": {
+		"anim": "slam",
+		"vfx": "hit_axe",
+		"name": "Sturzflug",
+		"description": "Stürzt aus der Höhe auf ein Ziel: riesiger Schaden, betäubt oft.",
+		"icon": "res://assets/sprites/skills/griffin_dive.png",
+		"cooldown": 12,
+		"mana": 0,
+		"damage": 2.2,
+		"damage_kind": "physical",
+		"damage_split": {"stab": 60, "air": 40},
+		"target": "enemy",
+		"effects": [{"effect": "stun", "chance": 0.5, "target": "enemy", "duration": 1.5}]
+	},
+	"storm_wings": {
+		"area_vfx": "area_storm",
+		"anim": "cast",
+		"name": "Sturmschwingen",
+		"description": "Ein Schlag der riesigen Flügel: Sturm über allen Gegnern, wirft sie kurz um.",
+		"icon": "res://assets/sprites/skills/storm_wings.png",
+		"cooldown": 18,
+		"mana": 0,
+		"damage": 1.1,
+		"damage_kind": "magic",
+		"damage_split": {"air": 100},
+		"target": "all_enemies",
+		"effects": [{"effect": "stun", "chance": 0.35, "target": "all_enemies", "duration": 1}]
+	},
+	"griffin_screech": {
+		"area_vfx": "area_shriek",
+		"anim": "cast",
+		"name": "Greifenschrei",
+		"description": "Der Greif schreit: schneller und stärker für eine Weile.",
+		"icon": "res://assets/sprites/skills/griffin_screech.png",
+		"cooldown": 30,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"effects": [
+			{"effect": "haste", "chance": 1.0, "target": "self", "duration": 12},
+			{"effect": "rage", "chance": 1.0, "target": "self", "duration": 12, "set": {"damage_bonus": 20}}
+		]
+	},
+	"crab_pinch": {
+		"anim": "thrust",
+		"name": "Scherenzwick",
+		"description": "Packt mit der Schere zu: stumpfer Schaden, betäubt manchmal kurz.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 9,
+		"mana": 0,
+		"damage": 1.4,
+		"damage_kind": "physical",
+		"damage_split": {
+			"blunt": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 0.25,
+				"target": "enemy",
+				"duration": 1
+			}
+		]
+	},
+	"water_jet": {
+		"anim": "cast",
+		"name": "Wasserstrahl",
+		"description": "Ein harter Strahl Meerwasser: Wasserschaden.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 7,
+		"mana": 6,
+		"damage": 1.4,
+		"damage_kind": "magic",
+		"damage_split": {
+			"water": 100
+		},
+		"target": "enemy"
+	},
+	"tidal_wave": {
+		"anim": "cast",
+		"name": "Flutwelle",
+		"description": "Eine Welle rollt über alle Gegner: Wasserschaden, verlangsamt 3 s.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 16,
+		"mana": 12,
+		"damage": 0.8,
+		"damage_kind": "magic",
+		"damage_split": {
+			"water": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "slow",
+				"chance": 0.5,
+				"target": "all_enemies",
+				"duration": 3
+			}
+		]
+	},
+	"kraken_grip": {
+		"anim": "slam",
+		"name": "Krakengriff",
+		"description": "Fangarme packen zu: stumpfer Schaden, hält das Ziel 1,5 s fest.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 12,
+		"mana": 0,
+		"damage": 1.3,
+		"damage_kind": "physical",
+		"damage_split": {
+			"blunt": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "stun",
+				"chance": 0.5,
+				"target": "enemy",
+				"duration": 1.5
+			}
+		]
+	},
+	"frost_bite": {
+		"anim": "lunge",
+		"name": "Eisbiss",
+		"description": "Ein Biss mit Zähnen aus Eis: Stich- und Eisschaden, verlangsamt oft.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 8,
+		"mana": 0,
+		"damage": 1.5,
+		"damage_kind": "physical",
+		"damage_split": {
+			"stab": 50,
+			"ice": 50
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "slow",
+				"chance": 0.4,
+				"target": "enemy",
+				"duration": 3
+			}
+		]
+	},
+	"frost_mane_roar": {
+		"anim": "cast",
+		"name": "Frostgebrüll",
+		"description": "Ein Brüllen, das die Luft gefrieren lässt: Eisschaden an allen Gegnern, verlangsamt 4 s.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 18,
+		"mana": 20,
+		"damage": 0.9,
+		"damage_kind": "magic",
+		"damage_split": {
+			"ice": 100
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "slow",
+				"chance": 1.0,
+				"target": "all_enemies",
+				"duration": 4
+			}
+		]
+	},
+	"wisp_veil": {
+		"anim": "cast",
+		"name": "Nebelschleier",
+		"description": "Das Irrlicht verschwindet im Nebel: 5 s nur durch Flächenangriffe zu treffen.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 12,
+		"mana": 6,
+		"damage": 0,
+		"target": "self",
+		"effects": [
+			{
+				"effect": "stealth",
+				"chance": 1.0,
+				"target": "self",
+				"duration": 5
+			}
+		]
+	},
+	"wisp_flare": {
+		"anim": "cast",
+		"name": "Irrlichtfunke",
+		"description": "Ein grünes Licht brennt in den Augen: magischer Schaden, schwächt.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 7,
+		"mana": 6,
+		"damage": 1.4,
+		"damage_kind": "magic",
+		"damage_split": {
+			"magic": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "weaken",
+				"chance": 0.35,
+				"target": "enemy",
+				"duration": 4
+			}
+		]
+	},
+	"wisp_call": {
+		"anim": "cast",
+		"name": "Lichter rufen",
+		"description": "Ruft ein Irrlicht aus dem Nebel.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 18,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"summon_enemies": [
+			"will_o_wisp"
+		],
+		"summon_count": 1,
+		"summon_max": 3
+	},
+	"leech_bite": {
+		"anim": "lunge",
+		"name": "Saugbiss",
+		"description": "Beißt sich fest und trinkt: heilt um einen Teil des Schadens.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 9,
+		"mana": 0,
+		"damage": 1.3,
+		"damage_kind": "physical",
+		"damage_split": {
+			"stab": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "lifesteal",
+				"chance": 1.0,
+				"target": "self"
+			}
+		]
+	},
+	"corpse_call": {
+		"anim": "cast",
+		"name": "Aus dem Moor",
+		"description": "Eine Moorleiche steigt aus dem Schlamm.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 18,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"summon_enemies": [
+			"bog_corpse"
+		],
+		"summon_count": 1,
+		"summon_max": 2
+	},
+	"hydra_bite": {
+		"anim": "lunge",
+		"name": "Hydrabiss",
+		"description": "Mehrere Köpfe beißen zugleich: Stich- und Giftschaden an allen Gegnern.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 10,
+		"mana": 0,
+		"damage": 0.9,
+		"damage_kind": "physical",
+		"damage_split": {
+			"stab": 60,
+			"poison": 40
+		},
+		"target": "all_enemies",
+		"effects": [
+			{
+				"effect": "poison",
+				"chance": 0.4,
+				"target": "all_enemies"
+			}
+		]
+	},
+	"hydra_spit": {
+		"anim": "cast",
+		"name": "Säurespeichel",
+		"description": "Ätzender Speichel: Giftschaden, bricht die Rüstung.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 12,
+		"mana": 10,
+		"damage": 1.6,
+		"damage_kind": "magic",
+		"damage_split": {
+			"poison": 100
+		},
+		"target": "enemy",
+		"effects": [
+			{
+				"effect": "armor_break",
+				"chance": 0.7,
+				"target": "enemy",
+				"duration": 6
+			}
+		]
+	},
+	"ghost_call": {
+		"anim": "cast",
+		"name": "Geisterruf",
+		"description": "Ruft drei Sumpfgeister aus dem Nebel, sobald keiner mehr da ist.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 10,
+		"mana": 0,
+		"damage": 0,
+		"target": "self",
+		"summon_enemies": [
+			"swamp_ghost"
+		],
+		"summon_count": 3,
+		"summon_max": 1
+	},
+	"ghost_mend": {
+		"anim": "cast",
+		"name": "Nebelheilung",
+		"description": "Nur verhüllt: heilt einen zufälligen Verbündeten oder sich selbst um 10 %.",
+		"icon": "res://assets/sprites/skills/default.png",
+		"cooldown": 4,
+		"mana": 10,
+		"damage": 0,
+		"target": "ally",
+		"heal": [
+			10,
+			0
+		],
+		"random_ally": true,
+		"requires_effect": "shrouded"
+	}
+}

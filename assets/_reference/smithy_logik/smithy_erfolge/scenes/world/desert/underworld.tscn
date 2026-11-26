@@ -1,0 +1,660 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/underworld_ground.png" id="ground"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="hud"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="door"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/dungeon_board.tscn" id="board"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/underworld_mask.png" id="mask"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="walls"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_bone.tscn" id="lamp"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/corpse_tower.png" id="t_underworld_corpse_tower"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/lich_echo.png" id="t_underworld_lich_echo"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/under_tent_0.png" id="t_underworld_under_tent_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/under_tent_1.png" id="t_underworld_under_tent_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/under_tent_2.png" id="t_underworld_under_tent_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/under_tent_3.png" id="t_underworld_under_tent_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/skeleton_miner.png" id="t_underworld_skeleton_miner"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="anim"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_23.png" id="t_underworld_p_under_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_0.png" id="t_underworld_p_under_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_5.png" id="t_underworld_p_under_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_2.png" id="t_underworld_p_under_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_3.png" id="t_underworld_p_under_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_1.png" id="t_underworld_p_under_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_8.png" id="t_underworld_p_under_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_13.png" id="t_underworld_p_under_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_9.png" id="t_underworld_p_under_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_4.png" id="t_underworld_p_under_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_14.png" id="t_underworld_p_under_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_15.png" id="t_underworld_p_under_15"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_10.png" id="t_underworld_p_under_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/underworld/p_under_20.png" id="t_underworld_p_under_20"]
+
+[sub_resource type="RectangleShape2D" id="r117x40"]
+size = Vector2(117, 40)
+
+[sub_resource type="RectangleShape2D" id="r60x10"]
+size = Vector2(60, 10)
+
+[sub_resource type="RectangleShape2D" id="r14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="r24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="r18x6"]
+size = Vector2(18, 6)
+
+[node name="Underworld" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Tint" type="CanvasModulate" parent="."]
+script = ExtResource("tint")
+color = Color(0.72, 0.78, 0.76, 1)
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-512, -450)
+texture = ExtResource("ground")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-512, -450)
+script = ExtResource("walls")
+mask = ExtResource("mask")
+
+[node name="P1" type="StaticBody2D" parent="."]
+position = Vector2(40, -90)
+
+[node name="Sprite2D" type="Sprite2D" parent="P1"]
+texture = ExtResource("t_underworld_corpse_tower")
+offset = Vector2(0, -97)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P1"]
+position = Vector2(0, -3)
+shape = SubResource("r117x40")
+
+[node name="P2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(40, -196)
+texture = ExtResource("t_underworld_lich_echo")
+offset = Vector2(0, -25)
+
+[node name="P3" type="StaticBody2D" parent="."]
+position = Vector2(-420, 410)
+
+[node name="Sprite2D" type="Sprite2D" parent="P3"]
+texture = ExtResource("t_underworld_under_tent_0")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P3"]
+position = Vector2(0, -3)
+shape = SubResource("r60x10")
+
+[node name="P4" type="StaticBody2D" parent="."]
+position = Vector2(-210, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="P4"]
+texture = ExtResource("t_underworld_under_tent_1")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P4"]
+position = Vector2(0, -3)
+shape = SubResource("r60x10")
+
+[node name="P5" type="StaticBody2D" parent="."]
+position = Vector2(-10, 420)
+
+[node name="Sprite2D" type="Sprite2D" parent="P5"]
+texture = ExtResource("t_underworld_under_tent_2")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P5"]
+position = Vector2(0, -3)
+shape = SubResource("r60x10")
+
+[node name="P6" type="StaticBody2D" parent="."]
+position = Vector2(190, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="P6"]
+texture = ExtResource("t_underworld_under_tent_3")
+offset = Vector2(0, -39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P6"]
+position = Vector2(0, -3)
+shape = SubResource("r60x10")
+
+[node name="P7" type="StaticBody2D" parent="."]
+position = Vector2(400, 410)
+
+[node name="Sprite2D" type="Sprite2D" parent="P7"]
+texture = ExtResource("t_underworld_under_tent_0")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P7"]
+position = Vector2(0, -3)
+shape = SubResource("r60x10")
+
+[node name="P8" type="StaticBody2D" parent="."]
+position = Vector2(250, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="P8"]
+texture = ExtResource("t_underworld_under_tent_1")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P8"]
+position = Vector2(0, -3)
+shape = SubResource("r60x10")
+
+[node name="P9" type="StaticBody2D" parent="."]
+position = Vector2(420, 70)
+
+[node name="Sprite2D" type="Sprite2D" parent="P9"]
+texture = ExtResource("t_underworld_under_tent_2")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P9"]
+position = Vector2(0, -3)
+shape = SubResource("r60x10")
+
+[node name="P10" type="StaticBody2D" parent="."]
+position = Vector2(340, -120)
+
+[node name="Sprite2D" type="Sprite2D" parent="P10"]
+texture = ExtResource("t_underworld_under_tent_3")
+offset = Vector2(0, -39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P10"]
+position = Vector2(0, -3)
+shape = SubResource("r60x10")
+
+[node name="P11" type="StaticBody2D" parent="."]
+position = Vector2(-460, -240)
+
+[node name="Sprite2D" type="Sprite2D" parent="P11"]
+texture = ExtResource("t_underworld_skeleton_miner")
+offset = Vector2(0, -24)
+hframes = 8
+script = ExtResource("anim")
+frames_per_second = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P11"]
+position = Vector2(0, -3)
+shape = SubResource("r14x6")
+
+[node name="P12" type="StaticBody2D" parent="."]
+position = Vector2(-430, -246)
+
+[node name="Sprite2D" type="Sprite2D" parent="P12"]
+texture = ExtResource("t_underworld_p_under_23")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P12"]
+position = Vector2(0, -3)
+shape = SubResource("r24x6")
+
+[node name="P13" type="StaticBody2D" parent="."]
+position = Vector2(-450, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="P13"]
+texture = ExtResource("t_underworld_skeleton_miner")
+offset = Vector2(0, -24)
+hframes = 8
+script = ExtResource("anim")
+frames_per_second = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P13"]
+position = Vector2(0, -3)
+shape = SubResource("r14x6")
+
+[node name="P14" type="StaticBody2D" parent="."]
+position = Vector2(-420, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="P14"]
+texture = ExtResource("t_underworld_p_under_23")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P14"]
+position = Vector2(0, -3)
+shape = SubResource("r24x6")
+
+[node name="P15" type="StaticBody2D" parent="."]
+position = Vector2(-420, -340)
+
+[node name="Sprite2D" type="Sprite2D" parent="P15"]
+texture = ExtResource("t_underworld_skeleton_miner")
+offset = Vector2(0, -24)
+hframes = 8
+script = ExtResource("anim")
+frames_per_second = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P15"]
+position = Vector2(0, -3)
+shape = SubResource("r14x6")
+
+[node name="P16" type="StaticBody2D" parent="."]
+position = Vector2(-390, -346)
+
+[node name="Sprite2D" type="Sprite2D" parent="P16"]
+texture = ExtResource("t_underworld_p_under_23")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P16"]
+position = Vector2(0, -3)
+shape = SubResource("r24x6")
+
+[node name="P17" type="StaticBody2D" parent="."]
+position = Vector2(-320, -180)
+
+[node name="Sprite2D" type="Sprite2D" parent="P17"]
+texture = ExtResource("t_underworld_skeleton_miner")
+offset = Vector2(0, -24)
+hframes = 8
+script = ExtResource("anim")
+frames_per_second = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P17"]
+position = Vector2(0, -3)
+shape = SubResource("r14x6")
+
+[node name="P18" type="StaticBody2D" parent="."]
+position = Vector2(-290, -186)
+
+[node name="Sprite2D" type="Sprite2D" parent="P18"]
+texture = ExtResource("t_underworld_p_under_23")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P18"]
+position = Vector2(0, -3)
+shape = SubResource("r24x6")
+
+[node name="P19" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-389, 191)
+texture = ExtResource("t_underworld_p_under_0")
+offset = Vector2(0, -12)
+
+[node name="P20" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-19, -49)
+texture = ExtResource("t_underworld_p_under_5")
+offset = Vector2(0, -13)
+
+[node name="P21" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(92, 295)
+texture = ExtResource("t_underworld_p_under_0")
+offset = Vector2(0, -12)
+
+[node name="P22" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(70, 272)
+texture = ExtResource("t_underworld_p_under_5")
+offset = Vector2(0, -13)
+
+[node name="P23" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(141, 270)
+texture = ExtResource("t_underworld_p_under_5")
+offset = Vector2(0, -13)
+
+[node name="P24" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-334, 26)
+texture = ExtResource("t_underworld_p_under_5")
+offset = Vector2(0, -13)
+
+[node name="P25" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-44, -30)
+texture = ExtResource("t_underworld_p_under_5")
+offset = Vector2(0, -13)
+
+[node name="P26" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(286, 264)
+texture = ExtResource("t_underworld_p_under_0")
+offset = Vector2(0, -12)
+
+[node name="P27" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-313, 38)
+texture = ExtResource("t_underworld_p_under_0")
+offset = Vector2(0, -12)
+
+[node name="P28" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-271, 11)
+texture = ExtResource("t_underworld_p_under_5")
+offset = Vector2(0, -13)
+
+[node name="P29" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-84, 298)
+texture = ExtResource("t_underworld_p_under_2")
+offset = Vector2(0, -14)
+
+[node name="P30" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-379, 125)
+texture = ExtResource("t_underworld_p_under_2")
+offset = Vector2(0, -14)
+
+[node name="P31" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-222, 277)
+texture = ExtResource("t_underworld_p_under_5")
+offset = Vector2(0, -13)
+
+[node name="P32" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-351, 254)
+texture = ExtResource("t_underworld_p_under_2")
+offset = Vector2(0, -14)
+
+[node name="P33" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-265, 26)
+texture = ExtResource("t_underworld_p_under_3")
+offset = Vector2(0, -14)
+
+[node name="P34" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-213, 303)
+texture = ExtResource("t_underworld_p_under_3")
+offset = Vector2(0, -14)
+
+[node name="P35" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(99, 287)
+texture = ExtResource("t_underworld_p_under_2")
+offset = Vector2(0, -14)
+
+[node name="P36" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-172, 12)
+texture = ExtResource("t_underworld_p_under_0")
+offset = Vector2(0, -12)
+
+[node name="P37" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-56, -8)
+texture = ExtResource("t_underworld_p_under_0")
+offset = Vector2(0, -12)
+
+[node name="P38" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(206, 287)
+texture = ExtResource("t_underworld_p_under_2")
+offset = Vector2(0, -14)
+
+[node name="P39" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-174, -16)
+texture = ExtResource("t_underworld_p_under_3")
+offset = Vector2(0, -14)
+
+[node name="P40" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-329, 289)
+texture = ExtResource("t_underworld_p_under_0")
+offset = Vector2(0, -12)
+
+[node name="P41" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-219, 287)
+texture = ExtResource("t_underworld_p_under_3")
+offset = Vector2(0, -14)
+
+[node name="P42" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-370, 60)
+texture = ExtResource("t_underworld_p_under_1")
+offset = Vector2(0, -14)
+
+[node name="P43" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-394, 135)
+texture = ExtResource("t_underworld_p_under_3")
+offset = Vector2(0, -14)
+
+[node name="P44" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-15, -30)
+texture = ExtResource("t_underworld_p_under_3")
+offset = Vector2(0, -14)
+
+[node name="P45" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(30, 278)
+texture = ExtResource("t_underworld_p_under_1")
+offset = Vector2(0, -14)
+
+[node name="P46" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -2)
+texture = ExtResource("t_underworld_p_under_2")
+offset = Vector2(0, -14)
+
+[node name="P47" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-294, 296)
+texture = ExtResource("t_underworld_p_under_5")
+offset = Vector2(0, -13)
+
+[node name="P48" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-350, 60)
+texture = ExtResource("t_underworld_p_under_5")
+offset = Vector2(0, -13)
+
+[node name="P49" type="StaticBody2D" parent="."]
+position = Vector2(-120, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="P49"]
+texture = ExtResource("t_underworld_p_under_8")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P49"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P50" type="StaticBody2D" parent="."]
+position = Vector2(120, 130)
+
+[node name="Sprite2D" type="Sprite2D" parent="P50"]
+texture = ExtResource("t_underworld_p_under_13")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P50"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P51" type="StaticBody2D" parent="."]
+position = Vector2(-60, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="P51"]
+texture = ExtResource("t_underworld_p_under_9")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P51"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P52" type="StaticBody2D" parent="."]
+position = Vector2(300, 330)
+
+[node name="Sprite2D" type="Sprite2D" parent="P52"]
+texture = ExtResource("t_underworld_p_under_4")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P52"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P53" type="StaticBody2D" parent="."]
+position = Vector2(-480, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="P53"]
+texture = ExtResource("t_underworld_p_under_14")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P53"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P54" type="StaticBody2D" parent="."]
+position = Vector2(200, -240)
+
+[node name="Sprite2D" type="Sprite2D" parent="P54"]
+texture = ExtResource("t_underworld_p_under_13")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P54"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P55" type="StaticBody2D" parent="."]
+position = Vector2(-200, -280)
+
+[node name="Sprite2D" type="Sprite2D" parent="P55"]
+texture = ExtResource("t_underworld_p_under_8")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P55"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P56" type="StaticBody2D" parent="."]
+position = Vector2(420, -300)
+
+[node name="Sprite2D" type="Sprite2D" parent="P56"]
+texture = ExtResource("t_underworld_p_under_14")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P56"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P57" type="StaticBody2D" parent="."]
+position = Vector2(-140, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="P57"]
+texture = ExtResource("t_underworld_p_under_15")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P57"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P58" type="StaticBody2D" parent="."]
+position = Vector2(470, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="P58"]
+texture = ExtResource("t_underworld_p_under_13")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P58"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P59" type="StaticBody2D" parent="."]
+position = Vector2(-300, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="P59"]
+texture = ExtResource("t_underworld_p_under_9")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P59"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P60" type="StaticBody2D" parent="."]
+position = Vector2(310, -300)
+
+[node name="Sprite2D" type="Sprite2D" parent="P60"]
+texture = ExtResource("t_underworld_p_under_10")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P60"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="P61" type="StaticBody2D" parent="."]
+position = Vector2(130, -340)
+
+[node name="Sprite2D" type="Sprite2D" parent="P61"]
+texture = ExtResource("t_underworld_p_under_20")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P61"]
+position = Vector2(0, -3)
+shape = SubResource("r18x6")
+
+[node name="Lamp430_200" parent="." instance=ExtResource("lamp")]
+position = Vector2(430, 200)
+
+[node name="Lamp200_240" parent="." instance=ExtResource("lamp")]
+position = Vector2(200, 240)
+
+[node name="Lamp0_240" parent="." instance=ExtResource("lamp")]
+position = Vector2(0, 240)
+
+[node name="Lamp-240_240" parent="." instance=ExtResource("lamp")]
+position = Vector2(-240, 240)
+
+[node name="Lamp-340_130" parent="." instance=ExtResource("lamp")]
+position = Vector2(-340, 130)
+
+[node name="Lamp-300_-30" parent="." instance=ExtResource("lamp")]
+position = Vector2(-300, -30)
+
+[node name="Lamp-140_-60" parent="." instance=ExtResource("lamp")]
+position = Vector2(-140, -60)
+
+[node name="Lamp-40_40" parent="." instance=ExtResource("lamp")]
+position = Vector2(-40, 40)
+
+[node name="Lamp130_40" parent="." instance=ExtResource("lamp")]
+position = Vector2(130, 40)
+
+[node name="Board" parent="." instance=ExtResource("board")]
+position = Vector2(380, 180)
+
+[node name="Echo" parent="." instance=ExtResource("npc")]
+position = Vector2(40, -50)
+npc_id = "lich_echo"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(5, 3)
+hidden_when_flag = "underworld_tower_open"
+
+[node name="ToHall" parent="." instance=ExtResource("door")]
+position = Vector2(500, 250)
+scale = Vector2(1, 4)
+target_scene = "res://scenes/world/desert/pyramid_hall.tscn"
+target_spawn_point = &"FromUnderworld"
+fade = true
+
+[node name="Visual" parent="ToHall" index="0"]
+visible = false
+
+[node name="FromStairs" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(460, 250)
+
+[node name="Player" parent="." instance=ExtResource("player")]
+position = Vector2(460, 250)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -512
+limit_top = -450
+limit_right = 512
+limit_bottom = 450
+
+[node name="HUD" parent="." instance=ExtResource("hud")]
+
+[editable path="Player"]
+[editable path="ToHall"]

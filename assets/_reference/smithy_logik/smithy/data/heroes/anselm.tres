@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Hero" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/hero.gd" id="1_hero"]
+[ext_resource type="Resource" path="res://data/hero_classes/priest.tres" id="2_class"]
+
+[resource]
+script = ExtResource("1_hero")
+id = &"anselm"
+display_name = "Bruder Anselm"
+hero_class = ExtResource("2_class")
+level = 1
+race = "human"
+hire_cost = 120
+strength = 2
+agility = 2
+constitution = 5
+intelligence = 4
+wisdom = 8
+resistance = 5

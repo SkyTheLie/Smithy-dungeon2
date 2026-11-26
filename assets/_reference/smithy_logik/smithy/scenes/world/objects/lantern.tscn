@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/props/lantern.png" id="1_texture"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="2_light"]
+
+[sub_resource type="RectangleShape2D" id="Shape_base"]
+size = Vector2(8, 4)
+
+[node name="Lantern" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_texture")
+offset = Vector2(0, -30)
+
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("Shape_base")
+
+[node name="NightLight" parent="." instance=ExtResource("2_light")]
+position = Vector2(0, -43)
+color = Color(1, 0.82, 0.55, 1)
+flicker = 0.03
+night_energy = 1.4
+texture_scale = 1.3

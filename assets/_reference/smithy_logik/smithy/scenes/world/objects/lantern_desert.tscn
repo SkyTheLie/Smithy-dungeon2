@@ -1,0 +1,29 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/themed_lantern.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="2_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/lamps/desert_0.png" id="t0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/lamps/desert_1.png" id="t1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/lamps/desert_2.png" id="t2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/lamps/desert_3.png" id="t3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/lamps/desert_4.png" id="t4"]
+
+[sub_resource type="RectangleShape2D" id="Shape_base"]
+size = Vector2(8, 4)
+
+[node name="Lantern" type="StaticBody2D"]
+script = ExtResource("1_script")
+variants = Array[Texture2D]([ExtResource("t0"), ExtResource("t1"), ExtResource("t2"), ExtResource("t3"), ExtResource("t4")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("Shape_base")
+
+[node name="NightLight" parent="." instance=ExtResource("2_light")]
+position = Vector2(0, -52)
+color = Color(1, 0.78, 0.45, 1)
+flicker = 0.04
+night_energy = 1.4
+texture_scale = 1.3

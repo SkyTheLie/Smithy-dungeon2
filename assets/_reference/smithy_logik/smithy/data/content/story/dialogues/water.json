@@ -1,0 +1,1703 @@
+{
+	"dialogues": {
+		"eisquell_arrival": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Vor euch ragt eine gewaltige Mauer aus blauem Eis in den Himmel. Aus ihren Spalten stürzen donnernde Wasserfälle ins Meer."
+				},
+				{
+					"speaker": "",
+					"text": "Die Stadt Eisquell ruht auf dicken Pfählen und schwankenden Stegen über den Wellen. Die Häuser sind aus Treibholz und geschliffenen Eisblöcken gefügt."
+				},
+				{
+					"speaker": "",
+					"text": "Überall auf den Stegen bleiben bewaffnete Fischmenschen stehen. Sie mustern euch schweigend und mit schmalen Augen."
+				},
+				{
+					"speaker": "player",
+					"text": "Beeindruckende Bauweise. Aber aus irgendeinem Grund habe ich das Gefühl, dass wir hier nicht mit Blumenkränzen empfangen werden."
+				},
+				{
+					"speaker": "king",
+					"text": "Der Älteste der Elfen sagte es bereits: Kahn lässt jeden in seine Stadt. Wir müssen ihm zeigen, dass wir als Freunde kommen."
+				},
+				{
+					"speaker": "",
+					"text": "Über den Stegen ragt ein großer Bau aus dunklem Holz und blankem Eis auf: die Halle der Strömung."
+				}
+			],
+			"on_end": "set_flag:eisquell_intro_seen"
+		},
+		"subar_stop": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Vor dem Tor zur Halle der Strömung tritt euch ein alter Fischmensch mit tiefen Narben in den Weg. Er stützt sich ruhig auf eine schwere Harpune."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Halt. Weiter geht es nicht, Südlinge."
+				},
+				{
+					"speaker": "king",
+					"text": "Sei gegrüßt, tapferer Krieger. Ich bin König Albrecht von Leonheim, und wir kommen in einer dringenden Sache zu Kahn."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Hier bist du ein alter Mann mit Bart. Mehr nicht."
+				},
+				{
+					"speaker": "lake",
+					"text": "Zügle deine Zunge, Kreatur! Du sprichst mit dem rechtmäßigen Herrscher des Südens!"
+				},
+				{
+					"speaker": "king",
+					"text": "Ruhig, Lake. Wir sind Gäste in dieser Stadt und achten ihre Sitten."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Kluger alter Mann. Ich bin Subar, und ich sage euch das Gesetz: Kahn hört niemanden an, der nur Worte mitbringt."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich hätte auch noch ein paar sehr schöne Hufeisen im Gepäck. Nein? War nur ein Versuch."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Unter der Eismauer liegt ein Netz aus Grotten. Ganz unten, in der Tiefen Grotte, haust Frostmähne."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Das Biest hat schon zu viele unserer Fischer zerrissen. Bringt mir sein weißes Fell, dann öffne ich euch dieses Tor."
+				},
+				{
+					"speaker": "king",
+					"text": "Wie gelangt man in diese Tiefe Grotte, Subar?"
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Ihr müsst euch den Weg erst freikämpfen. Zuerst durch die Brandungsküste, dann durch die Gezeitenhöhle und die Kristallgrotte."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Erst wer die Kristallgrotte bezwingt, findet den Abstieg in die Tiefe Grotte. Und merkt euch eins: Die Biester dort unten sind Kinder des Meeres."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Wasser macht ihnen gar nichts aus. Aber der Blitz fährt ihnen bis in die Knochen."
+				},
+				{
+					"speaker": "player",
+					"text": "Vier eiskalte Höhlen voller Seeungeheuer und am Ende ein riesiges Raubtier. Gut, dass meine Helden so gern frische Meeresluft schnuppern."
+				}
+			],
+			"choices": [
+				{
+					"text": "Zeit für einen Pelzmantel.",
+					"action": "set_flag:water_dungeons_unlocked;hint:water_dungeons;advance:frost_hunt"
+				},
+				{
+					"text": "Meine Helden erledigen das.",
+					"action": "set_flag:water_dungeons_unlocked;hint:water_dungeons;advance:frost_hunt"
+				},
+				{
+					"text": "Riecht das Fell nach Fisch?",
+					"action": "set_flag:water_dungeons_unlocked;hint:water_dungeons;advance:frost_hunt"
+				}
+			]
+		},
+		"subar_waiting": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Ich sehe kein weißes Fell in deinen Händen, Südling."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Erst die Brandungsküste, die Gezeitenhöhle und die Kristallgrotte, dann Frostmähne in der Tiefen Grotte. Ohne Beweis bleibt das Tor zu."
+				}
+			]
+		},
+		"subar_proof": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Zeig her, was du da trägst."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Bei den Gezeiten … das ist tatsächlich der Pelz von Frostmähne. Sogar das Eis in den Zotten ist noch hart."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Vielleicht steckt in euch Südlingen doch mehr als warme Luft. Gibst du mir das Fell?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Das Fell übergeben",
+					"action": "take_items:frost_mane_pelt;set_flag:kahn_hall_open",
+					"then": "subar_proof_done"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"subar_proof_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du reichst Subar das schwere, eiskalte Fell.",
+					"action": "cutscene:act:player:give:frost_mane_pelt",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Unsere Fischer werden heute Nacht ruhiger schlafen. Wort ist Wort, Südling."
+				},
+				{
+					"speaker": "",
+					"text": "Subar stößt die schweren Flügeltüren zur Halle der Strömung auf.",
+					"action": "cutscene:act:kahn_right_hand:push",
+					"hide_for": 1.0
+				}
+			],
+			"on_end": "advance:kahn_audience"
+		},
+		"kahn_first_audience": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "In der Halle der Strömung ragt ein Thron aus klarem Gletschereis auf. Darauf sitzt Kahn, neben ihm steht sein junger Sohn Torgai."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Kahn. Diese Fremden aus dem Süden haben Frostmähne erlegt."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Sie haben sie erlegen lassen, Subar. Ich sehe weiche Mäntel, saubere Stiefel und einen König, der Felle schicken lässt."
+				},
+				{
+					"speaker": "king",
+					"text": "Ich grüße Euch, Kahn von Eisquell. Ich bin König Albrecht von Leonheim, und ich komme, um Euren Rat und Eure Hilfe zu erbitten."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Du nennst mir deinen Titel, als müsste das Eis davon schmelzen. Weißt du, was ein Titel unter meinem Dach wert ist?"
+				},
+				{
+					"speaker": "kahn",
+					"text": "Als ich ein Junge war, wurde mein Vater hinterrücks ermordet. Unser ganzer Schwarm wandte sich ab und jagte mich in das kalte Wasser hinaus."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Ich hatte keinen Namen mehr, kein Netz und kein Dach. Ich habe im Schlamm nach Muscheln gegraben, bis meine Krallen brachen."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Dort draußen lernt man schnell: Gold auf dem Kopf hält keinen Sturm auf. Mir ist gleich, woher du kommst. Zeig mir, was deine Hände können."
+				},
+				{
+					"speaker": "player",
+					"text": "Also, meine Hände können erstklassigen Stahl falten, Nieten schlagen und gelegentlich Pfannkuchen wenden. Aber ich schätze, du meinst etwas anderes."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Heute beginnt das Turnier in der Gezeitenarena. Sechzehn Kämpfer treten an, immer Mann gegen Mann."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Vier Runden lang entscheidet allein die Stärke. Wer fällt, scheidet aus, und am Ende bleibt nur ein einziger Sieger stehen."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Und dieser Sieger werde ich sein, Vater. Keiner in Eisquell hält meiner Klinge stand."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Rühme dich erst, wenn der letzte Gegner im Sand liegt, Torgai."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Wenn ihr wollt, dass ich euren Geschichten aus dem Süden zuhöre, dann stellt einen Kämpfer in meine Arena. Gewinnt das Turnier."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Dein Ritter da im glänzenden Blech sieht kräftig aus. Soll er zeigen, was sein Schwert taugt."
+				},
+				{
+					"speaker": "lake",
+					"text": "Ich trete nicht in deinen Ring, Fischmensch."
+				},
+				{
+					"speaker": "lake",
+					"text": "Mein Schwert gehört dem Licht und meinem König. Ich führe es im Ernstfall, niemals zum Vergnügen einer grölenden Menge oder für fremden Beifall."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Große Worte für eine Klinge, die in der Scheide bleibt."
+				},
+				{
+					"speaker": "king",
+					"text": "Verzeiht ihm, Kahn, doch Lake folgt seinem Gelübde. Ich werde ihn nicht zwingen, es für ein Schauspiel zu brechen."
+				},
+				{
+					"speaker": "player",
+					"text": "Macht nichts, ich habe da ohnehin jemanden. Meine Helden tragen meine besten Waffen, und einer von ihnen nimmt die Einladung gern an."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Ein Söldner des Schmieds? Gut! Dann sehe ich endlich, ob südlicher Stahl so hart ist, wie ihr tut."
+				},
+				{
+					"speaker": "player",
+					"text": "Glaub mir, mein Stahl ist das Letzte, worüber du dir Sorgen machen musst. Also … im sportlichen Sinn natürlich. Ganz freundlich."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Abgemacht, Schmied. Noch eines sollt ihr wissen: Das Gesetz der Strömung gibt jedem eine zweite Welle."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Wenn dein Kämpfer fällt, pflegen unsere Heiler ihn gesund. Er darf es von vorn versuchen, so oft er den Mut dazu aufbringt."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Doch erst wenn dein Streiter ganz oben steht, reden wir über eure Bitte. Geht jetzt."
+				},
+				{
+					"speaker": "",
+					"text": "Die Gezeitenarena liegt im Osten der Stadt. Dort nimmt der Ausrufer die Anmeldungen für das Turnier entgegen."
+				}
+			],
+			"on_end": "set_flag:kahn_tournament_open;hint:hero_tournament;advance:hero_tournament"
+		},
+		"arena_crier_welcome": {
+			"lines": [
+				{
+					"speaker": "arena_crier",
+					"text": "Tretet näher, Freunde des Salzes und des Stahls! Hier in der Gezeitenarena wird Ruhm geschmiedet und Hochmut gebrochen!"
+				},
+				{
+					"speaker": "arena_crier",
+					"text": "Du bist der Schmied aus dem Süden, von dem alle reden! Vier Runden, sechzehn Streiter, Mann gegen Mann – bist du bereit für das Getöse?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Einen Helden anmelden",
+					"action": "set_flag:crier_welcomed;open_menu:hero_tournament"
+				},
+				{
+					"text": "Wie läuft das?",
+					"action": "set_flag:crier_welcomed",
+					"then": "arena_crier_rules"
+				},
+				{
+					"text": "Später",
+					"action": "set_flag:crier_welcomed"
+				}
+			]
+		},
+		"arena_crier_rules": {
+			"lines": [
+				{
+					"speaker": "arena_crier",
+					"text": "Die Regeln der Gezeitenarena sind so alt und unerbittlich wie die Flut! Sechzehn tapfere Kämpfer treten an, immer einer gegen einen!"
+				},
+				{
+					"speaker": "arena_crier",
+					"text": "Es gibt vier Runden bis zum Ruhm: das Achtelfinale, das Viertelfinale, das Halbfinale und das große Finale!"
+				},
+				{
+					"speaker": "arena_crier",
+					"text": "Dein Held steht ganz allein im Ring, ohne Gefährten an seiner Seite! Wer zu Boden geht, ist ausgeschieden, wird aber sofort von unseren Heilern versorgt!"
+				},
+				{
+					"speaker": "arena_crier",
+					"text": "Und verzage nicht bei einer Niederlage! Solange die Flut wiederkehrt, darfst du deinen Streiter jederzeit von Neuem anmelden!"
+				}
+			]
+		},
+		"arena_crier_idle": {
+			"lines": [
+				{
+					"speaker": "arena_crier",
+					"text": "Die Ränge toben und der Sand wartet! Schickst du einen Streiter in die Gezeitenarena?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Einen Helden anmelden",
+					"action": "set_flag:crier_welcomed;open_menu:hero_tournament"
+				},
+				{
+					"text": "Wie läuft das?",
+					"action": "set_flag:crier_welcomed",
+					"then": "arena_crier_rules"
+				},
+				{
+					"text": "Später",
+					"action": "set_flag:crier_welcomed"
+				}
+			]
+		},
+		"torgai_before": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Also bist du der Schmied aus dem Süden. Deine Waffen sehen ordentlich aus, das muss ich dir lassen."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Aber eine gute Klinge macht noch keinen Sieger. Heute zeige ich meinem Vater, dass ich bereit bin, an seiner Seite zu führen."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Sag deinem Helden, er soll sich nicht zurückhalten. Ich will einen ehrlichen Kampf!"
+				}
+			]
+		},
+		"tournament_won": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der letzte Gegner sinkt in den Sand. Auf den Rängen der Gezeitenarena bricht ohrenbetäubender Jubel los.",
+					"action": "cutscene:act:arena_crier:cheer",
+					"hide_for": 1.3
+				},
+				{
+					"speaker": "arena_crier",
+					"text": "Unglaublich! Der Streiter des fremden Schmieds hat alle vier Runden überstanden und krönt sich zum Sieger der Gezeitenarena!"
+				},
+				{
+					"speaker": "",
+					"text": "Kahn erhebt sich von seinem Platz. Torgai, der sich im Halbfinale deinem Helden geschlagen geben musste, tritt mit gesenktem Blick vor seinen Vater.",
+					"action": "cutscene:act:kahn:stand_up;cutscene:act:kahn_son:bow",
+					"hide_for": 1.2
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Ich habe dich enttäuscht, Vater. Im Halbfinale hat meine Kraft nicht gereicht."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Heb den Kopf, Torgai. Du hast aufrecht gekämpft und bist nicht gewichen."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Ein Sieg schmeichelt nur den Ohren und lehrt dich wenig. Eine Niederlage aber zeigt dir genau, wo dein Arm noch zu schwach ist."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Als man mich damals aus dem Schwarm stieß, habe ich hundert Kämpfe im Schlamm verloren, bevor ich den ersten gewann. Ich bin stolz auf dich, mein Sohn."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Danke, Vater. Das vergesse ich nicht."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Und nun zu dir, Schmied. Dein Stahl hält, was dein loses Mundwerk verspricht."
+				},
+				{
+					"speaker": "player",
+					"text": "Das lasse ich mir genau so über die Schmiedetür meißeln. Vielen Dank."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Ihr habt euch vor meinem Volk bewiesen. Kommt in die Halle der Strömung, dort höre ich mir an, warum ihr in Eisquell seid."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Guter Kampf, Schmied. Dein Held versteht sein Handwerk, und deine Arbeit am Amboss ist meisterhaft."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Aber gewöhn dich nicht zu sehr an den Sieg. Beim nächsten Mal hole ich mir die Revanche!"
+				}
+			],
+			"on_end": "advance:kahn_council"
+		},
+		"kahn_council": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "In der Halle der Strömung ist es still geworden. Du und König Albrecht berichtet Kahn von dem Lich und dem Überfall auf dein Dorf."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "",
+					"text": "Ihr erzählt von den neun heiligen Steinen, dem alten Siegel vor dem Dämonenlord und dem Raub des Windkristalls in Sylvaris."
+				},
+					{
+						"speaker": "",
+						"if_flag": "elf_defense_won",
+						"text": "Ihr erzählt von den neun heiligen Steinen, dem alten Siegel vor dem Dämonenlord und der Nacht in Sylvaris, in der die Elfen den Lich zurückschlugen."
+					},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "king",
+					"text": "Der Lich hat bereits den Stein der Erde und den Stein des Windes. Wenn er alle neun Kristalle vereint, bricht er das Tor auf, statt es zu versiegeln."
+				},
+					{
+						"speaker": "king",
+						"if_flag": "elf_defense_won",
+						"text": "Der Lich hat bereits den Stein der Erde. Feuer und Wind liegen in meiner Schatzkammer. Wenn er alle neun Kristalle vereint, bricht er das Tor auf, statt es zu versiegeln."
+					},
+				{
+					"speaker": "kahn",
+					"text": "Neun Steine für ein tausendjähriges Schloss. Unsere Alten singen noch davon, wenn das Wintereis kracht."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Viele Sommer lang hielt mein Volk den Wasserkristall für einen Segen des Meeres. Doch ein Stein, der einen untoten Schlächter in meine Stadt lockt, ist kein Segen."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Der Fluss fragt den Stein nicht, ob er weichen will. Wenn dieses Kleinod nur Verderben über Eisquell bringt, will ich es nicht länger unter meinem Thron haben."
+				},
+				{
+					"speaker": "",
+					"text": "Kahn tritt an den Sockel seines Eisthrons. Unter der klaren Schicht schimmert ein tiefes, ruhiges Blau.",
+					"action": "cutscene:kahn_to_throne",
+					"wait": 1.2
+				},
+				{
+					"speaker": "",
+					"text": "Mit einem kräftigen Griff bricht Kahn die Versiegelung auf und hebt den Wasserkristall aus dem Eis.",
+					"action": "cutscene:kahn_break_seal",
+					"wait": 2.4
+				},
+				{
+					"speaker": "kahn",
+					"text": "Nehmt ihn. Hier, König aus dem Süden – verbirg ihn hinter deinen dicken Steinmauern.",
+					"action": "cutscene:kahn_give_crystal",
+					"wait": 3.0
+				},
+				{
+					"speaker": "king",
+					"text": "Ich danke Euch von Herzen, Kahn. In Leonheim wird er zusammen mit dem Feuerkristall Tag und Nacht bewacht werden."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Und dieses Pergament hier gehört nicht dem König. Das bekommt der Schmied."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich? Ähm … ich nehme sonst eher Kupfermünzen, aber eine uralte Karte ist natürlich auch nett."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Dein Held hat im Sand gestanden, nicht dein König. Nimm das Kartenstück unseres Volkes."
+				},
+				{
+					"speaker": "",
+					"text": "Du fügst das dritte Pergament an deine Kristallkarte an. Zwei Orte im hohen Norden treten nun deutlich hervor.",
+					"action": "cutscene:act:player:hold:crystal_map",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "player",
+					"text": "Moment mal. Auf dem neuen Stück sind zwei Steine hier oben eingezeichnet: der Wasserkristall … und der Eiskristall, mitten in eurer Eismauer."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Du hast gute Augen, Schmied. Ja, das Herz aus ewigem Frost steckt hoch oben in der Wand."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Und dort bleibt es auch. Der Eiskristall hält die ganze Mauer zusammen."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Nimmt man ihn heraus, bricht der Gletscher und das obere Meer begräbt Eisquell unter sich. Ehe ich das zulasse, kämpfe ich gegen zehn Lichs."
+				},
+				{
+					"speaker": "king",
+					"text": "Niemand verlangt von Euch den Untergang Eurer Stadt, Kahn. Solange der Stein tief im ewigen Eis ruht, kommt auch der Lich nicht ohne Weiteres an ihn heran."
+				},
+				{
+					"speaker": "king",
+					"text": "Uns drängt ein anderes Ziel, mein Schmied. Elarions Stück zeigt es uns: Tief im Süden, draußen in der großen Wüste, liegt der Blitzkristall."
+				},
+				{
+					"speaker": "king",
+					"text": "Lake und ich bringen den Wasserkristall auf dem schnellsten Weg nach Leonheim in Sicherheit. Reise du nach Süden in die Wüste und finde den Blitzkristall, bevor der Lich seine Spur aufnimmt."
+				},
+				{
+					"speaker": "player",
+					"text": "Erst Frostbeulen im Eis, jetzt Sonnenbrand im Wüstensand. Mein Körper wird heute Abend sehr verwirrt sein."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Hüte deine Zunge, wenn du in den Sand gehst, Schmied. Das Echsenvolk in der Wüste traut keinem Fremden über den Weg."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Aber in Eisquell hast du dir einen Namen gemacht. Meine Stadt und die Gezeitenarena stehen dir offen, wann immer deine Helden sich messen wollen."
+				},
+				{
+					"speaker": "player",
+					"text": "Danke, Kahn. Wir sehen uns, sobald ich den Sand wieder aus den Stiefeln geschüttelt habe."
+				},
+				{
+					"speaker": "",
+					"text": "König Albrecht und Lake brechen mit der Kutsche nach Leonheim auf, um den Wasserkristall in das Schloss zu bringen.",
+					"action": "cutscene:act:king:run_off;cutscene:act:lake:run_off",
+					"hide_for": 1.3
+				},
+				{
+					"speaker": "",
+					"text": "Dein eigener Weg führt dich zurück zu deinem Dorf. Von dort gelangst du über den Südweg tief nach Süden in die Wüste."
+				}
+			],
+			"on_end": "set_flag:map_piece_3;set_flag:water_crystal_given;set_flag:desert_open;hint:crystal_map_3;advance:to_desert"
+		},
+		"kahn_idle": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Die Strömung steht niemals still, Schmied. Hab ein waches Auge in der Wüste."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Wenn deine Kämpfer ihre Kräfte messen wollen, erwartet sie der Ausrufer in der Gezeitenarena."
+				}
+			]
+		},
+		"torgai_idle": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Ich übe jeden Morgen an den Stegen, Schmied! Beim nächsten Turnier mache ich es deinem Helden nicht so leicht."
+				}
+			]
+		},
+		"subar_idle": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Wer Frostmähne bezwingt, ist kein Schwächling, Südling. Kahn redet. Ich wache."
+				}
+			]
+		},
+		"kahn_waiting": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Erst die Arena, Schmied. Dann reden wir."
+				}
+			]
+		},
+		"torgai_waiting": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Wenn dein Held nicht in der Arena steht, halt mich nicht vom Üben ab."
+				}
+			]
+		},
+		"water_guard_idle": {
+			"lines": [
+				{
+					"speaker": "water_guard",
+					"text": "Halt dich an das Gesetz der Strömung, Südling. In Eisquell stiehlt keiner und lügt keiner. Nicht zweimal."
+				}
+			]
+		},
+		"eisquell_fisher_idle": {
+			"lines": [
+				{
+					"speaker": "eisquell_fisher",
+					"text": "Frostmähne hat meinen Bruder geholt. Unter der Eismauer wirft keiner mehr ein Netz aus."
+				}
+			]
+		},
+		"eisquell_fisher_after": {
+			"lines": [
+				{
+					"speaker": "eisquell_fisher",
+					"text": "Frostmähne ist tot, sagen sie. Deine Helden? Dann fahre ich morgen wieder raus. Danke, Südling."
+				}
+			]
+		},
+		"eisquell_child_idle": {
+			"lines": [
+				{
+					"speaker": "eisquell_child",
+					"text": "Bist du ein Südling? Du hast ja gar keine Schuppen! Frierst du nicht?"
+				},
+				{
+					"speaker": "player",
+					"text": "Doch. Die ganze Zeit. Ich tue nur so cool."
+				}
+			]
+		},
+		"kahn_ask": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Tritt näher, Schmied. Deine Schritte klingen schwer wie Eisen im Flussbett."
+				},
+				{
+					"unless_flag": "elf_defense_won",
+					"speaker": "player",
+					"text": "Mir liegt auch ein ziemlicher Amboss im Magen, Kahn. Der Lich hat König Albrecht entführt – samt dem Feuerkristall und deinem Wasserkristall."
+				},
+					{
+						"speaker": "player",
+						"if_flag": "elf_defense_won",
+						"text": "Mir liegt auch ein ziemlicher Amboss im Magen, Kahn. Der Lich hat König Albrecht entführt – samt dem Feuer, dem Wind der Elfen und deinem Wasserkristall."
+					},
+				{
+					"speaker": "kahn_son",
+					"text": "Entführt? Aus seiner eigenen steinernen Burg? Wenn einer versucht hätte, meinen Vater zu stehlen, läge die halbe Halle in Trümmern!"
+				},
+				{
+					"speaker": "kahn",
+					"text": "Schweig, Torgai. Doch die Frage bleibt im Raum wie stehendes Wasser. Ein starker Strom lässt sich nicht leise in der Nacht umleiten, ohne dass das Ufer bricht."
+				},
+				{
+					"speaker": "player",
+					"text": "Der Lich hat die Wachen mit einem Zauber eingeschläfert. Haben deine Späher an den Küsten oder Flüssen irgendetwas gesehen?"
+				},
+				{
+					"speaker": "kahn",
+					"text": "Meine Augen liegen auf jeder Welle von hier bis zum südlichen Meer. Der Tote kommt nicht übers Wasser. Wasser trägt keine Toten, es spuckt sie aus."
+				},
+				{
+					"speaker": "player",
+					"text": "Nicht unter den Bergen, nicht in den Wäldern, nicht auf dem Wasser. Dann bleibt wirklich nur das tote Land im Osten."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Wohin der Strom dich auch führt, du gehst nicht allein. Du hast in meiner Halle ehrenhaft gekämpft, und mein Wort gilt."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Ich führe unsere Speere selbst in die Schlacht, Schmied! Deine Helden schulden mir noch eine Revanche, und an Knochenmännern wärme ich mich gerne auf!"
+				},
+				{
+					"speaker": "player",
+					"text": "Abgemacht, Torgai. Sobald ich weiß, wohin wir überhaupt marschieren müssen, gebe ich euch ein Zeichen."
+				}
+			],
+			"on_end": "set_flag:asked_kahn"
+		},
+		"torgai_yard": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Mein Vater hat dir Speere aus Eisquell versprochen, Schmied, und Kahn hält sein Wort! Wir halten den Hof, du kümmerst dich um den Klappergeneral da oben."
+				}
+			]
+		},
+		"torgai_camp": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Vater schickt mich mit seinen besten Speerkämpfern. Wer den Toten jagt, jagt auch für Eisquell, sagt er. Wann geht es endlich los, Schmied? Sonst schlage ich vor Langeweile Löcher in die Felsen!"
+				},
+				{
+					"speaker": "player",
+					"text": "Heb dir die Kraft für das Schwarzeisen und die Knochenwachen auf, Torgai."
+				}
+			]
+		},
+		"kahn_after": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Ein Fluss fragt nicht zweimal nach dem Weg zum Meer. Finde das Versteck des Toten, dann schicke ich meine Krieger."
+				}
+			]
+		},
+		"torgai_blade": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Schmied. Ich habe auf dich gewartet. Das hier lag im Torhof der Finsterburg, neben einem gefallenen Finsterritter.",
+					"action": "cutscene:act:kahn_son:face_player"
+				},
+				{
+					"speaker": "",
+					"text": "Torgai legt dir ein Schwert in die Hände. Die Schneide ist scharf, der Stahl hell, kaum ein Kratzer. Am Ansatz der Klinge sitzt ein kleines Zeichen.",
+					"action": "cutscene:act:kahn_son:give:silver_blade+silver_handle",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "player",
+					"text": "Das Zeichen von Halvard. Wie in Sylvaris. Aber diese Klinge ist neu. Die ist höchstens ein paar Wochen alt."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Dann lebt der Mann, der sie geschmiedet hat."
+				},
+				{
+					"speaker": "player",
+					"text": "Er lebt. Und er schmiedet für den König. Jeden Tag. Seit zwanzig Jahren."
+				},
+				{
+					"speaker": "",
+					"text": "Hinter dir knirschen Schritte auf dem Eis. Subar kommt heran, die Harpune in der Hand, und hält dir einen Steckbrief vor die Nase.",
+					"action": "cutscene:subar_steps_up",
+					"hide_for": 2.6
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Südling. Dein Gesicht hängt an meiner Kaserne. Zehntausend Gold. Für einen, der nicht mal ein Fell allein holen kann."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich weiß. Die Nase ist falsch. Und für das Fell hatte ich Helden. Das ist ein Unterschied."
+				},
+				{
+					"speaker": "player",
+					"text": "Subar, ich war im Thronsaal. Der König hat gelogen. Ich kann es nicht beweisen, aber ..."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Worte schwimmen oben, Südling. Was zählt, liegt am Grund."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Du nennst dich Schmied. Dann schmiede. Eine Harpunenspitze. Wenn sie mir gefällt, bringe ich dich selbst zu Kahn."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Subar, er stand neben mir vor dem Tor der Finsterburg ..."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Nein, Torgai. Er soll für sich selbst sprechen. Mit dem Hammer."
+				},
+				{
+					"speaker": "player",
+					"text": "Eine Harpunenspitze. Gegossen aus einem Silber- und einem Eisenbarren, zwei Widerhaken, gut gehärtet. Ich bin gleich zurück. Wirf mich bitte nicht vorher ins Meer."
+				}
+			],
+			"on_end": "unlock_molds:mold_harpoon_tip;advance:subar_test"
+		},
+		"subar_wait_torgai": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Torgai will mit dir reden, Südling. Er steht vor der Halle."
+				}
+			]
+		},
+		"subar_test": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Und, Südling? Zeig her, was deine Hände können."
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier ist deine Spitze.",
+					"action": "take_items:harpoon_tip",
+					"then": "subar_test_passed",
+					"else": "subar_test_missing"
+				},
+				{
+					"text": "Noch nicht."
+				}
+			]
+		},
+		"subar_test_missing": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Ich sehe keine Spitze. Ich sehe einen Südling mit leeren Händen."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Keinen Speer, keine Klinge. Eine Harpunenspitze. Gieß sie, schmiede sie, kühl sie ab. Ein Silberbarren, ein Eisenbarren. Mehr braucht ein Schmied nicht."
+				}
+			]
+		},
+		"subar_test_passed": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du gibst Subar die Harpunenspitze.",
+					"action": "cutscene:act:player:give:harpoon_tip",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "",
+					"text": "Subar dreht die Spitze im Licht. Wo deine Finger den Stahl gehalten haben, glimmt er für einen Moment blau.",
+					"action": "cutscene:act:kahn_right_hand:inspect:harpoon_tip",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Hm. Die Widerhaken sitzen. Der Stahl singt, wenn man ihn anschlägt."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Und er leuchtet. Wie deine Hände. Das kann kein Verräter fälschen.",
+					"action": "set_flag:subar_trusts"
+				},
+				{
+					"speaker": "player",
+					"text": "Ich wollte eigentlich sagen, das ist ganz normales Silber. Ist es aber nicht, oder?"
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Ich habe dir gesagt, dass er nicht lügt."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Du hast es gesagt, Torgai. Er hat es gezeigt. Das ist ein Unterschied."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Komm, Südling. Kahn wartet. Und wenn er dich ins Meer wirft, springe ich hinterher und hole die Spitze."
+				}
+			],
+			"on_end": "advance:kahn_refuses"
+		},
+		"torgai_test": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Subar war schon immer so. Mich hat er drei Jahre lang Kleiner genannt. Schmiede ihm was Gutes."
+				}
+			]
+		},
+		"kahn_refuses": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Der Schmied. Mit einem Steckbrief und ohne seinen König. Erzähl."
+				},
+				{
+					"speaker": "",
+					"text": "Du erzählst von der Finsterburg. Vom Lich, der für den König arbeitete. Von Lake. Von acht Steinen in der Hand des Königs. Kahn hört zu, ohne dich zu unterbrechen."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Ein König, der Felle schicken lässt, und am Ende sammelt er Steine. Ich habe ihn für schwach gehalten. Ich hätte ihn für gefährlich halten sollen."
+				},
+				{
+					"speaker": "player",
+					"text": "Er will den Eiskristall. Und er hat gesagt, ich werde ihn für ihn holen. Darum sind wir hier. Wir wollen ihn vorher schützen."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Schützen. Du. Die Mauer hat tausend Winter gehalten. Sie hält auch diesen. Wir brauchen keine Hilfe aus dem Süden."
+				},
+				{
+					"speaker": "player",
+					"text": "Und wo genau liegt der Kristall? Nur damit ich weiß, wo ich ihn nicht beschützen soll."
+				},
+				{
+					"speaker": "",
+					"text": "Kahn schweigt lange. Das Wasser unter den Bohlen gluckert."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Mein Urahn hat ihn in die Mauer gesetzt. Wo genau, weiß niemand mehr. Die Lieder sagen nur: Wo das Eis für die glühende Hand singt."
+				},
+				{
+					"speaker": "player",
+					"text": "Glühende Hand."
+				},
+				{
+					"speaker": "",
+					"text": "Du siehst auf deine Hände. Ein schwaches Blau glimmt zwischen deinen Fingern.",
+					"action": "cutscene:act:player:glow",
+					"hide_for": 1.1
+				},
+				{
+					"speaker": "kahn",
+					"text": "Hm. Bleib heute Nacht in Eisquell, Schmied. Morgen reden wir weiter. Oder nicht."
+				},
+				{
+					"speaker": "",
+					"text": "Kahn geht hinaus, Subar und Torgai folgen ihm. An der Seite der Halle liegt ein Strohlager für dich bereit. Du legst dich hin und schläfst sofort ein.",
+					"action": "cutscene:hall_night",
+					"hide_for": 6.0
+				},
+				{
+					"speaker": "",
+					"text": "Mitten in der Nacht reißt dich ein Horn aus dem Schlaf. Draußen schreit jemand. Der Himmel über dem Hafen ist rot.",
+					"action": "set_time:23;cutscene:harbor_horn;cutscene:hall_wake",
+					"hide_for": 1.8
+				}
+			],
+			"on_end": "set_flag:harbor_attacked;advance:harbor_attack;travel_fade:res://scenes/world/water/eisquell.tscn,FromHall"
+		},
+		"harbor_subar": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Boote brennen am Kai. Zwischen den Stegen blitzen schwarze Rüstungen. Finsterritter.",
+					"action": "cutscene:harbor_burning",
+					"hide_for": 2.6
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Südling! Finsterritter am Kai, Schützen auf den Stegen. Wir halten die Halle. Schick deine Helden an den Hafen, sofort."
+				},
+				{
+					"speaker": "",
+					"text": "Auf einem Eisschiff draußen vor dem Hafen steht eine Gestalt in schwarzer Rüstung. Lake. Er sieht zu dir herüber. Dann dreht er sich weg.",
+					"action": "cutscene:harbor_lake",
+					"hide_for": 3.0
+				},
+				{
+					"speaker": "player",
+					"text": "Lake ..."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Kein Gerede. Das Dungeon-Brett steht an der Kaserne. Los."
+				}
+			],
+			"on_end": "set_flag:harbor_subar_seen"
+		},
+		"subar_harbor_idle": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Das Dungeon-Brett steht an der Kaserne, Südling. Schick deine Helden an den Hafen!"
+				}
+			]
+		},
+		"harbor_subar_wait": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Der Hafen brennt noch, Südling. Schick deine Helden. Das Dungeon-Brett steht an der Kaserne."
+				}
+			]
+		},
+		"kahn_decides": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Der Hafen raucht noch. Vier Boote verbrannt, zwölf Verwundete. Kein Toter. Deine Helden waren schnell."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Wer meinen Hafen angreift, greift mein Volk an. Und wer mein Volk angreift, ist mein Feind. Auch ein König."
+				},
+				{
+					"speaker": "player",
+					"text": "Heißt das ...?"
+				},
+				{
+					"speaker": "kahn",
+					"text": "Die Strömung hat sich gedreht, Schmied. Wer gegen sie schwimmt, ertrinkt. Ich helfe dir."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Und ich komme mit. Torgai und Subar auch. Den Stein meines Urahns beschützt kein Südling allein."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Vater. Die Mauer ist steil, und auf den Stegen hausen Golems und Harpyien."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Dann schickt der Schmied seine Helden voraus, durch den Windbruch. Danach steigen wir hinauf."
+				},
+				{
+					"speaker": "player",
+					"text": "Klettern. Auf eine Mauer aus Eis. Mit einem König im Nacken. Ich liebe meinen Beruf."
+				}
+			],
+			"on_end": "set_flag:ice_wall_open;set_flag:kahn_joined;hint:ice_wall_dungeons;advance:climb_wall"
+		},
+		"kahn_climb_wait": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Der Windbruch, Schmied. Schick deine Helden hindurch. Dann steigen wir hinauf."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Die Fälle und die Stege kannst du auslassen. Golems und Harpyien wohnen da, und ein paar Barren, die keiner vermisst."
+				}
+			]
+		},
+		"crown_arrival": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Oben auf der Mauer pfeift der Wind. Tief unter dir glitzert das Meer."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Die Krone der Mauer. Mein Vater hat mich als Kind einmal hier heraufgebracht. Die Säulen haben damals gesungen, wenn der Wind ging."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Wie im Wiegenlied von Mutter. Erst ruft die Möwe hoch am Himmel, dann brummt der Wal tief unten im Meer."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Dazwischen singt die Robbe, dann blubbert leise der Fisch, und ganz zuletzt rauscht die Welle an den Strand."
+				},
+				{
+					"speaker": "player",
+					"text": "Möwe, Wal, Robbe, Fisch, Welle. Fünf Säulen, fünf Stimmen. Ich glaube, das ist kein Zufall."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Schlag gegen die Säulen und hör hin, Südling. Aber schlag sie nicht kaputt."
+				}
+			],
+			"on_end": "set_flag:crown_intro_seen"
+		},
+		"torgai_lullaby": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Das Wiegenlied? Erst ruft die Möwe hoch am Himmel, dann brummt der Wal tief unten im Meer."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Dazwischen singt die Robbe, dann blubbert leise der Fisch, und ganz zuletzt rauscht die Welle an den Strand."
+				}
+			]
+		},
+		"kahn_crown": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Die Säulen und die Sockel, Schmied. Mein Urahn hat nichts ohne Grund gebaut."
+				}
+			]
+		},
+		"subar_crown": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Wind von Norden. Gut. Wenn hier oben jemand kommt, sehen wir ihn zuerst."
+				}
+			]
+		},
+		"ice_pillar_1": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du schlägst mit dem Hammer gegen die Säule. Ein runder, glucksender Laut, wie eine Robbe, die singt.",
+					"action": "cutscene:act:player:hammer:ice_pillar_1,aee6ff",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "ice_pillar:1"
+		},
+		"ice_pillar_2": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du schlägst mit dem Hammer gegen die Säule. Ein leises Rauschen, wie eine Welle am Strand.",
+					"action": "cutscene:act:player:hammer:ice_pillar_2,aee6ff",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "ice_pillar:2"
+		},
+		"ice_pillar_3": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du schlägst mit dem Hammer gegen die Säule. Ein heller, hoher Ruf, wie eine Möwe am Himmel.",
+					"action": "cutscene:act:player:hammer:ice_pillar_3,aee6ff",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "ice_pillar:3"
+		},
+		"ice_pillar_4": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du schlägst mit dem Hammer gegen die Säule. Ein kleines, leises Blubbern, wie ein Fisch.",
+					"action": "cutscene:act:player:hammer:ice_pillar_4,aee6ff",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "ice_pillar:4"
+		},
+		"ice_pillar_5": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du schlägst mit dem Hammer gegen die Säule. Ein tiefes Brummen, das du im Bauch spürst, wie ein Wal im Meer.",
+					"action": "cutscene:act:player:hammer:ice_pillar_5,aee6ff",
+					"hide_for": 1.6
+				}
+			],
+			"on_end": "ice_pillar:5"
+		},
+		"ice_pillar_quiet": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Säule summt noch leise nach."
+				}
+			]
+		},
+		"ice_relief_read": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ins Eis ist ein Bild geschnitten: die Sonne im Osten, drei runde Scheiben auf Stäben und ein Strahl, der von Scheibe zu Scheibe springt und die Wand im Norden trifft."
+				},
+				{
+					"speaker": "",
+					"text": "Darunter steht: „Fängt das Silber dreimal das Licht, wird das Eis klar wie Wasser.“"
+				},
+				{
+					"speaker": "player",
+					"text": "Drei Spiegel aus Silber. Die Scheiben im Bild sind genau gezeichnet, daraus mach ich mir eine Gussform. Zwei Barren pro Spiegel: gießen, hämmern, abkühlen."
+				}
+			],
+			"on_end": "unlock_molds:mold_ice_mirror;set_flag:ice_relief_read"
+		},
+		"ice_mirror_socket_1": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein Sockel aus Eis mit einer runden Halterung. Sie ist leer."
+				}
+			],
+			"choices": [
+				{
+					"text": "Silberspiegel einsetzen",
+					"action": "ice_mirror:1",
+					"else": "ice_mirror_missing"
+				},
+				{
+					"text": "Nichts einsetzen"
+				}
+			]
+		},
+		"ice_mirror_socket_2": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein Sockel aus Eis mit einer runden Halterung. Sie ist leer."
+				}
+			],
+			"choices": [
+				{
+					"text": "Silberspiegel einsetzen",
+					"action": "ice_mirror:2",
+					"else": "ice_mirror_missing"
+				},
+				{
+					"text": "Nichts einsetzen"
+				}
+			]
+		},
+		"ice_mirror_socket_3": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ein Sockel aus Eis mit einer runden Halterung. Sie ist leer."
+				}
+			],
+			"choices": [
+				{
+					"text": "Silberspiegel einsetzen",
+					"action": "ice_mirror:3",
+					"else": "ice_mirror_missing"
+				},
+				{
+					"text": "Nichts einsetzen"
+				}
+			]
+		},
+		"ice_mirror_missing": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du hast keinen Silberspiegel bei dir. Lies das Bild an der Wand, dort steht, was hierher gehört."
+				}
+			]
+		},
+		"ice_mirror_placed": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Im Sockel steckt ein Silberspiegel. Er glänzt in der Sonne."
+				}
+			]
+		},
+		"singing_wall_silent": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Eine Wand aus trübem Eis. Wenn du dein Ohr daran legst, hörst du gar nichts."
+				}
+			]
+		},
+		"singing_wall_empty": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "In der klaren Wand ist eine leere Mulde, so groß wie zwei Hände. Kalt."
+				}
+			]
+		},
+		"singing_wall_open": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du legst deine Hände auf das klare Eis. Sofort leuchten sie blau, heller als je zuvor.",
+					"action": "cutscene:wall_hands",
+					"hide_for": 1.2
+				},
+				{
+					"speaker": "",
+					"text": "Das Eis beginnt zu singen. Ein hoher, reiner Ton, der durch die ganze Mauer bis hinunter ins Meer geht.",
+					"action": "cutscene:wall_sing",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "",
+					"text": "Im Eis vor dir schimmert ein Kristall, so blau wie der Himmel über dem Nordmeer. Das Eis wird weich unter deinen Fingern, und du ziehst ihn heraus.",
+					"action": "cutscene:wall_crystal;give_items:holy_ice_crystal;set_flag:ice_crystal_taken",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "kahn",
+					"text": "Der Stein meines Urahns. Er hat tausend Jahre gewartet. Auf dich."
+				},
+				{
+					"speaker": "player",
+					"text": "Und ich hab's tatsächlich geschafft, ohne mich festzufrieren. Okay, ein bisschen klebe ich. Aber nur ein bisschen."
+				},
+				{
+					"speaker": "",
+					"text": "Hinter euch zerreißt die Luft. Ein Spalt aus Schatten öffnet sich mitten auf der Mauerkrone.",
+					"action": "cutscene:wall_rift;set_flag:king_on_wall",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "king",
+					"text": "Danke, mein Schmied. Ich wusste, dass du ihn findest. Du findest immer alles."
+				},
+				{
+					"speaker": "",
+					"text": "König Albrecht tritt aus dem Schatten. Neben ihm Lake, schwarz gerüstet, das Schwert schon in der Hand.",
+					"action": "cutscene:wall_step_out",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "kahn",
+					"text": "Der König, der Felle schicken lässt. Diesmal kommt er selbst."
+				},
+				{
+					"speaker": "king",
+					"text": "Kahn. Ich habe dein Volk immer geschätzt. Gib mir den Stein, und es bleibt so."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Mein Volk gehört der Strömung. Nicht dir."
+				},
+				{
+					"speaker": "king",
+					"text": "Wie schade. Lake."
+				},
+				{
+					"speaker": "player",
+					"text": "Nicht schon wieder. Kahn, gibt es hier irgendwo einen Kriegstisch?"
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Dort hinten! Schmied, schick deine Helden! Wir halten den König auf Abstand!",
+					"action": "cutscene:act:kahn_son:point:left"
+				}
+			],
+			"on_end": "hint:wall_battle;advance:wall_battle"
+		},
+		"wall_battle_kahn": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Schick deine Helden an den Kriegstisch, Schmied! Lake ist kein Mann mehr, er ist eine Klinge."
+				}
+			]
+		},
+		"wall_aftermath": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Lake taumelt zurück. Deine Helden haben ihn bis an den Rand der Mauer gedrängt. Er stützt sich auf sein schwarzes Schwert und atmet schwer.",
+					"action": "cutscene:wall_stagger",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "king",
+					"text": "Genug, Lake. Wir brauchen kein Blut. Wir brauchen nur den Stein."
+				},
+				{
+					"speaker": "",
+					"text": "Der König hebt die Hand. Unter deinen Füßen knackt das Eis. Ein Riss läuft quer über die Mauerkrone, und der Boden unter dir sackt weg.",
+					"action": "cutscene:wall_crack",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Südling!"
+				},
+				{
+					"speaker": "",
+					"text": "Subar stößt dich mit aller Kraft zurück. Du fällst in den Schnee. Dann bricht das Eis unter ihm weg, und er rutscht über die Kante.",
+					"action": "cutscene:wall_fall",
+					"hide_for": 1.5
+				},
+				{
+					"speaker": "",
+					"text": "Im selben Augenblick rollt der Eiskristall aus deiner Tasche über den Schnee, genau auf den Riss zu.",
+					"action": "cutscene:wall_roll",
+					"hide_for": 0.5
+				}
+			],
+			"choices": [
+				{
+					"text": "Subar packen!",
+					"action": "set_flag:subar_saved",
+					"then": "wall_save_subar",
+					"decision": true
+				},
+				{
+					"text": "Den Kristall packen!",
+					"action": "set_flag:subar_wounded",
+					"then": "wall_save_crystal",
+					"decision": true
+				}
+			]
+		},
+		"wall_save_subar": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du wirfst dich in den Schnee und bekommst Subars Handgelenk zu fassen. Er ist schwer. Deine Hände glühen, und du hältst trotzdem fest.",
+					"action": "cutscene:save_dive",
+					"hide_for": 1.0
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Ich hab ihn! Zieh, Schmied!"
+				},
+				{
+					"speaker": "",
+					"text": "Zu zweit zerrt ihr Subar über die Kante. Er blutet an der Stirn, aber er steht.",
+					"action": "cutscene:save_pull",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "",
+					"text": "Hinter dir hebt eine Hand in einem weißen Handschuh den Eiskristall aus dem Schnee.",
+					"action": "cutscene:king_take;take_items:holy_ice_crystal;set_flag:ice_crystal_lost",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "king",
+					"text": "Neun."
+				},
+				{
+					"speaker": "",
+					"text": "Der König lächelt dich an, fast väterlich. Dann treten er und Lake zurück in den Schatten. Der Spalt schließt sich.",
+					"action": "cutscene:king_leave",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Du hast den Stein liegen lassen. Für mich. Du Narr."
+				},
+				{
+					"speaker": "player",
+					"text": "Steine kann man zurückholen. Dich nicht. Außerdem schuldest du mir jetzt eine Harpunenspitze. Oder zwei."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Hm. Ich schulde dir mehr als das, Südling."
+				}
+			],
+			"then": "wall_aftermath_end"
+		},
+		"wall_save_crystal": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du hechtest dem Kristall hinterher und bekommst ihn an der Kante zu fassen.",
+					"action": "cutscene:crystal_dive",
+					"hide_for": 1.0
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "SUBAR!"
+				},
+				{
+					"speaker": "",
+					"text": "Torgai wirft seine Harpune. Die Leine spannt sich, reißt Torgai fast mit über den Rand, aber er hält fest. Unten hängt Subar, blutend, die Hand um das Seil gekrallt.",
+					"action": "cutscene:harpoon",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "",
+					"text": "Ein Schatten legt sich über deine Hand. Kalte Finger in einem weißen Handschuh lösen den Kristall aus deinem Griff, einen nach dem anderen.",
+					"action": "cutscene:king_take;take_items:holy_ice_crystal;set_flag:ice_crystal_lost",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "king",
+					"text": "Neun. Danke, dass du ihn für mich festgehalten hast."
+				},
+				{
+					"speaker": "",
+					"text": "Der König lächelt dich an, fast väterlich. Dann treten er und Lake zurück in den Schatten. Der Spalt schließt sich.",
+					"action": "cutscene:king_leave",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "",
+					"text": "Torgai und Kahn ziehen Subar über die Kante. Er lebt. Sein Arm ist gebrochen, sein Gesicht grau vor Kälte.",
+					"action": "cutscene:subar_up",
+					"hide_for": 2.0
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Für einen Südling ... hast du ... einen ziemlich dicken Schädel. Hätte schade drum sein können."
+				},
+				{
+					"speaker": "player",
+					"text": "Subar. Ich habe nach dem Stein gegriffen statt nach dir. Und jetzt habe ich nicht mal den. Mir fällt kein Witz ein."
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Du wolltest den Stein retten. Ein Krieger hätte dasselbe getan. Und Torgai hatte ja mich."
+				}
+			],
+			"then": "wall_aftermath_end"
+		},
+		"wall_aftermath_end": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Subar hat getan, was das Gesetz verlangt. Wer zu meinem Volk steht, für den stehen wir ein."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Der Fluss vergisst nicht, Schmied. Der König hat jetzt neun Steine. Aber er hat sich auch einen Feind gemacht, der nie vergisst."
+				},
+				{
+					"speaker": "kahn",
+					"text": "Hol deinen Schmied aus der Finsterburg. Wenn du zum Tor gehst, steht das Wasservolk hinter dir."
+				}
+			],
+			"on_end": "set_flag:king_left_wall;advance:part6_end"
+		},
+		"kahn_after_wall": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Subar flucht schon wieder. Das heißt, es geht ihm gut. Hol deinen Schmied, und dann ruf uns.",
+					"if_flag": "subar_saved"
+				},
+				{
+					"speaker": "kahn",
+					"text": "Subar wird leben. Er ist zu stur zum Sterben. Hol deinen Schmied, und dann ruf uns.",
+					"unless_flag": "subar_saved"
+				}
+			]
+		},
+		"subar_wounded_talk": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Starr nicht so, Südling. Eine Beule. Beim Fischen hatte ich schon schlimmere.",
+					"if_flag": "subar_saved"
+				},
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Starr nicht so, Südling. Ein Arm. Ich hab noch einen.",
+					"unless_flag": "subar_saved"
+				}
+			]
+		},
+		"subar_council": {
+			"lines": [
+				{
+					"speaker": "kahn_right_hand",
+					"text": "Ich schaue nicht nach unten, Südling. Du auch nicht. Dann merkt keiner was."
+				}
+			]
+		},
+		"council_lead_finster": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Die Halbdämonen, vorne? Die meisten hier haben sie ihr Leben lang gefürchtet."
+				},
+				{
+					"speaker": "player",
+					"text": "Eben. Am Altar sollen alle sehen, auf welcher Seite die Finsterstadt steht."
+				},
+				{
+					"speaker": "halvard",
+					"text": "Nyra wird dir dafür nicht danken. Aber sie wird es tun. Ich sag's ihr selbst."
+				}
+			],
+			"then": "grand_council_forge"
+		},
+		"council_lead_leon": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Die Soldaten des Königs? Nach allem, was ihr König getan hat?"
+				},
+				{
+					"speaker": "player",
+					"text": "Gerade deshalb. Leonheim soll nicht nur seinen König verlieren. Leonheim soll sich selbst zurückholen."
+				},
+				{
+					"speaker": "magician",
+					"text": "Bertold wird das gern hören. Er wird es nicht zeigen. Aber er wird es gern hören."
+				}
+			],
+			"then": "grand_council_forge"
+		},
+		"kahn_ally": {
+			"lines": [
+				{
+					"speaker": "kahn",
+					"text": "Das Wasservolk steht, Schmied. Sag, wohin."
+				}
+			]
+		},
+		"torgai_ally": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Ich habe Revanche verlangt, weißt du noch? Erst schließen wir das Tor. Dann die Arena."
+				}
+			]
+		},
+		"torgai_spear_offer": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Schmied. Ich habe verloren. Gegen deinen Helden. Mein Vater sagt, eine Niederlage lehrt mehr als ein Sieg."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Ich habe gelernt: Mein Speer ist zu schwer und zu weich. Er biegt sich, wenn das Eis bricht. Beim nächsten Turnier will ich eine Waffe, die führt wie die Gezeiten."
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Speer aus Silber. Leicht, hart, und im Wasser rostet er nicht. Silber hasst Rost. Fast so sehr wie ich Mathe."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Silber. Gut. Aber nicht irgendeines. Ein Speer, der etwas taugt. Mindestens selten. Sonst lacht Subar mich aus."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich schmiede ihn dir",
+					"action": "set_flag:torgai_spear_accepted",
+					"then": "torgai_spear_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"torgai_spear_accepted": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Gut. Ich warte. Ein Krieger wartet, bis die Strömung kommt. Aber nicht ewig, Südling."
+				}
+			]
+		},
+		"torgai_spear_hand_in": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Hast du meinen Speer, Schmied?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Speer geben",
+					"action": "hand_in_set:torgai_spear",
+					"then": "torgai_spear_done",
+					"else": "torgai_spear_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"torgai_spear_missing": {
+			"lines": [
+				{
+					"speaker": "kahn_son",
+					"text": "Ein Speer mit Silberspitze. Mindestens selten. Weniger hält das Eis nicht aus."
+				}
+			]
+		},
+		"torgai_spear_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Torgai wirbelt den Speer einmal um sich und stößt ihn in einen Eisblock. Das Eis springt, der Speer nicht.",
+					"action": "cutscene:act:kahn_son:thrust:silver_spear_head+silver_shaft",
+					"hide_for": 1.4
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Er führt. Wie die Gezeiten. Beim nächsten Turnier gehört der Sieg mir. Sag das deinem Helden."
+				},
+				{
+					"speaker": "kahn_son",
+					"text": "Das Gesetz der Strömung sagt: Wer gibt, bekommt. Hier. Gold und ein Stein aus dem Meer."
+				},
+				{
+					"speaker": "",
+					"text": "Torgai gibt dir 1200 Gold und einen Saphir.",
+					"action": "cutscene:act:kahn_son:give:res://assets/sprites/items/coin_purse.png|sapphire",
+					"hide_for": 2.2
+				}
+			],
+			"on_end": "give_gold:1200;give_items:sapphire;set_flag:torgai_spear_paid"
+		},
+		"tournament_messenger_eisquell_talk": {
+			"lines": [
+				{
+					"speaker": "tournament_messenger_eisquell",
+					"text": "Südling! Die Arena kennst du. Aber wusstest du, dass wir auch eine Turnierhalle für Schmiede haben? Eisen schmiedet sich gut, wenn das Meer zusieht."
+				},
+				{
+					"speaker": "tournament_messenger_eisquell",
+					"text": "In der Halle meldest du dich beim Turnierleiter an, dann geht es auf den Schmiedeplatz der Gezeiten. Soll ich dich hinbringen?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Zur Turnierhalle",
+					"action": "travel_fade:res://scenes/world/tournament/tournament_hall_eisquell.tscn,FromCity"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		}
+	}
+}

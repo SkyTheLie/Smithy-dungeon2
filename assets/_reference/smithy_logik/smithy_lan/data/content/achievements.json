@@ -1,0 +1,314 @@
+{
+	"_hilfe": {
+		"info": "Erfolge im Charakter-Fenster (Reiter Erfolge). Alle Felder: docs/CONTENT.md, Abschnitt achievements.json. Dieser Block wird vom Spiel ignoriert.",
+		"steam": "steam: enabled (true = an Steam melden, braucht das GodotSteam-Plugin), app_id (480 = Steams Testspiel Spacewar, später die eigene), name_pattern / single_pattern = Name bei Steam pro Stufe ({ID} = steam_id bzw. id groß, {LEVEL} = Stufe); jede Stufe ist bei Steam ein eigener Erfolg. Liste für Steamworks: python assets/_reference/steam/make_steam_list.py (Anleitung docs/STEAM.md).",
+		"felder": {
+			"name / description": "Titel und Text im Tooltip (was man tun muss)",
+			"category": "id aus categories (Reihenfolge der Kategorien = Reihenfolge im Fenster)",
+			"counter + levels": "Zähler und die Ziele der Stufen, z. B. [1, 5, 50, 100, 200] = Lv 1 bei 1, Lv 5 (max) bei 200; [1] = nur eine Stufe",
+			"all": "Liste von Zählern, die alle mindestens 1 sein müssen (z. B. ein ganzes Set), eine Stufe",
+			"flag": "Story-Flag (z. B. reached_<schritt>), eine Stufe",
+			"secret": "true = bis zur ersten Stufe nur [?] (Story-Erfolge, damit nichts verraten wird)",
+			"icon / item / enemy": "Bild: Pfad, oder das Icon eines Items (id) oder eines Gegners (id); ohne = Standard-Bild",
+			"steam_id": "Name bei Steam statt der id (in Großbuchstaben), z. B. \"RAT_HUNTER\"; nie mehr ändern, sobald die Erfolge bei Steam angelegt sind",
+			"steam": "false = dieser Erfolg kommt nicht zu Steam",
+			"steam_stat": "Name einer Steam-Statistik, die den Fortschritt (Zähler) zeigt, z. B. \"STAT_RATS\" (muss bei Steam angelegt sein)"
+		},
+		"zaehler": {
+			"forge, forge:<item>": "am Amboss geschmiedet (jedes Teil)",
+			"forge_perfect": "am Amboss mit Qualität 100 geschmiedet",
+			"craft, craft:<item>": "an der Werkbank gebaut",
+			"made:<typ>:<material>": "Ausrüstung gebaut, typ = weapon, helmet, shoulders, armor, gloves, legs, boots, shield, cloak; material = Material der Platte/Klinge (copper, iron, bronze ...)",
+			"smelt": "Barren aus Schmelze oder Legierung",
+			"rock": "Erz-/Steinbrocken abgebaut",
+			"kill, kill:<gegner>": "Monster besiegt (alle Helden zusammen)",
+			"dungeon, dungeon:<id>": "Dungeon geschafft",
+			"order": "Kundenauftrag abgegeben",
+			"sold": "Stück in Ninas oder im eigenen Laden verkauft",
+			"harvest": "Pflanze im Gewächshaus geerntet",
+			"potion": "Verzauberungstrank im Mörser gebraut",
+			"enchant, enchant:legendary": "Waffe/Rüstung am Zaubertisch verzaubert (legendary = mit einem Trank ab Seltenheit Legendär)",
+			"flag:<flag>": "1, sobald das Story-Flag gesetzt ist"
+		},
+		"vorlage": {
+			"name": "Rattenjäger",
+			"description": "Besiege Ratten.",
+			"category": "dungeons",
+			"counter": "kill:rat",
+			"levels": [10, 100, 250, 500, 1000],
+			"enemy": "rat"
+		}
+	},
+	"steam": {
+		"enabled": false,
+		"app_id": 480,
+		"name_pattern": "ACH_{ID}_{LEVEL}",
+		"single_pattern": "ACH_{ID}"
+	},
+	"categories": {
+		"story": {"name": "Geschichte"},
+		"forging": {"name": "Schmieden"},
+		"dungeons": {"name": "Dungeons"},
+		"trade": {"name": "Handel"},
+		"enchanting": {"name": "Verzauberungen"}
+	},
+	"achievements": {
+		"story_rented": {
+			"name": "Ein eigenes Dach",
+			"description": "Miete die alte Schmiede von Oma Hilde.",
+			"category": "story",
+			"flag": "smithy_rented",
+			"secret": true,
+			"icon": "res://assets/sprites/stations/anvil.png"
+		},
+		"story_axe": {
+			"name": "Holz für Holger",
+			"description": "Bring dem Holzfäller seine Axt.",
+			"category": "story",
+			"flag": "reached_go_to_sleep",
+			"secret": true,
+			"item": "axe"
+		},
+		"story_bruno": {
+			"name": "Ein Freund in der Not",
+			"description": "Hilf Bruno auf die Beine.",
+			"category": "story",
+			"flag": "reached_buy_sword_parts",
+			"secret": true,
+			"icon": "res://assets/ui/icon_coin.png"
+		},
+		"story_dungeon": {
+			"name": "Hallo Dungeon",
+			"description": "Schick deinen ersten Helden erfolgreich in einen Dungeon.",
+			"category": "story",
+			"flag": "reached_dungeon_done",
+			"secret": true,
+			"enemy": "rat"
+		},
+		"story_shop": {
+			"name": "Ladenhüter? Von wegen!",
+			"description": "Verkaufe deine ersten Schwerter in Ninas Laden.",
+			"category": "story",
+			"flag": "reached_collect_shop_money",
+			"secret": true,
+			"item": "sword"
+		},
+		"story_lotte": {
+			"name": "Verloren im Wald",
+			"description": "Finde Lotte.",
+			"category": "story",
+			"flag": "reached_niece_found",
+			"secret": true,
+			"item": "leather_shoes"
+		},
+		"story_festival": {
+			"name": "Das Schwert im Boden",
+			"description": "Erlebe das Frühlingsfest.",
+			"category": "story",
+			"flag": "reached_festival_night",
+			"secret": true,
+			"item": "sword"
+		},
+		"story_dust": {
+			"name": "Ein Hauch von Magie",
+			"description": "Braue im Mörser am Zaubertisch deinen ersten Verzauberungstrank.",
+			"category": "enchanting",
+			"flag": "potion_made",
+			"item": "fire_potion"
+		},
+		"plant_picker": {
+			"name": "Pflanzen pflücken",
+			"description": "Ernte Pflanzen im Gewächshaus. Jede Stufe hebt den Skill „Pflanzen pflücken“: +10 % Chance auf eine seltenere Ernte.",
+			"category": "enchanting",
+			"counter": "harvest",
+			"levels": [1, 10, 100, 500, 1000],
+			"item": "moon_lily"
+		},
+		"legendary_enchant": {
+			"name": "Legendärer Zauber",
+			"description": "Verzaubere eine Waffe oder ein Rüstungsteil mit einem legendären Trank (oder besser).",
+			"category": "enchanting",
+			"counter": "enchant:legendary",
+			"levels": [1],
+			"item": "light_potion"
+		},
+		"here_we_go": {
+			"name": "Here we go",
+			"description": "Schmiede zum ersten Mal etwas am Amboss.",
+			"category": "forging",
+			"counter": "forge",
+			"levels": [1],
+			"icon": "res://assets/sprites/stations/anvil.png"
+		},
+		"hammer_time": {
+			"name": "Hammerzeit",
+			"description": "Schmiede Teile am Amboss.",
+			"category": "forging",
+			"counter": "forge",
+			"levels": [10, 50, 200, 500, 1000],
+			"item": "copper_blade"
+		},
+		"perfect_strike": {
+			"name": "Meisterhand",
+			"description": "Schmiede ein Teil mit Qualität 100.",
+			"category": "forging",
+			"counter": "forge_perfect",
+			"levels": [1, 10, 50, 100, 250],
+			"item": "iron_blade"
+		},
+		"melting_pot": {
+			"name": "Heiß und flüssig",
+			"description": "Gieße Barren in der Schmelze.",
+			"category": "forging",
+			"counter": "smelt",
+			"levels": [1, 25, 100, 500, 1000],
+			"item": "copper_ingot"
+		},
+		"assembler": {
+			"name": "Alles passt zusammen",
+			"description": "Baue Dinge an der Werkbank.",
+			"category": "forging",
+			"counter": "craft",
+			"levels": [1, 10, 50, 200, 500],
+			"item": "wooden_plank"
+		},
+		"miner": {
+			"name": "Glück auf!",
+			"description": "Baue Erz und Gestein ab.",
+			"category": "forging",
+			"counter": "rock",
+			"levels": [10, 100, 500, 1000, 2500],
+			"item": "copper_ore"
+		},
+		"set_copper": {
+			"name": "Kupferset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Kupfer.",
+			"category": "forging",
+			"all": ["made:weapon:copper", "made:helmet:copper", "made:shoulders:copper", "made:armor:copper", "made:gloves:copper", "made:legs:copper", "made:boots:copper"],
+			"item": "copper_ingot"
+		},
+		"set_iron": {
+			"name": "Eisenset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Eisen.",
+			"category": "forging",
+			"all": ["made:weapon:iron", "made:helmet:iron", "made:shoulders:iron", "made:armor:iron", "made:gloves:iron", "made:legs:iron", "made:boots:iron"],
+			"item": "iron_ingot"
+		},
+		"set_bronze": {
+			"name": "Bronzeset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Bronze.",
+			"category": "forging",
+			"all": ["made:weapon:bronze", "made:helmet:bronze", "made:shoulders:bronze", "made:armor:bronze", "made:gloves:bronze", "made:legs:bronze", "made:boots:bronze"],
+			"item": "bronze_ingot"
+		},
+		"set_silver": {
+			"name": "Silberset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Silber.",
+			"category": "forging",
+			"all": ["made:weapon:silver", "made:helmet:silver", "made:shoulders:silver", "made:armor:silver", "made:gloves:silver", "made:legs:silver", "made:boots:silver"],
+			"item": "silver_ingot"
+		},
+		"set_gold": {
+			"name": "Goldset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Gold.",
+			"category": "forging",
+			"all": ["made:weapon:gold", "made:helmet:gold", "made:shoulders:gold", "made:armor:gold", "made:gloves:gold", "made:legs:gold", "made:boots:gold"],
+			"item": "gold_ingot"
+		},
+		"set_platinum": {
+			"name": "Platinset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Platin.",
+			"category": "forging",
+			"all": ["made:weapon:platinum", "made:helmet:platinum", "made:shoulders:platinum", "made:armor:platinum", "made:gloves:platinum", "made:legs:platinum", "made:boots:platinum"],
+			"item": "platinum_ingot"
+		},
+		"set_palladium": {
+			"name": "Palladiumset",
+			"description": "Baue eine Waffe, Helm, Schulterschutz, Rüstung, Handschuhe, Beinschutz und Stiefel aus Palladium.",
+			"category": "forging",
+			"all": ["made:weapon:palladium", "made:helmet:palladium", "made:shoulders:palladium", "made:armor:palladium", "made:gloves:palladium", "made:legs:palladium", "made:boots:palladium"],
+			"item": "palladium_ingot"
+		},
+		"adventurer": {
+			"name": "Abenteurer",
+			"description": "Schaffe Dungeons mit deinen Helden.",
+			"category": "dungeons",
+			"counter": "dungeon",
+			"levels": [1, 10, 50, 100, 250],
+			"item": "sword"
+		},
+		"rat_hunter": {
+			"name": "Rattenjäger",
+			"description": "Besiege Ratten.",
+			"category": "dungeons",
+			"counter": "kill:rat",
+			"levels": [10, 100, 250, 500, 1000],
+			"enemy": "rat"
+		},
+		"giant_rat": {
+			"name": "Ganz schön groß",
+			"description": "Besiege Riesenratten.",
+			"category": "dungeons",
+			"counter": "kill:giant_rat",
+			"levels": [1, 10, 50, 100, 200],
+			"enemy": "giant_rat"
+		},
+		"rat_king": {
+			"name": "Königsmord",
+			"description": "Besiege den Rattenkönig.",
+			"category": "dungeons",
+			"counter": "kill:rat_king",
+			"levels": [1, 5, 50, 100, 200],
+			"enemy": "rat_king"
+		},
+		"mine_rat": {
+			"name": "Ärger im Stollen",
+			"description": "Besiege die Alte Bergratte.",
+			"category": "dungeons",
+			"counter": "kill:mine_rat_boss",
+			"levels": [1],
+			"secret": true,
+			"enemy": "mine_rat_boss"
+		},
+		"wolf_hunter": {
+			"name": "Wolfsheulen",
+			"description": "Besiege Wölfe.",
+			"category": "dungeons",
+			"counter": "kill:wolf",
+			"levels": [10, 50, 100, 250, 500],
+			"enemy": "wolf"
+		},
+		"black_wolf": {
+			"name": "Der Schwarze Wolf",
+			"description": "Besiege den Schwarzen Wolf.",
+			"category": "dungeons",
+			"counter": "kill:black_wolf",
+			"levels": [1, 5, 50, 100, 200],
+			"enemy": "black_wolf"
+		},
+		"monster_slayer": {
+			"name": "Monsterschreck",
+			"description": "Besiege Monster aller Art.",
+			"category": "dungeons",
+			"counter": "kill",
+			"levels": [50, 250, 1000, 2500, 5000],
+			"enemy": "wild_boar"
+		},
+		"customers": {
+			"name": "Kundenliebling",
+			"description": "Gib Kundenaufträge am Auftragsbrett ab.",
+			"category": "trade",
+			"counter": "order",
+			"levels": [1, 10, 50, 100, 250],
+			"icon": "res://assets/ui/icon_coin.png"
+		},
+		"shopkeeper": {
+			"name": "Ladenbesitzer",
+			"description": "Verkaufe Waren in Ninas oder deinem eigenen Laden.",
+			"category": "trade",
+			"counter": "sold",
+			"levels": [1, 25, 100, 500, 1000],
+			"item": "sword"
+		}
+	}
+}

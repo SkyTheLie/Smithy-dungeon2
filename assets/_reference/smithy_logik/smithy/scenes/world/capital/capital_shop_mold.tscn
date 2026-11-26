@@ -1,0 +1,183 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/capital_shop_mold.png" id="5_room"]
+[ext_resource type="PackedScene" path="res://scenes/actors/market_stall.tscn" id="6_stall"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/shop_counter.png" id="7_counter"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/candelabra.png" id="8_candelabra"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="9_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/city_mold_maker.png" id="20_merchant"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/crates.png" id="30_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/chest.png" id="31_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/display_table.png" id="32_c"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/shop/display_case.png" id="33_d"]
+
+[sub_resource type="RectangleShape2D" id="Shape_top"]
+size = Vector2(301, 64)
+
+[sub_resource type="RectangleShape2D" id="Shape_side"]
+size = Vector2(8, 232)
+
+[sub_resource type="RectangleShape2D" id="Shape_bottom"]
+size = Vector2(130, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_prop"]
+size = Vector2(20, 8)
+
+[node name="Shop_mold" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("4_day_tint")
+strength = 0.6
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-150, -116)
+texture = ExtResource("5_room")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -84)
+shape = SubResource("Shape_top")
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-146, 0)
+shape = SubResource("Shape_side")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(146, 0)
+shape = SubResource("Shape_side")
+
+[node name="BottomLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-85, 112)
+shape = SubResource("Shape_bottom")
+
+[node name="BottomRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(85, 112)
+shape = SubResource("Shape_bottom")
+
+[node name="Decor" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Merchant" parent="." instance=ExtResource("6_stall")]
+position = Vector2(0, 0)
+merchant_name = "Formenmacher Quentin"
+stall_texture = ExtResource("7_counter")
+merchant_texture = ExtResource("20_merchant")
+greeting = "Jede Form ein Meisterwerk. Gießt Ihr etwas Schiefes, liegt es nicht an mir."
+offers = Array[String](["recipe:iron_blade_mold", "recipe:iron_handle_mold", "recipe:iron_axe_head_mold", "recipe:iron_greatsword_blade_mold", "recipe:iron_dagger_blade_mold", "recipe:iron_spear_head_mold", "recipe:iron_hammer_head_mold", "recipe:iron_mace_head_mold", "recipe:iron_greataxe_head_mold", "recipe:iron_shield_plate_mold", "recipe:iron_shaft_mold", "recipe:iron_staff_rod_mold", "recipe:iron_bow_frame_mold", "recipe:iron_longbow_frame_mold", "recipe:iron_arrow_tip_mold", "recipe:iron_arrow_shaft_mold", "recipe:iron_chest_plate_mold", "recipe:iron_helmet_plate_mold", "recipe:iron_shoulder_plate_mold", "recipe:iron_boot_plate_mold", "recipe:iron_glove_plate_mold", "recipe:iron_leg_plate_mold", "recipe:iron_pickaxe_head_mold", "recipe:iron_lumber_axe_head_mold", "recipe:bronze_blade_mold", "recipe:bronze_handle_mold", "recipe:bronze_axe_head_mold", "recipe:bronze_greatsword_blade_mold", "recipe:bronze_dagger_blade_mold", "recipe:bronze_spear_head_mold", "recipe:bronze_hammer_head_mold", "recipe:bronze_mace_head_mold", "recipe:bronze_greataxe_head_mold", "recipe:bronze_shield_plate_mold", "recipe:bronze_shaft_mold", "recipe:bronze_staff_rod_mold", "recipe:bronze_bow_frame_mold", "recipe:bronze_longbow_frame_mold", "recipe:bronze_arrow_tip_mold", "recipe:bronze_arrow_shaft_mold", "recipe:bronze_chest_plate_mold", "recipe:bronze_helmet_plate_mold", "recipe:bronze_shoulder_plate_mold", "recipe:bronze_boot_plate_mold", "recipe:bronze_glove_plate_mold", "recipe:bronze_leg_plate_mold", "recipe:bronze_pickaxe_head_mold", "recipe:bronze_lumber_axe_head_mold", "recipe:silver_blade_mold", "recipe:silver_handle_mold", "recipe:silver_axe_head_mold", "recipe:silver_greatsword_blade_mold", "recipe:silver_dagger_blade_mold", "recipe:silver_spear_head_mold", "recipe:silver_hammer_head_mold", "recipe:silver_mace_head_mold", "recipe:silver_greataxe_head_mold", "recipe:silver_shield_plate_mold", "recipe:silver_shaft_mold", "recipe:silver_staff_rod_mold", "recipe:silver_bow_frame_mold", "recipe:silver_longbow_frame_mold", "recipe:silver_arrow_tip_mold", "recipe:silver_arrow_shaft_mold", "recipe:silver_chest_plate_mold", "recipe:silver_helmet_plate_mold", "recipe:silver_shoulder_plate_mold", "recipe:silver_boot_plate_mold", "recipe:silver_glove_plate_mold", "recipe:silver_leg_plate_mold", "recipe:silver_pickaxe_head_mold", "recipe:silver_lumber_axe_head_mold", "recipe:platinum_blade_mold", "recipe:platinum_handle_mold", "recipe:platinum_axe_head_mold", "recipe:platinum_greatsword_blade_mold", "recipe:platinum_dagger_blade_mold", "recipe:platinum_spear_head_mold", "recipe:platinum_hammer_head_mold", "recipe:platinum_mace_head_mold", "recipe:platinum_greataxe_head_mold", "recipe:platinum_shield_plate_mold", "recipe:platinum_shaft_mold", "recipe:platinum_staff_rod_mold", "recipe:platinum_bow_frame_mold", "recipe:platinum_longbow_frame_mold", "recipe:platinum_arrow_tip_mold", "recipe:platinum_arrow_shaft_mold", "recipe:platinum_chest_plate_mold", "recipe:platinum_helmet_plate_mold", "recipe:platinum_shoulder_plate_mold", "recipe:platinum_boot_plate_mold", "recipe:platinum_glove_plate_mold", "recipe:platinum_leg_plate_mold", "recipe:platinum_pickaxe_head_mold", "recipe:platinum_lumber_axe_head_mold", "recipe:platinum_ring_band_mold", "recipe:platinum_amulet_mold", "recipe:palladium_blade_mold", "recipe:palladium_handle_mold", "recipe:palladium_axe_head_mold", "recipe:palladium_greatsword_blade_mold", "recipe:palladium_dagger_blade_mold", "recipe:palladium_spear_head_mold", "recipe:palladium_hammer_head_mold", "recipe:palladium_mace_head_mold", "recipe:palladium_greataxe_head_mold", "recipe:palladium_shield_plate_mold", "recipe:palladium_shaft_mold", "recipe:palladium_staff_rod_mold", "recipe:palladium_bow_frame_mold", "recipe:palladium_longbow_frame_mold", "recipe:palladium_arrow_tip_mold", "recipe:palladium_arrow_shaft_mold", "recipe:palladium_chest_plate_mold", "recipe:palladium_helmet_plate_mold", "recipe:palladium_shoulder_plate_mold", "recipe:palladium_boot_plate_mold", "recipe:palladium_glove_plate_mold", "recipe:palladium_leg_plate_mold", "recipe:palladium_pickaxe_head_mold", "recipe:palladium_lumber_axe_head_mold", "recipe:palladium_ring_band_mold", "recipe:palladium_amulet_mold", "recipe:silver_ring_mold", "recipe:silver_amulet_mold", "recipe:gold_blade_mold", "recipe:gold_handle_mold", "recipe:gold_axe_head_mold", "recipe:gold_greatsword_blade_mold", "recipe:gold_dagger_blade_mold", "recipe:gold_spear_head_mold", "recipe:gold_hammer_head_mold", "recipe:gold_mace_head_mold", "recipe:gold_greataxe_head_mold", "recipe:gold_shield_plate_mold", "recipe:gold_shaft_mold", "recipe:gold_staff_rod_mold", "recipe:gold_bow_frame_mold", "recipe:gold_longbow_frame_mold", "recipe:gold_arrow_tip_mold", "recipe:gold_arrow_shaft_mold", "recipe:gold_chest_plate_mold", "recipe:gold_helmet_plate_mold", "recipe:gold_shoulder_plate_mold", "recipe:gold_boot_plate_mold", "recipe:gold_glove_plate_mold", "recipe:gold_leg_plate_mold", "recipe:gold_pickaxe_head_mold", "recipe:gold_lumber_axe_head_mold", "recipe:gold_ring_band_mold", "recipe:gold_amulet_mold", "recipe:copper_blade", "recipe:copper_handle", "recipe:copper_chest_plate", "recipe:copper_helmet_plate", "recipe:copper_shoulder_plate", "recipe:copper_boot_plate", "recipe:copper_leg_plate", "recipe:copper_glove_plate", "recipe:iron_lumber_axe_head", "recipe:copper_backpack_frame", "recipe:iron_backpack_frame", "recipe:bronze_backpack_frame", "recipe:silver_backpack_frame", "recipe:copper_can_body", "recipe:iron_can_body", "recipe:bronze_can_body", "recipe:silver_can_body", "mold:copper_bow_frame=20", "mold:copper_longbow_frame=30", "mold:copper_arrow_tip=15", "mold:copper_arrow_shaft=15", "mold:iron_bow_frame=60", "mold:iron_longbow_frame=80", "mold:iron_arrow_tip=40", "mold:iron_arrow_shaft=40"])
+merchant_feet = -16.0
+
+[node name="CandleW" type="StaticBody2D" parent="Decor"]
+position = Vector2(-126, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CandleW"]
+texture = ExtResource("8_candelabra")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CandleW"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Light" parent="Decor/CandleW" instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+
+[node name="CandleE" type="StaticBody2D" parent="Decor"]
+position = Vector2(126, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CandleE"]
+texture = ExtResource("8_candelabra")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CandleE"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Light" parent="Decor/CandleE" instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+
+[node name="CratesW" type="StaticBody2D" parent="Decor"]
+position = Vector2(-110, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CratesW"]
+texture = ExtResource("30_a")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CratesW"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="ChestE" type="StaticBody2D" parent="Decor"]
+position = Vector2(110, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ChestE"]
+texture = ExtResource("31_b")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ChestE"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="TableW" type="StaticBody2D" parent="Decor"]
+position = Vector2(-110, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/TableW"]
+texture = ExtResource("32_c")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/TableW"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="CaseE" type="StaticBody2D" parent="Decor"]
+position = Vector2(110, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CaseE"]
+texture = ExtResource("33_d")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CaseE"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="DoorOut" parent="." instance=ExtResource("2_door")]
+position = Vector2(0, 118)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"From_mold"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromStreet" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 94)
+
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 94)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+
+[editable path="DoorOut"]
+[editable path="Player"]

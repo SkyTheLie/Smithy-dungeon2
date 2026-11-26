@@ -1,0 +1,438 @@
+[gd_scene format=3 uid="uid://cbkwfi87m1my3"]
+
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" uid="uid://ctylxptfvpqjk" path="res://assets/sprites/rooms/capital_inn.png" id="5_room"]
+[ext_resource type="Texture2D" uid="uid://c3yp7lprspdju" path="res://assets/sprites/furniture/shop/candelabra.png" id="8_candelabra"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="9_light"]
+[ext_resource type="Script" uid="uid://dfl14lgdpthx0" path="res://scenes/stations/station.gd" id="40_station"]
+[ext_resource type="Texture2D" uid="uid://bklloalv646wf" path="res://assets/sprites/furniture/guild_counter.png" id="41_counter"]
+[ext_resource type="Texture2D" uid="uid://dmlfuais6p0b4" path="res://assets/sprites/npcs/capital_innkeeper.png" id="42_keeper"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/inn_menu.tscn" id="43_inn_menu"]
+[ext_resource type="Texture2D" uid="uid://cgxsykyds2w0q" path="res://assets/sprites/furniture/td_dining_table.png" id="54_table"]
+[ext_resource type="Texture2D" uid="uid://d2gb1p3u6x12r" path="res://assets/sprites/furniture/td_chair_side.png" id="55_chair"]
+[ext_resource type="Texture2D" uid="uid://b0hth6tt2nwx2" path="res://assets/sprites/furniture/guild_barrels.png" id="56_barrels"]
+[ext_resource type="Texture2D" uid="uid://b647qrcujoxjo" path="res://assets/sprites/furniture/rug_bedroom.png" id="57_rug"]
+[ext_resource type="Script" uid="uid://ds0hynlqqpeua" path="res://scenes/actors/village_roads.gd" id="guest_roads"]
+[ext_resource type="Script" uid="uid://c0pf3sbup4rhn" path="res://scenes/actors/villager_spot.gd" id="guest_spot"]
+[ext_resource type="PackedScene" path="res://scenes/actors/villager.tscn" id="guest_villager"]
+
+
+[sub_resource type="RectangleShape2D" id="Shape_top"]
+size = Vector2(399, 79)
+
+[sub_resource type="RectangleShape2D" id="Shape_side"]
+size = Vector2(8, 297)
+
+[sub_resource type="RectangleShape2D" id="Shape_bottom"]
+size = Vector2(180, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_prop"]
+size = Vector2(20, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_counter"]
+size = Vector2(156, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_counter_area"]
+size = Vector2(110, 30)
+
+[node name="CapitalInn" type="Node2D" unique_id=159754988]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="." unique_id=1145522104]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="." unique_id=1250479693]
+script = ExtResource("4_day_tint")
+strength = 0.6
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1251043580]
+z_index = -2
+position = Vector2(-200, -148)
+texture = ExtResource("5_room")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1656916095]
+
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=1804645789]
+position = Vector2(-0.5, -110.5)
+shape = SubResource("Shape_top")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=118552585]
+position = Vector2(-196, 0)
+shape = SubResource("Shape_side")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=770455765]
+position = Vector2(196, 0)
+shape = SubResource("Shape_side")
+
+[node name="BottomLeft" type="CollisionShape2D" parent="Walls" unique_id=737210944]
+position = Vector2(-110, 144)
+shape = SubResource("Shape_bottom")
+
+[node name="BottomRight" type="CollisionShape2D" parent="Walls" unique_id=158006226]
+position = Vector2(110, 144)
+shape = SubResource("Shape_bottom")
+
+[node name="Decor" type="Node2D" parent="." unique_id=321373529]
+y_sort_enabled = true
+
+[node name="Table_110_30" type="StaticBody2D" parent="Decor" unique_id=997414777]
+position = Vector2(110, 30)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Table_110_30" unique_id=1319130790]
+texture = ExtResource("54_table")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Table_110_30" unique_id=1210385976]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="ChairL_110_30" type="StaticBody2D" parent="Decor" unique_id=798582576]
+position = Vector2(74, 26)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ChairL_110_30" unique_id=1869143380]
+texture = ExtResource("55_chair")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ChairL_110_30" unique_id=1860728174]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="ChairR_110_30" type="StaticBody2D" parent="Decor" unique_id=1780707302]
+position = Vector2(146, 26)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ChairR_110_30" unique_id=1689282049]
+texture = ExtResource("55_chair")
+offset = Vector2(0, -15)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ChairR_110_30" unique_id=806473797]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Table_110_100" type="StaticBody2D" parent="Decor" unique_id=819274494]
+position = Vector2(110, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Table_110_100" unique_id=655428694]
+texture = ExtResource("54_table")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Table_110_100" unique_id=1762875660]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="ChairL_110_100" type="StaticBody2D" parent="Decor" unique_id=1647737369]
+position = Vector2(74, 96)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ChairL_110_100" unique_id=1588761851]
+texture = ExtResource("55_chair")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ChairL_110_100" unique_id=613796466]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="ChairR_110_100" type="StaticBody2D" parent="Decor" unique_id=1249226338]
+position = Vector2(146, 96)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ChairR_110_100" unique_id=1731724839]
+texture = ExtResource("55_chair")
+offset = Vector2(0, -15)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ChairR_110_100" unique_id=750865837]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Table_120_100" type="StaticBody2D" parent="Decor" unique_id=1310467241]
+position = Vector2(-120, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Table_120_100" unique_id=605566077]
+texture = ExtResource("54_table")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Table_120_100" unique_id=1973304303]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="ChairL_120_100" type="StaticBody2D" parent="Decor" unique_id=996016069]
+position = Vector2(-156, 96)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ChairL_120_100" unique_id=337483528]
+texture = ExtResource("55_chair")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ChairL_120_100" unique_id=50831895]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="ChairR_120_100" type="StaticBody2D" parent="Decor" unique_id=2103893485]
+position = Vector2(-84, 96)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ChairR_120_100" unique_id=1892630674]
+texture = ExtResource("55_chair")
+offset = Vector2(0, -15)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ChairR_120_100" unique_id=522577082]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Barrels" type="StaticBody2D" parent="Decor" unique_id=1596557482]
+position = Vector2(-163, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Barrels" unique_id=840239231]
+texture = ExtResource("56_barrels")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Barrels" unique_id=1586161970]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="CandleW" type="StaticBody2D" parent="Decor" unique_id=1214817019]
+position = Vector2(-176, 132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CandleW" unique_id=1871016129]
+texture = ExtResource("8_candelabra")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CandleW" unique_id=888420330]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Light" parent="Decor/CandleW" unique_id=167187048 instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+
+[node name="CandleE" type="StaticBody2D" parent="Decor" unique_id=1891371641]
+position = Vector2(176, 132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CandleE" unique_id=1384627629]
+texture = ExtResource("8_candelabra")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CandleE" unique_id=151411048]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Light" parent="Decor/CandleE" unique_id=46914786 instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+
+[node name="CandleBar" type="StaticBody2D" parent="Decor" unique_id=1408082407]
+position = Vector2(40, -52)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CandleBar" unique_id=1287973174]
+texture = ExtResource("8_candelabra")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CandleBar" unique_id=1095842416]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Light" parent="Decor/CandleBar" unique_id=1284366012 instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+
+[node name="Bar" type="StaticBody2D" parent="." unique_id=1857819488]
+y_sort_enabled = true
+position = Vector2(-70, -30)
+script = ExtResource("40_station")
+
+[node name="Keeper" type="Sprite2D" parent="Bar" unique_id=582824245]
+position = Vector2(0, -29)
+texture = ExtResource("42_keeper")
+offset = Vector2(0, -17)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bar" unique_id=1303574191]
+texture = ExtResource("41_counter")
+offset = Vector2(0, -28)
+
+[node name="NameLabel" type="Label" parent="Bar" unique_id=876440148]
+z_index = 1
+offset_left = -60.0
+offset_top = -88.0
+offset_right = 60.0
+offset_bottom = -76.0
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "Wirt Bertram: Zimmer"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar" unique_id=659452159]
+position = Vector2(0, -7)
+shape = SubResource("Shape_counter")
+
+[node name="InteractionArea" type="Area2D" parent="Bar" unique_id=1786396074]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/InteractionArea" unique_id=281768949]
+position = Vector2(0, 14)
+shape = SubResource("Shape_counter_area")
+
+[node name="InnMenu" parent="Bar" unique_id=167545445 instance=ExtResource("43_inn_menu")]
+
+[node name="Rug" type="Sprite2D" parent="." unique_id=727870732]
+z_index = -1
+position = Vector2(0, 88)
+texture = ExtResource("57_rug")
+
+[node name="DoorOut" parent="." unique_id=474467267 instance=ExtResource("2_door")]
+position = Vector2(0, 150)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"From_inn"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromStreet" type="Marker2D" parent="." unique_id=999265096 groups=["spawn_points"]]
+position = Vector2(0, 126)
+
+[node name="FromRoom" type="Marker2D" parent="." unique_id=1849167874 groups=["spawn_points"]]
+position = Vector2(150, -40)
+
+[node name="GuestRoads" type="Node2D" parent="."]
+script = ExtResource("guest_roads")
+area = Rect2(-192, -71, 384, 211)
+
+[node name="Room" type="Marker2D" parent="GuestRoads"]
+position = Vector2(0, 60)
+
+[node name="GuestSpots" type="Node2D" parent="."]
+
+[node name="Chair1" type="Marker2D" parent="GuestSpots" node_paths=PackedStringArray("road")]
+position = Vector2(74, 27)
+script = ExtResource("guest_spot")
+kind = 2
+facing = "right"
+duration = Vector2(20, 60)
+road = NodePath("../../GuestRoads/Room")
+
+[node name="Chair2" type="Marker2D" parent="GuestSpots" node_paths=PackedStringArray("road")]
+position = Vector2(146, 27)
+script = ExtResource("guest_spot")
+kind = 2
+facing = "left"
+duration = Vector2(20, 60)
+road = NodePath("../../GuestRoads/Room")
+
+[node name="Chair3" type="Marker2D" parent="GuestSpots" node_paths=PackedStringArray("road")]
+position = Vector2(74, 97)
+script = ExtResource("guest_spot")
+kind = 2
+facing = "right"
+duration = Vector2(20, 60)
+road = NodePath("../../GuestRoads/Room")
+
+[node name="Chair4" type="Marker2D" parent="GuestSpots" node_paths=PackedStringArray("road")]
+position = Vector2(146, 97)
+script = ExtResource("guest_spot")
+kind = 2
+facing = "left"
+duration = Vector2(20, 60)
+road = NodePath("../../GuestRoads/Room")
+
+[node name="Chair5" type="Marker2D" parent="GuestSpots" node_paths=PackedStringArray("road")]
+position = Vector2(-156, 97)
+script = ExtResource("guest_spot")
+kind = 2
+facing = "right"
+duration = Vector2(20, 60)
+road = NodePath("../../GuestRoads/Room")
+
+[node name="Chair6" type="Marker2D" parent="GuestSpots" node_paths=PackedStringArray("road")]
+position = Vector2(-84, 97)
+script = ExtResource("guest_spot")
+kind = 2
+facing = "left"
+duration = Vector2(20, 60)
+road = NodePath("../../GuestRoads/Room")
+
+[node name="Look1" type="Marker2D" parent="GuestSpots" node_paths=PackedStringArray("road")]
+position = Vector2(-110, -14)
+script = ExtResource("guest_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 15)
+road = NodePath("../../GuestRoads/Room")
+
+[node name="Look2" type="Marker2D" parent="GuestSpots" node_paths=PackedStringArray("road")]
+position = Vector2(-40, -14)
+script = ExtResource("guest_spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 15)
+road = NodePath("../../GuestRoads/Room")
+
+[node name="Look3" type="Marker2D" parent="GuestSpots" node_paths=PackedStringArray("road")]
+position = Vector2(-140, 30)
+script = ExtResource("guest_spot")
+kind = 3
+facing = "left"
+duration = Vector2(6, 15)
+road = NodePath("../../GuestRoads/Room")
+
+[node name="Door" type="Marker2D" parent="GuestSpots" node_paths=PackedStringArray("road")]
+position = Vector2(0, 138)
+script = ExtResource("guest_spot")
+kind = 1
+facing = "down"
+duration = Vector2(15, 40)
+road = NodePath("../../GuestRoads/Room")
+
+[node name="GuestA" parent="." node_paths=PackedStringArray("spots", "roads") instance=ExtResource("guest_villager")]
+position = Vector2(110, 58)
+resident = "inn_guest_a"
+spots = NodePath("../GuestSpots")
+roads = NodePath("../GuestRoads")
+pause = Vector2(1, 3)
+goes_home_at_night = false
+
+[node name="GuestB" parent="." node_paths=PackedStringArray("spots", "roads") instance=ExtResource("guest_villager")]
+position = Vector2(40, 124)
+resident = "inn_guest_b"
+spots = NodePath("../GuestSpots")
+roads = NodePath("../GuestRoads")
+pause = Vector2(1, 3)
+goes_home_at_night = false
+
+[node name="GuestC" parent="." node_paths=PackedStringArray("spots", "roads") instance=ExtResource("guest_villager")]
+position = Vector2(-120, 128)
+resident = "inn_guest_c"
+spots = NodePath("../GuestSpots")
+roads = NodePath("../GuestRoads")
+pause = Vector2(1, 3)
+goes_home_at_night = false
+
+[node name="GuestD" parent="." node_paths=PackedStringArray("spots", "roads") instance=ExtResource("guest_villager")]
+position = Vector2(-40, 20)
+resident = "inn_guest_d"
+spots = NodePath("../GuestSpots")
+roads = NodePath("../GuestRoads")
+pause = Vector2(1, 3)
+goes_home_at_night = false
+
+[node name="Player" parent="." unique_id=536713635 instance=ExtResource("1_player")]
+position = Vector2(0, 126)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." unique_id=629777236 instance=ExtResource("3_hud")]
+
+[connection signal="interacted" from="Bar" to="Bar/InnMenu" method="toggle"]
+[connection signal="player_left" from="Bar" to="Bar/InnMenu" method="close"]
+[connection signal="body_entered" from="Bar/InteractionArea" to="Bar" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Bar/InteractionArea" to="Bar" method="_on_interaction_area_body_exited"]
+
+[editable path="DoorOut"]
+[editable path="Player"]

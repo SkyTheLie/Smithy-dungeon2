@@ -1,0 +1,75 @@
+{
+	"_info": "Sound-Ids -> Dateien (Liste = eine zufällig). sound_volume_db: Lautstärke je Id in dB. sound_buses: Id -> Bus (sonst Sounds). music: Musik-Ids (Hauptmenü 'title', Ebenen über floors.json 'music', Boss 'boss').",
+	"music_volume_db": -4,
+	"music": {
+		"title": "res://assets/audio/music/title_01.ogg",
+		"cellar": "res://assets/audio/music/mine_02.wav",
+		"deep": "res://assets/audio/music/underworld_01.ogg",
+		"crypt": "res://assets/audio/music/finster_01.ogg",
+		"boss": "res://assets/audio/music/boss_01.ogg",
+		"victory": "res://assets/audio/music/ending_01.ogg"
+	},
+	"sounds": {
+		"ui_click": "res://assets/audio/sfx/kenney/click_002.ogg",
+		"title_hammer": [
+			"res://assets/audio/sfx/anvil_good.wav",
+			"res://assets/audio/sfx/anvil_perfect.wav"
+		],
+		"title_door": [
+			"res://assets/audio/sfx/kenney/doorOpen_1.ogg",
+			"res://assets/audio/sfx/kenney/doorOpen_2.ogg"
+		],
+		"title_strike": "res://assets/audio/sfx/anvil_perfect.wav",
+		"shoot": "res://assets/audio/sfx/skill_used.wav",
+		"enemy_hit": [
+			"res://assets/audio/sfx/kenney/impactMining_000.ogg",
+			"res://assets/audio/sfx/kenney/impactMining_001.ogg",
+			"res://assets/audio/sfx/kenney/impactMining_002.ogg"
+		],
+		"enemy_die": "res://assets/audio/sfx/wood_break.wav",
+		"player_hurt": "res://assets/audio/sfx/anvil_miss.wav",
+		"coin": [
+			"res://assets/audio/sfx/kenney/handleCoins.ogg",
+			"res://assets/audio/sfx/kenney/handleCoins2.ogg"
+		],
+		"pickup": "res://assets/audio/sfx/plant_pick.wav",
+		"item": "res://assets/audio/sfx/rarity_up.wav",
+		"synergy": "res://assets/audio/sfx/achievement.wav",
+		"door": [
+			"res://assets/audio/sfx/kenney/doorOpen_1.ogg",
+			"res://assets/audio/sfx/kenney/doorOpen_2.ogg"
+		],
+		"unlock": "res://assets/audio/sfx/unlock.wav",
+		"explosion": "res://assets/audio/sfx/rock_break.wav",
+		"boss_die": "res://assets/audio/sfx/level_up.wav",
+		"enemy_shoot": "res://assets/audio/sfx/quench_hiss.wav",
+		"buy": "res://assets/audio/sfx/chest_open.wav",
+		"denied": "res://assets/audio/sfx/anvil_miss.wav",
+		"swing": "res://assets/audio/sfx/kenney/chop.ogg",
+		"melee_hit": "res://assets/audio/sfx/axe_hit.wav",
+		"dash": "res://assets/audio/sfx/step.wav",
+		"boss_burrow": "res://assets/audio/sfx/stone_grind.wav",
+		"boss_teleport": "res://assets/audio/sfx/window_open.wav",
+		"boss_mirror": "res://assets/audio/sfx/pillar_chime.wav",
+		"blocked": "res://assets/audio/sfx/anvil_good.wav"
+	},
+	"sound_buses": {
+		"ui_click": "Interface",
+		"title_hammer": "Interface",
+		"title_door": "Interface",
+		"title_strike": "Interface"
+	},
+	"sound_volume_db": {
+		"ui_click": -6,
+		"title_hammer": -14,
+		"title_door": -4,
+		"title_strike": -2,
+		"shoot": -12,
+		"enemy_hit": -8,
+		"enemy_die": -6,
+		"enemy_shoot": -14,
+		"coin": -4,
+		"door": -6,
+		"denied": -8
+	}
+}

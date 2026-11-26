@@ -1,0 +1,263 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_goblin.tscn" id="lamp_goblin"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/goblin_mine_ground.png" id="1_goblin_mine_"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="2_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/goblin_mine_mask.png" id="3_goblin_mine_"]
+[ext_resource type="Script" path="res://scripts/resources/rock_data.gd" id="4_rock_data"]
+[ext_resource type="Resource" path="res://data/rocks/copper_rock.tres" id="5_copper_rock"]
+[ext_resource type="Resource" path="res://data/rocks/iron_rock.tres" id="6_iron_rock"]
+[ext_resource type="Script" path="res://scenes/world/objects/rock_spawner.gd" id="7_rock_spawner"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/ore_rock.tscn" id="8_ore_rock"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_cart.png" id="10_goblin_cart"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="11_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="12_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="13_door"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="14_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="15_hud"]
+
+[sub_resource type="Gradient" id="LightGradient"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.45, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="LightTexture"]
+gradient = SubResource("LightGradient")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3"]
+size = Vector2(18, 8)
+
+[sub_resource type="Resource" id="Look_overseer"]
+script = ExtResource("11_appearance")
+race = "elf"
+hair_style = "bald"
+eye_type = "narrow"
+eye_color = "amber"
+size = "normal"
+skin = "olive"
+outfit = "smith"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_hungry"]
+script = ExtResource("11_appearance")
+race = "elf"
+hair_style = "bald"
+eye_type = "sleepy"
+eye_color = "amber"
+size = "small"
+skin = "aqua_green"
+outfit = "tunic"
+clothes_color = "grey"
+
+[node name="GoblinMine" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0.5, 0.46, 0.5, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 0)
+texture = ExtResource("1_goblin_mine_")
+centered = false
+
+[node name="CaveWalls" type="StaticBody2D" parent="."]
+script = ExtResource("2_cave_walls")
+mask = ExtResource("3_goblin_mine_")
+
+[node name="OreSpawner" type="Node2D" parent="." node_paths=PackedStringArray("walls")]
+y_sort_enabled = true
+script = ExtResource("7_rock_spawner")
+rock_scene = ExtResource("8_ore_rock")
+rock_types = Array[ExtResource("4_rock_data")]([ExtResource("5_copper_rock"), ExtResource("6_iron_rock")])
+weights = Array[float]([50.0, 50.0, 20.0, 10.0])
+rock_count = 9
+rock_count_max = 12
+area_id = "goblin_mine"
+area = Rect2(0, 0, 960, 704)
+min_distance = 36
+walls = NodePath("../CaveWalls")
+keep_clear = Rect2(0, 300, 120, 160)
+
+[node name="Torch0" parent="." instance=ExtResource("lamp_goblin")]
+position = Vector2(216, 307)
+
+[node name="Lamp0" type="PointLight2D" parent="."]
+position = Vector2(220, 282)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture_scale = 0.9
+texture = SubResource("LightTexture")
+
+[node name="Torch1" parent="." instance=ExtResource("lamp_goblin")]
+position = Vector2(373, 316)
+
+[node name="Lamp1" type="PointLight2D" parent="."]
+position = Vector2(380, 282)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture_scale = 0.9
+texture = SubResource("LightTexture")
+
+[node name="Torch2" parent="." instance=ExtResource("lamp_goblin")]
+position = Vector2(649, 211)
+
+[node name="Lamp2" type="PointLight2D" parent="."]
+position = Vector2(640, 184)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture_scale = 0.9
+texture = SubResource("LightTexture")
+
+[node name="Torch3" parent="." instance=ExtResource("lamp_goblin")]
+position = Vector2(793, 217)
+
+[node name="Lamp3" type="PointLight2D" parent="."]
+position = Vector2(800, 184)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture_scale = 0.9
+texture = SubResource("LightTexture")
+
+[node name="Torch4" parent="." instance=ExtResource("lamp_goblin")]
+position = Vector2(698, 516)
+
+[node name="Lamp4" type="PointLight2D" parent="."]
+position = Vector2(690, 490)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture_scale = 0.9
+texture = SubResource("LightTexture")
+
+[node name="Torch5" parent="." instance=ExtResource("lamp_goblin")]
+position = Vector2(885, 118)
+
+[node name="Lamp5" type="PointLight2D" parent="."]
+position = Vector2(880, 80)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture_scale = 0.9
+texture = SubResource("LightTexture")
+
+[node name="Torch6" parent="." instance=ExtResource("lamp_goblin")]
+position = Vector2(71, 358)
+
+[node name="Lamp6" type="PointLight2D" parent="."]
+position = Vector2(60, 332)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.8
+texture_scale = 0.9
+texture = SubResource("LightTexture")
+
+[node name="Cart0" type="StaticBody2D" parent="."]
+position = Vector2(300, 424)
+
+[node name="Sprite2D" type="Sprite2D" parent="Cart0"]
+texture = ExtResource("10_goblin_cart")
+offset = Vector2(0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cart0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_3")
+
+[node name="Cart1" type="StaticBody2D" parent="."]
+position = Vector2(540, 580)
+
+[node name="Sprite2D" type="Sprite2D" parent="Cart1"]
+texture = ExtResource("10_goblin_cart")
+offset = Vector2(0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cart1"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_3")
+
+[node name="Cart2" type="StaticBody2D" parent="."]
+position = Vector2(700, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="Cart2"]
+texture = ExtResource("10_goblin_cart")
+offset = Vector2(0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cart2"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_3")
+
+[node name="MineOverseer" parent="." instance=ExtResource("12_story_npc")]
+position = Vector2(200, 380)
+npc_id = "goblin_overseer"
+resident = "goblin_overseer"
+appearance = SubResource("Look_overseer")
+
+[node name="HungryGoblin" parent="." instance=ExtResource("12_story_npc")]
+position = Vector2(672, 250)
+npc_id = "goblin_hungry"
+resident = "goblin_hungry"
+appearance = SubResource("Look_hungry")
+required_flag = "goblin_thrown"
+
+[node name="ToCave" parent="." instance=ExtResource("13_door")]
+position = Vector2(4, 400)
+scale = Vector2(0.5, 3)
+target_scene = "res://scenes/world/volcano/goblin_cave.tscn"
+target_spawn_point = &"FromMine"
+
+[node name="Visual" parent="ToCave" index="0"]
+visible = false
+
+[node name="ToDeepMine" parent="." instance=ExtResource("13_door")]
+position = Vector2(956, 130)
+scale = Vector2(0.5, 3)
+target_scene = "res://scenes/world/volcano/goblin_deep_mine.tscn"
+target_spawn_point = &"FromMine"
+required_flag = "goblin_castle_path_open"
+locked_text = "Der Gang ist mit Brettern vernagelt. „Kein Zutritt. Befehl des Königs.“"
+
+[node name="Visual" parent="ToDeepMine" index="0"]
+visible = false
+
+[node name="CaveLabel" type="Label" parent="."]
+offset_left = 20
+offset_top = 330
+offset_right = 100
+offset_bottom = 342
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "« Höhle"
+horizontal_alignment = 1
+
+[node name="DeepLabel" type="Label" parent="."]
+offset_left = 830
+offset_top = 70
+offset_right = 930
+offset_bottom = 82
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "Tiefe Mine »"
+horizontal_alignment = 1
+
+[node name="FromCave" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(50, 400)
+
+[node name="FromDeepMine" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(900, 140)
+
+[node name="Player" parent="." instance=ExtResource("14_player")]
+position = Vector2(50, 400)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 704
+
+[node name="HUD" parent="." instance=ExtResource("15_hud")]
+
+[editable path="ToCave"]
+[editable path="ToDeepMine"]
+[editable path="Player"]

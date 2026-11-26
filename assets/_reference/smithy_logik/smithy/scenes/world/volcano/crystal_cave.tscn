@@ -1,0 +1,172 @@
+[gd_scene load_steps=16 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="4_cave_walls"]
+[ext_resource type="Script" path="res://scenes/world/objects/rock_spawner.gd" id="5_rock_spawner"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/ore_rock.tscn" id="6_ore_rock"]
+[ext_resource type="Script" path="res://scripts/resources/rock_data.gd" id="7_rock_data"]
+[ext_resource type="Resource" path="res://data/rocks/ruby_crystal.tres" id="8_ruby_crystal"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/crystal_cave.png" id="9_crystal_cave"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/crystal_cave_mask.png" id="10_crystal_cave"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/ruby_shard_a.png" id="11_ruby_shard_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/ruby_shard_c.png" id="12_ruby_shard_c"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/ruby_shard_b.png" id="13_ruby_shard_b"]
+
+[sub_resource type="Gradient" id="LightGradient"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.45, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="LightTexture"]
+gradient = SubResource("LightGradient")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="CrystalCave" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("9_crystal_cave")
+centered = false
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0.34, 0.28, 0.34, 1)
+
+[node name="CaveWalls" type="StaticBody2D" parent="."]
+script = ExtResource("4_cave_walls")
+mask = ExtResource("10_crystal_cave")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Light1" type="PointLight2D" parent="Lights"]
+position = Vector2(300, 150)
+color = Color(1, 0.22, 0.25, 1)
+energy = 0.9
+texture = SubResource("LightTexture")
+
+[node name="Light2" type="PointLight2D" parent="Lights"]
+position = Vector2(500, 150)
+color = Color(1, 0.22, 0.25, 1)
+energy = 0.9
+texture = SubResource("LightTexture")
+
+[node name="Light3" type="PointLight2D" parent="Lights"]
+position = Vector2(130, 220)
+color = Color(1, 0.22, 0.25, 1)
+energy = 0.8
+texture = SubResource("LightTexture")
+
+[node name="Light4" type="PointLight2D" parent="Lights"]
+position = Vector2(400, 260)
+color = Color(1, 0.22, 0.25, 1)
+energy = 0.6
+texture = SubResource("LightTexture")
+
+[node name="Light5" type="PointLight2D" parent="Lights"]
+position = Vector2(320, 440)
+color = Color(1, 0.72, 0.42, 1)
+energy = 0.7
+texture = SubResource("LightTexture")
+
+[node name="Shards" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Shard1" type="Sprite2D" parent="Shards"]
+position = Vector2(262, 122)
+texture = ExtResource("11_ruby_shard_a")
+offset = Vector2(0, -9)
+flip_h = false
+
+[node name="Shard2" type="Sprite2D" parent="Shards"]
+position = Vector2(404, 126)
+texture = ExtResource("12_ruby_shard_c")
+offset = Vector2(0, -8)
+flip_h = true
+
+[node name="Shard3" type="Sprite2D" parent="Shards"]
+position = Vector2(492, 120)
+texture = ExtResource("13_ruby_shard_b")
+offset = Vector2(0, -7)
+flip_h = false
+
+[node name="Shard4" type="Sprite2D" parent="Shards"]
+position = Vector2(120, 186)
+texture = ExtResource("11_ruby_shard_a")
+offset = Vector2(0, -9)
+flip_h = true
+
+[node name="Shard5" type="Sprite2D" parent="Shards"]
+position = Vector2(60, 250)
+texture = ExtResource("12_ruby_shard_c")
+offset = Vector2(0, -8)
+flip_h = false
+
+[node name="Shard6" type="Sprite2D" parent="Shards"]
+position = Vector2(548, 196)
+texture = ExtResource("13_ruby_shard_b")
+offset = Vector2(0, -7)
+flip_h = true
+
+[node name="RubySpawner" type="Node2D" parent="." node_paths=PackedStringArray("spots")]
+y_sort_enabled = true
+script = ExtResource("5_rock_spawner")
+rock_scene = ExtResource("6_ore_rock")
+rock_types = Array[ExtResource("7_rock_data")]([ExtResource("8_ruby_crystal")])
+rock_count = 2
+rock_count_max = 3
+area_id = "crystal_cave"
+spots = NodePath("Spots")
+
+[node name="Spots" type="Node2D" parent="RubySpawner"]
+
+[node name="Spot1" type="Marker2D" parent="RubySpawner/Spots"]
+position = Vector2(300, 140)
+
+[node name="Spot2" type="Marker2D" parent="RubySpawner/Spots"]
+position = Vector2(356, 132)
+
+[node name="Spot3" type="Marker2D" parent="RubySpawner/Spots"]
+position = Vector2(520, 140)
+
+[node name="Spot4" type="Marker2D" parent="RubySpawner/Spots"]
+position = Vector2(180, 196)
+
+[node name="Spot5" type="Marker2D" parent="RubySpawner/Spots"]
+position = Vector2(100, 260)
+
+[node name="Spot6" type="Marker2D" parent="RubySpawner/Spots"]
+position = Vector2(470, 230)
+
+[node name="Spot7" type="Marker2D" parent="RubySpawner/Spots"]
+position = Vector2(252, 250)
+
+[node name="DoorToLavaberg" parent="." instance=ExtResource("2_door")]
+position = Vector2(320, 476)
+scale = Vector2(2, 0.5)
+target_scene = "res://scenes/world/volcano/lava_mountain.tscn"
+target_spawn_point = &"FromCave"
+
+[node name="Visual" parent="DoorToLavaberg" index="0"]
+visible = false
+
+[node name="FromLavaberg" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(320, 432)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(320, 432)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 480
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[editable path="DoorToLavaberg"]
+[editable path="Player"]

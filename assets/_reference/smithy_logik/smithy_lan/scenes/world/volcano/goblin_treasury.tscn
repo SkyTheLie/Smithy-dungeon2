@@ -1,0 +1,443 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/goblin_treasury.png" id="1_goblin_treas"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/gold_mountain.png" id="2_gold_mountai"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/dragon_buried.png" id="3_dragon_burie"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/dragon_eye.png" id="4_dragon_eye"]
+[ext_resource type="Script" path="res://scenes/world/objects/item_sprite.gd" id="5_holy_fire_cr"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="6_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/dragon_idle.png" id="7_dragon_idle"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/dragon_rise.png" id="8_dragon_rise"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/dragon_walk.png" id="9_dragon_walk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/dragon_tired.png" id="10_dragon_tired"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="11_story_npc"]
+[ext_resource type="Script" path="res://scenes/stations/story_station.gd" id="12_story_statio"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/dungeon_board_menu.tscn" id="13_dungeon_boar"]
+[ext_resource type="Script" path="res://scenes/world/volcano/dragon_wake_cutscene.gd" id="14_dragon_wake_"]
+[ext_resource type="Script" path="res://scenes/world/volcano/castle_collapse_cutscene.gd" id="15_castle_colla"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="16_door"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="17_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="18_hud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(640, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+size = Vector2(14, 480)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3"]
+size = Vector2(270, 8)
+
+[sub_resource type="CanvasItemMaterial" id="Unshaded"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="LightGradient"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.45, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="LightTexture"]
+gradient = SubResource("LightGradient")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7"]
+size = Vector2(260, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8"]
+size = Vector2(160, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_9"]
+atlas = ExtResource("7_dragon_idle")
+region = Rect2(0, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10"]
+atlas = ExtResource("7_dragon_idle")
+region = Rect2(256, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11"]
+atlas = ExtResource("7_dragon_idle")
+region = Rect2(512, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12"]
+atlas = ExtResource("7_dragon_idle")
+region = Rect2(768, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13"]
+atlas = ExtResource("7_dragon_idle")
+region = Rect2(1024, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14"]
+atlas = ExtResource("7_dragon_idle")
+region = Rect2(1280, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15"]
+atlas = ExtResource("7_dragon_idle")
+region = Rect2(1536, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16"]
+atlas = ExtResource("7_dragon_idle")
+region = Rect2(1792, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17"]
+atlas = ExtResource("8_dragon_rise")
+region = Rect2(0, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18"]
+atlas = ExtResource("8_dragon_rise")
+region = Rect2(256, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_19"]
+atlas = ExtResource("8_dragon_rise")
+region = Rect2(512, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20"]
+atlas = ExtResource("8_dragon_rise")
+region = Rect2(768, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21"]
+atlas = ExtResource("8_dragon_rise")
+region = Rect2(1024, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22"]
+atlas = ExtResource("8_dragon_rise")
+region = Rect2(1280, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23"]
+atlas = ExtResource("8_dragon_rise")
+region = Rect2(1536, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24"]
+atlas = ExtResource("8_dragon_rise")
+region = Rect2(1792, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25"]
+atlas = ExtResource("8_dragon_rise")
+region = Rect2(2048, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26"]
+atlas = ExtResource("9_dragon_walk")
+region = Rect2(0, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27"]
+atlas = ExtResource("9_dragon_walk")
+region = Rect2(256, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28"]
+atlas = ExtResource("9_dragon_walk")
+region = Rect2(512, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_29"]
+atlas = ExtResource("9_dragon_walk")
+region = Rect2(768, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30"]
+atlas = ExtResource("9_dragon_walk")
+region = Rect2(1024, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31"]
+atlas = ExtResource("9_dragon_walk")
+region = Rect2(1280, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32"]
+atlas = ExtResource("9_dragon_walk")
+region = Rect2(1536, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33"]
+atlas = ExtResource("9_dragon_walk")
+region = Rect2(1792, 0, 256, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_34"]
+animations = [{
+"frames": [{
+"duration": 1,
+"texture": SubResource("AtlasTexture_9")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_10")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_11")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_12")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_13")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_14")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_15")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_16")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6
+}, {
+"frames": [{
+"duration": 1,
+"texture": SubResource("AtlasTexture_17")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_18")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_19")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_20")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_21")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_22")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_23")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_24")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_25")
+}],
+"loop": false,
+"name": &"rise",
+"speed": 5
+}, {
+"frames": [{
+"duration": 1,
+"texture": SubResource("AtlasTexture_26")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_27")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_28")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_29")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_30")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_31")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_32")
+}, {
+"duration": 1,
+"texture": SubResource("AtlasTexture_33")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8
+}, {
+"frames": [{
+"duration": 1,
+"texture": ExtResource("10_dragon_tired")
+}],
+"loop": false,
+"name": &"tired",
+"speed": 1
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35"]
+size = Vector2(120, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36"]
+size = Vector2(220, 150)
+
+[node name="GoblinTreasury" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0.1, 0.08, 0.1, 1)
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000
+offset_top = -1000
+offset_right = 1600
+offset_bottom = 1600
+mouse_filter = 2
+color = Color(0.06, 0.035, 0.05, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-320, -240)
+texture = ExtResource("1_goblin_treas")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall0" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -190)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Wall1" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-313, 0)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="Wall2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(313, 0)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="Wall3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-185, 236)
+shape = SubResource("RectangleShape2D_3")
+
+[node name="Wall4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(185, 236)
+shape = SubResource("RectangleShape2D_3")
+
+[node name="GoldMountain" type="StaticBody2D" parent="."]
+position = Vector2(0, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="GoldMountain"]
+texture = ExtResource("2_gold_mountai")
+offset = Vector2(0, -70)
+
+[node name="Buried" type="Sprite2D" parent="GoldMountain"]
+texture = ExtResource("3_dragon_burie")
+offset = Vector2(0, -70)
+
+[node name="Eye" type="Sprite2D" parent="GoldMountain"]
+material = SubResource("Unshaded")
+offset = Vector2(0, -70)
+texture = ExtResource("4_dragon_eye")
+
+[node name="EyeLight" type="PointLight2D" parent="GoldMountain/Eye"]
+position = Vector2(-63, -33)
+color = Color(0.3, 0.9, 0.35, 1)
+energy = 0.8
+texture_scale = 0.2
+texture = SubResource("LightTexture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoldMountain"]
+position = Vector2(0, -18)
+shape = SubResource("RectangleShape2D_7")
+
+[node name="Upper" type="CollisionShape2D" parent="GoldMountain"]
+position = Vector2(0, -66)
+shape = SubResource("RectangleShape2D_8")
+
+[node name="Crystal" type="Sprite2D" parent="."]
+position = Vector2(0, -154)
+z_index = 1
+material = SubResource("Unshaded")
+offset = Vector2(0, -8)
+script = ExtResource("5_holy_fire_cr")
+item_id = "holy_fire_crystal"
+
+[node name="CrystalLight" type="PointLight2D" parent="."]
+position = Vector2(0, -162)
+color = Color(1, 0.35, 0.1, 1)
+energy = 1.4
+texture_scale = 0.9
+texture = SubResource("LightTexture")
+
+[node name="DragonProp" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("6_story_prop")
+hidden_when_flag = "dragon_gone"
+
+[node name="Dragon" type="StaticBody2D" parent="DragonProp"]
+position = Vector2(0, -3)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="DragonProp/Dragon"]
+material = SubResource("Unshaded")
+sprite_frames = SubResource("SpriteFrames_34")
+animation = &"idle"
+offset = Vector2(0, -87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragonProp/Dragon"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_35")
+
+[node name="DragonGlow" type="PointLight2D" parent="DragonProp/Dragon"]
+position = Vector2(0, -80)
+color = Color(1, 0.35, 0.15, 1)
+energy = 1.6
+texture_scale = 3.5
+texture = SubResource("LightTexture")
+
+[node name="DragonTalk" parent="." instance=ExtResource("11_story_npc")]
+position = Vector2(0, 40)
+npc_id = "dragon"
+auto_talk = true
+keep_dialogue_open = true
+talk_area_scale = Vector2(6, 4)
+silent_without_news = true
+hidden_when_flag = "dragon_gone"
+
+[node name="DragonFight" type="StaticBody2D" parent="."]
+position = Vector2(0, 40)
+script = ExtResource("12_story_statio")
+open_flag = "dragon_challenge"
+close_flag = "dragon_defeated"
+
+[node name="InteractionArea" type="Area2D" parent="DragonFight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragonFight/InteractionArea"]
+shape = SubResource("RectangleShape2D_36")
+
+[node name="DungeonBoardMenu" parent="DragonFight" instance=ExtResource("13_dungeon_boar")]
+only_dungeons = PackedStringArray("dragon_lair")
+
+[node name="WakeCutscene" type="Node" parent="." node_paths=PackedStringArray("dragon", "dragon_sprite", "dragon_glow", "buried", "eye", "crystal", "crystal_light", "darkness")]
+script = ExtResource("14_dragon_wake_")
+dragon = NodePath("../DragonProp/Dragon")
+dragon_sprite = NodePath("../DragonProp/Dragon/Sprite")
+dragon_glow = NodePath("../DragonProp/Dragon/DragonGlow")
+buried = NodePath("../GoldMountain/Buried")
+eye = NodePath("../GoldMountain/Eye")
+crystal = NodePath("../Crystal")
+crystal_light = NodePath("../CrystalLight")
+darkness = NodePath("../Darkness")
+front_position = Vector2(0, 40)
+mountain_top = Vector2(0, -150)
+
+[node name="CollapseCutscene" type="Node" parent="." node_paths=PackedStringArray("dragon_sprite", "dragon_glow")]
+script = ExtResource("15_castle_colla")
+dragon_sprite = NodePath("../DragonProp/Dragon/Sprite")
+dragon_glow = NodePath("../DragonProp/Dragon/DragonGlow")
+
+[node name="ToHall" parent="." instance=ExtResource("16_door")]
+position = Vector2(0, 236)
+scale = Vector2(3, 0.5)
+target_scene = "res://scenes/world/volcano/goblin_castle.tscn"
+target_spawn_point = &"FromTreasury"
+
+[node name="Visual" parent="ToHall" index="0"]
+visible = false
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 205)
+
+[node name="Player" parent="." instance=ExtResource("17_player")]
+position = Vector2(0, 205)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("18_hud")]
+
+[connection signal="body_entered" from="DragonFight/InteractionArea" to="DragonFight" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="DragonFight/InteractionArea" to="DragonFight" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="DragonFight" to="DragonFight/DungeonBoardMenu" method="toggle"]
+[connection signal="player_left" from="DragonFight" to="DragonFight/DungeonBoardMenu" method="close"]
+
+[editable path="ToHall"]
+[editable path="Player"]

@@ -1,0 +1,250 @@
+{
+	"_hilfe": {
+		"info": "Kahns Heldenturnier in der Gezeitenarena von Eisquell (HeroTournament): Der Spieler meldet einen Helden an, der allein gegen andere Helden kämpft (ArenaDuel, 1 gegen 1). Gegner entstehen hier aus Bauplänen (HeroBuilder). Schlüssel mit _ am Anfang werden ignoriert.",
+		"dungeon": "id in dungeons.json (versteckt): Name, Hintergrund und Zeitlimit eines Kampfs. Ist die Zeit um, gewinnt, wer mehr Leben übrig hat (in Prozent).",
+		"health_factor": "Beide Kämpfer haben so viel mal mehr Leben als im Dungeon, damit ein Duell nicht nach Sekunden vorbei ist (Werte per assets/_reference/story4/sim_tournament.gd).",
+		"heal_factor": "Jede Heilung im Ring wirkt nur so stark (0.5 = halb), sonst verliert ein Heiler nie.",
+		"heal_decay_interval / heal_decay_step": "Alle heal_decay_interval Sekunden wird jede Heilung um heal_decay_step schwächer (0.05 = 5 % der Anfangsheilung weniger), damit zwei Heiler nicht bis zum Zeitende gegeneinander heilen. interval 0 = aus.",
+		"participants": "Teilnehmer im Turnierbaum (Zweierpotenz: 16 = 4 Runden). Der Held des Spielers bekommt einen zufälligen Platz (HeroTournament.bracket_order).",
+		"win_experience_factor": "EXP für den Helden des Spielers bei einem Sieg: so viele Monster vom Level des Gegners (Monster geben Level × win_experience_per_level EXP, Level-Unterschied wie bei Monstern, combat.json kill_exp_*). 2.5 = etwa ein Viertel eines Dungeon-Laufs (rund 10 Monster), etwas langsamer als im Dungeon. 0 = keine EXP.",
+		"win_experience_per_level": "EXP eines Monsters pro Level (enemies.json: fast überall 3).",
+		"round_names": "Name jeder Runde, von der ersten bis zum Finale.",
+		"opponents": "Zufällige Gegner: level_offset = pro Runde [von, bis] Level relativ zum Helden des Spielers (mindestens level_min); rarity = [von, bis] Seltenheit der Ausrüstung (0 = R1); metals = [ab Level, Metall], das letzte passende gilt; builds = Baupläne, aus denen gezogen wird; races = Rassen; names = Namen (keiner doppelt im selben Turnier).",
+		"champions": "Feste Gegner (z. B. Kahns Sohn): name, build, race, appearance (Felder wie in appearance.json, fehlende kommen aus seed), seed, level_min, level_over_hero (Level = max(level_min, Held + das)), metal, rarity (0 = R1, 4 = R5), slot (Platz im Turnierbaum, 0 = der Held des Spielers), wins_until (bis zu dieser Runde gewinnt er alle Kämpfe ohne den Spieler, 0 = erste Runde).",
+		"builds": "Baupläne: class (Klassen-id, Standard = Schlüssel), weapon (sword, hammer, dagger, staff, bow), shield, offhand, staff (Element des Stabs), attributes (Gewichte: str, agi, con, int, wis, res), skills (Reihenfolge der Skillpunkte, wird wiederholt, bis keine Punkte mehr da sind)."
+	},
+	"dungeon": "arena_duel",
+	"health_factor": 4,
+	"heal_factor": 0.25,
+	"heal_decay_interval": 10,
+	"heal_decay_step": 0.05,
+	"win_experience_factor": 2.5,
+	"win_experience_per_level": 3,
+	"participants": 16,
+	"round_names": ["Achtelfinale", "Viertelfinale", "Halbfinale", "Finale"],
+	"opponents": {
+		"level_min": 5,
+		"level_offset": [[-4, -2], [-2, 0], [-1, 1], [0, 2]],
+		"rarity": [0, 2],
+		"metals": [[0, "copper"], [8, "iron"], [12, "bronze"], [24, "silver"], [34, "gold"]],
+		"builds": ["warrior", "paladin", "priest", "shadow_priest", "mage", "ranger", "rogue", "warrior_body", "warrior_arcane", "mage_summoner", "mage_arcanist", "paladin_bulwark", "paladin_blessing", "priest_blessing", "ranger_nature", "ranger_beast", "rogue_shadow", "rogue_poison"],
+		"races": ["human", "elf", "half_demon", "half_fish", "half_fish", "beast_dog", "beast_cat", "beast_lizard"],
+		"names": [
+			"Brakka die Brecherin", "Sven Eisenfaust", "Mirela Sturmklinge", "Oskar der Lange", "Thessa Wellenreiter",
+			"Grimm vom Kai", "Nalu Perlenzahn", "Rurik Schildwall", "Ysolde Funkenschlag", "Kerrin Tidenläufer",
+			"Hakon Bärenarm", "Lysa Nebelpfeil", "Morn der Stille", "Tarkan Salzhaut", "Edda Frostauge",
+			"Quill Schuppenrücken", "Bodo Hammerschlag", "Selka Gezeitensang", "Jarne Treibholz", "Vinna Rabenfeder",
+			"Ulfric Sturmbrecher", "Pell Muschelschild", "Asra Sandläufer", "Dorn Eisenhaut"
+		]
+	},
+	"champions": [
+		{
+			"name": "Torgai, Sohn des Kahn",
+			"build": "warrior",
+			"race": "half_fish",
+			"seed": "torgai",
+			"appearance": {"skin": "deep_blue", "eye_type": "narrow", "eye_color": "amber", "hair_style": "spiky", "hair_color": "white", "size": "tall", "outfit": "vest", "clothes_color": "blue"},
+			"attributes": {"str": 3, "con": 2},
+			"level_min": 30,
+			"level_over_hero": 0,
+			"metal": "silver",
+			"rarity": 2,
+			"slot": 4,
+			"wins_until": 1
+		}
+	],
+	"builds": {
+		"warrior": {"weapon": "sword", "shield": true, "attributes": {"str": 2, "con": 1},
+			"skills": ["sword_strike", "sword_strike", "blade_sharpness", "deep_cut", "sword_strike", "whirlwind",
+				"deep_cut", "blade_sharpness", "whirlwind", "toughness", "shield_break", "toughness", "whirlwind",
+				"blade_sharpness", "parry", "parry", "mighty_blow", "mighty_blow", "execute", "toughness"]},
+		"paladin": {"weapon": "hammer", "shield": true, "attributes": {"str": 1, "con": 1, "res": 1},
+			"skills": ["hammer_blow", "armored", "hammer_blow", "momentum", "holy_strike", "thunder_strike",
+				"armored", "holy_strike", "thunder_strike", "momentum", "judgment", "judgment", "holy_zeal",
+				"thunder_strike", "holy_strike", "judgment", "divine_wrath", "holy_zeal", "divine_wrath"]},
+		"priest": {"weapon": "staff", "staff": "light", "attributes": {"wis": 2, "con": 1},
+			"skills": ["healing_light", "prayer_shield", "healing_light", "purify", "blessed_hands", "healing_light",
+				"greater_heal", "blessed_hands", "greater_heal", "prayer_shield", "circle_of_healing",
+				"circle_of_healing", "greater_heal", "shield_of_faith", "circle_of_healing", "resurrection"]},
+		"shadow_priest": {"class": "priest", "weapon": "staff", "staff": "dark", "attributes": {"wis": 2, "con": 1},
+			"skills": ["shadow_pain", "weaken", "shadow_pain", "soul_drain", "strict_faith", "shadow_pain",
+				"soul_drain", "strict_faith", "curse_of_vulnerability", "soul_drain", "curse_of_vulnerability",
+				"ban_circle", "strict_faith", "shadow_pain", "soul_drain", "shadow_flood", "shadow_flood"]},
+		"mage": {"weapon": "staff", "staff": "fire", "attributes": {"int": 2, "con": 1},
+			"skills": ["fireball", "ice_lance", "fireball", "elemental_mastery", "chain_lightning", "fireball",
+				"elemental_mastery", "chain_lightning", "ice_lance", "blizzard", "elemental_mastery", "blizzard",
+				"inferno", "chain_lightning", "inferno", "meteor", "meteor"]},
+		"ranger": {"weapon": "bow", "attributes": {"agi": 2, "str": 1},
+			"skills": ["rapid_shot", "rapid_shot", "poison_arrow", "fire_arrow", "eagle_eye", "rapid_shot",
+				"aimed_shot", "eagle_eye", "aimed_shot", "piercing_shot", "piercing_shot", "eagle_eye",
+				"rain_of_arrows", "rain_of_arrows", "storm_volley", "aimed_shot"]},
+		"rogue": {"weapon": "dagger", "offhand": "dagger", "attributes": {"agi": 2, "str": 1},
+			"skills": ["quick_stab", "double_stab", "quick_stab", "backstab", "double_stab", "ambidextrous",
+				"backstab", "ambidextrous", "quick_stab", "backstab", "ambidextrous", "double_stab",
+				"sword_art", "backstab", "ambidextrous", "thousand_cuts", "thousand_cuts"]},
+		"warrior_body": {"class": "warrior", "weapon": "sword", "shield": true, "attributes": {"str": 1, "con": 2},
+			"skills": ["toughness", "sword_strike", "toughness", "heal_wounds", "battle_cry", "pain", "iron_will",
+				"bloodlust", "toughness", "iron_will", "lifesteal_strike", "bloodlust", "lifesteal_strike",
+				"heal_wounds", "unbreakable", "lifesteal_strike", "iron_will", "unbreakable"]},
+		"warrior_arcane": {"class": "warrior", "weapon": "sword", "shield": true, "attributes": {"str": 2, "int": 1},
+			"skills": ["fire_slash", "fire_slash", "arcane_blade", "frost_blade", "ground_slam", "fire_slash",
+				"arcane_blade", "rune_shield", "frost_blade", "ground_slam", "elemental_flow", "earthquake",
+				"elemental_flow", "earthquake", "elemental_blade", "elemental_blade"]},
+		"mage_summoner": {"class": "mage", "weapon": "staff", "staff": "fire", "attributes": {"int": 2, "con": 1},
+			"skills": ["summon_fire_elemental", "binding", "summon_fire_elemental", "summon_ice_elemental",
+				"sacrifice_elemental", "binding", "summon_storm_spirit", "soul_bond", "summon_ice_elemental",
+				"soul_bond", "summon_earth_golem", "summon_elemental_lord", "sacrifice_elemental",
+				"summon_storm_spirit", "summon_elemental_lord"]},
+		"mage_arcanist": {"class": "mage", "weapon": "staff", "staff": "lightning", "attributes": {"int": 2, "wis": 1},
+			"skills": ["arcane_bolt", "arcane_bolt", "arcane_might", "arcane_shield", "mana_surge", "hex",
+				"arcane_bind", "arcane_bolt", "arcane_bind", "spell_flow", "hex", "arcane_shield", "time_stop",
+				"spell_flow", "arcane_bind", "time_stop"]},
+		"paladin_bulwark": {"class": "paladin", "weapon": "hammer", "shield": true, "attributes": {"str": 1, "con": 2},
+			"skills": ["shield_bash", "hammer_blow", "armored", "shield_bash", "challenge", "holy_regeneration",
+				"divine_shield", "armored", "shield_bash", "elemental_ward", "holy_regeneration", "shield_wall",
+				"divine_shield", "bastion", "elemental_ward", "shield_wall", "bastion"]},
+		"paladin_blessing": {"class": "paladin", "weapon": "hammer", "shield": true, "attributes": {"str": 1, "con": 1, "wis": 1},
+			"skills": ["hammer_blow", "blessing_of_might", "lay_on_hands", "blessing_of_might", "blessing_of_wisdom",
+				"devotion_aura", "lay_on_hands", "consecration", "martyr", "consecration", "devotion_aura",
+				"divine_intervention", "blessing_of_might", "lay_on_hands", "divine_intervention", "hammer_blow"]},
+		"priest_blessing": {"class": "priest", "weapon": "staff", "staff": "light", "attributes": {"wis": 2, "con": 1},
+			"skills": ["blessing_of_power", "healing_light", "blessing_of_spirit", "haste", "lasting_blessing",
+				"blessing_of_power", "divine_armor", "haste", "inspiration", "lasting_blessing", "divine_armor",
+				"divine_favor", "inspiration", "divine_favor", "healing_light"]},
+		"ranger_nature": {"class": "ranger", "weapon": "bow", "attributes": {"int": 2, "agi": 1},
+			"skills": ["gust", "rapid_shot", "gust", "healing_herbs", "thorn_vines", "nature_harmony", "thorn_vines",
+				"stone_skin", "cyclone", "gust", "nature_harmony", "cyclone", "wrath_of_the_forest", "thorn_vines",
+				"wrath_of_the_forest", "stone_skin"]},
+		"ranger_beast": {"class": "ranger", "weapon": "bow", "attributes": {"agi": 2, "str": 1},
+			"skills": ["call_wolf_pup", "pack_instinct", "rapid_shot", "pack_instinct", "grown_wolf", "protect",
+				"sic_em", "pack_instinct", "giant_wolf", "sic_em", "howl", "wild_hunt", "sic_em", "howl",
+				"wild_hunt", "protect"]},
+		"rogue_shadow": {"class": "rogue", "weapon": "dagger", "offhand": "dagger", "attributes": {"agi": 2, "str": 1},
+			"skills": ["quick_stab", "nimble", "cheap_shot", "veil", "nimble", "from_the_shadows", "cheap_shot",
+				"smoke_bomb", "shadow_step", "from_the_shadows", "shadow_step", "veil", "assassinate",
+				"shadow_step", "assassinate", "nimble"]},
+		"rogue_poison": {"class": "rogue", "weapon": "dagger", "offhand": "dagger", "attributes": {"agi": 2, "str": 1},
+			"skills": ["poisoned_blade", "quick_stab", "corrosive_poisons", "poisoned_blade", "poison_bomb",
+				"crippling_poison", "corrosive_poisons", "virulence", "poison_bomb", "toxic_burst",
+				"crippling_poison", "virulence", "plague", "toxic_burst", "plague"]}
+	},
+	"venues": {
+		"leonheim": {"_info": "Arena der Krone in Leonheim (leonheim_ring.tscn): nur Liga-Turniere (league_only).", "league_only": true, "round_names": ["Erste Runde", "Zweite Runde", "Halbfinale", "Finale"], "opponents": {"level_min": 5, "level_offset": [[-4, -2], [-2, 0], [-1, 1], [0, 2]], "rarity": [0, 2], "metals": [[0, "copper"], [8, "iron"], [12, "bronze"], [24, "silver"], [34, "gold"]], "builds": ["warrior", "paladin", "priest", "shadow_priest", "ranger", "rogue", "mage", "warrior_body", "warrior_arcane", "mage_summoner", "mage_arcanist", "paladin_bulwark", "paladin_blessing", "priest_blessing", "ranger_nature", "ranger_beast", "rogue_shadow", "rogue_poison"], "races": ["human", "human", "human", "elf", "beast_dog", "beast_cat"], "names": ["Ritter Alwin", "Gerlinde Schildhand", "Bruno der Zweite", "Hartmut Eisenkopf", "Mara vom Tor", "Konrad Hellebarde", "Isolde Rotfeder", "Wilm Stahlschritt", "Agnes die Schnelle", "Falko Bärentatze", "Ute Morgenstern", "Ritter Eckbert", "Lene Kettenhemd", "Gunter Wallbrecher", "Hedda Sturmtritt", "Rolf ohne Furcht"]}},
+		"sahrim": {"_info": "Arena im Sand von Sahrim (sahrim_ring.tscn): nur Liga-Turniere.", "league_only": true, "round_names": ["Erster Sand", "Zweiter Sand", "Glutkreis", "Sonnenkreis"], "opponents": {"level_min": 5, "level_offset": [[-4, -2], [-2, 0], [-1, 1], [0, 2]], "rarity": [0, 2], "metals": [[0, "copper"], [8, "iron"], [12, "bronze"], [24, "silver"], [34, "gold"]], "builds": ["warrior", "ranger", "rogue", "mage", "priest", "shadow_priest", "paladin", "warrior_body", "warrior_arcane", "mage_summoner", "mage_arcanist", "paladin_bulwark", "paladin_blessing", "priest_blessing", "ranger_nature", "ranger_beast", "rogue_shadow", "rogue_poison"], "races": ["beast_lizard", "beast_lizard", "beast_lizard", "human"], "names": ["Ssarek Dornschwanz", "Isha Glutschuppe", "Tarrak Sandläufer", "Nessa Wüstenauge", "Kurrh Schattenzahn", "Selia Mittagssonne", "Brakkar Steinhaut", "Ziri Dünentanz", "Hassar Speerwind", "Merr die Stille", "Tukka Sandsturm", "Rhassa Kupferzunge", "Vesk Hitzeflimmern", "Arra Oase", "Ssul Langschwanz", "Kadir Sonnenspeer"]}},
+		"finster": {"_info": "Arena der Finsterstadt (finster_ring.tscn): nur Liga-Turniere.", "league_only": true, "round_names": ["Rauchkreis", "Aschekreis", "Glutkreis", "Schattenthron"], "opponents": {"level_min": 5, "level_offset": [[-4, -2], [-2, 0], [-1, 1], [0, 2]], "rarity": [0, 2], "metals": [[0, "copper"], [8, "iron"], [12, "bronze"], [24, "silver"], [34, "gold"]], "builds": ["shadow_priest", "rogue", "warrior", "mage", "paladin", "ranger", "warrior_body", "warrior_arcane", "mage_summoner", "mage_arcanist", "paladin_bulwark", "paladin_blessing", "priest_blessing", "ranger_nature", "ranger_beast", "rogue_shadow", "rogue_poison"], "races": ["half_demon", "half_demon", "half_demon", "human"], "names": ["Varek Rußhorn", "Lysra Nachtglut", "Doran ohne Schatten", "Kesh die Kalte", "Morrak Eisenschwinge", "Sela Rabenblut", "Thorne Funkenauge", "Ivra Dornkrone", "Grisk Aschefaust", "Naveen Halbmond", "Ulla Rußflügel", "Zerek Glutzahn", "Meira Schattenpfad", "Corvan Kohleherz", "Ystra Flammenzunge", "Bael der Ruhige"]}},
+		"sylvaris": {
+			"_info": "Wettkampf der Elfen in Sylvaris: Anmeldung oben bei der Ausruferin (elf_canopy_low.tscn, HeroTournamentMenu.venue = \"sylvaris\"), gekämpft in der Kampflichtung (sylvaris_ring.tscn). Nur Liga-Turniere (league_only, seit 2026-11-18; vorher ein eigenes Turnier mit Champions).",
+			"league_only": true,
+			"round_names": [
+				"Wurzelkreis",
+				"Stammkreis",
+				"Kronenkreis",
+				"Sternenkreis"
+			],
+			"opponents": {
+				"level_min": 5,
+				"level_offset": [
+					[
+						-3,
+						-1
+					],
+					[
+						-1,
+						1
+					],
+					[
+						0,
+						2
+					],
+					[
+						1,
+						3
+					]
+				],
+				"rarity": [
+					1,
+					3
+				],
+				"metals": [
+					[
+						0,
+						"copper"
+					],
+					[
+						8,
+						"iron"
+					],
+					[
+						12,
+						"bronze"
+					],
+					[
+						24,
+						"silver"
+					],
+					[
+						34,
+						"gold"
+					]
+				],
+				"builds": [
+					"ranger",
+					"ranger",
+					"mage",
+					"priest",
+					"shadow_priest",
+					"rogue",
+					"warrior",
+					"paladin",
+					"warrior_body",
+					"warrior_arcane",
+					"mage_summoner",
+					"mage_arcanist",
+					"paladin_bulwark",
+					"paladin_blessing",
+					"priest_blessing",
+					"ranger_nature",
+					"ranger_beast",
+					"rogue_shadow",
+					"rogue_poison",
+					"ranger_nature",
+					"ranger_beast"
+				],
+				"races": [
+					"elf",
+					"elf",
+					"elf",
+					"elf",
+					"human",
+					"beast_cat"
+				],
+				"names": [
+					"Aerin Morgentau",
+					"Faewyn Blattläufer",
+					"Ithron Windfeder",
+					"Lyriel vom Moos",
+					"Calen Eichensang",
+					"Nimara Silberzweig",
+					"Ravin Pfeilgras",
+					"Elowen Taufunke",
+					"Gavren Rindenhaut",
+					"Mirien Nachtblüte",
+					"Hesper der Stille",
+					"Sillith Wolkenruf",
+					"Orelin Dornspross",
+					"Tirnel Mondschnitt",
+					"Aveline Farnweber",
+					"Corvel Harzauge",
+					"Lissar Laubtanz",
+					"Ambrel Sturmast",
+					"Nessa Tannengrün",
+					"Beryl Schattenhain",
+					"Tess Holzfaust",
+					"Mauz die Flinke",
+					"Rowan Grauweg",
+					"Vael Sternbruch"
+				]
+			}
+		}
+	}
+}

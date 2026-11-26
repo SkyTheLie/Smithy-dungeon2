@@ -1,0 +1,87 @@
+{
+	"_hilfe": {
+		"info": "Feste Dorfbewohner: wer sie sind, wo sie wohnen, mit wem sie zusammenleben und wann sie draußen oder bei der Arbeit sind. Zufällige Bewohner (villager.tscn ohne npc_id) stehen hier nicht. Anleitung: docs/CONTENT.md, Abschnitt npcs.json. Dieser Block wird vom Spiel ignoriert.",
+		"felder": {
+			"name": "Name",
+			"job": "Beruf (Text)",
+			"partner": "id des Partners (z. B. Ehefrau), nur Info für Dialoge und Aufträge",
+			"home": "Wohnhaus: {\"scene\": Szenen-Dateiname ohne .tscn, \"door\": Name des Tür-Spots (VillagerSpot) in der Szene}",
+			"resident": "PixelLab-Figur (assets/sprites/residents/<resident>.png), geht vor look",
+			"look": "Aussehen wie im Charakter-Editor (race, skin, hair_style, hair_color, eye_type, eye_color, size, siehe appearance.json)",
+			"day": "[von, bis]: Stunden, in denen die Figur draußen ist (sonst im Haus). 22 = 22 Uhr, Werte über 24 = nach Mitternacht. Ohne day: kein Tagesablauf",
+			"visits": "Figur kommt nur an bestimmten Tagen (BuilderNpc, z. B. Baumeister Konrad): {\"flag\": ab diesem Story-Flag, vorher jeden Tag, \"weekdays\": [Wochentage, 0 = Montag], \"hours\": [von, bis]}",
+			"roam": "Figur zieht umher (Roaming, z. B. Lotte nach dem Überfall): {\"flag\": ab diesem Story-Flag, vorher immer zu Hause, \"day\": [von, bis] draußen, sonst zu Hause, \"slot_hours\": Stunden pro Ort, \"spots\": {Ort: Gewicht}, \"travel_minutes\": Spielminuten unterwegs zwischen zwei Orten (Standard 30; sie läuft aus der alten Szene hinaus und in die neue hinein, Wege: roam_exits des StoryNpc)}. Orte: home, smithy, village_center, market, nina_shop (StoryNpc mit roam_spot in der Szene)",
+			"work": "Arbeit außerhalb des Wohnorts: {\"scene\": wo, \"leave_by\": Name des Ausgangs-Spots (Knoten Exits) in der Wohn-Szene, \"from\": Stunde, \"until\": Stunde}. In der Zeit ist die Figur nicht zu Hause, sondern bei der Arbeit"
+		},
+		"vorlage": {
+			"name": "Gustav",
+			"job": "Bergmann",
+			"partner": "erna",
+			"home": {"scene": "village_center", "door": "DoorFarmhouse"},
+			"day": [7, 22],
+			"work": {"scene": "mine_entrance", "leave_by": "LeaveSouth", "from": 8, "until": 21}
+		}
+	},
+	"gustav": {
+		"name": "Gustav",
+		"job": "Bergmann",
+		"partner": "erna",
+		"home": {"scene": "village_center", "door": "DoorFarmhouse"},
+		"look": {"outfit": "gustav"},
+		"day": [7, 19.75],
+		"work": {"scene": "mine_entrance", "leave_by": "LeaveSouth", "from": 8, "until": 19}
+	},
+	"erna": {
+		"name": "Erna",
+		"job": "Erzhändlerin",
+		"partner": "gustav",
+		"resident": "erna",
+		"home": {"scene": "village_center", "door": "DoorFarmhouse"},
+		"look": {"race": "human", "skin": "light", "hair_style": "ponytail", "hair_color": "brown", "eye_type": "normal", "eye_color": "brown", "size": "small"},
+		"day": [6, 19.5],
+		"work": {"scene": "market", "leave_by": "LeaveEast", "from": 6, "until": 19}
+	},
+	"landlady": {
+		"name": "Oma Hilde",
+		"job": "Vermieterin",
+		"partner": "niece",
+		"home": {"scene": "residential", "door": "DoorOma"}
+	},
+	"niece": {
+		"name": "Lotte",
+		"job": "Omas Nichte",
+		"partner": "landlady",
+		"home": {"scene": "residential", "door": "DoorOma"},
+		"roam": {"flag": "hilde_dead", "day": [8, 20], "slot_hours": 3, "travel_minutes": 30, "spots": {"home": 2, "smithy": 2, "village_center": 2, "market": 2, "nina_shop": 1}}
+	},
+	"nina": {
+		"name": "Nina",
+		"job": "Händlerin (Ninas Laden)",
+		"home": {"scene": "market", "door": "NinaShop"}
+	},
+	"woodcutter": {
+		"name": "Holger",
+		"job": "Holzfäller",
+		"home": {"scene": "forest_entrance", "door": "WoodcutterHut"}
+	},
+	"builder": {
+		"name": "Baumeister Konrad",
+		"job": "Baumeister (baut das Haus des Spielers aus)",
+		"visits": {"flag": "builder_weekly", "weekdays": [1, 3], "hours": [8, 18]}
+	},
+	"mayor": {
+		"name": "Bürgermeister Wendelin",
+		"job": "Bürgermeister"
+	},
+	"guild_master": {
+		"name": "Hedwig",
+		"job": "Gildenmeisterin",
+		"home": {"scene": "market", "door": "GuildHall"}
+	},
+	"goblin_king": {
+		"name": "Goldzahn der Prächtige",
+		"job": "Goblinkönig (liegt auf seinem Thronbett in der Goblinhöhle)",
+		"_sleeps": "An diesem Wochentag (0 = Montag) jede every_weeks-te Woche ab Woche week schläft er: die Menge lässt keinen durch, text erscheint unten.",
+		"sleeps": {"weekday": 2, "every_weeks": 2, "week": 0, "text": "Ein Goblin zischt: „Pssst-pssst! König pennt! Jeden zweiten Mittwoch keiner rein. Morgen wiederkommen!“"}
+	}
+}

@@ -1,0 +1,483 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sahrim_pyramid_ground.png" id="ground"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="hud"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="door"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/dungeon_board.tscn" id="board"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/sahrim_pyramid_mask.png" id="mask"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/pyramid.png" id="t_desert_pyramid"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/mud_f.png" id="t_desert_mud_f"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/mud_c.png" id="t_desert_mud_c"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/mud_g.png" id="t_desert_mud_g"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/mud_e.png" id="t_desert_mud_e"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/mud_b.png" id="t_desert_mud_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/mud_a.png" id="t_desert_mud_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/mud_i.png" id="t_desert_mud_i"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/mud_h.png" id="t_desert_mud_h"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/mud_d.png" id="t_desert_mud_d"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/palm_a.png" id="t_desert_palm_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/palm_b.png" id="t_desert_palm_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_a.png" id="t_desert_cactus_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_b2.png" id="t_desert_cactus_b2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush.png" id="t_desert_dry_bush"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_a3.png" id="t_desert_cactus_a3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush3.png" id="t_desert_dry_bush3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_b4.png" id="t_desert_cactus_b4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_a2.png" id="t_desert_cactus_a2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush2.png" id="t_desert_dry_bush2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/cactus_b.png" id="t_desert_cactus_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/dry_bush4.png" id="t_desert_dry_bush4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/stones_a.png" id="t_desert_stones_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/stones_b.png" id="t_desert_stones_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/stones_c.png" id="t_desert_stones_c"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_desert.tscn" id="lamp"]
+
+[sub_resource type="RectangleShape2D" id="r99x8"]
+size = Vector2(99, 8)
+
+[sub_resource type="RectangleShape2D" id="r90x8"]
+size = Vector2(90, 8)
+
+[sub_resource type="RectangleShape2D" id="r46x8"]
+size = Vector2(46, 8)
+
+[sub_resource type="RectangleShape2D" id="r84x8"]
+size = Vector2(84, 8)
+
+[sub_resource type="RectangleShape2D" id="r61x8"]
+size = Vector2(61, 8)
+
+[sub_resource type="RectangleShape2D" id="r81x8"]
+size = Vector2(81, 8)
+
+[sub_resource type="RectangleShape2D" id="r107x8"]
+size = Vector2(107, 8)
+
+[sub_resource type="RectangleShape2D" id="r80x8"]
+size = Vector2(80, 8)
+
+[sub_resource type="RectangleShape2D" id="r56x8"]
+size = Vector2(56, 8)
+
+[sub_resource type="RectangleShape2D" id="r16x8"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="r12x6"]
+size = Vector2(12, 6)
+
+[node name="SahrimPyramid" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Tint" type="CanvasModulate" parent="."]
+script = ExtResource("tint")
+
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-960, -768)
+texture = ExtResource("ground")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-960, -768)
+script = ExtResource("walls")
+mask = ExtResource("mask")
+
+[node name="PyramidTop" type="Sprite2D" parent="."]
+position = Vector2(0, 62)
+texture = ExtResource("t_desert_pyramid")
+offset = Vector2(0, -317)
+region_enabled = true
+region_rect = Rect2(0, 0, 1096, 634)
+
+[node name="PyramidBase" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 200)
+texture = ExtResource("t_desert_pyramid")
+offset = Vector2(0, -69)
+region_enabled = true
+region_rect = Rect2(0, 634, 1096, 138)
+
+[node name="P1" type="StaticBody2D" parent="."]
+position = Vector2(-680, 386)
+
+[node name="Sprite2D" type="Sprite2D" parent="P1"]
+texture = ExtResource("t_desert_mud_f")
+offset = Vector2(0, -54)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P1"]
+position = Vector2(0, -3)
+shape = SubResource("r99x8")
+
+[node name="P2" type="StaticBody2D" parent="."]
+position = Vector2(-470, 386)
+
+[node name="Sprite2D" type="Sprite2D" parent="P2"]
+texture = ExtResource("t_desert_mud_c")
+offset = Vector2(0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P2"]
+position = Vector2(0, -3)
+shape = SubResource("r90x8")
+
+[node name="P3" type="StaticBody2D" parent="."]
+position = Vector2(-285, 386)
+
+[node name="Sprite2D" type="Sprite2D" parent="P3"]
+texture = ExtResource("t_desert_mud_g")
+offset = Vector2(0, -54)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P3"]
+position = Vector2(0, -3)
+shape = SubResource("r46x8")
+
+[node name="P4" type="StaticBody2D" parent="."]
+position = Vector2(250, 386)
+
+[node name="Sprite2D" type="Sprite2D" parent="P4"]
+texture = ExtResource("t_desert_mud_e")
+offset = Vector2(0, -57)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P4"]
+position = Vector2(0, -3)
+shape = SubResource("r84x8")
+
+[node name="P5" type="StaticBody2D" parent="."]
+position = Vector2(560, 386)
+
+[node name="Sprite2D" type="Sprite2D" parent="P5"]
+texture = ExtResource("t_desert_mud_b")
+offset = Vector2(0, -57)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P5"]
+position = Vector2(0, -3)
+shape = SubResource("r61x8")
+
+[node name="P6" type="StaticBody2D" parent="."]
+position = Vector2(-640, -304)
+
+[node name="Sprite2D" type="Sprite2D" parent="P6"]
+texture = ExtResource("t_desert_mud_a")
+offset = Vector2(0, -48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P6"]
+position = Vector2(0, -3)
+shape = SubResource("r81x8")
+
+[node name="P7" type="StaticBody2D" parent="."]
+position = Vector2(-720, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="P7"]
+texture = ExtResource("t_desert_mud_i")
+offset = Vector2(0, -51)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P7"]
+position = Vector2(0, -3)
+shape = SubResource("r107x8")
+
+[node name="P8" type="StaticBody2D" parent="."]
+position = Vector2(590, -304)
+
+[node name="Sprite2D" type="Sprite2D" parent="P8"]
+texture = ExtResource("t_desert_mud_h")
+offset = Vector2(0, -48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P8"]
+position = Vector2(0, -3)
+shape = SubResource("r80x8")
+
+[node name="P9" type="StaticBody2D" parent="."]
+position = Vector2(720, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="P9"]
+texture = ExtResource("t_desert_mud_d")
+offset = Vector2(0, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P9"]
+position = Vector2(0, -3)
+shape = SubResource("r56x8")
+
+[node name="P10" type="StaticBody2D" parent="."]
+position = Vector2(-575, 346)
+
+[node name="Sprite2D" type="Sprite2D" parent="P10"]
+texture = ExtResource("t_desert_palm_a")
+offset = Vector2(0, -73)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P10"]
+position = Vector2(0, -3)
+shape = SubResource("r16x8")
+
+[node name="P11" type="StaticBody2D" parent="."]
+position = Vector2(-760, -326)
+
+[node name="Sprite2D" type="Sprite2D" parent="P11"]
+texture = ExtResource("t_desert_palm_a")
+offset = Vector2(0, -73)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P11"]
+position = Vector2(0, -3)
+shape = SubResource("r16x8")
+
+[node name="P12" type="StaticBody2D" parent="."]
+position = Vector2(-900, -480)
+
+[node name="Sprite2D" type="Sprite2D" parent="P12"]
+texture = ExtResource("t_desert_palm_a")
+offset = Vector2(0, -73)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P12"]
+position = Vector2(0, -3)
+shape = SubResource("r16x8")
+
+[node name="P13" type="StaticBody2D" parent="."]
+position = Vector2(400, 354)
+
+[node name="Sprite2D" type="Sprite2D" parent="P13"]
+texture = ExtResource("t_desert_palm_b")
+offset = Vector2(0, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P13"]
+position = Vector2(0, -3)
+shape = SubResource("r16x8")
+
+[node name="P14" type="StaticBody2D" parent="."]
+position = Vector2(780, -330)
+
+[node name="Sprite2D" type="Sprite2D" parent="P14"]
+texture = ExtResource("t_desert_palm_b")
+offset = Vector2(0, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P14"]
+position = Vector2(0, -3)
+shape = SubResource("r16x8")
+
+[node name="P15" type="StaticBody2D" parent="."]
+position = Vector2(905, -400)
+
+[node name="Sprite2D" type="Sprite2D" parent="P15"]
+texture = ExtResource("t_desert_palm_b")
+offset = Vector2(0, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P15"]
+position = Vector2(0, -3)
+shape = SubResource("r16x8")
+
+[node name="P16" type="StaticBody2D" parent="."]
+position = Vector2(-320, 590)
+
+[node name="Sprite2D" type="Sprite2D" parent="P16"]
+texture = ExtResource("t_desert_cactus_a")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P16"]
+position = Vector2(0, -3)
+shape = SubResource("r12x6")
+
+[node name="P17" type="StaticBody2D" parent="."]
+position = Vector2(-288, 604)
+
+[node name="Sprite2D" type="Sprite2D" parent="P17"]
+texture = ExtResource("t_desert_cactus_b2")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P17"]
+position = Vector2(0, -3)
+shape = SubResource("r12x6")
+
+[node name="P18" type="Sprite2D" parent="."]
+position = Vector2(-350, 618)
+texture = ExtResource("t_desert_dry_bush")
+offset = Vector2(0, -12)
+
+[node name="P19" type="StaticBody2D" parent="."]
+position = Vector2(360, 650)
+
+[node name="Sprite2D" type="Sprite2D" parent="P19"]
+texture = ExtResource("t_desert_cactus_a3")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P19"]
+position = Vector2(0, -3)
+shape = SubResource("r12x6")
+
+[node name="P20" type="Sprite2D" parent="."]
+position = Vector2(330, 664)
+texture = ExtResource("t_desert_dry_bush3")
+offset = Vector2(0, -12)
+
+[node name="P21" type="StaticBody2D" parent="."]
+position = Vector2(-720, 640)
+
+[node name="Sprite2D" type="Sprite2D" parent="P21"]
+texture = ExtResource("t_desert_cactus_b4")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P21"]
+position = Vector2(0, -3)
+shape = SubResource("r12x6")
+
+[node name="P22" type="StaticBody2D" parent="."]
+position = Vector2(-688, 662)
+
+[node name="Sprite2D" type="Sprite2D" parent="P22"]
+texture = ExtResource("t_desert_cactus_a2")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P22"]
+position = Vector2(0, -3)
+shape = SubResource("r12x6")
+
+[node name="P23" type="Sprite2D" parent="."]
+position = Vector2(-662, 650)
+texture = ExtResource("t_desert_dry_bush2")
+offset = Vector2(0, -12)
+
+[node name="P24" type="StaticBody2D" parent="."]
+position = Vector2(760, 590)
+
+[node name="Sprite2D" type="Sprite2D" parent="P24"]
+texture = ExtResource("t_desert_cactus_b")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P24"]
+position = Vector2(0, -3)
+shape = SubResource("r12x6")
+
+[node name="P25" type="Sprite2D" parent="."]
+position = Vector2(790, 604)
+texture = ExtResource("t_desert_dry_bush4")
+offset = Vector2(0, -12)
+
+[node name="P26" type="Sprite2D" parent="."]
+position = Vector2(-470, 214)
+texture = ExtResource("t_desert_stones_a")
+offset = Vector2(0, -16)
+
+[node name="P27" type="Sprite2D" parent="."]
+position = Vector2(440, 212)
+texture = ExtResource("t_desert_stones_b")
+offset = Vector2(0, -19)
+
+[node name="P28" type="Sprite2D" parent="."]
+position = Vector2(-330, 218)
+texture = ExtResource("t_desert_stones_c")
+offset = Vector2(0, -26)
+
+[node name="P29" type="Sprite2D" parent="."]
+position = Vector2(-300, -560)
+texture = ExtResource("t_desert_dry_bush")
+offset = Vector2(0, -12)
+
+[node name="P30" type="Sprite2D" parent="."]
+position = Vector2(330, -600)
+texture = ExtResource("t_desert_dry_bush2")
+offset = Vector2(0, -12)
+
+[node name="Lamp-60_540" parent="." instance=ExtResource("lamp")]
+position = Vector2(-60, 540)
+
+[node name="Lamp63_650" parent="." instance=ExtResource("lamp")]
+position = Vector2(63, 650)
+
+[node name="Lamp-216_350" parent="." instance=ExtResource("lamp")]
+position = Vector2(-216, 350)
+
+[node name="Lamp223_346" parent="." instance=ExtResource("lamp")]
+position = Vector2(223, 346)
+
+[node name="Lamp-500_533" parent="." instance=ExtResource("lamp")]
+position = Vector2(-500, 533)
+
+[node name="Lamp-370_533" parent="." instance=ExtResource("lamp")]
+position = Vector2(-370, 533)
+
+[node name="Lamp120_533" parent="." instance=ExtResource("lamp")]
+position = Vector2(120, 533)
+
+[node name="Lamp420_533" parent="." instance=ExtResource("lamp")]
+position = Vector2(420, 533)
+
+[node name="Lamp700_399" parent="." instance=ExtResource("lamp")]
+position = Vector2(700, 399)
+
+[node name="Lamp-772_250" parent="." instance=ExtResource("lamp")]
+position = Vector2(-772, 250)
+
+[node name="Lamp-868_-470" parent="." instance=ExtResource("lamp")]
+position = Vector2(-868, -470)
+
+[node name="Lamp772_230" parent="." instance=ExtResource("lamp")]
+position = Vector2(772, 230)
+
+[node name="Lamp868_-520" parent="." instance=ExtResource("lamp")]
+position = Vector2(868, -520)
+
+[node name="Lamp-500_-171" parent="." instance=ExtResource("lamp")]
+position = Vector2(-500, -171)
+
+[node name="Lamp-700_149" parent="." instance=ExtResource("lamp")]
+position = Vector2(-700, 149)
+
+[node name="Lamp480_-171" parent="." instance=ExtResource("lamp")]
+position = Vector2(480, -171)
+
+[node name="Lamp690_149" parent="." instance=ExtResource("lamp")]
+position = Vector2(690, 149)
+
+[node name="Lamp-560_-587" parent="." instance=ExtResource("lamp")]
+position = Vector2(-560, -587)
+
+[node name="Lamp-90_-587" parent="." instance=ExtResource("lamp")]
+position = Vector2(-90, -587)
+
+[node name="Lamp290_-587" parent="." instance=ExtResource("lamp")]
+position = Vector2(290, -587)
+
+[node name="Lamp700_-587" parent="." instance=ExtResource("lamp")]
+position = Vector2(700, -587)
+
+[node name="ToGate" parent="." instance=ExtResource("door")]
+position = Vector2(0, 760)
+scale = Vector2(3, 1)
+target_scene = "res://scenes/world/desert/sahrim_gate.tscn"
+target_spawn_point = &"FromPyramid"
+fade = true
+
+[node name="Visual" parent="ToGate" index="0"]
+visible = false
+
+[node name="FromGate" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 718)
+
+[node name="ToHall" parent="." instance=ExtResource("door")]
+position = Vector2(2, 130)
+scale = Vector2(2, 1)
+target_scene = "res://scenes/world/desert/pyramid_hall.tscn"
+target_spawn_point = &"FromOutside"
+fade = true
+
+[node name="Visual" parent="ToHall" index="0"]
+visible = false
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 224)
+
+[node name="Player" parent="." instance=ExtResource("player")]
+position = Vector2(0, 718)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -960
+limit_top = -768
+limit_right = 960
+limit_bottom = 768
+
+[node name="HUD" parent="." instance=ExtResource("hud")]
+
+[editable path="Player"]
+[editable path="ToGate"]
+[editable path="ToHall"]

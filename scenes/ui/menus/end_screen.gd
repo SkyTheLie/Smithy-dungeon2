@@ -1,0 +1,45 @@
+class_name EndScreen
+extends CanvasLayer
+## End of a run: "Du bist gefallen" (dead) or "Geschafft!" (last boss beaten), with the floor,
+## kills, the run's values and its items. Neuer Run / Hauptmenü.
+
+@onready var _title: Label = %Title
+@onready var _summary: Label = %Summary
+@onready var _summary_right: Label = %SummaryRight
+@onready var _items: HFlowContainer = %Items
+
+
+func _ready() -> void:
+	hide()
+	%Again.pressed.connect(func() -> void: Game.start_new_run())
+	%Menu.pressed.connect(Game.to_main_menu)
+
+
+func open(run: RunState, won: bool) -> void:
+	_title.text = Language.translate("Geschafft!" if won else "Du bist gefallen")
+	_title.modulate = Color(1, 0.86, 0.45) if won else Color(1, 0.45, 0.4)
+	# Two columns, so everything fits on the screen.
+	var lines: Array[String] = [
+		Language.translate("Ebene: %d") % (run.floor_index + 1),
+		Language.translate("Besiegte Gegner: %d") % run.kills,
+	]
+	for line: String in PauseMenu.describe(run).split("\n"):
+		lines.append(line)
+	var half: int = ceili(lines.size() / 2.0)
+	_summary.text = "\n".join(lines.slice(0, half))
+	_summary_right.text = "\n".join(lines.slice(half))
+	for child in _items.get_children():
+		child.queue_free()
+	for id: String in run.items:
+		var icon := TextureRect.new()
+		icon.texture = load(String(Content.item(id).get("icon", ""))) as Texture2D
+		icon.custom_minimum_size = Vector2(22, 22)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.tooltip_text = Language.translate(String(Content.item(id).get("name", id)))
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		_items.add_child(icon)
+	show()
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if won:
+		AudioManager.play_music("victory")

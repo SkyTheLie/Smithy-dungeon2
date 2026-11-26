@@ -1,0 +1,230 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_desert.tscn" id="lamp_desert"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="1_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/sahrim_inn.png" id="2_sahrim_inn"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="3_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="4_door"]
+[ext_resource type="Script" path="res://scenes/stations/station.gd" id="5_station"]
+[ext_resource type="Script" path="res://scenes/world/volcano/goblin_figure.gd" id="6_goblin_figur"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/sahrim_desk.png" id="7_guild_counte"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/inn_menu.tscn" id="8_inn_menu"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="10_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="11_hud"]
+
+[sub_resource type="RectangleShape2D" id="Rect_480x86"]
+size = Vector2(480, 86)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x300"]
+size = Vector2(8, 300)
+
+[sub_resource type="RectangleShape2D" id="Rect_216x8"]
+size = Vector2(216, 8)
+
+[sub_resource type="Resource" id="Look_sela"]
+script = ExtResource("3_appearance")
+race = "beast_lizard"
+skin = "olive"
+eye_type = "big"
+eye_color = "amber"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_citizen_a"]
+script = ExtResource("3_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "sleepy"
+eye_color = "brown"
+outfit = "tunic"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_citizen_c"]
+script = ExtResource("3_appearance")
+race = "beast_lizard"
+skin = "olive"
+eye_type = "big"
+eye_color = "grey"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="RectangleShape2D" id="Rect_156x14"]
+size = Vector2(156, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_110x30"]
+size = Vector2(110, 30)
+
+[sub_resource type="RectangleShape2D" id="Rect_30x16"]
+size = Vector2(30, 16)
+
+[node name="SahrimInn" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+script = ExtResource("1_gloom")
+color = Color(0.8, 0.72, 0.66, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-240, -150)
+texture = ExtResource("2_sahrim_inn")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -107)
+shape = SubResource("Rect_480x86")
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-236, 0)
+shape = SubResource("Rect_8x300")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(236, 0)
+shape = SubResource("Rect_8x300")
+
+[node name="BottomLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-132, 146)
+shape = SubResource("Rect_216x8")
+
+[node name="BottomRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(132, 146)
+shape = SubResource("Rect_216x8")
+
+[node name="DoorOut" parent="." instance=ExtResource("4_door")]
+position = Vector2(0, 148)
+target_scene = "res://scenes/world/desert/sahrim_west.tscn"
+target_spawn_point = &"FromInn"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="Bar" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-120, -24)
+script = ExtResource("5_station")
+
+[node name="Keeper" type="Node2D" parent="Bar"]
+position = Vector2(0, -30)
+script = ExtResource("6_goblin_figur")
+appearance = SubResource("Look_sela")
+resident = "lizard_sela"
+
+[node name="Sprite2D" type="Sprite2D" parent="Bar"]
+texture = ExtResource("7_guild_counte")
+offset = Vector2(0, -28.5)
+
+[node name="NameLabel" type="Label" parent="Bar"]
+z_index = 1
+offset_left = -60.0
+offset_top = -88.0
+offset_right = 60.0
+offset_bottom = -76.0
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "Wirtin Sela: Zimmer"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_156x14")
+
+[node name="InteractionArea" type="Area2D" parent="Bar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/InteractionArea"]
+position = Vector2(0, 14)
+shape = SubResource("Rect_110x30")
+
+[node name="InnMenu" parent="Bar" instance=ExtResource("8_inn_menu")]
+inn_scene = "res://scenes/world/desert/sahrim_inn.tscn"
+
+[node name="Tables" type="StaticBody2D" parent="."]
+
+[node name="West" type="CollisionShape2D" parent="Tables"]
+position = Vector2(-135, 45)
+shape = SubResource("Rect_30x16")
+
+[node name="East" type="CollisionShape2D" parent="Tables"]
+position = Vector2(130, 45)
+shape = SubResource("Rect_30x16")
+
+[node name="Lights" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="LanternWest" parent="Lights" instance=ExtResource("lamp_desert")]
+position = Vector2(-200, -50)
+
+[node name="NightLight" parent="Lights/LanternWest"]
+always_on = true
+
+[node name="LanternEast" parent="Lights" instance=ExtResource("lamp_desert")]
+position = Vector2(40, -50)
+
+[node name="NightLight" parent="Lights/LanternEast"]
+always_on = true
+
+[node name="LanternDoor" parent="Lights" instance=ExtResource("lamp_desert")]
+position = Vector2(60, 120)
+
+[node name="NightLight" parent="Lights/LanternDoor"]
+always_on = true
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="GuestA" type="Node2D" parent="People"]
+position = Vector2(-168, 46)
+script = ExtResource("6_goblin_figur")
+appearance = SubResource("Look_citizen_a")
+resident = "lizard_citizen_a"
+facing = "right"
+
+[node name="GuestB" type="Node2D" parent="People"]
+position = Vector2(160, 46)
+script = ExtResource("6_goblin_figur")
+appearance = SubResource("Look_citizen_c")
+resident = "lizard_citizen_c"
+facing = "left"
+
+[node name="FromOutside" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 114)
+
+[node name="FromRoom" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(195, -40)
+
+[node name="Player" parent="." instance=ExtResource("10_player")]
+position = Vector2(0, 114)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." instance=ExtResource("11_hud")]
+
+[connection signal="interacted" from="Bar" to="Bar/InnMenu" method="toggle"]
+
+[connection signal="player_left" from="Bar" to="Bar/InnMenu" method="close"]
+
+[connection signal="body_entered" from="Bar/InteractionArea" to="Bar" method="_on_interaction_area_body_entered"]
+
+[connection signal="body_exited" from="Bar/InteractionArea" to="Bar" method="_on_interaction_area_body_exited"]
+
+[editable path="DoorOut"]
+[editable path="Lights/LanternWest"]
+[editable path="Lights/LanternEast"]
+[editable path="Lights/LanternDoor"]
+[editable path="Player"]

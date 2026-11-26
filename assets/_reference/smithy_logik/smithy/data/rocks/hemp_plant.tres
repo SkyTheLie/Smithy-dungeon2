@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/rock_data.gd" id="1_rock"]
+[ext_resource type="Texture2D" path="res://assets/sprites/plants/hemp.png" id="3_texture"]
+
+[resource]
+script = ExtResource("1_rock")
+display_name = "Hanf"
+tool = 2
+color = Color(0.3, 0.5, 0.25, 1)
+texture = ExtResource("3_texture")
+max_health = 1
+drop_item_id = "hemp"
+drop_amount = 1
+better_rarity_chance = 0.1
+spawn_weight = 1.0

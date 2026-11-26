@@ -1,0 +1,582 @@
+[gd_scene format=3 uid="uid://c5bqnu744av3s"]
+
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="5_story_npc"]
+[ext_resource type="Script" uid="uid://xmy5qhn5t30p" path="res://scripts/resources/appearance.gd" id="6_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="9_light"]
+[ext_resource type="Texture2D" uid="uid://c253h2dfifsbk" path="res://assets/sprites/rooms/grandma_house.png" id="10_bg"]
+[ext_resource type="Texture2D" uid="uid://dx6r4648ygdq3" path="res://assets/sprites/furniture/td_stove.png" id="11_stove"]
+[ext_resource type="Texture2D" uid="uid://c0ldsx4lk22g5" path="res://assets/sprites/furniture/td_counter.png" id="12_counter"]
+[ext_resource type="Texture2D" uid="uid://c85cyacbp88np" path="res://assets/sprites/furniture/dish_dresser.png" id="13_dresser"]
+[ext_resource type="Texture2D" uid="uid://cgxsykyds2w0q" path="res://assets/sprites/furniture/td_dining_table.png" id="14_table"]
+[ext_resource type="Texture2D" uid="uid://d2gb1p3u6x12r" path="res://assets/sprites/furniture/td_chair_side.png" id="15_chair_side"]
+[ext_resource type="Texture2D" uid="uid://bn01muffj8mih" path="res://assets/sprites/furniture/td_chair_back.png" id="16_chair_back"]
+[ext_resource type="Texture2D" uid="uid://1ialm6hdhgb6" path="res://assets/sprites/furniture/td_fireplace.png" id="17_fireplace"]
+[ext_resource type="Texture2D" uid="uid://cj3pvb08f4yaj" path="res://assets/sprites/furniture/td_armchair_back.png" id="18_armchair"]
+[ext_resource type="Texture2D" uid="uid://dmeydfiev0o30" path="res://assets/sprites/furniture/td_side_table.png" id="19_side_table"]
+[ext_resource type="Texture2D" uid="uid://7n3eckvuivbb" path="res://assets/sprites/furniture/td_bed.png" id="20_bed"]
+[ext_resource type="Texture2D" uid="uid://jqvfnpx8k8h3" path="res://assets/sprites/furniture/bookshelf.png" id="21_bookshelf"]
+[ext_resource type="Texture2D" uid="uid://bopgu40jjf7f6" path="res://assets/sprites/furniture/wardrobe.png" id="22_wardrobe"]
+[ext_resource type="Texture2D" uid="uid://c222y48yt1lc2" path="res://assets/sprites/furniture/nightstand.png" id="23_nightstand"]
+[ext_resource type="Texture2D" uid="uid://cb710kovuyce0" path="res://assets/sprites/furniture/plant_tall.png" id="24_plant_tall"]
+[ext_resource type="Texture2D" uid="uid://cj6rtb6m7tke4" path="res://assets/sprites/furniture/plant_small.png" id="25_plant_small"]
+[ext_resource type="Texture2D" uid="uid://cjkigb3tu5ik" path="res://assets/sprites/furniture/knitting_basket.png" id="26_basket"]
+[ext_resource type="Texture2D" uid="uid://dl07yic37nl07" path="res://assets/sprites/furniture/rug_round.png" id="27_rug_round"]
+[ext_resource type="Texture2D" uid="uid://b647qrcujoxjo" path="res://assets/sprites/furniture/rug_bedroom.png" id="28_rug_bed"]
+[ext_resource type="Texture2D" uid="uid://cyhuy5dvc3nxc" path="res://assets/sprites/props/barrel.png" id="29_barrel"]
+[ext_resource type="Texture2D" uid="uid://bb2uuunejsxw3" path="res://assets/sprites/props/firewood.png" id="31_firewood"]
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_KitchenBack"]
+size = Vector2(176, 52)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_BedroomBack"]
+size = Vector2(256, 52)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_Left"]
+size = Vector2(12, 340)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_Right"]
+size = Vector2(12, 340)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_Bottom"]
+size = Vector2(460, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_DividerTop"]
+size = Vector2(12, 256)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_DividerBottom"]
+size = Vector2(12, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_HallBack"]
+size = Vector2(128, 56)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_HallBackEnd"]
+size = Vector2(16, 56)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_LivingBack"]
+size = Vector2(208, 56)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_LivingBackEnd"]
+size = Vector2(16, 56)
+
+[sub_resource type="RectangleShape2D" id="Shape_Stove"]
+size = Vector2(18, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_Counter"]
+size = Vector2(52, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_DishDresser"]
+size = Vector2(38, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_ChairLeft"]
+size = Vector2(15, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_ChairRight"]
+size = Vector2(15, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_Table"]
+size = Vector2(53, 26)
+
+[sub_resource type="RectangleShape2D" id="Shape_ChairBack1"]
+size = Vector2(14, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_ChairBack2"]
+size = Vector2(14, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_Firewood"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_Barrel"]
+size = Vector2(12, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_PlantKitchen"]
+size = Vector2(26, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_PlantSmallKitchen"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_NightstandLeft"]
+size = Vector2(18, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_Bed"]
+size = Vector2(30, 54)
+
+[sub_resource type="RectangleShape2D" id="Shape_NightstandRight"]
+size = Vector2(18, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_Wardrobe"]
+size = Vector2(42, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_PlantBedroom"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Fireplace"]
+size = Vector2(40, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_Bookshelf"]
+size = Vector2(35, 12)
+
+[sub_resource type="RectangleShape2D" id="Shape_ArmchairLeft"]
+size = Vector2(26, 10)
+
+[sub_resource type="RectangleShape2D" id="Shape_SideTable"]
+size = Vector2(24, 10)
+
+[sub_resource type="RectangleShape2D" id="Shape_ArmchairRight"]
+size = Vector2(26, 10)
+
+[sub_resource type="RectangleShape2D" id="Shape_Basket"]
+size = Vector2(24, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_PlantLiving"]
+size = Vector2(26, 8)
+
+[sub_resource type="Resource" id="Appearance_grandma"]
+script = ExtResource("6_appearance")
+skin = "pale"
+hair_style = "long"
+hair_color = "white"
+eye_type = "sleepy"
+eye_color = "grey"
+size = "small"
+
+[sub_resource type="Resource" id="Look_h_miner"]
+script = ExtResource("6_appearance")
+outfit = "gustav"
+
+[sub_resource type="Resource" id="Look_h_nina"]
+script = ExtResource("6_appearance")
+skin = "tan"
+hair_style = "ponytail"
+hair_color = "red"
+eye_type = "big"
+eye_color = "green"
+
+[node name="GrandmaHouse" type="Node2D" unique_id=1519984791]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="." unique_id=77070505]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="." unique_id=1339348004]
+script = ExtResource("4_day_tint")
+strength = 0.6
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1381594651]
+z_index = -1
+position = Vector2(-230, -168)
+texture = ExtResource("10_bg")
+centered = false
+
+[node name="RugLiving" type="Sprite2D" parent="." unique_id=1483844866]
+z_index = -1
+position = Vector2(94, 112)
+texture = ExtResource("27_rug_round")
+
+[node name="RugBedroom" type="Sprite2D" parent="." unique_id=167152986]
+z_index = -1
+position = Vector2(94, -26)
+texture = ExtResource("28_rug_bed")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=895025552]
+
+[node name="KitchenBack" type="CollisionShape2D" parent="Walls" unique_id=531415836]
+position = Vector2(-134, -138)
+shape = SubResource("Shape_wall_KitchenBack")
+
+[node name="BedroomBack" type="CollisionShape2D" parent="Walls" unique_id=933387589]
+position = Vector2(94, -138)
+shape = SubResource("Shape_wall_BedroomBack")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=875083773]
+position = Vector2(-226, 0)
+shape = SubResource("Shape_wall_Left")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=1627273478]
+position = Vector2(226, 0)
+shape = SubResource("Shape_wall_Right")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls" unique_id=2091624243]
+position = Vector2(0, 166)
+shape = SubResource("Shape_wall_Bottom")
+
+[node name="DividerTop" type="CollisionShape2D" parent="Walls" unique_id=1412337986]
+position = Vector2(-40, -32)
+shape = SubResource("Shape_wall_DividerTop")
+
+[node name="DividerBottom" type="CollisionShape2D" parent="Walls" unique_id=1342994503]
+position = Vector2(-40, 152)
+shape = SubResource("Shape_wall_DividerBottom")
+
+[node name="HallBack" type="CollisionShape2D" parent="Walls" unique_id=579555548]
+position = Vector2(-158, 60)
+shape = SubResource("Shape_wall_HallBack")
+
+[node name="HallBackEnd" type="CollisionShape2D" parent="Walls" unique_id=268794346]
+position = Vector2(-54, 60)
+shape = SubResource("Shape_wall_HallBackEnd")
+
+[node name="LivingBack" type="CollisionShape2D" parent="Walls" unique_id=1708548047]
+position = Vector2(70, 20)
+shape = SubResource("Shape_wall_LivingBack")
+
+[node name="LivingBackEnd" type="CollisionShape2D" parent="Walls" unique_id=467539033]
+position = Vector2(214, 20)
+shape = SubResource("Shape_wall_LivingBackEnd")
+
+[node name="Furniture" type="Node2D" parent="." unique_id=1261014995]
+y_sort_enabled = true
+
+[node name="Stove" type="StaticBody2D" parent="Furniture" unique_id=2073846540]
+position = Vector2(-200, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Stove" unique_id=330847024]
+texture = ExtResource("11_stove")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Stove" unique_id=750983397]
+position = Vector2(0, -6)
+shape = SubResource("Shape_Stove")
+
+[node name="NightLight" parent="Furniture/Stove" unique_id=1433037433 instance=ExtResource("9_light")]
+position = Vector2(0, -16)
+texture_scale = 1.1
+night_energy = 0.8
+
+[node name="Counter" type="StaticBody2D" parent="Furniture" unique_id=41594354]
+position = Vector2(-115, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Counter" unique_id=1238752190]
+texture = ExtResource("12_counter")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Counter" unique_id=1788565105]
+position = Vector2(0, -7)
+shape = SubResource("Shape_Counter")
+
+[node name="DishDresser" type="StaticBody2D" parent="Furniture" unique_id=1437831763]
+position = Vector2(-68, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/DishDresser" unique_id=788761082]
+texture = ExtResource("13_dresser")
+offset = Vector2(0, -29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/DishDresser" unique_id=1964367086]
+position = Vector2(0, -6)
+shape = SubResource("Shape_DishDresser")
+
+[node name="ChairLeft" type="StaticBody2D" parent="Furniture" unique_id=848199524]
+position = Vector2(-175, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/ChairLeft" unique_id=11926721]
+texture = ExtResource("15_chair_side")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/ChairLeft" unique_id=906052486]
+position = Vector2(0, -4)
+shape = SubResource("Shape_ChairLeft")
+
+[node name="ChairRight" type="StaticBody2D" parent="Furniture" unique_id=978955294]
+position = Vector2(-93, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/ChairRight" unique_id=1861253532]
+texture = ExtResource("15_chair_side")
+offset = Vector2(0, -15)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/ChairRight" unique_id=950168654]
+position = Vector2(0, -4)
+shape = SubResource("Shape_ChairRight")
+
+[node name="Table" type="StaticBody2D" parent="Furniture" unique_id=471555123]
+position = Vector2(-134, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Table" unique_id=1859079125]
+texture = ExtResource("14_table")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Table" unique_id=918335350]
+position = Vector2(0, -13)
+shape = SubResource("Shape_Table")
+
+[node name="ChairBack1" type="StaticBody2D" parent="Furniture" unique_id=838708605]
+position = Vector2(-148, 27)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/ChairBack1" unique_id=648944176]
+texture = ExtResource("16_chair_back")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/ChairBack1" unique_id=2081139026]
+position = Vector2(0, -4)
+shape = SubResource("Shape_ChairBack1")
+
+[node name="ChairBack2" type="StaticBody2D" parent="Furniture" unique_id=1064761262]
+position = Vector2(-120, 27)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/ChairBack2" unique_id=951070887]
+texture = ExtResource("16_chair_back")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/ChairBack2" unique_id=723910552]
+position = Vector2(0, -4)
+shape = SubResource("Shape_ChairBack2")
+
+[node name="Firewood" type="StaticBody2D" parent="Furniture" unique_id=1506720980]
+position = Vector2(53, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Firewood" unique_id=214249014]
+texture = ExtResource("31_firewood")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Firewood" unique_id=1069867251]
+position = Vector2(0, -4)
+shape = SubResource("Shape_Firewood")
+
+[node name="Barrel" type="StaticBody2D" parent="Furniture" unique_id=1865933302]
+position = Vector2(-212, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Barrel" unique_id=1429252472]
+texture = ExtResource("29_barrel")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Barrel" unique_id=581231734]
+position = Vector2(0, -4)
+shape = SubResource("Shape_Barrel")
+
+[node name="PlantKitchen" type="StaticBody2D" parent="Furniture" unique_id=1387120199]
+position = Vector2(-208, 156)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/PlantKitchen" unique_id=733037430]
+texture = ExtResource("24_plant_tall")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/PlantKitchen" unique_id=1254793996]
+position = Vector2(0, -4)
+shape = SubResource("Shape_PlantKitchen")
+
+[node name="PlantSmallKitchen" type="StaticBody2D" parent="Furniture" unique_id=674182141]
+position = Vector2(-60, 156)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/PlantSmallKitchen" unique_id=149446019]
+texture = ExtResource("25_plant_small")
+offset = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/PlantSmallKitchen" unique_id=410849506]
+position = Vector2(0, -3)
+shape = SubResource("Shape_PlantSmallKitchen")
+
+[node name="NightstandLeft" type="StaticBody2D" parent="Furniture" unique_id=597854436]
+position = Vector2(64, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/NightstandLeft" unique_id=456664732]
+texture = ExtResource("23_nightstand")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/NightstandLeft" unique_id=1241308195]
+position = Vector2(0, -4)
+shape = SubResource("Shape_NightstandLeft")
+
+[node name="NightLight" parent="Furniture/NightstandLeft" unique_id=1522880510 instance=ExtResource("9_light")]
+position = Vector2(0, -28)
+texture_scale = 1.1
+night_energy = 0.7
+
+[node name="Bed" type="StaticBody2D" parent="Furniture" unique_id=1341210851]
+position = Vector2(94, -56)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Bed" unique_id=517397975]
+texture = ExtResource("20_bed")
+offset = Vector2(0, -29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Bed" unique_id=648372361]
+position = Vector2(0, -27)
+shape = SubResource("Shape_Bed")
+
+[node name="NightstandRight" type="StaticBody2D" parent="Furniture" unique_id=1455213118]
+position = Vector2(124, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/NightstandRight" unique_id=1472690513]
+texture = ExtResource("23_nightstand")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/NightstandRight" unique_id=334292062]
+position = Vector2(0, -4)
+shape = SubResource("Shape_NightstandRight")
+
+[node name="Wardrobe" type="StaticBody2D" parent="Furniture" unique_id=535555999]
+position = Vector2(192, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Wardrobe" unique_id=1928833224]
+texture = ExtResource("22_wardrobe")
+offset = Vector2(0, -31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Wardrobe" unique_id=2116145401]
+position = Vector2(0, -6)
+shape = SubResource("Shape_Wardrobe")
+
+[node name="PlantBedroom" type="StaticBody2D" parent="Furniture" unique_id=1229565495]
+position = Vector2(-22, -14)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/PlantBedroom" unique_id=172752257]
+texture = ExtResource("25_plant_small")
+offset = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/PlantBedroom" unique_id=892222237]
+position = Vector2(0, -3)
+shape = SubResource("Shape_PlantBedroom")
+
+[node name="Fireplace" type="StaticBody2D" parent="Furniture" unique_id=1803097390]
+position = Vector2(94, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Fireplace" unique_id=1818007425]
+texture = ExtResource("17_fireplace")
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Fireplace" unique_id=1200393925]
+position = Vector2(0, -7)
+shape = SubResource("Shape_Fireplace")
+
+[node name="NightLight" parent="Furniture/Fireplace" unique_id=930544157 instance=ExtResource("9_light")]
+position = Vector2(0, -16)
+texture_scale = 1.1
+
+[node name="Bookshelf" type="StaticBody2D" parent="Furniture" unique_id=480091603]
+position = Vector2(-110, 98)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Bookshelf" unique_id=1097972430]
+texture = ExtResource("21_bookshelf")
+offset = Vector2(0, -29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Bookshelf" unique_id=624029227]
+position = Vector2(0, -6)
+shape = SubResource("Shape_Bookshelf")
+
+[node name="ArmchairLeft" type="StaticBody2D" parent="Furniture" unique_id=664292269]
+position = Vector2(66, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/ArmchairLeft" unique_id=1873820362]
+texture = ExtResource("18_armchair")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/ArmchairLeft" unique_id=2136664281]
+position = Vector2(0, -5)
+shape = SubResource("Shape_ArmchairLeft")
+
+[node name="SideTable" type="StaticBody2D" parent="Furniture" unique_id=306983796]
+position = Vector2(94, 124)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/SideTable" unique_id=1327431260]
+texture = ExtResource("19_side_table")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/SideTable" unique_id=1401051622]
+position = Vector2(0, -5)
+shape = SubResource("Shape_SideTable")
+
+[node name="ArmchairRight" type="StaticBody2D" parent="Furniture" unique_id=994983975]
+position = Vector2(122, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/ArmchairRight" unique_id=1666210716]
+texture = ExtResource("18_armchair")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/ArmchairRight" unique_id=1122095559]
+position = Vector2(0, -5)
+shape = SubResource("Shape_ArmchairRight")
+
+[node name="Basket" type="StaticBody2D" parent="Furniture" unique_id=672904808]
+position = Vector2(152, 140)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Basket" unique_id=540958154]
+texture = ExtResource("26_basket")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Basket" unique_id=1791823800]
+position = Vector2(0, -4)
+shape = SubResource("Shape_Basket")
+
+[node name="PlantLiving" type="StaticBody2D" parent="Furniture" unique_id=593325208]
+position = Vector2(208, 156)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/PlantLiving" unique_id=705577367]
+texture = ExtResource("24_plant_tall")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/PlantLiving" unique_id=1338019967]
+position = Vector2(0, -4)
+shape = SubResource("Shape_PlantLiving")
+
+[node name="Grandma" parent="." unique_id=277523609 instance=ExtResource("5_story_npc")]
+position = Vector2(160, 96)
+npc_id = "landlady"
+appearance = SubResource("Appearance_grandma")
+resident = "landlady"
+absent_steps = PackedStringArray("first_rent", "first_customer", "grandma_begs", "market_shoes", "festival_show", "raid_wake", "raid_outside", "raid_bruno", "raid_to_market", "raid_market", "raid_rescue", "raid_flee", "raid_ambush", "raid_home", "raid_robbed", "raid_night", "raid_morning")
+
+[node name="DoorOut" parent="." unique_id=871780021 instance=ExtResource("2_door")]
+position = Vector2(-134, 164)
+scale = Vector2(1, 0.6)
+target_scene = "res://scenes/world/village/residential.tscn"
+target_spawn_point = &"FromGrandma"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromOutside" type="Marker2D" parent="." unique_id=198152322 groups=["spawn_points"]]
+position = Vector2(-134, 138)
+
+[node name="Lotte" parent="." unique_id=1697823657 instance=ExtResource("5_story_npc")]
+position = Vector2(190, 98)
+npc_id = "niece"
+resident = "emma"
+required_flag = "shoe_scene_seen"
+roam_spot = "home"
+roam_exits = {"default": PackedVector2Array(150, 75, -20, 75, -20, 118, -60, 118, -134, 142, -134, 168)}
+absent_steps = PackedStringArray("grandma_begs", "ask_around", "report_grandma", "forest_edge", "forest_thicket", "forest_den", "festival_show", "raid_wake", "raid_outside", "raid_bruno", "raid_to_market", "raid_market", "raid_rescue", "raid_flee", "raid_ambush", "raid_home", "raid_robbed", "raid_night", "raid_morning", "village_occupied", "lotte_hideout", "village_ruse", "village_night", "village_morning")
+
+[node name="LotteHideout" parent="." instance=ExtResource("5_story_npc")]
+position = Vector2(160, 96)
+npc_id = "niece"
+resident = "emma"
+required_flag = "reached_lotte_hideout"
+hidden_when_flag = "reached_village_morning"
+
+[node name="GustavHideout" parent="." instance=ExtResource("5_story_npc")]
+position = Vector2(126, 100)
+npc_id = "miner"
+appearance = SubResource("Look_h_miner")
+facing = "right"
+required_flag = "reached_lotte_hideout"
+hidden_when_flag = "reached_village_morning"
+
+[node name="NinaHideout" parent="." instance=ExtResource("5_story_npc")]
+position = Vector2(194, 98)
+npc_id = "nina"
+appearance = SubResource("Look_h_nina")
+resident = "nina"
+facing = "left"
+required_flag = "reached_lotte_hideout"
+hidden_when_flag = "reached_village_morning"
+
+[node name="Player" parent="." unique_id=684715746 instance=ExtResource("1_player")]
+position = Vector2(-134, 138)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." unique_id=1229131518 instance=ExtResource("3_hud")]
+
+[editable path="DoorOut"]
+[editable path="Player"]

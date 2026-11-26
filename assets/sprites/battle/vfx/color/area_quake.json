@@ -1,0 +1,339 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 1.png",
+   "frame": {
+    "x": 58,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 2.png",
+   "frame": {
+    "x": 116,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 3.png",
+   "frame": {
+    "x": 174,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 4.png",
+   "frame": {
+    "x": 0,
+    "y": 47,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 5.png",
+   "frame": {
+    "x": 58,
+    "y": 47,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 6.png",
+   "frame": {
+    "x": 116,
+    "y": 47,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 7.png",
+   "frame": {
+    "x": 174,
+    "y": 47,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 8.png",
+   "frame": {
+    "x": 0,
+    "y": 94,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 9.png",
+   "frame": {
+    "x": 58,
+    "y": 94,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 10.png",
+   "frame": {
+    "x": 116,
+    "y": 94,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  },
+  {
+   "filename": "smithy-kampf-flaeche-erdbeben 11.png",
+   "frame": {
+    "x": 174,
+    "y": 94,
+    "w": 58,
+    "h": 47
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 58,
+    "h": 47
+   },
+   "sourceSize": {
+    "w": 58,
+    "h": 47
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.425531914893617
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-flaeche-erdbeben.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 232,
+   "h": 141
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 29,
+   "y": 20
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-flaeche-erdbeben",
+    "from": 0,
+    "to": 11,
+    "direction": "forward"
+   }
+  ]
+ }
+}

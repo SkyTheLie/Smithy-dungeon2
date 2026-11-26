@@ -1,0 +1,418 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scenes/gamba/gamba_game.gd" id="1_game"]
+[ext_resource type="Texture2D" path="res://assets/ui/title_inside.png" id="2_inside"]
+[ext_resource type="Texture2D" path="res://assets/ui/title_inside_fire.png" id="3_fire"]
+[ext_resource type="Texture2D" path="res://assets/ui/title_hammer.png" id="4_hammer"]
+[ext_resource type="Script" path="res://scenes/gamba/gamba_buckets.gd" id="5_buckets"]
+[ext_resource type="Texture2D" path="res://assets/ui/icon_coin.png" id="6_coin"]
+[ext_resource type="PackedScene" path="res://scenes/defense/defense_pause_menu.tscn" id="7_pause"]
+
+[sub_resource type="StyleBoxFlat" id="card_box"]
+bg_color = Color(0.09, 0.06, 0.08, 0.82)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.38, 0.22, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+content_margin_left = 4.0
+content_margin_top = 3.0
+content_margin_right = 4.0
+content_margin_bottom = 3.0
+
+[node name="GambaGame" type="Node2D"]
+script = ExtResource("1_game")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(320, 180)
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Backdrop" type="Sprite2D" parent="World"]
+position = Vector2(-24, -12)
+texture = ExtResource("2_inside")
+centered = false
+
+[node name="Fire" type="Sprite2D" parent="World"]
+position = Vector2(288, 156)
+texture = ExtResource("3_fire")
+centered = false
+
+[node name="ForgeSword" type="Node2D" parent="World"]
+visible = false
+position = Vector2(320, 214)
+rotation = -0.785398
+
+[node name="Handle" type="Sprite2D" parent="World/ForgeSword"]
+
+[node name="Blade" type="Sprite2D" parent="World/ForgeSword"]
+
+[node name="AnvilSword" type="Node2D" parent="World"]
+visible = false
+position = Vector2(318, 247)
+rotation = -0.785398
+scale = Vector2(1.5, 1.5)
+
+[node name="Handle" type="Sprite2D" parent="World/AnvilSword"]
+
+[node name="Blade" type="Sprite2D" parent="World/AnvilSword"]
+
+[node name="Hammer" type="Node2D" parent="World"]
+visible = false
+position = Vector2(424, 223)
+rotation = 1.39626
+
+[node name="Head" type="Sprite2D" parent="World/Hammer"]
+texture = ExtResource("4_hammer")
+centered = false
+offset = Vector2(-118, -26)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TopBar" type="PanelContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_type_variation = &"HudPanel"
+
+[node name="Row" type="HBoxContainer" parent="UI/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="DayLabel" type="Label" parent="UI/TopBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+text = "Tag 1 / 21"
+
+[node name="GoldBox" type="HBoxContainer" parent="UI/TopBar/Row"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="GoldIcon" type="TextureRect" parent="UI/TopBar/Row/GoldBox"]
+layout_mode = 2
+texture = ExtResource("6_coin")
+stretch_mode = 5
+
+[node name="GoldLabel" type="Label" parent="UI/TopBar/Row/GoldBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.3, 1)
+text = "0"
+
+[node name="FailLabel" type="Label" parent="UI/TopBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fehlschläge 0/3"
+
+[node name="MerchantLabel" type="Label" parent="UI/TopBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64, 0.86, 1, 1)
+text = "Händler in 3 Tagen"
+
+[node name="ShrineButton" type="Button" parent="UI/TopBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 10
+text = "Reliktschrein"
+
+[node name="BenchPanel" type="PanelContainer" parent="UI"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 22.0
+offset_right = 148.0
+offset_bottom = -44.0
+grow_vertical = 2
+theme_type_variation = &"HudPanel"
+
+[node name="VBox" type="VBoxContainer" parent="UI/BenchPanel"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="UI/BenchPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+text = "Werkbank"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="UI/BenchPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="BenchList" type="VBoxContainer" parent="UI/BenchPanel/VBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="TablePanel" type="PanelContainer" parent="UI"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = 22.0
+offset_right = -2.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"HudPanel"
+
+[node name="VBox" type="VBoxContainer" parent="UI/TablePanel"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="UI/TablePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+text = "Abgabe an die Zunft"
+horizontal_alignment = 1
+
+[node name="DemandLabel" type="Label" parent="UI/TablePanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Verlangt: 0"
+horizontal_alignment = 1
+
+[node name="OfferedLabel" type="Label" parent="UI/TablePanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Auf dem Tisch: 0"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="UI/TablePanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="TableList" type="VBoxContainer" parent="UI/TablePanel/VBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="BellButton" type="Button" parent="UI/TablePanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Beendet den Tag: Die Zunft nimmt die Schwerter auf dem Tisch."
+text = "Glocke läuten"
+
+[node name="BucketPanel" type="PanelContainer" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 24.0
+offset_right = 150.0
+offset_bottom = 104.0
+grow_horizontal = 2
+theme_type_variation = &"HudPanel"
+
+[node name="VBox" type="VBoxContainer" parent="UI/BucketPanel"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="AnvilInfo" type="Label" parent="UI/BucketPanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+
+[node name="Buckets" type="Control" parent="UI/BucketPanel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(290, 60)
+layout_mode = 2
+script = ExtResource("5_buckets")
+
+[node name="StrikeInfo" type="Label" parent="UI/BucketPanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.8, 0.75, 1)
+text = "Schläge 0 · Raserei in 12"
+horizontal_alignment = 1
+
+[node name="FrenzyBar" type="ProgressBar" parent="UI/BucketPanel/VBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="Hint" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = -60.0
+offset_right = 165.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.85, 0.8, 0.75, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Actions" type="HBoxContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = -40.0
+offset_right = 165.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="StrikeButton" type="Button" parent="UI/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Oder: Leertaste / Klick ins Bild"
+text = "Schlagen"
+
+[node name="TakeOffButton" type="Button" parent="UI/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Das Schwert kommt zurück auf die Werkbank."
+text = "Abnehmen"
+
+[node name="WardButton" type="Button" parent="UI/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="UndoButton" type="Button" parent="UI/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RelicBar" type="HBoxContainer" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -40.0
+offset_right = 148.0
+offset_bottom = -2.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="ConsumableBar" type="HBoxContainer" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -40.0
+offset_right = -4.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="Dim" type="ColorRect" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.02, 0.04, 0.6)
+
+[node name="Popup" type="PanelContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -60.0
+offset_right = 200.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HudPanel"
+
+[node name="VBox" type="VBoxContainer" parent="UI/Popup"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="PopupTitle" type="Label" parent="UI/Popup/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="PopupText" type="Label" parent="UI/Popup/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PopupItemsScroll" type="ScrollContainer" parent="UI/Popup/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 0
+
+[node name="PopupItems" type="HFlowContainer" parent="UI/Popup/VBox/PopupItemsScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+alignment = 1
+
+[node name="PopupScroll" type="ScrollContainer" parent="UI/Popup/VBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(380, 110)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="PopupList" type="VBoxContainer" parent="UI/Popup/VBox/PopupScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="PopupButtons" type="HBoxContainer" parent="UI/Popup/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("7_pause")]
+unique_name_in_owner = true
+
+[node name="CardStyle" type="Panel" parent="UI"]
+unique_name_in_owner = true
+visible = false
+theme_override_styles/panel = SubResource("card_box")

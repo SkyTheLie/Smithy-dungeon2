@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/defense/defense_enemy.gd" id="1_enemy"]
+
+[node name="DefenseEnemy" type="Node2D"]
+script = ExtResource("1_enemy")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+offset = Vector2(0, -16)

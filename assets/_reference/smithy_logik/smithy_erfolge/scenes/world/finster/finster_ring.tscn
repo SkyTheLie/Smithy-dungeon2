@@ -1,0 +1,442 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_20.png" id="wp_themes_dark_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_8.png" id="wp_themes_dark_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_17.png" id="wp_world_props_finster_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_4.png" id="wp_themes_dark_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/finster_ring_ground.png" id="ground"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="hud"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="day_tint"]
+[ext_resource type="Script" path="res://scenes/stations/station.gd" id="station"]
+[ext_resource type="Script" path="res://scenes/world/volcano/goblin_figure.gd" id="figure"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_desk.png" id="counter"]
+[ext_resource type="Script" path="res://scenes/world/water/water_arena.gd" id="water_arena"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/hero_tournament_menu.tscn" id="hero_menu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_2.png" id="banner_blue"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_3.png" id="banner_red"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_4.png" id="brazier"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="light"]
+
+[sub_resource type="Resource" id="Look_crier"]
+script = ExtResource("appearance")
+race = "half_demon"
+skin = "violet"
+hair_style = "spiky"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "amber"
+size = "normal"
+outfit = "vest"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_crowd_0"]
+script = ExtResource("appearance")
+race = "half_demon"
+skin = "slate"
+hair_style = "ponytail"
+hair_color = "black"
+eye_type = "narrow"
+eye_color = "grey"
+size = "small"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_crowd_1"]
+script = ExtResource("appearance")
+race = "half_demon"
+skin = "crimson"
+hair_style = "spiky"
+hair_color = "white"
+eye_type = "normal"
+eye_color = "green"
+size = "small"
+outfit = "tunic"
+clothes_color = "brown"
+
+[sub_resource type="Resource" id="Look_crowd_2"]
+script = ExtResource("appearance")
+race = "half_demon"
+skin = "ash"
+hair_style = "bald"
+hair_color = "white"
+eye_type = "sleepy"
+eye_color = "grey"
+size = "small"
+outfit = "vest"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_crowd_3"]
+script = ExtResource("appearance")
+race = "human"
+skin = "tan"
+hair_style = "bald"
+hair_color = "white"
+eye_type = "narrow"
+eye_color = "green"
+size = "small"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_crowd_4"]
+script = ExtResource("appearance")
+race = "half_demon"
+skin = "slate"
+hair_style = "short"
+hair_color = "brown"
+eye_type = "big"
+eye_color = "green"
+size = "tall"
+outfit = "smith"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_crowd_5"]
+script = ExtResource("appearance")
+race = "half_demon"
+skin = "violet"
+hair_style = "bald"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "blue"
+size = "tall"
+outfit = "smith"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_crowd_6"]
+script = ExtResource("appearance")
+race = "half_demon"
+skin = "violet"
+hair_style = "spiky"
+hair_color = "blonde"
+eye_type = "normal"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_crowd_7"]
+script = ExtResource("appearance")
+race = "human"
+skin = "brown"
+hair_style = "short"
+hair_color = "red"
+eye_type = "normal"
+eye_color = "amber"
+size = "tall"
+outfit = "smith"
+clothes_color = "red"
+
+[sub_resource type="RectangleShape2D" id="Shape_top"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_side"]
+size = Vector2(16, 400)
+
+[sub_resource type="RectangleShape2D" id="Shape_bottom"]
+size = Vector2(288, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_desk"]
+size = Vector2(156, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_desk_area"]
+size = Vector2(110, 34)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[node name="FinsterRing" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.08, 0.05, 0.1, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("day_tint")
+
+[node name="Floor" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("ground")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -136)
+shape = SubResource("Shape_top")
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-316, 0)
+shape = SubResource("Shape_side")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(316, 0)
+shape = SubResource("Shape_side")
+
+[node name="BottomLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-176, 196)
+shape = SubResource("Shape_bottom")
+
+[node name="BottomRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(176, 196)
+shape = SubResource("Shape_bottom")
+
+[node name="Crowd" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Spectator1" type="Node2D" parent="Crowd"]
+position = Vector2(-250, -162)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_0")
+facing = "down"
+
+[node name="Spectator2" type="Node2D" parent="Crowd"]
+position = Vector2(-180, -168)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_1")
+facing = "down"
+
+[node name="Spectator3" type="Node2D" parent="Crowd"]
+position = Vector2(-110, -162)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_2")
+facing = "down"
+
+[node name="Spectator4" type="Node2D" parent="Crowd"]
+position = Vector2(110, -162)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_3")
+facing = "down"
+
+[node name="Spectator5" type="Node2D" parent="Crowd"]
+position = Vector2(180, -168)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_4")
+facing = "down"
+
+[node name="Spectator6" type="Node2D" parent="Crowd"]
+position = Vector2(250, -162)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_5")
+facing = "down"
+
+[node name="Spectator7" type="Node2D" parent="Crowd"]
+position = Vector2(-270, 90)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_6")
+facing = "right"
+
+[node name="Spectator8" type="Node2D" parent="Crowd"]
+position = Vector2(270, 90)
+script = ExtResource("figure")
+appearance = SubResource("Look_crowd_7")
+facing = "left"
+
+[node name="BannerBlueL" type="Sprite2D" parent="Crowd"]
+position = Vector2(-40, -170)
+texture = ExtResource("banner_blue")
+
+[node name="BannerRedR" type="Sprite2D" parent="Crowd"]
+position = Vector2(40, -170)
+texture = ExtResource("banner_red")
+
+[node name="BrazierL" type="Sprite2D" parent="."]
+position = Vector2(-300, -118)
+texture = ExtResource("brazier")
+offset = Vector2(0, -16)
+
+[node name="Light" parent="BrazierL" instance=ExtResource("light")]
+position = Vector2(0, -18)
+
+[node name="BrazierR" type="Sprite2D" parent="."]
+position = Vector2(300, -118)
+texture = ExtResource("brazier")
+offset = Vector2(0, -16)
+
+[node name="Light" parent="BrazierR" instance=ExtResource("light")]
+position = Vector2(0, -18)
+
+[node name="CrierDesk" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -98)
+script = ExtResource("station")
+
+[node name="Keeper" type="Node2D" parent="CrierDesk"]
+position = Vector2(0, -30)
+script = ExtResource("figure")
+appearance = SubResource("Look_crier")
+
+[node name="Sprite2D" type="Sprite2D" parent="CrierDesk"]
+texture = ExtResource("counter")
+offset = Vector2(0, -24.5)
+
+[node name="NameLabel" type="Label" parent="CrierDesk"]
+z_index = 1
+offset_left = -60.0
+offset_top = -84.0
+offset_right = 60.0
+offset_bottom = -72.0
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "Ausrufer: Liga"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrierDesk"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_desk")
+
+[node name="InteractionArea" type="Area2D" parent="CrierDesk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrierDesk/InteractionArea"]
+position = Vector2(0, 14)
+shape = SubResource("Shape_desk_area")
+
+[node name="DuelRing" type="Node2D" parent="."]
+position = Vector2(0, 40)
+script = ExtResource("water_arena")
+player_spot = Vector2(-44, 0)
+opponent_spot = Vector2(44, 0)
+
+[node name="HeroTournamentMenu" parent="DuelRing" instance=ExtResource("hero_menu")]
+venue = "finster"
+
+[node name="DoorOut" parent="." instance=ExtResource("door")]
+position = Vector2(0, 200)
+target_scene = "res://scenes/world/finster/finster_city.tscn"
+target_spawn_point = &"FromTeleporter"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromCity" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 170)
+
+[node name="Dress" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Dress"]
+position = Vector2(-180, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P1"]
+texture = ExtResource("wp_themes_dark_4")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P2" type="StaticBody2D" parent="Dress"]
+position = Vector2(180, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P2"]
+texture = ExtResource("wp_themes_dark_4")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P3" type="StaticBody2D" parent="Dress"]
+position = Vector2(-180, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P3"]
+texture = ExtResource("wp_themes_dark_4")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P4" type="StaticBody2D" parent="Dress"]
+position = Vector2(180, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P4"]
+texture = ExtResource("wp_themes_dark_4")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P5" type="StaticBody2D" parent="Dress"]
+position = Vector2(-292, -70)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P5"]
+texture = ExtResource("wp_world_props_finster_17")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P6" type="StaticBody2D" parent="Dress"]
+position = Vector2(292, -70)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P6"]
+texture = ExtResource("wp_world_props_finster_17")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P7" type="Sprite2D" parent="Dress"]
+position = Vector2(-292, 170)
+texture = ExtResource("wp_themes_dark_8")
+offset = Vector2(0, -20.5)
+
+[node name="P8" type="Sprite2D" parent="Dress"]
+position = Vector2(292, 170)
+texture = ExtResource("wp_themes_dark_8")
+offset = Vector2(0, -20.5)
+
+[node name="P9" type="StaticBody2D" parent="Dress"]
+position = Vector2(-112, -112)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P9"]
+texture = ExtResource("wp_themes_dark_20")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P9"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P10" type="StaticBody2D" parent="Dress"]
+position = Vector2(112, -112)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P10"]
+texture = ExtResource("wp_themes_dark_20")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P10"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="Player" parent="." instance=ExtResource("player")]
+position = Vector2(0, 170)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -200
+limit_right = 320
+limit_bottom = 200
+
+[node name="HUD" parent="." instance=ExtResource("hud")]
+
+[connection signal="interacted" from="CrierDesk" to="DuelRing/HeroTournamentMenu" method="toggle"]
+[connection signal="player_left" from="CrierDesk" to="DuelRing/HeroTournamentMenu" method="close"]
+[connection signal="body_entered" from="CrierDesk/InteractionArea" to="CrierDesk" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="CrierDesk/InteractionArea" to="CrierDesk" method="_on_interaction_area_body_exited"]
+
+[editable path="DoorOut"]
+[editable path="Player"]

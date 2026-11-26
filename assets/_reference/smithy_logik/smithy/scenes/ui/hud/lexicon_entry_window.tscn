@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/lexicon_entry_window.gd" id="1_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/window_title_bar.tscn" id="90_title_bar"]
+[ext_resource type="Script" path="res://scenes/ui/common/monster_preview.gd" id="2_preview"]
+
+[node name="LexiconEntryWindow" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -115.0
+offset_right = 138.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_window")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleBar" parent="VBox" instance=ExtResource("90_title_bar")]
+layout_mode = 2
+title = "Lexikon"
+window_id = "lexicon_entry"
+
+[node name="Columns" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Left" type="VBoxContainer" parent="VBox/Columns"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="BackButton" type="Button" parent="VBox/Columns/Left"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+tooltip_text = "Zurück"
+theme_override_font_sizes/font_size = 11
+text = "« Zurück"
+
+[node name="PictureFrame" type="PanelContainer" parent="VBox/Columns/Left"]
+layout_mode = 2
+theme_type_variation = &"ItemSlot"
+
+[node name="Preview" type="Control" parent="VBox/Columns/Left/PictureFrame"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_preview")
+
+[node name="ItemPicture" type="TextureRect" parent="VBox/Columns/Left/PictureFrame"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PhaseLabel" type="Label" parent="VBox/Columns/Left"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.6, 0.56, 1)
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Scroll" type="ScrollContainer" parent="VBox/Columns"]
+custom_minimum_size = Vector2(175, 190)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Text" type="RichTextLabel" parent="VBox/Columns/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/bold_font_size = 11
+bbcode_enabled = true
+fit_content = true

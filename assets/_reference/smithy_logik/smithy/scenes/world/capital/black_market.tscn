@@ -1,0 +1,398 @@
+[gd_scene format=3 uid="uid://d77r18pjwko5"]
+
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://bmg6tvfdbamj6" path="res://scenes/world/objects/gloom.gd" id="4_gloom"]
+[ext_resource type="Texture2D" uid="uid://dvbpvx2nom5vk" path="res://assets/sprites/maps/black_market_ground.png" id="5_ground"]
+[ext_resource type="Texture2D" uid="uid://cq6qjwcy8sx3m" path="res://assets/sprites/buildings/black_market_houses.png" id="6_houses"]
+[ext_resource type="Texture2D" uid="uid://dy04km7muh0p1" path="res://assets/sprites/themes/alley_fence.png" id="7_palisade"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/torch.tscn" id="14_torch"]
+[ext_resource type="Texture2D" uid="uid://dsqp6yjdkl6xb" path="res://assets/sprites/themes/alley_6.png" id="17_barrels"]
+[ext_resource type="Texture2D" uid="uid://cn2yereopqoc7" path="res://assets/sprites/props/raid_fire.png" id="19_fire"]
+[ext_resource type="Script" uid="uid://3btvbhn62ngj" path="res://scenes/world/objects/sheet_animation.gd" id="20_sheet"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="21_light"]
+[ext_resource type="Script" uid="uid://df3rjike61gat" path="res://scenes/world/objects/window_lights.gd" id="window_lights"]
+[ext_resource type="Script" uid="uid://wluh8rr2puuq" path="res://scenes/world/objects/critter.gd" id="wp_scenes_world_objects_critte"]
+[ext_resource type="Texture2D" uid="uid://dq34hx4nnmuht" path="res://assets/sprites/themes/alley_0.png" id="wp_themes_alley_0"]
+[ext_resource type="Texture2D" uid="uid://bxulc2j5l2pho" path="res://assets/sprites/themes/alley_1.png" id="wp_themes_alley_1"]
+[ext_resource type="Texture2D" uid="uid://dko4hpopfysqx" path="res://assets/sprites/themes/alley_2.png" id="wp_themes_alley_2"]
+[ext_resource type="Texture2D" uid="uid://tggpby0ciugl" path="res://assets/sprites/themes/alley_3.png" id="wp_themes_alley_3"]
+[ext_resource type="Texture2D" uid="uid://b62l6my2u7l0h" path="res://assets/sprites/themes/alley_4.png" id="wp_themes_alley_4"]
+[ext_resource type="Texture2D" uid="uid://1uyu7elyxs4k" path="res://assets/sprites/themes/alley_5.png" id="wp_themes_alley_5"]
+[ext_resource type="Texture2D" uid="uid://j1axd6vaems0" path="res://assets/sprites/themes/alley_7.png" id="wp_themes_alley_7"]
+[ext_resource type="Texture2D" uid="uid://b7ebdad6rdvy5" path="res://assets/sprites/themes/alley_8.png" id="wp_themes_alley_8"]
+[ext_resource type="Texture2D" uid="uid://x7e36udxytxl" path="res://assets/sprites/themes/alley_9.png" id="wp_themes_alley_9"]
+[ext_resource type="Texture2D" uid="uid://cfo1enfxbjfo5" path="res://assets/sprites/themes/alley_11.png" id="wp_themes_alley_11"]
+[ext_resource type="Texture2D" uid="uid://u3psjjdgfmy6" path="res://assets/sprites/themes/alley_12.png" id="wp_themes_alley_12"]
+[ext_resource type="Texture2D" uid="uid://r0hpsceymp1r" path="res://assets/sprites/themes/alley_13.png" id="wp_themes_alley_13"]
+[ext_resource type="Texture2D" uid="uid://e66duej0xmgu" path="res://assets/sprites/themes/alley_15.png" id="wp_themes_alley_15"]
+[ext_resource type="Texture2D" uid="uid://d4pgnlraq1su" path="res://assets/sprites/themes/alley_17.png" id="wp_themes_alley_17"]
+[ext_resource type="Texture2D" uid="uid://b7cevfrknmt1" path="res://assets/sprites/themes/dice.png" id="wp_themes_dice"]
+[ext_resource type="Texture2D" uid="uid://bbllvo3pjnv3q" path="res://assets/sprites/themes/tarp.png" id="wp_themes_tarp"]
+
+[sub_resource type="RectangleShape2D" id="Shape_h"]
+size = Vector2(832, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_v"]
+size = Vector2(16, 608)
+
+[sub_resource type="RectangleShape2D" id="Shape_houses"]
+size = Vector2(511, 40)
+
+[sub_resource type="RectangleShape2D" id="Shape_fence_top"]
+size = Vector2(160, 30)
+
+[sub_resource type="RectangleShape2D" id="Shape_fence_bottom"]
+size = Vector2(832, 30)
+
+[sub_resource type="RectangleShape2D" id="Shape_small"]
+size = Vector2(24, 10)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_27x6"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_37x6"]
+size = Vector2(37, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[node name="BlackMarket" type="Node2D" unique_id=513958983]
+y_sort_enabled = true
+
+[node name="Gloom" type="CanvasModulate" parent="." unique_id=1834522047]
+color = Color(0.42, 0.38, 0.52, 1)
+script = ExtResource("4_gloom")
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=1769785823]
+z_index = -1
+position = Vector2(-416, -304)
+texture = ExtResource("5_ground")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="." unique_id=1317340574]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds" unique_id=741976408]
+position = Vector2(0, -312)
+shape = SubResource("Shape_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds" unique_id=154037722]
+position = Vector2(0, 312)
+shape = SubResource("Shape_h")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds" unique_id=409854332]
+position = Vector2(-424, 0)
+shape = SubResource("Shape_v")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds" unique_id=1778874343]
+position = Vector2(424, 0)
+shape = SubResource("Shape_v")
+
+[node name="Houses" type="StaticBody2D" parent="." unique_id=1376316401]
+position = Vector2(0, -140)
+
+[node name="Sprite2D" type="Sprite2D" parent="Houses" unique_id=622722704]
+texture = ExtResource("6_houses")
+offset = Vector2(0, -80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Houses" unique_id=1044873547]
+position = Vector2(0, -20)
+shape = SubResource("Shape_houses")
+
+[node name="FenceTopW" type="StaticBody2D" parent="." unique_id=1546014722]
+position = Vector2(-336, -150)
+
+[node name="Sprite2D" type="Sprite2D" parent="FenceTopW" unique_id=1559226059]
+texture = ExtResource("7_palisade")
+offset = Vector2(0, -31)
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FenceTopW" unique_id=238329707]
+position = Vector2(0, -15)
+shape = SubResource("Shape_fence_top")
+
+[node name="FenceTopE" type="StaticBody2D" parent="." unique_id=1413321549]
+position = Vector2(336, -150)
+
+[node name="Sprite2D" type="Sprite2D" parent="FenceTopE" unique_id=460093338]
+texture = ExtResource("7_palisade")
+offset = Vector2(0, -31)
+region_enabled = true
+region_rect = Rect2(160, 0, 160, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FenceTopE" unique_id=1237843193]
+position = Vector2(0, -15)
+shape = SubResource("Shape_fence_top")
+
+[node name="FenceBottom" type="StaticBody2D" parent="." unique_id=1273885079]
+position = Vector2(0, 304)
+
+[node name="Part-176" type="Sprite2D" parent="FenceBottom" unique_id=2018170684]
+position = Vector2(-176, 0)
+texture = ExtResource("7_palisade")
+offset = Vector2(0, -31)
+region_enabled = true
+region_rect = Rect2(0, 0, 480, 62)
+
+[node name="Part240" type="Sprite2D" parent="FenceBottom" unique_id=141168389]
+position = Vector2(240, 0)
+texture = ExtResource("7_palisade")
+offset = Vector2(0, -31)
+region_enabled = true
+region_rect = Rect2(0, 0, 352, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FenceBottom" unique_id=1751915972]
+position = Vector2(0, -15)
+shape = SubResource("Shape_fence_bottom")
+
+[node name="FireBarrel" type="StaticBody2D" parent="." unique_id=107825450]
+position = Vector2(-46, 136)
+
+[node name="Barrels" type="Sprite2D" parent="FireBarrel" unique_id=203535493]
+texture = ExtResource("17_barrels")
+offset = Vector2(0, -17.5)
+
+[node name="Fire" type="Sprite2D" parent="FireBarrel" unique_id=1519938706]
+position = Vector2(-6, -30)
+texture = ExtResource("19_fire")
+offset = Vector2(0, -12)
+hframes = 7
+script = ExtResource("20_sheet")
+frames_per_second = 10.0
+
+[node name="Light" parent="FireBarrel" unique_id=1132286228 instance=ExtResource("21_light")]
+position = Vector2(0, -40)
+color = Color(1, 0.5, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireBarrel" unique_id=1708745782]
+position = Vector2(0, -4)
+shape = SubResource("Shape_small")
+
+[node name="Decor" type="Node2D" parent="." unique_id=1724248018]
+y_sort_enabled = true
+
+[node name="Torch1" parent="Decor" unique_id=1645982645 instance=ExtResource("14_torch")]
+position = Vector2(-300, -120)
+
+[node name="Torch3" parent="Decor" unique_id=592779861 instance=ExtResource("14_torch")]
+position = Vector2(290, -120)
+
+[node name="Torch5" parent="Decor" unique_id=1714972031 instance=ExtResource("14_torch")]
+position = Vector2(-380, 90)
+
+[node name="Torch6" parent="Decor" unique_id=776135706 instance=ExtResource("14_torch")]
+position = Vector2(380, 60)
+
+[node name="Torch8" parent="Decor" unique_id=355398575 instance=ExtResource("14_torch")]
+position = Vector2(-232, 84)
+
+[node name="ToStreet" parent="." unique_id=1968513101 instance=ExtResource("2_door")]
+position = Vector2(-410, 16)
+scale = Vector2(1, 3)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"FromBlackMarket"
+
+[node name="Visual" parent="ToStreet" index="0"]
+visible = false
+
+[node name="FromStreet" type="Marker2D" parent="." unique_id=1204740345 groups=["spawn_points"]]
+position = Vector2(-370, 16)
+
+[node name="Yard" type="Node2D" parent="." unique_id=2070667574]
+y_sort_enabled = true
+
+[node name="P1" type="Sprite2D" parent="Yard" unique_id=2100312720]
+position = Vector2(230, -14)
+texture = ExtResource("wp_themes_tarp")
+offset = Vector2(0, -75)
+
+[node name="P2" type="StaticBody2D" parent="Yard" unique_id=1597946225]
+position = Vector2(348, -30)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P2" unique_id=2045501052]
+texture = ExtResource("wp_themes_alley_8")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P2" unique_id=572608180]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P3" type="StaticBody2D" parent="Yard" unique_id=307149748]
+position = Vector2(372, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P3" unique_id=1154347257]
+texture = ExtResource("wp_themes_alley_0")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P3" unique_id=594831688]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P4" type="StaticBody2D" parent="Yard" unique_id=1992459682]
+position = Vector2(112, -24)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P4" unique_id=1458757982]
+texture = ExtResource("wp_themes_alley_15")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P4" unique_id=913422115]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P5" type="StaticBody2D" parent="Yard" unique_id=1318047214]
+position = Vector2(-58, -57)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P5" unique_id=450919033]
+texture = ExtResource("wp_themes_dice")
+offset = Vector2(0, -13.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P5" unique_id=1587608931]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_37x6")
+
+[node name="P6" type="Sprite2D" parent="Yard" unique_id=1792093871]
+position = Vector2(-300, -110)
+texture = ExtResource("wp_themes_alley_2")
+offset = Vector2(0, -18)
+
+[node name="P7" type="Sprite2D" parent="Yard" unique_id=585880186]
+position = Vector2(60, -106)
+texture = ExtResource("wp_themes_alley_9")
+offset = Vector2(0, -17)
+
+[node name="P8" type="Sprite2D" parent="Yard" unique_id=159678173]
+position = Vector2(300, 150)
+texture = ExtResource("wp_themes_alley_1")
+offset = Vector2(0, -16.5)
+
+[node name="P9" type="StaticBody2D" parent="Yard" unique_id=190302235]
+position = Vector2(340, 196)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P9" unique_id=1260977658]
+texture = ExtResource("wp_themes_alley_11")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P9" unique_id=700174113]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P10" type="StaticBody2D" parent="Yard" unique_id=964115857]
+position = Vector2(384, 170)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P10" unique_id=722779167]
+texture = ExtResource("wp_themes_alley_17")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P10" unique_id=494285971]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P11" type="StaticBody2D" parent="Yard" unique_id=2097288828]
+position = Vector2(386, 240)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P11" unique_id=618865237]
+texture = ExtResource("wp_themes_alley_13")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P11" unique_id=1416951138]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P12" type="StaticBody2D" parent="Yard" unique_id=371133644]
+position = Vector2(-156, 113)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P12" unique_id=1047928371]
+position = Vector2(3, 2)
+scale = Vector2(1, 1.051282)
+texture = ExtResource("wp_themes_alley_12")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P12" unique_id=301347940]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_21x6")
+
+[node name="P13" type="Sprite2D" parent="Yard" unique_id=931672151]
+position = Vector2(90, 80)
+texture = ExtResource("wp_themes_alley_3")
+offset = Vector2(0, -10.5)
+
+[node name="P14" type="Sprite2D" parent="Yard" unique_id=125179306]
+position = Vector2(4, 74)
+texture = ExtResource("wp_themes_alley_7")
+offset = Vector2(0, -11.5)
+
+[node name="P15" type="Sprite2D" parent="Yard" unique_id=1391893394]
+position = Vector2(-220, 110)
+texture = ExtResource("wp_themes_alley_3")
+offset = Vector2(0, -10.5)
+
+[node name="C16" type="Sprite2D" parent="Yard" unique_id=1365654944]
+position = Vector2(250, 150)
+texture = ExtResource("wp_themes_alley_4")
+offset = Vector2(0, -8.5)
+script = ExtResource("wp_scenes_world_objects_critte")
+
+[node name="C17" type="Sprite2D" parent="Yard" unique_id=609309543]
+position = Vector2(-170, -60)
+texture = ExtResource("wp_themes_alley_5")
+offset = Vector2(0, -11.5)
+script = ExtResource("wp_scenes_world_objects_critte")
+
+[node name="ToDen" parent="." unique_id=1847520311 instance=ExtResource("2_door")]
+position = Vector2(-94, -134)
+scale = Vector2(0.8, 0.6)
+target_scene = "res://scenes/world/capital/black_market_den.tscn"
+target_spawn_point = &"FromYard"
+
+[node name="Visual" parent="ToDen" index="0"]
+visible = false
+
+[node name="FromDen" type="Marker2D" parent="." unique_id=1847520312 groups=["spawn_points"]]
+position = Vector2(-94, -108)
+
+[node name="DenSign" type="Label" parent="." unique_id=1847520313]
+z_index = 1
+offset_left = -144.0
+offset_top = -192.0
+offset_right = -44.0
+offset_bottom = -180.0
+theme_override_colors/font_color = Color(1, 0.55, 0.5, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "Spelunke"
+horizontal_alignment = 1
+
+[node name="DenLight" parent="." unique_id=1847520314 instance=ExtResource("21_light")]
+position = Vector2(-94, -170)
+color = Color(1, 0.3, 0.3, 1)
+night_energy = 0.7
+
+[node name="Player" parent="." unique_id=2088982289 instance=ExtResource("1_player")]
+position = Vector2(-370, 16)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -416
+limit_top = -304
+limit_right = 416
+limit_bottom = 304
+
+[node name="HUD" parent="." unique_id=1642766736 instance=ExtResource("3_hud")]
+
+[node name="WindowLights" type="Node" parent="." unique_id=308542556]
+script = ExtResource("window_lights")
+
+[editable path="ToStreet"]
+[editable path="ToDen"]
+[editable path="Player"]

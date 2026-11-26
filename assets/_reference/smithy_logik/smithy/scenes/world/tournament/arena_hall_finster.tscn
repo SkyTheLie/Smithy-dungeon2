@@ -1,0 +1,78 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/tournament/arena_hall.tscn" id="1_hall"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/arena_hall_finster_ground.png" id="2_arena_hall_finster_ground"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_desk.png" id="3_dark_desk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_3.png" id="4_dark_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_2.png" id="5_dark_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/finster_17.png" id="6_finster_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_4.png" id="7_dark_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_7.png" id="8_dark_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_6.png" id="9_dark_6"]
+
+[sub_resource type="Resource" id="Look_city_master"]
+script = ExtResource("appearance")
+race = "half_demon"
+skin = "crimson"
+hair_style = "spiky"
+hair_color = "white"
+eye_type = "narrow"
+eye_color = "amber"
+size = "normal"
+outfit = "vest"
+clothes_color = "purple"
+
+[node name="ArenaHall" instance=ExtResource("1_hall")]
+
+[node name="Ground" parent="." index="1"]
+texture = ExtResource("2_arena_hall_finster_ground")
+
+[node name="Sprite2D" parent="BannerL"]
+texture = ExtResource("4_dark_3")
+offset = Vector2(0, -21)
+
+[node name="Sprite2D" parent="BannerR"]
+texture = ExtResource("5_dark_2")
+offset = Vector2(0, -21)
+
+[node name="Sprite2D" parent="PillarL"]
+texture = ExtResource("6_finster_17")
+offset = Vector2(0, -20)
+
+[node name="Sprite2D" parent="PillarR"]
+texture = ExtResource("6_finster_17")
+offset = Vector2(0, -20)
+
+[node name="Sprite2D" parent="BrazierL"]
+texture = ExtResource("7_dark_4")
+offset = Vector2(0, -19)
+
+[node name="Sprite2D" parent="BrazierR"]
+texture = ExtResource("7_dark_4")
+offset = Vector2(0, -19)
+
+[node name="Sprite2D" parent="PlantL"]
+texture = ExtResource("8_dark_7")
+offset = Vector2(0, -20.5)
+
+[node name="Sprite2D" parent="PlantR"]
+texture = ExtResource("8_dark_7")
+offset = Vector2(0, -20.5)
+
+[node name="Sprite2D" parent="WeaponRack"]
+texture = ExtResource("9_dark_6")
+offset = Vector2(0, -19)
+
+[node name="Master" parent="Desk"]
+appearance = SubResource("Look_city_master")
+
+[node name="Sprite2D" parent="Desk"]
+texture = ExtResource("3_dark_desk")
+
+[node name="DoorOut" parent="."]
+target_scene = "res://scenes/world/finster/finster_city.tscn"
+
+[node name="HeroTournamentMenu" parent="."]
+venue = "finster"
+title = "Arenahalle Finsterstadt"

@@ -1,0 +1,1034 @@
+{
+	"dialogues": {
+		"goblin_cave_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Hinter dem Eingang öffnet sich eine riesige Höhle. Felsplatten ragen aus einem Abgrund, Hängebrücken verbinden sie."
+				},
+				{
+					"speaker": "",
+					"text": "Tief unten fließt Lava. Auf Felsbändern schieben Goblins Loren voller Erz."
+				},
+				{
+					"speaker": "player",
+					"text": "Lava. Abgrund. Wackelige Brücken. Ruhig bleiben, {name}. Du hast schon Kupfer geschmolzen. Das hier ist nur ... ein bisschen tiefer."
+				}
+			],
+			"on_end": "advance:goblin_guards"
+		},
+		"goblin_guard_toll": {
+			"lines": [
+				{
+					"speaker": "goblin_guard",
+					"text": "Halt! Halt-halt-halt! Wer zum König will, zahlt! Zahlt, zahlt!"
+				},
+				{
+					"speaker": "player",
+					"text": "Zahlt? Ich wollte nur kurz Hallo sagen. Ein sehr kurzes Hallo."
+				},
+				{
+					"speaker": "goblin_guard",
+					"text": "Hallo kostet. Fünfhundert Gold. Heißt Audienzgebühr. Hat der König erfunden. Ich hab beim Erfinden zugeguckt!"
+				}
+			],
+			"choices": [
+				{
+					"text": "Bezahlen (500 Gold)",
+					"action": "pay_gold:500;set_flag:goblin_audience_paid;advance:goblin_king_audience",
+					"then": "goblin_guard_paid",
+					"else": "goblin_guard_poor"
+				},
+				{
+					"text": "Fünfhundert? Das ist Raub.",
+					"then": "goblin_guard_robbery"
+				}
+			]
+		},
+		"goblin_guard_paid": {
+			"lines": [
+				{
+					"speaker": "goblin_guard",
+					"text": "Oooh. Das klimpert schön. Sehr gut. Sehr, sehr gut. Darf ich mal anfassen? Nein? Nein. Gut. Geh durch."
+				},
+				{
+					"speaker": "",
+					"text": "Die Wachen treten zur Seite. Der Weg zum Thron ist frei."
+				}
+			]
+		},
+		"goblin_guard_poor": {
+			"lines": [
+				{
+					"speaker": "goblin_guard",
+					"text": "Kein Gold, kein König! Komm wieder, wenn deine Taschen klimpern. Klimper-klimper!"
+				}
+			]
+		},
+		"goblin_guard_robbery": {
+			"lines": [
+				{
+					"speaker": "goblin_guard",
+					"text": "Raub ist, wenn man nichts dafür kriegt! Du kriegst den König zu sehen. Ganz viel König. Fünfhundert."
+				}
+			]
+		},
+		"goblin_guard_idle": {
+			"lines": [
+				{
+					"speaker": "goblin_guard",
+					"text": "Pssst! Leise! Der König zählt. Wenn er sich verzählt, fängt er von vorne an. Und dann schreit er."
+				}
+			]
+		},
+		"goblin_king_audience": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Auf einem breiten Thronbett liegt ein Goblin, so fett, dass das Polster unter ihm ächzt. Eine Krone hat er nicht. Auf seinem Bauch liegt ein Goldbarren, den er streichelt. Ringsum drängen sich Goblins."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Vierhundertneunundneunzig ... fünfhundert! Frisch gezählt. Sehr glänzend. Das schönste Stück nenne ich Glanzbert."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Ich bin Goldzahn der Prächtige. Also, Mensch. Was willst du? Und was hast du dabei? Zeig mal die Taschen."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich suche den Feuerkristall. Ein roter Stein, ungefähr so groß, er glüht und ... Wisst Ihr, wo er ist?"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Ja."
+				},
+				{
+					"speaker": "player",
+					"text": "Ja? Großartig. Und wo ..."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Ich weiß es. Aber was hast du, das ICH will? Das ist die eigentliche Frage. Die einzige Frage. Immer."
+				},
+				{
+					"speaker": "player",
+					"text": "Was wollt Ihr denn haben?"
+				},
+				{
+					"speaker": "",
+					"text": "Goldzahn lacht. Die Goblins ringsum fangen an zu rufen.",
+					"action": "cutscene:crowd_gold",
+					"wait": 3.5
+				},
+				{
+					"speaker": "goblin_crowd",
+					"text": "Gold! Gold! GOLD! Goooold!"
+				},
+				{
+					"speaker": "",
+					"text": "Ganz hinten ruft eine dünne Stimme etwas anderes.",
+					"action": "cutscene:crowd_food",
+					"wait": 2.0
+				},
+				{
+					"speaker": "goblin_hungry",
+					"text": "... Essen?"
+				},
+				{
+					"speaker": "",
+					"text": "Die Menge verstummt.",
+					"action": "cutscene:silence",
+					"wait": 1.5
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Wer war das?",
+					"action": "cutscene:king_alert",
+					"wait": 1.2
+				},
+				{
+					"speaker": "",
+					"text": "Die Goblins zittern. Dann packen sie einen kleinen, dünnen Goblin und werfen ihn aus der Menge vor den Thron.",
+					"action": "cutscene:crowd_throw",
+					"wait": 2.0
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "DU? Du willst Essen?"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Dann geh und arbeite für dein Essen! Werft ihn in die Mine!"
+				},
+				{
+					"speaker": "",
+					"text": "Zwei Wachen packen den kleinen Goblin, tragen ihn zum Rand der Platte und werfen ihn hinunter. Sein Schrei wird leiser. Weit unten scheppert eine Lore.",
+					"action": "cutscene:goblin_fall",
+					"wait": 3.5
+				},
+				{
+					"speaker": "player",
+					"text": "Er ... da unten ist doch hoffentlich etwas Weiches? Heu? Ein sehr dicker Goblin?"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Da unten ist die Mine. Da gehört er hin. Er kommt wieder hoch. Meistens. So. Wo waren wir? Ach ja. Gold."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Bring mir fünf ... nein, zehn ... NEIN, zwanzig ... NEIN! Dreißig Bronzebarren! Hahaha!"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Gold hat mir der Drache genommen. Bronze glänzt fast genauso, wenn man die Augen zukneift. Dreißig Barren, und vielleicht verrate ich dir, wo dein Kristall ist. Vielleicht."
+				},
+				{
+					"speaker": "player",
+					"text": "Dreißig? Woher soll ich dreißig Bronzebarren nehmen? Ich hab Euch gerade fünfhundert Gold gegeben!"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Und es war wunderschön. Woher? Aus meiner Mine natürlich. Geh nach Osten in den Stollen und arbeite. Wie jeder anständige Goblin."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Was du abbaust, darfst du behalten. Großzügig, nicht? Großzügig ist mein zweiter Vorname. Der erste ist Gold."
+				},
+				{
+					"speaker": "",
+					"text": "Der Weg nach Osten in die Goblinmine ist offen. Dort gibt es Kupfer- und Eisenerz. Zusammen in der Schmelze wird daraus Bronze."
+				}
+			],
+			"on_end": "set_flag:goblin_mine_open;set_flag:goblin_thrown;hint:goblin_mine;advance:goblin_gold"
+		},
+		"goblin_king_gold_check": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Der Mensch. Ich rieche Bronze. Oder ist das nur Hoffnung?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier sind die Bronzebarren.",
+					"action": "take_items:bronze_ingot*30",
+					"then": "goblin_king_crown",
+					"else": "goblin_king_gold_missing"
+				},
+				{
+					"text": "Ich bin noch nicht fertig."
+				}
+			]
+		},
+		"goblin_king_gold_missing": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Das sind keine dreißig. Ich kann zählen. Zählen ist das Zweitliebste, was ich tue."
+				}
+			]
+		},
+		"goblin_king_crown": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Goldzahn wühlt in den Barren. Er zählt zweimal. Dann beißt er in einen hinein.",
+					"action": "cutscene:act:goblin_king:count_bite:bronze_ingot",
+					"hide_for": 2.6
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Dreißig. Echt. Und so glänzend. Dich nenne ich Klara. Dich Klaus. Und dich ..."
+				},
+				{
+					"speaker": "player",
+					"text": "Der Feuerkristall?"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Gleich, gleich. Weißt du, was einem König mit so viel Bronze noch fehlt?"
+				},
+				{
+					"speaker": "player",
+					"text": "Ein Tresor? Ein Zahnarzt?"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Eine Krone. Ein König ohne Krone ist nur ein dicker Goblin auf einem Sofa."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Schmiede mir eine Krone aus Bronze. Aus guter, seltener Bronze, nicht aus dem stumpfen Zeug für Bauern."
+				},
+				{
+					"speaker": "player",
+					"text": "Eine Krone hab ich noch nie geschmiedet. Ich hab nicht mal ein Rezept dafür."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Das alte Rezept liegt in der Schmiede des Lavagolems, tief im Berg. Meine Goblins trauen sich nicht hin. Der Golem trinkt Feuer wie andere Leute Bier."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Schick deine Helden. Bring mir die Krone, und ich erzähle dir alles über deinen Kristall. Königsehrenwort. Das gilt. Meistens. Bei Kronen immer."
+				},
+				{
+					"speaker": "",
+					"text": "Auf dem Dungeon-Brett gibt es jetzt den Reiter Vulkan: die Aschegänge und die Schmiede des Lavagolems. Haben deine Helden die Aschegänge einmal geschafft, kommen die Magmahallen dazu."
+				}
+			],
+			"on_end": "set_flag:volcano_dungeons_unlocked;set_flag:crown_quest_started;hint:volcano_dungeons;advance:crown_recipe"
+		},
+		"goblin_king_waiting_crown": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Wo ist meine Krone? Ich sehe keine Krone. Ich sehe nur einen Menschen ohne Krone."
+				}
+			]
+		},
+		"goblin_king_crown_check": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Hast du sie? Zeig her! Zeig, zeig, zeig!"
+				}
+			],
+			"choices": [
+				{
+					"text": "Hier ist Eure Krone.",
+					"action": "take_items:goblin_crown",
+					"then": "goblin_king_crowned",
+					"else": "goblin_king_no_crown"
+				},
+				{
+					"text": "Noch nicht."
+				}
+			]
+		},
+		"goblin_king_no_crown": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Keine Krone? Dann geh. Du stehst in meinem Licht. In meinem Goldlicht."
+				}
+			]
+		},
+		"goblin_king_crowned": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Goldzahn setzt die Krone auf. Eine Weile sagt er gar nichts. Dann kichert er.",
+					"action": "set_flag:goblin_king_crowned"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Seht ihr das? SEHT IHR DAS? Ich bin der prächtigste König unter dem Berg!"
+				},
+				{
+					"speaker": "goblin_crowd",
+					"text": "Prächtig! Prächtig! Prääächtig!"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Sie passt. Sie glänzt. Sie ist schwer. Ich nenne sie ... Krone."
+				},
+				{
+					"speaker": "player",
+					"text": "Sehr einfallsreich. Und der Feuerkristall?"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Nun gut, nun gut. Dann rate doch mal, Schmied. Wo ist der Feuerkristall?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Lass mich raten: im Vulkan, in Eurer alten Schatzkammer, und ein Drache bewacht ihn?",
+					"then": "goblin_king_guessed"
+				},
+				{
+					"text": "Jetzt sag schon!",
+					"then": "goblin_king_tells"
+				}
+			]
+		},
+		"goblin_king_guessed": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "..."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Wer hat dir das erzählt? Wer hat geredet? War das der Dünne? Der ist doch in der Mine!"
+				},
+				{
+					"speaker": "player",
+					"text": "Niemand. Feuerkristall, Vulkan, versteckte Goblins, ein Haufen verlorenes Gold. Da fehlt eigentlich nur noch ein Drache."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Klugscheißer. Ich hasse Klugscheißer. Fast so sehr wie Drachen."
+				}
+			],
+			"choices": [
+				{
+					"text": "Weiter",
+					"then": "goblin_king_dragon_story"
+				}
+			]
+		},
+		"goblin_king_tells": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Ungeduldig. Menschen sind immer so ungeduldig. Na gut. Hör zu."
+				}
+			],
+			"choices": [
+				{
+					"text": "Weiter",
+					"then": "goblin_king_dragon_story"
+				}
+			]
+		},
+		"goblin_king_dragon_story": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Früher war der ganze Berg mein Reich. Oben die Burg, unten die Minen, und in der Schatzkammer Gold, Gold, Gold. Und ein roter Stein, der nie kalt wurde."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Dann kam der Drache. Ignar. Er hat gerochen, wie viel Gold wir hatten. Drachen lieben Gold. Fast so sehr wie ich."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Er hat uns aus der Burg gejagt und sich auf meinen Schatz gelegt. Mit dem Feuerkristall darunter."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Seitdem hocken wir in dieser Höhle und bauen unseren Reichtum wieder auf. Barren für Barren."
+				},
+				{
+					"speaker": "player",
+					"text": "Und ich soll den Kristall unter einem Drachen hervorholen. Natürlich. Warum auch nicht unter einem Kissen."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Du sollst den Drachen aus meinem Berg jagen. Den Kristall kannst du haben. Das Gold bleibt meins."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Aber die Schatzkammer ist verschlossen. Den Schlüssel kann man nur in der verzauberten Schmiede der Burg gießen. Die Gussform dafür habe ich."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Versprich mir, dass du den Drachen vertreibst, und sie gehört dir."
+				}
+			],
+			"choices": [
+				{
+					"text": "Versprochen. Ich jage ihn raus.",
+					"action": "give_items:goblin_key_mold;set_flag:goblin_castle_path_open;advance:chapter16_end",
+					"then": "goblin_king_promise"
+				},
+				{
+					"text": "Ein Drache? Ich bin Schmied, kein ...",
+					"then": "goblin_king_promise_push"
+				}
+			]
+		},
+		"goblin_king_promise_push": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Kein was? Kein Feigling? Gut. Dann versprich es."
+				}
+			],
+			"choices": [
+				{
+					"text": "Na gut. Versprochen.",
+					"action": "give_items:goblin_key_mold;set_flag:goblin_castle_path_open;advance:chapter16_end",
+					"then": "goblin_king_promise"
+				}
+			]
+		},
+		"goblin_king_promise": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Ein Königswort und ein Schmiedewort. Das gilt. Ohne Kleingedrucktes. Fast ohne."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Der Weg zur Burg führt durch die Mine, ganz hinten in die Tiefe. Meine Goblins nehmen die Bretter ab."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Vor dem Tor liegen Felsbrocken, hart wie Drachenschuppen. Mit Kupfer oder Eisen kommst du da nicht durch. Nimm Bronze. Mindestens."
+				},
+				{
+					"speaker": "",
+					"text": "Goldzahn gibt dir die Schlüssel-Gussform. In der Goblinmine ist der Gang zur tiefen Mine jetzt offen. Dort gibt es Kupfer- und Eisenerz.",
+					"action": "cutscene:act:goblin_king:give:goblin_key_mold",
+					"hide_for": 1.1
+				}
+			]
+		},
+		"goblin_king_waiting_dragon": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Der Drache. Ist er weg? Nein? Warum stehst du dann hier herum und kostest mich Zeit? Zeit ist Gold."
+				}
+			]
+		},
+		"goblin_king_castle_lost": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Meine Burg. MEINE BURG! Mit meinem ganzen Gold! Glanzbert der Zweite, Klara, Klaus ... alle in der Lava!"
+				},
+				{
+					"speaker": "player",
+					"text": "Immerhin ist der Drache weg. Das war doch der Plan. So ungefähr."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Der Plan war: Drache weg, Gold da. Nicht: Drache weg, Gold weg, Burg weg!"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "... Die Krone hab ich noch. Und meine Mine. Geh, Schmied. Bevor ich dir die Burg in Rechnung stelle."
+				}
+			]
+		},
+		"goblin_king_idle": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Hast du Gold dabei? Nein? Silber? Kupfer? Einen glänzenden Knopf? ... Dann stör mich nicht."
+				}
+			]
+		},
+		"goblin_crowd_part": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Goblins stehen dicht an dicht im Halbkreis um den Thron und recken die Hälse. Nach vorn kommt hier keiner."
+				},
+				{
+					"speaker": "player",
+					"text": "Verzeihung? Ich müsste mal durch. Zum König. Ich hab bezahlt."
+				},
+				{
+					"speaker": "goblin_crowd",
+					"text": "Ein Mensch! Der Mensch will zum König! Der hat bezahlt! Platz! Platz für den Menschen!"
+				},
+				{
+					"speaker": "",
+					"text": "Die Goblins drängeln, schubsen und quetschen sich zur Seite. Eine schmale Gasse öffnet sich zum Thron.",
+					"action": "set_flag:goblin_crowd_parted",
+					"wait": 1.5
+				}
+			]
+		},
+		"goblin_hungry_mine": {
+			"lines": [
+				{
+					"speaker": "goblin_hungry",
+					"text": "Ich hab Essen gefunden! Einen Pilz! Er schmeckt nach Erz. Und ein bisschen nach Stiefel. Aber er ist meiner. MEINER."
+				}
+			]
+		},
+		"overseer_idle": {
+			"lines": [
+				{
+					"speaker": "goblin_overseer",
+					"text": "Hacken! Hacken, hacken, hacken! Erz ist im Fels, nicht in deinen Taschen! Was du abbaust, darfst du behalten. Befehl vom König. Ich hab ihn gehört. Mit beiden Ohren!"
+				}
+			]
+		},
+		"goblin_gate_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Vor dir ragt die Goblinburg aus der Dunkelheit. Nur die Lavaströme werfen rotes Licht auf ihre Mauern. Ein Haufen schwarzer Felsbrocken versperrt das Tor."
+				},
+				{
+					"speaker": "player",
+					"text": "Hart wie Drachenschuppen, hat er gesagt. Goblins übertreiben doch. Oder? Bitte?"
+				}
+			]
+		},
+		"goblin_castle_intro": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Die Halle ist dunkel und kalt. Nur durch die Fenster fällt rotes Licht von der Lava draußen."
+				},
+				{
+					"speaker": "player",
+					"text": "Gemütlich. Ein alter Teppich, eine kaputte Treppe, kein Mensch. Fehlt nur noch ein Drache."
+				},
+				{
+					"speaker": "player",
+					"text": "Das war ein Witz. Hoffentlich."
+				}
+			],
+			"on_end": "set_flag:goblin_castle_intro_seen"
+		},
+		"dragon_meet": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Stockdunkel. Nur weit vorn glüht etwas Rotes, oben auf einem Berg aus Gold.",
+					"action": "cutscene:treasury_enter",
+					"wait": 2.5
+				},
+				{
+					"speaker": "player",
+					"text": "Gold. Ein ganzer Berg davon. Und obendrauf ... der Feuerkristall."
+				},
+				{
+					"speaker": "player",
+					"text": "Und wo ist der Drache? Goldzahn hat gesagt, hier schläft ein Drache."
+				},
+				{
+					"speaker": "player",
+					"text": "Vielleicht ist er ausgeflogen. Drachen müssen ja auch mal einkaufen gehen."
+				},
+				{
+					"speaker": "",
+					"text": "Du schleichst auf Zehenspitzen auf den Goldberg zu.",
+					"action": "cutscene:treasury_sneak",
+					"wait": 3.0
+				},
+				{
+					"speaker": "player",
+					"text": "Ganz leise. Ganz, ganz leise. Ich bin eine Feder. Eine sehr leise Feder."
+				},
+				{
+					"speaker": "",
+					"text": "Das Gold klirrt. Münzen rutschen den Berg hinab. Unter dem Gold bewegt sich etwas.",
+					"action": "cutscene:gold_shift",
+					"wait": 1.5
+				},
+				{
+					"speaker": "player",
+					"text": "Das war ich nicht. Ich schwöre, das war ich nicht."
+				},
+				{
+					"speaker": "",
+					"text": "Im Gold öffnet sich ein Auge. Es ist grün, mit einem schmalen Schlitz, und so groß wie ein Wagenrad.",
+					"action": "cutscene:dragon_eye",
+					"wait": 1.2
+				},
+				{
+					"speaker": "player",
+					"text": "... Oh."
+				},
+				{
+					"speaker": "",
+					"text": "Der Goldberg bricht auf. Ein riesiger roter Drache erhebt sich. Er glüht wie eine Esse und taucht die Kammer in rotes Licht.",
+					"action": "cutscene:dragon_rise",
+					"wait": 2.8
+				},
+				{
+					"speaker": "",
+					"text": "Er stapft vom Goldberg herab und baut sich vor dir auf. Der Boden bebt bei jedem Schritt.",
+					"action": "cutscene:dragon_step",
+					"wait": 2.4
+				},
+				{
+					"speaker": "dragon",
+					"text": "WELCHE KLEINE MADE wagt es, MICH aus meinem Schlaf zu reißen?!"
+				},
+				{
+					"speaker": "player",
+					"text": "Äh. Guten Tag. Ich bin {name}. Schmied. Aus dem Dorf. Sehr erfreut. Wirklich, sehr."
+				},
+				{
+					"speaker": "dragon",
+					"text": "Ein Schmied. Ich habe schon Mäuse gesehen, die größer waren als du. Und mutiger."
+				},
+				{
+					"speaker": "player",
+					"text": "Mäuse gießen aber keine Schlüssel. Nur so als Hinweis."
+				},
+				{
+					"speaker": "dragon",
+					"text": "Ich bin Ignar, der Glutdrache. Ich habe Ritter gefressen. Mit Rüstung."
+				},
+				{
+					"speaker": "player",
+					"text": "War das nicht schwer verdaulich?"
+				},
+				{
+					"speaker": "dragon",
+					"text": "Sehr. Darum schlafe ich seit hundert Jahren. Bis eine kleine Maus über mein Gold trampelt."
+				},
+				{
+					"speaker": "dragon",
+					"text": "Was willst du, Maus? Sprich schnell. Ich überlege noch, ob du knusprig bist."
+				},
+				{
+					"speaker": "player",
+					"text": "Den roten Stein da oben. Nur den. Ein Lich sammelt die Kristalle. Wenn er alle hat, öffnet er das Gefängnis des Dämonenlords."
+				},
+				{
+					"speaker": "dragon",
+					"text": "Lichs. Dämonen. Ritter in glänzender Rüstung. Alle wollen Steine. Ich will nur schlafen."
+				},
+				{
+					"speaker": "dragon",
+					"text": "Du willst den Kristall? Dann nimm ihn mir weg. Wenn du kannst, kleine Maus."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich selbst eher nicht. Aber ich kenne ein paar Leute mit sehr scharfen Schwertern. Die hab ich übrigens selbst geschmiedet."
+				},
+				{
+					"speaker": "dragon",
+					"text": "Dann schick sie her. Ich habe lange nichts Warmes gegessen."
+				},
+				{
+					"speaker": "",
+					"text": "Sprich den Drachen an und wähle die Helden, die gegen ihn kämpfen."
+				}
+			],
+			"on_end": "set_flag:dragon_challenge;hint:dragon_fight;advance:fight_dragon"
+		},
+		"dragon_beaten": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Ignar liegt erschöpft vor seinem Goldberg. Seine Flügel hängen herab, sein Atem geht schwer."
+				},
+				{
+					"speaker": "dragon",
+					"text": "Hundert Jahre hat mich niemand gekratzt. Und dann kommen ein paar Zwerge mit Schwertern von einem Schmied."
+				},
+				{
+					"speaker": "player",
+					"text": "Helden. Keine Zwerge. Einer ist ziemlich groß. Für einen Helden."
+				},
+				{
+					"speaker": "",
+					"text": "Oben auf dem Goldberg glüht der Feuerkristall. Der Drache rührt sich nicht."
+				},
+				{
+					"speaker": "player",
+					"text": "Ich nehm mir dann mal den Stein. Ganz langsam. Keine plötzlichen Bewegungen. Von beiden Seiten, bitte."
+				},
+				{
+					"speaker": "",
+					"text": "Du kletterst den Goldberg hinauf. Münzen rutschen unter deinen Stiefeln weg. Oben ziehst du den Kristall aus dem Gold. Er ist warm wie ein Herd.",
+					"action": "cutscene:take_crystal",
+					"wait": 4.0
+				},
+				{
+					"speaker": "",
+					"text": "Ignar öffnet ein Auge. Unter seinen Schuppen kriecht ein Glühen hervor, heller und heller.",
+					"action": "cutscene:dragon_wake",
+					"wait": 2.0
+				},
+				{
+					"speaker": "dragon",
+					"text": "Mein Kristall. Mein Gold. Meine Burg. Kein Goblin bekommt davon etwas zurück. Und du auch nicht."
+				},
+				{
+					"speaker": "dragon",
+					"text": "Ein letzter Rat, kleiner Schmied. Wer neun Steine sammelt, will nichts Gutes. Ganz gleich, wie freundlich er lächelt."
+				},
+				{
+					"speaker": "player",
+					"text": "Der Lich lächelt nicht. Er hat ja keine Lippen."
+				},
+				{
+					"speaker": "dragon",
+					"text": "Ich habe nicht vom Lich gesprochen."
+				},
+				{
+					"speaker": "",
+					"text": "Ignar reißt das Maul auf. Feuer schießt in die Decke, Steine regnen herab, der Boden reißt auf. Darunter glüht Lava.",
+					"action": "cutscene:castle_collapse",
+					"wait": 3.0
+				},
+				{
+					"speaker": "player",
+					"text": "Okay. Das ist der Moment, in dem man rennt."
+				},
+				{
+					"speaker": "",
+					"text": "Du rennst. Hinter dir stürzt die Goblinburg mit dem Drachen und seinem Gold in die Lava.",
+					"action": "cutscene:castle_escape",
+					"hide_for": 3.2
+				},
+				{
+					"speaker": "",
+					"text": "Du hast den heiligen Feuerkristall."
+				}
+			],
+			"on_end": "give_items:holy_fire_crystal;set_flag:fire_crystal_owned;set_flag:dragon_gone;set_flag:goblin_castle_fallen;advance:crystal_to_king;travel_fade:res://scenes/world/volcano/goblin_deep_mine.tscn,FromCastleGate"
+		},
+		"goblin_ask": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Sieh an, der Hammerschwinger! Wenn du wegen einer Auskunft kommst: Worte kosten Gold, und seit die Lava meine schöne Burg samt der kleinen Rosalinde und dem dicken Gustl gefressen hat, bin ich nicht in Geberlaune!"
+				},
+				{
+					"speaker": "player",
+					"text": "Rosalinde und Gustl waren Goldmünzen, richtig? Sag mir bitte, dass du nicht jeder einzelnen Münze einen Vornamen gegeben hast."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Natürlich habe ich das! Man nennt seine Kinder doch auch beim Namen! Also, was willst du wissen, und wie viel glänzt dafür in deiner Tasche?"
+				},
+				{
+					"speaker": "player",
+					"text": "Der Lich hat König Albrecht entführt. Deine Späher hören doch jeden Stein, der unter den Bergen rollt – hat er sich irgendwo tief unten verkrochen?"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Pah, das Klappergestell? Unter der Erde ist er nicht. Ich würde es riechen. Tote riechen nach nichts, und nichts riecht man sofort."
+				},
+				{
+					"speaker": "player",
+					"text": "Warte mal. Wenn nichts nach nichts riecht, wie riecht man dann ... ach, vergiss es. Du bist dir also sicher, dass er in keiner Mine und keiner Höhle steckt?"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "So sicher wie der Glanz auf meinem letzten Goldkelch! Meine Jungs meiden nur ein Gebiet im Osten, wo der Boden weich wird und fault. Dort, wo nichts glänzt und alles stinkt."
+				},
+				{
+					"speaker": "player",
+					"text": "Wo nichts glänzt und alles stinkt. Klingt nach einem traumhaften Urlaubsort, danke für den Hinweis."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Halt, nicht so schnell! Das war eine erstklassige fürstliche Auskunft! Dafür bekomme ich mindestens eine Silbermünze!"
+				},
+				{
+					"speaker": "player",
+					"text": "Du hast mir buchstäblich gesagt, dass du nichts weißt, Goldzahn! Ich schmiede dir beim nächsten Mal einen extra glänzenden Nagel, damit ihr beiden euch anfreunden könnt."
+				}
+			],
+			"on_end": "set_flag:asked_goblin"
+		},
+		"goblin_after": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Immer noch keine Spur vom Klappergestell? Vergiss nicht, dass du mir für meinen unbezahlbaren Rat nach Osten noch einen extra glänzenden Nagel schuldest!"
+				}
+			]
+		},
+		"goblin_crown_offer": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Schmied! Psst. Psst-psst. Komm her. Näher. Nicht so nah! Das ist meine Krone, nicht anfassen."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Ich hab ein Problem. Ein GOLD-Problem. Kein Gold mehr. Die Burg ist weg, Glanzbert ist weg, alles weg. Nur die Krone ist da."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Wenn ich sie verkaufe, hab ich Gold. Aber ohne Krone bin ich kein König. Ohne Krone bin ich ... ein Goblin. Mit Hut. Ohne Hut."
+				},
+				{
+					"speaker": "player",
+					"text": "Und jetzt willst du eine zweite Krone. Eine, die aussieht wie die echte. Aber nicht aus Gold."
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Schlau, schlau, schlau! Einen Kupferhelm, und oben drauf zwei Bronzebarren, schön dünn. Keiner merkt was. Fast keiner. Keiner, der zählt."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich mache dir die Kopie",
+					"action": "set_flag:goblin_crown_accepted",
+					"then": "goblin_crown_accepted"
+				},
+				{
+					"text": "Das ist Betrug",
+					"then": "goblin_crown_fraud"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"goblin_crown_fraud": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Betrug? Betrug ist, wenn einer was merkt. Merkt keiner, ist es Handwerk. Kunst! Handel! Fast ohne Kleingedrucktes."
+				},
+				{
+					"speaker": "player",
+					"text": "Na gut. Wenigstens wirst du dann nicht mehr bei mir anschreiben."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich mache dir die Kopie",
+					"action": "set_flag:goblin_crown_accepted",
+					"then": "goblin_crown_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"goblin_crown_accepted": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Einen Kupferhelm und zwei Bronzebarren. Bring alles her, ich zähl es nach. Zweimal. Dreimal."
+				}
+			]
+		},
+		"goblin_crown_hand_in": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Die Krone! Hast du die zweite Krone? Zeig, zeig, zeig!"
+				}
+			],
+			"choices": [
+				{
+					"text": "Helm und Gold geben",
+					"action": "has_items:bronze_ingot*2;hand_in_set:goblin_crown_copy;take_items:bronze_ingot*2",
+					"then": "goblin_crown_done",
+					"else": "goblin_crown_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"goblin_crown_missing": {
+			"lines": [
+				{
+					"speaker": "goblin_king",
+					"text": "Ein Helm aus Kupfer. Zwei Bronzebarren. Nicht einer. Nicht anderthalb. Zwei!"
+				}
+			]
+		},
+		"goblin_crown_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Du überziehst den Bronzehelm mit dem Gold und klopfst ein paar Zacken hinein. Goldzahn setzt beide Kronen nebeneinander auf den Thron.",
+					"action": "cutscene:act:goblin_king:hold:goblin_crown",
+					"hide_for": 1.8
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Welche ist welche? Ich weiß es nicht mehr. Ich weiß es NICHT MEHR! Wunderbar!"
+				},
+				{
+					"speaker": "goblin_king",
+					"text": "Bezahlung. Ja. Hmpf. Drei Bronzebarren. Das sind Glanzbert der Dritte, Klara die Zweite und ... Nummer drei. Hat noch keinen Namen. Behandle sie gut."
+				},
+				{
+					"speaker": "",
+					"text": "Goldzahn gibt dir 3 Bronzebarren und einen Rubin.",
+					"action": "cutscene:act:goblin_king:give:bronze_ingot|ruby",
+					"hide_for": 2.2
+				}
+			],
+			"on_end": "give_items:bronze_ingot*3,ruby;set_flag:goblin_crown_paid"
+		},
+		"goblin_food_offer": {
+			"lines": [
+				{
+					"speaker": "goblin_hungry",
+					"text": "Du! Du hast mich nicht gefressen. Du bist nett. Hast du Essen? Echtes Essen? Kein Pilz?"
+				},
+				{
+					"speaker": "player",
+					"text": "Die Pilze hier schmecken nach Erz, oder? Du hast es mal erwähnt. Und nach Stiefel."
+				},
+				{
+					"speaker": "goblin_hungry",
+					"text": "Nach Stiefel! Seit drei Wochen! Ich will was Gelbes. Und was Grünes, das gut riecht. Sonnenblumen! Und Kamille!"
+				},
+				{
+					"speaker": "goblin_hungry",
+					"text": "Dann geb ich dir was. Ich finde Sachen. In der Mine. Glänzende Sachen. Die anderen merken das nicht. Ich bin dünn, ich pass überall durch."
+				}
+			],
+			"choices": [
+				{
+					"text": "Ich bring dir was",
+					"action": "set_flag:goblin_food_accepted"
+				},
+				{
+					"text": "Später"
+				}
+			]
+		},
+		"goblin_food_hand_in": {
+			"lines": [
+				{
+					"speaker": "goblin_hungry",
+					"text": "Essen? Hast du Essen? Gelbes? Grünes?"
+				}
+			],
+			"choices": [
+				{
+					"text": "Essen geben",
+					"action": "take_items:sunflower*3,chamomile*5;set_flag:goblin_fed",
+					"then": "goblin_food_done",
+					"else": "goblin_food_missing"
+				},
+				{
+					"text": "Noch nicht"
+				}
+			]
+		},
+		"goblin_food_missing": {
+			"lines": [
+				{
+					"speaker": "goblin_hungry",
+					"text": "3 Sonnenblumen. 5 Kamille. Ich hab gezählt. An den Fingern. Ich hab genug Finger."
+				}
+			]
+		},
+		"goblin_food_done": {
+			"lines": [
+				{
+					"speaker": "",
+					"text": "Der dünne Goblin stopft sich die Sonnenblumen in den Mund, mitsamt Stiel. Die Kamille riecht er erst, dann isst er sie auch.",
+					"action": "cutscene:act:goblin_hungry:eat:sunflower",
+					"hide_for": 1.6
+				},
+				{
+					"speaker": "goblin_hungry",
+					"text": "Schmeckt nicht nach Stiefel! Kein bisschen!"
+				},
+				{
+					"speaker": "goblin_hungry",
+					"text": "Abgemacht ist abgemacht. Jeden Morgen leg ich dir Eisenerz in deine Kiste. Ein Stück. Keiner merkt was. Fast keiner."
+				}
+			]
+		},
+		"goblin_food_after": {
+			"lines": [
+				{
+					"speaker": "goblin_hungry",
+					"text": "Heute hab ich ein Stück Eisenerz für dich gefunden! Es lag im Stiefel von Schlackbart. Der merkt das nicht. Er riecht nur komisch."
+				}
+			]
+		}
+	}
+}

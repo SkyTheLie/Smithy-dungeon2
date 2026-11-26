@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerSkillData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/player_skill_data.gd" id="1_skill"]
+[ext_resource type="Texture2D" path="res://assets/sprites/skills/ember_keeper.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_skill")
+display_name = "Glutwächter"
+description = "Brennstoff hält pro Stufe 25 % länger, in der Schmelze und am Gussofen. Auf Stufe 4 schmilzt Holz 2 Erze und Kohle 4 Erze, am Gussofen reicht Kohle für 10 Schmiedevorgänge."
+icon = ExtResource("2_icon")
+stat = 11
+value_per_rank = 0.25
+max_rank = 4
+required_level = 2

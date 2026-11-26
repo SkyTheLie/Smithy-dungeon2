@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Hero" format=3 uid="uid://c512aj1tl676a"]
+
+[ext_resource type="Script" uid="uid://bjyp54psss24n" path="res://scripts/resources/hero.gd" id="1_hero"]
+[ext_resource type="Resource" path="res://data/hero_classes/warrior.tres" id="2_class"]
+[ext_resource type="Script" uid="uid://xmy5qhn5t30p" path="res://scripts/resources/appearance.gd" id="3_appearance"]
+
+[sub_resource type="Resource" id="Appearance_bruno"]
+script = ExtResource("3_appearance")
+outfit = "bruno"
+
+[resource]
+script = ExtResource("1_hero")
+id = &"bruno"
+display_name = "Bruno"
+hero_class = ExtResource("2_class")
+race = "human"
+appearance = SubResource("Appearance_bruno")
+strength = 6
+agility = 3
+constitution = 5
+wisdom = 2
+resistance = 3

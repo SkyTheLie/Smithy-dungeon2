@@ -1,0 +1,549 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_16.png" id="wp_world_props_fortress_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_15.png" id="wp_world_props_fortress_15"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_14.png" id="wp_world_props_fortress_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_13.png" id="wp_world_props_fortress_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_11.png" id="wp_world_props_fortress_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_9.png" id="wp_world_props_fortress_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/fortress_5.png" id="wp_world_props_fortress_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_1.png" id="wp_world_props_fortress_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/dark_0.png" id="wp_world_props_fortress_2"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_fortress.tscn" id="lamp_fortress"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="3_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/fortress_yard_ground.png" id="4_fortress_yar"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="5_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/fortress_yard_mask.png" id="6_fortress_yar"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="8_story_npc"]
+[ext_resource type="Script" path="res://scenes/world/objects/skirmish_pair.gd" id="9_skirmish"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="19_story_prop_g"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_texture.gd" id="19_story_texture"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/keep_gate_closed.png" id="20_gate_closed"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/keep_gate_open.png" id="21_gate_open"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/bone_general_front.png" id="22_bone_general"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/bones.png" id="11_bones"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="13_night_light"]
+[ext_resource type="Script" path="res://scenes/stations/story_station.gd" id="14_story_statio"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fortress/war_table.png" id="15_war_table"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/dungeon_board_menu.tscn" id="16_dungeon_boar"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="17_door"]
+[ext_resource type="Script" path="res://scenes/world/fortress/fortress_yard_cutscene.gd" id="23_yard_cut"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="18_hud"]
+
+[sub_resource type="Resource" id="Look_kahn"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "long"
+hair_color = "black"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_torgai"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "deep_blue"
+eye_type = "narrow"
+eye_color = "amber"
+hair_style = "spiky"
+hair_color = "white"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_faelan"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "blonde"
+eye_type = "narrow"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_magician"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pearl"
+hair_style = "long"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+
+[sub_resource type="Resource" id="Look_dark_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "pale"
+hair_style = "short"
+hair_color = "black"
+eye_type = "glowing"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_lizard"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "rust"
+eye_type = "narrow"
+eye_color = "green"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_warden"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "ash"
+eye_type = "glowing"
+eye_color = "amber"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_warden2"]
+script = ExtResource("7_appearance")
+race = "half_demon"
+skin = "slate"
+eye_type = "glowing"
+eye_color = "green"
+hair_style = "spiky"
+hair_color = "black"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="Rect_52x10"]
+size = Vector2(52, 10)
+
+[sub_resource type="RectangleShape2D" id="Rect_80x50"]
+size = Vector2(80, 50)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_16x6"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_20x6"]
+size = Vector2(20, 6)
+
+[node name="FortressYard" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+color = Color(0.55, 0.55, 0.65, 1)
+script = ExtResource("3_gloom")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-400, -280)
+texture = ExtResource("4_fortress_yar")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-400, -280)
+script = ExtResource("5_cave_walls")
+mask = ExtResource("6_fortress_yar")
+
+[node name="Battle" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Fight1" type="StaticBody2D" parent="Battle"]
+position = Vector2(-285, 100)
+script = ExtResource("9_skirmish")
+soldier_resident = "leon_soldier_a"
+hidden_when_flag = "keep_taken"
+gap = 26.0
+
+[node name="Fight2" type="StaticBody2D" parent="Battle"]
+position = Vector2(-185, 200)
+script = ExtResource("9_skirmish")
+soldier_resident = "leon_soldier_b"
+hidden_when_flag = "keep_taken"
+gap = 24.0
+
+[node name="Fight3" type="StaticBody2D" parent="Battle"]
+position = Vector2(275, 120)
+script = ExtResource("9_skirmish")
+soldier_resident = "leon_soldier_c"
+hidden_when_flag = "keep_taken"
+gap = 28.0
+
+[node name="Fight4" type="StaticBody2D" parent="Battle"]
+position = Vector2(195, 220)
+script = ExtResource("9_skirmish")
+soldier_resident = "leon_soldier_a"
+hidden_when_flag = "keep_taken"
+gap = 25.0
+
+[node name="Fight5" type="StaticBody2D" parent="Battle"]
+position = Vector2(-275, 20)
+script = ExtResource("9_skirmish")
+soldier_resident = "leon_soldier_c"
+hidden_when_flag = "keep_taken"
+gap = 24.0
+
+[node name="Fight6" type="StaticBody2D" parent="Battle"]
+position = Vector2(250, -30)
+script = ExtResource("9_skirmish")
+soldier_resident = "leon_soldier_b"
+hidden_when_flag = "keep_taken"
+gap = 27.0
+
+[node name="Bones1" type="Sprite2D" parent="Battle"]
+position = Vector2(-100, 150)
+texture = ExtResource("11_bones")
+
+[node name="Bones2" type="Sprite2D" parent="Battle"]
+position = Vector2(120, 60)
+texture = ExtResource("11_bones")
+
+[node name="Bones3" type="Sprite2D" parent="Battle"]
+position = Vector2(-240, -60)
+texture = ExtResource("11_bones")
+
+[node name="Bones4" type="Sprite2D" parent="Battle"]
+position = Vector2(300, -40)
+texture = ExtResource("11_bones")
+
+[node name="Brazier1" parent="." instance=ExtResource("lamp_fortress")]
+position = Vector2(-120, -150)
+
+[node name="Brazier2" parent="." instance=ExtResource("lamp_fortress")]
+position = Vector2(120, -150)
+
+[node name="Brazier3" parent="." instance=ExtResource("lamp_fortress")]
+position = Vector2(-340, 200)
+
+[node name="Brazier4" parent="." instance=ExtResource("lamp_fortress")]
+position = Vector2(335, 195)
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Bertold" parent="People" instance=ExtResource("8_story_npc")]
+position = Vector2(-60, 40)
+npc_id = "leon_captain"
+resident = "city_guard"
+auto_talk = true
+talk_on_new_step = true
+talk_area_scale = Vector2(4, 4)
+required_flag = "reached_gate_battle"
+
+[node name="Lake" parent="People" instance=ExtResource("8_story_npc")]
+position = Vector2(-40, -100)
+npc_id = "lake"
+appearance = SubResource("Look_lake")
+resident = "lake"
+facing = "up"
+required_flag = "reached_gate_battle"
+hidden_when_flag = "keep_taken"
+
+[node name="Faelan" parent="People" instance=ExtResource("8_story_npc")]
+position = Vector2(20, -96)
+npc_id = "faelan"
+resident = "faelan"
+appearance = SubResource("Look_faelan")
+facing = "up"
+required_flag = "reached_gate_battle"
+hidden_when_flag = "keep_taken"
+
+[node name="Torgai" parent="People" instance=ExtResource("8_story_npc")]
+position = Vector2(90, 30)
+npc_id = "kahn_son"
+resident = "kahn_son"
+appearance = SubResource("Look_torgai")
+facing = "left"
+required_flag = "reached_gate_battle"
+hidden_when_flag = "reached_part5_end"
+
+[node name="WarTable" type="StaticBody2D" parent="."]
+position = Vector2(-160, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="WarTable"]
+texture = ExtResource("15_war_table")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarTable"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_52x10")
+
+[node name="BoneGeneral" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("19_story_prop_g")
+required_flag = "reached_gate_battle"
+hidden_when_flag = "keep_taken"
+
+[node name="Talk" parent="BoneGeneral" instance=ExtResource("8_story_npc")]
+position = Vector2(-50, -172)
+npc_id = "bone_general"
+figure_texture = ExtResource("22_bone_general")
+auto_talk = true
+wait_for_player = true
+keep_dialogue_open = true
+silent_without_news = true
+talk_area_scale = Vector2(2.5, 2)
+
+[node name="Fight" type="StaticBody2D" parent="BoneGeneral"]
+position = Vector2(-50, -172)
+script = ExtResource("14_story_statio")
+open_flag = "bone_general_met"
+close_flag = "keep_taken"
+
+[node name="InteractionArea" type="Area2D" parent="BoneGeneral/Fight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoneGeneral/Fight/InteractionArea"]
+position = Vector2(0, 4)
+shape = SubResource("Rect_80x50")
+
+[node name="DungeonBoardMenu" parent="BoneGeneral/Fight" instance=ExtResource("16_dungeon_boar")]
+only_dungeons = PackedStringArray("dark_keep")
+
+[node name="KeepGate" type="Sprite2D" parent="."]
+position = Vector2(-50, -198)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_gate_closed")
+offset = Vector2(0, -71.5)
+script = ExtResource("19_story_texture")
+flag = "keep_taken"
+texture_after = ExtResource("21_gate_open")
+
+[node name="FortressYardCutscene" type="Node2D" parent="."]
+script = ExtResource("23_yard_cut")
+lake = NodePath("../People/Lake")
+faelan = NodePath("../People/Faelan")
+gate = NodePath("../KeepGate")
+closed_texture = ExtResource("20_gate_closed")
+open_texture = ExtResource("21_gate_open")
+
+[node name="ToThrone" parent="." instance=ExtResource("17_door")]
+position = Vector2(-50, -196)
+target_scene = "res://scenes/world/fortress/fortress_throne.tscn"
+target_spawn_point = &"FromYard"
+scale = Vector2(2, 1)
+required_flag = "keep_taken"
+locked_text = "Im Bergfried halten Finsterritter jede Treppe. Erst deine Helden."
+
+[node name="Visual" parent="ToThrone" index="0"]
+visible = false
+
+[node name="ToCamp" parent="." instance=ExtResource("17_door")]
+position = Vector2(-10, 258)
+target_scene = "res://scenes/world/fortress/fortress_camp.tscn"
+target_spawn_point = &"FromGate"
+scale = Vector2(3, 1)
+
+[node name="Visual" parent="ToCamp" index="0"]
+visible = false
+
+[node name="FromGate" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-10, 222)
+
+[node name="FromGatehouse" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(300, -120)
+
+[node name="FromThrone" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-50, -168)
+
+[node name="Yard" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Yard"]
+position = Vector2(-157, 103)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P1"]
+texture = ExtResource("wp_world_props_fortress_2")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P2" type="StaticBody2D" parent="Yard"]
+position = Vector2(218, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P2"]
+texture = ExtResource("wp_world_props_fortress_3")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P3" type="StaticBody2D" parent="Yard"]
+position = Vector2(80, -68)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P3"]
+texture = ExtResource("wp_world_props_fortress_5")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P4" type="StaticBody2D" parent="Yard"]
+position = Vector2(164, -81)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P4"]
+texture = ExtResource("wp_world_props_fortress_9")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P4"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P5" type="StaticBody2D" parent="Yard"]
+position = Vector2(162, 43)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P5"]
+texture = ExtResource("wp_world_props_fortress_11")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P6" type="StaticBody2D" parent="Yard"]
+position = Vector2(6, 127)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P6"]
+texture = ExtResource("wp_world_props_fortress_13")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_16x6")
+
+[node name="P7" type="StaticBody2D" parent="Yard"]
+position = Vector2(250, -123)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P7"]
+texture = ExtResource("wp_world_props_fortress_14")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P7"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P8" type="StaticBody2D" parent="Yard"]
+position = Vector2(135, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P8"]
+texture = ExtResource("wp_world_props_fortress_15")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P8"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_14x6")
+
+[node name="P9" type="StaticBody2D" parent="Yard"]
+position = Vector2(287, 197)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P9"]
+texture = ExtResource("wp_world_props_fortress_16")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P9"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_20x6")
+
+[node name="P10" type="StaticBody2D" parent="Yard"]
+position = Vector2(-335, -119)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P10"]
+texture = ExtResource("wp_world_props_fortress_2")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P10"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_26x6")
+
+[node name="P11" type="StaticBody2D" parent="Yard"]
+position = Vector2(-357, -46)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P11"]
+texture = ExtResource("wp_world_props_fortress_3")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P11"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P12" type="StaticBody2D" parent="Yard"]
+position = Vector2(-125, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Yard/P12"]
+texture = ExtResource("wp_world_props_fortress_5")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yard/P12"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-10, 222)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -400
+limit_top = -280
+limit_right = 400
+limit_bottom = 280
+
+[node name="HUD" parent="." instance=ExtResource("18_hud")]
+
+[connection signal="body_entered" from="BoneGeneral/Fight/InteractionArea" to="BoneGeneral/Fight" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="BoneGeneral/Fight/InteractionArea" to="BoneGeneral/Fight" method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="BoneGeneral/Fight" to="BoneGeneral/Fight/DungeonBoardMenu" method="toggle"]
+[connection signal="player_left" from="BoneGeneral/Fight" to="BoneGeneral/Fight/DungeonBoardMenu" method="close"]
+
+[editable path="ToThrone"]
+[editable path="ToCamp"]
+[editable path="Player"]

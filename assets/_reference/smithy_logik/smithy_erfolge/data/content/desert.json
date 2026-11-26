@@ -1,0 +1,84 @@
+{
+	"_hilfe": {
+		"info": "Die Wüste südlich vom Südweg: ein Labyrinth aus immer gleichen Bildschirmen (DesertMaze, Szene scenes/world/desert/desert.tscn). Alle Felder: docs/CONTENT.md, Abschnitt desert.json. Dieser Block wird vom Spiel ignoriert.",
+		"required_compass": "Bei routes und goals: Seltenheit, die der Kompass im Inventar mindestens haben muss (0 = Gewöhnlich … 6 = Legendär). Ohne ihn heißt der Weg: verlaufen, und der Kompass zeigt nicht hin (bei goals heißt das Feld compass). Der Weg steht erst auf der Sandkarte, wenn man dort war (das Tal der Pyramiden).",
+		"routes": "Wege zwischen zwei Orten: from, to, moves (Himmelsrichtungen N O S W mit Leerzeichen, z. B. \"S S O\"). Dazwischen entstehen automatisch namenlose Felder (<from>_<to>_1, _2 ...). Jeder Weg geht in beide Richtungen; jede andere Richtung heißt: verlaufen, zurück zum Anfang (start). Zwei Wege aus demselben Feld dürfen nicht dieselbe Richtung nehmen. Mit required_flag (Story-Flag) gibt es den Weg erst ab diesem Flag, vorher heißt diese Richtung: verlaufen; ab dem Flag steht er komplett auf der Sandkarte (z. B. die Sturmpfade zum Tempel mit der Karte von Fürst Ssarok).",
+		"places": "Benannte Orte: name (Sandkarte), mark (was dort steht: sign = Warnschild, bones = Tierskelett, ruins = Säulenruine, chest = Truhe), chest (bei mark chest: id der Truhe aus chests), scene (dieser Ort ist eine eigene Szene, z. B. die Stadt; sonst die Wüsten-Szene), exits (Richtung -> {scene, spawn}: ein Ausgang aus der Wüste hinaus, z. B. am Anfang nach Norden zum Südweg), map_flag (ab diesem Story-Flag steht der Name auf der Sandkarte, auch wenn der Spieler noch nicht dort war).",
+		"chests": "Truhen: item (Item-id), flag (Story-Flag, gesetzt sobald geöffnet), text (Meldung beim Öffnen), name (Sandkarte), required_flag (optional: erst ab diesem Story-Flag zeigt der Kompass die Truhe, z. B. Zahirs Amulett). Ungeöffnete Truhen zeigt auch der Kompass.",
+		"goals": "Ziele, zu denen die Kompassnadel zeigt: Ortsnamen, oder {place, flag, until} = nur ab diesem Story-Flag und bis zum anderen (z. B. der Sturmtempel, solange der Blitzkristall dort liegt); dazu immer jede ungeöffnete Truhe. Führen zwei Ziele in verschiedene Richtungen, schwenkt die Nadel zwischen ihnen.",
+		"storm_map": "Karte der Sturmpfade (Rechtsklick auf das Item, StormMapWindow): routes = Wege [von, nach], die Fürst Ssarok eingezeichnet hat. Alle anderen Wege erscheinen, sobald man an ihrem Ende war, die Truhe dort offen ist oder ihr required_flag gesetzt ist.",
+		"lost_hours": "So viele Stunden vergehen, wenn man sich verläuft.",
+		"lost_flag": "Story-Flag beim ersten Verlaufen (startet die Neben-Aufgabe).",
+		"lost_hint": "Tipp (story.json hints) beim ersten Verlaufen, z. B. „Verlaufen“ mit dem Hinweis auf Aurelius.",
+		"lost_hint_until": "Ab diesem Story-Flag kommt der Tipp nicht mehr (Aurelius hat schon vom Kompass erzählt)."
+	},
+	"start": "start",
+	"town": "town",
+	"lost_hours": 1,
+	"lost_flag": "desert_lost_once",
+	"lost_hint": "desert_lost",
+	"lost_hint_until": "compass_dungeons_unlocked",
+	"lost_text": "Du irrst stundenlang durch die Dünen. Am Ende stehst du wieder am Schild.",
+	"places": {
+		"start": {
+			"name": "Das Schild",
+			"mark": "sign",
+			"exits": {
+				"N": {"scene": "res://scenes/world/village/south_road.tscn", "spawn": "FromDesert"}
+			}
+		},
+		"bones": {"name": "Das Skelett", "mark": "bones"},
+		"chest_boots": {"name": "Truhe", "mark": "chest", "chest": "boots"},
+		"town": {"name": "Sahrim", "scene": "res://scenes/world/desert/sahrim_gate.tscn"},
+		"ruins": {"name": "Die Säulen", "mark": "ruins"},
+		"chest_gloves": {"name": "Truhe", "mark": "chest", "chest": "gloves"},
+		"chest_backpack": {"name": "Truhe", "mark": "chest", "chest": "backpack"},
+		"temple": {"name": "Der Sturmtempel", "scene": "res://scenes/world/desert/storm_temple.tscn", "map_flag": "storm_map_owned"},
+		"zahir_dune": {"name": "Die Düne mit dem krummen Felsen", "mark": "chest", "chest": "zahir"},
+		"pyramids": {"name": "Das Tal der Pyramiden", "scene": "res://scenes/world/desert/pyramid_valley.tscn"}
+	},
+	"routes": [
+		{"from": "start", "to": "bones", "moves": "S S O O N W S S W"},
+		{"from": "bones", "to": "chest_boots", "moves": "W W N O"},
+		{"from": "bones", "to": "town", "moves": "S O S W W N"},
+		{"from": "town", "to": "ruins", "moves": "O S S W S"},
+		{"from": "ruins", "to": "chest_gloves", "moves": "O N O O"},
+		{"from": "ruins", "to": "chest_backpack", "moves": "W S S W"},
+		{"from": "ruins", "to": "temple", "moves": "S S O S S W N", "required_flag": "storm_map_owned"},
+		{"from": "bones", "to": "zahir_dune", "moves": "N N W N", "required_flag": "zahir_charm_search"},
+		{"from": "chest_gloves", "to": "pyramids", "moves": "S S O O N O N", "required_compass": 6}
+	],
+	"chests": {
+		"boots": {"item": "desert_runner_sandals", "flag": "desert_chest_boots", "text": "Du öffnest die Truhe. Darin liegen leichte Sandalen: die Wüstenläufer."},
+		"gloves": {"item": "sandsmith_gloves", "flag": "desert_chest_gloves", "text": "Du öffnest die Truhe. Darin liegen Handschuhe aus Echsenleder: die Sandschmied-Handschuhe."},
+		"backpack": {"item": "caravan_backpack", "flag": "desert_chest_backpack", "text": "Du öffnest die Truhe. Darin liegt ein großer Rucksack: der Karawanenrucksack."},
+		"zahir": {"item": "zahir_charm", "flag": "zahir_charm_found", "required_flag": "zahir_charm_search", "text": "Am Fuß des krummen Felsens glänzt etwas im Sand: ein gelber Stein an einer Schnur. Zahirs Glücksamulett."}
+	},
+	"empty_chest_text": "Die Truhe ist leer.",
+	"arrive_text": "Vor dir erhebt sich eine gewaltige Kuppel aus Glas, Sechseck an Sechseck. Das ist Sahrim, die Stadt des Echsenvolks.",
+	"storm_map": {"routes": [["start", "bones"], ["bones", "town"], ["town", "ruins"], ["ruins", "temple"]]},
+	"goals": ["town", {"place": "temple", "flag": "storm_map_owned", "until": "lightning_crystal_owned"}, {"place": "pyramids", "compass": 6, "until": "pyramid_valley_found"}],
+	"outside_way": {
+		"res://scenes/world/forest/deep_forest.tscn": "res://scenes/world/forest/forest_entrance.tscn",
+		"res://scenes/world/forest/forest_entrance.tscn": "res://scenes/world/village/village_gate.tscn",
+		"res://scenes/world/forest/woodcutter_hut.tscn": "res://scenes/world/forest/forest_entrance.tscn",
+		"res://scenes/world/market/market.tscn": "res://scenes/world/village/village_center.tscn",
+		"res://scenes/world/market/nina_shop.tscn": "res://scenes/world/market/market.tscn",
+		"res://scenes/world/mine/deep_mine.tscn": "res://scenes/world/mine/mine_entrance.tscn",
+		"res://scenes/world/mine/mine.tscn": "res://scenes/world/mine/mine_entrance.tscn",
+		"res://scenes/world/mine/mine_entrance.tscn": "res://scenes/world/village/south_road.tscn",
+		"res://scenes/world/mine/old_mine.tscn": "res://scenes/world/mine/mine.tscn",
+		"res://scenes/world/smithy/bedroom.tscn": "res://scenes/world/smithy/smithy.tscn",
+		"res://scenes/world/smithy/greenhouse.tscn": "res://scenes/world/village/village.tscn",
+		"res://scenes/world/smithy/hall_of_fame.tscn": "res://scenes/world/smithy/bedroom.tscn",
+		"res://scenes/world/smithy/house_shop.tscn": "res://scenes/world/village/village.tscn",
+		"res://scenes/world/smithy/smithy.tscn": "res://scenes/world/village/village.tscn",
+		"res://scenes/world/village/grandma_house.tscn": "res://scenes/world/village/residential.tscn",
+		"res://scenes/world/village/guild_hall.tscn": "res://scenes/world/market/market.tscn",
+		"res://scenes/world/village/residential.tscn": "res://scenes/world/village/village_center.tscn",
+		"res://scenes/world/village/south_road.tscn": "res://scenes/world/desert/desert.tscn",
+		"res://scenes/world/village/village.tscn": "res://scenes/world/village/village_center.tscn",
+		"res://scenes/world/village/village_center.tscn": "res://scenes/world/village/village_gate.tscn",
+		"res://scenes/world/village/village_gate.tscn": "res://scenes/world/village/south_road.tscn"
+	}
+}

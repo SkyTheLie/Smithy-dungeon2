@@ -1,0 +1,123 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/desert/pyramid_valley.gd" id="3_valley"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/desert_ground.png" id="4_ground"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desert/pyramid.png" id="5_pyramid"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="6_hud"]
+
+[sub_resource type="RectangleShape2D" id="Rect_840x16"]
+size = Vector2(840, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x600"]
+size = Vector2(16, 600)
+
+[sub_resource type="RectangleShape2D" id="Rect_800x16"]
+size = Vector2(800, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_big"]
+size = Vector2(200, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_mid"]
+size = Vector2(130, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_small"]
+size = Vector2(110, 10)
+
+[node name="PyramidValley" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("3_valley")
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("2_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-400, -280)
+texture = ExtResource("4_ground")
+centered = false
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, -288)
+shape = SubResource("Rect_840x16")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, 288)
+shape = SubResource("Rect_840x16")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-408, 0)
+shape = SubResource("Rect_16x600")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(408, 0)
+shape = SubResource("Rect_16x600")
+
+[node name="Pyramids" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Great" type="StaticBody2D" parent="Pyramids"]
+position = Vector2(0, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pyramids/Great"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_pyramid")
+offset = Vector2(0, -180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pyramids/Great"]
+position = Vector2(0, -10)
+shape = SubResource("Rect_big")
+
+[node name="West" type="StaticBody2D" parent="Pyramids"]
+position = Vector2(-250, -110)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pyramids/West"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_pyramid")
+offset = Vector2(0, -180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pyramids/West"]
+position = Vector2(0, -8)
+shape = SubResource("Rect_mid")
+
+[node name="East" type="StaticBody2D" parent="Pyramids"]
+position = Vector2(260, -130)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pyramids/East"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_pyramid")
+offset = Vector2(0, -180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pyramids/East"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_small")
+
+[node name="NpcSpot" type="Marker2D" parent="."]
+position = Vector2(0, 40)
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="ExitSouth" type="Area2D" parent="Exits"]
+position = Vector2(0, 274)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/ExitSouth"]
+shape = SubResource("Rect_800x16")
+
+[node name="FromSouth" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 236)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 236)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -400
+limit_top = -280
+limit_right = 400
+limit_bottom = 280
+
+[node name="HUD" parent="." instance=ExtResource("6_hud")]
+
+[editable path="Player"]

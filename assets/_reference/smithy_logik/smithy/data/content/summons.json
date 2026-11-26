@@ -1,0 +1,169 @@
+{
+	"_hilfe": {
+		"info": "Beschwörungen der Helden (Elementare, Wolf). Ein Skill ruft sie mit \"summon\" und gibt den Anteil der Werte des Beschwörers vor (summon_share). Dieser Block wird vom Spiel ignoriert.",
+		"felder": {
+			"name": "Name im Kampf",
+			"look": "Gegner-id aus enemies.json, deren Bild (und Farbe/Größe) die Beschwörung nutzt",
+			"tint / scale": "eigene Farbe / Größe (optional, sonst die des Gegners)",
+			"damage_split": "Schadensarten der normalen Angriffe",
+			"magic": "true = normale Angriffe sind Zauber (aus dem Magieschaden des Beschwörers)",
+			"health_factor / attack_speed": "Leben × Faktor / Angriffstempo × Faktor",
+			"buffable": "true = Verbündete können sie heilen und buffen (der Wolf), false = nicht (Elementare)",
+			"skills": "Skill-ids aus skills.json, die sie im Kampf benutzt",
+			"on_hit": "[{effect, chance (0–1)}]: Effekte ihrer normalen Angriffe",
+			"taunting": "true = zieht Angriffe auf sich (über ihren Skill)"
+		}
+	},
+	"fire_elemental": {
+		"name": "Feuerelementar",
+		"look": "fire_elemental",
+		"scale": 0.4,
+		"damage_split": {
+			"fire": 100
+		},
+		"magic": true,
+		"health_factor": 1.0,
+		"attack_speed": 1.0,
+		"buffable": false,
+		"skills": [],
+		"on_hit": [
+			{
+				"effect": "burn",
+				"chance": 0.1
+			}
+		]
+	},
+	"ice_elemental": {
+		"name": "Eiselementar",
+		"look": "ice_elemental",
+		"damage_split": {
+			"ice": 100
+		},
+		"magic": true,
+		"health_factor": 2.0,
+		"attack_speed": 1.0,
+		"buffable": false,
+		"skills": [
+			"elemental_taunt"
+		],
+		"on_hit": [
+			{
+				"effect": "slow",
+				"chance": 1.0
+			}
+		]
+	},
+	"storm_spirit": {
+		"name": "Sturmgeist",
+		"look": "storm_spirit",
+		"scale": 0.4,
+		"damage_split": {
+			"air": 60,
+			"lightning": 40
+		},
+		"magic": true,
+		"health_factor": 1.0,
+		"attack_speed": 2.0,
+		"buffable": false,
+		"skills": [],
+		"on_hit": [
+			{
+				"effect": "stun",
+				"chance": 0.15
+			}
+		]
+	},
+	"earth_golem": {
+		"name": "Erdgolem",
+		"look": "earth_elemental",
+		"scale": 0.65,
+		"damage_split": {
+			"blunt": 50,
+			"earth": 50
+		},
+		"magic": false,
+		"health_factor": 3.0,
+		"attack_speed": 0.8,
+		"buffable": false,
+		"skills": [
+			"golem_stomp"
+		],
+		"on_hit": []
+	},
+	"elemental_lord": {
+		"name": "Elementarfürst",
+		"look": "fire_elemental",
+		"tint": "#ffe080",
+		"scale": 0.7,
+		"damage_split": {
+			"fire": 50,
+			"ice": 50
+		},
+		"magic": true,
+		"health_factor": 2.0,
+		"attack_speed": 1.0,
+		"buffable": false,
+		"skills": [
+			"fireball",
+			"ice_lance",
+			"lord_meteor"
+		],
+		"on_hit": []
+	},
+	"wolf_pup": {
+		"name": "Wolfsjunges",
+		"look": "wolf",
+		"scale": 0.35,
+		"damage_split": {
+			"stab": 100
+		},
+		"magic": false,
+		"health_factor": 1.0,
+		"attack_speed": 1.0,
+		"buffable": true,
+		"skills": [],
+		"on_hit": [
+			{
+				"effect": "bleed",
+				"chance": 0.2
+			}
+		]
+	},
+	"wolf": {
+		"name": "Wolf",
+		"look": "wolf",
+		"damage_split": {
+			"stab": 100
+		},
+		"magic": false,
+		"health_factor": 1.0,
+		"attack_speed": 1.0,
+		"buffable": true,
+		"skills": [],
+		"on_hit": [
+			{
+				"effect": "bleed",
+				"chance": 0.2
+			}
+		]
+	},
+	"giant_wolf": {
+		"name": "Riesenwolf",
+		"look": "giant_wolf",
+		"scale": 0.7,
+		"damage_split": {
+			"stab": 100
+		},
+		"magic": false,
+		"health_factor": 1.0,
+		"attack_speed": 1.0,
+		"buffable": true,
+		"skills": [],
+		"on_hit": [
+			{
+				"effect": "bleed",
+				"chance": 0.2
+			}
+		]
+	}
+}

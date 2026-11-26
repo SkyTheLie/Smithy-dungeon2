@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/shell_game_beggar.gd" id="1_beggar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/beggar_sit.png" id="2_texture"]
+[ext_resource type="PackedScene" path="res://scenes/ui/minigames/shell_game.tscn" id="3_game"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/shell_cup_small.png" id="4_cup"]
+
+[sub_resource type="RectangleShape2D" id="Shape_body"]
+size = Vector2(32, 10)
+
+[sub_resource type="RectangleShape2D" id="Shape_interaction"]
+size = Vector2(72, 48)
+
+[node name="ShellGameBeggar" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_beggar")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+hframes = 9
+frame = 8
+texture = ExtResource("2_texture")
+offset = Vector2(0, -17)
+
+[node name="Cup1" type="Sprite2D" parent="."]
+position = Vector2(-12, 9)
+texture = ExtResource("4_cup")
+offset = Vector2(0, -7)
+
+[node name="Cup2" type="Sprite2D" parent="."]
+position = Vector2(0, 10)
+texture = ExtResource("4_cup")
+offset = Vector2(0, -7)
+
+[node name="Cup3" type="Sprite2D" parent="."]
+position = Vector2(12, 9)
+texture = ExtResource("4_cup")
+offset = Vector2(0, -7)
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -46.0
+offset_right = 40.0
+offset_bottom = -34.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+z_index = 1
+text = "Bettler"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0)
+shape = SubResource("Shape_body")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 6)
+shape = SubResource("Shape_interaction")
+
+[node name="ShellGame" parent="." instance=ExtResource("3_game")]
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

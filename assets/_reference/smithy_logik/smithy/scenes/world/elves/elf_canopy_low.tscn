@@ -1,0 +1,1014 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/elf_smelter.png" id="wp_stations_elf_smelter"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/elf_bench.png" id="wp_stations_elf_bench"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/elf_trough.png" id="wp_stations_elf_trough"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/elf_anvil.png" id="wp_stations_elf_anvil"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/elf_forge.png" id="wp_stations_elf_forge"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_9.png" id="wp_world_props_grove_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_2.png" id="wp_world_props_grove_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_8.png" id="wp_world_props_grove_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_13.png" id="wp_world_props_elf_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_5.png" id="wp_world_props_elf_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_1.png" id="wp_world_props_elf_15"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_22.png" id="wp_world_props_elf_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_19.png" id="wp_world_props_elf_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_23.png" id="wp_world_props_elf_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_4.png" id="wp_world_props_elf_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_3.png" id="wp_world_props_elf_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/elf_2.png" id="wp_world_props_elf_2"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_elf.tscn" id="lamp_elf"]
+[ext_resource type="Script" path="res://scenes/world/objects/day_tint.gd" id="1_day_tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_canopy_low.png" id="2_elf_canopy_l"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="3_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_canopy_low_mask.png" id="4_elf_canopy_l"]
+[ext_resource type="Script" path="res://scenes/world/volcano/depth_layer.gd" id="5_depth_layer"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_canopy_below.png" id="6_elf_canopy_b"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="8_door"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/flying_machine.png" id="9_flying_machi"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_0.png" id="10_crates"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_22.png" id="11_barrel"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/sacks.png" id="12_sacks"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="13_story_npc"]
+[ext_resource type="Script" path="res://scenes/stations/station.gd" id="14_station"]
+[ext_resource type="Script" path="res://scenes/world/volcano/goblin_figure.gd" id="15_goblin_figur"]
+[ext_resource type="Script" path="res://scenes/world/tournament/arena_hall.gd" id="17_arena_desk"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/hero_tournament_menu.tscn" id="18_hero_tournam"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/tournament_menu.tscn" id="19_tournament_m"]
+[ext_resource type="PackedScene" path="res://scenes/stations/smelter.tscn" id="20_smelter"]
+[ext_resource type="PackedScene" path="res://scenes/stations/forge.tscn" id="21_forge"]
+[ext_resource type="PackedScene" path="res://scenes/stations/anvil.tscn" id="22_anvil"]
+[ext_resource type="PackedScene" path="res://scenes/stations/water_trough.tscn" id="23_water_trough"]
+[ext_resource type="PackedScene" path="res://scenes/stations/workbench.tscn" id="24_workbench"]
+[ext_resource type="Script" path="res://scenes/world/objects/storage_chest.gd" id="25_storage_ches"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_3.png" id="26_chest"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/elf_smelter.png" id="27_frame_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/elf_forge.png" id="28_forge"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/elf_anvil.png" id="29_anvil"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/elf_trough.png" id="30_water_trough"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/elf_bench.png" id="31_workbench"]
+[ext_resource type="Script" path="res://scenes/world/capital/tournament_opponent.gd" id="32_tournament_o"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="33_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/vine_wall.png" id="34_vine_wall"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/crafting_menu.tscn" id="35_crafting_men"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/assembly_menu.tscn" id="36_assembly_men"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/smelter_menu.tscn" id="37_smelter_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/quench_menu.tscn" id="38_quench_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/storage_menu.tscn" id="39_storage_menu"]
+[ext_resource type="PackedScene" path="res://scenes/world/capital/tournament_hud.tscn" id="40_tournament_h"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="42_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="43_hud"]
+[ext_resource type="Script" path="res://scenes/world/elves/fenn_flight_cutscene.gd" id="44_flight_cut"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/elves/elf_lectern.png" id="elf_lectern"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/tournament_desk_menu.tscn" id="league_desk_menu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/grove_4.png" id="league_board"]
+
+[sub_resource type="Resource" id="Look_league_master"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "ponytail"
+hair_color = "grey"
+eye_type = "narrow"
+eye_color = "green"
+size = "normal"
+outfit = "vest"
+clothes_color = "navy"
+
+[sub_resource type="RectangleShape2D" id="Rect_league_board"]
+size = Vector2(52, 10)
+
+[sub_resource type="RectangleShape2D" id="Rect_league_area"]
+size = Vector2(70, 40)
+
+[sub_resource type="Resource" id="Look_inventor"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "tan"
+hair_style = "spiky"
+hair_color = "red"
+eye_type = "big"
+eye_color = "amber"
+size = "small"
+outfit = "smith"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_grumbler"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pale"
+hair_style = "long"
+hair_color = "blonde"
+eye_type = "sleepy"
+eye_color = "grey"
+size = "tall"
+outfit = "tunic"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_herald"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "dark"
+hair_style = "long"
+hair_color = "white"
+eye_type = "normal"
+eye_color = "amber"
+size = "tall"
+outfit = "tunic"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_crier"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "spiky"
+hair_color = "blonde"
+eye_type = "big"
+eye_color = "green"
+size = "normal"
+outfit = "vest"
+clothes_color = "red"
+
+[sub_resource type="Resource" id="Look_citizen_a"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "light"
+hair_style = "long"
+hair_color = "red"
+eye_type = "normal"
+eye_color = "green"
+size = "normal"
+outfit = "tunic"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Look_citizen_b"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "tan"
+hair_style = "short"
+hair_color = "brown"
+eye_type = "narrow"
+eye_color = "brown"
+size = "tall"
+outfit = "vest"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Look_citizen_c"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "pale"
+hair_style = "ponytail"
+hair_color = "white"
+eye_type = "sleepy"
+eye_color = "blue"
+size = "normal"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Look_citizen_d"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "brown"
+hair_style = "long"
+hair_color = "black"
+eye_type = "big"
+eye_color = "amber"
+size = "small"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="Resource" id="Look_citizen_e"]
+script = ExtResource("7_appearance")
+race = "elf"
+skin = "dark"
+hair_style = "short"
+hair_color = "white"
+eye_type = "glowing"
+eye_color = "green"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="RectangleShape2D" id="Rect_70x14"]
+size = Vector2(70, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_28x10"]
+size = Vector2(28, 10)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x8"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_120x14"]
+size = Vector2(120, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_110x34"]
+size = Vector2(110, 34)
+
+[sub_resource type="RectangleShape2D" id="Rect_156x14"]
+size = Vector2(156, 14)
+
+[sub_resource type="RectangleShape2D" id="Rect_28x8"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_52x40"]
+size = Vector2(52, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_48x40"]
+size = Vector2(48, 40)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_17x6"]
+size = Vector2(17, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_28x6"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_11x6"]
+size = Vector2(11, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_14x6"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[node name="ElfCanopyLow" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -40
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2200.0
+offset_bottom = 1720.0
+mouse_filter = 2
+color = Color(0.06, 0.09, 0.07, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("1_day_tint")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("2_elf_canopy_l")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource("3_cave_walls")
+mask = ExtResource("4_elf_canopy_l")
+
+[node name="Depth" type="Node2D" parent="."]
+z_index = -30
+script = ExtResource("5_depth_layer")
+factor = 0.55
+anchor = Vector2(600, 360)
+
+[node name="Below" type="Sprite2D" parent="Depth"]
+modulate = Color(0.7, 0.75, 0.72, 1)
+position = Vector2(0, -40)
+texture = ExtResource("6_elf_canopy_b")
+centered = false
+
+[node name="ExitNorthWest" parent="." instance=ExtResource("8_door")]
+position = Vector2(475, 8)
+target_scene = "res://scenes/world/elves/elf_canopy.tscn"
+target_spawn_point = &"FromSouthWest"
+scale = Vector2(2, 1)
+blocked_flag = "tournament_running"
+blocked_text = "Während des Turniers bleibst du auf dem Platz. Am Herold kannst du aufgeben."
+
+[node name="Visual" parent="ExitNorthWest" index="0"]
+visible = false
+
+[node name="ExitNorthEast" parent="." instance=ExtResource("8_door")]
+position = Vector2(767, 8)
+target_scene = "res://scenes/world/elves/elf_canopy.tscn"
+target_spawn_point = &"FromSouthEast"
+scale = Vector2(2, 1)
+blocked_flag = "tournament_running"
+blocked_text = "Während des Turniers bleibst du auf dem Platz. Am Herold kannst du aufgeben."
+
+[node name="Visual" parent="ExitNorthEast" index="0"]
+visible = false
+
+[node name="FromNorthWest" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(475, 50)
+
+[node name="FromNorthEast" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(767, 50)
+
+[node name="Airfield" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="FlyingMachine" type="StaticBody2D" parent="Airfield"]
+position = Vector2(200, 260)
+
+[node name="Sprite2D" type="Sprite2D" parent="Airfield/FlyingMachine"]
+texture = ExtResource("9_flying_machi")
+offset = Vector2(0, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Airfield/FlyingMachine"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_70x14")
+
+[node name="Crates" type="StaticBody2D" parent="Airfield"]
+position = Vector2(340, 210)
+
+[node name="Sprite2D" type="Sprite2D" parent="Airfield/Crates"]
+texture = ExtResource("10_crates")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Airfield/Crates"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_28x10")
+
+[node name="Barrel" type="StaticBody2D" parent="Airfield"]
+position = Vector2(372, 222)
+
+[node name="Sprite2D" type="Sprite2D" parent="Airfield/Barrel"]
+texture = ExtResource("11_barrel")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Airfield/Barrel"]
+position = Vector2(0, -3)
+shape = SubResource("Rect_16x8")
+
+[node name="Sacks" type="StaticBody2D" parent="Airfield"]
+position = Vector2(312, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Airfield/Sacks"]
+texture = ExtResource("12_sacks")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Airfield/Sacks"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_28x10")
+
+[node name="Inventor" parent="Airfield" instance=ExtResource("13_story_npc")]
+position = Vector2(276, 278)
+npc_id = "elf_inventor"
+appearance = SubResource("Look_inventor")
+resident = "elf_fenn"
+facing = "left"
+
+[node name="Grumbler" parent="Airfield" instance=ExtResource("13_story_npc")]
+position = Vector2(400, 260)
+npc_id = "elf_grumbler"
+appearance = SubResource("Look_grumbler")
+resident = "elf_caladen"
+facing = "left"
+
+[node name="CrierDesk" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(990, 160)
+script = ExtResource("14_station")
+
+[node name="Keeper" type="Node2D" parent="CrierDesk"]
+position = Vector2(0, -30)
+script = ExtResource("15_goblin_figur")
+appearance = SubResource("Look_crier")
+resident = "elf_crier"
+
+[node name="Sprite2D" type="Sprite2D" parent="CrierDesk"]
+texture = ExtResource("elf_lectern")
+offset = Vector2(0, -28)
+
+[node name="NameLabel" type="Label" parent="CrierDesk"]
+z_index = 1
+offset_left = -70.0
+offset_top = -88.0
+offset_right = 70.0
+offset_bottom = -76.0
+text = "Ausruferin: Wettkampf"
+horizontal_alignment = 1
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrierDesk"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_120x14")
+
+[node name="InteractionArea" type="Area2D" parent="CrierDesk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrierDesk/InteractionArea"]
+position = Vector2(0, 14)
+shape = SubResource("Rect_110x34")
+
+[node name="ArenaDesk" type="Node2D" parent="."]
+position = Vector2(960, 244)
+script = ExtResource("17_arena_desk")
+
+[node name="HeroTournamentMenu" parent="ArenaDesk" instance=ExtResource("18_hero_tournam")]
+venue = "sylvaris"
+
+[node name="Crowd" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Spectator1" type="Node2D" parent="Crowd"]
+position = Vector2(850, 260)
+script = ExtResource("15_goblin_figur")
+appearance = SubResource("Look_citizen_a")
+resident = "elf_citizen_a"
+facing = "right"
+
+[node name="Spectator2" type="Node2D" parent="Crowd"]
+position = Vector2(880, 290)
+script = ExtResource("15_goblin_figur")
+appearance = SubResource("Look_citizen_b")
+resident = "elf_citizen_b"
+facing = "right"
+
+[node name="Spectator3" type="Node2D" parent="Crowd"]
+position = Vector2(1070, 260)
+script = ExtResource("15_goblin_figur")
+appearance = SubResource("Look_citizen_c")
+resident = "elf_citizen_c"
+facing = "left"
+
+[node name="Spectator4" type="Node2D" parent="Crowd"]
+position = Vector2(1050, 286)
+script = ExtResource("15_goblin_figur")
+appearance = SubResource("Look_citizen_d")
+resident = "elf_citizen_d"
+facing = "left"
+
+[node name="Spectator5" type="Node2D" parent="Crowd"]
+position = Vector2(960, 312)
+script = ExtResource("15_goblin_figur")
+appearance = SubResource("Look_citizen_e")
+resident = "elf_citizen_e"
+facing = "up"
+
+[node name="HeraldDesk" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(620, 482)
+script = ExtResource("14_station")
+
+[node name="Keeper" type="Node2D" parent="HeraldDesk"]
+position = Vector2(0, -30)
+script = ExtResource("15_goblin_figur")
+appearance = SubResource("Look_herald")
+resident = "elf_herald"
+
+[node name="Sprite2D" type="Sprite2D" parent="HeraldDesk"]
+texture = ExtResource("elf_lectern")
+offset = Vector2(0, -28)
+
+[node name="NameLabel" type="Label" parent="HeraldDesk"]
+z_index = 1
+offset_left = -70.0
+offset_top = -88.0
+offset_right = 70.0
+offset_bottom = -76.0
+text = "Herold: Turnier"
+horizontal_alignment = 1
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeraldDesk"]
+position = Vector2(0, -7)
+shape = SubResource("Rect_156x14")
+
+[node name="InteractionArea" type="Area2D" parent="HeraldDesk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeraldDesk/InteractionArea"]
+position = Vector2(0, 14)
+shape = SubResource("Rect_110x34")
+
+[node name="LeagueDesk" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(585, 680)
+script = ExtResource("14_station")
+
+[node name="Master" type="Node2D" parent="LeagueDesk"]
+position = Vector2(-22, -2)
+script = ExtResource("15_goblin_figur")
+appearance = SubResource("Look_league_master")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeagueDesk"]
+position = Vector2(8, 0)
+texture = ExtResource("league_board")
+offset = Vector2(0, -20)
+
+[node name="NameLabel" type="Label" parent="LeagueDesk"]
+z_index = 1
+offset_left = -60.0
+offset_top = -62.0
+offset_right = 60.0
+offset_bottom = -50.0
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "Turnierleiter: Liga"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeagueDesk"]
+position = Vector2(-6, -4)
+shape = SubResource("Rect_league_board")
+
+[node name="InteractionArea" type="Area2D" parent="LeagueDesk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeagueDesk/InteractionArea"]
+position = Vector2(-6, -16)
+shape = SubResource("Rect_league_area")
+
+[node name="LeagueDeskMenu" parent="." instance=ExtResource("league_desk_menu")]
+venue = "sylvaris_grove"
+title = "Schmiede-Liga Sylvaris"
+
+[node name="FromArena" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(585, 650)
+
+[node name="FromDuelRing" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(990, 205)
+
+[node name="TournamentMenu" parent="." instance=ExtResource("19_tournament_m")]
+venue = "sylvaris"
+
+[node name="Smelter" parent="." instance=ExtResource("20_smelter")]
+skin = ExtResource("wp_stations_elf_smelter")
+position = Vector2(405, 540)
+
+[node name="Sprite2D" parent="Smelter" index="0"]
+position = Vector2(-20, -54)
+texture = ExtResource("wp_stations_elf_smelter")
+
+[node name="Forge" parent="." instance=ExtResource("21_forge")]
+position = Vector2(508, 518)
+
+[node name="Sprite2D" parent="Forge" index="0"]
+position = Vector2(-22, -36)
+texture = ExtResource("wp_stations_elf_forge")
+
+[node name="Anvil" parent="." instance=ExtResource("22_anvil")]
+position = Vector2(562, 582)
+
+[node name="Sprite2D" parent="Anvil" index="0"]
+position = Vector2(-21, -36)
+texture = ExtResource("wp_stations_elf_anvil")
+
+[node name="WaterTrough" parent="." instance=ExtResource("23_water_trough")]
+position = Vector2(508, 630)
+
+[node name="Sprite2D" parent="WaterTrough" index="0"]
+position = Vector2(-23, -38)
+texture = ExtResource("wp_stations_elf_trough")
+
+[node name="Workbench" parent="." instance=ExtResource("24_workbench")]
+position = Vector2(444, 624)
+
+[node name="Sprite2D" parent="Workbench" index="0"]
+position = Vector2(-22, -34)
+texture = ExtResource("wp_stations_elf_bench")
+
+[node name="SupplyChest" type="StaticBody2D" parent="."]
+position = Vector2(580, 516)
+script = ExtResource("25_storage_ches")
+story_npc_id = ""
+
+[node name="Sprite2D" type="Sprite2D" parent="SupplyChest"]
+position = Vector2(-16, -23)
+texture = ExtResource("26_chest")
+centered = false
+
+[node name="NameLabel" type="Label" parent="SupplyChest"]
+z_index = 1
+offset_left = -50.0
+offset_top = -40.0
+offset_right = 50.0
+offset_bottom = -28.0
+text = "Vorratstruhe"
+horizontal_alignment = 1
+theme_override_colors/font_outline_color = Color(0.13, 0.075, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SupplyChest"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_28x8")
+
+[node name="InteractionArea" type="Area2D" parent="SupplyChest"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SupplyChest/InteractionArea"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_52x40")
+
+[node name="OpponentWorkshop" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Smelter" type="StaticBody2D" parent="OpponentWorkshop"]
+position = Vector2(765, 528)
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentWorkshop/Smelter"]
+position = Vector2(-23, -59)
+texture = ExtResource("27_frame_1")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpponentWorkshop/Smelter"]
+shape = SubResource("Rect_28x8")
+
+[node name="Forge" type="StaticBody2D" parent="OpponentWorkshop"]
+position = Vector2(732, 518)
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentWorkshop/Forge"]
+position = Vector2(-24, -41)
+texture = ExtResource("28_forge")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpponentWorkshop/Forge"]
+shape = SubResource("Rect_28x8")
+
+[node name="Anvil" type="StaticBody2D" parent="OpponentWorkshop"]
+position = Vector2(678, 582)
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentWorkshop/Anvil"]
+position = Vector2(-16, -29)
+texture = ExtResource("29_anvil")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpponentWorkshop/Anvil"]
+shape = SubResource("Rect_28x8")
+
+[node name="WaterTrough" type="StaticBody2D" parent="OpponentWorkshop"]
+position = Vector2(732, 630)
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentWorkshop/WaterTrough"]
+position = Vector2(-16, -20)
+texture = ExtResource("30_water_trough")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpponentWorkshop/WaterTrough"]
+shape = SubResource("Rect_28x8")
+
+[node name="Workbench" type="StaticBody2D" parent="OpponentWorkshop"]
+position = Vector2(796, 624)
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentWorkshop/Workbench"]
+position = Vector2(-32, -30)
+texture = ExtResource("31_workbench")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpponentWorkshop/Workbench"]
+shape = SubResource("Rect_28x8")
+
+[node name="Chest" type="StaticBody2D" parent="OpponentWorkshop"]
+position = Vector2(750, 580)
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentWorkshop/Chest"]
+position = Vector2(-16, -23)
+texture = ExtResource("26_chest")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpponentWorkshop/Chest"]
+shape = SubResource("Rect_28x8")
+
+[node name="Opponent" type="Node2D" parent="."]
+script = ExtResource("32_tournament_o")
+stops = PackedVector2Array(790, 546, 732, 536, 678, 600, 732, 648, 796, 642)
+chest_spot = Vector2(750, 598)
+idle_spot = Vector2(660, 654)
+
+[node name="TournamentVines" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("33_story_prop")
+required_flag = "tournament_running"
+
+[node name="VinesWest" type="StaticBody2D" parent="TournamentVines"]
+position = Vector2(440, 410)
+
+[node name="Sprite2D" type="Sprite2D" parent="TournamentVines/VinesWest"]
+texture = ExtResource("34_vine_wall")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TournamentVines/VinesWest"]
+shape = SubResource("Rect_48x40")
+
+[node name="VinesEast" type="StaticBody2D" parent="TournamentVines"]
+position = Vector2(822, 375)
+
+[node name="Sprite2D" type="Sprite2D" parent="TournamentVines/VinesEast"]
+texture = ExtResource("34_vine_wall")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TournamentVines/VinesEast"]
+shape = SubResource("Rect_48x40")
+
+[node name="AnvilMenu" parent="." instance=ExtResource("35_crafting_men")]
+title = "Amboss"
+uses_categories = true
+station = &"anvil"
+uses_minigame = true
+only_with_ingredients = true
+
+[node name="ForgeMenu" parent="." instance=ExtResource("35_crafting_men")]
+title = "Gussofen"
+uses_categories = true
+uses_heat = true
+station = &"forge"
+
+[node name="WorkbenchMenu" parent="." instance=ExtResource("36_assembly_men")]
+title = "Werkbank"
+uses_categories = true
+uses_minigame = true
+station = &"workbench"
+
+[node name="SmelterMenu" parent="." instance=ExtResource("37_smelter_menu")]
+title = "Schmelze"
+
+[node name="QuenchMenu" parent="." instance=ExtResource("38_quench_menu")]
+
+[node name="SupplyMenu" parent="." instance=ExtResource("39_storage_menu")]
+title = "Vorratstruhe"
+
+[node name="TournamentHud" parent="." instance=ExtResource("40_tournament_h")]
+
+[node name="Lights" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Lantern1" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(153, 173)
+facing = "south"
+
+[node name="Lantern2" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(458, 291)
+facing = "west"
+
+[node name="Lantern3" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(225, 388)
+facing = "north"
+
+[node name="Lantern4" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(819, 179)
+facing = "east"
+
+[node name="Lantern5" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(1109, 195)
+facing = "west"
+
+[node name="Lantern6" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(1112, 233)
+facing = "west"
+
+[node name="Lantern7" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(376, 545)
+facing = "east"
+
+[node name="Lantern8" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(865, 548)
+facing = "west"
+
+[node name="Lantern9" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(499, 682)
+facing = "north"
+
+[node name="Lantern10" parent="Lights" instance=ExtResource("lamp_elf")]
+position = Vector2(731, 682)
+facing = "north"
+
+[node name="Deck" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Deck"]
+position = Vector2(400, 165)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P1"]
+texture = ExtResource("wp_world_props_elf_2")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P2" type="StaticBody2D" parent="Deck"]
+position = Vector2(1041, 159)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P2"]
+texture = ExtResource("wp_world_props_elf_3")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_18x6")
+
+[node name="P3" type="StaticBody2D" parent="Deck"]
+position = Vector2(903, 242)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P3"]
+texture = ExtResource("wp_world_props_elf_4")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P3"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P6" type="StaticBody2D" parent="Deck"]
+position = Vector2(261, 235)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P6"]
+texture = ExtResource("wp_world_props_elf_23")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P7" type="StaticBody2D" parent="Deck"]
+position = Vector2(668, 506)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P7"]
+texture = ExtResource("wp_world_props_elf_19")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P7"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P9" type="StaticBody2D" parent="Deck"]
+position = Vector2(473, 566)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P9"]
+texture = ExtResource("wp_world_props_elf_20")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P9"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P11" type="StaticBody2D" parent="Deck"]
+position = Vector2(296, 178)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P11"]
+texture = ExtResource("wp_world_props_elf_15")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P11"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P13" type="StaticBody2D" parent="Deck"]
+position = Vector2(229, 189)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P13"]
+texture = ExtResource("wp_world_props_elf_5")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P13"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_28x6")
+
+[node name="P14" type="StaticBody2D" parent="Deck"]
+position = Vector2(894, 196)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P14"]
+texture = ExtResource("wp_world_props_elf_13")
+offset = Vector2(0, -19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P14"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_14x6")
+
+[node name="P15" type="StaticBody2D" parent="Deck"]
+position = Vector2(117, 262)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P15"]
+texture = ExtResource("wp_world_props_elf_2")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P15"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P17" type="StaticBody2D" parent="Deck"]
+position = Vector2(90, 210)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P17"]
+texture = ExtResource("wp_world_props_grove_8")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P17"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P20" type="StaticBody2D" parent="Deck"]
+position = Vector2(1090, 290)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P20"]
+texture = ExtResource("wp_world_props_grove_2")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P20"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P21" type="StaticBody2D" parent="Deck"]
+position = Vector2(772, 290)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P21"]
+texture = ExtResource("wp_world_props_grove_8")
+offset = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P21"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_25x6")
+
+[node name="P22" type="StaticBody2D" parent="Deck"]
+position = Vector2(835, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/P22"]
+texture = ExtResource("wp_world_props_grove_9")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/P22"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_21x6")
+
+[node name="Player" parent="." instance=ExtResource("42_player")]
+position = Vector2(475, 50)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 1200
+limit_bottom = 720
+
+[node name="HUD" parent="." instance=ExtResource("43_hud")]
+
+[connection signal="body_entered" from="CrierDesk/InteractionArea" to="CrierDesk" method="_on_interaction_area_body_entered"]
+
+[connection signal="body_exited" from="CrierDesk/InteractionArea" to="CrierDesk" method="_on_interaction_area_body_exited"]
+
+[connection signal="interacted" from="CrierDesk" to="ArenaDesk/HeroTournamentMenu" method="toggle"]
+
+[connection signal="player_left" from="CrierDesk" to="ArenaDesk/HeroTournamentMenu" method="close"]
+
+[connection signal="body_entered" from="HeraldDesk/InteractionArea" to="HeraldDesk" method="_on_interaction_area_body_entered"]
+
+[connection signal="body_exited" from="HeraldDesk/InteractionArea" to="HeraldDesk" method="_on_interaction_area_body_exited"]
+
+[connection signal="interacted" from="HeraldDesk" to="TournamentMenu" method="toggle"]
+
+[connection signal="player_left" from="HeraldDesk" to="TournamentMenu" method="close"]
+
+[connection signal="body_entered" from="SupplyChest/InteractionArea" to="SupplyChest" method="_on_interaction_area_body_entered"]
+
+[connection signal="body_exited" from="SupplyChest/InteractionArea" to="SupplyChest" method="_on_interaction_area_body_exited"]
+
+[connection signal="interacted" from="Anvil" to="AnvilMenu" method="toggle"]
+
+[connection signal="player_left" from="Anvil" to="AnvilMenu" method="close"]
+
+[connection signal="interacted" from="Forge" to="ForgeMenu" method="toggle"]
+
+[connection signal="player_left" from="Forge" to="ForgeMenu" method="close"]
+
+[connection signal="interacted" from="Workbench" to="WorkbenchMenu" method="toggle"]
+
+[connection signal="player_left" from="Workbench" to="WorkbenchMenu" method="close"]
+
+[connection signal="interacted" from="Smelter" to="SmelterMenu" method="toggle"]
+
+[connection signal="player_left" from="Smelter" to="SmelterMenu" method="close"]
+
+[connection signal="interacted" from="WaterTrough" to="QuenchMenu" method="toggle"]
+
+[connection signal="player_left" from="WaterTrough" to="QuenchMenu" method="close"]
+
+[connection signal="interacted" from="SupplyChest" to="SupplyMenu" method="toggle"]
+
+[connection signal="player_left" from="SupplyChest" to="SupplyMenu" method="close"]
+
+[node name="FennFlightCutscene" type="Node2D" parent="."]
+script = ExtResource("44_flight_cut")
+machine = NodePath("../Airfield/FlyingMachine")
+fenn = NodePath("../Airfield/Inventor")
+
+[editable path="ExitNorthWest"]
+[editable path="ExitNorthEast"]
+[editable path="Player"]
+[editable path="Forge"]
+[editable path="Anvil"]
+[editable path="WaterTrough"]
+[editable path="Workbench"]
+[editable path="Smelter"]
+[connection signal="interacted" from="LeagueDesk" to="LeagueDeskMenu" method="toggle"]
+[connection signal="player_left" from="LeagueDesk" to="LeagueDeskMenu" method="close"]
+[connection signal="body_entered" from="LeagueDesk/InteractionArea" to="LeagueDesk" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="LeagueDesk/InteractionArea" to="LeagueDesk" method="_on_interaction_area_body_exited"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PlayerSkillData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/player_skill_data.gd" id="1_skill"]
+[ext_resource type="Texture2D" path="res://assets/sprites/skills/fire_trial.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_skill")
+display_name = "Feuerprobe"
+description = "Beim Schmelzen von Erz 15 / 20 / 25 % Chance, dass ein Erz einen Barren mehr ergibt."
+icon = ExtResource("2_icon")
+stat = 14
+value_per_rank = 0.05
+base_value = 0.1
+max_rank = 3
+required_level = 3

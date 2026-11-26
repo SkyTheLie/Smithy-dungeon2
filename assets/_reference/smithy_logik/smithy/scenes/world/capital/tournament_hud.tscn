@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/world/capital/tournament_hud.gd" id="1_hud"]
+
+[sub_resource type="StyleBoxFlat" id="Style_board"]
+content_margin_left = 8.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 5.0
+bg_color = Color(0.1, 0.07, 0.06, 0.88)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.82, 0.3, 0.7)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="Style_bar_fill"]
+bg_color = Color(0.85, 0.42, 0.25, 1)
+
+[node name="TournamentHud" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_hud")
+
+[node name="Board" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 44.0
+offset_right = 110.0
+offset_bottom = 96.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Style_board")
+
+[node name="VBox" type="VBoxContainer" parent="Board"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TitleLabel" type="Label" parent="Board/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.45, 1)
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Row" type="HBoxContainer" parent="Board/VBox"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PlayerLabel" type="Label" parent="Board/VBox/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.62, 0.8, 1, 1)
+text_overrun_behavior = 3
+
+[node name="TimeLabel" type="Label" parent="Board/VBox/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="RivalLabel" type="Label" parent="Board/VBox/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.62, 0.5, 1)
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="StepLabel" type="Label" parent="Board/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.8, 0.74, 1)
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="RivalBar" type="ProgressBar" parent="Board/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/fill = SubResource("Style_bar_fill")
+max_value = 1.0
+step = 0.0
+show_percentage = false
+
+[node name="Announcement" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_top = 100.0
+offset_right = 130.0
+offset_bottom = 120.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Style_board")
+
+[node name="AnnouncementLabel" type="Label" parent="Announcement"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
+horizontal_alignment = 1
+autowrap_mode = 3

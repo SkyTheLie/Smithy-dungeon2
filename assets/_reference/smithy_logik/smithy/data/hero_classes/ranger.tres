@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HeroClass" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/hero_class.gd" id="1_class"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/skill_trees/ranger.png" id="2_tree"]
+
+[resource]
+script = ExtResource("1_class")
+id = &"ranger"
+display_name = "Waldläufer"
+color = Color(0.45, 0.82, 0.38, 1)
+description = "Greift aus der Distanz mit Bogen an, im Nahkampf mit Dolch oder Axt."
+skill_ids = Array[String]([])
+skill_background = ExtResource("2_tree")
+attribute_bonuses = {1: 3}

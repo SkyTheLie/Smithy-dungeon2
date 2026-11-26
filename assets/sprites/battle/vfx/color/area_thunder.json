@@ -1,0 +1,287 @@
+{
+ "frames": [
+  {
+   "filename": "smithy-kampf-flaeche-donner 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 84
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-donner 1.png",
+   "frame": {
+    "x": 56,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 84
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-donner 2.png",
+   "frame": {
+    "x": 112,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 84
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-donner 3.png",
+   "frame": {
+    "x": 168,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 84
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-donner 4.png",
+   "frame": {
+    "x": 0,
+    "y": 84,
+    "w": 56,
+    "h": 84
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 84
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-donner 5.png",
+   "frame": {
+    "x": 56,
+    "y": 84,
+    "w": 56,
+    "h": 84
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 84
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-donner 6.png",
+   "frame": {
+    "x": 112,
+    "y": 84,
+    "w": 56,
+    "h": 84
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 84
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-donner 7.png",
+   "frame": {
+    "x": 168,
+    "y": 84,
+    "w": 56,
+    "h": 84
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 84
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-donner 8.png",
+   "frame": {
+    "x": 0,
+    "y": 168,
+    "w": 56,
+    "h": 84
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 84
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+   },
+   "duration": 71
+  },
+  {
+   "filename": "smithy-kampf-flaeche-donner 9.png",
+   "frame": {
+    "x": 56,
+    "y": 168,
+    "w": 56,
+    "h": 84
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 84
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 84
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+   },
+   "duration": 71
+  }
+ ],
+ "meta": {
+  "app": "PixelLab VFX Creator",
+  "image": "smithy-kampf-flaeche-donner.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 224,
+   "h": 252
+  },
+  "scale": "1",
+  "anchor": {
+   "kind": "origin",
+   "x": 28,
+   "y": 70
+  },
+  "frameTags": [
+   {
+    "name": "smithy-kampf-flaeche-donner",
+    "from": 0,
+    "to": 9,
+    "direction": "forward"
+   }
+  ]
+ }
+}

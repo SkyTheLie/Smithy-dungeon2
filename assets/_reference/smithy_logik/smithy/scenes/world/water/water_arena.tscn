@@ -1,0 +1,597 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/critter.gd" id="critter_script"]
+[ext_resource type="Script" path="res://scenes/world/volcano/goblin_figure.gd" id="tf_fig"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="tf_look"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_22.png" id="wp_world_props_tide_22"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_14.png" id="wp_world_props_tide_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_24.png" id="wp_world_props_tide_24"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_10.png" id="wp_world_props_tide_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_16.png" id="wp_world_props_tide_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_2.png" id="wp_world_props_tide_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_1.png" id="wp_world_props_tide_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_13.png" id="wp_world_props_tide_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_12.png" id="wp_world_props_tide_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_17.png" id="wp_world_props_tide_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_11.png" id="wp_world_props_tide_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_7.png" id="wp_world_props_tide_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_3.png" id="wp_world_props_tide_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_5.png" id="wp_world_props_tide_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/tide_4.png" id="wp_world_props_tide_4"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_ice.tscn" id="lamp_ice"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/tournament/arena_fight_stage.gd" id="3_fight_stage"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/water_arena_ground.png" id="4_water_arena_"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="5_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/water_arena_mask.png" id="6_water_arena_"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="10_night_light"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="12_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="13_hud"]
+
+[ext_resource type="Material" path="res://scenes/world/objects/sea_water_material.tres" id="sea_mat"]
+[sub_resource type="Resource" id="Look_subar"]
+script = ExtResource("7_appearance")
+race = "half_fish"
+skin = "teal"
+eye_type = "narrow"
+eye_color = "grey"
+hair_style = "bald"
+size = "tall"
+outfit = "vest"
+clothes_color = "grey"
+
+[sub_resource type="Resource" id="Look_lake"]
+script = ExtResource("7_appearance")
+race = "human"
+skin = "light"
+hair_style = "short"
+hair_color = "blonde"
+eye_type = "glowing"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "ochre"
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_15x6"]
+size = Vector2(15, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_27x6"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_19x6"]
+size = Vector2(19, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_24x6"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="Resource" id="Fan_0"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "pearl"
+hair_style = "ponytail"
+hair_color = "brown"
+eye_type = "narrow"
+eye_color = "blue"
+size = "normal"
+outfit = "tunic"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Fan_1"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "teal"
+hair_style = "short"
+hair_color = "brown"
+eye_type = "big"
+eye_color = "green"
+size = "normal"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Fan_2"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "sea_blue"
+hair_style = "long"
+hair_color = "red"
+eye_type = "big"
+eye_color = "green"
+size = "normal"
+outfit = "tunic"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Fan_3"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "teal"
+hair_style = "bald"
+hair_color = "red"
+eye_type = "normal"
+eye_color = "green"
+size = "small"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Fan_4"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "teal"
+hair_style = "long"
+hair_color = "white"
+eye_type = "big"
+eye_color = "grey"
+size = "small"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Fan_5"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "teal"
+hair_style = "spiky"
+hair_color = "brown"
+eye_type = "normal"
+eye_color = "grey"
+size = "normal"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Fan_6"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "aqua_green"
+hair_style = "short"
+hair_color = "brown"
+eye_type = "big"
+eye_color = "blue"
+size = "tall"
+outfit = "vest"
+clothes_color = "blue"
+
+[sub_resource type="Resource" id="Fan_7"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "aqua_green"
+hair_style = "ponytail"
+hair_color = "brown"
+eye_type = "big"
+eye_color = "grey"
+size = "small"
+outfit = "vest"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Fan_8"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "teal"
+hair_style = "short"
+hair_color = "brown"
+eye_type = "normal"
+eye_color = "grey"
+size = "normal"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Fan_9"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "aqua_green"
+hair_style = "spiky"
+hair_color = "black"
+eye_type = "big"
+eye_color = "blue"
+size = "tall"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Fan_10"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "sea_blue"
+hair_style = "long"
+hair_color = "red"
+eye_type = "big"
+eye_color = "grey"
+size = "tall"
+outfit = "vest"
+clothes_color = "purple"
+
+[sub_resource type="Resource" id="Fan_11"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "sea_blue"
+hair_style = "bald"
+hair_color = "brown"
+eye_type = "big"
+eye_color = "blue"
+size = "normal"
+outfit = "tunic"
+clothes_color = "green"
+
+[sub_resource type="Resource" id="Fan_12"]
+script = ExtResource("tf_look")
+race = "half_fish"
+skin = "aqua_green"
+hair_style = "bald"
+hair_color = "brown"
+eye_type = "normal"
+eye_color = "grey"
+size = "normal"
+outfit = "tunic"
+clothes_color = "grey"
+
+[node name="WaterArena" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayTint" type="CanvasModulate" parent="."]
+script = ExtResource("2_day_tint")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-400, -280)
+texture = ExtResource("4_water_arena_")
+material = ExtResource("sea_mat")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-400, -280)
+script = ExtResource("5_cave_walls")
+mask = ExtResource("6_water_arena_")
+
+[node name="Brazier1" parent="." instance=ExtResource("lamp_ice")]
+position = Vector2(-74, -158)
+
+[node name="Brazier2" parent="." instance=ExtResource("lamp_ice")]
+position = Vector2(74, -158)
+
+[node name="Brazier3" parent="." instance=ExtResource("lamp_ice")]
+position = Vector2(-270, 196)
+
+[node name="Brazier4" parent="." instance=ExtResource("lamp_ice")]
+position = Vector2(-120, 196)
+
+[node name="ToHall" parent="." instance=ExtResource("12_door")]
+position = Vector2(0, 276)
+target_scene = "res://scenes/world/tournament/arena_hall_eisquell.tscn"
+target_spawn_point = &"FromArena"
+scale = Vector2(3, 1)
+
+[node name="Visual" parent="ToHall" index="0"]
+visible = false
+
+[node name="DuelRing" type="Node2D" parent="."]
+position = Vector2(0, 20)
+script = ExtResource("3_fight_stage")
+player_spot = Vector2(-44, 0)
+opponent_spot = Vector2(44, 0)
+walk_in_distance = 200.0
+
+[node name="FromHall" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 60)
+
+[node name="FromCity" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 240)
+
+[node name="Crowd" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Dress" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P1" type="StaticBody2D" parent="Dress"]
+position = Vector2(-66, -188)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P1"]
+texture = ExtResource("wp_world_props_tide_4")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P1"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_15x6")
+
+[node name="P2" type="StaticBody2D" parent="Dress"]
+position = Vector2(66, -188)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P2"]
+texture = ExtResource("wp_world_props_tide_4")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P2"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_15x6")
+
+[node name="P3" type="Sprite2D" parent="Dress"]
+position = Vector2(-120, -140)
+texture = ExtResource("wp_world_props_tide_5")
+offset = Vector2(0, -21)
+
+[node name="P4" type="Sprite2D" parent="Dress"]
+position = Vector2(120, -140)
+texture = ExtResource("wp_world_props_tide_5")
+offset = Vector2(0, -21)
+
+[node name="P5" type="StaticBody2D" parent="Dress"]
+position = Vector2(0, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P5"]
+texture = ExtResource("wp_world_props_tide_3")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P5"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P6" type="StaticBody2D" parent="Dress"]
+position = Vector2(-40, -222)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P6"]
+texture = ExtResource("wp_world_props_tide_7")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P6"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P7" type="StaticBody2D" parent="Dress"]
+position = Vector2(40, -222)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P7"]
+texture = ExtResource("wp_world_props_tide_7")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P7"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_27x6")
+
+[node name="P8" type="StaticBody2D" parent="Dress"]
+position = Vector2(-246, -50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P8"]
+texture = ExtResource("wp_world_props_tide_11")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P8"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_15x6")
+
+[node name="P9" type="StaticBody2D" parent="Dress"]
+position = Vector2(246, -50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P9"]
+texture = ExtResource("wp_world_props_tide_11")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P9"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_15x6")
+
+[node name="P10" type="StaticBody2D" parent="Dress"]
+position = Vector2(-246, 80)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P10"]
+texture = ExtResource("wp_world_props_tide_11")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P10"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_15x6")
+
+[node name="P11" type="StaticBody2D" parent="Dress"]
+position = Vector2(246, 80)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P11"]
+texture = ExtResource("wp_world_props_tide_11")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P11"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_15x6")
+
+[node name="P12" type="Sprite2D" parent="Dress"]
+position = Vector2(-150, 90)
+texture = ExtResource("wp_world_props_tide_17")
+offset = Vector2(0, -16)
+
+[node name="P13" type="Sprite2D" parent="Dress"]
+position = Vector2(170, -60)
+texture = ExtResource("wp_world_props_tide_17")
+offset = Vector2(0, -16)
+
+[node name="P14" type="Sprite2D" parent="Dress"]
+position = Vector2(100, 120)
+texture = ExtResource("wp_world_props_tide_17")
+offset = Vector2(0, -16)
+
+[node name="P15" type="Sprite2D" parent="Dress"]
+position = Vector2(-196, 20)
+texture = ExtResource("wp_world_props_tide_12")
+offset = Vector2(0, -14)
+
+[node name="P16" type="Sprite2D" parent="Dress"]
+position = Vector2(200, 90)
+texture = ExtResource("wp_world_props_tide_13")
+offset = Vector2(0, -18.5)
+
+[node name="P17" type="Sprite2D" parent="Dress"]
+position = Vector2(-180, -70)
+texture = ExtResource("wp_world_props_tide_13")
+offset = Vector2(0, -18.5)
+
+[node name="P18" type="StaticBody2D" parent="Dress"]
+position = Vector2(-220, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P18"]
+texture = ExtResource("wp_world_props_tide_1")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P18"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P19" type="StaticBody2D" parent="Dress"]
+position = Vector2(-146, 232)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P19"]
+texture = ExtResource("wp_world_props_tide_2")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P19"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P20" type="StaticBody2D" parent="Dress"]
+position = Vector2(-70, 232)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P20"]
+texture = ExtResource("wp_world_props_tide_16")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P20"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_19x6")
+
+[node name="P21" type="Sprite2D" parent="Dress"]
+position = Vector2(-240, 236)
+texture = ExtResource("wp_world_props_tide_10")
+offset = Vector2(0, -19)
+
+[node name="P23" type="Sprite2D" parent="Dress"]
+position = Vector2(-330, -160)
+texture = ExtResource("wp_world_props_tide_1")
+offset = Vector2(0, -15.5)
+
+[node name="P24" type="Sprite2D" parent="Dress"]
+position = Vector2(340, -150)
+texture = ExtResource("wp_world_props_tide_2")
+offset = Vector2(0, -15)
+
+[node name="P27" type="StaticBody2D" parent="Dress"]
+position = Vector2(360, 110)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P27"]
+texture = ExtResource("wp_world_props_tide_24")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P27"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_24x6")
+
+[node name="P28" type="StaticBody2D" parent="Dress"]
+position = Vector2(-340, 140)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dress/P28"]
+texture = ExtResource("wp_world_props_tide_14")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dress/P28"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_22x6")
+
+[node name="P29" type="Sprite2D" parent="Dress"]
+script = ExtResource("critter_script")
+position = Vector2(90, 248)
+texture = ExtResource("wp_world_props_tide_22")
+offset = Vector2(0, -14.5)
+
+[node name="Fan0" type="Node2D" parent="Crowd"]
+position = Vector2(-300, -190)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_0")
+facing = "down"
+
+[node name="Fan1" type="Node2D" parent="Crowd"]
+position = Vector2(-230, -228)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_1")
+facing = "down"
+
+[node name="Fan2" type="Node2D" parent="Crowd"]
+position = Vector2(-160, -250)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_2")
+facing = "down"
+
+[node name="Fan3" type="Node2D" parent="Crowd"]
+position = Vector2(170, -252)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_3")
+facing = "down"
+
+[node name="Fan4" type="Node2D" parent="Crowd"]
+position = Vector2(240, -226)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_4")
+facing = "down"
+
+[node name="Fan5" type="Node2D" parent="Crowd"]
+position = Vector2(310, -188)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_5")
+facing = "down"
+
+[node name="Fan6" type="Node2D" parent="Crowd"]
+position = Vector2(-345, -70)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_6")
+facing = "right"
+
+[node name="Fan7" type="Node2D" parent="Crowd"]
+position = Vector2(-352, 30)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_7")
+facing = "right"
+
+[node name="Fan8" type="Node2D" parent="Crowd"]
+position = Vector2(345, -60)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_8")
+facing = "left"
+
+[node name="Fan9" type="Node2D" parent="Crowd"]
+position = Vector2(352, 40)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_9")
+facing = "left"
+
+[node name="Fan10" type="Node2D" parent="Crowd"]
+position = Vector2(-338, 110)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_10")
+facing = "right"
+
+[node name="Fan11" type="Node2D" parent="Crowd"]
+position = Vector2(-250, -200)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_11")
+facing = "down"
+
+[node name="Fan12" type="Node2D" parent="Crowd"]
+position = Vector2(260, -196)
+script = ExtResource("tf_fig")
+appearance = SubResource("Fan_12")
+facing = "down"
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 240)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -400
+limit_top = -280
+limit_right = 400
+limit_bottom = 280
+
+[node name="HUD" parent="." instance=ExtResource("13_hud")]
+
+[editable path="ToHall"]
+[editable path="Player"]

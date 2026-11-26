@@ -1,0 +1,225 @@
+{
+ "frames": [
+  {
+   "filename": "aura_taunt 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 1.png",
+   "frame": {
+    "x": 59,
+    "y": 0,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 2.png",
+   "frame": {
+    "x": 118,
+    "y": 0,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 3.png",
+   "frame": {
+    "x": 177,
+    "y": 0,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 4.png",
+   "frame": {
+    "x": 0,
+    "y": 24,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 5.png",
+   "frame": {
+    "x": 59,
+    "y": 24,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 6.png",
+   "frame": {
+    "x": 118,
+    "y": 24,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 7.png",
+   "frame": {
+    "x": 177,
+    "y": 24,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 8.png",
+   "frame": {
+    "x": 0,
+    "y": 48,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 9.png",
+   "frame": {
+    "x": 59,
+    "y": 48,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 10.png",
+   "frame": {
+    "x": 118,
+    "y": 48,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_taunt 11.png",
+   "frame": {
+    "x": 177,
+    "y": 48,
+    "w": 59,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 59,
+    "h": 24
+   },
+   "pivot": {
+    "x": 0.4915254237288136,
+    "y": 0.5
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "behind"
+ }
+}

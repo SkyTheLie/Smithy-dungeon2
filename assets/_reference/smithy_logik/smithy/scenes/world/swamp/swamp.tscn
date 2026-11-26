@@ -1,0 +1,669 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_swamp.tscn" id="wp_scenes_world_objects_lantern_swamp_"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_9.png" id="wp_swamp_p_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_19.png" id="wp_swamp_p_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_11.png" id="wp_swamp_p_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_2.png" id="wp_swamp_p_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_10.png" id="wp_swamp_p_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_18.png" id="wp_swamp_p_18"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_14.png" id="wp_swamp_p_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_1.png" id="wp_swamp_p_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_0.png" id="wp_swamp_p_0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_7.png" id="wp_swamp_p_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_20.png" id="wp_swamp_p_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_17.png" id="wp_swamp_p_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_8.png" id="wp_swamp_p_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_18.png" id="wp_themes_elf_18"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_3.png" id="wp_swamp_p_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/p_4.png" id="wp_swamp_p_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/tree_moss_b.png" id="wp_swamp_tree_moss_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/tree_moss_a.png" id="wp_swamp_tree_moss_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/tree_dead_b.png" id="wp_swamp_tree_dead_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/tree_dead_a.png" id="wp_swamp_tree_dead_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_7.png" id="wp_world_props_swamp_7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_23.png" id="wp_world_props_swamp_23"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_18.png" id="wp_world_props_swamp_18"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_17.png" id="wp_world_props_swamp_17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_9.png" id="wp_world_props_swamp_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_3.png" id="wp_world_props_swamp_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_1.png" id="wp_world_props_swamp_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_12.png" id="wp_world_props_swamp_12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_21.png" id="wp_world_props_swamp_21"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_20.png" id="wp_world_props_swamp_20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_19.png" id="wp_world_props_swamp_19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_16.png" id="wp_world_props_swamp_16"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_15.png" id="wp_world_props_swamp_15"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_14.png" id="wp_world_props_swamp_14"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_13.png" id="wp_world_props_swamp_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_10.png" id="wp_world_props_swamp_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_8.png" id="wp_world_props_swamp_8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_6.png" id="wp_world_props_swamp_6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_5.png" id="wp_world_props_swamp_5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/themes/elf_15.png" id="wp_world_props_swamp_4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_2.png" id="wp_world_props_swamp_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_0.png" id="wp_world_props_swamp_0"]
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="2_day_tint"]
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="3_gloom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/swamp_ground.png" id="4_swamp_ground"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="5_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/swamp_mask.png" id="6_swamp_mask"]
+[ext_resource type="Script" path="res://scripts/resources/appearance.gd" id="7_appearance"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/witch_hut.png" id="8_witch_hut"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/cauldron.png" id="9_cauldron"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="10_night_light"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/swamp_0.png" id="11_dead_tree"]
+[ext_resource type="Texture2D" path="res://assets/sprites/plants/reeds.png" id="12_reeds"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/will_o_wisp_walk.png" id="13_will_o_wisp"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="19_sheet_anim"]
+[ext_resource type="Texture2D" path="res://assets/sprites/swamp/fog.png" id="14_fog"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="15_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="16_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="17_hud"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/teleporter.tscn" id="18_teleporter"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/props/royal_carriage.png" id="k3_carriage"]
+[ext_resource type="Script" path="res://scenes/world/swamp/witch_vision_cutscene.gd" id="90_witch_cut"]
+[sub_resource type="Resource" id="Look_grisla"]
+script = ExtResource("7_appearance")
+race = "beast_lizard"
+skin = "olive"
+eye_type = "sleepy"
+eye_color = "amber"
+size = "small"
+outfit = "tunic"
+clothes_color = "purple"
+
+[sub_resource type="RectangleShape2D" id="Rect_80x12"]
+size = Vector2(80, 12)
+
+[sub_resource type="RectangleShape2D" id="Rect_8x4"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="Rect_10x6"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_25x6"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_22x6"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_26x6"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_19x6"]
+size = Vector2(19, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_18x6"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_23x6"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_29x6"]
+size = Vector2(29, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_21x6"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_27x6"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_16x6"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_17x6"]
+size = Vector2(17, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_33x6"]
+size = Vector2(33, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_20x6"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_31x6"]
+size = Vector2(31, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_32x6"]
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="wp_rect_30x6"]
+size = Vector2(30, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_SwampCarriage"]
+size = Vector2(80, 12)
+
+[node name="Swamp" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Gloom" type="CanvasModulate" parent="."]
+color = Color(0.76, 0.77, 0.8, 1)
+script = ExtResource("3_gloom")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-512, -384)
+texture = ExtResource("4_swamp_ground")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-512, -384)
+script = ExtResource("5_cave_walls")
+mask = ExtResource("6_swamp_mask")
+
+[node name="Decor" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="WitchHut" type="StaticBody2D" parent="Decor"]
+position = Vector2(300, -150)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/WitchHut"]
+texture = ExtResource("8_witch_hut")
+offset = Vector2(0, -67.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/WitchHut"]
+position = Vector2(0, -6)
+shape = SubResource("Rect_80x12")
+
+[node name="Cauldron" type="StaticBody2D" parent="Decor"]
+position = Vector2(220, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Cauldron"]
+texture = ExtResource("9_cauldron")
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Cauldron"]
+position = Vector2(0, -2)
+shape = SubResource("Rect_8x4")
+
+[node name="NightLight" parent="Decor/Cauldron" instance=ExtResource("10_night_light")]
+position = Vector2(0, -10)
+
+[node name="Wisps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Wisp2" type="Sprite2D" parent="Wisps"]
+position = Vector2(-20, -130)
+texture = ExtResource("13_will_o_wisp")
+hframes = 6
+script = ExtResource("19_sheet_anim")
+frames_per_second = 7.0
+bob_amplitude = 3.0
+
+[node name="Light" parent="Wisps/Wisp2" instance=ExtResource("10_night_light")]
+color = Color(0.6, 0.85, 0.75, 1)
+
+[node name="Wisp4" type="Sprite2D" parent="Wisps"]
+position = Vector2(-200, 210)
+texture = ExtResource("13_will_o_wisp")
+hframes = 6
+script = ExtResource("19_sheet_anim")
+frames_per_second = 7.0
+bob_amplitude = 3.0
+
+[node name="Light" parent="Wisps/Wisp4" instance=ExtResource("10_night_light")]
+color = Color(0.6, 0.85, 0.75, 1)
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Grisla" parent="People" instance=ExtResource("15_story_npc")]
+position = Vector2(250, -100)
+npc_id = "swamp_witch"
+resident = "swamp_witch"
+appearance = SubResource("Look_grisla")
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(3, 3)
+
+[node name="Narrator" parent="People" instance=ExtResource("15_story_npc")]
+position = Vector2(-460, 60)
+npc_id = "swamp_narrator"
+narrator = true
+auto_talk = true
+talk_area_scale = Vector2(3, 3)
+
+[node name="ToVillage" parent="." instance=ExtResource("16_door")]
+position = Vector2(-508, 60)
+target_scene = "res://scenes/world/village/village_gate.tscn"
+target_spawn_point = &"FromSwamp"
+scale = Vector2(1, 4)
+
+[node name="Visual" parent="ToVillage" index="0"]
+visible = false
+
+[node name="ToCamp" parent="." instance=ExtResource("16_door")]
+position = Vector2(508, 50)
+target_scene = "res://scenes/world/fortress/fortress_camp.tscn"
+target_spawn_point = &"FromSwamp"
+scale = Vector2(1, 4)
+required_flag = "dark_road_open"
+locked_text = "Hier wird der Nebel undurchdringlich. Ohne einen Weg kommst du nicht weiter."
+
+[node name="Visual" parent="ToCamp" index="0"]
+visible = false
+
+[node name="Carriage" type="StaticBody2D" parent="."]
+position = Vector2(-405, 180)
+modulate = Color(0.85, 0.9, 0.85, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Carriage"]
+texture = ExtResource("k3_carriage")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carriage"]
+position = Vector2(0, -6)
+shape = SubResource("Shape_SwampCarriage")
+
+[node name="Label" type="Label" parent="Carriage"]
+offset_left = -60.0
+offset_top = -96.0
+offset_right = 60.0
+offset_bottom = -84.0
+text = "Kutscher Jupp"
+horizontal_alignment = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+
+[node name="ToCarriage" parent="." instance=ExtResource("16_door")]
+position = Vector2(-316, 168)
+target_scene = "res://scenes/world/village/village_gate.tscn"
+target_spawn_point = &"FromCarriage"
+fade = true
+needs_interact = true
+carriage_stop = "swamp"
+
+[node name="Visual" parent="ToCarriage" index="0"]
+visible = false
+
+[node name="FromCarriage" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-330, 140)
+
+[node name="FromVillage" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-460, 60)
+
+[node name="FromCamp" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(460, 50)
+
+[node name="Teleporter" parent="." instance=ExtResource("18_teleporter")]
+position = Vector2(-400, 20)
+spot_id = "swamp"
+open_flag = "swamp_road_open"
+
+[node name="FromTeleporter" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(-400, 52)
+
+[node name="SwampTrees" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P51" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-470, -300)
+texture = ExtResource("wp_swamp_tree_dead_a")
+offset = Vector2(0, -60.5)
+
+[node name="P52" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-370, -335)
+texture = ExtResource("wp_swamp_tree_dead_b")
+offset = Vector2(0, -61)
+
+[node name="P53" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-260, -285)
+texture = ExtResource("wp_swamp_tree_moss_a")
+offset = Vector2(0, -61)
+
+[node name="P54" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-150, -335)
+texture = ExtResource("wp_swamp_tree_moss_b")
+offset = Vector2(0, -62.5)
+
+[node name="P55" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-40, -285)
+texture = ExtResource("wp_swamp_tree_dead_a")
+offset = Vector2(0, -60.5)
+
+[node name="P56" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(60, -335)
+texture = ExtResource("wp_swamp_tree_dead_b")
+offset = Vector2(0, -61)
+
+[node name="P57" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-470, 305)
+texture = ExtResource("wp_swamp_tree_moss_a")
+offset = Vector2(0, -61)
+
+[node name="P58" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-360, 350)
+texture = ExtResource("wp_swamp_tree_moss_b")
+offset = Vector2(0, -62.5)
+
+[node name="P59" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-250, 300)
+texture = ExtResource("wp_swamp_tree_dead_a")
+offset = Vector2(0, -60.5)
+
+[node name="P60" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-140, 350)
+texture = ExtResource("wp_swamp_tree_dead_b")
+offset = Vector2(0, -61)
+
+[node name="P61" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-30, 300)
+texture = ExtResource("wp_swamp_tree_moss_a")
+offset = Vector2(0, -61)
+
+[node name="P62" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(80, 350)
+texture = ExtResource("wp_swamp_tree_moss_b")
+offset = Vector2(0, -62.5)
+
+[node name="P63" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(190, 300)
+texture = ExtResource("wp_swamp_tree_dead_a")
+offset = Vector2(0, -60.5)
+
+[node name="P64" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(300, 350)
+texture = ExtResource("wp_swamp_tree_dead_b")
+offset = Vector2(0, -61)
+
+[node name="P65" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(410, 300)
+texture = ExtResource("wp_swamp_tree_moss_a")
+offset = Vector2(0, -61)
+
+[node name="P66" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(495, 350)
+texture = ExtResource("wp_swamp_tree_moss_b")
+offset = Vector2(0, -62.5)
+
+[node name="P67" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(480, 215)
+texture = ExtResource("wp_swamp_tree_dead_a")
+offset = Vector2(0, -60.5)
+
+[node name="P68" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(-205, -130)
+texture = ExtResource("wp_swamp_tree_dead_b")
+offset = Vector2(0, -61)
+
+[node name="P69" type="Sprite2D" parent="SwampTrees"]
+position = Vector2(60, -120)
+texture = ExtResource("wp_swamp_tree_moss_a")
+offset = Vector2(0, -61)
+
+[node name="SwampDress" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="P71" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(-330, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P71"]
+texture = ExtResource("wp_swamp_p_4")
+offset = Vector2(0, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P71"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_33x6")
+
+[node name="P72" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(-310, 92)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P72"]
+texture = ExtResource("wp_swamp_p_3")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P72"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_20x6")
+
+[node name="P73" type="Sprite2D" parent="SwampDress"]
+position = Vector2(-262, 104)
+texture = ExtResource("wp_themes_elf_18")
+offset = Vector2(0, -12)
+
+[node name="P74" type="Sprite2D" parent="SwampDress"]
+position = Vector2(-296, 182)
+texture = ExtResource("wp_swamp_p_8")
+offset = Vector2(0, -21.5)
+
+[node name="P75" type="Sprite2D" parent="SwampDress"]
+position = Vector2(-282, -52)
+texture = ExtResource("wp_swamp_p_8")
+offset = Vector2(0, -21.5)
+
+[node name="P76" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P76"]
+texture = ExtResource("wp_swamp_p_17")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P76"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P77" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(-40, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P77"]
+texture = ExtResource("wp_swamp_p_20")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P77"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_21x6")
+
+[node name="P78" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(40, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P78"]
+texture = ExtResource("wp_swamp_p_20")
+offset = Vector2(0, -18.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P78"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_21x6")
+
+[node name="P79" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(96, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P79"]
+texture = ExtResource("wp_swamp_p_7")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P79"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P80" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(-84, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P80"]
+texture = ExtResource("wp_swamp_p_7")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P80"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_23x6")
+
+[node name="P81" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(186, -146)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P81"]
+texture = ExtResource("wp_swamp_p_0")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P81"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_31x6")
+
+[node name="P82" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(388, -96)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P82"]
+texture = ExtResource("wp_swamp_p_1")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P82"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_32x6")
+
+[node name="P83" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(420, -206)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P83"]
+texture = ExtResource("wp_swamp_p_14")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P83"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_32x6")
+
+[node name="P84" type="Sprite2D" parent="SwampDress"]
+position = Vector2(436, -124)
+texture = ExtResource("wp_swamp_p_18")
+offset = Vector2(0, -23.5)
+
+[node name="P85" type="Sprite2D" parent="SwampDress"]
+position = Vector2(186, -82)
+texture = ExtResource("wp_swamp_p_10")
+offset = Vector2(0, -23.5)
+
+[node name="P86" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(212, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P86"]
+texture = ExtResource("wp_swamp_p_2")
+offset = Vector2(0, -23.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P86"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P87" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(268, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P87"]
+texture = ExtResource("wp_swamp_p_2")
+offset = Vector2(0, -23.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P87"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_17x6")
+
+[node name="P88" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(430, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P88"]
+texture = ExtResource("wp_swamp_p_11")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P88"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_32x6")
+
+[node name="P89" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(476, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P89"]
+texture = ExtResource("wp_swamp_p_11")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P89"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_32x6")
+
+[node name="P90" type="StaticBody2D" parent="SwampDress"]
+position = Vector2(398, 110)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwampDress/P90"]
+texture = ExtResource("wp_swamp_p_19")
+offset = Vector2(0, -20.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampDress/P90"]
+position = Vector2(0, -3)
+shape = SubResource("wp_rect_30x6")
+
+[node name="P91" type="Sprite2D" parent="SwampDress"]
+position = Vector2(-200, 140)
+texture = ExtResource("wp_swamp_p_9")
+offset = Vector2(0, -16)
+
+[node name="P92" type="Sprite2D" parent="SwampDress"]
+position = Vector2(-168, 158)
+texture = ExtResource("wp_swamp_p_9")
+offset = Vector2(0, -16)
+
+[node name="P93" type="Sprite2D" parent="SwampDress"]
+position = Vector2(-226, 164)
+texture = ExtResource("wp_swamp_p_9")
+offset = Vector2(0, -16)
+
+[node name="P94" type="Sprite2D" parent="SwampDress"]
+position = Vector2(34, 190)
+texture = ExtResource("wp_swamp_p_9")
+offset = Vector2(0, -16)
+
+[node name="P95" type="Sprite2D" parent="SwampDress"]
+position = Vector2(66, 206)
+texture = ExtResource("wp_swamp_p_9")
+offset = Vector2(0, -16)
+
+[node name="P96" type="Sprite2D" parent="SwampDress"]
+position = Vector2(138, 140)
+texture = ExtResource("wp_swamp_p_8")
+offset = Vector2(0, -21.5)
+
+[node name="P97" type="Sprite2D" parent="SwampDress"]
+position = Vector2(342, 128)
+texture = ExtResource("wp_swamp_p_8")
+offset = Vector2(0, -21.5)
+
+[node name="P98" type="Sprite2D" parent="SwampDress"]
+position = Vector2(146, -44)
+texture = ExtResource("wp_swamp_p_8")
+offset = Vector2(0, -21.5)
+
+[node name="Lamp0" parent="SwampDress" instance=ExtResource("wp_scenes_world_objects_lantern_swamp_")]
+position = Vector2(-316, 20)
+facing = "south"
+
+[node name="Lamp1" parent="SwampDress" instance=ExtResource("wp_scenes_world_objects_lantern_swamp_")]
+position = Vector2(-104, 88)
+facing = "north"
+
+[node name="Lamp2" parent="SwampDress" instance=ExtResource("wp_scenes_world_objects_lantern_swamp_")]
+position = Vector2(136, 18)
+facing = "south"
+
+[node name="Lamp3" parent="SwampDress" instance=ExtResource("wp_scenes_world_objects_lantern_swamp_")]
+position = Vector2(346, 82)
+facing = "north"
+
+[node name="Lamp4" parent="SwampDress" instance=ExtResource("wp_scenes_world_objects_lantern_swamp_")]
+position = Vector2(206, -40)
+facing = "east"
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-460, 60)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -512
+limit_top = -384
+limit_right = 512
+limit_bottom = 384
+
+[node name="HUD" parent="." instance=ExtResource("17_hud")]
+
+[node name="WitchVisionCutscene" type="Node2D" parent="."]
+script = ExtResource("90_witch_cut")
+witch = NodePath("../People/Grisla")
+cauldron = NodePath("../Decor/Cauldron")
+
+[editable path="ToVillage"]
+[editable path="ToCarriage"]
+[editable path="ToCamp"]
+[editable path="Player"]

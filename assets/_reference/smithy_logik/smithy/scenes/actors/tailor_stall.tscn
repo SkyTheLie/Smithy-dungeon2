@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/actors/tailor_stall.gd" id="1_tailor"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/tailor_menu.tscn" id="2_menu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stall"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(88, 30)
+
+[node name="TailorStall" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_tailor")
+
+[node name="StallSprite" type="Sprite2D" parent="."]
+
+[node name="FigureSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -1)
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -46.0
+offset_right = 40.0
+offset_bottom = -34.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+
+[node name="StallCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_stall")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_interaction")
+
+[node name="TailorMenu" parent="." instance=ExtResource("2_menu")]
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
+[connection signal="interacted" from="." to="TailorMenu" method="toggle"]
+[connection signal="player_left" from="." to="TailorMenu" method="close"]

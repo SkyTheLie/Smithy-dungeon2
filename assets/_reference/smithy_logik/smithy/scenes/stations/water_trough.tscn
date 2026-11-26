@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/stations/water_trough.gd" id="1_station"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/quench_steam.png" id="3_steam"]
+[ext_resource type="Script" path="res://scenes/world/objects/sheet_animation.gd" id="4_sheet"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/water_trough.png" id="2_sprite"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trough"]
+size = Vector2(44, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(72, 44)
+
+[node name="WaterTrough" type="StaticBody2D"]
+script = ExtResource("1_station")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-26, -29)
+texture = ExtResource("2_sprite")
+centered = false
+
+[node name="Steam" type="Node2D" parent="."]
+visible = false
+z_index = 1
+
+[node name="Left" type="Sprite2D" parent="Steam"]
+position = Vector2(-11, -20)
+texture = ExtResource("3_steam")
+centered = false
+offset = Vector2(-14, -44)
+hframes = 4
+vframes = 4
+script = ExtResource("4_sheet")
+frames_per_second = 12.0
+
+[node name="Right" type="Sprite2D" parent="Steam"]
+position = Vector2(10, -20)
+texture = ExtResource("3_steam")
+centered = false
+offset = Vector2(-14, -44)
+hframes = 4
+vframes = 4
+frame = 7
+script = ExtResource("4_sheet")
+frames_per_second = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_trough")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_interaction")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

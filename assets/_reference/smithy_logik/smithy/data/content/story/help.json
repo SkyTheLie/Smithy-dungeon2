@@ -1,0 +1,96 @@
+{
+	"_hilfe": {
+		"help": "help_categories: Themen der Einleitung (Einstellungen » Einleitung) in dieser Reihenfolge, je {id, name, hints}; hints = ids aus hints oder help_topics. Ein Tipp aus hints steht dort, sobald das Spiel ihn gezeigt hat (oder er in intro_hints steht); Tipps ohne Thema kommen unter „Geschichte“. help_topics: Hilfe-Texte, die nie als Tipp aufgehen, nur in der Einleitung stehen: {title, text, after_hint (erst wenn dieser Tipp gezeigt wurde), after_flag (erst mit diesem Story-Flag)}. Platzhalter wie in Tipps ({key_interact} …)."
+	},
+	"help_categories": [
+		{
+			"id": "basics",
+			"name": "Grundlagen",
+			"hints": ["movement", "quest_log", "intro_help", "guide_glow", "saving", "help_windows", "help_items", "sleep", "calendar", "help_player_level", "cleaning", "move_stations"]
+		},
+		{
+			"id": "forging",
+			"name": "Schmieden",
+			"hints": ["smelter", "forge", "anvil", "help_cooling", "workbench", "help_rarity", "help_difficulty", "help_molds", "goblin_mine", "help_sharpen", "tutorial_leather_armor", "tutorial_bow", "tutorial_staff", "armor_mold", "child_shoes", "pickaxe", "silver_pickaxe", "mine_empty"]
+		},
+		{
+			"id": "trade",
+			"name": "Handel und Ruf",
+			"hints": ["rent", "help_reputation", "merchants", "customers", "order_board", "shop", "nina_expanded", "lotte_errands", "guild_level_1", "guild_level_2", "guild_level_3"]
+		},
+		{
+			"id": "heroes",
+			"name": "Helden und Dungeons",
+			"hints": ["equip_hero", "dungeon_board", "loot_chest", "hero_level", "help_stamina", "help_hero_skills", "help_elements", "gutter", "gutter_shield"]
+		},
+		{
+			"id": "magic",
+			"name": "Magie und Garten",
+			"hints": ["enchanting_table", "mortar", "starlight_tonic", "witch_potion", "greenhouse", "greenhouse_pot", "planting", "mage_hemp"]
+		},
+		{
+			"id": "travel",
+			"name": "Reisen",
+			"hints": ["teleporter", "elf_lift", "crystal_map", "desert_compass", "desert_map", "sneaking"]
+		},
+		{
+			"id": "tournaments",
+			"name": "Turniere",
+			"hints": ["smith_tournament", "monthly_tournament", "hero_tournament"]
+		}
+	],
+	"help_topics": {
+		"help_windows": {
+			"title": "Fenster anpassen",
+			"text": "Jedes Fenster lässt sich an seiner Titelleiste verschieben. Anpinnen (Nadel in der Titelleiste) hält es an seinem Platz, auch nach dem Schließen. Wie groß Aktionsleiste, Uhr, Inventar und die anderen Fenster sind, stellst du in den Einstellungen unter Oberfläche ein: Ein gelber Rahmen zeigt dabei, wo das Fenster steht und wie groß es wird."
+		},
+		"help_items": {
+			"title": "Inventar und Truhe",
+			"text": "Inventar: {key_inventory}. Rechtsklick legt ein Item in die offene Station oder rüstet es aus, Shift+Rechtsklick nimmt den halben Stapel, Strg+Rechtsklick nur 1 Stück. Shift über einem Item zeigt Details. Mehr Platz hat die Lagertruhe neben deinem Bett; zu Hause nehmen die Geräte Zutaten auch aus den Truhen. Ein Rucksack im Charakter-Fenster gibt mehr Plätze."
+		},
+		"help_player_level": {
+			"title": "Level und Fähigkeiten",
+			"text": "Als Schmied sammelst du PEXP: fürs Schmieden, Schmelzen, Zusammenbauen und Abbauen, für Aufträge, Quests und geschaffte Dungeons. Der violette Balken über der Aktionsleiste zeigt, wie weit es bis zum nächsten Level ist. Jedes Level bringt einen Skillpunkt: Charakter-Fenster ({key_character}) » Fähigkeiten, z. B. Meisterhand für mehr Qualität oder Materialkunde für schwere Metalle."
+		},
+		"help_cooling": {
+			"title": "Abkühlen",
+			"text": "Was vom Amboss kommt, glüht noch. Leg es in den Wassertrog (ziehen oder Rechtsklick), nach kurzer Zeit ist es abgekühlt. Erst abgekühlte Teile kannst du an der Werkbank zusammenbauen oder bei Kunden abgeben."
+		},
+		"help_rarity": {
+			"title": "Seltenheit und Qualität",
+			"text": "Jedes Teil hat eine Seltenheit (Farbe am Rahmen) und eine Qualität von 0 bis 100 (Zahl oben links). Die Stufen: Gewöhnlich, Solide, Fein, Ungewöhnlich, Selten, Episch, Legendär, Mythisch. Über 100 Qualität steigt die Seltenheit, unter 0 sinkt sie. Neues erbt Seltenheit und Qualität von dem, woraus es gemacht wird; Amboss, Werkbank und Schleifstein geben Punkte dazu. Höhere Seltenheit bringt mehr Schaden oder Rüstung, ab Ungewöhnlich auch zufällige Attribute. Seltene Erze und Barren gibt es beim Abbau, als Dungeon-Beute und bei manchen Händlern."
+		},
+		"help_difficulty": {
+			"title": "Schwierigkeit beim Schmieden",
+			"text": "Je wertvoller ein Metall im Vergleich zu deinem Ruf-Rang ist, desto schwerer sind Amboss und Werkbank: schnellerer Takt, kleinere grüne Zonen, bei sehr schweren Metallen gar kein Grün mehr. Fährst du im Charakter-Fenster mit der Maus über das Wappen, siehst du die Schwierigkeit jedes Metalls. Leichter wird es mit einem besseren Ruf-Rang und dem Skill Materialkunde."
+		},
+		"help_molds": {
+			"title": "Gussformen",
+			"text": "Am Gussofen gießt du nur Teile, für die du eine Gussform hast. Jede Gussform gehört zu einem Teil aus einem Metall, z. B. Eisenklinge. Neue Gussformen findest du als Beute in Dungeons oder kaufst sie bei Händlern. Welche du schon hast, steht im Charakter-Fenster unter Gussformen."
+		},
+		"help_sharpen": {
+			"title": "Schärfen und Polieren",
+			"text": "Am Schleifstein schärfst du jede Waffe einmal: Maustaste halten hebt die Kugel, loslassen lässt sie sinken. Je länger sie im grünen Bereich bleibt, desto mehr Qualität bekommt die Waffe. Rüstungen poliert man genauso am Poliertisch. Der Schleifstein schleift auch Kristalle zu Edelsteinen für Schmuck.",
+			"after_flag": "station_grindstone"
+		},
+		"help_reputation": {
+			"title": "Ruf",
+			"text": "Dein Ruf steigt mit erledigten Aufträgen, Verkäufen in Ninas Laden und zufriedenen Kunden, die zum Loben wiederkommen. Er sinkt, wenn eine Frist verstreicht oder die Miete nicht bezahlt ist. Der goldene Balken über der Aktionsleiste zeigt den Weg zum nächsten Ruf-Rang (F, E, D …; grau, solange die Geschichte den Rang noch sperrt). Ein höherer Rang bringt mehr Kunden, bessere Bezahlung und Preise, mehr Helden und macht schwere Metalle leichter."
+		},
+		"help_stamina": {
+			"title": "Ausdauer der Helden",
+			"text": "Jeder Held hat bis zu 100 Ausdauer (Balken in der Heldenliste). Ein Dungeon kostet Ausdauer; ist zu wenig da, muss er sich erst ausruhen. Helden erholen sich jede Stunde ein wenig und über Nacht deutlich mehr. Mehrere Helden im Wechsel losschicken hilft.",
+			"after_hint": "dungeon_board"
+		},
+		"help_hero_skills": {
+			"title": "Skillbäume der Helden",
+			"text": "Jede Klasse hat drei Skillbäume (Heldenfenster » Fähigkeiten). Mit dem Level bekommt ein Held Skillpunkte; tiefere Skills brauchen erst Punkte im selben Baum. Manche Skills gehen nur mit passender Waffe, z. B. Schildstoß nur mit Schild. Rechtsklick auf einen Skill: Befehl, wann der Held ihn einsetzt.",
+			"after_hint": "equip_hero"
+		},
+		"help_elements": {
+			"title": "Schadensarten und Elemente",
+			"text": "Viele Monster halten ein Element gut aus und vertragen ein anderes schlecht, z. B. sind die Monster im Vulkan gegen Feuer gefeit. Waffen mit dem passenden Element (Verzaubern am Zaubertisch) treffen härter. Shift über einem Skill im Heldenfenster zeigt seine Rechnung und Schadensarten.",
+			"after_hint": "volcano_dungeons"
+		}
+	}
+}

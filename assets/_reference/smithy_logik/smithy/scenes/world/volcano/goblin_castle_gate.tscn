@@ -1,0 +1,341 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_13.png" id="wp_world_props_goblin_13"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_11.png" id="wp_world_props_goblin_11"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_10.png" id="wp_world_props_goblin_10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_9.png" id="wp_world_props_goblin_9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_3.png" id="wp_world_props_goblin_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_2.png" id="wp_world_props_goblin_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/world_props/goblin_0.png" id="wp_world_props_goblin_0"]
+[ext_resource type="Script" path="res://scenes/world/volcano/depth_layer.gd" id="1_depth_layer"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/goblin_castle_gate_depth.png" id="2_goblin_castl"]
+[ext_resource type="Shader" path="res://scenes/world/volcano/lava_glow.gdshader" id="3_lava_glow"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/goblin_castle_gate_depth_lava.png" id="4_goblin_castl"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_cart.png" id="5_goblin_cart"]
+[ext_resource type="Script" path="res://scenes/world/volcano/goblin_worker.gd" id="6_goblin_worke"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/goblins/pusher_walk.png" id="7_pusher_walk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/goblins/carrier_walk.png" id="8_carrier_walk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/goblins/smith_hammer.png" id="9_smith_hammer"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/volcano_boulder_glow.png" id="10_volcano_boul"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/goblins/miner_mine.png" id="11_miner_mine"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/goblin_castle_gate_ground.png" id="12_goblin_castl"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="13_cave_walls"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/goblin_castle_gate_mask.png" id="14_goblin_castl"]
+[ext_resource type="Script" path="res://scenes/world/objects/story_prop.gd" id="15_story_prop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/goblin_castle_gate_flow.png" id="16_goblin_castl"]
+[ext_resource type="Script" path="res://scenes/world/volcano/castle_rubble.gd" id="17_castle_rubbl"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goblin_castle_rubble.png" id="18_goblin_castl"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="19_story_npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="20_door"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="21_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="22_hud"]
+
+[sub_resource type="FastNoiseLite" id="Noise"]
+frequency = 0.03
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture"]
+width = 256
+height = 256
+seamless = true
+noise = SubResource("Noise")
+
+[sub_resource type="ShaderMaterial" id="GlowLava"]
+shader = ExtResource("3_lava_glow")
+shader_parameter/noise_tex = SubResource("NoiseTexture")
+
+[sub_resource type="Gradient" id="LightGradient"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.45, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="LightTexture"]
+gradient = SubResource("LightGradient")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6"]
+size = Vector2(104, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7"]
+size = Vector2(160, 60)
+
+[node name="GoblinCastleGate" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0.16, 0.12, 0.15, 1)
+
+[node name="Depth" type="Node2D" parent="."]
+z_index = -30
+script = ExtResource("1_depth_layer")
+factor = 0.75
+anchor = Vector2(480, 320)
+
+[node name="Floor" type="Sprite2D" parent="Depth"]
+position = Vector2(-70, -70)
+texture = ExtResource("2_goblin_castl")
+centered = false
+
+[node name="Lava" type="Sprite2D" parent="Depth"]
+z_index = 0
+material = SubResource("GlowLava")
+position = Vector2(-70, -70)
+texture = ExtResource("4_goblin_castl")
+centered = false
+
+[node name="Workers" type="Node2D" parent="Depth"]
+
+[node name="Cart" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(120, 618)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_goblin_cart")
+offset = Vector2(0, -9)
+
+[node name="Pusher" type="Node2D" parent="Depth/Workers" node_paths=PackedStringArray("pushed")]
+position = Vector2(90, 620)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("6_goblin_worke")
+sheet = ExtResource("7_pusher_walk")
+frames = 4
+fps = 5
+walk_to = Vector2(380, 0)
+speed = 10
+rest = 3
+pushed = NodePath("../Cart")
+
+[node name="Carrier" type="Node2D" parent="Depth/Workers"]
+position = Vector2(470, 560)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("6_goblin_worke")
+sheet = ExtResource("8_carrier_walk")
+frames = 4
+fps = 5
+rows = 4
+walk_to = Vector2(0, 70)
+speed = 8
+rest = 2.5
+
+[node name="Smith" type="Node2D" parent="Depth/Workers"]
+position = Vector2(70, 300)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("6_goblin_worke")
+sheet = ExtResource("9_smith_hammer")
+frames = 7
+fps = 7
+
+[node name="OreRock" type="Sprite2D" parent="Depth/Workers"]
+position = Vector2(146, 214)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_volcano_boul")
+offset = Vector2(0, -11)
+
+[node name="Miner" type="Node2D" parent="Depth/Workers"]
+position = Vector2(166, 216)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("6_goblin_worke")
+sheet = ExtResource("11_miner_mine")
+frames = 7
+fps = 7
+
+[node name="LavaGlow0" type="PointLight2D" parent="Depth"]
+position = Vector2(120, 320)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1
+texture_scale = 1.2
+texture = SubResource("LightTexture")
+
+[node name="LavaGlow1" type="PointLight2D" parent="Depth"]
+position = Vector2(330, 560)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1
+texture_scale = 1.2
+texture = SubResource("LightTexture")
+
+[node name="LavaGlow2" type="PointLight2D" parent="Depth"]
+position = Vector2(480, 690)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1
+texture_scale = 1.4
+texture = SubResource("LightTexture")
+
+[node name="LavaGlow3" type="PointLight2D" parent="Depth"]
+position = Vector2(60, 690)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1
+texture_scale = 1.2
+texture = SubResource("LightTexture")
+
+[node name="LavaGlow4" type="PointLight2D" parent="Depth"]
+position = Vector2(760, 200)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.3
+texture_scale = 2.6
+texture = SubResource("LightTexture")
+
+[node name="LavaGlow5" type="PointLight2D" parent="Depth"]
+position = Vector2(720, 450)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.3
+texture_scale = 2.6
+texture = SubResource("LightTexture")
+
+[node name="LavaGlow6" type="PointLight2D" parent="Depth"]
+position = Vector2(880, 350)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.3
+texture_scale = 2.6
+texture = SubResource("LightTexture")
+
+[node name="LavaGlow7" type="PointLight2D" parent="Depth"]
+position = Vector2(800, 640)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.4
+texture_scale = 3
+texture = SubResource("LightTexture")
+
+[node name="LavaGlow8" type="PointLight2D" parent="Depth"]
+position = Vector2(960, 540)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.2
+texture_scale = 2.4
+texture = SubResource("LightTexture")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(0, 0)
+texture = ExtResource("12_goblin_castl")
+centered = false
+
+[node name="CaveWalls" type="StaticBody2D" parent="."]
+script = ExtResource("13_cave_walls")
+mask = ExtResource("14_goblin_castl")
+
+[node name="LavaFlow" type="Node2D" parent="."]
+script = ExtResource("15_story_prop")
+required_flag = "goblin_forge_lava"
+
+[node name="Lava" type="Sprite2D" parent="LavaFlow"]
+z_index = -2
+material = SubResource("GlowLava")
+position = Vector2(0, 0)
+texture = ExtResource("16_goblin_castl")
+centered = false
+
+[node name="FlowGlow0" type="PointLight2D" parent="LavaFlow"]
+position = Vector2(122, 150)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.1
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="FlowGlow1" type="PointLight2D" parent="LavaFlow"]
+position = Vector2(150, 250)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.1
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="FlowGlow2" type="PointLight2D" parent="LavaFlow"]
+position = Vector2(236, 330)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.1
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="FlowGlow3" type="PointLight2D" parent="LavaFlow"]
+position = Vector2(558, 380)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.1
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="FlowGlow4" type="PointLight2D" parent="LavaFlow"]
+position = Vector2(564, 520)
+color = Color(1, 0.42, 0.15, 1)
+energy = 1.1
+texture_scale = 1
+texture = SubResource("LightTexture")
+
+[node name="Rubble" type="StaticBody2D" parent="."]
+position = Vector2(394, 268)
+script = ExtResource("17_castle_rubbl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rubble"]
+texture = ExtResource("18_goblin_castl")
+offset = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rubble"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_6")
+
+[node name="InteractionArea" type="Area2D" parent="Rubble"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rubble/InteractionArea"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_7")
+
+[node name="GateSign" parent="." instance=ExtResource("19_story_npc")]
+position = Vector2(110, 455)
+npc_id = "goblin_gate_sign"
+narrator = true
+auto_talk = true
+wait_for_player = true
+talk_area_scale = Vector2(6, 4)
+
+[node name="ToDeepMine" parent="." instance=ExtResource("20_door")]
+position = Vector2(48, 398)
+scale = Vector2(1, 0.5)
+target_scene = "res://scenes/world/volcano/goblin_deep_mine.tscn"
+target_spawn_point = &"FromCastleGate"
+
+[node name="Visual" parent="ToDeepMine" index="0"]
+visible = false
+
+[node name="ToCastle" parent="." instance=ExtResource("20_door")]
+position = Vector2(394, 238)
+scale = Vector2(2, 0.5)
+target_scene = "res://scenes/world/volcano/goblin_castle.tscn"
+target_spawn_point = &"FromGate"
+required_flag = "goblin_castle_gate_cleared"
+locked_text = "Felsbrocken versperren das Tor."
+
+[node name="Visual" parent="ToCastle" index="0"]
+visible = false
+
+[node name="MineLabel" type="Label" parent="."]
+offset_left = 10
+offset_top = 330
+offset_right = 110
+offset_bottom = 342
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "« Tiefe Mine"
+horizontal_alignment = 1
+
+[node name="FromMine" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(48, 432)
+
+[node name="FromCastle" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(394, 262)
+
+[node name="Player" parent="." instance=ExtResource("21_player")]
+position = Vector2(48, 432)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 640
+
+[node name="HUD" parent="." instance=ExtResource("22_hud")]
+
+[connection signal="body_entered" from="Rubble/InteractionArea" to="Rubble" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Rubble/InteractionArea" to="Rubble" method="_on_interaction_area_body_exited"]
+
+[editable path="ToDeepMine"]
+[editable path="ToCastle"]
+[editable path="Player"]

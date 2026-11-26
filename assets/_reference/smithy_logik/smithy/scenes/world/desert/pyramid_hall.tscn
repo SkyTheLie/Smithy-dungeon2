@@ -1,0 +1,93 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/objects/gloom.gd" id="tint"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/pyramid_hall_ground.png" id="ground"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player.tscn" id="player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="hud"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="door"]
+[ext_resource type="PackedScene" path="res://scenes/actors/story_npc.tscn" id="npc"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/dungeon_board.tscn" id="board"]
+[ext_resource type="Texture2D" path="res://assets/sprites/maps/pyramid_hall_mask.png" id="mask"]
+[ext_resource type="Script" path="res://scenes/world/mine/cave_walls.gd" id="walls"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/lantern_desert.tscn" id="lamp"]
+[ext_resource type="Texture2D" path="res://assets/sprites/npcs/pyramid_keeper.png" id="t_npcs_pyramid_keeper"]
+
+
+[node name="PyramidHall" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Tint" type="CanvasModulate" parent="."]
+script = ExtResource("tint")
+color = Color(0.7, 0.6, 0.52, 1)
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-240, -180)
+texture = ExtResource("ground")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-240, -180)
+script = ExtResource("walls")
+mask = ExtResource("mask")
+
+[node name="Lamp-170_-60" parent="." instance=ExtResource("lamp")]
+position = Vector2(-170, -60)
+
+[node name="Lamp170_-60" parent="." instance=ExtResource("lamp")]
+position = Vector2(170, -60)
+
+[node name="Lamp-170_90" parent="." instance=ExtResource("lamp")]
+position = Vector2(-170, 90)
+
+[node name="Lamp170_90" parent="." instance=ExtResource("lamp")]
+position = Vector2(170, 90)
+
+[node name="Keeper" parent="." instance=ExtResource("npc")]
+position = Vector2(-60, -60)
+npc_id = "pyramid_keeper"
+figure_texture = ExtResource("t_npcs_pyramid_keeper")
+
+[node name="ToOutside" parent="." instance=ExtResource("door")]
+position = Vector2(0, 172)
+scale = Vector2(3, 1)
+target_scene = "res://scenes/world/desert/sahrim_pyramid.tscn"
+target_spawn_point = &"FromHall"
+fade = true
+
+[node name="Visual" parent="ToOutside" index="0"]
+visible = false
+
+[node name="FromOutside" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, 134)
+
+[node name="ToUnderworld" parent="." instance=ExtResource("door")]
+position = Vector2(0, -100)
+scale = Vector2(3, 1)
+target_scene = "res://scenes/world/desert/underworld.tscn"
+target_spawn_point = &"FromStairs"
+fade = true
+required_flag = "underworld_open"
+locked_text = "Die Treppe in die Tiefe ist versiegelt. Der Hüter steht nicht ohne Grund davor."
+
+[node name="Visual" parent="ToUnderworld" index="0"]
+visible = false
+
+[node name="FromUnderworld" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(0, -66)
+
+[node name="Player" parent="." instance=ExtResource("player")]
+position = Vector2(0, 134)
+
+[node name="Camera2D" parent="Player" index="2"]
+zoom = Vector2(1.34, 1.34)
+limit_left = -240
+limit_top = -180
+limit_right = 240
+limit_bottom = 180
+
+[node name="HUD" parent="." instance=ExtResource("hud")]
+
+[editable path="Player"]
+[editable path="ToOutside"]
+[editable path="ToUnderworld"]

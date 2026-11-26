@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/stations/smelter_station.gd" id="1_smelter"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stations/smelter/frame_1.png" id="2_sheet"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smelter"]
+size = Vector2(46, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(80, 56)
+
+[node name="Smelter" type="StaticBody2D"]
+script = ExtResource("1_smelter")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-32, -65)
+texture = ExtResource("2_sheet")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -6)
+shape = SubResource("RectangleShape2D_smelter")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_interaction")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

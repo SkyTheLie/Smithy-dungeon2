@@ -1,0 +1,249 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/_template/map_base.tscn" id="map_base"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rooms/homes/sw_tent_purple.png" id="room"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="door"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="night_light"]
+[ext_resource type="Script" path="res://scenes/actors/village_roads.gd" id="roads"]
+[ext_resource type="Script" path="res://scenes/actors/villager_spot.gd" id="spot"]
+[ext_resource type="PackedScene" path="res://scenes/actors/villager.tscn" id="villager"]
+[ext_resource type="Script" path="res://scenes/actors/home_dweller.gd" id="dweller"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/bed_narrow.png" id="f_bed_narrow"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/rug_bedroom.png" id="f_rug_bedroom"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/shop_side_table.png" id="f_shop_side_table"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/sand_3.png" id="f_sand_3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/plant_small.png" id="f_plant_small"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/sand_2.png" id="f_sand_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/furniture/homes/sand_15.png" id="f_sand_15"]
+
+[sub_resource type="RectangleShape2D" id="Rect_0"]
+size = Vector2(240, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_1"]
+size = Vector2(16, 160)
+
+[sub_resource type="RectangleShape2D" id="Rect_2"]
+size = Vector2(16, 160)
+
+[sub_resource type="RectangleShape2D" id="Rect_3"]
+size = Vector2(88, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_4"]
+size = Vector2(88, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_5"]
+size = Vector2(30, 59)
+
+[sub_resource type="RectangleShape2D" id="Rect_6"]
+size = Vector2(22, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_7"]
+size = Vector2(38, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_8"]
+size = Vector2(12, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_9"]
+size = Vector2(32, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_10"]
+size = Vector2(39, 8)
+
+[node name="SwTentPurple" instance=ExtResource("map_base")]
+
+[node name="Ground" parent="." index="1"]
+texture = ExtResource("room")
+
+[node name="Top" parent="Bounds"]
+position = Vector2(120, -8)
+
+[node name="Bottom" parent="Bounds"]
+position = Vector2(120, 232)
+
+[node name="Left" parent="Bounds"]
+position = Vector2(-8, 112)
+
+[node name="Right" parent="Bounds"]
+position = Vector2(248, 112)
+
+[node name="FromStart" parent="." index="5"]
+position = Vector2(120, 194)
+
+[node name="Player" parent="." index="6"]
+position = Vector2(120, 194)
+
+[node name="Camera2D" parent="Player"]
+limit_left = -200
+limit_top = -68
+limit_right = 440
+limit_bottom = 292
+
+[node name="Outside" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1400.0
+offset_bottom = 1400.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall0" type="CollisionShape2D" parent="Walls"]
+position = Vector2(120, 32)
+shape = SubResource("Rect_0")
+
+[node name="Wall1" type="CollisionShape2D" parent="Walls"]
+position = Vector2(8, 144)
+shape = SubResource("Rect_1")
+
+[node name="Wall2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(232, 144)
+shape = SubResource("Rect_2")
+
+[node name="Wall3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(60, 216)
+shape = SubResource("Rect_3")
+
+[node name="Wall4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(180, 216)
+shape = SubResource("Rect_4")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Furniture" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="BedNarrow" type="StaticBody2D" parent="Furniture"]
+position = Vector2(43, 123)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/BedNarrow"]
+texture = ExtResource("f_bed_narrow")
+offset = Vector2(0, -29.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/BedNarrow"]
+position = Vector2(0, -29.5)
+shape = SubResource("Rect_5")
+
+[node name="RugBedroom" type="Sprite2D" parent="Furniture"]
+z_index = -1
+position = Vector2(120, 153)
+texture = ExtResource("f_rug_bedroom")
+offset = Vector2(0, -19)
+
+[node name="ShopSideTable" type="StaticBody2D" parent="Furniture"]
+position = Vector2(120, 156)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/ShopSideTable"]
+texture = ExtResource("f_shop_side_table")
+offset = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/ShopSideTable"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_6")
+
+[node name="Sand3" type="StaticBody2D" parent="Furniture"]
+position = Vector2(200, 197)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Sand3"]
+texture = ExtResource("f_sand_3")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Sand3"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_7")
+
+[node name="PlantSmall" type="StaticBody2D" parent="Furniture"]
+position = Vector2(213, 132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/PlantSmall"]
+texture = ExtResource("f_plant_small")
+offset = Vector2(0, -11.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/PlantSmall"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_8")
+
+[node name="Sand2" type="StaticBody2D" parent="Furniture"]
+position = Vector2(37, 187)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Sand2"]
+texture = ExtResource("f_sand_2")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Sand2"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_9")
+
+[node name="Sand15" type="StaticBody2D" parent="Furniture"]
+position = Vector2(200, 103)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Sand15"]
+texture = ExtResource("f_sand_15")
+offset = Vector2(0, -17.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Sand15"]
+position = Vector2(0, -4)
+shape = SubResource("Rect_10")
+
+[node name="DoorOut" parent="." instance=ExtResource("door")]
+position = Vector2(120, 220)
+scale = Vector2(1, 0.5)
+target_scene = "res://scenes/world/desert/sahrim_west.tscn"
+target_spawn_point = &"FromSwTentPurple"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromOutside" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(120, 194)
+
+[node name="Home" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Roads" type="Node2D" parent="Home"]
+script = ExtResource("roads")
+area = Rect2(16, 64, 208, 144)
+clearance = 5.0
+
+[node name="Hub" type="Marker2D" parent="Home/Roads"]
+position = Vector2(120, 194)
+
+[node name="Spots" type="Node2D" parent="Home"]
+
+[node name="Spot0" type="Marker2D" parent="Home/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(43, 135)
+script = ExtResource("spot")
+kind = 3
+facing = "up"
+duration = Vector2(6, 18)
+road = NodePath("../../Roads/Hub")
+
+[node name="Spot1" type="Marker2D" parent="Home/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(96, 136)
+script = ExtResource("spot")
+kind = 0
+facing = "down"
+duration = Vector2(6, 18)
+road = NodePath("../../Roads/Hub")
+
+[node name="Spot2" type="Marker2D" parent="Home/Spots" node_paths=PackedStringArray("road")]
+position = Vector2(144, 136)
+script = ExtResource("spot")
+kind = 0
+facing = "down"
+duration = Vector2(6, 18)
+road = NodePath("../../Roads/Hub")
+
+[node name="SandLizardF" parent="Home" node_paths=PackedStringArray("spots", "roads") instance=ExtResource("villager")]
+position = Vector2(43, 135)
+script = ExtResource("dweller")
+resident = "sand_lizard_f"
+night_key = "LizardF|sand_lizard_f|villager"
+spots = NodePath("../Spots")
+roads = NodePath("../Roads")
+pause = Vector2(3, 8)
+
+[editable path="DoorOut"]
+
+[editable path="Player"]

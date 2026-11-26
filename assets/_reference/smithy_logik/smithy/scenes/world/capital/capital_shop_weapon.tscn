@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://cydp10u8dswfd"]
+
+[ext_resource type="PackedScene" uid="uid://cfkncbmqjnnjx" path="res://scenes/actors/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/door.tscn" id="2_door"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://bqwd4k8jm6f0l" path="res://scenes/world/objects/day_tint.gd" id="4_day_tint"]
+[ext_resource type="Texture2D" uid="uid://bcxs4p0gkt0f4" path="res://assets/sprites/rooms/capital_shop_weapon.png" id="5_room"]
+[ext_resource type="PackedScene" path="res://scenes/actors/market_stall.tscn" id="6_stall"]
+[ext_resource type="Texture2D" uid="uid://8e8k888mifmx" path="res://assets/sprites/furniture/shop/shop_counter.png" id="7_counter"]
+[ext_resource type="Texture2D" uid="uid://c3yp7lprspdju" path="res://assets/sprites/furniture/shop/candelabra.png" id="8_candelabra"]
+[ext_resource type="PackedScene" path="res://scenes/world/objects/night_light.tscn" id="9_light"]
+[ext_resource type="Texture2D" uid="uid://dyat7s4j2jm0k" path="res://assets/sprites/npcs/city_weapon_merchant.png" id="20_merchant"]
+[ext_resource type="Texture2D" uid="uid://ccamvln7yencw" path="res://assets/sprites/furniture/shop/weapon_rack.png" id="30_a"]
+[ext_resource type="Texture2D" uid="uid://ckyfv38lcejx6" path="res://assets/sprites/furniture/shop/shield_stand.png" id="31_b"]
+[ext_resource type="Texture2D" uid="uid://bxpvgifpg6brt" path="res://assets/sprites/furniture/shop/armor_stand.png" id="32_c"]
+[ext_resource type="Texture2D" uid="uid://8yq0yml7v1d8" path="res://assets/sprites/furniture/shop/barrel_weapons.png" id="33_d"]
+[ext_resource type="Texture2D" uid="uid://gig7k83jk0nx" path="res://assets/sprites/furniture/shop/rug_long.png" id="34_e"]
+
+[sub_resource type="RectangleShape2D" id="Shape_top"]
+size = Vector2(301, 64)
+
+[sub_resource type="RectangleShape2D" id="Shape_side"]
+size = Vector2(8, 232)
+
+[sub_resource type="RectangleShape2D" id="Shape_bottom"]
+size = Vector2(130, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_prop"]
+size = Vector2(20, 8)
+
+[node name="Shop_weapon" type="Node2D" unique_id=689613852]
+y_sort_enabled = true
+
+[node name="Outside" type="ColorRect" parent="." unique_id=1986318639]
+z_index = -10
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(0.129, 0.075, 0.118, 1)
+
+[node name="DayTint" type="CanvasModulate" parent="." unique_id=1620598387]
+script = ExtResource("4_day_tint")
+strength = 0.6
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1546736654]
+z_index = -2
+position = Vector2(-150, -116)
+texture = ExtResource("5_room")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=499426420]
+
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=811554919]
+position = Vector2(0, -84)
+shape = SubResource("Shape_top")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=1016509202]
+position = Vector2(-146, 0)
+shape = SubResource("Shape_side")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=1549619427]
+position = Vector2(146, 0)
+shape = SubResource("Shape_side")
+
+[node name="BottomLeft" type="CollisionShape2D" parent="Walls" unique_id=1348102066]
+position = Vector2(-85, 112)
+shape = SubResource("Shape_bottom")
+
+[node name="BottomRight" type="CollisionShape2D" parent="Walls" unique_id=1910777104]
+position = Vector2(85, 112)
+shape = SubResource("Shape_bottom")
+
+[node name="Decor" type="Node2D" parent="." unique_id=1043175726]
+y_sort_enabled = true
+
+[node name="CandleW" type="StaticBody2D" parent="Decor" unique_id=899276502]
+position = Vector2(-126, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CandleW" unique_id=1354487381]
+texture = ExtResource("8_candelabra")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CandleW" unique_id=108912904]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Light" parent="Decor/CandleW" unique_id=62430502 instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+
+[node name="CandleE" type="StaticBody2D" parent="Decor" unique_id=793083936]
+position = Vector2(126, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/CandleE" unique_id=1444280338]
+texture = ExtResource("8_candelabra")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/CandleE" unique_id=547797621]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Light" parent="Decor/CandleE" unique_id=1350275816 instance=ExtResource("9_light")]
+position = Vector2(0, -34)
+
+[node name="RackW" type="StaticBody2D" parent="Decor" unique_id=1772839521]
+position = Vector2(-110, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/RackW" unique_id=309337246]
+texture = ExtResource("30_a")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/RackW" unique_id=705575564]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="ShieldsE" type="StaticBody2D" parent="Decor" unique_id=492896235]
+position = Vector2(110, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ShieldsE" unique_id=2052020507]
+texture = ExtResource("31_b")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ShieldsE" unique_id=562841302]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="ArmorW" type="StaticBody2D" parent="Decor" unique_id=1181717877]
+position = Vector2(-110, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/ArmorW" unique_id=749840409]
+texture = ExtResource("32_c")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ArmorW" unique_id=339773369]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="BarrelE" type="StaticBody2D" parent="Decor" unique_id=519132558]
+position = Vector2(110, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/BarrelE" unique_id=1257047448]
+texture = ExtResource("33_d")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/BarrelE" unique_id=1555502190]
+position = Vector2(0, -4)
+shape = SubResource("Shape_prop")
+
+[node name="Merchant" parent="." unique_id=1425039931 instance=ExtResource("6_stall")]
+merchant_name = "Waffenmeister Roderich"
+stall_texture = ExtResource("7_counter")
+merchant_texture = ExtResource("20_merchant")
+greeting = "Dreißig Jahre im Dienst des Königs, jetzt verkaufe ich, was ich früher geschwungen habe."
+offers = Array[String]([])
+stock_id = "leonheim_weapons"
+merchant_feet = -16.0
+
+[node name="Rug" type="Sprite2D" parent="." unique_id=272001732]
+z_index = -1
+position = Vector2(0, 40)
+texture = ExtResource("34_e")
+
+[node name="DoorOut" parent="." unique_id=1831589377 instance=ExtResource("2_door")]
+position = Vector2(0, 118)
+target_scene = "res://scenes/world/capital/capital_street.tscn"
+target_spawn_point = &"From_weapon"
+
+[node name="Visual" parent="DoorOut" index="0"]
+visible = false
+
+[node name="FromStreet" type="Marker2D" parent="." unique_id=1400720173 groups=["spawn_points"]]
+position = Vector2(0, 94)
+
+[node name="Player" parent="." unique_id=292094661 instance=ExtResource("1_player")]
+position = Vector2(0, 94)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = -320
+limit_top = -240
+limit_right = 320
+limit_bottom = 240
+
+[node name="HUD" parent="." unique_id=142593888 instance=ExtResource("3_hud")]
+
+[editable path="DoorOut"]
+[editable path="Player"]

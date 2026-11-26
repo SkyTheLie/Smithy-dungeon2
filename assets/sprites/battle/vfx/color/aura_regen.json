@@ -1,0 +1,225 @@
+{
+ "frames": [
+  {
+   "filename": "aura_regen 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 1.png",
+   "frame": {
+    "x": 22,
+    "y": 0,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 2.png",
+   "frame": {
+    "x": 44,
+    "y": 0,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 3.png",
+   "frame": {
+    "x": 66,
+    "y": 0,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 4.png",
+   "frame": {
+    "x": 0,
+    "y": 23,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 5.png",
+   "frame": {
+    "x": 22,
+    "y": 23,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 6.png",
+   "frame": {
+    "x": 44,
+    "y": 23,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 7.png",
+   "frame": {
+    "x": 66,
+    "y": 23,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 8.png",
+   "frame": {
+    "x": 0,
+    "y": 46,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 9.png",
+   "frame": {
+    "x": 22,
+    "y": 46,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 10.png",
+   "frame": {
+    "x": 44,
+    "y": 46,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  },
+  {
+   "filename": "aura_regen 11.png",
+   "frame": {
+    "x": 66,
+    "y": 46,
+    "w": 22,
+    "h": 23
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 23
+   },
+   "pivot": {
+    "x": 0.4090909090909091,
+    "y": 0.8695652173913043
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "loop": true,
+  "anchor": "feet",
+  "depth": "front"
+ }
+}

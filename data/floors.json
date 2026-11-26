@@ -1,0 +1,437 @@
+{
+	"_info": "Ebenen der Reihe nach; jede nennt ein theme (Aussehen, Musik, Gegner, Bosse) und hat eigene Zahlen: rooms = Anzahl normaler Räume (dazu Start, Item-Raum, Shop, Boss), enemy_count [min, max] je Raum, hp_mult = Leben aller Gegner mal diesem Wert, first_room_enemies = feste Gegner neben dem Start, key_doors = Raumarten mit Schlüssel-Tür. Felder der Ebene überschreiben das Thema. themes: name, Texturen (32x32 Boden, 32x48 Wand), music (Id aus audio.json), light, enemies [Id, Gewicht], bosses (einer wird zufällig gewählt). Die letzte Ebene endet mit dem Sieg. rock_patterns: [Muster, Gewicht] (scatter, walls, pillars, ring, corners, columns, checker), rock_texture.",
+	"themes": {
+		"rattenkeller": {
+			"name": "Rattenkeller",
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_sandstone.png",
+			"wall_texture": "res://assets/sprites/rooms/styles/wall_red_brick.png",
+			"music": "cellar",
+			"light": [
+				1.0,
+				0.72,
+				0.45
+			],
+			"enemies": [
+				[
+					"rat",
+					8
+				],
+				[
+					"giant_rat",
+					2
+				],
+				[
+					"poison_rat",
+					2
+				],
+				[
+					"bat",
+					2
+				],
+				[
+					"spider",
+					1
+				]
+			],
+			"bosses": [
+				"rat_king",
+				"mine_rat_boss",
+				"giant_spider"
+			],
+			"rock_texture": "res://assets/sprites/rocks/coal_rock.png"
+		},
+		"goblinstollen": {
+			"name": "Goblinstollen",
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_obsidian.png",
+			"wall_texture": "res://assets/sprites/rooms/styles/wall_obsidian.png",
+			"music": "deep",
+			"light": [
+				1.0,
+				0.5,
+				0.35
+			],
+			"enemies": [
+				[
+					"goblin",
+					4
+				],
+				[
+					"slime",
+					3
+				],
+				[
+					"bat",
+					2
+				],
+				[
+					"spider",
+					2
+				],
+				[
+					"goblin_shaman",
+					2
+				],
+				[
+					"orc",
+					2
+				],
+				[
+					"ogre",
+					1
+				],
+				[
+					"shield_guard",
+					2
+				]
+			],
+			"bosses": [
+				"orc_chieftain",
+				"troll",
+				"minotaur"
+			],
+			"rock_texture": "res://assets/sprites/rocks/iron_rock.png"
+		},
+		"totengruft": {
+			"name": "Totengruft",
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_tourney_iron.png",
+			"wall_texture": "res://assets/sprites/rooms/styles/wall_tourney_iron.png",
+			"music": "crypt",
+			"light": [
+				0.6,
+				0.7,
+				1.0
+			],
+			"enemies": [
+				[
+					"skeleton",
+					4
+				],
+				[
+					"zombie",
+					3
+				],
+				[
+					"ghost",
+					2
+				],
+				[
+					"cursed_skeleton",
+					2
+				],
+				[
+					"crypt_wraith",
+					2
+				],
+				[
+					"ghoul",
+					2
+				],
+				[
+					"skeleton_knight",
+					1
+				]
+			],
+			"bosses": [
+				"bone_general",
+				"ghost_lord",
+				"vampire",
+				"lich"
+			],
+			"rock_texture": "res://assets/sprites/rocks/silver_rock.png"
+		}
+	},
+	"floors": [
+		{
+			"theme": "rattenkeller",
+			"rooms": 7,
+			"enemy_count": [
+				3,
+				6
+			],
+			"hp_mult": 1.0,
+			"first_room_enemies": [
+				"rat",
+				"rat",
+				"rat"
+			],
+			"key_doors": [
+				"shop"
+			],
+			"rock_patterns": [
+				[
+					"scatter",
+					3
+				],
+				[
+					"corners",
+					2
+				],
+				[
+					"pillars",
+					1
+				]
+			]
+		},
+		{
+			"theme": "rattenkeller",
+			"rooms": 8,
+			"enemy_count": [
+				4,
+				7
+			],
+			"hp_mult": 1.3,
+			"key_doors": [
+				"shop"
+			],
+			"rock_patterns": [
+				[
+					"corners",
+					2
+				],
+				[
+					"walls",
+					2
+				],
+				[
+					"scatter",
+					1
+				]
+			],
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_oak_planks.png",
+			"wall_texture": "res://assets/sprites/rooms/styles/wall_wood_panel.png",
+			"rock_texture": "res://assets/sprites/rocks/copper_rock.png"
+		},
+		{
+			"theme": "goblinstollen",
+			"rooms": 9,
+			"enemy_count": [
+				4,
+				7
+			],
+			"hp_mult": 1.0,
+			"key_doors": [
+				"shop",
+				"item"
+			],
+			"rock_patterns": [
+				[
+					"columns",
+					2
+				],
+				[
+					"walls",
+					2
+				],
+				[
+					"scatter",
+					1
+				]
+			]
+		},
+		{
+			"theme": "goblinstollen",
+			"rooms": 10,
+			"enemy_count": [
+				5,
+				8
+			],
+			"hp_mult": 1.3,
+			"key_doors": [
+				"shop",
+				"item"
+			],
+			"rock_patterns": [
+				[
+					"walls",
+					2
+				],
+				[
+					"checker",
+					2
+				],
+				[
+					"pillars",
+					1
+				]
+			],
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_tourney_bronze.png",
+			"wall_texture": "res://assets/sprites/rooms/styles/wall_tourney_bronze.png",
+			"rock_texture": "res://assets/sprites/rocks/gold_rock.png"
+		},
+		{
+			"theme": "totengruft",
+			"rooms": 10,
+			"enemy_count": [
+				5,
+				8
+			],
+			"hp_mult": 1.0,
+			"key_doors": [
+				"shop",
+				"item"
+			],
+			"rock_patterns": [
+				[
+					"ring",
+					2
+				],
+				[
+					"pillars",
+					2
+				],
+				[
+					"checker",
+					1
+				]
+			]
+		},
+		{
+			"theme": "totengruft",
+			"rooms": 11,
+			"enemy_count": [
+				6,
+				9
+			],
+			"hp_mult": 1.3,
+			"key_doors": [
+				"shop",
+				"item"
+			],
+			"rock_patterns": [
+				[
+					"ring",
+					2
+				],
+				[
+					"checker",
+					2
+				],
+				[
+					"columns",
+					1
+				]
+			],
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_obsidian.png",
+			"wall_texture": "res://assets/sprites/rooms/styles/wall_plaster.png",
+			"rock_texture": "res://assets/sprites/rocks/platinum_rock.png",
+			"light": [
+				0.75,
+				0.55,
+				1.0
+			]
+		}
+	],
+	"room_styles": {
+		"item": {
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_red_carpet.png"
+		},
+		"shop": {
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_oak_planks.png",
+			"wall_texture": "res://assets/sprites/rooms/styles/wall_wood_panel.png"
+		},
+		"secret": {
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_checker_marble.png"
+		},
+		"sacrifice": {
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_red_carpet.png",
+			"wall_texture": "res://assets/sprites/rooms/styles/wall_obsidian.png"
+		},
+		"special": {
+			"floor_texture": "res://assets/sprites/rooms/styles/floor_tourney_gold.png",
+			"wall_texture": "res://assets/sprites/rooms/styles/wall_tourney_gold.png"
+		}
+	},
+	"shop": {
+		"item_price": 15,
+		"goods": [
+			[
+				"heart",
+				3
+			],
+			[
+				"bomb",
+				5
+			],
+			[
+				"key",
+				5
+			]
+		],
+		"keeper": "res://assets/sprites/npcs/goblin_merchant.png"
+	},
+	"room_drops": {
+		"chance": 0.45,
+		"table": [
+			[
+				"coin",
+				6
+			],
+			[
+				"heart",
+				2
+			],
+			[
+				"bomb",
+				2
+			],
+			[
+				"key",
+				2
+			]
+		]
+	},
+	"rocks": {
+		"count": [
+			0,
+			6
+		],
+		"coin_chance": 0.2,
+		"texture": "res://assets/sprites/rocks/coal_rock.png"
+	},
+	"sacrifice": {
+		"_info": "Opferstein: jedes Mal kostet ein ganzes Herz. rewards[n] gilt für das n-te Opfer auf dieser Ebene (danach das letzte): [was, Chance]. was: coin, coins (drei), bomb, key, heart, blue_heart, item.",
+		"room_chance": 0.5,
+		"rewards": [
+			[
+				"coin",
+				0.5
+			],
+			[
+				"coin",
+				0.5
+			],
+			[
+				"key",
+				0.7
+			],
+			[
+				"bomb",
+				0.5
+			],
+			[
+				"coins",
+				0.7
+			],
+			[
+				"blue_heart",
+				0.6
+			],
+			[
+				"item",
+				0.35
+			],
+			[
+				"item",
+				0.5
+			]
+		]
+	},
+	"special": {
+		"_info": "Sonderraum hinter dem Boss (Chance: RunState.roll_special_room). pact: pact_items Items, jedes kostet pact_hearts Herz-Container (Pool pact). shrine: ein Gratis-Item (Pool shrine) und ein blaues Herz.",
+		"pact_items": 2,
+		"pact_hearts": [
+			1,
+			2
+		]
+	}
+}

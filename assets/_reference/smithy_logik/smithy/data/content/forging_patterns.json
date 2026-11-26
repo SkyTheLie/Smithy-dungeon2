@@ -1,0 +1,285 @@
+{
+	"_hilfe": {
+		"info": "Muster für das Amboss-Minispiel: welches glühende Teil zu sehen ist und wo die Schlagflächen liegen. Wird nur noch für Items ohne eigenes Icon benutzt (sonst zeigt das Minispiel das glühende Item-Icon mit automatisch verteilten Flächen). Welches Muster ein Item bekommt: Feld \"forging_pattern\" im Item (items.json, z. B. für Unique-Gegenstände), sonst das Muster mit der id seines Teil-Typs (\"part\", z. B. blade), sonst \"default\". Alle Felder: docs/CONTENT.md. Dieser Block wird vom Spiel ignoriert.",
+		"felder": {
+			"name": "Anzeigename (nur zur Übersicht)",
+			"image": "Bild des glühenden Teils, 80×48 px (wird im Spiel doppelt so groß gezeigt), z. B. res://assets/sprites/forging/blade.png; fehlt es: default.png",
+			"spots": "Schlagflächen in der Reihenfolge, in der sie aufleuchten: {\"x\", \"y\" = Mittelpunkt, \"w\", \"h\" = Breite/Höhe der Ellipse}, alles in Pixeln des 80×48-Bildes (0,0 = oben links). Gibt es mehr Schläge als Flächen, geht es wieder von vorne los."
+		},
+		"bilder_backen": "Die Bilder entstehen mit assets/_reference/forging/bake_patterns.py (python assets/_reference/forging/bake_patterns.py). Eigene Bilder einfach als PNG ablegen und hier eintragen.",
+		"vorlage": {
+			"name": "Mein Muster",
+			"image": "res://assets/sprites/forging/default.png",
+			"spots": [
+				{"x": 20, "y": 24, "w": 9, "h": 7},
+				{"x": 40, "y": 24, "w": 9, "h": 7}
+			]
+		}
+	},
+	"blade": {
+		"name": "Klinge",
+		"image": "res://assets/sprites/forging/blade.png",
+		"spots": [
+			{"x": 20, "y": 36, "w": 9, "h": 7},
+			{"x": 32, "y": 29, "w": 9, "h": 7},
+			{"x": 43, "y": 22, "w": 9, "h": 7},
+			{"x": 54, "y": 15, "w": 9, "h": 7}
+		]
+	},
+	"greatsword_blade": {
+		"name": "Zweihandklinge",
+		"image": "res://assets/sprites/forging/greatsword_blade.png",
+		"spots": [
+			{"x": 14, "y": 39, "w": 10, "h": 8},
+			{"x": 26, "y": 32, "w": 10, "h": 8},
+			{"x": 39, "y": 25, "w": 10, "h": 8},
+			{"x": 51, "y": 18, "w": 10, "h": 8},
+			{"x": 63, "y": 10, "w": 10, "h": 8}
+		]
+	},
+	"dagger_blade": {
+		"name": "Dolchklinge",
+		"image": "res://assets/sprites/forging/dagger_blade.png",
+		"spots": [
+			{"x": 30, "y": 32, "w": 8, "h": 6},
+			{"x": 40, "y": 25, "w": 8, "h": 6},
+			{"x": 50, "y": 17, "w": 8, "h": 6}
+		]
+	},
+	"handle": {
+		"name": "Griff",
+		"image": "res://assets/sprites/forging/handle.png",
+		"spots": [
+			{"x": 26, "y": 15, "w": 7, "h": 7},
+			{"x": 28, "y": 33, "w": 7, "h": 7},
+			{"x": 41, "y": 24, "w": 8, "h": 6},
+			{"x": 52, "y": 24, "w": 8, "h": 6},
+			{"x": 63, "y": 24, "w": 7, "h": 7}
+		]
+	},
+	"axe_head": {
+		"name": "Axtkopf",
+		"image": "res://assets/sprites/forging/axe_head.png",
+		"spots": [
+			{"x": 28, "y": 24, "w": 9, "h": 7},
+			{"x": 50, "y": 15, "w": 9, "h": 8},
+			{"x": 55, "y": 24, "w": 8, "h": 8},
+			{"x": 50, "y": 33, "w": 9, "h": 8}
+		]
+	},
+	"greataxe_head": {
+		"name": "Zweihandaxtkopf",
+		"image": "res://assets/sprites/forging/greataxe_head.png",
+		"spots": [
+			{"x": 40, "y": 24, "w": 9, "h": 8},
+			{"x": 58, "y": 16, "w": 9, "h": 8},
+			{"x": 59, "y": 32, "w": 9, "h": 8},
+			{"x": 22, "y": 16, "w": 9, "h": 8},
+			{"x": 21, "y": 32, "w": 9, "h": 8}
+		]
+	},
+	"pickaxe_head": {
+		"name": "Spitzhackenkopf",
+		"image": "res://assets/sprites/forging/pickaxe_head.png",
+		"spots": [
+			{"x": 13, "y": 31, "w": 8, "h": 7},
+			{"x": 25, "y": 18, "w": 8, "h": 7},
+			{"x": 40, "y": 14, "w": 9, "h": 7},
+			{"x": 55, "y": 18, "w": 8, "h": 7},
+			{"x": 67, "y": 31, "w": 8, "h": 7}
+		]
+	},
+	"spear_head": {
+		"name": "Speerspitze",
+		"image": "res://assets/sprites/forging/spear_head.png",
+		"spots": [
+			{"x": 15, "y": 24, "w": 7, "h": 5},
+			{"x": 33, "y": 24, "w": 9, "h": 8},
+			{"x": 45, "y": 24, "w": 9, "h": 8},
+			{"x": 55, "y": 24, "w": 7, "h": 6}
+		]
+	},
+	"hammer_head": {
+		"name": "Hammerkopf",
+		"image": "res://assets/sprites/forging/hammer_head.png",
+		"spots": [
+			{"x": 29, "y": 18, "w": 10, "h": 8},
+			{"x": 51, "y": 18, "w": 10, "h": 8},
+			{"x": 51, "y": 32, "w": 10, "h": 8},
+			{"x": 29, "y": 32, "w": 10, "h": 8},
+			{"x": 40, "y": 25, "w": 10, "h": 8}
+		]
+	},
+	"mace_head": {
+		"name": "Keulenkopf",
+		"image": "res://assets/sprites/forging/mace_head.png",
+		"spots": [
+			{"x": 40, "y": 24, "w": 9, "h": 8},
+			{"x": 33, "y": 17, "w": 8, "h": 7},
+			{"x": 47, "y": 17, "w": 8, "h": 7},
+			{"x": 47, "y": 31, "w": 8, "h": 7},
+			{"x": 33, "y": 31, "w": 8, "h": 7}
+		]
+	},
+	"shield_plate": {
+		"name": "Schildplatte",
+		"image": "res://assets/sprites/forging/shield_plate.png",
+		"spots": [
+			{"x": 32, "y": 14, "w": 10, "h": 8},
+			{"x": 48, "y": 14, "w": 10, "h": 8},
+			{"x": 40, "y": 24, "w": 10, "h": 8},
+			{"x": 33, "y": 31, "w": 9, "h": 7},
+			{"x": 47, "y": 31, "w": 9, "h": 7},
+			{"x": 40, "y": 38, "w": 8, "h": 6}
+		]
+	},
+	"chest_plate": {
+		"name": "Brustplatte",
+		"image": "res://assets/sprites/forging/chest_plate.png",
+		"spots": [
+			{"x": 30, "y": 16, "w": 10, "h": 8},
+			{"x": 50, "y": 16, "w": 10, "h": 8},
+			{"x": 40, "y": 27, "w": 10, "h": 8},
+			{"x": 31, "y": 36, "w": 9, "h": 7},
+			{"x": 49, "y": 36, "w": 9, "h": 7}
+		]
+	},
+	"helmet_plate": {
+		"name": "Helmschale",
+		"image": "res://assets/sprites/forging/helmet_plate.png",
+		"spots": [
+			{"x": 40, "y": 12, "w": 10, "h": 8},
+			{"x": 30, "y": 22, "w": 9, "h": 8},
+			{"x": 50, "y": 22, "w": 9, "h": 8},
+			{"x": 22, "y": 33, "w": 8, "h": 6},
+			{"x": 58, "y": 33, "w": 8, "h": 6}
+		]
+	},
+	"shoulder_plate": {
+		"name": "Schulterplatte",
+		"image": "res://assets/sprites/forging/shoulder_plate.png",
+		"spots": [
+			{"x": 22, "y": 25, "w": 9, "h": 8},
+			{"x": 40, "y": 16, "w": 10, "h": 8},
+			{"x": 58, "y": 25, "w": 9, "h": 8},
+			{"x": 33, "y": 33, "w": 8, "h": 6},
+			{"x": 47, "y": 33, "w": 8, "h": 6}
+		]
+	},
+	"leg_plate": {
+		"name": "Beinplatte",
+		"image": "res://assets/sprites/forging/leg_plate.png",
+		"spots": [
+			{"x": 40, "y": 8, "w": 12, "h": 6},
+			{"x": 30, "y": 22, "w": 9, "h": 8},
+			{"x": 30, "y": 36, "w": 9, "h": 8},
+			{"x": 50, "y": 22, "w": 9, "h": 8},
+			{"x": 50, "y": 36, "w": 9, "h": 8}
+		]
+	},
+	"backpack_frame": {
+		"name": "Rucksackgestell",
+		"image": "res://assets/sprites/forging/backpack_frame.png",
+		"spots": [
+			{"x": 27, "y": 9, "w": 8, "h": 6},
+			{"x": 53, "y": 9, "w": 8, "h": 6},
+			{"x": 40, "y": 24, "w": 12, "h": 6},
+			{"x": 27, "y": 39, "w": 8, "h": 6},
+			{"x": 53, "y": 39, "w": 8, "h": 6}
+		]
+	},
+	"can_body": {
+		"name": "Kannenkörper",
+		"image": "res://assets/sprites/forging/can_body.png",
+		"spots": [
+			{"x": 26, "y": 22, "w": 9, "h": 7},
+			{"x": 40, "y": 34, "w": 9, "h": 7},
+			{"x": 26, "y": 36, "w": 9, "h": 7},
+			{"x": 58, "y": 24, "w": 8, "h": 6},
+			{"x": 33, "y": 8, "w": 10, "h": 6}
+		]
+	},
+	"boot_plate": {
+		"name": "Stiefelplatte",
+		"image": "res://assets/sprites/forging/boot_plate.png",
+		"spots": [
+			{"x": 34, "y": 11, "w": 10, "h": 8},
+			{"x": 34, "y": 23, "w": 10, "h": 8},
+			{"x": 36, "y": 37, "w": 9, "h": 7},
+			{"x": 51, "y": 37, "w": 9, "h": 7},
+			{"x": 62, "y": 38, "w": 7, "h": 6}
+		]
+	},
+	"glove_plate": {
+		"name": "Handschuhplatte",
+		"image": "res://assets/sprites/forging/glove_plate.png",
+		"spots": [
+			{"x": 21, "y": 24, "w": 9, "h": 8},
+			{"x": 42, "y": 18, "w": 9, "h": 7},
+			{"x": 43, "y": 30, "w": 9, "h": 7},
+			{"x": 60, "y": 13, "w": 7, "h": 6},
+			{"x": 62, "y": 22, "w": 7, "h": 6}
+		]
+	},
+	"ring_band": {
+		"name": "Ringfassung",
+		"image": "res://assets/sprites/forging/ring_band.png",
+		"spots": [
+			{"x": 40, "y": 11, "w": 8, "h": 5},
+			{"x": 54, "y": 24, "w": 5, "h": 8},
+			{"x": 40, "y": 37, "w": 8, "h": 5},
+			{"x": 26, "y": 24, "w": 5, "h": 8}
+		]
+	},
+	"default": {
+		"name": "Standard",
+		"image": "res://assets/sprites/forging/default.png",
+		"spots": [
+			{"x": 20, "y": 24, "w": 9, "h": 7},
+			{"x": 33, "y": 24, "w": 9, "h": 7},
+			{"x": 46, "y": 24, "w": 9, "h": 7},
+			{"x": 59, "y": 24, "w": 9, "h": 7}
+		]
+	},
+	"compass_case": {
+		"name": "Kompassgehäuse",
+		"image": "res://assets/sprites/forging/compass_case.png",
+		"spots": [
+			{"x": 40, "y": 10, "w": 9, "h": 6},
+			{"x": 54, "y": 24, "w": 7, "h": 8},
+			{"x": 40, "y": 38, "w": 9, "h": 6},
+			{"x": 26, "y": 24, "w": 7, "h": 8},
+			{"x": 40, "y": 6, "w": 7, "h": 5}
+		]
+	},
+	"compass_needle": {
+		"name": "Kompassnadel",
+		"image": "res://assets/sprites/forging/compass_needle.png",
+		"spots": [
+			{"x": 22, "y": 24, "w": 8, "h": 5},
+			{"x": 40, "y": 24, "w": 10, "h": 6},
+			{"x": 58, "y": 24, "w": 8, "h": 5}
+		]
+	},
+	"compass_rose": {
+		"name": "Windrose",
+		"image": "res://assets/sprites/forging/compass_rose.png",
+		"spots": [
+			{"x": 40, "y": 24, "w": 10, "h": 8},
+			{"x": 40, "y": 11, "w": 6, "h": 6},
+			{"x": 55, "y": 24, "w": 6, "h": 6},
+			{"x": 40, "y": 37, "w": 6, "h": 6},
+			{"x": 25, "y": 24, "w": 6, "h": 6}
+		]
+	},
+	"compass_lid": {
+		"name": "Kompassdeckel",
+		"image": "res://assets/sprites/forging/compass_lid.png",
+		"spots": [
+			{"x": 40, "y": 25, "w": 12, "h": 9},
+			{"x": 30, "y": 18, "w": 8, "h": 6},
+			{"x": 50, "y": 32, "w": 8, "h": 6},
+			{"x": 40, "y": 6, "w": 7, "h": 5}
+		]
+	}
+}
