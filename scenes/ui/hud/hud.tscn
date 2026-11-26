@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scenes/ui/hud/hud.gd" id="1_hud"]
 [ext_resource type="Script" path="res://scenes/ui/hud/heart_bar.gd" id="2_hearts"]
 [ext_resource type="Script" path="res://scenes/ui/hud/minimap.gd" id="3_minimap"]
 [ext_resource type="Script" path="res://scenes/ui/hud/crosshair.gd" id="4_crosshair"]
-[ext_resource type="Texture2D" path="res://assets/sprites/ui/slot/coin.png" id="5_coin"]
 [ext_resource type="Texture2D" path="res://assets/sprites/skills/smoke_bomb.png" id="6_bomb"]
 [ext_resource type="Texture2D" path="res://assets/sprites/items/smithy_key.png" id="7_key"]
 
@@ -40,14 +39,14 @@ script = ExtResource("4_crosshair")
 [node name="TopLeft" type="VBoxContainer" parent="."]
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 160.0
-offset_bottom = 60.0
+offset_right = 200.0
+offset_bottom = 70.0
 mouse_filter = 2
 theme_override_constants/separation = 3
 
 [node name="Hearts" type="Control" parent="TopLeft"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 18)
+custom_minimum_size = Vector2(90, 28)
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("2_hearts")
@@ -56,21 +55,6 @@ script = ExtResource("2_hearts")
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 2
-
-[node name="CoinIcon" type="TextureRect" parent="TopLeft/Counters"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("5_coin")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Coins" type="Label" parent="TopLeft/Counters"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 16
-text = "00"
 
 [node name="BombIcon" type="TextureRect" parent="TopLeft/Counters"]
 custom_minimum_size = Vector2(16, 16)

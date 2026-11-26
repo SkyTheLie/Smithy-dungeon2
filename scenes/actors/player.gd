@@ -53,6 +53,13 @@ func setup(run_state: RunState, the_dungeon: Dungeon) -> void:
 
 func _ready() -> void:
 	_ring = Fx.ring(self, RADIUS, RING_COLOR)
+	# Field of view from the settings, also when it is changed in the pause menu.
+	camera.fov = DisplaySettings.get_fov()
+	Game.fov_changed.connect(_on_fov_changed)
+
+
+func _on_fov_changed(degrees: float) -> void:
+	camera.fov = degrees
 
 
 ## Turns the view by a mouse movement (pixels).

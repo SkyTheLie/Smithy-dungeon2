@@ -8,7 +8,8 @@ Texts it finds by itself:
   - "text" and "title" of Labels/Buttons in .tscn files (only those with auto translate on)
   - Language.translate("...") in .gd files
   - "name" and "desc" in data/items.json, data/synergies.json, data/enemies.json, data/characters.json, materials in data/loot.json, theme "name" in floors.json,
-    "name"/"region"/"desc" in data/dungeons.json
+    "name"/"region"/"desc" in data/dungeons.json, gear and slot names in data/gear.json,
+    every line in data/story.json, skill names in data/skills.json
 """
 import json
 import os
@@ -55,6 +56,23 @@ def find_texts():
         for field in ("name", "region", "desc"):
             if entry.get(field):
                 texts.add(entry[field])
+    gear = json.load(open(os.path.join(data, "gear.json"), encoding="utf-8"))
+    for group in ("gear", "slots"):
+        for entry in gear[group].values():
+            for field in ("name", "desc"):
+                if entry.get(field):
+                    texts.add(entry[field])
+    skills = json.load(open(os.path.join(data, "skills.json"), encoding="utf-8"))
+    for entry in skills["skills"].values():
+        for field in ("name", "desc"):
+            if entry.get(field):
+                texts.add(entry[field])
+    story = json.load(open(os.path.join(data, "story.json"), encoding="utf-8"))
+    for key, value in story.items():
+        if key.startswith("_") or key in ("speaker", "portrait"):
+            continue
+        for line in (value.values() if isinstance(value, dict) else value):
+            texts.add(line)
     floors = json.load(open(os.path.join(data, "floors.json"), encoding="utf-8"))
     for theme in floors.get("themes", {}).values():
         texts.add(theme["name"])

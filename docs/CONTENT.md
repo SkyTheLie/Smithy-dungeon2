@@ -56,6 +56,8 @@ Gilt, wenn aus **jeder** Gruppe in `requires` mindestens ein Item da ist. `stats
 
 ## Ebene (`data/floors.json`)
 
+- `item_room: false` = diese Ebene hat keinen Item-Raum; `key_doors: ["shop", "item"]` = diese Räume brauchen einen Schlüssel.
+
 Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` (32×48), `rooms` (normale Räume), `enemies` ([Id, Gewicht]), `enemy_count`, `first_room_enemies`, `boss`, `music` (Id aus `audio.json`), `light` (Farbe), `key_doors` (Raumarten mit Schlüssel-Tür). Die letzte Ebene endet mit dem Sieg. Dazu `room_styles`, `shop` (Preise, Händler-Bild), `room_drops`, `rocks`.
 
 ## Beute (`data/loot.json`)
@@ -75,3 +77,34 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - `"id": {"name", "region", "desc", "level"}`: `name`/`desc` = Text auf dem Brett, `region` = Reiter (z. B. „Umgebung“), `level` = empfohlene Stufe. Reihenfolge = Reihenfolge auf dem Brett.
 - Ebenen und Gebiete kommen aus `floors.json` (eigene Ebenen je Dungeon: Phase 4).
 - Neue Texte danach übersetzen (`build_po.py` findet `name`, `region`, `desc` selbst).
+
+## Ausrüstung (`data/gear.json`)
+
+- `slots`: Plätze an der Figur, `"id": {"name", "hint", "at": [x, y]}` (`hint` = Bild `assets/sprites/ui/slot_hints/equip_<hint>.png`, `at` = Mitte in der Helden-Ansicht).
+- `gear`: `"id": {"name", "desc", "slot", "icon", "price", "class"?, "stats"}`. `stats` wie in `player.json` (wirken ab Phase 3), mal `rarity_stats` je Seltenheit. `class` = nur für diese Klasse (Tooltip „Nur für“).
+- Neue Ausrüstung taucht im Laden erst auf, wenn sie in `shop.json` `pool` steht. Der Test prüft Bild und Platz.
+
+## Egons Laden (`data/shop.json`)
+
+- `table_slots`, `goods_count` [min, max], `roll_prices` (1., 2., 3. … Hebel-Zug am Tag), `pool` [[id, Gewicht]], `rarity_weights` [[Seltenheit, Gewicht]], `rarity_price` (Preis-Faktor R1..R8).
+- `tutorial.goods` [{id, rarity, cell}] = Egons erster Tisch, `tutorial.gifts` = was davon geschenkt und angelegt wird.
+
+## Texte der Figuren (`data/story.json`)
+
+- Jeder Schlüssel ist eine Liste von Sprechblasen (höchstens zwei Sätze), `barks` sind einzelne Sätze. Egons Texte werden aus `docs/figuren/EGON_EHRLICH.md` gebaut.
+- `build_po.py` findet alle Sätze selbst; danach übersetzen.
+
+## Münzwert (`data/player.json`)
+
+- `coin_pickup`: [min, max] Münzen je aufgehobener Münze (bisher [8, 12]). Preise im Run-Shop (`floors.json` `shop`) passen dazu.
+
+## Relikte (`data/relics.json`)
+
+- `items`: `"item_id": Stufe` (1 schwach … 4 stark). Neues Item als Relikt erlauben = Zeile hinzufügen.
+- `tiers`: `"1": {"dungeons": 0, "price": 40, "rarity": 2, "weight": 4}` … (`dungeons` 0 = hält für immer).
+- `table_chance`: Chance je Hebel-Zug, dass ein Relikt auf dem Tisch liegt.
+
+## Stufen (`data/levels.json`) und Skills (`data/skills.json`)
+
+- `levels.json`: `exp_per_kill`, `exp_per_boss`, `first_level_exp`, `growth`, `max_level`, `points_per_level`, `start_points`.
+- `skills.json` je Skill: `name`, `desc`, `icon`, `pos` [Spalte, Zeile], `requires`, `max_level`, `gold` [je Stufe], `points` [je Stufe], `min_level` [Spielerstufe je Stufe], `effect` (`stats`, `shield_halves`, `hearts`, `bag_slots`, `safe_slots`, `relic_slots`, `relic_runs`, `coin_bonus`). Neuer Skill = neuer Eintrag; Texte danach übersetzen.

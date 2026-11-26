@@ -7,7 +7,7 @@
 | | |
 |---|---|
 | **Name** | Egon Ehrlich. Ob er wirklich so heißt? „Steht so auf meinem Schild. Also stimmt's.“ |
-| **Rolle** | Händler am Eingang des Dungeons. Verkauft Ausrüstung, Tränke und Relikte, kauft Beute an, dreht den Glücksspiel-Tisch. |
+| **Rolle** | Händler am Eingang des Dungeons (sein Stand steht links neben dem Eingang, Intro-Skizze `assets/_reference/vorlagen/intro_skizze.png`). Verkauft Ausrüstung, Tränke und Relikte, kauft Beute an, dreht den Glücksspiel-Tisch. |
 | **Was er ist** | Ein freundlicher Gauner. Er betrügt den Spieler ständig, aber nie so sehr, dass der Spieler ganz verliert. Er braucht ihn ja: Der Spieler holt Sachen aus Dungeons, in die Egon selbst nie gehen würde. |
 | **Was er will** | Reich werden, ohne zu arbeiten. Insgeheim mag er den Spieler, gibt das aber nie zu. |
 | **Aussehen** | Vorschlag: `assets/sprites/npcs/black_market_dealer.png` (Schwarzmarkt-Händler aus Smithy). Breites Grinsen, zu viele Ringe, ein Hebel neben dem Tisch. |
@@ -37,6 +37,7 @@
 3. **Die Dose:** Ist zu viel Geld in der Dose des Spielers (über dem Limit), verschwindet manchmal etwas. Egon hat jedes Mal eine neue Ausrede: Ratten, Wind, „Steuern“, „die Dose hat ein Loch“, „das war schon so“. Klaut er alles (ganz selten), tut er empört: „Diebe! Hier! In meiner ehrlichen Gegend!“
 4. **Der Hebel:** Er zieht dramatisch daran und kündigt jede neue Ware an wie ein Zirkusdirektor, egal wie schlecht sie ist.
 5. **Der Ankauf:** Er zahlt für Beute fast nichts und lobt sich dafür („Weil du es bist!“).
+6. **Aufs Haus:** Den allerersten Einkauf schenkt er (Tutorial) und erinnert danach gern daran, dass ab jetzt alles einen „kleinen Obolus“ kostet.
 
 ## Was Egon nie tut
 

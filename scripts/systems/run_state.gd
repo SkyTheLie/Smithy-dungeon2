@@ -6,6 +6,10 @@ extends RefCounted
 ##
 ## Life counts in half hearts: health 5 of max_hearts 3 = two and a half of three hearts.
 ## Blue hearts (`blue`, also in halves) come on top: hits take them first, they cannot be healed.
+## White shield hearts (`shield`, halves) come from the equipment (use_gear, gear.json
+## shield_hearts): they go before the blue ones, cannot be healed and are not refilled.
+## The equipment's other stats (e.g. the weapon's damage) count like an item for the whole run;
+## the relic on the hero is added as its item.
 ## Picked-up items are remembered between runs (Progress: Lexikon, unlocks).
 ## Item flags handled here: damage_cap (a hit takes at most half a heart), extra_life (the item is
 ## used up instead of dying), desperate / fury (more damage at low life / after hits on this
@@ -30,7 +34,21 @@ var health: int = 6
 var max_hearts: int = 3
 ## Blue hearts in halves (on top of the red ones).
 var blue: int = 0
-var coins: int = 0
+## White shield hearts (halves) from the equipment and the skills.
+var shield: int = 0
+## EXP of this run (kills, Skills.kill_exp); MetaState.add_exp at the end of the run.
+var exp_earned: int = 0
+## Levels the player reached at the end of this run (for the end screen).
+var levels_gained: int = 0
+## Extra gold per picked-up coin (skill Goldnase).
+var coin_bonus: int = 0
+## The stats of the equipment worn at the start (one source per piece, without shield_hearts).
+var gear_sources: Array[Dictionary] = []
+## The gold of the run: what lies in the bag as "gold" (Bag.GOLD). Only counted here, so there is
+## one source; change it with add_coins / spend / bring_gold.
+var coins: int:
+	get:
+		return bag.count_of(Bag.GOLD)
 var bombs: int = 0
 var keys: int = 0
 ## Collected item ids in the order they were picked up (the same item can come twice).
@@ -44,6 +62,8 @@ var synergies: Array[String] = []
 var stats: ShotStats
 ## Seed of the run: each floor uses seed + floor_index, so the same seed gives the same dungeon.
 var seed_value: int = 0
+## Rolls the value of picked-up coins (seeded with the run, so a test gets the same numbers).
+var _coin_rng := RandomNumberGenerator.new()
 ## Item ids that were offered already (item room, shop, boss), so they do not come again.
 var seen_items: Array[String] = []
 ## Glutmantel ("mantle"): can still catch a hit in this room (Dungeon refreshes it per room).
@@ -72,17 +92,18 @@ var _kills_to_heal: int = 0
 
 const MAX_HEARTS_LIMIT: int = 12
 const MAX_COUNT: int = 99
-## Coins are the gold of the run (it goes home after a win), so they may go higher than bombs.
-const MAX_COINS: int = 9999
 
 
 func _init(run_seed: int = 0, character_id: String = "magier") -> void:
 	seed_value = run_seed
+	_coin_rng.seed = run_seed
 	character = character_id if not Content.character(character_id).is_empty() else "magier"
 	var base: Dictionary = Content.player()
 	max_hearts = int(Content.character(character).get("hearts", base.get("hearts", 3)))
 	health = max_hearts * 2
-	coins = int(base.get("coins", 0))
+	# Gold in the bag changes the coins (Goldglut items count them).
+	bag.changed.connect(_coins_changed)
+	bag.add(Bag.GOLD, int(base.get("coins", 0)))
 	bombs = int(base.get("bombs", 1))
 	keys = int(base.get("keys", 1))
 	compute_stats()
@@ -125,6 +146,13 @@ func take_damage(halves: int) -> bool:
 	if stats.has("damage_cap"):
 		halves = 1
 	hits_this_floor += 1
+	var on_shield: int = mini(shield, halves)
+	shield -= on_shield
+	halves -= on_shield
+	if halves <= 0:
+		compute_stats()
+		changed.emit()
+		return true
 	var blue_hearts_before: int = ceili(blue / 2.0)
 	var on_blue: int = mini(blue, halves)
 	blue -= on_blue
@@ -237,12 +265,42 @@ func heal(halves: int) -> bool:
 	return true
 
 
-func add_coins(amount: int) -> void:
+## What a coin on the floor is worth: data/player.json coin_pickup [min, max] gold (the pickup
+## then goes into the bag as gold, Pickup).
+func roll_coin_value() -> int:
+	var worth: Array = Content.player().get("coin_pickup", [1, 1])
+	return _coin_rng.randi_range(int(worth[0]), int(worth[1])) + coin_bonus
+
+
+## A kill: its EXP (a boss more, data/levels.json).
+func add_kill_exp(boss: bool) -> void:
+	exp_earned += Skills.kill_exp(boss)
+
+
+## The skills learned at home (Skills, MetaState): more places in the bag, shield hearts, red
+## hearts, the stats (one source, like an item) and more gold per coin. Called once at the start.
+func use_skills() -> void:
+	bag.grow(int(Skills.bonus("bag_slots")), int(Skills.bonus("safe_slots")))
+	shield += int(Skills.bonus("shield_halves"))
+	var hearts: int = int(Skills.bonus("hearts"))
+	if hearts > 0:
+		max_hearts = mini(MAX_HEARTS_LIMIT, max_hearts + hearts)
+		health = max_hearts * 2
+	coin_bonus = int(Skills.bonus("coin_bonus"))
+	var stats: Dictionary = Skills.run_stats()
+	if not stats.is_empty():
+		gear_sources.append({"stats": stats})
+	compute_stats()
+	changed.emit()
+
+
+## Puts `amount` gold into the bag. Returns what did not fit (full bag).
+func add_coins(amount: int) -> int:
 	if amount <= 0:
-		return
-	coins = mini(MAX_COINS, coins + amount)
+		return 0
+	var left: int = bag.add(Bag.GOLD, amount)
 	note_best("coins", coins)
-	_coins_changed()
+	return left
 
 
 ## The gold the player carries from home (MetaState purse) comes along into the dungeon. Not
@@ -250,8 +308,7 @@ func add_coins(amount: int) -> void:
 func bring_gold(amount: int) -> void:
 	if amount <= 0:
 		return
-	coins = mini(MAX_COINS, coins + amount)
-	_coins_changed()
+	bag.add(Bag.GOLD, amount)
 
 
 func add_bombs(amount: int) -> void:
@@ -272,8 +329,8 @@ func add_keys(amount: int) -> void:
 func spend(price: int) -> bool:
 	if price < 0 or coins < price:
 		return false
-	coins -= price
-	_coins_changed()
+	if price > 0:
+		bag.remove(Bag.GOLD, price)
 	return true
 
 
@@ -314,7 +371,7 @@ func add_item(id: String) -> void:
 		health = max_hearts * 2
 	# "give": things that come with the item (Wanderbündel, Schmiedeschürze).
 	var give: Dictionary = data.get("give", {})
-	coins = mini(MAX_COINS, coins + maxi(0, int(give.get("coins", 0))))
+	add_coins(int(give.get("coins", 0)))
 	bombs = mini(MAX_COUNT, bombs + maxi(0, int(give.get("bombs", 0))))
 	keys = mini(MAX_COUNT, keys + maxi(0, int(give.get("keys", 0))))
 	var before: Array[String] = synergies.duplicate()
@@ -326,6 +383,26 @@ func add_item(id: String) -> void:
 	for synergy: String in synergies:
 		if not before.has(synergy):
 			synergy_found.emit(synergy)
+	changed.emit()
+
+
+## The run starts with `worn` (MetaState.equipment: slot -> {id, rarity}): every piece's
+## shield_hearts become white shield hearts, its other stats count for the whole run.
+func use_gear(worn: Dictionary) -> void:
+	gear_sources.clear()
+	shield = 0
+	for slot: Variant in worn:
+		var piece: Dictionary = worn[slot]
+		# The relic works like the item itself (synergies too).
+		if ShopGoods.is_relic(piece):
+			add_item(String(piece.get("id", "")))
+			continue
+		var values: Dictionary = ShopGoods.stats(String(piece.get("id", "")), int(piece.get("rarity", 1)))
+		shield += roundi(float(values.get("shield_hearts", 0.0)) * 2.0)
+		values.erase("shield_hearts")
+		if not values.is_empty():
+			gear_sources.append({"stats": values})
+	compute_stats()
 	changed.emit()
 
 
@@ -392,6 +469,7 @@ func compute_stats() -> ShotStats:
 	var result := ShotStats.from_base(base.get("stats", {}))
 	synergies = find_synergies()
 	var sources: Array[Dictionary] = [Content.character(character)]
+	sources.append_array(gear_sources)
 	for id: String in items:
 		sources.append(Content.item(id))
 	for id: String in synergies:

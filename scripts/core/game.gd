@@ -10,6 +10,9 @@ const SHOP_SCENE: String = "res://scenes/shop/shop.tscn"
 const CONTROLS_SECTION: String = "controls"
 const DEFAULT_MOUSE_SENSITIVITY: float = 0.5
 
+## The field of view of the dungeon camera was changed in the settings (DisplaySettings).
+signal fov_changed(degrees: float)
+
 ## The run being played (null in the main menu before the first run). Not saved on purpose.
 var run: RunState = null
 
@@ -17,7 +20,7 @@ var run: RunState = null
 func _ready() -> void:
 	Language.apply()
 	Controls.register()
-	_apply_fullscreen()
+	DisplaySettings.apply()
 
 
 ## A new run on floor 1 with a fresh random seed, as `character` (data/characters.json). Without
@@ -28,6 +31,10 @@ func start_new_run(character: String = "") -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	run = RunState.new(rng.randi(), character)
+	# What the hero wears at home counts in the dungeon (shield hearts, weapon damage).
+	run.use_gear(MetaState.equipment())
+	# The skills learned at Egon's (bag places, hearts, damage …).
+	run.use_skills()
 	# The purse from home goes into the dungeon (and is lost there on death).
 	run.bring_gold(MetaState.take_purse_for_run())
 	get_tree().paused = false
@@ -81,18 +88,3 @@ func get_mouse_sensitivity() -> float:
 
 func set_mouse_sensitivity(value: float) -> void:
 	WindowLayout.set_setting(CONTROLS_SECTION, "mouse_sensitivity", clampf(value, 0.0, 1.0))
-
-
-func is_fullscreen() -> bool:
-	return bool(WindowLayout.get_setting("display", "fullscreen", false))
-
-
-func set_fullscreen(on: bool) -> void:
-	WindowLayout.set_setting("display", "fullscreen", on)
-	_apply_fullscreen()
-
-
-func _apply_fullscreen() -> void:
-	if DisplayServer.get_name() == "headless":
-		return
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if is_fullscreen() else DisplayServer.WINDOW_MODE_WINDOWED)

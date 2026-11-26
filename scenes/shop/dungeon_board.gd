@@ -14,6 +14,9 @@ const COLOR_HINT := Color(0.62, 0.6, 0.56)
 const LIST_WIDTH: float = 140.0
 
 var _selected: String = ""
+## true = Egon sends you off (end of his tour): no "Schließen", Escape does nothing.
+var forced: bool = false
+var _close_button: Button
 var _regions: VBoxContainer
 var _name_label: Label
 var _facts_label: Label
@@ -36,9 +39,9 @@ func _ready() -> void:
 	var title := _label(Language.translate("Dungeon-Brett"), COLOR_TITLE, 20)
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(title)
-	var close_button := _button(Language.translate("Schließen"))
-	close_button.pressed.connect(hide)
-	header.add_child(close_button)
+	_close_button = _button(Language.translate("Schließen"))
+	_close_button.pressed.connect(hide)
+	header.add_child(_close_button)
 	var columns := HBoxContainer.new()
 	columns.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	columns.add_theme_constant_override("separation", 10)
@@ -68,8 +71,11 @@ func _ready() -> void:
 	details.add_child(_enter_button)
 
 
-## Shows the board with every region open and the first dungeon chosen.
-func open() -> void:
+## Shows the board with every region open and the first dungeon chosen. `must_go` = it cannot
+## be closed (Egon sends you off).
+func open(must_go: bool = false) -> void:
+	forced = must_go
+	_close_button.visible = not forced
 	_build_regions()
 	if _selected.is_empty() or not Content.dungeons().has(_selected):
 		_selected = String(Content.dungeons().keys().front()) if not Content.dungeons().is_empty() else ""
@@ -138,7 +144,7 @@ func _areas() -> Array[String]:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if visible and event.is_action_pressed("ui_cancel"):
+	if visible and not forced and event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
 		hide()
 

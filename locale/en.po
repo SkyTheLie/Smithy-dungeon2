@@ -3,11 +3,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: en\n"
 
+msgid "%d Gold"
+msgstr "%d gold"
+
 msgid "%d Herzen"
 msgstr "%d hearts"
 
 msgid "Abbrechen"
 msgstr "Cancel"
+
+msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
+msgstr "But not like that, without any equipment. Come, have a look at my shop first."
 
 msgid "Acht Bomben"
 msgstr "Eight bombs"
@@ -33,17 +39,41 @@ msgstr "At the end every shot bursts into four sparks"
 msgid "Amethyst"
 msgstr "Amethyst"
 
+msgid "Angriffstempo"
+msgstr "Attack speed"
+
+msgid "Ankauf"
+msgstr "Buying"
+
+msgid "Anzeige"
+msgstr "Display"
+
 msgid "Arena-Amulett"
 msgstr "Arena Amulet"
 
 msgid "Arenaherz"
 msgstr "Arena Heart"
 
+msgid "Audio"
+msgstr "Audio"
+
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "Charged giant embers crash down and explode"
 
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Charge, release: a mighty fire beam"
+
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "Flee the dungeon? You keep everything you carry."
+
+msgid "Ausgang"
+msgstr "Exit"
+
+msgid "Ausrüstung"
+msgstr "Equipment"
+
+msgid "Ausweichen"
+msgstr "Dodge"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "An axe instead of fireballs: heavy swing, enemies bleed"
@@ -53,6 +83,9 @@ msgstr "Quit"
 
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "On a hit the shot bursts into four sparks"
+
+msgid "Beine"
+msgstr "Legs"
 
 msgid "Bernstein"
 msgstr "Amber"
@@ -78,6 +111,9 @@ msgstr "Blood Vial"
 msgid "Bogenschütze"
 msgstr "Archer"
 
+msgid "Bombe"
+msgstr "Bomb"
+
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "Bombs shoot fireballs when they explode"
 
@@ -89,6 +125,9 @@ msgstr "Bomb Belt"
 
 msgid "Brandöl"
 msgstr "Fire Oil"
+
+msgid "Braucht: %s"
+msgstr "Needs: %s"
 
 msgid "Brennend und langsam: mehr Schaden"
 msgstr "Burning and slow: more damage"
@@ -114,17 +153,35 @@ msgstr "Bread Cannon"
 msgid "Brotregen"
 msgstr "Bread Rain"
 
+msgid "Brust"
+msgstr "Chest"
+
 msgid "Bumerang-Haken"
 msgstr "Boomerang Hook"
 
+msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
+msgstr "Back there is the way into the Dungeon of Embers. Some even come back out!"
+
+msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
+msgstr "You don't have enough gold for that, partner. Such a shame."
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "There is a tiny bug stuck inside."
+
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "The gold of this run. If you die it is gone, unless it is in the safe slot."
+
+msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
+msgstr "You can't wear that, partner. Trust me, I've tried."
 
 msgid "Das kostet zu viel Leben"
 msgstr "That costs too much life"
 
 msgid "Defensiv"
 msgstr "Defensive"
+
+msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
+msgstr "Your relic gave up the ghost. Happens. I just happen to have a new one… friendship price!"
 
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "Your fireballs destroy enemy shots"
@@ -146,6 +203,12 @@ msgstr "The way down is open!"
 
 msgid "Diamantherz"
 msgstr "Diamond Heart"
+
+msgid "Dicke Haut"
+msgstr "Thick skin"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "The window size only applies in window mode."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "The archer's weapon: charge arrows and let go, far and strong"
@@ -219,6 +282,9 @@ msgstr "You shoot loaves of bread. Hit enemies forget you and run away"
 msgid "Du schießt auch nach hinten"
 msgstr "You also shoot backwards"
 
+msgid "Du schießt etwas schneller."
+msgstr "You shoot a bit faster."
+
 msgid "Du schießt schneller"
 msgstr "You shoot faster"
 
@@ -270,6 +336,9 @@ msgstr "Thin skin from a bat's wing."
 msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
 msgstr "E: bomb · Tab: inventory · M: map · Esc: pause"
 
+msgid "EXP: +%d"
+msgstr "EXP: +%d"
+
 msgid "Ebene %d"
 msgstr "Floor %d"
 
@@ -278,6 +347,9 @@ msgstr "Floor: %d"
 
 msgid "Effekte"
 msgstr "Effects"
+
+msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
+msgstr "Egon Honest, pleased to meet you. Honest is my name, honest is my business. Honestly!"
 
 msgid "Egons Laden"
 msgstr "Egon's Shop"
@@ -324,6 +396,15 @@ msgstr "A heart, a coin, a bomb and a key"
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "A heart, two blue hearts, damage up"
 
+msgid "Ein Platz mehr im Rucksack."
+msgstr "One more backpack slot."
+
+msgid "Ein Relikt-Platz mehr an deiner Figur."
+msgstr "One more relic slot on your hero."
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "A bargain! For me. Er… for you! Honestly!"
+
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "A shrine has opened"
 
@@ -332,6 +413,9 @@ msgstr "One more shot and more damage"
 
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "One more shot, but weaker"
+
+msgid "Ein Stab mit Feuer-Spitze. Für Magier."
+msgstr "A wand with a fiery tip. For mages."
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "A blue heart and thorns"
@@ -345,8 +429,20 @@ msgstr "A blue heart, safe longer after hits"
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "One blue heart, move faster"
 
+msgid "Ein einfacher Bogen. Für Bogenschützen."
+msgstr "A simple bow. For archers."
+
 msgid "Ein geheimer Raum!"
 msgstr "A secret room!"
+
+msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
+msgstr "Half a white shield heart more at the start of every run."
+
+msgid "Ein rotes Herz mehr."
+msgstr "One more red heart."
+
+msgid "Ein sicherer Platz mehr im Rucksack."
+msgstr "One more safe slot in the backpack."
 
 msgid "Ein zweites Leben"
 msgstr "A second life"
@@ -359,6 +455,12 @@ msgstr "A second life!"
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "A whole bakery at once"
+
+msgid "Eine kurze Klinge. Für Krieger."
+msgstr "A short blade. For warriors."
+
+msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
+msgstr "Once a day I spin the table for free. After that there's a friendship price. It gets a little friendlier every time."
 
 msgid "Einstellungen"
 msgstr "Settings"
@@ -396,6 +498,9 @@ msgstr "Earth Staff"
 msgid "Erreiche Ebene %d"
 msgstr "Reach floor %d"
 
+msgid "Erst den Skill davor lernen"
+msgstr "Learn the skill before it first"
+
 msgid "Erstglut"
 msgstr "First Ember"
 
@@ -410,6 +515,12 @@ msgstr "Fairy Dust"
 
 msgid "Fein"
 msgstr "Fine"
+
+msgid "Fenster"
+msgstr "Window"
+
+msgid "Fenstergröße"
+msgstr "Window size"
 
 msgid "Feuerfester Bomber"
 msgstr "Fireproof Bomber"
@@ -441,6 +552,9 @@ msgstr "Lichen Cloak"
 msgid "Fledermaus"
 msgstr "Bat"
 
+msgid "Flinke Hände"
+msgstr "Quick hands"
+
 msgid "Flipper"
 msgstr "Pinball"
 
@@ -449,6 +563,9 @@ msgstr "Cursed Skeleton"
 
 msgid "Flughaut"
 msgstr "Bat skin"
+
+msgid "Flüchten"
+msgstr "Flee"
 
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Whispers softly in the dark."
@@ -477,6 +594,9 @@ msgstr "Spark Catcher"
 msgid "Funkenstein"
 msgstr "Spark Stone"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "Catches the odd scratch."
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "Blocks the first hit in every room"
 
@@ -492,8 +612,20 @@ msgstr "Five keys"
 msgid "Fünfzehn Münzen"
 msgstr "Fifteen coins"
 
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "For steps you'd rather not hear."
+
+msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
+msgstr "For you: a copper wand, a helmet and a breastplate. Your first purchase is on the house!"
+
+msgid "Füße"
+msgstr "Feet"
+
 msgid "Gebiete: %s"
 msgstr "Areas: %s"
+
+msgid "Geflüchtet!"
+msgstr "Escaped!"
 
 msgid "Gegabelter Stab"
 msgstr "Forked Staff"
@@ -506,6 +638,9 @@ msgstr "Enemies slow down, range up"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "Enemies that touch you take damage"
+
+msgid "Geheimtasche"
+msgstr "Secret pocket"
 
 msgid "Geist"
 msgstr "Ghost"
@@ -527,6 +662,9 @@ msgstr "General's Blade"
 
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "Saved (safe slot): %d loot"
+
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "Saved (safe slot): %d gold, %d loot"
 
 msgid "Geschafft!"
 msgstr "You made it!"
@@ -615,6 +753,9 @@ msgstr "Shines greenish. The merchant likes it."
 msgid "Glück"
 msgstr "Luck"
 
+msgid "Glück +0,5: öfter Beute."
+msgstr "Luck +0.5: more loot."
+
 msgid "Glück hoch"
 msgstr "Luck up"
 
@@ -626,6 +767,9 @@ msgstr "Much more luck"
 
 msgid "Glücksflachs"
 msgstr "Lucky Flax"
+
+msgid "Glückspilz"
+msgstr "Lucky devil"
 
 msgid "Glühender Schlüssel"
 msgstr "Glowing Key"
@@ -641,6 +785,9 @@ msgstr "Goblin Crown"
 
 msgid "Goblinstollen"
 msgstr "Goblin Tunnels"
+
+msgid "Gold"
+msgstr "Gold"
 
 msgid "Goldader"
 msgstr "Gold Vein"
@@ -669,8 +816,17 @@ msgstr "Gold Helmet"
 msgid "Goldklinge"
 msgstr "Gold Blade"
 
+msgid "Goldnase"
+msgstr "Gold nose"
+
 msgid "Goldstiefel"
 msgstr "Gold Boots"
+
+msgid "Grafik"
+msgstr "Graphics"
+
+msgid "Gratis"
+msgstr "Free"
 
 msgid "Greifenfell"
 msgstr "Griffin Fur"
@@ -699,6 +855,12 @@ msgstr "Bigger bombs, and none of them hurt you"
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "Bigger fireballs, more damage"
 
+msgid "Größerer Rucksack"
+msgstr "Bigger backpack"
+
+msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
+msgstr "Good choice! A collector's item. Honestly!"
+
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "Have %d heart containers at once"
 
@@ -723,8 +885,14 @@ msgstr "Heals you fully, move faster"
 msgid "Heißer Sand"
 msgstr "Hot Sand"
 
+msgid "Hereinspaziert! Frische Ware!"
+msgstr "Step right up! Fresh goods!"
+
 msgid "Herzblatt"
 msgstr "Heartleaf"
+
+msgid "Herzen"
+msgstr "Hearts"
 
 msgid "Herzen heilen doppelt"
 msgstr "Hearts heal twice as much"
@@ -740,6 +908,15 @@ msgstr "Wooden Staff"
 
 msgid "Hydraschuppe"
 msgstr "Hydra Scale"
+
+msgid "Hält für immer"
+msgstr "Lasts forever"
+
+msgid "Hält noch %d Dungeons"
+msgstr "Lasts %d more dungeons"
+
+msgid "Hände"
+msgstr "Hands"
 
 msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
 msgstr "At most half a heart per hit, but slower"
@@ -759,6 +936,9 @@ msgstr "Hell Leather"
 msgid "Höllenstab"
 msgstr "Hell Staff"
 
+msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
+msgstr "I'm the swind… er, the gear-seller. I sell… …equipment! Yes, exactly. I sell equipment."
+
 msgid "Inventar"
 msgstr "Inventory"
 
@@ -770,6 +950,9 @@ msgstr "Hunting Bow"
 
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "The farther the shot flies, the more damage"
+
+msgid "Jede Münze gibt 2 Gold mehr."
+msgstr "Every coin gives 2 more gold."
 
 msgid "Jeder Treffer jagt Gegnern Angst ein"
 msgstr "Every hit frightens enemies"
@@ -789,14 +972,26 @@ msgstr "Can now appear in the dungeon"
 msgid "Karawanenrucksack"
 msgstr "Caravan Pack"
 
+msgid "Karte"
+msgstr "Map"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "No hit takes more than half a heart"
 
 msgid "Kinderschuhe"
 msgstr "Child's Shoes"
 
+msgid "Klappern bei jedem Schritt."
+msgstr "Rattle with every step."
+
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Smaller, faster and sometimes dodge"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "Click a key, then press the new one. Esc = cancel."
+
+msgid "Klicken, um weiterzumachen"
+msgstr "Click to continue"
 
 msgid "Klingenstern"
 msgstr "Blade Star"
@@ -819,6 +1014,12 @@ msgstr "Comet Stone"
 msgid "Kompassnadel"
 msgstr "Compass Needle"
 
+msgid "Kopf"
+msgstr "Head"
+
+msgid "Kraft"
+msgstr "Strength"
+
 msgid "Krieger"
 msgstr "Warrior"
 
@@ -836,6 +1037,30 @@ msgstr "Crystal Shard"
 
 msgid "Kräuterbeutel"
 msgstr "Herb Pouch"
+
+msgid "Kupfer-Beinschienen"
+msgstr "Copper Greaves"
+
+msgid "Kupfer-Bogen"
+msgstr "Copper Bow"
+
+msgid "Kupfer-Brustplatte"
+msgstr "Copper Breastplate"
+
+msgid "Kupfer-Handschuhe"
+msgstr "Copper Gloves"
+
+msgid "Kupfer-Helm"
+msgstr "Copper Helmet"
+
+msgid "Kupfer-Schwert"
+msgstr "Copper Sword"
+
+msgid "Kupfer-Stiefel"
+msgstr "Copper Boots"
+
+msgid "Kupfer-Zauberstab"
+msgstr "Copper Wand"
 
 msgid "Kupfererz"
 msgstr "Copper ore"
@@ -888,8 +1113,14 @@ msgstr "Legend Gloves"
 msgid "Legendär"
 msgstr "Legendary"
 
+msgid "Leicht und schnell."
+msgstr "Light and fast."
+
 msgid "Leichte Feder"
 msgstr "Light Feather"
+
+msgid "Leichtfuß"
+msgstr "Light feet"
 
 msgid "Letzte Glut"
 msgstr "Last Ember"
@@ -900,6 +1131,9 @@ msgstr "Lexicon"
 msgid "Lichtstab"
 msgstr "Light Staff"
 
+msgid "Links"
+msgstr "Left"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "Safe longer after a hit"
 
@@ -908,6 +1142,9 @@ msgstr "Runner's Sandals"
 
 msgid "Läuferschuhe"
 msgstr "Runner's Shoes"
+
+msgid "Löschen"
+msgstr "Delete"
 
 msgid "Magier"
 msgstr "Mage"
@@ -981,6 +1218,9 @@ msgstr "Mythic"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Coins and hearts fly to you"
 
+msgid "Na, Partner? Neu hier? Sieht man sofort."
+msgstr "Well, partner? New here? Anyone can tell."
+
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "Two items to choose from after every boss"
 
@@ -989,6 +1229,9 @@ msgstr "Nightshade"
 
 msgid "Nachtschattensamen"
 msgstr "Nightshade Seeds"
+
+msgid "Neue Relikte halten einen Dungeon länger."
+msgstr "New relics last one dungeon longer."
 
 msgid "Neuer Run"
 msgstr "New Run"
@@ -1014,11 +1257,20 @@ msgstr "Another Ember Moon circles you"
 msgid "Noch keine Items"
 msgstr "No items yet"
 
+msgid "Noch keine Items in diesem Run."
+msgstr "No items in this run yet."
+
 msgid "Noch nicht entdeckt"
 msgstr "Not discovered yet"
 
+msgid "Nur für: %s"
+msgstr "Only for: %s"
+
 msgid "Nächste Seite"
 msgstr "Next page"
+
+msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
+msgstr "Next level: %d gold, %d skill points, from player level %d"
 
 msgid "Offensiv"
 msgstr "Offensive"
@@ -1059,6 +1311,9 @@ msgstr "Palladium Blade"
 msgid "Pause"
 msgstr "Paused"
 
+msgid "Pause zwischen Schüssen"
+msgstr "Delay between shots"
+
 msgid "Pfeile aufladen und loslassen: weit und stark"
 msgstr "Charge and release arrows: far and strong"
 
@@ -1086,11 +1341,20 @@ msgstr "Platinum Blade"
 msgid "Platinspitze"
 msgstr "Platinum Tip"
 
+msgid "Preis: %d Gold"
+msgstr "Price: %d gold"
+
+msgid "Psst! Hey, du! Ja, du mit den Augen! Komm mal her!"
+msgstr "Psst! Hey, you! Yes, you with the eyes! Come over here!"
+
 msgid "Pulverfass"
 msgstr "Powder Keg"
 
 msgid "Pulverhandschuh"
 msgstr "Powder Glove"
+
+msgid "Rahmenlos"
+msgstr "Borderless"
 
 msgid "Ratte"
 msgstr "Rat"
@@ -1104,8 +1368,17 @@ msgstr "Rat Cellar"
 msgid "Rattenkönig"
 msgstr "Rat King"
 
+msgid "Rechts"
+msgstr "Right"
+
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "Right-click something in the inventory to put it here."
+
 msgid "Reichweite"
 msgstr "Range"
+
+msgid "Reichweite +0,5 m."
+msgstr "Range +0.5 m."
 
 msgid "Reichweite +2 m, schnellere Schüsse"
 msgstr "Range +2 m, faster shots"
@@ -1124,6 +1397,18 @@ msgstr "Range: %s m"
 
 msgid "Reine Fassung"
 msgstr "Pure Setting"
+
+msgid "Relikt"
+msgstr "Relic"
+
+msgid "Relikt-Platz"
+msgstr "Relic slot"
+
+msgid "Relikte"
+msgstr "Relics"
+
+msgid "Reliktpflege"
+msgstr "Relic care"
 
 msgid "Riesenratte"
 msgstr "Giant Rat"
@@ -1155,11 +1440,20 @@ msgstr "Red as embers."
 msgid "Rubin"
 msgstr "Ruby"
 
+msgid "Ruhige Hände, schnellere Schüsse."
+msgstr "Steady hands, faster shots."
+
 msgid "Ruhmeskette"
 msgstr "Chain of Glory"
 
 msgid "Rückenamulett"
 msgstr "Back Amulet"
+
+msgid "Rückstoß"
+msgstr "Knockback"
+
+msgid "Rückwärts"
+msgstr "Backward"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "Sandsmith Gloves"
@@ -1172,6 +1466,9 @@ msgstr "Sapphire Jewel"
 
 msgid "Schaden"
 msgstr "Damage"
+
+msgid "Schaden +0,5."
+msgstr "Damage +0.5."
 
 msgid "Schaden für jede Münze, Glück hoch"
 msgstr "Damage for every coin, luck up"
@@ -1248,6 +1545,9 @@ msgstr "Treasure Map"
 msgid "Schießt Feuerbälle"
 msgstr "Shoots fireballs"
 
+msgid "Schild-Herzen"
+msgstr "Shield hearts"
+
 msgid "Schildwache"
 msgstr "Shield Guard"
 
@@ -1317,6 +1617,9 @@ msgstr "Black Crystal"
 msgid "Schwer und kalt."
 msgstr "Heavy and cold."
 
+msgid "Schwer, aber sicher."
+msgstr "Heavy, but safe."
+
 msgid "Schwere Glut"
 msgstr "Heavy Ember"
 
@@ -1365,6 +1668,9 @@ msgstr "Shots burst at the end and fly through rocks"
 msgid "Schüsse/s"
 msgstr "Shots/s"
 
+msgid "Schützt den Kopf. Meistens."
+msgstr "Protects your head. Mostly."
+
 msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
 msgstr "Six coins, three bombs, three keys"
 
@@ -1394,6 +1700,9 @@ msgstr "Safe slot"
 
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "Safe slot: kept when you die"
+
+msgid "Sichtfeld"
+msgstr "Field of view"
 
 msgid "Siegerring"
 msgstr "Victor's Ring"
@@ -1428,6 +1737,12 @@ msgstr "Skeleton"
 msgid "Skelettritter"
 msgstr "Skeleton Knight"
 
+msgid "Skillbaum"
+msgstr "Skill tree"
+
+msgid "Skills"
+msgstr "Skills"
+
 msgid "Smaragd"
 msgstr "Emerald"
 
@@ -1448,6 +1763,9 @@ msgstr "Money Box"
 
 msgid "Spielstand %s"
 msgstr "Save %s"
+
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "Delete save %s? This cannot be undone."
 
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "Overwrite save %s? The old progress will be gone."
@@ -1485,6 +1803,12 @@ msgstr "Blast Beam"
 msgid "Sprinterrucksack"
 msgstr "Sprinter's Pack"
 
+msgid "Standard wiederherstellen"
+msgstr "Restore defaults"
+
+msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
+msgstr "Suits you! Almost as well as me. From tomorrow on, everything costs a small fee, of course."
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "Crush rocks and more loot"
 
@@ -1505,6 +1829,9 @@ msgstr "Stardust"
 
 msgid "Sternentrunk"
 msgstr "Starlight Draught"
+
+msgid "Steuerung"
+msgstr "Controls"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Standing still makes you invulnerable"
@@ -1527,8 +1854,23 @@ msgstr "Cluster Bomb"
 msgid "Struppig und leicht angekaut."
 msgstr "Scruffy and a little chewed."
 
+msgid "Stufe %d"
+msgstr "Level %d"
+
+msgid "Stufe %d erreicht! +%d Skillpunkte"
+msgstr "Level %d reached! +%d skill points"
+
 msgid "Stufe %d · %d Ebenen"
 msgstr "Level %d · %d floors"
+
+msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
+msgstr "Level %d · EXP %s · Skill points: %d · Gold: %d"
+
+msgid "Stufe %d/%d"
+msgstr "Level %d/%d"
+
+msgid "Stufe zu niedrig"
+msgstr "Level too low"
 
 msgid "Sturmessenz"
 msgstr "Storm Essence"
@@ -1581,11 +1923,17 @@ msgstr "Synergy: %s!"
 msgid "Synergien: %s"
 msgstr "Synergies: %s"
 
+msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
+msgstr "Ta-da! Fresh goods, straight from… wherever. Totally legal!"
+
 msgid "Tag %d"
 msgstr "Day %d"
 
 msgid "Tag %d · %d Gold"
 msgstr "Day %d · %d gold"
+
+msgid "Taste …"
+msgstr "Key …"
 
 msgid "Taumelkraut"
 msgstr "Stagger Weed"
@@ -1595,6 +1943,9 @@ msgstr "Thousand Blade"
 
 msgid "Tempo"
 msgstr "Speed"
+
+msgid "Tempo +0,2."
+msgstr "Speed +0.2."
 
 msgid "Tempo: %s"
 msgstr "Speed: %s"
@@ -1629,8 +1980,20 @@ msgstr "Chest Key"
 msgid "Umgebung"
 msgstr "Surroundings"
 
+msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
+msgstr "And this is my lever. My pride and joy. Watch this!"
+
+msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
+msgstr "And now off into the dungeon! Bring me something nice. I'll wait here. Better safe than sorry."
+
+msgid "Und links bist du. Halt still, ich zieh dich an…"
+msgstr "And on the left, that's you. Hold still, I'll dress you…"
+
 msgid "Ungewöhnlich"
 msgstr "Uncommon"
+
+msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
+msgstr "Down there is your bag. Everything you buy or bring back from the dungeon goes in there."
 
 msgid "Utility"
 msgstr "Utility"
@@ -1640,6 +2003,12 @@ msgstr "Vampire"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "Poisons enemies, damage a bit up"
+
+msgid "Verkaufen"
+msgstr "Sell"
+
+msgid "Verkaufen: %d Gold"
+msgstr "Sell: %d gold"
 
 msgid "Viel größere Bomben"
 msgstr "Much bigger bombs"
@@ -1677,11 +2046,20 @@ msgstr "Many seeking sparks at once"
 msgid "Vier Schlüssel"
 msgstr "Four keys"
 
+msgid "Voll ausgebaut"
+msgstr "Fully learned"
+
 msgid "Vollbild"
 msgstr "Fullscreen"
 
+msgid "Vorwärts"
+msgstr "Forward"
+
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: walk · Mouse: aim · Left click: shoot"
+
+msgid "Waffe"
+msgstr "Weapon"
 
 msgid "Wanderbündel"
 msgstr "Wanderer's Bundle"
@@ -1695,8 +2073,14 @@ msgstr "What lies here is not lost when you die."
 msgid "Wasserstab"
 msgstr "Water Staff"
 
+msgid "Weitblick"
+msgstr "Far sight"
+
 msgid "Weiter"
 msgstr "Resume"
+
+msgid "Weiterkämpfen"
+msgstr "Keep fighting"
 
 msgid "Weltenstab"
 msgstr "World Staff"
@@ -1709,6 +2093,9 @@ msgstr "Value: %d gold"
 
 msgid "Wettkampfstiefel"
 msgstr "Contest Boots"
+
+msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
+msgstr "Welcome to my humble shop! The goods lie up there on the table. Well… in a moment."
 
 msgid "Windfeder"
 msgstr "Wind Feather"
@@ -1761,11 +2148,20 @@ msgstr "Ten coins, luck up"
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "Drag: sort · Drag out of the window: drop · Tab: close"
 
+msgid "Ziehen: verschieben · Mausrad: zoomen · Goldener Rahmen: lernen"
+msgstr "Drag: move · Wheel: zoom · Golden frame: learn"
+
 msgid "Zombie"
 msgstr "Zombie"
 
+msgid "Zu wenig Gold"
+msgstr "Not enough gold"
+
 msgid "Zu wenig Münzen"
 msgstr "Not enough coins"
+
+msgid "Zu wenig Skillpunkte"
+msgstr "Not enough skill points"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "Random poison, fear or stagger"
@@ -1823,6 +2219,12 @@ msgstr "Two blue hearts; losing one hits all enemies"
 
 msgid "Zwillingshandschuhe"
 msgstr "Twin Gloves"
+
+msgid "Zähigkeit"
+msgstr "Toughness"
+
+msgid "max."
+msgstr "max."
 
 msgid "oder Leertaste"
 msgstr "or press Space"

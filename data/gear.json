@@ -1,0 +1,22 @@
+{
+	"_info": "Ausrüstung, die über Runs bleibt (Egons Laden, Helden-Ansicht). slots: Plätze an der Figur in dieser Reihenfolge, name = Text, hint = Hinweisbild im leeren Platz (assets/sprites/ui/slot_hints/equip_<hint>.png), at = Mitte des Platzes in der Helden-Ansicht (Pixel); die Relikt-Plätze stehen als Reihe darunter (data/skills.json relic_slots). gear: name, desc (deutsch = Übersetzungs-Schlüssel), slot, icon, price = Grundpreis in Gold (mal shop.json rarity_price), class = nur für diese Klasse (fehlt = alle), stats wie in player.json (gelten im Run, wenn das Teil angelegt ist), dazu shield_hearts = weiße Schild-Herzen beim Start des Runs (0,5 = ein halbes), alles mal rarity_stats je Seltenheit R1..R8.",
+	"rarity_stats": [1.0, 1.25, 1.5, 1.8, 2.2, 2.7, 3.3, 4.0],
+	"slots": {
+		"weapon": {"name": "Waffe", "hint": "right_hand", "at": [20, 58]},
+		"head": {"name": "Kopf", "hint": "helmet", "at": [62, 18]},
+		"chest": {"name": "Brust", "hint": "armor", "at": [62, 54]},
+		"hands": {"name": "Hände", "hint": "gloves", "at": [104, 58]},
+		"legs": {"name": "Beine", "hint": "legs", "at": [62, 90]},
+		"feet": {"name": "Füße", "hint": "boots", "at": [62, 126]}
+	},
+	"gear": {
+		"copper_staff": {"name": "Kupfer-Zauberstab", "desc": "Ein Stab mit Feuer-Spitze. Für Magier.", "slot": "weapon", "class": "magier", "icon": "res://assets/sprites/items/copper_staff_fire.png", "price": 30, "stats": {"damage": 0.2}},
+		"copper_bow": {"name": "Kupfer-Bogen", "desc": "Ein einfacher Bogen. Für Bogenschützen.", "slot": "weapon", "class": "bogenschuetze", "icon": "res://assets/sprites/items/copper_bow_frame.png", "price": 30, "stats": {"damage": 0.2}},
+		"copper_sword": {"name": "Kupfer-Schwert", "desc": "Eine kurze Klinge. Für Krieger.", "slot": "weapon", "class": "krieger", "icon": "res://assets/sprites/items/copper_blade.png", "price": 30, "stats": {"damage": 0.2}},
+		"copper_helmet": {"name": "Kupfer-Helm", "desc": "Schützt den Kopf. Meistens.", "slot": "head", "icon": "res://assets/sprites/items/copper_helmet_plate.png", "price": 20, "stats": {"shield_hearts": 0.5}},
+		"copper_chest": {"name": "Kupfer-Brustplatte", "desc": "Schwer, aber sicher.", "slot": "chest", "icon": "res://assets/sprites/items/copper_chest_plate.png", "price": 25, "stats": {"shield_hearts": 0.5}},
+		"copper_gloves": {"name": "Kupfer-Handschuhe", "desc": "Fängt den einen oder anderen Kratzer ab.", "slot": "hands", "icon": "res://assets/sprites/items/copper_glove_plate.png", "price": 15, "stats": {"shield_hearts": 0.5}},
+		"copper_legs": {"name": "Kupfer-Beinschienen", "desc": "Klappern bei jedem Schritt.", "slot": "legs", "icon": "res://assets/sprites/items/copper_leg_plate.png", "price": 15, "stats": {"shield_hearts": 0.5}},
+		"copper_boots": {"name": "Kupfer-Stiefel", "desc": "Für Schritte, die man lieber nicht hört.", "slot": "feet", "icon": "res://assets/sprites/items/copper_boot_plate.png", "price": 15, "stats": {"shield_hearts": 0.5}}
+	}
+}

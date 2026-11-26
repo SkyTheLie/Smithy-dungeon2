@@ -17,7 +17,7 @@
 
 - **Engine:** Godot 4.7 (Standard, nicht .NET), Renderer GL Compatibility, GDScript statisch typisiert
 - **Ansicht:** Dungeon: 3D-Welt in einem `SubViewport` 640×360, scharf hochskaliert (Pixel-Look). Laden und Menüs: 2D, 640×360, Stretch `canvas_items`
-- **Daten:** alles Spielbare als JSON in `data/` (Items, Synergien, Gegner, Ebenen, Charaktere, Startwerte, Töne, Beute `loot.json`, Spielstand-Regeln `meta.json`; später Ausrüstung, Laden, Story) – nie im Code. Anleitung: `docs/CONTENT.md`
+- **Daten:** alles Spielbare als JSON in `data/` (Items, Synergien, Gegner, Ebenen, Charaktere, Startwerte, Töne, Beute `loot.json`, Spielstand-Regeln `meta.json`, Dungeons `dungeons.json`, Ausrüstung `gear.json`, Laden `shop.json`, Texte der Figuren `story.json`) – nie im Code. Anleitung: `docs/CONTENT.md`
 - **Speichern:** Ein Run wird nicht gespeichert. Gespeichert: Einstellungen (`user://settings.cfg`), Fortschritt (`user://progress.cfg`), Spielstand je Platz A/B/C (`user://save_<platz>.cfg`, `MetaState`: Geldbörse, Dose, mitgebrachte Beute, Tag; gespeichert am Ende jedes Tages). Eigener `user://`-Ordner („Smithy Dungeon 2“), getrennt von Dungeon Smithy.
 - **Sprachen:** deutscher Text = Schlüssel, `locale/<sprache>.po`, 9 Sprachen. Ablauf: `docs/SPRACHEN.md`
 
@@ -60,9 +60,9 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 
 ## 6. Umfang
 
-**Übernommen aus Dungeon Smithy (läuft):** Hauptmenü und Sprachwahl, 6 Ebenen in 3 Themen, Item-Raum, Shop, Geheimraum, Opferstein, Glutpakt, Boss, 203 Items, 14 Synergien (Waffen-Kreuzung Feuerhieb), 28 Gegner, 3 Charaktere (Magier; Bogenschütze und Krieger freischaltbar) mit Hauptwaffe als Start-Item, Lexikon, Testraum (P im Editor).
+**Übernommen aus Dungeon Smithy (läuft):** Hauptmenü und Sprachwahl, 6 Ebenen in 3 Themen, Item-Raum, Shop, Geheimraum, Opferstein, Glutpakt, Boss, 203 Items, 14 Synergien (Waffen-Kreuzung Feuerhieb), 28 Gegner, 3 Charaktere (Magier; Bogenschütze und Krieger freischaltbar, gespielt wird die Klasse der angelegten Waffe) mit Hauptwaffe als Start-Item, Lexikon, Testraum (P im Editor).
 
-**Neu gebaut:** Beute von Gegnern, Inventar auf Tab (Drag & Drop, fallen lassen, sicherer Platz), Geldbündel, Spielstand zwischen Runs mit Dose und Diebstahl-Regel (noch ohne Bildschirm), Karte auf M.
+**Neu gebaut:** Beute von Gegnern, Inventar auf Tab (Drag & Drop, fallen lassen, sicherer Platz), Geldbündel, Spielstand A/B/C mit Dose und Diebstahl-Regel, Karte auf M, Intro mit Egon, Egons Laden (Hebel, Kaufen, Ausrüstung anlegen, Tour beim ersten Besuch), Dungeon-Brett.
 
 **Ziel Version 1 (neu):** Laden mit Glücksspiel-Tisch, Ausrüstung mit Seltenheit, Trank-Slot, Intro mit dem Händler, erster Dungeon ohne Item-/Shop-Raum. Details und Reihenfolge: `docs/ROADMAP.md`.
 
@@ -73,15 +73,15 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 | Phase | Inhalt | Status |
 |---|---|---|
 | 0 | Projekt angelegt, Assets und Logik aller Smithy-Spiele, Ideen sortiert | erledigt (2026-11-26) |
-| 1 | Spielstand und Laden | Beute, Inventar, Spielstand (Plätze A/B/C), Dose, Laden-Gerüst mit Dungeon-Brett: erledigt (2026-11-26); Ware, Würfeln, Verkauf offen |
-| 2 | Intro und Händler-Story | Intro-Szene (Mine, Egon winkt): erledigt (2026-11-26); Dialog, Laden-Erklärung, Klassen-Frage offen |
-| 3 | Ausrüstung im Run, Tränke | offen |
+| 1 | Spielstand und Laden | Beute, Inventar, Spielstand (Plätze A/B/C), Dose, Ausrüstung, Laden mit Hebel/Kaufen/Anlegen, Dungeon-Brett: erledigt (2026-11-26); Verkaufen und Dose im Laden offen |
+| 2 | Intro und Händler-Story | Intro mit Dialog vor dem Dungeon-Eingang, geführter erster Laden-Besuch: erledigt (2026-11-26); Klassen-Frage offen |
+| 3 | Ausrüstung im Run, Tränke | Rüstung = Schild-Herzen, Waffe = Schaden: erledigt (2026-11-26); Tränke, Relikte offen |
 
 ## 8. Aktuelle Aufgabe
 
-**Zuletzt gebaut (2026-11-26, `feature/intro-laden`):** Spielstand-Wahl A/B/C nach der Sprache, „Weiter“ im Hauptmenü, Intro (Mine, Egon winkt, 3 Bilder), Laden-Gerüst mit „Dungeons“ unten rechts → Dungeon-Brett → „Betreten“ → Charakter → Run, Run-Ende „Zum Laden“. Im Spiel testen: Spielstand wählen → Neues Spiel → Intro ansehen (Leertaste = weiter, Esc = überspringen) → Laden → Dungeons → Betreten → Magier → nach dem Run „Zum Laden“ (Tag 2) → Hauptmenü → „Weiter“ ist da.
+**Zuletzt gebaut (2026-11-26):** `feature/laden-tutorial`: Intro vor dem Dungeon-Eingang mit Dialog, Egons Laden nach Skizze (Hebel, Kaufen, Ausrüstung anlegen), Egons Tour beim ersten Besuch. `feature/dungeon-flucht`: Tab = Inventar mit ganzer Karte daneben, Leiter „Ausgang“ im Startraum (flüchten, alles behalten), Münze = 8–12, HUD nur noch Herzen (größer), Bomben, Schlüssel. Im Spiel testen: Neues Spiel → Intro und Tour durchklicken → im Dungeon Tab drücken (Karte rechts) → Münze aufheben (+8 bis 12) → zurück in den Startraum, auf die Leiter → „Weiterkämpfen“, weggehen, wieder drauf → „Flüchten“ → „Geflüchtet!“, im Laden liegt die Beute im Inventar.
 
-**Nächster Schritt:** Ausrüstung als Daten (`data/gear.json`, Kupfer-Sachen R1), dann Ware, Hebel, Verkauf und Dose im Laden (`scenes/shop/shop.gd`).
+**Nächster Schritt:** Run-Shop-Preise an den Münzwert anpassen (offen, `docs/PROBLEME.md`); Verkaufen und Dose im Laden; Ausrüstung wirkt im Run (Phase 3).
 
 **Entschieden (2026-11-26):** Ein Tag = ein Run · neu würfeln wird teurer · Ausrüstung bleibt beim Tod, Inventar und Geld bei sich sind weg · Händler = Egon Ehrlich · Dungeon 1 : 1 wie Dungeon Smithy.
 

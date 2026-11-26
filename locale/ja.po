@@ -3,11 +3,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ja\n"
 
+msgid "%d Gold"
+msgstr "%dゴールド"
+
 msgid "%d Herzen"
 msgstr "ハート%d個"
 
 msgid "Abbrechen"
 msgstr "キャンセル"
+
+msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
+msgstr "でも装備なしじゃだめだ。まずは俺の店を見ていきな。"
 
 msgid "Acht Bomben"
 msgstr "爆弾8個"
@@ -33,17 +39,41 @@ msgstr "弾は最後に4つの火花に弾ける"
 msgid "Amethyst"
 msgstr "アメジスト"
 
+msgid "Angriffstempo"
+msgstr "攻撃速度"
+
+msgid "Ankauf"
+msgstr "買い取り"
+
+msgid "Anzeige"
+msgstr "表示"
+
 msgid "Arena-Amulett"
 msgstr "闘技場のお守り"
 
 msgid "Arenaherz"
 msgstr "闘技場の心臓"
 
+msgid "Audio"
+msgstr "オーディオ"
+
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "チャージした巨大な火球が落ちて爆発する"
 
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "溜めて放つ: 強大な火炎ビーム"
+
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "ダンジョンから逃げる？持っている物はすべて持ち帰れる。"
+
+msgid "Ausgang"
+msgstr "出口"
+
+msgid "Ausrüstung"
+msgstr "装備"
+
+msgid "Ausweichen"
+msgstr "回避"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "火の玉の代わりに斧：重い一撃、敵は出血"
@@ -53,6 +83,9 @@ msgstr "終了"
 
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "命中すると4つの火花に弾ける"
+
+msgid "Beine"
+msgstr "脚"
 
 msgid "Bernstein"
 msgstr "琥珀"
@@ -78,6 +111,9 @@ msgstr "血の小瓶"
 msgid "Bogenschütze"
 msgstr "弓使い"
 
+msgid "Bombe"
+msgstr "爆弾"
+
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "爆弾が爆発すると火の玉を放つ"
 
@@ -89,6 +125,9 @@ msgstr "爆弾ベルト"
 
 msgid "Brandöl"
 msgstr "火炎油"
+
+msgid "Braucht: %s"
+msgstr "必要：%s"
 
 msgid "Brennend und langsam: mehr Schaden"
 msgstr "燃えて遅い：ダメージ増加"
@@ -114,17 +153,35 @@ msgstr "パン大砲"
 msgid "Brotregen"
 msgstr "パンの雨"
 
+msgid "Brust"
+msgstr "胴"
+
 msgid "Bumerang-Haken"
 msgstr "ブーメランフック"
 
+msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
+msgstr "あっちが残り火のダンジョンの入口だ。戻ってくる奴もいるんだぜ！"
+
+msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
+msgstr "それには金が足りないな、相棒。残念、残念。"
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "中に小さな虫が閉じ込められている。"
+
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "この探索の金。死ぬと失う。安全枠に入れた分は残る。"
+
+msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
+msgstr "それは着られないぜ、相棒。信じろ、俺も試した。"
 
 msgid "Das kostet zu viel Leben"
 msgstr "体力を払いすぎる"
 
 msgid "Defensiv"
 msgstr "防御"
+
+msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
+msgstr "レリックが壊れちまったな。よくあることだ。偶然新しいのがあるんだが…友達価格でな！"
 
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "火の玉が敵の弾を壊す"
@@ -146,6 +203,12 @@ msgstr "下への道が開いた！"
 
 msgid "Diamantherz"
 msgstr "ダイヤの心臓"
+
+msgid "Dicke Haut"
+msgstr "分厚い皮膚"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "ウィンドウサイズはウィンドウモードでのみ有効です。"
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "弓使いの武器：矢をためて放つ、遠くへ強く"
@@ -219,6 +282,9 @@ msgstr "パンを撃つ。当たった敵はキミを忘れて逃げ出す"
 msgid "Du schießt auch nach hinten"
 msgstr "後ろにも撃つ"
 
+msgid "Du schießt etwas schneller."
+msgstr "少し速く撃てる。"
+
 msgid "Du schießt schneller"
 msgstr "連射速度アップ"
 
@@ -270,6 +336,9 @@ msgstr "コウモリの翼の薄い皮。"
 msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
 msgstr "E:爆弾 · Tab:持ち物 · M:マップ · Esc:ポーズ"
 
+msgid "EXP: +%d"
+msgstr "EXP：+%d"
+
 msgid "Ebene %d"
 msgstr "第%d層"
 
@@ -278,6 +347,9 @@ msgstr "階層: %d"
 
 msgid "Effekte"
 msgstr "効果音"
+
+msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
+msgstr "エゴン・オネスト、よろしくな。正直が俺の名前で、正直が俺の商売。正直に！"
 
 msgid "Egons Laden"
 msgstr "エゴンの店"
@@ -324,6 +396,15 @@ msgstr "ハート・コイン・爆弾・鍵を1つずつ"
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "ハート1つ、青いハート2つ、ダメージ上昇"
 
+msgid "Ein Platz mehr im Rucksack."
+msgstr "リュックの枠が1つ増える。"
+
+msgid "Ein Relikt-Platz mehr an deiner Figur."
+msgstr "キャラのレリック枠が1つ増える。"
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "掘り出し物だ！俺にとって。いや…君にとって！正直に！"
+
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "祠が開いた"
 
@@ -332,6 +413,9 @@ msgstr "弾が1発増え、ダメージ上昇"
 
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "弾が1発増えるが弱くなる"
+
+msgid "Ein Stab mit Feuer-Spitze. Für Magier."
+msgstr "炎の先端を持つ杖。魔法使い用。"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "青いハート1つと棘"
@@ -345,8 +429,20 @@ msgstr "青いハート1つ、被弾後の無敵が長い"
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "青いハート1つ、移動が速くなる"
 
+msgid "Ein einfacher Bogen. Für Bogenschützen."
+msgstr "簡素な弓。弓使い用。"
+
 msgid "Ein geheimer Raum!"
 msgstr "隠し部屋だ！"
+
+msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
+msgstr "探索開始時に白いシールドハートが半分増える。"
+
+msgid "Ein rotes Herz mehr."
+msgstr "赤いハートが1つ増える。"
+
+msgid "Ein sicherer Platz mehr im Rucksack."
+msgstr "リュックの安全枠が1つ増える。"
 
 msgid "Ein zweites Leben"
 msgstr "2つ目の命"
@@ -359,6 +455,12 @@ msgstr "2つ目の命！"
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "パン屋まるごと一斉発射"
+
+msgid "Eine kurze Klinge. Für Krieger."
+msgstr "短い刃。戦士用。"
+
+msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
+msgstr "一日一回はテーブルをタダで回してやる。その後は友達価格だ。毎回ちょっとずつ友好的になる。"
 
 msgid "Einstellungen"
 msgstr "設定"
@@ -396,6 +498,9 @@ msgstr "大地の杖"
 msgid "Erreiche Ebene %d"
 msgstr "%d階に到達する"
 
+msgid "Erst den Skill davor lernen"
+msgstr "先に前のスキルを習得"
+
 msgid "Erstglut"
 msgstr "始まりの残り火"
 
@@ -410,6 +515,12 @@ msgstr "妖精の粉"
 
 msgid "Fein"
 msgstr "上質"
+
+msgid "Fenster"
+msgstr "ウィンドウ"
+
+msgid "Fenstergröße"
+msgstr "ウィンドウサイズ"
 
 msgid "Feuerfester Bomber"
 msgstr "耐火ボマー"
@@ -441,6 +552,9 @@ msgstr "地衣のマント"
 msgid "Fledermaus"
 msgstr "コウモリ"
 
+msgid "Flinke Hände"
+msgstr "素早い手"
+
 msgid "Flipper"
 msgstr "ピンボール"
 
@@ -449,6 +563,9 @@ msgstr "呪われた骸骨"
 
 msgid "Flughaut"
 msgstr "コウモリの皮"
+
+msgid "Flüchten"
+msgstr "逃げる"
 
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "暗くなると小さくささやく。"
@@ -477,6 +594,9 @@ msgstr "火花受け"
 msgid "Funkenstein"
 msgstr "火花石"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "かすり傷のひとつやふたつは防ぐ。"
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "各部屋で最初の一撃を防ぐ"
 
@@ -492,8 +612,20 @@ msgstr "鍵5本"
 msgid "Fünfzehn Münzen"
 msgstr "コイン15枚"
 
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "聞きたくない足音のために。"
+
+msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
+msgstr "君にはこれだ：銅の杖、兜、胸当て。初回の買い物は店のおごりだ！"
+
+msgid "Füße"
+msgstr "足"
+
 msgid "Gebiete: %s"
 msgstr "エリア：%s"
+
+msgid "Geflüchtet!"
+msgstr "脱出成功！"
 
 msgid "Gegabelter Stab"
 msgstr "二股の杖"
@@ -506,6 +638,9 @@ msgstr "敵が遅くなり、射程上昇"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "触れた敵がダメージを受ける"
+
+msgid "Geheimtasche"
+msgstr "秘密のポケット"
 
 msgid "Geist"
 msgstr "幽霊"
@@ -527,6 +662,9 @@ msgstr "将軍の刃"
 
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "守れた(安全な枠):戦利品 %d"
+
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "救出（安全枠）：%dゴールド、戦利品%d個"
 
 msgid "Geschafft!"
 msgstr "クリア！"
@@ -615,6 +753,9 @@ msgstr "緑っぽく光る。商人の好物。"
 msgid "Glück"
 msgstr "運"
 
+msgid "Glück +0,5: öfter Beute."
+msgstr "運+0.5：戦利品が出やすい。"
+
 msgid "Glück hoch"
 msgstr "運上昇"
 
@@ -626,6 +767,9 @@ msgstr "運が大幅に上昇"
 
 msgid "Glücksflachs"
 msgstr "幸運の亜麻"
+
+msgid "Glückspilz"
+msgstr "幸運児"
 
 msgid "Glühender Schlüssel"
 msgstr "灼熱の鍵"
@@ -641,6 +785,9 @@ msgstr "ゴブリンの王冠"
 
 msgid "Goblinstollen"
 msgstr "ゴブリンの坑道"
+
+msgid "Gold"
+msgstr "ゴールド"
 
 msgid "Goldader"
 msgstr "金脈"
@@ -669,8 +816,17 @@ msgstr "金の兜"
 msgid "Goldklinge"
 msgstr "金の刃"
 
+msgid "Goldnase"
+msgstr "金の嗅覚"
+
 msgid "Goldstiefel"
 msgstr "金のブーツ"
+
+msgid "Grafik"
+msgstr "グラフィック"
+
+msgid "Gratis"
+msgstr "無料"
 
 msgid "Greifenfell"
 msgstr "グリフォンの毛皮"
@@ -699,6 +855,12 @@ msgstr "爆弾が大きくなり、どれも自分を傷つけない"
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "火の玉が大きくなり、ダメージ上昇"
 
+msgid "Größerer Rucksack"
+msgstr "大きなリュック"
+
+msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
+msgstr "いい選択だ！コレクターズアイテムだぜ。正直に！"
+
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "ハートの器を同時に%d個持つ"
 
@@ -723,8 +885,14 @@ msgstr "全回復、移動が速くなる"
 msgid "Heißer Sand"
 msgstr "熱い砂"
 
+msgid "Hereinspaziert! Frische Ware!"
+msgstr "さあさあ！新鮮な品物だ！"
+
 msgid "Herzblatt"
 msgstr "ハートリーフ"
+
+msgid "Herzen"
+msgstr "ハート"
 
 msgid "Herzen heilen doppelt"
 msgstr "ハートの回復量が2倍"
@@ -740,6 +908,15 @@ msgstr "木の杖"
 
 msgid "Hydraschuppe"
 msgstr "ヒドラの鱗"
+
+msgid "Hält für immer"
+msgstr "永久に持つ"
+
+msgid "Hält noch %d Dungeons"
+msgstr "あと%dダンジョン持つ"
+
+msgid "Hände"
+msgstr "手"
 
 msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
 msgstr "被弾は最大ハート半分、ただし遅くなる"
@@ -759,6 +936,9 @@ msgstr "地獄の革"
 msgid "Höllenstab"
 msgstr "地獄の杖"
 
+msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
+msgstr "俺は詐欺… いや、商人だ。売ってるのは… …装備だ！そう、装備を売ってる。"
+
 msgid "Inventar"
 msgstr "持ち物"
 
@@ -770,6 +950,9 @@ msgstr "狩猟弓"
 
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "弾が遠くへ飛ぶほどダメージが増す"
+
+msgid "Jede Münze gibt 2 Gold mehr."
+msgstr "コインごとにゴールド+2。"
 
 msgid "Jeder Treffer jagt Gegnern Angst ein"
 msgstr "当たるたびに敵が怯える"
@@ -789,14 +972,26 @@ msgstr "これからダンジョンに出現する"
 msgid "Karawanenrucksack"
 msgstr "隊商の背嚢"
 
+msgid "Karte"
+msgstr "マップ"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "被弾は最大でもハート半分"
 
 msgid "Kinderschuhe"
 msgstr "子供の靴"
 
+msgid "Klappern bei jedem Schritt."
+msgstr "歩くたびにカチャカチャ鳴る。"
+
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "小さく速くなり、時々回避"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "キーをクリックして新しいキーを押す。Esc＝キャンセル。"
+
+msgid "Klicken, um weiterzumachen"
+msgstr "クリックで続ける"
 
 msgid "Klingenstern"
 msgstr "刃の星"
@@ -819,6 +1014,12 @@ msgstr "彗星石"
 msgid "Kompassnadel"
 msgstr "羅針盤の針"
 
+msgid "Kopf"
+msgstr "頭"
+
+msgid "Kraft"
+msgstr "力"
+
 msgid "Krieger"
 msgstr "戦士"
 
@@ -836,6 +1037,30 @@ msgstr "水晶の欠片"
 
 msgid "Kräuterbeutel"
 msgstr "薬草袋"
+
+msgid "Kupfer-Beinschienen"
+msgstr "銅のすね当て"
+
+msgid "Kupfer-Bogen"
+msgstr "銅の弓"
+
+msgid "Kupfer-Brustplatte"
+msgstr "銅の胸当て"
+
+msgid "Kupfer-Handschuhe"
+msgstr "銅の手袋"
+
+msgid "Kupfer-Helm"
+msgstr "銅の兜"
+
+msgid "Kupfer-Schwert"
+msgstr "銅の剣"
+
+msgid "Kupfer-Stiefel"
+msgstr "銅のブーツ"
+
+msgid "Kupfer-Zauberstab"
+msgstr "銅の杖"
 
 msgid "Kupfererz"
 msgstr "銅鉱石"
@@ -888,8 +1113,14 @@ msgstr "伝説の手袋"
 msgid "Legendär"
 msgstr "レジェンダリー"
 
+msgid "Leicht und schnell."
+msgstr "軽くて速い。"
+
 msgid "Leichte Feder"
 msgstr "軽い羽根"
+
+msgid "Leichtfuß"
+msgstr "軽い足取り"
 
 msgid "Letzte Glut"
 msgstr "最後の残り火"
@@ -900,6 +1131,9 @@ msgstr "図鑑"
 msgid "Lichtstab"
 msgstr "光の杖"
 
+msgid "Links"
+msgstr "左"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "被弾後の無敵が長い"
 
@@ -908,6 +1142,9 @@ msgstr "走者のサンダル"
 
 msgid "Läuferschuhe"
 msgstr "ランナーの靴"
+
+msgid "Löschen"
+msgstr "削除"
 
 msgid "Magier"
 msgstr "魔法使い"
@@ -981,6 +1218,9 @@ msgstr "ミシック"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "コインとハートが飛んでくる"
 
+msgid "Na, Partner? Neu hier? Sieht man sofort."
+msgstr "よう、相棒。ここは初めてか？すぐわかるぜ。"
+
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "ボスの後にアイテムを2つから選べる"
 
@@ -989,6 +1229,9 @@ msgstr "ナイトシェード"
 
 msgid "Nachtschattensamen"
 msgstr "ナイトシェードの種"
+
+msgid "Neue Relikte halten einen Dungeon länger."
+msgstr "新しいレリックが1ダンジョン長く持つ。"
 
 msgid "Neuer Run"
 msgstr "もう一度"
@@ -1014,11 +1257,20 @@ msgstr "残り火の月がもう1つ回る"
 msgid "Noch keine Items"
 msgstr "まだアイテムがない"
 
+msgid "Noch keine Items in diesem Run."
+msgstr "この探索ではまだアイテムがない。"
+
 msgid "Noch nicht entdeckt"
 msgstr "未発見"
 
+msgid "Nur für: %s"
+msgstr "専用：%s"
+
 msgid "Nächste Seite"
 msgstr "次のページ"
+
+msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
+msgstr "次のレベル：%dゴールド、スキルポイント%d、プレイヤーLv%dから"
 
 msgid "Offensiv"
 msgstr "攻撃"
@@ -1059,6 +1311,9 @@ msgstr "パラジウムの刃"
 msgid "Pause"
 msgstr "ポーズ"
 
+msgid "Pause zwischen Schüssen"
+msgstr "射撃間隔"
+
 msgid "Pfeile aufladen und loslassen: weit und stark"
 msgstr "矢を溜めて放つ：遠く強い"
 
@@ -1086,11 +1341,20 @@ msgstr "プラチナの刃"
 msgid "Platinspitze"
 msgstr "プラチナの矢じり"
 
+msgid "Preis: %d Gold"
+msgstr "価格：%dゴールド"
+
+msgid "Psst! Hey, du! Ja, du mit den Augen! Komm mal her!"
+msgstr "おーい！そこの君！そう、目がある君だ！こっちへ来な！"
+
 msgid "Pulverfass"
 msgstr "火薬樽"
 
 msgid "Pulverhandschuh"
 msgstr "火薬の手袋"
+
+msgid "Rahmenlos"
+msgstr "ボーダーレス"
 
 msgid "Ratte"
 msgstr "ネズミ"
@@ -1104,8 +1368,17 @@ msgstr "ネズミの地下室"
 msgid "Rattenkönig"
 msgstr "ネズミの王"
 
+msgid "Rechts"
+msgstr "右"
+
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "インベントリの物を右クリックするとここに置ける。"
+
 msgid "Reichweite"
 msgstr "射程"
+
+msgid "Reichweite +0,5 m."
+msgstr "射程+0.5m。"
 
 msgid "Reichweite +2 m, schnellere Schüsse"
 msgstr "射程+2m、弾速アップ"
@@ -1124,6 +1397,18 @@ msgstr "射程: %s m"
 
 msgid "Reine Fassung"
 msgstr "清らかな台座"
+
+msgid "Relikt"
+msgstr "レリック"
+
+msgid "Relikt-Platz"
+msgstr "レリック枠"
+
+msgid "Relikte"
+msgstr "レリック"
+
+msgid "Reliktpflege"
+msgstr "レリックの手入れ"
 
 msgid "Riesenratte"
 msgstr "大ネズミ"
@@ -1155,11 +1440,20 @@ msgstr "残り火のように赤い。"
 msgid "Rubin"
 msgstr "ルビー"
 
+msgid "Ruhige Hände, schnellere Schüsse."
+msgstr "手が安定し、射撃が速くなる。"
+
 msgid "Ruhmeskette"
 msgstr "栄光の鎖"
 
 msgid "Rückenamulett"
 msgstr "背中の護符"
+
+msgid "Rückstoß"
+msgstr "ノックバック"
+
+msgid "Rückwärts"
+msgstr "後退"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "砂の鍛冶屋の手袋"
@@ -1172,6 +1466,9 @@ msgstr "サファイアの宝石"
 
 msgid "Schaden"
 msgstr "ダメージ"
+
+msgid "Schaden +0,5."
+msgstr "ダメージ+0.5。"
 
 msgid "Schaden für jede Münze, Glück hoch"
 msgstr "コインごとにダメージ、運上昇"
@@ -1248,6 +1545,9 @@ msgstr "宝の地図"
 msgid "Schießt Feuerbälle"
 msgstr "火の玉を撃つ"
 
+msgid "Schild-Herzen"
+msgstr "シールドハート"
+
 msgid "Schildwache"
 msgstr "盾の衛兵"
 
@@ -1317,6 +1617,9 @@ msgstr "黒水晶"
 msgid "Schwer und kalt."
 msgstr "重くて冷たい。"
 
+msgid "Schwer, aber sicher."
+msgstr "重いが安心。"
+
 msgid "Schwere Glut"
 msgstr "重い残り火"
 
@@ -1365,6 +1668,9 @@ msgstr "弾が最後に弾け、岩を貫通する"
 msgid "Schüsse/s"
 msgstr "連射/秒"
 
+msgid "Schützt den Kopf. Meistens."
+msgstr "頭を守る。たいていは。"
+
 msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
 msgstr "コイン6枚、爆弾3個、鍵3本"
 
@@ -1394,6 +1700,9 @@ msgstr "安全な枠"
 
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "安全な枠:死んでも残る"
+
+msgid "Sichtfeld"
+msgstr "視野"
 
 msgid "Siegerring"
 msgstr "勝者の指輪"
@@ -1428,6 +1737,12 @@ msgstr "骸骨"
 msgid "Skelettritter"
 msgstr "骸骨の騎士"
 
+msgid "Skillbaum"
+msgstr "スキルツリー"
+
+msgid "Skills"
+msgstr "スキル"
+
 msgid "Smaragd"
 msgstr "エメラルド"
 
@@ -1448,6 +1763,9 @@ msgstr "貯金箱"
 
 msgid "Spielstand %s"
 msgstr "セーブ %s"
+
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "セーブ %s を削除しますか？元に戻せません。"
 
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "セーブ %s を上書きしますか？以前の進行状況は消えます。"
@@ -1485,6 +1803,12 @@ msgstr "爆裂ビーム"
 msgid "Sprinterrucksack"
 msgstr "俊足の背嚢"
 
+msgid "Standard wiederherstellen"
+msgstr "初期設定に戻す"
+
+msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
+msgstr "似合ってるぜ！俺ほどじゃないがな。明日からは何でもちょっとした手数料がかかる、当然な。"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "岩を踏み砕き、戦利品が増える"
 
@@ -1505,6 +1829,9 @@ msgstr "星屑"
 
 msgid "Sternentrunk"
 msgstr "星明かりの薬"
+
+msgid "Steuerung"
+msgstr "操作"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "立ち止まると無敵になる"
@@ -1527,8 +1854,23 @@ msgstr "クラスター爆弾"
 msgid "Struppig und leicht angekaut."
 msgstr "ぼさぼさで少しかじられている。"
 
+msgid "Stufe %d"
+msgstr "Lv%d"
+
+msgid "Stufe %d erreicht! +%d Skillpunkte"
+msgstr "Lv%d到達！スキルポイント+%d"
+
 msgid "Stufe %d · %d Ebenen"
 msgstr "レベル %d · %d階層"
+
+msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
+msgstr "Lv%d · EXP %s · スキルポイント：%d · ゴールド：%d"
+
+msgid "Stufe %d/%d"
+msgstr "レベル %d/%d"
+
+msgid "Stufe zu niedrig"
+msgstr "レベルが足りない"
 
 msgid "Sturmessenz"
 msgstr "嵐の精髄"
@@ -1581,11 +1923,17 @@ msgstr "シナジー: %s！"
 msgid "Synergien: %s"
 msgstr "シナジー: %s"
 
+msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
+msgstr "ジャーン！新鮮な品物、産地直送…どこかからな。完全に合法だ！"
+
 msgid "Tag %d"
 msgstr "%d日目"
 
 msgid "Tag %d · %d Gold"
 msgstr "%d日目 · %dゴールド"
+
+msgid "Taste …"
+msgstr "キー…"
 
 msgid "Taumelkraut"
 msgstr "よろめき草"
@@ -1595,6 +1943,9 @@ msgstr "千の刃"
 
 msgid "Tempo"
 msgstr "移動速度"
+
+msgid "Tempo +0,2."
+msgstr "速度+0.2。"
 
 msgid "Tempo: %s"
 msgstr "移動速度: %s"
@@ -1629,8 +1980,20 @@ msgstr "宝箱の鍵"
 msgid "Umgebung"
 msgstr "周辺"
 
+msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
+msgstr "そしてこれが俺のレバー。自慢の品だ。見てな！"
+
+msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
+msgstr "さあ、ダンジョンへ行ってこい！いい物を持ってきてくれ。俺はここで待ってる。念のためな。"
+
+msgid "Und links bist du. Halt still, ich zieh dich an…"
+msgstr "で、左がお前だ。じっとしてな、着せてやる…"
+
 msgid "Ungewöhnlich"
 msgstr "アンコモン"
+
+msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
+msgstr "下がお前のカバンだ。買った物やダンジョンから持ち帰った物は全部ここに入る。"
 
 msgid "Utility"
 msgstr "補助"
@@ -1640,6 +2003,12 @@ msgstr "吸血鬼"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "敵に毒、ダメージ少し上昇"
+
+msgid "Verkaufen"
+msgstr "売る"
+
+msgid "Verkaufen: %d Gold"
+msgstr "売る：%dゴールド"
 
 msgid "Viel größere Bomben"
 msgstr "爆弾が大幅に大きい"
@@ -1677,11 +2046,20 @@ msgstr "追尾する火花がたくさん"
 msgid "Vier Schlüssel"
 msgstr "鍵4本"
 
+msgid "Voll ausgebaut"
+msgstr "最大まで習得"
+
 msgid "Vollbild"
 msgstr "フルスクリーン"
 
+msgid "Vorwärts"
+msgstr "前進"
+
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: 移動 · マウス: 狙う · 左クリック: 撃つ"
+
+msgid "Waffe"
+msgstr "武器"
 
 msgid "Wanderbündel"
 msgstr "旅人の包み"
@@ -1695,8 +2073,14 @@ msgstr "ここに置いた物は死んでも失わない。"
 msgid "Wasserstab"
 msgstr "水の杖"
 
+msgid "Weitblick"
+msgstr "遠見"
+
 msgid "Weiter"
 msgstr "再開"
+
+msgid "Weiterkämpfen"
+msgstr "戦い続ける"
 
 msgid "Weltenstab"
 msgstr "世界の杖"
@@ -1709,6 +2093,9 @@ msgstr "価値:%d ゴールド"
 
 msgid "Wettkampfstiefel"
 msgstr "競技用ブーツ"
+
+msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
+msgstr "俺のささやかな店へようこそ！上のテーブルに品物がある。まあ…もうすぐな。"
 
 msgid "Windfeder"
 msgstr "風の羽"
@@ -1761,11 +2148,20 @@ msgstr "コイン10枚、運上昇"
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "ドラッグ:並べ替え · 窓の外へ:捨てる · Tab:閉じる"
 
+msgid "Ziehen: verschieben · Mausrad: zoomen · Goldener Rahmen: lernen"
+msgstr "ドラッグ：移動 · ホイール：ズーム · 金の枠：習得"
+
 msgid "Zombie"
 msgstr "ゾンビ"
 
+msgid "Zu wenig Gold"
+msgstr "ゴールドが足りない"
+
 msgid "Zu wenig Münzen"
 msgstr "コインが足りない"
+
+msgid "Zu wenig Skillpunkte"
+msgstr "スキルポイントが足りない"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "ランダムで毒・恐怖・よろめき"
@@ -1823,6 +2219,12 @@ msgstr "青いハート2つ。1つ失うと敵全体に攻撃"
 
 msgid "Zwillingshandschuhe"
 msgstr "双子の手袋"
+
+msgid "Zähigkeit"
+msgstr "タフネス"
+
+msgid "max."
+msgstr "最大"
 
 msgid "oder Leertaste"
 msgstr "またはスペースキー"

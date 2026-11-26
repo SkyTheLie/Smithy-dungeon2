@@ -70,22 +70,10 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Buttons" type="HBoxContainer" parent="Panel/VBox"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Again" type="Button" parent="Panel/VBox/Buttons"]
+[node name="Hint" type="Label" parent="Panel/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme_override_font_sizes/font_size = 18
-text = "Zum Laden"
-
-[node name="Menu" type="Button" parent="Panel/VBox/Buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme_override_font_sizes/font_size = 18
-text = "Hauptmenü"
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+theme_override_font_sizes/font_size = 16
+text = "Klicken, um weiterzumachen"
+horizontal_alignment = 1

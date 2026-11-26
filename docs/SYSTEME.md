@@ -120,7 +120,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 
 ## Charaktere
 
-- **Dateien:** `data/characters.json`, `scenes/ui/menus/character_select.tscn/.gd`; „Neues Spiel“ öffnet die Auswahl, „Neuer Run“ nimmt den letzten Charakter.
+- **Dateien:** `data/characters.json`. Kein Auswahlfenster mehr: der Charakter eines Runs ist die Klasse der angelegten Waffe (`MetaState.run_character`, `gear.json` `class`); ohne Waffe oder solange die Klasse gesperrt ist (`Progress`), der erste Charakter (Magier).
 - Die Hauptwaffe ist ein **normales Item** (`start_items`, `RunState._add_start_items`): Magier = Glutstab (Feuerbälle), Bogenschütze (nach einem Sieg) = Jagdbogen (aufladen, viel Reichweite, Pfeil-Bild), Krieger (Ebene 3 erreicht) = Kriegerschwert (Schwung). Sie steht im Inventar, kombiniert sich mit anderen Items über Synergien („Waffen kreuzen“) und bleibt im Testraum beim Leeren. Die Start-Waffen liegen auch im Item-Raum, so findet z. B. der Magier das Schwert. Der Charakter selbst gibt nur noch Herzen (stats/flags dort gehen weiter).
 - Waffen kreuzen: **Feuerhieb** (Schwert/Glutschwert/Kriegsaxt + Glutstab/Feuerstab/Höllenstab, Flag `fire_slash`): jeder Schwung schickt ein gebogenes Feuerband nach vorne (`scenes/actors/fire_slash.gd`), Weg = Schwert-Reichweite + Feuer-Reichweite, Schaden x `fire_slash_damage`, trifft jeden Gegner einmal, schlägt Gegner-Schüsse weg, endet an Wand/Stein.
 - Das Bild in der Hand ist das neueste Nahkampf-Item (`hand`, sonst `icon`; `Weapon._update_blade_picture`).
@@ -164,6 +164,63 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 
 - **Dateien:** `scenes/ui/main_menu/slot_select.gd` (`SlotSelect`), `scenes/story/intro.tscn/.gd` (`Intro`), `scenes/story/waving_hand.gd` (`WavingHand`), `scenes/shop/shop.tscn/.gd` (`MerchantShop`), `scenes/shop/dungeon_board.gd` (`DungeonBoard`), Daten `data/dungeons.json`
 - **Hauptmenü:** Sprache (erster Start) → Spielstand-Wahl A/B/C (einmal je Programmstart, `MainMenu.slot_chosen`) → Schmiede-Tür → Amboss-Menü. „Weiter“ steht oben, nur wenn der Platz einen Spielstand hat. „Neues Spiel“ fragt bei einem belegten Platz nach („überschreiben?“), dann wird es schwarz → Intro.
-- **Intro** (Einsteiger-Szene): kurz schwarz, dann hell; Mine (`battle/mine_rats.png`), hinten vor dem dunklen Schacht winkt Egon (`npcs/black_market_dealer.png` + `WavingHand`, ein gezeichneter Arm, der hin und her schwingt). Drei Bilder (`ZOOMS`): man geht in zwei Schritten auf ihn zu (Zoom mit leichtem Wippen wie Schritte). Danach schwarz → Laden. Leertaste/Klick = weiter, Esc = überspringen.
-- **Laden** (vorläufig): Egon hinter seinem Tisch in der Mine, „Tag N“, unten links „Hauptmenü“, unten rechts „Dungeons“ → Dungeon-Brett. Ware, Hebel, Verkauf, Dose kommen als Nächstes (Roadmap Phase 1, Schritte 3–6).
-- **Dungeon-Brett** (wie das Brett der Abenteuergilde in Smithy): links Reiter je Gebiet (`region`) mit seinen Dungeons, rechts Name, Stufe, Anzahl Ebenen und Gebiete (aus `floors.json`), Beschreibung, „Betreten“ → Charakter-Wahl (`CharacterSelect`) → Run. Bisher spielen alle Dungeons die Ebenen aus `floors.json`.
+- **Intro** (Einsteiger-Szene, Skizze `assets/_reference/vorlagen/intro_skizze.png`): kurz schwarz, dann hell; draußen vor der Felswand (`mine/cliff_open.png`) mit dem Dungeon-Eingang, davor ein glühender Weg (gezeichnet). Links daneben Egon an seinem Stand, er winkt (`WavingHand`) und ruft dich (`story.json` `intro_call`). Drei Bilder (`ZOOMS`): man geht in zwei Schritten auf ihn zu (Zoom mit Wippen), dann stellt er sich vor (`intro`). Danach schwarz → Laden. Leertaste/Klick = nächster Satz, Esc = überspringen.
+- **Laden:** siehe „Egons Laden“ unten.
+- **Dungeon-Brett** (wie das Brett der Abenteuergilde in Smithy): links Reiter je Gebiet (`region`) mit seinen Dungeons, rechts Name, Stufe, Anzahl Ebenen und Gebiete (aus `floors.json`), Beschreibung, „Betreten“ → sofort der Run (Charakter = Klasse der angelegten Waffe, `MetaState.run_character`). Bisher spielen alle Dungeons die Ebenen aus `floors.json`.
+
+## Egons Laden, Ausrüstung, Sprechfenster – 2026-11-26, `feature/laden-tutorial`
+
+- **Dateien:** `scenes/shop/shop.gd` (`MerchantShop`), `shop_slot.gd` (`ShopSlot`), `hero_panel.gd` (`HeroPanel`), `scenes/story/dialog_box.gd` (`DialogBox`), `scripts/systems/shop_goods.gd` (`ShopGoods`), `MetaState`; Daten `data/gear.json`, `data/shop.json`, `data/story.json`; Skizze `assets/_reference/vorlagen/laden_skizze.png`
+- **Aufbau** (640×360 in der Mitte): oben Egons Tisch (5×2 `ShopSlot` mit Preis), rechts daneben der Hebel (`fortress/lever_up/down.png`) mit dem heutigen Preis darunter, links die Helden-Ansicht (`HeroPanel`: Silhouette `ui/doll.png`, ein Platz je `gear.json` `slots`, leer mit Hinweisbild), unten das Inventar (`MetaState.stash`, 8 Spalten, wächst mit), in der Mitte Egons Sprechfenster, rechts Egon. Oben links Tag und Gold, unten links „Hauptmenü“, unten rechts „Dungeons“.
+- **Regeln** (nur in `MetaState`/`ShopGoods`): Hebel `pull_lever` (Preis `roll_prices` nach Zügen heute, der erste am Tag gratis, ohne Gold abgelehnt) → `ShopGoods.roll`: `goods_count` Sachen aus `pool` auf zufälligen Plätzen, Seltenheit aus `rarity_weights`, Preis = `price` × `rarity_price`. `buy` (Gold prüfen, Ware ins Inventar), `equip` (nur Ausrüstung, Altes zurück ins Inventar), `unequip`. Ein neuer Tag (`end_run`) setzt die Hebel-Züge zurück; der Tisch bleibt liegen.
+- **Ausrüstung** im Inventar: `{id, count 1, rarity}`, getragen: `equipment` = Platz → `{id, rarity}`. Werte = `gear.json` `stats` × `rarity_stats`.
+- **Ausrüstung im Run** (`RunState.use_gear`, aufgerufen von `Game.start_new_run`): `shield_hearts` werden weiße Schild-Herzen (`RunState.shield`, halbe Herzen, gerundet): Treffer nehmen sie vor blauen und roten, sie heilen nicht nach. Alle anderen Werte (Waffe: Schaden) zählen wie ein Item den ganzen Run. Jedes Kupfer-Rüstungsteil = ½ Schild-Herz; die `HeartBar` zeigt sie weiß hinter den blauen.
+- **Bedienung:** Hebel anklicken (Tisch klappt um, Ware ploppt auf); Ware anklicken = kaufen (fliegt ins Inventar); Ausrüstung im Inventar anklicken = anlegen (fliegt an die Figur); Platz an der Figur anklicken = ablegen. Egon kommentiert (`story.json` `barks`).
+- **Erster Besuch** (`tutorial_done` = false): alles gesperrt, Egon redet (`tutorial_*`), der Hebel leuchtet, er zieht ihn (`lay_tutorial_table`, `shop.json` `tutorial.goods`), seine Geschenke (`tutorial.gifts`) leuchten auf, er kauft sie (gratis) ins Inventar, zieht sie dir an und schickt dich los: das Dungeon-Brett geht auf und lässt sich nicht schließen (`DungeonBoard.forced`, Esc und „Schließen“ aus).
+- **`DialogBox`:** Gesicht (Ausschnitt aus `story.json` `portrait`), Name, Text tippt sich; `speak(lines)` wartet auf Leertaste/Enter/Klick (erster Druck zeigt den ganzen Satz), `bark(line)` wartet nicht.
+
+## Dungeon: Flucht, Münzen, Tab-Karte, HUD – 2026-11-26, `feature/dungeon-flucht`
+
+- **Ausgang im Startraum** (`scenes/objects/dungeon_exit.gd`, `DungeonExit`): in jedem Startraum eine Leiter mit Tageslicht in der hinteren linken Ecke (Ecken haben nie Türen), Schild „Ausgang“. Drauftreten → `Dungeon.exit_entered` → `RunScene` hält das Spiel an und fragt „Flüchten / Weiterkämpfen“. Flüchten = wie ein Sieg: Münzen und ganze Tasche nach Hause (`MetaState.end_run`), End-Bildschirm „Geflüchtet!“. Nach „Weiterkämpfen“ fragt die Leiter erst wieder, wenn man weggegangen ist.
+- **Tod** unverändert (Entscheidung 2026-11-26): Münzen und Tasche weg, nur der sichere Platz bleibt.
+- **Münzen:** eine aufgehobene Münze ist `player.json` `coin_pickup` [8, 12] wert (`RunState.pick_up_coin`, gewürfelt mit dem Seed des Runs).
+- **Tab** (`BagWindow`): links die Ausrüstung von zu Hause (`HeroPanel`, nur Anzeige) und darunter die Werte des Runs (Schaden, Angriffstempo, Tempo, Glück), in der Mitte die Tasche, rechts die ganze Ebene (`Minimap` mit `always_big`, so weit rausgezoomt, dass alle bekannten Räume passen), unten die Items des Runs groß (26 px) mit Name und Beschreibung beim Drüberfahren.
+- **HUD:** oben links größere Herzen (`HeartBar` 28 px), darunter nur Bomben und Schlüssel; die Münz-Anzeige (Geld steht im Inventar beim Geldbündel) und die Werte-Spalte links sind weg (Werte stehen im Pausenmenü).
+
+## Einstellungen und Spielstände löschen – 2026-11-26, `feature/spielstand-einstellungen`
+
+- **Spielstand löschen:** unter jedem belegten Platz der Spielstand-Wahl ein Knopf „Löschen“, nach Rückfrage `MetaState.delete_slot` (Datei weg).
+- **Einstellungen** (`scenes/ui/menus/settings_window.gd`, im Code gebaut, Reiter wie in Smithy):
+  - Grafik: Anzeige Fenster / Rahmenlos / Vollbild, Fenstergröße (nur im Fenster), VSync, Sichtfeld 60–100° (`DisplaySettings`, `scripts/core/display_settings.gd`; der Spieler hört auf `Game.fov_changed`), Sprache (nur Hauptmenü).
+  - Audio: Lautstärke, Musik, Effekte.
+  - Steuerung: Maus und die erste Taste jeder Aktion in `Controls.REBINDABLE` (Taste anklicken, neue drücken, Esc bricht ab); eine Taste, die schon eine andere Aktion hat, wird dort weggenommen (die bekommt ihren Standard zurück); „Standard wiederherstellen“. Gespeichert in `settings.cfg` Abschnitt `keys`; Pfeiltasten und Maustasten bleiben fest.
+
+## Item-Raum nur mit Schlüssel – 2026-11-26, `feature/item-raum-schluessel`
+
+- Ebene 1 hat keinen Item-Raum (`floors.json` `"item_room": false` → `FloorLayout.remove_item_room`, der Raum wird ein normaler Raum; die Karte bleibt für denselben Seed gleich). Ab Ebene 2 steht `item` in `key_doors`: die Tür geht nur mit einem Schlüssel auf, drin liegt ein zufälliges Item aus dem Item-Pool auf einem Sockel.
+
+## Gold in der Tasche – 2026-11-26, `feature/geld-in-tasche`
+
+- Das Gold des Runs ist das Material `gold` (`loot.json`, Stapel bis 999 über `stack`) in der Tasche: fallen lassen, umsortieren, in den sicheren Platz legen wie alles andere. `RunState.coins` zählt nur das Gold in der Tasche (eine Quelle); `add_coins` legt hinein (gibt zurück, was nicht passt), `spend` nimmt heraus (`Bag.remove`, normale Plätze zuerst). Das Geldbündel-Feld im Tab-Fenster ist weg.
+- Münzen auf dem Boden werden beim Anfassen zu 8–12 Gold für die Tasche; ist sie voll, bleibt das Gold liegen („Inventar voll!“).
+- Run-Ende: Gold aus der Tasche geht in die Geldbörse zu Hause (`MetaState.end_run`), nicht ins Inventar. Beim Tod nur das Gold im sicheren Platz.
+- **End-Bildschirm** (2026-11-26): keine Knöpfe mehr. Nach 0,6 s blinkt „Klicken, um weiterzumachen“; ein Klick oder eine Taste, und man wacht vor Egon auf (`Game.to_shop`). Ins Hauptmenü geht es aus dem Laden.
+- **Kleiner Rucksack** (2026-11-26): im Run nur 4 Plätze plus sicherer Platz (`meta.json` `bag.slots` 4), Beute stapelt nicht (`bag.stack` 1), nur Gold stapelt (bis 999). Zu Hause im Laden ist das Inventar weiter groß und wächst mit.
+
+## Relikte – 2026-11-26, `feature/relikte`
+
+- **Daten:** `data/relics.json`: `items` (Item-Id → Stufe 1–4; nur gelistete Items können Relikte werden, die Startwaffen nicht), `tiers` (je Stufe `dungeons` = Runs Haltbarkeit, 0 = für immer, `price`, `rarity` = Rahmenfarbe, `weight` = wie oft auf dem Tisch), `table_chance` (je Hebel-Zug). Erste Stufen per Faustregel aus den Item-Werten vergeben (schwach = +Herz/Tempo/Reichweite → 1, Schaden → 2, Flags/Multiplikatoren → 3, Mehrfachschuss/Modus/geheim → 4).
+- **Freischalten:** ein Item, das einmal aufgehoben wurde (`Progress.discover`, steht im Lexikon), kann ab dann als Relikt auf Egons Tisch liegen (`ShopGoods.pick_relic`).
+- **Kaufen und Anlegen:** wie Ausrüstung (`MetaState.buy` / `equip`); Relikte gehen in den Platz `relic` (`gear.json` slots). Im Inventar und am Helden `{id, relic: true, left}` (`left` -1 = für immer).
+- **Im Run:** `RunState.use_gear` fügt das Relikt als sein Item hinzu (zählt für Synergien, steht in der Item-Leiste).
+- **Haltbarkeit:** `MetaState.end_run` zieht dem angelegten Relikt einen Run ab; bei 0 ist es kaputt (`broken_relic`), Egon sagt es beim nächsten Laden-Besuch (`story.json` `barks.relic_broken`).
+
+## Stufen und Skillbaum – 2026-11-26, `feature/level-skillbaum`
+
+- **Stufen** (`data/levels.json`, `Skills`, `MetaState.level/exp_points/skill_points/add_exp`): jeder Kill gibt EXP (`RunState.add_kill_exp`, Boss mehr), gutgeschrieben am Ende jedes Runs (Tod, Flucht, Sieg; `RunScene`). Stufe 2 braucht 30 EXP, jede weitere ×1,3, bis Stufe 30. Jede Stufe +1 Skillpunkt, Start mit 1. Laden oben links: Tag, Stufe, EXP; End-Bildschirm: EXP und neue Stufe.
+- **Skillbaum** (`data/skills.json`, `scenes/shop/skill_tree.gd`, `skill_tree_window.gd`, `scenes/ui/common/pan_zoom_view.gd` aus Smithy Defense): Knopf „Skills (N)“ im Laden. Jeder Skill: Position, Vorgänger, Stufen mit Gold-, Skillpunkt-Preis und Mindest-Spielerstufe. Ziehen in alle Richtungen, Mausrad zoomt, goldener Rahmen = lernbar (`MetaState.buy_skill`, prüft `Skills.problem`).
+- **Wirkung im Run** (`RunState.use_skills`, von `Game.start_new_run`): Rucksack-Plätze und sichere Plätze (`Bag.grow`), weiße Schild-Herzen, rote Herzen, Werte (eine Quelle wie ein Item), Gold je Münze. Relikt-Plätze: Reihe unter der Figur (`MetaState.relic_slot_names`, relic_1 … bis 3), Reliktpflege: neue Relikte halten länger (`ShopGoods.make_relic`).
+
+## Verkaufen bei Egon – 2026-11-26, `feature/verkaufen`
+
+- Oben rechts im Laden der Ankauf-Platz: Rechtsklick auf ein Ding im Inventar legt es dorthin (im Inventar abgedunkelt), „Verkaufen: N Gold“ verkauft den ganzen Stapel (`MetaState.sell`), Klick auf den Ankauf-Platz legt es zurück. Preis (`ShopGoods.sell_price`): Beute = `loot.json` `value` × Anzahl; Ausrüstung und Relikte = `shop.json` `sell_share` (30 %) des Kaufpreises.

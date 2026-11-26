@@ -5,13 +5,17 @@ extends Control
 ## the player as a green dot with a line for the view direction.
 ## M (toggle): zooms out to the whole floor in the middle of the screen: every room (visited ones
 ## lighter), the item room (chest), the shop (coin), the boss room (boss picture), and inside the
-## current room again the red and green dots.
+## current room again the red and green dots. The big map always fits: a big floor is zoomed out
+## until every known room is on it.
+## always_big = only the big map, without darkening the screen (next to the bag window, Tab).
 
 const SMALL_SCALE: float = 7.0
 const SMALL_MARGIN: float = 6.0
 const BIG_CELL := Vector2(34, 25)
 const BIG_GAP: float = 6.0
 const ZOOM_TIME: float = 0.18
+## Free space around the big map (pixels) when it is fitted.
+const FIT_MARGIN: float = 20.0
 
 const COLOR_PANEL := Color(0.05, 0.04, 0.06, 0.78)
 const COLOR_FLOOR := Color(0.24, 0.2, 0.2)
@@ -35,6 +39,8 @@ var player: Player
 ## 0 = small map, 1 = whole floor.
 var zoom: float = 0.0
 var expanded: bool = false
+## Only the whole floor, fitted into this control (the map beside the bag window).
+var always_big: bool = false
 
 var _boss_icon: Texture2D
 var _tween: Tween
@@ -62,6 +68,9 @@ func _process(_delta: float) -> void:
 
 func _draw() -> void:
 	if dungeon == null or player == null or dungeon.layout == null:
+		return
+	if always_big:
+		_draw_big(1.0)
 		return
 	if zoom < 1.0:
 		_draw_small(1.0 - zoom)
@@ -120,11 +129,18 @@ func _draw_big(alpha: float) -> void:
 	for cell: Vector2i in cells:
 		low = Vector2i(mini(low.x, cell.x), mini(low.y, cell.y))
 		high = Vector2i(maxi(high.x, cell.x), maxi(high.y, cell.y))
-	var step := BIG_CELL + Vector2(BIG_GAP, BIG_GAP)
-	var grid_size := Vector2(high - low + Vector2i.ONE) * step - Vector2(BIG_GAP, BIG_GAP)
-	var origin: Vector2 = (size - grid_size) / 2.0
-	draw_rect(Rect2(Vector2.ZERO, size), _fade(Color(0, 0, 0, 0.55), alpha))
-	draw_rect(Rect2(origin - Vector2(14, 14), grid_size + Vector2(28, 28)), _fade(COLOR_PANEL, alpha))
+	# Zoomed out as far as needed so the whole known floor fits (never zoomed in).
+	var full_grid := Vector2(high - low + Vector2i.ONE) * (BIG_CELL + Vector2(BIG_GAP, BIG_GAP)) - Vector2(BIG_GAP, BIG_GAP)
+	var room_for := size - Vector2(FIT_MARGIN, FIT_MARGIN) * 2.0
+	var fit: float = clampf(minf(room_for.x / full_grid.x, room_for.y / full_grid.y), 0.2, 1.0)
+	var cell_size: Vector2 = (BIG_CELL * fit).floor()
+	var gap: float = maxf(2.0, floorf(BIG_GAP * fit))
+	var step := cell_size + Vector2(gap, gap)
+	var grid_size := Vector2(high - low + Vector2i.ONE) * step - Vector2(gap, gap)
+	var origin: Vector2 = ((size - grid_size) / 2.0).floor()
+	if not always_big:
+		draw_rect(Rect2(Vector2.ZERO, size), _fade(Color(0, 0, 0, 0.55), alpha))
+	draw_rect(Rect2(origin - Vector2(14, 14) * fit, grid_size + Vector2(28, 28) * fit), _fade(COLOR_PANEL, alpha))
 	# Connections between neighbouring rooms.
 	for door: Door in dungeon.doors:
 		if door.hidden or not cells.has(door.cells[0]) or not cells.has(door.cells[1]):
@@ -132,12 +148,12 @@ func _draw_big(alpha: float) -> void:
 		# Only ways out of rooms that were visited.
 		if not dungeon.get_room(door.cells[0]).visited and not dungeon.get_room(door.cells[1]).visited:
 			continue
-		var a: Vector2 = origin + Vector2(door.cells[0] - low) * step + BIG_CELL / 2.0
-		var b: Vector2 = origin + Vector2(door.cells[1] - low) * step + BIG_CELL / 2.0
+		var a: Vector2 = origin + Vector2(door.cells[0] - low) * step + cell_size / 2.0
+		var b: Vector2 = origin + Vector2(door.cells[1] - low) * step + cell_size / 2.0
 		var color: Color = COLOR_DOOR_LOCKED if door.locked else COLOR_ROOM_SEEN
-		draw_line(a, b, _fade(color, alpha), 3.0)
+		draw_line(a, b, _fade(color, alpha), maxf(1.0, 3.0 * fit))
 	for cell: Vector2i in cells:
-		var rect := Rect2(origin + Vector2(cell - low) * step, BIG_CELL)
+		var rect := Rect2(origin + Vector2(cell - low) * step, cell_size)
 		var room: DungeonRoom = dungeon.get_room(cell)
 		var color: Color = COLOR_ROOM_SEEN if room.visited else COLOR_ROOM_NEW
 		# The boss room gets a red frame once it is on the map.
@@ -155,10 +171,10 @@ func _draw_big(alpha: float) -> void:
 			FloorLayout.BOSS:
 				icon = _boss_icon
 		if cell == dungeon.current_cell:
-			var scale_by: float = BIG_CELL.x / RoomBuilder.ROOM_W
-			_draw_room_inside(rect.position, BIG_CELL, RoomBuilder.cell_center(cell), scale_by, alpha, false)
+			var scale_by: float = cell_size.x / RoomBuilder.ROOM_W
+			_draw_room_inside(rect.position, cell_size, RoomBuilder.cell_center(cell), scale_by, alpha, false)
 		elif icon:
-			var icon_size := Vector2(16, 16)
+			var icon_size := (Vector2(16, 16) * fit).round()
 			draw_texture_rect(icon, Rect2(rect.get_center() - icon_size / 2.0, icon_size), false, _fade(Color.WHITE, alpha))
 
 

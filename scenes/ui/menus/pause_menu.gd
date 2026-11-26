@@ -66,11 +66,11 @@ func _open_settings() -> void:
 static func describe(state: RunState) -> String:
 	var s: ShotStats = state.stats
 	var lines: Array[String] = [
-		Language.translate("Schaden: %s") % _number(s.damage),
-		Language.translate("Schüsse pro Sekunde: %s") % _number(1.0 / s.fire_delay),
-		Language.translate("Reichweite: %s m") % _number(s.reach),
+		Language.translate("Schaden: %s") % format_number(s.damage),
+		Language.translate("Schüsse pro Sekunde: %s") % format_number(1.0 / s.fire_delay),
+		Language.translate("Reichweite: %s m") % format_number(s.reach),
 		Language.translate("Schüsse auf einmal: %d") % s.shots,
-		Language.translate("Tempo: %s") % _number(s.move_speed),
+		Language.translate("Tempo: %s") % format_number(s.move_speed),
 	]
 	if not state.synergies.is_empty():
 		var names: Array[String] = []
@@ -80,7 +80,7 @@ static func describe(state: RunState) -> String:
 	return "\n".join(lines)
 
 
-static func _number(value: float) -> String:
+static func format_number(value: float) -> String:
 	return String.num(value, 1) if absf(value - roundf(value)) > 0.05 else str(roundi(value))
 
 

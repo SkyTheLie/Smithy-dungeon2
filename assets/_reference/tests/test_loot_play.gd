@@ -40,8 +40,9 @@ func _room() -> Node3D:
 func _pick_up() -> void:
 	var pickup: Node3D = dungeon.call("_drop_loot", _room(), player.global_position, "bat_skin", 2, false)
 	check(pickup != null, "loot lies on the floor")
-	check(await wait_until(func() -> bool: return bag.call("room_for", "bat_skin") < 12 * 20, 2.0), "walking over it puts it into the bag")
-	check_eq((bag.call("get_place", 0) as Dictionary).get("count"), 2, "both pieces")
+	check(await wait_until(func() -> bool: return bag.call("count_of", "bat_skin") > 0, 2.0), "walking over it puts it into the bag")
+	check_eq(bag.call("count_of", "bat_skin"), 2, "both pieces")
+	check_eq((bag.call("get_place", 1) as Dictionary).get("id"), "bat_skin", "loot does not stack: one place each")
 
 
 func _enemy_loot() -> void:
@@ -64,7 +65,7 @@ func _bag_window() -> void:
 	Input.parse_input_event(tab)
 	check(await wait_until(func() -> bool: return window.visible, 1.0), "Tab opens the bag")
 	check(paused, "the game stops while the bag is open")
-	check_eq((window.get("_slots") as Array).size(), 13, "12 places and the safe place")
+	check_eq((window.get("_slots") as Array).size(), 5, "a small backpack: 4 places and the safe place")
 	# Drag the bat skin out of the window = onto the floor.
 	window.call("_drop_on_floor", Vector2.ZERO, {"bag_index": 0})
 	check((bag.call("get_place", 0) as Dictionary).is_empty(), "dropped out of the bag")
@@ -89,8 +90,8 @@ func _bag_window() -> void:
 
 
 func _full_bag() -> void:
-	for i in 12:
-		bag.call("add", "coal", 20)
+	for i in int(bag.get("normal_count")):
+		bag.call("add", "coal", 1)
 	messages.clear()
 	var stone: Node3D = dungeon.call("_drop_loot", _room(), player.global_position, "ruby", 1, false)
 	check(await wait_until(func() -> bool: return messages.has("Inventar voll!"), 2.0), "a full bag says so")
@@ -101,7 +102,7 @@ func _death() -> void:
 	var meta: Script = script("res://scripts/systems/meta_state.gd")
 	var day: int = meta.call("day")
 	var saved_id: String = String((bag.call("get_place", 0) as Dictionary).get("id", ""))
-	bag.call("move", 0, 12)
+	bag.call("move", 0, int(bag.get("normal_count")))
 	player.set("invulnerable", 0.0)
 	run_state.call("take_damage", 99)
 	var end_screen: CanvasLayer = scene.get_node("EndScreen")

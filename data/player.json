@@ -1,7 +1,8 @@
 {
-	"_info": "Startwerte des Spielers. Herzen in ganzen Herzen (Leben intern in halben). Reichweite in Metern, fire_delay = Sekunden zwischen zwei Schüssen.",
+	"_info": "Startwerte des Spielers. Herzen in ganzen Herzen (Leben intern in halben). Reichweite in Metern, fire_delay = Sekunden zwischen zwei Schüssen. coin_pickup [min, max] = so viele Münzen gibt eine aufgehobene Münze.",
 	"hearts": 3,
 	"coins": 0,
+	"coin_pickup": [8, 12],
 	"bombs": 1,
 	"keys": 1,
 	"stats": {

@@ -3,11 +3,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: fa\n"
 
+msgid "%d Gold"
+msgstr "%d طلا"
+
 msgid "%d Herzen"
 msgstr "%d قلب"
 
 msgid "Abbrechen"
 msgstr "لغو"
+
+msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
+msgstr "ولی نه این‌طوری، بدون هیچ تجهیزاتی. بیا، اول یه نگاهی به مغازه‌ام بنداز."
 
 msgid "Acht Bomben"
 msgstr "هشت بمب"
@@ -33,17 +39,41 @@ msgstr "هر تیر در پایان به چهار جرقه می‌ترکد"
 msgid "Amethyst"
 msgstr "آمتیست"
 
+msgid "Angriffstempo"
+msgstr "سرعت حمله"
+
+msgid "Ankauf"
+msgstr "خرید"
+
+msgid "Anzeige"
+msgstr "نمایش"
+
 msgid "Arena-Amulett"
 msgstr "طلسم میدان"
 
 msgid "Arenaherz"
 msgstr "قلب میدان"
 
+msgid "Audio"
+msgstr "صدا"
+
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "اخگر عظیم شارژشده فرود می‌آید و منفجر می‌شود"
 
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "شارژ کن، رها کن: یک پرتو آتش عظیم"
+
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "از سیاه‌چال فرار کنی؟ هرچه همراهت است را نگه می‌داری."
+
+msgid "Ausgang"
+msgstr "خروجی"
+
+msgid "Ausrüstung"
+msgstr "تجهیزات"
+
+msgid "Ausweichen"
+msgstr "جاخالی"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "تبر به جای گلوله آتشین: ضربه سنگین، دشمنان خونریزی می‌کنند"
@@ -53,6 +83,9 @@ msgstr "خروج"
 
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "هنگام برخورد، گلوله به چهار جرقه تبدیل می‌شود"
+
+msgid "Beine"
+msgstr "پاها"
 
 msgid "Bernstein"
 msgstr "کهربا"
@@ -78,6 +111,9 @@ msgstr "شیشه خون"
 msgid "Bogenschütze"
 msgstr "کماندار"
 
+msgid "Bombe"
+msgstr "بمب"
+
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "بمب‌ها هنگام انفجار گلوله آتشین شلیک می‌کنند"
 
@@ -89,6 +125,9 @@ msgstr "کمربند بمب"
 
 msgid "Brandöl"
 msgstr "روغن آتش"
+
+msgid "Braucht: %s"
+msgstr "نیاز دارد: %s"
 
 msgid "Brennend und langsam: mehr Schaden"
 msgstr "سوزان و کند: آسیب بیشتر"
@@ -114,17 +153,35 @@ msgstr "توپ نان"
 msgid "Brotregen"
 msgstr "باران نان"
 
+msgid "Brust"
+msgstr "سینه"
+
 msgid "Bumerang-Haken"
 msgstr "قلاب بومرنگی"
 
+msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
+msgstr "اون پشت راه سیاه‌چال اخگره. بعضی‌ها حتی برمی‌گردن بیرون!"
+
+msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
+msgstr "طلات برای این کافی نیست، رفیق. حیف، حیف."
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "یک حشره‌ی کوچک داخلش گیر افتاده."
+
+msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
+msgstr "طلای این دور. اگر بمیری از دست می‌رود، مگر در خانه‌ی امن."
+
+msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
+msgstr "این پوشیدنی نیست، رفیق. باور کن، امتحان کردم."
 
 msgid "Das kostet zu viel Leben"
 msgstr "این زندگی زیادی می‌گیرد"
 
 msgid "Defensiv"
 msgstr "دفاعی"
+
+msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
+msgstr "یادگارت جان داد. پیش میاد. اتفاقاً یه دونه‌ی نو دارم… قیمت دوستانه!"
 
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "گلوله‌های آتشین تو تیرهای دشمن را نابود می‌کنند"
@@ -146,6 +203,12 @@ msgstr "راه پایین باز شد!"
 
 msgid "Diamantherz"
 msgstr "قلب الماس"
+
+msgid "Dicke Haut"
+msgstr "پوست کلفت"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "اندازه‌ی پنجره فقط در حالت پنجره‌ای اعمال می‌شود."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "سلاح کماندار: تیر را پر کن و رها کن، دور و قوی"
@@ -219,6 +282,9 @@ msgstr "نان شلیک می‌کنی. دشمنانِ خورده تو را فر�
 msgid "Du schießt auch nach hinten"
 msgstr "به عقب هم شلیک می‌کنی"
 
+msgid "Du schießt etwas schneller."
+msgstr "کمی سریع‌تر شلیک می‌کنی."
+
 msgid "Du schießt schneller"
 msgstr "سریع‌تر شلیک می‌کنی"
 
@@ -270,6 +336,9 @@ msgstr "پوست نازک بال خفاش."
 msgid "E: Bombe · Tab: Inventar · M: Karte · Esc: Pause"
 msgstr "E: بمب · Tab: کوله · M: نقشه · Esc: توقف"
 
+msgid "EXP: +%d"
+msgstr "تجربه: +%d"
+
 msgid "Ebene %d"
 msgstr "طبقه %d"
 
@@ -278,6 +347,9 @@ msgstr "طبقه: %d"
 
 msgid "Effekte"
 msgstr "افکت‌ها"
+
+msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
+msgstr "اگون صادق، خوشوقتم. صادق اسم منه، صادق کسب‌وکار من. صادقانه!"
 
 msgid "Egons Laden"
 msgstr "مغازهٔ اگون"
@@ -324,6 +396,15 @@ msgstr "یک قلب، یک سکه، یک بمب و یک کلید"
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "یک قلب، دو قلب آبی، آسیب بالاتر"
 
+msgid "Ein Platz mehr im Rucksack."
+msgstr "یک خانه‌ی بیشتر در کوله."
+
+msgid "Ein Relikt-Platz mehr an deiner Figur."
+msgstr "یک خانه‌ی یادگار بیشتر روی قهرمانت."
+
+msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
+msgstr "یه معامله‌ی خوب! برای من. اِه… برای تو! صادقانه!"
+
 msgid "Ein Schrein hat sich geöffnet"
 msgstr "یک زیارتگاه باز شد"
 
@@ -332,6 +413,9 @@ msgstr "یک تیر بیشتر و آسیب بیشتر"
 
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "یک تیر بیشتر، اما ضعیف‌تر"
+
+msgid "Ein Stab mit Feuer-Spitze. Für Magier."
+msgstr "عصایی با نوک آتشین. برای جادوگران."
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "یک قلب آبی و خار"
@@ -345,8 +429,20 @@ msgstr "یک قلب آبی، بعد از ضربه مدت بیشتری امنی"
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "یک قلب آبی، سریع‌تر راه می‌روی"
 
+msgid "Ein einfacher Bogen. Für Bogenschützen."
+msgstr "یک کمان ساده. برای کمانداران."
+
 msgid "Ein geheimer Raum!"
 msgstr "یک اتاق مخفی!"
+
+msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
+msgstr "در شروع هر دور، نیم قلب سپر سفید بیشتر."
+
+msgid "Ein rotes Herz mehr."
+msgstr "یک قلب قرمز بیشتر."
+
+msgid "Ein sicherer Platz mehr im Rucksack."
+msgstr "یک خانه‌ی امن بیشتر در کوله."
 
 msgid "Ein zweites Leben"
 msgstr "زندگی دوم"
@@ -359,6 +455,12 @@ msgstr "زندگی دوم!"
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "یک نانوایی کامل یک‌جا"
+
+msgid "Eine kurze Klinge. Für Krieger."
+msgstr "یک تیغه کوتاه. برای جنگجویان."
+
+msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
+msgstr "روزی یه بار میز رو مجانی می‌چرخونم. بعدش قیمت دوستانه‌ست. هر بار یه کم دوستانه‌تر."
 
 msgid "Einstellungen"
 msgstr "تنظیمات"
@@ -396,6 +498,9 @@ msgstr "عصای زمین"
 msgid "Erreiche Ebene %d"
 msgstr "به طبقه %d برس"
 
+msgid "Erst den Skill davor lernen"
+msgstr "اول مهارت قبلی را یاد بگیر"
+
 msgid "Erstglut"
 msgstr "نخستین اخگر"
 
@@ -410,6 +515,12 @@ msgstr "گرد پری"
 
 msgid "Fein"
 msgstr "ظریف"
+
+msgid "Fenster"
+msgstr "پنجره"
+
+msgid "Fenstergröße"
+msgstr "اندازه‌ی پنجره"
 
 msgid "Feuerfester Bomber"
 msgstr "بمب‌انداز نسوز"
@@ -441,6 +552,9 @@ msgstr "ردای گلسنگ"
 msgid "Fledermaus"
 msgstr "خفاش"
 
+msgid "Flinke Hände"
+msgstr "دست‌های فرز"
+
 msgid "Flipper"
 msgstr "پین‌بال"
 
@@ -449,6 +563,9 @@ msgstr "اسکلت نفرین‌شده"
 
 msgid "Flughaut"
 msgstr "پوست خفاش"
+
+msgid "Flüchten"
+msgstr "فرار"
 
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "وقتی تاریک است آرام زمزمه می‌کند."
@@ -477,6 +594,9 @@ msgstr "شکارچی جرقه"
 msgid "Funkenstein"
 msgstr "سنگ جرقه"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "یکی دو تا خراش رو می‌گیره."
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "در هر اتاق اولین ضربه را دفع می‌کند"
 
@@ -492,8 +612,20 @@ msgstr "پنج کلید"
 msgid "Fünfzehn Münzen"
 msgstr "پانزده سکه"
 
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "برای قدم‌هایی که بهتره شنیده نشن."
+
+msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
+msgstr "برای تو: یه عصای مسی، یه کلاه‌خود و یه زره سینه. اولین خرید مهمون من!"
+
+msgid "Füße"
+msgstr "پاها (کفش)"
+
 msgid "Gebiete: %s"
 msgstr "مناطق: %s"
+
+msgid "Geflüchtet!"
+msgstr "فرار کردی!"
 
 msgid "Gegabelter Stab"
 msgstr "عصای دوشاخه"
@@ -506,6 +638,9 @@ msgstr "دشمنان کند می‌شوند، برد بالاتر"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "دشمنانی که به تو برخورد کنند آسیب می‌بینند"
+
+msgid "Geheimtasche"
+msgstr "جیب مخفی"
 
 msgid "Geist"
 msgstr "روح"
@@ -527,6 +662,9 @@ msgstr "تیغ ژنرال"
 
 msgid "Gerettet (sicherer Platz): %d Beute"
 msgstr "نجات‌یافته (جای امن): %d غنیمت"
+
+msgid "Gerettet (sicherer Platz): %d Gold, %d Beute"
+msgstr "نجات‌یافته (خانه‌ی امن): %d طلا، %d غنیمت"
 
 msgid "Geschafft!"
 msgstr "موفق شدی!"
@@ -615,6 +753,9 @@ msgstr "سبز می‌درخشد. تاجر دوستش دارد."
 msgid "Glück"
 msgstr "شانس"
 
+msgid "Glück +0,5: öfter Beute."
+msgstr "شانس +۰٫۵: غنیمت بیشتر."
+
 msgid "Glück hoch"
 msgstr "شانس بالاتر"
 
@@ -626,6 +767,9 @@ msgstr "شانس خیلی بیشتر"
 
 msgid "Glücksflachs"
 msgstr "کتان شانس"
+
+msgid "Glückspilz"
+msgstr "خوش‌شانس"
 
 msgid "Glühender Schlüssel"
 msgstr "کلید گداخته"
@@ -641,6 +785,9 @@ msgstr "تاج گابلین"
 
 msgid "Goblinstollen"
 msgstr "تونل‌های گابلین"
+
+msgid "Gold"
+msgstr "طلا"
 
 msgid "Goldader"
 msgstr "رگه طلا"
@@ -669,8 +816,17 @@ msgstr "کلاهخود طلایی"
 msgid "Goldklinge"
 msgstr "تیغ طلایی"
 
+msgid "Goldnase"
+msgstr "دماغ طلایاب"
+
 msgid "Goldstiefel"
 msgstr "چکمه طلایی"
+
+msgid "Grafik"
+msgstr "گرافیک"
+
+msgid "Gratis"
+msgstr "رایگان"
 
 msgid "Greifenfell"
 msgstr "پوست گریفون"
@@ -699,6 +855,12 @@ msgstr "بمب‌های بزرگ‌تر، و هیچ‌کدام به تو آسی�
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "گلوله‌های آتشین بزرگ‌تر، آسیب بیشتر"
 
+msgid "Größerer Rucksack"
+msgstr "کوله‌ی بزرگ‌تر"
+
+msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
+msgstr "انتخاب خوبی بود! یه تیکه‌ی کلکسیونی. صادقانه!"
+
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "همزمان %d ظرف قلب داشته باش"
 
@@ -723,8 +885,14 @@ msgstr "تو را کامل درمان می‌کند، سریع‌تر راه م�
 msgid "Heißer Sand"
 msgstr "شن داغ"
 
+msgid "Hereinspaziert! Frische Ware!"
+msgstr "بفرمایید! جنس تازه!"
+
 msgid "Herzblatt"
 msgstr "برگ دل"
+
+msgid "Herzen"
+msgstr "قلب‌ها"
 
 msgid "Herzen heilen doppelt"
 msgstr "قلب‌ها دو برابر شفا می‌دهند"
@@ -740,6 +908,15 @@ msgstr "عصای چوبی"
 
 msgid "Hydraschuppe"
 msgstr "فلس هیدرا"
+
+msgid "Hält für immer"
+msgstr "برای همیشه می‌ماند"
+
+msgid "Hält noch %d Dungeons"
+msgstr "%d سیاه‌چال دیگر دوام می‌آورد"
+
+msgid "Hände"
+msgstr "دست‌ها"
 
 msgid "Höchstens ein halbes Herz pro Treffer, aber langsamer"
 msgstr "حداکثر نیم قلب در هر ضربه، اما کندتر"
@@ -759,6 +936,9 @@ msgstr "چرم جهنمی"
 msgid "Höllenstab"
 msgstr "عصای جهنمی"
 
+msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
+msgstr "من کلاه‌بر… اِه، فروشنده‌ام. من… …تجهیزات می‌فروشم! آره، دقیقاً. تجهیزات می‌فروشم."
+
 msgid "Inventar"
 msgstr "کوله‌پشتی"
 
@@ -770,6 +950,9 @@ msgstr "کمان شکار"
 
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "هرچه تیر دورتر برود، آسیب بیشتر است"
+
+msgid "Jede Münze gibt 2 Gold mehr."
+msgstr "هر سکه ۲ طلای بیشتر می‌دهد."
 
 msgid "Jeder Treffer jagt Gegnern Angst ein"
 msgstr "هر ضربه دشمنان را می‌ترساند"
@@ -789,14 +972,26 @@ msgstr "از حالا ممکن است در سیاه‌چال پیدا شود"
 msgid "Karawanenrucksack"
 msgstr "کوله کاروان"
 
+msgid "Karte"
+msgstr "نقشه"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "هیچ ضربه‌ای بیش از نیم قلب نمی‌گیرد"
 
 msgid "Kinderschuhe"
 msgstr "کفش کودک"
 
+msgid "Klappern bei jedem Schritt."
+msgstr "با هر قدم تلق‌تلق می‌کنند."
+
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "کوچک‌تر، سریع‌تر و گاهی جاخالی"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "روی یک کلید کلیک کن، بعد کلید جدید را بزن. Esc = لغو."
+
+msgid "Klicken, um weiterzumachen"
+msgstr "برای ادامه کلیک کن"
 
 msgid "Klingenstern"
 msgstr "ستاره تیغه"
@@ -819,6 +1014,12 @@ msgstr "سنگ دنباله‌دار"
 msgid "Kompassnadel"
 msgstr "عقربه قطب‌نما"
 
+msgid "Kopf"
+msgstr "سر"
+
+msgid "Kraft"
+msgstr "قدرت"
+
 msgid "Krieger"
 msgstr "جنگجو"
 
@@ -836,6 +1037,30 @@ msgstr "تکه بلور"
 
 msgid "Kräuterbeutel"
 msgstr "کیسه گیاهان"
+
+msgid "Kupfer-Beinschienen"
+msgstr "ساق‌بند مسی"
+
+msgid "Kupfer-Bogen"
+msgstr "کمان مسی"
+
+msgid "Kupfer-Brustplatte"
+msgstr "زره سینه مسی"
+
+msgid "Kupfer-Handschuhe"
+msgstr "دستکش مسی"
+
+msgid "Kupfer-Helm"
+msgstr "کلاه‌خود مسی"
+
+msgid "Kupfer-Schwert"
+msgstr "شمشیر مسی"
+
+msgid "Kupfer-Stiefel"
+msgstr "چکمه مسی"
+
+msgid "Kupfer-Zauberstab"
+msgstr "عصای مسی"
 
 msgid "Kupfererz"
 msgstr "سنگ مس"
@@ -888,8 +1113,14 @@ msgstr "دستکش افسانه‌ای"
 msgid "Legendär"
 msgstr "افسانه‌ای"
 
+msgid "Leicht und schnell."
+msgstr "سبک و سریع."
+
 msgid "Leichte Feder"
 msgstr "پَر سبک"
+
+msgid "Leichtfuß"
+msgstr "سبک‌پا"
 
 msgid "Letzte Glut"
 msgstr "آخرین اخگر"
@@ -900,6 +1131,9 @@ msgstr "دانشنامه"
 msgid "Lichtstab"
 msgstr "عصای نور"
 
+msgid "Links"
+msgstr "چپ"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "بعد از ضربه مدت بیشتری امنی"
 
@@ -908,6 +1142,9 @@ msgstr "صندل دونده"
 
 msgid "Läuferschuhe"
 msgstr "کفش دونده"
+
+msgid "Löschen"
+msgstr "حذف"
 
 msgid "Magier"
 msgstr "جادوگر"
@@ -981,6 +1218,9 @@ msgstr "اسطوره‌ای"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "سکه‌ها و قلب‌ها به سمتت پرواز می‌کنند"
 
+msgid "Na, Partner? Neu hier? Sieht man sofort."
+msgstr "خب، رفیق؟ تازه اومدی؟ از قیافه‌ات معلومه."
+
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "بعد از هر رئیس دو آیتم برای انتخاب"
 
@@ -989,6 +1229,9 @@ msgstr "تاجریزی"
 
 msgid "Nachtschattensamen"
 msgstr "دانه تاجریزی"
+
+msgid "Neue Relikte halten einen Dungeon länger."
+msgstr "یادگارهای تازه یک سیاه‌چال بیشتر دوام می‌آورند."
 
 msgid "Neuer Run"
 msgstr "دور جدید"
@@ -1014,11 +1257,20 @@ msgstr "یک ماه اخگر دیگر دورت می‌چرخد"
 msgid "Noch keine Items"
 msgstr "هنوز آیتمی نداری"
 
+msgid "Noch keine Items in diesem Run."
+msgstr "هنوز در این دور هیچ آیتمی نداری."
+
 msgid "Noch nicht entdeckt"
 msgstr "هنوز کشف نشده"
 
+msgid "Nur für: %s"
+msgstr "فقط برای: %s"
+
 msgid "Nächste Seite"
 msgstr "صفحه بعد"
+
+msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
+msgstr "سطح بعد: %d طلا، %d امتیاز مهارت، از سطح بازیکن %d"
 
 msgid "Offensiv"
 msgstr "تهاجمی"
@@ -1059,6 +1311,9 @@ msgstr "تیغ پالادیوم"
 msgid "Pause"
 msgstr "توقف"
 
+msgid "Pause zwischen Schüssen"
+msgstr "فاصله بین شلیک‌ها"
+
 msgid "Pfeile aufladen und loslassen: weit und stark"
 msgstr "تیر را شارژ و رها کن: دور و قوی"
 
@@ -1086,11 +1341,20 @@ msgstr "تیغ پلاتینی"
 msgid "Platinspitze"
 msgstr "نوک پلاتینی"
 
+msgid "Preis: %d Gold"
+msgstr "قیمت: %d طلا"
+
+msgid "Psst! Hey, du! Ja, du mit den Augen! Komm mal her!"
+msgstr "پیس! هی، تو! آره، تو که چشم داری! بیا اینجا!"
+
 msgid "Pulverfass"
 msgstr "بشکه باروت"
 
 msgid "Pulverhandschuh"
 msgstr "دستکش باروت"
+
+msgid "Rahmenlos"
+msgstr "بدون حاشیه"
 
 msgid "Ratte"
 msgstr "موش"
@@ -1104,8 +1368,17 @@ msgstr "زیرزمین موش‌ها"
 msgid "Rattenkönig"
 msgstr "شاه موش‌ها"
 
+msgid "Rechts"
+msgstr "راست"
+
+msgid "Rechtsklick auf etwas im Inventar legt es hierher."
+msgstr "روی چیزی در کوله راست‌کلیک کن تا اینجا گذاشته شود."
+
 msgid "Reichweite"
 msgstr "برد"
+
+msgid "Reichweite +0,5 m."
+msgstr "برد +۰٫۵ متر."
 
 msgid "Reichweite +2 m, schnellere Schüsse"
 msgstr "برد +۲ متر، گلوله‌های سریع‌تر"
@@ -1124,6 +1397,18 @@ msgstr "برد: %s متر"
 
 msgid "Reine Fassung"
 msgstr "قاب ناب"
+
+msgid "Relikt"
+msgstr "یادگار"
+
+msgid "Relikt-Platz"
+msgstr "خانه‌ی یادگار"
+
+msgid "Relikte"
+msgstr "یادگارها"
+
+msgid "Reliktpflege"
+msgstr "نگهداری یادگار"
 
 msgid "Riesenratte"
 msgstr "موش غول‌پیکر"
@@ -1155,11 +1440,20 @@ msgstr "سرخ مثل اخگر."
 msgid "Rubin"
 msgstr "یاقوت"
 
+msgid "Ruhige Hände, schnellere Schüsse."
+msgstr "دست‌های آرام، شلیک‌های سریع‌تر."
+
 msgid "Ruhmeskette"
 msgstr "زنجیر افتخار"
 
 msgid "Rückenamulett"
 msgstr "طلسم پشت"
+
+msgid "Rückstoß"
+msgstr "عقب‌راندن"
+
+msgid "Rückwärts"
+msgstr "عقب"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "دستکش آهنگر شن"
@@ -1172,6 +1466,9 @@ msgstr "جواهر یاقوت کبود"
 
 msgid "Schaden"
 msgstr "آسیب"
+
+msgid "Schaden +0,5."
+msgstr "آسیب +۰٫۵."
 
 msgid "Schaden für jede Münze, Glück hoch"
 msgstr "آسیب برای هر سکه، شانس بالاتر"
@@ -1248,6 +1545,9 @@ msgstr "نقشه گنج"
 msgid "Schießt Feuerbälle"
 msgstr "گلوله آتشین شلیک می‌کند"
 
+msgid "Schild-Herzen"
+msgstr "قلب‌های سپر"
+
 msgid "Schildwache"
 msgstr "نگهبان سپردار"
 
@@ -1317,6 +1617,9 @@ msgstr "بلور سیاه"
 msgid "Schwer und kalt."
 msgstr "سنگین و سرد."
 
+msgid "Schwer, aber sicher."
+msgstr "سنگین، ولی امن."
+
 msgid "Schwere Glut"
 msgstr "اخگر سنگین"
 
@@ -1365,6 +1668,9 @@ msgstr "تیرها در پایان می‌ترکند و از سنگ‌ها عب�
 msgid "Schüsse/s"
 msgstr "تیر/ثانیه"
 
+msgid "Schützt den Kopf. Meistens."
+msgstr "از سر محافظت می‌کند. معمولاً."
+
 msgid "Sechs Münzen, drei Bomben, drei Schlüssel"
 msgstr "شش سکه، سه بمب، سه کلید"
 
@@ -1394,6 +1700,9 @@ msgstr "جای امن"
 
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "جای امن: وقتی بمیری می‌ماند"
+
+msgid "Sichtfeld"
+msgstr "میدان دید"
 
 msgid "Siegerring"
 msgstr "انگشتر پیروز"
@@ -1428,6 +1737,12 @@ msgstr "اسکلت"
 msgid "Skelettritter"
 msgstr "شوالیه اسکلتی"
 
+msgid "Skillbaum"
+msgstr "درخت مهارت"
+
+msgid "Skills"
+msgstr "مهارت‌ها"
+
 msgid "Smaragd"
 msgstr "زمرد"
 
@@ -1448,6 +1763,9 @@ msgstr "قلک"
 
 msgid "Spielstand %s"
 msgstr "ذخیره %s"
+
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "ذخیره %s حذف شود؟ این کار برگشت‌پذیر نیست."
 
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "ذخیره %s بازنویسی شود؟ پیشرفت قبلی از بین می‌رود."
@@ -1485,6 +1803,12 @@ msgstr "پرتو انفجاری"
 msgid "Sprinterrucksack"
 msgstr "کوله دونده"
 
+msgid "Standard wiederherstellen"
+msgstr "بازگردانی پیش‌فرض"
+
+msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
+msgstr "بهت میاد! تقریباً به خوبیِ من. از فردا همه‌چی یه پول ناقابل داره، البته."
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "سنگ‌ها را خرد کن و غنیمت بیشتر"
 
@@ -1505,6 +1829,9 @@ msgstr "گرد ستاره"
 
 msgid "Sternentrunk"
 msgstr "معجون نور ستاره"
+
+msgid "Steuerung"
+msgstr "کنترل‌ها"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "بی‌حرکت ایستادن تو را آسیب‌ناپذیر می‌کند"
@@ -1527,8 +1854,23 @@ msgstr "بمب خوشه‌ای"
 msgid "Struppig und leicht angekaut."
 msgstr "ژولیده و کمی جویده‌شده."
 
+msgid "Stufe %d"
+msgstr "سطح %d"
+
+msgid "Stufe %d erreicht! +%d Skillpunkte"
+msgstr "سطح %d رسیدی! +%d امتیاز مهارت"
+
 msgid "Stufe %d · %d Ebenen"
 msgstr "سطح %d · %d طبقه"
+
+msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
+msgstr "سطح %d · تجربه %s · امتیاز: %d · طلا: %d"
+
+msgid "Stufe %d/%d"
+msgstr "سطح %d/%d"
+
+msgid "Stufe zu niedrig"
+msgstr "سطح خیلی پایین است"
 
 msgid "Sturmessenz"
 msgstr "جوهر طوفان"
@@ -1581,11 +1923,17 @@ msgstr "هم‌افزایی: %s!"
 msgid "Synergien: %s"
 msgstr "هم‌افزایی‌ها: %s"
 
+msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
+msgstr "تادا! جنس تازه، مستقیم از… هر جا که هست. کاملاً قانونی!"
+
 msgid "Tag %d"
 msgstr "روز %d"
 
 msgid "Tag %d · %d Gold"
 msgstr "روز %d · %d طلا"
+
+msgid "Taste …"
+msgstr "کلید …"
 
 msgid "Taumelkraut"
 msgstr "علف تلوتلو"
@@ -1595,6 +1943,9 @@ msgstr "تیغ هزار"
 
 msgid "Tempo"
 msgstr "سرعت"
+
+msgid "Tempo +0,2."
+msgstr "سرعت +۰٫۲."
 
 msgid "Tempo: %s"
 msgstr "سرعت: %s"
@@ -1629,8 +1980,20 @@ msgstr "کلید صندوق"
 msgid "Umgebung"
 msgstr "اطراف"
 
+msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
+msgstr "و این اهرم منه. افتخار من. نگاه کن!"
+
+msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
+msgstr "و حالا برو تو سیاه‌چال! یه چیز خوب برام بیار. من همین‌جا منتظرم. احتیاط شرط عقله."
+
+msgid "Und links bist du. Halt still, ich zieh dich an…"
+msgstr "و سمت چپ خودتی. تکون نخور، لباس تنت می‌کنم…"
+
 msgid "Ungewöhnlich"
 msgstr "غیرمعمول"
+
+msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
+msgstr "پایین کیف توئه. هرچی بخری یا از سیاه‌چال بیاری میره اون تو."
 
 msgid "Utility"
 msgstr "کاربردی"
@@ -1640,6 +2003,12 @@ msgstr "خون‌آشام"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "دشمنان را مسموم می‌کند، کمی آسیب بیشتر"
+
+msgid "Verkaufen"
+msgstr "فروش"
+
+msgid "Verkaufen: %d Gold"
+msgstr "فروش: %d طلا"
 
 msgid "Viel größere Bomben"
 msgstr "بمب‌های خیلی بزرگ‌تر"
@@ -1677,11 +2046,20 @@ msgstr "جرقه‌های جوینده‌ی زیاد با هم"
 msgid "Vier Schlüssel"
 msgstr "چهار کلید"
 
+msgid "Voll ausgebaut"
+msgstr "کاملاً آموخته شده"
+
 msgid "Vollbild"
 msgstr "تمام‌صفحه"
 
+msgid "Vorwärts"
+msgstr "جلو"
+
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: راه رفتن · ماوس: نشانه‌گیری · کلیک چپ: شلیک"
+
+msgid "Waffe"
+msgstr "سلاح"
 
 msgid "Wanderbündel"
 msgstr "بقچه مسافر"
@@ -1695,8 +2073,14 @@ msgstr "آنچه اینجاست با مرگت از دست نمی‌رود."
 msgid "Wasserstab"
 msgstr "عصای آب"
 
+msgid "Weitblick"
+msgstr "دوربینی"
+
 msgid "Weiter"
 msgstr "ادامه"
+
+msgid "Weiterkämpfen"
+msgstr "ادامه‌ی نبرد"
 
 msgid "Weltenstab"
 msgstr "عصای جهان"
@@ -1709,6 +2093,9 @@ msgstr "ارزش: %d طلا"
 
 msgid "Wettkampfstiefel"
 msgstr "چکمه مسابقه"
+
+msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
+msgstr "به مغازه‌ی کوچیک من خوش اومدی! جنس‌ها اون بالا روی میزن. یعنی… الان میان."
 
 msgid "Windfeder"
 msgstr "پر باد"
@@ -1761,11 +2148,20 @@ msgstr "ده سکه، شانس بالاتر"
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "کشیدن: مرتب‌سازی · بیرون از پنجره: انداختن · Tab: بستن"
 
+msgid "Ziehen: verschieben · Mausrad: zoomen · Goldener Rahmen: lernen"
+msgstr "کشیدن: جابجایی · چرخ: بزرگنمایی · قاب طلایی: یادگیری"
+
 msgid "Zombie"
 msgstr "زامبی"
 
+msgid "Zu wenig Gold"
+msgstr "طلای کافی نداری"
+
 msgid "Zu wenig Münzen"
 msgstr "سکه کافی نداری"
+
+msgid "Zu wenig Skillpunkte"
+msgstr "امتیاز مهارت کافی نداری"
 
 msgid "Zufällig Gift, Furcht oder Taumeln"
 msgstr "زهر، ترس یا تلوتلو به‌طور تصادفی"
@@ -1823,6 +2219,12 @@ msgstr "دو قلب آبی؛ از دست دادن یکی به همه دشمنا�
 
 msgid "Zwillingshandschuhe"
 msgstr "دستکش‌های دوقلو"
+
+msgid "Zähigkeit"
+msgstr "سرسختی"
+
+msgid "max."
+msgstr "حداکثر"
 
 msgid "oder Leertaste"
 msgstr "یا کلید فاصله"
