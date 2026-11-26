@@ -39,11 +39,17 @@ msgstr "每发射击最后炸成四个火花"
 msgid "Amethyst"
 msgstr "紫水晶"
 
+msgid "Anzeige"
+msgstr "显示"
+
 msgid "Arena-Amulett"
 msgstr "竞技场护符"
 
 msgid "Arenaherz"
 msgstr "竞技场之心"
+
+msgid "Audio"
+msgstr "音频"
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "蓄力的巨型余烬撞击并爆炸"
@@ -59,6 +65,9 @@ msgstr "出口"
 
 msgid "Ausrüstung"
 msgstr "装备"
+
+msgid "Ausweichen"
+msgstr "闪避"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "用斧头代替火球：沉重挥砍，敌人流血"
@@ -95,6 +104,9 @@ msgstr "血之瓶"
 
 msgid "Bogenschütze"
 msgstr "弓箭手"
+
+msgid "Bombe"
+msgstr "炸弹"
 
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "炸弹爆炸时射出火球"
@@ -176,6 +188,9 @@ msgstr "通往下层的路已打开！"
 
 msgid "Diamantherz"
 msgstr "钻石之心"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "窗口大小仅在窗口模式下生效。"
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "弓箭手的武器：蓄力后放箭，又远又强"
@@ -456,6 +471,12 @@ msgstr "仙尘"
 msgid "Fein"
 msgstr "精良"
 
+msgid "Fenster"
+msgstr "窗口"
+
+msgid "Fenstergröße"
+msgstr "窗口大小"
+
 msgid "Feuerfester Bomber"
 msgstr "防火爆破手"
 
@@ -735,6 +756,9 @@ msgstr "黄金之刃"
 msgid "Goldstiefel"
 msgstr "黄金靴"
 
+msgid "Grafik"
+msgstr "画面"
+
 msgid "Gratis"
 msgstr "免费"
 
@@ -870,6 +894,9 @@ msgstr "现在可以在地牢中出现"
 msgid "Karawanenrucksack"
 msgstr "商队背包"
 
+msgid "Karte"
+msgstr "地图"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "任何攻击最多只扣半颗心"
 
@@ -881,6 +908,9 @@ msgstr "每走一步都哐当作响。"
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "更小、更快，有时闪避"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "点击一个按键，再按下新按键。Esc = 取消。"
 
 msgid "Klingenstern"
 msgstr "刃之星"
@@ -1014,6 +1044,9 @@ msgstr "图鉴"
 msgid "Lichtstab"
 msgstr "光之杖"
 
+msgid "Links"
+msgstr "左"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "受击后安全时间更长"
 
@@ -1022,6 +1055,9 @@ msgstr "跑者凉鞋"
 
 msgid "Läuferschuhe"
 msgstr "跑者之靴"
+
+msgid "Löschen"
+msgstr "删除"
 
 msgid "Magier"
 msgstr "法师"
@@ -1221,6 +1257,9 @@ msgstr "火药桶"
 msgid "Pulverhandschuh"
 msgstr "火药手套"
 
+msgid "Rahmenlos"
+msgstr "无边框"
+
 msgid "Ratte"
 msgstr "老鼠"
 
@@ -1232,6 +1271,9 @@ msgstr "鼠窖"
 
 msgid "Rattenkönig"
 msgstr "鼠王"
+
+msgid "Rechts"
+msgstr "右"
 
 msgid "Reichweite"
 msgstr "射程"
@@ -1295,6 +1337,9 @@ msgstr "背护符"
 
 msgid "Rückstoß"
 msgstr "击退"
+
+msgid "Rückwärts"
+msgstr "后退"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "沙匠手套"
@@ -1539,6 +1584,9 @@ msgstr "安全格"
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "安全格:死亡时保留"
 
+msgid "Sichtfeld"
+msgstr "视野"
+
 msgid "Siegerring"
 msgstr "胜者之戒"
 
@@ -1593,6 +1641,9 @@ msgstr "存钱罐"
 msgid "Spielstand %s"
 msgstr "存档 %s"
 
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "删除存档 %s？此操作无法撤销。"
+
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "覆盖存档 %s？旧的进度将会消失。"
 
@@ -1629,6 +1680,9 @@ msgstr "爆破光束"
 msgid "Sprinterrucksack"
 msgstr "疾跑者背包"
 
+msgid "Standard wiederherstellen"
+msgstr "恢复默认"
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "挺合身！差不多跟我一样帅。从明天起，一切都要收点小费，当然啦。"
 
@@ -1652,6 +1706,9 @@ msgstr "星尘"
 
 msgid "Sternentrunk"
 msgstr "星光药水"
+
+msgid "Steuerung"
+msgstr "操作"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "静止不动时无敌"
@@ -1736,6 +1793,9 @@ msgstr "第%d天"
 
 msgid "Tag %d · %d Gold"
 msgstr "第%d天 · %d金币"
+
+msgid "Taste …"
+msgstr "按键…"
 
 msgid "Taumelkraut"
 msgstr "蹒跚草"
@@ -1841,6 +1901,9 @@ msgstr "四把钥匙"
 
 msgid "Vollbild"
 msgstr "全屏"
+
+msgid "Vorwärts"
+msgstr "前进"
 
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD：移动 · 鼠标：瞄准 · 左键：射击"

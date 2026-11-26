@@ -186,3 +186,11 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - **Münzen:** eine aufgehobene Münze ist `player.json` `coin_pickup` [8, 12] wert (`RunState.pick_up_coin`, gewürfelt mit dem Seed des Runs).
 - **Tab:** Tasche links, rechts daneben die ganze Ebene (`Minimap` mit `always_big`). Die große Karte (auch M) zoomt so weit heraus, dass alle bekannten Räume hineinpassen.
 - **HUD:** oben links größere Herzen (`HeartBar` 28 px), darunter nur Bomben und Schlüssel; die Münz-Anzeige (Geld steht im Inventar beim Geldbündel) und die Werte-Spalte links sind weg (Werte stehen im Pausenmenü).
+
+## Einstellungen und Spielstände löschen – 2026-11-26, `feature/spielstand-einstellungen`
+
+- **Spielstand löschen:** unter jedem belegten Platz der Spielstand-Wahl ein Knopf „Löschen“, nach Rückfrage `MetaState.delete_slot` (Datei weg).
+- **Einstellungen** (`scenes/ui/menus/settings_window.gd`, im Code gebaut, Reiter wie in Smithy):
+  - Grafik: Anzeige Fenster / Rahmenlos / Vollbild, Fenstergröße (nur im Fenster), VSync, Sichtfeld 60–100° (`DisplaySettings`, `scripts/core/display_settings.gd`; der Spieler hört auf `Game.fov_changed`), Sprache (nur Hauptmenü).
+  - Audio: Lautstärke, Musik, Effekte.
+  - Steuerung: Maus und die erste Taste jeder Aktion in `Controls.REBINDABLE` (Taste anklicken, neue drücken, Esc bricht ab); eine Taste, die schon eine andere Aktion hat, wird dort weggenommen (die bekommt ihren Standard zurück); „Standard wiederherstellen“. Gespeichert in `settings.cfg` Abschnitt `keys`; Pfeiltasten und Maustasten bleiben fest.

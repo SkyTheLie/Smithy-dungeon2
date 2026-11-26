@@ -39,11 +39,17 @@ msgstr "弾は最後に4つの火花に弾ける"
 msgid "Amethyst"
 msgstr "アメジスト"
 
+msgid "Anzeige"
+msgstr "表示"
+
 msgid "Arena-Amulett"
 msgstr "闘技場のお守り"
 
 msgid "Arenaherz"
 msgstr "闘技場の心臓"
+
+msgid "Audio"
+msgstr "オーディオ"
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "チャージした巨大な火球が落ちて爆発する"
@@ -59,6 +65,9 @@ msgstr "出口"
 
 msgid "Ausrüstung"
 msgstr "装備"
+
+msgid "Ausweichen"
+msgstr "回避"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "火の玉の代わりに斧：重い一撃、敵は出血"
@@ -95,6 +104,9 @@ msgstr "血の小瓶"
 
 msgid "Bogenschütze"
 msgstr "弓使い"
+
+msgid "Bombe"
+msgstr "爆弾"
 
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "爆弾が爆発すると火の玉を放つ"
@@ -176,6 +188,9 @@ msgstr "下への道が開いた！"
 
 msgid "Diamantherz"
 msgstr "ダイヤの心臓"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "ウィンドウサイズはウィンドウモードでのみ有効です。"
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "弓使いの武器：矢をためて放つ、遠くへ強く"
@@ -456,6 +471,12 @@ msgstr "妖精の粉"
 msgid "Fein"
 msgstr "上質"
 
+msgid "Fenster"
+msgstr "ウィンドウ"
+
+msgid "Fenstergröße"
+msgstr "ウィンドウサイズ"
+
 msgid "Feuerfester Bomber"
 msgstr "耐火ボマー"
 
@@ -735,6 +756,9 @@ msgstr "金の刃"
 msgid "Goldstiefel"
 msgstr "金のブーツ"
 
+msgid "Grafik"
+msgstr "グラフィック"
+
 msgid "Gratis"
 msgstr "無料"
 
@@ -870,6 +894,9 @@ msgstr "これからダンジョンに出現する"
 msgid "Karawanenrucksack"
 msgstr "隊商の背嚢"
 
+msgid "Karte"
+msgstr "マップ"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "被弾は最大でもハート半分"
 
@@ -881,6 +908,9 @@ msgstr "歩くたびにカチャカチャ鳴る。"
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "小さく速くなり、時々回避"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "キーをクリックして新しいキーを押す。Esc＝キャンセル。"
 
 msgid "Klingenstern"
 msgstr "刃の星"
@@ -1014,6 +1044,9 @@ msgstr "図鑑"
 msgid "Lichtstab"
 msgstr "光の杖"
 
+msgid "Links"
+msgstr "左"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "被弾後の無敵が長い"
 
@@ -1022,6 +1055,9 @@ msgstr "走者のサンダル"
 
 msgid "Läuferschuhe"
 msgstr "ランナーの靴"
+
+msgid "Löschen"
+msgstr "削除"
 
 msgid "Magier"
 msgstr "魔法使い"
@@ -1221,6 +1257,9 @@ msgstr "火薬樽"
 msgid "Pulverhandschuh"
 msgstr "火薬の手袋"
 
+msgid "Rahmenlos"
+msgstr "ボーダーレス"
+
 msgid "Ratte"
 msgstr "ネズミ"
 
@@ -1232,6 +1271,9 @@ msgstr "ネズミの地下室"
 
 msgid "Rattenkönig"
 msgstr "ネズミの王"
+
+msgid "Rechts"
+msgstr "右"
 
 msgid "Reichweite"
 msgstr "射程"
@@ -1295,6 +1337,9 @@ msgstr "背中の護符"
 
 msgid "Rückstoß"
 msgstr "ノックバック"
+
+msgid "Rückwärts"
+msgstr "後退"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "砂の鍛冶屋の手袋"
@@ -1539,6 +1584,9 @@ msgstr "安全な枠"
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "安全な枠:死んでも残る"
 
+msgid "Sichtfeld"
+msgstr "視野"
+
 msgid "Siegerring"
 msgstr "勝者の指輪"
 
@@ -1593,6 +1641,9 @@ msgstr "貯金箱"
 msgid "Spielstand %s"
 msgstr "セーブ %s"
 
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "セーブ %s を削除しますか？元に戻せません。"
+
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "セーブ %s を上書きしますか？以前の進行状況は消えます。"
 
@@ -1629,6 +1680,9 @@ msgstr "爆裂ビーム"
 msgid "Sprinterrucksack"
 msgstr "俊足の背嚢"
 
+msgid "Standard wiederherstellen"
+msgstr "初期設定に戻す"
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "似合ってるぜ！俺ほどじゃないがな。明日からは何でもちょっとした手数料がかかる、当然な。"
 
@@ -1652,6 +1706,9 @@ msgstr "星屑"
 
 msgid "Sternentrunk"
 msgstr "星明かりの薬"
+
+msgid "Steuerung"
+msgstr "操作"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "立ち止まると無敵になる"
@@ -1736,6 +1793,9 @@ msgstr "%d日目"
 
 msgid "Tag %d · %d Gold"
 msgstr "%d日目 · %dゴールド"
+
+msgid "Taste …"
+msgstr "キー…"
 
 msgid "Taumelkraut"
 msgstr "よろめき草"
@@ -1841,6 +1901,9 @@ msgstr "鍵4本"
 
 msgid "Vollbild"
 msgstr "フルスクリーン"
+
+msgid "Vorwärts"
+msgstr "前進"
 
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: 移動 · マウス: 狙う · 左クリック: 撃つ"

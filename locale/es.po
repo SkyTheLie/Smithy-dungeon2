@@ -39,11 +39,17 @@ msgstr "Al final cada disparo estalla en cuatro chispas"
 msgid "Amethyst"
 msgstr "Amatista"
 
+msgid "Anzeige"
+msgstr "Pantalla"
+
 msgid "Arena-Amulett"
 msgstr "Amuleto de la arena"
 
 msgid "Arenaherz"
 msgstr "Corazón de la arena"
+
+msgid "Audio"
+msgstr "Audio"
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "Las brasas gigantes cargadas impactan y explotan"
@@ -59,6 +65,9 @@ msgstr "Salida"
 
 msgid "Ausrüstung"
 msgstr "Equipo"
+
+msgid "Ausweichen"
+msgstr "Esquivar"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "Un hacha en vez de bolas de fuego: golpe pesado, los enemigos sangran"
@@ -95,6 +104,9 @@ msgstr "Vial de sangre"
 
 msgid "Bogenschütze"
 msgstr "Arquero"
+
+msgid "Bombe"
+msgstr "Bomba"
 
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "Las bombas disparan bolas de fuego al explotar"
@@ -176,6 +188,9 @@ msgstr "¡El camino hacia abajo está libre!"
 
 msgid "Diamantherz"
 msgstr "Corazón de diamante"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "El tamaño de ventana solo se aplica en modo ventana."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "El arma del arquero: carga flechas y suéltalas, lejos y fuerte"
@@ -456,6 +471,12 @@ msgstr "Polvo de hada"
 msgid "Fein"
 msgstr "Fino"
 
+msgid "Fenster"
+msgstr "Ventana"
+
+msgid "Fenstergröße"
+msgstr "Tamaño de ventana"
+
 msgid "Feuerfester Bomber"
 msgstr "Bombardero ignífugo"
 
@@ -735,6 +756,9 @@ msgstr "Hoja de oro"
 msgid "Goldstiefel"
 msgstr "Botas de oro"
 
+msgid "Grafik"
+msgstr "Gráficos"
+
 msgid "Gratis"
 msgstr "Gratis"
 
@@ -870,6 +894,9 @@ msgstr "Ahora puede aparecer en la mazmorra"
 msgid "Karawanenrucksack"
 msgstr "Mochila de caravana"
 
+msgid "Karte"
+msgstr "Mapa"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Ningún golpe quita más de medio corazón"
 
@@ -881,6 +908,9 @@ msgstr "Traquetean a cada paso."
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Más pequeño, más rápido y a veces esquivas"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "Haz clic en una tecla y pulsa la nueva. Esc = cancelar."
 
 msgid "Klingenstern"
 msgstr "Estrella de cuchillas"
@@ -1014,6 +1044,9 @@ msgstr "Léxico"
 msgid "Lichtstab"
 msgstr "Bastón de luz"
 
+msgid "Links"
+msgstr "Izquierda"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "Más tiempo a salvo tras un golpe"
 
@@ -1022,6 +1055,9 @@ msgstr "Sandalias de corredor"
 
 msgid "Läuferschuhe"
 msgstr "Zapatillas de corredor"
+
+msgid "Löschen"
+msgstr "Borrar"
 
 msgid "Magier"
 msgstr "Mago"
@@ -1221,6 +1257,9 @@ msgstr "Barril de pólvora"
 msgid "Pulverhandschuh"
 msgstr "Guante de pólvora"
 
+msgid "Rahmenlos"
+msgstr "Sin bordes"
+
 msgid "Ratte"
 msgstr "Rata"
 
@@ -1232,6 +1271,9 @@ msgstr "Sótano de las Ratas"
 
 msgid "Rattenkönig"
 msgstr "Rey de las Ratas"
+
+msgid "Rechts"
+msgstr "Derecha"
 
 msgid "Reichweite"
 msgstr "Alcance"
@@ -1295,6 +1337,9 @@ msgstr "Amuleto de espalda"
 
 msgid "Rückstoß"
 msgstr "Retroceso"
+
+msgid "Rückwärts"
+msgstr "Atrás"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "Guantes del herrero de arena"
@@ -1539,6 +1584,9 @@ msgstr "Hueco seguro"
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "Hueco seguro: se conserva al morir"
 
+msgid "Sichtfeld"
+msgstr "Campo de visión"
+
 msgid "Siegerring"
 msgstr "Anillo del vencedor"
 
@@ -1593,6 +1641,9 @@ msgstr "Hucha"
 msgid "Spielstand %s"
 msgstr "Partida %s"
 
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "¿Borrar la partida %s? No se puede deshacer."
+
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "¿Sobrescribir la partida %s? El progreso anterior se perderá."
 
@@ -1629,6 +1680,9 @@ msgstr "Rayo explosivo"
 msgid "Sprinterrucksack"
 msgstr "Mochila de velocista"
 
+msgid "Standard wiederherstellen"
+msgstr "Restaurar predeterminados"
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "¡Te queda bien! Casi tan bien como a mí. Desde mañana todo cuesta una pequeña propina, claro."
 
@@ -1652,6 +1706,9 @@ msgstr "Polvo de estrellas"
 
 msgid "Sternentrunk"
 msgstr "Trago estelar"
+
+msgid "Steuerung"
+msgstr "Controles"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Quedarte quieto te hace invulnerable"
@@ -1736,6 +1793,9 @@ msgstr "Día %d"
 
 msgid "Tag %d · %d Gold"
 msgstr "Día %d · %d de oro"
+
+msgid "Taste …"
+msgstr "Tecla …"
 
 msgid "Taumelkraut"
 msgstr "Hierba del tambaleo"
@@ -1841,6 +1901,9 @@ msgstr "Cuatro llaves"
 
 msgid "Vollbild"
 msgstr "Pantalla completa"
+
+msgid "Vorwärts"
+msgstr "Adelante"
 
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: andar · Ratón: apuntar · Clic izquierdo: disparar"

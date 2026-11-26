@@ -39,11 +39,17 @@ msgstr "No fim cada tiro explode em quatro faíscas"
 msgid "Amethyst"
 msgstr "Ametista"
 
+msgid "Anzeige"
+msgstr "Tela"
+
 msgid "Arena-Amulett"
 msgstr "Amuleto da arena"
 
 msgid "Arenaherz"
 msgstr "Coração da arena"
+
+msgid "Audio"
+msgstr "Áudio"
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "Brasas gigantes carregadas caem e explodem"
@@ -59,6 +65,9 @@ msgstr "Saída"
 
 msgid "Ausrüstung"
 msgstr "Equipamento"
+
+msgid "Ausweichen"
+msgstr "Esquivar"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "Um machado em vez de bolas de fogo: golpe pesado, inimigos sangram"
@@ -95,6 +104,9 @@ msgstr "Frasco de sangue"
 
 msgid "Bogenschütze"
 msgstr "Arqueiro"
+
+msgid "Bombe"
+msgstr "Bomba"
 
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "Bombas disparam bolas de fogo ao explodir"
@@ -176,6 +188,9 @@ msgstr "O caminho para baixo está livre!"
 
 msgid "Diamantherz"
 msgstr "Coração de diamante"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "O tamanho da janela só vale no modo janela."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "A arma do arqueiro: carregue flechas e solte, longe e forte"
@@ -456,6 +471,12 @@ msgstr "Pó de fada"
 msgid "Fein"
 msgstr "Fino"
 
+msgid "Fenster"
+msgstr "Janela"
+
+msgid "Fenstergröße"
+msgstr "Tamanho da janela"
+
 msgid "Feuerfester Bomber"
 msgstr "Bombardeiro à prova de fogo"
 
@@ -735,6 +756,9 @@ msgstr "Lâmina de ouro"
 msgid "Goldstiefel"
 msgstr "Botas de ouro"
 
+msgid "Grafik"
+msgstr "Gráficos"
+
 msgid "Gratis"
 msgstr "Grátis"
 
@@ -870,6 +894,9 @@ msgstr "Agora pode aparecer na masmorra"
 msgid "Karawanenrucksack"
 msgstr "Mochila de caravana"
 
+msgid "Karte"
+msgstr "Mapa"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Nenhum golpe tira mais de meio coração"
 
@@ -881,6 +908,9 @@ msgstr "Chacoalham a cada passo."
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Menor, mais rápido e às vezes esquiva"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "Clique numa tecla e aperte a nova. Esc = cancelar."
 
 msgid "Klingenstern"
 msgstr "Estrela de lâminas"
@@ -1014,6 +1044,9 @@ msgstr "Léxico"
 msgid "Lichtstab"
 msgstr "Cajado de luz"
 
+msgid "Links"
+msgstr "Esquerda"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "Mais tempo seguro após um golpe"
 
@@ -1022,6 +1055,9 @@ msgstr "Sandálias de corredor"
 
 msgid "Läuferschuhe"
 msgstr "Tênis de corredor"
+
+msgid "Löschen"
+msgstr "Apagar"
 
 msgid "Magier"
 msgstr "Mago"
@@ -1221,6 +1257,9 @@ msgstr "Barril de pólvora"
 msgid "Pulverhandschuh"
 msgstr "Luva de pólvora"
 
+msgid "Rahmenlos"
+msgstr "Sem bordas"
+
 msgid "Ratte"
 msgstr "Rato"
 
@@ -1232,6 +1271,9 @@ msgstr "Porão dos Ratos"
 
 msgid "Rattenkönig"
 msgstr "Rei dos Ratos"
+
+msgid "Rechts"
+msgstr "Direita"
 
 msgid "Reichweite"
 msgstr "Alcance"
@@ -1295,6 +1337,9 @@ msgstr "Amuleto das costas"
 
 msgid "Rückstoß"
 msgstr "Repulsão"
+
+msgid "Rückwärts"
+msgstr "Para trás"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "Luvas do ferreiro da areia"
@@ -1539,6 +1584,9 @@ msgstr "Espaço seguro"
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "Espaço seguro: fica quando você morre"
 
+msgid "Sichtfeld"
+msgstr "Campo de visão"
+
 msgid "Siegerring"
 msgstr "Anel do vencedor"
 
@@ -1593,6 +1641,9 @@ msgstr "Cofrinho"
 msgid "Spielstand %s"
 msgstr "Jogo salvo %s"
 
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "Apagar o jogo salvo %s? Isso não pode ser desfeito."
+
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "Sobrescrever o jogo salvo %s? O progresso antigo será perdido."
 
@@ -1629,6 +1680,9 @@ msgstr "Raio explosivo"
 msgid "Sprinterrucksack"
 msgstr "Mochila de velocista"
 
+msgid "Standard wiederherstellen"
+msgstr "Restaurar padrão"
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "Ficou bem em você! Quase tão bem quanto em mim. A partir de amanhã tudo custa uma pequena gorjeta, claro."
 
@@ -1652,6 +1706,9 @@ msgstr "Poeira estelar"
 
 msgid "Sternentrunk"
 msgstr "Trago estelar"
+
+msgid "Steuerung"
+msgstr "Controles"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Ficar parado te deixa invulnerável"
@@ -1736,6 +1793,9 @@ msgstr "Dia %d"
 
 msgid "Tag %d · %d Gold"
 msgstr "Dia %d · %d de ouro"
+
+msgid "Taste …"
+msgstr "Tecla …"
 
 msgid "Taumelkraut"
 msgstr "Erva cambaleante"
@@ -1841,6 +1901,9 @@ msgstr "Quatro chaves"
 
 msgid "Vollbild"
 msgstr "Tela cheia"
+
+msgid "Vorwärts"
+msgstr "Para frente"
 
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: andar · Mouse: mirar · Clique esquerdo: atirar"

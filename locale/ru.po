@@ -39,11 +39,17 @@ msgstr "В конце каждый выстрел разлетается на ч
 msgid "Amethyst"
 msgstr "Аметист"
 
+msgid "Anzeige"
+msgstr "Экран"
+
 msgid "Arena-Amulett"
 msgstr "Амулет арены"
 
 msgid "Arenaherz"
 msgstr "Сердце арены"
+
+msgid "Audio"
+msgstr "Звук"
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "Заряженный огромный уголь врезается и взрывается"
@@ -59,6 +65,9 @@ msgstr "Выход"
 
 msgid "Ausrüstung"
 msgstr "Снаряжение"
+
+msgid "Ausweichen"
+msgstr "Рывок"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "Топор вместо огненных шаров: тяжёлый взмах, враги кровоточат"
@@ -95,6 +104,9 @@ msgstr "Флакон крови"
 
 msgid "Bogenschütze"
 msgstr "Лучник"
+
+msgid "Bombe"
+msgstr "Бомба"
 
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "Бомбы при взрыве выпускают огненные шары"
@@ -176,6 +188,9 @@ msgstr "Путь вниз открыт!"
 
 msgid "Diamantherz"
 msgstr "Алмазное сердце"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "Размер окна действует только в оконном режиме."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "Оружие лучника: натяни стрелу и отпусти, далеко и сильно"
@@ -456,6 +471,12 @@ msgstr "Пыльца фей"
 msgid "Fein"
 msgstr "Тонкий"
 
+msgid "Fenster"
+msgstr "Окно"
+
+msgid "Fenstergröße"
+msgstr "Размер окна"
+
 msgid "Feuerfester Bomber"
 msgstr "Огнеупорный подрывник"
 
@@ -735,6 +756,9 @@ msgstr "Золотой клинок"
 msgid "Goldstiefel"
 msgstr "Золотые сапоги"
 
+msgid "Grafik"
+msgstr "Графика"
+
 msgid "Gratis"
 msgstr "Бесплатно"
 
@@ -870,6 +894,9 @@ msgstr "Теперь может появиться в подземелье"
 msgid "Karawanenrucksack"
 msgstr "Караванный рюкзак"
 
+msgid "Karte"
+msgstr "Карта"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Ни один удар не отнимает больше полсердца"
 
@@ -881,6 +908,9 @@ msgstr "Гремят при каждом шаге."
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Меньше, быстрее и иногда уклонение"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "Нажми на клавишу, затем на новую. Esc = отмена."
 
 msgid "Klingenstern"
 msgstr "Звезда клинков"
@@ -1014,6 +1044,9 @@ msgstr "Лексикон"
 msgid "Lichtstab"
 msgstr "Посох света"
 
+msgid "Links"
+msgstr "Влево"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "Дольше защита после удара"
 
@@ -1022,6 +1055,9 @@ msgstr "Сандалии бегуна"
 
 msgid "Läuferschuhe"
 msgstr "Сапоги бегуна"
+
+msgid "Löschen"
+msgstr "Удалить"
 
 msgid "Magier"
 msgstr "Маг"
@@ -1221,6 +1257,9 @@ msgstr "Пороховая бочка"
 msgid "Pulverhandschuh"
 msgstr "Пороховая перчатка"
 
+msgid "Rahmenlos"
+msgstr "Без рамки"
+
 msgid "Ratte"
 msgstr "Крыса"
 
@@ -1232,6 +1271,9 @@ msgstr "Крысиный погреб"
 
 msgid "Rattenkönig"
 msgstr "Крысиный король"
+
+msgid "Rechts"
+msgstr "Вправо"
 
 msgid "Reichweite"
 msgstr "Дальность"
@@ -1295,6 +1337,9 @@ msgstr "Амулет спины"
 
 msgid "Rückstoß"
 msgstr "Отбрасывание"
+
+msgid "Rückwärts"
+msgstr "Назад"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "Перчатки песчаного кузнеца"
@@ -1539,6 +1584,9 @@ msgstr "Надёжное место"
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "Надёжное место: остаётся после смерти"
 
+msgid "Sichtfeld"
+msgstr "Поле зрения"
+
 msgid "Siegerring"
 msgstr "Кольцо победителя"
 
@@ -1593,6 +1641,9 @@ msgstr "Копилка"
 msgid "Spielstand %s"
 msgstr "Сохранение %s"
 
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "Удалить сохранение %s? Это нельзя отменить."
+
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "Перезаписать сохранение %s? Старый прогресс пропадёт."
 
@@ -1629,6 +1680,9 @@ msgstr "Взрывной луч"
 msgid "Sprinterrucksack"
 msgstr "Рюкзак спринтера"
 
+msgid "Standard wiederherstellen"
+msgstr "Сбросить по умолчанию"
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "Тебе идёт! Почти как мне. С завтрашнего дня всё стоит небольшую мзду, разумеется."
 
@@ -1652,6 +1706,9 @@ msgstr "Звёздная пыль"
 
 msgid "Sternentrunk"
 msgstr "Звёздный напиток"
+
+msgid "Steuerung"
+msgstr "Управление"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Стоя на месте, ты неуязвим"
@@ -1736,6 +1793,9 @@ msgstr "День %d"
 
 msgid "Tag %d · %d Gold"
 msgstr "День %d · %d золота"
+
+msgid "Taste …"
+msgstr "Клавиша …"
 
 msgid "Taumelkraut"
 msgstr "Шатун-трава"
@@ -1841,6 +1901,9 @@ msgstr "Четыре ключа"
 
 msgid "Vollbild"
 msgstr "Полный экран"
+
+msgid "Vorwärts"
+msgstr "Вперёд"
 
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: ходьба · Мышь: прицел · ЛКМ: выстрел"

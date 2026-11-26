@@ -60,6 +60,16 @@ static func peek(id: String) -> Dictionary:
 			"gold": int(config.get_value(SECTION, "purse", 0)) + int(config.get_value(SECTION, "box", 0))}
 
 
+## Deletes the save of slot `id` for good (the slot choice asks first). false if it had none.
+static func delete_slot(id: String) -> bool:
+	if not SLOTS.has(id) or not has_save(id):
+		return false
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(path_of(id)))
+	if id == slot():
+		_config = null
+	return true
+
+
 ## "Neues Spiel": the slot in use starts over (day 1, nothing owned) and is saved at once.
 static func start_new() -> void:
 	_config = ConfigFile.new()

@@ -39,11 +39,17 @@ msgstr "At the end every shot bursts into four sparks"
 msgid "Amethyst"
 msgstr "Amethyst"
 
+msgid "Anzeige"
+msgstr "Display"
+
 msgid "Arena-Amulett"
 msgstr "Arena Amulet"
 
 msgid "Arenaherz"
 msgstr "Arena Heart"
+
+msgid "Audio"
+msgstr "Audio"
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "Charged giant embers crash down and explode"
@@ -59,6 +65,9 @@ msgstr "Exit"
 
 msgid "Ausrüstung"
 msgstr "Equipment"
+
+msgid "Ausweichen"
+msgstr "Dodge"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "An axe instead of fireballs: heavy swing, enemies bleed"
@@ -95,6 +104,9 @@ msgstr "Blood Vial"
 
 msgid "Bogenschütze"
 msgstr "Archer"
+
+msgid "Bombe"
+msgstr "Bomb"
 
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "Bombs shoot fireballs when they explode"
@@ -176,6 +188,9 @@ msgstr "The way down is open!"
 
 msgid "Diamantherz"
 msgstr "Diamond Heart"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "The window size only applies in window mode."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "The archer's weapon: charge arrows and let go, far and strong"
@@ -456,6 +471,12 @@ msgstr "Fairy Dust"
 msgid "Fein"
 msgstr "Fine"
 
+msgid "Fenster"
+msgstr "Window"
+
+msgid "Fenstergröße"
+msgstr "Window size"
+
 msgid "Feuerfester Bomber"
 msgstr "Fireproof Bomber"
 
@@ -735,6 +756,9 @@ msgstr "Gold Blade"
 msgid "Goldstiefel"
 msgstr "Gold Boots"
 
+msgid "Grafik"
+msgstr "Graphics"
+
 msgid "Gratis"
 msgstr "Free"
 
@@ -870,6 +894,9 @@ msgstr "Can now appear in the dungeon"
 msgid "Karawanenrucksack"
 msgstr "Caravan Pack"
 
+msgid "Karte"
+msgstr "Map"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "No hit takes more than half a heart"
 
@@ -881,6 +908,9 @@ msgstr "Rattle with every step."
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Smaller, faster and sometimes dodge"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "Click a key, then press the new one. Esc = cancel."
 
 msgid "Klingenstern"
 msgstr "Blade Star"
@@ -1014,6 +1044,9 @@ msgstr "Lexicon"
 msgid "Lichtstab"
 msgstr "Light Staff"
 
+msgid "Links"
+msgstr "Left"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "Safe longer after a hit"
 
@@ -1022,6 +1055,9 @@ msgstr "Runner's Sandals"
 
 msgid "Läuferschuhe"
 msgstr "Runner's Shoes"
+
+msgid "Löschen"
+msgstr "Delete"
 
 msgid "Magier"
 msgstr "Mage"
@@ -1221,6 +1257,9 @@ msgstr "Powder Keg"
 msgid "Pulverhandschuh"
 msgstr "Powder Glove"
 
+msgid "Rahmenlos"
+msgstr "Borderless"
+
 msgid "Ratte"
 msgstr "Rat"
 
@@ -1232,6 +1271,9 @@ msgstr "Rat Cellar"
 
 msgid "Rattenkönig"
 msgstr "Rat King"
+
+msgid "Rechts"
+msgstr "Right"
 
 msgid "Reichweite"
 msgstr "Range"
@@ -1295,6 +1337,9 @@ msgstr "Back Amulet"
 
 msgid "Rückstoß"
 msgstr "Knockback"
+
+msgid "Rückwärts"
+msgstr "Backward"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "Sandsmith Gloves"
@@ -1539,6 +1584,9 @@ msgstr "Safe slot"
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "Safe slot: kept when you die"
 
+msgid "Sichtfeld"
+msgstr "Field of view"
+
 msgid "Siegerring"
 msgstr "Victor's Ring"
 
@@ -1593,6 +1641,9 @@ msgstr "Money Box"
 msgid "Spielstand %s"
 msgstr "Save %s"
 
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "Delete save %s? This cannot be undone."
+
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "Overwrite save %s? The old progress will be gone."
 
@@ -1629,6 +1680,9 @@ msgstr "Blast Beam"
 msgid "Sprinterrucksack"
 msgstr "Sprinter's Pack"
 
+msgid "Standard wiederherstellen"
+msgstr "Restore defaults"
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "Suits you! Almost as well as me. From tomorrow on, everything costs a small fee, of course."
 
@@ -1652,6 +1706,9 @@ msgstr "Stardust"
 
 msgid "Sternentrunk"
 msgstr "Starlight Draught"
+
+msgid "Steuerung"
+msgstr "Controls"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Standing still makes you invulnerable"
@@ -1736,6 +1793,9 @@ msgstr "Day %d"
 
 msgid "Tag %d · %d Gold"
 msgstr "Day %d · %d gold"
+
+msgid "Taste …"
+msgstr "Key …"
 
 msgid "Taumelkraut"
 msgstr "Stagger Weed"
@@ -1841,6 +1901,9 @@ msgstr "Four keys"
 
 msgid "Vollbild"
 msgstr "Fullscreen"
+
+msgid "Vorwärts"
+msgstr "Forward"
 
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: walk · Mouse: aim · Left click: shoot"

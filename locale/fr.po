@@ -39,11 +39,17 @@ msgstr "À la fin chaque tir éclate en quatre étincelles"
 msgid "Amethyst"
 msgstr "Améthyste"
 
+msgid "Anzeige"
+msgstr "Affichage"
+
 msgid "Arena-Amulett"
 msgstr "Amulette de l'arène"
 
 msgid "Arenaherz"
 msgstr "Cœur de l'arène"
+
+msgid "Audio"
+msgstr "Audio"
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "Les braises géantes chargées s'écrasent et explosent"
@@ -59,6 +65,9 @@ msgstr "Sortie"
 
 msgid "Ausrüstung"
 msgstr "Équipement"
+
+msgid "Ausweichen"
+msgstr "Esquive"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "Une hache au lieu de boules de feu : coup lourd, les ennemis saignent"
@@ -95,6 +104,9 @@ msgstr "Fiole de sang"
 
 msgid "Bogenschütze"
 msgstr "Archer"
+
+msgid "Bombe"
+msgstr "Bombe"
 
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "Les bombes tirent des boules de feu en explosant"
@@ -176,6 +188,9 @@ msgstr "Le chemin vers le bas est ouvert !"
 
 msgid "Diamantherz"
 msgstr "Cœur de diamant"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "La taille de la fenêtre ne s'applique qu'en mode fenêtré."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "L'arme de l'archer : charge tes flèches et relâche, loin et fort"
@@ -456,6 +471,12 @@ msgstr "Poussière de fée"
 msgid "Fein"
 msgstr "Fin"
 
+msgid "Fenster"
+msgstr "Fenêtre"
+
+msgid "Fenstergröße"
+msgstr "Taille de la fenêtre"
+
 msgid "Feuerfester Bomber"
 msgstr "Bombardier ignifugé"
 
@@ -735,6 +756,9 @@ msgstr "Lame d'or"
 msgid "Goldstiefel"
 msgstr "Bottes d'or"
 
+msgid "Grafik"
+msgstr "Graphismes"
+
 msgid "Gratis"
 msgstr "Gratuit"
 
@@ -870,6 +894,9 @@ msgstr "Peut maintenant apparaître dans le donjon"
 msgid "Karawanenrucksack"
 msgstr "Sac de caravane"
 
+msgid "Karte"
+msgstr "Carte"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Aucun coup ne prend plus d'un demi-cœur"
 
@@ -881,6 +908,9 @@ msgstr "Cliquettent à chaque pas."
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Plus petit, plus rapide et parfois esquiver"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "Clique sur une touche, puis appuie sur la nouvelle. Échap = annuler."
 
 msgid "Klingenstern"
 msgstr "Étoile de lames"
@@ -1014,6 +1044,9 @@ msgstr "Lexique"
 msgid "Lichtstab"
 msgstr "Bâton de lumière"
 
+msgid "Links"
+msgstr "Gauche"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "Plus longtemps à l'abri après un coup"
 
@@ -1022,6 +1055,9 @@ msgstr "Sandales de coureur"
 
 msgid "Läuferschuhe"
 msgstr "Chaussures de coureur"
+
+msgid "Löschen"
+msgstr "Supprimer"
 
 msgid "Magier"
 msgstr "Mage"
@@ -1221,6 +1257,9 @@ msgstr "Baril de poudre"
 msgid "Pulverhandschuh"
 msgstr "Gant à poudre"
 
+msgid "Rahmenlos"
+msgstr "Sans bordure"
+
 msgid "Ratte"
 msgstr "Rat"
 
@@ -1232,6 +1271,9 @@ msgstr "Cave aux Rats"
 
 msgid "Rattenkönig"
 msgstr "Roi des Rats"
+
+msgid "Rechts"
+msgstr "Droite"
 
 msgid "Reichweite"
 msgstr "Portée"
@@ -1295,6 +1337,9 @@ msgstr "Amulette dorsale"
 
 msgid "Rückstoß"
 msgstr "Recul"
+
+msgid "Rückwärts"
+msgstr "Reculer"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "Gants du forgeron des sables"
@@ -1539,6 +1584,9 @@ msgstr "Emplacement sûr"
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "Emplacement sûr : gardé si tu meurs"
 
+msgid "Sichtfeld"
+msgstr "Champ de vision"
+
 msgid "Siegerring"
 msgstr "Anneau du vainqueur"
 
@@ -1593,6 +1641,9 @@ msgstr "Tirelire"
 msgid "Spielstand %s"
 msgstr "Sauvegarde %s"
 
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "Supprimer la sauvegarde %s ? C'est irréversible."
+
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "Écraser la sauvegarde %s ? L'ancienne progression sera perdue."
 
@@ -1629,6 +1680,9 @@ msgstr "Rayon explosif"
 msgid "Sprinterrucksack"
 msgstr "Sac de sprinteur"
 
+msgid "Standard wiederherstellen"
+msgstr "Rétablir par défaut"
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "Ça te va bien ! Presque aussi bien qu'à moi. À partir de demain, tout coûte une petite obole, bien sûr."
 
@@ -1652,6 +1706,9 @@ msgstr "Poussière d'étoiles"
 
 msgid "Sternentrunk"
 msgstr "Breuvage étoilé"
+
+msgid "Steuerung"
+msgstr "Commandes"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Rester immobile te rend invulnérable"
@@ -1736,6 +1793,9 @@ msgstr "Jour %d"
 
 msgid "Tag %d · %d Gold"
 msgstr "Jour %d · %d or"
+
+msgid "Taste …"
+msgstr "Touche …"
 
 msgid "Taumelkraut"
 msgstr "Herbe titubante"
@@ -1841,6 +1901,9 @@ msgstr "Quatre clés"
 
 msgid "Vollbild"
 msgstr "Plein écran"
+
+msgid "Vorwärts"
+msgstr "Avancer"
 
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "ZQSD : marcher · Souris : viser · Clic gauche : tirer"

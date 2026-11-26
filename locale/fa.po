@@ -39,11 +39,17 @@ msgstr "هر تیر در پایان به چهار جرقه می‌ترکد"
 msgid "Amethyst"
 msgstr "آمتیست"
 
+msgid "Anzeige"
+msgstr "نمایش"
+
 msgid "Arena-Amulett"
 msgstr "طلسم میدان"
 
 msgid "Arenaherz"
 msgstr "قلب میدان"
+
+msgid "Audio"
+msgstr "صدا"
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "اخگر عظیم شارژشده فرود می‌آید و منفجر می‌شود"
@@ -59,6 +65,9 @@ msgstr "خروجی"
 
 msgid "Ausrüstung"
 msgstr "تجهیزات"
+
+msgid "Ausweichen"
+msgstr "جاخالی"
 
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "تبر به جای گلوله آتشین: ضربه سنگین، دشمنان خونریزی می‌کنند"
@@ -95,6 +104,9 @@ msgstr "شیشه خون"
 
 msgid "Bogenschütze"
 msgstr "کماندار"
+
+msgid "Bombe"
+msgstr "بمب"
 
 msgid "Bomben schießen beim Explodieren Feuerbälle"
 msgstr "بمب‌ها هنگام انفجار گلوله آتشین شلیک می‌کنند"
@@ -176,6 +188,9 @@ msgstr "راه پایین باز شد!"
 
 msgid "Diamantherz"
 msgstr "قلب الماس"
+
+msgid "Die Fenstergröße gilt nur im Fenster-Modus."
+msgstr "اندازه‌ی پنجره فقط در حالت پنجره‌ای اعمال می‌شود."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "سلاح کماندار: تیر را پر کن و رها کن، دور و قوی"
@@ -456,6 +471,12 @@ msgstr "گرد پری"
 msgid "Fein"
 msgstr "ظریف"
 
+msgid "Fenster"
+msgstr "پنجره"
+
+msgid "Fenstergröße"
+msgstr "اندازه‌ی پنجره"
+
 msgid "Feuerfester Bomber"
 msgstr "بمب‌انداز نسوز"
 
@@ -735,6 +756,9 @@ msgstr "تیغ طلایی"
 msgid "Goldstiefel"
 msgstr "چکمه طلایی"
 
+msgid "Grafik"
+msgstr "گرافیک"
+
 msgid "Gratis"
 msgstr "رایگان"
 
@@ -870,6 +894,9 @@ msgstr "از حالا ممکن است در سیاه‌چال پیدا شود"
 msgid "Karawanenrucksack"
 msgstr "کوله کاروان"
 
+msgid "Karte"
+msgstr "نقشه"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "هیچ ضربه‌ای بیش از نیم قلب نمی‌گیرد"
 
@@ -881,6 +908,9 @@ msgstr "با هر قدم تلق‌تلق می‌کنند."
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "کوچک‌تر، سریع‌تر و گاهی جاخالی"
+
+msgid "Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."
+msgstr "روی یک کلید کلیک کن، بعد کلید جدید را بزن. Esc = لغو."
 
 msgid "Klingenstern"
 msgstr "ستاره تیغه"
@@ -1014,6 +1044,9 @@ msgstr "دانشنامه"
 msgid "Lichtstab"
 msgstr "عصای نور"
 
+msgid "Links"
+msgstr "چپ"
+
 msgid "Länger sicher nach einem Treffer"
 msgstr "بعد از ضربه مدت بیشتری امنی"
 
@@ -1022,6 +1055,9 @@ msgstr "صندل دونده"
 
 msgid "Läuferschuhe"
 msgstr "کفش دونده"
+
+msgid "Löschen"
+msgstr "حذف"
 
 msgid "Magier"
 msgstr "جادوگر"
@@ -1221,6 +1257,9 @@ msgstr "بشکه باروت"
 msgid "Pulverhandschuh"
 msgstr "دستکش باروت"
 
+msgid "Rahmenlos"
+msgstr "بدون حاشیه"
+
 msgid "Ratte"
 msgstr "موش"
 
@@ -1232,6 +1271,9 @@ msgstr "زیرزمین موش‌ها"
 
 msgid "Rattenkönig"
 msgstr "شاه موش‌ها"
+
+msgid "Rechts"
+msgstr "راست"
 
 msgid "Reichweite"
 msgstr "برد"
@@ -1295,6 +1337,9 @@ msgstr "طلسم پشت"
 
 msgid "Rückstoß"
 msgstr "عقب‌راندن"
+
+msgid "Rückwärts"
+msgstr "عقب"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "دستکش آهنگر شن"
@@ -1539,6 +1584,9 @@ msgstr "جای امن"
 msgid "Sicherer Platz: bleibt, wenn du stirbst"
 msgstr "جای امن: وقتی بمیری می‌ماند"
 
+msgid "Sichtfeld"
+msgstr "میدان دید"
+
 msgid "Siegerring"
 msgstr "انگشتر پیروز"
 
@@ -1593,6 +1641,9 @@ msgstr "قلک"
 msgid "Spielstand %s"
 msgstr "ذخیره %s"
 
+msgid "Spielstand %s löschen? Das kann man nicht rückgängig machen."
+msgstr "ذخیره %s حذف شود؟ این کار برگشت‌پذیر نیست."
+
 msgid "Spielstand %s überschreiben? Der alte Fortschritt ist dann weg."
 msgstr "ذخیره %s بازنویسی شود؟ پیشرفت قبلی از بین می‌رود."
 
@@ -1629,6 +1680,9 @@ msgstr "پرتو انفجاری"
 msgid "Sprinterrucksack"
 msgstr "کوله دونده"
 
+msgid "Standard wiederherstellen"
+msgstr "بازگردانی پیش‌فرض"
+
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "بهت میاد! تقریباً به خوبیِ من. از فردا همه‌چی یه پول ناقابل داره، البته."
 
@@ -1652,6 +1706,9 @@ msgstr "گرد ستاره"
 
 msgid "Sternentrunk"
 msgstr "معجون نور ستاره"
+
+msgid "Steuerung"
+msgstr "کنترل‌ها"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "بی‌حرکت ایستادن تو را آسیب‌ناپذیر می‌کند"
@@ -1736,6 +1793,9 @@ msgstr "روز %d"
 
 msgid "Tag %d · %d Gold"
 msgstr "روز %d · %d طلا"
+
+msgid "Taste …"
+msgstr "کلید …"
 
 msgid "Taumelkraut"
 msgstr "علف تلوتلو"
@@ -1841,6 +1901,9 @@ msgstr "چهار کلید"
 
 msgid "Vollbild"
 msgstr "تمام‌صفحه"
+
+msgid "Vorwärts"
+msgstr "جلو"
 
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: راه رفتن · ماوس: نشانه‌گیری · کلیک چپ: شلیک"
