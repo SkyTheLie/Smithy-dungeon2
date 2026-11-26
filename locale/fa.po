@@ -51,6 +51,12 @@ msgstr "اخگر عظیم شارژشده فرود می‌آید و منفجر م
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "شارژ کن، رها کن: یک پرتو آتش عظیم"
 
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "از سیاه‌چال فرار کنی؟ هرچه همراهت است را نگه می‌داری."
+
+msgid "Ausgang"
+msgstr "خروجی"
+
 msgid "Ausrüstung"
 msgstr "تجهیزات"
 
@@ -489,6 +495,9 @@ msgstr "اسکلت نفرین‌شده"
 msgid "Flughaut"
 msgstr "پوست خفاش"
 
+msgid "Flüchten"
+msgstr "فرار"
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "وقتی تاریک است آرام زمزمه می‌کند."
 
@@ -539,6 +548,9 @@ msgstr "پاها (کفش)"
 
 msgid "Gebiete: %s"
 msgstr "مناطق: %s"
+
+msgid "Geflüchtet!"
+msgstr "فرار کردی!"
 
 msgid "Gegabelter Stab"
 msgstr "عصای دوشاخه"
@@ -1841,6 +1853,9 @@ msgstr "عصای آب"
 
 msgid "Weiter"
 msgstr "ادامه"
+
+msgid "Weiterkämpfen"
+msgstr "ادامه‌ی نبرد"
 
 msgid "Weltenstab"
 msgstr "عصای جهان"

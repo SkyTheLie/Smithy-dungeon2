@@ -51,6 +51,12 @@ msgstr "Las brasas gigantes cargadas impactan y explotan"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Carga, suelta: un rayo de fuego enorme"
 
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "¿Huir de la mazmorra? Te llevas todo lo que cargas."
+
+msgid "Ausgang"
+msgstr "Salida"
+
 msgid "Ausrüstung"
 msgstr "Equipo"
 
@@ -489,6 +495,9 @@ msgstr "Esqueleto maldito"
 msgid "Flughaut"
 msgstr "Membrana de murciélago"
 
+msgid "Flüchten"
+msgstr "Huir"
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Susurra en voz baja cuando está oscuro."
 
@@ -539,6 +548,9 @@ msgstr "Pies"
 
 msgid "Gebiete: %s"
 msgstr "Zonas: %s"
+
+msgid "Geflüchtet!"
+msgstr "¡Has huido!"
 
 msgid "Gegabelter Stab"
 msgstr "Bastón bifurcado"
@@ -1841,6 +1853,9 @@ msgstr "Bastón de agua"
 
 msgid "Weiter"
 msgstr "Continuar"
+
+msgid "Weiterkämpfen"
+msgstr "Seguir luchando"
 
 msgid "Weltenstab"
 msgstr "Bastón del mundo"

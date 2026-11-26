@@ -44,3 +44,6 @@ Neue Entscheidungen unten anhängen (Datum, was, warum).
 - **2026-11-26 · Laden nach Skizze:** Tisch oben, Hebel rechts, Helden-Ansicht links, Inventar unten. Das Inventar zu Hause ist der bisherige `stash` (Beute und Ausrüstung in einer Liste), keine zweite Liste.
 - **2026-11-26 · Egons Gratis-Zug im Tutorial zählt als Zug des Tages:** danach kostet der Hebel am ersten Tag schon 10 Gold (Egon: „Ab morgen kostet alles…“, am nächsten Tag ist er wieder gratis).
 - **2026-11-26 · Ausrüstungswerte noch ohne Wirkung im Run:** sie stehen in den Daten und im Tooltip; `RunState` nutzt sie ab Phase 3. Klassen-Beschränkung („Nur für“) steht nur im Tooltip, anlegen geht trotzdem (die Klasse wird erst mit der Klassen-Frage gespeichert).
+- **2026-11-26 · Flucht aus dem Startraum** (Wunsch des Entwicklers): Leiter in jedem Startraum, mit Rückfrage, damit man nicht aus Versehen hinausläuft. Flüchten zählt wie ein Sieg für die Beute (alles kommt heim), aber nicht als Sieg im Fortschritt.
+- **2026-11-26 · Tod: sicherer Platz bleibt** (Antwort des Entwicklers auf die Rückfrage). Bomben und Schlüssel bleiben im HUD, nur die Münz-Anzeige geht.
+- **2026-11-26 · Münzen 8–12 je Münze** (Wunsch des Entwicklers). Run-Shop-Preise noch nicht angepasst (offen).

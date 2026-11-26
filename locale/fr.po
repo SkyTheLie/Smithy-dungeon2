@@ -51,6 +51,12 @@ msgstr "Les braises géantes chargées s'écrasent et explosent"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Charge, relâche : un rayon de feu colossal"
 
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "Fuir le donjon ? Tu gardes tout ce que tu portes."
+
+msgid "Ausgang"
+msgstr "Sortie"
+
 msgid "Ausrüstung"
 msgstr "Équipement"
 
@@ -489,6 +495,9 @@ msgstr "Squelette maudit"
 msgid "Flughaut"
 msgstr "Peau de chauve-souris"
 
+msgid "Flüchten"
+msgstr "Fuir"
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Chuchote doucement quand il fait noir."
 
@@ -539,6 +548,9 @@ msgstr "Pieds"
 
 msgid "Gebiete: %s"
 msgstr "Zones : %s"
+
+msgid "Geflüchtet!"
+msgstr "Évadé !"
 
 msgid "Gegabelter Stab"
 msgstr "Bâton fourchu"
@@ -1841,6 +1853,9 @@ msgstr "Bâton d'eau"
 
 msgid "Weiter"
 msgstr "Reprendre"
+
+msgid "Weiterkämpfen"
+msgstr "Continuer le combat"
 
 msgid "Weltenstab"
 msgstr "Bâton des mondes"

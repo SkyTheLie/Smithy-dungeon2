@@ -51,6 +51,12 @@ msgstr "Заряженный огромный уголь врезается и �
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Заряди, отпусти: мощный луч огня"
 
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "Сбежать из подземелья? Всё, что несёшь, останется у тебя."
+
+msgid "Ausgang"
+msgstr "Выход"
+
 msgid "Ausrüstung"
 msgstr "Снаряжение"
 
@@ -489,6 +495,9 @@ msgstr "Проклятый скелет"
 msgid "Flughaut"
 msgstr "Перепонка"
 
+msgid "Flüchten"
+msgstr "Сбежать"
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Тихо шепчет в темноте."
 
@@ -539,6 +548,9 @@ msgstr "Ступни"
 
 msgid "Gebiete: %s"
 msgstr "Области: %s"
+
+msgid "Geflüchtet!"
+msgstr "Сбежал!"
 
 msgid "Gegabelter Stab"
 msgstr "Раздвоенный посох"
@@ -1841,6 +1853,9 @@ msgstr "Посох воды"
 
 msgid "Weiter"
 msgstr "Продолжить"
+
+msgid "Weiterkämpfen"
+msgstr "Сражаться дальше"
 
 msgid "Weltenstab"
 msgstr "Посох миров"

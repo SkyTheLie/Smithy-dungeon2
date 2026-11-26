@@ -6,7 +6,8 @@ extends CanvasLayer
 ##   - dragging a place out of the window drops it on the floor in front of the player
 ##     (Dungeon.drop_from_bag), to make room;
 ##   - the safe place (golden frame) keeps its things when the player dies;
-##   - the money bundle shows the coins of the run (they are lost on death, too).
+##   - the money bundle shows the coins of the run (they are lost on death, too);
+##   - right of it the whole floor (Minimap.always_big), zoomed out so every known room fits.
 ## Only shows and forwards; the rules are in Bag and Dungeon. Built in code (no .tscn).
 
 signal closed
@@ -14,6 +15,7 @@ signal closed
 const SLOT_SIZE := Vector2(40, 40)
 const ICON_SIZE := Vector2(30, 30)
 const COLUMNS: int = 6
+const MAP_SIZE := Vector2(290, 230)
 const PURSE_ICON: String = "res://assets/sprites/items/coin_purse.png"
 const SAFE_COLOR := Color(1.0, 0.78, 0.3)
 const EMPTY_BORDER := Color(0.32, 0.27, 0.24)
@@ -25,6 +27,9 @@ var dungeon: Dungeon
 
 var _backdrop: ColorRect
 var _panel: PanelContainer
+var _map_panel: PanelContainer
+## The floor map beside the bag.
+var map: Minimap
 var _slots: Array[Panel] = []
 var _coins: Label
 var _info_name: Label
@@ -91,9 +96,23 @@ func _build() -> void:
 	center.set_anchors_preset(Control.PRESET_FULL_RECT)
 	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(center)
+	# The bag on the left, the whole floor on the right.
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 8)
+	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	center.add_child(row)
 	_panel = PanelContainer.new()
 	_panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))
-	center.add_child(_panel)
+	row.add_child(_panel)
+	_map_panel = PanelContainer.new()
+	_map_panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))
+	row.add_child(_map_panel)
+	map = Minimap.new()
+	map.always_big = true
+	map.custom_minimum_size = MAP_SIZE
+	map.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_map_panel.add_child(map)
+	map.setup(dungeon, dungeon.player)
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 6)
 	_panel.add_child(column)

@@ -1,6 +1,6 @@
 class_name Hud
 extends CanvasLayer
-## Everything drawn over the 3D view: hearts, coins / bombs / keys, the map (Minimap, M), the
+## Everything drawn over the 3D view: hearts (top left), bombs / keys, the map (Minimap, M), the
 ## crosshair, collected items, the boss's life bar, the charge bar (Glutsammler), the name of a
 ## new item or synergy, short messages and the red flash when hit. Only shows values; the rules are
 ## in RunState and Dungeon.
@@ -16,11 +16,7 @@ var player: Player
 var _boss: Enemy = null
 var _banner_tween: Tween
 var _message_tween: Tween
-## Values at the left edge (built in code).
-var _stats: Label
-
 @onready var _hearts: HeartBar = %Hearts
-@onready var _coins: Label = %Coins
 @onready var _bombs: Label = %Bombs
 @onready var _keys: Label = %Keys
 @onready var _minimap: Minimap = %Minimap
@@ -57,7 +53,6 @@ func setup(run_state: RunState, the_dungeon: Dungeon, the_player: Player) -> voi
 	_charge.hide()
 	_banner.modulate.a = 0.0
 	_message.modulate.a = 0.0
-	_build_stats()
 	_update_counters()
 	for id: String in run.items:
 		_add_item_icon(id)
@@ -81,42 +76,8 @@ func _process(_delta: float) -> void:
 
 
 func _update_counters() -> void:
-	_coins.text = "%02d" % run.coins
 	_bombs.text = "%02d" % run.bombs
 	_keys.text = "%02d" % run.keys
-	_update_stats()
-
-
-## Small list of the current values at the left edge (speed, damage, shots per second ...).
-func _build_stats() -> void:
-	_stats = Label.new()
-	_stats.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	_stats.add_theme_font_size_override("font_size", 11)
-	_stats.add_theme_constant_override("outline_size", 4)
-	_stats.add_theme_color_override("font_color", Color(1, 0.9, 0.75, 0.85))
-	_stats.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_stats.position = Vector2(6, 120)
-	add_child(_stats)
-
-
-func _update_stats() -> void:
-	if _stats == null:
-		return
-	var s: ShotStats = run.stats
-	_stats.text = "%s %.1f
-%s %.1f
-%s %.1f
-%s %.1f
-%s %.1f
-%s %.1f
-%s %d %%" % [
-		Language.translate("Tempo"), s.move_speed,
-		Language.translate("Schaden"), s.damage,
-		Language.translate("Schüsse/s"), 1.0 / s.fire_delay,
-		Language.translate("Reichweite"), s.reach,
-		Language.translate("Schusstempo"), s.shot_speed,
-		Language.translate("Glück"), s.luck,
-		Language.translate("Sonderraum"), roundi(run.special_chance * (0.5 if run.lost_red_this_floor else 1.0) * 100.0)]
 
 
 ## Big text in the upper middle (new item, synergy, floor name), fades out by itself.

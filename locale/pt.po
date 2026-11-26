@@ -51,6 +51,12 @@ msgstr "Brasas gigantes carregadas caem e explodem"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Carregue, solte: um raio de fogo enorme"
 
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "Fugir da masmorra? Você leva tudo o que carrega."
+
+msgid "Ausgang"
+msgstr "Saída"
+
 msgid "Ausrüstung"
 msgstr "Equipamento"
 
@@ -489,6 +495,9 @@ msgstr "Esqueleto amaldiçoado"
 msgid "Flughaut"
 msgstr "Pele de morcego"
 
+msgid "Flüchten"
+msgstr "Fugir"
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Sussurra baixinho no escuro."
 
@@ -539,6 +548,9 @@ msgstr "Pés"
 
 msgid "Gebiete: %s"
 msgstr "Áreas: %s"
+
+msgid "Geflüchtet!"
+msgstr "Fugiu!"
 
 msgid "Gegabelter Stab"
 msgstr "Cajado bifurcado"
@@ -1841,6 +1853,9 @@ msgstr "Cajado de água"
 
 msgid "Weiter"
 msgstr "Continuar"
+
+msgid "Weiterkämpfen"
+msgstr "Continuar lutando"
 
 msgid "Weltenstab"
 msgstr "Cajado dos mundos"

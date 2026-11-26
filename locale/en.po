@@ -51,6 +51,12 @@ msgstr "Charged giant embers crash down and explode"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Charge, release: a mighty fire beam"
 
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "Flee the dungeon? You keep everything you carry."
+
+msgid "Ausgang"
+msgstr "Exit"
+
 msgid "Ausrüstung"
 msgstr "Equipment"
 
@@ -489,6 +495,9 @@ msgstr "Cursed Skeleton"
 msgid "Flughaut"
 msgstr "Bat skin"
 
+msgid "Flüchten"
+msgstr "Flee"
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Whispers softly in the dark."
 
@@ -539,6 +548,9 @@ msgstr "Feet"
 
 msgid "Gebiete: %s"
 msgstr "Areas: %s"
+
+msgid "Geflüchtet!"
+msgstr "Escaped!"
 
 msgid "Gegabelter Stab"
 msgstr "Forked Staff"
@@ -1841,6 +1853,9 @@ msgstr "Water Staff"
 
 msgid "Weiter"
 msgstr "Resume"
+
+msgid "Weiterkämpfen"
+msgstr "Keep fighting"
 
 msgid "Weltenstab"
 msgstr "World Staff"

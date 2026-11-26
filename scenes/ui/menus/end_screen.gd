@@ -1,6 +1,7 @@
 class_name EndScreen
 extends CanvasLayer
-## End of a run: "Du bist gefallen" (dead) or "Geschafft!" (last boss beaten), with the floor,
+## End of a run: "Du bist gefallen" (dead), "Geschafft!" (last boss beaten) or "Geflüchtet!"
+## (out through the ladder in a start room), with the floor,
 ## kills, the run's values and its items. Zum Laden (the next day at Egon's) / Hauptmenü.
 
 @onready var _title: Label = %Title
@@ -15,16 +16,20 @@ func _ready() -> void:
 	%Menu.pressed.connect(Game.to_main_menu)
 
 
-func open(run: RunState, won: bool) -> void:
-	_title.text = Language.translate("Geschafft!" if won else "Du bist gefallen")
-	_title.modulate = Color(1, 0.86, 0.45) if won else Color(1, 0.45, 0.4)
+func open(run: RunState, won: bool, fled: bool = false) -> void:
+	if fled:
+		_title.text = Language.translate("Geflüchtet!")
+		_title.modulate = Color(0.7, 0.9, 1.0)
+	else:
+		_title.text = Language.translate("Geschafft!") if won else Language.translate("Du bist gefallen")
+		_title.modulate = Color(1, 0.86, 0.45) if won else Color(1, 0.45, 0.4)
 	# Two columns, so everything fits on the screen.
 	var lines: Array[String] = [
 		Language.translate("Ebene: %d") % (run.floor_index + 1),
 		Language.translate("Besiegte Gegner: %d") % run.kills,
 	]
 	# What comes home (MetaState.end_run already ran in RunScene).
-	if won:
+	if won or fled:
 		lines.append(Language.translate("Mit nach Hause: %d Gold, %d Beute") % [run.coins, _count(run.bag.contents())])
 	else:
 		lines.append(Language.translate("Gerettet (sicherer Platz): %d Beute") % _count(run.bag.safe_contents()))

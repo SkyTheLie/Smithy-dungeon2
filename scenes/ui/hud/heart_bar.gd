@@ -4,8 +4,8 @@ extends Control
 ## hearts (full or half).
 
 const HEART: Texture2D = preload("res://assets/sprites/items/arena_heart.png")
-const SIZE: float = 18.0
-const STEP: float = 17.0
+const SIZE: float = 28.0
+const STEP: float = 27.0
 const BLUE := Color(0.45, 0.7, 1.0)
 const EMPTY := Color(0.18, 0.12, 0.14, 0.9)
 

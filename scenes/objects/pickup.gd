@@ -95,7 +95,7 @@ func _physics_process(delta: float) -> void:
 func _take() -> bool:
 	match kind:
 		"coin":
-			run.add_coins(1)
+			run.pick_up_coin()
 			AudioManager.play_sound("coin")
 			return true
 		"heart":

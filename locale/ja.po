@@ -51,6 +51,12 @@ msgstr "チャージした巨大な火球が落ちて爆発する"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "溜めて放つ: 強大な火炎ビーム"
 
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "ダンジョンから逃げる？持っている物はすべて持ち帰れる。"
+
+msgid "Ausgang"
+msgstr "出口"
+
 msgid "Ausrüstung"
 msgstr "装備"
 
@@ -489,6 +495,9 @@ msgstr "呪われた骸骨"
 msgid "Flughaut"
 msgstr "コウモリの皮"
 
+msgid "Flüchten"
+msgstr "逃げる"
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "暗くなると小さくささやく。"
 
@@ -539,6 +548,9 @@ msgstr "足"
 
 msgid "Gebiete: %s"
 msgstr "エリア：%s"
+
+msgid "Geflüchtet!"
+msgstr "脱出成功！"
 
 msgid "Gegabelter Stab"
 msgstr "二股の杖"
@@ -1841,6 +1853,9 @@ msgstr "水の杖"
 
 msgid "Weiter"
 msgstr "再開"
+
+msgid "Weiterkämpfen"
+msgstr "戦い続ける"
 
 msgid "Weltenstab"
 msgstr "世界の杖"

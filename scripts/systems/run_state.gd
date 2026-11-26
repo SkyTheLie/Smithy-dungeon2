@@ -44,6 +44,8 @@ var synergies: Array[String] = []
 var stats: ShotStats
 ## Seed of the run: each floor uses seed + floor_index, so the same seed gives the same dungeon.
 var seed_value: int = 0
+## Rolls the value of picked-up coins (seeded with the run, so a test gets the same numbers).
+var _coin_rng := RandomNumberGenerator.new()
 ## Item ids that were offered already (item room, shop, boss), so they do not come again.
 var seen_items: Array[String] = []
 ## Glutmantel ("mantle"): can still catch a hit in this room (Dungeon refreshes it per room).
@@ -78,6 +80,7 @@ const MAX_COINS: int = 9999
 
 func _init(run_seed: int = 0, character_id: String = "magier") -> void:
 	seed_value = run_seed
+	_coin_rng.seed = run_seed
 	character = character_id if not Content.character(character_id).is_empty() else "magier"
 	var base: Dictionary = Content.player()
 	max_hearts = int(Content.character(character).get("hearts", base.get("hearts", 3)))
@@ -235,6 +238,15 @@ func heal(halves: int) -> bool:
 	compute_stats()
 	changed.emit()
 	return true
+
+
+## A coin on the floor was picked up: it is worth data/player.json coin_pickup [min, max] coins.
+## Returns how many it gave.
+func pick_up_coin() -> int:
+	var worth: Array = Content.player().get("coin_pickup", [1, 1])
+	var amount: int = _coin_rng.randi_range(int(worth[0]), int(worth[1]))
+	add_coins(amount)
+	return amount
 
 
 func add_coins(amount: int) -> void:

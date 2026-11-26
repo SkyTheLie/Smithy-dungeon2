@@ -51,6 +51,12 @@ msgstr "蓄力的巨型余烬撞击并爆炸"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "蓄力后松开：巨大的火焰光束"
 
+msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
+msgstr "逃离地牢？你携带的一切都能带走。"
+
+msgid "Ausgang"
+msgstr "出口"
+
 msgid "Ausrüstung"
 msgstr "装备"
 
@@ -489,6 +495,9 @@ msgstr "诅咒骷髅"
 msgid "Flughaut"
 msgstr "蝙蝠皮"
 
+msgid "Flüchten"
+msgstr "逃离"
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "天黑时会轻声低语。"
 
@@ -539,6 +548,9 @@ msgstr "脚部"
 
 msgid "Gebiete: %s"
 msgstr "区域：%s"
+
+msgid "Geflüchtet!"
+msgstr "逃出来了！"
 
 msgid "Gegabelter Stab"
 msgstr "分叉法杖"
@@ -1841,6 +1853,9 @@ msgstr "水之杖"
 
 msgid "Weiter"
 msgstr "继续"
+
+msgid "Weiterkämpfen"
+msgstr "继续战斗"
 
 msgid "Weltenstab"
 msgstr "世界之杖"

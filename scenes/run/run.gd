@@ -3,9 +3,9 @@ extends Node
 ## The scene of one floor: the 3D world (in a SubViewport: drawn at the low base resolution and
 ## scaled up with sharp pixels, so the 3D looks like pixel art), the HUD, the pause menu, the bag
 ## window and the end screen. Passes the mouse movement to the player, Tab to the bag, M to the
-## map, Esc to the pause menu, and reacts to death and the trapdoor.
-## The end of a run is settled with MetaState: a win brings the coins and the whole bag home, death
-## only the safe places of the bag.
+## map, Esc to the pause menu, and reacts to death, the trapdoor and the way out of the start room.
+## The end of a run is settled with MetaState: a win or fleeing (the ladder in the start room,
+## after a question) brings the coins and the whole bag home, death only the safe places.
 
 const DEATH_DELAY: float = 1.2
 
@@ -17,6 +17,8 @@ const DEATH_DELAY: float = 1.2
 
 var bag_window: BagWindow
 var _leaving: bool = false
+## "Flüchten?" (built in code, works while the game is paused).
+var _flee_question: ConfirmationDialog
 
 
 func _ready() -> void:
@@ -34,6 +36,7 @@ func _ready() -> void:
 	bag_window.closed.connect(_capture_mouse)
 	run.died.connect(_on_died)
 	dungeon.trapdoor_entered.connect(_on_trapdoor_entered)
+	dungeon.exit_entered.connect(_ask_flee)
 	pause_menu.resumed.connect(_capture_mouse)
 	_capture_mouse()
 
@@ -84,6 +87,45 @@ func _on_died() -> void:
 	MetaState.end_run(0, Game.run.bag.lose_unsafe(), rng)
 	await get_tree().create_timer(DEATH_DELAY, false).timeout
 	end_screen.open(Game.run, false)
+
+
+## The ladder in the start room: the game stops and asks.
+func _ask_flee() -> void:
+	if _leaving or get_tree().paused:
+		return
+	if _flee_question == null:
+		_flee_question = ConfirmationDialog.new()
+		_flee_question.process_mode = Node.PROCESS_MODE_ALWAYS
+		_flee_question.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		_flee_question.title = Language.translate("Ausgang")
+		_flee_question.dialog_text = Language.translate("Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst.")
+		_flee_question.ok_button_text = Language.translate("Flüchten")
+		_flee_question.cancel_button_text = Language.translate("Weiterkämpfen")
+		_flee_question.confirmed.connect(_flee)
+		_flee_question.canceled.connect(_on_flee_canceled)
+		add_child(_flee_question)
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_flee_question.popup_centered()
+
+
+func _on_flee_canceled() -> void:
+	get_tree().paused = false
+	_capture_mouse()
+
+
+## Out of the dungeon alive: like a win, the coins and the whole bag come home.
+func _flee() -> void:
+	_leaving = true
+	player.controls_enabled = false
+	var rng := RandomNumberGenerator.new()
+	rng.randomize()
+	MetaState.end_run(Game.run.coins, Game.run.bag.contents(), rng)
+	end_screen.open(Game.run, false, true)
+
+
+func get_flee_question() -> ConfirmationDialog:
+	return _flee_question
 
 
 func _on_trapdoor_entered(final: bool) -> void:

@@ -26,6 +26,15 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 7. ✅ (2026-11-26) Hauptmenü „Neues Spiel“ → Intro → Laden; „Dungeons“ unten rechts → Dungeon-Brett (`data/dungeons.json`) → „Betreten“ → Charakter → Run; nach dem Run „Zum Laden“.
 8. ✅ (2026-11-26) **Spielstand-Plätze A, B, C** nach der Sprachwahl; „Weiter“ im Hauptmenü, wenn der Platz belegt ist; gespeichert am Ende jedes Tages.
 
+### Dungeon-Wünsche (2026-11-26, `feature/dungeon-flucht`)
+
+- ✅ Tab = Inventar und daneben die ganze Karte (rausgezoomt).
+- ✅ Ausgang im Startraum: flüchten und alles behalten.
+- ✅ Tod: Tasche weg (sicherer Platz bleibt, entschieden).
+- ✅ Münze aufheben = 8–12 Münzen.
+- ✅ HUD: Münz-Anzeige und Werte-Spalte weg, Herzen größer.
+- Offen: Preise im Run-Shop an den neuen Münzwert anpassen (Vorschlag ×10).
+
 ## Phase 2 – Intro
 
 1. ✅ (2026-11-26) Intro: schwarz → hell, Mine, Egon winkt, in 3 Bildern auf ihn zu, dann der Laden (`scenes/story/intro.gd`).

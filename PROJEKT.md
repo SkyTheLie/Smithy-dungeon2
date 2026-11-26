@@ -79,9 +79,9 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 
 ## 8. Aktuelle Aufgabe
 
-**Zuletzt gebaut (2026-11-26, `feature/laden-tutorial`):** Intro nach Skizze (Felswand, Dungeon-Eingang, Egon am Stand ruft dich, Dialog), Laden nach Skizze (Tisch oben, Hebel rechts, Ausrüstung links, Inventar unten), Ausrüstung `data/gear.json`, Laden-Regeln `data/shop.json`, Texte `data/story.json`, Egons Tour beim ersten Besuch (Geschenke leuchten, er kauft und zieht dich an, Dungeon-Brett erzwungen). Im Spiel testen: Neues Spiel → Intro durchklicken → Tour durchklicken → Betreten → nach dem Run „Zum Laden“ → Hebel ziehen (gratis am neuen Tag), Ware kaufen, im Inventar anklicken = anlegen, an der Figur anklicken = ablegen.
+**Zuletzt gebaut (2026-11-26):** `feature/laden-tutorial`: Intro vor dem Dungeon-Eingang mit Dialog, Egons Laden nach Skizze (Hebel, Kaufen, Ausrüstung anlegen), Egons Tour beim ersten Besuch. `feature/dungeon-flucht`: Tab = Inventar mit ganzer Karte daneben, Leiter „Ausgang“ im Startraum (flüchten, alles behalten), Münze = 8–12, HUD nur noch Herzen (größer), Bomben, Schlüssel. Im Spiel testen: Neues Spiel → Intro und Tour durchklicken → im Dungeon Tab drücken (Karte rechts) → Münze aufheben (+8 bis 12) → zurück in den Startraum, auf die Leiter → „Weiterkämpfen“, weggehen, wieder drauf → „Flüchten“ → „Geflüchtet!“, im Laden liegt die Beute im Inventar.
 
-**Nächster Schritt:** Dungeon-Wünsche vom 2026-11-26 (Tab = Inventar + Karte rausgezoomt, Ausgang im Startraum zum Flüchten, Tod = Inventar weg, Münzen 8–12, HUD aufräumen, größere Herzen); danach Verkaufen und Dose im Laden, Ausrüstung wirkt im Run (Phase 3).
+**Nächster Schritt:** Run-Shop-Preise an den Münzwert anpassen (offen, `docs/PROBLEME.md`); Verkaufen und Dose im Laden; Ausrüstung wirkt im Run (Phase 3).
 
 **Entschieden (2026-11-26):** Ein Tag = ein Run · neu würfeln wird teurer · Ausrüstung bleibt beim Tod, Inventar und Geld bei sich sind weg · Händler = Egon Ehrlich · Dungeon 1 : 1 wie Dungeon Smithy.
 

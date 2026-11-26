@@ -12,6 +12,8 @@ extends Node3D
 ## (secret items), sometimes a sacrifice room (Opferstein: a heart for a reward) and the special
 ## room behind the boss: after the boss it may open as Glutpakt (items for heart containers) or
 ## Schrein (a free item), see RunState.roll_special_room.
+## Start room: the controls on the floor and the way out (DungeonExit, a ladder in a corner):
+## stepping on it sends exit_entered (the run scene asks whether to flee).
 ## Rules about life, coins and items are in RunState; this node only calls them.
 ##
 ## Test room (P, only in debug builds): a closed room far away from the floor with every item on a
@@ -22,6 +24,8 @@ signal room_entered(cell: Vector2i)
 signal boss_appeared(boss: Enemy)
 signal boss_defeated
 signal trapdoor_entered(final: bool)
+## The player stepped onto the way out in the start room.
+signal exit_entered
 ## A short text for the HUD (German key).
 signal message(text: String)
 
@@ -187,6 +191,7 @@ func _build_room(cell: Vector2i) -> void:
 	match room.type:
 		FloorLayout.START_ROOM:
 			_add_controls_hint(room)
+			_add_exit(room)
 		FloorLayout.NORMAL:
 			_add_rocks(room)
 			_roll_enemies(room)
@@ -239,6 +244,16 @@ func _add_controls_hint(room: DungeonRoom) -> void:
 	label.rotation.x = -PI / 2.0
 	label.position = Vector3(0, 0.02, -1.5)
 	room.add_child(label)
+
+
+## The way out: a ladder in the back left corner of the start room (corners never have doors).
+func _add_exit(room: DungeonRoom) -> void:
+	var way_out := DungeonExit.new()
+	way_out.name = "Exit"
+	way_out.player = player
+	way_out.entered.connect(exit_entered.emit)
+	room.add_child(way_out)
+	way_out.position = Vector3(-RoomBuilder.ROOM_W / 2.0 + 1.3, 0, -RoomBuilder.ROOM_D / 2.0 + 1.3)
 
 
 ## Rocks in a pattern of this floor ("rock_patterns" [name, weight]): scatter (random), walls,

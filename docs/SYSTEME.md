@@ -177,3 +177,11 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - **Bedienung:** Hebel anklicken (Tisch klappt um, Ware ploppt auf); Ware anklicken = kaufen (fliegt ins Inventar); Ausrüstung im Inventar anklicken = anlegen (fliegt an die Figur); Platz an der Figur anklicken = ablegen. Egon kommentiert (`story.json` `barks`).
 - **Erster Besuch** (`tutorial_done` = false): alles gesperrt, Egon redet (`tutorial_*`), der Hebel leuchtet, er zieht ihn (`lay_tutorial_table`, `shop.json` `tutorial.goods`), seine Geschenke (`tutorial.gifts`) leuchten auf, er kauft sie (gratis) ins Inventar, zieht sie dir an und schickt dich los: das Dungeon-Brett geht auf und lässt sich nicht schließen (`DungeonBoard.forced`, Esc und „Schließen“ aus; Charakter-Wahl abbrechen öffnet es wieder).
 - **`DialogBox`:** Gesicht (Ausschnitt aus `story.json` `portrait`), Name, Text tippt sich; `speak(lines)` wartet auf Leertaste/Enter/Klick (erster Druck zeigt den ganzen Satz), `bark(line)` wartet nicht.
+
+## Dungeon: Flucht, Münzen, Tab-Karte, HUD – 2026-11-26, `feature/dungeon-flucht`
+
+- **Ausgang im Startraum** (`scenes/objects/dungeon_exit.gd`, `DungeonExit`): in jedem Startraum eine Leiter mit Tageslicht in der hinteren linken Ecke (Ecken haben nie Türen), Schild „Ausgang“. Drauftreten → `Dungeon.exit_entered` → `RunScene` hält das Spiel an und fragt „Flüchten / Weiterkämpfen“. Flüchten = wie ein Sieg: Münzen und ganze Tasche nach Hause (`MetaState.end_run`), End-Bildschirm „Geflüchtet!“. Nach „Weiterkämpfen“ fragt die Leiter erst wieder, wenn man weggegangen ist.
+- **Tod** unverändert (Entscheidung 2026-11-26): Münzen und Tasche weg, nur der sichere Platz bleibt.
+- **Münzen:** eine aufgehobene Münze ist `player.json` `coin_pickup` [8, 12] wert (`RunState.pick_up_coin`, gewürfelt mit dem Seed des Runs).
+- **Tab:** Tasche links, rechts daneben die ganze Ebene (`Minimap` mit `always_big`). Die große Karte (auch M) zoomt so weit heraus, dass alle bekannten Räume hineinpassen.
+- **HUD:** oben links größere Herzen (`HeartBar` 28 px), darunter nur Bomben und Schlüssel; die Münz-Anzeige (Geld steht im Inventar beim Geldbündel) und die Werte-Spalte links sind weg (Werte stehen im Pausenmenü).

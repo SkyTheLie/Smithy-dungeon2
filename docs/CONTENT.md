@@ -91,3 +91,7 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 
 - Jeder Schlüssel ist eine Liste von Sprechblasen (höchstens zwei Sätze), `barks` sind einzelne Sätze. Egons Texte werden aus `docs/figuren/EGON_EHRLICH.md` gebaut.
 - `build_po.py` findet alle Sätze selbst; danach übersetzen.
+
+## Münzwert (`data/player.json`)
+
+- `coin_pickup`: [min, max] Münzen je aufgehobener Münze (bisher [8, 12]). Preise im Run-Shop (`floors.json` `shop`) passen dazu.
