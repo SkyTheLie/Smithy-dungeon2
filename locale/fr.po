@@ -39,6 +39,9 @@ msgstr "À la fin chaque tir éclate en quatre étincelles"
 msgid "Amethyst"
 msgstr "Améthyste"
 
+msgid "Angriffstempo"
+msgstr "Vitesse d'attaque"
+
 msgid "Anzeige"
 msgstr "Affichage"
 
@@ -1166,6 +1169,9 @@ msgstr "Une autre lune de braise tourne autour de toi"
 
 msgid "Noch keine Items"
 msgstr "Pas encore d'objets"
+
+msgid "Noch keine Items in diesem Run."
+msgstr "Pas encore d'objets dans cette partie."
 
 msgid "Noch nicht entdeckt"
 msgstr "Pas encore découvert"

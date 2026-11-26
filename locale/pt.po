@@ -39,6 +39,9 @@ msgstr "No fim cada tiro explode em quatro faíscas"
 msgid "Amethyst"
 msgstr "Ametista"
 
+msgid "Angriffstempo"
+msgstr "Velocidade de ataque"
+
 msgid "Anzeige"
 msgstr "Tela"
 
@@ -1166,6 +1169,9 @@ msgstr "Mais uma lua de brasa gira ao seu redor"
 
 msgid "Noch keine Items"
 msgstr "Ainda sem itens"
+
+msgid "Noch keine Items in diesem Run."
+msgstr "Ainda nenhum item nesta partida."
 
 msgid "Noch nicht entdeckt"
 msgstr "Ainda não descoberto"

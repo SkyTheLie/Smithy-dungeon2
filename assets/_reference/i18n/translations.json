@@ -694,5 +694,7 @@
 	"Standard wiederherstellen": {"en": "Restore defaults", "es": "Restaurar predeterminados", "fr": "Rétablir par défaut", "pt": "Restaurar padrão", "ru": "Сбросить по умолчанию", "ja": "初期設定に戻す", "zh": "恢复默认", "fa": "بازگردانی پیش‌فرض"},
 	"Steuerung": {"en": "Controls", "es": "Controles", "fr": "Commandes", "pt": "Controles", "ru": "Управление", "ja": "操作", "zh": "操作", "fa": "کنترل‌ها"},
 	"Taste …": {"en": "Key …", "es": "Tecla …", "fr": "Touche …", "pt": "Tecla …", "ru": "Клавиша …", "ja": "キー…", "zh": "按键…", "fa": "کلید …"},
-	"Vorwärts": {"en": "Forward", "es": "Adelante", "fr": "Avancer", "pt": "Para frente", "ru": "Вперёд", "ja": "前進", "zh": "前进", "fa": "جلو"}
+	"Vorwärts": {"en": "Forward", "es": "Adelante", "fr": "Avancer", "pt": "Para frente", "ru": "Вперёд", "ja": "前進", "zh": "前进", "fa": "جلو"},
+	"Angriffstempo": {"en": "Attack speed", "es": "Velocidad de ataque", "fr": "Vitesse d'attaque", "pt": "Velocidade de ataque", "ru": "Скорость атаки", "ja": "攻撃速度", "zh": "攻击速度", "fa": "سرعت حمله"},
+	"Noch keine Items in diesem Run.": {"en": "No items in this run yet.", "es": "Aún no hay objetos en esta partida.", "fr": "Pas encore d'objets dans cette partie.", "pt": "Ainda nenhum item nesta partida.", "ru": "В этом забеге пока нет предметов.", "ja": "この探索ではまだアイテムがない。", "zh": "本次冒险还没有物品。", "fa": "هنوز در این دور هیچ آیتمی نداری."}
 }

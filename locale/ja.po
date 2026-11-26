@@ -39,6 +39,9 @@ msgstr "弾は最後に4つの火花に弾ける"
 msgid "Amethyst"
 msgstr "アメジスト"
 
+msgid "Angriffstempo"
+msgstr "攻撃速度"
+
 msgid "Anzeige"
 msgstr "表示"
 
@@ -1166,6 +1169,9 @@ msgstr "残り火の月がもう1つ回る"
 
 msgid "Noch keine Items"
 msgstr "まだアイテムがない"
+
+msgid "Noch keine Items in diesem Run."
+msgstr "この探索ではまだアイテムがない。"
 
 msgid "Noch nicht entdeckt"
 msgstr "未発見"

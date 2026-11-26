@@ -7,15 +7,20 @@ extends CanvasLayer
 ##     (Dungeon.drop_from_bag), to make room;
 ##   - the safe place (golden frame) keeps its things when the player dies;
 ##   - the money bundle shows the coins of the run (they are lost on death, too);
-##   - right of it the whole floor (Minimap.always_big), zoomed out so every known room fits.
+##   - left the hero: his equipment from home (HeroPanel, only shown) and below it the values of
+##     the run (damage, attack speed, walking speed, luck);
+##   - right the whole floor (Minimap.always_big), zoomed out so every known room fits;
+##   - below the items of the run, big, with their description when the mouse is over one.
 ## Only shows and forwards; the rules are in Bag and Dungeon. Built in code (no .tscn).
 
 signal closed
 
-const SLOT_SIZE := Vector2(40, 40)
-const ICON_SIZE := Vector2(30, 30)
+const SLOT_SIZE := Vector2(36, 36)
+const ICON_SIZE := Vector2(27, 27)
 const COLUMNS: int = 6
-const MAP_SIZE := Vector2(290, 230)
+const MAP_SIZE := Vector2(180, 200)
+const ITEM_SIZE := Vector2(26, 26)
+const STATS_COLOR := Color(1, 0.9, 0.75)
 const PURSE_ICON: String = "res://assets/sprites/items/coin_purse.png"
 const SAFE_COLOR := Color(1.0, 0.78, 0.3)
 const EMPTY_BORDER := Color(0.32, 0.27, 0.24)
@@ -28,6 +33,9 @@ var dungeon: Dungeon
 var _backdrop: ColorRect
 var _panel: PanelContainer
 var _map_panel: PanelContainer
+var _hero: HeroPanel
+var _stats: Label
+var _items: HFlowContainer
 ## The floor map beside the bag.
 var map: Minimap
 var _slots: Array[Panel] = []
@@ -53,6 +61,7 @@ func setup(run_state: RunState, the_dungeon: Dungeon) -> void:
 func open() -> void:
 	_refresh()
 	_refresh_coins()
+	_refresh_run()
 	_show_info(-1)
 	show()
 	get_tree().paused = true
@@ -96,11 +105,16 @@ func _build() -> void:
 	center.set_anchors_preset(Control.PRESET_FULL_RECT)
 	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(center)
-	# The bag on the left, the whole floor on the right.
+	# Left the hero and his values, in the middle the bag, right the floor; below the items.
+	var outer := VBoxContainer.new()
+	outer.add_theme_constant_override("separation", 6)
+	outer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	center.add_child(outer)
 	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 8)
+	row.add_theme_constant_override("separation", 6)
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	center.add_child(row)
+	outer.add_child(row)
+	row.add_child(_build_hero())
 	_panel = PanelContainer.new()
 	_panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))
 	row.add_child(_panel)
@@ -113,6 +127,7 @@ func _build() -> void:
 	map.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_map_panel.add_child(map)
 	map.setup(dungeon, dungeon.player)
+	outer.add_child(_build_items())
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 6)
 	_panel.add_child(column)
@@ -156,7 +171,7 @@ func _build() -> void:
 	_info_text.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	_info_text.add_theme_font_size_override("font_size", 8)
 	_info_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_info_text.custom_minimum_size = Vector2(264, 22)
+	_info_text.custom_minimum_size = Vector2(220, 22)
 	_info_text.modulate = Color(0.85, 0.8, 0.75)
 	column.add_child(_info_text)
 
@@ -239,6 +254,79 @@ static func _box(fill: Color, border: Color, width: int, corner: int) -> StyleBo
 	style.content_margin_top = 6
 	style.content_margin_bottom = 6
 	return style
+
+
+## The hero's equipment (only shown: it is changed at home) and the values below it.
+func _build_hero() -> Control:
+	var column := VBoxContainer.new()
+	column.add_theme_constant_override("separation", 6)
+	_hero = HeroPanel.new()
+	column.add_child(_hero)
+	var stats_panel := PanelContainer.new()
+	stats_panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))
+	stats_panel.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	column.add_child(stats_panel)
+	_stats = Label.new()
+	_stats.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_stats.add_theme_font_size_override("font_size", 10)
+	_stats.add_theme_color_override("font_color", STATS_COLOR)
+	stats_panel.add_child(_stats)
+	return column
+
+
+## The items of the run in a row, each with its name and description as tooltip.
+func _build_items() -> Control:
+	var panel := PanelContainer.new()
+	panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))
+	_items = HFlowContainer.new()
+	_items.add_theme_constant_override("h_separation", 4)
+	_items.add_theme_constant_override("v_separation", 4)
+	_items.custom_minimum_size = Vector2(ITEM_SIZE.x, ITEM_SIZE.y)
+	panel.add_child(_items)
+	return panel
+
+
+# --- The run (left and below) ---------------------------------------------------
+
+## Equipment, values and items as they are now.
+func _refresh_run() -> void:
+	_hero.refresh()
+	var s: ShotStats = run.stats
+	_stats.text = "%s: %s
+%s: %s/s
+%s: %s
+%s: %s" % [
+		Language.translate("Schaden"), PauseMenu.format_number(s.damage),
+		Language.translate("Angriffstempo"), PauseMenu.format_number(1.0 / s.fire_delay),
+		Language.translate("Tempo"), PauseMenu.format_number(s.move_speed),
+		Language.translate("Glück"), PauseMenu.format_number(s.luck)]
+	for child: Node in _items.get_children():
+		child.queue_free()
+	var counts: Dictionary[String, int] = {}
+	for id: String in run.items:
+		counts[id] = counts.get(id, 0) + 1
+	for id: String in counts:
+		var data: Dictionary = Content.item(id)
+		var icon := TextureRect.new()
+		icon.texture = load(String(data.get("icon", ""))) as Texture2D
+		icon.custom_minimum_size = ITEM_SIZE
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.mouse_filter = Control.MOUSE_FILTER_STOP
+		icon.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		var name_text: String = Language.translate(String(data.get("name", id)))
+		if counts[id] > 1:
+			name_text += " ×%d" % counts[id]
+		icon.tooltip_text = name_text + "
+" + Language.translate(String(data.get("desc", "")))
+		_items.add_child(icon)
+	if counts.is_empty():
+		var none := Label.new()
+		none.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		none.text = Language.translate("Noch keine Items in diesem Run.")
+		none.add_theme_font_size_override("font_size", 10)
+		none.modulate = Color(0.7, 0.65, 0.6)
+		_items.add_child(none)
 
 
 # --- Showing --------------------------------------------------------------------

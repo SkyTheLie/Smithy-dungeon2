@@ -39,6 +39,9 @@ msgstr "هر تیر در پایان به چهار جرقه می‌ترکد"
 msgid "Amethyst"
 msgstr "آمتیست"
 
+msgid "Angriffstempo"
+msgstr "سرعت حمله"
+
 msgid "Anzeige"
 msgstr "نمایش"
 
@@ -1166,6 +1169,9 @@ msgstr "یک ماه اخگر دیگر دورت می‌چرخد"
 
 msgid "Noch keine Items"
 msgstr "هنوز آیتمی نداری"
+
+msgid "Noch keine Items in diesem Run."
+msgstr "هنوز در این دور هیچ آیتمی نداری."
 
 msgid "Noch nicht entdeckt"
 msgstr "هنوز کشف نشده"

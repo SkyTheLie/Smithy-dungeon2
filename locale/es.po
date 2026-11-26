@@ -39,6 +39,9 @@ msgstr "Al final cada disparo estalla en cuatro chispas"
 msgid "Amethyst"
 msgstr "Amatista"
 
+msgid "Angriffstempo"
+msgstr "Velocidad de ataque"
+
 msgid "Anzeige"
 msgstr "Pantalla"
 
@@ -1166,6 +1169,9 @@ msgstr "Otra luna de brasa gira a tu alrededor"
 
 msgid "Noch keine Items"
 msgstr "Aún no hay objetos"
+
+msgid "Noch keine Items in diesem Run."
+msgstr "Aún no hay objetos en esta partida."
 
 msgid "Noch nicht entdeckt"
 msgstr "Aún no descubierto"

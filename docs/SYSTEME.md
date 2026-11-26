@@ -184,7 +184,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - **Ausgang im Startraum** (`scenes/objects/dungeon_exit.gd`, `DungeonExit`): in jedem Startraum eine Leiter mit Tageslicht in der hinteren linken Ecke (Ecken haben nie Türen), Schild „Ausgang“. Drauftreten → `Dungeon.exit_entered` → `RunScene` hält das Spiel an und fragt „Flüchten / Weiterkämpfen“. Flüchten = wie ein Sieg: Münzen und ganze Tasche nach Hause (`MetaState.end_run`), End-Bildschirm „Geflüchtet!“. Nach „Weiterkämpfen“ fragt die Leiter erst wieder, wenn man weggegangen ist.
 - **Tod** unverändert (Entscheidung 2026-11-26): Münzen und Tasche weg, nur der sichere Platz bleibt.
 - **Münzen:** eine aufgehobene Münze ist `player.json` `coin_pickup` [8, 12] wert (`RunState.pick_up_coin`, gewürfelt mit dem Seed des Runs).
-- **Tab:** Tasche links, rechts daneben die ganze Ebene (`Minimap` mit `always_big`). Die große Karte (auch M) zoomt so weit heraus, dass alle bekannten Räume hineinpassen.
+- **Tab** (`BagWindow`): links die Ausrüstung von zu Hause (`HeroPanel`, nur Anzeige) und darunter die Werte des Runs (Schaden, Angriffstempo, Tempo, Glück), in der Mitte die Tasche, rechts die ganze Ebene (`Minimap` mit `always_big`, so weit rausgezoomt, dass alle bekannten Räume passen), unten die Items des Runs groß (26 px) mit Name und Beschreibung beim Drüberfahren.
 - **HUD:** oben links größere Herzen (`HeartBar` 28 px), darunter nur Bomben und Schlüssel; die Münz-Anzeige (Geld steht im Inventar beim Geldbündel) und die Werte-Spalte links sind weg (Werte stehen im Pausenmenü).
 
 ## Einstellungen und Spielstände löschen – 2026-11-26, `feature/spielstand-einstellungen`

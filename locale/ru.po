@@ -39,6 +39,9 @@ msgstr "В конце каждый выстрел разлетается на ч
 msgid "Amethyst"
 msgstr "Аметист"
 
+msgid "Angriffstempo"
+msgstr "Скорость атаки"
+
 msgid "Anzeige"
 msgstr "Экран"
 
@@ -1166,6 +1169,9 @@ msgstr "Ещё одна угольная луна кружит вокруг"
 
 msgid "Noch keine Items"
 msgstr "Пока нет предметов"
+
+msgid "Noch keine Items in diesem Run."
+msgstr "В этом забеге пока нет предметов."
 
 msgid "Noch nicht entdeckt"
 msgstr "Ещё не найдено"

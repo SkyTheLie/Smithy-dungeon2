@@ -1,6 +1,7 @@
 extends "res://assets/_reference/_lib/base_test.gd"
 ## In the real run scene: a coin on the floor is worth 8-12 (data/player.json coin_pickup), Tab
-## shows the bag with the whole floor beside it, and the ladder in the start room asks whether to
+## shows the bag with the hero (equipment, values) left, the whole floor right and the items of the
+## run below (with their description), and the ladder in the start room asks whether to
 ## flee: "Weiterkämpfen" goes on (asks again only after walking away), "Flüchten" ends the run and
 ## brings the coins and the whole bag home (MetaState), like a win.
 
@@ -49,6 +50,14 @@ func _bag_map() -> void:
 	var map: Control = window.get("map")
 	check(map != null and map.is_visible_in_tree(), "the floor map is beside the bag")
 	check(map.get("always_big"), "showing the whole floor")
+	check((window.get("_hero") as Control).is_visible_in_tree(), "left: the hero with his equipment")
+	var stats: String = (window.get("_stats") as Label).text
+	check(stats.contains("Schaden") and stats.contains("Angriffstempo") and stats.contains("Tempo") and stats.contains("Glück"),
+			"below it: damage, attack speed, speed, luck")
+	var items: Array = (window.get("_items") as Node).get_children().filter(func(node: Node) -> bool: return node is TextureRect)
+	check_eq(items.size(), (run_state.get("items") as Array).size(), "one big picture per item of the run")
+	var glutstab: Dictionary = script("res://scripts/core/content.gd").call("item", "glutstab")
+	check(items.size() > 0 and (items[0] as Control).tooltip_text.contains(String(glutstab.get("desc", "?"))), "hovering shows the description")
 	window.call("close")
 
 

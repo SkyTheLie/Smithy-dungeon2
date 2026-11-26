@@ -39,6 +39,9 @@ msgstr "每发射击最后炸成四个火花"
 msgid "Amethyst"
 msgstr "紫水晶"
 
+msgid "Angriffstempo"
+msgstr "攻击速度"
+
 msgid "Anzeige"
 msgstr "显示"
 
@@ -1166,6 +1169,9 @@ msgstr "又一颗余烬之月环绕着你"
 
 msgid "Noch keine Items"
 msgstr "还没有物品"
+
+msgid "Noch keine Items in diesem Run."
+msgstr "本次冒险还没有物品。"
 
 msgid "Noch nicht entdeckt"
 msgstr "尚未发现"

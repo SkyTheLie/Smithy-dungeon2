@@ -39,6 +39,9 @@ msgstr "At the end every shot bursts into four sparks"
 msgid "Amethyst"
 msgstr "Amethyst"
 
+msgid "Angriffstempo"
+msgstr "Attack speed"
+
 msgid "Anzeige"
 msgstr "Display"
 
@@ -1166,6 +1169,9 @@ msgstr "Another Ember Moon circles you"
 
 msgid "Noch keine Items"
 msgstr "No items yet"
+
+msgid "Noch keine Items in diesem Run."
+msgstr "No items in this run yet."
 
 msgid "Noch nicht entdeckt"
 msgstr "Not discovered yet"
