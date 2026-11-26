@@ -6,6 +6,9 @@ extends RefCounted
 ##
 ## Life counts in half hearts: health 5 of max_hearts 3 = two and a half of three hearts.
 ## Blue hearts (`blue`, also in halves) come on top: hits take them first, they cannot be healed.
+## White shield hearts (`shield`, halves) come from the equipment (use_gear, gear.json
+## shield_hearts): they go before the blue ones, cannot be healed and are not refilled.
+## The equipment's other stats (e.g. the weapon's damage) count like an item for the whole run.
 ## Picked-up items are remembered between runs (Progress: Lexikon, unlocks).
 ## Item flags handled here: damage_cap (a hit takes at most half a heart), extra_life (the item is
 ## used up instead of dying), desperate / fury (more damage at low life / after hits on this
@@ -30,6 +33,10 @@ var health: int = 6
 var max_hearts: int = 3
 ## Blue hearts in halves (on top of the red ones).
 var blue: int = 0
+## White shield hearts (halves) from the equipment.
+var shield: int = 0
+## The stats of the equipment worn at the start (one source per piece, without shield_hearts).
+var gear_sources: Array[Dictionary] = []
 var coins: int = 0
 var bombs: int = 0
 var keys: int = 0
@@ -128,6 +135,13 @@ func take_damage(halves: int) -> bool:
 	if stats.has("damage_cap"):
 		halves = 1
 	hits_this_floor += 1
+	var on_shield: int = mini(shield, halves)
+	shield -= on_shield
+	halves -= on_shield
+	if halves <= 0:
+		compute_stats()
+		changed.emit()
+		return true
 	var blue_hearts_before: int = ceili(blue / 2.0)
 	var on_blue: int = mini(blue, halves)
 	blue -= on_blue
@@ -341,6 +355,22 @@ func add_item(id: String) -> void:
 	changed.emit()
 
 
+## The run starts with `worn` (MetaState.equipment: slot -> {id, rarity}): every piece's
+## shield_hearts become white shield hearts, its other stats count for the whole run.
+func use_gear(worn: Dictionary) -> void:
+	gear_sources.clear()
+	shield = 0
+	for slot: Variant in worn:
+		var piece: Dictionary = worn[slot]
+		var values: Dictionary = ShopGoods.stats(String(piece.get("id", "")), int(piece.get("rarity", 1)))
+		shield += roundi(float(values.get("shield_hearts", 0.0)) * 2.0)
+		values.erase("shield_hearts")
+		if not values.is_empty():
+			gear_sources.append({"stats": values})
+	compute_stats()
+	changed.emit()
+
+
 ## `amount` whole blue hearts; red and blue together stay within MAX_HEARTS_LIMIT.
 func add_blue_hearts(amount: int) -> void:
 	if amount <= 0:
@@ -404,6 +434,7 @@ func compute_stats() -> ShotStats:
 	var result := ShotStats.from_base(base.get("stats", {}))
 	synergies = find_synergies()
 	var sources: Array[Dictionary] = [Content.character(character)]
+	sources.append_array(gear_sources)
 	for id: String in items:
 		sources.append(Content.item(id))
 	for id: String in synergies:

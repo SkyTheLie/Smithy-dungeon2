@@ -166,6 +166,7 @@ static func stat_name(key: String) -> String:
 	match key:
 		"damage": return Language.translate("Schaden")
 		"hearts": return Language.translate("Herzen")
+		"shield_hearts": return Language.translate("Schild-Herzen")
 		"luck": return Language.translate("Glück")
 		"fire_delay": return Language.translate("Pause zwischen Schüssen")
 		"knockback": return Language.translate("Rückstoß")

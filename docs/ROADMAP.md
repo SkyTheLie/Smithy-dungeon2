@@ -46,7 +46,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 
 ## Phase 3 – Ausrüstung im Run
 
-1. Ausrüstung gibt Startwerte für `RunState` (Schaden, Herzen, Tempo …). Die Hauptwaffe ist die ausgerüstete Waffe statt `start_items`.
+1. ✅ (2026-11-26, teils) Ausrüstung gibt Startwerte für `RunState`: Rüstung = weiße Schild-Herzen, Waffe = Schaden. Offen: Die Hauptwaffe ist die ausgerüstete Waffe statt `start_items`.
 2. Trank-Slot: 1 Platz, Taste Q trinkt, heilt 2 Herzen.
 3. Run-Ende: Gold und Materialien wandern in den Spielstand, Run-Items verfallen.
 4. **Relikt-Slot** (1 Platz): Relikte als Daten (`data/relics.json`: Wirkung wie Item-`flags`/`stats`, `durability` in Dungeons, `permanent`). Ausgerüstetes Relikt wirkt im Run wie ein Item (zählt für Synergien). Nach jedem Dungeon −1 Haltbarkeit, bei 0 kaputt.

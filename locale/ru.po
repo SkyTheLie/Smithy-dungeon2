@@ -525,6 +525,9 @@ msgstr "Ловец искр"
 msgid "Funkenstein"
 msgstr "Искровой камень"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "Ловит царапину-другую."
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "Отражает первый удар в каждой комнате"
 
@@ -539,6 +542,9 @@ msgstr "Пять ключей"
 
 msgid "Fünfzehn Münzen"
 msgstr "Пятнадцать монет"
+
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "Для шагов, которых лучше не слышать."
 
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "Для тебя: медный посох, шлем и нагрудник. Первая покупка за счёт заведения!"
@@ -1376,6 +1382,9 @@ msgstr "Карта сокровищ"
 
 msgid "Schießt Feuerbälle"
 msgstr "Стреляет огненными шарами"
+
+msgid "Schild-Herzen"
+msgstr "Сердца-щиты"
 
 msgid "Schildwache"
 msgstr "Щитоносец"

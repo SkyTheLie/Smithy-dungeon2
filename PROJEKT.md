@@ -75,7 +75,7 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 | 0 | Projekt angelegt, Assets und Logik aller Smithy-Spiele, Ideen sortiert | erledigt (2026-11-26) |
 | 1 | Spielstand und Laden | Beute, Inventar, Spielstand (Plätze A/B/C), Dose, Ausrüstung, Laden mit Hebel/Kaufen/Anlegen, Dungeon-Brett: erledigt (2026-11-26); Verkaufen und Dose im Laden offen |
 | 2 | Intro und Händler-Story | Intro mit Dialog vor dem Dungeon-Eingang, geführter erster Laden-Besuch: erledigt (2026-11-26); Klassen-Frage offen |
-| 3 | Ausrüstung im Run, Tränke | offen |
+| 3 | Ausrüstung im Run, Tränke | Rüstung = Schild-Herzen, Waffe = Schaden: erledigt (2026-11-26); Tränke, Relikte offen |
 
 ## 8. Aktuelle Aufgabe
 

@@ -525,6 +525,9 @@ msgstr "شکارچی جرقه"
 msgid "Funkenstein"
 msgstr "سنگ جرقه"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "یکی دو تا خراش رو می‌گیره."
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "در هر اتاق اولین ضربه را دفع می‌کند"
 
@@ -539,6 +542,9 @@ msgstr "پنج کلید"
 
 msgid "Fünfzehn Münzen"
 msgstr "پانزده سکه"
+
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "برای قدم‌هایی که بهتره شنیده نشن."
 
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "برای تو: یه عصای مسی، یه کلاه‌خود و یه زره سینه. اولین خرید مهمون من!"
@@ -1376,6 +1382,9 @@ msgstr "نقشه گنج"
 
 msgid "Schießt Feuerbälle"
 msgstr "گلوله آتشین شلیک می‌کند"
+
+msgid "Schild-Herzen"
+msgstr "قلب‌های سپر"
 
 msgid "Schildwache"
 msgstr "نگهبان سپردار"

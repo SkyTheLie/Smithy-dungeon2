@@ -525,6 +525,9 @@ msgstr "火花捕手"
 msgid "Funkenstein"
 msgstr "火花石"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "能挡下几道擦伤。"
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "在每个房间挡下第一次攻击"
 
@@ -539,6 +542,9 @@ msgstr "五把钥匙"
 
 msgid "Fünfzehn Münzen"
 msgstr "十五枚硬币"
+
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "为了那些最好别听见的脚步。"
 
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "给你的：一根铜法杖、一顶头盔和一副胸甲。第一次购物算我的！"
@@ -1376,6 +1382,9 @@ msgstr "藏宝图"
 
 msgid "Schießt Feuerbälle"
 msgstr "发射火球"
+
+msgid "Schild-Herzen"
+msgstr "护盾之心"
 
 msgid "Schildwache"
 msgstr "持盾卫兵"

@@ -525,6 +525,9 @@ msgstr "火花受け"
 msgid "Funkenstein"
 msgstr "火花石"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "かすり傷のひとつやふたつは防ぐ。"
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "各部屋で最初の一撃を防ぐ"
 
@@ -539,6 +542,9 @@ msgstr "鍵5本"
 
 msgid "Fünfzehn Münzen"
 msgstr "コイン15枚"
+
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "聞きたくない足音のために。"
 
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "君にはこれだ：銅の杖、兜、胸当て。初回の買い物は店のおごりだ！"
@@ -1376,6 +1382,9 @@ msgstr "宝の地図"
 
 msgid "Schießt Feuerbälle"
 msgstr "火の玉を撃つ"
+
+msgid "Schild-Herzen"
+msgstr "シールドハート"
 
 msgid "Schildwache"
 msgstr "盾の衛兵"

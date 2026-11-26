@@ -525,6 +525,9 @@ msgstr "Spark Catcher"
 msgid "Funkenstein"
 msgstr "Spark Stone"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "Catches the odd scratch."
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "Blocks the first hit in every room"
 
@@ -539,6 +542,9 @@ msgstr "Five keys"
 
 msgid "Fünfzehn Münzen"
 msgstr "Fifteen coins"
+
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "For steps you'd rather not hear."
 
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "For you: a copper wand, a helmet and a breastplate. Your first purchase is on the house!"
@@ -1376,6 +1382,9 @@ msgstr "Treasure Map"
 
 msgid "Schießt Feuerbälle"
 msgstr "Shoots fireballs"
+
+msgid "Schild-Herzen"
+msgstr "Shield hearts"
 
 msgid "Schildwache"
 msgstr "Shield Guard"

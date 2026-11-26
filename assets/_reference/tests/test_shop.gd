@@ -15,6 +15,7 @@ func run() -> void:
 	_lever()
 	_buy_and_equip()
 	_tutorial_and_new_day()
+	_gear_in_run()
 
 
 func _data() -> void:
@@ -107,3 +108,27 @@ func _tutorial_and_new_day() -> void:
 	meta.call("start_new")
 	check(not meta.call("tutorial_done"), "Neues Spiel: the tour comes again")
 	check((meta.call("equipment") as Dictionary).is_empty(), "Neues Spiel: no equipment")
+
+
+## What the hero wears counts in the run: armor = white shield hearts (taken first), the weapon's
+## damage like an item.
+func _gear_in_run() -> void:
+	var run_script: Script = script("res://scripts/systems/run_state.gd")
+	var bare: Object = run_script.new(5)
+	var damage: float = (bare.get("stats") as Object).get("damage")
+	var dressed: Object = run_script.new(5)
+	dressed.call("use_gear", {
+		"weapon": {"id": "copper_staff", "rarity": 1},
+		"head": {"id": "copper_helmet", "rarity": 1},
+		"chest": {"id": "copper_chest", "rarity": 1},
+		"feet": {"id": "copper_boots", "rarity": 2}})
+	check_eq(dressed.get("shield"), 3, "three armor pieces: 3 half shield hearts (R2 rounds to one half)")
+	check(is_equal_approx((dressed.get("stats") as Object).get("damage"), damage + 0.2), "the copper staff adds 0.2 damage")
+	var health: int = dressed.get("health")
+	dressed.call("take_damage", 2)
+	check_eq(dressed.get("shield"), 1, "a hit takes the shield hearts first")
+	check_eq(dressed.get("health"), health, "red hearts untouched")
+	dressed.call("take_damage", 2)
+	check_eq(dressed.get("shield"), 0, "the last half shield heart is gone")
+	check_eq(dressed.get("health"), health - 1, "the rest of the hit goes to the red hearts")
+	check(not dressed.call("heal", 0) and dressed.get("shield") == 0, "shield hearts are not healed")

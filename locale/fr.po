@@ -525,6 +525,9 @@ msgstr "Attrape-étincelles"
 msgid "Funkenstein"
 msgstr "Pierre d'étincelles"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "Arrête quelques égratignures."
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "Bloque le premier coup dans chaque salle"
 
@@ -539,6 +542,9 @@ msgstr "Cinq clés"
 
 msgid "Fünfzehn Münzen"
 msgstr "Quinze pièces"
+
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "Pour des pas qu'on préfère ne pas entendre."
 
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "Pour toi : une baguette en cuivre, un casque et un plastron. Le premier achat est offert !"
@@ -1376,6 +1382,9 @@ msgstr "Carte au trésor"
 
 msgid "Schießt Feuerbälle"
 msgstr "Tire des boules de feu"
+
+msgid "Schild-Herzen"
+msgstr "Cœurs-boucliers"
 
 msgid "Schildwache"
 msgstr "Garde au bouclier"

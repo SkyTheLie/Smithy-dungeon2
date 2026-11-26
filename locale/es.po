@@ -525,6 +525,9 @@ msgstr "Atrapachispas"
 msgid "Funkenstein"
 msgstr "Piedra de chispas"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "Detiene algún que otro rasguño."
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "Bloquea el primer golpe en cada sala"
 
@@ -539,6 +542,9 @@ msgstr "Cinco llaves"
 
 msgid "Fünfzehn Münzen"
 msgstr "Quince monedas"
+
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "Para pasos que mejor no se oyen."
 
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "Para ti: una varita de cobre, un casco y un peto. ¡La primera compra invita la casa!"
@@ -1376,6 +1382,9 @@ msgstr "Mapa del tesoro"
 
 msgid "Schießt Feuerbälle"
 msgstr "Dispara bolas de fuego"
+
+msgid "Schild-Herzen"
+msgstr "Corazones de escudo"
 
 msgid "Schildwache"
 msgstr "Guardia con escudo"

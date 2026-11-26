@@ -525,6 +525,9 @@ msgstr "Apanha-faíscas"
 msgid "Funkenstein"
 msgstr "Pedra de faíscas"
 
+msgid "Fängt den einen oder anderen Kratzer ab."
+msgstr "Segura um ou outro arranhão."
+
 msgid "Fängt in jedem Raum den ersten Treffer ab"
 msgstr "Bloqueia o primeiro golpe em cada sala"
 
@@ -539,6 +542,9 @@ msgstr "Cinco chaves"
 
 msgid "Fünfzehn Münzen"
 msgstr "Quinze moedas"
+
+msgid "Für Schritte, die man lieber nicht hört."
+msgstr "Para passos que é melhor não ouvir."
 
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "Pra você: uma varinha de cobre, um elmo e um peitoral. A primeira compra é por conta da casa!"
@@ -1376,6 +1382,9 @@ msgstr "Mapa do tesouro"
 
 msgid "Schießt Feuerbälle"
 msgstr "Atira bolas de fogo"
+
+msgid "Schild-Herzen"
+msgstr "Corações de escudo"
 
 msgid "Schildwache"
 msgstr "Guarda de escudo"

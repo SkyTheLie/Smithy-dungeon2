@@ -28,6 +28,8 @@ func start_new_run(character: String = "") -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	run = RunState.new(rng.randi(), character)
+	# What the hero wears at home counts in the dungeon (shield hearts, weapon damage).
+	run.use_gear(MetaState.equipment())
 	# The purse from home goes into the dungeon (and is lost there on death).
 	run.bring_gold(MetaState.take_purse_for_run())
 	get_tree().paused = false
