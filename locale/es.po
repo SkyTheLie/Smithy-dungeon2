@@ -33,6 +33,9 @@ msgstr "Cada pocos enemigos derrotados curas medio corazón"
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "Todo en la tienda cuesta la mitad"
 
+msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
+msgstr "Así que mejor gástalo, socio. ¡A ser posible, conmigo!"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "Al final cada disparo estalla en cuatro chispas"
 
@@ -195,6 +198,9 @@ msgstr "Tu oro. En casa, seguro en la lata; en la mazmorra se pierde al morir, s
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Tu reliquia ha dicho adiós. Pasa. Casualmente tengo una nueva… ¡precio de amigo!"
 
+msgid "Dein ganzes Gold liegt rechts in deiner Dose. Bis 200 Gold ist es da sicher."
+msgstr "Todo tu oro está en tu lata, a la derecha. Hasta 200 de oro está a salvo."
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "Tus bolas de fuego destruyen los disparos enemigos"
 
@@ -209,6 +215,12 @@ msgstr "La barra sobre la palanca muestra lo que puede salir: gris es común, ve
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "El rayo de fuego se curva hacia el enemigo"
+
+msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
+msgstr "El mercader de la mazmorra paga 2 de oro más por cada botín."
+
+msgid "Der Händler kauft Beute: Tab, Rechtsklick"
+msgstr "El mercader compra botín: Tab, clic derecho"
 
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "La piedra acepta tu sacrificio"
@@ -251,6 +263,9 @@ msgstr "Lata: %d de oro. Seguro hasta %d."
 
 msgid "Dose: Gold hierher ziehen"
 msgstr "Lata: arrastra el oro aquí"
+
+msgid "Dose: hier liegt dein ganzes Gold"
+msgstr "Lata: aquí está todo tu oro"
 
 msgid "Drachenatem"
 msgstr "Aliento de dragón"
@@ -384,6 +399,9 @@ msgstr "La tienda de Egon"
 msgid "Eigene Explosionen heilen dich"
 msgstr "Tus propias explosiones te curan"
 
+msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
+msgstr "Un ámbar, tres bombas, tres llaves"
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "Una bola de fuego gira a tu alrededor y bloquea disparos"
 
@@ -398,6 +416,9 @@ msgstr "Una chispa y más suerte"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "Se ha abierto un pacto de brasa"
+
+msgid "Ein Golderz"
+msgstr "Una mena de oro"
 
 msgid "Ein Herz mehr"
 msgstr "Un corazón más"
@@ -417,6 +438,9 @@ msgstr "Un corazón y un corazón azul"
 msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
 msgstr "Un corazón, espinas, las explosiones no te dañan"
 
+msgid "Ein Herz, eine Bombe und ein Schlüssel"
+msgstr "Un corazón, una bomba y una llave"
+
 msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
 msgstr "Un corazón, una moneda, una bomba y una llave"
 
@@ -428,6 +452,9 @@ msgstr "Un espacio más en la mochila."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Un espacio de reliquia más en tu héroe."
+
+msgid "Ein Rubin"
+msgstr "Un rubí"
 
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "¡Una ganga! Para mí. Eh… ¡para ti! ¡De verdad!"
@@ -441,8 +468,14 @@ msgstr "Un disparo más y más daño"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "Un disparo más, pero más débil"
 
+msgid "Ein Silbererz, Glück hoch"
+msgstr "Una mena de plata, más suerte"
+
 msgid "Ein Stab mit Feuer-Spitze. Für Magier."
 msgstr "Una varita con punta de fuego. Para magos."
+
+msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
+msgstr "Una piel de lobo, tres bombas, tres llaves"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "Un corazón azul y espinas"
@@ -777,6 +810,9 @@ msgstr "Bastón de Brasas"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Brilla verdoso. Al mercader le gusta."
 
+msgid "Glänzt wie der Mond. Der Händler wird ganz still."
+msgstr "Brilla como la luna. El mercader se queda muy callado."
+
 msgid "Glück"
 msgstr "Suerte"
 
@@ -816,6 +852,9 @@ msgstr "Galerías Goblin"
 msgid "Gold"
 msgstr "Oro"
 
+msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
+msgstr "Oro del mercader de la mazmorra. Lo que sobre va a tu lata; al morir se pierde, salvo en la casilla segura."
+
 msgid "Goldader"
 msgstr "Veta de oro"
 
@@ -830,6 +869,9 @@ msgstr "Arco de oro"
 
 msgid "Goldener Schattenstab"
 msgstr "Bastón de sombra dorado"
+
+msgid "Golderz"
+msgstr "Mena de oro"
 
 msgid "Goldglut"
 msgstr "Brasa dorada"
@@ -968,6 +1010,9 @@ msgstr "Bastón infernal"
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Soy el estaf… eh, el vendedor. Vendo… …¡equipo! Sí, eso. Vendo equipo."
+
+msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
+msgstr "A la mazmorra no te llevas oro. Allí abajo mi colega te compra el botín, casi tan honrado como yo."
 
 msgid "Inventar"
 msgstr "Inventario"
@@ -1419,6 +1464,12 @@ msgstr "A la derecha está tu lata. Arrastra la bolsa encima; hasta 200 de oro e
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "Clic derecho en algo del inventario para ponerlo aquí."
 
+msgid "Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen"
+msgstr "Clic derecho: vender al mercader · Arrastrar: ordenar · Tab: cerrar"
+
+msgid "Rechtsklick: verkaufen für %d Gold"
+msgstr "Clic derecho: vender por %d de oro"
+
 msgid "Reichweite"
 msgstr "Alcance"
 
@@ -1551,6 +1602,9 @@ msgstr "Daño x1,2, disparas algo más lento"
 msgid "Schaden mal 1,25"
 msgstr "Daño x1,25"
 
+msgid "Schaden mal 1,3 und ein Silbererz"
+msgstr "Daño por 1,3 y una mena de plata"
+
 msgid "Schaden mal 1,3 und zehn Münzen"
 msgstr "Daño x1,3 y diez monedas"
 
@@ -1668,6 +1722,9 @@ msgstr "Velocidad de disparo"
 msgid "Schwarzer Kristall"
 msgstr "Cristal negro"
 
+msgid "Schwer und gelb. Jeder Händler mag es."
+msgstr "Pesado y amarillo. A todo mercader le gusta."
+
 msgid "Schwer und kalt."
 msgstr "Pesado y frío."
 
@@ -1769,6 +1826,9 @@ msgstr "Amuleto de plata"
 
 msgid "Silberdolch"
 msgstr "Daga de plata"
+
+msgid "Silbererz"
+msgstr "Mena de plata"
 
 msgid "Silberhammer"
 msgstr "Martillo de plata"
@@ -2043,6 +2103,9 @@ msgstr "Y esta es mi palanca. Mi mayor orgullo. ¡Mira!"
 msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
 msgstr "Y toma, un pequeño adelanto: 50 de oro. Tu oro está en el inventario como bolsa de monedas."
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Oben links siehst du, wie viel du hast."
+msgstr "Y aquí, un pequeño adelanto: 50 de oro. Arriba a la izquierda ves cuánto tienes."
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "¡Y ahora, a la mazmorra! Tráeme algo bonito. Yo espero aquí. Por si acaso."
 
@@ -2069,6 +2132,9 @@ msgstr "Vender"
 
 msgid "Verkaufen: %d Gold"
 msgstr "Vender: %d de oro"
+
+msgid "Verkauft für %d Gold"
+msgstr "Vendido por %d de oro"
 
 msgid "Viel größere Bomben"
 msgstr "Bombas mucho más grandes"
@@ -2246,6 +2312,9 @@ msgstr "Dos chispas y más daño"
 
 msgid "Zwei Glutmonde kreisen um dich"
 msgstr "Dos lunas de brasa giran a tu alrededor"
+
+msgid "Zwei Golderze und zehn Schlüssel"
+msgstr "Dos menas de oro y diez llaves"
 
 msgid "Zwei Herzen mehr"
 msgstr "Dos corazones más"

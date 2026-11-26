@@ -12,7 +12,7 @@ Alles in `data/`. Nach jeder Änderung: `bash assets/_reference/run_tests.sh tes
 - `stats`: `damage`, `fire_delay` (Sekunden zwischen Schüssen), `reach` (Meter), `shot_speed`, `size`, `spread` (Grad, größter Wert gilt), `move_speed`, `knockback`, `shots` (zusätzliche Schüsse), `orbitals` (Glutmonde), `hearts` (Herz-Container). Mit `_mult` dahinter wird multipliziert (`"fire_delay_mult": 0.65` = schneller).
 - `flags`: `homing`, `pierce`, `bounce`, `boomerang`, `split`, `wave`, `bread`, `charge`, `jitter`, `explosive`, `burn` (Gegner brennen), `slow` (Gegner langsamer), `grow` (mehr Schaden, je weiter der Schuss fliegt), `shield` (Feuerbälle zerstören Gegner-Schüsse), `blast_proof` (Explosionen schaden dir nicht), `mantle` (erster Treffer pro Raum wird abgefangen). Zahlen für `burn`, `slow`, `grow` stehen in `data/player.json` unter `effects`.
 - `per_coin`: Werte je Münze, die du hast, z. B. `{"damage": 0.04}` (Goldglut).
-- `give`: gibt es beim Aufheben dazu: `{"coins": 5, "bombs": 3, "keys": 3}`.
+- `give`: gibt es beim Aufheben dazu: `{"loot": {"amber": 1}, "bombs": 3, "keys": 3}` (`loot` = Beute-Ids aus `loot.json` für die Tasche; Münzen gibt es im Dungeon nicht).
 - `mode`: `beam` (Feuerstrahl) oder `bomb` (Bomben werfen).
 - `heal_full: true` heilt beim Aufheben ganz.
 - Item-Raum: **jedes** Item kann kommen, außer `"secret": true` (für spätere Geheimräume) und noch gesperrte.
@@ -21,7 +21,7 @@ Alles in `data/`. Nach jeder Änderung: `bash assets/_reference/run_tests.sh tes
 - `unlock`: das Item ist erst nach einer Freischaltung im Spiel: `{"type": "boss", "id": "rat_king"}`, `{"type": "wins", "count": 1}`, `{"type": "kills", "count": 200}`, `{"type": "discovered", "count": 25}`. Der Text im Lexikon entsteht daraus von selbst.
 - Es sind genau 203 Items: 200 plus die drei Start-Waffen der Helden (`test_content` prüft das).
 - `chance`: Zufallseffekte, z. B. `{"freeze": 0.15}` (15 % pro Schuss, Glück erhöht das).
-- `spawn`: Pickups, die beim Aufheben erscheinen (`coin`, `heart`, `bomb`, `key`).
+- `spawn`: Pickups, die beim Aufheben erscheinen (`heart`, `bomb`, `key`).
 - `secret: true`: nur im Geheimraum (dann keine `pools`). Weitere `pools`: `pact` (Glutpakt) und `shrine` (Schrein).
 - Neue `stats`: `bomb_size`, `luck`, `guard_time` (Sekunden), `helpers` (Funken).
 - Neue `flags` und alle Zahlen dazu: `data/items.json` „_info“ und `data/player.json` „effects“.
@@ -94,9 +94,11 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - Jeder Schlüssel ist eine Liste von Sprechblasen (höchstens zwei Sätze), `barks` sind einzelne Sätze. Egons Texte werden aus `docs/figuren/EGON_EHRLICH.md` gebaut.
 - `build_po.py` findet alle Sätze selbst; danach übersetzen.
 
-## Münzwert (`data/player.json`)
+## Gold im Dungeon
 
-- `coin_pickup`: [min, max] Münzen je aufgehobener Münze (bisher [8, 12]). Preise im Run-Shop (`floors.json` `shop`) passen dazu.
+- Es gibt keine Münzen zu finden. Gold gibt es nur beim Händler im Dungeon-Shop für Beute (`loot.json` `value`, Goldnase `sell_bonus` je Stück). Preise im Run-Shop: `floors.json` `shop`.
+- Opferstein-Belohnungen (`floors.json` `sacrifice.rewards`) dürfen Beute-Ids sein (fallen als Beute heraus).
+- Bosse: `enemies.json` `summon_max` = so viele gerufene Helfer leben höchstens gleichzeitig.
 
 ## Relikte (`data/relics.json`)
 

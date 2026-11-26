@@ -35,8 +35,7 @@ func start_new_run(character: String = "") -> void:
 	run.use_gear(MetaState.equipment())
 	# The skills learned at Egon's (bag places, hearts, damage …).
 	run.use_skills()
-	# The purse from home goes into the dungeon (and is lost there on death).
-	run.bring_gold(MetaState.take_purse_for_run())
+	# The gold at home stays in the money box: the run starts without gold.
 	get_tree().paused = false
 	get_tree().change_scene_to_file.call_deferred(RUN_SCENE)
 

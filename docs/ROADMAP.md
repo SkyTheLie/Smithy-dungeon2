@@ -31,9 +31,10 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Tab = Inventar und daneben die ganze Karte (rausgezoomt).
 - ✅ Ausgang im Startraum: flüchten und alles behalten.
 - ✅ Tod: Tasche weg (sicherer Platz bleibt, entschieden).
-- ✅ Münze aufheben = 8–12 Münzen.
+- ✅ ~~Münze aufheben = 8–12 Münzen.~~ Ersetzt (2026-11-26, `feature/geld-schatulle`): keine Münzen im Dungeon, Gold nur fürs Verkaufen beim Händler im Dungeon-Shop, alles Gold zu Hause in der Dose.
 - ✅ HUD: Münz-Anzeige und Werte-Spalte weg, Herzen größer.
-- Offen: Preise im Run-Shop an den neuen Münzwert anpassen (Vorschlag ×10).
+- ✅ Bosse rufen höchstens 5 Helfer gleichzeitig (`enemies.json` `summon_max`).
+- Offen: Preise im Run-Shop im Spiel prüfen (Gold kommt nur aus Beute).
 
 ## Phase 2 – Intro
 

@@ -1,9 +1,9 @@
 extends "res://assets/_reference/_lib/base_test.gd"
-## In the real run scene: a coin on the floor is worth 8-12 (data/player.json coin_pickup), Tab
-## shows the bag with the hero (equipment, values) left, the whole floor right and the items of the
+## In the real run scene: no gold at the start and none on the floor; in the shop room a right
+## click in the bag sells loot to the merchant (not outside it). Tab shows the bag with the hero (equipment, values) left, the whole floor right and the items of the
 ## run below (with their description), and the ladder in the start room asks whether to
 ## flee: "Weiterkämpfen" goes on (asks again only after walking away), "Flüchten" ends the run and
-## brings the coins and the whole bag home (MetaState), like a win.
+## brings the gold and the whole bag home (MetaState: the gold into the box), like a win.
 
 var scene: Node
 var dungeon: Node
@@ -26,18 +26,41 @@ func run() -> void:
 	dungeon = scene.get_node("%Dungeon")
 	player = scene.get_node("%Player") as Node3D
 
-	await _coin()
+	await _no_coins()
 	await _bag_map()
+	await _sell_in_shop()
 	await _flee()
 
 
-func _coin() -> void:
-	var before: int = run_state.get("coins")
-	var room: Node3D = (dungeon.get("rooms") as Dictionary)[dungeon.get("current_cell")]
-	dungeon.call("_drop", room, player.global_position, "coin")
-	check(await wait_until(func() -> bool: return int(run_state.get("coins")) > before, 2.0), "walking over a coin picks it up")
-	var gained: int = int(run_state.get("coins")) - before
-	check(gained >= 8 and gained <= 12, "one coin is worth 8 to 12 (%d)" % gained)
+func _no_coins() -> void:
+	check_eq(run_state.get("coins"), 0, "the run starts without gold")
+	var pickups: Array = dungeon.find_children("*", "Node3D", true, false).filter(func(node: Node) -> bool: return node.get("kind") == "coin")
+	check(pickups.is_empty(), "no coins lie in the dungeon")
+
+
+## The bag window sells only in the shop room (right click there).
+func _sell_in_shop() -> void:
+	var window: CanvasLayer = scene.get("bag_window")
+	var bag: Object = run_state.get("bag")
+	bag.call("add", "amber", 1)
+	var index: int = 0
+	for i in int(bag.call("size")):
+		if (bag.call("get_place", i) as Dictionary).get("id") == "amber":
+			index = i
+	check_eq(window.call("sell", index), 0, "outside the shop nothing is sold")
+	var layout: Object = dungeon.get("layout")
+	var shop_cell: Vector2i = layout.call("cell_of", "shop")
+	check(shop_cell != Vector2i(-1, -1), "the floor has a shop")
+	var start_cell: Vector2i = dungeon.get("current_cell")
+	dungeon.set("current_cell", shop_cell)
+	check(dungeon.call("in_shop"), "in the shop room")
+	var right := InputEventMouseButton.new()
+	right.button_index = MOUSE_BUTTON_RIGHT
+	right.pressed = true
+	window.call("_on_slot_input", right, index)
+	check_eq(run_state.get("coins"), 12, "a right click sells the amber for 12 gold")
+	dungeon.set("current_cell", start_cell)
+	bag.call("remove", "gold", 12)
 
 
 func _bag_map() -> void:
@@ -90,7 +113,7 @@ func _flee() -> void:
 	var end_screen: CanvasLayer = scene.get_node("EndScreen")
 	check(await wait_until(func() -> bool: return end_screen.visible, 2.0), "Flüchten: the end screen")
 	check_eq((end_screen.get_node("%Title") as Label).text, "Geflüchtet!", "it says Geflüchtet!")
-	check_eq(meta.call("purse"), coins, "the coins come home")
+	check_eq(meta.call("box"), coins, "the gold comes home into the box")
 	var stash: Array = meta.call("stash")
 	check(stash.any(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur" and int(place.get("count")) == 3), "the whole bag comes home")
 	check_eq(meta.call("day"), day + 1, "a new day")

@@ -1,8 +1,8 @@
 {
-	"_info": "Beute aus dem Dungeon, die man ins Inventar (Tab) aufhebt und beim Händler verkauft. materials: name, desc (Deutsch = Übersetzungs-Schlüssel), icon, rarity 1-8 (Rahmenfarbe), value = Gold beim Verkauf, stack = so viele passen auf einen Platz (fehlt = meta.json bag.stack). gold ist das Gold des Runs (zählt als Münzen). enemies: Gegner-Id (data/enemies.json) -> Liste von {id, chance 0-1, amount [min, max]}; jeder Eintrag wird einzeln gewürfelt. Glück erhöht die Chance (luck_bonus je Punkt). Siehe docs/CONTENT.md.",
+	"_info": "Beute aus dem Dungeon, die man ins Inventar (Tab) aufhebt und beim Händler verkauft. materials: name, desc (Deutsch = Übersetzungs-Schlüssel), icon, rarity 1-8 (Rahmenfarbe), value = Gold beim Verkauf (bei Egon und beim Händler im Dungeon-Shop), stack = so viele passen auf einen Platz (fehlt = meta.json bag.stack). gold ist das Gold des Runs (zählt als Münzen): es gibt es nur beim Händler im Dungeon-Shop für verkaufte Beute; was übrig bleibt, kommt nach dem Run in die Dose. enemies: Gegner-Id (data/enemies.json) -> Liste von {id, chance 0-1, amount [min, max]}; jeder Eintrag wird einzeln gewürfelt. Glück erhöht die Chance (luck_bonus je Punkt). Siehe docs/CONTENT.md.",
 	"luck_bonus": 0.03,
 	"materials": {
-		"gold": {"name": "Münzsack", "desc": "Dein Gold. Zu Hause sicher in der Dose; im Dungeon ist es beim Tod weg, außer im sicheren Platz.", "icon": "res://assets/sprites/items/coin_purse.png", "rarity": 1, "value": 1, "stack": 999},
+		"gold": {"name": "Münzsack", "desc": "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz.", "icon": "res://assets/sprites/items/coin_purse.png", "rarity": 1, "value": 1, "stack": 999},
 		"rat_fur": {"name": "Rattenfell", "desc": "Struppig und leicht angekaut.", "icon": "res://assets/sprites/items/rat_fur.png", "rarity": 1, "value": 2},
 		"rat_venom_fang": {"name": "Giftzahn", "desc": "Nicht ablecken.", "icon": "res://assets/sprites/items/rat_venom_fang.png", "rarity": 1, "value": 4},
 		"bat_skin": {"name": "Flughaut", "desc": "Dünne Haut aus einem Fledermausflügel.", "icon": "res://assets/sprites/items/leather.png", "rarity": 1, "value": 3},
@@ -12,6 +12,8 @@
 		"wolf_fur": {"name": "Wolfsfell", "desc": "Warm und dicht.", "icon": "res://assets/sprites/items/wolf_fur.png", "rarity": 2, "value": 8},
 		"amber": {"name": "Bernstein", "desc": "Darin steckt ein kleines Krabbeltier.", "icon": "res://assets/sprites/items/amber.png", "rarity": 2, "value": 12},
 		"ruby": {"name": "Rubin", "desc": "Rot wie Glut.", "icon": "res://assets/sprites/items/ruby.png", "rarity": 3, "value": 25},
+		"silver_ore": {"name": "Silbererz", "desc": "Glänzt wie der Mond. Der Händler wird ganz still.", "icon": "res://assets/sprites/items/silver_ore.png", "rarity": 2, "value": 15},
+		"gold_ore": {"name": "Golderz", "desc": "Schwer und gelb. Jeder Händler mag es.", "icon": "res://assets/sprites/items/gold_ore.png", "rarity": 3, "value": 30},
 		"soul_shard": {"name": "Seelensplitter", "desc": "Flüstert leise, wenn es dunkel ist.", "icon": "res://assets/sprites/items/soul_shard.png", "rarity": 3, "value": 20}
 	},
 	"enemies": {

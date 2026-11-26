@@ -4,7 +4,8 @@ extends Node3D
 ## room side by side, with doors between neighbours. While the player walks around it:
 ##   - entering a room with enemies closes its doors and lets the enemies appear;
 ##   - when the last one falls the doors open and sometimes a reward drops;
-##   - item room: one item on a pedestal; shop: an item and goods for coins;
+##   - item room: one item on a pedestal; shop: an item and goods for coins; the merchant there
+##     buys loot (Tab, right click: sell_from_bag), the only gold of the dungeon;
 ##   - boss room: one boss of the theme, picked at random when the floor is built; after it a
 ##     trapdoor down (or the golden light after the last floor) and a boss item.
 ## Only the room the player is in and its neighbours are visible (drawn); the rest is hidden.
@@ -110,6 +111,7 @@ func build(run_state: RunState, the_player: Player, index: int) -> void:
 	run.blue_heart_lost.connect(_on_blue_heart_lost)
 	run.revived.connect(func(_id: String) -> void: message.emit("Ein zweites Leben!"))
 	run.item_added.connect(_on_item_added)
+	run.loot_overflow.connect(func(id: String, count: int) -> void: _drop_loot(rooms[current_cell], player.global_position, id, count, false))
 	AudioManager.play_music(String(floor_data.get("music", "")))
 	floor_started.emit(String(floor_data.get("name", "")))
 
@@ -281,7 +283,6 @@ func _add_rocks(room: DungeonRoom) -> void:
 func _place_rock(room: DungeonRoom, spot: Vector3, settings: Dictionary) -> void:
 	var rock := Rock.new()
 	rock.texture_path = String(floor_data.get("rock_texture", settings.get("texture", "")))
-	rock.has_coin = _rng.randf() < float(settings.get("coin_chance", 0.2))
 	room.add_child(rock)
 	rock.position = spot
 	room.rocks.append(rock)
@@ -378,6 +379,8 @@ func _enter_room(cell: Vector2i) -> void:
 	_show_near(cell)
 	run.refresh_mantle()
 	var room: DungeonRoom = rooms[cell]
+	if room.type == FloorLayout.SHOP and not room.visited:
+		message.emit("Der Händler kauft Beute: Tab, Rechtsklick")
 	room.visited = true
 	room_entered.emit(cell)
 	if room.cleared:
@@ -438,13 +441,24 @@ func spawn_enemy(id: String, at: Vector3) -> Enemy:
 	return enemy
 
 
-## A boss calls helpers (only up to MAX_ENEMIES, inside the room).
+## A boss calls helpers: at most data/enemies.json "summon_max" of them alive at once (and
+## MAX_ENEMIES in all), inside the room.
 func summon(id: String, at: Vector3) -> void:
-	if enemies.size() >= MAX_ENEMIES:
+	if enemies.size() >= MAX_ENEMIES or helper_count() >= summon_max():
 		return
 	var rect: Rect2 = RoomBuilder.inner_rect(current_cell, 0.8)
 	var spot := Vector3(clampf(at.x, rect.position.x, rect.end.x), 0, clampf(at.z, rect.position.y, rect.end.y))
 	spawn_enemy(id, spot)
+
+
+## How many helpers a boss may have alive at once (data/enemies.json "summon_max").
+static func summon_max() -> int:
+	return maxi(0, int(Content.get_file("enemies").get("summon_max", 5)))
+
+
+## Enemies alive besides the boss (in a boss fight: its helpers).
+func helper_count() -> int:
+	return enemies.size() - (1 if boss != null and enemies.has(boss) else 0)
 
 
 func _on_enemy_died(enemy: Enemy) -> void:
@@ -489,7 +503,7 @@ func _luck_drop() -> float:
 
 func _roll_drop() -> String:
 	var drops: Dictionary = Content.floors_extra("room_drops")
-	return Content.pick_weighted(drops.get("table", [["coin", 1]]), _rng)
+	return Content.pick_weighted(drops.get("table", [["heart", 1]]), _rng)
 
 
 func _boss_rewards(room: DungeonRoom) -> void:
@@ -554,6 +568,22 @@ func drop_from_bag(index: int) -> Pickup:
 	forward.y = 0.0
 	var at: Vector3 = player.global_position + forward.normalized() * 0.9
 	return _drop_loot(rooms[current_cell], at, String(place["id"]), int(place["count"]), true)
+
+
+## true while the player stands in the shop room: then the merchant buys loot from the bag.
+func in_shop() -> bool:
+	return rooms.has(current_cell) and (rooms[current_cell] as DungeonRoom).type == FloorLayout.SHOP
+
+
+## Bag window, right click in the shop: the merchant buys place `index` (RunState.sell_from_bag).
+## Returns the gold (0 = nothing sold, e.g. outside the shop).
+func sell_from_bag(index: int) -> int:
+	if not in_shop():
+		return 0
+	var gold: int = run.sell_from_bag(index)
+	if gold > 0:
+		AudioManager.play_sound("coin")
+	return gold
 
 
 ## Touching a locked door with a key opens it; without a key a message says so.
@@ -650,15 +680,16 @@ func _check_sacrifice() -> void:
 	var room: DungeonRoom = rooms[current_cell]
 	var at: Vector3 = _sacrifice_stone.global_position + Vector3(0, 0, 1.6)
 	match String(entry[0]):
-		"coins":
-			for i in 3:
-				_drop(room, at + Vector3(i - 1.0, 0, 0), "coin")
 		"blue_heart":
 			run.add_blue_hearts(1)
 		"item":
 			_add_item_pedestal(room, Vector3(0, 0, -2.5), "item", 0)
 		_:
-			_drop(room, at, String(entry[0]))
+			# A loot id (loot.json) falls out as loot, else a pickup (heart, bomb, key).
+			if not Content.material(String(entry[0])).is_empty():
+				_drop_loot(room, at, String(entry[0]), 1, false)
+			else:
+				_drop(room, at, String(entry[0]))
 	message.emit("Der Stein nimmt dein Opfer an")
 
 
@@ -892,6 +923,4 @@ func explode(at: Vector3, radius: float, damage: float, hurts_player: bool) -> v
 func _break_rock(room: DungeonRoom, rock: Rock) -> void:
 	room.remove_rock(rock)
 	Fx.puff(effects, rock.global_position + Vector3(0, 0.5, 0), "spark", 1.0)
-	if rock.has_coin:
-		_drop(room, rock.global_position, "coin")
 	rock.queue_free()

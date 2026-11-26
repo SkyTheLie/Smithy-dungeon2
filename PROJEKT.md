@@ -18,7 +18,7 @@
 - **Engine:** Godot 4.7 (Standard, nicht .NET), Renderer GL Compatibility, GDScript statisch typisiert
 - **Ansicht:** Dungeon: 3D-Welt in einem `SubViewport` 640×360, scharf hochskaliert (Pixel-Look). Laden und Menüs: 2D, 640×360, Stretch `canvas_items`
 - **Daten:** alles Spielbare als JSON in `data/` (Items, Synergien, Gegner, Ebenen, Charaktere, Startwerte, Töne, Beute `loot.json`, Spielstand-Regeln `meta.json`, Dungeons `dungeons.json`, Ausrüstung `gear.json`, Laden `shop.json`, Texte der Figuren `story.json`) – nie im Code. Anleitung: `docs/CONTENT.md`
-- **Speichern:** Ein Run wird nicht gespeichert. Gespeichert: Einstellungen (`user://settings.cfg`), Fortschritt (`user://progress.cfg`), Spielstand je Platz A/B/C (`user://save_<platz>.cfg`, `MetaState`: Geldbörse, Dose, mitgebrachte Beute, Tag; gespeichert am Ende jedes Tages). Eigener `user://`-Ordner („Smithy Dungeon 2“), getrennt von Dungeon Smithy.
+- **Speichern:** Ein Run wird nicht gespeichert. Gespeichert: Einstellungen (`user://settings.cfg`), Fortschritt (`user://progress.cfg`), Spielstand je Platz A/B/C (`user://save_<platz>.cfg`, `MetaState`: Dose (alles Gold zu Hause), mitgebrachte Beute, Tag; gespeichert am Ende jedes Tages). Eigener `user://`-Ordner („Smithy Dungeon 2“), getrennt von Dungeon Smithy.
 - **Sprachen:** deutscher Text = Schlüssel, `locale/<sprache>.po`, 9 Sprachen. Ablauf: `docs/SPRACHEN.md`
 
 ## 3. Ordner
@@ -79,11 +79,11 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 
 ## 8. Aktuelle Aufgabe
 
-**Zuletzt gebaut (2026-11-26):** `feature/laden-tutorial`: Intro vor dem Dungeon-Eingang mit Dialog, Egons Laden nach Skizze (Hebel, Kaufen, Ausrüstung anlegen), Egons Tour beim ersten Besuch. `feature/dungeon-flucht`: Tab = Inventar mit ganzer Karte daneben, Leiter „Ausgang“ im Startraum (flüchten, alles behalten), Münze = 8–12, HUD nur noch Herzen (größer), Bomben, Schlüssel. Im Spiel testen: Neues Spiel → Intro und Tour durchklicken → im Dungeon Tab drücken (Karte rechts) → Münze aufheben (+8 bis 12) → zurück in den Startraum, auf die Leiter → „Weiterkämpfen“, weggehen, wieder drauf → „Flüchten“ → „Geflüchtet!“, im Laden liegt die Beute im Inventar.
+**Zuletzt gebaut (2026-11-26):** `feature/geld-schatulle`: Im Dungeon gibt es kein Geld mehr, nur Beute und Items. Alles Gold zu Hause liegt in der Dose (über 200 kann Egon klauen). Der Händler im Dungeon-Shop kauft Beute an (Tab, Rechtsklick), übriges Gold kommt nach dem Run in die Dose. Münz-Items geben Beute, Goldnase = mehr Gold beim Händler. Bosse rufen höchstens 5 Helfer gleichzeitig. Im Spiel testen: Neues Spiel → Tour (50 Gold landen in der Dose, kein Münzsack) → Dungeon: keine Münzen in Steinen/Räumen → Beute sammeln → Shop-Raum: Hinweis, Tab, Rechtsklick auf Beute → Gold in der Tasche → Item kaufen → flüchten → Rest in der Dose. Boss mit Helfern (Rattenkönig, Ork-Häuptling): nie mehr als 5 auf einmal.
 
-**Nächster Schritt:** Run-Shop-Preise an den Münzwert anpassen (offen, `docs/PROBLEME.md`); Verkaufen und Dose im Laden; Ausrüstung wirkt im Run (Phase 3).
+**Nächster Schritt:** Laden-Skills (mehr Ware, bessere Chancen auf R2/R3, Chancen steigen mit jedem Neu-Würfeln, `docs/IDEEN.md`); Run-Shop-Preise im Spiel prüfen; Tränke (Phase 3).
 
-**Entschieden (2026-11-26):** Ein Tag = ein Run · neu würfeln wird teurer · Ausrüstung bleibt beim Tod, Inventar und Geld bei sich sind weg · Händler = Egon Ehrlich · Dungeon 1 : 1 wie Dungeon Smithy.
+**Entschieden (2026-11-26):** Ein Tag = ein Run · neu würfeln wird teurer · Ausrüstung bleibt beim Tod, Tasche und Dungeon-Gold sind weg · Gold zu Hause nur in der Dose, im Dungeon kein Geld zu finden · Händler = Egon Ehrlich · Dungeon 1 : 1 wie Dungeon Smithy.
 
 **Offen:** Relikt-Stufen 1–10 und Seltenheitsfarben; Preis-Stufen fürs Würfeln (siehe `docs/IDEEN.md`).
 

@@ -33,6 +33,9 @@ msgstr "每击败几个敌人恢复半颗心"
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "商店所有东西半价"
 
+msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
+msgstr "所以最好花掉，伙计。最好花在我这儿！"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "每发射击最后炸成四个火花"
 
@@ -195,6 +198,9 @@ msgstr "你的金币。在家放进罐子里很安全；在地牢中死亡会丢
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "你的圣物报废了。常有的事。我这儿碰巧有个新的…友情价！"
 
+msgid "Dein ganzes Gold liegt rechts in deiner Dose. Bis 200 Gold ist es da sicher."
+msgstr "你所有的金币都在右边的罐子里。200金币以内很安全。"
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "你的火球会摧毁敌人的子弹"
 
@@ -209,6 +215,12 @@ msgstr "拉杆上方的条显示可能出现什么：灰色普通，绿色结实
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "火焰光束会弯向敌人"
+
+msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
+msgstr "地牢商人每件战利品多付2金币。"
+
+msgid "Der Händler kauft Beute: Tab, Rechtsklick"
+msgstr "商人收购战利品：Tab，右键"
 
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "石头接受了你的献祭"
@@ -251,6 +263,9 @@ msgstr "罐子：%d金币。%d以内是安全的。"
 
 msgid "Dose: Gold hierher ziehen"
 msgstr "罐子：把金币拖到这里"
+
+msgid "Dose: hier liegt dein ganzes Gold"
+msgstr "罐子：你所有的金币都在这里"
 
 msgid "Drachenatem"
 msgstr "龙息"
@@ -384,6 +399,9 @@ msgstr "埃贡的商店"
 msgid "Eigene Explosionen heilen dich"
 msgstr "自己的爆炸会治疗你"
 
+msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
+msgstr "一块琥珀、三颗炸弹、三把钥匙"
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "一颗火球环绕着你并阻挡子弹"
 
@@ -398,6 +416,9 @@ msgstr "一个火花和更多幸运"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "余烬契约已开启"
+
+msgid "Ein Golderz"
+msgstr "一块金矿石"
 
 msgid "Ein Herz mehr"
 msgstr "多一颗心"
@@ -417,6 +438,9 @@ msgstr "一颗心和一颗蓝心"
 msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
 msgstr "一颗心、荆棘，爆炸不伤你"
 
+msgid "Ein Herz, eine Bombe und ein Schlüssel"
+msgstr "一颗心、一颗炸弹和一把钥匙"
+
 msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
 msgstr "一颗心、一枚硬币、一枚炸弹和一把钥匙"
 
@@ -428,6 +452,9 @@ msgstr "背包多一个格子。"
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "角色多一个圣物格。"
+
+msgid "Ein Rubin"
+msgstr "一颗红宝石"
 
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "真划算！对我来说。呃…对你来说！真的！"
@@ -441,8 +468,14 @@ msgstr "多一发射击，伤害更高"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "多一发射击，但更弱"
 
+msgid "Ein Silbererz, Glück hoch"
+msgstr "一块银矿石，幸运提升"
+
 msgid "Ein Stab mit Feuer-Spitze. Für Magier."
 msgstr "顶端带火的法杖。法师专用。"
+
+msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
+msgstr "一张狼皮、三颗炸弹、三把钥匙"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "一颗蓝心和荆棘"
@@ -777,6 +810,9 @@ msgstr "余烬法杖"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "泛着绿光。商人很喜欢。"
 
+msgid "Glänzt wie der Mond. Der Händler wird ganz still."
+msgstr "像月亮一样闪亮。商人一下子安静了。"
+
 msgid "Glück"
 msgstr "幸运"
 
@@ -816,6 +852,9 @@ msgstr "哥布林坑道"
 msgid "Gold"
 msgstr "金币"
 
+msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
+msgstr "来自地牢商人的金币。剩下的会放进你的罐子；死亡时会丢失，安全格中的除外。"
+
 msgid "Goldader"
 msgstr "金矿脉"
 
@@ -830,6 +869,9 @@ msgstr "黄金弓"
 
 msgid "Goldener Schattenstab"
 msgstr "黄金暗影杖"
+
+msgid "Golderz"
+msgstr "金矿石"
 
 msgid "Goldglut"
 msgstr "黄金余烬"
@@ -968,6 +1010,9 @@ msgstr "地狱之杖"
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "我是骗… 呃，卖货的。我卖… …装备！对，没错。我卖装备。"
+
+msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
+msgstr "进地牢可不带金币。下面我的同行会收你的战利品，差不多和我一样诚实。"
 
 msgid "Inventar"
 msgstr "背包"
@@ -1419,6 +1464,12 @@ msgstr "右边是你的罐子。把钱袋拖上去，200金币以内都很安全
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "右键点击背包中的物品放到这里。"
 
+msgid "Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen"
+msgstr "右键：卖给商人 · 拖动：整理 · Tab：关闭"
+
+msgid "Rechtsklick: verkaufen für %d Gold"
+msgstr "右键：以%d金币出售"
+
 msgid "Reichweite"
 msgstr "射程"
 
@@ -1551,6 +1602,9 @@ msgstr "伤害×1.2，射速略慢"
 msgid "Schaden mal 1,25"
 msgstr "伤害×1.25"
 
+msgid "Schaden mal 1,3 und ein Silbererz"
+msgstr "伤害×1.3，外加一块银矿石"
+
 msgid "Schaden mal 1,3 und zehn Münzen"
 msgstr "伤害×1.3，外加十枚硬币"
 
@@ -1668,6 +1722,9 @@ msgstr "弹速"
 msgid "Schwarzer Kristall"
 msgstr "黑水晶"
 
+msgid "Schwer und gelb. Jeder Händler mag es."
+msgstr "又重又黄。每个商人都喜欢。"
+
 msgid "Schwer und kalt."
 msgstr "又重又冷。"
 
@@ -1769,6 +1826,9 @@ msgstr "白银护符"
 
 msgid "Silberdolch"
 msgstr "银匕首"
+
+msgid "Silbererz"
+msgstr "银矿石"
 
 msgid "Silberhammer"
 msgstr "白银锤"
@@ -2043,6 +2103,9 @@ msgstr "这是我的拉杆。我的骄傲。看好了！"
 msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
 msgstr "给，一点预付款：50金币。你的金币以钱袋的形式放在背包里。"
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Oben links siehst du, wie viel du hast."
+msgstr "给，一点小预付款：50金币。左上角能看到你有多少钱。"
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "现在就去地牢吧！给我带点好东西回来。我在这儿等。安全第一。"
 
@@ -2069,6 +2132,9 @@ msgstr "出售"
 
 msgid "Verkaufen: %d Gold"
 msgstr "出售：%d金币"
+
+msgid "Verkauft für %d Gold"
+msgstr "以%d金币售出"
 
 msgid "Viel größere Bomben"
 msgstr "炸弹大得多"
@@ -2246,6 +2312,9 @@ msgstr "两个火花，伤害提升"
 
 msgid "Zwei Glutmonde kreisen um dich"
 msgstr "两颗余烬之月环绕着你"
+
+msgid "Zwei Golderze und zehn Schlüssel"
+msgstr "两块金矿石和十把钥匙"
 
 msgid "Zwei Herzen mehr"
 msgstr "多两颗心"

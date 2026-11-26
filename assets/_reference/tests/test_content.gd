@@ -26,7 +26,7 @@ func run() -> void:
 			check(String(pool) in ["shop", "boss", "pact", "shrine"], "item %s: known pool %s" % [id, pool])
 		check(not (bool(item.get("secret", false)) and not (item.get("pools", []) as Array).is_empty()), "item %s: secret items only in secret rooms" % id)
 		for kind: Variant in item.get("spawn", []):
-			check(String(kind) in ["coin", "heart", "bomb", "key"], "item %s: known spawn %s" % [id, kind])
+			check(String(kind) in ["heart", "bomb", "key"], "item %s: known spawn %s (no coins in the dungeon)" % [id, kind])
 		if item.has("unlock"):
 			var unlock: Dictionary = item["unlock"]
 			check(String(unlock.get("type", "")) in ["boss", "wins", "kills", "discovered", "best", "fast_win"], "item %s: known unlock" % id)
@@ -160,8 +160,13 @@ func _check_bonus(what: String, source: Dictionary) -> void:
 	for key: String in (source.get("per_coin", {}) as Dictionary):
 		check(KNOWN_STATS.has(key), "%s: known per_coin stat %s" % [what, key])
 	for key: String in (source.get("give", {}) as Dictionary):
-		check(key in ["coins", "bombs", "keys"], "%s: known give %s" % [what, key])
-		check(int(source["give"][key]) > 0, "%s: give %s is positive" % [what, key])
+		check(key in ["loot", "bombs", "keys"], "%s: known give %s (no coins in the dungeon)" % [what, key])
+		if key == "loot":
+			for loot_id: String in (source["give"]["loot"] as Dictionary):
+				check(not (script("res://scripts/core/content.gd").call("material", loot_id) as Dictionary).is_empty() and loot_id != "gold", "%s: gives known loot %s" % [what, loot_id])
+				check(int(source["give"]["loot"][loot_id]) > 0, "%s: gives a positive amount of %s" % [what, loot_id])
+		else:
+			check(int(source["give"][key]) > 0, "%s: give %s is positive" % [what, key])
 	for flag: String in (source.get("chance", {}) as Dictionary):
 		check(KNOWN_FLAGS.has(flag), "%s: known chance flag %s" % [what, flag])
 		check(float(source["chance"][flag]) > 0.0 and float(source["chance"][flag]) < 1.0, "%s: chance between 0 and 1" % what)

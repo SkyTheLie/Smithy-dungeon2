@@ -206,6 +206,12 @@ func _boss(layout: Object) -> void:
 	var boss: Node = dungeon.get("boss")
 	check(boss.get("is_boss"), "boss is a boss")
 	await physics_frame
+	# Helpers: at most data/enemies.json summon_max (5) alive at once, however often it calls.
+	var helpers_max: int = dungeon.call("summon_max")
+	check_eq(helpers_max, 5, "a boss calls at most 5 helpers")
+	for i in 12:
+		dungeon.call("summon", "rat", (boss as Node3D).global_position + Vector3(1.0, 0, 0))
+	check(int(dungeon.call("helper_count")) <= helpers_max, "never more than 5 helpers (%d)" % int(dungeon.call("helper_count")))
 	boss.call("take_damage", 9999.0, Vector3.ZERO, false)
 	check(await wait_until(func() -> bool: return not dungeon.call("is_fighting"), 2.0), "boss room cleared")
 	var room: Node = (dungeon.get("rooms") as Dictionary)[cell]

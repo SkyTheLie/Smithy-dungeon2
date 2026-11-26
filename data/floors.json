@@ -362,12 +362,8 @@
 		"keeper": "res://assets/sprites/npcs/goblin_merchant.png"
 	},
 	"room_drops": {
-		"chance": 0.45,
+		"chance": 0.25,
 		"table": [
-			[
-				"coin",
-				6
-			],
 			[
 				"heart",
 				2
@@ -387,19 +383,18 @@
 			0,
 			6
 		],
-		"coin_chance": 0.2,
 		"texture": "res://assets/sprites/rocks/coal_rock.png"
 	},
 	"sacrifice": {
-		"_info": "Opferstein: jedes Mal kostet ein ganzes Herz. rewards[n] gilt für das n-te Opfer auf dieser Ebene (danach das letzte): [was, Chance]. was: coin, coins (drei), bomb, key, heart, blue_heart, item.",
+		"_info": "Opferstein: jedes Mal kostet ein ganzes Herz. rewards[n] gilt für das n-te Opfer auf dieser Ebene (danach das letzte): [was, Chance]. was: bomb, key, heart, blue_heart, item oder eine Beute-Id aus loot.json (fällt als Beute heraus). Gold gibt es im Dungeon nur beim Händler.",
 		"room_chance": 0.5,
 		"rewards": [
 			[
-				"coin",
+				"copper_ore",
 				0.5
 			],
 			[
-				"coin",
+				"iron_ore",
 				0.5
 			],
 			[
@@ -411,7 +406,7 @@
 				0.5
 			],
 			[
-				"coins",
+				"amber",
 				0.7
 			],
 			[

@@ -33,6 +33,9 @@ msgstr "Каждые несколько побед лечат полсердца
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "Всё в лавке за полцены"
 
+msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
+msgstr "Так что лучше трать, партнёр. Желательно у меня!"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "В конце каждый выстрел разлетается на четыре искры"
 
@@ -195,6 +198,9 @@ msgstr "Твоё золото. Дома — в банке в безопасно�
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Твоя реликвия приказала долго жить. Бывает. У меня случайно есть новая… цена для друзей!"
 
+msgid "Dein ganzes Gold liegt rechts in deiner Dose. Bis 200 Gold ist es da sicher."
+msgstr "Всё твоё золото лежит в твоей банке справа. До 200 золотых там безопасно."
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "Твои огненные шары уничтожают выстрелы врагов"
 
@@ -209,6 +215,12 @@ msgstr "Полоска над рычагом показывает, что мож
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "Луч огня изгибается к врагу"
+
+msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
+msgstr "Торговец в подземелье платит на 2 золотых больше за каждую добычу."
+
+msgid "Der Händler kauft Beute: Tab, Rechtsklick"
+msgstr "Торговец покупает добычу: Tab, правый клик"
 
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "Камень принимает твою жертву"
@@ -251,6 +263,9 @@ msgstr "Банка: %d золота. До %d в безопасности."
 
 msgid "Dose: Gold hierher ziehen"
 msgstr "Банка: перетащи золото сюда"
+
+msgid "Dose: hier liegt dein ganzes Gold"
+msgstr "Банка: здесь всё твоё золото"
 
 msgid "Drachenatem"
 msgstr "Дыхание дракона"
@@ -384,6 +399,9 @@ msgstr "Лавка Эгона"
 msgid "Eigene Explosionen heilen dich"
 msgstr "Твои взрывы тебя лечат"
 
+msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
+msgstr "Янтарь, три бомбы, три ключа"
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "Огненный шар кружит вокруг и блокирует выстрелы"
 
@@ -398,6 +416,9 @@ msgstr "Искра и больше удачи"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "Открылся пакт жара"
+
+msgid "Ein Golderz"
+msgstr "Золотая руда"
 
 msgid "Ein Herz mehr"
 msgstr "Ещё одно сердце"
@@ -417,6 +438,9 @@ msgstr "Одно сердце и одно синее сердце"
 msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
 msgstr "Сердце, шипы, взрывы не вредят"
 
+msgid "Ein Herz, eine Bombe und ein Schlüssel"
+msgstr "Сердце, бомба и ключ"
+
 msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
 msgstr "Сердце, монета, бомба и ключ"
 
@@ -428,6 +452,9 @@ msgstr "Ещё одна ячейка в рюкзаке."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Ещё одна ячейка реликвии у героя."
+
+msgid "Ein Rubin"
+msgstr "Рубин"
 
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "Выгодная сделка! Для меня. Э-э… для тебя! Честно!"
@@ -441,8 +468,14 @@ msgstr "Ещё один выстрел и больше урона"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "Ещё один выстрел, но слабее"
 
+msgid "Ein Silbererz, Glück hoch"
+msgstr "Серебряная руда, удача выше"
+
 msgid "Ein Stab mit Feuer-Spitze. Für Magier."
 msgstr "Посох с огненным навершием. Для магов."
+
+msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
+msgstr "Волчья шкура, три бомбы, три ключа"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "Синее сердце и шипы"
@@ -777,6 +810,9 @@ msgstr "Посох углей"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Отливает зеленью. Торговец его любит."
 
+msgid "Glänzt wie der Mond. Der Händler wird ganz still."
+msgstr "Сияет, как луна. Торговец совсем притихает."
+
 msgid "Glück"
 msgstr "Удача"
 
@@ -816,6 +852,9 @@ msgstr "Гоблинские штольни"
 msgid "Gold"
 msgstr "Золото"
 
+msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
+msgstr "Золото от торговца в подземелье. Остаток попадёт в твою банку; при смерти пропадёт, кроме безопасного места."
+
 msgid "Goldader"
 msgstr "Золотая жила"
 
@@ -830,6 +869,9 @@ msgstr "Золотой лук"
 
 msgid "Goldener Schattenstab"
 msgstr "Золотой посох тени"
+
+msgid "Golderz"
+msgstr "Золотая руда"
 
 msgid "Goldglut"
 msgstr "Золотой жар"
@@ -968,6 +1010,9 @@ msgstr "Адский посох"
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Я жул… э-э, продавец. Я продаю… …снаряжение! Да, точно. Снаряжение продаю."
+
+msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
+msgstr "В подземелье золото не берёшь. Внизу мой коллега купит у тебя добычу, почти такой же честный, как я."
 
 msgid "Inventar"
 msgstr "Инвентарь"
@@ -1419,6 +1464,12 @@ msgstr "Справа твоя банка. Перетащи на неё мешо�
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "ПКМ по предмету в инвентаре кладёт его сюда."
 
+msgid "Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen"
+msgstr "Правый клик: продать торговцу · Перетащить: сортировать · Tab: закрыть"
+
+msgid "Rechtsklick: verkaufen für %d Gold"
+msgstr "Правый клик: продать за %d золотых"
+
 msgid "Reichweite"
 msgstr "Дальность"
 
@@ -1551,6 +1602,9 @@ msgstr "Урон x1,2, стрельба чуть медленнее"
 msgid "Schaden mal 1,25"
 msgstr "Урон x1,25"
 
+msgid "Schaden mal 1,3 und ein Silbererz"
+msgstr "Урон ×1,3 и серебряная руда"
+
 msgid "Schaden mal 1,3 und zehn Münzen"
 msgstr "Урон x1,3 и десять монет"
 
@@ -1668,6 +1722,9 @@ msgstr "Скорость выстрела"
 msgid "Schwarzer Kristall"
 msgstr "Чёрный кристалл"
 
+msgid "Schwer und gelb. Jeder Händler mag es."
+msgstr "Тяжёлая и жёлтая. Её любит любой торговец."
+
 msgid "Schwer und kalt."
 msgstr "Тяжёлая и холодная."
 
@@ -1769,6 +1826,9 @@ msgstr "Серебряный амулет"
 
 msgid "Silberdolch"
 msgstr "Серебряный кинжал"
+
+msgid "Silbererz"
+msgstr "Серебряная руда"
 
 msgid "Silberhammer"
 msgstr "Серебряный молот"
@@ -2043,6 +2103,9 @@ msgstr "А это мой рычаг. Моя гордость. Смотри!"
 msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
 msgstr "А вот небольшой аванс: 50 золота. Твоё золото лежит в инвентаре мешочком."
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Oben links siehst du, wie viel du hast."
+msgstr "А вот небольшой аванс: 50 золотых. Слева вверху видно, сколько у тебя есть."
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "А теперь марш в подземелье! Принеси мне что-нибудь хорошее. Я подожду тут. Так надёжнее."
 
@@ -2069,6 +2132,9 @@ msgstr "Продать"
 
 msgid "Verkaufen: %d Gold"
 msgstr "Продать: %d золота"
+
+msgid "Verkauft für %d Gold"
+msgstr "Продано за %d золотых"
 
 msgid "Viel größere Bomben"
 msgstr "Намного большие бомбы"
@@ -2246,6 +2312,9 @@ msgstr "Две искры и урон выше"
 
 msgid "Zwei Glutmonde kreisen um dich"
 msgstr "Вокруг тебя кружат две луны жара"
+
+msgid "Zwei Golderze und zehn Schlüssel"
+msgstr "Две золотые руды и десять ключей"
 
 msgid "Zwei Herzen mehr"
 msgstr "Ещё два сердца"

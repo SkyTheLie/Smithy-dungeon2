@@ -1,8 +1,9 @@
 class_name Pickup
 extends Node3D
-## Something lying on the floor: a coin, a heart, a bomb, a key or loot for the bag ("loot":
-## data/loot.json materials, setup_loot). A coin turns into gold for the bag when it is touched. Walking over it picks it up (a heart only if the player
-## is hurt, loot only if there is room in the bag). Pops out of the floor when it appears.
+## Something lying on the floor: a heart, a bomb, a key or loot for the bag ("loot":
+## data/loot.json materials, setup_loot; also gold the player dropped from the bag). There are no
+## coins in the dungeon. Walking over it picks it up (a heart only if the player is hurt, loot
+## only if there is room in the bag). Pops out of the floor when it appears.
 ## Loot the player dropped from the bag (Tab) waits until the player walked away once, so it is
 ## not picked up again at once.
 
@@ -10,7 +11,6 @@ extends Node3D
 signal bag_full
 
 const KINDS: Dictionary[String, String] = {
-	"coin": "res://assets/sprites/ui/slot/coin.png",
 	"heart": "res://assets/sprites/items/arena_heart.png",
 	"bomb": "res://assets/sprites/skills/smoke_bomb.png",
 	"key": "res://assets/sprites/items/smithy_key.png",
@@ -22,7 +22,7 @@ const LEAVE_DISTANCE: float = 1.6
 const HEIGHT: float = 0.55
 const LOOT_HEIGHT: float = 0.45
 
-var kind: String = "coin"
+var kind: String = "heart"
 ## Only for "loot": which material and how many.
 var material_id: String = ""
 var amount: int = 1
@@ -37,7 +37,7 @@ var _warned: bool = false
 
 
 static func icon(kind_name: String) -> Texture2D:
-	return load(KINDS.get(kind_name, KINDS["coin"])) as Texture2D
+	return load(KINDS.get(kind_name, KINDS["heart"])) as Texture2D
 
 
 func setup(kind_name: String, run_state: RunState, the_player: Node3D) -> void:
@@ -58,7 +58,7 @@ func _ready() -> void:
 	var texture: Texture2D = icon(kind)
 	var height: float = HEIGHT
 	if kind == LOOT:
-		texture = load(String(Content.material(material_id).get("icon", KINDS["coin"]))) as Texture2D
+		texture = load(String(Content.material(material_id).get("icon", KINDS["heart"]))) as Texture2D
 		height = LOOT_HEIGHT
 	_sprite = Fx.billboard(texture, height)
 	_sprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
@@ -94,13 +94,6 @@ func _physics_process(delta: float) -> void:
 ## Gives the thing to the player; false if it cannot be taken (full life, full bag).
 func _take() -> bool:
 	match kind:
-		"coin":
-			# A coin becomes gold for the bag (worth 8-12, RunState.roll_coin_value); with a full
-			# bag it stays here as that much gold.
-			kind = LOOT
-			material_id = Bag.GOLD
-			amount = run.roll_coin_value()
-			return _take()
 		"heart":
 			if not run.heal(run.heart_value()):
 				return false

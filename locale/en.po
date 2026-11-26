@@ -33,6 +33,9 @@ msgstr "Every few kills heal half a heart"
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "Everything in the shop costs half"
 
+msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
+msgstr "So better spend it, partner. Preferably with me!"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "At the end every shot bursts into four sparks"
 
@@ -195,6 +198,9 @@ msgstr "Your gold. Safe in the money box at home; in the dungeon it is lost when
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Your relic gave up the ghost. Happens. I just happen to have a new one… friendship price!"
 
+msgid "Dein ganzes Gold liegt rechts in deiner Dose. Bis 200 Gold ist es da sicher."
+msgstr "All your gold sits in your can on the right. Up to 200 gold it's safe there."
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "Your fireballs destroy enemy shots"
 
@@ -209,6 +215,12 @@ msgstr "The bar above the lever shows what can come: grey is common, green solid
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "The fire beam bends toward enemies"
+
+msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
+msgstr "The merchant in the dungeon pays 2 gold more for each piece of loot."
+
+msgid "Der Händler kauft Beute: Tab, Rechtsklick"
+msgstr "The merchant buys loot: Tab, right click"
 
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "The stone accepts your sacrifice"
@@ -251,6 +263,9 @@ msgstr "Money box: %d gold. Safe up to %d."
 
 msgid "Dose: Gold hierher ziehen"
 msgstr "Money box: drag gold here"
+
+msgid "Dose: hier liegt dein ganzes Gold"
+msgstr "Can: all your gold is in here"
 
 msgid "Drachenatem"
 msgstr "Dragon Breath"
@@ -384,6 +399,9 @@ msgstr "Egon's Shop"
 msgid "Eigene Explosionen heilen dich"
 msgstr "Your own explosions heal you"
 
+msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
+msgstr "An amber, three bombs, three keys"
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "A fireball circles you and blocks shots"
 
@@ -398,6 +416,9 @@ msgstr "A spark and more luck"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "An ember pact has opened"
+
+msgid "Ein Golderz"
+msgstr "A gold ore"
 
 msgid "Ein Herz mehr"
 msgstr "One more heart"
@@ -417,6 +438,9 @@ msgstr "One heart and one blue heart"
 msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
 msgstr "A heart, thorns, explosions don't hurt you"
 
+msgid "Ein Herz, eine Bombe und ein Schlüssel"
+msgstr "A heart, a bomb and a key"
+
 msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
 msgstr "A heart, a coin, a bomb and a key"
 
@@ -428,6 +452,9 @@ msgstr "One more backpack slot."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "One more relic slot on your hero."
+
+msgid "Ein Rubin"
+msgstr "A ruby"
 
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "A bargain! For me. Er… for you! Honestly!"
@@ -441,8 +468,14 @@ msgstr "One more shot and more damage"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "One more shot, but weaker"
 
+msgid "Ein Silbererz, Glück hoch"
+msgstr "A silver ore, luck up"
+
 msgid "Ein Stab mit Feuer-Spitze. Für Magier."
 msgstr "A wand with a fiery tip. For mages."
+
+msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
+msgstr "A wolf pelt, three bombs, three keys"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "A blue heart and thorns"
@@ -777,6 +810,9 @@ msgstr "Ember Staff"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Shines greenish. The merchant likes it."
 
+msgid "Glänzt wie der Mond. Der Händler wird ganz still."
+msgstr "Shines like the moon. The merchant goes very quiet."
+
 msgid "Glück"
 msgstr "Luck"
 
@@ -816,6 +852,9 @@ msgstr "Goblin Tunnels"
 msgid "Gold"
 msgstr "Gold"
 
+msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
+msgstr "Gold from the merchant in the dungeon. What is left goes into your can; on death it is gone, except in the safe slot."
+
 msgid "Goldader"
 msgstr "Gold Vein"
 
@@ -830,6 +869,9 @@ msgstr "Gold Bow"
 
 msgid "Goldener Schattenstab"
 msgstr "Golden Shadow Staff"
+
+msgid "Golderz"
+msgstr "Gold Ore"
 
 msgid "Goldglut"
 msgstr "Golden Ember"
@@ -968,6 +1010,9 @@ msgstr "Hell Staff"
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "I'm the swind… er, the gear-seller. I sell… …equipment! Yes, exactly. I sell equipment."
+
+msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
+msgstr "You don't take gold into the dungeon. Down there my colleague buys your loot, almost as honest as me."
 
 msgid "Inventar"
 msgstr "Inventory"
@@ -1419,6 +1464,12 @@ msgstr "On the right is your money box. Drag the coin bag onto it; up to 200 gol
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "Right-click something in the inventory to put it here."
 
+msgid "Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen"
+msgstr "Right click: sell to the merchant · Drag: sort · Tab: close"
+
+msgid "Rechtsklick: verkaufen für %d Gold"
+msgstr "Right click: sell for %d gold"
+
 msgid "Reichweite"
 msgstr "Range"
 
@@ -1551,6 +1602,9 @@ msgstr "Damage x1.2, slightly slower fire rate"
 msgid "Schaden mal 1,25"
 msgstr "Damage x1.25"
 
+msgid "Schaden mal 1,3 und ein Silbererz"
+msgstr "Damage times 1.3 and a silver ore"
+
 msgid "Schaden mal 1,3 und zehn Münzen"
 msgstr "Damage x1.3 and ten coins"
 
@@ -1668,6 +1722,9 @@ msgstr "Shot speed"
 msgid "Schwarzer Kristall"
 msgstr "Black Crystal"
 
+msgid "Schwer und gelb. Jeder Händler mag es."
+msgstr "Heavy and yellow. Every merchant likes it."
+
 msgid "Schwer und kalt."
 msgstr "Heavy and cold."
 
@@ -1769,6 +1826,9 @@ msgstr "Silver Amulet"
 
 msgid "Silberdolch"
 msgstr "Silver Dagger"
+
+msgid "Silbererz"
+msgstr "Silver Ore"
 
 msgid "Silberhammer"
 msgstr "Silver Hammer"
@@ -2043,6 +2103,9 @@ msgstr "And this is my lever. My pride and joy. Watch this!"
 msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
 msgstr "And here, a little advance: 50 gold. Your gold lies in the inventory as a coin bag."
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Oben links siehst du, wie viel du hast."
+msgstr "And here, a little advance: 50 gold. Top left you can see how much you have."
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "And now off into the dungeon! Bring me something nice. I'll wait here. Better safe than sorry."
 
@@ -2069,6 +2132,9 @@ msgstr "Sell"
 
 msgid "Verkaufen: %d Gold"
 msgstr "Sell: %d gold"
+
+msgid "Verkauft für %d Gold"
+msgstr "Sold for %d gold"
 
 msgid "Viel größere Bomben"
 msgstr "Much bigger bombs"
@@ -2246,6 +2312,9 @@ msgstr "Two sparks and damage up"
 
 msgid "Zwei Glutmonde kreisen um dich"
 msgstr "Two ember moons circle you"
+
+msgid "Zwei Golderze und zehn Schlüssel"
+msgstr "Two gold ores and ten keys"
 
 msgid "Zwei Herzen mehr"
 msgstr "Two more hearts"

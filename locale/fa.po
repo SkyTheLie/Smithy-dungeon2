@@ -33,6 +33,9 @@ msgstr "هر چند دشمن که شکست دهی نیم قلب شفا می‌گ
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "همه چیز در مغازه نصف قیمت است"
 
+msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
+msgstr "پس بهتره خرجش کنی، رفیق. ترجیحاً پیش من!"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "هر تیر در پایان به چهار جرقه می‌ترکد"
 
@@ -195,6 +198,9 @@ msgstr "طلای تو. در خانه داخل قوطی امن است؛ در سی
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "یادگارت جان داد. پیش میاد. اتفاقاً یه دونه‌ی نو دارم… قیمت دوستانه!"
 
+msgid "Dein ganzes Gold liegt rechts in deiner Dose. Bis 200 Gold ist es da sicher."
+msgstr "همهٔ طلاهات توی قوطی سمت راسته. تا ۲۰۰ طلا اونجا امنه."
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "گلوله‌های آتشین تو تیرهای دشمن را نابود می‌کنند"
 
@@ -209,6 +215,12 @@ msgstr "نوار بالای اهرم نشان می‌دهد چه چیزی ممک
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "پرتو آتش به سمت دشمن خم می‌شود"
+
+msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
+msgstr "فروشندهٔ سیاه‌چال برای هر غنیمت ۲ طلا بیشتر می‌دهد."
+
+msgid "Der Händler kauft Beute: Tab, Rechtsklick"
+msgstr "فروشنده غنیمت می‌خرد: Tab، کلیک راست"
 
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "سنگ قربانی تو را می‌پذیرد"
@@ -251,6 +263,9 @@ msgstr "قوطی: %d طلا. تا %d امن است."
 
 msgid "Dose: Gold hierher ziehen"
 msgstr "قوطی: طلا را اینجا بکش"
+
+msgid "Dose: hier liegt dein ganzes Gold"
+msgstr "قوطی: همهٔ طلاهات اینجاست"
 
 msgid "Drachenatem"
 msgstr "نفس اژدها"
@@ -384,6 +399,9 @@ msgstr "مغازهٔ اگون"
 msgid "Eigene Explosionen heilen dich"
 msgstr "انفجارهای خودت تو را شفا می‌دهند"
 
+msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
+msgstr "یک کهربا، سه بمب، سه کلید"
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "یک گوی آتش دورت می‌چرخد و گلوله‌ها را دفع می‌کند"
 
@@ -398,6 +416,9 @@ msgstr "یک جرقه و شانس بیشتر"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "یک پیمان اخگر باز شد"
+
+msgid "Ein Golderz"
+msgstr "یک سنگ طلا"
 
 msgid "Ein Herz mehr"
 msgstr "یک قلب بیشتر"
@@ -417,6 +438,9 @@ msgstr "یک قلب و یک قلب آبی"
 msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
 msgstr "یک قلب، خار، و انفجارها آسیبی نمی‌زنند"
 
+msgid "Ein Herz, eine Bombe und ein Schlüssel"
+msgstr "یک قلب، یک بمب و یک کلید"
+
 msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
 msgstr "یک قلب، یک سکه، یک بمب و یک کلید"
 
@@ -428,6 +452,9 @@ msgstr "یک خانه‌ی بیشتر در کوله."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "یک خانه‌ی یادگار بیشتر روی قهرمانت."
+
+msgid "Ein Rubin"
+msgstr "یک یاقوت"
 
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "یه معامله‌ی خوب! برای من. اِه… برای تو! صادقانه!"
@@ -441,8 +468,14 @@ msgstr "یک تیر بیشتر و آسیب بیشتر"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "یک تیر بیشتر، اما ضعیف‌تر"
 
+msgid "Ein Silbererz, Glück hoch"
+msgstr "یک سنگ نقره، شانس بیشتر"
+
 msgid "Ein Stab mit Feuer-Spitze. Für Magier."
 msgstr "عصایی با نوک آتشین. برای جادوگران."
+
+msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
+msgstr "یک پوست گرگ، سه بمب، سه کلید"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "یک قلب آبی و خار"
@@ -777,6 +810,9 @@ msgstr "عصای اخگر"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "سبز می‌درخشد. تاجر دوستش دارد."
 
+msgid "Glänzt wie der Mond. Der Händler wird ganz still."
+msgstr "مثل ماه می‌درخشد. فروشنده کاملاً ساکت می‌شود."
+
 msgid "Glück"
 msgstr "شانس"
 
@@ -816,6 +852,9 @@ msgstr "تونل‌های گابلین"
 msgid "Gold"
 msgstr "طلا"
 
+msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
+msgstr "طلا از فروشندهٔ سیاه‌چال. باقی‌مانده به قوطی‌ات می‌رود؛ با مرگ از دست می‌رود، مگر در جای امن."
+
 msgid "Goldader"
 msgstr "رگه طلا"
 
@@ -830,6 +869,9 @@ msgstr "کمان طلایی"
 
 msgid "Goldener Schattenstab"
 msgstr "عصای سایه طلایی"
+
+msgid "Golderz"
+msgstr "سنگ طلا"
 
 msgid "Goldglut"
 msgstr "اخگر طلایی"
@@ -968,6 +1010,9 @@ msgstr "عصای جهنمی"
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "من کلاه‌بر… اِه، فروشنده‌ام. من… …تجهیزات می‌فروشم! آره، دقیقاً. تجهیزات می‌فروشم."
+
+msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
+msgstr "به سیاه‌چال طلا نمی‌بری. آن پایین همکارم غنیمتت را می‌خرد، تقریباً به صداقت من."
 
 msgid "Inventar"
 msgstr "کوله‌پشتی"
@@ -1419,6 +1464,12 @@ msgstr "سمت راست قوطی توست. کیسه‌ی سکه را رویش ب
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "روی چیزی در کوله راست‌کلیک کن تا اینجا گذاشته شود."
 
+msgid "Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen"
+msgstr "کلیک راست: فروش به فروشنده · کشیدن: مرتب کردن · Tab: بستن"
+
+msgid "Rechtsklick: verkaufen für %d Gold"
+msgstr "کلیک راست: فروش به %d طلا"
+
 msgid "Reichweite"
 msgstr "برد"
 
@@ -1551,6 +1602,9 @@ msgstr "آسیب ×۱٫۲، کمی کندتر شلیک"
 msgid "Schaden mal 1,25"
 msgstr "آسیب ×۱٫۲۵"
 
+msgid "Schaden mal 1,3 und ein Silbererz"
+msgstr "آسیب ×۱٫۳ و یک سنگ نقره"
+
 msgid "Schaden mal 1,3 und zehn Münzen"
 msgstr "آسیب ×۱٫۳ و ده سکه"
 
@@ -1668,6 +1722,9 @@ msgstr "سرعت تیر"
 msgid "Schwarzer Kristall"
 msgstr "بلور سیاه"
 
+msgid "Schwer und gelb. Jeder Händler mag es."
+msgstr "سنگین و زرد. هر فروشنده‌ای دوستش دارد."
+
 msgid "Schwer und kalt."
 msgstr "سنگین و سرد."
 
@@ -1769,6 +1826,9 @@ msgstr "طلسم نقره‌ای"
 
 msgid "Silberdolch"
 msgstr "خنجر نقره‌ای"
+
+msgid "Silbererz"
+msgstr "سنگ نقره"
 
 msgid "Silberhammer"
 msgstr "چکش نقره‌ای"
@@ -2043,6 +2103,9 @@ msgstr "و این اهرم منه. افتخار من. نگاه کن!"
 msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
 msgstr "و این هم یه پیش‌پرداخت کوچیک: ۵۰ طلا. طلات به شکل کیسه‌ی سکه در کوله است."
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Oben links siehst du, wie viel du hast."
+msgstr "و این هم یک پیش‌پرداخت کوچک: ۵۰ طلا. بالا سمت چپ می‌بینی چقدر داری."
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "و حالا برو تو سیاه‌چال! یه چیز خوب برام بیار. من همین‌جا منتظرم. احتیاط شرط عقله."
 
@@ -2069,6 +2132,9 @@ msgstr "فروش"
 
 msgid "Verkaufen: %d Gold"
 msgstr "فروش: %d طلا"
+
+msgid "Verkauft für %d Gold"
+msgstr "به %d طلا فروخته شد"
 
 msgid "Viel größere Bomben"
 msgstr "بمب‌های خیلی بزرگ‌تر"
@@ -2246,6 +2312,9 @@ msgstr "دو جرقه و آسیب بالاتر"
 
 msgid "Zwei Glutmonde kreisen um dich"
 msgstr "دو ماه اخگر دور تو می‌چرخند"
+
+msgid "Zwei Golderze und zehn Schlüssel"
+msgstr "دو سنگ طلا و ده کلید"
 
 msgid "Zwei Herzen mehr"
 msgstr "دو قلب بیشتر"

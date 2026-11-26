@@ -22,10 +22,12 @@
 		"Steht dir! Fast so gut wie mir.",
 		"Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
 	],
-	"tutorial_money": ["Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."],
+	"tutorial_money": ["Und hier, ein kleiner Vorschuss: 50 Gold. Oben links siehst du, wie viel du hast."],
 	"tutorial_box": [
-		"Rechts steht deine Dose. Zieh den Münzsack drauf, bis 200 Gold ist es da sicher.",
-		"Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
+		"Dein ganzes Gold liegt rechts in deiner Dose. Bis 200 Gold ist es da sicher.",
+		"Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen.",
+		"Also lieber ausgeben, Partner. Am besten bei mir!",
+		"In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
 	],
 	"tutorial_sell": ["Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"],
 	"tutorial_skills": ["Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."],

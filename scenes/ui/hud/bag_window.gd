@@ -8,6 +8,7 @@ extends CanvasLayer
 ##   - the safe place (golden frame) keeps its things when the player dies;
 ##   - the gold of the run lies in the bag like everything else (Bag.GOLD): drop it, stack it,
 ##     put it into the safe place;
+##   - in the shop room a right click sells a place to the merchant (Dungeon.sell_from_bag);
 ##   - left the hero: his equipment from home (HeroPanel, only shown) and below it the values of
 ##     the run (damage, attack speed, walking speed, luck);
 ##   - right the whole floor (Minimap.always_big), zoomed out so every known room fits;
@@ -41,6 +42,7 @@ var map: Minimap
 var _slots: Array[Panel] = []
 var _info_name: Label
 var _info_text: Label
+var _hint: Label
 
 
 func _init() -> void:
@@ -57,6 +59,7 @@ func setup(run_state: RunState, the_dungeon: Dungeon) -> void:
 
 
 func open() -> void:
+	_hint.text = _hint_text()
 	_refresh()
 	_refresh_run()
 	_show_info(-1)
@@ -171,13 +174,23 @@ func _build() -> void:
 	_info_text.modulate = Color(0.85, 0.8, 0.75)
 	column.add_child(_info_text)
 
-	var hint := Label.new()
-	hint.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	hint.text = Language.translate("Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen")
-	hint.add_theme_font_size_override("font_size", 8)
-	hint.modulate = Color(0.7, 0.65, 0.6)
-	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	column.add_child(hint)
+	_hint = Label.new()
+	_hint.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_hint.text = _hint_text()
+	_hint.add_theme_font_size_override("font_size", 8)
+	_hint.modulate = Color(0.7, 0.65, 0.6)
+	_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	column.add_child(_hint)
+
+
+func _in_shop() -> bool:
+	return dungeon != null and dungeon.in_shop()
+
+
+func _hint_text() -> String:
+	if _in_shop():
+		return Language.translate("Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen")
+	return Language.translate("Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen")
 
 
 func _make_slot(index: int) -> Panel:
@@ -207,6 +220,7 @@ func _make_slot(index: int) -> Panel:
 	slot.set_drag_forwarding(_get_drag.bind(index), _can_drop_on_slot.bind(index), _drop_on_slot.bind(index))
 	slot.mouse_entered.connect(_show_info.bind(index))
 	slot.mouse_exited.connect(_show_info.bind(-1))
+	slot.gui_input.connect(_on_slot_input.bind(index))
 	_slots.append(slot)
 	return slot
 
@@ -318,6 +332,25 @@ func _refresh() -> void:
 		slot.add_theme_stylebox_override("panel", _box(SLOT_COLOR, border, 3 if run.bag.is_safe(i) else 2, 4))
 
 
+## Right click in the shop room: the merchant buys the place.
+func _on_slot_input(event: InputEvent, index: int) -> void:
+	if not (event is InputEventMouseButton and (event as InputEventMouseButton).pressed):
+		return
+	if (event as InputEventMouseButton).button_index == MOUSE_BUTTON_RIGHT and _in_shop():
+		sell(index)
+
+
+## Sells place `index` to the merchant (only in the shop room). Returns the gold.
+func sell(index: int) -> int:
+	if dungeon == null:
+		return 0
+	var gold: int = dungeon.sell_from_bag(index)
+	if gold > 0:
+		_show_info(index)
+		_info_text.text = Language.translate("Verkauft für %d Gold") % gold
+	return gold
+
+
 func _show_info(index: int) -> void:
 	var place: Dictionary = run.bag.get_place(index) if index >= 0 else {}
 	if place.is_empty():
@@ -329,7 +362,10 @@ func _show_info(index: int) -> void:
 	var tier: int = int(data.get("rarity", 1))
 	_info_name.text = "%s ×%d" % [Language.translate(String(data.get("name", ""))), int(place["count"])]
 	_info_name.modulate = Rarity.color(tier)
-	_info_text.text = "%s · %s\n%s" % [Rarity.label(tier), Language.translate("Wert: %d Gold") % int(data.get("value", 0)), Language.translate(String(data.get("desc", "")))]
+	var worth: String = Language.translate("Wert: %d Gold") % int(data.get("value", 0))
+	if _in_shop() and run.sell_price(index) > 0:
+		worth = Language.translate("Rechtsklick: verkaufen für %d Gold") % run.sell_price(index)
+	_info_text.text = "%s · %s\n%s" % [Rarity.label(tier), worth, Language.translate(String(data.get("desc", "")))]
 
 
 # --- Drag and drop --------------------------------------------------------------

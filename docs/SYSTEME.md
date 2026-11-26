@@ -237,3 +237,19 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - **Chancen-Balken** über dem Hebel (`scenes/shop/chance_bar.gd`): Abschnitte je Seltenheit in ihrer Farbe mit „R1 85 % · R2 15 %“, Tooltip mit Relikt-Chance und offenen Relikt-Stufen. Die Chancen hängen von der Spielerstufe ab (`shop.json` `rarity_by_level`, `ShopGoods.rarity_weights/rarity_chances`); am Anfang nur R1 (Kupfer).
 - **Relikt-Stufen nach Spielerstufe** (`relics.json` tiers `level`: R1 ab 0, R2 ab 5, R3 ab 10, R4 ab 20; Rahmenfarbe = Stufe). `ShopGoods.pick_relic` nimmt nur offene Stufen.
 - **Lexikon** gruppiert nach Relikt-Stufe (R1 … R4 mit Haltbarkeit, dann „Kein Relikt“).
+
+## Gold nur in der Dose, im Dungeon nur Beute – 2026-11-26, `feature/geld-schatulle`
+
+Gilt ab jetzt statt der älteren Abschnitte über Geldbörse, Münzsack und Münzen am Boden.
+
+- **Zu Hause:** alles Gold liegt in der **Dose** (`MetaState.box`, eine Quelle). Es gibt keinen Münzsack im Inventar und keine Geldbörse mehr (`purse`, `deposit`, `withdraw`, `take_purse_for_run` sind weg). Kaufen, Hebel und Skills zahlen aus der Dose, Verkaufen bei Egon füllt sie. Über dem Limit (200) kann Egon jede Nacht klauen: Gold sparen ist ein Risiko. Alte Spielstände: Geldbörse und Münzsack wandern beim Lesen einmal in die Dose (`MetaState._move_old_gold`).
+- Im Laden: Gold oben links = Dose; die Dose rechts unten zeigt nur noch „Dose 120/200“ (grün/rot, Warnung), keine Knöpfe und kein Ziehen mehr.
+- **Im Dungeon gibt es kein Gold zu finden:** keine Münzen von Gegnern, Steinen, Raum-Belohnungen (`floors.json` `room_drops` ohne `coin`, Chance 0,25) oder am Opferstein (dort jetzt Beute: Kupfererz, Eisenerz, Bernstein). Ein Run startet mit 0 Gold (`player.json` ohne `coins`/`coin_pickup`).
+- **Dungeon-Shop:** der Händler dort kauft Beute an. Im Shop-Raum Tab → Rechtsklick auf einen Platz verkauft den ganzen Stapel für den `loot.json`-Wert (+ Goldnase je Stück) (`BagWindow.sell` → `Dungeon.sell_from_bag` → `RunState.sell_from_bag`). Das Gold kommt in die Tasche (auf den Gold-Stapel, sonst in den frei gewordenen Platz). Beim ersten Betreten: „Der Händler kauft Beute: Tab, Rechtsklick“. Außerhalb des Shops verkauft der Rechtsklick nichts.
+- Übriges Gold nach dem Run (Sieg, Flucht) → Dose; Tod → weg, außer im sicheren Platz.
+- **Münz-Items umgebaut:** `give` kennt `loot` statt `coins` (`{"loot": {"amber": 1}}`; passt es nicht in die Tasche, fällt es auf den Boden, Signal `RunState.loot_overflow`). Wanderbündel → Bernstein, Karawanenrucksack → Wolfsfell, Schatzbeutel → Rubin, Goblinkrone/Silberader → Silbererz, Goldader → Golderz, Glühender Schlüssel → zwei Golderze. Truhenschlüssel ohne Münze. Neue Beute `silver_ore` (15) und `gold_ore` (30). Goldglut/Spardose zählen das Gold in der Tasche (also das Shop-Guthaben).
+- **Goldnase** (Skill): `effect` `sell_bonus` statt `coin_bonus`: der Händler im Dungeon zahlt 2 Gold mehr je Beute-Stück.
+
+## Bosse: höchstens 5 Helfer – 2026-11-26, `feature/geld-schatulle`
+
+- `Dungeon.summon` ruft nur, solange weniger als `enemies.json` `summon_max` (5) Helfer gleichzeitig leben (`Dungeon.helper_count` = Gegner außer dem Boss). Gilt für alle Bosse und alle Ruf-Angriffe (`summon`, `rat_wave`).

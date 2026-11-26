@@ -33,6 +33,9 @@ msgstr "数体倒すごとにハート半分回復"
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "店の品が半額"
 
+msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
+msgstr "だから使っちまいな、相棒。できればオレの店でな！"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "弾は最後に4つの火花に弾ける"
 
@@ -195,6 +198,9 @@ msgstr "君の金。家ではカンの中で安全。ダンジョンで死ぬと
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "レリックが壊れちまったな。よくあることだ。偶然新しいのがあるんだが…友達価格でな！"
 
+msgid "Dein ganzes Gold liegt rechts in deiner Dose. Bis 200 Gold ist es da sicher."
+msgstr "お前の金は全部、右の缶の中だ。200ゴールドまでなら安全さ。"
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "火の玉が敵の弾を壊す"
 
@@ -209,6 +215,12 @@ msgstr "レバーの上のバーで何が出るか分かる：灰色は普通、
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "火炎ビームが敵へ曲がる"
+
+msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
+msgstr "ダンジョンの商人が戦利品1つにつき2ゴールド多く払う。"
+
+msgid "Der Händler kauft Beute: Tab, Rechtsklick"
+msgstr "商人が戦利品を買い取る：Tab、右クリック"
 
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "石が生贄を受け入れた"
@@ -251,6 +263,9 @@ msgstr "カン：%dゴールド。%dまでは安全。"
 
 msgid "Dose: Gold hierher ziehen"
 msgstr "カン：金をここへドラッグ"
+
+msgid "Dose: hier liegt dein ganzes Gold"
+msgstr "缶：お前の金は全部ここだ"
 
 msgid "Drachenatem"
 msgstr "ドラゴンブレス"
@@ -384,6 +399,9 @@ msgstr "エゴンの店"
 msgid "Eigene Explosionen heilen dich"
 msgstr "自分の爆発で回復する"
 
+msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
+msgstr "琥珀1つ、爆弾3つ、鍵3つ"
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "火の玉が周りを回り、弾を防ぐ"
 
@@ -398,6 +416,9 @@ msgstr "火花と運の上昇"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "残り火の契約が開いた"
+
+msgid "Ein Golderz"
+msgstr "金鉱石1つ"
 
 msgid "Ein Herz mehr"
 msgstr "ハートが1つ増える"
@@ -417,6 +438,9 @@ msgstr "ハート1つと青いハート1つ"
 msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
 msgstr "ハート1つ、棘、爆発無効"
 
+msgid "Ein Herz, eine Bombe und ein Schlüssel"
+msgstr "ハート1つ、爆弾1つ、鍵1つ"
+
 msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
 msgstr "ハート・コイン・爆弾・鍵を1つずつ"
 
@@ -428,6 +452,9 @@ msgstr "リュックの枠が1つ増える。"
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "キャラのレリック枠が1つ増える。"
+
+msgid "Ein Rubin"
+msgstr "ルビー1つ"
 
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "掘り出し物だ！俺にとって。いや…君にとって！正直に！"
@@ -441,8 +468,14 @@ msgstr "弾が1発増え、ダメージ上昇"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "弾が1発増えるが弱くなる"
 
+msgid "Ein Silbererz, Glück hoch"
+msgstr "銀鉱石1つ、運アップ"
+
 msgid "Ein Stab mit Feuer-Spitze. Für Magier."
 msgstr "炎の先端を持つ杖。魔法使い用。"
+
+msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
+msgstr "狼の毛皮1つ、爆弾3つ、鍵3つ"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "青いハート1つと棘"
@@ -777,6 +810,9 @@ msgstr "残り火の杖"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "緑っぽく光る。商人の好物。"
 
+msgid "Glänzt wie der Mond. Der Händler wird ganz still."
+msgstr "月のように輝く。商人がすっかり黙り込む。"
+
 msgid "Glück"
 msgstr "運"
 
@@ -816,6 +852,9 @@ msgstr "ゴブリンの坑道"
 msgid "Gold"
 msgstr "ゴールド"
 
+msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
+msgstr "ダンジョンの商人からの金。残りは缶に入る。死ぬと失う（安全枠の中は除く）。"
+
 msgid "Goldader"
 msgstr "金脈"
 
@@ -830,6 +869,9 @@ msgstr "金の弓"
 
 msgid "Goldener Schattenstab"
 msgstr "黄金の影の杖"
+
+msgid "Golderz"
+msgstr "金鉱石"
 
 msgid "Goldglut"
 msgstr "黄金の残り火"
@@ -968,6 +1010,9 @@ msgstr "地獄の杖"
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "俺は詐欺… いや、商人だ。売ってるのは… …装備だ！そう、装備を売ってる。"
+
+msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
+msgstr "ダンジョンに金は持っていけない。下ではオレの同業者が戦利品を買う。オレとほぼ同じくらい正直なヤツさ。"
 
 msgid "Inventar"
 msgstr "持ち物"
@@ -1419,6 +1464,12 @@ msgstr "右にあるのが君のカンだ。コイン袋をドラッグしな。
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "インベントリの物を右クリックするとここに置ける。"
 
+msgid "Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen"
+msgstr "右クリック：商人に売る · ドラッグ：並べ替え · Tab：閉じる"
+
+msgid "Rechtsklick: verkaufen für %d Gold"
+msgstr "右クリック：%dゴールドで売る"
+
 msgid "Reichweite"
 msgstr "射程"
 
@@ -1551,6 +1602,9 @@ msgstr "ダメージ×1.2、連射が少し遅い"
 msgid "Schaden mal 1,25"
 msgstr "ダメージ×1.25"
 
+msgid "Schaden mal 1,3 und ein Silbererz"
+msgstr "ダメージ1.3倍と銀鉱石1つ"
+
 msgid "Schaden mal 1,3 und zehn Münzen"
 msgstr "ダメージ×1.3とコイン10枚"
 
@@ -1668,6 +1722,9 @@ msgstr "弾速"
 msgid "Schwarzer Kristall"
 msgstr "黒水晶"
 
+msgid "Schwer und gelb. Jeder Händler mag es."
+msgstr "重くて黄色い。どの商人も好きだ。"
+
 msgid "Schwer und kalt."
 msgstr "重くて冷たい。"
 
@@ -1769,6 +1826,9 @@ msgstr "銀の護符"
 
 msgid "Silberdolch"
 msgstr "銀の短剣"
+
+msgid "Silbererz"
+msgstr "銀鉱石"
 
 msgid "Silberhammer"
 msgstr "銀の槌"
@@ -2043,6 +2103,9 @@ msgstr "そしてこれが俺のレバー。自慢の品だ。見てな！"
 msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
 msgstr "ほら、ちょっとした前金だ：50ゴールド。金はインベントリにコイン袋として入ってる。"
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Oben links siehst du, wie viel du hast."
+msgstr "ほら、ちょっとした前金だ：50ゴールド。左上でいくら持ってるか分かるぜ。"
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "さあ、ダンジョンへ行ってこい！いい物を持ってきてくれ。俺はここで待ってる。念のためな。"
 
@@ -2069,6 +2132,9 @@ msgstr "売る"
 
 msgid "Verkaufen: %d Gold"
 msgstr "売る：%dゴールド"
+
+msgid "Verkauft für %d Gold"
+msgstr "%dゴールドで売った"
 
 msgid "Viel größere Bomben"
 msgstr "爆弾が大幅に大きい"
@@ -2246,6 +2312,9 @@ msgstr "火花2つとダメージ上昇"
 
 msgid "Zwei Glutmonde kreisen um dich"
 msgstr "残り火の月が2つ周りを回る"
+
+msgid "Zwei Golderze und zehn Schlüssel"
+msgstr "金鉱石2つと鍵10本"
 
 msgid "Zwei Herzen mehr"
 msgstr "ハートが2つ増える"

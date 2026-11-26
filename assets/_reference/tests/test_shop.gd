@@ -56,7 +56,7 @@ func _lever() -> void:
 	check_eq(meta.call("lever_price"), 0, "a new day: the lever is free again")
 	meta.call("pull_lever", rng)
 	check(meta.call("pull_lever", rng), "with 25 gold the second pull works")
-	check_eq(meta.call("purse"), 15, "it cost 10")
+	check_eq(meta.call("box"), 15, "it cost 10")
 
 
 func _buy_and_equip() -> void:
@@ -67,7 +67,7 @@ func _buy_and_equip() -> void:
 	var boots: int = table.find_custom(func(place: Dictionary) -> bool: return place.get("id") == "copper_boots")
 	check(not meta.call("buy", staff), "the staff (30) is too dear for 15 gold")
 	check(meta.call("buy", boots), "the boots (15) can be bought")
-	check_eq(meta.call("purse"), 0, "they cost 15")
+	check_eq(meta.call("box"), 0, "they cost 15")
 	check((meta.call("table") as Array)[boots].is_empty(), "the place on the table is empty now")
 	check(not meta.call("buy", boots), "an empty place cannot be bought")
 	check(meta.call("buy", staff, true), "Egon's gift costs nothing")
@@ -165,10 +165,10 @@ func _relics() -> void:
 			break
 	check(found, "now and then a relic lies on the table")
 	meta.call("start_new")
-	meta.call("end_run", 500, [] as Array[Dictionary], RandomNumberGenerator.new())
+	meta.call("gift_gold", 500)
 	meta.call("_write", "table", [goods.call("make_relic", "dreizack")])
 	check(meta.call("buy", 0), "a relic can be bought")
-	check_eq(meta.call("purse"), 250, "tier 4 costs 250")
+	check_eq(meta.call("box"), 250, "tier 4 costs 250")
 	var own: Array = meta.call("stash")
 	check(own[0].get("relic") and own[0].get("left") == 1, "it lies in the inventory, one dungeon left")
 	check(meta.call("equip", 0), "it goes into the relic slot")
@@ -188,7 +188,7 @@ func _relics() -> void:
 
 
 ## Selling to Egon: loot for its loot.json value (the whole stack), gear and relics for
-## shop.json sell_share of their price; the gold goes into the purse.
+## shop.json sell_share of their price; the gold goes into the box.
 func _selling() -> void:
 	meta.call("start_new")
 	meta.call("end_run", 0, [{"id": "rat_fur", "count": 3}] as Array[Dictionary], RandomNumberGenerator.new())
@@ -199,8 +199,7 @@ func _selling() -> void:
 	check_eq(goods.call("sell_price", own[0]), 6, "3 rat furs: 3 x 2 gold")
 	check_eq(goods.call("sell_price", own[1]), 9, "the copper staff (30): 30 % = 9 gold")
 	check_eq(meta.call("sell", 0), 6, "sold")
-	check_eq(meta.call("purse"), 6, "the gold is in the purse")
+	check_eq(meta.call("box"), 6, "the gold is in the box")
 	check(not (meta.call("stash") as Array).any(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur"), "the furs are gone")
-	check_eq((meta.call("stash") as Array).back().get("id"), "gold", "the gold lies in the inventory as a coin bag")
-	check_eq(meta.call("sell", (meta.call("stash") as Array).size() - 1), 0, "the coin bag cannot be sold")
+	check(not (meta.call("stash") as Array).any(func(place: Dictionary) -> bool: return place.get("id") == "gold"), "no coin bag in the inventory")
 	check_eq(meta.call("sell", 5), 0, "a place that does not exist sells nothing")

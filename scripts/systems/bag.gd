@@ -3,8 +3,9 @@ extends RefCounted
 ## The bag of a run (Tab): loot from the dungeon (data/loot.json "materials"). A fixed number of
 ## places (data/meta.json "bag": slots) plus safe places (safe_slots) at the end. Dying empties
 ## the bag except the safe places (lose_unsafe). The gold of the run is in here too (material
-## "gold", GOLD): it stacks higher (loot.json "stack"), can be dropped and put into the safe place
-## like everything else; RunState.coins only counts it.
+## "gold", GOLD, only from selling loot in the dungeon shop): it stacks higher (loot.json
+## "stack"), can be dropped and put into the safe place like everything else; RunState.coins
+## only counts it.
 ##
 ## A place is {} (empty) or {"id": String, "count": int}. Indices 0 .. slots - 1 are normal,
 ## slots .. size() - 1 are safe.
@@ -116,6 +117,18 @@ func add(id: String, amount: int) -> int:
 	if left < amount:
 		changed.emit()
 	return left
+
+
+## Puts `count` of `id` onto the empty place `index` (also a safe one). false (nothing changes)
+## if the place is taken, the index is wrong, the id unknown or the count <= 0.
+func put(index: int, id: String, count: int) -> bool:
+	if index < 0 or index >= places.size() or not places[index].is_empty():
+		return false
+	if count <= 0 or Content.material(id).is_empty():
+		return false
+	places[index] = {"id": id, "count": count}
+	changed.emit()
+	return true
 
 
 ## Drag and drop from place `from` to place `to`: the same thing stacks (what does not fit stays),

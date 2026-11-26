@@ -7,9 +7,9 @@ extends Control
 ##   Lever: MetaState.pull_lever (first pull of a day free, then dearer); the table flips over.
 ##   Click on goods: buy (MetaState.buy). Click on gear in the inventory: put it on (equip),
 ##   click on a hero place: take it off (unequip).
-##   The money box (Dose, bottom right): "120/200" above it, green up to the limit, red above it
-##   (then Egon may help himself, MetaState.roll_theft). Drag the coin bag (gold at home) onto it =
-##   all in, drag it back or click it = all out; "+10" / "−10" move 10 gold.
+##   The money box (Dose, bottom right): all gold at home is in it (also the number at the top
+##   left). "120/200" above it, green up to the limit, red above it (then Egon may help himself,
+##   MetaState.roll_theft). Only shown: buying pays from it, selling fills it.
 ##   Right click on the inventory: onto Egon's sell place (top right); "Verkaufen: N Gold" sells it
 ##   (MetaState.sell), a click on the sell place gives it back.
 ##   "Skills" (bottom right): the skill tree (SkillTreeWindow); the day, the player level and the
@@ -27,7 +27,6 @@ const LEVER_UP: Texture2D = preload("res://assets/sprites/fortress/lever_up.png"
 const LEVER_DOWN: Texture2D = preload("res://assets/sprites/fortress/lever_down.png")
 const COIN: Texture2D = preload("res://assets/ui/icon_coin.png")
 const BOX_ICON: String = "res://assets/sprites/props/chest.png"
-const BOX_STEP: int = 10
 const BOX_SAFE := Color(0.45, 0.9, 0.45)
 const BOX_DANGER := Color(1.0, 0.4, 0.35)
 const CAVE_SHADE := Color(0.45, 0.4, 0.4)
@@ -271,7 +270,7 @@ func _refresh() -> void:
 	_skills_button.text = Language.translate("Skills") + (" (%d)" % points if points > 0 else "")
 	_skills_button.reset_size()
 	_skills_button.position.x = _dungeons_button.position.x - 6 - _skills_button.get_combined_minimum_size().x
-	_gold.text = str(MetaState.purse())
+	_gold.text = str(MetaState.box())
 	var price: int = MetaState.lever_price()
 	_lever_price.text = Language.translate("Gratis") if price == 0 else Language.translate("%d Gold") % price
 	var table: Array[Dictionary] = MetaState.table()
@@ -289,7 +288,6 @@ func _refresh_inventory() -> void:
 		var place := ShopSlot.new()
 		place.clicked.connect(_on_inventory_clicked.bind(_inventory_slots.size()))
 		place.right_clicked.connect(_put_on_sell_place.bind(_inventory_slots.size()))
-		place.set_drag_forwarding(_drag_from_inventory.bind(_inventory_slots.size()), _can_drop_on_inventory, _drop_on_inventory)
 		_inventory_grid.add_child(place)
 		_inventory_slots.append(place)
 	if _sell_index >= own.size():
@@ -342,8 +340,6 @@ func _refresh_sell_place(own: Array[Dictionary]) -> void:
 func _put_on_sell_place(index: int) -> void:
 	if _locked or index >= MetaState.stash().size():
 		return
-	if String(MetaState.stash()[index].get("id", "")) == Bag.GOLD:
-		return
 	_sell_index = index
 	AudioManager.play_sound("pickup")
 	_refresh()
@@ -383,44 +379,19 @@ func _build_money_box() -> void:
 	_box_label = _label("", 12, BOX_SAFE)
 	_box_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(_box_label)
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 4)
-	column.add_child(row)
 	_box_slot = ShopSlot.new()
 	_box_slot.name = "MoneyBox"
 	var icon: Texture2D = load(BOX_ICON) as Texture2D
 	_box_slot.hint = icon
 	_box_slot.hint_alpha = 1.0
-	_box_slot.hint_name = Language.translate("Dose: Gold hierher ziehen")
-	_box_slot.clicked.connect(_withdraw.bind(-1))
-	_box_slot.set_drag_forwarding(_drag_from_box, _can_drop_on_box, _drop_on_box)
-	row.add_child(_box_slot)
-	var buttons := VBoxContainer.new()
-	buttons.add_theme_constant_override("separation", 2)
-	row.add_child(buttons)
-	var put_in := _small_button("+%d" % BOX_STEP)
-	put_in.name = "BoxIn"
-	put_in.pressed.connect(_deposit.bind(BOX_STEP))
-	buttons.add_child(put_in)
-	var take_out := _small_button("−%d" % BOX_STEP)
-	take_out.name = "BoxOut"
-	take_out.pressed.connect(_withdraw.bind(BOX_STEP))
-	buttons.add_child(take_out)
+	_box_slot.hint_name = Language.translate("Dose: hier liegt dein ganzes Gold")
+	_box_slot.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	column.add_child(_box_slot)
 	_box_warning = _label(Language.translate("Egon könnte klauen!"), 9, BOX_DANGER)
 	_box_warning.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_box_warning.tooltip_text = Language.translate("Über dem Limit: Egon schielt auf deine Dose!")
 	_box_warning.mouse_filter = Control.MOUSE_FILTER_STOP
 	column.add_child(_box_warning)
-
-
-func _small_button(text: String) -> Button:
-	var button := Button.new()
-	button.text = text
-	button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	button.focus_mode = Control.FOCUS_NONE
-	button.add_theme_font_size_override("font_size", 9)
-	button.custom_minimum_size = Vector2(40, 15)
-	return button
 
 
 ## "120/200" over the box: green up to the limit, red above it (with Egon's warning).
@@ -438,71 +409,6 @@ func _refresh_money_box() -> void:
 
 func get_money_box() -> ShopSlot:
 	return _box_slot
-
-
-## `amount` gold from the coin bag into the box (-1 = all of it, at most what there is).
-func _deposit(amount: int) -> void:
-	if _locked:
-		return
-	var gold: int = MetaState.purse() if amount < 0 else mini(amount, MetaState.purse())
-	if MetaState.deposit(gold):
-		AudioManager.play_sound("coin")
-	_sell_index = -1
-	_refresh()
-
-
-## `amount` gold from the box back into the coin bag (-1 = all).
-func _withdraw(amount: int) -> void:
-	if _locked:
-		return
-	var gold: int = MetaState.box() if amount < 0 else mini(amount, MetaState.box())
-	if MetaState.withdraw(gold):
-		AudioManager.play_sound("coin")
-	_sell_index = -1
-	_refresh()
-
-
-## Drag the coin bag out of the inventory (only the gold can go into the box).
-func _drag_from_inventory(_at: Vector2, index: int) -> Variant:
-	var own: Array[Dictionary] = MetaState.stash()
-	if _locked or index >= own.size() or String(own[index].get("id", "")) != Bag.GOLD:
-		return null
-	_set_drag_picture(_inventory_slots[index].get_icon())
-	return {"home_gold": true}
-
-
-func _drag_from_box(_at: Vector2) -> Variant:
-	if _locked or MetaState.box() <= 0:
-		return null
-	_set_drag_picture(ShopSlot.icon_of(Bag.GOLD))
-	return {"box_gold": true}
-
-
-func _set_drag_picture(icon: Texture2D) -> void:
-	var picture := TextureRect.new()
-	picture.texture = icon
-	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	picture.size = ShopSlot.ICON_SIZE
-	picture.position = -ShopSlot.ICON_SIZE / 2.0
-	var holder := Control.new()
-	holder.add_child(picture)
-	set_drag_preview(holder)
-
-
-func _can_drop_on_box(_at: Vector2, data: Variant) -> bool:
-	return data is Dictionary and (data as Dictionary).has("home_gold")
-
-
-func _drop_on_box(_at: Vector2, _data: Variant) -> void:
-	_deposit(-1)
-
-
-func _can_drop_on_inventory(_at: Vector2, data: Variant) -> bool:
-	return data is Dictionary and (data as Dictionary).has("box_gold")
-
-
-func _drop_on_inventory(_at: Vector2, _data: Variant) -> void:
-	_withdraw(-1)
 
 
 func _bark(key: String) -> void:
@@ -564,7 +470,7 @@ func _on_hero_slot_clicked(slot: String) -> void:
 ## The lever goes down, the table flips over and comes back with the new goods. `tutorial` =
 ## Egon's free first pull with his gifts. false (nothing happens) without enough gold.
 func _pull_lever(tutorial: bool) -> bool:
-	if not tutorial and MetaState.lever_price() > MetaState.purse():
+	if not tutorial and MetaState.lever_price() > MetaState.box():
 		return false
 	_locked = true
 	_lever.texture_normal = LEVER_DOWN
@@ -683,15 +589,11 @@ func _run_tutorial() -> void:
 				return
 	if not await _explain("tutorial_equip", [_hero, inventory_panel]):
 		return
-	# A little start money: the coin bag appears in the inventory.
+	# A little start money: it goes into the box.
 	MetaState.gift_gold(int((Content.shop().get("tutorial", {}) as Dictionary).get("gold", 0)))
 	AudioManager.play_sound("coin")
 	_refresh()
-	var bag_index: int = _stash_index(Bag.GOLD)
-	var money: Array[Control] = [_gold_row]
-	if bag_index >= 0:
-		money.append(_inventory_slots[bag_index])
-	if not await _explain("tutorial_money", money):
+	if not await _explain("tutorial_money", [_gold_row]):
 		return
 	if not await _explain("tutorial_box", [_box_panel]):
 		return
@@ -760,11 +662,11 @@ func _say(key: String) -> bool:
 	return is_inside_tree()
 
 
-## Where `id` lies in the inventory (gear by id, or the coin bag Bag.GOLD); -1 = nowhere.
+## Where gear `id` lies in the inventory; -1 = nowhere.
 func _stash_index(id: String) -> int:
 	var own: Array[Dictionary] = MetaState.stash()
 	for i in own.size():
-		if String(own[i].get("id", "")) == id and (own[i].has("rarity") or id == Bag.GOLD):
+		if String(own[i].get("id", "")) == id and own[i].has("rarity"):
 			return i
 	return -1
 

@@ -59,7 +59,7 @@ static func problem(id: String) -> String:
 		return "Stufe zu niedrig"
 	if MetaState.skill_points() < next_points(id):
 		return "Zu wenig Skillpunkte"
-	if MetaState.purse() < next_gold(id):
+	if MetaState.box() < next_gold(id):
 		return "Zu wenig Gold"
 	return ""
 

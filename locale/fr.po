@@ -33,6 +33,9 @@ msgstr "Tous les quelques ennemis vaincus, tu soignes un demi-cœur"
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "Tout coûte moitié prix au magasin"
 
+msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
+msgstr "Alors dépense-le plutôt, partenaire. De préférence chez moi !"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "À la fin chaque tir éclate en quatre étincelles"
 
@@ -195,6 +198,9 @@ msgstr "Ton or. À la maison, en sécurité dans la boîte ; au donjon, il est p
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Ta relique a rendu l'âme. Ça arrive. J'en aurais justement une neuve… prix d'ami !"
 
+msgid "Dein ganzes Gold liegt rechts in deiner Dose. Bis 200 Gold ist es da sicher."
+msgstr "Tout ton or est dans ta boîte, à droite. Jusqu'à 200 pièces d'or, il y est en sécurité."
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "Tes boules de feu détruisent les tirs ennemis"
 
@@ -209,6 +215,12 @@ msgstr "La barre au-dessus du levier montre ce qui peut tomber : gris commun, ve
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "Le rayon de feu se courbe vers l'ennemi"
+
+msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
+msgstr "Le marchand du donjon paie 2 pièces d'or de plus pour chaque butin."
+
+msgid "Der Händler kauft Beute: Tab, Rechtsklick"
+msgstr "Le marchand achète le butin : Tab, clic droit"
 
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "La pierre accepte ton sacrifice"
@@ -251,6 +263,9 @@ msgstr "Boîte : %d or. En sécurité jusqu'à %d."
 
 msgid "Dose: Gold hierher ziehen"
 msgstr "Boîte : glisse l'or ici"
+
+msgid "Dose: hier liegt dein ganzes Gold"
+msgstr "Boîte : tout ton or est ici"
 
 msgid "Drachenatem"
 msgstr "Souffle du dragon"
@@ -384,6 +399,9 @@ msgstr "La boutique d'Egon"
 msgid "Eigene Explosionen heilen dich"
 msgstr "Tes propres explosions te soignent"
 
+msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
+msgstr "Un ambre, trois bombes, trois clés"
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "Une boule de feu tourne autour de toi et bloque les tirs"
 
@@ -398,6 +416,9 @@ msgstr "Une étincelle et plus de chance"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "Un pacte de braise s'est ouvert"
+
+msgid "Ein Golderz"
+msgstr "Un minerai d'or"
 
 msgid "Ein Herz mehr"
 msgstr "Un cœur de plus"
@@ -417,6 +438,9 @@ msgstr "Un cœur et un cœur bleu"
 msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
 msgstr "Un cœur, des épines, les explosions ne te blessent pas"
 
+msgid "Ein Herz, eine Bombe und ein Schlüssel"
+msgstr "Un cœur, une bombe et une clé"
+
 msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
 msgstr "Un cœur, une pièce, une bombe et une clé"
 
@@ -428,6 +452,9 @@ msgstr "Un emplacement de plus dans le sac."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Un emplacement de relique de plus sur ton héros."
+
+msgid "Ein Rubin"
+msgstr "Un rubis"
 
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "Une affaire ! Pour moi. Euh… pour toi ! Honnêtement !"
@@ -441,8 +468,14 @@ msgstr "Un tir de plus et plus de dégâts"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "Un tir de plus, mais plus faible"
 
+msgid "Ein Silbererz, Glück hoch"
+msgstr "Un minerai d'argent, chance accrue"
+
 msgid "Ein Stab mit Feuer-Spitze. Für Magier."
 msgstr "Une baguette à pointe de feu. Pour les mages."
+
+msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
+msgstr "Une peau de loup, trois bombes, trois clés"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "Un cœur bleu et des épines"
@@ -777,6 +810,9 @@ msgstr "Bâton de braise"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Brille d'un éclat verdâtre. Le marchand adore."
 
+msgid "Glänzt wie der Mond. Der Händler wird ganz still."
+msgstr "Brille comme la lune. Le marchand devient tout silencieux."
+
 msgid "Glück"
 msgstr "Chance"
 
@@ -816,6 +852,9 @@ msgstr "Galeries des Gobelins"
 msgid "Gold"
 msgstr "Or"
 
+msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
+msgstr "Or du marchand du donjon. Ce qui reste va dans ta boîte ; à ta mort il est perdu, sauf dans l'emplacement sûr."
+
 msgid "Goldader"
 msgstr "Filon d'or"
 
@@ -830,6 +869,9 @@ msgstr "Arc d'or"
 
 msgid "Goldener Schattenstab"
 msgstr "Bâton d'ombre doré"
+
+msgid "Golderz"
+msgstr "Minerai d'or"
 
 msgid "Goldglut"
 msgstr "Braise dorée"
@@ -968,6 +1010,9 @@ msgstr "Bâton infernal"
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Je suis l'escr… euh, le marchand. Je vends… …de l'équipement ! Oui, voilà. Je vends de l'équipement."
+
+msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
+msgstr "Tu n'emportes pas d'or dans le donjon. En bas, mon collègue t'achète ton butin, presque aussi honnête que moi."
 
 msgid "Inventar"
 msgstr "Inventaire"
@@ -1419,6 +1464,12 @@ msgstr "À droite, ta boîte. Glisse la bourse dessus ; jusqu'à 200 or, c'est e
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "Clic droit sur un objet de l'inventaire pour le poser ici."
 
+msgid "Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen"
+msgstr "Clic droit : vendre au marchand · Glisser : trier · Tab : fermer"
+
+msgid "Rechtsklick: verkaufen für %d Gold"
+msgstr "Clic droit : vendre pour %d or"
+
 msgid "Reichweite"
 msgstr "Portée"
 
@@ -1551,6 +1602,9 @@ msgstr "Dégâts x1,2, tir un peu plus lent"
 msgid "Schaden mal 1,25"
 msgstr "Dégâts x1,25"
 
+msgid "Schaden mal 1,3 und ein Silbererz"
+msgstr "Dégâts ×1,3 et un minerai d'argent"
+
 msgid "Schaden mal 1,3 und zehn Münzen"
 msgstr "Dégâts x1,3 et dix pièces"
 
@@ -1668,6 +1722,9 @@ msgstr "Vitesse des tirs"
 msgid "Schwarzer Kristall"
 msgstr "Cristal noir"
 
+msgid "Schwer und gelb. Jeder Händler mag es."
+msgstr "Lourd et jaune. Tous les marchands l'aiment."
+
 msgid "Schwer und kalt."
 msgstr "Lourd et froid."
 
@@ -1769,6 +1826,9 @@ msgstr "Amulette d'argent"
 
 msgid "Silberdolch"
 msgstr "Dague d'argent"
+
+msgid "Silbererz"
+msgstr "Minerai d'argent"
 
 msgid "Silberhammer"
 msgstr "Marteau d'argent"
@@ -2043,6 +2103,9 @@ msgstr "Et voici mon levier. Toute ma fierté. Regarde bien !"
 msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
 msgstr "Et voilà, une petite avance : 50 or. Ton or est dans l'inventaire, sous forme de bourse."
 
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Oben links siehst du, wie viel du hast."
+msgstr "Et voilà, une petite avance : 50 pièces d'or. En haut à gauche, tu vois combien tu as."
+
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "Et maintenant, au donjon ! Rapporte-moi quelque chose de beau. J'attends ici. On n'est jamais trop prudent."
 
@@ -2069,6 +2132,9 @@ msgstr "Vendre"
 
 msgid "Verkaufen: %d Gold"
 msgstr "Vendre : %d or"
+
+msgid "Verkauft für %d Gold"
+msgstr "Vendu pour %d or"
 
 msgid "Viel größere Bomben"
 msgstr "Bombes bien plus grosses"
@@ -2246,6 +2312,9 @@ msgstr "Deux étincelles et dégâts en hausse"
 
 msgid "Zwei Glutmonde kreisen um dich"
 msgstr "Deux lunes de braise tournent autour de toi"
+
+msgid "Zwei Golderze und zehn Schlüssel"
+msgstr "Deux minerais d'or et dix clés"
 
 msgid "Zwei Herzen mehr"
 msgstr "Deux cœurs de plus"

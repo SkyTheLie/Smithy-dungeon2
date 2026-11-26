@@ -110,6 +110,6 @@ func _death() -> void:
 	check_eq((bag.call("contents") as Array).size(), 1, "death: only the safe place is left in the bag")
 	var stash: Array = meta.call("stash")
 	check(stash.size() == 1 and (stash[0] as Dictionary).get("id") == saved_id, "the safe place comes home (%s)" % saved_id)
-	check_eq(meta.call("purse"), 0, "the coins of the run are lost")
+	check_eq(meta.call("box"), 0, "the gold of the run is lost")
 	check_eq(meta.call("day"), day + 1, "a new day")
 	paused = false
