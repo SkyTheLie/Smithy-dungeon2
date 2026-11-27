@@ -3,7 +3,8 @@ extends CanvasLayer
 ## Everything drawn over the 3D view: hearts (top left), bombs / keys, the potion taken along
 ## (picture + key, only with a potion; Q drinks it), the map (Minimap, M), the
 ## crosshair, collected items, the boss's life bar, the charge bar (Glutsammler), the name of a
-## new item or synergy, short messages and the red flash when hit. Only shows values; the rules are
+## new item or synergy, short messages, the red flash when hit and "[F] Mit dem Händler handeln"
+## near the merchant of the dungeon shop (Dungeon.near_merchant). Only shows values; the rules are
 ## in RunState and Dungeon.
 
 const BANNER_TIME: float = 3.0
@@ -23,6 +24,8 @@ var _message_tween: Tween
 var _potion_row: HBoxContainer
 var _potion_icon: TextureRect
 var _potion_key: Label
+## "[F] Mit dem Händler handeln" (built in code, bottom middle).
+var talk_prompt: Label
 @onready var _hearts: HeartBar = %Hearts
 @onready var _bombs: Label = %Bombs
 @onready var _keys: Label = %Keys
@@ -59,6 +62,7 @@ func setup(run_state: RunState, the_dungeon: Dungeon, the_player: Player) -> voi
 	player.hurt.connect(_on_hurt)
 	player.potion_tried.connect(_on_potion_tried)
 	_build_potion_row()
+	_build_talk_prompt()
 	player.weapon.charge_changed.connect(_on_charge_changed)
 	_boss_box.hide()
 	_charge.hide()
@@ -82,6 +86,7 @@ func is_map_open() -> bool:
 
 
 func _process(delta: float) -> void:
+	talk_prompt.visible = dungeon.near_merchant()
 	if _boss_fill_left > 0.0:
 		_boss_fill_left -= delta
 	elif _boss and is_instance_valid(_boss) and _boss.alive:
@@ -112,6 +117,26 @@ func _build_potion_row() -> void:
 	_potion_row.add_child(_potion_key)
 	_bombs.get_parent().get_parent().add_child(_potion_row)
 	_refresh_potion()
+
+
+func _build_talk_prompt() -> void:
+	talk_prompt = Label.new()
+	talk_prompt.name = "TalkPrompt"
+	talk_prompt.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	talk_prompt.text = "[%s] %s" % [Controls.key_name(Controls.get_key(Controls.TALK)), Language.translate("Mit dem Händler handeln")]
+	talk_prompt.add_theme_font_size_override("font_size", 12)
+	talk_prompt.add_theme_color_override("font_color", Color(1.0, 0.88, 0.45))
+	talk_prompt.add_theme_color_override("font_outline_color", Color.BLACK)
+	talk_prompt.add_theme_constant_override("outline_size", 4)
+	talk_prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	talk_prompt.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
+	talk_prompt.offset_top = -78
+	talk_prompt.offset_bottom = -62
+	talk_prompt.offset_left = -160
+	talk_prompt.offset_right = 160
+	talk_prompt.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	talk_prompt.hide()
+	add_child(talk_prompt)
 
 
 ## Shows the first potion taken along (none: the row is hidden).

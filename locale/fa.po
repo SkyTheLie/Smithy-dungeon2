@@ -249,6 +249,9 @@ msgstr "شانس‌های روی میز:"
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "اون پشت راه سیاه‌چال اخگره. بعضی‌ها حتی برمی‌گردن بیرون!"
 
+msgid "Dafür reicht dein Gold nicht"
+msgstr "طلایت برای این کافی نیست"
+
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "طلات برای این کافی نیست، رفیق. حیف، حیف."
 
@@ -579,11 +582,17 @@ msgstr "یک قلب، یک سکه، یک بمب و یک کلید"
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "یک قلب، دو قلب آبی، آسیب بالاتر"
 
+msgid "Ein Händler! Geh hin und sprich ihn an."
+msgstr "یک فروشنده! برو پیشش و با او حرف بزن."
+
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "گیاهی قلبی‌شکل. اگون از آن چای درست می‌کند."
 
 msgid "Ein Platz mehr im Rucksack."
 msgstr "یک خانه‌ی بیشتر در کوله."
+
+msgid "Ein Portal öffnet sich!"
+msgstr "یک دروازه باز می‌شود!"
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "یک خانه‌ی یادگار بیشتر روی قهرمانت."
@@ -602,6 +611,9 @@ msgstr "یک تیر بیشتر و آسیب بیشتر"
 
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "یک تیر بیشتر، اما ضعیف‌تر"
+
+msgid "Ein Seil fällt vom Himmel!"
+msgstr "طنابی از آسمان می‌افتد!"
 
 msgid "Ein Silbererz, Glück hoch"
 msgstr "یک سنگ نقره، شانس بیشتر"
@@ -938,6 +950,9 @@ msgstr "شیشه روح"
 
 msgid "Geisterstab"
 msgstr "عصای روح"
+
+msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
+msgstr "خریداری شد! یادگار در خانه در کوله‌پشتی منتظر است."
 
 msgid "Geldbündel: %d Gold"
 msgstr "دسته‌ی پول: %d طلا"
@@ -1389,6 +1404,9 @@ msgstr "به سیاه‌چال طلا نمی‌بری. آن پایین همکا�
 msgid "Inventar"
 msgstr "کوله‌پشتی"
 
+msgid "Inventar voll!"
+msgstr "کوله‌پشتی پر است!"
+
 msgid "Irrlicht"
 msgstr "آتش سرگردان"
 
@@ -1439,6 +1457,9 @@ msgstr "کوله کاروان"
 
 msgid "Karte"
 msgstr "نقشه"
+
+msgid "Kaufen: %d Gold"
+msgstr "خرید: %d طلا"
 
 msgid "Kein Relikt"
 msgstr "یادگار نیست"
@@ -1731,6 +1752,9 @@ msgstr "شهاب"
 msgid "Minotaurus"
 msgstr "مینوتور"
 
+msgid "Mit dem Händler handeln"
+msgstr "معامله با فروشنده"
+
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "به خانه آوردی: %d طلا، %d غنیمت"
 
@@ -1961,6 +1985,9 @@ msgstr "کلیک راست: فروش به فروشنده · کشیدن: مرتب 
 
 msgid "Rechtsklick: verkaufen für %d Gold"
 msgstr "کلیک راست: فروش به %d طلا"
+
+msgid "Reden"
+msgstr "صحبت"
 
 msgid "Reichweite"
 msgstr "برد"
@@ -2775,6 +2802,9 @@ msgstr "فروش"
 msgid "Verkaufen: %d Gold"
 msgstr "فروش: %d طلا"
 
+msgid "Verkaufen: zum Händler gehen und %s drücken · Tab: schließen"
+msgstr "فروش: پیش فروشنده برو و %s را بزن · Tab: بستن"
+
 msgid "Verkauft für %d Gold"
 msgstr "به %d طلا فروخته شد"
 
@@ -3041,6 +3071,12 @@ msgstr "محکم و گرم."
 
 msgid "Zähigkeit"
 msgstr "سرسختی"
+
+msgid "hält %d Runs"
+msgstr "%d دور دوام می‌آورد"
+
+msgid "hält für immer"
+msgstr "برای همیشه می‌ماند"
 
 msgid "max."
 msgstr "حداکثر"

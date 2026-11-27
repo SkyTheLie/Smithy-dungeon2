@@ -5,7 +5,9 @@ extends Node3D
 ##   - entering a room with enemies closes its doors and lets the enemies appear;
 ##   - when the last one falls the doors open and sometimes a reward drops;
 ##   - item room: one item on a pedestal; shop: an item and goods for coins; the merchant there
-##     buys loot (Tab, right click: sell_from_bag), the only gold of the dungeon;
+##     is talked to with F (near_merchant, the bag window opens as his trade window: trading):
+##     he buys loot (right click: sell_from_bag), the only gold of the dungeon, and offers a
+##     relic (merchant_relic, buy_relic: it waits at home in the inventory);
 ##   - boss room: one boss of the theme, picked at random when the floor is built; after it a
 ##     trapdoor down and a boss item. Beating the very first boss (MetaState.rope_due) in the boss
 ##     room also lets a rope fall: the way out of the dungeon (Rope, climb_rope). After the boss of the last floor a portal rises
@@ -104,6 +106,12 @@ var altar: BossAltar = null
 var _portal: Portal = null
 ## After the very first boss: the way out (null else).
 var _rope: Rope = null
+## The merchant in the shop room (null on floors without a shop).
+var keeper: Node3D = null
+## true while the bag window is open as the merchant's trade window (only then he buys).
+var trading: bool = false
+## The relic the merchant offers (ShopGoods.make_relic + "price"; {} = none or sold).
+var merchant_relic: Dictionary = {}
 ## The rope's place in the boss room (next to the trapdoor, which stays in the middle).
 const ROPE_SPOT := Vector3(-2.6, 0, 1.6)
 ## true once the boss of this floor died in its room (only then the rope may come).
@@ -375,10 +383,18 @@ func _build_shop(room: DungeonRoom) -> void:
 	var mult: float = float(floor_data.get("shop_mult", 1.0))
 	var keeper_texture := load(String(shop.get("keeper", ""))) as Texture2D
 	if keeper_texture:
-		var keeper := Fx.billboard(keeper_texture, KEEPER_HEIGHT)
-		keeper.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
-		keeper.position = Vector3(0, KEEPER_HEIGHT / 2.0, -RoomBuilder.ROOM_D / 2.0 + 1.6)
-		room.add_child(keeper)
+		var sprite := Fx.billboard(keeper_texture, KEEPER_HEIGHT)
+		sprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+		sprite.position = Vector3(0, KEEPER_HEIGHT / 2.0, -RoomBuilder.ROOM_D / 2.0 + 1.6)
+		room.add_child(sprite)
+		keeper = sprite
+	# A relic (an item found before, data/relics.json), with its own random numbers.
+	var relic_rng := RandomNumberGenerator.new()
+	relic_rng.seed = hash([run.seed_value, floor_index, "relic"])
+	var relic_id: String = ShopGoods.pick_relic(relic_rng)
+	if not relic_id.is_empty() and relic_rng.randf() < float(shop.get("relic_chance", 0.0)):
+		merchant_relic = ShopGoods.make_relic(relic_id)
+		merchant_relic["price"] = maxi(1, roundi(float(merchant_relic.get("price", 0)) * float(shop.get("relic_price_mult", 1.0)) * mult))
 	var goods: Array = shop.get("goods", [])
 	var slots: int = goods.size() + 1
 	var x: float = -(slots - 1) * 1.0
@@ -594,7 +610,7 @@ func _enter_room(cell: Vector2i) -> void:
 	run.refresh_mantle()
 	var room: DungeonRoom = rooms[cell]
 	if room.type == FloorLayout.SHOP and not room.visited:
-		message.emit("Der Händler kauft Beute: Tab, Rechtsklick")
+		message.emit("Ein Händler! Geh hin und sprich ihn an.")
 	room.visited = true
 	room_entered.emit(cell)
 	if room.cleared:
@@ -827,20 +843,44 @@ func drop_from_bag(index: int) -> Pickup:
 	return _drop_loot(rooms[current_cell], at, String(place["id"]), int(place["count"]), true)
 
 
-## true while the player stands in the shop room: then the merchant buys loot from the bag.
+## true while the player stands in the shop room.
 func in_shop() -> bool:
 	return rooms.has(current_cell) and (rooms[current_cell] as DungeonRoom).type == FloorLayout.SHOP
 
 
-## Bag window, right click in the shop: the merchant buys place `index` (RunState.sell_from_bag).
-## Returns the gold (0 = nothing sold, e.g. outside the shop).
+## true when the player is close enough to the merchant to talk to him (F, floors.json shop
+## talk_distance).
+func near_merchant() -> bool:
+	if keeper == null or player == null or run.is_dead() or not in_shop():
+		return false
+	var offset: Vector3 = (player.global_position - keeper.global_position) * Vector3(1, 0, 1)
+	return offset.length() <= float(Content.floors_extra("shop").get("talk_distance", 3.5))
+
+
+## Trade window, right click: the merchant buys place `index` (RunState.sell_from_bag).
+## Returns the gold (0 = nothing sold: not talking to him, or nothing to sell).
 func sell_from_bag(index: int) -> int:
-	if not in_shop():
+	if not trading or not in_shop():
 		return 0
 	var gold: int = run.sell_from_bag(index)
 	if gold > 0:
 		AudioManager.play_sound("coin")
 	return gold
+
+
+## Trade window: buys the merchant's relic with the gold of the bag. It goes home at once (into
+## the inventory at Egon's, MetaState.give_piece), so it stays even if the player dies.
+func buy_relic() -> bool:
+	if not trading or merchant_relic.is_empty() or run.is_dead():
+		return false
+	if not run.spend(int(merchant_relic.get("price", 0))):
+		message.emit("Dafür reicht dein Gold nicht")
+		return false
+	MetaState.give_piece(merchant_relic)
+	merchant_relic = {}
+	AudioManager.play_sound("coin")
+	message.emit("Gekauft! Das Relikt wartet zu Hause im Inventar.")
+	return true
 
 
 ## Touching a locked door with a key opens it; without a key a message says so.

@@ -40,7 +40,8 @@ func _no_coins() -> void:
 	check(pickups.is_empty(), "no coins lie in the dungeon")
 
 
-## The bag window sells only in the shop room (right click there).
+## The merchant buys only in his trade window: in the shop room, near him, F (right click there);
+## Tab in the shop room does not sell. He offers a relic once the player found items.
 func _sell_in_shop() -> void:
 	var window: CanvasLayer = scene.get("bag_window")
 	var bag: Object = run_state.get("bag")
@@ -54,15 +55,69 @@ func _sell_in_shop() -> void:
 	var shop_cell: Vector2i = layout.call("cell_of", "shop")
 	check(shop_cell != Vector2i(-1, -1), "the floor has a shop")
 	var start_cell: Vector2i = dungeon.get("current_cell")
-	dungeon.set("current_cell", shop_cell)
-	check(dungeon.call("in_shop"), "in the shop room")
+	var start_pos: Vector3 = player.global_position
+	var room: Node3D = (dungeon.get("rooms") as Dictionary)[shop_cell]
+	player.global_position = room.global_position + Vector3(0, 0, 3.0)
+	check(await wait_until(func() -> bool: return dungeon.get("current_cell") == shop_cell, 1.0), "in the shop room")
 	var right := InputEventMouseButton.new()
 	right.button_index = MOUSE_BUTTON_RIGHT
 	right.pressed = true
+	window.call("open")
+	window.call("_on_slot_input", right, index)
+	check_eq(run_state.get("coins"), 0, "Tab in the shop room: the merchant does not buy")
+	window.call("close")
+	check(not dungeon.call("near_merchant"), "far from the merchant")
+	var hud: CanvasLayer = scene.get_node("HUD")
+	await process_frame
+	check(hud != null and not (hud.get("talk_prompt") as Label).visible, "no talk prompt far from him")
+	var keeper: Node3D = dungeon.get("keeper")
+	player.global_position = Vector3(keeper.global_position.x, 0, keeper.global_position.z + 1.5)
+	await physics_frame
+	await process_frame
+	check(dungeon.call("near_merchant"), "next to the merchant")
+	check((hud.get("talk_prompt") as Label).visible, "the HUD says: [F] talk to him")
+	var talk := InputEventAction.new()
+	talk.action = &"talk"
+	talk.pressed = true
+	Input.parse_input_event(talk)
+	check(await wait_until(func() -> bool: return window.visible, 1.0), "F opens his trade window")
+	check(dungeon.get("trading"), "trading")
 	window.call("_on_slot_input", right, index)
 	check_eq(run_state.get("coins"), 12, "a right click sells the amber for 12 gold")
+	window.call("close")
+	check(not dungeon.get("trading"), "closing ends the trade")
+	paused = false
+	await _relic(window)
+	player.global_position = start_pos
+	await physics_frame
 	dungeon.set("current_cell", start_cell)
-	bag.call("remove", "gold", 12)
+	bag.call("remove", "gold", int(run_state.get("coins")))
+
+
+## The merchant's relic: bought with the gold of the bag, it goes into the inventory at home.
+func _relic(window: CanvasLayer) -> void:
+	var relic: Dictionary = dungeon.get("merchant_relic")
+	if relic.is_empty():
+		# Nothing found yet in this save: give him one to offer.
+		relic = script("res://scripts/systems/shop_goods.gd").call("make_relic", "leichte_feder")
+		dungeon.set("merchant_relic", relic)
+	var price: int = int(relic["price"])
+	check(price > 0, "the relic has a price")
+	check(not dungeon.call("buy_relic"), "not outside the trade window")
+	window.call("open", true)
+	check((window.get("_offer") as Control).visible, "the trade window shows the relic")
+	(run_state.get("bag") as Object).call("remove", "gold", int(run_state.get("coins")))
+	check(not window.call("buy_relic"), "too little gold: not sold")
+	run_state.call("add_coins", price + 3)
+	var before: int = (meta.call("stash") as Array).size()
+	check(window.call("buy_relic"), "bought")
+	check_eq(run_state.get("coins"), 3, "it cost its price")
+	var stash: Array = meta.call("stash")
+	check_eq(stash.size(), before + 1, "it lies at home in the inventory")
+	check(stash.size() > 0 and bool((stash.back() as Dictionary).get("relic", false)) and String((stash.back() as Dictionary).get("id", "")) == String(relic["id"]), "as a relic")
+	check(not (window.get("_offer") as Control).visible and (dungeon.get("merchant_relic") as Dictionary).is_empty(), "only once")
+	window.call("close")
+	paused = false
 
 
 func _bag_map() -> void:
