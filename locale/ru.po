@@ -39,6 +39,9 @@ msgstr "Отмена"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "Но не так же, совсем без снаряжения. Пойдём, сначала глянь мою лавку."
 
+msgid "Abstand"
+msgstr "Зазор"
+
 msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
 msgstr "Ах да, ключи! Найдёшь их внизу, но они ломаются, как только выходишь из подземелья."
 
@@ -102,6 +105,9 @@ msgstr "Заряженный огромный уголь врезается и �
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Заряди, отпусти: мощный луч огня"
 
+msgid "Aus"
+msgstr "Выкл."
+
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "Сбежать из подземелья? Всё, что несёшь, останется у тебя."
 
@@ -161,6 +167,9 @@ msgstr "Добычу я выкупаю: ПКМ в инвентаре — и он
 
 msgid "Blasebalg"
 msgstr "Кузнечные мехи"
+
+msgid "Blau"
+msgstr "Синий"
 
 msgid "Blau wie Gletschereis."
 msgstr "Синий, как ледниковый лёд."
@@ -255,6 +264,9 @@ msgstr "Крюк-бумеранг"
 msgid "Chancen auf dem Tisch:"
 msgstr "Шансы на столе:"
 
+msgid "Cyan"
+msgstr "Голубой"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Вон там вход в Подземелье углей. Некоторые даже возвращаются!"
 
@@ -284,6 +296,9 @@ msgstr "Это не наденешь, партнёр. Поверь, я проб�
 
 msgid "Das kostet zu viel Leben"
 msgstr "Это стоит слишком много жизни"
+
+msgid "Deckkraft"
+msgstr "Непрозрачность"
 
 msgid "Defensiv"
 msgstr "Защита"
@@ -344,6 +359,9 @@ msgstr "Алмазное сердце"
 
 msgid "Dick, weich und eiskalt."
 msgstr "Толстый, мягкий и ледяной."
+
+msgid "Dicke"
+msgstr "Толщина"
 
 msgid "Dicke Haut"
 msgstr "Толстая кожа"
@@ -530,6 +548,9 @@ msgstr "У Эгона глаза становятся огромными."
 
 msgid "Egons Laden"
 msgstr "Лавка Эгона"
+
+msgid "Eigene"
+msgstr "Своя"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Твои взрывы тебя лечат"
@@ -780,8 +801,14 @@ msgstr "Первый жар"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "Взрывные выстрелы, стрельба медленнее"
 
+msgid "Fadenkreuz"
+msgstr "Прицел"
+
 msgid "Fahre mit der Maus über ein Item"
 msgstr "Наведи мышь на предмет"
+
+msgid "Farbe"
+msgstr "Цвет"
 
 msgid "Feder"
 msgstr "Перо"
@@ -968,6 +995,9 @@ msgstr "Призрачный посох"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "Куплено! Реликвия ждёт дома в инвентаре."
+
+msgid "Gelb"
+msgstr "Жёлтый"
 
 msgid "Geldbündel: %d Gold"
 msgstr "Пачка денег: %d золота"
@@ -1266,6 +1296,9 @@ msgstr "Огненные шары больше, урон выше"
 msgid "Größerer Rucksack"
 msgstr "Большой рюкзак"
 
+msgid "Grün"
+msgstr "Зелёный"
+
 msgid "Grün wie das Moor, nur teurer."
 msgstr "Зелёный, как болото, только дороже."
 
@@ -1548,6 +1581,9 @@ msgstr "Сила"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "Всё ещё визжит, если потрясти."
 
+msgid "Kreuz"
+msgstr "Крест"
+
 msgid "Kreuzkrabbe"
 msgstr "Крестокраб"
 
@@ -1694,6 +1730,9 @@ msgstr "Посох света"
 
 msgid "Links"
 msgstr "Влево"
+
+msgid "Länge"
+msgstr "Длина"
 
 msgid "Länger sicher nach einem Treffer"
 msgstr "Дольше защита после удара"
@@ -1878,6 +1917,9 @@ msgstr "В этом забеге пока нет предметов."
 msgid "Noch nicht entdeckt"
 msgstr "Ещё не найдено"
 
+msgid "Nur Punkt"
+msgstr "Только точка"
+
 msgid "Nur für: %s"
 msgstr "Только для: %s"
 
@@ -1982,6 +2024,9 @@ msgstr "Пороховая бочка"
 
 msgid "Pulverhandschuh"
 msgstr "Пороховая перчатка"
+
+msgid "Punkt in der Mitte"
+msgstr "Точка в центре"
 
 msgid "Rahmenlos"
 msgstr "Без рамки"
@@ -2102,6 +2147,9 @@ msgstr "Тюлений мех"
 
 msgid "Robbenmantel"
 msgstr "Тюлений плащ"
+
+msgid "Rot"
+msgstr "Красный"
 
 msgid "Rot wie Glut."
 msgstr "Красный, как угли."
@@ -2595,6 +2643,9 @@ msgstr "Звёздный напиток"
 msgid "Steuerung"
 msgstr "Управление"
 
+msgid "Stil"
+msgstr "Стиль"
+
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Стоя на месте, ты неуязвим"
 
@@ -2712,6 +2763,9 @@ msgstr "Синергия: %s!"
 msgid "Synergien: %s"
 msgstr "Синергии: %s"
 
+msgid "T-Form (oben offen)"
+msgstr "Т-образный (без верха)"
+
 msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
 msgstr "Та-дам! Свежий товар, прямиком из… откуда-нибудь. Всё законно!"
 
@@ -2792,6 +2846,12 @@ msgstr "Зелья кладут сюда, прямо у ног. Так в под
 
 msgid "Umgebung"
 msgstr "Окрестности"
+
+msgid "Umriss"
+msgstr "Обводка"
+
+msgid "Umriss-Dicke"
+msgstr "Толщина обводки"
 
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "А это мой рычаг. Моя гордость. Смотри!"

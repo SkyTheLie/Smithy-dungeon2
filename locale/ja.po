@@ -39,6 +39,9 @@ msgstr "キャンセル"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "でも装備なしじゃだめだ。まずは俺の店を見ていきな。"
 
+msgid "Abstand"
+msgstr "間隔"
+
 msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
 msgstr "そうだ、鍵！下で見つかるが、ダンジョンを出た瞬間に壊れちまう。"
 
@@ -102,6 +105,9 @@ msgstr "チャージした巨大な火球が落ちて爆発する"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "溜めて放つ: 強大な火炎ビーム"
 
+msgid "Aus"
+msgstr "オフ"
+
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "ダンジョンから逃げる？持っている物はすべて持ち帰れる。"
 
@@ -161,6 +167,9 @@ msgstr "戦利品は買い取るぜ：インベントリで右クリックすれ
 
 msgid "Blasebalg"
 msgstr "ふいご"
+
+msgid "Blau"
+msgstr "青"
 
 msgid "Blau wie Gletschereis."
 msgstr "氷河の氷のように青い。"
@@ -255,6 +264,9 @@ msgstr "ブーメランフック"
 msgid "Chancen auf dem Tisch:"
 msgstr "テーブルの確率："
 
+msgid "Cyan"
+msgstr "シアン"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "あっちが残り火のダンジョンの入口だ。戻ってくる奴もいるんだぜ！"
 
@@ -284,6 +296,9 @@ msgstr "それは着られないぜ、相棒。信じろ、俺も試した。"
 
 msgid "Das kostet zu viel Leben"
 msgstr "体力を払いすぎる"
+
+msgid "Deckkraft"
+msgstr "不透明度"
 
 msgid "Defensiv"
 msgstr "防御"
@@ -344,6 +359,9 @@ msgstr "ダイヤの心臓"
 
 msgid "Dick, weich und eiskalt."
 msgstr "厚くて柔らかくて、氷のように冷たい。"
+
+msgid "Dicke"
+msgstr "太さ"
 
 msgid "Dicke Haut"
 msgstr "分厚い皮膚"
@@ -530,6 +548,9 @@ msgstr "エゴンの目がまん丸になる。"
 
 msgid "Egons Laden"
 msgstr "エゴンの店"
+
+msgid "Eigene"
+msgstr "カスタム"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "自分の爆発で回復する"
@@ -780,8 +801,14 @@ msgstr "始まりの残り火"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "爆発する弾、連射が遅い"
 
+msgid "Fadenkreuz"
+msgstr "照準"
+
 msgid "Fahre mit der Maus über ein Item"
 msgstr "アイテムにマウスを合わせる"
+
+msgid "Farbe"
+msgstr "色"
 
 msgid "Feder"
 msgstr "羽根"
@@ -968,6 +995,9 @@ msgstr "幽霊の杖"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "購入！遺物は家の持ち物で待っている。"
+
+msgid "Gelb"
+msgstr "黄"
 
 msgid "Geldbündel: %d Gold"
 msgstr "お金の束:%d ゴールド"
@@ -1266,6 +1296,9 @@ msgstr "火の玉が大きくなり、ダメージ上昇"
 msgid "Größerer Rucksack"
 msgstr "大きなリュック"
 
+msgid "Grün"
+msgstr "緑"
+
 msgid "Grün wie das Moor, nur teurer."
 msgstr "沼のように緑、でもずっと高い。"
 
@@ -1548,6 +1581,9 @@ msgstr "力"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "振るとまだ金切り声を上げる。"
 
+msgid "Kreuz"
+msgstr "十字"
+
 msgid "Kreuzkrabbe"
 msgstr "十字ガニ"
 
@@ -1694,6 +1730,9 @@ msgstr "光の杖"
 
 msgid "Links"
 msgstr "左"
+
+msgid "Länge"
+msgstr "長さ"
 
 msgid "Länger sicher nach einem Treffer"
 msgstr "被弾後の無敵が長い"
@@ -1878,6 +1917,9 @@ msgstr "この探索ではまだアイテムがない。"
 msgid "Noch nicht entdeckt"
 msgstr "未発見"
 
+msgid "Nur Punkt"
+msgstr "ドットのみ"
+
 msgid "Nur für: %s"
 msgstr "専用：%s"
 
@@ -1982,6 +2024,9 @@ msgstr "火薬樽"
 
 msgid "Pulverhandschuh"
 msgstr "火薬の手袋"
+
+msgid "Punkt in der Mitte"
+msgstr "中央のドット"
 
 msgid "Rahmenlos"
 msgstr "ボーダーレス"
@@ -2102,6 +2147,9 @@ msgstr "アザラシの毛皮"
 
 msgid "Robbenmantel"
 msgstr "アザラシのマント"
+
+msgid "Rot"
+msgstr "赤"
 
 msgid "Rot wie Glut."
 msgstr "残り火のように赤い。"
@@ -2595,6 +2643,9 @@ msgstr "星明かりの薬"
 msgid "Steuerung"
 msgstr "操作"
 
+msgid "Stil"
+msgstr "スタイル"
+
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "立ち止まると無敵になる"
 
@@ -2712,6 +2763,9 @@ msgstr "シナジー: %s！"
 msgid "Synergien: %s"
 msgstr "シナジー: %s"
 
+msgid "T-Form (oben offen)"
+msgstr "T字型（上なし）"
+
 msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
 msgstr "ジャーン！新鮮な品物、産地直送…どこかからな。完全に合法だ！"
 
@@ -2792,6 +2846,12 @@ msgstr "薬はここ、足のすぐ横だ。ダンジョンですぐ取り出せ
 
 msgid "Umgebung"
 msgstr "周辺"
+
+msgid "Umriss"
+msgstr "アウトライン"
+
+msgid "Umriss-Dicke"
+msgstr "アウトラインの太さ"
 
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "そしてこれが俺のレバー。自慢の品だ。見てな！"

@@ -39,6 +39,9 @@ msgstr "取消"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "可别就这样去，一件装备都没有。来，先看看我的店。"
 
+msgid "Abstand"
+msgstr "间距"
+
 msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
 msgstr "对了，钥匙！下面能找到，但你一离开地牢它们就会碎掉。"
 
@@ -102,6 +105,9 @@ msgstr "蓄力的巨型余烬撞击并爆炸"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "蓄力后松开：巨大的火焰光束"
 
+msgid "Aus"
+msgstr "关闭"
+
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "逃离地牢？你携带的一切都能带走。"
 
@@ -161,6 +167,9 @@ msgstr "战利品我收：在背包里右键点击，它就到上面我的收购
 
 msgid "Blasebalg"
 msgstr "风箱"
+
+msgid "Blau"
+msgstr "蓝色"
 
 msgid "Blau wie Gletschereis."
 msgstr "蓝得像冰川的冰。"
@@ -255,6 +264,9 @@ msgstr "回旋钩"
 msgid "Chancen auf dem Tisch:"
 msgstr "桌上的概率："
 
+msgid "Cyan"
+msgstr "青色"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "那边就是余烬地牢的入口。有些人甚至还能出来！"
 
@@ -284,6 +296,9 @@ msgstr "这个可穿不了，伙计。相信我，我试过。"
 
 msgid "Das kostet zu viel Leben"
 msgstr "这会消耗太多生命"
+
+msgid "Deckkraft"
+msgstr "不透明度"
 
 msgid "Defensiv"
 msgstr "防御"
@@ -344,6 +359,9 @@ msgstr "钻石之心"
 
 msgid "Dick, weich und eiskalt."
 msgstr "又厚又软，冰冷刺骨。"
+
+msgid "Dicke"
+msgstr "粗细"
 
 msgid "Dicke Haut"
 msgstr "厚皮"
@@ -530,6 +548,9 @@ msgstr "埃贡的眼睛瞪得老大。"
 
 msgid "Egons Laden"
 msgstr "埃贡的商店"
+
+msgid "Eigene"
+msgstr "自定义"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "自己的爆炸会治疗你"
@@ -780,8 +801,14 @@ msgstr "初始余烬"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "爆炸射击，射速变慢"
 
+msgid "Fadenkreuz"
+msgstr "准星"
+
 msgid "Fahre mit der Maus über ein Item"
 msgstr "将鼠标悬停在物品上"
+
+msgid "Farbe"
+msgstr "颜色"
 
 msgid "Feder"
 msgstr "羽毛"
@@ -968,6 +995,9 @@ msgstr "幽灵之杖"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "买下了！遗物在家里的物品栏等你。"
+
+msgid "Gelb"
+msgstr "黄色"
 
 msgid "Geldbündel: %d Gold"
 msgstr "钱袋:%d 金币"
@@ -1266,6 +1296,9 @@ msgstr "火球更大，伤害更高"
 msgid "Größerer Rucksack"
 msgstr "更大的背包"
 
+msgid "Grün"
+msgstr "绿色"
+
 msgid "Grün wie das Moor, nur teurer."
 msgstr "像沼泽一样绿，只是更贵。"
 
@@ -1548,6 +1581,9 @@ msgstr "力量"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "一晃还会尖叫。"
 
+msgid "Kreuz"
+msgstr "十字"
+
 msgid "Kreuzkrabbe"
 msgstr "十字蟹"
 
@@ -1694,6 +1730,9 @@ msgstr "光之杖"
 
 msgid "Links"
 msgstr "左"
+
+msgid "Länge"
+msgstr "长度"
 
 msgid "Länger sicher nach einem Treffer"
 msgstr "受击后安全时间更长"
@@ -1878,6 +1917,9 @@ msgstr "本次冒险还没有物品。"
 msgid "Noch nicht entdeckt"
 msgstr "尚未发现"
 
+msgid "Nur Punkt"
+msgstr "仅圆点"
+
 msgid "Nur für: %s"
 msgstr "仅限：%s"
 
@@ -1982,6 +2024,9 @@ msgstr "火药桶"
 
 msgid "Pulverhandschuh"
 msgstr "火药手套"
+
+msgid "Punkt in der Mitte"
+msgstr "中心点"
 
 msgid "Rahmenlos"
 msgstr "无边框"
@@ -2102,6 +2147,9 @@ msgstr "海豹皮"
 
 msgid "Robbenmantel"
 msgstr "海豹斗篷"
+
+msgid "Rot"
+msgstr "红色"
 
 msgid "Rot wie Glut."
 msgstr "红得像余烬。"
@@ -2595,6 +2643,9 @@ msgstr "星光药水"
 msgid "Steuerung"
 msgstr "操作"
 
+msgid "Stil"
+msgstr "样式"
+
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "静止不动时无敌"
 
@@ -2712,6 +2763,9 @@ msgstr "协同：%s！"
 msgid "Synergien: %s"
 msgstr "协同：%s"
 
+msgid "T-Form (oben offen)"
+msgstr "T 形（上方开口）"
+
 msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
 msgstr "噔噔！新鲜货，直接来自…随便哪儿。完全合法！"
 
@@ -2792,6 +2846,12 @@ msgstr "药水放这儿，就在脚边。在地牢里能马上拿到。"
 
 msgid "Umgebung"
 msgstr "周边"
+
+msgid "Umriss"
+msgstr "轮廓"
+
+msgid "Umriss-Dicke"
+msgstr "轮廓粗细"
 
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "这是我的拉杆。我的骄傲。看好了！"

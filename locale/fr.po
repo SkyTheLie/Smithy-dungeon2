@@ -39,6 +39,9 @@ msgstr "Annuler"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "Mais pas comme ça, sans aucun équipement. Viens, jette d'abord un œil à ma boutique."
 
+msgid "Abstand"
+msgstr "Écart"
+
 msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
 msgstr "Ah oui, les clés ! Tu en trouveras en bas, mais elles se brisent dès que tu quittes le donjon."
 
@@ -102,6 +105,9 @@ msgstr "Les braises géantes chargées s'écrasent et explosent"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Charge, relâche : un rayon de feu colossal"
 
+msgid "Aus"
+msgstr "Désactivé"
+
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "Fuir le donjon ? Tu gardes tout ce que tu portes."
 
@@ -161,6 +167,9 @@ msgstr "Je rachète ton butin : clic droit dans l'inventaire et il arrive en hau
 
 msgid "Blasebalg"
 msgstr "Soufflet"
+
+msgid "Blau"
+msgstr "Bleu"
 
 msgid "Blau wie Gletschereis."
 msgstr "Bleu comme la glace d'un glacier."
@@ -255,6 +264,9 @@ msgstr "Crochet boomerang"
 msgid "Chancen auf dem Tisch:"
 msgstr "Chances sur la table :"
 
+msgid "Cyan"
+msgstr "Cyan"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Là-derrière, c'est l'entrée du Donjon des Braises. Certains en ressortent même !"
 
@@ -284,6 +296,9 @@ msgstr "Ça ne se porte pas, partenaire. Crois-moi, j'ai essayé."
 
 msgid "Das kostet zu viel Leben"
 msgstr "Cela coûte trop de vie"
+
+msgid "Deckkraft"
+msgstr "Opacité"
 
 msgid "Defensiv"
 msgstr "Défensif"
@@ -344,6 +359,9 @@ msgstr "Cœur de diamant"
 
 msgid "Dick, weich und eiskalt."
 msgstr "Épais, doux et glacé."
+
+msgid "Dicke"
+msgstr "Épaisseur"
 
 msgid "Dicke Haut"
 msgstr "Peau épaisse"
@@ -530,6 +548,9 @@ msgstr "Les yeux d'Egon s'écarquillent."
 
 msgid "Egons Laden"
 msgstr "La boutique d'Egon"
+
+msgid "Eigene"
+msgstr "Personnalisée"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Tes propres explosions te soignent"
@@ -780,8 +801,14 @@ msgstr "Braise première"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "Tirs explosifs, cadence plus lente"
 
+msgid "Fadenkreuz"
+msgstr "Réticule"
+
 msgid "Fahre mit der Maus über ein Item"
 msgstr "Survole un objet avec la souris"
+
+msgid "Farbe"
+msgstr "Couleur"
 
 msgid "Feder"
 msgstr "Plume"
@@ -968,6 +995,9 @@ msgstr "Bâton fantôme"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "Acheté ! La relique t'attend dans l'inventaire à la maison."
+
+msgid "Gelb"
+msgstr "Jaune"
 
 msgid "Geldbündel: %d Gold"
 msgstr "Liasse d'argent : %d or"
@@ -1266,6 +1296,9 @@ msgstr "Boules de feu plus grosses, plus de dégâts"
 msgid "Größerer Rucksack"
 msgstr "Sac plus grand"
 
+msgid "Grün"
+msgstr "Vert"
+
 msgid "Grün wie das Moor, nur teurer."
 msgstr "Vert comme le marais, mais plus cher."
 
@@ -1548,6 +1581,9 @@ msgstr "Force"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "Hurle encore quand on la secoue."
 
+msgid "Kreuz"
+msgstr "Croix"
+
 msgid "Kreuzkrabbe"
 msgstr "Crabe Croix"
 
@@ -1694,6 +1730,9 @@ msgstr "Bâton de lumière"
 
 msgid "Links"
 msgstr "Gauche"
+
+msgid "Länge"
+msgstr "Longueur"
 
 msgid "Länger sicher nach einem Treffer"
 msgstr "Plus longtemps à l'abri après un coup"
@@ -1878,6 +1917,9 @@ msgstr "Pas encore d'objets dans cette partie."
 msgid "Noch nicht entdeckt"
 msgstr "Pas encore découvert"
 
+msgid "Nur Punkt"
+msgstr "Point seul"
+
 msgid "Nur für: %s"
 msgstr "Seulement pour : %s"
 
@@ -1982,6 +2024,9 @@ msgstr "Baril de poudre"
 
 msgid "Pulverhandschuh"
 msgstr "Gant à poudre"
+
+msgid "Punkt in der Mitte"
+msgstr "Point central"
 
 msgid "Rahmenlos"
 msgstr "Sans bordure"
@@ -2102,6 +2147,9 @@ msgstr "Fourrure de phoque"
 
 msgid "Robbenmantel"
 msgstr "Cape de phoque"
+
+msgid "Rot"
+msgstr "Rouge"
 
 msgid "Rot wie Glut."
 msgstr "Rouge comme la braise."
@@ -2595,6 +2643,9 @@ msgstr "Breuvage étoilé"
 msgid "Steuerung"
 msgstr "Commandes"
 
+msgid "Stil"
+msgstr "Style"
+
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Rester immobile te rend invulnérable"
 
@@ -2712,6 +2763,9 @@ msgstr "Synergie : %s !"
 msgid "Synergien: %s"
 msgstr "Synergies : %s"
 
+msgid "T-Form (oben offen)"
+msgstr "Forme en T (ouvert en haut)"
+
 msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
 msgstr "Tadaa ! Marchandise fraîche, tout droit de… peu importe. Parfaitement légal !"
 
@@ -2792,6 +2846,12 @@ msgstr "Les potions vont ici, juste à côté des pieds. Comme ça tu les attrap
 
 msgid "Umgebung"
 msgstr "Environs"
+
+msgid "Umriss"
+msgstr "Contour"
+
+msgid "Umriss-Dicke"
+msgstr "Épaisseur du contour"
 
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "Et voici mon levier. Toute ma fierté. Regarde bien !"

@@ -39,6 +39,9 @@ msgstr "لغو"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "ولی نه این‌طوری، بدون هیچ تجهیزاتی. بیا، اول یه نگاهی به مغازه‌ام بنداز."
 
+msgid "Abstand"
+msgstr "فاصله"
+
 msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
 msgstr "آه راستی، کلیدها! آن پایین پیدایشان می‌کنی، ولی به محض اینکه از سیاه‌چال بیرون بیایی می‌شکنند."
 
@@ -102,6 +105,9 @@ msgstr "اخگر عظیم شارژشده فرود می‌آید و منفجر م
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "شارژ کن، رها کن: یک پرتو آتش عظیم"
 
+msgid "Aus"
+msgstr "خاموش"
+
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "از سیاه‌چال فرار کنی؟ هرچه همراهت است را نگه می‌داری."
 
@@ -161,6 +167,9 @@ msgstr "غنیمت را از تو می‌خرم: در کوله راست‌کلی
 
 msgid "Blasebalg"
 msgstr "دم آهنگری"
+
+msgid "Blau"
+msgstr "آبی"
 
 msgid "Blau wie Gletschereis."
 msgstr "آبی مثل یخ یخچال."
@@ -255,6 +264,9 @@ msgstr "قلاب بومرنگی"
 msgid "Chancen auf dem Tisch:"
 msgstr "شانس‌های روی میز:"
 
+msgid "Cyan"
+msgstr "فیروزه‌ای"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "اون پشت راه سیاه‌چال اخگره. بعضی‌ها حتی برمی‌گردن بیرون!"
 
@@ -284,6 +296,9 @@ msgstr "این پوشیدنی نیست، رفیق. باور کن، امتحان 
 
 msgid "Das kostet zu viel Leben"
 msgstr "این زندگی زیادی می‌گیرد"
+
+msgid "Deckkraft"
+msgstr "شفافیت"
 
 msgid "Defensiv"
 msgstr "دفاعی"
@@ -344,6 +359,9 @@ msgstr "قلب الماس"
 
 msgid "Dick, weich und eiskalt."
 msgstr "ضخیم، نرم و یخ‌زده."
+
+msgid "Dicke"
+msgstr "ضخامت"
 
 msgid "Dicke Haut"
 msgstr "پوست کلفت"
@@ -530,6 +548,9 @@ msgstr "چشم‌های اگون گرد می‌شود."
 
 msgid "Egons Laden"
 msgstr "مغازهٔ اگون"
+
+msgid "Eigene"
+msgstr "دلخواه"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "انفجارهای خودت تو را شفا می‌دهند"
@@ -780,8 +801,14 @@ msgstr "نخستین اخگر"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "تیرهای انفجاری، شلیک کندتر"
 
+msgid "Fadenkreuz"
+msgstr "نشانگر"
+
 msgid "Fahre mit der Maus über ein Item"
 msgstr "ماوس را روی یک آیتم ببر"
+
+msgid "Farbe"
+msgstr "رنگ"
 
 msgid "Feder"
 msgstr "پر"
@@ -968,6 +995,9 @@ msgstr "عصای روح"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "خریداری شد! یادگار در خانه در کوله‌پشتی منتظر است."
+
+msgid "Gelb"
+msgstr "زرد"
 
 msgid "Geldbündel: %d Gold"
 msgstr "دسته‌ی پول: %d طلا"
@@ -1266,6 +1296,9 @@ msgstr "گلوله‌های آتشین بزرگ‌تر، آسیب بیشتر"
 msgid "Größerer Rucksack"
 msgstr "کوله‌ی بزرگ‌تر"
 
+msgid "Grün"
+msgstr "سبز"
+
 msgid "Grün wie das Moor, nur teurer."
 msgstr "سبز مثل مرداب، فقط گران‌تر."
 
@@ -1548,6 +1581,9 @@ msgstr "قدرت"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "اگر تکانش بدهی هنوز جیغ می‌کشد."
 
+msgid "Kreuz"
+msgstr "صلیب"
+
 msgid "Kreuzkrabbe"
 msgstr "خرچنگ صلیبی"
 
@@ -1694,6 +1730,9 @@ msgstr "عصای نور"
 
 msgid "Links"
 msgstr "چپ"
+
+msgid "Länge"
+msgstr "طول"
 
 msgid "Länger sicher nach einem Treffer"
 msgstr "بعد از ضربه مدت بیشتری امنی"
@@ -1878,6 +1917,9 @@ msgstr "هنوز در این دور هیچ آیتمی نداری."
 msgid "Noch nicht entdeckt"
 msgstr "هنوز کشف نشده"
 
+msgid "Nur Punkt"
+msgstr "فقط نقطه"
+
 msgid "Nur für: %s"
 msgstr "فقط برای: %s"
 
@@ -1982,6 +2024,9 @@ msgstr "بشکه باروت"
 
 msgid "Pulverhandschuh"
 msgstr "دستکش باروت"
+
+msgid "Punkt in der Mitte"
+msgstr "نقطه وسط"
 
 msgid "Rahmenlos"
 msgstr "بدون حاشیه"
@@ -2102,6 +2147,9 @@ msgstr "پوست فوک"
 
 msgid "Robbenmantel"
 msgstr "ردای فوک"
+
+msgid "Rot"
+msgstr "قرمز"
 
 msgid "Rot wie Glut."
 msgstr "سرخ مثل اخگر."
@@ -2595,6 +2643,9 @@ msgstr "معجون نور ستاره"
 msgid "Steuerung"
 msgstr "کنترل‌ها"
 
+msgid "Stil"
+msgstr "سبک"
+
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "بی‌حرکت ایستادن تو را آسیب‌ناپذیر می‌کند"
 
@@ -2712,6 +2763,9 @@ msgstr "هم‌افزایی: %s!"
 msgid "Synergien: %s"
 msgstr "هم‌افزایی‌ها: %s"
 
+msgid "T-Form (oben offen)"
+msgstr "شکل T (بالا باز)"
+
 msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
 msgstr "تادا! جنس تازه، مستقیم از… هر جا که هست. کاملاً قانونی!"
 
@@ -2792,6 +2846,12 @@ msgstr "معجون‌ها اینجا می‌روند، درست کنار پاه�
 
 msgid "Umgebung"
 msgstr "اطراف"
+
+msgid "Umriss"
+msgstr "حاشیه"
+
+msgid "Umriss-Dicke"
+msgstr "ضخامت حاشیه"
 
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "و این اهرم منه. افتخار من. نگاه کن!"

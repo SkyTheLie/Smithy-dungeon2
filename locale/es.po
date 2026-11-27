@@ -39,6 +39,9 @@ msgstr "Cancelar"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "Pero así no, sin nada de equipo. Ven, mira primero mi tienda."
 
+msgid "Abstand"
+msgstr "Separación"
+
 msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
 msgstr "¡Ah, sí, las llaves! Las encontrarás ahí abajo, pero se rompen en cuanto sales de la mazmorra."
 
@@ -102,6 +105,9 @@ msgstr "Las brasas gigantes cargadas impactan y explotan"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Carga, suelta: un rayo de fuego enorme"
 
+msgid "Aus"
+msgstr "Desactivado"
+
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "¿Huir de la mazmorra? Te llevas todo lo que cargas."
 
@@ -161,6 +167,9 @@ msgstr "Te compro el botín: clic derecho en el inventario y va a mi compra arri
 
 msgid "Blasebalg"
 msgstr "Fuelle"
+
+msgid "Blau"
+msgstr "Azul"
 
 msgid "Blau wie Gletschereis."
 msgstr "Azul como el hielo de un glaciar."
@@ -255,6 +264,9 @@ msgstr "Gancho bumerán"
 msgid "Chancen auf dem Tisch:"
 msgstr "Probabilidades en la mesa:"
 
+msgid "Cyan"
+msgstr "Cian"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Ahí detrás se entra a la Mazmorra de las Brasas. ¡Algunos hasta salen!"
 
@@ -284,6 +296,9 @@ msgstr "Eso no se puede poner, socio. Créeme, lo he intentado."
 
 msgid "Das kostet zu viel Leben"
 msgstr "Eso cuesta demasiada vida"
+
+msgid "Deckkraft"
+msgstr "Opacidad"
 
 msgid "Defensiv"
 msgstr "Defensivo"
@@ -344,6 +359,9 @@ msgstr "Corazón de diamante"
 
 msgid "Dick, weich und eiskalt."
 msgstr "Grueso, suave y helado."
+
+msgid "Dicke"
+msgstr "Grosor"
 
 msgid "Dicke Haut"
 msgstr "Piel gruesa"
@@ -530,6 +548,9 @@ msgstr "A Egon se le ponen los ojos como platos."
 
 msgid "Egons Laden"
 msgstr "La tienda de Egon"
+
+msgid "Eigene"
+msgstr "Personalizado"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Tus propias explosiones te curan"
@@ -780,8 +801,14 @@ msgstr "Brasa primera"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "Disparos explosivos, disparas más lento"
 
+msgid "Fadenkreuz"
+msgstr "Mira"
+
 msgid "Fahre mit der Maus über ein Item"
 msgstr "Pasa el ratón sobre un objeto"
+
+msgid "Farbe"
+msgstr "Color"
 
 msgid "Feder"
 msgstr "Pluma"
@@ -968,6 +995,9 @@ msgstr "Bastón fantasma"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "¡Comprado! La reliquia te espera en el inventario de casa."
+
+msgid "Gelb"
+msgstr "Amarillo"
 
 msgid "Geldbündel: %d Gold"
 msgstr "Fajo de dinero: %d de oro"
@@ -1266,6 +1296,9 @@ msgstr "Bolas de fuego más grandes, más daño"
 msgid "Größerer Rucksack"
 msgstr "Mochila más grande"
 
+msgid "Grün"
+msgstr "Verde"
+
 msgid "Grün wie das Moor, nur teurer."
 msgstr "Verde como el pantano, pero más caro."
 
@@ -1548,6 +1581,9 @@ msgstr "Fuerza"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "Todavía chilla si la sacudes."
 
+msgid "Kreuz"
+msgstr "Cruz"
+
 msgid "Kreuzkrabbe"
 msgstr "Cangrejo Cruz"
 
@@ -1694,6 +1730,9 @@ msgstr "Bastón de luz"
 
 msgid "Links"
 msgstr "Izquierda"
+
+msgid "Länge"
+msgstr "Longitud"
 
 msgid "Länger sicher nach einem Treffer"
 msgstr "Más tiempo a salvo tras un golpe"
@@ -1878,6 +1917,9 @@ msgstr "Aún no hay objetos en esta partida."
 msgid "Noch nicht entdeckt"
 msgstr "Aún no descubierto"
 
+msgid "Nur Punkt"
+msgstr "Solo punto"
+
 msgid "Nur für: %s"
 msgstr "Solo para: %s"
 
@@ -1982,6 +2024,9 @@ msgstr "Barril de pólvora"
 
 msgid "Pulverhandschuh"
 msgstr "Guante de pólvora"
+
+msgid "Punkt in der Mitte"
+msgstr "Punto central"
 
 msgid "Rahmenlos"
 msgstr "Sin bordes"
@@ -2102,6 +2147,9 @@ msgstr "Piel de foca"
 
 msgid "Robbenmantel"
 msgstr "Capa de foca"
+
+msgid "Rot"
+msgstr "Rojo"
 
 msgid "Rot wie Glut."
 msgstr "Rojo como las brasas."
@@ -2595,6 +2643,9 @@ msgstr "Trago estelar"
 msgid "Steuerung"
 msgstr "Controles"
 
+msgid "Stil"
+msgstr "Estilo"
+
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Quedarte quieto te hace invulnerable"
 
@@ -2712,6 +2763,9 @@ msgstr "¡Sinergia: %s!"
 msgid "Synergien: %s"
 msgstr "Sinergias: %s"
 
+msgid "T-Form (oben offen)"
+msgstr "Forma de T (abierta arriba)"
+
 msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
 msgstr "¡Tachán! Mercancía fresca, directa de… donde sea. ¡Todo legal!"
 
@@ -2792,6 +2846,12 @@ msgstr "Las pociones van aquí, junto a los pies. Así las alcanzas rápido en l
 
 msgid "Umgebung"
 msgstr "Alrededores"
+
+msgid "Umriss"
+msgstr "Contorno"
+
+msgid "Umriss-Dicke"
+msgstr "Grosor del contorno"
 
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "Y esta es mi palanca. Mi mayor orgullo. ¡Mira!"
