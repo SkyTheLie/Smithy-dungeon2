@@ -13,7 +13,7 @@ Vorher: offener Stand `feature/rubin-seil-altar` (Seil nach dem ersten Boss, Rub
 | 5 | **3D-Ton:** Geräusche von Gegnern räumlich (Stereo/3D), Musik bleibt mono. | offen |
 | 6 | **Skills einzeln:** jede Stufe ein eigener Skill, untereinander; kauft man den oberen, wird der darunter freigeschaltet. | offen |
 | 7 | **Seil nur nach Boss-Sieg im Boss-Raum**, sonst wie vorher die Treppe/Falltür nach unten. | ✅ erledigt |
-| 8 | **Relikt-Skills:** Skill „Stufe-1-Relikte gehen nicht mehr kaputt“, dann Stufe 2 usw. Skill „Eisenherzen“ entfernen; neuer Skill: 1 blaues Herz zusätzlich. | offen |
+| 8 | **Relikt-Skills:** Skill „Stufe-1-Relikte gehen nicht mehr kaputt“, dann Stufe 2 usw. Skill „Eisenherzen“ entfernen; neuer Skill: 1 blaues Herz zusätzlich. | ✅ erledigt |
 | 9 | **Maus-Empfindlichkeit** als Zahl mit Eingabefeld (Kommazahl), 1 zu 1 wie in Counter-Strike 2. | offen |
 | 10 | **Fadenkreuz** einstellbar (auch aus), Einstellungen wie in CS2 (Länge, Dicke, Abstand, Punkt, Umriss, Farbe). | offen |
 | 11 | **Blickrichtung der Gegner:** Kreis am Boden unter jedem Gegner, ein Viertel gefüllt = Blickrichtung (sieht man, ob man hinter ihm steht). | offen |
@@ -26,6 +26,8 @@ Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 
 ## Erledigt
 
 (neueste oben, mit Branch und Datum)
+
+- **8** · `feature/relikt-skills` · 2026-11-27 · Zähigkeit (Schild-Herzen) raus, neuer Skill Blaues Herz (1 Stufe). Neuer Skill Reliktschutz (4 Stufen): Stufe 1 macht Relikte der Stufe 1 unzerbrechlich, Stufe 2 auch die der Stufe 2 usw.; Relikte der Stufe 1 halten ohne den Skill 5 Dungeons. Im Spiel: Skills → Blaues Herz lernen → im Dungeon ein blaues Herz; Reliktschutz lernen → Relikt-Text sagt „Hält für immer“.
 
 - **1** · `feature/haendler-f` · 2026-11-27 · F beim Händler im Dungeon-Shop öffnet sein Handelsfenster (HUD-Hinweis in der Nähe): Beute verkaufen (Rechtsklick) und ein Relikt kaufen, das dann zu Hause im Inventar liegt. Taste in den Einstellungen änderbar („Reden“). Im Spiel: Ebene 2 → Shop → zum Händler → F → verkaufen, Relikt kaufen → nach dem Run bei Egon im Inventar.
 

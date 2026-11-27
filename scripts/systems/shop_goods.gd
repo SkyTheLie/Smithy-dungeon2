@@ -251,6 +251,12 @@ static func relic_runs(id: String) -> int:
 	return -1 if runs <= 0 else runs
 
 
+## true when `piece` (a relic) never breaks: it holds for ever (left -1), or the skill
+## Reliktschutz (relic_keep_tier) protects its tier.
+static func relic_forever(piece: Dictionary) -> bool:
+	return int(piece.get("left", -1)) < 0 or relic_tier(String(piece.get("id", ""))) <= int(Skills.bonus("relic_keep_tier"))
+
+
 static func relic_rarity(id: String) -> int:
 	return int(_tier(relic_tier(id)).get("rarity", 1))
 

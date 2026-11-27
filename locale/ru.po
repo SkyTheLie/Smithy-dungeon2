@@ -159,6 +159,9 @@ msgstr "Кузнечные мехи"
 msgid "Blau wie Gletschereis."
 msgstr "Синий, как ледниковый лёд."
 
+msgid "Blaues Herz"
+msgstr "Синее сердце"
+
 msgid "Blutphiole"
 msgstr "Флакон крови"
 
@@ -623,6 +626,9 @@ msgstr "Посох с огненным навершием. Для магов."
 
 msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
 msgstr "Волчья шкура, три бомбы, три ключа"
+
+msgid "Ein blaues Herz mehr zu Beginn jedes Runs."
+msgstr "Ещё одно синее сердце в начале каждого забега."
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "Синее сердце и шипы"
@@ -2025,11 +2031,17 @@ msgstr "Реликвии"
 msgid "Relikte & Überleben"
 msgstr "Реликвии и выживание"
 
+msgid "Relikte einer Stufe mehr gehen nie kaputt: erst Stufe 1, dann Stufe 2 und so weiter."
+msgstr "Реликвии ещё одного уровня никогда не ломаются: сначала уровень 1, потом 2 и так далее."
+
 msgid "Relikte: %d %% pro Hebel, Stufen %s"
 msgstr "Реликвии: %d %% за рывок, ступени %s"
 
 msgid "Reliktpflege"
 msgstr "Уход за реликвиями"
+
+msgid "Reliktschutz"
+msgstr "Защита реликвий"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "Пахнет болотом. Навсегда."

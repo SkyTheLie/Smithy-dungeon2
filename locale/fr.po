@@ -159,6 +159,9 @@ msgstr "Soufflet"
 msgid "Blau wie Gletschereis."
 msgstr "Bleu comme la glace d'un glacier."
 
+msgid "Blaues Herz"
+msgstr "Cœur bleu"
+
 msgid "Blutphiole"
 msgstr "Fiole de sang"
 
@@ -623,6 +626,9 @@ msgstr "Une baguette à pointe de feu. Pour les mages."
 
 msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
 msgstr "Une peau de loup, trois bombes, trois clés"
+
+msgid "Ein blaues Herz mehr zu Beginn jedes Runs."
+msgstr "Un cœur bleu de plus au début de chaque partie."
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "Un cœur bleu et des épines"
@@ -2025,11 +2031,17 @@ msgstr "Reliques"
 msgid "Relikte & Überleben"
 msgstr "Reliques et survie"
 
+msgid "Relikte einer Stufe mehr gehen nie kaputt: erst Stufe 1, dann Stufe 2 und so weiter."
+msgstr "Les reliques d'un rang de plus ne se brisent jamais : d'abord le rang 1, puis le 2, etc."
+
 msgid "Relikte: %d %% pro Hebel, Stufen %s"
 msgstr "Reliques : %d %% par levier, niveaux %s"
 
 msgid "Reliktpflege"
 msgstr "Soin des reliques"
+
+msgid "Reliktschutz"
+msgstr "Protection des reliques"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "Sent le marais. Pour toujours."

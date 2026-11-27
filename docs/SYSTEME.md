@@ -344,3 +344,8 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - Steht man im Shop-Raum näher als `talk_distance` am Händler, zeigt das HUD „[F] Mit dem Händler handeln“. F öffnet das Inventar als Handelsfenster: nur dort kauft er Beute (Rechtsklick). Tab im Shop-Raum verkauft nichts mehr.
 - Oben im Handelsfenster bietet er ein **Relikt** an (ein schon gefundenes Item, `ShopGoods.pick_relic`, Preis = Stufen-Preis × `relic_price_mult` × Shop-Faktor), bezahlt mit dem Gold aus der Tasche. Gekauft liegt es sofort zu Hause im Inventar (`MetaState.give_piece`) und bleibt auch beim Tod.
 - Übersetzungs-Skript liest jetzt auch `message.emit("…")` und `show_message("…")`.
+
+## Relikt-Skills, blaues Herz – 2026-11-27
+
+- `data/skills.json`: **Zähigkeit** (Schild-/Eisenherzen) entfernt; an ihrer Stelle **Blaues Herz** (eine Stufe, Effekt `blue_hearts`: ein blaues Herz zu Beginn jedes Runs, `RunState.use_skills`).
+- **Reliktschutz** (4 Stufen, Effekt `relic_keep_tier`): Relikte bis zu dieser Stufe gehen nie kaputt (`ShopGoods.relic_forever`, geprüft in `MetaState._wear_relic`, auch für schon gekaufte Relikte). Dafür hält Stufe 1 jetzt 5 Dungeons (`relics.json`).

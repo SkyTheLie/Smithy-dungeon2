@@ -159,6 +159,9 @@ msgstr "ふいご"
 msgid "Blau wie Gletschereis."
 msgstr "氷河の氷のように青い。"
 
+msgid "Blaues Herz"
+msgstr "青いハート"
+
 msgid "Blutphiole"
 msgstr "血の小瓶"
 
@@ -623,6 +626,9 @@ msgstr "炎の先端を持つ杖。魔法使い用。"
 
 msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
 msgstr "狼の毛皮1つ、爆弾3つ、鍵3つ"
+
+msgid "Ein blaues Herz mehr zu Beginn jedes Runs."
+msgstr "毎回の探索開始時に青いハートが1つ増える。"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "青いハート1つと棘"
@@ -2025,11 +2031,17 @@ msgstr "レリック"
 msgid "Relikte & Überleben"
 msgstr "レリックと生存"
 
+msgid "Relikte einer Stufe mehr gehen nie kaputt: erst Stufe 1, dann Stufe 2 und so weiter."
+msgstr "さらに1段階上の遺物が壊れなくなる。まず段階1、次に段階2…と続く。"
+
 msgid "Relikte: %d %% pro Hebel, Stufen %s"
 msgstr "レリック：レバー1回%d %%、段階 %s"
 
 msgid "Reliktpflege"
 msgstr "レリックの手入れ"
+
+msgid "Reliktschutz"
+msgstr "遺物の守り"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "沼の匂いがする。永遠に。"

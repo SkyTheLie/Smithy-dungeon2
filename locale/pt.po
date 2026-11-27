@@ -159,6 +159,9 @@ msgstr "Fole"
 msgid "Blau wie Gletschereis."
 msgstr "Azul como gelo de geleira."
 
+msgid "Blaues Herz"
+msgstr "Coração azul"
+
 msgid "Blutphiole"
 msgstr "Frasco de sangue"
 
@@ -623,6 +626,9 @@ msgstr "Uma varinha com ponta de fogo. Para magos."
 
 msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
 msgstr "Uma pele de lobo, três bombas, três chaves"
+
+msgid "Ein blaues Herz mehr zu Beginn jedes Runs."
+msgstr "Um coração azul a mais no início de cada partida."
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "Um coração azul e espinhos"
@@ -2025,11 +2031,17 @@ msgstr "Relíquias"
 msgid "Relikte & Überleben"
 msgstr "Relíquias e sobrevivência"
 
+msgid "Relikte einer Stufe mehr gehen nie kaputt: erst Stufe 1, dann Stufe 2 und so weiter."
+msgstr "Relíquias de mais um nível nunca quebram: primeiro o nível 1, depois o 2 e assim por diante."
+
 msgid "Relikte: %d %% pro Hebel, Stufen %s"
 msgstr "Relíquias: %d %% por alavanca, níveis %s"
 
 msgid "Reliktpflege"
 msgstr "Cuidado de relíquias"
+
+msgid "Reliktschutz"
+msgstr "Proteção de relíquias"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "Cheira a pântano. Para sempre."

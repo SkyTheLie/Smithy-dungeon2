@@ -595,13 +595,13 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 
 
 ## A run with the relic on: one run less; at 0 it is broken and gone (broken_relic = its id, for
-## Egon's comment). Relics for ever (left -1) stay.
+## Egon's comment). Relics for ever (left -1) and those Reliktschutz protects stay.
 static func _wear_relic() -> void:
 	var worn: Dictionary = equipment()
 	_write("broken_relic", "")
 	for slot: String in worn.keys():
 		var relic: Dictionary = worn[slot]
-		if not ShopGoods.is_relic(relic) or int(relic.get("left", -1)) < 0:
+		if not ShopGoods.is_relic(relic) or ShopGoods.relic_forever(relic):
 			continue
 		relic["left"] = int(relic["left"]) - 1
 		if int(relic["left"]) <= 0:

@@ -159,6 +159,9 @@ msgstr "Bellows"
 msgid "Blau wie Gletschereis."
 msgstr "Blue as glacier ice."
 
+msgid "Blaues Herz"
+msgstr "Blue Heart"
+
 msgid "Blutphiole"
 msgstr "Blood Vial"
 
@@ -623,6 +626,9 @@ msgstr "A wand with a fiery tip. For mages."
 
 msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
 msgstr "A wolf pelt, three bombs, three keys"
+
+msgid "Ein blaues Herz mehr zu Beginn jedes Runs."
+msgstr "One more blue heart at the start of every run."
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "A blue heart and thorns"
@@ -2025,11 +2031,17 @@ msgstr "Relics"
 msgid "Relikte & Überleben"
 msgstr "Relics & survival"
 
+msgid "Relikte einer Stufe mehr gehen nie kaputt: erst Stufe 1, dann Stufe 2 und so weiter."
+msgstr "Relics of one more tier never break: first tier 1, then tier 2 and so on."
+
 msgid "Relikte: %d %% pro Hebel, Stufen %s"
 msgstr "Relics: %d %% per pull, tiers %s"
 
 msgid "Reliktpflege"
 msgstr "Relic care"
+
+msgid "Reliktschutz"
+msgstr "Relic Guard"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "Smells of bog. Forever."
