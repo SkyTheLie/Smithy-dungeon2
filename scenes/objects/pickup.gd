@@ -103,6 +103,8 @@ func _take() -> bool:
 			run.add_keys(1)
 		LOOT:
 			var left: int = run.add_coins(amount) if material_id == Bag.GOLD else run.bag.add(material_id, amount)
+			if left < amount:
+				run.loot_picked.emit(material_id, amount - left)
 			if left > 0:
 				if left < amount:
 					AudioManager.play_sound("pickup")

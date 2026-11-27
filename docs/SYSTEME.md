@@ -384,3 +384,13 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - `DungeonBoard`: nur Dungeons mit `MetaState.is_dungeon_open` (`open_dungeons()`), dazu der Hinweis, dass der Sieg den nächsten öffnet. Rechts unter der Beschreibung die Gegner des Dungeons (`Content.dungeon_enemies`: Gegner, Start-Gegner und Bosse aller Ebenen, End-Boss) als kleine Bilder (`Content.enemy_icon`: erstes Bild des Sheets), unbekannte als schwarze Silhouette.
 - `Progress.meet_enemy / has_met / met_enemies` (`user://progress.cfg` `enemies`): beim ersten Kill eines Gegners (`Dungeon._on_enemy_died`).
 - `LexiconWindow`: Reiter „Items“ (wie vorher) und „Gegner“ (nach Smithy): Gegner nach Dungeon gruppiert, besiegte mit Bild, Leben, Schaden, Tempo, Boss, Beute (`loot.json` mit Chance) und Fundort; sonst Silhouette und „???“.
+
+## Mehr Rückmeldung in der Oberfläche („Juice“) – 2026-11-27
+
+- **Schadenszahlen** (`Fx.damage_number`, über `Dungeon.on_enemy_damaged` aus `Enemy.take_damage`): Zahl ploppt über dem Gegner auf, steigt und verblasst; starker Treffer (≥ 1,6 × eigener Schaden) groß und gold, Kill orange-rot. Immer lesbar (`no_depth_test`, feste Größe).
+- **Treffer-Marker** am Fadenkreuz (`Crosshair.show_hit`, Signal `Dungeon.enemy_damaged`): kurzes weißes X, rot beim Kill.
+- **Konfetti** beim Tod eines Gegners (`Fx.confetti`, Boss mehr).
+- **Beute-Popups** rechts im HUD: „+2 Rattenfell“ in der Seltenheitsfarbe (`RunState.loot_picked`, aus `Pickup`).
+- **Wenig Leben** (≤ 1 Herz): roter Rand pulsiert wie ein Herzschlag, die Herzen schlagen mit (`Hud._refresh_low_life`).
+- **Knöpfe** (`scripts/core/ui_juice.gd`, von `Game` an jeden neuen Knopf gehängt): wachsen unter der Maus, federn beim Drücken.
+- **End-Bildschirm:** EXP-Balken füllt sich animiert; jede neue Stufe: „Stufe X!“ springt auf, Konfetti, Ton.

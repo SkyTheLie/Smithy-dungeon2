@@ -2712,6 +2712,12 @@ msgstr "Уровень %d · %d этажей"
 msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
 msgstr "Уровень %d · Опыт %s · Очки: %d · Золото: %d"
 
+msgid "Stufe %d · EXP +%d"
+msgstr "Уровень %d · ОПЫТ +%d"
+
+msgid "Stufe %d!"
+msgstr "Уровень %d!"
+
 msgid "Stufe %d/%d"
 msgstr "Уровень %d/%d"
 

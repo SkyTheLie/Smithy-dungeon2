@@ -19,13 +19,15 @@ Vorher: offener Stand `feature/rubin-seil-altar` (Seil nach dem ersten Boss, Rub
 | 11 | **Blickrichtung der Gegner:** Kreis am Boden unter jedem Gegner, ein Viertel gefüllt = Blickrichtung (sieht man, ob man hinter ihm steht). | ✅ erledigt |
 | 12 | **Leveln langsamer:** nach dem ersten Run etwa 80 % Erfahrung zur nächsten Stufe, nach dem zweiten ebenso. **Skill-Baum:** Skills mit Geld rechts (gehen von links nach rechts), Skills nur mit Skill-Punkten links (gehen von rechts nach links). | ✅ erledigt |
 | 13 | **Dungeon-Brett** zeigt nur freigeschaltete Dungeons. **Lexikon** mit Gegnern, beim Dungeon sind seine Gegner aufgelistet (nach dem Lexikon von Smithy). | ✅ erledigt |
-| 14 | **Oberfläche schöner:** bunter, Effekte, „Dopamin“; Vorschläge machen und direkt umsetzen. | offen |
+| 14 | **Oberfläche schöner:** bunter, Effekte, „Dopamin“; Vorschläge machen und direkt umsetzen. | ✅ erledigt |
 
 Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 9, 10, 11, 5, 13, 14 (die große Oberflächen-Aufgabe zuletzt, damit sie alles Neue mit erfasst).
 
 ## Erledigt
 
 (neueste oben, mit Branch und Datum)
+
+- **14** · `feature/ui-juice` · 2026-11-27 · Vorschläge umgesetzt: Schadenszahlen über Gegnern (stark = groß und gold), Treffer-X am Fadenkreuz (rot beim Kill), Konfetti beim Gegner-Tod, Beute-Popups „+2 Rattenfell“ in Seltenheitsfarbe, pulsierender roter Rand bei wenig Leben, federnde Knöpfe überall, animierter EXP-Balken mit „Stufe X!“ und Konfetti auf dem End-Bildschirm. Im Spiel: Gegner treffen/töten, Beute aufheben, auf ein halbes Herz runter, Run beenden.
 
 - **13** · `feature/brett-lexikon` · 2026-11-27 · Dungeon-Brett zeigt nur freigeschaltete Dungeons und darunter die Gegner des Dungeons (bekannte mit Namen, sonst Silhouetten). Lexikon hat jetzt die Reiter Items und Gegner (nach Smithy): Gegner nach Dungeon, nach dem ersten Kill mit Werten, Beute und Fundort. Im Spiel: neues Spiel → Brett zeigt nur Dungeon der Glut; ein paar Gegner besiegen → Hauptmenü → Lexikon → Gegner.
 

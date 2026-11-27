@@ -92,6 +92,73 @@ static func puff(parent: Node3D, at: Vector3, kind: String, size: float) -> void
 	tween.tween_callback(sprite.queue_free)
 
 
+## Colours of the confetti when an enemy dies (and of the level-up burst).
+const CONFETTI_COLORS: Array[Color] = [Color(1.0, 0.35, 0.3), Color(1.0, 0.8, 0.25), Color(0.4, 0.95, 0.45), Color(0.35, 0.75, 1.0), Color(0.85, 0.45, 1.0)]
+
+
+## A number that pops up at `at`, rises and fades: the damage of a hit. `big` (a strong hit) is
+## bigger and golden, `killed` red-orange. Always readable (in front of walls, same size near
+## and far).
+static func damage_number(parent: Node3D, at: Vector3, amount: float, big: bool, killed: bool) -> void:
+	var label := Label3D.new()
+	label.text = str(roundi(amount)) if amount >= 10.0 or is_equal_approx(amount, roundf(amount)) else String.num(amount, 1)
+	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	label.no_depth_test = true
+	label.fixed_size = true
+	label.pixel_size = 0.003
+	label.font_size = 44 if big else 32
+	label.outline_size = 10
+	label.outline_modulate = Color(0.1, 0.03, 0.02)
+	label.modulate = Color(1.0, 0.85, 0.2) if big else (Color(1.0, 0.45, 0.25) if killed else Color(1.0, 1.0, 1.0))
+	label.render_priority = 10
+	label.outline_render_priority = 9
+	parent.add_child(label)
+	var side: float = randf_range(-0.25, 0.25)
+	label.global_position = at + Vector3(side, 0.2, side * 0.5)
+	label.scale = Vector3.ONE * 0.4
+	var tween := label.create_tween()
+	tween.tween_property(label, "scale", Vector3.ONE * (1.25 if big else 1.0), 0.12).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(label, "global_position:y", label.global_position.y + 0.9, 0.7).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.parallel().tween_property(label, "modulate:a", 0.0, 0.3).set_delay(0.4)
+	tween.parallel().tween_property(label, "outline_modulate:a", 0.0, 0.3).set_delay(0.4)
+	tween.tween_callback(label.queue_free)
+
+
+## A short burst of coloured sparks at `at` (an enemy dies): small squares fly out and fall.
+static func confetti(parent: Node3D, at: Vector3, amount: int = 14) -> void:
+	var particles := CPUParticles3D.new()
+	particles.one_shot = true
+	particles.emitting = false
+	particles.amount = amount
+	particles.lifetime = 0.7
+	particles.explosiveness = 0.95
+	particles.direction = Vector3.UP
+	particles.spread = 70.0
+	particles.initial_velocity_min = 2.0
+	particles.initial_velocity_max = 4.0
+	particles.gravity = Vector3(0, -9.0, 0)
+	particles.scale_amount_min = 0.6
+	particles.scale_amount_max = 1.2
+	var mesh := QuadMesh.new()
+	mesh.size = Vector2(0.07, 0.07)
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.vertex_color_use_as_albedo = true
+	material.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+	mesh.material = material
+	particles.mesh = mesh
+	var ramp := Gradient.new()
+	ramp.offsets = PackedFloat32Array([0.0])
+	ramp.colors = PackedColorArray([CONFETTI_COLORS[0]])
+	for i in range(1, CONFETTI_COLORS.size()):
+		ramp.add_point(float(i) / float(CONFETTI_COLORS.size() - 1), CONFETTI_COLORS[i])
+	particles.color_initial_ramp = ramp
+	parent.add_child(particles)
+	particles.global_position = at
+	particles.emitting = true
+	particles.finished.connect(particles.queue_free)
+
+
 ## A red disc on the floor for `time` seconds (where a boss will land).
 static func marker(parent: Node3D, at: Vector3, radius: float, time: float) -> void:
 	var disc := MeshInstance3D.new()
