@@ -9,6 +9,9 @@ msgstr "%d золота"
 msgid "%d Herzen"
 msgstr "%d сердец"
 
+msgid "%d Skillpunkte"
+msgstr "%d очков навыков"
+
 msgid "%s: ab Stufe %d"
 msgstr "%s: с уровня %d"
 
@@ -23,6 +26,9 @@ msgstr "В банке в безопасности на 300 золотых бол
 
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "На 5 % больше шанс на R2 у Эгона."
+
+msgid "Ab Spielerstufe %d"
+msgstr "С уровня игрока %d"
 
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "Теперь на моём столе часто будут зелья. По дружеской цене, разумеется."
@@ -765,6 +771,9 @@ msgstr "Дойди до уровня %d"
 msgid "Erst den Skill davor lernen"
 msgstr "Сначала изучи предыдущий навык"
 
+msgid "Erst die Stufe davor lernen"
+msgstr "Сначала изучи предыдущий уровень"
+
 msgid "Erstglut"
 msgstr "Первый жар"
 
@@ -962,6 +971,9 @@ msgstr "Куплено! Реликвия ждёт дома в инвентаре
 
 msgid "Geldbündel: %d Gold"
 msgstr "Пачка денег: %d золота"
+
+msgid "Gelernt"
+msgstr "Изучено"
 
 msgid "Generalsklinge"
 msgstr "Клинок генерала"
@@ -1526,6 +1538,9 @@ msgstr "Стрелка компаса"
 
 msgid "Kopf"
 msgstr "Голова"
+
+msgid "Kostet: %s"
+msgstr "Стоит: %s"
 
 msgid "Kraft"
 msgstr "Сила"

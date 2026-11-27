@@ -11,7 +11,7 @@ Vorher: offener Stand `feature/rubin-seil-altar` (Seil nach dem ersten Boss, Rub
 | 3 | **Erste Ebene kleiner:** höchstens 6 Räume, davon Boss-Raum und Opfer-Raum. | ✅ erledigt |
 | 4 | **Start-Bildschirm** „Hier klicken“ nur einmal. Spiel → Hauptmenü landet im Hauptmenü ohne die Reingeh-Animation. | ✅ erledigt |
 | 5 | **3D-Ton:** Geräusche von Gegnern räumlich (Stereo/3D), Musik bleibt mono. | offen |
-| 6 | **Skills einzeln:** jede Stufe ein eigener Skill, untereinander; kauft man den oberen, wird der darunter freigeschaltet. | offen |
+| 6 | **Skills einzeln:** jede Stufe ein eigener Skill, untereinander; kauft man den oberen, wird der darunter freigeschaltet. | ✅ erledigt |
 | 7 | **Seil nur nach Boss-Sieg im Boss-Raum**, sonst wie vorher die Treppe/Falltür nach unten. | ✅ erledigt |
 | 8 | **Relikt-Skills:** Skill „Stufe-1-Relikte gehen nicht mehr kaputt“, dann Stufe 2 usw. Skill „Eisenherzen“ entfernen; neuer Skill: 1 blaues Herz zusätzlich. | ✅ erledigt |
 | 9 | **Maus-Empfindlichkeit** als Zahl mit Eingabefeld (Kommazahl), 1 zu 1 wie in Counter-Strike 2. | offen |
@@ -26,6 +26,8 @@ Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 
 ## Erledigt
 
 (neueste oben, mit Branch und Datum)
+
+- **6** · `feature/skills-einzeln` · 2026-11-27 · Jede Skill-Stufe ist ein eigenes Feld; die Stufen stehen untereinander, die nächste geht erst nach der darüber auf. Ketten laufen seitlich. Im Spiel: Laden → Skills → oberste Stufe lernen → die darunter leuchtet golden.
 
 - **8** · `feature/relikt-skills` · 2026-11-27 · Zähigkeit (Schild-Herzen) raus, neuer Skill Blaues Herz (1 Stufe). Neuer Skill Reliktschutz (4 Stufen): Stufe 1 macht Relikte der Stufe 1 unzerbrechlich, Stufe 2 auch die der Stufe 2 usw.; Relikte der Stufe 1 halten ohne den Skill 5 Dungeons. Im Spiel: Skills → Blaues Herz lernen → im Dungeon ein blaues Herz; Reliktschutz lernen → Relikt-Text sagt „Hält für immer“.
 

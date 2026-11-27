@@ -1,20 +1,22 @@
 class_name SkillTree
 extends Control
-## The skill tree picture (after the upgrade tree of Smithy Defense): every skill of
-## data/skills.json is an icon at its `pos` [column, row] (also negative); an L-shaped line joins it
-## to the skill it `requires` (gold once that one is learned). Under each icon: level/max and the
-## price. The frame shows the state: gold (pulsing) = can be learned now, green = fully learned,
-## grey = too dear / level too low, dark = the skill before is missing. The tooltip says everything
-## (what it does, level, gold, skill points, needed player level, what is missing).
-## Groups (skills.json "groups"): a title over each column (Kampf, Rucksack, Relikte & Überleben).
+## The skill tree picture (after the upgrade tree of Smithy Defense). Every LEVEL of a skill of
+## data/skills.json is its own icon: level 1 at the skill's `pos` [column, row] (also negative,
+## also halves), the next levels right below it. A level opens only when the one above it is
+## learned. A skill that `requires` another one hangs beside it: an L-shaped line from level 1 of
+## that skill (gold once it is learned) to level 1 of this one, so the chains run sideways.
+## Under each icon: what that level costs (or a tick when learned). The frame shows the state:
+## gold (pulsing) = can be learned now, green = learned, grey = the next one but too dear / level
+## too low, dark = the level above (or the skill before) is missing. The tooltip says everything.
+## Groups (skills.json "groups"): a title over the skills of a group.
 ## A click sends learn_requested (the window learns it through MetaState). Lies in a PanZoomView
 ## (pull in every direction, wheel zooms): a click that was a drag learns nothing.
 
 signal learn_requested(id: String)
 
-const CELL := Vector2(64, 56)
-const NODE_SIZE := Vector2(30, 30)
-const MARGIN := Vector2(24, 14)
+const CELL := Vector2(52, 42)
+const NODE_SIZE := Vector2(24, 24)
+const MARGIN := Vector2(30, 18)
 const LINE_LIT := Color(0.9, 0.78, 0.3)
 const LINE_DARK := Color(0.4, 0.38, 0.35)
 const LINE_SHADOW := Color(0.08, 0.05, 0.07, 0.9)
@@ -24,9 +26,11 @@ const FRAME_AFFORD := Color(0.95, 0.75, 0.25)
 const FRAME_MAXED := Color(0.4, 0.8, 0.4)
 const FRAME_POOR := Color(0.35, 0.3, 0.3)
 const FRAME_LOCKED := Color(0.18, 0.16, 0.18)
-const LABEL_FONT_SIZE: int = 9
+const LABEL_FONT_SIZE: int = 8
+## Under a learned level instead of its price.
+const LEARNED_MARK: String = "✓"
 
-## [from, to, lit] per line.
+## [points, lit] per line (a polyline).
 var _lines: Array = []
 ## [rect, colour] per icon.
 var _frames: Array = []
@@ -45,37 +49,40 @@ func build() -> void:
 	var last := Vector2(-INF, -INF)
 	var groups: Dictionary = Content.get_file("skills").get("groups", {})
 	for id: String in skills:
-		var cell: Vector2 = _cell(id)
-		first = first.min(cell)
-		last = last.max(cell)
+		first = first.min(_cell(id))
+		last = last.max(_cell(id) + Vector2(0, Skills.max_level(id) - 1))
 	for group: String in groups:
-		var pos: Array = (groups[group] as Dictionary).get("pos", [0, 0])
-		var cell := Vector2(float(pos[0]), float(pos[1]))
+		var cell: Vector2 = _vector((groups[group] as Dictionary).get("pos", [0, 0]))
 		first = first.min(cell)
 		last = last.max(cell)
 	if skills.is_empty():
 		first = Vector2.ZERO
 		last = Vector2.ZERO
-	var centers: Dictionary = {}
+	# Lines first (they lie under the icons), then the icons.
 	for id: String in skills:
-		centers[id] = MARGIN + (_cell(id) - first) * CELL + NODE_SIZE / 2.0
-	for id: String in skills:
+		var top: Vector2 = _center(_cell(id), first)
 		var needed: String = String(Skills.data(id).get("requires", ""))
-		if centers.has(needed):
-			_lines.append([centers[needed], centers[id], MetaState.skill_level(needed) > 0])
-		_add_node(id, centers[id])
+		if skills.has(needed):
+			var from: Vector2 = _center(_cell(needed), first)
+			var mid_x: float = from.x + signf(top.x - from.x) * CELL.x / 2.0
+			_lines.append([PackedVector2Array([from, Vector2(mid_x, from.y), Vector2(mid_x, top.y), top]), MetaState.skill_level(needed) > 0])
+		for level in range(2, Skills.max_level(id) + 1):
+			var above: Vector2 = _center(_cell(id) + Vector2(0, level - 2), first)
+			_lines.append([PackedVector2Array([above, above + Vector2(0, CELL.y)]), MetaState.skill_level(id) >= level - 1])
+	for id: String in skills:
+		for level in range(1, Skills.max_level(id) + 1):
+			_add_node(id, level, _center(_cell(id) + Vector2(0, level - 1), first))
 	for group: String in groups:
 		var data: Dictionary = groups[group]
-		var pos: Array = data.get("pos", [0, 0])
-		var center: Vector2 = MARGIN + (Vector2(float(pos[0]), float(pos[1])) - first) * CELL + NODE_SIZE / 2.0
+		var center: Vector2 = _center(_vector(data.get("pos", [0, 0])), first)
 		var title := Label.new()
 		title.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		title.text = Language.translate(String(data.get("name", group)))
-		title.add_theme_font_size_override("font_size", 12)
+		title.add_theme_font_size_override("font_size", 11)
 		title.add_theme_color_override("font_color", LINE_LIT)
 		title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		title.size = Vector2(CELL.x * 2.0, 16)
-		title.position = center - Vector2(CELL.x, 4)
+		title.size = Vector2(CELL.x * 3.0, 16)
+		title.position = center - Vector2(CELL.x * 1.5, 4)
 		title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(title)
 	custom_minimum_size = MARGIN * 2.0 + (last - first + Vector2.ONE) * CELL
@@ -83,8 +90,16 @@ func build() -> void:
 
 
 func _cell(id: String) -> Vector2:
-	var pos: Array = Skills.data(id).get("pos", [0, 0])
-	return Vector2(float(pos[0]), float(pos[1]))
+	return _vector(Skills.data(id).get("pos", [0, 0]))
+
+
+static func _vector(pos: Variant) -> Vector2:
+	var list: Array = pos if pos is Array else [0, 0]
+	return Vector2(float(list[0]), float(list[1])) if list.size() >= 2 else Vector2.ZERO
+
+
+func _center(cell: Vector2, first: Vector2) -> Vector2:
+	return MARGIN + (cell - first) * CELL + NODE_SIZE / 2.0
 
 
 ## A faint dot grid (so a drag shows movement), the lines, the frames behind the icons.
@@ -93,12 +108,9 @@ func _draw() -> void:
 		for y in range(int(MARGIN.y), int(size.y), int(CELL.y / 2.0)):
 			draw_rect(Rect2(x, y, 1, 1), GRID_DOT)
 	for line: Array in _lines:
-		var from: Vector2 = line[0]
-		var to: Vector2 = line[1]
-		var mid_y: float = (from.y + to.y) / 2.0
-		var points := PackedVector2Array([from, Vector2(from.x, mid_y), Vector2(to.x, mid_y), to])
+		var points: PackedVector2Array = line[0]
 		draw_polyline(points, LINE_SHADOW, 4.0)
-		draw_polyline(points, LINE_LIT if line[2] else LINE_DARK, 2.0)
+		draw_polyline(points, LINE_LIT if line[1] else LINE_DARK, 2.0)
 	var pulse: float = 0.5 + 0.5 * sin(_pulse_time * 4.0)
 	for frame: Array in _frames:
 		var rect: Rect2 = frame[0]
@@ -115,10 +127,11 @@ func _process(delta: float) -> void:
 		queue_redraw()
 
 
-func _add_node(id: String, center: Vector2) -> void:
+## One icon: level `level` of skill `id`.
+func _add_node(id: String, level: int, center: Vector2) -> void:
 	var data: Dictionary = Skills.data(id)
 	var button := Button.new()
-	button.name = "Skill_" + id
+	button.name = "Skill_%s_%d" % [id, level]
 	button.position = center - NODE_SIZE / 2.0
 	button.size = NODE_SIZE
 	button.custom_minimum_size = NODE_SIZE
@@ -132,19 +145,17 @@ func _add_node(id: String, center: Vector2) -> void:
 	var info := Label.new()
 	info.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	info.add_theme_font_size_override("font_size", LABEL_FONT_SIZE)
+	info.add_theme_color_override("font_outline_color", Color.BLACK)
+	info.add_theme_constant_override("outline_size", 2)
 	info.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	info.size = Vector2(CELL.x, 12)
-	info.position = Vector2(center.x - CELL.x / 2.0, center.y + NODE_SIZE.y / 2.0 + 2.0)
+	info.size = Vector2(CELL.x, 10)
+	info.position = Vector2(center.x - CELL.x / 2.0, center.y + NODE_SIZE.y / 2.0 + 1.0)
 	info.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(info)
-	var level: int = MetaState.skill_level(id)
-	var gold: int = Skills.next_gold(id)
-	info.text = "%d/%d" % [level, Skills.max_level(id)]
-	if gold >= 0:
-		info.text += " · %d" % gold
-	button.tooltip_text = describe(id)
+	info.text = LEARNED_MARK if level <= MetaState.skill_level(id) else cost_text(id, level)
+	button.tooltip_text = describe(id, level)
 	var frame := Rect2(button.position, NODE_SIZE).grow(FRAME_GROW)
-	var problem: String = Skills.problem(id)
+	var problem: String = level_problem(id, level)
 	if problem == "Voll ausgebaut":
 		button.modulate = Color(0.65, 1.0, 0.65)
 		info.modulate = FRAME_MAXED
@@ -154,8 +165,8 @@ func _add_node(id: String, center: Vector2) -> void:
 		info.modulate = Color(1.0, 0.9, 0.55)
 		_frames.append([frame, FRAME_AFFORD])
 		_any_affordable = true
-	elif problem == "Erst den Skill davor lernen":
-		button.modulate = Color(0.45, 0.45, 0.45)
+	elif problem == "Erst den Skill davor lernen" or problem == "Erst die Stufe davor lernen":
+		button.modulate = Color(0.4, 0.4, 0.4)
 		info.modulate = Color(0.5, 0.48, 0.45)
 		_frames.append([frame, FRAME_LOCKED])
 	else:
@@ -164,14 +175,46 @@ func _add_node(id: String, center: Vector2) -> void:
 		_frames.append([frame, FRAME_POOR])
 
 
-## Tooltip of a skill: name, what it does, level, the next level's price and needs, what is missing.
-static func describe(id: String) -> String:
+## Why level `level` of `id` cannot be learned now ("" = it can; "Voll ausgebaut" = learned).
+static func level_problem(id: String, level: int) -> String:
+	var learned: int = MetaState.skill_level(id)
+	if level <= learned:
+		return "Voll ausgebaut"
+	if level > learned + 1:
+		return "Erst die Stufe davor lernen"
+	return Skills.problem(id)
+
+
+## The price under an icon: gold (G) and / or skill points (P) of that level.
+static func cost_text(id: String, level: int) -> String:
+	var parts: Array[String] = []
+	if Skills.gold_at(id, level) > 0:
+		parts.append("%dG" % Skills.gold_at(id, level))
+	if Skills.points_at(id, level) > 0:
+		parts.append("%dP" % Skills.points_at(id, level))
+	return " ".join(parts)
+
+
+## Tooltip of one level (-1 = the next one): name and level, what it does, its price and needs,
+## what is missing.
+static func describe(id: String, level: int = -1) -> String:
 	var data: Dictionary = Skills.data(id)
-	var lines: Array[String] = [Language.translate(String(data.get("name", id))), Language.translate(String(data.get("desc", ""))),
-			Language.translate("Stufe %d/%d") % [MetaState.skill_level(id), Skills.max_level(id)]]
-	var problem: String = Skills.problem(id)
-	if problem != "Voll ausgebaut":
-		lines.append(Language.translate("Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d") % [Skills.next_gold(id), Skills.next_points(id), Skills.next_min_level(id)])
+	if level < 1:
+		level = mini(MetaState.skill_level(id) + 1, Skills.max_level(id))
+	var lines: Array[String] = [
+		"%s · %s" % [Language.translate(String(data.get("name", id))), Language.translate("Stufe %d/%d") % [level, Skills.max_level(id)]],
+		Language.translate(String(data.get("desc", "")))]
+	var problem: String = level_problem(id, level)
+	if problem == "Voll ausgebaut":
+		lines.append(Language.translate("Gelernt"))
+		return "\n".join(lines)
+	var cost: Array[String] = []
+	if Skills.gold_at(id, level) > 0:
+		cost.append(Language.translate("%d Gold") % Skills.gold_at(id, level))
+	if Skills.points_at(id, level) > 0:
+		cost.append(Language.translate("%d Skillpunkte") % Skills.points_at(id, level))
+	lines.append(Language.translate("Kostet: %s") % ", ".join(cost))
+	lines.append(Language.translate("Ab Spielerstufe %d") % Skills.min_level_at(id, level))
 	var needed: String = String(data.get("requires", ""))
 	if problem == "Erst den Skill davor lernen":
 		lines.append(Language.translate("Braucht: %s") % Language.translate(String(Skills.data(needed).get("name", needed))))
@@ -187,6 +230,7 @@ static func _problem_text(problem: String) -> String:
 		"Stufe zu niedrig": return Language.translate("Stufe zu niedrig")
 		"Zu wenig Skillpunkte": return Language.translate("Zu wenig Skillpunkte")
 		"Zu wenig Gold": return Language.translate("Zu wenig Gold")
+		"Erst die Stufe davor lernen": return Language.translate("Erst die Stufe davor lernen")
 	return Language.translate("Erst den Skill davor lernen")
 
 

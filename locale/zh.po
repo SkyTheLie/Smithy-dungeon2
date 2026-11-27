@@ -9,6 +9,9 @@ msgstr "%d金币"
 msgid "%d Herzen"
 msgstr "%d颗心"
 
+msgid "%d Skillpunkte"
+msgstr "%d 技能点"
+
 msgid "%s: ab Stufe %d"
 msgstr "%s：%d级起"
 
@@ -23,6 +26,9 @@ msgstr "罐子里安全的金币多300。"
 
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "在埃贡那里出现R2的几率提高5 %。"
+
+msgid "Ab Spielerstufe %d"
+msgstr "玩家等级 %d 起"
 
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "从现在起我桌上会常有药水。当然是友情价。"
@@ -765,6 +771,9 @@ msgstr "到达第%d层"
 msgid "Erst den Skill davor lernen"
 msgstr "先学习前一个技能"
 
+msgid "Erst die Stufe davor lernen"
+msgstr "请先学习上一级"
+
 msgid "Erstglut"
 msgstr "初始余烬"
 
@@ -962,6 +971,9 @@ msgstr "买下了！遗物在家里的物品栏等你。"
 
 msgid "Geldbündel: %d Gold"
 msgstr "钱袋:%d 金币"
+
+msgid "Gelernt"
+msgstr "已学会"
 
 msgid "Generalsklinge"
 msgstr "将军之刃"
@@ -1526,6 +1538,9 @@ msgstr "罗盘指针"
 
 msgid "Kopf"
 msgstr "头部"
+
+msgid "Kostet: %s"
+msgstr "花费：%s"
 
 msgid "Kraft"
 msgstr "力量"

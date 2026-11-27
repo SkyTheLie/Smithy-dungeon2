@@ -30,6 +30,19 @@ static func _per_level(id: String, key: String, level: int) -> int:
 	return int(values[clampi(level - 1, 0, values.size() - 1)])
 
 
+## Gold, skill points and player level that level `level` (1 = the first) of `id` needs.
+static func gold_at(id: String, level: int) -> int:
+	return _per_level(id, "gold", level)
+
+
+static func points_at(id: String, level: int) -> int:
+	return _per_level(id, "points", level)
+
+
+static func min_level_at(id: String, level: int) -> int:
+	return _per_level(id, "min_level", level)
+
+
 ## What the next level of `id` costs (-1 = fully learned).
 static func next_gold(id: String) -> int:
 	var level: int = MetaState.skill_level(id)

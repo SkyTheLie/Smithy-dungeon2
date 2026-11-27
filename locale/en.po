@@ -9,6 +9,9 @@ msgstr "%d gold"
 msgid "%d Herzen"
 msgstr "%d hearts"
 
+msgid "%d Skillpunkte"
+msgstr "%d skill points"
+
 msgid "%s: ab Stufe %d"
 msgstr "%s: from level %d"
 
@@ -23,6 +26,9 @@ msgstr "300 more gold is safe in the can."
 
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "5 % more chance of R2 at Egon's."
+
+msgid "Ab Spielerstufe %d"
+msgstr "From player level %d"
 
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "From now on there'll often be potions on my table. At a friendship price, of course."
@@ -765,6 +771,9 @@ msgstr "Reach floor %d"
 msgid "Erst den Skill davor lernen"
 msgstr "Learn the skill before it first"
 
+msgid "Erst die Stufe davor lernen"
+msgstr "Learn the level above first"
+
 msgid "Erstglut"
 msgstr "First Ember"
 
@@ -962,6 +971,9 @@ msgstr "Bought! The relic is waiting in your inventory at home."
 
 msgid "Geldbündel: %d Gold"
 msgstr "Money bundle: %d gold"
+
+msgid "Gelernt"
+msgstr "Learned"
 
 msgid "Generalsklinge"
 msgstr "General's Blade"
@@ -1526,6 +1538,9 @@ msgstr "Compass Needle"
 
 msgid "Kopf"
 msgstr "Head"
+
+msgid "Kostet: %s"
+msgstr "Costs: %s"
 
 msgid "Kraft"
 msgstr "Strength"

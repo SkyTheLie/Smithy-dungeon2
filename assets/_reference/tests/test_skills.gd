@@ -104,11 +104,24 @@ func _window() -> void:
 	window.call("open")
 	await process_frame
 	var tree: Control = window.call("get_tree_view")
-	var button: Button = tree.find_child("Skill_leichtfuss", true, false)
-	check(button != null, "every skill has a button in the tree")
-	check(button.tooltip_text.contains("Leichtfuß"), "the tooltip names it")
 	var before: int = meta.call("skill_level", "leichtfuss")
+	for level in range(1, 4):
+		check(tree.find_child("Skill_leichtfuss_%d" % level, true, false) != null, "every level of a skill is its own button (%d)" % level)
+	check(tree.find_child("Skill_leichtfuss_4", true, false) == null, "no more than max_level")
+	var button: Button = tree.find_child("Skill_leichtfuss_%d" % (before + 1), true, false)
+	check(button != null and button.tooltip_text.contains("Leichtfuß"), "the tooltip names it")
+	var top: Button = tree.find_child("Skill_leichtfuss_1", true, false)
+	var below: Button = tree.find_child("Skill_leichtfuss_2", true, false)
+	check(below.position.y > top.position.y and is_equal_approx(below.position.x, top.position.x), "the levels stand under each other")
+	var kraft: Button = tree.find_child("Skill_kraft_1", true, false)
+	check(not is_equal_approx(kraft.position.x, top.position.x) and is_equal_approx(kraft.position.y, top.position.y), "the next skill of a chain stands beside it")
+	if before + 2 <= 3:
+		var later: Button = tree.find_child("Skill_leichtfuss_%d" % (before + 2), true, false)
+		check_eq(script("res://scenes/shop/skill_tree.gd").call("level_problem", "leichtfuss", before + 2), "Erst die Stufe davor lernen", "the level below waits for the one above")
+		later.pressed.emit()
+		await process_frame
+		check_eq(meta.call("skill_level", "leichtfuss"), before, "a click on a locked level learns nothing")
 	button.pressed.emit()
 	await process_frame
-	check_eq(meta.call("skill_level", "leichtfuss"), before + 1, "a click on a gold frame learns it")
+	check_eq(meta.call("skill_level", "leichtfuss"), before + 1, "a click on the next level (gold frame) learns it")
 	window.queue_free()

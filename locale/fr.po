@@ -9,6 +9,9 @@ msgstr "%d or"
 msgid "%d Herzen"
 msgstr "%d cœurs"
 
+msgid "%d Skillpunkte"
+msgstr "%d points de compétence"
+
 msgid "%s: ab Stufe %d"
 msgstr "%s : dès le niveau %d"
 
@@ -23,6 +26,9 @@ msgstr "300 pièces d'or de plus sont en sécurité dans la boîte."
 
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "5 % de chance en plus d'avoir du R2 chez Egon."
+
+msgid "Ab Spielerstufe %d"
+msgstr "À partir du niveau %d"
 
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "Désormais, il y aura souvent des potions sur ma table. Au prix d'ami, bien sûr."
@@ -765,6 +771,9 @@ msgstr "Atteins l'étage %d"
 msgid "Erst den Skill davor lernen"
 msgstr "Apprends d'abord la compétence précédente"
 
+msgid "Erst die Stufe davor lernen"
+msgstr "Apprends d'abord le niveau précédent"
+
 msgid "Erstglut"
 msgstr "Braise première"
 
@@ -962,6 +971,9 @@ msgstr "Acheté ! La relique t'attend dans l'inventaire à la maison."
 
 msgid "Geldbündel: %d Gold"
 msgstr "Liasse d'argent : %d or"
+
+msgid "Gelernt"
+msgstr "Appris"
 
 msgid "Generalsklinge"
 msgstr "Lame du général"
@@ -1526,6 +1538,9 @@ msgstr "Aiguille de boussole"
 
 msgid "Kopf"
 msgstr "Tête"
+
+msgid "Kostet: %s"
+msgstr "Coût : %s"
 
 msgid "Kraft"
 msgstr "Force"

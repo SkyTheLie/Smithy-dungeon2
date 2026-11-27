@@ -9,6 +9,9 @@ msgstr "%dゴールド"
 msgid "%d Herzen"
 msgstr "ハート%d個"
 
+msgid "%d Skillpunkte"
+msgstr "スキルポイント %d"
+
 msgid "%s: ab Stufe %d"
 msgstr "%s：レベル%dから"
 
@@ -23,6 +26,9 @@ msgstr "缶の中で安全な金が300増える。"
 
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "エゴンの店でR2が出る確率が5 %アップ。"
+
+msgid "Ab Spielerstufe %d"
+msgstr "プレイヤーレベル %d から"
 
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "これからは机によく薬が並ぶぞ。もちろん友達価格でな。"
@@ -765,6 +771,9 @@ msgstr "%d階に到達する"
 msgid "Erst den Skill davor lernen"
 msgstr "先に前のスキルを習得"
 
+msgid "Erst die Stufe davor lernen"
+msgstr "先に前の段階を習得しよう"
+
 msgid "Erstglut"
 msgstr "始まりの残り火"
 
@@ -962,6 +971,9 @@ msgstr "購入！遺物は家の持ち物で待っている。"
 
 msgid "Geldbündel: %d Gold"
 msgstr "お金の束:%d ゴールド"
+
+msgid "Gelernt"
+msgstr "習得済み"
 
 msgid "Generalsklinge"
 msgstr "将軍の刃"
@@ -1526,6 +1538,9 @@ msgstr "羅針盤の針"
 
 msgid "Kopf"
 msgstr "頭"
+
+msgid "Kostet: %s"
+msgstr "コスト: %s"
 
 msgid "Kraft"
 msgstr "力"
