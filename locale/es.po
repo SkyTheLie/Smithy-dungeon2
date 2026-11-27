@@ -489,6 +489,9 @@ msgstr "El arma del guerrero: un tajo golpea a todos frente a ti"
 msgid "Die Waffe des Magiers: schießt Feuerbälle"
 msgstr "El arma del mago: dispara bolas de fuego"
 
+msgid "Diebeshand"
+msgstr "Mano de ladrón"
+
 msgid "Dietrich"
 msgstr "Ganzúa"
 
@@ -900,6 +903,9 @@ msgstr "Mineral de hierro"
 msgid "Eisenhaut"
 msgstr "Piel de hierro"
 
+msgid "Eisenschuh"
+msgstr "Zapato de hierro"
+
 msgid "Eisfeder"
 msgstr "Pluma de hielo"
 
@@ -1028,6 +1034,9 @@ msgstr "Capa de liquen"
 
 msgid "Fledermaus"
 msgstr "Murciélago"
+
+msgid "Flinke Hand"
+msgstr "Mano rápida"
 
 msgid "Flinke Hände"
 msgstr "Manos rápidas"
@@ -1340,6 +1349,9 @@ msgstr "Lino de la suerte"
 
 msgid "Glückspilz"
 msgstr "Afortunado"
+
+msgid "Glücksschuh"
+msgstr "Zapato de la suerte"
 
 msgid "Glühender Schlüssel"
 msgstr "Llave ardiente"
@@ -1716,8 +1728,14 @@ msgstr "Manzanilla"
 msgid "Kampf"
 msgstr "Combate"
 
+msgid "Kampfhand"
+msgstr "Puño de pelea"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Ahora puede aparecer en la mazmorra"
+
+msgid "Kapuze"
+msgstr "Capucha"
 
 msgid "Karawanen-Rucksack"
 msgstr "Mochila de caravana"
@@ -1941,6 +1959,9 @@ msgstr "Madera de vida"
 msgid "Lebenstau"
 msgstr "Rocío vital"
 
+msgid "Leder"
+msgstr "Cuero"
+
 msgid "Lederstiefel"
 msgstr "Botas de cuero"
 
@@ -1955,6 +1976,9 @@ msgstr "Guantes legendarios"
 
 msgid "Legendär"
 msgstr "Legendario"
+
+msgid "Leicht"
+msgstr "Ligero"
 
 msgid "Leicht und schnell."
 msgstr "Ligeras y rápidas."
@@ -2283,6 +2307,9 @@ msgstr "Hoja de platino"
 msgid "Platinspitze"
 msgstr "Punta de platino"
 
+msgid "Platte"
+msgstr "Placas"
+
 msgid "Pocht leise. Besser nicht drüber nachdenken."
 msgstr "Late suavemente. Mejor no pensarlo."
 
@@ -2429,6 +2456,9 @@ msgstr "Piel de foca"
 
 msgid "Robbenmantel"
 msgstr "Capa de foca"
+
+msgid "Robe"
+msgstr "Túnica"
 
 msgid "Rot"
 msgstr "Rojo"
@@ -2682,6 +2712,9 @@ msgstr "Cristal negro"
 msgid "Schwarzwolf"
 msgstr "Lobo negro"
 
+msgid "Schwer"
+msgstr "Pesado"
+
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "Pesado y amarillo. A todo mercader le gusta."
 
@@ -2921,6 +2954,9 @@ msgstr "Saco explosivo"
 
 msgid "Sprengstrahl"
 msgstr "Rayo explosivo"
+
+msgid "Sprint"
+msgstr "Carrera"
 
 msgid "Sprinterrucksack"
 msgstr "Mochila de velocista"
@@ -3273,6 +3309,9 @@ msgstr "Muchas chispas rastreadoras a la vez"
 msgid "Vier Schlüssel"
 msgstr "Cuatro llaves"
 
+msgid "Visier"
+msgstr "Visera"
+
 msgid "Voll ausgebaut"
 msgstr "Al máximo"
 
@@ -3323,6 +3362,9 @@ msgstr "¡Al Pico Helado! Abrígate. Casualmente tengo abrigos."
 
 msgid "Weiterkämpfen"
 msgstr "Seguir luchando"
+
+msgid "Weitreichend"
+msgstr "De largo alcance"
 
 msgid "Weltenstab"
 msgstr "Bastón del mundo"

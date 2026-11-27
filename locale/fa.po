@@ -489,6 +489,9 @@ msgstr "سلاح جنگجو: یک ضربه‌ی شمشیر به همه‌ی جل
 msgid "Die Waffe des Magiers: schießt Feuerbälle"
 msgstr "سلاح جادوگر: گلوله‌های آتشین شلیک می‌کند"
 
+msgid "Diebeshand"
+msgstr "دست دزد"
+
 msgid "Dietrich"
 msgstr "شاه‌کلید"
 
@@ -900,6 +903,9 @@ msgstr "سنگ آهن"
 msgid "Eisenhaut"
 msgstr "پوست آهنین"
 
+msgid "Eisenschuh"
+msgstr "کفش آهنی"
+
 msgid "Eisfeder"
 msgstr "پر یخی"
 
@@ -1028,6 +1034,9 @@ msgstr "ردای گلسنگ"
 
 msgid "Fledermaus"
 msgstr "خفاش"
+
+msgid "Flinke Hand"
+msgstr "دست چابک"
 
 msgid "Flinke Hände"
 msgstr "دست‌های فرز"
@@ -1340,6 +1349,9 @@ msgstr "کتان شانس"
 
 msgid "Glückspilz"
 msgstr "خوش‌شانس"
+
+msgid "Glücksschuh"
+msgstr "کفش شانس"
 
 msgid "Glühender Schlüssel"
 msgstr "کلید گداخته"
@@ -1716,8 +1728,14 @@ msgstr "بابونه"
 msgid "Kampf"
 msgstr "نبرد"
 
+msgid "Kampfhand"
+msgstr "دست جنگجو"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "از حالا ممکن است در سیاه‌چال پیدا شود"
+
+msgid "Kapuze"
+msgstr "کلاه‌شنل"
 
 msgid "Karawanen-Rucksack"
 msgstr "کولهٔ کاروانی"
@@ -1941,6 +1959,9 @@ msgstr "چوب زندگی"
 msgid "Lebenstau"
 msgstr "شبنم زندگی"
 
+msgid "Leder"
+msgstr "چرمی"
+
 msgid "Lederstiefel"
 msgstr "چکمه چرمی"
 
@@ -1955,6 +1976,9 @@ msgstr "دستکش افسانه‌ای"
 
 msgid "Legendär"
 msgstr "افسانه‌ای"
+
+msgid "Leicht"
+msgstr "سبک"
 
 msgid "Leicht und schnell."
 msgstr "سبک و سریع."
@@ -2283,6 +2307,9 @@ msgstr "تیغ پلاتینی"
 msgid "Platinspitze"
 msgstr "نوک پلاتینی"
 
+msgid "Platte"
+msgstr "زره صفحه‌ای"
+
 msgid "Pocht leise. Besser nicht drüber nachdenken."
 msgstr "آرام می‌تپد. بهتر است فکرش را نکنی."
 
@@ -2429,6 +2456,9 @@ msgstr "پوست فوک"
 
 msgid "Robbenmantel"
 msgstr "ردای فوک"
+
+msgid "Robe"
+msgstr "ردا"
 
 msgid "Rot"
 msgstr "قرمز"
@@ -2682,6 +2712,9 @@ msgstr "بلور سیاه"
 msgid "Schwarzwolf"
 msgstr "گرگ سیاه"
 
+msgid "Schwer"
+msgstr "سنگین"
+
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "سنگین و زرد. هر فروشنده‌ای دوستش دارد."
 
@@ -2921,6 +2954,9 @@ msgstr "کیسه مواد منفجره"
 
 msgid "Sprengstrahl"
 msgstr "پرتو انفجاری"
+
+msgid "Sprint"
+msgstr "دوندگی"
 
 msgid "Sprinterrucksack"
 msgstr "کوله دونده"
@@ -3273,6 +3309,9 @@ msgstr "جرقه‌های جوینده‌ی زیاد با هم"
 msgid "Vier Schlüssel"
 msgstr "چهار کلید"
 
+msgid "Visier"
+msgstr "نقاب"
+
 msgid "Voll ausgebaut"
 msgstr "کاملاً آموخته شده"
 
@@ -3323,6 +3362,9 @@ msgstr "به‌سوی قلهٔ یخ! گرم بپوش. اتفاقاً پالتو 
 
 msgid "Weiterkämpfen"
 msgstr "ادامه‌ی نبرد"
+
+msgid "Weitreichend"
+msgstr "دوربرد"
 
 msgid "Weltenstab"
 msgstr "عصای جهان"

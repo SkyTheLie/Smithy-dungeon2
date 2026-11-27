@@ -8,7 +8,7 @@ Texts it finds by itself:
   - "text" and "title" of Labels/Buttons in .tscn files (only those with auto translate on)
   - Language.translate("..."), message.emit("...") and show_message("...") in .gd files
   - "name" and "desc" in data/items.json, data/synergies.json, data/enemies.json, data/characters.json, materials in data/loot.json, theme "name" in floors.json,
-    "name"/"region"/"desc" in data/dungeons.json, gear and slot names in data/gear.json,
+    "name"/"region"/"desc" in data/dungeons.json, gear, slot and Bauart names in data/gear.json,
     every line in data/story.json, skill names in data/skills.json, potions in data/potions.json,
     quests and Egon's places in data/quests.json, backpacks in data/backpacks.json,
     achievements in data/achievements.json
@@ -77,6 +77,11 @@ def find_texts():
             for field in ("name", "desc"):
                 if entry.get(field):
                     texts.add(entry[field])
+    # Bauarten (types per slot): their names.
+    for slot_types in gear.get("types", {}).values():
+        for entry in slot_types.values():
+            if entry.get("name"):
+                texts.add(entry["name"])
     skills = json.load(open(os.path.join(data, "skills.json"), encoding="utf-8"))
     for entry in skills.get("groups", {}).values():
         texts.add(entry["name"])

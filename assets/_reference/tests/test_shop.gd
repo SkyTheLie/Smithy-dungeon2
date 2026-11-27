@@ -16,6 +16,7 @@ func run() -> void:
 	_buy_and_equip()
 	_tutorial_and_new_day()
 	_gear_in_run()
+	_types()
 	_relics()
 	_selling()
 	_admin()
@@ -140,6 +141,66 @@ func _gear_in_run() -> void:
 	check_eq(dressed.get("shield"), 0, "the last half shield heart is gone")
 	check_eq(dressed.get("health"), health - 1, "the rest of the hit goes to the red hearts")
 	check(not dressed.call("heal", 0) and dressed.get("shield") == 0, "shield hearts are not healed")
+
+
+## Bauarten (gear.json types): every slot has normal plus types with a pro and a con; the table
+## rolls them, buying and wearing keep them, the run gets their values.
+func _types() -> void:
+	var content: Script = script("res://scripts/core/content.gd")
+	var all: Dictionary = (content.call("get_file", "gear") as Dictionary).get("types", {})
+	for slot: String in (content.call("gear_slots") as Dictionary):
+		check((all.get(slot, {}) as Dictionary).has("normal"), "slot %s has the normal Bauart" % slot)
+		for type: String in (all.get(slot, {}) as Dictionary):
+			var data: Dictionary = all[slot][type]
+			check(float(data.get("weight", 0)) > 0.0, "%s/%s has a weight" % [slot, type])
+			if type != "normal":
+				check(not String(data.get("name", "")).is_empty(), "%s/%s has a name" % [slot, type])
+				var plus: bool = false
+				var minus: bool = false
+				for key: String in (data.get("mult", {}) as Dictionary):
+					plus = plus or float(data["mult"][key]) > 1.0
+					minus = minus or float(data["mult"][key]) < 1.0
+				for key: String in (data.get("stats", {}) as Dictionary):
+					var value: float = float(data["stats"][key])
+					# A shorter pause between shots (fire_delay_mult < 1) is a pro.
+					var good: bool = value < 1.0 if key == "fire_delay_mult" else value > 0.0
+					plus = plus or good
+					minus = minus or not good
+				check(plus and minus, "%s/%s has a pro and a con" % [slot, type])
+	# Values: a heavy iron staff hits harder but shoots slower; sprint boots cost shield.
+	var heavy: Dictionary = goods.call("stats", "iron_staff", 1, "heavy")
+	check(is_equal_approx(float(heavy["damage"]), 0.8 * 1.6), "heavy: damage x 1.6")
+	check(float(heavy["fire_delay_mult"]) > 1.0, "heavy: a longer pause between shots")
+	var sprint: Dictionary = goods.call("stats", "copper_boots", 2, "sprint")
+	check(is_equal_approx(float(sprint["move_speed"]), 0.2 * 2.2 * 1.25), "sprint: speed x 2.2, grows with the rarity")
+	check(is_equal_approx(float(sprint["shield_hearts"]), -0.5), "sprint: half a shield heart less (does not grow)")
+	check_eq(goods.call("stats", "copper_staff", 1, ""), goods.call("stats", "copper_staff", 1, "normal"), "no type = normal")
+	# The table rolls types; buying keeps the type.
+	meta.call("start_new")
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 21
+	var seen: Dictionary = {}
+	for i in 200:
+		seen[goods.call("pick_type", "iron_chest", rng)] = true
+	check(seen.size() == 4, "all four chest types come up (%s)" % str(seen.keys()))
+	var piece: Dictionary = goods.call("make_piece", "copper_chest", 1, "plate")
+	check_eq(piece.get("type"), "plate", "a piece on the table knows its type")
+	check(not (goods.call("make_piece", "copper_chest", 1, "normal") as Dictionary).has("type"), "normal pieces have no type field")
+	var index: int = meta.call("give_piece", piece)
+	check_eq((meta.call("stash") as Array)[index].get("type"), "plate", "in the stash it keeps its type")
+	check(meta.call("equip", index), "and can be put on")
+	check_eq((meta.call("equipment") as Dictionary)["chest"].get("type"), "plate", "worn with its type")
+	# The run: plate gives more shield but slows down.
+	var run_script: Script = script("res://scripts/systems/run_state.gd")
+	var bare: Object = run_script.new(5)
+	var plated: Object = run_script.new(5)
+	plated.call("use_gear", {"chest": {"id": "iron_chest", "rarity": 1, "type": "plate"}})
+	check_eq(plated.get("shield"), roundi(1.5 * 1.6 * 2.0), "plate: 1.5 x 1.6 shield hearts")
+	check(float((plated.get("stats") as Object).get("move_speed")) < float((bare.get("stats") as Object).get("move_speed")), "plate: slower")
+	var sprinting: Object = run_script.new(5)
+	sprinting.call("use_gear", {"feet": {"id": "copper_boots", "rarity": 1, "type": "sprint"}})
+	check_eq(sprinting.get("shield"), 0, "sprint boots alone: never below 0 shield")
+	meta.call("start_new")
 
 
 ## Relics (data/relics.json): only found items come on the table; bought they go into the relic

@@ -9,6 +9,43 @@
 		"legs": {"name": "Beine", "hint": "legs", "at": [62, 90], "size": [2, 2]},
 		"feet": {"name": "Füße", "hint": "boots", "at": [62, 126], "size": [2, 2]}
 	},
+	"_types_info": "Bauarten: jedes Teil auf Egons Tisch bekommt eine Bauart seines Platzes (gewürfelt nach weight; normal = ohne Name, ohne Änderung). name = Text (deutsch = Übersetzungs-Schlüssel), mult = Faktor auf die eigenen Werte des Teils (vor der Seltenheit, also wächst er mit R1..R8), stats = Werte dazu (wie player.json; Werte mit _mult werden multipliziert, z. B. fire_delay_mult 1.3 = 30 % längere Pause zwischen Schüssen; shield_hearts = Schild-Herzen); diese wachsen nicht mit der Seltenheit. So hat jede Bauart Vor- und Nachteil.",
+	"types": {
+		"weapon": {
+			"normal": {"weight": 4},
+			"heavy": {"name": "Schwer", "weight": 2, "mult": {"damage": 1.6}, "stats": {"fire_delay_mult": 1.3}},
+			"light": {"name": "Leicht", "weight": 2, "mult": {"damage": 0.6}, "stats": {"fire_delay_mult": 0.75}},
+			"long": {"name": "Weitreichend", "weight": 2, "mult": {"damage": 0.8}, "stats": {"reach": 1.0}}
+		},
+		"head": {
+			"normal": {"weight": 4},
+			"visor": {"name": "Visier", "weight": 2, "mult": {"shield_hearts": 1.5}, "stats": {"luck": -0.5}},
+			"hood": {"name": "Kapuze", "weight": 2, "mult": {"shield_hearts": 0.5}, "stats": {"luck": 0.75}}
+		},
+		"chest": {
+			"normal": {"weight": 4},
+			"plate": {"name": "Platte", "weight": 2, "mult": {"shield_hearts": 1.6}, "stats": {"move_speed": -0.5}},
+			"leather": {"name": "Leder", "weight": 2, "mult": {"shield_hearts": 0.5}, "stats": {"move_speed": 0.4}},
+			"robe": {"name": "Robe", "weight": 2, "mult": {"shield_hearts": 0.0}, "stats": {"fire_delay_mult": 0.85}}
+		},
+		"hands": {
+			"normal": {"weight": 4},
+			"brawler": {"name": "Kampfhand", "weight": 2, "mult": {"damage": 1.8}, "stats": {"move_speed": -0.3}},
+			"thief": {"name": "Diebeshand", "weight": 2, "mult": {"damage": 0.3}, "stats": {"luck": 0.75}},
+			"quick": {"name": "Flinke Hand", "weight": 2, "mult": {"damage": 0.3}, "stats": {"fire_delay_mult": 0.9}}
+		},
+		"legs": {
+			"normal": {"weight": 4},
+			"heavy": {"name": "Schwer", "weight": 2, "mult": {"shield_hearts": 1.6}, "stats": {"move_speed": -0.4}},
+			"light": {"name": "Leicht", "weight": 2, "mult": {"shield_hearts": 0.5}, "stats": {"move_speed": 0.3}}
+		},
+		"feet": {
+			"normal": {"weight": 4},
+			"sprint": {"name": "Sprint", "weight": 2, "mult": {"move_speed": 2.2}, "stats": {"shield_hearts": -0.5}},
+			"iron": {"name": "Eisenschuh", "weight": 2, "mult": {"move_speed": 0.0}, "stats": {"shield_hearts": 0.5}},
+			"lucky": {"name": "Glücksschuh", "weight": 2, "mult": {"move_speed": 0.5}, "stats": {"luck": 0.5}}
+		}
+	},
 	"gear": {
 		"copper_staff": {"name": "Kupfer-Zauberstab", "desc": "Ein Stab mit Feuer-Spitze. Für Magier.", "slot": "weapon", "class": "magier", "material": "copper", "icon": "res://assets/sprites/items/copper_staff_fire.png", "price": 30, "stats": {"damage": 0.2}},
 		"copper_bow": {"name": "Kupfer-Bogen", "desc": "Ein einfacher Bogen. Für Bogenschützen.", "slot": "weapon", "class": "bogenschuetze", "material": "copper", "icon": "res://assets/sprites/items/copper_bow_frame.png", "price": 30, "stats": {"damage": 0.2}},

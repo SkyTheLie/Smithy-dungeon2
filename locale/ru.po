@@ -489,6 +489,9 @@ msgstr "Оружие воина: взмах меча бьёт всех пере�
 msgid "Die Waffe des Magiers: schießt Feuerbälle"
 msgstr "Оружие мага: стреляет огненными шарами"
 
+msgid "Diebeshand"
+msgstr "Рука вора"
+
 msgid "Dietrich"
 msgstr "Отмычка"
 
@@ -900,6 +903,9 @@ msgstr "Железная руда"
 msgid "Eisenhaut"
 msgstr "Железная кожа"
 
+msgid "Eisenschuh"
+msgstr "Железный башмак"
+
 msgid "Eisfeder"
 msgstr "Ледяное перо"
 
@@ -1028,6 +1034,9 @@ msgstr "Лишайниковый плащ"
 
 msgid "Fledermaus"
 msgstr "Летучая мышь"
+
+msgid "Flinke Hand"
+msgstr "Ловкая рука"
 
 msgid "Flinke Hände"
 msgstr "Ловкие руки"
@@ -1340,6 +1349,9 @@ msgstr "Счастливый лён"
 
 msgid "Glückspilz"
 msgstr "Везунчик"
+
+msgid "Glücksschuh"
+msgstr "Счастливый башмак"
 
 msgid "Glühender Schlüssel"
 msgstr "Раскалённый ключ"
@@ -1716,8 +1728,14 @@ msgstr "Ромашка"
 msgid "Kampf"
 msgstr "Бой"
 
+msgid "Kampfhand"
+msgstr "Боевая рука"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Теперь может появиться в подземелье"
+
+msgid "Kapuze"
+msgstr "Капюшон"
 
 msgid "Karawanen-Rucksack"
 msgstr "Караванный рюкзак"
@@ -1941,6 +1959,9 @@ msgstr "Древо жизни"
 msgid "Lebenstau"
 msgstr "Роса жизни"
 
+msgid "Leder"
+msgstr "Кожа"
+
 msgid "Lederstiefel"
 msgstr "Кожаные сапоги"
 
@@ -1955,6 +1976,9 @@ msgstr "Перчатки легенды"
 
 msgid "Legendär"
 msgstr "Легендарный"
+
+msgid "Leicht"
+msgstr "Лёгкое"
 
 msgid "Leicht und schnell."
 msgstr "Лёгкие и быстрые."
@@ -2283,6 +2307,9 @@ msgstr "Платиновый клинок"
 msgid "Platinspitze"
 msgstr "Платиновый наконечник"
 
+msgid "Platte"
+msgstr "Латы"
+
 msgid "Pocht leise. Besser nicht drüber nachdenken."
 msgstr "Тихо пульсирует. Лучше не думать об этом."
 
@@ -2429,6 +2456,9 @@ msgstr "Тюлений мех"
 
 msgid "Robbenmantel"
 msgstr "Тюлений плащ"
+
+msgid "Robe"
+msgstr "Мантия"
 
 msgid "Rot"
 msgstr "Красный"
@@ -2682,6 +2712,9 @@ msgstr "Чёрный кристалл"
 msgid "Schwarzwolf"
 msgstr "Чёрный волк"
 
+msgid "Schwer"
+msgstr "Тяжёлое"
+
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "Тяжёлая и жёлтая. Её любит любой торговец."
 
@@ -2921,6 +2954,9 @@ msgstr "Мешок взрывчатки"
 
 msgid "Sprengstrahl"
 msgstr "Взрывной луч"
+
+msgid "Sprint"
+msgstr "Спринт"
 
 msgid "Sprinterrucksack"
 msgstr "Рюкзак спринтера"
@@ -3273,6 +3309,9 @@ msgstr "Много ищущих искр разом"
 msgid "Vier Schlüssel"
 msgstr "Четыре ключа"
 
+msgid "Visier"
+msgstr "Забрало"
+
 msgid "Voll ausgebaut"
 msgstr "Изучено полностью"
 
@@ -3323,6 +3362,9 @@ msgstr "Дальше, к Морозной вершине! Одевайся те�
 
 msgid "Weiterkämpfen"
 msgstr "Сражаться дальше"
+
+msgid "Weitreichend"
+msgstr "Дальнобойное"
 
 msgid "Weltenstab"
 msgstr "Посох миров"

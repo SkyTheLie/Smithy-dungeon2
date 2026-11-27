@@ -489,6 +489,9 @@ msgstr "战士的武器：挥剑击中你前方的所有敌人"
 msgid "Die Waffe des Magiers: schießt Feuerbälle"
 msgstr "法师的武器：发射火球"
 
+msgid "Diebeshand"
+msgstr "盗贼之手"
+
 msgid "Dietrich"
 msgstr "撬锁器"
 
@@ -900,6 +903,9 @@ msgstr "铁矿石"
 msgid "Eisenhaut"
 msgstr "铁肤"
 
+msgid "Eisenschuh"
+msgstr "铁靴"
+
 msgid "Eisfeder"
 msgstr "冰羽"
 
@@ -1028,6 +1034,9 @@ msgstr "地衣斗篷"
 
 msgid "Fledermaus"
 msgstr "蝙蝠"
+
+msgid "Flinke Hand"
+msgstr "灵巧之手"
 
 msgid "Flinke Hände"
 msgstr "快手"
@@ -1340,6 +1349,9 @@ msgstr "幸运亚麻"
 
 msgid "Glückspilz"
 msgstr "幸运儿"
+
+msgid "Glücksschuh"
+msgstr "幸运靴"
 
 msgid "Glühender Schlüssel"
 msgstr "炽热钥匙"
@@ -1716,8 +1728,14 @@ msgstr "洋甘菊"
 msgid "Kampf"
 msgstr "战斗"
 
+msgid "Kampfhand"
+msgstr "搏击手"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "现在可以在地牢中出现"
+
+msgid "Kapuze"
+msgstr "兜帽"
 
 msgid "Karawanen-Rucksack"
 msgstr "商队背包"
@@ -1941,6 +1959,9 @@ msgstr "生命之木"
 msgid "Lebenstau"
 msgstr "生命之露"
 
+msgid "Leder"
+msgstr "皮革"
+
 msgid "Lederstiefel"
 msgstr "皮靴"
 
@@ -1955,6 +1976,9 @@ msgstr "传奇手套"
 
 msgid "Legendär"
 msgstr "传说"
+
+msgid "Leicht"
+msgstr "轻型"
 
 msgid "Leicht und schnell."
 msgstr "轻便又快速。"
@@ -2283,6 +2307,9 @@ msgstr "白金之刃"
 msgid "Platinspitze"
 msgstr "白金箭头"
 
+msgid "Platte"
+msgstr "板甲"
+
 msgid "Pocht leise. Besser nicht drüber nachdenken."
 msgstr "轻轻地跳动着。最好别多想。"
 
@@ -2429,6 +2456,9 @@ msgstr "海豹皮"
 
 msgid "Robbenmantel"
 msgstr "海豹斗篷"
+
+msgid "Robe"
+msgstr "长袍"
 
 msgid "Rot"
 msgstr "红色"
@@ -2682,6 +2712,9 @@ msgstr "黑水晶"
 msgid "Schwarzwolf"
 msgstr "黑狼"
 
+msgid "Schwer"
+msgstr "重型"
+
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "又重又黄。每个商人都喜欢。"
 
@@ -2921,6 +2954,9 @@ msgstr "炸药袋"
 
 msgid "Sprengstrahl"
 msgstr "爆破光束"
+
+msgid "Sprint"
+msgstr "疾跑"
 
 msgid "Sprinterrucksack"
 msgstr "疾跑者背包"
@@ -3273,6 +3309,9 @@ msgstr "同时射出大量追踪火花"
 msgid "Vier Schlüssel"
 msgstr "四把钥匙"
 
+msgid "Visier"
+msgstr "面甲"
+
 msgid "Voll ausgebaut"
 msgstr "已满级"
 
@@ -3323,6 +3362,9 @@ msgstr "去霜峰！穿暖和点。我刚好有大衣。"
 
 msgid "Weiterkämpfen"
 msgstr "继续战斗"
+
+msgid "Weitreichend"
+msgstr "远程"
 
 msgid "Weltenstab"
 msgstr "世界之杖"

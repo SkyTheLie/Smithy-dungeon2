@@ -489,6 +489,9 @@ msgstr "L'arme du guerrier : un coup d'épée frappe tous ceux devant toi"
 msgid "Die Waffe des Magiers: schießt Feuerbälle"
 msgstr "L'arme du mage : lance des boules de feu"
 
+msgid "Diebeshand"
+msgstr "Main de voleur"
+
 msgid "Dietrich"
 msgstr "Crochet"
 
@@ -900,6 +903,9 @@ msgstr "Minerai de fer"
 msgid "Eisenhaut"
 msgstr "Peau de fer"
 
+msgid "Eisenschuh"
+msgstr "Soulier de fer"
+
 msgid "Eisfeder"
 msgstr "Plume de glace"
 
@@ -1028,6 +1034,9 @@ msgstr "Cape de lichen"
 
 msgid "Fledermaus"
 msgstr "Chauve-souris"
+
+msgid "Flinke Hand"
+msgstr "Main agile"
 
 msgid "Flinke Hände"
 msgstr "Mains agiles"
@@ -1340,6 +1349,9 @@ msgstr "Lin porte-bonheur"
 
 msgid "Glückspilz"
 msgstr "Veinard"
+
+msgid "Glücksschuh"
+msgstr "Soulier porte-bonheur"
 
 msgid "Glühender Schlüssel"
 msgstr "Clé ardente"
@@ -1716,8 +1728,14 @@ msgstr "Camomille"
 msgid "Kampf"
 msgstr "Combat"
 
+msgid "Kampfhand"
+msgstr "Poing de combat"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Peut maintenant apparaître dans le donjon"
+
+msgid "Kapuze"
+msgstr "Capuche"
 
 msgid "Karawanen-Rucksack"
 msgstr "Sac de caravane"
@@ -1941,6 +1959,9 @@ msgstr "Bois de vie"
 msgid "Lebenstau"
 msgstr "Rosée de vie"
 
+msgid "Leder"
+msgstr "Cuir"
+
 msgid "Lederstiefel"
 msgstr "Bottes de cuir"
 
@@ -1955,6 +1976,9 @@ msgstr "Gants légendaires"
 
 msgid "Legendär"
 msgstr "Légendaire"
+
+msgid "Leicht"
+msgstr "Léger"
 
 msgid "Leicht und schnell."
 msgstr "Légères et rapides."
@@ -2283,6 +2307,9 @@ msgstr "Lame de platine"
 msgid "Platinspitze"
 msgstr "Pointe de platine"
 
+msgid "Platte"
+msgstr "Plates"
+
 msgid "Pocht leise. Besser nicht drüber nachdenken."
 msgstr "Bat doucement. Mieux vaut ne pas y penser."
 
@@ -2429,6 +2456,9 @@ msgstr "Fourrure de phoque"
 
 msgid "Robbenmantel"
 msgstr "Cape de phoque"
+
+msgid "Robe"
+msgstr "Robe"
 
 msgid "Rot"
 msgstr "Rouge"
@@ -2682,6 +2712,9 @@ msgstr "Cristal noir"
 msgid "Schwarzwolf"
 msgstr "Loup noir"
 
+msgid "Schwer"
+msgstr "Lourd"
+
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "Lourd et jaune. Tous les marchands l'aiment."
 
@@ -2921,6 +2954,9 @@ msgstr "Sac d'explosifs"
 
 msgid "Sprengstrahl"
 msgstr "Rayon explosif"
+
+msgid "Sprint"
+msgstr "Sprint"
 
 msgid "Sprinterrucksack"
 msgstr "Sac de sprinteur"
@@ -3273,6 +3309,9 @@ msgstr "Plein d'étincelles chercheuses d'un coup"
 msgid "Vier Schlüssel"
 msgstr "Quatre clés"
 
+msgid "Visier"
+msgstr "Visière"
+
 msgid "Voll ausgebaut"
 msgstr "Au maximum"
 
@@ -3323,6 +3362,9 @@ msgstr "En route pour le Pic du Givre ! Couvre-toi bien. J'ai justement des mant
 
 msgid "Weiterkämpfen"
 msgstr "Continuer le combat"
+
+msgid "Weitreichend"
+msgstr "Longue portée"
 
 msgid "Weltenstab"
 msgstr "Bâton des mondes"
