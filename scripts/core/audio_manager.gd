@@ -149,7 +149,7 @@ func _play_3d(stream: AudioStream, at: Vector3, parent: Node3D, pitch: float, vo
 	if stream == null:
 		return
 	var settings: Dictionary = _config.get("spatial", {})
-	_spatial_playing = _spatial_playing.filter(func(p: AudioStreamPlayer3D) -> bool: return is_instance_valid(p) and p.playing)
+	_forget_finished()
 	# Too many at once: the oldest one stops (like the plain voices).
 	if _spatial_playing.size() >= int(settings.get("voices", 16)):
 		var oldest: AudioStreamPlayer3D = _spatial_playing.pop_front()
@@ -170,9 +170,19 @@ func _play_3d(stream: AudioStream, at: Vector3, parent: Node3D, pitch: float, vo
 	_spatial_playing.append(player)
 
 
+## Drops the 3D sounds that ended (freed) from the list.
+func _forget_finished() -> void:
+	var still: Array[AudioStreamPlayer3D] = []
+	for player: Variant in _spatial_playing:
+		if is_instance_valid(player) and (player as AudioStreamPlayer3D).playing:
+			still.append(player as AudioStreamPlayer3D)
+	_spatial_playing = still
+
+
 ## How many 3D sounds play right now (tests).
 func spatial_count() -> int:
-	return _spatial_playing.filter(func(p: AudioStreamPlayer3D) -> bool: return is_instance_valid(p) and p.playing).size()
+	_forget_finished()
+	return _spatial_playing.size()
 
 
 ## Starts a piece from "music" (the same piece keeps running). "" = silence.
