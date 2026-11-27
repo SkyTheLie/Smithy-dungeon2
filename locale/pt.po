@@ -9,6 +9,9 @@ msgstr "%d de ouro"
 msgid "%d Herzen"
 msgstr "%d corações"
 
+msgid "%d Skillpunkte"
+msgstr "%d pontos de habilidade"
+
 msgid "%s: ab Stufe %d"
 msgstr "%s: a partir do nível %d"
 
@@ -23,6 +26,9 @@ msgstr "Mais 300 de ouro ficam seguros na lata."
 
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "5 % a mais de chance de R2 com o Egon."
+
+msgid "Ab Spielerstufe %d"
+msgstr "A partir do nível %d"
 
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "De agora em diante sempre haverá poções na minha mesa. A preço de amigo, claro."
@@ -765,6 +771,9 @@ msgstr "Chegue ao andar %d"
 msgid "Erst den Skill davor lernen"
 msgstr "Aprenda antes a habilidade anterior"
 
+msgid "Erst die Stufe davor lernen"
+msgstr "Aprenda antes o nível anterior"
+
 msgid "Erstglut"
 msgstr "Brasa primeira"
 
@@ -962,6 +971,9 @@ msgstr "Comprado! A relíquia espera no inventário em casa."
 
 msgid "Geldbündel: %d Gold"
 msgstr "Maço de dinheiro: %d de ouro"
+
+msgid "Gelernt"
+msgstr "Aprendido"
 
 msgid "Generalsklinge"
 msgstr "Lâmina do general"
@@ -1526,6 +1538,9 @@ msgstr "Agulha de bússola"
 
 msgid "Kopf"
 msgstr "Cabeça"
+
+msgid "Kostet: %s"
+msgstr "Custa: %s"
 
 msgid "Kraft"
 msgstr "Força"

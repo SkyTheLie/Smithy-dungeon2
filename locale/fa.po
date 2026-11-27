@@ -9,6 +9,9 @@ msgstr "%d طلا"
 msgid "%d Herzen"
 msgstr "%d قلب"
 
+msgid "%d Skillpunkte"
+msgstr "%d امتیاز مهارت"
+
 msgid "%s: ab Stufe %d"
 msgstr "%s: از سطح %d"
 
@@ -23,6 +26,9 @@ msgstr "۳۰۰ طلای بیشتر در قوطی امن است."
 
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "۵٪ شانس بیشتر برای R2 پیش اگون."
+
+msgid "Ab Spielerstufe %d"
+msgstr "از سطح بازیکن %d"
 
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "از این به بعد بیشتر وقت‌ها روی میزم معجون هست. البته با قیمت دوستانه."
@@ -765,6 +771,9 @@ msgstr "به طبقه %d برس"
 msgid "Erst den Skill davor lernen"
 msgstr "اول مهارت قبلی را یاد بگیر"
 
+msgid "Erst die Stufe davor lernen"
+msgstr "اول سطح قبلی را یاد بگیر"
+
 msgid "Erstglut"
 msgstr "نخستین اخگر"
 
@@ -962,6 +971,9 @@ msgstr "خریداری شد! یادگار در خانه در کوله‌پشتی
 
 msgid "Geldbündel: %d Gold"
 msgstr "دسته‌ی پول: %d طلا"
+
+msgid "Gelernt"
+msgstr "یاد گرفته شد"
 
 msgid "Generalsklinge"
 msgstr "تیغ ژنرال"
@@ -1526,6 +1538,9 @@ msgstr "عقربه قطب‌نما"
 
 msgid "Kopf"
 msgstr "سر"
+
+msgid "Kostet: %s"
+msgstr "هزینه: %s"
 
 msgid "Kraft"
 msgstr "قدرت"

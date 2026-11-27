@@ -349,3 +349,8 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 
 - `data/skills.json`: **Zähigkeit** (Schild-/Eisenherzen) entfernt; an ihrer Stelle **Blaues Herz** (eine Stufe, Effekt `blue_hearts`: ein blaues Herz zu Beginn jedes Runs, `RunState.use_skills`).
 - **Reliktschutz** (4 Stufen, Effekt `relic_keep_tier`): Relikte bis zu dieser Stufe gehen nie kaputt (`ShopGoods.relic_forever`, geprüft in `MetaState._wear_relic`, auch für schon gekaufte Relikte). Dafür hält Stufe 1 jetzt 5 Dungeons (`relics.json`).
+
+## Skill-Baum: jede Stufe ein eigenes Feld – 2026-11-27
+
+- `scenes/shop/skill_tree.gd`: Jede Stufe eines Skills ist ein eigener Knopf (`Skill_<id>_<stufe>`), Stufe 1 an `pos`, die weiteren direkt darunter. Eine Stufe geht erst auf, wenn die darüber gelernt ist (`SkillTree.level_problem`: „Erst die Stufe davor lernen“). Unter jedem Feld der Preis dieser Stufe (`G` Gold, `P` Skillpunkte) oder ✓. Ketten (`requires`) laufen seitlich (L-Linie von Stufe 1 zu Stufe 1).
+- `Skills.gold_at / points_at / min_level_at` = Kosten einer bestimmten Stufe.
