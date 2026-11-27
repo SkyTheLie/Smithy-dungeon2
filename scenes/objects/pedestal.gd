@@ -47,6 +47,11 @@ func is_empty() -> bool:
 	return _empty
 
 
+## The picture floating above it (for the map); null when empty or a test-room button.
+func map_icon() -> Texture2D:
+	return _icon.texture if _icon and not _empty and visible else null
+
+
 ## The price now (half with "discount").
 func current_price() -> int:
 	if price > 0 and run and run.stats.has("discount"):

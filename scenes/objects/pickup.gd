@@ -40,6 +40,11 @@ static func icon(kind_name: String) -> Texture2D:
 	return load(KINDS.get(kind_name, KINDS["heart"])) as Texture2D
 
 
+## The picture it shows (for the map); null before it is in the scene.
+func map_icon() -> Texture2D:
+	return _sprite.texture if _sprite else null
+
+
 func setup(kind_name: String, run_state: RunState, the_player: Node3D) -> void:
 	kind = kind_name
 	run = run_state

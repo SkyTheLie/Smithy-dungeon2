@@ -16,6 +16,11 @@ const BIG_GAP: float = 6.0
 const ZOOM_TIME: float = 0.18
 ## Free space around the big map (pixels) when it is fitted.
 const FIT_MARGIN: float = 20.0
+## Loot pictures: on the small map (pixels), in the current room of the big map (metres), and in
+## the row along the bottom of other rooms on the big map (pixels before fitting).
+const SMALL_ICON: float = 9.0
+const BIG_ICON_METRES: float = 2.2
+const ROW_ICON: float = 8.0
 
 const COLOR_PANEL := Color(0.05, 0.04, 0.06, 0.78)
 const COLOR_FLOOR := Color(0.24, 0.2, 0.2)
@@ -111,8 +116,15 @@ func _draw_room_inside(origin: Vector2, room_size: Vector2, center: Vector3, sca
 	if room and detailed:
 		for rock: Rock in room.rocks:
 			draw_circle(to_map.call(rock.global_position), maxf(1.5, Rock.RADIUS * scale_by), _fade(COLOR_ROCK, alpha))
+	if room:
+		# What still lies here: its own picture (small map bigger, big map smaller).
+		var icon_px: float = SMALL_ICON if detailed else maxf(4.0, scale_by * BIG_ICON_METRES)
 		for thing: Node3D in room.loot:
-			if is_instance_valid(thing) and not (thing is Pedestal and (thing as Pedestal).is_empty()):
+			var icon: Texture2D = _loot_icon(thing)
+			if icon:
+				var at: Vector2 = to_map.call(thing.global_position)
+				draw_texture_rect(icon, Rect2(at - Vector2(icon_px, icon_px) / 2.0, Vector2(icon_px, icon_px)), false, _fade(Color.WHITE, alpha))
+			elif is_instance_valid(thing) and thing is Pickup:
 				draw_circle(to_map.call(thing.global_position), 2.0, _fade(COLOR_LOOT, alpha))
 	for enemy: Enemy in dungeon.get_enemies():
 		draw_circle(to_map.call(enemy.global_position), maxf(2.0, enemy.radius * scale_by * 0.8), _fade(COLOR_ENEMY, alpha))
@@ -176,9 +188,53 @@ func _draw_big(alpha: float) -> void:
 		if cell == dungeon.current_cell:
 			var scale_by: float = cell_size.x / RoomBuilder.ROOM_W
 			_draw_room_inside(rect.position, cell_size, RoomBuilder.cell_center(cell), scale_by, alpha, false)
-		elif icon:
-			var icon_size := (Vector2(16, 16) * fit).round()
-			draw_texture_rect(icon, Rect2(rect.get_center() - icon_size / 2.0, icon_size), false, _fade(Color.WHITE, alpha))
+		else:
+			if icon:
+				var icon_size := (Vector2(16, 16) * fit).round()
+				draw_texture_rect(icon, Rect2(rect.get_center() - icon_size / 2.0, icon_size), false, _fade(Color.WHITE, alpha))
+			if room.visited:
+				_draw_loot_row(room, rect, fit, alpha)
+
+
+## Pictures of what still lies in a visited room, in a row along the bottom of its box. More than
+## fit: the last place shows a "+".
+func _draw_loot_row(room: DungeonRoom, rect: Rect2, fit: float, alpha: float) -> void:
+	var icon_px: float = maxf(5.0, roundf(ROW_ICON * fit))
+	var fits: int = maxi(1, floori((rect.size.x - 2.0) / icon_px))
+	var total: int = 0
+	for thing: Node3D in room.loot:
+		if _loot_icon(thing):
+			total += 1
+	if total == 0:
+		return
+	var shown: int = mini(total, fits)
+	var start := Vector2(rect.get_center().x - shown * icon_px / 2.0, rect.end.y - icon_px - 1.0).round()
+	var index: int = 0
+	for thing: Node3D in room.loot:
+		var icon: Texture2D = _loot_icon(thing)
+		if icon == null:
+			continue
+		var place := Rect2(start + Vector2(index * icon_px, 0), Vector2(icon_px, icon_px))
+		if index == shown - 1 and total > shown:
+			var mid: Vector2 = place.get_center()
+			var arm: float = icon_px * 0.3
+			draw_line(mid - Vector2(arm, 0), mid + Vector2(arm, 0), _fade(COLOR_LOOT, alpha), 1.0)
+			draw_line(mid - Vector2(0, arm), mid + Vector2(0, arm), _fade(COLOR_LOOT, alpha), 1.0)
+			return
+		draw_texture_rect(icon, place, false, _fade(Color.WHITE, alpha))
+		index += 1
+
+
+## The picture of a pickup or a full pedestal; null if it is gone or empty. Untyped: picked-up
+## things stay in room.loot as freed objects, and those may not be passed as a Node3D.
+func _loot_icon(thing: Variant) -> Texture2D:
+	if not is_instance_valid(thing):
+		return null
+	if thing is Pickup:
+		return (thing as Pickup).map_icon()
+	if thing is Pedestal:
+		return (thing as Pedestal).map_icon()
+	return null
 
 
 func _fade(color: Color, alpha: float) -> Color:

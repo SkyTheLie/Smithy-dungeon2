@@ -58,7 +58,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 ## Oberfläche (Hud, Minimap, Menüs)
 
 - **Dateien:** `scenes/ui/hud/` (`hud.tscn`, `minimap.gd`, `heart_bar.gd`, `crosshair.gd`), `scenes/ui/menus/` (Einstellungen, Pause, Ende), `scenes/ui/main_menu/` (aus Smithy)
-- Minimap oben rechts: aktueller Raum von oben, Türen (grau offen, braun zu, gold verschlossen), Steine, Beute (gelb), Gegner (rot), Spieler (grün mit Blickrichtung). **M** zoomt auf die Ebene. Nebel: nur besuchte Räume und ihre direkten Nachbarn sind zu sehen (`Dungeon.known_cells`), der Boss-Raum erscheint wie jeder Raum erst als Nachbar eines besuchten Raums und bekommt dann einen roten Rand. Geheimräume erscheinen erst nach dem Betreten.
+- Minimap oben rechts: aktueller Raum von oben, Türen (grau offen, braun zu, gold verschlossen), Steine, liegende Dinge als ihr eigenes Bild (Herz, Bombe, Schlüssel, Beute, Item auf dem Sockel; `Pickup.map_icon`/`Pedestal.map_icon`), Gegner (rot), Spieler (grün mit Blickrichtung). **M** zoomt auf die Ebene. Nebel: nur besuchte Räume und ihre direkten Nachbarn sind zu sehen (`Dungeon.known_cells`), der Boss-Raum erscheint wie jeder Raum erst als Nachbar eines besuchten Raums und bekommt dann einen roten Rand. Geheimräume erscheinen erst nach dem Betreten. Auf der großen Karte zeigt jeder besuchte Raum unten eine Reihe Bilder von dem, was dort noch liegt (zu viele: „+“).
 - Pause zeigt die aktuellen Werte und Synergien.
 - Herzanzeige: rote Herzen (voll, halb, leer), danach blaue Herzen (`RunState.blue`).
 

@@ -32,6 +32,7 @@ Aus Smithy übernommen, was hier gilt (Smithy: `docs/FEHLERKLASSEN.md`). Kurz ha
 
 Format: `Datum · Branch · Ursache · Regel-Nummer (oder „neu“)`
 
+- 2026-11-27 · feature/leveln-skillseiten · Karte gab aufgesammelte (freigegebene) Pickups aus `room.loot` an eine Funktion mit Parameter `Node3D` → Script-Fehler · neu: Listen, die freigegebene Nodes enthalten können, nur über ungetypte Parameter (`Variant`) weiterreichen und zuerst `is_instance_valid` prüfen
 - 2026-11-27 · feature/3d-ton · `Array.filter()` gibt ein untypisiertes Array zurück; die Zuweisung an `Array[AudioStreamPlayer3D]` brach ab, und ein typisierter Lambda-Parameter bekam schon freigegebene Objekte · neu: getypte Arrays mit einer Schleife neu bauen (nicht `filter`), bei evtl. freigegebenen Objekten `Variant` + `is_instance_valid` vor dem Cast
 - 2026-11-27 · feature/3d-ton · Merge trotz roter Tests (Prüfung hing an einem `tail` statt am Rückgabewert) · 12 (Merge nur, wenn `run_tests.sh` mit 0 endet)
 - 2026-11-27 · feature/wiese-traenke · Nach dem Teleport in die Boss-Halle rechnete `_physics_process` mit der alten Position weiter und setzte den Raum zurück · neu: wer den Spieler in `_physics_process` versetzt, beendet den Durchlauf danach (`return`)
