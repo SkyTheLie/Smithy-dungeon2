@@ -57,6 +57,9 @@ msgstr "所以最好花掉，伙计。最好花在我这儿！"
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "每发射击最后炸成四个火花"
 
+msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
+msgstr "像英雄一样顺着绳子爬出来了！可是……我的红宝石呢？"
+
 msgid "Amethyst"
 msgstr "紫水晶"
 
@@ -65,6 +68,9 @@ msgstr "攻击速度"
 
 msgid "Ankauf"
 msgstr "收购"
+
+msgid "Ans Licht"
+msgstr "重见天日"
 
 msgid "Anzeige"
 msgstr "显示"
@@ -285,11 +291,17 @@ msgstr "你的物品"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "子弹会追踪敌人"
 
+msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
+msgstr "击败第一个首领并顺着绳子爬了出去。"
+
 msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
 msgstr "这瓶免费。死掉的顾客可不会再买东西了。真的！"
 
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "拉杆上方的条显示可能出现什么：灰色普通，绿色结实，依此类推。你越有经验，颜色越丰富。"
+
+msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
+msgstr "那个首领有一颗，我知道！找到了就带给我。我等着。急着等。"
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "火焰光束会弯向敌人"
@@ -723,6 +735,9 @@ msgstr "大地巨像"
 msgid "Erdstab"
 msgstr "大地之杖"
 
+msgid "Erfolg: %s"
+msgstr "成就：%s"
+
 msgid "Erreiche Ebene %d"
 msgstr "到达第%d层"
 
@@ -987,6 +1002,9 @@ msgstr "普通"
 msgid "Ghul"
 msgstr "食尸鬼"
 
+msgid "Gib her, gib her! Bei mir ist er sicher. Sicherer als dein Gold in der Dose. Ehrlich!"
+msgstr "给我，给我！放我这儿很安全。比你罐子里的金子还安全。说真的！"
+
 msgid "Giftratte"
 msgstr "毒鼠"
 
@@ -1004,6 +1022,9 @@ msgstr "光滑、碧绿，还有点温热。"
 
 msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
 msgstr "埃贡的商店后面就是往下的路。最深处有个首领在等着，据说还有宝藏。埃贡说的。"
+
+msgid "Gleich unten haust ein Boss, und der hat einen Rubin. Bring ihn mir! Der gehört mir nämlich. Also… fast. Ehrlich!"
+msgstr "就在下面住着一个首领，它有一颗红宝石。带给我！那本来是我的。嗯……差不多吧。说真的！"
 
 msgid "Glutdrache"
 msgstr "余烬飞龙"
@@ -1281,6 +1302,9 @@ msgstr "女巫大锅"
 msgid "Hier klicken"
 msgstr "点击这里"
 
+msgid "Hinausgeklettert!"
+msgstr "爬出来了！"
+
 msgid "Hinter dem Tor wartet etwas"
 msgstr "门后有什么在等待"
 
@@ -1343,6 +1367,9 @@ msgstr "我是骗… 呃，卖货的。我卖… …装备！对，没错。我�
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "我帮你放进去。免费！我是说，放进去免费。"
+
+msgid "Ich warte hier. Sicher ist sicher."
+msgstr "我在这儿等着。小心驶得万年船。"
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "在地牢里按 %s。咕咚咕咚，两颗心就回来了。"
@@ -1841,6 +1868,9 @@ msgstr "钯锭"
 
 msgid "Palladiumklinge"
 msgstr "钯金之刃"
+
+msgid "Partner! Du lebst! Und ist das… ist das mein Rubin?!"
+msgstr "伙计！你还活着！那是……那是我的红宝石吗？！"
 
 msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
 msgstr "伙计！又死了？我可担心了。足足快两分钟！"
@@ -2703,6 +2733,9 @@ msgstr "给，一点小预付款：50金币。左上角能看到你有多少钱�
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "现在就去地牢吧！给我带点好东西回来。我在这儿等。安全第一。"
 
+msgid "Und jetzt ab in den Dungeon! Unter uns, Partner: Ich hätte da einen kleinen Auftrag."
+msgstr "现在去地牢吧！咱俩私下说，伙计：我有个小差事。"
+
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "左边就是你。别动，我给你穿上…"
 
@@ -2864,6 +2897,9 @@ msgstr "低语草原"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "光束击中处会爆炸"
+
+msgid "Wofür ich den brauche? Ach… Sammlerstück! Mehr sag ich nicht. Noch nicht."
+msgstr "我要它干嘛？呃……收藏品！别的我不说。暂时不说。"
 
 msgid "Wolf"
 msgstr "狼"

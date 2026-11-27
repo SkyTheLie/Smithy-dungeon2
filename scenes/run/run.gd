@@ -3,9 +3,11 @@ extends Node
 ## The scene of one floor: the 3D world (in a SubViewport: drawn at the low base resolution and
 ## scaled up with sharp pixels, so the 3D looks like pixel art), the HUD, the pause menu, the bag
 ## window and the end screen. Passes the mouse movement to the player, Tab to the bag, M to the
-## map, Esc to the pause menu, and reacts to death, the trapdoor and the way out of the start room.
-## The end of a run is settled with MetaState: a win or fleeing (the ladder in the start room,
-## after a question) brings the coins and the whole bag home, death only the safe places.
+## map, Esc to the pause menu, and reacts to death, the trapdoor, the way out of the start room
+## and the rope after the very first boss.
+## The end of a run is settled with MetaState: a win, fleeing (the ladder in the start room,
+## after a question) or climbing out at the rope brings the coins and the whole bag home, death
+## only the safe places.
 
 const DEATH_DELAY: float = 1.2
 
@@ -45,6 +47,7 @@ func _ready() -> void:
 	run.died.connect(_on_died)
 	dungeon.trapdoor_entered.connect(_on_trapdoor_entered)
 	dungeon.exit_entered.connect(_ask_flee)
+	dungeon.rope_grabbed.connect(_on_rope_grabbed)
 	pause_menu.resumed.connect(_capture_mouse)
 	_capture_mouse()
 
@@ -138,6 +141,28 @@ func _flee() -> void:
 
 func get_flee_question() -> ConfirmationDialog:
 	return _flee_question
+
+
+## The rope after the very first boss (Egon's errand, data/meta.json ruby_quest): the player
+## climbs out, the achievement comes, the day ends and everything carried comes home.
+func _on_rope_grabbed() -> void:
+	if _leaving:
+		return
+	_leaving = true
+	if bag_window.visible:
+		bag_window.close()
+	MetaState.finish_rope()
+	if Progress.unlock_achievement(String(Content.meta("ruby_quest").get("achievement", ""))):
+		hud.show_achievement(String(Content.meta("ruby_quest").get("achievement", "")))
+	await dungeon.climb_rope()
+	if not is_inside_tree():
+		return
+	await hud.fade_out(0.6)
+	var rng := RandomNumberGenerator.new()
+	rng.randomize()
+	Game.run.levels_gained = MetaState.add_exp(Game.run.exp_earned)
+	MetaState.end_run(0, Game.run.bag.contents(), rng)
+	end_screen.open(Game.run, false, false, true)
 
 
 func _on_trapdoor_entered(final: bool) -> void:

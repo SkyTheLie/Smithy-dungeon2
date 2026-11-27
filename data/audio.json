@@ -1,5 +1,5 @@
 {
-	"_info": "Sound-Ids -> Dateien (Liste = eine zufällig). sound_volume_db: Lautstärke je Id in dB. sound_buses: Id -> Bus (sonst Sounds). music: Musik-Ids (Hauptmenü 'title', Ebenen über floors.json 'music', Boss 'boss', Boss-Halle: Altar 'altar', Kampf 'boss_rock' (boss_hall.json)).",
+	"_info": "Sound-Ids -> Dateien (Liste = eine zufällig). sound_volume_db: Lautstärke je Id in dB. sound_buses: Id -> Bus (sonst Sounds). music: Musik-Ids (Hauptmenü 'title', Ebenen über floors.json 'music', Boss 'boss', Boss-Altar: Altar 'altar', Kampf 'boss_rock' (boss_altar.json)).",
 	"music_volume_db": -4,
 	"music": {
 		"title": "res://assets/audio/music/title_01.ogg",
@@ -66,7 +66,15 @@
 		"altar_glow": "res://assets/audio/sfx/item_reveal.wav",
 		"pillar_lit": "res://assets/audio/sfx/rarity_up.wav",
 		"boss_land": "res://assets/audio/sfx/lightning_strike.wav",
-		"gate": "res://assets/audio/sfx/stone_grind.wav"
+		"gate": "res://assets/audio/sfx/stone_grind.wav",
+		"achievement": "res://assets/audio/sfx/achievement.wav",
+		"rope_fall": "res://assets/audio/sfx/window_open.wav",
+		"rope_climb": [
+			"res://assets/audio/sfx/kenney/footstep_carpet_000.ogg",
+			"res://assets/audio/sfx/kenney/footstep_carpet_002.ogg",
+			"res://assets/audio/sfx/kenney/footstep_carpet_004.ogg"
+		],
+		"portal": "res://assets/audio/sfx/stone_grind.wav"
 	},
 	"sound_buses": {
 		"ui_click": "Interface",

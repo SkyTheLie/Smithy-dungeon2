@@ -23,6 +23,9 @@ extends Control
 ## worried for a moment, turns the table once (only a potion on it), gives the potion away, it
 ## flies into the inventory and from there into the potion place under the hero. From then on
 ## potions can come on the table (ShopGoods.roll).
+## Egon's ruby (MetaState.ruby_due: after climbing out at the rope of the first boss): the ruby
+## shines in the inventory and flies over to Egon (MetaState.deliver_ruby); without one he asks
+## for it again (until one comes home).
 ## All rules live in MetaState / ShopGoods; this screen only shows them and plays the animations.
 
 const CAVE: Texture2D = preload("res://assets/sprites/battle/mine_rats.png")
@@ -62,6 +65,7 @@ var _sell_panel: Control
 var _gold: Label
 var _day: Label
 var _dialog: DialogBox
+var _merchant: TextureRect
 var _menu_button: Button
 var _dungeons_button: Button
 var _board: DungeonBoard
@@ -90,6 +94,8 @@ func _ready() -> void:
 	create_tween().tween_property(_black, "modulate:a", 0.0, FADE_TIME)
 	if not MetaState.tutorial_done():
 		_run_tutorial()
+	elif MetaState.ruby_due():
+		_run_ruby()
 	elif MetaState.potion_tour_due():
 		_run_potion_tour()
 	elif not MetaState.broken_relic().is_empty():
@@ -125,6 +131,7 @@ func _build() -> void:
 	merchant.position = Vector2(500, 84)
 	merchant.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_frame.add_child(merchant)
+	_merchant = merchant
 
 	_day = _label("", 14, Color.WHITE)
 	_day.position = Vector2(10, 6)
@@ -679,6 +686,64 @@ func _run_potion_tour() -> void:
 	_dungeons_button.show()
 	_skills_button.show()
 	_refresh()
+
+
+# --- Egon's ruby (after the rope of the first boss) -----------------------------------
+
+func _run_ruby() -> void:
+	_locked = true
+	_menu_button.hide()
+	_dungeons_button.hide()
+	_skills_button.hide()
+	await get_tree().create_timer(FADE_TIME, false).timeout
+	if not is_inside_tree():
+		return
+	var index: int = MetaState.ruby_index()
+	if index < 0:
+		if not await _say("ruby_missing"):
+			return
+	else:
+		var slot: ShopSlot = _inventory_slots[index]
+		slot.set_glow(true)
+		if not await _say("ruby_found"):
+			return
+		slot.set_glow(false)
+		var icon: Texture2D = slot.get_icon()
+		var from: Vector2 = slot.global_position
+		MetaState.deliver_ruby()
+		_refresh()
+		await _fly_to_egon(icon, from)
+		if not is_inside_tree() or not await _say("ruby_taken"):
+			return
+	_dialog.hide()
+	_locked = false
+	_menu_button.show()
+	_dungeons_button.show()
+	_skills_button.show()
+	_refresh()
+
+
+## `icon` flies from `from` (global) into Egon's hands and is gone.
+func _fly_to_egon(icon: Texture2D, from: Vector2) -> void:
+	if icon == null:
+		return
+	var picture := TextureRect.new()
+	picture.texture = icon
+	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	picture.size = ShopSlot.ICON_SIZE
+	picture.z_index = 10
+	picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_frame.add_child(picture)
+	picture.global_position = from + (ShopSlot.SIZE - ShopSlot.ICON_SIZE) / 2.0
+	var hands: Vector2 = _merchant.global_position + _merchant.size * _merchant.scale * Vector2(0.5, 0.55)
+	var fly := create_tween()
+	fly.tween_property(picture, "global_position", hands - ShopSlot.ICON_SIZE / 2.0, FLY_TIME * 1.6) \
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	fly.tween_property(picture, "modulate:a", 0.0, 0.2)
+	await fly.finished
+	picture.queue_free()
+	AudioManager.play_sound("coin")
 
 
 ## Egon says story.json `key` while `targets` shine. false if the shop is gone meanwhile.

@@ -57,6 +57,9 @@ msgstr "Так что лучше трать, партнёр. Желательн�
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "В конце каждый выстрел разлетается на четыре искры"
 
+msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
+msgstr "Выбрался по верёвке, как герой! Но… где мой рубин?"
+
 msgid "Amethyst"
 msgstr "Аметист"
 
@@ -65,6 +68,9 @@ msgstr "Скорость атаки"
 
 msgid "Ankauf"
 msgstr "Скупка"
+
+msgid "Ans Licht"
+msgstr "К свету"
 
 msgid "Anzeige"
 msgstr "Экран"
@@ -285,11 +291,17 @@ msgstr "Твои предметы"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Снаряды преследуют врагов"
 
+msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
+msgstr "Победил первого босса и выбрался по верёвке."
+
 msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
 msgstr "Это за счёт заведения. Мёртвый покупатель ничего не купит. Честно!"
 
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "Полоска над рычагом показывает, что может выпасть: серое — обычное, зелёное — добротное и так далее. Чем ты опытнее, тем пестрее."
+
+msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
+msgstr "У босса он был, я знаю! Принеси, если найдёшь. Я подожду. С нетерпением."
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "Луч огня изгибается к врагу"
@@ -723,6 +735,9 @@ msgstr "Земляной колосс"
 msgid "Erdstab"
 msgstr "Посох земли"
 
+msgid "Erfolg: %s"
+msgstr "Достижение: %s"
+
 msgid "Erreiche Ebene %d"
 msgstr "Дойди до уровня %d"
 
@@ -987,6 +1002,9 @@ msgstr "Обычный"
 msgid "Ghul"
 msgstr "Упырь"
 
+msgid "Gib her, gib her! Bei mir ist er sicher. Sicherer als dein Gold in der Dose. Ehrlich!"
+msgstr "Давай, давай! У меня он в безопасности. Надёжнее, чем твоё золото в банке. Честно!"
+
 msgid "Giftratte"
 msgstr "Ядовитая крыса"
 
@@ -1004,6 +1022,9 @@ msgstr "Гладкая, зелёная и ещё немного тёплая."
 
 msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
 msgstr "Сразу за лавкой Эгона начинается спуск. В самом низу ждёт босс и, говорят, сокровище. Так говорит Эгон."
+
+msgid "Gleich unten haust ein Boss, und der hat einen Rubin. Bring ihn mir! Der gehört mir nämlich. Also… fast. Ehrlich!"
+msgstr "Прямо внизу живёт босс, и у него рубин. Принеси его мне! Он ведь мой. Ну… почти. Честно!"
 
 msgid "Glutdrache"
 msgstr "Угольный дракон"
@@ -1281,6 +1302,9 @@ msgstr "Ведьмин котёл"
 msgid "Hier klicken"
 msgstr "Нажми здесь"
 
+msgid "Hinausgeklettert!"
+msgstr "Выбрался!"
+
 msgid "Hinter dem Tor wartet etwas"
 msgstr "За вратами что-то ждёт"
 
@@ -1343,6 +1367,9 @@ msgstr "Я жул… э-э, продавец. Я продаю… …снаряж
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "Я её положу. Бесплатно! В смысле, положить — бесплатно."
+
+msgid "Ich warte hier. Sicher ist sicher."
+msgstr "Я подожду здесь. Береженого бог бережёт."
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "В подземелье жмёшь %s. Буль-буль — и два сердца снова на месте."
@@ -1841,6 +1868,9 @@ msgstr "Палладиевый слиток"
 
 msgid "Palladiumklinge"
 msgstr "Палладиевый клинок"
+
+msgid "Partner! Du lebst! Und ist das… ist das mein Rubin?!"
+msgstr "Партнёр! Ты жив! А это… это мой рубин?!"
 
 msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
 msgstr "Партнёр! Опять мёртв? Я волновался. Почти целых две минуты!"
@@ -2703,6 +2733,9 @@ msgstr "А вот небольшой аванс: 50 золотых. Слева �
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "А теперь марш в подземелье! Принеси мне что-нибудь хорошее. Я подожду тут. Так надёжнее."
 
+msgid "Und jetzt ab in den Dungeon! Unter uns, Partner: Ich hätte da einen kleinen Auftrag."
+msgstr "А теперь в подземелье! Между нами, партнёр: есть у меня одно дельце."
+
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "А слева — это ты. Не шевелись, я тебя одену…"
 
@@ -2864,6 +2897,9 @@ msgstr "Шепчущий луг"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Куда бьёт луч, там взрыв"
+
+msgid "Wofür ich den brauche? Ach… Sammlerstück! Mehr sag ich nicht. Noch nicht."
+msgstr "Зачем он мне? Ах… коллекционная вещица! Больше ничего не скажу. Пока."
 
 msgid "Wolf"
 msgstr "Волк"

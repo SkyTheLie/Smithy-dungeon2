@@ -57,6 +57,9 @@ msgstr "Así que mejor gástalo, socio. ¡A ser posible, conmigo!"
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "Al final cada disparo estalla en cuatro chispas"
 
+msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
+msgstr "¡Saliste trepando por la cuerda como un héroe! Pero… ¿dónde está mi rubí?"
+
 msgid "Amethyst"
 msgstr "Amatista"
 
@@ -65,6 +68,9 @@ msgstr "Velocidad de ataque"
 
 msgid "Ankauf"
 msgstr "Compra"
+
+msgid "Ans Licht"
+msgstr "Hacia la luz"
 
 msgid "Anzeige"
 msgstr "Pantalla"
@@ -285,11 +291,17 @@ msgstr "Tus objetos"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Tus disparos persiguen a los enemigos"
 
+msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
+msgstr "Venciste al primer jefe y saliste trepando por la cuerda."
+
 msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
 msgstr "Este va por cuenta de la casa. Un cliente muerto ya no compra nada. ¡De verdad!"
 
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "La barra sobre la palanca muestra lo que puede salir: gris es común, verde sólido, etc. Cuanta más experiencia tengas, más colores."
+
+msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
+msgstr "¡El jefe tenía uno, lo sé! Tráemelo si encuentras uno. Esperaré. Con impaciencia."
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "El rayo de fuego se curva hacia el enemigo"
@@ -723,6 +735,9 @@ msgstr "Coloso de tierra"
 msgid "Erdstab"
 msgstr "Bastón de tierra"
 
+msgid "Erfolg: %s"
+msgstr "Logro: %s"
+
 msgid "Erreiche Ebene %d"
 msgstr "Llega al piso %d"
 
@@ -987,6 +1002,9 @@ msgstr "Común"
 msgid "Ghul"
 msgstr "Ghoul"
 
+msgid "Gib her, gib her! Bei mir ist er sicher. Sicherer als dein Gold in der Dose. Ehrlich!"
+msgstr "¡Dámelo, dámelo! Conmigo está seguro. Más seguro que tu oro en la lata. ¡De verdad!"
+
 msgid "Giftratte"
 msgstr "Rata venenosa"
 
@@ -1004,6 +1022,9 @@ msgstr "Lisa, verde y todavía un poco caliente."
 
 msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
 msgstr "Justo detrás de la tienda de Egon se baja. Al fondo espera un jefe y, supuestamente, un tesoro. Eso dice Egon."
+
+msgid "Gleich unten haust ein Boss, und der hat einen Rubin. Bring ihn mir! Der gehört mir nämlich. Also… fast. Ehrlich!"
+msgstr "Justo abajo vive un jefe, y tiene un rubí. ¡Tráemelo! Es mío, ¿sabes? Bueno… casi. ¡De verdad!"
 
 msgid "Glutdrache"
 msgstr "Draco de brasas"
@@ -1281,6 +1302,9 @@ msgstr "Caldero de bruja"
 msgid "Hier klicken"
 msgstr "Haz clic aquí"
 
+msgid "Hinausgeklettert!"
+msgstr "¡Saliste trepando!"
+
 msgid "Hinter dem Tor wartet etwas"
 msgstr "Algo espera tras la puerta"
 
@@ -1343,6 +1367,9 @@ msgstr "Soy el estaf… eh, el vendedor. Vendo… …¡equipo! Sí, eso. Vendo e
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "Te la meto yo. ¡Gratis! Lo de meterla, quiero decir."
+
+msgid "Ich warte hier. Sicher ist sicher."
+msgstr "Yo espero aquí. Más vale prevenir."
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "En la mazmorra pulsas %s. Glu, glu, y vuelven dos corazones."
@@ -1841,6 +1868,9 @@ msgstr "Lingote de paladio"
 
 msgid "Palladiumklinge"
 msgstr "Hoja de paladio"
+
+msgid "Partner! Du lebst! Und ist das… ist das mein Rubin?!"
+msgstr "¡Socio! ¡Estás vivo! ¿Y eso es… es mi rubí?"
 
 msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
 msgstr "¡Socio! ¿Otra vez muerto? Me preocupé. ¡Casi dos minutos enteros!"
@@ -2703,6 +2733,9 @@ msgstr "Y aquí, un pequeño adelanto: 50 de oro. Arriba a la izquierda ves cuá
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "¡Y ahora, a la mazmorra! Tráeme algo bonito. Yo espero aquí. Por si acaso."
 
+msgid "Und jetzt ab in den Dungeon! Unter uns, Partner: Ich hätte da einen kleinen Auftrag."
+msgstr "¡Y ahora, a la mazmorra! Entre nosotros, socio: tengo un pequeño encargo."
+
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "Y a la izquierda estás tú. Quieto, que te visto…"
 
@@ -2864,6 +2897,9 @@ msgstr "Pradera Susurrante"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Donde impacta el rayo, todo explota"
+
+msgid "Wofür ich den brauche? Ach… Sammlerstück! Mehr sag ich nicht. Noch nicht."
+msgstr "¿Para qué lo necesito? Ah… ¡pieza de colección! No diré más. Todavía no."
 
 msgid "Wolf"
 msgstr "Lobo"

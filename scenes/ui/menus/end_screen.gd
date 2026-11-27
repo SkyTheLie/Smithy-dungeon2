@@ -1,7 +1,8 @@
 class_name EndScreen
 extends CanvasLayer
-## End of a run: "Du bist gefallen" (dead), "Geschafft!" (last boss beaten) or "Geflüchtet!"
-## (out through the ladder in a start room), with the floor,
+## End of a run: "Du bist gefallen" (dead), "Geschafft!" (last boss beaten), "Geflüchtet!"
+## (out through the ladder in a start room) or "Hinausgeklettert!" (the rope after the very first
+## boss, with its achievement), with the floor,
 ## kills, the run's values and its items. No buttons: a click or a key (after a short moment, so
 ## nothing is clicked by mistake) and you wake up in front of Egon (Game.to_shop, the next day).
 
@@ -20,8 +21,11 @@ func _ready() -> void:
 	hide()
 
 
-func open(run: RunState, won: bool, fled: bool = false) -> void:
-	if fled:
+func open(run: RunState, won: bool, fled: bool = false, climbed: bool = false) -> void:
+	if climbed:
+		_title.text = Language.translate("Hinausgeklettert!")
+		_title.modulate = Color(0.75, 1.0, 0.7)
+	elif fled:
 		_title.text = Language.translate("Geflüchtet!")
 		_title.modulate = Color(0.7, 0.9, 1.0)
 	else:
@@ -36,10 +40,14 @@ func open(run: RunState, won: bool, fled: bool = false) -> void:
 	if run.levels_gained > 0:
 		lines.append(Language.translate("Stufe %d erreicht! +%d Skillpunkte") % [MetaState.level(), run.levels_gained * int(Skills.levels().get("points_per_level", 1))])
 	# What comes home (MetaState.end_run already ran in RunScene).
-	if won or fled:
+	if won or fled or climbed:
 		lines.append(Language.translate("Mit nach Hause: %d Gold, %d Beute") % [run.coins, _count(run.bag.contents())])
 	else:
 		lines.append(Language.translate("Gerettet (sicherer Platz): %d Gold, %d Beute") % [_gold(run.bag.safe_contents()), _count(run.bag.safe_contents())])
+	if climbed:
+		var achievement: Dictionary = Content.achievement(String(Content.meta("ruby_quest").get("achievement", "")))
+		if not achievement.is_empty():
+			lines.append(Language.translate("Erfolg: %s") % Language.translate(String(achievement.get("name", ""))))
 	for line: String in PauseMenu.describe(run).split("\n"):
 		lines.append(line)
 	var half: int = ceili(lines.size() / 2.0)

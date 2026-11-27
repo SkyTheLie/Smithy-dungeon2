@@ -1,0 +1,32 @@
+{
+	"_info": "Boss-Altar (scenes/run/boss_altar.gd): Nach dem Boss der letzten Ebene eines Dungeons steigt im Boss-Raum statt der Falltür ein Portal (Bild portal) aus dem Boden; es führt in die große Halle mit dem Altar der Neun, dort landet der Endboss (dungeons.json end_boss). Danach das goldene Licht (Sieg). size = Größe in normalen Räumen [breit, tief]. wall_height in Metern. Texturen wie in floors.json. ambient_dark / ambient_lit = Umgebungslicht in der Halle vor dem Kampf und nach dem Boss (1.0 = wie in den anderen Räumen). wake_distance = so nah (Meter) muss man an den Altar, damit er erwacht. pillars = Abstand der Säulen vom Altar [quer, längs] in Metern. elements = die neun heiligen Kristalle, der Reihe nach im Kreis (Bild holy_<element>_crystal.png, Säule pillar_<element>.png, Strahl beam_<element>.png, Krone crown_<element>.png), colors = Lichtfarbe je Element. music_altar = Musik in der Halle (düster), music_fight = Musik ab der Landung des Endbosses (Ids aus audio.json), silence = Sekunden Stille vor dem Boss. boss_drop = Höhe (Meter), aus der der Endboss in die Halle fällt. gate / gate_open = Tor in der Halle zurück in den Boss-Raum (zu / offen), portal = Bild des Portals im Boss-Raum, portal_light = seine Lichtfarbe.",
+	"size": [2, 2],
+	"wall_height": 5.0,
+	"floor_texture": "res://assets/sprites/rooms/styles/floor_obsidian.png",
+	"wall_texture": "res://assets/sprites/rooms/styles/wall_obsidian.png",
+	"gate": "res://assets/sprites/altar/gate.png",
+	"portal": "res://assets/sprites/altar/gate_open.png",
+	"portal_light": [0.9, 0.25, 0.15],
+	"gate_open": "res://assets/sprites/altar/gate_open.png",
+	"altar": "res://assets/sprites/altar/first_anvil.png",
+	"ambient_dark": 0.25,
+	"ambient_lit": 0.8,
+	"wake_distance": 5.5,
+	"pillars": [9.5, 7.0],
+	"elements": ["fire", "lightning", "poison", "light", "dark", "ice", "wind", "water", "earth"],
+	"colors": {
+		"fire": [1.0, 0.45, 0.15],
+		"lightning": [1.0, 0.92, 0.3],
+		"poison": [0.45, 0.95, 0.25],
+		"light": [1.0, 0.97, 0.75],
+		"dark": [0.6, 0.35, 0.95],
+		"ice": [0.65, 0.92, 1.0],
+		"wind": [0.7, 1.0, 0.85],
+		"water": [0.3, 0.6, 1.0],
+		"earth": [0.75, 0.55, 0.3]
+	},
+	"music_altar": "altar",
+	"music_fight": "boss_rock",
+	"silence": 1.6,
+	"boss_drop": 16.0
+}
