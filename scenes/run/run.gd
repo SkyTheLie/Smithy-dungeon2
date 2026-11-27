@@ -74,6 +74,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed(Controls.BAG):
 		get_viewport().set_input_as_handled()
 		bag_window.open()
+	elif event.is_action_pressed(Controls.TALK) and dungeon.near_merchant():
+		get_viewport().set_input_as_handled()
+		bag_window.open(true)
 	elif event.is_action_pressed(Controls.MAP):
 		get_viewport().set_input_as_handled()
 		hud.toggle_map()

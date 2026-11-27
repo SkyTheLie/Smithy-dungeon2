@@ -6,7 +6,7 @@ Vorher: offener Stand `feature/rubin-seil-altar` (Seil nach dem ersten Boss, Rub
 
 | # | Aufgabe | Status |
 |---|---|---|
-| 1 | **Händler im Dungeon mit F ansprechen**, um Sachen zu verkaufen; auch Relikte verkaufen. | offen |
+| 1 | **Händler im Dungeon mit F ansprechen**, um Sachen zu verkaufen; auch Relikte verkaufen. | ✅ erledigt |
 | 2 | **Schlüssel:** am Anfang keinen Schlüssel. Beim Verlassen des Dungeons zerbrechen die Schlüssel; Egon sagt das: „so ein Magie-Ding, keine Ahnung, bin ein Gaunerverkäufer“. | ✅ erledigt |
 | 3 | **Erste Ebene kleiner:** höchstens 6 Räume, davon Boss-Raum und Opfer-Raum. | ✅ erledigt |
 | 4 | **Start-Bildschirm** „Hier klicken“ nur einmal. Spiel → Hauptmenü landet im Hauptmenü ohne die Reingeh-Animation. | ✅ erledigt |
@@ -26,6 +26,8 @@ Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 
 ## Erledigt
 
 (neueste oben, mit Branch und Datum)
+
+- **1** · `feature/haendler-f` · 2026-11-27 · F beim Händler im Dungeon-Shop öffnet sein Handelsfenster (HUD-Hinweis in der Nähe): Beute verkaufen (Rechtsklick) und ein Relikt kaufen, das dann zu Hause im Inventar liegt. Taste in den Einstellungen änderbar („Reden“). Im Spiel: Ebene 2 → Shop → zum Händler → F → verkaufen, Relikt kaufen → nach dem Run bei Egon im Inventar.
 
 - **4** · `feature/startbild-einmal` · 2026-11-27 · „Hier klicken“ kommt nur beim ersten Mal nach dem Programmstart (MainMenu.title_seen). Danach (Hauptmenü aus Laden/Pause, Rückkehr aus dem Run) startet das Menü direkt am Amboss ohne Tür-Animation. Im Spiel: starten → Tür öffnen → Weiter → im Laden Esc → Hauptmenü → direkt das Menü.
 

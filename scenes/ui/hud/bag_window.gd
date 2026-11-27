@@ -8,7 +8,9 @@ extends CanvasLayer
 ##   - the safe place (golden frame) keeps its things when the player dies;
 ##   - the gold of the run lies in the bag like everything else (Bag.GOLD): drop it, stack it,
 ##     put it into the safe place;
-##   - in the shop room a right click sells a place to the merchant (Dungeon.sell_from_bag);
+##   - opened with F at the merchant (open(true), Dungeon.trading) it is his trade window: a right
+##     click sells a place (Dungeon.sell_from_bag), above the bag he offers a relic
+##     (Dungeon.merchant_relic, button: Dungeon.buy_relic);
 ##   - left the hero: his equipment from home (HeroPanel, only shown) and below it the values of
 ##     the run (damage, attack speed, walking speed, luck);
 ##   - right the whole floor (Minimap.always_big), zoomed out so every known room fits;
@@ -43,6 +45,11 @@ var _slots: Array[Panel] = []
 var _info_name: Label
 var _info_text: Label
 var _hint: Label
+## The merchant's relic offer (only shown in the trade window).
+var _offer: HBoxContainer
+var _offer_icon: TextureRect
+var _offer_text: Label
+var _offer_button: Button
 
 
 func _init() -> void:
@@ -58,7 +65,11 @@ func setup(run_state: RunState, the_dungeon: Dungeon) -> void:
 	hide()
 
 
-func open() -> void:
+## `trade` = opened at the merchant (F): his trade window.
+func open(trade: bool = false) -> void:
+	if dungeon:
+		dungeon.trading = trade and dungeon.in_shop()
+	_refresh_offer()
 	_hint.text = _hint_text()
 	_refresh()
 	_refresh_run()
@@ -79,6 +90,8 @@ func open() -> void:
 
 
 func close() -> void:
+	if dungeon:
+		dungeon.trading = false
 	hide()
 	get_tree().paused = false
 	closed.emit()
@@ -140,6 +153,7 @@ func _build() -> void:
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_color_override("font_color", Color(1.0, 0.85, 0.55))
 	column.add_child(title)
+	column.add_child(_build_offer())
 
 	var grid := GridContainer.new()
 	grid.columns = COLUMNS
@@ -186,12 +200,14 @@ func _build() -> void:
 
 
 func _in_shop() -> bool:
-	return dungeon != null and dungeon.in_shop()
+	return dungeon != null and dungeon.trading
 
 
 func _hint_text() -> String:
 	if _in_shop():
 		return Language.translate("Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen")
+	if dungeon != null and dungeon.in_shop():
+		return Language.translate("Verkaufen: zum Händler gehen und %s drücken · Tab: schließen") % Controls.key_name(Controls.get_key(Controls.TALK))
 	return Language.translate("Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen")
 
 
@@ -238,6 +254,63 @@ static func _box(fill: Color, border: Color, width: int, corner: int) -> StyleBo
 	style.content_margin_top = 6
 	style.content_margin_bottom = 6
 	return style
+
+
+## The merchant's relic offer: picture, name, runs and price, a button to buy it.
+func _build_offer() -> Control:
+	_offer = HBoxContainer.new()
+	_offer.add_theme_constant_override("separation", 6)
+	_offer_icon = TextureRect.new()
+	_offer_icon.custom_minimum_size = ITEM_SIZE
+	_offer_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_offer_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_offer_icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	_offer.add_child(_offer_icon)
+	_offer_text = Label.new()
+	_offer_text.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_offer_text.add_theme_font_size_override("font_size", 8)
+	_offer_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_offer_text.custom_minimum_size = Vector2(150, 0)
+	_offer_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_offer_text.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_offer.add_child(_offer_text)
+	_offer_button = Button.new()
+	_offer_button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_offer_button.add_theme_font_size_override("font_size", 8)
+	_offer_button.focus_mode = Control.FOCUS_NONE
+	_offer_button.pressed.connect(buy_relic)
+	_offer.add_child(_offer_button)
+	_offer.hide()
+	return _offer
+
+
+## Shows the relic offer in the trade window (hidden without one or outside the trade window).
+func _refresh_offer() -> void:
+	if _offer == null:
+		return
+	var relic: Dictionary = dungeon.merchant_relic if dungeon != null and dungeon.trading else {}
+	_offer.visible = not relic.is_empty()
+	if relic.is_empty():
+		return
+	var data: Dictionary = Content.item(String(relic["id"]))
+	_offer_icon.texture = load(String(data.get("icon", ""))) as Texture2D
+	var runs: int = int(relic.get("left", -1))
+	var lasts: String = Language.translate("hält für immer") if runs < 0 else Language.translate("hält %d Runs") % runs
+	_offer_text.text = "%s: %s (%s)
+%s" % [Language.translate("Relikt"), Language.translate(String(data.get("name", ""))), lasts, Language.translate(String(data.get("desc", "")))]
+	_offer_text.modulate = Rarity.color(ShopGoods.relic_tier(String(relic["id"])))
+	_offer_button.text = Language.translate("Kaufen: %d Gold") % int(relic.get("price", 0))
+	_offer_button.disabled = run.coins < int(relic.get("price", 0))
+
+
+## Buys the merchant's relic (Dungeon.buy_relic); the offer goes away.
+func buy_relic() -> bool:
+	if dungeon == null or not dungeon.buy_relic():
+		return false
+	_refresh_offer()
+	_info_name.text = ""
+	_info_text.text = Language.translate("Gekauft! Das Relikt wartet zu Hause im Inventar.")
+	return true
 
 
 ## The hero's equipment (only shown: it is changed at home) and the values below it.
@@ -316,6 +389,8 @@ func _refresh_run() -> void:
 # --- Showing --------------------------------------------------------------------
 
 func _refresh() -> void:
+	if _offer != null and _offer.visible:
+		_offer_button.disabled = run.coins < int(dungeon.merchant_relic.get("price", 0))
 	for i in _slots.size():
 		var place: Dictionary = run.bag.get_place(i)
 		var slot: Panel = _slots[i]

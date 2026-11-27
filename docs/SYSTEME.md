@@ -337,3 +337,10 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - Am Seil: hinaufklettern, Tag zu Ende, alles kommt mit, Erfolg `first_boss`, End-Bildschirm „Hinausgeklettert!“. Danach nie mehr ein Seil (`rope_done`).
 - Egon nimmt den Rubin im Laden (`ruby_due`: nach dem Seil oder sobald ein Rubin im Inventar ist), einmal.
 - Letzte Ebene: nach dem Boss steigt ein Portal statt der Falltür auf → Boss-Altar mit dem End-Boss (`dungeons.json` `end_boss`) → goldenes Licht (Sieg).
+
+## Händler im Dungeon mit F (Handelsfenster) – 2026-11-27
+
+- **Dateien:** `scenes/run/dungeon.gd` (`keeper`, `near_merchant`, `trading`, `merchant_relic`, `buy_relic`), `scenes/ui/hud/bag_window.gd` (`open(trade)`), `scenes/ui/hud/hud.gd` (`talk_prompt`), `scripts/core/controls.gd` (`TALK` = F, änderbar), `data/floors.json` `shop`
+- Steht man im Shop-Raum näher als `talk_distance` am Händler, zeigt das HUD „[F] Mit dem Händler handeln“. F öffnet das Inventar als Handelsfenster: nur dort kauft er Beute (Rechtsklick). Tab im Shop-Raum verkauft nichts mehr.
+- Oben im Handelsfenster bietet er ein **Relikt** an (ein schon gefundenes Item, `ShopGoods.pick_relic`, Preis = Stufen-Preis × `relic_price_mult` × Shop-Faktor), bezahlt mit dem Gold aus der Tasche. Gekauft liegt es sofort zu Hause im Inventar (`MetaState.give_piece`) und bleibt auch beim Tod.
+- Übersetzungs-Skript liest jetzt auch `message.emit("…")` und `show_message("…")`.

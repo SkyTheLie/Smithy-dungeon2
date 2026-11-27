@@ -195,6 +195,7 @@ func _action_name(action: StringName) -> String:
 		Controls.MAP: return Language.translate("Karte")
 		Controls.DASH: return Language.translate("Ausweichen")
 		Controls.POTION: return Language.translate("Trank trinken")
+		Controls.TALK: return Language.translate("Reden")
 	return String(action)
 
 

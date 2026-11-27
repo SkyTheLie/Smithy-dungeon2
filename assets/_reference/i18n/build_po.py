@@ -6,7 +6,7 @@ Exit code 1 if a text is missing in translations.json or a language is missing f
 
 Texts it finds by itself:
   - "text" and "title" of Labels/Buttons in .tscn files (only those with auto translate on)
-  - Language.translate("...") in .gd files
+  - Language.translate("..."), message.emit("...") and show_message("...") in .gd files
   - "name" and "desc" in data/items.json, data/synergies.json, data/enemies.json, data/characters.json, materials in data/loot.json, theme "name" in floors.json,
     "name"/"region"/"desc" in data/dungeons.json, gear and slot names in data/gear.json,
     every line in data/story.json, skill names in data/skills.json, potions in data/potions.json,
@@ -39,6 +39,9 @@ def find_texts():
                             texts.add(match.group(1))
                 elif name.endswith(".gd"):
                     for match in re.finditer(r'Language\.translate\("((?:[^"\\]|\\.)*)"', content):
+                        texts.add(match.group(1))
+                    # Messages the HUD translates itself (Dungeon.message, Hud.show_message).
+                    for match in re.finditer(r'(?:message\.emit|show_message)\("((?:[^"\\]|\\.)*)"', content):
                         texts.add(match.group(1))
     data = os.path.join(ROOT, "data")
     for file, key in (("items.json", "items"), ("synergies.json", "synergies"), ("enemies.json", "enemies"), ("characters.json", "characters")):

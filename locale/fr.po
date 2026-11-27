@@ -249,6 +249,9 @@ msgstr "Chances sur la table :"
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Là-derrière, c'est l'entrée du Donjon des Braises. Certains en ressortent même !"
 
+msgid "Dafür reicht dein Gold nicht"
+msgstr "Tu n'as pas assez d'or pour ça"
+
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "Ton or ne suffit pas pour ça, partenaire. Hélas, hélas."
 
@@ -579,11 +582,17 @@ msgstr "Un cœur, une pièce, une bombe et une clé"
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "Un cœur, deux cœurs bleus, dégâts en hausse"
 
+msgid "Ein Händler! Geh hin und sprich ihn an."
+msgstr "Un marchand ! Va lui parler."
+
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "Une herbe en forme de cœur. Egon en fait du thé."
 
 msgid "Ein Platz mehr im Rucksack."
 msgstr "Un emplacement de plus dans le sac."
+
+msgid "Ein Portal öffnet sich!"
+msgstr "Un portail s'ouvre !"
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Un emplacement de relique de plus sur ton héros."
@@ -602,6 +611,9 @@ msgstr "Un tir de plus et plus de dégâts"
 
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "Un tir de plus, mais plus faible"
+
+msgid "Ein Seil fällt vom Himmel!"
+msgstr "Une corde tombe du ciel !"
 
 msgid "Ein Silbererz, Glück hoch"
 msgstr "Un minerai d'argent, chance accrue"
@@ -938,6 +950,9 @@ msgstr "Verre fantôme"
 
 msgid "Geisterstab"
 msgstr "Bâton fantôme"
+
+msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
+msgstr "Acheté ! La relique t'attend dans l'inventaire à la maison."
 
 msgid "Geldbündel: %d Gold"
 msgstr "Liasse d'argent : %d or"
@@ -1389,6 +1404,9 @@ msgstr "Tu n'emportes pas d'or dans le donjon. En bas, mon collègue t'achète t
 msgid "Inventar"
 msgstr "Inventaire"
 
+msgid "Inventar voll!"
+msgstr "Inventaire plein !"
+
 msgid "Irrlicht"
 msgstr "Feu follet"
 
@@ -1439,6 +1457,9 @@ msgstr "Sac de caravane"
 
 msgid "Karte"
 msgstr "Carte"
+
+msgid "Kaufen: %d Gold"
+msgstr "Acheter : %d or"
 
 msgid "Kein Relikt"
 msgstr "Pas une relique"
@@ -1731,6 +1752,9 @@ msgstr "Météore"
 msgid "Minotaurus"
 msgstr "Minotaure"
 
+msgid "Mit dem Händler handeln"
+msgstr "Commercer avec le marchand"
+
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "Rapporté à la maison : %d or, %d butin"
 
@@ -1961,6 +1985,9 @@ msgstr "Clic droit : vendre au marchand · Glisser : trier · Tab : fermer"
 
 msgid "Rechtsklick: verkaufen für %d Gold"
 msgstr "Clic droit : vendre pour %d or"
+
+msgid "Reden"
+msgstr "Parler"
 
 msgid "Reichweite"
 msgstr "Portée"
@@ -2775,6 +2802,9 @@ msgstr "Vendre"
 msgid "Verkaufen: %d Gold"
 msgstr "Vendre : %d or"
 
+msgid "Verkaufen: zum Händler gehen und %s drücken · Tab: schließen"
+msgstr "Vendre : va voir le marchand et appuie sur %s · Tab : fermer"
+
 msgid "Verkauft für %d Gold"
 msgstr "Vendu pour %d or"
 
@@ -3041,6 +3071,12 @@ msgstr "Résistant et chaud."
 
 msgid "Zähigkeit"
 msgstr "Ténacité"
+
+msgid "hält %d Runs"
+msgstr "dure %d parties"
+
+msgid "hält für immer"
+msgstr "dure pour toujours"
 
 msgid "max."
 msgstr "max."

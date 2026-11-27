@@ -249,6 +249,9 @@ msgstr "Probabilidades en la mesa:"
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Ahí detrás se entra a la Mazmorra de las Brasas. ¡Algunos hasta salen!"
 
+msgid "Dafür reicht dein Gold nicht"
+msgstr "No tienes oro suficiente para eso"
+
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "No te alcanza el oro, socio. Qué pena, qué pena."
 
@@ -579,11 +582,17 @@ msgstr "Un corazón, una moneda, una bomba y una llave"
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "Un corazón, dos corazones azules, más daño"
 
+msgid "Ein Händler! Geh hin und sprich ihn an."
+msgstr "¡Un mercader! Acércate y habla con él."
+
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "Una hierba con forma de corazón. Egon hace té con ella."
 
 msgid "Ein Platz mehr im Rucksack."
 msgstr "Un espacio más en la mochila."
+
+msgid "Ein Portal öffnet sich!"
+msgstr "¡Se abre un portal!"
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Un espacio de reliquia más en tu héroe."
@@ -602,6 +611,9 @@ msgstr "Un disparo más y más daño"
 
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "Un disparo más, pero más débil"
+
+msgid "Ein Seil fällt vom Himmel!"
+msgstr "¡Cae una cuerda del cielo!"
 
 msgid "Ein Silbererz, Glück hoch"
 msgstr "Una mena de plata, más suerte"
@@ -938,6 +950,9 @@ msgstr "Vidrio fantasma"
 
 msgid "Geisterstab"
 msgstr "Bastón fantasma"
+
+msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
+msgstr "¡Comprado! La reliquia te espera en el inventario de casa."
 
 msgid "Geldbündel: %d Gold"
 msgstr "Fajo de dinero: %d de oro"
@@ -1389,6 +1404,9 @@ msgstr "A la mazmorra no te llevas oro. Allí abajo mi colega te compra el botí
 msgid "Inventar"
 msgstr "Inventario"
 
+msgid "Inventar voll!"
+msgstr "¡Inventario lleno!"
+
 msgid "Irrlicht"
 msgstr "Fuego fatuo"
 
@@ -1439,6 +1457,9 @@ msgstr "Mochila de caravana"
 
 msgid "Karte"
 msgstr "Mapa"
+
+msgid "Kaufen: %d Gold"
+msgstr "Comprar: %d de oro"
 
 msgid "Kein Relikt"
 msgstr "No es reliquia"
@@ -1731,6 +1752,9 @@ msgstr "Meteoro"
 msgid "Minotaurus"
 msgstr "Minotauro"
 
+msgid "Mit dem Händler handeln"
+msgstr "Comerciar con el mercader"
+
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "Llevado a casa: %d de oro, %d botín"
 
@@ -1961,6 +1985,9 @@ msgstr "Clic derecho: vender al mercader · Arrastrar: ordenar · Tab: cerrar"
 
 msgid "Rechtsklick: verkaufen für %d Gold"
 msgstr "Clic derecho: vender por %d de oro"
+
+msgid "Reden"
+msgstr "Hablar"
 
 msgid "Reichweite"
 msgstr "Alcance"
@@ -2775,6 +2802,9 @@ msgstr "Vender"
 msgid "Verkaufen: %d Gold"
 msgstr "Vender: %d de oro"
 
+msgid "Verkaufen: zum Händler gehen und %s drücken · Tab: schließen"
+msgstr "Vender: ve al mercader y pulsa %s · Tab: cerrar"
+
 msgid "Verkauft für %d Gold"
 msgstr "Vendido por %d de oro"
 
@@ -3041,6 +3071,12 @@ msgstr "Resistente y cálido."
 
 msgid "Zähigkeit"
 msgstr "Dureza"
+
+msgid "hält %d Runs"
+msgstr "dura %d partidas"
+
+msgid "hält für immer"
+msgstr "dura para siempre"
 
 msgid "max."
 msgstr "máx."

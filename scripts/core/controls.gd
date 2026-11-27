@@ -6,6 +6,7 @@ extends RefCounted
 ##   E / right mouse button  bomb        Tab  bag (inventory)     M  big map      Esc  pause
 ##   P  admin menu (only in debug builds: started from the editor): travel, items, gear, cheats
 ##   Shift  dash / blink (with the right item)          Q  drink a potion
+##   F  talk (to the merchant in the dungeon shop: his trade window)
 ## The first key of every action in REBINDABLE can be changed in the settings (tab "Steuerung",
 ## like in Smithy); it is saved in user://settings.cfg section "keys" (action -> physical key).
 ## The other keys (arrow keys) and the mouse buttons stay.
@@ -25,6 +26,8 @@ const TEST_ROOM: StringName = &"test_room"
 const DASH: StringName = &"dash"
 ## Q: drinks the potion of the potion place (RunState.drink_potion).
 const POTION: StringName = &"potion"
+## F: talk to the merchant of the dungeon shop (Dungeon.near_merchant).
+const TALK: StringName = &"talk"
 
 const SETTINGS_SECTION: String = "keys"
 ## The keys of every action at the start; the first one can be changed (REBINDABLE).
@@ -40,9 +43,10 @@ const DEFAULT_KEYS: Dictionary = {
 	TEST_ROOM: [KEY_P],
 	DASH: [KEY_SHIFT],
 	POTION: [KEY_Q],
+	TALK: [KEY_F],
 }
 ## Actions whose first key can be changed in the settings, in the order shown there.
-const REBINDABLE: Array[StringName] = [MOVE_FORWARD, MOVE_BACK, MOVE_LEFT, MOVE_RIGHT, BOMB, BAG, MAP, DASH, POTION]
+const REBINDABLE: Array[StringName] = [MOVE_FORWARD, MOVE_BACK, MOVE_LEFT, MOVE_RIGHT, BOMB, BAG, MAP, DASH, POTION, TALK]
 
 
 static func register() -> void:
