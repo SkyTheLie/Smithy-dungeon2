@@ -11,6 +11,15 @@ extends CharacterBody3D
 ##            straight at where the player stood, and stand still afterwards without turning,
 ##            so the player can get behind them
 ##   boss     its own attacks (BossBrain)
+##   charger, turret, wall, bouncer, spawner, shell: see EnemyMoves (each its own pattern)
+## "pattern" (shooter, turret, wall, shell): how it shoots (shoot_pattern): aimed (a fan of "spray"
+##    at the player), fan3, cross (+), diagonal (x), star (both), alternate (+ then x), ring.
+## "tint": [r, g, b] colours the picture (one picture, several enemies).
+## "death_shots": a pattern it shoots when it dies; "death_spawn": [id, count] = it bursts into
+##    these; "death_blast": {"radius", "damage"} = it explodes (hurts the player and enemies near).
+## "revive": {"time", "times", "down_life"}: when its life is gone it collapses first; hit it again
+##    while it lies there (it has a little life left), else it stands up again after "time" seconds.
+## "burrow" "shots": a pattern it shoots when it comes up.
 ## "leap": {"every", "range", "height"}: crouches, then jumps high at the player and lands on them.
 ## "burrow": {"every", "time"}: digs into the floor (cannot be hit), a red mark shows where it
 ##    will come up (under the player), then it bursts out there.
@@ -51,6 +60,8 @@ const ATTACK_CUE_LEAD: float = 0.45
 const IDLE_GAP_MS: int = 700
 ## Cries get quieter by this many dB per metre beyond 2 m.
 const CRY_FALLOFF_DB: float = 0.8
+## A hit this strong is the boss taking its helpers along (Dungeon): no death tricks then.
+const FORCED_DAMAGE: float = 9000.0
 
 ## When the last idle cry of any enemy was played.
 static var _last_idle_ms: int = -IDLE_GAP_MS
@@ -63,6 +74,8 @@ var alive: bool = true
 var radius: float = 0.4
 var height: float = 1.2
 var is_boss: bool = false
+## Hits bounce off (a closed shell). Set by EnemyMoves.
+var armored: bool = false
 
 var dungeon: Dungeon
 var player: Player
@@ -74,6 +87,12 @@ var _sprite: Sprite3D
 var _ring: MeshInstance3D
 var _walk: Texture2D
 var _idle: Texture2D
+## Size of one picture in the sheets (data "frame" [width, height], default 48 x 48).
+var _frame_w: int = FRAME_SIZE
+var _frame_h: int = FRAME_SIZE
+## Attack pictures (data "attack_sheets": attack -> suffix, e.g. "spray": "breath" =
+## <sprite>_breath.png), shown while a boss does that attack (show_attack / end_attack).
+var _attack_sheets: Dictionary[String, Texture2D] = {}
 var _death: Texture2D
 var _anim_time: float = 0.0
 var _wake_left: float = 0.0
@@ -98,6 +117,20 @@ var hidden_phase: bool = false
 var reflecting: bool = false
 var stun_left: float = 0.0
 var _brain: BossBrain = null
+## The newer ai kinds (EnemyMoves.KINDS).
+var _moves: EnemyMoves = null
+## The colour of the picture ("tint"), white without.
+var _base_color: Color = Color.WHITE
+## Warnings before an attack: shaking, swelling up (seconds left).
+var _wobble_left: float = 0.0
+var _swell_left: float = 0.0
+## "revive": lying on the floor (seconds left), how often it went down already.
+var _downed_left: float = 0.0
+var _downs: int = 0
+## "alternate" pattern: cross or diagonal next.
+var _pattern_flip: bool = false
+## Killed by the boss's death (no death effects then).
+var _forced: bool = false
 var _last_hit: float = 0.0
 ## "leap" enemies: time to the next jump, crouch / air time left, landing spot, height now.
 var _leap_wait: float = 2.0
@@ -155,6 +188,11 @@ func setup(enemy_id: String, the_dungeon: Dungeon, the_player: Player, rng_seed:
 	is_boss = _ai == "boss"
 	if is_boss:
 		_brain = BossBrain.new(self)
+	if EnemyMoves.KINDS.has(_ai):
+		_moves = EnemyMoves.new(self)
+	var tint: Array = data.get("tint", [])
+	if tint.size() >= 3:
+		_base_color = Color(float(tint[0]), float(tint[1]), float(tint[2]))
 	if _ai == "lurk":
 		var wake: Array = data.get("wake", [1.0, 3.0])
 		_wake_left = _rng.randf_range(float(wake[0]), float(wake[1]))
@@ -167,6 +205,8 @@ func setup(enemy_id: String, the_dungeon: Dungeon, the_player: Player, rng_seed:
 func _ready() -> void:
 	collision_layer = RoomBuilder.LAYER_ENEMIES
 	collision_mask = RoomBuilder.LAYER_WORLD if _ai == "fly" else RoomBuilder.LAYER_WORLD | RoomBuilder.LAYER_ROCKS
+	if _moves and _moves.places_itself():
+		collision_mask = 0
 	var shape := CollisionShape3D.new()
 	var cylinder := CylinderShape3D.new()
 	cylinder.radius = radius * 0.8
@@ -175,16 +215,39 @@ func _ready() -> void:
 	shape.position.y = 0.5
 	add_child(shape)
 	var base: String = String(data.get("sprite", ""))
+	var frame_size: Array = data.get("frame", [FRAME_SIZE, FRAME_SIZE])
+	_frame_w = maxi(1, int(frame_size[0]))
+	_frame_h = maxi(1, int(frame_size[-1]))
+	var sheets: Dictionary = data.get("attack_sheets", {})
+	for attack: String in sheets:
+		var path: String = "%s_%s.png" % [base, sheets[attack]]
+		if ResourceLoader.exists(path):
+			_attack_sheets[attack] = load(path) as Texture2D
 	_walk = load(base + "_walk.png") as Texture2D
 	_idle = load(base + ".png") as Texture2D if ResourceLoader.exists(base + ".png") else _walk
 	_death = load(base + "_death.png") as Texture2D if ResourceLoader.exists(base + "_death.png") else null
 	_sprite = Fx.billboard(_walk if _awake else _idle, height)
 	_sprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
-	_sprite.pixel_size = height / FRAME_SIZE
+	_sprite.pixel_size = height / float(_frame_h)
 	_set_sheet(_walk if _awake else _idle)
 	_sprite.position.y = height / 2.0 + (FLY_HEIGHT if _ai == "fly" else 0.0)
 	add_child(_sprite)
 	_ring = Fx.ring(self, radius, RING_COLOR)
+	# High up on the wall: no ring on the floor.
+	_ring.visible = not (_moves and _moves.places_itself())
+
+
+## A boss starts `attack`: its attack picture (data "attack_sheets") plays while it lasts.
+func show_attack(attack: String) -> void:
+	if alive and _attack_sheets.has(attack):
+		_set_sheet(_attack_sheets[attack])
+		_anim_time = 0.0
+
+
+## The attack is over: back to walking.
+func end_attack() -> void:
+	if alive and _sprite and _sprite.texture != _walk and _attack_sheets.values().has(_sprite.texture):
+		_set_sheet(_walk)
 
 
 ## true if a ball at `point` with `ball_radius` touches this enemy.
@@ -205,6 +268,13 @@ func aim_point() -> Vector3:
 func take_damage(amount: float, push: Vector3, confuse: bool) -> void:
 	if not alive or amount <= 0.0 or hidden_phase:
 		return
+	# The boss died: its helpers go too, without their death tricks.
+	_forced = amount >= FORCED_DAMAGE
+	if armored and not _forced:
+		_flash = 0.0
+		AudioManager.play_sound("blocked", randf_range(0.9, 1.1))
+		Fx.puff(dungeon.effects, aim_point(), "spark", 0.4)
+		return
 	# Shield in front: a hit coming against its face bounces off.
 	if bool(data.get("front_guard", false)) and push.length() > 0.01 and Vector3(push.x, 0, push.z).normalized().dot(_facing) < -0.35:
 		_flash = 0.0
@@ -222,7 +292,7 @@ func take_damage(amount: float, push: Vector3, confuse: bool) -> void:
 		_confused = CONFUSED_TIME
 	_voice("hit", randf_range(0.9, 1.15))
 	if hp <= 0.0:
-		_die()
+		_out_of_life()
 
 
 ## A player hit with these `flags` (ShotStats.roll_flags) for `amount`: adds the effects.
@@ -289,7 +359,7 @@ func _update_effects(delta: float) -> void:
 		hp -= (_burn_per_second + _poison_per_second + bleed) * BURN_TICK
 		_flash = 0.06
 		if hp <= 0.0:
-			_die()
+			_out_of_life()
 
 
 ## front_guard enemies turn slowly (others look at the player at once).
@@ -359,6 +429,8 @@ func _burrowing(delta: float, distance: float) -> bool:
 			Fx.puff(dungeon.effects, global_position + Vector3(0, 0.3, 0), "spark", 1.0)
 			AudioManager.play_sound("boss_burrow", 1.3)
 			hurt_player_near(0.9)
+			if burrow.has("shots"):
+				shoot_pattern(String(burrow["shots"]), {})
 		return true
 	_burrow_wait -= delta
 	if _burrow_wait <= 0.0 and _awake and distance > 2.5:
@@ -454,10 +526,41 @@ func _update_cries(delta: float, distance: float) -> void:
 				cry("idle")
 
 
+## Life gone: "revive" enemies collapse first (hit them again!), the others die.
+func _out_of_life() -> void:
+	var revive: Dictionary = data.get("revive", {})
+	if not revive.is_empty() and not _forced and _downed_left <= 0.0 and _downs < int(revive.get("times", 2)):
+		_downs += 1
+		_downed_left = float(revive.get("time", 3.0))
+		hp = max_hp * float(revive.get("down_life", 0.3))
+		AudioManager.play_sound("enemy_die", 0.7)
+		return
+	_die()
+
+
+func is_downed() -> bool:
+	return _downed_left > 0.0
+
+
+## Lying on the floor ("revive"): stands up with half its life when the time is over.
+func _update_downed(delta: float) -> void:
+	_downed_left -= delta
+	if _downed_left <= 0.6 and _wobble_left <= 0.0:
+		wobble(0.6)
+	if _downed_left <= 0.0:
+		_downed_left = 0.0
+		hp = max_hp * 0.5
+		cry("wake")
+		Fx.puff(dungeon.effects, aim_point(), "spark", 0.8)
+
+
 func _die() -> void:
 	alive = false
 	collision_layer = 0
 	collision_mask = 0
+	_downed_left = 0.0
+	if not _forced:
+		_death_tricks()
 	died.emit(self)
 	_voice("die", randf_range(0.9, 1.05))
 	if _death == null:
@@ -471,7 +574,7 @@ func _die() -> void:
 
 func _set_sheet(texture: Texture2D) -> void:
 	_sprite.texture = texture
-	_sprite.hframes = maxi(1, texture.get_width() / FRAME_SIZE)
+	_sprite.hframes = maxi(1, texture.get_width() / _frame_w)
 	_sprite.frame = 0
 
 
@@ -498,6 +601,24 @@ func _physics_process(delta: float) -> void:
 	var toward: Vector3 = to_player / maxf(distance, 0.001)
 	var move := Vector3.ZERO
 	_update_cries(delta, distance)
+	_wobble_left = maxf(0.0, _wobble_left - delta)
+	_swell_left = maxf(0.0, _swell_left - delta)
+	if _downed_left > 0.0:
+		_update_downed(delta)
+		velocity = _push
+		_push = _push.move_toward(Vector3.ZERO, 12.0 * delta)
+		move_and_slide()
+		global_position.y = 0.0
+		_animate(Vector3.ZERO)
+		return
+	if _moves and _moves.places_itself():
+		# On the wall: moves itself, never touches the player.
+		if _freeze_left <= 0.0:
+			_moves.update(delta, toward, distance)
+		var before: Vector3 = global_position
+		global_position = _moves.place
+		_animate(global_position - before)
+		return
 	if not _awake:
 		_wake_left -= delta
 		if _wake_left <= 0.0 or distance < 1.8:
@@ -517,9 +638,13 @@ func _physics_process(delta: float) -> void:
 	if _slow_left > 0.0:
 		move *= float((Content.player().get("effects", {}) as Dictionary).get("slow_factor", 0.5))
 	move += _separation()
+	if _moves and _moves.rooted():
+		_push = Vector3.ZERO
 	velocity = move + _push
 	_push = _push.move_toward(Vector3.ZERO, 12.0 * delta)
 	move_and_slide()
+	if _moves:
+		_moves.after_move()
 	global_position.y = 0.0
 	_turn_facing(delta, toward)
 	_animate(move)
@@ -559,7 +684,10 @@ func _think(delta: float, toward: Vector3, distance: float) -> Vector3:
 			if _timer <= 0.0:
 				_cued = false
 				_timer = float(data.get("fire_interval", 2.5))
-				_shoot_spray(int(data.get("spray", 1)), 14.0)
+				if data.has("pattern"):
+					shoot_pattern(String(data["pattern"]), {})
+				else:
+					_shoot_spray(int(data.get("spray", 1)), 14.0)
 			var keep: float = float(data.get("keep_distance", 4.0))
 			if distance < keep - 1.0:
 				return -toward * _speed
@@ -568,6 +696,8 @@ func _think(delta: float, toward: Vector3, distance: float) -> Vector3:
 			return toward.cross(Vector3.UP) * _speed * 0.6 * (1.0 if sin(_anim_time * 0.7) > 0.0 else -1.0)
 		"boss":
 			return _brain.update(delta, toward, distance)
+	if _moves:
+		return _moves.update(delta, toward, distance)
 	return Vector3.ZERO
 
 
@@ -583,7 +713,8 @@ func _shoot(direction: Vector3) -> void:
 
 # --- Used by BossBrain (and _shoot) -----------------------------------------------------
 
-## A shot towards `direction`. `options`: speed (factor), slows, returns, burst, size, life, homing.
+## A shot towards `direction`. `options`: speed (factor), slows, returns, burst, size, life, homing,
+## arrow (looks like an arrow), damage (half hearts).
 func shoot(direction: Vector3, options: Dictionary) -> void:
 	shoot_from(global_position + Vector3(0, 0.8, 0) + direction * (radius + 0.2), direction, options)
 
@@ -597,6 +728,8 @@ func shoot_from(at: Vector3, direction: Vector3, options: Dictionary) -> void:
 	shot.size = float(options.get("size", 1.0))
 	shot.homing = float(options.get("homing", 0.0))
 	shot.lifetime = float(options.get("life", EnemyShot.LIFETIME))
+	shot.arrow = bool(options.get("arrow", false))
+	shot.damage = maxi(1, int(options.get("damage", 1)))
 	if bool(options.get("returns", false)):
 		shot.returns_to = self
 	dungeon.effects.add_child(shot)
@@ -611,6 +744,104 @@ func shoot_spray(count: int, step_degrees: float, options: Dictionary) -> void:
 	for i in count:
 		var angle: float = (i - (count - 1) / 2.0) * step_degrees
 		shoot(forward.rotated(Vector3.UP, deg_to_rad(angle)), options)
+
+
+## Shots in a fixed pattern (the player learns where it is safe): aimed (a fan of "spray" at the
+## player), fan3 (3 at the player), cross (+ along the room's axes), diagonal (x), star (+ and x),
+## alternate (+, next time x), ring ("ring" shots all around). `options` like shoot().
+func shoot_pattern(pattern: String, options: Dictionary) -> void:
+	var angles: Array[float] = []
+	match pattern:
+		"fan3":
+			shoot_spray(3, 18.0, options)
+			return
+		"cross":
+			angles = [0.0, 90.0, 180.0, 270.0]
+		"diagonal":
+			angles = [45.0, 135.0, 225.0, 315.0]
+		"star":
+			angles = [0.0, 45.0, 90.0, 135.0, 180.0, 225.0, 270.0, 315.0]
+		"alternate":
+			_pattern_flip = not _pattern_flip
+			angles = [0.0, 90.0, 180.0, 270.0] if _pattern_flip else [45.0, 135.0, 225.0, 315.0]
+		"ring":
+			var count: int = maxi(3, int(data.get("ring", 8)))
+			for i in count:
+				angles.append(360.0 * i / count)
+		_:
+			shoot_spray(maxi(1, int(data.get("spray", 1))), 14.0, options)
+			return
+	for angle: float in angles:
+		shoot(Vector3.FORWARD.rotated(Vector3.UP, deg_to_rad(angle)), options)
+
+
+## A laser (EnemyBeam) along `direction`. `options`: aim (warning seconds), fire (seconds),
+## width, damage (half hearts), sweep (turning while firing, radians per second), track (the
+## warning line follows the player), color.
+func fire_beam(direction: Vector3, options: Dictionary) -> EnemyBeam:
+	var beam := EnemyBeam.new()
+	beam.source = self
+	beam.player = player
+	beam.direction = direction
+	beam.aim_time = float(options.get("aim", 0.8))
+	beam.fire_time = float(options.get("fire", 0.6))
+	beam.width = float(options.get("width", 0.5))
+	beam.damage = int(options.get("damage", 1))
+	beam.sweep = float(options.get("sweep", 0.0))
+	beam.track = bool(options.get("track", false))
+	if options.has("color"):
+		beam.color = options["color"]
+	dungeon.effects.add_child(beam)
+	return beam
+
+
+## Warning before an attack: the picture shakes for `time` seconds.
+func wobble(time: float) -> void:
+	_wobble_left = maxf(_wobble_left, time)
+
+
+## Warning before it lets something out: the picture swells for `time` seconds.
+func swell(time: float) -> void:
+	_swell_left = maxf(_swell_left, time)
+
+
+## A shot of the player flying at this enemy (within `reach` metres, coming closer), or null.
+func incoming_shot(reach: float) -> Node3D:
+	for node: Node in get_tree().get_nodes_in_group(Projectile.GROUP):
+		var shot := node as Projectile
+		if shot == null:
+			continue
+		var offset: Vector3 = (global_position - shot.global_position) * Vector3(1, 0, 1)
+		var flat_velocity: Vector3 = shot.velocity * Vector3(1, 0, 1)
+		if offset.length() < reach and flat_velocity.length() > 0.1 and flat_velocity.normalized().dot(offset.normalized()) > 0.8:
+			return shot
+	return null
+
+
+## A snare (data "snare": a floors.json hazard_types kind) lands at `at` after a short red mark;
+## gone after `life` seconds.
+func throw_snare(at: Vector3, life: float) -> void:
+	mark(at, 0.5, 0.5)
+	await get_tree().create_timer(0.5, false).timeout
+	if not is_inside_tree() or not alive:
+		return
+	dungeon.add_hazard(String(data.get("snare", "snare_thrown")), at, life)
+	AudioManager.play_sound("blocked", 1.4)
+
+
+## What happens when it dies (not when the boss takes its helpers with it): death_shots,
+## death_blast, death_spawn. Called before `died`, so the room is never empty in between.
+func _death_tricks() -> void:
+	if data.has("death_shots"):
+		shoot_pattern(String(data["death_shots"]), {})
+	var blast: Dictionary = data.get("death_blast", {})
+	if not blast.is_empty():
+		dungeon.explode(global_position, float(blast.get("radius", 1.8)), float(blast.get("damage", 4.0)), true)
+	var spawn: Array = data.get("death_spawn", [])
+	if spawn.size() >= 2:
+		for i in int(spawn[1]):
+			var offset := Vector3.FORWARD.rotated(Vector3.UP, TAU * i / float(spawn[1])) * 0.6
+			dungeon.spawn_enemy(String(spawn[0]), global_position + offset)
 
 
 func speed() -> float:
@@ -638,7 +869,7 @@ func summon_at(at: Vector3) -> void:
 
 
 func room_rect(margin: float) -> Rect2:
-	return RoomBuilder.inner_rect(dungeon.current_cell, margin)
+	return dungeon.room_rect(margin)
 
 
 ## Jumps to `at` (kept inside the room).
@@ -690,8 +921,18 @@ func _separation() -> Vector3:
 
 
 func _animate(move: Vector3) -> void:
-	if _awake:
+	if _awake and _downed_left <= 0.0:
 		_sprite.frame = int(_anim_time * WALK_FPS) % _sprite.hframes
+	# Warnings: shaking, swelling; lying flat while downed; a closed shell is squat.
+	_sprite.position.x = randf_range(-0.05, 0.05) if _wobble_left > 0.0 else 0.0
+	if _downed_left > 0.0:
+		_sprite.scale = Vector3(1.2, 0.35, 1.0)
+	elif _swell_left > 0.0:
+		_sprite.scale = Vector3.ONE * (1.0 + 0.3 * (1.0 - _swell_left / EnemyMoves.TELEGRAPH))
+	elif armored:
+		_sprite.scale = Vector3(1.1, 0.7, 1.0)
+	elif _crouch_left <= 0.0:
+		_sprite.scale = Vector3.ONE
 	var camera: Camera3D = get_viewport().get_camera_3d()
 	if camera and move.length() > 0.1:
 		# Sprites look left; walking to the right of the screen mirrors them.
@@ -718,8 +959,12 @@ func _animate(move: Vector3) -> void:
 		_sprite.modulate = Color(0.85, 0.3, 0.35)
 	elif _slow_left > 0.0:
 		_sprite.modulate = Color(0.6, 0.8, 1.0)
+	elif _downed_left > 0.0:
+		_sprite.modulate = _base_color.darkened(0.45)
+	elif armored:
+		_sprite.modulate = _base_color.darkened(0.3)
 	else:
-		_sprite.modulate = Color.WHITE
+		_sprite.modulate = _base_color
 	if _ai == "fly":
 		_sprite.position.y = height / 2.0 + FLY_HEIGHT + sin(_anim_time * 6.0) * 0.12
 	else:

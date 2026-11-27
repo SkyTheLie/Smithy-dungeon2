@@ -18,6 +18,7 @@
 - **Verspricht sich, wenn er die Wahrheit fast sagt.** Er fängt ein verräterisches Wort an und biegt es um: „Ich bin der Gau… äh, der Mann-Verkäufer.“ Das ist sein Markenzeichen.
 - **Ehrlichkeit als Verkaufsargument.** Je mehr er betont, wie ehrlich er ist, desto sicherer lügt er gerade. Der Satz „Ehrlich!“ am Ende ist ein Warnzeichen.
 - **Nie böse, immer elegant.** Er klaut, aber mit einer Ausrede. Er droht nie, er jammert lieber („Die Miete, Partner, die Miete!“).
+- **Hat einen „Kollegen“ im Dungeon:** den Goblin-Händler im Dungeon-Shop, der Beute gegen seine Ware tauscht. Egon nennt ihn „fast so ehrlich wie ich“.
 - **Feige.** Geht nie in den Dungeon. Zuckt bei Gegner-Geräuschen zusammen.
 - **Stolz auf seinen Tisch.** Der Dreh-Tisch mit dem Hebel ist sein Heiligtum. Wer am Hebel zieht, bekommt eine kleine Show.
 - **Hat eine weiche Stelle.** Stirbt der Spieler, ist Egon kurz ehrlich besorgt, fängt sich aber sofort wieder („…Hast du wenigstens die Beute? Nein? Hm.“).
@@ -34,10 +35,11 @@
 
 1. **Der Versprecher:** „Gau… äh …“, „Betr… Beratung!“, „Ich verkaufe Mann… *(Pause)* …Ausrüstung.“
 2. **„Ehrlich!“** am Satzende, immer wenn er lügt.
-3. **Die Dose:** Ist zu viel Geld in der Dose des Spielers (über dem Limit), verschwindet manchmal etwas. Egon hat jedes Mal eine neue Ausrede: Ratten, Wind, „Steuern“, „die Dose hat ein Loch“, „das war schon so“. Klaut er alles (ganz selten), tut er empört: „Diebe! Hier! In meiner ehrlichen Gegend!“
+3. **Die Dose:** Das ganze Gold des Spielers liegt in seiner Dose (er nimmt keins in den Dungeon mit). Egon rät deshalb gern zum Ausgeben, am besten bei ihm. Ist zu viel Geld in der Dose des Spielers (über dem Limit), verschwindet manchmal etwas. Egon hat jedes Mal eine neue Ausrede: Ratten, Wind, „Steuern“, „die Dose hat ein Loch“, „das war schon so“. Klaut er alles (ganz selten), tut er empört: „Diebe! Hier! In meiner ehrlichen Gegend!“
 4. **Der Hebel:** Er zieht dramatisch daran und kündigt jede neue Ware an wie ein Zirkusdirektor, egal wie schlecht sie ist.
 5. **Der Ankauf:** Er zahlt für Beute fast nichts und lobt sich dafür („Weil du es bist!“).
 6. **Aufs Haus:** Den allerersten Einkauf schenkt er (Tutorial) und erinnert danach gern daran, dass ab jetzt alles einen „kleinen Obolus“ kostet.
+7. **Die Sorge, die zwei Minuten dauert:** Nach dem zweiten Tod des Spielers ist er „fast zwei Minuten lang“ besorgt und schenkt ihm einen Heiltrank (Begründung: „Ein toter Kunde kauft ja nichts mehr.“). Seine Tränke schmecken nach Kirsche und ein bisschen nach Socke.
 
 ## Was Egon nie tut
 

@@ -1,12 +1,20 @@
 {
-	"_info": "Sound-Ids -> Dateien (Liste = eine zufällig). sound_volume_db: Lautstärke je Id in dB. sound_buses: Id -> Bus (sonst Sounds). music: Musik-Ids (Hauptmenü 'title', Ebenen über floors.json 'music', Boss 'boss').",
+	"_info": "Sound-Ids -> Dateien (Liste = eine zufällig). sound_volume_db: Lautstärke je Id in dB. sound_buses: Id -> Bus (sonst Sounds). music: Musik-Ids (Hauptmenü 'title', Ebenen über floors.json 'music', Boss 'boss', Boss-Halle: Altar 'altar', Kampf 'boss_rock' (boss_hall.json)).",
 	"music_volume_db": -4,
 	"music": {
 		"title": "res://assets/audio/music/title_01.ogg",
 		"cellar": "res://assets/audio/music/mine_02.wav",
 		"deep": "res://assets/audio/music/underworld_01.ogg",
 		"crypt": "res://assets/audio/music/finster_01.ogg",
+		"swamp": "res://assets/audio/music/swamp_01.ogg",
+		"den": "res://assets/audio/music/den_01.ogg",
+		"forest": "res://assets/audio/music/forest_01.wav",
+		"ice": "res://assets/audio/music/ice_01.ogg",
+		"storm": "res://assets/audio/music/storm_temple.mp3",
+		"volcano": "res://assets/audio/music/volcano_01.wav",
+		"altar": "res://assets/audio/music/altar_01.ogg",
 		"boss": "res://assets/audio/music/boss_01.ogg",
+		"boss_rock": "res://assets/audio/music/boss_rock_01.wav",
 		"victory": "res://assets/audio/music/ending_01.ogg"
 	},
 	"sounds": {
@@ -51,7 +59,14 @@
 		"boss_burrow": "res://assets/audio/sfx/stone_grind.wav",
 		"boss_teleport": "res://assets/audio/sfx/window_open.wav",
 		"boss_mirror": "res://assets/audio/sfx/pillar_chime.wav",
-		"blocked": "res://assets/audio/sfx/anvil_good.wav"
+		"blocked": "res://assets/audio/sfx/anvil_good.wav",
+		"altar_wake": "res://assets/audio/sfx/stone_grind.wav",
+		"crystal_chime": "res://assets/audio/sfx/pillar_chime.wav",
+		"crystal_drop": "res://assets/audio/sfx/anvil_perfect.wav",
+		"altar_glow": "res://assets/audio/sfx/item_reveal.wav",
+		"pillar_lit": "res://assets/audio/sfx/rarity_up.wav",
+		"boss_land": "res://assets/audio/sfx/lightning_strike.wav",
+		"gate": "res://assets/audio/sfx/stone_grind.wav"
 	},
 	"sound_buses": {
 		"ui_click": "Interface",

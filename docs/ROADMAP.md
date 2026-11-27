@@ -8,7 +8,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 | 0 | Projekt angelegt: Kopie von Dungeon Smithy (Stand 2026-11-26, mit Startwaffen-Items), alle Smithy-Assets, Smithy-Logik als Nachschlage-Bibliothek, Ideen sortiert | erledigt (2026-11-26) |
 | 1 | Dauerhafter Spielstand und Laden | Beute, Inventar, Spielstand, Dose, Spielstand-Plätze, Ausrüstung, Laden mit Hebel/Kaufen/Anlegen, Dungeon-Brett: erledigt (2026-11-26); Verkaufen, Dose im Laden offen |
 | 2 | Intro und Händler-Story | Intro mit Dialog, geführter erster Laden-Besuch: erledigt (2026-11-26); Klassen-Frage offen |
-| 3 | Ausrüstung wirkt im Run, Tränke | offen |
+| 3 | Ausrüstung wirkt im Run, Tränke | Schild-Herzen, Waffen-Schaden, Relikte: erledigt (2026-11-26); Trank-Platz, Q trinkt, Egons Trank-Vorführung nach dem 2. Tod: erledigt (2026-11-27); Trank-Skills offen |
 | 4 | Fortschritt: Materialien, Gussformen, neue Ware, mehrere Dungeons | offen |
 | 5 | Schmieden (Smithy-Minispiele), Zauberstab-Relikte | später |
 | 6 | Koop (LAN) | später |
@@ -31,9 +31,10 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Tab = Inventar und daneben die ganze Karte (rausgezoomt).
 - ✅ Ausgang im Startraum: flüchten und alles behalten.
 - ✅ Tod: Tasche weg (sicherer Platz bleibt, entschieden).
-- ✅ Münze aufheben = 8–12 Münzen.
+- ✅ ~~Münze aufheben = 8–12 Münzen.~~ Ersetzt (2026-11-26, `feature/geld-schatulle`): keine Münzen im Dungeon, Gold nur fürs Verkaufen beim Händler im Dungeon-Shop, alles Gold zu Hause in der Dose.
 - ✅ HUD: Münz-Anzeige und Werte-Spalte weg, Herzen größer.
-- Offen: Preise im Run-Shop an den neuen Münzwert anpassen (Vorschlag ×10).
+- ✅ Bosse rufen höchstens 5 Helfer gleichzeitig (`enemies.json` `summon_max`).
+- Offen: Preise im Run-Shop im Spiel prüfen (Gold kommt nur aus Beute).
 
 ## Phase 2 – Intro
 
@@ -42,12 +43,12 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 3. ✅ (2026-11-26) Geführte Laden-Erklärung: Egon zieht den Hebel, Geschenke leuchten, er kauft sie, zieht dich an und schickt dich in den Dungeon (Brett lässt sich nicht schließen).
 4. Klassen-Frage → Kupfer-Startwaffe der Klasse (bisher schenkt Egon immer den Kupfer-Zauberstab).
 5. ✅ (2026-11-26, teils) Ebene 1 ohne Item-Raum (`item_room` in `floors.json`), ab Ebene 2 Item-Raum hinter Schlüssel-Tür. Offen: Shop-Raum je Ebene abschaltbar.
-6. Nach dem ersten Run: Händler erklärt Tränke und den Trank-Slot.
+6. ✅ (2026-11-27, `feature/wiese-traenke`) Nach dem **zweiten Tod**: Egon zeigt Tränke, dreht einmal den Tisch, schenkt einen Heiltrank und legt ihn in den Trank-Platz.
 
 ## Phase 3 – Ausrüstung im Run
 
 1. ✅ (2026-11-26, teils) Ausrüstung gibt Startwerte für `RunState`: Rüstung = weiße Schild-Herzen, Waffe = Schaden. Offen: Die Hauptwaffe ist die ausgerüstete Waffe statt `start_items`.
-2. Trank-Slot: 1 Platz, Taste Q trinkt, heilt 2 Herzen.
+2. ✅ (2026-11-27) Trank-Slot: 1 Platz an der Helden-Figur (unten links), Taste Q trinkt, heilt 2 Herzen (`data/potions.json`).
 3. Run-Ende: Gold und Materialien wandern in den Spielstand, Run-Items verfallen.
 4. ✅ (2026-11-26) **Relikt-Slot** (1 Platz; Haltbarkeit je Stufe statt immer 2, schwache für immer; Daten in `data/relics.json`): Relikte als Daten (`data/relics.json`: Wirkung wie Item-`flags`/`stats`, `durability` in Dungeons, `permanent`). Ausgerüstetes Relikt wirkt im Run wie ein Item (zählt für Synergien). Nach jedem Dungeon −1 Haltbarkeit, bei 0 kaputt.
 5. Erstes Relikt: Tod im zweiten Run → Händler verkauft Dreifach-Schuss (2 Dungeons) und erklärt den Slot.
@@ -58,10 +59,37 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 
 - ✅ EXP pro Kill, Stufen bis 30, Skillpunkte.
 - ✅ Skillbaum wie Smithy Defense (12 Skills), Relikt-Plätze unter der Ausrüstung.
-- Offen: Tränke (Trank-Platz, Q trinkt) und die Skills „Mehr Tränke“, „Stärkere Tränke“.
+- ✅ Tränke (Trank-Platz, Q trinkt). Offen: die Skills „Mehr Tränke“, „Stärkere Tränke“.
 
 ## Phase 4 – Fortschritt
 
 1. Gegner und Bosse lassen Materialien und Gussformen fallen (`data/enemies.json` `loot`).
 2. Funde schalten Ware beim Händler frei (Eisen, Bronze …).
 3. Mehrere Dungeons mit Gefahrenstufe; Bogenschütze/Krieger über die Story freischalten.
+
+### Balance und neue Dungeons (2026-11-27, `feature/balance`)
+
+- ✅ Vier Dungeons (Glut, Moor der Irrlichter, Frostgipfel, Glutschlund), je 6 Ebenen in 3 Gebieten, der nächste öffnet nach dem Sieg.
+- ✅ 65 neue Gegner und Bosse, 23 neue Beute-Sorten, Fallen (Gift, Stacheln, Eisstacheln, Lava).
+- ✅ Materialien bei Egon: Kupfer, Bronze (ab Stufe 3), Eisen (nach Dungeon 1), Silber, Gold; Hebel teurer mit besserem Material.
+- ✅ Balance-Rechner und `docs/BALANCE.md`; Stufen, Skill-Preise, Seltenheits-Stufen angepasst; Skill „Größere Dose“.
+- Offen: im Spiel ausprobieren und nachjustieren (Liste in `docs/BALANCE.md`).
+
+### Wispernde Wiese und Gegner-Muster (2026-11-27, `feature/wiese-traenke`)
+
+- ✅ Fünfter Dungeon „Wispernde Wiese“ (nach dem Moor) mit hohem Gras, versteckten Fallen und Fangeisen.
+- ✅ 15 neue Gegner mit eigenen Mustern (Ansturm auf Linie, Laser, Wandkletterer, Panzer, Abpraller, Fliehender Brüter, Umfallen und Aufstehen, Teilen, Explodieren), 2 neue Bosse (Wildhüter mit Bogen und Fallen, Kristallkoloss mit Lasern).
+- Offen: im Spiel prüfen, ob jedes Muster fair und lesbar ist (Vorwarnzeiten in `enemies.json`/`boss_brain.gd`); alte Gebiete mit den neuen Mustern mischen (`docs/IDEEN.md`).
+
+### Fallen-Grafik, eigene Fallen, Vulkandrache (2026-11-27)
+
+- ✅ Tauben (`city_7_walk`) auf sichtbaren Fallen, fliegen beim Hineintreten auf.
+- ✅ Logik für eigene Fallen (treffen nur Gegner; Item-Feld `traps`).
+- ✅ Vulkandrache als großer End-Boss des Glutschlunds mit eigener Arena.
+- Offen: Items/Relikte, die Fallen legen.
+
+### Boss-Halle und Admin-Menü (2026-11-27)
+
+- ✅ Boss-Raum = Vorhalle mit Tor; dahinter die große Halle (2 × 2 Räume) mit Altar der Neun und 9 Kristallsäulen; Szene: Kristalle fliegen ein, fallen in den Altar, Energie läuft zu den Säulen, Stille, Boss fällt herein, Rock-Musik.
+- ✅ Admin-Menü auf P (nur im Editor): Reisen, Items, Ausrüstung/Relikte/Tränke, Cheats.
+- Offen: Szene im Spiel ansehen und Zeiten nachjustieren; echten Rock-Track statt erzeugtem Loop suchen (lizenzfrei).

@@ -26,7 +26,7 @@ func run() -> void:
 			check(String(pool) in ["shop", "boss", "pact", "shrine"], "item %s: known pool %s" % [id, pool])
 		check(not (bool(item.get("secret", false)) and not (item.get("pools", []) as Array).is_empty()), "item %s: secret items only in secret rooms" % id)
 		for kind: Variant in item.get("spawn", []):
-			check(String(kind) in ["coin", "heart", "bomb", "key"], "item %s: known spawn %s" % [id, kind])
+			check(String(kind) in ["heart", "bomb", "key"], "item %s: known spawn %s (no coins in the dungeon)" % [id, kind])
 		if item.has("unlock"):
 			var unlock: Dictionary = item["unlock"]
 			check(String(unlock.get("type", "")) in ["boss", "wins", "kills", "discovered", "best", "fast_win"], "item %s: known unlock" % id)
@@ -69,7 +69,8 @@ func run() -> void:
 		check(ResourceLoader.exists(base + "_death.png"), "enemy %s death sheet" % id)
 		check(float(enemies[id].get("hp", 0)) > 0.0, "enemy %s has life" % id)
 		check(not (enemies[id].get("voice", {}) as Dictionary).is_empty(), "enemy %s has its own voice" % id)
-		check(String(enemies[id].get("ai", "")) in ["lurk", "chase", "fly", "hop", "shooter", "guard", "boss"], "enemy %s: known ai" % id)
+		check(String(enemies[id].get("ai", "")) in ["lurk", "chase", "fly", "hop", "shooter", "guard", "boss", "charger", "turret", "wall", "bouncer", "spawner", "shell"], "enemy %s: known ai" % id)
+		_check_enemy_tricks(id, enemies)
 		if bool(enemies[id].get("front_guard", false)):
 			check(enemies[id].get("ai", "") == "guard", "enemy %s: shield bearers use ai guard (so they can be beaten)" % id)
 		if enemies[id].has("summon"):
@@ -84,7 +85,8 @@ func run() -> void:
 			var every: Array = (cries["idle"] as Dictionary).get("every", [3.0, 7.0])
 			check(every.size() == 2 and float(every[0]) > 0.5 and float(every[1]) >= float(every[0]), "enemy %s: idle cry not too often" % id)
 	# Every boss is different: known attacks, no two with the same list.
-	var known_attacks: Array[String] = ["dash", "charge", "summon", "rat_wave", "ring", "spray", "spiral", "burrow", "leap", "teleport", "phase", "mirror", "web", "axes", "boulder", "skulls", "march"]
+	var known_attacks: Array[String] = ["dash", "charge", "summon", "rat_wave", "ring", "spray", "spiral", "burrow", "leap", "teleport", "phase", "mirror", "web", "axes", "boulder", "skulls", "march",
+			"aimed_shot", "snares", "volley", "laser", "laser_sweep", "cross"]
 	var attack_lists: Array = []
 	for id: String in enemies:
 		if enemies[id].get("ai", "") != "boss":
@@ -122,6 +124,34 @@ func run() -> void:
 	_check_loot(content, enemies)
 
 
+## The newer enemy values: known shot patterns, death_spawn / summon / snare name things that
+## exist, a spawner has someone to call, a tint is a colour.
+func _check_enemy_tricks(id: String, enemies: Dictionary) -> void:
+	var data: Dictionary = enemies[id]
+	var patterns: Array[String] = ["aimed", "fan3", "cross", "diagonal", "star", "alternate", "ring"]
+	for key: String in ["pattern", "death_shots"]:
+		if data.has(key):
+			check(patterns.has(String(data[key])), "enemy %s: known %s %s" % [id, key, data[key]])
+	var burrow: Dictionary = data.get("burrow", {})
+	if burrow.has("shots"):
+		check(patterns.has(String(burrow["shots"])), "enemy %s: known burrow shots" % id)
+	var spawn: Array = data.get("death_spawn", [])
+	if not spawn.is_empty():
+		check(spawn.size() == 2 and enemies.has(String(spawn[0])) and int(spawn[1]) > 0, "enemy %s: death_spawn [known id, count]" % id)
+		check(String(spawn[0]) != id, "enemy %s does not split into itself (no end)" % id)
+	if String(data.get("ai", "")) == "spawner":
+		check(enemies.has(String(data.get("summon", ""))), "enemy %s: spawner calls a known enemy" % id)
+	if data.has("snare") or (data.get("attacks", []) as Array).has("snares"):
+		var kind: String = String(data.get("snare", "snare_thrown"))
+		var types: Dictionary = script("res://scripts/core/content.gd").call("floors_extra", "hazard_types")
+		check(float((types.get(kind, {}) as Dictionary).get("hold", 0.0)) > 0.0, "enemy %s: its snare %s holds" % [id, kind])
+	if data.has("tint"):
+		check((data["tint"] as Array).size() == 3, "enemy %s: tint [r, g, b]" % id)
+	var revive: Dictionary = data.get("revive", {})
+	if not revive.is_empty():
+		check(float(revive.get("time", 0.0)) > 0.5 and int(revive.get("times", 0)) >= 1, "enemy %s: revive time and times" % id)
+
+
 ## data/loot.json: every material has a picture, a name, a rarity 1-8 and a value; every enemy
 ## with loot exists and only drops known materials; every enemy drops something.
 func _check_loot(content: Script, enemies: Dictionary) -> void:
@@ -147,6 +177,11 @@ func _check_loot(content: Script, enemies: Dictionary) -> void:
 	var bag: Dictionary = content.call("meta", "bag")
 	check(int(bag.get("slots", 0)) > 0 and int(bag.get("safe_slots", 0)) >= 1 and int(bag.get("stack", 0)) >= 1, "bag sizes in meta.json")
 	check(int((content.call("material", "gold") as Dictionary).get("stack", 0)) > 1, "gold stacks (loot.json)")
+	# Keys are rare: one chance for every enemy (loot.json key_chance), none from room rewards.
+	var key_chance: float = float((content.call("get_file", "loot") as Dictionary).get("key_chance", -1.0))
+	check(key_chance >= 0.0 and key_chance <= 0.05, "key_chance 0-5 %% (%s)" % key_chance)
+	for entry: Variant in ((content.call("floors_extra", "room_drops") as Dictionary).get("table", []) as Array):
+		check(String((entry as Array)[0]) != "key", "room_drops give no keys")
 	var box: Dictionary = content.call("meta", "money_box")
 	check(int(box.get("limit", 0)) > 0, "money box limit")
 	check(float(box.get("steal_all_chance", 1.0)) + float(box.get("steal_part_chance", 1.0)) < 1.0, "theft chances below 100 %")
@@ -160,8 +195,13 @@ func _check_bonus(what: String, source: Dictionary) -> void:
 	for key: String in (source.get("per_coin", {}) as Dictionary):
 		check(KNOWN_STATS.has(key), "%s: known per_coin stat %s" % [what, key])
 	for key: String in (source.get("give", {}) as Dictionary):
-		check(key in ["coins", "bombs", "keys"], "%s: known give %s" % [what, key])
-		check(int(source["give"][key]) > 0, "%s: give %s is positive" % [what, key])
+		check(key in ["loot", "bombs", "keys"], "%s: known give %s (no coins in the dungeon)" % [what, key])
+		if key == "loot":
+			for loot_id: String in (source["give"]["loot"] as Dictionary):
+				check(not (script("res://scripts/core/content.gd").call("material", loot_id) as Dictionary).is_empty() and loot_id != "gold", "%s: gives known loot %s" % [what, loot_id])
+				check(int(source["give"]["loot"][loot_id]) > 0, "%s: gives a positive amount of %s" % [what, loot_id])
+		else:
+			check(int(source["give"][key]) > 0, "%s: give %s is positive" % [what, key])
 	for flag: String in (source.get("chance", {}) as Dictionary):
 		check(KNOWN_FLAGS.has(flag), "%s: known chance flag %s" % [what, flag])
 		check(float(source["chance"][flag]) > 0.0 and float(source["chance"][flag]) < 1.0, "%s: chance between 0 and 1" % what)

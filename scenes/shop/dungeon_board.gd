@@ -3,7 +3,9 @@ extends PanelContainer
 ## Egon's dungeon board (the button at the bottom right of the shop), like the dungeon board of the
 ## adventurers' guild in Smithy: left one tab per region (data/dungeons.json "region"), a click
 ## opens or closes its dungeon list; right the chosen dungeon (name, level, floors, areas from
-## floors.json, description) and "Betreten". Built in code.
+## floors.json, description) and "Betreten". A dungeon whose "unlock" is not met yet
+## (MetaState.is_dungeon_open: the dungeon before it won) is grey and says what opens it.
+## Built in code.
 
 ## "Betreten" for dungeon `id` (the shop then asks for the character).
 signal entered(id: String)
@@ -106,6 +108,8 @@ func _build_regions() -> void:
 			lists[region] = list
 		var button := _button(Language.translate(String(data.get("name", id))))
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		if not MetaState.is_dungeon_open(id):
+			button.modulate = COLOR_HINT
 		button.toggle_mode = true
 		button.button_group = _group
 		button.button_pressed = id == _selected
@@ -121,23 +125,38 @@ func _build_regions() -> void:
 
 func _show_dungeon() -> void:
 	var data: Dictionary = Content.dungeons().get(_selected, {})
-	_enter_button.disabled = data.is_empty()
+	_enter_button.disabled = data.is_empty() or not MetaState.is_dungeon_open(_selected)
 	if data.is_empty():
 		_name_label.text = ""
 		_facts_label.text = ""
 		_desc_label.text = Language.translate("Wähle links einen Dungeon.")
 		return
 	_name_label.text = Language.translate(String(data.get("name", _selected)))
-	_facts_label.text = Language.translate("Stufe %d · %d Ebenen") % [int(data.get("level", 1)), Content.floors().size()] \
+	_facts_label.text = Language.translate("Stufe %d · %d Ebenen") % [int(data.get("level", 1)), Content.floors(_selected).size()] \
 			+ "\n" + Language.translate("Gebiete: %s") % ", ".join(_areas())
 	_desc_label.text = Language.translate(String(data.get("desc", "")))
+	if not MetaState.is_dungeon_open(_selected):
+		_desc_label.text += "\n\n" + lock_text(_selected)
+	elif MetaState.has_won(_selected):
+		_desc_label.text += "\n\n" + Language.translate("Schon einmal geschafft!")
+
+
+## What opens dungeon `id`: "Gesperrt: erst Dungeon der Glut schaffen." ("" = open).
+static func lock_text(id: String) -> String:
+	var unlock: Dictionary = Content.dungeons().get(id, {}).get("unlock", {})
+	if MetaState.meets(unlock):
+		return ""
+	if unlock.has("dungeon") and not MetaState.has_won(String(unlock["dungeon"])):
+		var before: String = Language.translate(String(Content.dungeon(String(unlock["dungeon"])).get("name", unlock["dungeon"])))
+		return Language.translate("Gesperrt: erst %s schaffen.") % before
+	return Language.translate("Gesperrt: ab Stufe %d.") % int(unlock.get("level", 0))
 
 
 ## The names of the floors' themes, each once, in order (Rattenkeller, Goblinstollen …).
 func _areas() -> Array[String]:
 	var names: Array[String] = []
-	for i in Content.floors().size():
-		var area: String = Language.translate(String(Content.floor_data(i).get("name", "")))
+	for i in Content.floors(_selected).size():
+		var area: String = Language.translate(String(Content.floor_data(i, _selected).get("name", "")))
 		if not area.is_empty() and not names.has(area):
 			names.append(area)
 	return names

@@ -9,6 +9,24 @@ msgstr "%d or"
 msgid "%d Herzen"
 msgstr "%d cœurs"
 
+msgid "%s: ab Stufe %d"
+msgstr "%s : dès le niveau %d"
+
+msgid "%s: nach %s"
+msgstr "%s : après %s"
+
+msgid "3 % Chance auf R3 bei Egon."
+msgstr "3 % de chance d'avoir du R3 chez Egon."
+
+msgid "300 Gold mehr sind in der Dose sicher."
+msgstr "300 pièces d'or de plus sont en sécurité dans la boîte."
+
+msgid "5 % mehr Chance auf R2 bei Egon."
+msgstr "5 % de chance en plus d'avoir du R2 chez Egon."
+
+msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
+msgstr "Désormais, il y aura souvent des potions sur ma table. Au prix d'ami, bien sûr."
+
 msgid "Abbrechen"
 msgstr "Annuler"
 
@@ -33,6 +51,9 @@ msgstr "Tous les quelques ennemis vaincus, tu soignes un demi-cœur"
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "Tout coûte moitié prix au magasin"
 
+msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
+msgstr "Alors dépense-le plutôt, partenaire. De préférence chez moi !"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "À la fin chaque tir éclate en quatre étincelles"
 
@@ -54,6 +75,9 @@ msgstr "Amulette de l'arène"
 msgid "Arenaherz"
 msgstr "Cœur de l'arène"
 
+msgid "Asche"
+msgstr "Cendre"
+
 msgid "Audio"
 msgstr "Audio"
 
@@ -65,6 +89,9 @@ msgstr "Charge, relâche : un rayon de feu colossal"
 
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "Fuir le donjon ? Tu gardes tout ce que tu portes."
+
+msgid "Aus der Beute der Banditen. Jetzt deine."
+msgstr "Du butin des bandits. À toi maintenant."
 
 msgid "Ausgang"
 msgstr "Sortie"
@@ -78,6 +105,15 @@ msgstr "Esquive"
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "Une hache au lieu de boules de feu : coup lourd, les ennemis saignent"
 
+msgid "Bandit-Schildträger"
+msgstr "Bandit porte-bouclier"
+
+msgid "Bandit-Schütze"
+msgstr "Bandit archer"
+
+msgid "Banditenlager"
+msgstr "Camp des bandits"
+
 msgid "Beenden"
 msgstr "Quitter"
 
@@ -86,6 +122,9 @@ msgstr "À l'impact, le tir éclate en quatre étincelles"
 
 msgid "Beine"
 msgstr "Jambes"
+
+msgid "Bergfalke"
+msgstr "Faucon des montagnes"
 
 msgid "Bernstein"
 msgstr "Ambre"
@@ -108,6 +147,9 @@ msgstr "Je rachète ton butin : clic droit dans l'inventaire et il arrive en hau
 msgid "Blasebalg"
 msgstr "Soufflet"
 
+msgid "Blau wie Gletschereis."
+msgstr "Bleu comme la glace d'un glacier."
+
 msgid "Blutphiole"
 msgstr "Fiole de sang"
 
@@ -126,6 +168,9 @@ msgstr "Les bombes éclatent en petites bombes"
 msgid "Bombengürtel"
 msgstr "Ceinture de bombes"
 
+msgid "Brakk der Brecher"
+msgstr "Brakk le Briseur"
+
 msgid "Brandöl"
 msgstr "Huile de feu"
 
@@ -143,6 +188,33 @@ msgstr "Ennemis brûlés et ralentis, et deux cœurs bleus"
 
 msgid "Brennt gut in jeder Esse."
 msgstr "Brûle bien dans toute forge."
+
+msgid "Bronze"
+msgstr "Bronze"
+
+msgid "Bronze-Beinschienen"
+msgstr "Jambières en bronze"
+
+msgid "Bronze-Bogen"
+msgstr "Arc en bronze"
+
+msgid "Bronze-Brustplatte"
+msgstr "Plastron en bronze"
+
+msgid "Bronze-Handschuhe"
+msgstr "Gants en bronze"
+
+msgid "Bronze-Helm"
+msgstr "Casque en bronze"
+
+msgid "Bronze-Schwert"
+msgstr "Épée en bronze"
+
+msgid "Bronze-Stiefel"
+msgstr "Bottes en bronze"
+
+msgid "Bronze-Zauberstab"
+msgstr "Baguette en bronze"
 
 msgid "Bronzebogen"
 msgstr "Arc de bronze"
@@ -171,11 +243,17 @@ msgstr "Là-derrière, c'est l'entrée du Donjon des Braises. Certains en ressor
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "Ton or ne suffit pas pour ça, partenaire. Hélas, hélas."
 
+msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
+msgstr "Mais la marchandise s'améliore à chaque tour. C'est écrit sur la barre, honnêtement !"
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Une petite bestiole est coincée dedans."
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "Au-delà… disons qu'il y a des rats ici. Des gros rats. Avec des mains."
+
+msgid "Das Fell eines Riesen aus Eis."
+msgstr "La fourrure d'un géant de glace."
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "L'or de cette partie. Si tu meurs, il est perdu, sauf dans l'emplacement sûr."
@@ -195,6 +273,9 @@ msgstr "Ton or. À la maison, en sécurité dans la boîte ; au donjon, il est p
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Ta relique a rendu l'âme. Ça arrive. J'en aurais justement une neuve… prix d'ami !"
 
+msgid "Dein ganzes Gold liegt rechts in deiner Dose. Bis 200 Gold ist es da sicher."
+msgstr "Tout ton or est dans ta boîte, à droite. Jusqu'à 200 pièces d'or, il y est en sécurité."
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "Tes boules de feu détruisent les tirs ennemis"
 
@@ -204,11 +285,20 @@ msgstr "Tes objets"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Tes tirs poursuivent les ennemis"
 
+msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
+msgstr "Celle-ci est offerte. Un client mort n'achète plus rien. Promis !"
+
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "La barre au-dessus du levier montre ce qui peut tomber : gris commun, vert solide, etc. Plus tu as d'expérience, plus c'est coloré."
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "Le rayon de feu se courbe vers l'ennemi"
+
+msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
+msgstr "Le marchand du donjon paie 2 pièces d'or de plus pour chaque butin."
+
+msgid "Der Händler kauft Beute: Tab, Rechtsklick"
+msgstr "Le marchand achète le butin : Tab, clic droit"
 
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "La pierre accepte ton sacrifice"
@@ -216,8 +306,17 @@ msgstr "La pierre accepte ton sacrifice"
 msgid "Der Weg nach unten ist frei!"
 msgstr "Le chemin vers le bas est ouvert !"
 
+msgid "Der Wildhüter"
+msgstr "Le Garde-Chasse"
+
+msgid "Diamant"
+msgstr "Diamant"
+
 msgid "Diamantherz"
 msgstr "Cœur de diamant"
+
+msgid "Dick, weich und eiskalt."
+msgstr "Épais, doux et glacé."
 
 msgid "Dicke Haut"
 msgstr "Peau épaisse"
@@ -237,6 +336,9 @@ msgstr "L'arme du mage : lance des boules de feu"
 msgid "Dietrich"
 msgstr "Crochet"
 
+msgid "Distelkrähe"
+msgstr "Corneille des Chardons"
+
 msgid "Doppelschuss"
 msgstr "Tir double"
 
@@ -251,6 +353,12 @@ msgstr "Boîte : %d or. En sécurité jusqu'à %d."
 
 msgid "Dose: Gold hierher ziehen"
 msgstr "Boîte : glisse l'or ici"
+
+msgid "Dose: hier liegt dein ganzes Gold"
+msgstr "Boîte : tout ton or est ici"
+
+msgid "Drache"
+msgstr "Dragon"
 
 msgid "Drachenatem"
 msgstr "Souffle du dragon"
@@ -287,6 +395,9 @@ msgstr "Trente pièces et dix clés"
 
 msgid "Du bist gefallen"
 msgstr "Tu es tombé"
+
+msgid "Du bist schon gesund"
+msgstr "Tu es déjà en pleine forme"
 
 msgid "Du brauchst einen Schlüssel"
 msgstr "Il te faut une clé"
@@ -342,6 +453,12 @@ msgstr "Tableau des donjons"
 msgid "Dungeons"
 msgstr "Donjons"
 
+msgid "Dunkler Ritter"
+msgstr "Chevalier noir"
+
+msgid "Dunkler Schütze"
+msgstr "Archer noir"
+
 msgid "Dunkler Zauberstab"
 msgstr "Baguette sombre"
 
@@ -353,6 +470,9 @@ msgstr "À travers les rochers, et parfois les ennemis fuient"
 
 msgid "Durchschlag, Abprallen und Zerplatzen"
 msgstr "Perce, rebondit et éclate"
+
+msgid "Dämon"
+msgstr "Démon"
 
 msgid "Dünne Haut aus einem Fledermausflügel."
 msgstr "Fine peau d'une aile de chauve-souris."
@@ -378,11 +498,20 @@ msgstr "Egon Honnête, enchanté. Honnête est mon nom, honnête est mon commerc
 msgid "Egon könnte klauen!"
 msgstr "Egon pourrait voler !"
 
+msgid "Egons Augen werden ganz groß."
+msgstr "Les yeux d'Egon s'écarquillent."
+
 msgid "Egons Laden"
 msgstr "La boutique d'Egon"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Tes propres explosions te soignent"
+
+msgid "Ein Berg aus Eis, oben tobt der Sturm. Unterwegs Wölfe, Harpyien und ein Greif. Egon empfiehlt warme Socken."
+msgstr "Une montagne de glace, au sommet gronde la tempête. En chemin : loups, harpies et un griffon. Egon conseille des chaussettes chaudes."
+
+msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
+msgstr "Un ambre, trois bombes, trois clés"
 
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "Une boule de feu tourne autour de toi et bloque les tirs"
@@ -396,8 +525,17 @@ msgstr "Une étincelle et une lune de braise"
 msgid "Ein Funke und mehr Glück"
 msgstr "Une étincelle et plus de chance"
 
+msgid "Ein Funke, der nicht ausgehen will."
+msgstr "Une étincelle qui refuse de s'éteindre."
+
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "Un pacte de braise s'est ouvert"
+
+msgid "Ein Golderz"
+msgstr "Un minerai d'or"
+
+msgid "Ein Heiltrank! Frisch gebraut, fast ohne Nebenwirkungen."
+msgstr "Une potion de soin ! Fraîchement brassée, presque sans effets secondaires."
 
 msgid "Ein Herz mehr"
 msgstr "Un cœur de plus"
@@ -417,17 +555,26 @@ msgstr "Un cœur et un cœur bleu"
 msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
 msgstr "Un cœur, des épines, les explosions ne te blessent pas"
 
+msgid "Ein Herz, eine Bombe und ein Schlüssel"
+msgstr "Un cœur, une bombe et une clé"
+
 msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
 msgstr "Un cœur, une pièce, une bombe et une clé"
 
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "Un cœur, deux cœurs bleus, dégâts en hausse"
 
+msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
+msgstr "Une herbe en forme de cœur. Egon en fait du thé."
+
 msgid "Ein Platz mehr im Rucksack."
 msgstr "Un emplacement de plus dans le sac."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Un emplacement de relique de plus sur ton héros."
+
+msgid "Ein Rubin"
+msgstr "Un rubis"
 
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "Une affaire ! Pour moi. Euh… pour toi ! Honnêtement !"
@@ -441,8 +588,14 @@ msgstr "Un tir de plus et plus de dégâts"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "Un tir de plus, mais plus faible"
 
+msgid "Ein Silbererz, Glück hoch"
+msgstr "Un minerai d'argent, chance accrue"
+
 msgid "Ein Stab mit Feuer-Spitze. Für Magier."
 msgstr "Une baguette à pointe de feu. Pour les mages."
+
+msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
+msgstr "Une peau de loup, trois bombes, trois clés"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "Un cœur bleu et des épines"
@@ -480,6 +633,12 @@ msgstr "Une seconde vie et une étincelle"
 msgid "Ein zweites Leben!"
 msgstr "Une seconde vie !"
 
+msgid "Eine Sache mehr auf Egons Tisch."
+msgstr "Un objet de plus sur la table d'Egon."
+
+msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
+msgstr "Une prairie haute comme un nain. Ça bruisse dans l'herbe, et un chasseur pose des pièges. Egon vend des faux. Hélas, plus en stock."
+
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "Une boulangerie entière d'un coup"
 
@@ -492,6 +651,36 @@ msgstr "Une fois par jour, je tourne la table gratuitement. Ensuite, prix d'ami.
 msgid "Einstellungen"
 msgstr "Paramètres"
 
+msgid "Eiselementar"
+msgstr "Élémentaire de glace"
+
+msgid "Eisen"
+msgstr "Fer"
+
+msgid "Eisen-Beinschienen"
+msgstr "Jambières en fer"
+
+msgid "Eisen-Bogen"
+msgstr "Arc en fer"
+
+msgid "Eisen-Brustplatte"
+msgstr "Plastron en fer"
+
+msgid "Eisen-Handschuhe"
+msgstr "Gants en fer"
+
+msgid "Eisen-Helm"
+msgstr "Casque en fer"
+
+msgid "Eisen-Schwert"
+msgstr "Épée en fer"
+
+msgid "Eisen-Stiefel"
+msgstr "Bottes en fer"
+
+msgid "Eisen-Zauberstab"
+msgstr "Baguette en fer"
+
 msgid "Eisenerz"
 msgstr "Minerai de fer"
 
@@ -501,11 +690,20 @@ msgstr "Peau de fer"
 msgid "Eisfeder"
 msgstr "Plume de glace"
 
+msgid "Eishöhle"
+msgstr "Grotte de glace"
+
+msgid "Eisrobbe"
+msgstr "Phoque des glaces"
+
 msgid "Eisspiegel"
 msgstr "Miroir de glace"
 
 msgid "Eisstab"
 msgstr "Bâton de glace"
+
+msgid "Eiswolf"
+msgstr "Loup des glaces"
 
 msgid "Elfenbrief"
 msgstr "Lettre elfique"
@@ -518,6 +716,9 @@ msgstr "Découverts : %d / %d"
 
 msgid "Episch"
 msgstr "Épique"
+
+msgid "Erdkoloss"
+msgstr "Colosse de terre"
 
 msgid "Erdstab"
 msgstr "Bâton de terre"
@@ -537,6 +738,9 @@ msgstr "Tirs explosifs, cadence plus lente"
 msgid "Fahre mit der Maus über ein Item"
 msgstr "Survole un objet avec la souris"
 
+msgid "Feder"
+msgstr "Plume"
+
 msgid "Feenstaub"
 msgstr "Poussière de fée"
 
@@ -548,6 +752,15 @@ msgstr "Fenêtre"
 
 msgid "Fenstergröße"
 msgstr "Taille de la fenêtre"
+
+msgid "Fester Griff, härtere Treffer."
+msgstr "Prise ferme, coups plus durs."
+
+msgid "Festgehalten!"
+msgstr "Pris au piège !"
+
+msgid "Feuerelementar"
+msgstr "Élémentaire de feu"
 
 msgid "Feuerfester Bomber"
 msgstr "Bombardier ignifugé"
@@ -561,6 +774,9 @@ msgstr "Couronne de feu"
 msgid "Feuerlanze"
 msgstr "Lance de feu"
 
+msgid "Feuersalamander"
+msgstr "Salamandre de feu"
+
 msgid "Feuerstab"
 msgstr "Bâton de feu"
 
@@ -569,6 +785,9 @@ msgstr "Rayon de feu au lieu de boules : maintiens le bouton"
 
 msgid "Feuerwerk"
 msgstr "Feu d'artifice"
+
+msgid "Feuerwolf"
+msgstr "Loup de feu"
 
 msgid "Flechtenleder"
 msgstr "Cuir de lichen"
@@ -594,6 +813,9 @@ msgstr "Peau de chauve-souris"
 msgid "Flüchten"
 msgstr "Fuir"
 
+msgid "Flüssiges Feuer in einer Flasche."
+msgstr "Du feu liquide en bouteille."
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Chuchote doucement quand il fait noir."
 
@@ -606,11 +828,26 @@ msgstr "Givre et feu"
 msgid "Frostflechte"
 msgstr "Lichen de givre"
 
+msgid "Frostgeist"
+msgstr "Esprit du givre"
+
+msgid "Frostgipfel"
+msgstr "Pic du Givre"
+
+msgid "Frostgolem"
+msgstr "Golem de givre"
+
 msgid "Frostkristall"
 msgstr "Cristal de givre"
 
 msgid "Frostmähne"
 msgstr "Crinière de givre"
+
+msgid "Frostmähnen-Fell"
+msgstr "Fourrure de Crinière-de-givre"
+
+msgid "Funkelstein"
+msgstr "Pierre Scintillante"
 
 msgid "Funkenbüchse"
 msgstr "Boîte à étincelles"
@@ -650,6 +887,9 @@ msgstr "Pieds"
 
 msgid "Gebiete: %s"
 msgstr "Zones : %s"
+
+msgid "Gebirge"
+msgstr "Montagnes"
 
 msgid "Geflüchtet!"
 msgstr "Évadé !"
@@ -699,6 +939,12 @@ msgstr "Victoire !"
 msgid "Gesperrt"
 msgstr "Verrouillé"
 
+msgid "Gesperrt: ab Stufe %d."
+msgstr "Verrouillé : dès le niveau %d."
+
+msgid "Gesperrt: erst %s schaffen."
+msgstr "Verrouillé : termine d'abord %s."
+
 msgid "Gesprengte Fessel"
 msgstr "Entrave brisée"
 
@@ -744,20 +990,38 @@ msgstr "Goule"
 msgid "Giftratte"
 msgstr "Rat venimeux"
 
+msgid "Giftschleim"
+msgstr "Gelée venimeuse"
+
 msgid "Giftstab"
 msgstr "Bâton de poison"
 
 msgid "Giftzahn"
 msgstr "Croc venimeux"
 
+msgid "Glatt, grün und noch ein bisschen warm."
+msgstr "Lisse, verte et encore un peu chaude."
+
 msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
 msgstr "Juste derrière la boutique d'Egon, ça descend. Tout en bas attend un boss, et soi-disant un trésor. C'est Egon qui le dit."
+
+msgid "Glutdrache"
+msgstr "Drake des braises"
+
+msgid "Glutessenz"
+msgstr "Essence de braise"
+
+msgid "Glutgeist"
+msgstr "Esprit des braises"
 
 msgid "Glutkern"
 msgstr "Cœur de braise"
 
 msgid "Glutklinge"
 msgstr "Lame de braise"
+
+msgid "Glutkobold"
+msgstr "Diablotin des braises"
 
 msgid "Glutmantel"
 msgstr "Cape de braise"
@@ -768,14 +1032,23 @@ msgstr "Lune de braise"
 msgid "Glutsammler"
 msgstr "Collecteur de braises"
 
+msgid "Glutschlund"
+msgstr "Gueule de Braise"
+
 msgid "Glutschwert"
 msgstr "Épée de braise"
 
 msgid "Glutstab"
 msgstr "Bâton de braise"
 
+msgid "Glutstollen"
+msgstr "Galeries de braise"
+
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Brille d'un éclat verdâtre. Le marchand adore."
+
+msgid "Glänzt wie der Mond. Der Händler wird ganz still."
+msgstr "Brille comme la lune. Le marchand devient tout silencieux."
 
 msgid "Glück"
 msgstr "Chance"
@@ -791,6 +1064,9 @@ msgstr "Chance et dégâts en hausse"
 
 msgid "Glück viel höher"
 msgstr "Beaucoup plus de chance"
+
+msgid "Glückliches Händchen"
+msgstr "Main chanceuse"
 
 msgid "Glücksflachs"
 msgstr "Lin porte-bonheur"
@@ -816,6 +1092,33 @@ msgstr "Galeries des Gobelins"
 msgid "Gold"
 msgstr "Or"
 
+msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
+msgstr "Or du marchand du donjon. Ce qui reste va dans ta boîte ; à ta mort il est perdu, sauf dans l'emplacement sûr."
+
+msgid "Gold-Beinschienen"
+msgstr "Jambières en or"
+
+msgid "Gold-Bogen"
+msgstr "Arc en or"
+
+msgid "Gold-Brustplatte"
+msgstr "Plastron en or"
+
+msgid "Gold-Handschuhe"
+msgstr "Gants en or"
+
+msgid "Gold-Helm"
+msgstr "Casque en or"
+
+msgid "Gold-Schwert"
+msgstr "Épée en or"
+
+msgid "Gold-Stiefel"
+msgstr "Bottes en or"
+
+msgid "Gold-Zauberstab"
+msgstr "Baguette en or"
+
 msgid "Goldader"
 msgstr "Filon d'or"
 
@@ -830,6 +1133,9 @@ msgstr "Arc d'or"
 
 msgid "Goldener Schattenstab"
 msgstr "Bâton d'ombre doré"
+
+msgid "Golderz"
+msgstr "Minerai d'or"
 
 msgid "Goldglut"
 msgstr "Braise dorée"
@@ -852,8 +1158,14 @@ msgstr "Bottes d'or"
 msgid "Grafik"
 msgstr "Graphismes"
 
+msgid "Grasotter"
+msgstr "Vipère des Herbes"
+
 msgid "Gratis"
 msgstr "Gratuit"
+
+msgid "Greif"
+msgstr "Griffon"
 
 msgid "Greifenfell"
 msgstr "Fourrure de griffon"
@@ -861,8 +1173,17 @@ msgstr "Fourrure de griffon"
 msgid "Greifenmantel"
 msgstr "Cape de griffon"
 
+msgid "Grimbald Eisenfaust"
+msgstr "Grimbald Poing-de-fer"
+
+msgid "Grobian"
+msgstr "Brute"
+
 msgid "Große, schwere Schüsse mit viel Rückstoß"
 msgstr "Gros tirs lourds avec beaucoup de recul"
+
+msgid "Großer Heiltrank"
+msgstr "Grande potion de soin"
 
 msgid "Grubenhacke"
 msgstr "Pioche de mine"
@@ -879,11 +1200,17 @@ msgstr "Bombes plus grosses et trois bombes"
 msgid "Größere Bomben, und keine tut dir weh"
 msgstr "Des bombes plus grosses, et aucune ne te blesse"
 
+msgid "Größere Dose"
+msgstr "Boîte plus grande"
+
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "Boules de feu plus grosses, plus de dégâts"
 
 msgid "Größerer Rucksack"
 msgstr "Sac plus grand"
+
+msgid "Grün wie das Moor, nur teurer."
+msgstr "Vert comme le marais, mais plus cher."
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "Bon choix ! Une pièce de collection. Honnêtement !"
@@ -897,6 +1224,18 @@ msgstr "Aie %d pièces à la fois"
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Aie %d cœurs bleus à la fois"
 
+msgid "Halb Fell, halb Feder."
+msgstr "Moitié fourrure, moitié plume."
+
+msgid "Harpyie"
+msgstr "Harpie"
+
+msgid "Harpyien-Matriarchin"
+msgstr "Matriarche harpie"
+
+msgid "Harpyienfeder"
+msgstr "Plume de harpie"
+
 msgid "Hauptmenü"
 msgstr "Menu principal"
 
@@ -906,8 +1245,20 @@ msgstr "Soin en tuant, dégâts en hausse"
 msgid "Heilerkräuter"
 msgstr "Herbes de guérisseur"
 
+msgid "Heilt %s Herzen"
+msgstr "Soigne %s cœurs"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "Te soigne entièrement, tu cours plus vite"
+
+msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "Soigne trois cœurs. Deux fois plus de cerise, moitié moins de chaussette."
+
+msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "Soigne deux cœurs. Goût cerise. Et un peu chaussette."
+
+msgid "Heiltrank"
+msgstr "Potion de soin"
 
 msgid "Heißer Sand"
 msgstr "Sable brûlant"
@@ -929,6 +1280,18 @@ msgstr "Chaudron de sorcière"
 
 msgid "Hier klicken"
 msgstr "Cliquez ici"
+
+msgid "Hinter dem Tor wartet etwas"
+msgstr "Quelque chose attend derrière la porte"
+
+msgid "Hinter dem Wald liegt ein Moor voller Lichter. Wer ihnen folgt, kommt nicht wieder. Sagt Egon. Er verkauft Laternen."
+msgstr "Derrière la forêt s'étend un marais plein de lumières. Qui les suit ne revient pas. Dixit Egon. Il vend des lanternes."
+
+msgid "Hippogreif"
+msgstr "Hippogriffe"
+
+msgid "Hohes Gras"
+msgstr "Hautes Herbes"
 
 msgid "Holzstab"
 msgstr "Bâton de bois"
@@ -957,6 +1320,9 @@ msgstr "Les niveaux supérieurs viennent avec ton niveau de joueur."
 msgid "Höhlentroll"
 msgstr "Troll des cavernes"
 
+msgid "Höllenhund"
+msgstr "Chien des enfers"
+
 msgid "Höllenhundfell"
 msgstr "Fourrure de chien des enfers"
 
@@ -966,17 +1332,50 @@ msgstr "Cuir infernal"
 msgid "Höllenstab"
 msgstr "Bâton infernal"
 
+msgid "Höllentor"
+msgstr "Porte des Enfers"
+
+msgid "Höllenwächter"
+msgstr "Gardien des enfers"
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Je suis l'escr… euh, le marchand. Je vends… …de l'équipement ! Oui, voilà. Je vends de l'équipement."
 
+msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
+msgstr "Je te la range. Gratuitement ! Le rangement, je veux dire."
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
+msgstr "Dans le donjon, tu appuies sur %s. Glou, glou, et deux cœurs reviennent."
+
+msgid "Im Dungeon: %s trinkt ihn"
+msgstr "Dans le donjon : %s pour la boire"
+
+msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
+msgstr "Dans le volcan bouillonne la lave, tout au fond se dresse une porte. Egon n'y est jamais allé. C'est ce qu'il dit. Ses bottes sont pourtant roussies."
+
+msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
+msgstr "Tu n'emportes pas d'or dans le donjon. En bas, mon collègue t'achète ton butin, presque aussi honnête que moi."
+
 msgid "Inventar"
 msgstr "Inventaire"
+
+msgid "Irrlicht"
+msgstr "Feu follet"
+
+msgid "Irrlicht-Glut"
+msgstr "Braise follette"
+
+msgid "Irrlichtkönigin"
+msgstr "Reine des feux follets"
 
 msgid "Jadefigur"
 msgstr "Figurine de jade"
 
 msgid "Jagdbogen"
 msgstr "Arc de chasse"
+
+msgid "Jagdgrund"
+msgstr "Terrain de Chasse"
 
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "Plus le tir va loin, plus il fait de dégâts"
@@ -989,6 +1388,9 @@ msgstr "Chaque coup effraie les ennemis"
 
 msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
 msgstr "Chaque coup reçu te rend plus fort à cet étage"
+
+msgid "Jeder weitere Dreh heute: %d %% von R1 zu den selteneren Stufen (höchstens %d %%)."
+msgstr "Chaque tour de plus aujourd'hui : %d %% de R1 vers les niveaux plus rares (au plus %d %%)."
 
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "Un tir sur deux est bien plus fort"
@@ -1010,6 +1412,9 @@ msgstr "Carte"
 
 msgid "Kein Relikt"
 msgstr "Pas une relique"
+
+msgid "Kein Trank dabei"
+msgstr "Aucune potion sur toi"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Aucun coup ne prend plus d'un demi-cœur"
@@ -1035,6 +1440,15 @@ msgstr "Clique pour continuer"
 msgid "Klingenstern"
 msgstr "Étoile de lames"
 
+msgid "Klippenharpyie"
+msgstr "Harpie des falaises"
+
+msgid "Knallkäfer"
+msgstr "Scarabée Pétard"
+
+msgid "Knistert in der Hand."
+msgstr "Crépite dans la main."
+
 msgid "Knochengeneral"
 msgstr "Général d'os"
 
@@ -1059,6 +1473,12 @@ msgstr "Tête"
 msgid "Kraft"
 msgstr "Force"
 
+msgid "Kreischt noch, wenn man sie schüttelt."
+msgstr "Hurle encore quand on la secoue."
+
+msgid "Kreuzkrabbe"
+msgstr "Crabe Croix"
+
 msgid "Krieger"
 msgstr "Guerrier"
 
@@ -1068,14 +1488,29 @@ msgstr "Épée du guerrier"
 msgid "Kriegsaxt"
 msgstr "Hache de guerre"
 
+msgid "Kristallbrocken"
+msgstr "Bloc de Cristal"
+
 msgid "Kristallkarte"
 msgstr "Carte de cristal"
+
+msgid "Kristallkoloss"
+msgstr "Colosse de Cristal"
+
+msgid "Kristallkrabbe"
+msgstr "Crabe de cristal"
 
 msgid "Kristallsplitter"
 msgstr "Éclat de cristal"
 
+msgid "Kristallwiese"
+msgstr "Prairie de Cristal"
+
 msgid "Kräuterbeutel"
 msgstr "Sachet d'herbes"
+
+msgid "Kupfer"
+msgstr "Cuivre"
 
 msgid "Kupfer-Beinschienen"
 msgstr "Jambières en cuivre"
@@ -1113,6 +1548,9 @@ msgstr "Lettre royale"
 msgid "Labyrinthaxt"
 msgstr "Hache du labyrinthe"
 
+msgid "Laden"
+msgstr "Boutique"
+
 msgid "Ladenschild"
 msgstr "Enseigne de boutique"
 
@@ -1127,6 +1565,12 @@ msgstr "Tu te soignes lentement"
 
 msgid "Lautstärke"
 msgstr "Volume"
+
+msgid "Lavagolem"
+msgstr "Golem de lave"
+
+msgid "Lavahund"
+msgstr "Chien de lave"
 
 msgid "Lebendiger Wind"
 msgstr "Vent vivant"
@@ -1155,8 +1599,14 @@ msgstr "Légendaire"
 msgid "Leicht und schnell."
 msgstr "Légères et rapides."
 
+msgid "Leicht wie Luft, wertvoll wie … naja."
+msgstr "Légère comme l'air, précieuse comme… bon."
+
 msgid "Leichte Feder"
 msgstr "Plume légère"
+
+msgid "Leichte Sohlen, schnelle Schritte."
+msgstr "Semelles légères, pas rapides."
 
 msgid "Leichtfuß"
 msgstr "Pied léger"
@@ -1188,6 +1638,15 @@ msgstr "Supprimer"
 msgid "Magier"
 msgstr "Mage"
 
+msgid "Magma-Rohling"
+msgstr "Brute de magma"
+
+msgid "Magmakammer"
+msgstr "Chambre magmatique"
+
+msgid "Magmaschleim"
+msgstr "Gelée de magma"
+
 msgid "Makelloser Schild"
 msgstr "Bouclier sans faille"
 
@@ -1212,6 +1671,9 @@ msgstr "Tes tirs empoisonnent parfois"
 msgid "Manchmal weichst du Treffern aus"
 msgstr "Tu esquives parfois les coups"
 
+msgid "Material: %s"
+msgstr "Matériau : %s"
+
 msgid "Maus"
 msgstr "Souris"
 
@@ -1226,6 +1688,12 @@ msgstr "Plus de recul et de dégâts"
 
 msgid "Mehr Schaden für jede Münze, die du hast"
 msgstr "Plus de dégâts pour chaque pièce que tu possèdes"
+
+msgid "Mehr Ware"
+msgstr "Plus de marchandise"
+
+msgid "Messerstecher"
+msgstr "Surineur"
 
 msgid "Meteor"
 msgstr "Météore"
@@ -1245,8 +1713,29 @@ msgstr "Sceau de lune"
 msgid "Mondsturm"
 msgstr "Tempête lunaire"
 
+msgid "Moor der Irrlichter"
+msgstr "Marais des Feux Follets"
+
+msgid "Moor-Egel"
+msgstr "Sangsue des marais"
+
+msgid "Moorgeist"
+msgstr "Spectre des marais"
+
 msgid "Moorherz"
 msgstr "Cœur des marais"
+
+msgid "Moorkern"
+msgstr "Cœur des marais"
+
+msgid "Moorkröte"
+msgstr "Crapaud des tourbières"
+
+msgid "Moorleiche"
+msgstr "Cadavre des marais"
+
+msgid "Moormutter"
+msgstr "Mère des marais"
 
 msgid "Musik"
 msgstr "Musique"
@@ -1314,6 +1803,9 @@ msgstr "Page suivante"
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "Niveau suivant : %d or, %d points, à partir du niveau %d"
 
+msgid "Obsidianwächter"
+msgstr "Gardien d'obsidienne"
+
 msgid "Offensiv"
 msgstr "Offensif"
 
@@ -1350,6 +1842,12 @@ msgstr "Lingot de palladium"
 msgid "Palladiumklinge"
 msgstr "Lame de palladium"
 
+msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
+msgstr "Partenaire ! Encore mort ? Je me suis inquiété. Presque deux minutes entières !"
+
+msgid "Pass auf, ich hab da was Neues reinbekommen. Ganz legal. Hebel, bitte!"
+msgstr "Regarde, j'ai reçu du nouveau. Tout à fait légal. Le levier, s'il te plaît !"
+
 msgid "Pause"
 msgstr "Pause"
 
@@ -1383,6 +1881,9 @@ msgstr "Lame de platine"
 msgid "Platinspitze"
 msgstr "Pointe de platine"
 
+msgid "Pocht leise. Besser nicht drüber nachdenken."
+msgstr "Bat doucement. Mieux vaut ne pas y penser."
+
 msgid "Preis: %d Gold"
 msgstr "Prix : %d or"
 
@@ -1410,6 +1911,9 @@ msgstr "Cave aux Rats"
 msgid "Rattenkönig"
 msgstr "Roi des Rats"
 
+msgid "Raucht ein bisschen."
+msgstr "Fume un peu."
+
 msgid "Rechts"
 msgstr "Droite"
 
@@ -1418,6 +1922,12 @@ msgstr "À droite, ta boîte. Glisse la bourse dessus ; jusqu'à 200 or, c'est e
 
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "Clic droit sur un objet de l'inventaire pour le poser ici."
+
+msgid "Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen"
+msgstr "Clic droit : vendre au marchand · Glisser : trier · Tab : fermer"
+
+msgid "Rechtsklick: verkaufen für %d Gold"
+msgstr "Clic droit : vendre pour %d or"
 
 msgid "Reichweite"
 msgstr "Portée"
@@ -1461,6 +1971,18 @@ msgstr "Reliques : %d %% par levier, niveaux %s"
 msgid "Reliktpflege"
 msgstr "Soin des reliques"
 
+msgid "Riecht nach Moor. Für immer."
+msgstr "Sent le marais. Pour toujours."
+
+msgid "Riedwächter"
+msgstr "Gardien des Roseaux"
+
+msgid "Riesenfledermaus"
+msgstr "Chauve-souris géante"
+
+msgid "Riesenkeiler"
+msgstr "Sanglier géant"
+
 msgid "Riesenratte"
 msgstr "Rat géant"
 
@@ -1494,6 +2016,9 @@ msgstr "Rubis"
 msgid "Rucksack"
 msgstr "Sac à dos"
 
+msgid "Rudelführer"
+msgstr "Chef de meute"
+
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "Mains sûres, tirs plus rapides."
 
@@ -1508,6 +2033,9 @@ msgstr "Recul"
 
 msgid "Rückwärts"
 msgstr "Reculer"
+
+msgid "Salamanderkönigin"
+msgstr "Reine salamandre"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "Gants du forgeron des sables"
@@ -1551,6 +2079,9 @@ msgstr "Dégâts x1,2, tir un peu plus lent"
 msgid "Schaden mal 1,25"
 msgstr "Dégâts x1,25"
 
+msgid "Schaden mal 1,3 und ein Silbererz"
+msgstr "Dégâts ×1,3 et un minerai d'argent"
+
 msgid "Schaden mal 1,3 und zehn Münzen"
 msgstr "Dégâts x1,3 et dix pièces"
 
@@ -1580,6 +2111,15 @@ msgstr "Dégâts : %s"
 
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "Termine %d étages d'affilée sans être touché"
+
+msgid "Schakal"
+msgstr "Chacal"
+
+msgid "Schattenbrut"
+msgstr "Rejeton d'ombre"
+
+msgid "Schattenfürst"
+msgstr "Seigneur des ombres"
 
 msgid "Schattenmantel"
 msgstr "Cape d'ombre"
@@ -1611,14 +2151,23 @@ msgstr "Coin de bataille"
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "Feu serpent : les tirs ondulent, un peu plus de dégâts"
 
+msgid "Schlangenschuppe"
+msgstr "Écaille de serpent"
+
 msgid "Schlangenschüsse, die Gegner verfolgen"
 msgstr "Tirs sinueux qui poursuivent les ennemis"
 
 msgid "Schleim"
 msgstr "Gelée"
 
+msgid "Schleimchen"
+msgstr "Petite Gelée"
+
 msgid "Schließen"
 msgstr "Fermer"
+
+msgid "Schläger"
+msgstr "Voyou"
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "Tirs sinueux qui rebondissent"
@@ -1653,6 +2202,9 @@ msgstr "Tir plus rapide, les tirs éclatent à la fin"
 msgid "Schnellere Schüsse fliegen durch Gegner"
 msgstr "Des tirs plus rapides traversent les ennemis"
 
+msgid "Schon einmal geschafft!"
+msgstr "Déjà terminé !"
+
 msgid "Schreckensbrief"
 msgstr "Lettre d'effroi"
 
@@ -1662,11 +2214,23 @@ msgstr "Fusil à pompe : six braises à courte portée"
 msgid "Schrumpftrank"
 msgstr "Potion de rétrécissement"
 
+msgid "Schuppig, schwer und sehr gefragt."
+msgstr "Écailleuse, lourde et très demandée."
+
 msgid "Schusstempo"
 msgstr "Vitesse des tirs"
 
+msgid "Schwarz und hart wie Lava, die nachgedacht hat."
+msgstr "Noir et dur, comme de la lave qui a réfléchi."
+
 msgid "Schwarzer Kristall"
 msgstr "Cristal noir"
+
+msgid "Schwarzwolf"
+msgstr "Loup noir"
+
+msgid "Schwer und gelb. Jeder Händler mag es."
+msgstr "Lourd et jaune. Tous les marchands l'aiment."
 
 msgid "Schwer und kalt."
 msgstr "Lourd et froid."
@@ -1743,6 +2307,9 @@ msgstr "Page %d sur %d"
 msgid "Selten"
 msgstr "Rare"
 
+msgid "Seltene Ware"
+msgstr "Marchandise rare"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Maj : tu sautes là où tu vises"
 
@@ -1761,6 +2328,33 @@ msgstr "Champ de vision"
 msgid "Siegerring"
 msgstr "Anneau du vainqueur"
 
+msgid "Silber"
+msgstr "Argent"
+
+msgid "Silber-Beinschienen"
+msgstr "Jambières en argent"
+
+msgid "Silber-Bogen"
+msgstr "Arc en argent"
+
+msgid "Silber-Brustplatte"
+msgstr "Plastron en argent"
+
+msgid "Silber-Handschuhe"
+msgstr "Gants en argent"
+
+msgid "Silber-Helm"
+msgstr "Casque en argent"
+
+msgid "Silber-Schwert"
+msgstr "Épée en argent"
+
+msgid "Silber-Stiefel"
+msgstr "Bottes en argent"
+
+msgid "Silber-Zauberstab"
+msgstr "Baguette en argent"
+
 msgid "Silberader"
 msgstr "Filon d'argent"
 
@@ -1769,6 +2363,9 @@ msgstr "Amulette d'argent"
 
 msgid "Silberdolch"
 msgstr "Dague d'argent"
+
+msgid "Silbererz"
+msgstr "Minerai d'argent"
 
 msgid "Silberhammer"
 msgstr "Marteau d'argent"
@@ -1784,6 +2381,9 @@ msgstr "Anneau d'argent"
 
 msgid "Silberspitze"
 msgstr "Pointe d'argent"
+
+msgid "Silberwolf"
+msgstr "Loup argenté"
 
 msgid "Skelett"
 msgstr "Squelette"
@@ -1872,6 +2472,9 @@ msgstr "Écrase les rochers et plus de butin"
 msgid "Steine zertreten, fünf Bomben"
 msgstr "Écrase les rochers, cinq bombes"
 
+msgid "Steingolem"
+msgstr "Golem de pierre"
+
 msgid "Sternenfessel"
 msgstr "Entrave stellaire"
 
@@ -1908,6 +2511,9 @@ msgstr "Masse d'armes"
 msgid "Streubombe"
 msgstr "Bombe à fragmentation"
 
+msgid "Strohmann"
+msgstr "Épouvantail"
+
 msgid "Struppig und leicht angekaut."
 msgstr "Hirsute et un peu mâchouillée."
 
@@ -1932,8 +2538,17 @@ msgstr "Niveau trop bas"
 msgid "Sturmessenz"
 msgstr "Essence de tempête"
 
+msgid "Sturmgeist"
+msgstr "Esprit de la tempête"
+
+msgid "Sturmgipfel"
+msgstr "Sommet des tempêtes"
+
 msgid "Sturmkarte"
 msgstr "Carte des tempêtes"
+
+msgid "Sturmkrähe"
+msgstr "Corbeau des tempêtes"
 
 msgid "Sturmsiegel"
 msgstr "Sceau de tempête"
@@ -1968,11 +2583,26 @@ msgstr "Rayon chercheur"
 msgid "Sumpfhaut"
 msgstr "Peau des marais"
 
+msgid "Sumpfhydra"
+msgstr "Hydre des marais"
+
 msgid "Sumpfleder"
 msgstr "Cuir des marais"
 
 msgid "Sumpfmantel"
 msgstr "Cape des marais"
+
+msgid "Sumpfschamane"
+msgstr "Chaman des marais"
+
+msgid "Sumpfschlange"
+msgstr "Serpent des marais"
+
+msgid "Sumpfschleim"
+msgstr "Gelée des marais"
+
+msgid "Sumpfufer"
+msgstr "Rive du marais"
 
 msgid "Synergie: %s!"
 msgstr "Synergie : %s !"
@@ -1998,6 +2628,9 @@ msgstr "Herbe titubante"
 msgid "Tausendklinge"
 msgstr "Lame des mille"
 
+msgid "Teilschleim"
+msgstr "Gelée Scindante"
+
 msgid "Tempo"
 msgstr "Vitesse"
 
@@ -2007,8 +2640,17 @@ msgstr "Vitesse +0,2."
 msgid "Tempo: %s"
 msgstr "Vitesse : %s"
 
+msgid "Testraum · P: Admin-Menü"
+msgstr "Salle de test · P : menu admin"
+
 msgid "Testraum · P: zurück"
 msgstr "Salle de test · P : retour"
+
+msgid "Tiefes Moor"
+msgstr "Marais profond"
+
+msgid "Topas"
+msgstr "Topaze"
 
 msgid "Topasjuwel"
 msgstr "Joyau de topaze"
@@ -2018,6 +2660,15 @@ msgstr "Nécromancien"
 
 msgid "Totengruft"
 msgstr "Crypte des morts"
+
+msgid "Trank"
+msgstr "Potion"
+
+msgid "Trank trinken"
+msgstr "Boire une potion"
+
+msgid "Trank-Platz: im Dungeon mit %s trinken"
+msgstr "Emplacement de potion : à boire dans le donjon avec %s"
 
 msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
 msgstr "Les impacts éclatent, les tirs traversent les rochers"
@@ -2034,6 +2685,9 @@ msgstr "Armure de troll"
 msgid "Truhenschlüssel"
 msgstr "Clé du coffre"
 
+msgid "Tränke gehören hierher, gleich neben die Füße. Da kommst du im Dungeon schnell ran."
+msgstr "Les potions vont ici, juste à côté des pieds. Comme ça tu les attrapes vite dans le donjon."
+
 msgid "Umgebung"
 msgstr "Environs"
 
@@ -2042,6 +2696,9 @@ msgstr "Et voici mon levier. Toute ma fierté. Regarde bien !"
 
 msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
 msgstr "Et voilà, une petite avance : 50 or. Ton or est dans l'inventaire, sous forme de bourse."
+
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Oben links siehst du, wie viel du hast."
+msgstr "Et voilà, une petite avance : 50 pièces d'or. En haut à gauche, tu vois combien tu as."
 
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "Et maintenant, au donjon ! Rapporte-moi quelque chose de beau. J'attends ici. On n'est jamais trop prudent."
@@ -2061,6 +2718,12 @@ msgstr "Utilitaire"
 msgid "Vampir"
 msgstr "Vampire"
 
+msgid "Varrik der Fuchs"
+msgstr "Varrik le Renard"
+
+msgid "Verbrennt nicht. Riecht aber so."
+msgstr "Ne brûle pas. Mais en a l'odeur."
+
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "Empoisonne les ennemis, dégâts un peu en hausse"
 
@@ -2069,6 +2732,9 @@ msgstr "Vendre"
 
 msgid "Verkaufen: %d Gold"
 msgstr "Vendre : %d or"
+
+msgid "Verkauft für %d Gold"
+msgstr "Vendu pour %d or"
 
 msgid "Viel größere Bomben"
 msgstr "Bombes bien plus grosses"
@@ -2115,6 +2781,9 @@ msgstr "Plein écran"
 msgid "Vorwärts"
 msgstr "Avancer"
 
+msgid "Vulkandrache"
+msgstr "Dragon volcanique"
+
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "ZQSD : marcher · Souris : viser · Clic gauche : tirer"
 
@@ -2124,8 +2793,14 @@ msgstr "Arme"
 msgid "Wanderbündel"
 msgstr "Baluchon du voyageur"
 
+msgid "Wandspinne"
+msgstr "Araignée des Murs"
+
 msgid "Warm und dicht."
 msgstr "Chaude et épaisse."
+
+msgid "Warm. Grau. Überall."
+msgstr "Chaude. Grise. Partout."
 
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "Ce qui est ici n'est pas perdu si tu meurs."
@@ -2154,8 +2829,20 @@ msgstr "Un tir qui tue continue avec le reste"
 msgid "Wert: %d Gold"
 msgstr "Valeur : %d or"
 
+msgid "Wespenbär"
+msgstr "Ours à Guêpes"
+
 msgid "Wettkampfstiefel"
 msgstr "Bottes de compétition"
+
+msgid "Wiesenwespe"
+msgstr "Guêpe des Prés"
+
+msgid "Wilderer"
+msgstr "Braconnier"
+
+msgid "Wildschwein"
+msgstr "Sanglier"
 
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "Bienvenue dans ma modeste boutique ! La marchandise est là-haut sur la table. Enfin… bientôt."
@@ -2172,20 +2859,35 @@ msgstr "Rose des vents"
 msgid "Windstab"
 msgstr "Bâton du vent"
 
+msgid "Wispernde Wiese"
+msgstr "Prairie Murmurante"
+
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Là où frappe le rayon, ça explose"
+
+msgid "Wolf"
+msgstr "Loup"
 
 msgid "Wolfsfell"
 msgstr "Fourrure de loup"
 
+msgid "Wolfsleder"
+msgstr "Cuir de loup"
+
 msgid "Wolfsmantel"
 msgstr "Cape de loup"
+
+msgid "Wolfswald"
+msgstr "Forêt des loups"
 
 msgid "Wurfsterne"
 msgstr "Shurikens"
 
 msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
 msgstr "Les shurikens traversent les ennemis et les font souvent saigner"
+
+msgid "Wächst nur, wo es richtig kalt ist."
+msgstr "Ne pousse que là où il fait vraiment froid."
 
 msgid "Wähle deinen Charakter"
 msgstr "Choisis ton personnage"
@@ -2195,6 +2897,9 @@ msgstr "Choisis un donjon à gauche."
 
 msgid "Wählen"
 msgstr "Choisir"
+
+msgid "Wühlmaus"
+msgstr "Campagnol"
 
 msgid "Wüstenkompass"
 msgstr "Boussole du désert"
@@ -2247,6 +2952,9 @@ msgstr "Deux étincelles et dégâts en hausse"
 msgid "Zwei Glutmonde kreisen um dich"
 msgstr "Deux lunes de braise tournent autour de toi"
 
+msgid "Zwei Golderze und zehn Schlüssel"
+msgstr "Deux minerais d'or et dix clés"
+
 msgid "Zwei Herzen mehr"
 msgstr "Deux cœurs de plus"
 
@@ -2283,6 +2991,9 @@ msgstr "Deux cœurs bleus ; en perdre un frappe tous les ennemis"
 msgid "Zwillingshandschuhe"
 msgstr "Gants jumeaux"
 
+msgid "Zäh und warm."
+msgstr "Résistant et chaud."
+
 msgid "Zähigkeit"
 msgstr "Ténacité"
 
@@ -2297,3 +3008,6 @@ msgstr "Au-dessus de la limite : Egon lorgne ta boîte !"
 
 msgid "Überschreiben"
 msgstr "Écraser"
+
+msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
+msgstr "…Tu as au moins le butin ? Non ? Hm. Alors une seule solution : des potions !"

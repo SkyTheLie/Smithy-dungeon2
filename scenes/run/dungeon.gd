@@ -4,7 +4,8 @@ extends Node3D
 ## room side by side, with doors between neighbours. While the player walks around it:
 ##   - entering a room with enemies closes its doors and lets the enemies appear;
 ##   - when the last one falls the doors open and sometimes a reward drops;
-##   - item room: one item on a pedestal; shop: an item and goods for coins;
+##   - item room: one item on a pedestal; shop: an item and goods for coins; the merchant there
+##     buys loot (Tab, right click: sell_from_bag), the only gold of the dungeon;
 ##   - boss room: one boss of the theme, picked at random when the floor is built; after it a
 ##     trapdoor down (or the golden light after the last floor) and a boss item.
 ## Only the room the player is in and its neighbours are visible (drawn); the rest is hidden.
@@ -12,6 +13,8 @@ extends Node3D
 ## (secret items), sometimes a sacrifice room (Opferstein: a heart for a reward) and the special
 ## room behind the boss: after the boss it may open as Glutpakt (items for heart containers) or
 ## Schrein (a free item), see RunState.roll_special_room.
+## Tall grass (floors.json "grass", Meadow) in every room but the start room; traps a boss throws
+## come in with add_hazard; a snare holds the player instead of hurting again and again.
 ## Start room: the controls on the floor and the way out (DungeonExit, a ladder in a corner):
 ## stepping on it sends exit_entered (the run scene asks whether to flee).
 ## Rules about life, coins and items are in RunState; this node only calls them.
@@ -28,9 +31,15 @@ signal trapdoor_entered(final: bool)
 signal exit_entered
 ## A short text for the HUD (German key).
 signal message(text: String)
+## The boss hall scene started (true) / ended (false): the HUD hides meanwhile.
+signal cutscene_changed(active: bool)
 
 const SPAWN_MIN_DISTANCE: float = 3.5
 const MAX_ENEMIES: int = 12
+## Traps keep this far (metres) from the lines through the doors, so a way stays free.
+const HAZARD_PATH: float = 1.4
+## The player's own traps at the same time in one room (more: the oldest goes).
+const PLAYER_TRAPS_MAX: int = 6
 const DOOR_TOUCH: float = 1.7
 const KEEPER_HEIGHT: float = 1.6
 ## Far outside the floor grid (FloorLayout uses 0..8), so no room is next to it.
@@ -43,6 +52,11 @@ const TEST_FIRST_ROW: float = -4.0
 ## A bomb this close to a hidden wall blows it open.
 const SECRET_BLAST_REACH: float = 1.2
 const SACRIFICE_STEP: float = 0.7
+## The boss hall (BossHall) lies far away from the floor grid, like the test room.
+const HALL_CELL: Vector2i = Vector2i(-12, 12)
+## The gate in the boss room (Vorhalle) that leads into the hall.
+const GATE_HEIGHT: float = 3.2
+const GATE_TOUCH: float = 1.2
 
 var run: RunState
 var player: Player
@@ -75,6 +89,9 @@ var _return_position: Vector3 = Vector3.ZERO
 var _sacrifice_stone: Node3D = null
 var _sacrifices: int = 0
 var _on_stone: bool = false
+## Boss hall: built the first time the player goes through the gate of the Vorhalle.
+var hall: BossHall = null
+var _hall_gate: Sprite3D = null
 
 
 func build(run_state: RunState, the_player: Player, index: int) -> void:
@@ -105,11 +122,13 @@ func build(run_state: RunState, the_player: Player, index: int) -> void:
 	boss_id = String(fresh[_rng.randi_range(0, fresh.size() - 1)])
 	if not run.fought_bosses.has(boss_id):
 		run.fought_bosses.append(boss_id)
+	# enemies.json "arena" (light, traps) goes into the boss hall when it is built.
 	player.global_position = RoomBuilder.cell_center(FloorLayout.START) + Vector3(0, 0, 1.0)
 	_enter_room(FloorLayout.START)
 	run.blue_heart_lost.connect(_on_blue_heart_lost)
 	run.revived.connect(func(_id: String) -> void: message.emit("Ein zweites Leben!"))
 	run.item_added.connect(_on_item_added)
+	run.loot_overflow.connect(func(id: String, count: int) -> void: _drop_loot(rooms[current_cell], player.global_position, id, count, false))
 	AudioManager.play_music(String(floor_data.get("music", "")))
 	floor_started.emit(String(floor_data.get("name", "")))
 
@@ -190,6 +209,10 @@ func _build_room(cell: Vector2i) -> void:
 			String(style.get("floor_texture", floor_data.get("floor_texture", ""))),
 			String(style.get("wall_texture", floor_data.get("wall_texture", ""))),
 			neighbours, Color(float(light[0]), float(light[1]), float(light[2])))
+	# Tall grass (floors.json "grass"): hides low enemies and traps.
+	var grass: Dictionary = floor_data.get("grass", {})
+	if not grass.is_empty() and room.type != FloorLayout.START_ROOM:
+		Meadow.add_grass(room, grass, hash([floor_index, cell]))
 	match room.type:
 		FloorLayout.START_ROOM:
 			_add_controls_hint(room)
@@ -197,6 +220,7 @@ func _build_room(cell: Vector2i) -> void:
 		FloorLayout.NORMAL:
 			_add_rocks(room)
 			_roll_enemies(room)
+			_add_hazards(room)
 		FloorLayout.ITEM:
 			_add_item_pedestal(room, Vector3.ZERO, "item", 0)
 		FloorLayout.SHOP:
@@ -205,6 +229,8 @@ func _build_room(cell: Vector2i) -> void:
 			_build_secret_room(room)
 		FloorLayout.SACRIFICE:
 			_build_sacrifice_room(room)
+		FloorLayout.BOSS:
+			_build_antechamber(room)
 
 
 ## The wall picture of the room at `cell` (room style or floor).
@@ -281,7 +307,6 @@ func _add_rocks(room: DungeonRoom) -> void:
 func _place_rock(room: DungeonRoom, spot: Vector3, settings: Dictionary) -> void:
 	var rock := Rock.new()
 	rock.texture_path = String(floor_data.get("rock_texture", settings.get("texture", "")))
-	rock.has_coin = _rng.randf() < float(settings.get("coin_chance", 0.2))
 	room.add_child(rock)
 	rock.position = spot
 	room.rocks.append(rock)
@@ -315,6 +340,8 @@ func _add_item_pedestal(room: DungeonRoom, at: Vector3, pool_name: String, price
 
 func _build_shop(room: DungeonRoom) -> void:
 	var shop: Dictionary = Content.floors_extra("shop")
+	# Later dungeons and deeper floors are dearer (dungeons.json shop_mult, shop floor_step).
+	var mult: float = float(floor_data.get("shop_mult", 1.0))
 	var keeper_texture := load(String(shop.get("keeper", ""))) as Texture2D
 	if keeper_texture:
 		var keeper := Fx.billboard(keeper_texture, KEEPER_HEIGHT)
@@ -324,15 +351,163 @@ func _build_shop(room: DungeonRoom) -> void:
 	var goods: Array = shop.get("goods", [])
 	var slots: int = goods.size() + 1
 	var x: float = -(slots - 1) * 1.0
-	_add_item_pedestal(room, Vector3(x, 0, 0), "shop", int(shop.get("item_price", 15)))
+	_add_item_pedestal(room, Vector3(x, 0, 0), "shop", roundi(float(shop.get("item_price", 15)) * mult))
 	for entry: Array in goods:
 		x += 2.0
 		var pedestal := Pedestal.new()
-		pedestal.setup("", String(entry[0]), int(entry[1]), run, player)
+		pedestal.setup("", String(entry[0]), roundi(float(entry[1]) * mult), run, player)
 		pedestal.message_requested.connect(message.emit)
 		room.add_child(pedestal)
 		pedestal.position = Vector3(x, 0, 0)
 		room.loot.append(pedestal)
+
+
+## A boss with "arena" (enemies.json) changes its room: "light" [r, g, b] = a coloured light over
+## it, "hazards" [[kind, [min, max]]] = traps like in normal rooms (door paths and the middle stay
+## free, so the boss always has room). With its own random numbers.
+func _build_arena(room: DungeonRoom) -> void:
+	var arena: Dictionary = Content.enemy(boss_id).get("arena", {})
+	if arena.is_empty() or room == null:
+		return
+	if arena.has("light"):
+		var tint: Array = arena["light"]
+		var glow := OmniLight3D.new()
+		glow.light_color = Color(float(tint[0]), float(tint[1]), float(tint[2]))
+		glow.light_energy = 1.6
+		glow.omni_range = 12.0
+		glow.position.y = 3.0
+		room.add_child(glow)
+	_place_hazards(room, arena.get("hazards", []), hash([run.seed_value, floor_index, "arena"]))
+
+
+## Traps on the floor of a normal room: floor_data "hazards" [[kind, [min, max]], …], the kinds
+## in floors.json "hazard_types". With their own random numbers (the rest of the room stays the
+## same for a seed). Paths through the doors, the middle and the rocks stay free.
+func _add_hazards(room: DungeonRoom) -> void:
+	_place_hazards(room, floor_data.get("hazards", []), hash([run.seed_value, floor_index, room.cell]))
+
+
+## `list` [[kind, [min, max]], …] of floors.json hazard_types into `room`, rolled with `seed`.
+func _place_hazards(room: DungeonRoom, list: Array, seed: int) -> void:
+	if list.is_empty():
+		return
+	var types: Dictionary = Content.floors_extra("hazard_types")
+	var rng := RandomNumberGenerator.new()
+	rng.seed = seed
+	for entry: Array in list:
+		var kind: String = String(entry[0])
+		if not types.has(kind):
+			continue
+		var data: Dictionary = types[kind]
+		var count_range: Array = entry[1]
+		var sizes: Array = data.get("size", [1.5, 2.0])
+		for i in rng.randi_range(int(count_range[0]), int(count_range[1])):
+			var side: float = rng.randf_range(float(sizes[0]), float(sizes[1]))
+			var spot: Vector3 = _hazard_spot(room, side, rng)
+			if spot == Vector3.INF:
+				continue
+			var hazard := Hazard.new()
+			hazard.setup(kind, data, side, rng.randf() * 3.0)
+			room.add_child(hazard)
+			hazard.position = spot
+			room.hazards.append(hazard)
+
+
+## A place (local) for a trap `side` metres wide: inside the walls, away from the door paths and
+## the middle, not on a rock or another trap. Vector3.INF if none was found.
+func _hazard_spot(room: DungeonRoom, side: float, rng: RandomNumberGenerator) -> Vector3:
+	var half := Vector2(RoomBuilder.ROOM_W / 2.0 - RoomBuilder.WALL_T - side / 2.0 - 0.3, RoomBuilder.ROOM_D / 2.0 - RoomBuilder.WALL_T - side / 2.0 - 0.3)
+	var keep: float = side / 2.0 + HAZARD_PATH
+	if half.x <= keep or half.y <= keep:
+		return Vector3.INF
+	for attempt in 30:
+		var spot := Vector3(rng.randf_range(-half.x, half.x), 0, rng.randf_range(-half.y, half.y))
+		if absf(spot.x) < keep or absf(spot.z) < keep:
+			continue
+		var blocked: bool = false
+		for rock: Rock in room.rocks:
+			if absf(rock.position.x - spot.x) < side / 2.0 + 0.7 and absf(rock.position.z - spot.z) < side / 2.0 + 0.7:
+				blocked = true
+				break
+		for other: Hazard in room.hazards:
+			if absf(other.position.x - spot.x) < (side + other.size) / 2.0 + 0.4 and absf(other.position.z - spot.z) < (side + other.size) / 2.0 + 0.4:
+				blocked = true
+				break
+		if not blocked:
+			return spot
+	return Vector3.INF
+
+
+## Standing on a dangerous trap of this room: a hit (the player's invulnerable time limits it);
+## a snare snaps shut and holds the player; pigeons on it fly off. The player's own traps hurt
+## the enemies of the room instead (Hazard.touch_enemy), never the player.
+func _check_hazards() -> void:
+	if not rooms.has(current_cell):
+		return
+	var room: DungeonRoom = rooms[current_cell]
+	for hazard: Hazard in room.hazards:
+		if hazard.from_player:
+			for enemy: Enemy in enemies.duplicate():
+				hazard.touch_enemy(enemy)
+	for hazard: Hazard in room.hazards:
+		if hazard.hurts_at(player.global_position):
+			hazard.scare()
+			if hazard.holds():
+				hazard.spring(player)
+				message.emit("Festgehalten!")
+			else:
+				player.take_hit(hazard.damage)
+			return
+
+
+## A player shot ended at `at`: every trap of the shot (ShotStats.traps from items and relics:
+## {kind, chance}) is rolled and laid there (place_player_trap).
+func shot_ended(at: Vector3, stats: ShotStats) -> void:
+	for trap: Dictionary in stats.traps:
+		if _rng.randf() < float(trap.get("chance", 0.0)):
+			place_player_trap(String(trap.get("kind", "")), at, stats.damage)
+
+
+## One of the player's own traps (floors.json hazard_types with "owner": "player") at `at` in the
+## room the player is in, hurting enemies with `shot_damage` x its damage_mult. Gone after its
+## "life" seconds; at most PLAYER_TRAPS_MAX in a room (the oldest goes). null if not possible.
+func place_player_trap(kind: String, at: Vector3, shot_damage: float) -> Hazard:
+	var types: Dictionary = Content.floors_extra("hazard_types")
+	if not types.has(kind) or String((types[kind] as Dictionary).get("owner", "")) != "player":
+		return null
+	var room: DungeonRoom = rooms.get(current_cell)
+	if room == null:
+		return null
+	var own: Array[Hazard] = []
+	for other: Hazard in room.hazards:
+		if other.from_player and other.visible:
+			own.append(other)
+	if own.size() >= PLAYER_TRAPS_MAX:
+		room.hazards.erase(own[0])
+		own[0].queue_free()
+	var hazard: Hazard = add_hazard(kind, at, float((types[kind] as Dictionary).get("life", 6.0)))
+	if hazard:
+		hazard.shot_damage = shot_damage
+	return hazard
+
+
+## A trap of floors.json hazard_types `kind` at `at` (world) in the room the player is in, e.g.
+## the snares a boss throws. `life` > 0: gone after that many seconds. null for an unknown kind.
+func add_hazard(kind: String, at: Vector3, life: float) -> Hazard:
+	var types: Dictionary = Content.floors_extra("hazard_types")
+	if not types.has(kind) or not rooms.has(current_cell):
+		return null
+	var data: Dictionary = types[kind]
+	var sizes: Array = data.get("size", [1.0, 1.0])
+	var hazard := Hazard.new()
+	hazard.setup(kind, data, float(sizes[0]), 0.0)
+	hazard.life = life
+	var room: DungeonRoom = rooms[current_cell]
+	room.add_child(hazard)
+	var rect: Rect2 = room_rect(float(sizes[0]) / 2.0)
+	hazard.global_position = Vector3(clampf(at.x, rect.position.x, rect.end.x), 0.0, clampf(at.z, rect.position.y, rect.end.y))
+	room.hazards.append(hazard)
+	return hazard
 
 
 ## A random free place in the room (local), away from doors, the middle (if `keep_middle_free`),
@@ -362,9 +537,18 @@ func _physics_process(delta: float) -> void:
 	if player == null or layout == null:
 		return
 	run.tick(delta)
+	_check_hazards()
 	_check_stomp()
 	_check_sacrifice()
 	var pos: Vector3 = player.global_position
+	if in_boss_hall():
+		if hall.tick():
+			leave_boss_hall()
+		elif _fighting and enemies.is_empty():
+			_clear_room(hall)
+		return
+	if _check_hall_gate(pos):
+		return
 	var cell: Vector2i = RoomBuilder.cell_at(pos)
 	if cell != current_cell and layout.rooms.has(cell) and RoomBuilder.inner_rect(cell, 0.4).has_point(Vector2(pos.x, pos.z)):
 		_enter_room(cell)
@@ -378,6 +562,8 @@ func _enter_room(cell: Vector2i) -> void:
 	_show_near(cell)
 	run.refresh_mantle()
 	var room: DungeonRoom = rooms[cell]
+	if room.type == FloorLayout.SHOP and not room.visited:
+		message.emit("Der Händler kauft Beute: Tab, Rechtsklick")
 	room.visited = true
 	room_entered.emit(cell)
 	if room.cleared:
@@ -391,11 +577,9 @@ func _enter_room(cell: Vector2i) -> void:
 			for id: String in room.spawn_list:
 				spawn_enemy(id, room.position + _spawn_spot(room))
 		FloorLayout.BOSS:
-			_start_fight(room)
-			var toward_player: Vector3 = (player.global_position - room.position) * Vector3(1, 0, 1)
-			boss = spawn_enemy(boss_id, room.position - toward_player.normalized() * 3.5)
-			boss_appeared.emit(boss)
-			AudioManager.play_music("boss")
+			# The Vorhalle: no fight here, the boss waits in the hall behind the gate.
+			room.cleared = true
+			message.emit("Hinter dem Tor wartet etwas")
 		_:
 			room.cleared = true
 
@@ -438,19 +622,30 @@ func spawn_enemy(id: String, at: Vector3) -> Enemy:
 	return enemy
 
 
-## A boss calls helpers (only up to MAX_ENEMIES, inside the room).
+## A boss calls helpers: at most data/enemies.json "summon_max" of them alive at once (and
+## MAX_ENEMIES in all), inside the room.
 func summon(id: String, at: Vector3) -> void:
-	if enemies.size() >= MAX_ENEMIES:
+	if enemies.size() >= MAX_ENEMIES or helper_count() >= summon_max():
 		return
-	var rect: Rect2 = RoomBuilder.inner_rect(current_cell, 0.8)
+	var rect: Rect2 = room_rect(0.8)
 	var spot := Vector3(clampf(at.x, rect.position.x, rect.end.x), 0, clampf(at.z, rect.position.y, rect.end.y))
 	spawn_enemy(id, spot)
+
+
+## How many helpers a boss may have alive at once (data/enemies.json "summon_max").
+static func summon_max() -> int:
+	return maxi(0, int(Content.get_file("enemies").get("summon_max", 5)))
+
+
+## Enemies alive besides the boss (in a boss fight: its helpers).
+func helper_count() -> int:
+	return enemies.size() - (1 if boss != null and enemies.has(boss) else 0)
 
 
 func _on_enemy_died(enemy: Enemy) -> void:
 	enemies.erase(enemy)
 	run.kills += 1
-	run.add_kill_exp(enemy.is_boss)
+	run.add_kill_exp(enemy.is_boss, float(floor_data.get("exp_mult", 1.0)))
 	run.on_kill()
 	if run.record_progress:
 		run.announce(Progress.add_kills(1))
@@ -464,8 +659,15 @@ func _on_enemy_died(enemy: Enemy) -> void:
 		AudioManager.play_sound("boss_die")
 		boss_defeated.emit()
 		return
-	if _rng.randf() < float(enemy.data.get("drop_chance", 0.0)) + run.stats.luck * _luck_drop() * 0.5:
+	if _rng.randf() < key_drop_chance():
+		_drop(rooms[current_cell], enemy.global_position, "key")
+	elif _rng.randf() < float(enemy.data.get("drop_chance", 0.0)) + run.stats.luck * _luck_drop() * 0.5:
 		_drop(rooms[current_cell], enemy.global_position, _roll_drop())
+
+
+## Chance that a normal enemy drops a key (data/loot.json "key_chance", one value for all).
+func key_drop_chance() -> float:
+	return maxf(0.0, float(Content.get_file("loot").get("key_chance", 0.0)))
 
 
 func _clear_room(room: DungeonRoom) -> void:
@@ -473,8 +675,10 @@ func _clear_room(room: DungeonRoom) -> void:
 	room.cleared = true
 	for door: Door in doors_of(room.cell):
 		door.set_closed(false)
-	if room.type == FloorLayout.BOSS:
-		_boss_rewards(room)
+	if room == hall:
+		hall.on_cleared()
+		# Between the altar and the gate back.
+		_boss_rewards(room, Vector3(0, 0, 4.5))
 		AudioManager.play_music(String(floor_data.get("music", "")))
 		return
 	var drops: Dictionary = Content.floors_extra("room_drops")
@@ -489,25 +693,26 @@ func _luck_drop() -> float:
 
 func _roll_drop() -> String:
 	var drops: Dictionary = Content.floors_extra("room_drops")
-	return Content.pick_weighted(drops.get("table", [["coin", 1]]), _rng)
+	return Content.pick_weighted(drops.get("table", [["heart", 1]]), _rng)
 
 
-func _boss_rewards(room: DungeonRoom) -> void:
+## Trapdoor at `base` (local to `room`), the boss item behind it, a heart beside it.
+func _boss_rewards(room: DungeonRoom, base: Vector3) -> void:
 	var trapdoor := Trapdoor.new()
 	trapdoor.final = floor_index >= Content.floors().size() - 1
 	trapdoor.player = player
 	trapdoor.entered.connect(func() -> void: trapdoor_entered.emit(trapdoor.final))
 	room.add_child(trapdoor)
-	trapdoor.position = Vector3(0, 0, 0)
-	var first: Pedestal = _add_item_pedestal(room, Vector3(0, 0, -2.8), "boss", 0)
+	trapdoor.position = base
+	var first: Pedestal = _add_item_pedestal(room, base + Vector3(0, 0, -2.8), "boss", 0)
 	# "choice": a second boss item; taking one makes the other vanish.
 	if run.stats.has("choice") and first:
 		first.position.x = -1.2
-		var second: Pedestal = _add_item_pedestal(room, Vector3(1.2, 0, -2.8), "boss", 0)
+		var second: Pedestal = _add_item_pedestal(room, base + Vector3(1.2, 0, -2.8), "boss", 0)
 		if second:
 			first.taken.connect(func(_p: Pedestal) -> void: second.show_item(""))
 			second.taken.connect(func(_p: Pedestal) -> void: first.show_item(""))
-	_drop(room, room.position + Vector3(2.0, 0, 0), "heart")
+	_drop(room, room.position + base + Vector3(2.0, 0, 0), "heart")
 	_open_special_room()
 	message.emit("Der Weg nach unten ist frei!" if not trapdoor.final else "Du hast den Dungeon bezwungen!")
 
@@ -539,7 +744,7 @@ func _drop_loot(room: DungeonRoom, at: Vector3, id: String, count: int, dropped:
 	pickup.setup_loot(id, count, run, player, dropped)
 	pickup.bag_full.connect(func() -> void: message.emit("Inventar voll!"))
 	room.add_child(pickup)
-	var rect: Rect2 = RoomBuilder.inner_rect(room.cell, 0.6)
+	var rect: Rect2 = rect_of(room.cell, 0.6)
 	pickup.global_position = Vector3(clampf(at.x, rect.position.x, rect.end.x), 0, clampf(at.z, rect.position.y, rect.end.y))
 	room.loot.append(pickup)
 	return pickup
@@ -554,6 +759,22 @@ func drop_from_bag(index: int) -> Pickup:
 	forward.y = 0.0
 	var at: Vector3 = player.global_position + forward.normalized() * 0.9
 	return _drop_loot(rooms[current_cell], at, String(place["id"]), int(place["count"]), true)
+
+
+## true while the player stands in the shop room: then the merchant buys loot from the bag.
+func in_shop() -> bool:
+	return rooms.has(current_cell) and (rooms[current_cell] as DungeonRoom).type == FloorLayout.SHOP
+
+
+## Bag window, right click in the shop: the merchant buys place `index` (RunState.sell_from_bag).
+## Returns the gold (0 = nothing sold, e.g. outside the shop).
+func sell_from_bag(index: int) -> int:
+	if not in_shop():
+		return 0
+	var gold: int = run.sell_from_bag(index)
+	if gold > 0:
+		AudioManager.play_sound("coin")
+	return gold
 
 
 ## Touching a locked door with a key opens it; without a key a message says so.
@@ -650,15 +871,16 @@ func _check_sacrifice() -> void:
 	var room: DungeonRoom = rooms[current_cell]
 	var at: Vector3 = _sacrifice_stone.global_position + Vector3(0, 0, 1.6)
 	match String(entry[0]):
-		"coins":
-			for i in 3:
-				_drop(room, at + Vector3(i - 1.0, 0, 0), "coin")
 		"blue_heart":
 			run.add_blue_hearts(1)
 		"item":
 			_add_item_pedestal(room, Vector3(0, 0, -2.5), "item", 0)
 		_:
-			_drop(room, at, String(entry[0]))
+			# A loot id (loot.json) falls out as loot, else a pickup (heart, bomb, key).
+			if not Content.material(String(entry[0])).is_empty():
+				_drop_loot(room, at, String(entry[0]), 1, false)
+			else:
+				_drop(room, at, String(entry[0]))
 	message.emit("Der Stein nimmt dein Opfer an")
 
 
@@ -718,7 +940,7 @@ func _on_item_added(id: String) -> void:
 		return
 	for i in list.size():
 		var at: Vector3 = player.global_position + Vector3.FORWARD.rotated(Vector3.UP, TAU * i / list.size()) * 1.4
-		var rect: Rect2 = RoomBuilder.inner_rect(current_cell, 0.6)
+		var rect: Rect2 = room_rect(0.6)
 		at = Vector3(clampf(at.x, rect.position.x, rect.end.x), 0, clampf(at.z, rect.position.y, rect.end.y))
 		_drop(room, at, String(list[i]))
 
@@ -729,6 +951,135 @@ func _on_blue_heart_lost() -> void:
 	Fx.explosion(effects, player.global_position, 3.0)
 	for enemy: Enemy in enemies.duplicate():
 		enemy.take_damage(amount, Vector3.ZERO, false)
+
+
+# --- Boss hall -------------------------------------------------------------------------
+
+## Walkable area (world x/z) of the room at `cell`, `margin` metres from the walls; the boss hall
+## is bigger than the other rooms.
+func rect_of(cell: Vector2i, margin: float) -> Rect2:
+	if hall and cell == HALL_CELL:
+		return hall.inner_rect(margin)
+	return RoomBuilder.inner_rect(cell, margin)
+
+
+## Walkable area of the room the player is in (enemies, traps and the player stay inside).
+func room_rect(margin: float) -> Rect2:
+	return rect_of(current_cell, margin)
+
+
+## Size (x, z in metres, walls included) of the room at `cell` (the map draws it).
+func room_size(cell: Vector2i) -> Vector2:
+	if hall and cell == HALL_CELL:
+		return (hall.half + Vector2(RoomBuilder.WALL_T, RoomBuilder.WALL_T)) * 2.0
+	return Vector2(RoomBuilder.ROOM_W, RoomBuilder.ROOM_D)
+
+
+func in_boss_hall() -> bool:
+	return hall != null and current_cell == HALL_CELL
+
+
+## The Vorhalle (boss room of the grid): the open gate to the hall, standing in the middle of the
+## room and facing the door the player comes in by.
+func _build_antechamber(room: DungeonRoom) -> void:
+	var entrance := Vector2i(0, 1)
+	for dir: Vector2i in FloorLayout.DIRECTIONS:
+		var other: String = layout.get_type(room.cell + dir)
+		if not other.is_empty() and not other in FloorLayout.HIDDEN_TYPES:
+			entrance = dir
+			break
+	var settings: Dictionary = Content.get_file("boss_hall")
+	_hall_gate = Fx.billboard(load(String(settings.get("gate_open", ""))) as Texture2D, GATE_HEIGHT)
+	_hall_gate.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	_hall_gate.rotation.y = atan2(float(entrance.x), float(entrance.y))
+	_hall_gate.position = Vector3(-entrance.x * 1.0, GATE_HEIGHT / 2.0, -entrance.y * 1.0)
+	room.add_child(_hall_gate)
+	var glow := OmniLight3D.new()
+	glow.light_color = Color(0.9, 0.25, 0.15)
+	glow.light_energy = 0.9
+	glow.omni_range = 4.0
+	glow.position = Vector3(entrance.x * 0.8, 1.2, entrance.y * 0.8)
+	room.add_child(glow)
+
+
+## Walking into the gate of the Vorhalle leads into the hall. true if it did (the player is
+## somewhere else now: nothing more this frame).
+func _check_hall_gate(pos: Vector3) -> bool:
+	if _hall_gate == null or current_cell != layout.cell_of(FloorLayout.BOSS):
+		return false
+	var offset: Vector3 = pos - _hall_gate.global_position
+	offset.y = 0.0
+	if offset.length() >= GATE_TOUCH:
+		return false
+	enter_boss_hall()
+	return true
+
+
+## Into the boss hall (built the first time), in front of its gate, looking at the altar.
+func enter_boss_hall() -> void:
+	if hall == null:
+		hall = BossHall.new()
+		hall.setup(self, player, HALL_CELL)
+		add_child(hall)
+		rooms[HALL_CELL] = hall
+		hall.cutscene_changed.connect(cutscene_changed.emit)
+		_build_arena(hall)
+	current_cell = HALL_CELL
+	hall.visited = true
+	_show_near(HALL_CELL)
+	_move_player(hall.arrival_point())
+	player.rotation.y = 0.0
+	player.camera.rotation.x = 0.0
+	run.refresh_mantle()
+	room_entered.emit(HALL_CELL)
+	hall.on_enter()
+
+
+## Back from the hall into the Vorhalle, in front of the gate (only after the boss).
+func leave_boss_hall() -> void:
+	var cell: Vector2i = layout.cell_of(FloorLayout.BOSS)
+	hall.on_leave()
+	current_cell = cell
+	_show_near(cell)
+	var room: DungeonRoom = rooms[cell]
+	var front: Vector3 = (room.global_position - _hall_gate.global_position) * Vector3(1, 0, 1)
+	var at: Vector3 = _hall_gate.global_position + front.normalized() * 2.4
+	_move_player(Vector3(at.x, 0.0, at.z))
+	room_entered.emit(cell)
+	AudioManager.play_music(String(floor_data.get("music", "")))
+
+
+## The boss lands in the hall (BossHall at the end of its scene): the fight starts.
+func start_boss_fight(at: Vector3) -> Enemy:
+	_fighting = true
+	boss = spawn_enemy(boss_id, at)
+	boss_appeared.emit(boss)
+	return boss
+
+
+## Admin menu: ends a fight at once (enemies gone without their death tricks, doors open).
+func end_fight_now() -> void:
+	for enemy: Enemy in enemies.duplicate():
+		enemy.take_damage(Enemy.FORCED_DAMAGE, Vector3.ZERO, false)
+	if _fighting and rooms.has(current_cell):
+		_clear_room(rooms[current_cell])
+
+
+## Admin menu: to the middle of the room at `cell` of this floor (ends a fight first).
+func teleport_to_cell(cell: Vector2i) -> void:
+	if not layout.rooms.has(cell):
+		return
+	end_fight_now()
+	if in_boss_hall():
+		hall.on_leave()
+	_move_player(RoomBuilder.cell_center(cell) + Vector3(0, 0, 1.5))
+	_enter_room(cell)
+
+
+## Admin menu: straight into the boss hall (ends a fight first).
+func teleport_to_boss_hall() -> void:
+	end_fight_now()
+	enter_boss_hall()
 
 
 # --- Test room ----------------------------------------------------------------------------
@@ -794,7 +1145,7 @@ func _build_test_room() -> void:
 	var next_page: Pedestal = _add_test_pedestal(room, "", Pedestal.PAGE, Vector3(6.0, 0, 4.0))
 	next_page.taken.connect(_on_test_next_page)
 	var label := Label3D.new()
-	label.text = Language.translate("Testraum · P: zurück")
+	label.text = Language.translate("Testraum · P: Admin-Menü")
 	var theme: Theme = ThemeDB.get_project_theme()
 	if theme and theme.default_font:
 		label.font = theme.default_font
@@ -892,6 +1243,4 @@ func explode(at: Vector3, radius: float, damage: float, hurts_player: bool) -> v
 func _break_rock(room: DungeonRoom, rock: Rock) -> void:
 	room.remove_rock(rock)
 	Fx.puff(effects, rock.global_position + Vector3(0, 0.5, 0), "spark", 1.0)
-	if rock.has_coin:
-		_drop(room, rock.global_position, "coin")
 	rock.queue_free()

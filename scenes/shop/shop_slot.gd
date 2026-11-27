@@ -135,6 +135,9 @@ static func icon_of_piece(piece: Dictionary) -> Texture2D:
 	if ShopGoods.is_relic(piece):
 		var path: String = String(Content.item(String(piece.get("id", ""))).get("icon", ""))
 		return load(path) as Texture2D if ResourceLoader.exists(path) else null
+	if ShopGoods.is_potion(piece):
+		var potion_path: String = String(Content.potion(String(piece.get("id", ""))).get("icon", ""))
+		return load(potion_path) as Texture2D if ResourceLoader.exists(potion_path) else null
 	return icon_of(String(piece.get("id", "")))
 
 
@@ -149,6 +152,8 @@ static func rarity_of(piece: Dictionary) -> int:
 	var id: String = String(piece.get("id", ""))
 	if ShopGoods.is_relic(piece):
 		return ShopGoods.relic_rarity(id)
+	if ShopGoods.is_potion(piece):
+		return int(Content.potion(id).get("rarity", 1))
 	if ShopGoods.is_gear(id):
 		return int(piece.get("rarity", 1))
 	return int(Content.material(id).get("rarity", 1))
@@ -159,6 +164,8 @@ static func describe(piece: Dictionary, with_price: bool) -> String:
 	var id: String = String(piece.get("id", ""))
 	if ShopGoods.is_relic(piece):
 		return _describe_relic(piece, with_price)
+	if ShopGoods.is_potion(piece):
+		return _describe_potion(piece, with_price)
 	var gear: bool = ShopGoods.is_gear(id)
 	var data: Dictionary = Content.gear_item(id) if gear else Content.material(id)
 	var lines: Array[String] = [Language.translate(String(data.get("name", id))), Rarity.label(rarity_of(piece))]
@@ -188,8 +195,19 @@ static func _describe_relic(piece: Dictionary, with_price: bool) -> String:
 	if with_price:
 		lines.append(Language.translate("Preis: %d Gold") % int(piece.get("price", 0)))
 	lines.append(Language.translate(String(data.get("desc", ""))))
-	return "
-".join(lines)
+	return "\n".join(lines)
+
+
+## Potion: name, "Trank", how much it heals, price, description.
+static func _describe_potion(piece: Dictionary, with_price: bool) -> String:
+	var data: Dictionary = Content.potion(String(piece.get("id", "")))
+	var lines: Array[String] = [Language.translate(String(data.get("name", ""))), Language.translate("Trank") + " · " + Rarity.label(rarity_of(piece))]
+	lines.append(Language.translate("Heilt %s Herzen") % String.num(int(data.get("heal", 0)) / 2.0, 1))
+	lines.append(Language.translate("Im Dungeon: %s trinkt ihn") % Controls.key_name(Controls.get_key(Controls.POTION)))
+	if with_price:
+		lines.append(Language.translate("Preis: %d Gold") % int(piece.get("price", 0)))
+	lines.append(Language.translate(String(data.get("desc", ""))))
+	return "\n".join(lines)
 
 
 ## The name of a value from player.json stats (written out for the translation script).

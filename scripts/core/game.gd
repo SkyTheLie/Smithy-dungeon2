@@ -23,11 +23,14 @@ func _ready() -> void:
 	DisplaySettings.apply()
 
 
-## A new run on floor 1 with a fresh random seed, as `character` (data/characters.json). Without
-## one: the character of the last run (Neuer Run on the end screen).
-func start_new_run(character: String = "") -> void:
+## A new run on floor 1 with a fresh random seed, as `character` (data/characters.json), in
+## `dungeon` (data/dungeons.json). Without them: those of the last run.
+func start_new_run(character: String = "", dungeon: String = "") -> void:
 	if character.is_empty():
 		character = run.character if run else "magier"
+	if dungeon.is_empty():
+		dungeon = Content.active_dungeon
+	Content.active_dungeon = Content.dungeon_id(dungeon)
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	run = RunState.new(rng.randi(), character)
@@ -35,8 +38,18 @@ func start_new_run(character: String = "") -> void:
 	run.use_gear(MetaState.equipment())
 	# The skills learned at Egon's (bag places, hearts, damage …).
 	run.use_skills()
-	# The purse from home goes into the dungeon (and is lost there on death).
-	run.bring_gold(MetaState.take_purse_for_run())
+	# The gold at home stays in the money box: the run starts without gold.
+	get_tree().paused = false
+	get_tree().change_scene_to_file.call_deferred(RUN_SCENE)
+
+
+## Admin menu (debug builds): the same run goes on in `dungeon` (dungeons.json) on floor
+## `floor_index` (0 = the first), the floor is built anew.
+func travel(dungeon: String, floor_index: int) -> void:
+	if run == null:
+		return
+	Content.active_dungeon = Content.dungeon_id(dungeon)
+	run.floor_index = clampi(floor_index, 0, Content.floors().size() - 1)
 	get_tree().paused = false
 	get_tree().change_scene_to_file.call_deferred(RUN_SCENE)
 

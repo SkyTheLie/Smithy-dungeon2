@@ -16,6 +16,8 @@ const DEATH_DELAY: float = 1.2
 @onready var end_screen: EndScreen = $EndScreen
 
 var bag_window: BagWindow
+## P (only in debug builds): the admin menu for testing (AdminMenu).
+var admin_menu: AdminMenu = null
 var _leaving: bool = false
 ## "Flüchten?" (built in code, works while the game is paused).
 var _flee_question: ConfirmationDialog
@@ -34,6 +36,12 @@ func _ready() -> void:
 	add_child(bag_window)
 	bag_window.setup(run, dungeon)
 	bag_window.closed.connect(_capture_mouse)
+	if OS.is_debug_build():
+		admin_menu = AdminMenu.new()
+		admin_menu.name = "AdminMenu"
+		add_child(admin_menu)
+		admin_menu.setup(run, dungeon, player)
+		admin_menu.closed.connect(_capture_mouse)
 	run.died.connect(_on_died)
 	dungeon.trapdoor_entered.connect(_on_trapdoor_entered)
 	dungeon.exit_entered.connect(_ask_flee)
@@ -57,9 +65,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(Controls.PAUSE):
 		get_viewport().set_input_as_handled()
 		pause_menu.open(Game.run)
-	elif event.is_action_pressed(Controls.TEST_ROOM) and OS.is_debug_build():
+	elif event.is_action_pressed(Controls.TEST_ROOM) and admin_menu != null:
 		get_viewport().set_input_as_handled()
-		dungeon.toggle_test_room()
+		admin_menu.open()
 	elif event.is_action_pressed(Controls.BAG):
 		get_viewport().set_input_as_handled()
 		bag_window.open()
@@ -85,6 +93,8 @@ func _on_died() -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	Game.run.levels_gained = MetaState.add_exp(Game.run.exp_earned)
+	# Counted: after the second death Egon shows the potions (data/potions.json unlock_deaths).
+	MetaState.add_death()
 	MetaState.end_run(0, Game.run.bag.lose_unsafe(), rng)
 	await get_tree().create_timer(DEATH_DELAY, false).timeout
 	end_screen.open(Game.run, false)
@@ -138,6 +148,7 @@ func _on_trapdoor_entered(final: bool) -> void:
 	if final:
 		if Game.run.record_progress:
 			Game.run.announce(Progress.add_win(Game.run.time))
+			MetaState.win_dungeon(Content.dungeon_id())
 		# Made it out: the coins and the whole bag come home.
 		var rng := RandomNumberGenerator.new()
 		rng.randomize()

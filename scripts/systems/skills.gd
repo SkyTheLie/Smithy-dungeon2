@@ -59,7 +59,7 @@ static func problem(id: String) -> String:
 		return "Stufe zu niedrig"
 	if MetaState.skill_points() < next_points(id):
 		return "Zu wenig Skillpunkte"
-	if MetaState.purse() < next_gold(id):
+	if MetaState.box() < next_gold(id):
 		return "Zu wenig Gold"
 	return ""
 
@@ -72,6 +72,21 @@ static func bonus(kind: String) -> float:
 		if level > 0:
 			total += float((data(id).get("effect", {}) as Dictionary).get(kind, 0.0)) * level
 	return total
+
+
+## The "rarity" effects of every bought level: {rarity: percent} that move from R1 to that
+## rarity on Egon's table (ShopGoods.rarity_weights), times the level.
+static func rarity_bonus() -> Dictionary:
+	var result: Dictionary = {}
+	for id: String in all():
+		var level: int = MetaState.skill_level(id)
+		if level <= 0:
+			continue
+		var rarity: Dictionary = (data(id).get("effect", {}) as Dictionary).get("rarity", {})
+		for key: Variant in rarity:
+			var tier: int = int(key)
+			result[tier] = float(result.get(tier, 0.0)) + float(rarity[key]) * level
+	return result
 
 
 ## The "stats" of every bought level, as one source for RunState (_mult values multiplied per

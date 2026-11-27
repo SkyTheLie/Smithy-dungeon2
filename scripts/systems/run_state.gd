@@ -29,6 +29,8 @@ signal unlocked(id: String)
 signal revived(id: String)
 ## A whole blue heart was lost (blue_burst hurts all enemies then).
 signal blue_heart_lost
+## Loot an item gave ("give": "loot") did not fit into the bag; Dungeon drops it on the floor.
+signal loot_overflow(id: String, count: int)
 
 var health: int = 6
 var max_hearts: int = 3
@@ -40,12 +42,14 @@ var shield: int = 0
 var exp_earned: int = 0
 ## Levels the player reached at the end of this run (for the end screen).
 var levels_gained: int = 0
-## Extra gold per picked-up coin (skill Goldnase).
-var coin_bonus: int = 0
+## Extra gold per piece of loot sold to the merchant in the dungeon shop (skill Goldnase).
+var sell_bonus: int = 0
 ## The stats of the equipment worn at the start (one source per piece, without shield_hearts).
 var gear_sources: Array[Dictionary] = []
 ## The gold of the run: what lies in the bag as "gold" (Bag.GOLD). Only counted here, so there is
-## one source; change it with add_coins / spend / bring_gold.
+## one source; change it with add_coins / spend / sell_from_bag. There is no gold to find in the
+## dungeon: it only comes from selling loot in the dungeon shop (and the gold at home stays in
+## the money box, MetaState).
 var coins: int:
 	get:
 		return bag.count_of(Bag.GOLD)
@@ -62,8 +66,6 @@ var synergies: Array[String] = []
 var stats: ShotStats
 ## Seed of the run: each floor uses seed + floor_index, so the same seed gives the same dungeon.
 var seed_value: int = 0
-## Rolls the value of picked-up coins (seeded with the run, so a test gets the same numbers).
-var _coin_rng := RandomNumberGenerator.new()
 ## Item ids that were offered already (item room, shop, boss), so they do not come again.
 var seen_items: Array[String] = []
 ## Glutmantel ("mantle"): can still catch a hit in this room (Dungeon refreshes it per room).
@@ -87,6 +89,9 @@ var fought_bosses: Array[String] = []
 var character: String = "magier"
 ## Loot from the dungeon (Tab). Lost on death except the safe places.
 var bag: Bag = Bag.new()
+## Potions taken along from the hero's potion places (use_gear): [{slot, id}, …]; Q drinks the
+## first one (drink_potion).
+var potions: Array[Dictionary] = []
 var _regen_left: float = 0.0
 var _kills_to_heal: int = 0
 
@@ -96,14 +101,12 @@ const MAX_COUNT: int = 99
 
 func _init(run_seed: int = 0, character_id: String = "magier") -> void:
 	seed_value = run_seed
-	_coin_rng.seed = run_seed
 	character = character_id if not Content.character(character_id).is_empty() else "magier"
 	var base: Dictionary = Content.player()
 	max_hearts = int(Content.character(character).get("hearts", base.get("hearts", 3)))
 	health = max_hearts * 2
 	# Gold in the bag changes the coins (Goldglut items count them).
 	bag.changed.connect(_coins_changed)
-	bag.add(Bag.GOLD, int(base.get("coins", 0)))
 	bombs = int(base.get("bombs", 1))
 	keys = int(base.get("keys", 1))
 	compute_stats()
@@ -265,20 +268,26 @@ func heal(halves: int) -> bool:
 	return true
 
 
-## What a coin on the floor is worth: data/player.json coin_pickup [min, max] gold (the pickup
-## then goes into the bag as gold, Pickup).
-func roll_coin_value() -> int:
-	var worth: Array = Content.player().get("coin_pickup", [1, 1])
-	return _coin_rng.randi_range(int(worth[0]), int(worth[1])) + coin_bonus
+## Q in the dungeon: drinks the first potion (data/potions.json "heal" half hearts); it is gone
+## from the hero's potion place at home too (MetaState.use_potion). false (nothing happens)
+## without a potion, when dead or at full life.
+func drink_potion() -> bool:
+	if potions.is_empty() or is_dead() or health >= max_hearts * 2:
+		return false
+	var potion: Dictionary = potions.pop_front()
+	heal(maxi(1, int(Content.potion(String(potion["id"])).get("heal", 4))))
+	MetaState.use_potion(String(potion["slot"]))
+	changed.emit()
+	return true
 
 
-## A kill: its EXP (a boss more, data/levels.json).
-func add_kill_exp(boss: bool) -> void:
-	exp_earned += Skills.kill_exp(boss)
+## A kill: its EXP (a boss more, data/levels.json), times the dungeon's exp_mult.
+func add_kill_exp(boss: bool, mult: float = 1.0) -> void:
+	exp_earned += roundi(Skills.kill_exp(boss) * maxf(0.0, mult))
 
 
 ## The skills learned at home (Skills, MetaState): more places in the bag, shield hearts, red
-## hearts, the stats (one source, like an item) and more gold per coin. Called once at the start.
+## hearts, the stats (one source, like an item) and more gold for loot in the dungeon shop. Called once at the start.
 func use_skills() -> void:
 	bag.grow(int(Skills.bonus("bag_slots")), int(Skills.bonus("safe_slots")))
 	shield += int(Skills.bonus("shield_halves"))
@@ -286,7 +295,7 @@ func use_skills() -> void:
 	if hearts > 0:
 		max_hearts = mini(MAX_HEARTS_LIMIT, max_hearts + hearts)
 		health = max_hearts * 2
-	coin_bonus = int(Skills.bonus("coin_bonus"))
+	sell_bonus = int(Skills.bonus("sell_bonus"))
 	var stats: Dictionary = Skills.run_stats()
 	if not stats.is_empty():
 		gear_sources.append({"stats": stats})
@@ -303,12 +312,28 @@ func add_coins(amount: int) -> int:
 	return left
 
 
-## The gold the player carries from home (MetaState purse) comes along into the dungeon. Not
-## counted as "coins reached" for unlocks (those are for coins found in the run).
-func bring_gold(amount: int) -> void:
-	if amount <= 0:
-		return
-	bag.add(Bag.GOLD, amount)
+## What the merchant in the dungeon shop pays for bag place `index`: (loot.json value +
+## sell_bonus) per piece. 0 for an empty place and for the gold itself.
+func sell_price(index: int) -> int:
+	var place: Dictionary = bag.get_place(index)
+	if place.is_empty() or String(place["id"]) == Bag.GOLD:
+		return 0
+	var value: int = maxi(0, int(Content.material(String(place["id"])).get("value", 0)))
+	return (value + sell_bonus) * int(place["count"])
+
+
+## Sells bag place `index` (the whole stack) in the dungeon shop: its gold goes into the bag
+## (onto the gold stack, else into the freed place). Returns the gold (0 = nothing sold: empty
+## place, the gold itself, worth nothing, or the run is over).
+func sell_from_bag(index: int) -> int:
+	var gold: int = sell_price(index)
+	if gold <= 0 or is_dead():
+		return 0
+	bag.take(index)
+	var left: int = add_coins(gold)
+	if left > 0:
+		bag.put(index, Bag.GOLD, left)
+	return gold
 
 
 func add_bombs(amount: int) -> void:
@@ -371,7 +396,12 @@ func add_item(id: String) -> void:
 		health = max_hearts * 2
 	# "give": things that come with the item (Wanderbündel, Schmiedeschürze).
 	var give: Dictionary = data.get("give", {})
-	add_coins(int(give.get("coins", 0)))
+	var give_loot: Dictionary = give.get("loot", {})
+	for loot_id: String in give_loot:
+		var count: int = int(give_loot[loot_id])
+		var over: int = bag.add(loot_id, count) if count > 0 else 0
+		if over > 0:
+			loot_overflow.emit(loot_id, over)
 	bombs = mini(MAX_COUNT, bombs + maxi(0, int(give.get("bombs", 0))))
 	keys = mini(MAX_COUNT, keys + maxi(0, int(give.get("keys", 0))))
 	var before: Array[String] = synergies.duplicate()
@@ -390,9 +420,14 @@ func add_item(id: String) -> void:
 ## shield_hearts become white shield hearts, its other stats count for the whole run.
 func use_gear(worn: Dictionary) -> void:
 	gear_sources.clear()
+	potions.clear()
 	shield = 0
 	for slot: Variant in worn:
 		var piece: Dictionary = worn[slot]
+		# Potions do nothing by themselves: they are drunk with Q (drink_potion).
+		if ShopGoods.is_potion(piece):
+			potions.append({"slot": String(slot), "id": String(piece.get("id", ""))})
+			continue
 		# The relic works like the item itself (synergies too).
 		if ShopGoods.is_relic(piece):
 			add_item(String(piece.get("id", "")))
@@ -486,6 +521,9 @@ func compute_stats() -> ShotStats:
 		for flag: Variant in source.get("flags", []):
 			result.flags[String(flag)] = true
 		result.apply_chances(source.get("chance", {}))
+		for trap: Variant in source.get("traps", []):
+			if trap is Dictionary:
+				result.traps.append((trap as Dictionary).duplicate())
 		var mode: String = String(source.get("mode", ""))
 		has_beam = has_beam or mode == ShotStats.MODE_BEAM
 		has_bomb = has_bomb or mode == ShotStats.MODE_BOMB

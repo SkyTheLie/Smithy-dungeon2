@@ -9,6 +9,24 @@ msgstr "%d de ouro"
 msgid "%d Herzen"
 msgstr "%d corações"
 
+msgid "%s: ab Stufe %d"
+msgstr "%s: a partir do nível %d"
+
+msgid "%s: nach %s"
+msgstr "%s: depois de %s"
+
+msgid "3 % Chance auf R3 bei Egon."
+msgstr "3 % de chance de R3 com o Egon."
+
+msgid "300 Gold mehr sind in der Dose sicher."
+msgstr "Mais 300 de ouro ficam seguros na lata."
+
+msgid "5 % mehr Chance auf R2 bei Egon."
+msgstr "5 % a mais de chance de R2 com o Egon."
+
+msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
+msgstr "De agora em diante sempre haverá poções na minha mesa. A preço de amigo, claro."
+
 msgid "Abbrechen"
 msgstr "Cancelar"
 
@@ -33,6 +51,9 @@ msgstr "A cada poucos inimigos derrotados você cura meio coração"
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "Tudo na loja custa metade"
 
+msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
+msgstr "Então é melhor gastar, parceiro. De preferência comigo!"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "No fim cada tiro explode em quatro faíscas"
 
@@ -54,6 +75,9 @@ msgstr "Amuleto da arena"
 msgid "Arenaherz"
 msgstr "Coração da arena"
 
+msgid "Asche"
+msgstr "Cinza"
+
 msgid "Audio"
 msgstr "Áudio"
 
@@ -65,6 +89,9 @@ msgstr "Carregue, solte: um raio de fogo enorme"
 
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "Fugir da masmorra? Você leva tudo o que carrega."
+
+msgid "Aus der Beute der Banditen. Jetzt deine."
+msgstr "Do saque dos bandidos. Agora é seu."
 
 msgid "Ausgang"
 msgstr "Saída"
@@ -78,6 +105,15 @@ msgstr "Esquivar"
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "Um machado em vez de bolas de fogo: golpe pesado, inimigos sangram"
 
+msgid "Bandit-Schildträger"
+msgstr "Bandido escudeiro"
+
+msgid "Bandit-Schütze"
+msgstr "Bandido arqueiro"
+
+msgid "Banditenlager"
+msgstr "Acampamento bandido"
+
 msgid "Beenden"
 msgstr "Sair"
 
@@ -86,6 +122,9 @@ msgstr "Ao acertar, o tiro explode em quatro faíscas"
 
 msgid "Beine"
 msgstr "Pernas"
+
+msgid "Bergfalke"
+msgstr "Falcão da montanha"
 
 msgid "Bernstein"
 msgstr "Âmbar"
@@ -108,6 +147,9 @@ msgstr "Eu compro seu saque: clique com o botão direito no inventário e ele va
 msgid "Blasebalg"
 msgstr "Fole"
 
+msgid "Blau wie Gletschereis."
+msgstr "Azul como gelo de geleira."
+
 msgid "Blutphiole"
 msgstr "Frasco de sangue"
 
@@ -126,6 +168,9 @@ msgstr "Bombas explodem em bombinhas"
 msgid "Bombengürtel"
 msgstr "Cinto de bombas"
 
+msgid "Brakk der Brecher"
+msgstr "Brakk, o Quebrador"
+
 msgid "Brandöl"
 msgstr "Óleo incendiário"
 
@@ -143,6 +188,33 @@ msgstr "Inimigos queimando e lentos, e dois corações azuis"
 
 msgid "Brennt gut in jeder Esse."
 msgstr "Queima bem em qualquer forja."
+
+msgid "Bronze"
+msgstr "Bronze"
+
+msgid "Bronze-Beinschienen"
+msgstr "Grevas de bronze"
+
+msgid "Bronze-Bogen"
+msgstr "Arco de bronze"
+
+msgid "Bronze-Brustplatte"
+msgstr "Peitoral de bronze"
+
+msgid "Bronze-Handschuhe"
+msgstr "Luvas de bronze"
+
+msgid "Bronze-Helm"
+msgstr "Elmo de bronze"
+
+msgid "Bronze-Schwert"
+msgstr "Espada de bronze"
+
+msgid "Bronze-Stiefel"
+msgstr "Botas de bronze"
+
+msgid "Bronze-Zauberstab"
+msgstr "Varinha de bronze"
 
 msgid "Bronzebogen"
 msgstr "Arco de bronze"
@@ -171,11 +243,17 @@ msgstr "Ali atrás fica a entrada da Masmorra das Brasas. Alguns até saem de vo
 msgid "Dafür reicht dein Gold nicht, Partner. Leider, leider."
 msgstr "Seu ouro não dá pra isso, parceiro. Que pena, que pena."
 
+msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
+msgstr "Mas a mercadoria melhora a cada giro. Está escrito na barra, sério!"
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Tem um bichinho preso dentro."
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "Acima disso… digamos que aqui tem ratos. Ratos grandes. Com mãos."
+
+msgid "Das Fell eines Riesen aus Eis."
+msgstr "A pele de um gigante de gelo."
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "O ouro desta partida. Se você morrer, ele some, exceto no espaço seguro."
@@ -195,6 +273,9 @@ msgstr "Seu ouro. Em casa, seguro na lata; na masmorra se perde ao morrer, excet
 msgid "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 msgstr "Sua relíquia bateu as botas. Acontece. Por acaso eu tenho uma nova… preço de amigo!"
 
+msgid "Dein ganzes Gold liegt rechts in deiner Dose. Bis 200 Gold ist es da sicher."
+msgstr "Todo o seu ouro fica na sua lata, à direita. Até 200 de ouro está seguro."
+
 msgid "Deine Feuerbälle zerstören Gegner-Schüsse"
 msgstr "Suas bolas de fogo destroem os tiros inimigos"
 
@@ -204,11 +285,20 @@ msgstr "Seus itens"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Seus tiros perseguem inimigos"
 
+msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
+msgstr "Essa é por conta da casa. Cliente morto não compra nada. Sério!"
+
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "A barra acima da alavanca mostra o que pode vir: cinza é comum, verde sólido e assim por diante. Quanto mais experiente, mais colorido."
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "O raio de fogo se curva até o inimigo"
+
+msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
+msgstr "O mercador da masmorra paga 2 de ouro a mais por cada espólio."
+
+msgid "Der Händler kauft Beute: Tab, Rechtsklick"
+msgstr "O mercador compra espólio: Tab, clique direito"
 
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "A pedra aceita seu sacrifício"
@@ -216,8 +306,17 @@ msgstr "A pedra aceita seu sacrifício"
 msgid "Der Weg nach unten ist frei!"
 msgstr "O caminho para baixo está livre!"
 
+msgid "Der Wildhüter"
+msgstr "O Guarda-Caça"
+
+msgid "Diamant"
+msgstr "Diamante"
+
 msgid "Diamantherz"
 msgstr "Coração de diamante"
+
+msgid "Dick, weich und eiskalt."
+msgstr "Grosso, macio e gelado."
 
 msgid "Dicke Haut"
 msgstr "Pele grossa"
@@ -237,6 +336,9 @@ msgstr "A arma do mago: dispara bolas de fogo"
 msgid "Dietrich"
 msgstr "Gazua"
 
+msgid "Distelkrähe"
+msgstr "Corvo-Cardo"
+
 msgid "Doppelschuss"
 msgstr "Tiro duplo"
 
@@ -251,6 +353,12 @@ msgstr "Lata: %d de ouro. Seguro até %d."
 
 msgid "Dose: Gold hierher ziehen"
 msgstr "Lata: arraste o ouro para cá"
+
+msgid "Dose: hier liegt dein ganzes Gold"
+msgstr "Lata: aqui está todo o seu ouro"
+
+msgid "Drache"
+msgstr "Dragão"
 
 msgid "Drachenatem"
 msgstr "Bafo de dragão"
@@ -287,6 +395,9 @@ msgstr "Trinta moedas e dez chaves"
 
 msgid "Du bist gefallen"
 msgstr "Você caiu"
+
+msgid "Du bist schon gesund"
+msgstr "Você já está saudável"
 
 msgid "Du brauchst einen Schlüssel"
 msgstr "Você precisa de uma chave"
@@ -342,6 +453,12 @@ msgstr "Quadro de masmorras"
 msgid "Dungeons"
 msgstr "Masmorras"
 
+msgid "Dunkler Ritter"
+msgstr "Cavaleiro sombrio"
+
+msgid "Dunkler Schütze"
+msgstr "Arqueiro sombrio"
+
 msgid "Dunkler Zauberstab"
 msgstr "Varinha sombria"
 
@@ -353,6 +470,9 @@ msgstr "Através de pedras, e às vezes inimigos fogem"
 
 msgid "Durchschlag, Abprallen und Zerplatzen"
 msgstr "Perfura, ricocheteia e explode"
+
+msgid "Dämon"
+msgstr "Demônio"
 
 msgid "Dünne Haut aus einem Fledermausflügel."
 msgstr "Pele fina da asa de um morcego."
@@ -378,11 +498,20 @@ msgstr "Egon Honesto, muito prazer. Honesto é meu nome, honesto é meu negócio
 msgid "Egon könnte klauen!"
 msgstr "O Egon pode roubar!"
 
+msgid "Egons Augen werden ganz groß."
+msgstr "Os olhos do Egon ficam enormes."
+
 msgid "Egons Laden"
 msgstr "A loja do Egon"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Suas próprias explosões te curam"
+
+msgid "Ein Berg aus Eis, oben tobt der Sturm. Unterwegs Wölfe, Harpyien und ein Greif. Egon empfiehlt warme Socken."
+msgstr "Uma montanha de gelo, com uma tempestade no topo. No caminho: lobos, harpias e um grifo. Egon recomenda meias quentes."
+
+msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
+msgstr "Um âmbar, três bombas, três chaves"
 
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "Uma bola de fogo gira ao seu redor e bloqueia tiros"
@@ -396,8 +525,17 @@ msgstr "Uma faísca e uma lua de brasa"
 msgid "Ein Funke und mehr Glück"
 msgstr "Uma faísca e mais sorte"
 
+msgid "Ein Funke, der nicht ausgehen will."
+msgstr "Uma faísca que não quer se apagar."
+
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "Um pacto de brasa se abriu"
+
+msgid "Ein Golderz"
+msgstr "Um minério de ouro"
+
+msgid "Ein Heiltrank! Frisch gebraut, fast ohne Nebenwirkungen."
+msgstr "Uma poção de cura! Fresquinha, quase sem efeitos colaterais."
 
 msgid "Ein Herz mehr"
 msgstr "Um coração a mais"
@@ -417,17 +555,26 @@ msgstr "Um coração e um coração azul"
 msgid "Ein Herz, Dornen, Explosionen tun dir nichts"
 msgstr "Um coração, espinhos, explosões não te ferem"
 
+msgid "Ein Herz, eine Bombe und ein Schlüssel"
+msgstr "Um coração, uma bomba e uma chave"
+
 msgid "Ein Herz, eine Münze, eine Bombe und ein Schlüssel"
 msgstr "Um coração, uma moeda, uma bomba e uma chave"
 
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "Um coração, dois corações azuis, mais dano"
 
+msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
+msgstr "Uma erva em forma de coração. Egon faz chá com ela."
+
 msgid "Ein Platz mehr im Rucksack."
 msgstr "Mais um espaço na mochila."
 
 msgid "Ein Relikt-Platz mehr an deiner Figur."
 msgstr "Mais um espaço de relíquia no seu herói."
+
+msgid "Ein Rubin"
+msgstr "Um rubi"
 
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "Uma pechincha! Pra mim. É… pra você! Sério!"
@@ -441,8 +588,14 @@ msgstr "Um tiro a mais e mais dano"
 msgid "Ein Schuss mehr, aber schwächer"
 msgstr "Um tiro a mais, porém mais fraco"
 
+msgid "Ein Silbererz, Glück hoch"
+msgstr "Um minério de prata, mais sorte"
+
 msgid "Ein Stab mit Feuer-Spitze. Für Magier."
 msgstr "Uma varinha com ponta de fogo. Para magos."
+
+msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
+msgstr "Uma pele de lobo, três bombas, três chaves"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "Um coração azul e espinhos"
@@ -480,6 +633,12 @@ msgstr "Uma segunda vida e uma faísca"
 msgid "Ein zweites Leben!"
 msgstr "Uma segunda vida!"
 
+msgid "Eine Sache mehr auf Egons Tisch."
+msgstr "Um item a mais na mesa do Egon."
+
+msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
+msgstr "Uma campina da altura de um anão. Algo farfalha no capim, e um caçador arma armadilhas. Egon vende foices. Infelizmente, esgotadas."
+
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "Uma padaria inteira de uma vez"
 
@@ -492,6 +651,36 @@ msgstr "Uma vez por dia eu giro a mesa de graça. Depois tem preço de amigo. Fi
 msgid "Einstellungen"
 msgstr "Configurações"
 
+msgid "Eiselementar"
+msgstr "Elemental de gelo"
+
+msgid "Eisen"
+msgstr "Ferro"
+
+msgid "Eisen-Beinschienen"
+msgstr "Grevas de ferro"
+
+msgid "Eisen-Bogen"
+msgstr "Arco de ferro"
+
+msgid "Eisen-Brustplatte"
+msgstr "Peitoral de ferro"
+
+msgid "Eisen-Handschuhe"
+msgstr "Luvas de ferro"
+
+msgid "Eisen-Helm"
+msgstr "Elmo de ferro"
+
+msgid "Eisen-Schwert"
+msgstr "Espada de ferro"
+
+msgid "Eisen-Stiefel"
+msgstr "Botas de ferro"
+
+msgid "Eisen-Zauberstab"
+msgstr "Varinha de ferro"
+
 msgid "Eisenerz"
 msgstr "Minério de ferro"
 
@@ -501,11 +690,20 @@ msgstr "Pele de ferro"
 msgid "Eisfeder"
 msgstr "Pena de gelo"
 
+msgid "Eishöhle"
+msgstr "Caverna de gelo"
+
+msgid "Eisrobbe"
+msgstr "Foca do gelo"
+
 msgid "Eisspiegel"
 msgstr "Espelho de gelo"
 
 msgid "Eisstab"
 msgstr "Cajado de gelo"
+
+msgid "Eiswolf"
+msgstr "Lobo do gelo"
 
 msgid "Elfenbrief"
 msgstr "Carta élfica"
@@ -518,6 +716,9 @@ msgstr "Descobertos: %d / %d"
 
 msgid "Episch"
 msgstr "Épico"
+
+msgid "Erdkoloss"
+msgstr "Colosso de terra"
 
 msgid "Erdstab"
 msgstr "Cajado de terra"
@@ -537,6 +738,9 @@ msgstr "Tiros explosivos, atira mais devagar"
 msgid "Fahre mit der Maus über ein Item"
 msgstr "Passe o mouse sobre um item"
 
+msgid "Feder"
+msgstr "Pena"
+
 msgid "Feenstaub"
 msgstr "Pó de fada"
 
@@ -548,6 +752,15 @@ msgstr "Janela"
 
 msgid "Fenstergröße"
 msgstr "Tamanho da janela"
+
+msgid "Fester Griff, härtere Treffer."
+msgstr "Pegada firme, golpes mais fortes."
+
+msgid "Festgehalten!"
+msgstr "Preso!"
+
+msgid "Feuerelementar"
+msgstr "Elemental de fogo"
 
 msgid "Feuerfester Bomber"
 msgstr "Bombardeiro à prova de fogo"
@@ -561,6 +774,9 @@ msgstr "Coroa de fogo"
 msgid "Feuerlanze"
 msgstr "Lança de fogo"
 
+msgid "Feuersalamander"
+msgstr "Salamandra de fogo"
+
 msgid "Feuerstab"
 msgstr "Cajado de fogo"
 
@@ -569,6 +785,9 @@ msgstr "Raio de fogo em vez de bolas: segure o botão"
 
 msgid "Feuerwerk"
 msgstr "Fogos de artifício"
+
+msgid "Feuerwolf"
+msgstr "Lobo de fogo"
 
 msgid "Flechtenleder"
 msgstr "Couro de líquen"
@@ -594,6 +813,9 @@ msgstr "Pele de morcego"
 msgid "Flüchten"
 msgstr "Fugir"
 
+msgid "Flüssiges Feuer in einer Flasche."
+msgstr "Fogo líquido numa garrafa."
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Sussurra baixinho no escuro."
 
@@ -606,11 +828,26 @@ msgstr "Gelo e fogo"
 msgid "Frostflechte"
 msgstr "Líquen gélido"
 
+msgid "Frostgeist"
+msgstr "Espírito do gelo"
+
+msgid "Frostgipfel"
+msgstr "Pico Gelado"
+
+msgid "Frostgolem"
+msgstr "Golem de gelo"
+
 msgid "Frostkristall"
 msgstr "Cristal de gelo"
 
 msgid "Frostmähne"
 msgstr "Juba de gelo"
+
+msgid "Frostmähnen-Fell"
+msgstr "Pele de Juba Gelada"
+
+msgid "Funkelstein"
+msgstr "Pedra Faísca"
 
 msgid "Funkenbüchse"
 msgstr "Lata de faíscas"
@@ -650,6 +887,9 @@ msgstr "Pés"
 
 msgid "Gebiete: %s"
 msgstr "Áreas: %s"
+
+msgid "Gebirge"
+msgstr "Montanhas"
 
 msgid "Geflüchtet!"
 msgstr "Fugiu!"
@@ -699,6 +939,12 @@ msgstr "Você conseguiu!"
 msgid "Gesperrt"
 msgstr "Bloqueado"
 
+msgid "Gesperrt: ab Stufe %d."
+msgstr "Bloqueado: a partir do nível %d."
+
+msgid "Gesperrt: erst %s schaffen."
+msgstr "Bloqueado: vença primeiro %s."
+
 msgid "Gesprengte Fessel"
 msgstr "Grilhão partido"
 
@@ -744,20 +990,38 @@ msgstr "Carniçal"
 msgid "Giftratte"
 msgstr "Rato venenoso"
 
+msgid "Giftschleim"
+msgstr "Gosma venenosa"
+
 msgid "Giftstab"
 msgstr "Cajado venenoso"
 
 msgid "Giftzahn"
 msgstr "Presa venenosa"
 
+msgid "Glatt, grün und noch ein bisschen warm."
+msgstr "Lisa, verde e ainda um pouco quente."
+
 msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
 msgstr "Logo atrás da loja do Egon, o caminho desce. Lá no fundo espera um chefe e, supostamente, um tesouro. Diz o Egon."
+
+msgid "Glutdrache"
+msgstr "Draco de brasa"
+
+msgid "Glutessenz"
+msgstr "Essência de brasa"
+
+msgid "Glutgeist"
+msgstr "Espírito de brasa"
 
 msgid "Glutkern"
 msgstr "Núcleo de brasa"
 
 msgid "Glutklinge"
 msgstr "Lâmina de brasa"
+
+msgid "Glutkobold"
+msgstr "Diabrete de brasa"
 
 msgid "Glutmantel"
 msgstr "Manto de brasas"
@@ -768,14 +1032,23 @@ msgstr "Lua de brasa"
 msgid "Glutsammler"
 msgstr "Coletor de brasas"
 
+msgid "Glutschlund"
+msgstr "Goela de Brasa"
+
 msgid "Glutschwert"
 msgstr "Espada de brasa"
 
 msgid "Glutstab"
 msgstr "Cajado de Brasa"
 
+msgid "Glutstollen"
+msgstr "Galerias de brasa"
+
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Brilha esverdeado. O mercador gosta."
+
+msgid "Glänzt wie der Mond. Der Händler wird ganz still."
+msgstr "Brilha como a lua. O mercador fica bem quieto."
 
 msgid "Glück"
 msgstr "Sorte"
@@ -791,6 +1064,9 @@ msgstr "Mais sorte e dano"
 
 msgid "Glück viel höher"
 msgstr "Muito mais sorte"
+
+msgid "Glückliches Händchen"
+msgstr "Mão sortuda"
 
 msgid "Glücksflachs"
 msgstr "Linho da sorte"
@@ -816,6 +1092,33 @@ msgstr "Túneis dos Goblins"
 msgid "Gold"
 msgstr "Ouro"
 
+msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
+msgstr "Ouro do mercador da masmorra. O que sobrar vai para a sua lata; ao morrer, se perde, exceto no espaço seguro."
+
+msgid "Gold-Beinschienen"
+msgstr "Grevas de ouro"
+
+msgid "Gold-Bogen"
+msgstr "Arco de ouro"
+
+msgid "Gold-Brustplatte"
+msgstr "Peitoral de ouro"
+
+msgid "Gold-Handschuhe"
+msgstr "Luvas de ouro"
+
+msgid "Gold-Helm"
+msgstr "Elmo de ouro"
+
+msgid "Gold-Schwert"
+msgstr "Espada de ouro"
+
+msgid "Gold-Stiefel"
+msgstr "Botas de ouro"
+
+msgid "Gold-Zauberstab"
+msgstr "Varinha de ouro"
+
 msgid "Goldader"
 msgstr "Veio de ouro"
 
@@ -830,6 +1133,9 @@ msgstr "Arco de ouro"
 
 msgid "Goldener Schattenstab"
 msgstr "Cajado sombrio dourado"
+
+msgid "Golderz"
+msgstr "Minério de ouro"
 
 msgid "Goldglut"
 msgstr "Brasa dourada"
@@ -852,8 +1158,14 @@ msgstr "Botas de ouro"
 msgid "Grafik"
 msgstr "Gráficos"
 
+msgid "Grasotter"
+msgstr "Víbora do Capim"
+
 msgid "Gratis"
 msgstr "Grátis"
+
+msgid "Greif"
+msgstr "Grifo"
 
 msgid "Greifenfell"
 msgstr "Pelo de grifo"
@@ -861,8 +1173,17 @@ msgstr "Pelo de grifo"
 msgid "Greifenmantel"
 msgstr "Manto de grifo"
 
+msgid "Grimbald Eisenfaust"
+msgstr "Grimbald Punho de Ferro"
+
+msgid "Grobian"
+msgstr "Brutamontes"
+
 msgid "Große, schwere Schüsse mit viel Rückstoß"
 msgstr "Tiros grandes e pesados com muito recuo"
+
+msgid "Großer Heiltrank"
+msgstr "Poção de cura grande"
 
 msgid "Grubenhacke"
 msgstr "Picareta de mina"
@@ -879,11 +1200,17 @@ msgstr "Bombas maiores e três bombas"
 msgid "Größere Bomben, und keine tut dir weh"
 msgstr "Bombas maiores, e nenhuma te fere"
 
+msgid "Größere Dose"
+msgstr "Lata maior"
+
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "Bolas de fogo maiores, mais dano"
 
 msgid "Größerer Rucksack"
 msgstr "Mochila maior"
+
+msgid "Grün wie das Moor, nur teurer."
+msgstr "Verde como o pântano, só que mais caro."
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "Boa escolha! Uma peça de colecionador. Sério!"
@@ -897,6 +1224,18 @@ msgstr "Tenha %d moedas ao mesmo tempo"
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Tenha %d corações azuis ao mesmo tempo"
 
+msgid "Halb Fell, halb Feder."
+msgstr "Metade pelo, metade pena."
+
+msgid "Harpyie"
+msgstr "Harpia"
+
+msgid "Harpyien-Matriarchin"
+msgstr "Matriarca harpia"
+
+msgid "Harpyienfeder"
+msgstr "Pena de harpia"
+
 msgid "Hauptmenü"
 msgstr "Menu principal"
 
@@ -906,8 +1245,20 @@ msgstr "Cura ao derrotar inimigos, mais dano"
 msgid "Heilerkräuter"
 msgstr "Ervas curativas"
 
+msgid "Heilt %s Herzen"
+msgstr "Cura %s corações"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "Cura você totalmente, corre mais rápido"
+
+msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "Cura três corações. O dobro de cereja, metade da meia."
+
+msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "Cura dois corações. Tem gosto de cereja. E um pouco de meia."
+
+msgid "Heiltrank"
+msgstr "Poção de cura"
 
 msgid "Heißer Sand"
 msgstr "Areia quente"
@@ -929,6 +1280,18 @@ msgstr "Caldeirão de bruxa"
 
 msgid "Hier klicken"
 msgstr "Clique aqui"
+
+msgid "Hinter dem Tor wartet etwas"
+msgstr "Algo espera além do portão"
+
+msgid "Hinter dem Wald liegt ein Moor voller Lichter. Wer ihnen folgt, kommt nicht wieder. Sagt Egon. Er verkauft Laternen."
+msgstr "Atrás da floresta há um pântano cheio de luzes. Quem as segue não volta. Diz o Egon. Ele vende lanternas."
+
+msgid "Hippogreif"
+msgstr "Hipogrifo"
+
+msgid "Hohes Gras"
+msgstr "Capim Alto"
 
 msgid "Holzstab"
 msgstr "Cajado de madeira"
@@ -957,6 +1320,9 @@ msgstr "Níveis mais altos vêm com seu nível de jogador."
 msgid "Höhlentroll"
 msgstr "Troll das cavernas"
 
+msgid "Höllenhund"
+msgstr "Cão infernal"
+
 msgid "Höllenhundfell"
 msgstr "Pelo de cão infernal"
 
@@ -966,17 +1332,50 @@ msgstr "Couro infernal"
 msgid "Höllenstab"
 msgstr "Cajado infernal"
 
+msgid "Höllentor"
+msgstr "Portão do Inferno"
+
+msgid "Höllenwächter"
+msgstr "Guardião infernal"
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Eu sou o vigar… é, o vendedor. Eu vendo… …equipamento! Isso mesmo. Vendo equipamento."
 
+msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
+msgstr "Eu coloco para você. De graça! O colocar, quero dizer."
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
+msgstr "Na masmorra você aperta %s. Glub, glub, e dois corações voltam."
+
+msgid "Im Dungeon: %s trinkt ihn"
+msgstr "Na masmorra: %s para beber"
+
+msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
+msgstr "No vulcão a lava borbulha, e lá no fundo há um portão. Egon nunca esteve lá. É o que ele diz. Mas as botas dele estão chamuscadas."
+
+msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
+msgstr "Você não leva ouro para a masmorra. Lá embaixo meu colega compra seu espólio, quase tão honesto quanto eu."
+
 msgid "Inventar"
 msgstr "Inventário"
+
+msgid "Irrlicht"
+msgstr "Fogo-fátuo"
+
+msgid "Irrlicht-Glut"
+msgstr "Brasa fátua"
+
+msgid "Irrlichtkönigin"
+msgstr "Rainha dos fogos-fátuos"
 
 msgid "Jadefigur"
 msgstr "Figura de jade"
 
 msgid "Jagdbogen"
 msgstr "Arco de Caça"
+
+msgid "Jagdgrund"
+msgstr "Campo de Caça"
 
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "Quanto mais longe o tiro voa, mais dano"
@@ -989,6 +1388,9 @@ msgstr "Cada golpe assusta os inimigos"
 
 msgid "Jeder Treffer macht dich auf dieser Ebene stärker"
 msgstr "Cada golpe recebido te deixa mais forte neste andar"
+
+msgid "Jeder weitere Dreh heute: %d %% von R1 zu den selteneren Stufen (höchstens %d %%)."
+msgstr "Cada giro a mais hoje: %d %% de R1 vai para os níveis mais raros (no máximo %d %%)."
 
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "A cada dois tiros, um é muito mais forte"
@@ -1010,6 +1412,9 @@ msgstr "Mapa"
 
 msgid "Kein Relikt"
 msgstr "Não é relíquia"
+
+msgid "Kein Trank dabei"
+msgstr "Nenhuma poção com você"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Nenhum golpe tira mais de meio coração"
@@ -1035,6 +1440,15 @@ msgstr "Clique para continuar"
 msgid "Klingenstern"
 msgstr "Estrela de lâminas"
 
+msgid "Klippenharpyie"
+msgstr "Harpia dos penhascos"
+
+msgid "Knallkäfer"
+msgstr "Besouro-Bomba"
+
+msgid "Knistert in der Hand."
+msgstr "Estala na mão."
+
 msgid "Knochengeneral"
 msgstr "General de ossos"
 
@@ -1059,6 +1473,12 @@ msgstr "Cabeça"
 msgid "Kraft"
 msgstr "Força"
 
+msgid "Kreischt noch, wenn man sie schüttelt."
+msgstr "Ainda grita quando você a sacode."
+
+msgid "Kreuzkrabbe"
+msgstr "Caranguejo Cruz"
+
 msgid "Krieger"
 msgstr "Guerreiro"
 
@@ -1068,14 +1488,29 @@ msgstr "Espada do Guerreiro"
 msgid "Kriegsaxt"
 msgstr "Machado de guerra"
 
+msgid "Kristallbrocken"
+msgstr "Bloco de Cristal"
+
 msgid "Kristallkarte"
 msgstr "Mapa de cristal"
+
+msgid "Kristallkoloss"
+msgstr "Colosso de Cristal"
+
+msgid "Kristallkrabbe"
+msgstr "Caranguejo de cristal"
 
 msgid "Kristallsplitter"
 msgstr "Fragmento de cristal"
 
+msgid "Kristallwiese"
+msgstr "Campina de Cristal"
+
 msgid "Kräuterbeutel"
 msgstr "Bolsa de ervas"
+
+msgid "Kupfer"
+msgstr "Cobre"
 
 msgid "Kupfer-Beinschienen"
 msgstr "Grevas de cobre"
@@ -1113,6 +1548,9 @@ msgstr "Carta real"
 msgid "Labyrinthaxt"
 msgstr "Machado do labirinto"
 
+msgid "Laden"
+msgstr "Loja"
+
 msgid "Ladenschild"
 msgstr "Placa da loja"
 
@@ -1127,6 +1565,12 @@ msgstr "Você se cura lentamente"
 
 msgid "Lautstärke"
 msgstr "Volume"
+
+msgid "Lavagolem"
+msgstr "Golem de lava"
+
+msgid "Lavahund"
+msgstr "Cão de lava"
 
 msgid "Lebendiger Wind"
 msgstr "Vento vivo"
@@ -1155,8 +1599,14 @@ msgstr "Lendário"
 msgid "Leicht und schnell."
 msgstr "Leves e rápidas."
 
+msgid "Leicht wie Luft, wertvoll wie … naja."
+msgstr "Leve como o ar, valiosa como… bem."
+
 msgid "Leichte Feder"
 msgstr "Pena leve"
+
+msgid "Leichte Sohlen, schnelle Schritte."
+msgstr "Solas leves, passos rápidos."
 
 msgid "Leichtfuß"
 msgstr "Pés leves"
@@ -1188,6 +1638,15 @@ msgstr "Apagar"
 msgid "Magier"
 msgstr "Mago"
 
+msgid "Magma-Rohling"
+msgstr "Bruto de magma"
+
+msgid "Magmakammer"
+msgstr "Câmara de magma"
+
+msgid "Magmaschleim"
+msgstr "Gosma de magma"
+
 msgid "Makelloser Schild"
 msgstr "Escudo impecável"
 
@@ -1212,6 +1671,9 @@ msgstr "Seus tiros às vezes envenenam"
 msgid "Manchmal weichst du Treffern aus"
 msgstr "Às vezes você esquiva golpes"
 
+msgid "Material: %s"
+msgstr "Material: %s"
+
 msgid "Maus"
 msgstr "Mouse"
 
@@ -1226,6 +1688,12 @@ msgstr "Mais recuo e dano"
 
 msgid "Mehr Schaden für jede Münze, die du hast"
 msgstr "Mais dano para cada moeda que você tem"
+
+msgid "Mehr Ware"
+msgstr "Mais mercadoria"
+
+msgid "Messerstecher"
+msgstr "Faquista"
 
 msgid "Meteor"
 msgstr "Meteoro"
@@ -1245,8 +1713,29 @@ msgstr "Selo lunar"
 msgid "Mondsturm"
 msgstr "Tempestade lunar"
 
+msgid "Moor der Irrlichter"
+msgstr "Pântano dos Fogos-Fátuos"
+
+msgid "Moor-Egel"
+msgstr "Sanguessuga do pântano"
+
+msgid "Moorgeist"
+msgstr "Fantasma do pântano"
+
 msgid "Moorherz"
 msgstr "Coração do pântano"
+
+msgid "Moorkern"
+msgstr "Núcleo do pântano"
+
+msgid "Moorkröte"
+msgstr "Sapo do lodaçal"
+
+msgid "Moorleiche"
+msgstr "Cadáver do pântano"
+
+msgid "Moormutter"
+msgstr "Mãe do pântano"
 
 msgid "Musik"
 msgstr "Música"
@@ -1314,6 +1803,9 @@ msgstr "Próxima página"
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "Próximo nível: %d de ouro, %d pontos, a partir do nível %d"
 
+msgid "Obsidianwächter"
+msgstr "Guardião de obsidiana"
+
 msgid "Offensiv"
 msgstr "Ofensivo"
 
@@ -1350,6 +1842,12 @@ msgstr "Barra de paládio"
 msgid "Palladiumklinge"
 msgstr "Lâmina de paládio"
 
+msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
+msgstr "Parceiro! Morto de novo? Fiquei preocupado. Quase dois minutos inteiros!"
+
+msgid "Pass auf, ich hab da was Neues reinbekommen. Ganz legal. Hebel, bitte!"
+msgstr "Olha, chegou uma coisa nova. Totalmente legal. Alavanca, por favor!"
+
 msgid "Pause"
 msgstr "Pausa"
 
@@ -1383,6 +1881,9 @@ msgstr "Lâmina de platina"
 msgid "Platinspitze"
 msgstr "Ponta de platina"
 
+msgid "Pocht leise. Besser nicht drüber nachdenken."
+msgstr "Pulsa baixinho. Melhor não pensar nisso."
+
 msgid "Preis: %d Gold"
 msgstr "Preço: %d de ouro"
 
@@ -1410,6 +1911,9 @@ msgstr "Porão dos Ratos"
 msgid "Rattenkönig"
 msgstr "Rei dos Ratos"
 
+msgid "Raucht ein bisschen."
+msgstr "Solta um pouco de fumaça."
+
 msgid "Rechts"
 msgstr "Direita"
 
@@ -1418,6 +1922,12 @@ msgstr "À direita está sua lata. Arraste o saco de moedas para ela; até 200 d
 
 msgid "Rechtsklick auf etwas im Inventar legt es hierher."
 msgstr "Clique com o botão direito em algo do inventário para colocá-lo aqui."
+
+msgid "Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen"
+msgstr "Clique direito: vender ao mercador · Arrastar: organizar · Tab: fechar"
+
+msgid "Rechtsklick: verkaufen für %d Gold"
+msgstr "Clique direito: vender por %d de ouro"
 
 msgid "Reichweite"
 msgstr "Alcance"
@@ -1461,6 +1971,18 @@ msgstr "Relíquias: %d %% por alavanca, níveis %s"
 msgid "Reliktpflege"
 msgstr "Cuidado de relíquias"
 
+msgid "Riecht nach Moor. Für immer."
+msgstr "Cheira a pântano. Para sempre."
+
+msgid "Riedwächter"
+msgstr "Guardião do Junco"
+
+msgid "Riesenfledermaus"
+msgstr "Morcego gigante"
+
+msgid "Riesenkeiler"
+msgstr "Javali gigante"
+
 msgid "Riesenratte"
 msgstr "Rato gigante"
 
@@ -1494,6 +2016,9 @@ msgstr "Rubi"
 msgid "Rucksack"
 msgstr "Mochila"
 
+msgid "Rudelführer"
+msgstr "Líder da matilha"
+
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "Mãos firmes, disparos mais rápidos."
 
@@ -1508,6 +2033,9 @@ msgstr "Repulsão"
 
 msgid "Rückwärts"
 msgstr "Para trás"
+
+msgid "Salamanderkönigin"
+msgstr "Rainha salamandra"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "Luvas do ferreiro da areia"
@@ -1551,6 +2079,9 @@ msgstr "Dano x1,2, atira um pouco mais devagar"
 msgid "Schaden mal 1,25"
 msgstr "Dano x1,25"
 
+msgid "Schaden mal 1,3 und ein Silbererz"
+msgstr "Dano vezes 1,3 e um minério de prata"
+
 msgid "Schaden mal 1,3 und zehn Münzen"
 msgstr "Dano x1,3 e dez moedas"
 
@@ -1580,6 +2111,15 @@ msgstr "Dano: %s"
 
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "Passe %d andares seguidos sem ser atingido"
+
+msgid "Schakal"
+msgstr "Chacal"
+
+msgid "Schattenbrut"
+msgstr "Cria sombria"
+
+msgid "Schattenfürst"
+msgstr "Senhor das sombras"
 
 msgid "Schattenmantel"
 msgstr "Manto sombrio"
@@ -1611,14 +2151,23 @@ msgstr "Cunha de batalha"
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "Fogo serpente: tiros serpenteiam, um pouco mais de dano"
 
+msgid "Schlangenschuppe"
+msgstr "Escama de serpente"
+
 msgid "Schlangenschüsse, die Gegner verfolgen"
 msgstr "Tiros serpenteantes que perseguem inimigos"
 
 msgid "Schleim"
 msgstr "Gosma"
 
+msgid "Schleimchen"
+msgstr "Gosminha"
+
 msgid "Schließen"
 msgstr "Fechar"
+
+msgid "Schläger"
+msgstr "Capanga"
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "Tiros serpenteantes que ricocheteiam"
@@ -1653,6 +2202,9 @@ msgstr "Atira mais rápido, tiros explodem no fim"
 msgid "Schnellere Schüsse fliegen durch Gegner"
 msgstr "Tiros mais rápidos atravessam inimigos"
 
+msgid "Schon einmal geschafft!"
+msgstr "Já vencido!"
+
 msgid "Schreckensbrief"
 msgstr "Carta do pavor"
 
@@ -1662,11 +2214,23 @@ msgstr "Escopeta: seis brasas a curta distância"
 msgid "Schrumpftrank"
 msgstr "Poção encolhedora"
 
+msgid "Schuppig, schwer und sehr gefragt."
+msgstr "Escamosa, pesada e muito procurada."
+
 msgid "Schusstempo"
 msgstr "Velocidade do tiro"
 
+msgid "Schwarz und hart wie Lava, die nachgedacht hat."
+msgstr "Preto e duro, como lava que pensou melhor."
+
 msgid "Schwarzer Kristall"
 msgstr "Cristal negro"
+
+msgid "Schwarzwolf"
+msgstr "Lobo negro"
+
+msgid "Schwer und gelb. Jeder Händler mag es."
+msgstr "Pesado e amarelo. Todo mercador gosta."
 
 msgid "Schwer und kalt."
 msgstr "Pesado e frio."
@@ -1743,6 +2307,9 @@ msgstr "Página %d de %d"
 msgid "Selten"
 msgstr "Raro"
 
+msgid "Seltene Ware"
+msgstr "Mercadoria rara"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: você salta para onde mira"
 
@@ -1761,6 +2328,33 @@ msgstr "Campo de visão"
 msgid "Siegerring"
 msgstr "Anel do vencedor"
 
+msgid "Silber"
+msgstr "Prata"
+
+msgid "Silber-Beinschienen"
+msgstr "Grevas de prata"
+
+msgid "Silber-Bogen"
+msgstr "Arco de prata"
+
+msgid "Silber-Brustplatte"
+msgstr "Peitoral de prata"
+
+msgid "Silber-Handschuhe"
+msgstr "Luvas de prata"
+
+msgid "Silber-Helm"
+msgstr "Elmo de prata"
+
+msgid "Silber-Schwert"
+msgstr "Espada de prata"
+
+msgid "Silber-Stiefel"
+msgstr "Botas de prata"
+
+msgid "Silber-Zauberstab"
+msgstr "Varinha de prata"
+
 msgid "Silberader"
 msgstr "Veio de prata"
 
@@ -1769,6 +2363,9 @@ msgstr "Amuleto de prata"
 
 msgid "Silberdolch"
 msgstr "Adaga de prata"
+
+msgid "Silbererz"
+msgstr "Minério de prata"
 
 msgid "Silberhammer"
 msgstr "Martelo de prata"
@@ -1784,6 +2381,9 @@ msgstr "Anel de prata"
 
 msgid "Silberspitze"
 msgstr "Ponta de prata"
+
+msgid "Silberwolf"
+msgstr "Lobo prateado"
 
 msgid "Skelett"
 msgstr "Esqueleto"
@@ -1872,6 +2472,9 @@ msgstr "Esmaga pedras e mais saque"
 msgid "Steine zertreten, fünf Bomben"
 msgstr "Esmaga pedras, cinco bombas"
 
+msgid "Steingolem"
+msgstr "Golem de pedra"
+
 msgid "Sternenfessel"
 msgstr "Grilhão estelar"
 
@@ -1908,6 +2511,9 @@ msgstr "Maça"
 msgid "Streubombe"
 msgstr "Bomba de fragmentação"
 
+msgid "Strohmann"
+msgstr "Espantalho"
+
 msgid "Struppig und leicht angekaut."
 msgstr "Desgrenhada e meio roída."
 
@@ -1932,8 +2538,17 @@ msgstr "Nível baixo demais"
 msgid "Sturmessenz"
 msgstr "Essência da tempestade"
 
+msgid "Sturmgeist"
+msgstr "Espírito da tempestade"
+
+msgid "Sturmgipfel"
+msgstr "Cume da tempestade"
+
 msgid "Sturmkarte"
 msgstr "Mapa da tempestade"
+
+msgid "Sturmkrähe"
+msgstr "Corvo da tempestade"
 
 msgid "Sturmsiegel"
 msgstr "Selo da tempestade"
@@ -1968,11 +2583,26 @@ msgstr "Raio teleguiado"
 msgid "Sumpfhaut"
 msgstr "Pele do pântano"
 
+msgid "Sumpfhydra"
+msgstr "Hidra do pântano"
+
 msgid "Sumpfleder"
 msgstr "Couro do pântano"
 
 msgid "Sumpfmantel"
 msgstr "Manto do pântano"
+
+msgid "Sumpfschamane"
+msgstr "Xamã do pântano"
+
+msgid "Sumpfschlange"
+msgstr "Serpente do pântano"
+
+msgid "Sumpfschleim"
+msgstr "Gosma do pântano"
+
+msgid "Sumpfufer"
+msgstr "Margem do pântano"
 
 msgid "Synergie: %s!"
 msgstr "Sinergia: %s!"
@@ -1998,6 +2628,9 @@ msgstr "Erva cambaleante"
 msgid "Tausendklinge"
 msgstr "Lâmina dos mil"
 
+msgid "Teilschleim"
+msgstr "Gosma Divisora"
+
 msgid "Tempo"
 msgstr "Velocidade"
 
@@ -2007,8 +2640,17 @@ msgstr "Velocidade +0,2."
 msgid "Tempo: %s"
 msgstr "Velocidade: %s"
 
+msgid "Testraum · P: Admin-Menü"
+msgstr "Sala de teste · P: menu de admin"
+
 msgid "Testraum · P: zurück"
 msgstr "Sala de teste · P: voltar"
+
+msgid "Tiefes Moor"
+msgstr "Pântano profundo"
+
+msgid "Topas"
+msgstr "Topázio"
 
 msgid "Topasjuwel"
 msgstr "Joia de topázio"
@@ -2018,6 +2660,15 @@ msgstr "Necromante"
 
 msgid "Totengruft"
 msgstr "Cripta dos mortos"
+
+msgid "Trank"
+msgstr "Poção"
+
+msgid "Trank trinken"
+msgstr "Beber poção"
+
+msgid "Trank-Platz: im Dungeon mit %s trinken"
+msgstr "Espaço de poção: beba na masmorra com %s"
 
 msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
 msgstr "Acertos explodem, tiros atravessam pedras"
@@ -2034,6 +2685,9 @@ msgstr "Armadura de troll"
 msgid "Truhenschlüssel"
 msgstr "Chave do baú"
 
+msgid "Tränke gehören hierher, gleich neben die Füße. Da kommst du im Dungeon schnell ran."
+msgstr "Poções ficam aqui, bem ao lado dos pés. Assim você as pega rápido na masmorra."
+
 msgid "Umgebung"
 msgstr "Arredores"
 
@@ -2042,6 +2696,9 @@ msgstr "E esta é a minha alavanca. Meu maior orgulho. Olha só!"
 
 msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Dein Gold liegt als Münzsack im Inventar."
 msgstr "E aqui, um pequeno adiantamento: 50 de ouro. Seu ouro fica no inventário como saco de moedas."
+
+msgid "Und hier, ein kleiner Vorschuss: 50 Gold. Oben links siehst du, wie viel du hast."
+msgstr "E aqui, um pequeno adiantamento: 50 de ouro. No canto superior esquerdo você vê quanto tem."
 
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "E agora, pra masmorra! Me traz algo bonito. Eu espero aqui. Seguro morreu de velho."
@@ -2061,6 +2718,12 @@ msgstr "Utilidade"
 msgid "Vampir"
 msgstr "Vampiro"
 
+msgid "Varrik der Fuchs"
+msgstr "Varrik, a Raposa"
+
+msgid "Verbrennt nicht. Riecht aber so."
+msgstr "Não queima. Mas cheira como se queimasse."
+
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "Envenena inimigos, um pouco mais de dano"
 
@@ -2069,6 +2732,9 @@ msgstr "Vender"
 
 msgid "Verkaufen: %d Gold"
 msgstr "Vender: %d de ouro"
+
+msgid "Verkauft für %d Gold"
+msgstr "Vendido por %d de ouro"
 
 msgid "Viel größere Bomben"
 msgstr "Bombas muito maiores"
@@ -2115,6 +2781,9 @@ msgstr "Tela cheia"
 msgid "Vorwärts"
 msgstr "Para frente"
 
+msgid "Vulkandrache"
+msgstr "Dragão vulcânico"
+
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: andar · Mouse: mirar · Clique esquerdo: atirar"
 
@@ -2124,8 +2793,14 @@ msgstr "Arma"
 msgid "Wanderbündel"
 msgstr "Trouxa do viajante"
 
+msgid "Wandspinne"
+msgstr "Aranha de Parede"
+
 msgid "Warm und dicht."
 msgstr "Quente e espessa."
+
+msgid "Warm. Grau. Überall."
+msgstr "Quente. Cinza. Em todo lugar."
 
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "O que está aqui não se perde quando você morre."
@@ -2154,8 +2829,20 @@ msgstr "Um tiro que mata segue com o que sobra"
 msgid "Wert: %d Gold"
 msgstr "Valor: %d de ouro"
 
+msgid "Wespenbär"
+msgstr "Urso-Vespa"
+
 msgid "Wettkampfstiefel"
 msgstr "Botas de competição"
+
+msgid "Wiesenwespe"
+msgstr "Vespa da Campina"
+
+msgid "Wilderer"
+msgstr "Caçador Furtivo"
+
+msgid "Wildschwein"
+msgstr "Javali"
 
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "Bem-vindo à minha humilde loja! Lá em cima, na mesa, fica a mercadoria. Quer dizer… já já."
@@ -2172,20 +2859,35 @@ msgstr "Rosa dos ventos"
 msgid "Windstab"
 msgstr "Cajado do vento"
 
+msgid "Wispernde Wiese"
+msgstr "Campina Sussurrante"
+
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Onde o raio acerta, tudo explode"
+
+msgid "Wolf"
+msgstr "Lobo"
 
 msgid "Wolfsfell"
 msgstr "Pele de lobo"
 
+msgid "Wolfsleder"
+msgstr "Couro de lobo"
+
 msgid "Wolfsmantel"
 msgstr "Manto de lobo"
+
+msgid "Wolfswald"
+msgstr "Floresta dos lobos"
 
 msgid "Wurfsterne"
 msgstr "Shurikens"
 
 msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
 msgstr "Shurikens atravessam inimigos e muitas vezes os fazem sangrar"
+
+msgid "Wächst nur, wo es richtig kalt ist."
+msgstr "Só cresce onde faz muito frio."
 
 msgid "Wähle deinen Charakter"
 msgstr "Escolha seu personagem"
@@ -2195,6 +2897,9 @@ msgstr "Escolha uma masmorra à esquerda."
 
 msgid "Wählen"
 msgstr "Escolher"
+
+msgid "Wühlmaus"
+msgstr "Rato-do-campo"
 
 msgid "Wüstenkompass"
 msgstr "Bússola do deserto"
@@ -2247,6 +2952,9 @@ msgstr "Duas faíscas e mais dano"
 msgid "Zwei Glutmonde kreisen um dich"
 msgstr "Duas luas de brasa giram ao seu redor"
 
+msgid "Zwei Golderze und zehn Schlüssel"
+msgstr "Dois minérios de ouro e dez chaves"
+
 msgid "Zwei Herzen mehr"
 msgstr "Dois corações a mais"
 
@@ -2283,6 +2991,9 @@ msgstr "Dois corações azuis; perder um atinge todos os inimigos"
 msgid "Zwillingshandschuhe"
 msgstr "Luvas gêmeas"
 
+msgid "Zäh und warm."
+msgstr "Resistente e quente."
+
 msgid "Zähigkeit"
 msgstr "Resistência"
 
@@ -2297,3 +3008,6 @@ msgstr "Acima do limite: o Egon está de olho na sua lata!"
 
 msgid "Überschreiben"
 msgstr "Sobrescrever"
+
+msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
+msgstr "…Pelo menos trouxe o saque? Não? Hm. Então só uma coisa ajuda: poções!"

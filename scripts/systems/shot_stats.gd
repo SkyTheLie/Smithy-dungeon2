@@ -49,6 +49,9 @@ var mode: String = MODE_FIRE
 var flags: Dictionary[String, bool] = {}
 ## Flag -> chance 0..1 (per shot, per hit).
 var chances: Dictionary[String, float] = {}
+## The player's own traps a shot lays where it ends (items/relics "traps": [{kind, chance}],
+## kinds = floors.json hazard_types with "owner": "player"; Dungeon.shot_ended).
+var traps: Array[Dictionary] = []
 
 
 func has(flag: String) -> bool:

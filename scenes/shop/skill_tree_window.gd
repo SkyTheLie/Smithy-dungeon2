@@ -76,7 +76,7 @@ func _refresh() -> void:
 	_tree.build()
 	var to_next: int = Skills.exp_to_next(MetaState.level())
 	var exp_text: String = Language.translate("max.") if to_next == 0 else "%d/%d" % [MetaState.exp_points(), to_next]
-	_header.text = Language.translate("Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d") % [MetaState.level(), exp_text, MetaState.skill_points(), MetaState.purse()]
+	_header.text = Language.translate("Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d") % [MetaState.level(), exp_text, MetaState.skill_points(), MetaState.box()]
 
 
 func _on_learn(id: String) -> void:

@@ -1,6 +1,7 @@
 class_name Hud
 extends CanvasLayer
-## Everything drawn over the 3D view: hearts (top left), bombs / keys, the map (Minimap, M), the
+## Everything drawn over the 3D view: hearts (top left), bombs / keys, the potion taken along
+## (picture + key, only with a potion; Q drinks it), the map (Minimap, M), the
 ## crosshair, collected items, the boss's life bar, the charge bar (Glutsammler), the name of a
 ## new item or synergy, short messages and the red flash when hit. Only shows values; the rules are
 ## in RunState and Dungeon.
@@ -14,8 +15,14 @@ var dungeon: Dungeon
 var player: Player
 
 var _boss: Enemy = null
+## Seconds the boss bar still fills up after the boss came (BossHall.WAKE_TIME).
+var _boss_fill_left: float = 0.0
 var _banner_tween: Tween
 var _message_tween: Tween
+## The potion taken along (built in code under the counters): picture and key.
+var _potion_row: HBoxContainer
+var _potion_icon: TextureRect
+var _potion_key: Label
 @onready var _hearts: HeartBar = %Hearts
 @onready var _bombs: Label = %Bombs
 @onready var _keys: Label = %Keys
@@ -45,9 +52,13 @@ func setup(run_state: RunState, the_dungeon: Dungeon, the_player: Player) -> voi
 	run.unlocked.connect(_on_unlocked)
 	run.synergy_found.connect(_on_synergy_found)
 	dungeon.boss_appeared.connect(_on_boss_appeared)
+	# The boss hall scene: only the picture, no HUD.
+	dungeon.cutscene_changed.connect(func(active: bool) -> void: visible = not active)
 	dungeon.boss_defeated.connect(_boss_box.hide)
 	dungeon.message.connect(show_message)
 	player.hurt.connect(_on_hurt)
+	player.potion_tried.connect(_on_potion_tried)
+	_build_potion_row()
 	player.weapon.charge_changed.connect(_on_charge_changed)
 	_boss_box.hide()
 	_charge.hide()
@@ -70,14 +81,60 @@ func is_map_open() -> bool:
 	return _minimap.expanded
 
 
-func _process(_delta: float) -> void:
-	if _boss and is_instance_valid(_boss) and _boss.alive:
+func _process(delta: float) -> void:
+	if _boss_fill_left > 0.0:
+		_boss_fill_left -= delta
+	elif _boss and is_instance_valid(_boss) and _boss.alive:
 		_boss_bar.value = _boss.hp / _boss.max_hp * 100.0
 
 
 func _update_counters() -> void:
 	_bombs.text = "%02d" % run.bombs
 	_keys.text = "%02d" % run.keys
+	_refresh_potion()
+
+
+func _build_potion_row() -> void:
+	_potion_row = HBoxContainer.new()
+	_potion_row.name = "PotionRow"
+	_potion_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_potion_row.add_theme_constant_override("separation", 3)
+	_potion_icon = TextureRect.new()
+	_potion_icon.custom_minimum_size = ITEM_ICON_SIZE
+	_potion_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_potion_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_potion_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_potion_row.add_child(_potion_icon)
+	_potion_key = Label.new()
+	_potion_key.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_potion_key.add_theme_font_size_override("font_size", 12)
+	_potion_key.add_theme_constant_override("outline_size", 4)
+	_potion_row.add_child(_potion_key)
+	_bombs.get_parent().get_parent().add_child(_potion_row)
+	_refresh_potion()
+
+
+## Shows the first potion taken along (none: the row is hidden).
+func _refresh_potion() -> void:
+	if _potion_row == null:
+		return
+	_potion_row.visible = not run.potions.is_empty()
+	if run.potions.is_empty():
+		return
+	var path: String = String(Content.potion(String(run.potions[0]["id"])).get("icon", ""))
+	_potion_icon.texture = load(path) as Texture2D if ResourceLoader.exists(path) else null
+	var count: String = " ×%d" % run.potions.size() if run.potions.size() > 1 else ""
+	_potion_key.text = "[%s]%s" % [Controls.key_name(Controls.get_key(Controls.POTION)), count]
+
+
+func _on_potion_tried(drunk: bool) -> void:
+	if drunk:
+		_hurt.color = Color(0.3, 1.0, 0.4, 0.35)
+		create_tween().tween_property(_hurt, "color:a", 0.0, 0.5)
+	elif run.potions.is_empty():
+		show_message("Kein Trank dabei")
+	else:
+		show_message("Du bist schon gesund")
 
 
 ## Big text in the upper middle (new item, synergy, floor name), fades out by itself.
@@ -154,12 +211,15 @@ func _add_item_icon(id: String) -> void:
 func _on_boss_appeared(boss: Enemy) -> void:
 	_boss = boss
 	_boss_name.text = Language.translate(String(boss.data.get("name", "")))
-	_boss_bar.value = 100.0
+	# The bar fills up while the boss wakes (it gets its life).
+	_boss_bar.value = 0.0
+	_boss_fill_left = BossHall.WAKE_TIME
+	create_tween().tween_property(_boss_bar, "value", 100.0, BossHall.WAKE_TIME)
 	_boss_box.show()
 
 
 func _on_hurt() -> void:
-	_hurt.color.a = 0.45
+	_hurt.color = Color(0.85, 0.05, 0.05, 0.45)
 	create_tween().tween_property(_hurt, "color:a", 0.0, 0.4)
 
 

@@ -45,19 +45,45 @@ static func enemy(id: String) -> Dictionary:
 	return enemies().get(id, {})
 
 
-static func floors() -> Array:
-	return get_file("floors").get("floors", [])
+## The dungeon of the run (data/dungeons.json id); Game.start_new_run sets it. "" = the first.
+static var active_dungeon: String = ""
 
 
-## Floor `index` with the values of its theme (name, textures, music, enemies, bosses); values
-## of the floor itself win. A new Dictionary each call (called once per floor).
-static func floor_data(index: int) -> Dictionary:
-	var list: Array = floors()
+## The dungeon in use: `id`, else active_dungeon, else the first of dungeons.json.
+static func dungeon_id(id: String = "") -> String:
+	if id.is_empty():
+		id = active_dungeon
+	if not dungeons().has(id):
+		id = String(dungeons().keys().front()) if not dungeons().is_empty() else ""
+	return id
+
+
+static func dungeon(id: String = "") -> Dictionary:
+	return dungeons().get(dungeon_id(id), {})
+
+
+## The floors of a dungeon (dungeons.json "floors" = a list name in floors.json, default "floors").
+static func floors(id: String = "") -> Array:
+	return get_file("floors").get(String(dungeon(id).get("floors", "floors")), [])
+
+
+## Floor `index` of a dungeon with the values of its theme (name, textures, music, enemies,
+## bosses); values of the floor itself win. The dungeon's numbers (dungeons.json) are worked in:
+## hp_mult = floor x dungeon, exp_mult and shop_mult (dungeon, the shop also floors.json shop
+## floor_step dearer per floor). A new Dictionary each call (called once per floor).
+static func floor_data(index: int, id: String = "") -> Dictionary:
+	var list: Array = floors(id)
 	if list.is_empty():
 		return {}
-	var floor_entry: Dictionary = list[clampi(index, 0, list.size() - 1)]
+	index = clampi(index, 0, list.size() - 1)
+	var floor_entry: Dictionary = list[index]
 	var result: Dictionary = (get_file("floors").get("themes", {}) as Dictionary).get(String(floor_entry.get("theme", "")), {}).duplicate()
 	result.merge(floor_entry, true)
+	var info: Dictionary = dungeon(id)
+	result["hp_mult"] = float(result.get("hp_mult", 1.0)) * float(info.get("hp_mult", 1.0))
+	result["exp_mult"] = float(info.get("exp_mult", 1.0))
+	var step: float = float((floors_extra("shop") as Dictionary).get("floor_step", 0.0))
+	result["shop_mult"] = float(info.get("shop_mult", 1.0)) * (1.0 + step * index)
 	return result
 
 
@@ -114,6 +140,15 @@ static func gear_slots() -> Dictionary:
 ## Relics (data/relics.json): table_chance, tiers, items (item id -> tier).
 static func relics() -> Dictionary:
 	return get_file("relics")
+
+
+## Potions (data/potions.json): unlock_deaths, slots, table_chance, potions (id -> {name, heal …}).
+static func potions() -> Dictionary:
+	return get_file("potions")
+
+
+static func potion(id: String) -> Dictionary:
+	return (potions().get("potions", {}) as Dictionary).get(id, {})
 
 
 ## Egon's shop rules (data/shop.json).

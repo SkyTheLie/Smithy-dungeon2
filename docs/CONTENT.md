@@ -12,7 +12,7 @@ Alles in `data/`. Nach jeder Änderung: `bash assets/_reference/run_tests.sh tes
 - `stats`: `damage`, `fire_delay` (Sekunden zwischen Schüssen), `reach` (Meter), `shot_speed`, `size`, `spread` (Grad, größter Wert gilt), `move_speed`, `knockback`, `shots` (zusätzliche Schüsse), `orbitals` (Glutmonde), `hearts` (Herz-Container). Mit `_mult` dahinter wird multipliziert (`"fire_delay_mult": 0.65` = schneller).
 - `flags`: `homing`, `pierce`, `bounce`, `boomerang`, `split`, `wave`, `bread`, `charge`, `jitter`, `explosive`, `burn` (Gegner brennen), `slow` (Gegner langsamer), `grow` (mehr Schaden, je weiter der Schuss fliegt), `shield` (Feuerbälle zerstören Gegner-Schüsse), `blast_proof` (Explosionen schaden dir nicht), `mantle` (erster Treffer pro Raum wird abgefangen). Zahlen für `burn`, `slow`, `grow` stehen in `data/player.json` unter `effects`.
 - `per_coin`: Werte je Münze, die du hast, z. B. `{"damage": 0.04}` (Goldglut).
-- `give`: gibt es beim Aufheben dazu: `{"coins": 5, "bombs": 3, "keys": 3}`.
+- `give`: gibt es beim Aufheben dazu: `{"loot": {"amber": 1}, "bombs": 3, "keys": 3}` (`loot` = Beute-Ids aus `loot.json` für die Tasche; Münzen gibt es im Dungeon nicht).
 - `mode`: `beam` (Feuerstrahl) oder `bomb` (Bomben werfen).
 - `heal_full: true` heilt beim Aufheben ganz.
 - Item-Raum: **jedes** Item kann kommen, außer `"secret": true` (für spätere Geheimräume) und noch gesperrte.
@@ -21,7 +21,7 @@ Alles in `data/`. Nach jeder Änderung: `bash assets/_reference/run_tests.sh tes
 - `unlock`: das Item ist erst nach einer Freischaltung im Spiel: `{"type": "boss", "id": "rat_king"}`, `{"type": "wins", "count": 1}`, `{"type": "kills", "count": 200}`, `{"type": "discovered", "count": 25}`. Der Text im Lexikon entsteht daraus von selbst.
 - Es sind genau 203 Items: 200 plus die drei Start-Waffen der Helden (`test_content` prüft das).
 - `chance`: Zufallseffekte, z. B. `{"freeze": 0.15}` (15 % pro Schuss, Glück erhöht das).
-- `spawn`: Pickups, die beim Aufheben erscheinen (`coin`, `heart`, `bomb`, `key`).
+- `spawn`: Pickups, die beim Aufheben erscheinen (`heart`, `bomb`, `key`).
 - `secret: true`: nur im Geheimraum (dann keine `pools`). Weitere `pools`: `pact` (Glutpakt) und `shrine` (Schrein).
 - Neue `stats`: `bomb_size`, `luck`, `guard_time` (Sekunden), `helpers` (Funken).
 - Neue `flags` und alle Zahlen dazu: `data/items.json` „_info“ und `data/player.json` „effects“.
@@ -65,6 +65,7 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - `materials`: `"id": {"name", "desc", "icon", "rarity": 1-8, "value"}`. `rarity` = Rahmenfarbe (R1 grau … R8 rosa), `value` = Gold beim Händler.
 - `enemies`: `"gegner_id": [{"id": "material", "chance": 0.3, "amount": [1, 2]}, …]`. Jede Zeile wird einzeln gewürfelt. **Jeder Gegner braucht eine Zeile** (der Test prüft das).
 - `luck_bonus`: zusätzliche Chance je Glückspunkt.
+- `key_chance`: Chance (0–1), dass ein normaler Gegner einen Schlüssel fallen lässt – ein Wert für alle Gegner (Bosse nie). Zufällige Raum-Belohnungen (`floors.json` `room_drops`) geben keine Schlüssel.
 - Neue Texte (`name`, `desc`) danach übersetzen (`build_po.py` findet sie selbst).
 
 ## Spielstand-Regeln (`data/meta.json`)
@@ -86,7 +87,7 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 
 ## Egons Laden (`data/shop.json`)
 
-- `table_slots`, `goods_count` [min, max], `roll_prices` (1., 2., 3. … Hebel-Zug am Tag), `pool` [[id, Gewicht]], `rarity_weights` [[Seltenheit, Gewicht]], `rarity_price` (Preis-Faktor R1..R8).
+- `table_slots`, `goods_count` [min, max], `roll_prices` (1., 2., 3. … Hebel-Zug am Tag), `reroll_shift` (so viele Prozent wandern mit jedem weiteren Zug am Tag von R1 zu den selteneren Stufen), `reroll_shift_max`, `r1_min` (R1 nie darunter), `pool` [[id, Gewicht]], `rarity_weights` [[Seltenheit, Gewicht]], `rarity_price` (Preis-Faktor R1..R8).
 - `tutorial.goods` [{id, rarity, cell}] = Egons erster Tisch, `tutorial.gifts` = was davon geschenkt und angelegt wird.
 
 ## Texte der Figuren (`data/story.json`)
@@ -94,9 +95,11 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - Jeder Schlüssel ist eine Liste von Sprechblasen (höchstens zwei Sätze), `barks` sind einzelne Sätze. Egons Texte werden aus `docs/figuren/EGON_EHRLICH.md` gebaut.
 - `build_po.py` findet alle Sätze selbst; danach übersetzen.
 
-## Münzwert (`data/player.json`)
+## Gold im Dungeon
 
-- `coin_pickup`: [min, max] Münzen je aufgehobener Münze (bisher [8, 12]). Preise im Run-Shop (`floors.json` `shop`) passen dazu.
+- Es gibt keine Münzen zu finden. Gold gibt es nur beim Händler im Dungeon-Shop für Beute (`loot.json` `value`, Goldnase `sell_bonus` je Stück). Preise im Run-Shop: `floors.json` `shop`.
+- Opferstein-Belohnungen (`floors.json` `sacrifice.rewards`) dürfen Beute-Ids sein (fallen als Beute heraus).
+- Bosse: `enemies.json` `summon_max` = so viele gerufene Helfer leben höchstens gleichzeitig.
 
 ## Relikte (`data/relics.json`)
 
@@ -107,4 +110,34 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 ## Stufen (`data/levels.json`) und Skills (`data/skills.json`)
 
 - `levels.json`: `exp_per_kill`, `exp_per_boss`, `first_level_exp`, `growth`, `max_level`, `points_per_level`, `start_points`.
-- `skills.json` je Skill: `name`, `desc`, `icon`, `pos` [Spalte, Zeile], `requires`, `max_level`, `gold` [je Stufe], `points` [je Stufe], `min_level` [Spielerstufe je Stufe], `effect` (`stats`, `shield_halves`, `hearts`, `bag_slots`, `safe_slots`, `relic_slots`, `relic_runs`, `coin_bonus`). Neuer Skill = neuer Eintrag; Texte danach übersetzen.
+- `skills.json` je Skill: `name`, `desc`, `icon`, `pos` [Spalte, Zeile], `requires`, `max_level`, `gold` [je Stufe], `points` [je Stufe], `min_level` [Spielerstufe je Stufe], `effect` (`stats`, `shield_halves`, `hearts`, `bag_slots`, `safe_slots`, `relic_slots`, `relic_runs`, `sell_bonus`, `goods_extra` (mehr Ware auf Egons Tisch), `rarity` (`{"2": 5}` = 5 % von R1 zu R2 je Stufe)). Neuer Skill = neuer Eintrag; Texte danach übersetzen.
+
+## Dungeons, Fallen, Materialien (2026-11-27)
+
+- **Neuer Dungeon:** in `dungeons.json` eintragen (`name`, `region`, `desc`, `level`, `floors` = Name einer Liste in `floors.json`, `unlock` `{"dungeon": "<id davor>"}`, `hp_mult`, `exp_mult`, `shop_mult`), in `floors.json` die Liste `floors_<id>` mit 6 Ebenen anlegen, Gebiete unter `themes`. Der Test `test_dungeons.gd` prüft Texturen, Musik, Gegner, Bosse und Fallen.
+- **Gebiet (`themes`):** wie bisher, dazu `hazards` [[Art, [min, max]], …] = Fallen je normalem Raum.
+- **Fallen-Arten (`floors.json` `hazard_types`):** `damage` (halbe Herzen), `size` [min, max] m, `cycle` [unten, oben] Sekunden (nur Stacheln), `color` RGB, `glow`.
+- **Material (`shop.json` `materials`):** `name`, `weight`, `lever_mult`, `unlock` (`level`, `dungeon`). Für jedes Material braucht `gear.json` alle Teile aus `pool` als `<material>_<teil>` (Test prüft das).
+- **Balance nachrechnen:** `py assets/_reference/balance/balance.py`, Erklärung in `docs/BALANCE.md`.
+
+## Tränke (`data/potions.json`, 2026-11-27)
+
+- `potions`: `name`, `desc`, `icon`, `price`, `heal` (halbe Herzen), `rarity`, `unlock` (wie Materialien). `tour_potion` = Egons Geschenk, `unlock_deaths` = nach so vielen Toden zeigt Egon die Tränke, `slots` = Trank-Plätze, `table_chance` = Chance je Hebel-Zug. Neuer Trank = neuer Eintrag, Texte übersetzen (`build_po.py` liest `potions.json` mit).
+
+## Neue Gegner-Muster und hohes Gras (2026-11-27)
+
+- **Gegner (`enemies.json`):** `ai` `charger`, `turret`, `wall`, `bouncer`, `spawner`, `shell` (Erklärung im Kopf von `scenes/actors/enemy_moves.gd`); `pattern` (aimed, fan3, cross, diagonal, star, alternate, ring); `tint` [r, g, b]; `death_shots`, `death_spawn` [Id, Anzahl], `death_blast` {radius, damage}; `revive` {time, times, down_life}; `burrow.shots`; `laser` {aim, fire, width} für `charger`; `range`, `climb`, `flee`, `spawn_every`, `open`, `windup`, `rush`, `sight`.
+- **Bosse:** `keep_distance`, `stationary`, Trait `evade`, `snare` (Fallen-Art), Angriffe `aimed_shot`, `snares`, `volley`, `laser`, `laser_sweep`, `cross`.
+- **Gras (`floors.json` Gebiet/Ebene `grass`):** `height` m, `per_m2`, `color`, `spread`.
+- **Fallen:** `hold` = Sekunden festhalten (Fangeisen), `hidden` = kaum sichtbar.
+- Faustregel für neue Gegner: **ein** klares Muster, eine Vorwarnung (Wackeln, Anschwellen, Linie), ein sicherer Weg (schräg stehen, hinter ihn laufen, warten bis er offen ist). Zwei Bausteine kombinieren ergibt neue Gegner.
+
+## Tauben, eigene Fallen, große Bosse (2026-11-27)
+
+- **Etwas auf einer Falle** (`hazard_types` `decor`): `sprite` (Bildstreifen), `frames`, `fps`, `height` (m), `count`, `return` (Sekunden bis es nach dem Aufscheuchen wiederkommt). Nicht auf `hidden`-Fallen.
+- **Eigene Falle** (`hazard_types` mit `"owner": "player"`): `damage_mult` (× Schuss-Schaden), `every` (Sekunden je Gegner), `hold` (Fangeisen: betäubt so lange), `life`, `size`, `color`, `glow`.
+- **Item oder Relikt, das Fallen legt:** `"traps": [{"kind": "player_fire", "chance": 0.25}]` – der Schuss legt die Falle, wo er endet.
+- **Großer Gegner:** `frame` [Breite, Höhe] der Einzelbilder; `attack_sheets` {"spray": "breath"} = `<sprite>_breath.png` während des Angriffs; `arena` {"light": [r, g, b], "hazards": [["lava", [4, 5]]]} für den Boss-Raum.
+
+- **Boss-Halle** (`data/boss_hall.json`): `size` (in Räumen), `wall_height`, Texturen, `gate`/`gate_open`/`altar` (Bilder), `ambient_dark`/`ambient_lit`, `wake_distance`, `pillars` [quer, längs] (Abstand der Säulen), `elements` (9 Kristalle, Bilder `holy_<element>_crystal.png`, `pillar_<element>.png`, `beam_<element>.png`, `crown_<element>.png`), `colors`, `music_altar`, `music_fight`, `silence`, `boss_drop`.
+- **Musik austauschen:** in `data/audio.json` `music` z. B. `"boss_rock"` auf eine andere Datei zeigen lassen (ogg/wav/mp3).

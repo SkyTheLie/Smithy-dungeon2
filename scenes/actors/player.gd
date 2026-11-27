@@ -1,12 +1,15 @@
 class_name Player
 extends CharacterBody3D
 ## The player in first person: W A S D walk (relative to where the camera looks), the mouse turns
-## the camera (Run passes the mouse movement to look()), E / right mouse button drops a bomb.
+## the camera (Run passes the mouse movement to look()), E / right mouse button drops a bomb,
+## Q drinks the potion from the potion place (RunState.drink_potion).
 ## Shooting is done by the child Weapon. After a hit the player cannot be hurt for a moment
 ## (longer with "guard_time"). Item flags here: dodge (chance to dodge a hit), still_guard
 ## (standing still without shooting = safe), small (smaller body).
 
 signal hurt
+## Q was pressed: `drunk` = a potion was drunk (false: none taken along, or full life already).
+signal potion_tried(drunk: bool)
 
 const RADIUS: float = 0.35
 const EYE_HEIGHT: float = 1.5
@@ -35,6 +38,8 @@ var _still_time: float = 0.0
 ## Sticky web of a boss: slower for a while. Screen shake left.
 var _slow_left: float = 0.0
 var _shake_left: float = 0.0
+## A snare holds the player: no walking and no dash while > 0 (looking and shooting still work).
+var _hold_left: float = 0.0
 ## Dash (Shift with "dash"): direction and time left; cooldown of dash and blink.
 var _dash_left: float = 0.0
 var _dash_dir: Vector3 = Vector3.ZERO
@@ -91,6 +96,10 @@ func _physics_process(delta: float) -> void:
 	var wanted: Vector3 = (global_basis * Vector3(input.x, 0, input.y)) * speed
 	velocity = velocity.move_toward(wanted, ACCELERATION * delta)
 	_update_dash(delta, wanted)
+	_hold_left = maxf(0.0, _hold_left - delta)
+	if _hold_left > 0.0:
+		velocity = Vector3.ZERO
+		_dash_left = 0.0
 	if input.length() > 0.1 or Input.is_action_pressed(Controls.SHOOT):
 		_still_time = 0.0
 	else:
@@ -110,6 +119,19 @@ func _physics_process(delta: float) -> void:
 	_ring.scale = Vector3(ring_scale, 1.0, ring_scale)
 	if controls_enabled and Input.is_action_just_pressed(Controls.BOMB):
 		_drop_bomb()
+	if controls_enabled and Input.is_action_just_pressed(Controls.POTION):
+		_drink_potion()
+
+
+func _drink_potion() -> void:
+	if run == null:
+		return
+	var drunk: bool = run.drink_potion()
+	if drunk:
+		AudioManager.play_sound("pickup", 0.8)
+		if dungeon:
+			Fx.puff(dungeon.effects, global_position + Vector3(0, 1.0, 0), "heal", 1.2)
+	potion_tried.emit(drunk)
 
 
 func _drop_bomb() -> void:
@@ -122,7 +144,7 @@ func _drop_bomb() -> void:
 	# bottom edge of the screen); kept inside the room.
 	var forward: Vector3 = -global_basis.z
 	var at: Vector3 = global_position + forward * BOMB_DISTANCE
-	var rect: Rect2 = RoomBuilder.inner_rect(dungeon.current_cell, 0.4)
+	var rect: Rect2 = dungeon.room_rect(0.4)
 	bomb.global_position = Vector3(clampf(at.x, rect.position.x, rect.end.x), 0.0, clampf(at.z, rect.position.y, rect.end.y))
 
 
@@ -168,6 +190,16 @@ func take_hit(halves: int) -> void:
 		hurt.emit()
 
 
+## A snare: cannot walk or dash for `time` seconds.
+func hold(time: float) -> void:
+	_hold_left = maxf(_hold_left, time)
+	shake(0.15)
+
+
+func is_held() -> bool:
+	return _hold_left > 0.0
+
+
 ## A boss web: slower for `time` seconds.
 func slow_down(time: float) -> void:
 	_slow_left = maxf(_slow_left, time)
@@ -208,7 +240,7 @@ func _blink() -> void:
 	var query := PhysicsRayQueryParameters3D.create(from, from + direction * reach, RoomBuilder.LAYER_WORLD | RoomBuilder.LAYER_ROCKS)
 	var hit: Dictionary = get_world_3d().direct_space_state.intersect_ray(query)
 	var target: Vector3 = (Vector3(hit["position"]) - direction * 0.7) if not hit.is_empty() else from + direction * reach
-	var rect: Rect2 = RoomBuilder.inner_rect(dungeon.current_cell, RADIUS + 0.1)
+	var rect: Rect2 = dungeon.room_rect(RADIUS + 0.1)
 	target = Vector3(clampf(target.x, rect.position.x, rect.end.x), 0.0, clampf(target.z, rect.position.y, rect.end.y))
 	Fx.puff(dungeon.effects, global_position + Vector3(0, 1.0, 0), "spark", 1.2)
 	global_position = target

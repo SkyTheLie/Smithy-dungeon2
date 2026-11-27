@@ -13,6 +13,8 @@ var spawn_list: Array[String] = []
 var rocks: Array[Rock] = []
 ## Pedestals and pickups in the room (for the map).
 var loot: Array[Node3D] = []
+## Traps on the floor (lava, poison, spikes; Dungeon checks them).
+var hazards: Array[Hazard] = []
 
 
 func remove_rock(rock: Rock) -> void:
