@@ -10,7 +10,8 @@ extends Control
 ## 0. Before the title page on the first start: the language choice (LanguageSelect, flags); also
 ##    from the settings ("Sprache"). The menu then starts again in the chosen language.
 ##    After it, once per program start: the save slot choice A, B, C (SlotSelect).
-## Back from a run it starts at the anvil.
+## The title page comes only once per program start: back from a run, from Egon's shop or the
+## pause menu ("Hauptmenü") the menu starts at the anvil, without the walk through the door.
 
 ## How fast the door hint blinks (seconds per half cycle).
 const BLINK_TIME: float = 0.6
@@ -23,6 +24,8 @@ const WORD_FLIGHT: float = 0.3
 ## true = start at the anvil (back from a run or after a language change). A menu flag of this
 ## program start, not game state.
 static var skip_title_page: bool = false
+## true once the player got past the title page in this program start (then it never comes again).
+static var title_seen: bool = false
 ## true once a save slot was chosen in this program start (a menu flag, not game state).
 static var slot_chosen: bool = false
 ## Seconds the screen needs to go black before the intro or the shop.
@@ -51,7 +54,7 @@ func _ready() -> void:
 	_lexicon_window.hide()
 	_build_black()
 	_backdrop.entered.connect(_on_entered)
-	if skip_title_page or Game.run != null:
+	if skip_title_page or title_seen or Game.run != null:
 		_title_page.hide()
 		_door_hint.hide()
 		_backdrop.skip()
@@ -129,6 +132,7 @@ func _step_in() -> void:
 
 ## At the anvil: the menu fades in (at once when we started there).
 func _on_entered() -> void:
+	title_seen = true
 	var fade_in: bool = _title_page.visible
 	_title_page.hide()
 	_door_hint.hide()
