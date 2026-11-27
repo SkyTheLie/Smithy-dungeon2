@@ -18,6 +18,7 @@ func run() -> void:
 	_gear_in_run()
 	_relics()
 	_selling()
+	_admin()
 
 
 func _data() -> void:
@@ -213,3 +214,30 @@ func _selling() -> void:
 	check_eq((meta.call("stash") as Array).filter(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur").size(), 2, "one fur is gone")
 	check(not (meta.call("stash") as Array).any(func(place: Dictionary) -> bool: return place.get("id") == "gold"), "no coin bag in the inventory")
 	check_eq(meta.call("sell", 5), 0, "a place that does not exist sells nothing")
+
+
+## The admin menu of the shop (ShopAdminMenu) only calls these.
+func _admin() -> void:
+	meta.call("start_new")
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 5
+	meta.call("admin_set_box", 500)
+	check_eq(meta.call("box"), 500, "admin: box set")
+	meta.call("admin_set_box", -3)
+	check_eq(meta.call("box"), 0, "admin: box never below 0")
+	check(meta.call("admin_give_loot", "rat_fur"), "admin: loot into the stash")
+	check(not meta.call("admin_give_loot", "no_such_loot"), "admin: unknown loot refused")
+	check_eq((meta.call("stash") as Array).size(), 1, "admin: one piece in the stash")
+	meta.call("admin_clear_stash")
+	check((meta.call("stash") as Array).is_empty(), "admin: stash empty")
+	meta.call("admin_roll_table", rng)
+	check_eq(meta.call("pulls_today"), 0, "admin: free goods are no pull")
+	meta.call("pull_lever", rng)
+	meta.call("admin_reset_lever")
+	check_eq(meta.call("lever_price"), 0, "admin: lever free again")
+	var day: int = meta.call("day")
+	meta.call("admin_next_day")
+	check_eq(meta.call("day"), day + 1, "admin: a new day")
+	var points: int = meta.call("skill_points")
+	meta.call("admin_add_skill_points", 5)
+	check_eq(meta.call("skill_points"), points + 5, "admin: skill points")

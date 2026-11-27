@@ -750,6 +750,91 @@ static func give_piece(piece: Dictionary) -> int:
 	return own.size() - 1
 
 
+# --- Admin menus (debug builds only: AdminMenu, ShopAdminMenu) -------------------------
+
+## A loot piece {id, count 1} straight into the stash. false for an unknown id.
+static func admin_give_loot(id: String) -> bool:
+	if Content.material(id).is_empty():
+		return false
+	_give_to_stash({"id": id, "count": 1})
+	_save()
+	return true
+
+
+## The stash is emptied (the bag at home stays).
+static func admin_clear_stash() -> void:
+	_write("stash", [])
+	_save()
+
+
+## The box holds exactly `amount` gold (negative = 0).
+static func admin_set_box(amount: int) -> void:
+	_write("box", maxi(0, amount))
+	_save()
+
+
+static func admin_add_skill_points(amount: int) -> void:
+	if amount <= 0:
+		return
+	_write("skill_points", skill_points() + amount)
+	_save()
+
+
+## New goods on the table without paying and without counting a pull.
+static func admin_roll_table(rng: RandomNumberGenerator) -> void:
+	_write("table", ShopGoods.roll(rng, pulls_today()))
+	_save()
+
+
+## Egon's table without goods.
+static func admin_clear_table() -> void:
+	_write("table", ShopGoods.empty_table())
+	_save()
+
+
+## The lever is free again (no pulls today).
+static func admin_reset_lever() -> void:
+	_write("pulls_today", 0)
+	_save()
+
+
+## A new day without a run: day + 1, the lever free again (no theft, the bag stays).
+static func admin_next_day() -> void:
+	_write("day", day() + 1)
+	_write("pulls_today", 0)
+	_save()
+
+
+## Quest `id` counts as done without its stone (opens its dungeons, Egon moves on, pays).
+static func admin_finish_quest(id: String) -> bool:
+	if Quests.data(id).is_empty() or quest_done(id):
+		return false
+	var done: Array = quests_done().duplicate()
+	done.append(id)
+	_write("quests_done", done)
+	var target: String = String(Quests.data(id).get("moves_to", ""))
+	if not target.is_empty():
+		_write("location", target)
+	_write("box", box() + maxi(0, int(Quests.data(id).get("gold", 0))))
+	_save()
+	return true
+
+
+## Egon's potion show is due at the next visit (died often enough, not shown yet).
+static func admin_potion_tour_due() -> void:
+	_write("potions_unlocked", false)
+	_write("deaths", maxi(deaths(), int(Content.potions().get("unlock_deaths", 2))))
+	_write("tutorial_done", true)
+	_save()
+
+
+## Egon has his ruby (the errand is over).
+static func admin_ruby_delivered() -> void:
+	_write("ruby_delivered", true)
+	_write("rope_done", true)
+	_save()
+
+
 ## true once Egon showed the shop (first visit after the intro).
 static func tutorial_done() -> bool:
 	return bool(_read("tutorial_done", false))

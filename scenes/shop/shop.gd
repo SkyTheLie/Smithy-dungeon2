@@ -37,6 +37,7 @@ extends Control
 ## Egon's ruby (MetaState.ruby_due: after climbing out at the rope of the first boss): the ruby
 ## shines in the inventory and flies over to Egon (MetaState.deliver_ruby); without one he asks
 ## for it again (until one comes home).
+## P (only in debug builds, started from the editor): the admin menu of the shop (ShopAdminMenu).
 ## All rules live in MetaState / ShopGoods; this screen only shows them and plays the animations.
 
 const MERCHANT: Texture2D = preload("res://assets/sprites/npcs/black_market_dealer.png")
@@ -108,6 +109,8 @@ var _black: ColorRect
 ## true while Egon does something by himself (tutorial, lever): clicks are ignored.
 var _locked: bool = false
 var _rng := RandomNumberGenerator.new()
+## P (only in debug builds): the admin menu for testing (ShopAdminMenu), null otherwise.
+var admin_menu: ShopAdminMenu = null
 
 
 func _ready() -> void:
@@ -116,6 +119,11 @@ func _ready() -> void:
 	_rng.randomize()
 	_build()
 	_refresh()
+	if OS.is_debug_build():
+		admin_menu = ShopAdminMenu.new()
+		admin_menu.name = "ShopAdminMenu"
+		add_child(admin_menu)
+		admin_menu.setup(self)
 	AudioManager.play_music("title")
 	create_tween().tween_property(_black, "modulate:a", 0.0, FADE_TIME)
 	if not MetaState.tutorial_done():
@@ -494,6 +502,19 @@ func _on_stash_dropped(data: Dictionary, cell: Vector2i, rot: bool) -> void:
 func _input(event: InputEvent) -> void:
 	if BagBoard.is_turn_event(event) and BagBoard.rotate_drag(get_viewport()):
 		get_viewport().set_input_as_handled()
+
+
+## P: the admin menu (debug builds only).
+func _unhandled_input(event: InputEvent) -> void:
+	if admin_menu != null and not admin_menu.visible and event.is_action_pressed(Controls.TEST_ROOM):
+		get_viewport().set_input_as_handled()
+		admin_menu.open()
+
+
+## After a change from the admin menu: background, table, stash, hero, everything new.
+func refresh_all() -> void:
+	_cave.texture = _location_background()
+	_refresh()
 
 
 func _panel(at: Vector2) -> PanelContainer:
