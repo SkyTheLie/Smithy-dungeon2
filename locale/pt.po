@@ -2712,6 +2712,12 @@ msgstr "Nível %d · %d andares"
 msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
 msgstr "Nível %d · EXP %s · Pontos: %d · Ouro: %d"
 
+msgid "Stufe %d · EXP +%d"
+msgstr "Nível %d · EXP +%d"
+
+msgid "Stufe %d!"
+msgstr "Nível %d!"
+
 msgid "Stufe %d/%d"
 msgstr "Nível %d/%d"
 

@@ -38,6 +38,8 @@ signal rope_grabbed
 signal exit_entered
 ## A short text for the HUD (German key).
 signal message(text: String)
+## An enemy took `amount` damage (HUD: hit marker at the crosshair; red when `killed`).
+signal enemy_damaged(enemy: Enemy, amount: float, killed: bool)
 ## The Boss-Altar scene started (true) / ended (false): the HUD hides meanwhile.
 signal cutscene_changed(active: bool)
 
@@ -717,6 +719,13 @@ func _on_enemy_died(enemy: Enemy) -> void:
 		_drop(rooms[current_cell], enemy.global_position, "key")
 	elif _rng.randf() < float(enemy.data.get("drop_chance", 0.0)) + run.stats.luck * _luck_drop() * 0.5:
 		_drop(rooms[current_cell], enemy.global_position, _roll_drop())
+
+
+## Enemy.take_damage: a number pops up over it (big and golden for a strong hit), the HUD hears it.
+func on_enemy_damaged(enemy: Enemy, amount: float, killed: bool) -> void:
+	var big: bool = amount >= run.stats.damage * 1.6
+	Fx.damage_number(effects, enemy.aim_point() + Vector3(0, enemy.height * 0.4, 0), amount, big, killed)
+	enemy_damaged.emit(enemy, amount, killed)
 
 
 ## Chance that a normal enemy drops a key (data/loot.json "key_chance", one value for all).

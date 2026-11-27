@@ -2712,6 +2712,12 @@ msgstr "等级 %d · %d层"
 msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
 msgstr "等级%d · 经验 %s · 技能点：%d · 金币：%d"
 
+msgid "Stufe %d · EXP +%d"
+msgstr "等级 %d · 经验 +%d"
+
+msgid "Stufe %d!"
+msgstr "等级 %d！"
+
 msgid "Stufe %d/%d"
 msgstr "等级 %d/%d"
 

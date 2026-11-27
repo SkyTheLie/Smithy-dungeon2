@@ -300,6 +300,8 @@ func take_damage(amount: float, push: Vector3, confuse: bool) -> void:
 	if confuse and not is_boss:
 		_confused = CONFUSED_TIME
 	_voice("hit", randf_range(0.9, 1.15))
+	if dungeon and not _forced:
+		dungeon.on_enemy_damaged(self, amount, hp <= 0.0)
 	if hp <= 0.0:
 		_out_of_life()
 
@@ -589,6 +591,8 @@ func _die() -> void:
 		_death_tricks()
 	died.emit(self)
 	_voice("die", randf_range(0.9, 1.05))
+	if dungeon and not _forced:
+		Fx.confetti(dungeon.effects, aim_point(), 22 if is_boss else 12)
 	if _death == null:
 		queue_free()
 		return

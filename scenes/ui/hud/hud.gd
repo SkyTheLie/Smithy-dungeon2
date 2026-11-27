@@ -26,6 +26,14 @@ var _potion_icon: TextureRect
 var _potion_key: Label
 ## "[F] Mit dem Händler handeln" (built in code, bottom middle).
 var talk_prompt: Label
+## "+2 Rattenfell" lines (right of the middle), newest at the bottom.
+var _loot_popups: VBoxContainer
+## Red pulsing edge while life is low (≤ LOW_LIFE_HALVES).
+var _low_life: TextureRect
+var _low_tween: Tween
+const LOW_LIFE_HALVES: int = 2
+const POPUP_TIME: float = 1.6
+@onready var _crosshair: Crosshair = $Crosshair
 @onready var _hearts: HeartBar = %Hearts
 @onready var _bombs: Label = %Bombs
 @onready var _keys: Label = %Keys
@@ -63,6 +71,10 @@ func setup(run_state: RunState, the_dungeon: Dungeon, the_player: Player) -> voi
 	player.potion_tried.connect(_on_potion_tried)
 	_build_potion_row()
 	_build_talk_prompt()
+	_build_loot_popups()
+	_build_low_life()
+	run.loot_picked.connect(_on_loot_picked)
+	dungeon.enemy_damaged.connect(func(_enemy: Enemy, _amount: float, killed: bool) -> void: _crosshair.show_hit(killed))
 	player.weapon.charge_changed.connect(_on_charge_changed)
 	_boss_box.hide()
 	_charge.hide()
@@ -97,6 +109,7 @@ func _update_counters() -> void:
 	_bombs.text = "%02d" % run.bombs
 	_keys.text = "%02d" % run.keys
 	_refresh_potion()
+	_refresh_low_life()
 
 
 func _build_potion_row() -> void:
@@ -117,6 +130,95 @@ func _build_potion_row() -> void:
 	_potion_row.add_child(_potion_key)
 	_bombs.get_parent().get_parent().add_child(_potion_row)
 	_refresh_potion()
+
+
+func _build_loot_popups() -> void:
+	_loot_popups = VBoxContainer.new()
+	_loot_popups.name = "LootPopups"
+	_loot_popups.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_loot_popups.alignment = BoxContainer.ALIGNMENT_END
+	_loot_popups.set_anchors_and_offsets_preset(Control.PRESET_CENTER_RIGHT)
+	_loot_popups.offset_left = -170
+	_loot_popups.offset_right = -10
+	_loot_popups.offset_top = -10
+	_loot_popups.offset_bottom = 90
+	add_child(_loot_popups)
+
+
+## "+2 Rattenfell" in the rarity colour of the loot: pops in, stays, fades.
+func _on_loot_picked(id: String, count: int) -> void:
+	var data: Dictionary = Content.material(id)
+	var line := Label.new()
+	line.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	line.text = "+%d %s" % [count, Language.translate(String(data.get("name", id)))]
+	line.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	line.add_theme_font_size_override("font_size", 12)
+	line.add_theme_color_override("font_color", Color(1.0, 0.85, 0.3) if id == Bag.GOLD else Rarity.color(int(data.get("rarity", 1))))
+	line.add_theme_color_override("font_outline_color", Color.BLACK)
+	line.add_theme_constant_override("outline_size", 4)
+	line.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_loot_popups.add_child(line)
+	while _loot_popups.get_child_count() > 5:
+		_loot_popups.get_child(0).free()
+	line.pivot_offset = Vector2(160, 8)
+	line.scale = Vector2(1.4, 1.4)
+	var tween := line.create_tween()
+	tween.tween_property(line, "scale", Vector2.ONE, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_interval(POPUP_TIME)
+	tween.tween_property(line, "modulate:a", 0.0, 0.4)
+	tween.tween_callback(line.queue_free)
+
+
+## A red glow around the edges (radial gradient), shown and pulsing while life is low.
+func _build_low_life() -> void:
+	var gradient := Gradient.new()
+	gradient.offsets = PackedFloat32Array([0.0, 0.62, 1.0])
+	gradient.colors = PackedColorArray([Color(0.8, 0.0, 0.0, 0.0), Color(0.8, 0.0, 0.0, 0.0), Color(0.85, 0.05, 0.05, 0.5)])
+	var texture := GradientTexture2D.new()
+	texture.gradient = gradient
+	texture.fill = GradientTexture2D.FILL_RADIAL
+	texture.fill_from = Vector2(0.5, 0.5)
+	texture.fill_to = Vector2(1.0, 1.0)
+	texture.width = 64
+	texture.height = 36
+	_low_life = TextureRect.new()
+	_low_life.name = "LowLife"
+	_low_life.texture = texture
+	_low_life.stretch_mode = TextureRect.STRETCH_SCALE
+	_low_life.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_low_life.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_low_life.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_low_life.modulate.a = 0.0
+	_low_life.hide()
+	add_child(_low_life)
+	move_child(_low_life, 0)
+
+
+## Low life (red + blue halves ≤ LOW_LIFE_HALVES, more than one heart in all): the edge pulses
+## like a heartbeat and the hearts beat with it.
+func _refresh_low_life() -> void:
+	if _low_life == null:
+		return
+	var low: bool = run.health + run.blue <= LOW_LIFE_HALVES and run.health > 0 and run.max_hearts > 1
+	if low == _low_life.visible:
+		return
+	_low_life.visible = low
+	if _low_tween:
+		_low_tween.kill()
+	_hearts.scale = Vector2.ONE
+	if not low:
+		return
+	_hearts.pivot_offset = Vector2(8, 8)
+	_low_tween = create_tween().set_loops()
+	_low_tween.tween_property(_low_life, "modulate:a", 1.0, 0.18)
+	_low_tween.parallel().tween_property(_hearts, "scale", Vector2.ONE * 1.12, 0.18)
+	_low_tween.tween_property(_low_life, "modulate:a", 0.35, 0.5)
+	_low_tween.parallel().tween_property(_hearts, "scale", Vector2.ONE, 0.5)
+
+
+## true while the low-life warning shows (tests).
+func is_low_life_shown() -> bool:
+	return _low_life != null and _low_life.visible
 
 
 func _build_talk_prompt() -> void:

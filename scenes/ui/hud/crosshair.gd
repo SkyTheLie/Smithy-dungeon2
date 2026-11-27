@@ -7,6 +7,7 @@ extends Control
 ## so a third of that in HUD units; on bigger screens it grows like the rest of the HUD).
 ## Saved in user://settings.cfg section "crosshair" (WindowLayout). The same class draws the
 ## preview in the settings. Redraws when the settings change (Game.crosshair_changed).
+## Hit marker (show_hit): a short white X around the middle when a shot hits, red for a kill.
 
 const SECTION: String = "crosshair"
 ## Pixels of a 1080p screen per HUD unit.
@@ -38,13 +39,50 @@ const DEFAULTS: Dictionary[String, Variant] = {
 }
 
 
+## Seconds a hit marker shows.
+const HIT_TIME: float = 0.18
+const HIT_COLOR := Color(1, 1, 1)
+const KILL_COLOR := Color(1.0, 0.25, 0.2)
+
+var _hit_left: float = 0.0
+var _hit_killed: bool = false
+
+
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	Game.crosshair_changed.connect(queue_redraw)
+	set_process(false)
 
 
 func _draw() -> void:
 	draw_at(self, size / 2.0, 1.0)
+	if _hit_left > 0.0:
+		var center: Vector2 = size / 2.0
+		var grow: float = 1.0 + (1.0 - _hit_left / HIT_TIME) * 0.4
+		var color: Color = KILL_COLOR if _hit_killed else HIT_COLOR
+		color.a = clampf(_hit_left / HIT_TIME * 1.5, 0.0, 1.0)
+		for dir: Vector2 in [Vector2(1, 1), Vector2(-1, 1), Vector2(1, -1), Vector2(-1, -1)]:
+			var from: Vector2 = center + dir.normalized() * 4.0 * grow
+			var to: Vector2 = center + dir.normalized() * 8.0 * grow
+			draw_line(from, to, Color(0, 0, 0, color.a * 0.7), 2.4)
+			draw_line(from, to, color, 1.2)
+
+
+## A shot hit (killed: it was the last hit): the X flashes around the middle.
+func show_hit(killed: bool) -> void:
+	_hit_left = HIT_TIME
+	_hit_killed = killed or (_hit_killed and _hit_left > 0.0)
+	set_process(true)
+	queue_redraw()
+
+
+func _process(delta: float) -> void:
+	_hit_left -= delta
+	if _hit_left <= 0.0:
+		_hit_left = 0.0
+		_hit_killed = false
+		set_process(false)
+	queue_redraw()
 
 
 ## A value of the settings (DEFAULTS if not set).

@@ -31,6 +31,8 @@ signal revived(id: String)
 signal blue_heart_lost
 ## Loot an item gave ("give": "loot") did not fit into the bag; Dungeon drops it on the floor.
 signal loot_overflow(id: String, count: int)
+## Loot went into the bag from the floor (HUD: "+2 Rattenfell" in its rarity colour).
+signal loot_picked(id: String, count: int)
 
 var health: int = 6
 var max_hearts: int = 3

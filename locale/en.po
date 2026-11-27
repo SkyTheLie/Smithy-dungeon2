@@ -2712,6 +2712,12 @@ msgstr "Level %d · %d floors"
 msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
 msgstr "Level %d · EXP %s · Skill points: %d · Gold: %d"
 
+msgid "Stufe %d · EXP +%d"
+msgstr "Level %d · EXP +%d"
+
+msgid "Stufe %d!"
+msgstr "Level %d!"
+
 msgid "Stufe %d/%d"
 msgstr "Level %d/%d"
 

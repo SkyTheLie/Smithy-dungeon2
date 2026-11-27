@@ -29,6 +29,10 @@ func _ready() -> void:
 	Language.apply()
 	Controls.register()
 	DisplaySettings.apply()
+	# Every button grows a little under the mouse and springs when pressed (UiJuice).
+	get_tree().node_added.connect(func(node: Node) -> void:
+			if node is BaseButton:
+				UiJuice.attach(node as BaseButton))
 
 
 ## A new run on floor 1 with a fresh random seed, as `character` (data/characters.json), in

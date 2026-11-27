@@ -2712,6 +2712,12 @@ msgstr "سطح %d · %d طبقه"
 msgid "Stufe %d · EXP %s · Skillpunkte: %d · Gold: %d"
 msgstr "سطح %d · تجربه %s · امتیاز: %d · طلا: %d"
 
+msgid "Stufe %d · EXP +%d"
+msgstr "سطح %d · تجربه +%d"
+
+msgid "Stufe %d!"
+msgstr "سطح %d!"
+
 msgid "Stufe %d/%d"
 msgstr "سطح %d/%d"
 
