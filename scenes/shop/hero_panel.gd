@@ -11,6 +11,12 @@ extends PanelContainer
 
 signal slot_clicked(slot: String)
 
+## Drag and drop (set by the shop): (slot) -> Variant drag data of what is worn there;
+## (slot, data) -> int 0 = not taken, 1 = goes on here, 2 = not here; (slot, data) drop.
+var drag_for: Callable = Callable()
+var judge_for: Callable = Callable()
+var drop_for: Callable = Callable()
+
 const DOLL: Texture2D = preload("res://assets/sprites/ui/doll.png")
 const DOLL_OFFSET := Vector2(14, 8)
 const AREA_SIZE := Vector2(124, 146)
@@ -56,6 +62,7 @@ func _ready() -> void:
 		var at: Array = data.get("at", [0, 0])
 		place.position = (Vector2(float(at[0]), float(at[1])) - ShopSlot.SIZE / 2.0).round()
 		place.clicked.connect(slot_clicked.emit.bind(slot))
+		_wire(place, slot)
 		area.add_child(place)
 		_slots[slot] = place
 	var relic_title := Label.new()
@@ -88,6 +95,7 @@ func _ready() -> void:
 		place.hint = load(potion_hint) as Texture2D if ResourceLoader.exists(potion_hint) else null
 		place.hint_name = Language.translate("Trank-Platz: im Dungeon mit %s trinken") % Controls.key_name(Controls.get_key(Controls.POTION))
 		place.clicked.connect(slot_clicked.emit.bind(slot))
+		_wire(place, slot)
 		_potion_row.add_child(place)
 		_slots[slot] = place
 	refresh()
@@ -100,6 +108,21 @@ func refresh() -> void:
 	var worn: Dictionary = MetaState.equipment()
 	for slot: String in _slots:
 		(_slots[slot] as ShopSlot).show_entry(worn.get(slot, {}))
+
+
+## Drag from the place and drop onto it, through the shop's callables.
+func _wire(place: ShopSlot, slot: String) -> void:
+	place.set_drag_forwarding(
+		func(_at: Vector2) -> Variant:
+			return drag_for.call(place, slot) if drag_for.is_valid() else null,
+		func(_at: Vector2, data: Variant) -> bool:
+			var verdict: int = int(judge_for.call(slot, data)) if judge_for.is_valid() else 0
+			place.set_drop_hint(verdict)
+			return verdict != 0,
+		func(_at: Vector2, data: Variant) -> void:
+			place.set_drop_hint(0)
+			if drop_for.is_valid():
+				drop_for.call(slot, data))
 
 
 func get_slot(slot: String) -> ShopSlot:
@@ -131,5 +154,6 @@ func _build_relic_places() -> void:
 		place.hint = load(hint_path) as Texture2D if ResourceLoader.exists(hint_path) else null
 		place.hint_name = Language.translate("Relikt")
 		place.clicked.connect(slot_clicked.emit.bind(slot))
+		_wire(place, slot)
 		_relic_row.add_child(place)
 		_slots[slot] = place

@@ -72,7 +72,13 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 
 - `bag`: `columns` × `rows` (Raster des Inventars im Run), `safe` [Breite, Höhe] (sicherer Platz, bleibt beim Tod), `stack` (höchste Anzahl pro Platz), `board` [links, oben, rechts, unten] (Bereich, in dem Rucksäcke angebaut werden dürfen; das Inventar liegt bei 0,0).
 - Beute (`loot.json` materials): `size` [Breite, Höhe] in Inventar-Feldern (fehlt = `default_size`). Faustregel: Kleinkram 1×1, Felle/Häute 2×2, Federn/Essenzen 1×2, Stäbe 4×1, seltene Edelsteine und große Felle 3×3. Alles muss ins 8×3-Inventar passen (Test).
-- Rucksäcke (`backpacks.json`): `name`, `desc`, `icon`, `size` [Breite, Höhe], `color` [r, g, b]. Bekommen über einen Skill mit `effect` `{"backpack": "<id>"}`.
+- Rucksäcke (`backpacks.json`): `name`, `desc`, `icon`, `size` [Breite, Höhe], `color` [r, g, b], `price` (Egons Tisch), `unlock` (ab wann auf dem Tisch). Bekommen über einen Skill mit `effect` `{"backpack": "<id>"}` oder auf Egons Tisch (`shop.json` `backpack_chance`).
+- Ausrüstung im Lager: Größe nach `gear.json` slots `size` (Handschuhe 1×1, sonst 2×2). Egons Tisch: `shop.json` `table_grid` [Breite, Höhe].
+- `stash`: `columns` × `rows` des Lagers zu Hause (Raster).
+
+## Egons Quests (`data/quests.json`)
+
+- `start` (Egons Ort am Anfang), `locations` (Ort → `name`, `background`), `quests` (der Reihe nach: `name`, `desc`, `dungeon` = Endboss dieses Dungeons lässt den Stein fallen, `item` = Stein aus `loot.json` mit `"quest": true`, `moves_to` = Egons neuer Ort, `gold` = Belohnung). Ein Dungeon öffnet sich mit `unlock` `{"quest": "<id>"}`. Egons Sätze: `story.json` `quest_<id>_intro` und `quest_<id>_done` (aus `docs/figuren/EGON_EHRLICH.md`).
 - `money_box`: `limit` (so viel ist in der Dose sicher), `steal_all_chance`, `steal_part_chance`, `steal_part_share` [min, max].
 
 ## Dungeon auf Egons Brett (`data/dungeons.json`)

@@ -39,6 +39,9 @@ msgstr "Отмена"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "Но не так же, совсем без снаряжения. Пойдём, сначала глянь мою лавку."
 
+msgid "Abgeben"
+msgstr "Сдать"
+
 msgid "Abstand"
 msgstr "Зазор"
 
@@ -69,14 +72,29 @@ msgstr "Всё в лавке за полцены"
 msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
 msgstr "Так что лучше трать, партнёр. Желательно у меня!"
 
+msgid "Am Dungeon der Glut"
+msgstr "У Подземелья углей"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "В конце каждый выстрел разлетается на четыре искры"
+
+msgid "Am Frostgipfel"
+msgstr "У Морозной вершины"
+
+msgid "Am Glutschlund"
+msgstr "У Огненной пасти"
+
+msgid "Am Moor der Irrlichter"
+msgstr "У Болота блуждающих огней"
 
 msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
 msgstr "Выбрался по верёвке, как герой! Но… где мой рубин?"
 
 msgid "Amethyst"
 msgstr "Аметист"
+
+msgid "An der Wispernden Wiese"
+msgstr "У Шепчущего луга"
 
 msgid "Angriffstempo"
 msgstr "Скорость атаки"
@@ -101,6 +119,12 @@ msgstr "Пепел"
 
 msgid "Audio"
 msgstr "Звук"
+
+msgid "Auf der Wiese bewacht der Endboss einen Kristall. Er summt, sagt man. Bring ihn mir. Ich brauch was zum Summen. Ehrlich!"
+msgstr "На лугу финальный босс стережёт кристалл. Говорят, он гудит. Принеси его мне. Мне нужно что-то гудящее. Честно!"
+
+msgid "Auf zur Wiese, Partner. Ich hab gehört, da wächst Gold. Oder Gras."
+msgstr "На луг, партнёр. Говорят, там растёт золото. Или трава."
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "Заряженный огромный уголь врезается и взрывается"
@@ -147,6 +171,9 @@ msgstr "При попадании снаряд распадается на че�
 msgid "Beine"
 msgstr "Ноги"
 
+msgid "Belohnung: der nächste Dungeon und %d Gold"
+msgstr "Награда: следующее подземелье и %d золота"
+
 msgid "Bergfalke"
 msgstr "Горный сокол"
 
@@ -173,6 +200,9 @@ msgstr "Войти"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "Добычу я выкупаю: ПКМ в инвентаре — и она у моей скупки наверху. Честные цены. Честно!"
+
+msgid "Beute kaufe ich dir ab: Zieh sie einfach auf meinen Tisch. Faire Preise. Ehrlich!"
+msgstr "Добычу куплю: просто перетащи её на мой стол. Честные цены. Честно!"
 
 msgid "Beute: %s"
 msgstr "Добыча: %s"
@@ -231,6 +261,9 @@ msgstr "Горящие, медленные враги и два синих се�
 msgid "Brennt gut in jeder Esse."
 msgstr "Хорошо горит в любом горне."
 
+msgid "Bring Egon den Stein vom Endboss (Quests), dann öffnet sich der nächste Dungeon."
+msgstr "Принеси Эгону камень финального босса (Задания) — и откроется следующее подземелье."
+
 msgid "Bronze"
 msgstr "Бронза"
 
@@ -285,6 +318,9 @@ msgstr "Голубой"
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Вон там вход в Подземелье углей. Некоторые даже возвращаются!"
 
+msgid "Da passt das nicht hin, Partner. Mach erst Platz."
+msgstr "Туда не влезет, партнёр. Сначала освободи место."
+
 msgid "Dafür reicht dein Gold nicht"
 msgstr "На это не хватает золота"
 
@@ -300,6 +336,9 @@ msgstr "К нему ещё пристёгнут другой рюкзак."
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Внутри застрял маленький жучок."
 
+msgid "Darin tanzt ein kleines Licht. Egon will ihn haben."
+msgstr "Внутри танцует огонёк. Эгон его хочет."
+
 msgid "Darin wohnt fast ein ganzer Laden."
 msgstr "Внутри поместится почти целая лавка."
 
@@ -312,11 +351,17 @@ msgstr "Шкура ледяного великана."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "Золото этого забега. Если умрёшь, оно пропадёт, кроме лежащего в надёжной ячейке."
 
+msgid "Das Herz des Drachen"
+msgstr "Сердце дракона"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Это не наденешь, партнёр. Поверь, я пробовал."
 
 msgid "Das kostet zu viel Leben"
 msgstr "Это стоит слишком много жизни"
+
+msgid "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest."
+msgstr "Это? Это я не покупаю. Это я хочу в подарок! Э… как задание."
 
 msgid "Deckkraft"
 msgstr "Непрозрачность"
@@ -342,6 +387,12 @@ msgstr "Твои предметы"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Снаряды преследуют врагов"
 
+msgid "Den Quest-Stein hierher ziehen"
+msgstr "Перетащи сюда камень задания"
+
+msgid "Den Stein aus dem Lager auf den Quest-Platz oben rechts ziehen oder hier abgeben."
+msgstr "Перетащи камень со склада на место задания справа вверху или сдай здесь."
+
 msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
 msgstr "Победил первого босса и выбрался по верёвке."
 
@@ -354,8 +405,23 @@ msgstr "Полоска над рычагом показывает, что мож
 msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
 msgstr "У босса он был, я знаю! Принеси, если найдёшь. Я подожду. С нетерпением."
 
+msgid "Der Endboss am Frostgipfel hat einen Frost-Aquamarin. Bring ihn Egon."
+msgstr "У финального босса Морозной вершины есть морозный аквамарин. Принеси его Эгону."
+
+msgid "Der Endboss der Wispernden Wiese bewacht einen Wiesenkristall. Bring ihn Egon."
+msgstr "Финальный босс Шепчущего луга стережёт луговой кристалл. Принеси его Эгону."
+
+msgid "Der Endboss im Dungeon der Glut hütet einen Glutrubin. Bring ihn Egon."
+msgstr "Финальный босс Подземелья углей хранит угольный рубин. Принеси его Эгону."
+
+msgid "Der Endboss im Moor der Irrlichter trägt einen Irrlicht-Opal. Bring ihn Egon."
+msgstr "Финальный босс Болота блуждающих огней носит огненный опал. Принеси его Эгону."
+
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "Луч огня изгибается к врагу"
+
+msgid "Der Glutrubin! Echt! Also … ich hab nie gezweifelt."
+msgstr "Угольный рубин! Настоящий! Ну… я никогда не сомневался."
 
 msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
 msgstr "Торговец в подземелье платит на 2 золотых больше за каждую добычу."
@@ -363,14 +429,26 @@ msgstr "Торговец в подземелье платит на 2 золот�
 msgid "Der Händler kauft Beute: Tab, Rechtsklick"
 msgstr "Торговец покупает добычу: Tab, правый клик"
 
+msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
+msgstr "Опал! Он светится! Почти как моё будущее."
+
+msgid "Der Stein liegt in deinem Lager!"
+msgstr "Камень лежит на твоём складе!"
+
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "Камень принимает твою жертву"
+
+msgid "Der Vulkandrache im Glutschlund hat ein Herz aus Glut. Bring es Egon."
+msgstr "У вулканического дракона в Огненной пасти сердце из углей. Принеси его Эгону."
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "Путь вниз открыт!"
 
 msgid "Der Wildhüter"
 msgstr "Егерь"
+
+msgid "Der einzige auch, aber das sagen wir keinem."
+msgstr "И единственный, но об этом никому ни слова."
 
 msgid "Der sichere Platz wird eine Spalte breiter."
 msgstr "Надёжное место становится на столбец шире."
@@ -437,6 +515,9 @@ msgstr "Дыхание дракона"
 
 msgid "Drachenhaut"
 msgstr "Шкура дракона"
+
+msgid "Drachenherz"
+msgstr "Сердце дракона"
 
 msgid "Drachenleder"
 msgstr "Драконья кожа"
@@ -567,11 +648,17 @@ msgstr "Эффекты"
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "Эгон Честный, очень приятно. Честный — моё имя, честный — мой бизнес. Честно!"
 
+msgid "Egon hat gerade keinen Auftrag."
+msgstr "Сейчас у Эгона нет поручений."
+
 msgid "Egon könnte klauen!"
 msgstr "Эгон может стащить!"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "У Эгона глаза становятся огромными."
+
+msgid "Egons Glutrubin"
+msgstr "Угольный рубин Эгона"
 
 msgid "Egons Laden"
 msgstr "Лавка Эгона"
@@ -645,6 +732,9 @@ msgstr "Торговец! Подойди и поговори с ним."
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "Трава в форме сердца. Эгон заваривает из неё чай."
 
+msgid "Ein Licht für Egon"
+msgstr "Огонёк для Эгона"
+
 msgid "Ein Platz mehr im Rucksack."
 msgstr "Ещё одна ячейка в рюкзаке."
 
@@ -705,6 +795,9 @@ msgstr "Синее сердце, дольше защита после удара
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "Одно синее сердце, бег быстрее"
 
+msgid "Ein echtes Drachenherz! Partner, du bist der beste Kunde, den ich je hatte."
+msgstr "Настоящее сердце дракона! Партнёр, ты мой лучший покупатель."
+
 msgid "Ein einfacher Bogen. Für Bogenschützen."
 msgstr "Простой лук. Для лучников."
 
@@ -719,6 +812,9 @@ msgstr "Огромный рюкзак на 5×3 клетки. Пристегни
 
 msgid "Ein rotes Herz mehr."
 msgstr "Ещё одно красное сердце."
+
+msgid "Ein seltener Stein! Egon wird staunen."
+msgstr "Редкий камень! Эгон обомлеет."
 
 msgid "Ein sicherer Platz mehr im Rucksack."
 msgstr "Ещё одна надёжная ячейка в рюкзаке."
@@ -801,6 +897,9 @@ msgstr "Ледяное перо"
 msgid "Eishöhle"
 msgstr "Ледяная пещера"
 
+msgid "Eiskalte Gier"
+msgstr "Ледяная жадность"
+
 msgid "Eisrobbe"
 msgstr "Ледяной тюлень"
 
@@ -833,6 +932,9 @@ msgstr "Посох земли"
 
 msgid "Erfolg: %s"
 msgstr "Достижение: %s"
+
+msgid "Erledigt"
+msgstr "Выполнено"
 
 msgid "Erreiche Ebene %d"
 msgstr "Дойди до уровня %d"
@@ -944,6 +1046,9 @@ msgstr "Открыто: %s"
 
 msgid "Frost und Feuer"
 msgstr "Мороз и пламя"
+
+msgid "Frost-Aquamarin"
+msgstr "Морозный аквамарин"
 
 msgid "Frostflechte"
 msgstr "Морозный лишайник"
@@ -1083,6 +1188,9 @@ msgstr "Закрыто: с уровня %d."
 msgid "Gesperrt: erst %s schaffen."
 msgstr "Закрыто: сначала пройди «%s»."
 
+msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
+msgstr "Закрыто: сначала выполни задание Эгона «%s»."
+
 msgid "Gesprengte Fessel"
 msgstr "Разбитые оковы"
 
@@ -1173,6 +1281,9 @@ msgstr "Плащ жара"
 msgid "Glutmond"
 msgstr "Угольная луна"
 
+msgid "Glutrubin"
+msgstr "Угольный рубин"
+
 msgid "Glutsammler"
 msgstr "Собиратель углей"
 
@@ -1223,6 +1334,9 @@ msgstr "Везунчик"
 
 msgid "Glühender Schlüssel"
 msgstr "Раскалённый ключ"
+
+msgid "Glüht von innen. Den gibt es nur einmal, sagt Egon."
+msgstr "Светится изнутри. Такой всего один, говорит Эгон."
 
 msgid "Goblin"
 msgstr "Гоблин"
@@ -1434,6 +1548,9 @@ msgstr "Ведьмин котёл"
 msgid "Hier klicken"
 msgstr "Нажми здесь"
 
+msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
+msgstr "Здесь лежит то, что не влезло в склад. Освободи место или продай."
+
 msgid "Hinausgeklettert!"
 msgstr "Выбрался!"
 
@@ -1494,6 +1611,9 @@ msgstr "Врата ада"
 msgid "Höllenwächter"
 msgstr "Страж ада"
 
+msgid "Hörst du das? Er summt! Das Geld … äh, das Glück summt mit."
+msgstr "Слышишь? Гудит! Деньги… э, удача гудит в такт."
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Я жул… э-э, продавец. Я продаю… …снаряжение! Да, точно. Снаряжение продаю."
 
@@ -1509,6 +1629,12 @@ msgstr "В подземелье жмёшь %s. Буль-буль — и два �
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "В подземелье: %s — выпить"
 
+msgid "Im Glutschlund wohnt ein Drache. Sein Herz glüht. Bring es mir, und ich … ich bin sehr, sehr dankbar. Ehrlich!"
+msgstr "В Огненной пасти живёт дракон. Его сердце пылает. Принеси его мне, и я… я буду очень-очень благодарен. Честно!"
+
+msgid "Im Moor trägt der Endboss einen Irrlicht-Opal. Hübsch. Sehr hübsch. Bring ihn mir, ich … verwahre ihn. Ganz legal!"
+msgstr "На болоте финальный босс носит огненный опал. Красивый. Очень красивый. Принеси его мне, я… сохраню. Всё законно!"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "В вулкане кипит лава, а в самом низу стоят врата. Эгон там никогда не был. Так он говорит. Но сапоги у него опалены."
 
@@ -1518,6 +1644,9 @@ msgstr "В подземелье золото не берёшь. Внизу мо�
 msgid "Inventar"
 msgstr "Инвентарь"
 
+msgid "Inventar im Dungeon"
+msgstr "Инвентарь в подземелье"
+
 msgid "Inventar voll!"
 msgstr "Инвентарь полон!"
 
@@ -1526,6 +1655,9 @@ msgstr "Блуждающий огонёк"
 
 msgid "Irrlicht-Glut"
 msgstr "Уголёк огонька"
+
+msgid "Irrlicht-Opal"
+msgstr "Огненный опал"
 
 msgid "Irrlichtkönigin"
 msgstr "Королева огоньков"
@@ -1560,6 +1692,12 @@ msgstr "Каждый следующий поворот сегодня: %d %% о�
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "Каждый второй выстрел намного сильнее"
 
+msgid "Jetzt zum Glutschlund, Partner. Da ist es wenigstens warm."
+msgstr "Теперь к Огненной пасти, партнёр. Там хоть тепло."
+
+msgid "Kalt! Kalt! Aber schön. Wie meine Preise."
+msgstr "Холодно! Холодно! Но красиво. Как мои цены."
+
 msgid "Kamille"
 msgstr "Ромашка"
 
@@ -1581,6 +1719,9 @@ msgstr "Карта"
 msgid "Kaufen: %d Gold"
 msgstr "Купить: %d золота"
 
+msgid "Kein Platz"
+msgstr "Нет места"
+
 msgid "Kein Relikt"
 msgstr "Не реликвия"
 
@@ -1589,6 +1730,9 @@ msgstr "Зелья нет с собой"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Ни один удар не отнимает больше полсердца"
+
+msgid "Keine Quest"
+msgstr "Нет задания"
 
 msgid "Kinderschuhe"
 msgstr "Детские ботинки"
@@ -1607,6 +1751,9 @@ msgstr "Нажми на клавишу, затем на новую. Esc = отм
 
 msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
 msgstr "Кликни по вещи в инвентаре — наденешь. Кликни по фигуре — снимешь."
+
+msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
+msgstr "Клик или перетащить на вкладку Инвентарь: пристегнуть"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "Нажми, чтобы продолжить"
@@ -1667,6 +1814,9 @@ msgstr "Меч воина"
 
 msgid "Kriegsaxt"
 msgstr "Боевой топор"
+
+msgid "Kristall aus dem Gras"
+msgstr "Кристалл из травы"
 
 msgid "Kristallbrocken"
 msgstr "Хрустальная глыба"
@@ -1739,6 +1889,9 @@ msgstr "Лавка"
 
 msgid "Ladenschild"
 msgstr "Вывеска лавки"
+
+msgid "Lager"
+msgstr "Склад"
 
 msgid "Lang und schmal, schwer wie ein Amboss."
 msgstr "Длинный и узкий, тяжёлый как наковальня."
@@ -2028,6 +2181,9 @@ msgstr "Следующая страница"
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "След. уровень: %d золота, %d очков, с уровня игрока %d"
 
+msgid "Oben am Frostgipfel hat der Endboss einen Frost-Aquamarin. Bring ihn mir. Handschuhe hab ich. Gegen einen kleinen Obolus."
+msgstr "Наверху Морозной вершины у финального босса морозный аквамарин. Принеси его мне. Перчатки у меня есть. За скромную плату."
+
 msgid "Obsidianwächter"
 msgstr "Обсидиановый страж"
 
@@ -2054,6 +2210,9 @@ msgstr "Орк"
 
 msgid "Ork-Häuptling"
 msgstr "Вождь орков"
+
+msgid "Pack ein, Partner, wir ziehen um. Ans Moor! Da gibt's Kundschaft. Und Mücken."
+msgstr "Собирайся, партнёр, переезжаем. На болото! Там есть покупатели. И комары."
 
 msgid "Paktschatulle"
 msgstr "Шкатулка пакта"
@@ -2126,6 +2285,12 @@ msgstr "Пороховая перчатка"
 
 msgid "Punkt in der Mitte"
 msgstr "Точка в центре"
+
+msgid "Quest"
+msgstr "Задание"
+
+msgid "Quests"
+msgstr "Задания"
 
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "R / ПКМ при перетаскивании: повернуть"
@@ -2261,6 +2426,12 @@ msgstr "Рубин"
 
 msgid "Rucksack"
 msgstr "Рюкзак"
+
+msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
+msgstr "Перетащи рюкзак со склада к инвентарю (R поворачивает). Обратно на склад — снять."
+
+msgid "Rucksack: %d×%d Felder"
+msgstr "Рюкзак: %d×%d клеток"
 
 msgid "Rucksäcke"
 msgstr "Рюкзаки"
@@ -2423,6 +2594,9 @@ msgstr "Закрыть"
 
 msgid "Schläger"
 msgstr "Громила-бандит"
+
+msgid "Schlägt noch. Ganz langsam."
+msgstr "Ещё бьётся. Очень медленно."
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "Змеящиеся отскакивающие выстрелы"
@@ -2670,6 +2844,9 @@ msgstr "Изумрудный самоцвет"
 msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
 msgstr "Какая-то магия. Понятия не имею, я же жу… э-э, продавец!"
 
+msgid "So kalt, dass die Finger kleben bleiben."
+msgstr "Такой холодный, что пальцы прилипают."
+
 msgid "Solide"
 msgstr "Прочный"
 
@@ -2856,6 +3033,9 @@ msgstr "Ищущая искра"
 msgid "Suchender Strahl"
 msgstr "Ищущий луч"
 
+msgid "Summt leise wie eine Wiese im Sommer."
+msgstr "Тихо гудит, как луг летом."
+
 msgid "Sumpfhaut"
 msgstr "Болотная шкура"
 
@@ -2997,8 +3177,14 @@ msgstr "А слева — это ты. Не шевелись, я тебя оде
 msgid "Ungewöhnlich"
 msgstr "Необычный"
 
+msgid "Unten ist dein Lager. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst. Zieh Sachen einfach hin und her."
+msgstr "Внизу твой склад. Туда попадает всё, что ты покупаешь или приносишь из подземелья. Просто перетаскивай вещи."
+
 msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
 msgstr "Внизу твоя сумка. Туда попадает всё, что купишь или принесёшь из подземелья."
+
+msgid "Unter uns, Partner: Der Endboss der Glut hütet einen Glutrubin. Bring ihn mir, und ich zeig dir den Weg ins Moor. Ehrlich!"
+msgstr "Между нами, партнёр: финальный босс углей хранит угольный рубин. Принеси его мне, и я покажу дорогу к болоту. Честно!"
 
 msgid "Utility"
 msgstr "Польза"
@@ -3105,6 +3291,9 @@ msgstr "Дальнозоркость"
 msgid "Weiter"
 msgstr "Продолжить"
 
+msgid "Weiter zum Frostgipfel! Zieh dich warm an. Ich hab da zufällig Mäntel."
+msgstr "Дальше, к Морозной вершине! Одевайся теплее. У меня как раз есть плащи."
+
 msgid "Weiterkämpfen"
 msgstr "Сражаться дальше"
 
@@ -3128,6 +3317,9 @@ msgstr "Состязательные сапоги"
 
 msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
 msgstr "Как в Counter-Strike 2: то же число поворачивает так же."
+
+msgid "Wiesenkristall"
+msgstr "Луговой кристалл"
 
 msgid "Wiesenwespe"
 msgstr "Луговая оса"

@@ -1,10 +1,11 @@
 class_name BackpackBoard
 extends Control
-## The grid in Egon's shop where backpacks are attached to the bag (BackpackWindow): the area
-## where backpacks may lie (BagLayout.board_rect, faint), the bag itself (brown, fixed) and the
-## attached backpacks (their colour and picture). Drag a backpack to move it (from here or from
-## the list of loose ones), R or the right mouse button while dragging turns it; while dragging the
-## cells it would cover show green (allowed) or red. MetaState.place_backpack decides.
+## The bag of the next run in Egon's shop (tab Inventar): the area where backpacks may lie
+## (BagLayout.board_rect, faint), the bag itself (brown, fixed) and the attached backpacks (their
+## colour and picture). Drag a backpack from the stash onto it to attach it
+## (MetaState.attach_backpack), drag an attached one to move it (place_backpack) or back into
+## the stash (the shop: detach_backpack). R or the right mouse button while dragging turns it;
+## the cells it would cover show green (allowed) or red.
 
 signal changed
 
@@ -105,8 +106,8 @@ func backpack_at(cell: Vector2i) -> String:
 	return ""
 
 
-## Drag data for backpack `id` (also used by the list of loose backpacks): turned `rot`, grabbed
-## at cell `grab` of it. Sets the preview on `source`.
+## Drag data for attached backpack `id`: turned `rot`, grabbed at cell `grab` of it. Sets the
+## preview on `source`.
 func make_drag(source: Control, id: String, rot: bool, grab: Vector2i) -> Dictionary:
 	var preview := BagBoard.DragPreview.new()
 	preview.setup_box(icon_of(id), BagLayout.backpack_size(id), rot, grab, cell_px, color_of(id))
@@ -129,14 +130,37 @@ func _get_drag_data(at: Vector2) -> Variant:
 	return null
 
 
+## The backpack id of a drag: an attached one ("backpack") or one from the stash ("" = neither).
+static func dragged_backpack(data: Variant) -> String:
+	if not data is Dictionary:
+		return ""
+	var drag: Dictionary = data
+	if drag.has("backpack"):
+		return String(drag["backpack"])
+	if String(drag.get("from", "")) == "stash" and ShopGoods.is_backpack(drag.get("piece", {})):
+		return String((drag["piece"] as Dictionary)["id"])
+	return ""
+
+
+## true if the drag would attach / move its backpack with its top left on `cell`.
+static func allowed(drag: Dictionary, cell: Vector2i) -> bool:
+	var id: String = dragged_backpack(drag)
+	var placed: Array = MetaState.backpacks()
+	if drag.has("backpack"):
+		return BagLayout.is_valid(BagLayout.with_moved(placed, id, cell, bool(drag["rot"])))
+	var next: Array = placed.duplicate()
+	next.append({"id": id, "x": cell.x, "y": cell.y, "rot": bool(drag["rot"])})
+	return BagLayout.is_valid(next)
+
+
 func _can_drop_data(at: Vector2, data: Variant) -> bool:
-	if not (data is Dictionary and (data as Dictionary).has("backpack")):
+	var id: String = dragged_backpack(data)
+	if id.is_empty():
 		return false
 	var drag: Dictionary = data
 	var cell: Vector2i = cell_at(at) - (drag["grab"] as Vector2i)
-	var id: String = String(drag["backpack"])
-	var allowed: bool = BagLayout.is_valid(BagLayout.with_moved(MetaState.backpacks(), id, cell, bool(drag["rot"])))
-	_drop_hint = {"cell": cell, "id": id, "rot": bool(drag["rot"]), "color": OK_COLOR if allowed else BAD_COLOR}
+	var ok: bool = allowed(drag, cell)
+	_drop_hint = {"cell": cell, "id": id, "rot": bool(drag["rot"]), "color": OK_COLOR if ok else BAD_COLOR}
 	queue_redraw()
 	return true
 
@@ -145,7 +169,12 @@ func _drop_data(at: Vector2, data: Variant) -> void:
 	var drag: Dictionary = data
 	var cell: Vector2i = cell_at(at) - (drag["grab"] as Vector2i)
 	_drop_hint = {}
-	if MetaState.place_backpack(String(drag["backpack"]), cell, bool(drag["rot"])):
+	var done: bool = false
+	if drag.has("backpack"):
+		done = MetaState.place_backpack(String(drag["backpack"]), cell, bool(drag["rot"]))
+	else:
+		done = MetaState.attach_backpack(int(drag["index"]), cell, bool(drag["rot"]))
+	if done:
 		AudioManager.play_sound("unlock", 1.2)
 	else:
 		AudioManager.play_sound("denied")

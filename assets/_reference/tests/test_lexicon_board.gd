@@ -44,10 +44,10 @@ func _board() -> void:
 	await process_frame
 	rat = board.find_child("Enemy_rat", true, false)
 	check(rat != null and rat.tooltip_text == "Ratte", "after it: the rat by name")
-	meta.call("win_dungeon", "glut")
+	meta.call("_write", "quests_done", ["glutrubin"])
 	board.call("open")
 	await process_frame
-	check(board.find_child("Dungeon_moor", true, false) != null, "winning opens the next dungeon on the board")
+	check(board.find_child("Dungeon_moor", true, false) != null, "Egon's quest opens the next dungeon on the board")
 	board.queue_free()
 	await process_frame
 

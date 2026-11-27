@@ -42,7 +42,9 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Inventar als Raster 8×3, Beute mit Größen (Fell 2×2, Zauberstab 4×1, Rubin 3×3), drehen mit R / Rechtsklick, sicherer Platz 2×2.
 - ✅ Rucksäcke (2×2 bis 5×3) im Skillbaum (Gold), bei Egon ans Inventar anbauen.
 - ✅ Tutorial im ersten Run: laufen, umsehen, schießen, Übungsratte, Beute aufheben, Tab, sicherer Platz.
-- Offen: Raster auch für das Inventar zu Hause? Rucksack-Preise im Spiel prüfen.
+- ✅ (2026-11-27, `feature/laden-raster`) Laden nach neuer Skizze: Tisch und Lager (5×4) als Raster, Reiter Ausrüstung/Inventar, Rucksäcke aus dem Lager anbauen, Rucksäcke auf Egons Tisch, Knöpfe unten.
+- ✅ (2026-11-27) Kaufen, Verkaufen, Anlegen per Drag & Drop; Quest-Platz und Quest-Fenster; Egons Quest-Kette schaltet die Dungeons frei, Egon zieht um; Skillbaum wächst zur Seite.
+- Offen: Rucksack-Preise im Spiel prüfen; Lager vergrößern (Skill?); Quest-Belohnungen (Gold) im Spiel prüfen.
 
 ## Phase 2 – Intro
 

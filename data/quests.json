@@ -1,0 +1,68 @@
+{
+	"_info": "Egons Quests, der Reihe nach (Quest-Fenster im Laden, Knopf Quests). Jede Quest: name, desc (Deutsch = Übersetzungs-Schlüssel), dungeon = in diesem Dungeon lässt der Endboss den Stein item (loot.json, quest: true) fallen, solange die Quest offen ist und der Spieler den Stein nicht schon hat; offen ist sie, sobald ihr Dungeon offen ist. Abgeben: den Stein im Laden auf den Quest-Platz ziehen. Danach öffnet sich jeder Dungeon mit unlock quest = diese Id (dungeons.json), Egon zieht nach moves_to um (locations: name, background = Bild hinter dem Laden) und zahlt gold. Egons Sätze: story.json quest_<id>_intro (einmal, wenn die Quest neu ist) und quest_<id>_done.",
+	"start": "glut",
+	"locations": {
+		"glut": {
+			"name": "Am Dungeon der Glut",
+			"background": "res://assets/sprites/battle/mine_rats.png"
+		},
+		"moor": {
+			"name": "Am Moor der Irrlichter",
+			"background": "res://assets/sprites/battle/swamp_mire.png"
+		},
+		"wiese": {
+			"name": "An der Wispernden Wiese",
+			"background": "res://assets/sprites/battle/forest.png"
+		},
+		"frost": {
+			"name": "Am Frostgipfel",
+			"background": "res://assets/sprites/battle/ice_falls.png"
+		},
+		"vulkan": {
+			"name": "Am Glutschlund",
+			"background": "res://assets/sprites/battle/volcano.png"
+		}
+	},
+	"quests": {
+		"glutrubin": {
+			"name": "Egons Glutrubin",
+			"desc": "Der Endboss im Dungeon der Glut hütet einen Glutrubin. Bring ihn Egon.",
+			"dungeon": "glut",
+			"item": "glutrubin",
+			"moves_to": "moor",
+			"gold": 100
+		},
+		"moorperle": {
+			"name": "Ein Licht für Egon",
+			"desc": "Der Endboss im Moor der Irrlichter trägt einen Irrlicht-Opal. Bring ihn Egon.",
+			"dungeon": "moor",
+			"item": "moorperle",
+			"moves_to": "wiese",
+			"gold": 250
+		},
+		"wiesenkristall": {
+			"name": "Kristall aus dem Gras",
+			"desc": "Der Endboss der Wispernden Wiese bewacht einen Wiesenkristall. Bring ihn Egon.",
+			"dungeon": "wiese",
+			"item": "wiesenkristall",
+			"moves_to": "frost",
+			"gold": 500
+		},
+		"frostsaphir": {
+			"name": "Eiskalte Gier",
+			"desc": "Der Endboss am Frostgipfel hat einen Frost-Aquamarin. Bring ihn Egon.",
+			"dungeon": "frost",
+			"item": "frostsaphir",
+			"moves_to": "vulkan",
+			"gold": 900
+		},
+		"drachenherz": {
+			"name": "Das Herz des Drachen",
+			"desc": "Der Vulkandrache im Glutschlund hat ein Herz aus Glut. Bring es Egon.",
+			"dungeon": "vulkan",
+			"item": "drachenherz",
+			"moves_to": "",
+			"gold": 2000
+		}
+	}
+}

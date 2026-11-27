@@ -30,6 +30,8 @@ var _icon: TextureRect
 var _count: Label
 var _glow: Panel
 var _glow_tween: Tween
+## Green / red over the place while something is dragged over it (set_drop_hint).
+var _drop: Panel
 
 
 func _init() -> void:
@@ -62,6 +64,12 @@ func _init() -> void:
 	_glow.add_theme_stylebox_override("panel", box(Color(0, 0, 0, 0), GLOW_COLOR, 3))
 	_glow.visible = false
 	add_child(_glow)
+	_drop = Panel.new()
+	_drop.size = SIZE
+	_drop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_drop.visible = false
+	add_child(_drop)
+	mouse_exited.connect(set_drop_hint.bind(0))
 	_refresh()
 
 
@@ -89,6 +97,19 @@ func set_glow(on: bool) -> void:
 		_glow_tween = create_tween().set_loops()
 		_glow_tween.tween_property(_glow, "modulate:a", 0.25, 0.4)
 		_glow_tween.tween_property(_glow, "modulate:a", 1.0, 0.4)
+
+
+## While dragging over it: 1 = green (it would go here), 2 = red (not here), 0 = nothing.
+func set_drop_hint(state: int) -> void:
+	_drop.visible = state != 0
+	if state != 0:
+		var color := Color(0.3, 0.9, 0.35, 0.45) if state == 1 else Color(1.0, 0.25, 0.2, 0.45)
+		_drop.add_theme_stylebox_override("panel", box(color, Color(color, 0.9), 2))
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_DRAG_END and _drop != null:
+		_drop.visible = false
 
 
 ## A short jump (goods appear, something arrives).
@@ -138,6 +159,9 @@ static func icon_of_piece(piece: Dictionary) -> Texture2D:
 	if ShopGoods.is_potion(piece):
 		var potion_path: String = String(Content.potion(String(piece.get("id", ""))).get("icon", ""))
 		return load(potion_path) as Texture2D if ResourceLoader.exists(potion_path) else null
+	if ShopGoods.is_backpack(piece):
+		var backpack_path: String = String(BagLayout.backpack(String(piece.get("id", ""))).get("icon", ""))
+		return load(backpack_path) as Texture2D if ResourceLoader.exists(backpack_path) else null
 	return icon_of(String(piece.get("id", "")))
 
 
@@ -154,6 +178,8 @@ static func rarity_of(piece: Dictionary) -> int:
 		return ShopGoods.relic_rarity(id)
 	if ShopGoods.is_potion(piece):
 		return int(Content.potion(id).get("rarity", 1))
+	if ShopGoods.is_backpack(piece):
+		return 2
 	if ShopGoods.is_gear(id):
 		return int(piece.get("rarity", 1))
 	return int(Content.material(id).get("rarity", 1))
@@ -166,6 +192,8 @@ static func describe(piece: Dictionary, with_price: bool) -> String:
 		return _describe_relic(piece, with_price)
 	if ShopGoods.is_potion(piece):
 		return _describe_potion(piece, with_price)
+	if ShopGoods.is_backpack(piece):
+		return _describe_backpack(piece, with_price)
 	var gear: bool = ShopGoods.is_gear(id)
 	var data: Dictionary = Content.gear_item(id) if gear else Content.material(id)
 	var lines: Array[String] = [Language.translate(String(data.get("name", id))), Rarity.label(rarity_of(piece))]
@@ -207,6 +235,18 @@ static func _describe_potion(piece: Dictionary, with_price: bool) -> String:
 	if with_price:
 		lines.append(Language.translate("Preis: %d Gold") % int(piece.get("price", 0)))
 	lines.append(Language.translate(String(data.get("desc", ""))))
+	return "\n".join(lines)
+
+
+## Backpack: name, "Rucksack" and its cells, price, description, how to attach it.
+static func _describe_backpack(piece: Dictionary, with_price: bool) -> String:
+	var data: Dictionary = BagLayout.backpack(String(piece.get("id", "")))
+	var cells: Vector2i = BagLayout.backpack_size(String(piece.get("id", "")))
+	var lines: Array[String] = [Language.translate(String(data.get("name", ""))), Language.translate("Rucksack: %d×%d Felder") % [cells.x, cells.y]]
+	if with_price:
+		lines.append(Language.translate("Preis: %d Gold") % int(piece.get("price", 0)))
+	lines.append(Language.translate(String(data.get("desc", ""))))
+	lines.append(Language.translate("Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"))
 	return "\n".join(lines)
 
 

@@ -8,6 +8,8 @@ extends RefCounted
 ## table): left = runs it still holds (-1 = for ever). Only items picked up once (Progress) come.
 ## A potion (data/potions.json) is {id, potion: true} (+ price on the table). Potions only come
 ## after Egon showed them (MetaState.potions_unlocked).
+## A backpack (data/backpacks.json) is {id, backpack: true} (+ price on the table).
+## Every piece covers piece_size cells in the stash and on the table (grid, ItemGrid).
 
 
 ## A new table: data/shop.json table_slots places, goods_count pieces (+ skill Mehr Ware,
@@ -44,8 +46,49 @@ static func roll(rng: RandomNumberGenerator, pulls_today: int = 0) -> Array[Dict
 	# After Egon showed them: sometimes a potion.
 	var potion: String = pick_potion(rng)
 	if not potion.is_empty() and not cells.is_empty() and rng.randf() < float(Content.potions().get("table_chance", 0.0)):
-		table[cells[rng.randi_range(0, cells.size() - 1)]] = make_potion(potion)
+		var potion_cell: int = cells[rng.randi_range(0, cells.size() - 1)]
+		cells.erase(potion_cell)
+		table[potion_cell] = make_potion(potion)
+	# Sometimes a backpack (backpacks.json "unlock", shop.json backpack_chance).
+	var backpack: String = pick_backpack(rng)
+	if not backpack.is_empty() and not cells.is_empty() and rng.randf() < float(Content.shop().get("backpack_chance", 0.0)):
+		table[cells[rng.randi_range(0, cells.size() - 1)]] = make_backpack(backpack)
 	return table
+
+
+# --- Backpacks (data/backpacks.json) ---------------------------------------------------
+
+static func is_backpack(piece: Dictionary) -> bool:
+	return bool(piece.get("backpack", false))
+
+
+## A backpack on the table: {id, backpack: true, price}.
+static func make_backpack(id: String) -> Dictionary:
+	return {"id": id, "backpack": true, "price": maxi(0, int(BagLayout.backpack(id).get("price", 0)))}
+
+
+## A random backpack whose "unlock" is met ("" = none open).
+static func pick_backpack(rng: RandomNumberGenerator) -> String:
+	var open: Array[String] = []
+	for id: String in BagLayout.backpacks():
+		if MetaState.meets((BagLayout.backpack(id) as Dictionary).get("unlock", {})):
+			open.append(id)
+	return "" if open.is_empty() else open[rng.randi_range(0, open.size() - 1)]
+
+
+## Width × height in cells of a piece (not turned): backpacks their size, relics and potions 1×1,
+## gear the size of its gear.json slot, loot loot.json size.
+static func piece_size(piece: Dictionary) -> Vector2i:
+	var id: String = String(piece.get("id", ""))
+	if is_backpack(piece):
+		return BagLayout.backpack_size(id)
+	if is_relic(piece) or is_potion(piece):
+		return Vector2i.ONE
+	if is_gear(id):
+		var slot: Dictionary = Content.gear_slots().get(String(Content.gear_item(id).get("slot", "")), {})
+		var cells: Array = slot.get("size", [1, 1])
+		return Vector2i(maxi(1, int(cells[0])), maxi(1, int(cells[1])))
+	return BagLayout.loot_size(id)
 
 
 # --- Potions (data/potions.json) -------------------------------------------------------
@@ -279,6 +322,10 @@ static func sell_price(piece: Dictionary) -> int:
 		return maxi(1, roundi(float(_tier(relic_tier(id)).get("price", 0)) * share))
 	if is_potion(piece):
 		return maxi(1, roundi(float(Content.potion(id).get("price", 0)) * share))
+	if is_backpack(piece):
+		return maxi(1, roundi(float(BagLayout.backpack(id).get("price", 0)) * share))
+	if Quests.is_stone(id):
+		return 0
 	if is_gear(id):
 		return maxi(1, roundi(price(id, int(piece.get("rarity", 1))) * share))
 	return int(Content.material(id).get("value", 0)) * count

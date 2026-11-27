@@ -39,6 +39,9 @@ msgstr "Cancelar"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "Mas assim não, sem equipamento nenhum. Vem, dá uma olhada na minha loja primeiro."
 
+msgid "Abgeben"
+msgstr "Entregar"
+
 msgid "Abstand"
 msgstr "Espaço"
 
@@ -69,14 +72,29 @@ msgstr "Tudo na loja custa metade"
 msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
 msgstr "Então é melhor gastar, parceiro. De preferência comigo!"
 
+msgid "Am Dungeon der Glut"
+msgstr "Na Masmorra das Brasas"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "No fim cada tiro explode em quatro faíscas"
+
+msgid "Am Frostgipfel"
+msgstr "No Pico Gelado"
+
+msgid "Am Glutschlund"
+msgstr "Na Goela Ardente"
+
+msgid "Am Moor der Irrlichter"
+msgstr "No Pântano dos Fogos-Fátuos"
 
 msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
 msgstr "Saiu pela corda como um herói! Mas… cadê o meu rubi?"
 
 msgid "Amethyst"
 msgstr "Ametista"
+
+msgid "An der Wispernden Wiese"
+msgstr "No Prado Sussurrante"
 
 msgid "Angriffstempo"
 msgstr "Velocidade de ataque"
@@ -101,6 +119,12 @@ msgstr "Cinza"
 
 msgid "Audio"
 msgstr "Áudio"
+
+msgid "Auf der Wiese bewacht der Endboss einen Kristall. Er summt, sagt man. Bring ihn mir. Ich brauch was zum Summen. Ehrlich!"
+msgstr "No prado o chefe final guarda um cristal. Dizem que ele zumbe. Traga para mim. Preciso de algo que zumba. Sério!"
+
+msgid "Auf zur Wiese, Partner. Ich hab gehört, da wächst Gold. Oder Gras."
+msgstr "Para o prado, parceiro. Dizem que lá cresce ouro. Ou capim."
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "Brasas gigantes carregadas caem e explodem"
@@ -147,6 +171,9 @@ msgstr "Ao acertar, o tiro explode em quatro faíscas"
 msgid "Beine"
 msgstr "Pernas"
 
+msgid "Belohnung: der nächste Dungeon und %d Gold"
+msgstr "Recompensa: a próxima masmorra e %d de ouro"
+
 msgid "Bergfalke"
 msgstr "Falcão da montanha"
 
@@ -173,6 +200,9 @@ msgstr "Entrar"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "Eu compro seu saque: clique com o botão direito no inventário e ele vai para a minha compra lá em cima. Preços justos. Sério!"
+
+msgid "Beute kaufe ich dir ab: Zieh sie einfach auf meinen Tisch. Faire Preise. Ehrlich!"
+msgstr "Eu compro seu saque: é só arrastar para a minha mesa. Preço justo. Sério!"
 
 msgid "Beute: %s"
 msgstr "Saque: %s"
@@ -231,6 +261,9 @@ msgstr "Inimigos queimando e lentos, e dois corações azuis"
 msgid "Brennt gut in jeder Esse."
 msgstr "Queima bem em qualquer forja."
 
+msgid "Bring Egon den Stein vom Endboss (Quests), dann öffnet sich der nächste Dungeon."
+msgstr "Leve a Egon a pedra do chefe final (Missões) e a próxima masmorra se abre."
+
 msgid "Bronze"
 msgstr "Bronze"
 
@@ -285,6 +318,9 @@ msgstr "Ciano"
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Ali atrás fica a entrada da Masmorra das Brasas. Alguns até saem de volta!"
 
+msgid "Da passt das nicht hin, Partner. Mach erst Platz."
+msgstr "Isso não cabe aí, parceiro. Abra espaço antes."
+
 msgid "Dafür reicht dein Gold nicht"
 msgstr "Seu ouro não dá para isso"
 
@@ -300,6 +336,9 @@ msgstr "Outra mochila ainda está presa nesta."
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Tem um bichinho preso dentro."
 
+msgid "Darin tanzt ein kleines Licht. Egon will ihn haben."
+msgstr "Uma luzinha dança lá dentro. Egon quer."
+
 msgid "Darin wohnt fast ein ganzer Laden."
 msgstr "Cabe quase uma loja inteira dentro."
 
@@ -312,11 +351,17 @@ msgstr "A pele de um gigante de gelo."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "O ouro desta partida. Se você morrer, ele some, exceto no espaço seguro."
 
+msgid "Das Herz des Drachen"
+msgstr "O coração do dragão"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Isso não dá pra vestir, parceiro. Acredite, eu já tentei."
 
 msgid "Das kostet zu viel Leben"
 msgstr "Isso custa vida demais"
+
+msgid "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest."
+msgstr "Isso? Não compro. Quero de presente! Ah… como missão."
 
 msgid "Deckkraft"
 msgstr "Opacidade"
@@ -342,6 +387,12 @@ msgstr "Seus itens"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Seus tiros perseguem inimigos"
 
+msgid "Den Quest-Stein hierher ziehen"
+msgstr "Arraste a pedra da missão para cá"
+
+msgid "Den Stein aus dem Lager auf den Quest-Platz oben rechts ziehen oder hier abgeben."
+msgstr "Arraste a pedra do depósito para o lugar da missão no canto superior direito, ou entregue aqui."
+
 msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
 msgstr "Derrotou o primeiro chefe e escalou a corda para fora."
 
@@ -354,8 +405,23 @@ msgstr "A barra acima da alavanca mostra o que pode vir: cinza é comum, verde s
 msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
 msgstr "O chefe tinha um, eu sei! Traga para mim se achar um. Eu espero. Impaciente."
 
+msgid "Der Endboss am Frostgipfel hat einen Frost-Aquamarin. Bring ihn Egon."
+msgstr "O chefe final do Pico Gelado tem uma água-marinha gelada. Leve a Egon."
+
+msgid "Der Endboss der Wispernden Wiese bewacht einen Wiesenkristall. Bring ihn Egon."
+msgstr "O chefe final do Prado Sussurrante guarda um cristal do prado. Leve a Egon."
+
+msgid "Der Endboss im Dungeon der Glut hütet einen Glutrubin. Bring ihn Egon."
+msgstr "O chefe final da Masmorra das Brasas guarda um rubi de brasa. Leve a Egon."
+
+msgid "Der Endboss im Moor der Irrlichter trägt einen Irrlicht-Opal. Bring ihn Egon."
+msgstr "O chefe final do Pântano dos Fogos-Fátuos carrega uma opala fátua. Leve a Egon."
+
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "O raio de fogo se curva até o inimigo"
+
+msgid "Der Glutrubin! Echt! Also … ich hab nie gezweifelt."
+msgstr "O rubi de brasa! De verdade! Bem… eu nunca duvidei."
 
 msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
 msgstr "O mercador da masmorra paga 2 de ouro a mais por cada espólio."
@@ -363,14 +429,26 @@ msgstr "O mercador da masmorra paga 2 de ouro a mais por cada espólio."
 msgid "Der Händler kauft Beute: Tab, Rechtsklick"
 msgstr "O mercador compra espólio: Tab, clique direito"
 
+msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
+msgstr "A opala! Ela brilha! Quase tanto quanto meu futuro."
+
+msgid "Der Stein liegt in deinem Lager!"
+msgstr "A pedra está no seu depósito!"
+
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "A pedra aceita seu sacrifício"
+
+msgid "Der Vulkandrache im Glutschlund hat ein Herz aus Glut. Bring es Egon."
+msgstr "O dragão vulcânico da Goela Ardente tem um coração de brasa. Leve a Egon."
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "O caminho para baixo está livre!"
 
 msgid "Der Wildhüter"
 msgstr "O Guarda-Caça"
+
+msgid "Der einzige auch, aber das sagen wir keinem."
+msgstr "O único também, mas isso a gente não conta pra ninguém."
 
 msgid "Der sichere Platz wird eine Spalte breiter."
 msgstr "O lugar seguro ganha uma coluna."
@@ -437,6 +515,9 @@ msgstr "Bafo de dragão"
 
 msgid "Drachenhaut"
 msgstr "Pele de dragão"
+
+msgid "Drachenherz"
+msgstr "Coração de dragão"
 
 msgid "Drachenleder"
 msgstr "Couro de dragão"
@@ -567,11 +648,17 @@ msgstr "Efeitos"
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "Egon Honesto, muito prazer. Honesto é meu nome, honesto é meu negócio. Sério!"
 
+msgid "Egon hat gerade keinen Auftrag."
+msgstr "Egon não tem nenhuma tarefa agora."
+
 msgid "Egon könnte klauen!"
 msgstr "O Egon pode roubar!"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "Os olhos do Egon ficam enormes."
+
+msgid "Egons Glutrubin"
+msgstr "O rubi de brasa de Egon"
 
 msgid "Egons Laden"
 msgstr "A loja do Egon"
@@ -645,6 +732,9 @@ msgstr "Um mercador! Vá até ele e converse."
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "Uma erva em forma de coração. Egon faz chá com ela."
 
+msgid "Ein Licht für Egon"
+msgstr "Uma luz para Egon"
+
 msgid "Ein Platz mehr im Rucksack."
 msgstr "Mais um espaço na mochila."
 
@@ -705,6 +795,9 @@ msgstr "Um coração azul, mais tempo seguro após golpes"
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "Um coração azul, corre mais rápido"
 
+msgid "Ein echtes Drachenherz! Partner, du bist der beste Kunde, den ich je hatte."
+msgstr "Um coração de dragão de verdade! Parceiro, você é o melhor cliente que já tive."
+
 msgid "Ein einfacher Bogen. Für Bogenschützen."
 msgstr "Um arco simples. Para arqueiros."
 
@@ -719,6 +812,9 @@ msgstr "Uma mochila enorme de 5×3 casas. Prenda no inventário com o Egon."
 
 msgid "Ein rotes Herz mehr."
 msgstr "Mais um coração vermelho."
+
+msgid "Ein seltener Stein! Egon wird staunen."
+msgstr "Uma pedra rara! Egon vai ficar maravilhado."
 
 msgid "Ein sicherer Platz mehr im Rucksack."
 msgstr "Mais um espaço seguro na mochila."
@@ -801,6 +897,9 @@ msgstr "Pena de gelo"
 msgid "Eishöhle"
 msgstr "Caverna de gelo"
 
+msgid "Eiskalte Gier"
+msgstr "Ganância gelada"
+
 msgid "Eisrobbe"
 msgstr "Foca do gelo"
 
@@ -833,6 +932,9 @@ msgstr "Cajado de terra"
 
 msgid "Erfolg: %s"
 msgstr "Conquista: %s"
+
+msgid "Erledigt"
+msgstr "Concluído"
 
 msgid "Erreiche Ebene %d"
 msgstr "Chegue ao andar %d"
@@ -944,6 +1046,9 @@ msgstr "Desbloqueado: %s"
 
 msgid "Frost und Feuer"
 msgstr "Gelo e fogo"
+
+msgid "Frost-Aquamarin"
+msgstr "Água-marinha gelada"
 
 msgid "Frostflechte"
 msgstr "Líquen gélido"
@@ -1083,6 +1188,9 @@ msgstr "Bloqueado: a partir do nível %d."
 msgid "Gesperrt: erst %s schaffen."
 msgstr "Bloqueado: vença primeiro %s."
 
+msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
+msgstr "Bloqueado: primeiro conclua a missão de Egon “%s”."
+
 msgid "Gesprengte Fessel"
 msgstr "Grilhão partido"
 
@@ -1173,6 +1281,9 @@ msgstr "Manto de brasas"
 msgid "Glutmond"
 msgstr "Lua de brasa"
 
+msgid "Glutrubin"
+msgstr "Rubi de brasa"
+
 msgid "Glutsammler"
 msgstr "Coletor de brasas"
 
@@ -1223,6 +1334,9 @@ msgstr "Sortudo"
 
 msgid "Glühender Schlüssel"
 msgstr "Chave incandescente"
+
+msgid "Glüht von innen. Den gibt es nur einmal, sagt Egon."
+msgstr "Brilha por dentro. Só existe um, diz Egon."
 
 msgid "Goblin"
 msgstr "Goblin"
@@ -1434,6 +1548,9 @@ msgstr "Caldeirão de bruxa"
 msgid "Hier klicken"
 msgstr "Clique aqui"
 
+msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
+msgstr "Aqui fica o que não cabe no depósito. Abra espaço ou venda."
+
 msgid "Hinausgeklettert!"
 msgstr "Escalou para fora!"
 
@@ -1494,6 +1611,9 @@ msgstr "Portão do Inferno"
 msgid "Höllenwächter"
 msgstr "Guardião infernal"
 
+msgid "Hörst du das? Er summt! Das Geld … äh, das Glück summt mit."
+msgstr "Ouviu? Ele zumbe! O dinheiro… ah, a sorte zumbe junto."
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Eu sou o vigar… é, o vendedor. Eu vendo… …equipamento! Isso mesmo. Vendo equipamento."
 
@@ -1509,6 +1629,12 @@ msgstr "Na masmorra você aperta %s. Glub, glub, e dois corações voltam."
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "Na masmorra: %s para beber"
 
+msgid "Im Glutschlund wohnt ein Drache. Sein Herz glüht. Bring es mir, und ich … ich bin sehr, sehr dankbar. Ehrlich!"
+msgstr "Na Goela Ardente vive um dragão. O coração dele brilha. Traga para mim e eu… vou ficar muito, muito grato. Sério!"
+
+msgid "Im Moor trägt der Endboss einen Irrlicht-Opal. Hübsch. Sehr hübsch. Bring ihn mir, ich … verwahre ihn. Ganz legal!"
+msgstr "No pântano o chefe final carrega uma opala fátua. Bonita. Muito bonita. Traga para mim, eu… guardo. Tudo legal!"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "No vulcão a lava borbulha, e lá no fundo há um portão. Egon nunca esteve lá. É o que ele diz. Mas as botas dele estão chamuscadas."
 
@@ -1518,6 +1644,9 @@ msgstr "Você não leva ouro para a masmorra. Lá embaixo meu colega compra seu 
 msgid "Inventar"
 msgstr "Inventário"
 
+msgid "Inventar im Dungeon"
+msgstr "Inventário na masmorra"
+
 msgid "Inventar voll!"
 msgstr "Inventário cheio!"
 
@@ -1526,6 +1655,9 @@ msgstr "Fogo-fátuo"
 
 msgid "Irrlicht-Glut"
 msgstr "Brasa fátua"
+
+msgid "Irrlicht-Opal"
+msgstr "Opala fátua"
 
 msgid "Irrlichtkönigin"
 msgstr "Rainha dos fogos-fátuos"
@@ -1560,6 +1692,12 @@ msgstr "Cada giro a mais hoje: %d %% de R1 vai para os níveis mais raros (no m�
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "A cada dois tiros, um é muito mais forte"
 
+msgid "Jetzt zum Glutschlund, Partner. Da ist es wenigstens warm."
+msgstr "Agora para a Goela Ardente, parceiro. Pelo menos lá é quente."
+
+msgid "Kalt! Kalt! Aber schön. Wie meine Preise."
+msgstr "Frio! Frio! Mas lindo. Como os meus preços."
+
 msgid "Kamille"
 msgstr "Camomila"
 
@@ -1581,6 +1719,9 @@ msgstr "Mapa"
 msgid "Kaufen: %d Gold"
 msgstr "Comprar: %d de ouro"
 
+msgid "Kein Platz"
+msgstr "Sem espaço"
+
 msgid "Kein Relikt"
 msgstr "Não é relíquia"
 
@@ -1589,6 +1730,9 @@ msgstr "Nenhuma poção com você"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Nenhum golpe tira mais de meio coração"
+
+msgid "Keine Quest"
+msgstr "Sem missão"
 
 msgid "Kinderschuhe"
 msgstr "Sapatos de criança"
@@ -1607,6 +1751,9 @@ msgstr "Clique numa tecla e aperte a nova. Esc = cancelar."
 
 msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
 msgstr "Clique em algo do inventário para vestir. Clique na sua figura para tirar de novo."
+
+msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
+msgstr "Clique ou arraste para a aba Inventário: prender no inventário"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "Clique para continuar"
@@ -1667,6 +1814,9 @@ msgstr "Espada do Guerreiro"
 
 msgid "Kriegsaxt"
 msgstr "Machado de guerra"
+
+msgid "Kristall aus dem Gras"
+msgstr "Cristal no capim"
 
 msgid "Kristallbrocken"
 msgstr "Bloco de Cristal"
@@ -1739,6 +1889,9 @@ msgstr "Loja"
 
 msgid "Ladenschild"
 msgstr "Placa da loja"
+
+msgid "Lager"
+msgstr "Depósito"
 
 msgid "Lang und schmal, schwer wie ein Amboss."
 msgstr "Longa e estreita, pesada como uma bigorna."
@@ -2028,6 +2181,9 @@ msgstr "Próxima página"
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "Próximo nível: %d de ouro, %d pontos, a partir do nível %d"
 
+msgid "Oben am Frostgipfel hat der Endboss einen Frost-Aquamarin. Bring ihn mir. Handschuhe hab ich. Gegen einen kleinen Obolus."
+msgstr "No alto do Pico Gelado o chefe final tem uma água-marinha gelada. Traga para mim. Luvas eu tenho. Por uma pequena taxa."
+
 msgid "Obsidianwächter"
 msgstr "Guardião de obsidiana"
 
@@ -2054,6 +2210,9 @@ msgstr "Orc"
 
 msgid "Ork-Häuptling"
 msgstr "Chefe orc"
+
+msgid "Pack ein, Partner, wir ziehen um. Ans Moor! Da gibt's Kundschaft. Und Mücken."
+msgstr "Arrume as coisas, parceiro, vamos mudar. Para o pântano! Lá tem clientes. E mosquitos."
 
 msgid "Paktschatulle"
 msgstr "Cofre do pacto"
@@ -2126,6 +2285,12 @@ msgstr "Luva de pólvora"
 
 msgid "Punkt in der Mitte"
 msgstr "Ponto central"
+
+msgid "Quest"
+msgstr "Missão"
+
+msgid "Quests"
+msgstr "Missões"
 
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "R / clique direito ao arrastar: girar"
@@ -2261,6 +2426,12 @@ msgstr "Rubi"
 
 msgid "Rucksack"
 msgstr "Mochila"
+
+msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
+msgstr "Arraste uma mochila do depósito para o inventário (R gira). Devolva ao depósito para soltar."
+
+msgid "Rucksack: %d×%d Felder"
+msgstr "Mochila: %d×%d casas"
 
 msgid "Rucksäcke"
 msgstr "Mochilas"
@@ -2423,6 +2594,9 @@ msgstr "Fechar"
 
 msgid "Schläger"
 msgstr "Capanga"
+
+msgid "Schlägt noch. Ganz langsam."
+msgstr "Ainda bate. Bem devagar."
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "Tiros serpenteantes que ricocheteiam"
@@ -2670,6 +2844,9 @@ msgstr "Joia de esmeralda"
 msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
 msgstr "Coisa de magia. Sei lá, eu sou um vigar… é, um vendedor!"
 
+msgid "So kalt, dass die Finger kleben bleiben."
+msgstr "Tão frio que os dedos grudam."
+
 msgid "Solide"
 msgstr "Sólido"
 
@@ -2856,6 +3033,9 @@ msgstr "Faísca teleguiada"
 msgid "Suchender Strahl"
 msgstr "Raio teleguiado"
 
+msgid "Summt leise wie eine Wiese im Sommer."
+msgstr "Zumbe baixinho como um prado no verão."
+
 msgid "Sumpfhaut"
 msgstr "Pele do pântano"
 
@@ -2997,8 +3177,14 @@ msgstr "E à esquerda é você. Fica parado, que eu te visto…"
 msgid "Ungewöhnlich"
 msgstr "Incomum"
 
+msgid "Unten ist dein Lager. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst. Zieh Sachen einfach hin und her."
+msgstr "Embaixo fica o seu depósito. Tudo o que você compra ou traz da masmorra vai para lá. É só arrastar as coisas."
+
 msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
 msgstr "Embaixo fica a sua bolsa. Tudo o que você compra ou traz da masmorra vai pra lá."
+
+msgid "Unter uns, Partner: Der Endboss der Glut hütet einen Glutrubin. Bring ihn mir, und ich zeig dir den Weg ins Moor. Ehrlich!"
+msgstr "Cá entre nós, parceiro: o chefe final das brasas guarda um rubi de brasa. Traga para mim e eu te mostro o caminho do pântano. Sério!"
 
 msgid "Utility"
 msgstr "Utilidade"
@@ -3105,6 +3291,9 @@ msgstr "Visão longa"
 msgid "Weiter"
 msgstr "Continuar"
 
+msgid "Weiter zum Frostgipfel! Zieh dich warm an. Ich hab da zufällig Mäntel."
+msgstr "Para o Pico Gelado! Agasalhe-se. Por acaso tenho casacos."
+
 msgid "Weiterkämpfen"
 msgstr "Continuar lutando"
 
@@ -3128,6 +3317,9 @@ msgstr "Botas de competição"
 
 msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
 msgstr "Como no Counter-Strike 2: o mesmo número gira a mesma distância."
+
+msgid "Wiesenkristall"
+msgstr "Cristal do prado"
 
 msgid "Wiesenwespe"
 msgstr "Vespa da Campina"

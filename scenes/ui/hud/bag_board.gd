@@ -58,6 +58,9 @@ func board_span() -> Vector2i:
 
 
 func refresh() -> void:
+	# Load the pictures now, not while drawing (a texture loaded in _draw shows white).
+	for i in bag.size():
+		_icon(String(bag.get_place(i)["id"]))
 	var cells: Array[Vector2i] = bag.section_cells(section)
 	if cells.is_empty():
 		_origin = Vector2i.ZERO
@@ -141,7 +144,12 @@ func _draw() -> void:
 
 ## Draws the picture of loot `id` into `rect` (keeps its shape; turned by 90 degrees when `rot`).
 static func draw_loot_icon(canvas: CanvasItem, id: String, rect: Rect2, rot: bool) -> void:
-	var texture: Texture2D = _icon(id)
+	draw_icon(canvas, _icon(id), rect, rot)
+
+
+## Draws `texture` into `rect` of `canvas` (keeps its shape; turned by 90 degrees when `rot`;
+## long things lie diagonally along the whole length).
+static func draw_icon(canvas: CanvasItem, texture: Texture2D, rect: Rect2, rot: bool) -> void:
 	if texture == null:
 		return
 	var box: Vector2 = Vector2(rect.size.y, rect.size.x) if rot else rect.size
