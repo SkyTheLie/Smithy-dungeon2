@@ -18,7 +18,7 @@ Vorher: offener Stand `feature/rubin-seil-altar` (Seil nach dem ersten Boss, Rub
 | 10 | **Fadenkreuz** einstellbar (auch aus), Einstellungen wie in CS2 (Länge, Dicke, Abstand, Punkt, Umriss, Farbe). | ✅ erledigt |
 | 11 | **Blickrichtung der Gegner:** Kreis am Boden unter jedem Gegner, ein Viertel gefüllt = Blickrichtung (sieht man, ob man hinter ihm steht). | ✅ erledigt |
 | 12 | **Leveln langsamer:** nach dem ersten Run etwa 80 % Erfahrung zur nächsten Stufe, nach dem zweiten ebenso. **Skill-Baum:** Skills mit Geld rechts (gehen von links nach rechts), Skills nur mit Skill-Punkten links (gehen von rechts nach links). | ✅ erledigt |
-| 13 | **Dungeon-Brett** zeigt nur freigeschaltete Dungeons. **Lexikon** mit Gegnern, beim Dungeon sind seine Gegner aufgelistet (nach dem Lexikon von Smithy). | offen |
+| 13 | **Dungeon-Brett** zeigt nur freigeschaltete Dungeons. **Lexikon** mit Gegnern, beim Dungeon sind seine Gegner aufgelistet (nach dem Lexikon von Smithy). | ✅ erledigt |
 | 14 | **Oberfläche schöner:** bunter, Effekte, „Dopamin“; Vorschläge machen und direkt umsetzen. | offen |
 
 Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 9, 10, 11, 5, 13, 14 (die große Oberflächen-Aufgabe zuletzt, damit sie alles Neue mit erfasst).
@@ -26,6 +26,8 @@ Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 
 ## Erledigt
 
 (neueste oben, mit Branch und Datum)
+
+- **13** · `feature/brett-lexikon` · 2026-11-27 · Dungeon-Brett zeigt nur freigeschaltete Dungeons und darunter die Gegner des Dungeons (bekannte mit Namen, sonst Silhouetten). Lexikon hat jetzt die Reiter Items und Gegner (nach Smithy): Gegner nach Dungeon, nach dem ersten Kill mit Werten, Beute und Fundort. Im Spiel: neues Spiel → Brett zeigt nur Dungeon der Glut; ein paar Gegner besiegen → Hauptmenü → Lexikon → Gegner.
 
 - **5** · `feature/3d-ton` · 2026-11-27 · Vorher war kein Ton 3D. Jetzt kommen alle Gegner-Geräusche (Treffer, Tod, Rufe, Schüsse, Boss) räumlich aus ihrer Richtung (links/rechts, leiser mit Abstand, AudioStreamPlayer3D). Musik und eigene Töne bleiben ohne Richtung. Im Spiel: mit Kopfhörern einen Gegner links stehen lassen → sein Ruf kommt von links.
 

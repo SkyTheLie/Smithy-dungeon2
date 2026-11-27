@@ -156,6 +156,9 @@ msgstr "Derrota a %d enemigos (%d / %d)"
 msgid "Besiege: %s"
 msgstr "Derrota a: %s"
 
+msgid "Besiegt: %d / %d"
+msgstr "Derrotados: %d / %d"
+
 msgid "Besiegte Gegner: %d"
 msgstr "Enemigos derrotados: %d"
 
@@ -164,6 +167,9 @@ msgstr "Entrar"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "Te compro el botín: clic derecho en el inventario y va a mi compra arriba. Precios justos. ¡De verdad!"
+
+msgid "Beute: %s"
+msgstr "Botín: %s"
 
 msgid "Blasebalg"
 msgstr "Fuelle"
@@ -194,6 +200,9 @@ msgstr "Las bombas estallan en bombitas"
 
 msgid "Bombengürtel"
 msgstr "Cinturón de bombas"
+
+msgid "Boss"
+msgstr "Jefe"
 
 msgid "Brakk der Brecher"
 msgstr "Brakk el Rompedor"
@@ -918,6 +927,9 @@ msgstr "Melena de escarcha"
 msgid "Frostmähnen-Fell"
 msgstr "Piel de Melena Helada"
 
+msgid "Fundort: %s"
+msgstr "Lugar: %s"
+
 msgid "Funkelstein"
 msgstr "Piedra Chispa"
 
@@ -969,6 +981,9 @@ msgstr "¡Has huido!"
 msgid "Gegabelter Stab"
 msgstr "Bastón bifurcado"
 
+msgid "Gegner"
+msgstr "Enemigos"
+
 msgid "Gegner brennen, Schaden hoch"
 msgstr "Los enemigos arden, más daño"
 
@@ -977,6 +992,9 @@ msgstr "Los enemigos se ralentizan, más alcance"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "Los enemigos que te tocan reciben daño"
+
+msgid "Gegner:"
+msgstr "Enemigos:"
 
 msgid "Geheimtasche"
 msgstr "Bolsillo secreto"
@@ -1467,6 +1485,9 @@ msgstr "Brasa fatua"
 msgid "Irrlichtkönigin"
 msgstr "Reina de los fuegos fatuos"
 
+msgid "Items"
+msgstr "Objetos"
+
 msgid "Jadefigur"
 msgstr "Figura de jade"
 
@@ -1679,6 +1700,9 @@ msgstr "Gólem de lava"
 
 msgid "Lavahund"
 msgstr "Sabueso de lava"
+
+msgid "Leben: %d · Schaden: %d"
+msgstr "Vida: %d · Daño: %d"
 
 msgid "Lebendiger Wind"
 msgstr "Viento vivo"
@@ -1913,6 +1937,9 @@ msgstr "Aún no hay objetos"
 
 msgid "Noch keine Items in diesem Run."
 msgstr "Aún no hay objetos en esta partida."
+
+msgid "Noch nicht besiegt"
+msgstr "Aún no derrotado"
 
 msgid "Noch nicht entdeckt"
 msgstr "Aún no descubierto"
@@ -2255,6 +2282,9 @@ msgstr "Daño: %s"
 
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "Supera %d pisos seguidos sin recibir golpes"
+
+msgid "Schaffe einen Dungeon, dann öffnet sich der nächste."
+msgstr "Supera una mazmorra y se abrirá la siguiente."
 
 msgid "Schakal"
 msgstr "Chacal"

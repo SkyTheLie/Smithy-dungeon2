@@ -113,6 +113,41 @@ static func material(id: String) -> Dictionary:
 	return materials().get(id, {})
 
 
+## Every enemy of dungeon `id` (floors.json: its floors' enemies, first-room enemies and
+## bosses, then the end boss), each once, in the order they come.
+static func dungeon_enemies(id: String) -> Array[String]:
+	var list: Array[String] = []
+	for index in floors(id).size():
+		var data: Dictionary = floor_data(index, id)
+		var ids: Array = []
+		for entry: Variant in data.get("enemies", []):
+			ids.append(entry[0] if entry is Array else entry)
+		ids.append_array(data.get("first_room_enemies", []))
+		ids.append_array(data.get("bosses", []))
+		for enemy_id: Variant in ids:
+			if not list.has(String(enemy_id)) and not enemy(String(enemy_id)).is_empty():
+				list.append(String(enemy_id))
+	var end_boss: String = String(dungeon(id).get("end_boss", ""))
+	if not end_boss.is_empty() and not list.has(end_boss):
+		list.append(end_boss)
+	return list
+
+
+## The picture of enemy `id` for menus: the first frame of its idle (or walk) sheet.
+static func enemy_icon(id: String) -> Texture2D:
+	var data: Dictionary = enemy(id)
+	var base: String = String(data.get("sprite", ""))
+	var path: String = base + ".png" if ResourceLoader.exists(base + ".png") else base + "_walk.png"
+	if base.is_empty() or not ResourceLoader.exists(path):
+		return null
+	var sheet: Texture2D = load(path) as Texture2D
+	var frame: Array = data.get("frame", [48, 48])
+	var atlas := AtlasTexture.new()
+	atlas.atlas = sheet
+	atlas.region = Rect2(0, 0, mini(int(frame[0]), sheet.get_width()), mini(int(frame[-1]), sheet.get_height()))
+	return atlas
+
+
 ## What enemy `id` can drop into the bag: a list of {id, chance, amount}.
 static func enemy_loot(id: String) -> Array:
 	return (get_file("loot").get("enemies", {}) as Dictionary).get(id, [])

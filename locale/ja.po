@@ -156,6 +156,9 @@ msgstr "敵を%d体倒す（%d / %d）"
 msgid "Besiege: %s"
 msgstr "倒す：%s"
 
+msgid "Besiegt: %d / %d"
+msgstr "撃破: %d / %d"
+
 msgid "Besiegte Gegner: %d"
 msgstr "倒した敵: %d"
 
@@ -164,6 +167,9 @@ msgstr "入る"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "戦利品は買い取るぜ：インベントリで右クリックすれば上の買い取りに置かれる。適正価格だ。正直に！"
+
+msgid "Beute: %s"
+msgstr "戦利品: %s"
 
 msgid "Blasebalg"
 msgstr "ふいご"
@@ -194,6 +200,9 @@ msgstr "爆弾が小さな爆弾に分裂する"
 
 msgid "Bombengürtel"
 msgstr "爆弾ベルト"
+
+msgid "Boss"
+msgstr "ボス"
 
 msgid "Brakk der Brecher"
 msgstr "破壊者ブラック"
@@ -918,6 +927,9 @@ msgstr "霜のたてがみ"
 msgid "Frostmähnen-Fell"
 msgstr "フロストメインの毛皮"
 
+msgid "Fundort: %s"
+msgstr "出現場所: %s"
+
 msgid "Funkelstein"
 msgstr "きらめき石"
 
@@ -969,6 +981,9 @@ msgstr "脱出成功！"
 msgid "Gegabelter Stab"
 msgstr "二股の杖"
 
+msgid "Gegner"
+msgstr "敵"
+
 msgid "Gegner brennen, Schaden hoch"
 msgstr "敵が燃え、ダメージ上昇"
 
@@ -977,6 +992,9 @@ msgstr "敵が遅くなり、射程上昇"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "触れた敵がダメージを受ける"
+
+msgid "Gegner:"
+msgstr "敵:"
 
 msgid "Geheimtasche"
 msgstr "秘密のポケット"
@@ -1467,6 +1485,9 @@ msgstr "鬼火の残り火"
 msgid "Irrlichtkönigin"
 msgstr "鬼火の女王"
 
+msgid "Items"
+msgstr "アイテム"
+
 msgid "Jadefigur"
 msgstr "翡翠の像"
 
@@ -1679,6 +1700,9 @@ msgstr "溶岩ゴーレム"
 
 msgid "Lavahund"
 msgstr "溶岩の猟犬"
+
+msgid "Leben: %d · Schaden: %d"
+msgstr "体力: %d · ダメージ: %d"
 
 msgid "Lebendiger Wind"
 msgstr "生ける風"
@@ -1913,6 +1937,9 @@ msgstr "まだアイテムがない"
 
 msgid "Noch keine Items in diesem Run."
 msgstr "この探索ではまだアイテムがない。"
+
+msgid "Noch nicht besiegt"
+msgstr "まだ倒していない"
 
 msgid "Noch nicht entdeckt"
 msgstr "未発見"
@@ -2255,6 +2282,9 @@ msgstr "ダメージ: %s"
 
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "%d階連続で被弾せずに進む"
+
+msgid "Schaffe einen Dungeon, dann öffnet sich der nächste."
+msgstr "ダンジョンを攻略すると次が開く。"
 
 msgid "Schakal"
 msgstr "ジャッカル"
