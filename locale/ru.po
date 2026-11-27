@@ -1749,6 +1749,9 @@ msgstr "Материал: %s"
 msgid "Maus"
 msgstr "Мышь"
 
+msgid "Maus-Empfindlichkeit"
+msgstr "Чувствительность мыши"
+
 msgid "Maustaste halten zum Aufladen: größer und stärker"
 msgstr "Держи кнопку для заряда: больше и сильнее"
 
@@ -2939,6 +2942,9 @@ msgstr "Осиный медведь"
 
 msgid "Wettkampfstiefel"
 msgstr "Состязательные сапоги"
+
+msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
+msgstr "Как в Counter-Strike 2: то же число поворачивает так же."
 
 msgid "Wiesenwespe"
 msgstr "Луговая оса"

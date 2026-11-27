@@ -1749,6 +1749,9 @@ msgstr "素材：%s"
 msgid "Maus"
 msgstr "マウス"
 
+msgid "Maus-Empfindlichkeit"
+msgstr "マウス感度"
+
 msgid "Maustaste halten zum Aufladen: größer und stärker"
 msgstr "長押しでチャージ: 大きく強くなる"
 
@@ -2939,6 +2942,9 @@ msgstr "ハチグマ"
 
 msgid "Wettkampfstiefel"
 msgstr "競技用ブーツ"
+
+msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
+msgstr "Counter-Strike 2 と同じ：同じ数値なら同じだけ回る。"
 
 msgid "Wiesenwespe"
 msgstr "草原のハチ"

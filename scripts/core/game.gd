@@ -8,7 +8,13 @@ const RUN_SCENE: String = "res://scenes/run/run.tscn"
 const INTRO_SCENE: String = "res://scenes/story/intro.tscn"
 const SHOP_SCENE: String = "res://scenes/shop/shop.tscn"
 const CONTROLS_SECTION: String = "controls"
-const DEFAULT_MOUSE_SENSITIVITY: float = 0.5
+## Mouse sensitivity as in Counter-Strike 2: one count of mouse movement turns the view by
+## sensitivity × CS_YAW degrees (CS2 m_yaw / m_pitch = 0.022). The same number as in CS2 gives
+## the same turn per centimetre of mouse movement.
+const DEFAULT_MOUSE_SENSITIVITY: float = 2.5
+const MIN_MOUSE_SENSITIVITY: float = 0.01
+const MAX_MOUSE_SENSITIVITY: float = 20.0
+const CS_YAW: float = 0.022
 
 ## The field of view of the dungeon camera was changed in the settings (DisplaySettings).
 signal fov_changed(degrees: float)
@@ -94,10 +100,16 @@ func to_main_menu() -> void:
 
 # --- Settings ---------------------------------------------------------------------
 
-## 0..1, the slider in the settings; turned into radians per pixel by the player.
+## The sensitivity as in CS2 (settings: slider and number field). Saved under its own key, so
+## the old 0..1 slider value of earlier versions is not taken for a CS2 number.
 func get_mouse_sensitivity() -> float:
-	return clampf(float(WindowLayout.get_setting(CONTROLS_SECTION, "mouse_sensitivity", DEFAULT_MOUSE_SENSITIVITY)), 0.0, 1.0)
+	return clampf(float(WindowLayout.get_setting(CONTROLS_SECTION, "mouse_sensitivity_cs2", DEFAULT_MOUSE_SENSITIVITY)), MIN_MOUSE_SENSITIVITY, MAX_MOUSE_SENSITIVITY)
 
 
 func set_mouse_sensitivity(value: float) -> void:
-	WindowLayout.set_setting(CONTROLS_SECTION, "mouse_sensitivity", clampf(value, 0.0, 1.0))
+	WindowLayout.set_setting(CONTROLS_SECTION, "mouse_sensitivity_cs2", clampf(value, MIN_MOUSE_SENSITIVITY, MAX_MOUSE_SENSITIVITY))
+
+
+## Radians the view turns per count (pixel of raw mouse movement), like CS2.
+func look_radians_per_count() -> float:
+	return deg_to_rad(get_mouse_sensitivity() * CS_YAW)

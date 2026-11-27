@@ -109,4 +109,31 @@ func _window() -> void:
 	check_eq(script("res://scripts/core/controls.gd").call("get_key", &"bag"), KEY_J, "clicking the key, then pressing J changes it")
 	check_eq((buttons[&"bag"] as Button).text, "J", "the button shows J")
 	script("res://scripts/core/controls.gd").call("reset_keys")
+	await _sensitivity(pages[2] as Control)
 	window.queue_free()
+
+
+## Mouse sensitivity as in CS2: sensitivity × 0.022 degrees per count; a number field takes
+## "1,25" and "1.25", the slider follows; nonsense keeps the old value.
+func _sensitivity(page: Control) -> void:
+	var game: Node = root.get_node("Game")
+	check(is_equal_approx(float(game.call("get_mouse_sensitivity")), 2.5), "default 2.5")
+	var field: LineEdit = page.find_child("SensitivityField", true, false)
+	var slider: HSlider = page.find_child("SensitivitySlider", true, false)
+	check(field != null and slider != null, "a slider and a number field")
+	field.text = "1,25"
+	field.text_submitted.emit(field.text)
+	check(is_equal_approx(float(game.call("get_mouse_sensitivity")), 1.25), "the field takes 1,25")
+	check(is_equal_approx(slider.value, 1.25), "the slider follows")
+	check(is_equal_approx(float(game.call("look_radians_per_count")), deg_to_rad(1.25 * 0.022)), "1.25 x 0.022 degrees per count, like CS2")
+	field.text = "abc"
+	field.text_submitted.emit(field.text)
+	check(is_equal_approx(float(game.call("get_mouse_sensitivity")), 1.25), "nonsense keeps the value")
+	check_eq(field.text, "1.25", "and shows it again")
+	slider.value = 3.0
+	check_eq(field.text, "3.0", "the slider changes the field")
+	field.text = "500"
+	field.text_submitted.emit(field.text)
+	check(is_equal_approx(float(game.call("get_mouse_sensitivity")), 20.0), "at most 20")
+	game.call("set_mouse_sensitivity", 2.5)
+	await process_frame

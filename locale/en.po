@@ -1749,6 +1749,9 @@ msgstr "Material: %s"
 msgid "Maus"
 msgstr "Mouse"
 
+msgid "Maus-Empfindlichkeit"
+msgstr "Mouse sensitivity"
+
 msgid "Maustaste halten zum Aufladen: größer und stärker"
 msgstr "Hold the mouse button to charge: bigger and stronger"
 
@@ -2939,6 +2942,9 @@ msgstr "Wasp Bear"
 
 msgid "Wettkampfstiefel"
 msgstr "Contest Boots"
+
+msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
+msgstr "Like in Counter-Strike 2: the same number turns just as far."
 
 msgid "Wiesenwespe"
 msgstr "Meadow Wasp"

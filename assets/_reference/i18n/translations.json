@@ -1049,5 +1049,7 @@
 	"Kostet: %s": {"en": "Costs: %s", "es": "Cuesta: %s", "fr": "Coût : %s", "pt": "Custa: %s", "ru": "Стоит: %s", "ja": "コスト: %s", "zh": "花费：%s", "fa": "هزینه: %s"},
 	"Mit Gold": {"en": "With gold", "es": "Con oro", "fr": "Avec de l'or", "pt": "Com ouro", "ru": "За золото", "ja": "ゴールドで", "zh": "用金币", "fa": "با طلا"},
 	"Mit Skillpunkten": {"en": "With skill points", "es": "Con puntos de habilidad", "fr": "Avec des points de compétence", "pt": "Com pontos de habilidade", "ru": "За очки навыков", "ja": "スキルポイントで", "zh": "用技能点", "fa": "با امتیاز مهارت"},
-	"Überleben": {"en": "Survival", "es": "Supervivencia", "fr": "Survie", "pt": "Sobrevivência", "ru": "Выживание", "ja": "生存", "zh": "生存", "fa": "بقا"}
+	"Überleben": {"en": "Survival", "es": "Supervivencia", "fr": "Survie", "pt": "Sobrevivência", "ru": "Выживание", "ja": "生存", "zh": "生存", "fa": "بقا"},
+	"Maus-Empfindlichkeit": {"en": "Mouse sensitivity", "es": "Sensibilidad del ratón", "fr": "Sensibilité de la souris", "pt": "Sensibilidade do mouse", "ru": "Чувствительность мыши", "ja": "マウス感度", "zh": "鼠标灵敏度", "fa": "حساسیت ماوس"},
+	"Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit.": {"en": "Like in Counter-Strike 2: the same number turns just as far.", "es": "Como en Counter-Strike 2: el mismo número gira lo mismo.", "fr": "Comme dans Counter-Strike 2 : le même nombre tourne autant.", "pt": "Como no Counter-Strike 2: o mesmo número gira a mesma distância.", "ru": "Как в Counter-Strike 2: то же число поворачивает так же.", "ja": "Counter-Strike 2 と同じ：同じ数値なら同じだけ回る。", "zh": "与 Counter-Strike 2 相同：同样的数值转动同样的角度。", "fa": "مثل Counter-Strike 2: همان عدد همان‌قدر می‌چرخاند."}
 }
