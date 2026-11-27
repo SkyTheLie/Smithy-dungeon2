@@ -15,7 +15,7 @@ var dungeon: Dungeon
 var player: Player
 
 var _boss: Enemy = null
-## Seconds the boss bar still fills up after the boss came (BossHall.WAKE_TIME).
+## Seconds the boss bar still fills up after the boss came (BossAltar.WAKE_TIME).
 var _boss_fill_left: float = 0.0
 var _banner_tween: Tween
 var _message_tween: Tween
@@ -182,6 +182,14 @@ func _on_unlocked(id: String) -> void:
 			Language.translate("Kann ab jetzt im Dungeon auftauchen"))
 
 
+## An achievement was reached (data/achievements.json): banner and sound.
+func show_achievement(id: String) -> void:
+	var data: Dictionary = Content.achievement(id)
+	AudioManager.play_sound("achievement")
+	show_banner(Language.translate("Erfolg: %s") % Language.translate(String(data.get("name", id))),
+			Language.translate(String(data.get("desc", ""))))
+
+
 func _on_items_cleared() -> void:
 	for icon: Node in _items.get_children():
 		icon.queue_free()
@@ -213,8 +221,8 @@ func _on_boss_appeared(boss: Enemy) -> void:
 	_boss_name.text = Language.translate(String(boss.data.get("name", "")))
 	# The bar fills up while the boss wakes (it gets its life).
 	_boss_bar.value = 0.0
-	_boss_fill_left = BossHall.WAKE_TIME
-	create_tween().tween_property(_boss_bar, "value", 100.0, BossHall.WAKE_TIME)
+	_boss_fill_left = BossAltar.WAKE_TIME
+	create_tween().tween_property(_boss_bar, "value", 100.0, BossAltar.WAKE_TIME)
 	_boss_box.show()
 
 

@@ -7,7 +7,10 @@ extends Node3D
 ##   - item room: one item on a pedestal; shop: an item and goods for coins; the merchant there
 ##     buys loot (Tab, right click: sell_from_bag), the only gold of the dungeon;
 ##   - boss room: one boss of the theme, picked at random when the floor is built; after it a
-##     trapdoor down (or the golden light after the last floor) and a boss item.
+##     trapdoor down and a boss item. The very first boss (MetaState.rope_due) only leaves a rope
+##     out of the dungeon (Rope, climb_rope). After the boss of the last floor a portal rises
+##     instead of the trapdoor (Portal); it leads to the Boss-Altar (BossAltar), where the end
+##     boss of the dungeon waits (dungeons.json end_boss); after it the golden light (victory).
 ## Only the room the player is in and its neighbours are visible (drawn); the rest is hidden.
 ## Extra rooms (FloorLayout.add_extras): a secret room behind a wall that a bomb blows open
 ## (secret items), sometimes a sacrifice room (Opferstein: a heart for a reward) and the special
@@ -27,11 +30,13 @@ signal room_entered(cell: Vector2i)
 signal boss_appeared(boss: Enemy)
 signal boss_defeated
 signal trapdoor_entered(final: bool)
+## The player took hold of the rope after the first boss (RunScene then ends the day).
+signal rope_grabbed
 ## The player stepped onto the way out in the start room.
 signal exit_entered
 ## A short text for the HUD (German key).
 signal message(text: String)
-## The boss hall scene started (true) / ended (false): the HUD hides meanwhile.
+## The Boss-Altar scene started (true) / ended (false): the HUD hides meanwhile.
 signal cutscene_changed(active: bool)
 
 const SPAWN_MIN_DISTANCE: float = 3.5
@@ -52,11 +57,13 @@ const TEST_FIRST_ROW: float = -4.0
 ## A bomb this close to a hidden wall blows it open.
 const SECRET_BLAST_REACH: float = 1.2
 const SACRIFICE_STEP: float = 0.7
-## The boss hall (BossHall) lies far away from the floor grid, like the test room.
-const HALL_CELL: Vector2i = Vector2i(-12, 12)
-## The gate in the boss room (Vorhalle) that leads into the hall.
-const GATE_HEIGHT: float = 3.2
-const GATE_TOUCH: float = 1.2
+## The Boss-Altar (BossAltar) lies far away from the floor grid, like the test room.
+const ALTAR_CELL: Vector2i = Vector2i(-12, 12)
+## Walking this close to the portal in the boss room leads to the Boss-Altar.
+const PORTAL_TOUCH: float = 1.2
+## Seconds of climbing up the rope (then RunScene fades out) and how high the player gets.
+const CLIMB_TIME: float = 2.6
+const CLIMB_HEIGHT: float = 9.0
 
 var run: RunState
 var player: Player
@@ -68,6 +75,8 @@ var doors: Array[Door] = []
 var current_cell: Vector2i = FloorLayout.START
 ## The boss of this floor (random from the theme's "bosses").
 var boss_id: String = ""
+## The end boss in the Boss-Altar (dungeons.json end_boss): only on the last floor, else "".
+var end_boss_id: String = ""
 ## Alive enemies of the room the player is in.
 var enemies: Array[Enemy] = []
 var boss: Enemy = null
@@ -89,9 +98,12 @@ var _return_position: Vector3 = Vector3.ZERO
 var _sacrifice_stone: Node3D = null
 var _sacrifices: int = 0
 var _on_stone: bool = false
-## Boss hall: built the first time the player goes through the gate of the Vorhalle.
-var hall: BossHall = null
-var _hall_gate: Sprite3D = null
+## Boss-Altar: built the first time the player walks into the portal of the boss room.
+var altar: BossAltar = null
+## After the boss of the last floor (leads to the Boss-Altar); null before.
+var _portal: Portal = null
+## After the very first boss: the way out (null else).
+var _rope: Rope = null
 
 
 func build(run_state: RunState, the_player: Player, index: int) -> void:
@@ -116,13 +128,23 @@ func build(run_state: RunState, the_player: Player, index: int) -> void:
 	# After the rooms, so the rooms come out the same for a seed whatever bosses there are.
 	# A boss that did not come yet in this run (the floors of a theme share their bosses).
 	var bosses: Array = floor_data.get("bosses", ["rat_king"])
+	if is_last_floor():
+		end_boss_id = Content.end_boss()
+		# The end boss waits in the Boss-Altar, not in the boss room (if the theme has others).
+		var others: Array = bosses.filter(func(id: Variant) -> bool: return String(id) != end_boss_id)
+		if not others.is_empty():
+			bosses = others
 	var fresh: Array = bosses.filter(func(id: Variant) -> bool: return not run.fought_bosses.has(String(id)))
 	if fresh.is_empty():
 		fresh = bosses
 	boss_id = String(fresh[_rng.randi_range(0, fresh.size() - 1)])
 	if not run.fought_bosses.has(boss_id):
 		run.fought_bosses.append(boss_id)
-	# enemies.json "arena" (light, traps) goes into the boss hall when it is built.
+	# enemies.json "arena" (light, traps) of the boss in its room; the end boss's goes into the
+	# Boss-Altar when it is built.
+	var boss_cell: Vector2i = layout.cell_of(FloorLayout.BOSS)
+	if rooms.has(boss_cell):
+		_build_arena(rooms[boss_cell], boss_id)
 	player.global_position = RoomBuilder.cell_center(FloorLayout.START) + Vector3(0, 0, 1.0)
 	_enter_room(FloorLayout.START)
 	run.blue_heart_lost.connect(_on_blue_heart_lost)
@@ -229,8 +251,6 @@ func _build_room(cell: Vector2i) -> void:
 			_build_secret_room(room)
 		FloorLayout.SACRIFICE:
 			_build_sacrifice_room(room)
-		FloorLayout.BOSS:
-			_build_antechamber(room)
 
 
 ## The wall picture of the room at `cell` (room style or floor).
@@ -365,8 +385,8 @@ func _build_shop(room: DungeonRoom) -> void:
 ## A boss with "arena" (enemies.json) changes its room: "light" [r, g, b] = a coloured light over
 ## it, "hazards" [[kind, [min, max]]] = traps like in normal rooms (door paths and the middle stay
 ## free, so the boss always has room). With its own random numbers.
-func _build_arena(room: DungeonRoom) -> void:
-	var arena: Dictionary = Content.enemy(boss_id).get("arena", {})
+func _build_arena(room: DungeonRoom, id: String) -> void:
+	var arena: Dictionary = Content.enemy(id).get("arena", {})
 	if arena.is_empty() or room == null:
 		return
 	if arena.has("light"):
@@ -541,13 +561,13 @@ func _physics_process(delta: float) -> void:
 	_check_stomp()
 	_check_sacrifice()
 	var pos: Vector3 = player.global_position
-	if in_boss_hall():
-		if hall.tick():
-			leave_boss_hall()
+	if in_boss_altar():
+		if altar.tick():
+			leave_boss_altar()
 		elif _fighting and enemies.is_empty():
-			_clear_room(hall)
+			_clear_room(altar)
 		return
-	if _check_hall_gate(pos):
+	if _check_portal(pos):
 		return
 	var cell: Vector2i = RoomBuilder.cell_at(pos)
 	if cell != current_cell and layout.rooms.has(cell) and RoomBuilder.inner_rect(cell, 0.4).has_point(Vector2(pos.x, pos.z)):
@@ -577,9 +597,11 @@ func _enter_room(cell: Vector2i) -> void:
 			for id: String in room.spawn_list:
 				spawn_enemy(id, room.position + _spawn_spot(room))
 		FloorLayout.BOSS:
-			# The Vorhalle: no fight here, the boss waits in the hall behind the gate.
-			room.cleared = true
-			message.emit("Hinter dem Tor wartet etwas")
+			_start_fight(room)
+			var toward_player: Vector3 = (player.global_position - room.position) * Vector3(1, 0, 1)
+			boss = spawn_enemy(boss_id, room.position - toward_player.normalized() * 3.5)
+			boss_appeared.emit(boss)
+			AudioManager.play_music("boss")
 		_:
 			room.cleared = true
 
@@ -657,6 +679,9 @@ func _on_enemy_died(enemy: Enemy) -> void:
 		for other: Enemy in enemies.duplicate():
 			other.take_damage(9999.0, Vector3.ZERO, false)
 		AudioManager.play_sound("boss_die")
+		# Egon's errand: the very first boss always leaves the ruby.
+		if not in_boss_altar() and MetaState.rope_due(Content.dungeon_id(), floor_index):
+			_drop_loot(rooms[current_cell], enemy.global_position, String(Content.meta("ruby_quest").get("item", "")), 1, false)
 		boss_defeated.emit()
 		return
 	if _rng.randf() < key_drop_chance():
@@ -675,11 +700,18 @@ func _clear_room(room: DungeonRoom) -> void:
 	room.cleared = true
 	for door: Door in doors_of(room.cell):
 		door.set_closed(false)
-	if room == hall:
-		hall.on_cleared()
-		# Between the altar and the gate back.
-		_boss_rewards(room, Vector3(0, 0, 4.5))
+	if room == altar:
+		altar.on_cleared()
+		# Between the altar and the gate back: the golden light.
+		_boss_rewards(room, Vector3(0, 0, 4.5), true)
 		AudioManager.play_music(String(floor_data.get("music", "")))
+		return
+	if room.type == FloorLayout.BOSS:
+		AudioManager.play_music(String(floor_data.get("music", "")))
+		if MetaState.rope_due(Content.dungeon_id(), floor_index):
+			_drop_rope(room)
+		else:
+			_boss_rewards(room, Vector3.ZERO, end_boss_id.is_empty())
 		return
 	var drops: Dictionary = Content.floors_extra("room_drops")
 	if _rng.randf() < float(drops.get("chance", 0.4)) + run.stats.luck * _luck_drop():
@@ -696,14 +728,28 @@ func _roll_drop() -> String:
 	return Content.pick_weighted(drops.get("table", [["heart", 1]]), _rng)
 
 
-## Trapdoor at `base` (local to `room`), the boss item behind it, a heart beside it.
-func _boss_rewards(room: DungeonRoom, base: Vector3) -> void:
-	var trapdoor := Trapdoor.new()
-	trapdoor.final = floor_index >= Content.floors().size() - 1
-	trapdoor.player = player
-	trapdoor.entered.connect(func() -> void: trapdoor_entered.emit(trapdoor.final))
-	room.add_child(trapdoor)
-	trapdoor.position = base
+## true on the last floor of the dungeon.
+func is_last_floor() -> bool:
+	return floor_index >= Content.floors().size() - 1
+
+
+## After a boss, at `base` (local to `room`): the way on, the boss item behind it, a heart beside
+## it. `way_down`: a trapdoor (the golden light on the last floor); else (the boss of the last
+## floor of a dungeon with an end boss) the portal to the Boss-Altar.
+func _boss_rewards(room: DungeonRoom, base: Vector3, way_down: bool) -> void:
+	if way_down:
+		var trapdoor := Trapdoor.new()
+		trapdoor.final = is_last_floor()
+		trapdoor.player = player
+		trapdoor.entered.connect(func() -> void: trapdoor_entered.emit(trapdoor.final))
+		room.add_child(trapdoor)
+		trapdoor.position = base
+	else:
+		_portal = Portal.new()
+		_portal.name = "Portal"
+		room.add_child(_portal)
+		_portal.position = base
+		player.shake(0.5)
 	var first: Pedestal = _add_item_pedestal(room, base + Vector3(0, 0, -2.8), "boss", 0)
 	# "choice": a second boss item; taking one makes the other vanish.
 	if run.stats.has("choice") and first:
@@ -713,8 +759,16 @@ func _boss_rewards(room: DungeonRoom, base: Vector3) -> void:
 			first.taken.connect(func(_p: Pedestal) -> void: second.show_item(""))
 			second.taken.connect(func(_p: Pedestal) -> void: first.show_item(""))
 	_drop(room, room.position + base + Vector3(2.0, 0, 0), "heart")
+	if room == altar:
+		message.emit("Du hast den Dungeon bezwungen!")
+		return
 	_open_special_room()
-	message.emit("Der Weg nach unten ist frei!" if not trapdoor.final else "Du hast den Dungeon bezwungen!")
+	if not way_down:
+		message.emit("Ein Portal öffnet sich!")
+	elif is_last_floor():
+		message.emit("Du hast den Dungeon bezwungen!")
+	else:
+		message.emit("Der Weg nach unten ist frei!")
 
 
 func _drop(room: DungeonRoom, at: Vector3, kind: String) -> void:
@@ -953,13 +1007,13 @@ func _on_blue_heart_lost() -> void:
 		enemy.take_damage(amount, Vector3.ZERO, false)
 
 
-# --- Boss hall -------------------------------------------------------------------------
+# --- Boss-Altar, portal, rope ---------------------------------------------------------
 
-## Walkable area (world x/z) of the room at `cell`, `margin` metres from the walls; the boss hall
+## Walkable area (world x/z) of the room at `cell`, `margin` metres from the walls; the Boss-Altar
 ## is bigger than the other rooms.
 func rect_of(cell: Vector2i, margin: float) -> Rect2:
-	if hall and cell == HALL_CELL:
-		return hall.inner_rect(margin)
+	if altar and cell == ALTAR_CELL:
+		return altar.inner_rect(margin)
 	return RoomBuilder.inner_rect(cell, margin)
 
 
@@ -970,91 +1024,121 @@ func room_rect(margin: float) -> Rect2:
 
 ## Size (x, z in metres, walls included) of the room at `cell` (the map draws it).
 func room_size(cell: Vector2i) -> Vector2:
-	if hall and cell == HALL_CELL:
-		return (hall.half + Vector2(RoomBuilder.WALL_T, RoomBuilder.WALL_T)) * 2.0
+	if altar and cell == ALTAR_CELL:
+		return (altar.half + Vector2(RoomBuilder.WALL_T, RoomBuilder.WALL_T)) * 2.0
 	return Vector2(RoomBuilder.ROOM_W, RoomBuilder.ROOM_D)
 
 
-func in_boss_hall() -> bool:
-	return hall != null and current_cell == HALL_CELL
+func in_boss_altar() -> bool:
+	return altar != null and current_cell == ALTAR_CELL
 
 
-## The Vorhalle (boss room of the grid): the open gate to the hall, standing in the middle of the
-## room and facing the door the player comes in by.
-func _build_antechamber(room: DungeonRoom) -> void:
-	var entrance := Vector2i(0, 1)
-	for dir: Vector2i in FloorLayout.DIRECTIONS:
-		var other: String = layout.get_type(room.cell + dir)
-		if not other.is_empty() and not other in FloorLayout.HIDDEN_TYPES:
-			entrance = dir
-			break
-	var settings: Dictionary = Content.get_file("boss_hall")
-	_hall_gate = Fx.billboard(load(String(settings.get("gate_open", ""))) as Texture2D, GATE_HEIGHT)
-	_hall_gate.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-	_hall_gate.rotation.y = atan2(float(entrance.x), float(entrance.y))
-	_hall_gate.position = Vector3(-entrance.x * 1.0, GATE_HEIGHT / 2.0, -entrance.y * 1.0)
-	room.add_child(_hall_gate)
-	var glow := OmniLight3D.new()
-	glow.light_color = Color(0.9, 0.25, 0.15)
-	glow.light_energy = 0.9
-	glow.omni_range = 4.0
-	glow.position = Vector3(entrance.x * 0.8, 1.2, entrance.y * 0.8)
-	room.add_child(glow)
+## The portal in the boss room (after the boss of the last floor); null before.
+func get_portal() -> Portal:
+	return _portal
 
 
-## Walking into the gate of the Vorhalle leads into the hall. true if it did (the player is
+## Walking into the open portal leads to the Boss-Altar. true if it did (the player is
 ## somewhere else now: nothing more this frame).
-func _check_hall_gate(pos: Vector3) -> bool:
-	if _hall_gate == null or current_cell != layout.cell_of(FloorLayout.BOSS):
+func _check_portal(pos: Vector3) -> bool:
+	if _portal == null or not _portal.is_open() or current_cell != layout.cell_of(FloorLayout.BOSS):
 		return false
-	var offset: Vector3 = pos - _hall_gate.global_position
+	var offset: Vector3 = pos - _portal.global_position
 	offset.y = 0.0
-	if offset.length() >= GATE_TOUCH:
+	if offset.length() >= PORTAL_TOUCH:
 		return false
-	enter_boss_hall()
+	enter_boss_altar()
 	return true
 
 
-## Into the boss hall (built the first time), in front of its gate, looking at the altar.
-func enter_boss_hall() -> void:
-	if hall == null:
-		hall = BossHall.new()
-		hall.setup(self, player, HALL_CELL)
-		add_child(hall)
-		rooms[HALL_CELL] = hall
-		hall.cutscene_changed.connect(cutscene_changed.emit)
-		_build_arena(hall)
-	current_cell = HALL_CELL
-	hall.visited = true
-	_show_near(HALL_CELL)
-	_move_player(hall.arrival_point())
+## Into the Boss-Altar (built the first time), in front of its gate, looking at the altar.
+func enter_boss_altar() -> void:
+	if end_boss_id.is_empty():
+		end_boss_id = Content.end_boss()
+	if end_boss_id.is_empty():
+		end_boss_id = boss_id
+	if altar == null:
+		altar = BossAltar.new()
+		altar.setup(self, player, ALTAR_CELL)
+		add_child(altar)
+		rooms[ALTAR_CELL] = altar
+		altar.cutscene_changed.connect(cutscene_changed.emit)
+		_build_arena(altar, end_boss_id)
+	current_cell = ALTAR_CELL
+	altar.visited = true
+	_show_near(ALTAR_CELL)
+	_move_player(altar.arrival_point())
 	player.rotation.y = 0.0
 	player.camera.rotation.x = 0.0
 	run.refresh_mantle()
-	room_entered.emit(HALL_CELL)
-	hall.on_enter()
+	room_entered.emit(ALTAR_CELL)
+	altar.on_enter()
 
 
-## Back from the hall into the Vorhalle, in front of the gate (only after the boss).
-func leave_boss_hall() -> void:
+## Back from the Boss-Altar into the boss room, in front of the portal (only after the end boss).
+func leave_boss_altar() -> void:
 	var cell: Vector2i = layout.cell_of(FloorLayout.BOSS)
-	hall.on_leave()
+	altar.on_leave()
 	current_cell = cell
 	_show_near(cell)
 	var room: DungeonRoom = rooms[cell]
-	var front: Vector3 = (room.global_position - _hall_gate.global_position) * Vector3(1, 0, 1)
-	var at: Vector3 = _hall_gate.global_position + front.normalized() * 2.4
+	var at: Vector3 = room.global_position + Vector3(0, 0, 1.0) * (PORTAL_TOUCH + 1.2)
+	if _portal:
+		at = _portal.global_position + Vector3(0, 0, PORTAL_TOUCH + 1.2)
 	_move_player(Vector3(at.x, 0.0, at.z))
 	room_entered.emit(cell)
 	AudioManager.play_music(String(floor_data.get("music", "")))
 
 
-## The boss lands in the hall (BossHall at the end of its scene): the fight starts.
+## The end boss lands in the Boss-Altar (BossAltar at the end of its scene): the fight starts.
 func start_boss_fight(at: Vector3) -> Enemy:
 	_fighting = true
-	boss = spawn_enemy(boss_id, at)
+	boss = spawn_enemy(end_boss_id, at)
 	boss_appeared.emit(boss)
 	return boss
+
+
+## The very first boss: a rope falls from the sky in the middle of `room`, nothing else.
+func _drop_rope(room: DungeonRoom) -> void:
+	_rope = Rope.new()
+	_rope.name = "Rope"
+	_rope.player = player
+	_rope.grabbed.connect(rope_grabbed.emit)
+	room.add_child(_rope)
+	_rope.position = Vector3.ZERO
+	message.emit("Ein Seil fällt vom Himmel!")
+
+
+## The rope after the first boss; null on other floors.
+func get_rope() -> Rope:
+	return _rope
+
+
+## The player climbs the rope out of the dungeon (RunScene calls it after rope_grabbed): steps
+## to it, looks up, climbs. Returns when they are up (or the scene is gone).
+func climb_rope() -> void:
+	if _rope == null:
+		return
+	player.controls_enabled = false
+	player.invulnerable = 999.0
+	player.velocity = Vector3.ZERO
+	# The player's own movement (gravity) stops while they hang on the rope.
+	player.set_physics_process(false)
+	var to_rope: Vector3 = (_rope.global_position - player.global_position) * Vector3(1, 0, 1)
+	if to_rope.length() < 0.05:
+		to_rope = Vector3.FORWARD
+	var hold: Vector3 = _rope.global_position - to_rope.normalized() * 0.35
+	var tween := create_tween()
+	tween.tween_property(player, "global_position", Vector3(hold.x, player.global_position.y, hold.z), 0.3)
+	tween.parallel().tween_property(player, "rotation:y", atan2(-to_rope.x, -to_rope.z), 0.3)
+	tween.tween_property(player.camera, "rotation:x", 0.9, 0.5).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(player, "global_position:y", player.global_position.y + CLIMB_HEIGHT, CLIMB_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	var steps: int = 6
+	for i in steps:
+		get_tree().create_timer(0.8 + i * CLIMB_TIME / steps, false).timeout.connect(func() -> void:
+			if is_inside_tree():
+				AudioManager.play_sound("rope_climb", randf_range(0.9, 1.1)))
+	await tween.finished
 
 
 ## Admin menu: ends a fight at once (enemies gone without their death tricks, doors open).
@@ -1070,16 +1154,16 @@ func teleport_to_cell(cell: Vector2i) -> void:
 	if not layout.rooms.has(cell):
 		return
 	end_fight_now()
-	if in_boss_hall():
-		hall.on_leave()
+	if in_boss_altar():
+		altar.on_leave()
 	_move_player(RoomBuilder.cell_center(cell) + Vector3(0, 0, 1.5))
 	_enter_room(cell)
 
 
-## Admin menu: straight into the boss hall (ends a fight first).
-func teleport_to_boss_hall() -> void:
+## Admin menu: straight into the Boss-Altar (ends a fight first).
+func teleport_to_boss_altar() -> void:
 	end_fight_now()
-	enter_boss_hall()
+	enter_boss_altar()
 
 
 # --- Test room ----------------------------------------------------------------------------

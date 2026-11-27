@@ -14,6 +14,8 @@ extends RefCounted
 ##   deaths, potions_unlocked  deaths in the dungeon; after the second one Egon shows the
 ##          potions (potion_tour_due), then potions come on the table and the potion place shows.
 ##          A potion on the hero lies in "potion_1" of the equipment (potion_slot_names).
+##   rope_done, ruby_delivered  Egon's first errand (data/meta.json ruby_quest): the first boss
+##          ends with a rope out of the dungeon (rope_due), then Egon takes the ruby (deliver_ruby).
 ## Rules about this gold live here (deposit / withdraw check the amounts); screens only call them.
 ## The chosen slot is a setting (user://settings.cfg, "save" / "slot"); the slot choice after the
 ## language choice sets it (SlotSelect).
@@ -494,6 +496,64 @@ static func lay_tutorial_table() -> void:
 static func finish_tutorial() -> void:
 	_write("tutorial_done", true)
 	_save()
+
+
+# --- Egon's first errand: the ruby (data/meta.json ruby_quest) ----------------------
+
+## true while the first boss still ends with the rope: not climbed out yet in this save slot,
+## and floor `floor_index` of dungeon `dungeon_id` is the one of ruby_quest.
+static func rope_due(dungeon_id: String, floor_index: int) -> bool:
+	var quest: Dictionary = Content.meta("ruby_quest")
+	if quest.is_empty() or rope_done():
+		return false
+	return dungeon_id == String(quest.get("dungeon", "")) and floor_index == int(quest.get("floor", 0))
+
+
+## true once the player climbed out at the rope (from then on the boss room is a normal one).
+static func rope_done() -> bool:
+	return bool(_read("rope_done", false))
+
+
+static func finish_rope() -> void:
+	_write("rope_done", true)
+	_save()
+
+
+## true once Egon has his ruby.
+static func ruby_delivered() -> bool:
+	return bool(_read("ruby_delivered", false))
+
+
+## Egon waits for his ruby: climbed out at the rope, not given yet.
+static func ruby_due() -> bool:
+	return rope_done() and not ruby_delivered()
+
+
+## Index of the first ruby (ruby_quest "item") in the inventory, -1 if there is none.
+static func ruby_index() -> int:
+	var wanted: String = String(Content.meta("ruby_quest").get("item", ""))
+	var own: Array[Dictionary] = stash()
+	for i in own.size():
+		if String(own[i].get("id", "")) == wanted and not own[i].has("rarity") and int(own[i].get("count", 0)) > 0:
+			return i
+	return -1
+
+
+## Egon takes one ruby out of the inventory. false (nothing changes) without one or if he has it.
+static func deliver_ruby() -> bool:
+	if ruby_delivered():
+		return false
+	var index: int = ruby_index()
+	if index < 0:
+		return false
+	var own: Array[Dictionary] = stash()
+	own[index]["count"] = int(own[index]["count"]) - 1
+	if int(own[index]["count"]) <= 0:
+		own.remove_at(index)
+	_write("stash", own)
+	_write("ruby_delivered", true)
+	_save()
+	return true
 
 
 ## A run is over (a new day begins): `coins` go into the box, `kept` (bag places

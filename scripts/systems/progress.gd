@@ -1,7 +1,8 @@
 class_name Progress
 extends RefCounted
 ## What stays between runs (user://progress.cfg): items picked up at least once (for the
-## Lexikon), enemies killed, bosses beaten, runs won, and from that the unlocked items.
+## Lexikon), enemies killed, bosses beaten, runs won, achievements (data/achievements.json), and
+## from that the unlocked items.
 ## An item with "unlock" in data/items.json is not in any pool until its condition is met:
 ##   {"type": "boss", "id": "rat_king"}   beat that boss once
 ##   {"type": "wins", "count": 1}          win that many runs
@@ -109,6 +110,26 @@ static func add_win(seconds: float = 0.0) -> Array[String]:
 	if seconds > 0.0 and (fastest <= 0.0 or seconds < fastest):
 		_load().set_value(SECTION, "fastest_win", seconds)
 	return _change("wins", wins() + 1)
+
+
+## Achievements reached (ids of data/achievements.json), for all save slots.
+static func achievements() -> Array:
+	return _read("achievements", [])
+
+
+static func has_achievement(id: String) -> bool:
+	return achievements().has(id)
+
+
+## Achievement `id` reached: remembered and saved. true if it is new (then the game shows it).
+static func unlock_achievement(id: String) -> bool:
+	if has_achievement(id) or Content.achievement(id).is_empty():
+		return false
+	var list: Array = achievements().duplicate()
+	list.append(id)
+	_load().set_value(SECTION, "achievements", list)
+	_load().save(PATH)
+	return true
 
 
 ## Sets a value, saves, and returns the items that were locked before and are open now.

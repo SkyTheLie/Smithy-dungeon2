@@ -1,0 +1,6 @@
+{
+	"_info": "Erfolge (Progress.unlock_achievement, gespeichert in user://progress.cfg für alle Spielstände). name, desc = Text (deutsch = Übersetzungs-Schlüssel), icon = Bild. Beim Freischalten: Banner im HUD, Ton achievement, Zeile auf dem End-Bildschirm.",
+	"achievements": {
+		"first_boss": {"name": "Ans Licht", "desc": "Den ersten Boss besiegt und am Seil hinausgeklettert.", "icon": "res://assets/sprites/furniture/trophies/trophy_hero_copper.png"}
+	}
+}

@@ -157,7 +157,7 @@ func _build_travel() -> Control:
 	_button(row, "Hinreisen", _on_travel)
 	var rooms := HFlowContainer.new()
 	page.add_child(rooms)
-	_button(rooms, "Boss-Halle", func() -> void: _act(dungeon.teleport_to_boss_hall))
+	_button(rooms, "Boss-Altar", func() -> void: _act(dungeon.teleport_to_boss_altar))
 	_button(rooms, "Boss-Szene überspringen", _on_skip_scene)
 	for type: String in [FloorLayout.START_ROOM, FloorLayout.BOSS, FloorLayout.ITEM, FloorLayout.SHOP, FloorLayout.SECRET, FloorLayout.SACRIFICE, FloorLayout.SPECIAL]:
 		_button(rooms, "Raum: %s" % type, _on_room.bind(type))
@@ -338,10 +338,10 @@ func _on_room(type: String) -> void:
 
 
 func _on_skip_scene() -> void:
-	if not dungeon.in_boss_hall():
-		dungeon.teleport_to_boss_hall()
+	if not dungeon.in_boss_altar():
+		dungeon.teleport_to_boss_altar()
 	close()
-	dungeon.hall.skip_intro()
+	dungeon.altar.skip_intro()
 
 
 func _on_give_item(index: int) -> void:

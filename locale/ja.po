@@ -57,6 +57,9 @@ msgstr "だから使っちまいな、相棒。できればオレの店でな！
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "弾は最後に4つの火花に弾ける"
 
+msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
+msgstr "英雄みたいにロープで登ってきたな！でも…俺のルビーはどこだ？"
+
 msgid "Amethyst"
 msgstr "アメジスト"
 
@@ -65,6 +68,9 @@ msgstr "攻撃速度"
 
 msgid "Ankauf"
 msgstr "買い取り"
+
+msgid "Ans Licht"
+msgstr "光の下へ"
 
 msgid "Anzeige"
 msgstr "表示"
@@ -285,11 +291,17 @@ msgstr "所持アイテム"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "弾が敵を追いかける"
 
+msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
+msgstr "最初のボスを倒し、ロープで脱出した。"
+
 msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
 msgstr "これはサービスだ。死んだ客は何も買わないからな。本当だよ！"
 
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "レバーの上のバーで何が出るか分かる：灰色は普通、緑は良品、とかな。経験を積むほど色とりどりになる。"
+
+msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
+msgstr "ボスが持ってたはずだ！見つけたら持ってきてくれ。待ってるぞ。じりじりとな。"
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "火炎ビームが敵へ曲がる"
@@ -723,6 +735,9 @@ msgstr "大地の巨像"
 msgid "Erdstab"
 msgstr "大地の杖"
 
+msgid "Erfolg: %s"
+msgstr "実績: %s"
+
 msgid "Erreiche Ebene %d"
 msgstr "%d階に到達する"
 
@@ -987,6 +1002,9 @@ msgstr "コモン"
 msgid "Ghul"
 msgstr "グール"
 
+msgid "Gib her, gib her! Bei mir ist er sicher. Sicherer als dein Gold in der Dose. Ehrlich!"
+msgstr "よこせ、よこせ！俺のところなら安全だ。缶の中のお前の金よりな。正直に！"
+
 msgid "Giftratte"
 msgstr "毒ネズミ"
 
@@ -1004,6 +1022,9 @@ msgstr "すべすべで緑色、まだ少し温かい。"
 
 msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
 msgstr "エゴンの店のすぐ裏から下へ降りられる。一番下にはボスと、噂では宝が待っている。エゴンいわく。"
+
+msgid "Gleich unten haust ein Boss, und der hat einen Rubin. Bring ihn mir! Der gehört mir nämlich. Also… fast. Ehrlich!"
+msgstr "すぐ下にボスが住んでて、ルビーを持ってる。持ってきてくれ！あれは俺のものなんだ。まあ…ほぼな。正直に！"
 
 msgid "Glutdrache"
 msgstr "残り火のドレイク"
@@ -1281,6 +1302,9 @@ msgstr "魔女の大釜"
 msgid "Hier klicken"
 msgstr "ここをクリック"
 
+msgid "Hinausgeklettert!"
+msgstr "脱出成功！"
+
 msgid "Hinter dem Tor wartet etwas"
 msgstr "門の向こうで何かが待っている"
 
@@ -1343,6 +1367,9 @@ msgstr "俺は詐欺… いや、商人だ。売ってるのは… …装備だ�
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "入れといてやる。無料だ！入れる手間がな。"
+
+msgid "Ich warte hier. Sicher ist sicher."
+msgstr "俺はここで待ってる。用心に越したことはない。"
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "ダンジョンで %s を押す。ゴクゴク、ハートが2つ戻る。"
@@ -1841,6 +1868,9 @@ msgstr "パラジウムの延べ棒"
 
 msgid "Palladiumklinge"
 msgstr "パラジウムの刃"
+
+msgid "Partner! Du lebst! Und ist das… ist das mein Rubin?!"
+msgstr "相棒！生きてたか！それは…それは俺のルビーか？！"
 
 msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
 msgstr "相棒！また死んだのか？心配したぞ。ほぼ2分間もな！"
@@ -2703,6 +2733,9 @@ msgstr "ほら、ちょっとした前金だ：50ゴールド。左上でいく�
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "さあ、ダンジョンへ行ってこい！いい物を持ってきてくれ。俺はここで待ってる。念のためな。"
 
+msgid "Und jetzt ab in den Dungeon! Unter uns, Partner: Ich hätte da einen kleinen Auftrag."
+msgstr "さあ、ダンジョンへ行け！ここだけの話だが相棒、ちょっとした頼みがある。"
+
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "で、左がお前だ。じっとしてな、着せてやる…"
 
@@ -2864,6 +2897,9 @@ msgstr "ささやく草原"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "ビームが当たった所で爆発する"
+
+msgid "Wofür ich den brauche? Ach… Sammlerstück! Mehr sag ich nicht. Noch nicht."
+msgstr "何に使うかって？ああ…コレクションだよ！それ以上は言わない。まだな。"
 
 msgid "Wolf"
 msgstr "狼"

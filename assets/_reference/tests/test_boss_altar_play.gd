@@ -1,9 +1,9 @@
 extends "res://assets/_reference/_lib/base_test.gd"
-## The boss hall in the real run scene: the gate of the Vorhalle leads into a hall bigger than a
-## room; the whole scene at the altar plays (dark, crystals, pillars light up, silence, the boss
-## falls in), the player cannot move meanwhile, the boss stays still while its bar fills, then the
+## The Boss-Altar in the real run scene: a hall bigger than a room (the portal after the boss of
+## the last floor leads here); the whole scene at the altar plays (dark, crystals, pillars light up, silence, the boss
+## falls in: the end boss of the dungeon), the player cannot move meanwhile, the boss stays still while its bar fills, then the
 ## fight music runs and the fight starts. The admin menu (P) opens, gives an item, puts on gear
-## and a relic, takes the player to the boss hall and back to a room.
+## and a relic, takes the player to the Boss-Altar and back to a room.
 
 var scene: Node
 var dungeon: Node
@@ -29,9 +29,9 @@ func run() -> void:
 func _scene() -> void:
 	var audio: Node = root.get_node("AudioManager")
 	var hud: CanvasLayer = scene.get_node("HUD") as CanvasLayer
-	dungeon.call("enter_boss_hall")
-	var hall: Node3D = dungeon.get("hall")
-	check(dungeon.call("in_boss_hall"), "in the boss hall")
+	dungeon.call("enter_boss_altar")
+	var hall: Node3D = dungeon.get("altar")
+	check(dungeon.call("in_boss_altar"), "in the Boss-Altar")
 	var rect: Rect2 = dungeon.call("room_rect", 0.0)
 	check(rect.size.x > 20.0 and rect.size.y > 15.0, "the hall is bigger than a room (%s)" % str(rect.size))
 	check_eq(audio.call("get_music_id"), "altar", "gloomy music in the hall")
@@ -47,6 +47,9 @@ func _scene() -> void:
 	check(dungeon.get("boss") == null, "no boss yet")
 	check(await wait_until(func() -> bool: return dungeon.get("boss") != null, 5.0), "the boss lands")
 	var boss: Node3D = dungeon.get("boss")
+	var end_boss: String = String(script("res://scripts/core/content.gd").call("end_boss", ""))
+	check(not end_boss.is_empty(), "the first dungeon has an end boss")
+	check_eq(String(boss.get("id")), end_boss, "the end boss of the dungeon lands")
 	check_eq(audio.call("get_music_id"), "boss_rock", "the fight music starts at the landing")
 	check(hud.visible, "the HUD is back")
 	check(not boss.is_physics_processing(), "the boss waits while its life bar fills")
@@ -86,7 +89,7 @@ func _admin() -> void:
 	var start: Vector2i = layout.call("cell_of", "start")
 	dungeon.call("teleport_to_cell", start)
 	check_eq(dungeon.get("current_cell"), start, "admin: back to the start room")
-	dungeon.call("teleport_to_boss_hall")
-	check(dungeon.call("in_boss_hall"), "admin: into the boss hall")
+	dungeon.call("teleport_to_boss_altar")
+	check(dungeon.call("in_boss_altar"), "admin: into the Boss-Altar")
 	scene.queue_free()
 	await process_frame

@@ -34,12 +34,13 @@ func _dragon(content: Script) -> void:
 	await physics_frame
 	var dungeon: Node = scene.get_node("%Dungeon")
 	var player: Node3D = scene.get_node("%Player") as Node3D
-	check_eq(dungeon.get("boss_id"), "volcano_dragon", "the Vulkandrache waits at the end")
+	check_eq(dungeon.get("end_boss_id"), "volcano_dragon", "the Vulkandrache waits at the end (Boss-Altar)")
+	check(dungeon.get("boss_id") != "volcano_dragon", "and is not the boss of the floor")
 	var layout: Object = dungeon.get("layout")
 	check(layout != null, "floor built")
-	# Its arena is the boss hall behind the gate of the boss room.
-	dungeon.call("enter_boss_hall")
-	var room: Node3D = dungeon.get("hall")
+	# Its arena is the Boss-Altar behind the portal.
+	dungeon.call("enter_boss_altar")
+	var room: Node3D = dungeon.get("altar")
 	var lava: Array = (room.get("hazards") as Array).filter(func(h: Node) -> bool: return h.get("kind") == "lava")
 	check(lava.size() >= 4, "its arena has lava (%d)" % lava.size())
 	check(room.get_children().any(func(n: Node) -> bool: return n is OmniLight3D and (n as OmniLight3D).light_color.g < 0.5), "and a red light")

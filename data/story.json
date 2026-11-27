@@ -1,5 +1,5 @@
 {
-	"_info": "Texte der Figuren (deutsch = Übersetzungs-Schlüssel), jeder Eintrag eine Sprechblase (höchstens zwei Sätze). Egon wird aus docs/figuren/EGON_EHRLICH.md gebaut. intro_call: ruft dich vor dem Dungeon zu sich; intro: Vorstellung, wenn du bei ihm bist; tutorial_*: erster Besuch im Laden, der Reihe nach; was Egon erklärt, leuchtet (welcome Tisch, lever Hebel, goods Ware, chances Chancen-Balken, reroll Hebel-Preis, gifts Geschenke, bag Inventar, dress Figur, equip Anziehen, money Münzsack, box Dose, sell Ankauf, skills Skill-Knopf, dungeon Dungeons-Knopf); potion_*: Egons Trank-Vorführung nach dem zweiten Tod im Dungeon (worried besorgt, lever Hebel, gift Geschenk, slot Trank-Platz, drink Trinken, %s = die Trank-Taste); barks: kurze Sätze im Laden.",
+	"_info": "Texte der Figuren (deutsch = Übersetzungs-Schlüssel), jeder Eintrag eine Sprechblase (höchstens zwei Sätze). Egon wird aus docs/figuren/EGON_EHRLICH.md gebaut. intro_call: ruft dich vor dem Dungeon zu sich; intro: Vorstellung, wenn du bei ihm bist; tutorial_*: erster Besuch im Laden, der Reihe nach; was Egon erklärt, leuchtet (welcome Tisch, lever Hebel, goods Ware, chances Chancen-Balken, reroll Hebel-Preis, gifts Geschenke, bag Inventar, dress Figur, equip Anziehen, money Münzsack, box Dose, sell Ankauf, skills Skill-Knopf, dungeon Dungeons-Knopf); potion_*: Egons Trank-Vorführung nach dem zweiten Tod im Dungeon (worried besorgt, lever Hebel, gift Geschenk, slot Trank-Platz, drink Trinken, %s = die Trank-Taste); ruby_found / ruby_taken: Egon entdeckt den Rubin im Inventar und nimmt ihn (Auftrag aus tutorial_dungeon, nach dem Seil vom ersten Boss), ruby_missing: hinausgeklettert, aber ohne Rubin; barks: kurze Sätze im Laden.",
 	"speaker": "Egon Ehrlich",
 	"portrait": "res://assets/sprites/npcs/black_market_dealer.png",
 	"intro_call": ["Psst! Hey, du! Ja, du mit den Augen! Komm mal her!"],
@@ -34,7 +34,11 @@
 	],
 	"tutorial_sell": ["Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"],
 	"tutorial_skills": ["Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."],
-	"tutorial_dungeon": ["Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."],
+	"tutorial_dungeon": [
+		"Und jetzt ab in den Dungeon! Unter uns, Partner: Ich hätte da einen kleinen Auftrag.",
+		"Gleich unten haust ein Boss, und der hat einen Rubin. Bring ihn mir! Der gehört mir nämlich. Also… fast. Ehrlich!",
+		"Ich warte hier. Sicher ist sicher."
+	],
 	"potion_worried": [
 		"Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!",
 		"…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
@@ -51,6 +55,15 @@
 	"potion_drink": [
 		"Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da.",
 		"Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
+	],
+	"ruby_found": ["Partner! Du lebst! Und ist das… ist das mein Rubin?!"],
+	"ruby_taken": [
+		"Gib her, gib her! Bei mir ist er sicher. Sicherer als dein Gold in der Dose. Ehrlich!",
+		"Wofür ich den brauche? Ach… Sammlerstück! Mehr sag ich nicht. Noch nicht."
+	],
+	"ruby_missing": [
+		"Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?",
+		"Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
 	],
 	"barks": {
 		"too_poor": "Dafür reicht dein Gold nicht, Partner. Leider, leider.",

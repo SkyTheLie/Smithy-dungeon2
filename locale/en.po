@@ -57,6 +57,9 @@ msgstr "So better spend it, partner. Preferably with me!"
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "At the end every shot bursts into four sparks"
 
+msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
+msgstr "Climbed out on the rope like a hero! But… where's my ruby?"
+
 msgid "Amethyst"
 msgstr "Amethyst"
 
@@ -65,6 +68,9 @@ msgstr "Attack speed"
 
 msgid "Ankauf"
 msgstr "Buying"
+
+msgid "Ans Licht"
+msgstr "Into the Light"
 
 msgid "Anzeige"
 msgstr "Display"
@@ -285,11 +291,17 @@ msgstr "Your items"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Your shots chase enemies"
 
+msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
+msgstr "Beat the first boss and climbed out on the rope."
+
 msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
 msgstr "This one's on the house. A dead customer doesn't buy anything. Honest!"
 
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "The bar above the lever shows what can come: grey is common, green solid and so on. The more experienced you are, the more colourful it gets."
+
+msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
+msgstr "The boss had one, I know it! Bring it to me if you find one. I'll wait. Impatiently."
 
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "The fire beam bends toward enemies"
@@ -723,6 +735,9 @@ msgstr "Earth Colossus"
 msgid "Erdstab"
 msgstr "Earth Staff"
 
+msgid "Erfolg: %s"
+msgstr "Achievement: %s"
+
 msgid "Erreiche Ebene %d"
 msgstr "Reach floor %d"
 
@@ -987,6 +1002,9 @@ msgstr "Common"
 msgid "Ghul"
 msgstr "Ghoul"
 
+msgid "Gib her, gib her! Bei mir ist er sicher. Sicherer als dein Gold in der Dose. Ehrlich!"
+msgstr "Give it, give it! It's safe with me. Safer than your gold in the tin. Honest!"
+
 msgid "Giftratte"
 msgstr "Poison Rat"
 
@@ -1004,6 +1022,9 @@ msgstr "Smooth, green and still a little warm."
 
 msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
 msgstr "Right behind Egon's shop, the way leads down. At the very bottom a boss is waiting, and supposedly a treasure. Says Egon."
+
+msgid "Gleich unten haust ein Boss, und der hat einen Rubin. Bring ihn mir! Der gehört mir nämlich. Also… fast. Ehrlich!"
+msgstr "Right down there lives a boss, and it has a ruby. Bring it to me! It's mine, you see. Well… almost. Honest!"
 
 msgid "Glutdrache"
 msgstr "Ember Drake"
@@ -1281,6 +1302,9 @@ msgstr "Witch's Cauldron"
 msgid "Hier klicken"
 msgstr "Click here"
 
+msgid "Hinausgeklettert!"
+msgstr "Climbed out!"
+
 msgid "Hinter dem Tor wartet etwas"
 msgstr "Something waits beyond the gate"
 
@@ -1343,6 +1367,9 @@ msgstr "I'm the swind… er, the gear-seller. I sell… …equipment! Yes, exact
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "I'll put it in for you. Free of charge! The putting in, I mean."
+
+msgid "Ich warte hier. Sicher ist sicher."
+msgstr "I'll wait here. Better safe than sorry."
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "In the dungeon you press %s. Glug, glug, and two hearts are back."
@@ -1841,6 +1868,9 @@ msgstr "Palladium Bar"
 
 msgid "Palladiumklinge"
 msgstr "Palladium Blade"
+
+msgid "Partner! Du lebst! Und ist das… ist das mein Rubin?!"
+msgstr "Partner! You're alive! And is that… is that my ruby?!"
 
 msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
 msgstr "Partner! Dead again? I was worried. For almost two whole minutes!"
@@ -2703,6 +2733,9 @@ msgstr "And here, a little advance: 50 gold. Top left you can see how much you h
 msgid "Und jetzt ab in den Dungeon! Bring mir was Schönes mit. Ich warte hier. Sicher ist sicher."
 msgstr "And now off into the dungeon! Bring me something nice. I'll wait here. Better safe than sorry."
 
+msgid "Und jetzt ab in den Dungeon! Unter uns, Partner: Ich hätte da einen kleinen Auftrag."
+msgstr "And now off to the dungeon! Between us, partner: I have a little job for you."
+
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "And on the left, that's you. Hold still, I'll dress you…"
 
@@ -2864,6 +2897,9 @@ msgstr "Whispering Meadow"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Wherever the beam hits, things go boom"
+
+msgid "Wofür ich den brauche? Ach… Sammlerstück! Mehr sag ich nicht. Noch nicht."
+msgstr "What I need it for? Oh… collector's item! That's all I'll say. For now."
 
 msgid "Wolf"
 msgstr "Wolf"

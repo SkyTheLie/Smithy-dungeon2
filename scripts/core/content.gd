@@ -161,9 +161,24 @@ static func story(key: String) -> Variant:
 	return get_file("story").get(key, [])
 
 
-## Values between runs (data/meta.json): "bag", "money_box".
+## Values between runs (data/meta.json): "bag", "money_box", "ruby_quest".
 static func meta(section: String) -> Dictionary:
 	return get_file("meta").get(section, {})
+
+
+## Achievements (data/achievements.json): id -> {name, desc, icon}.
+static func achievements() -> Dictionary:
+	return get_file("achievements").get("achievements", {})
+
+
+static func achievement(id: String) -> Dictionary:
+	return achievements().get(id, {})
+
+
+## The end boss of a dungeon (dungeons.json "end_boss", waits in the Boss-Altar); "" = none.
+static func end_boss(id: String = "") -> String:
+	var boss: String = String(dungeon(id).get("end_boss", ""))
+	return boss if not enemy(boss).is_empty() else ""
 
 
 ## Ids of all items in `pool`: "item" (item room) = every item that is not "secret": true;
