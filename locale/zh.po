@@ -198,6 +198,9 @@ msgstr "击败敌人：%d"
 msgid "Betreten"
 msgstr "进入"
 
+msgid "Beute aus dem Dungeon bleibt hier. Ins Lager ziehen, auf den Tisch ziehen (verkaufen) oder wieder mitnehmen. Rucksäcke aus dem Lager an den Rand ziehen (R dreht)."
+msgstr "地牢的战利品会留在这里。拖进仓库、拖到桌上（出售）或再带走。把背包从仓库拖到边上（R 旋转）。"
+
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "战利品我收：在背包里右键点击，它就到上面我的收购处。公道价格。真的！"
 
@@ -431,6 +434,9 @@ msgstr "商人收购战利品：Tab，右键"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "蛋白石！它在发光！差不多跟我的前途一样亮。"
+
+msgid "Der Stein liegt in deinem Inventar!"
+msgstr "石头在你的背包里！"
 
 msgid "Der Stein liegt in deinem Lager!"
 msgstr "石头在你的仓库里！"
@@ -1649,6 +1655,9 @@ msgstr "地牢中的背包"
 
 msgid "Inventar voll!"
 msgstr "物品栏已满！"
+
+msgid "Inventar: das nimmst du mit in den Dungeon"
+msgstr "背包：这些会带进地牢"
 
 msgid "Irrlicht"
 msgstr "鬼火"

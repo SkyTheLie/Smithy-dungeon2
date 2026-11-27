@@ -198,6 +198,9 @@ msgstr "Enemigos derrotados: %d"
 msgid "Betreten"
 msgstr "Entrar"
 
+msgid "Beute aus dem Dungeon bleibt hier. Ins Lager ziehen, auf den Tisch ziehen (verkaufen) oder wieder mitnehmen. Rucksäcke aus dem Lager an den Rand ziehen (R dreht)."
+msgstr "El botín de la mazmorra se queda aquí. Arrástralo al almacén, a la mesa (vender) o llévatelo otra vez. Arrastra mochilas del almacén al borde (R gira)."
+
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "Te compro el botín: clic derecho en el inventario y va a mi compra arriba. Precios justos. ¡De verdad!"
 
@@ -431,6 +434,9 @@ msgstr "El mercader compra botín: Tab, clic derecho"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "¡El ópalo! ¡Brilla! Casi tanto como mi futuro."
+
+msgid "Der Stein liegt in deinem Inventar!"
+msgstr "¡La piedra está en tu inventario!"
 
 msgid "Der Stein liegt in deinem Lager!"
 msgstr "¡La piedra está en tu almacén!"
@@ -1649,6 +1655,9 @@ msgstr "Inventario en la mazmorra"
 
 msgid "Inventar voll!"
 msgstr "¡Inventario lleno!"
+
+msgid "Inventar: das nimmst du mit in den Dungeon"
+msgstr "Inventario: esto te llevas a la mazmorra"
 
 msgid "Irrlicht"
 msgstr "Fuego fatuo"

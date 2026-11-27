@@ -198,6 +198,9 @@ msgstr "倒した敵: %d"
 msgid "Betreten"
 msgstr "入る"
 
+msgid "Beute aus dem Dungeon bleibt hier. Ins Lager ziehen, auf den Tisch ziehen (verkaufen) oder wieder mitnehmen. Rucksäcke aus dem Lager an den Rand ziehen (R dreht)."
+msgstr "ダンジョンの戦利品はここに残る。倉庫へ、机へ（売却）ドラッグするか、また持っていこう。リュックは倉庫から縁へドラッグ（Rで回転）。"
+
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "戦利品は買い取るぜ：インベントリで右クリックすれば上の買い取りに置かれる。適正価格だ。正直に！"
 
@@ -431,6 +434,9 @@ msgstr "商人が戦利品を買い取る：Tab、右クリック"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "オパールだ！光ってる！俺の未来くらい明るい。"
+
+msgid "Der Stein liegt in deinem Inventar!"
+msgstr "石は君の持ち物にある！"
 
 msgid "Der Stein liegt in deinem Lager!"
 msgstr "石は君の倉庫にある！"
@@ -1649,6 +1655,9 @@ msgstr "ダンジョンでの持ち物"
 
 msgid "Inventar voll!"
 msgstr "持ち物がいっぱい！"
+
+msgid "Inventar: das nimmst du mit in den Dungeon"
+msgstr "持ち物：これをダンジョンへ持っていく"
 
 msgid "Irrlicht"
 msgstr "鬼火"

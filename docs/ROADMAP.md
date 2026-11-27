@@ -44,6 +44,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Tutorial im ersten Run: laufen, umsehen, schießen, Übungsratte, Beute aufheben, Tab, sicherer Platz.
 - ✅ (2026-11-27, `feature/laden-raster`) Laden nach neuer Skizze: Tisch und Lager (5×4) als Raster, Reiter Ausrüstung/Inventar, Rucksäcke aus dem Lager anbauen, Rucksäcke auf Egons Tisch, Knöpfe unten.
 - ✅ (2026-11-27) Kaufen, Verkaufen, Anlegen per Drag & Drop; Quest-Platz und Quest-Fenster; Egons Quest-Kette schaltet die Dungeons frei, Egon zieht um; Skillbaum wächst zur Seite.
+- ✅ (2026-11-27, `feature/inventar-bleibt`) Beute bleibt im Inventar zwischen den Runs; Inventar im Laden größer, Beute zwischen Inventar, Lager und Tisch ziehen.
 - Offen: Rucksack-Preise im Spiel prüfen; Lager vergrößern (Skill?); Quest-Belohnungen (Gold) im Spiel prüfen.
 
 ## Phase 2 – Intro

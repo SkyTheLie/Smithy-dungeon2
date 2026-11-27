@@ -56,11 +56,20 @@ static func drop_for(dungeon_id: String, bag: Bag) -> String:
 		var stone: String = String(data(id).get("item", ""))
 		if bag != null and bag.count_of(stone) > 0:
 			return ""
-		for piece: Dictionary in MetaState.stash():
+		for piece: Dictionary in MetaState.stash() + MetaState.bag_places():
 			if String(piece.get("id", "")) == stone:
 				return ""
 		return stone
 	return ""
+
+
+## true if a stone of an open quest lies in the bag at home.
+static func stone_in_bag() -> int:
+	var places: Array[Dictionary] = MetaState.bag_places()
+	for i in places.size():
+		if not quest_of_stone(String(places[i].get("id", ""))).is_empty():
+			return i
+	return -1
 
 
 ## The stash place of a stone that can be handed in now (-1 = none).

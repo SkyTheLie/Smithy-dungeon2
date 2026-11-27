@@ -348,6 +348,24 @@ func take(index: int) -> Dictionary:
 	return place
 
 
+## The bag brought home last time (MetaState.bag_places): every place goes back onto its cells
+## (or, if they are gone, onto the first free spot). Returns what did not fit at all.
+func restore(list: Array) -> Array[Dictionary]:
+	var left: Array[Dictionary] = []
+	for entry: Variant in list:
+		if not entry is Dictionary:
+			continue
+		var place: Dictionary = entry
+		var id: String = String(place.get("id", ""))
+		var count: int = int(place.get("count", 1))
+		if put_at(Vector2i(int(place.get("x", -9999)), int(place.get("y", -9999))), id, count, bool(place.get("rot", false))):
+			continue
+		var over: int = add(id, count)
+		if over > 0:
+			left.append({"id": id, "count": over})
+	return left
+
+
 ## Everything out (bag and safe place).
 func clear() -> void:
 	places.clear()
