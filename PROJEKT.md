@@ -66,7 +66,9 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 
 **Ziel Version 1 (neu):** Laden mit Glücksspiel-Tisch, Ausrüstung mit Seltenheit, Trank-Slot, Intro mit dem Händler, erster Dungeon ohne Item-/Shop-Raum. Details und Reihenfolge: `docs/ROADMAP.md`.
 
-**Später:** Schmieden mit Smithy-Minispielen, Zauberstab-Relikte, mehrere Dungeons mit Materialstufen, Koop.
+**Gebaut (2026-11-27):** vier Dungeons mit Material-Stufen (Kupfer bis Gold), Fallen, Balance-Rechner.
+
+**Später:** Schmieden mit Smithy-Minispielen, Zauberstab-Relikte, Koop.
 
 ## 7. Fortschritt
 
@@ -79,11 +81,11 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 
 ## 8. Aktuelle Aufgabe
 
-**Zuletzt gebaut (2026-11-26):** `feature/laden-skills`: Bei Egon wird jeder weitere Hebel-Zug am selben Tag besser (5 % von R1 zu den selteneren Stufen, höchstens 25 %, R1 nie unter 10 %). Neue Skill-Gruppe „Laden“: Mehr Ware, Glückliches Händchen (R2), Seltene Ware (R3). Davor `feature/geld-schatulle`: kein Geld im Dungeon, alles Gold in der Dose, Händler im Dungeon-Shop kauft Beute (Tab, Rechtsklick), Bosse höchstens 5 Helfer. Im Spiel testen: Laden mit Spielerstufe 5+ → Chancen-Balken ansehen → Hebel mehrmals ziehen, R2-Anteil steigt → nächster Tag wieder 85/15. Skills → Spalte „Laden“ lernen → Balken und Anzahl der Ware ändern sich.
+**Zuletzt gebaut (2026-11-27):** `feature/balance`: vier Dungeons (Glut, Moor der Irrlichter, Frostgipfel, Glutschlund; der nächste öffnet nach dem Sieg), 65 neue Gegner/Bosse, Fallen (Gift, Stacheln, Eis, Lava), Materialien bei Egon (Kupfer, Bronze ab Stufe 3, Eisen nach Dungeon 1, Silber, Gold), Balance nach Rechner (`docs/BALANCE.md`). Im Spiel testen: neues Spiel → Dungeon-Brett zeigt Moor gesperrt → im ersten Dungeon prüfen, ob Ebene 2–3 machbar ist → mit Testraum/Sieg das Moor öffnen → Giftpfützen und Stacheln (Takt, Schaden) → bei Egon taucht Eisen auf, Hebel teurer. Davor `feature/laden-skills`: Bei Egon wird jeder weitere Hebel-Zug am selben Tag besser (5 % von R1 zu den selteneren Stufen, höchstens 25 %, R1 nie unter 10 %). Neue Skill-Gruppe „Laden“: Mehr Ware, Glückliches Händchen (R2), Seltene Ware (R3). Davor `feature/geld-schatulle`: kein Geld im Dungeon, alles Gold in der Dose, Händler im Dungeon-Shop kauft Beute (Tab, Rechtsklick), Bosse höchstens 5 Helfer. Im Spiel testen: Laden mit Spielerstufe 5+ → Chancen-Balken ansehen → Hebel mehrmals ziehen, R2-Anteil steigt → nächster Tag wieder 85/15. Skills → Spalte „Laden“ lernen → Balken und Anzahl der Ware ändern sich.
 
-**Nächster Schritt:** Run-Shop- und Laden-Preise im Spiel prüfen; Tränke (Phase 3).
+**Nächster Schritt:** Balance im Spiel prüfen (`docs/BALANCE.md`); Tränke (Phase 3).
 
-**Entschieden (2026-11-26):** Ein Tag = ein Run · neu würfeln wird teurer · Ausrüstung bleibt beim Tod, Tasche und Dungeon-Gold sind weg · Gold zu Hause nur in der Dose, im Dungeon kein Geld zu finden · Händler = Egon Ehrlich · Dungeon 1 : 1 wie Dungeon Smithy.
+**Entschieden (2026-11-26):** Ein Tag = ein Run · neu würfeln wird teurer · Ausrüstung bleibt beim Tod, Tasche und Dungeon-Gold sind weg · Gold zu Hause nur in der Dose, im Dungeon kein Geld zu finden · Händler = Egon Ehrlich · Dungeon 1 nach Dungeon Smithy, tiefer etwas mehr Leben · vier Dungeons mit Material-Stufen (`docs/BALANCE.md`).
 
 **Offen:** Relikt-Stufen 1–10 und Seltenheitsfarben; Preis-Stufen fürs Würfeln (siehe `docs/IDEEN.md`).
 

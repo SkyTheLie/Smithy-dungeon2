@@ -6,6 +6,13 @@
 		"cellar": "res://assets/audio/music/mine_02.wav",
 		"deep": "res://assets/audio/music/underworld_01.ogg",
 		"crypt": "res://assets/audio/music/finster_01.ogg",
+		"swamp": "res://assets/audio/music/swamp_01.ogg",
+		"den": "res://assets/audio/music/den_01.ogg",
+		"forest": "res://assets/audio/music/forest_01.wav",
+		"ice": "res://assets/audio/music/ice_01.ogg",
+		"storm": "res://assets/audio/music/storm_temple.mp3",
+		"volcano": "res://assets/audio/music/volcano_01.wav",
+		"altar": "res://assets/audio/music/altar_01.ogg",
 		"boss": "res://assets/audio/music/boss_01.ogg",
 		"victory": "res://assets/audio/music/ending_01.ogg"
 	},

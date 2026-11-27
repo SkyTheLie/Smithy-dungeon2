@@ -32,6 +32,8 @@ signal message(text: String)
 
 const SPAWN_MIN_DISTANCE: float = 3.5
 const MAX_ENEMIES: int = 12
+## Traps keep this far (metres) from the lines through the doors, so a way stays free.
+const HAZARD_PATH: float = 1.4
 const DOOR_TOUCH: float = 1.7
 const KEEPER_HEIGHT: float = 1.6
 ## Far outside the floor grid (FloorLayout uses 0..8), so no room is next to it.
@@ -199,6 +201,7 @@ func _build_room(cell: Vector2i) -> void:
 		FloorLayout.NORMAL:
 			_add_rocks(room)
 			_roll_enemies(room)
+			_add_hazards(room)
 		FloorLayout.ITEM:
 			_add_item_pedestal(room, Vector3.ZERO, "item", 0)
 		FloorLayout.SHOP:
@@ -316,6 +319,8 @@ func _add_item_pedestal(room: DungeonRoom, at: Vector3, pool_name: String, price
 
 func _build_shop(room: DungeonRoom) -> void:
 	var shop: Dictionary = Content.floors_extra("shop")
+	# Later dungeons and deeper floors are dearer (dungeons.json shop_mult, shop floor_step).
+	var mult: float = float(floor_data.get("shop_mult", 1.0))
 	var keeper_texture := load(String(shop.get("keeper", ""))) as Texture2D
 	if keeper_texture:
 		var keeper := Fx.billboard(keeper_texture, KEEPER_HEIGHT)
@@ -325,15 +330,79 @@ func _build_shop(room: DungeonRoom) -> void:
 	var goods: Array = shop.get("goods", [])
 	var slots: int = goods.size() + 1
 	var x: float = -(slots - 1) * 1.0
-	_add_item_pedestal(room, Vector3(x, 0, 0), "shop", int(shop.get("item_price", 15)))
+	_add_item_pedestal(room, Vector3(x, 0, 0), "shop", roundi(float(shop.get("item_price", 15)) * mult))
 	for entry: Array in goods:
 		x += 2.0
 		var pedestal := Pedestal.new()
-		pedestal.setup("", String(entry[0]), int(entry[1]), run, player)
+		pedestal.setup("", String(entry[0]), roundi(float(entry[1]) * mult), run, player)
 		pedestal.message_requested.connect(message.emit)
 		room.add_child(pedestal)
 		pedestal.position = Vector3(x, 0, 0)
 		room.loot.append(pedestal)
+
+
+## Traps on the floor of a normal room: floor_data "hazards" [[kind, [min, max]], …], the kinds
+## in floors.json "hazard_types". With their own random numbers (the rest of the room stays the
+## same for a seed). Paths through the doors, the middle and the rocks stay free.
+func _add_hazards(room: DungeonRoom) -> void:
+	var list: Array = floor_data.get("hazards", [])
+	if list.is_empty():
+		return
+	var types: Dictionary = Content.floors_extra("hazard_types")
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash([run.seed_value, floor_index, room.cell])
+	for entry: Array in list:
+		var kind: String = String(entry[0])
+		if not types.has(kind):
+			continue
+		var data: Dictionary = types[kind]
+		var count_range: Array = entry[1]
+		var sizes: Array = data.get("size", [1.5, 2.0])
+		for i in rng.randi_range(int(count_range[0]), int(count_range[1])):
+			var side: float = rng.randf_range(float(sizes[0]), float(sizes[1]))
+			var spot: Vector3 = _hazard_spot(room, side, rng)
+			if spot == Vector3.INF:
+				continue
+			var hazard := Hazard.new()
+			hazard.setup(kind, data, side, rng.randf() * 3.0)
+			room.add_child(hazard)
+			hazard.position = spot
+			room.hazards.append(hazard)
+
+
+## A place (local) for a trap `side` metres wide: inside the walls, away from the door paths and
+## the middle, not on a rock or another trap. Vector3.INF if none was found.
+func _hazard_spot(room: DungeonRoom, side: float, rng: RandomNumberGenerator) -> Vector3:
+	var half := Vector2(RoomBuilder.ROOM_W / 2.0 - RoomBuilder.WALL_T - side / 2.0 - 0.3, RoomBuilder.ROOM_D / 2.0 - RoomBuilder.WALL_T - side / 2.0 - 0.3)
+	var keep: float = side / 2.0 + HAZARD_PATH
+	if half.x <= keep or half.y <= keep:
+		return Vector3.INF
+	for attempt in 30:
+		var spot := Vector3(rng.randf_range(-half.x, half.x), 0, rng.randf_range(-half.y, half.y))
+		if absf(spot.x) < keep or absf(spot.z) < keep:
+			continue
+		var blocked: bool = false
+		for rock: Rock in room.rocks:
+			if absf(rock.position.x - spot.x) < side / 2.0 + 0.7 and absf(rock.position.z - spot.z) < side / 2.0 + 0.7:
+				blocked = true
+				break
+		for other: Hazard in room.hazards:
+			if absf(other.position.x - spot.x) < (side + other.size) / 2.0 + 0.4 and absf(other.position.z - spot.z) < (side + other.size) / 2.0 + 0.4:
+				blocked = true
+				break
+		if not blocked:
+			return spot
+	return Vector3.INF
+
+
+## Standing on a dangerous trap of this room: a hit (the player's invulnerable time limits it).
+func _check_hazards() -> void:
+	if not rooms.has(current_cell):
+		return
+	for hazard: Hazard in (rooms[current_cell] as DungeonRoom).hazards:
+		if hazard.hurts_at(player.global_position):
+			player.take_hit(hazard.damage)
+			return
 
 
 ## A random free place in the room (local), away from doors, the middle (if `keep_middle_free`),
@@ -363,6 +432,7 @@ func _physics_process(delta: float) -> void:
 	if player == null or layout == null:
 		return
 	run.tick(delta)
+	_check_hazards()
 	_check_stomp()
 	_check_sacrifice()
 	var pos: Vector3 = player.global_position
@@ -464,7 +534,7 @@ func helper_count() -> int:
 func _on_enemy_died(enemy: Enemy) -> void:
 	enemies.erase(enemy)
 	run.kills += 1
-	run.add_kill_exp(enemy.is_boss)
+	run.add_kill_exp(enemy.is_boss, float(floor_data.get("exp_mult", 1.0)))
 	run.on_kill()
 	if run.record_progress:
 		run.announce(Progress.add_kills(1))

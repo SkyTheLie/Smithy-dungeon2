@@ -110,3 +110,11 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 
 - `levels.json`: `exp_per_kill`, `exp_per_boss`, `first_level_exp`, `growth`, `max_level`, `points_per_level`, `start_points`.
 - `skills.json` je Skill: `name`, `desc`, `icon`, `pos` [Spalte, Zeile], `requires`, `max_level`, `gold` [je Stufe], `points` [je Stufe], `min_level` [Spielerstufe je Stufe], `effect` (`stats`, `shield_halves`, `hearts`, `bag_slots`, `safe_slots`, `relic_slots`, `relic_runs`, `sell_bonus`, `goods_extra` (mehr Ware auf Egons Tisch), `rarity` (`{"2": 5}` = 5 % von R1 zu R2 je Stufe)). Neuer Skill = neuer Eintrag; Texte danach übersetzen.
+
+## Dungeons, Fallen, Materialien (2026-11-27)
+
+- **Neuer Dungeon:** in `dungeons.json` eintragen (`name`, `region`, `desc`, `level`, `floors` = Name einer Liste in `floors.json`, `unlock` `{"dungeon": "<id davor>"}`, `hp_mult`, `exp_mult`, `shop_mult`), in `floors.json` die Liste `floors_<id>` mit 6 Ebenen anlegen, Gebiete unter `themes`. Der Test `test_dungeons.gd` prüft Texturen, Musik, Gegner, Bosse und Fallen.
+- **Gebiet (`themes`):** wie bisher, dazu `hazards` [[Art, [min, max]], …] = Fallen je normalem Raum.
+- **Fallen-Arten (`floors.json` `hazard_types`):** `damage` (halbe Herzen), `size` [min, max] m, `cycle` [unten, oben] Sekunden (nur Stacheln), `color` RGB, `glow`.
+- **Material (`shop.json` `materials`):** `name`, `weight`, `lever_mult`, `unlock` (`level`, `dungeon`). Für jedes Material braucht `gear.json` alle Teile aus `pool` als `<material>_<teil>` (Test prüft das).
+- **Balance nachrechnen:** `py assets/_reference/balance/balance.py`, Erklärung in `docs/BALANCE.md`.

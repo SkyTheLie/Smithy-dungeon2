@@ -18,3 +18,7 @@ Synergie-Lücken und Waffen-Kreuzungen: `docs/SYNERGIEN.md`. Weitere Themen, akt
 Bekannt: Werte sind noch nicht ausbalanciert (203 Items, 6 Ebenen, Bosse). Krieger-Freischaltung (Ebene 3) ist ein Vorschlag. Die Waffe in der Hand ist ein Item-Bild ohne Animation außer dem Schwung. Gegner-Laute sind einfache Synth-Töne. Blaue Herzen gibt es nur über Items und Schrein/Opferstein, nicht als Pickup am Boden. Doppel-/Mehrfachschuss: bei gerader Schusszahl fliegt kein Schuss genau zum Fadenkreuz (Fächer 7° je Schuss). Zufallseffekte (`chance`) wirken nicht beim Strahl.
 
 - **2026-11-26 · Run-Shop-Preise ungeprüft:** Gold im Run kommt jetzt nur aus verkaufter Beute (4 Taschen-Plätze, Beute stapelt nicht, Werte 1–30). Item 15, Herz 3, Bombe/Schlüssel 5 sind ein erster Vorschlag, im Spiel ausprobieren. Die Spardose (freischalten mit 55 Gold gleichzeitig) ist damit schwerer zu bekommen.
+
+- **2026-11-27 · Balance nur gerechnet:** Alle Werte der vier Dungeons kommen aus `assets/_reference/balance/balance.py`, nicht aus dem Spielen. Prüfliste: `docs/BALANCE.md`.
+- **2026-11-27 · Fallen sind einfache Formen:** farbige Flächen und Kegel aus dem Code, keine Grafik. Gegner laufen ohne Schaden über Fallen.
+- **2026-11-27 · Chinesisch:** das Material „Gold“ nutzt den Text „Gold“ (= 金币, Münzen) aus dem übrigen Spiel.

@@ -21,9 +21,13 @@ static func roll(rng: RandomNumberGenerator, pulls_today: int = 0) -> Array[Dict
 	var cells: Array[int] = []
 	for i in table.size():
 		cells.append(i)
+	var materials: Array = open_materials()
 	for n in count:
 		var cell: int = cells.pop_at(rng.randi_range(0, cells.size() - 1))
-		var id: String = Content.pick_weighted(rules.get("pool", []), rng)
+		var material: String = Content.pick_weighted(materials, rng) if not materials.is_empty() else "copper"
+		var id: String = "%s_%s" % [material, Content.pick_weighted(rules.get("pool", []), rng)]
+		if not is_gear(id):
+			continue
 		table[cell] = make_piece(id, _pick_rarity(weights, rng))
 	# Sometimes a relic: an item the player has found, on a free place.
 	var relic: String = pick_relic(rng)
@@ -45,6 +49,56 @@ static func pick_relic(rng: RandomNumberGenerator) -> String:
 		if tier > 0 and is_tier_open(tier):
 			choices.append([String(id), float(_tier(tier).get("weight", 1))])
 	return Content.pick_weighted(choices, rng) if not choices.is_empty() else ""
+
+
+## The materials that can come on the table now: [[id, weight], …] in shop.json order. Only open
+## ones (unlock: MetaState.meets); those two or more steps below the best open one are
+## old_material_mult times as likely (old copper gets rare once iron is open).
+static func open_materials() -> Array:
+	var rules: Dictionary = Content.shop()
+	var all: Dictionary = rules.get("materials", {})
+	var open: Array[String] = []
+	for id: String in all:
+		if MetaState.meets((all[id] as Dictionary).get("unlock", {})):
+			open.append(id)
+	var best: int = -1
+	var order: Array = all.keys()
+	for id: String in open:
+		best = maxi(best, order.find(id))
+	var result: Array = []
+	for id: String in open:
+		var weight: float = float((all[id] as Dictionary).get("weight", 1))
+		if best - order.find(id) >= 2:
+			weight *= float(rules.get("old_material_mult", 1.0))
+		result.append([id, weight])
+	return result
+
+
+## The chance of every open material, in percent: [[id, percent], …] (the bar's tooltip).
+static func material_chances() -> Array:
+	var materials: Array = open_materials()
+	var total: float = 0.0
+	for entry: Array in materials:
+		total += float(entry[1])
+	var result: Array = []
+	for entry: Array in materials:
+		result.append([String(entry[0]), float(entry[1]) / total * 100.0 if total > 0.0 else 0.0])
+	return result
+
+
+## The German name of material `id` (shop.json materials, a translation key).
+static func material_name(id: String) -> String:
+	return String(((Content.shop().get("materials", {}) as Dictionary).get(id, {}) as Dictionary).get("name", id))
+
+
+## The first material that is still closed and what opens it ({} = all open): {id, unlock}.
+static func next_material() -> Dictionary:
+	var all: Dictionary = Content.shop().get("materials", {})
+	for id: String in all:
+		var unlock: Dictionary = (all[id] as Dictionary).get("unlock", {})
+		if not MetaState.meets(unlock):
+			return {"id": id, "unlock": unlock}
+	return {}
 
 
 ## More goods on the table from the skills (skills.json effect goods_extra).
@@ -237,7 +291,17 @@ static func is_gear(id: String) -> bool:
 
 
 ## The price of the lever today: shop.json roll_prices[number of pulls today] (the last value for
-## every pull after). The first pull of a day is free.
+## every pull after), times lever_mult of the best open material (iron goods: a dearer lever).
+## The first pull of a day is free.
 static func roll_price(pulls_today: int) -> int:
 	var prices: Array = Content.shop().get("roll_prices", [0])
-	return int(prices[clampi(pulls_today, 0, prices.size() - 1)])
+	return roundi(float(prices[clampi(pulls_today, 0, prices.size() - 1)]) * lever_mult())
+
+
+## lever_mult of the best open material (shop.json materials; 1 without).
+static func lever_mult() -> float:
+	var all: Dictionary = Content.shop().get("materials", {})
+	var mult: float = 1.0
+	for entry: Array in open_materials():
+		mult = float((all[String(entry[0])] as Dictionary).get("lever_mult", mult))
+	return mult

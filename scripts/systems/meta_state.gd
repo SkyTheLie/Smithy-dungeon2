@@ -179,8 +179,43 @@ static func last_theft() -> int:
 	return int(_read("last_theft", 0))
 
 
+## Safe in the box: data/meta.json money_box.limit, plus the skill Größere Dose (box_limit).
 static func box_limit() -> int:
-	return int(Content.meta("money_box").get("limit", 200))
+	return int(Content.meta("money_box").get("limit", 200)) + int(Skills.bonus("box_limit"))
+
+
+# --- Dungeons (data/dungeons.json) -------------------------------------------------
+
+## Dungeons won in this save slot (ids, each once).
+static func won_dungeons() -> Array:
+	return _read("won_dungeons", [])
+
+
+static func has_won(id: String) -> bool:
+	return won_dungeons().has(id)
+
+
+## Dungeon `id` was won: remembered (opens what needs it: dungeons, materials) and saved.
+static func win_dungeon(id: String) -> void:
+	if id.is_empty() or has_won(id):
+		return
+	var list: Array = won_dungeons().duplicate()
+	list.append(id)
+	_write("won_dungeons", list)
+	_save()
+
+
+## A dungeons.json / shop.json "unlock" in this save slot: {"dungeon": id} = that dungeon won,
+## {"level": n} = player level n; both may stand together, {} is always met.
+static func meets(unlock: Dictionary) -> bool:
+	if unlock.has("dungeon") and not has_won(String(unlock["dungeon"])):
+		return false
+	return level() >= int(unlock.get("level", 0))
+
+
+## Dungeon `id` can be entered (its dungeons.json "unlock" is met).
+static func is_dungeon_open(id: String) -> bool:
+	return Content.dungeons().has(id) and meets((Content.dungeons()[id] as Dictionary).get("unlock", {}))
 
 
 static func stash() -> Array[Dictionary]:

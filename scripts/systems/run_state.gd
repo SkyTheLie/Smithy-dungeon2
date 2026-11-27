@@ -265,9 +265,9 @@ func heal(halves: int) -> bool:
 	return true
 
 
-## A kill: its EXP (a boss more, data/levels.json).
-func add_kill_exp(boss: bool) -> void:
-	exp_earned += Skills.kill_exp(boss)
+## A kill: its EXP (a boss more, data/levels.json), times the dungeon's exp_mult.
+func add_kill_exp(boss: bool, mult: float = 1.0) -> void:
+	exp_earned += roundi(Skills.kill_exp(boss) * maxf(0.0, mult))
 
 
 ## The skills learned at home (Skills, MetaState): more places in the bag, shield hearts, red

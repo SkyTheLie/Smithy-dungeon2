@@ -9,8 +9,17 @@ msgstr "%dゴールド"
 msgid "%d Herzen"
 msgstr "ハート%d個"
 
+msgid "%s: ab Stufe %d"
+msgstr "%s：レベル%dから"
+
+msgid "%s: nach %s"
+msgstr "%s：%sの後"
+
 msgid "3 % Chance auf R3 bei Egon."
 msgstr "エゴンの店でR3が出る確率3 %。"
+
+msgid "300 Gold mehr sind in der Dose sicher."
+msgstr "缶の中で安全な金が300増える。"
 
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "エゴンの店でR2が出る確率が5 %アップ。"
@@ -63,6 +72,9 @@ msgstr "闘技場のお守り"
 msgid "Arenaherz"
 msgstr "闘技場の心臓"
 
+msgid "Asche"
+msgstr "灰"
+
 msgid "Audio"
 msgstr "オーディオ"
 
@@ -74,6 +86,9 @@ msgstr "溜めて放つ: 強大な火炎ビーム"
 
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "ダンジョンから逃げる？持っている物はすべて持ち帰れる。"
+
+msgid "Aus der Beute der Banditen. Jetzt deine."
+msgstr "盗賊の戦利品から。今はお前のものだ。"
 
 msgid "Ausgang"
 msgstr "出口"
@@ -87,6 +102,15 @@ msgstr "回避"
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "火の玉の代わりに斧：重い一撃、敵は出血"
 
+msgid "Bandit-Schildträger"
+msgstr "盗賊の盾持ち"
+
+msgid "Bandit-Schütze"
+msgstr "盗賊の射手"
+
+msgid "Banditenlager"
+msgstr "盗賊のアジト"
+
 msgid "Beenden"
 msgstr "終了"
 
@@ -95,6 +119,9 @@ msgstr "命中すると4つの火花に弾ける"
 
 msgid "Beine"
 msgstr "脚"
+
+msgid "Bergfalke"
+msgstr "山鷹"
 
 msgid "Bernstein"
 msgstr "琥珀"
@@ -117,6 +144,9 @@ msgstr "戦利品は買い取るぜ：インベントリで右クリックすれ
 msgid "Blasebalg"
 msgstr "ふいご"
 
+msgid "Blau wie Gletschereis."
+msgstr "氷河の氷のように青い。"
+
 msgid "Blutphiole"
 msgstr "血の小瓶"
 
@@ -135,6 +165,9 @@ msgstr "爆弾が小さな爆弾に分裂する"
 msgid "Bombengürtel"
 msgstr "爆弾ベルト"
 
+msgid "Brakk der Brecher"
+msgstr "破壊者ブラック"
+
 msgid "Brandöl"
 msgstr "火炎油"
 
@@ -152,6 +185,33 @@ msgstr "敵が燃えて遅くなり、青いハート2つ"
 
 msgid "Brennt gut in jeder Esse."
 msgstr "どの炉でもよく燃える。"
+
+msgid "Bronze"
+msgstr "青銅"
+
+msgid "Bronze-Beinschienen"
+msgstr "青銅のすね当て"
+
+msgid "Bronze-Bogen"
+msgstr "青銅の弓"
+
+msgid "Bronze-Brustplatte"
+msgstr "青銅の胸当て"
+
+msgid "Bronze-Handschuhe"
+msgstr "青銅の手袋"
+
+msgid "Bronze-Helm"
+msgstr "青銅の兜"
+
+msgid "Bronze-Schwert"
+msgstr "青銅の剣"
+
+msgid "Bronze-Stiefel"
+msgstr "青銅のブーツ"
+
+msgid "Bronze-Zauberstab"
+msgstr "青銅の杖"
 
 msgid "Bronzebogen"
 msgstr "青銅の弓"
@@ -188,6 +248,9 @@ msgstr "中に小さな虫が閉じ込められている。"
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "それ以上は…まあ、ここにはネズミがいるんだ。でかいネズミが。手のあるやつ。"
+
+msgid "Das Fell eines Riesen aus Eis."
+msgstr "氷の巨獣の毛皮。"
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "この探索の金。死ぬと失う。安全枠に入れた分は残る。"
@@ -237,8 +300,14 @@ msgstr "石が生贄を受け入れた"
 msgid "Der Weg nach unten ist frei!"
 msgstr "下への道が開いた！"
 
+msgid "Diamant"
+msgstr "ダイヤモンド"
+
 msgid "Diamantherz"
 msgstr "ダイヤの心臓"
+
+msgid "Dick, weich und eiskalt."
+msgstr "厚くて柔らかくて、氷のように冷たい。"
 
 msgid "Dicke Haut"
 msgstr "分厚い皮膚"
@@ -275,6 +344,9 @@ msgstr "カン：金をここへドラッグ"
 
 msgid "Dose: hier liegt dein ganzes Gold"
 msgstr "缶：お前の金は全部ここだ"
+
+msgid "Drache"
+msgstr "ドラゴン"
 
 msgid "Drachenatem"
 msgstr "ドラゴンブレス"
@@ -366,6 +438,12 @@ msgstr "ダンジョン掲示板"
 msgid "Dungeons"
 msgstr "ダンジョン"
 
+msgid "Dunkler Ritter"
+msgstr "暗黒騎士"
+
+msgid "Dunkler Schütze"
+msgstr "暗黒の射手"
+
 msgid "Dunkler Zauberstab"
 msgstr "闇の杖"
 
@@ -377,6 +455,9 @@ msgstr "岩を貫通し、時々敵が逃げる"
 
 msgid "Durchschlag, Abprallen und Zerplatzen"
 msgstr "貫通・反射・破裂"
+
+msgid "Dämon"
+msgstr "デーモン"
 
 msgid "Dünne Haut aus einem Fledermausflügel."
 msgstr "コウモリの翼の薄い皮。"
@@ -402,11 +483,17 @@ msgstr "エゴン・オネスト、よろしくな。正直が俺の名前で、
 msgid "Egon könnte klauen!"
 msgstr "エゴンが盗むかも！"
 
+msgid "Egons Augen werden ganz groß."
+msgstr "エゴンの目がまん丸になる。"
+
 msgid "Egons Laden"
 msgstr "エゴンの店"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "自分の爆発で回復する"
+
+msgid "Ein Berg aus Eis, oben tobt der Sturm. Unterwegs Wölfe, Harpyien und ein Greif. Egon empfiehlt warme Socken."
+msgstr "氷の山、頂上では嵐が荒れ狂う。道中には狼、ハーピー、グリフォン。エゴンのおすすめは暖かい靴下。"
 
 msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
 msgstr "琥珀1つ、爆弾3つ、鍵3つ"
@@ -422,6 +509,9 @@ msgstr "火花と残り火の月"
 
 msgid "Ein Funke und mehr Glück"
 msgstr "火花と運の上昇"
+
+msgid "Ein Funke, der nicht ausgehen will."
+msgstr "消えようとしない火の粉。"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "残り火の契約が開いた"
@@ -455,6 +545,9 @@ msgstr "ハート・コイン・爆弾・鍵を1つずつ"
 
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "ハート1つ、青いハート2つ、ダメージ上昇"
+
+msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
+msgstr "ハート形の薬草。エゴンはお茶にする。"
 
 msgid "Ein Platz mehr im Rucksack."
 msgstr "リュックの枠が1つ増える。"
@@ -537,6 +630,36 @@ msgstr "一日一回はテーブルをタダで回してやる。その後は友
 msgid "Einstellungen"
 msgstr "設定"
 
+msgid "Eiselementar"
+msgstr "氷の精霊"
+
+msgid "Eisen"
+msgstr "鉄"
+
+msgid "Eisen-Beinschienen"
+msgstr "鉄のすね当て"
+
+msgid "Eisen-Bogen"
+msgstr "鉄の弓"
+
+msgid "Eisen-Brustplatte"
+msgstr "鉄の胸当て"
+
+msgid "Eisen-Handschuhe"
+msgstr "鉄の手袋"
+
+msgid "Eisen-Helm"
+msgstr "鉄の兜"
+
+msgid "Eisen-Schwert"
+msgstr "鉄の剣"
+
+msgid "Eisen-Stiefel"
+msgstr "鉄のブーツ"
+
+msgid "Eisen-Zauberstab"
+msgstr "鉄の杖"
+
 msgid "Eisenerz"
 msgstr "鉄鉱石"
 
@@ -546,11 +669,20 @@ msgstr "鉄の肌"
 msgid "Eisfeder"
 msgstr "氷の羽"
 
+msgid "Eishöhle"
+msgstr "氷の洞窟"
+
+msgid "Eisrobbe"
+msgstr "氷アザラシ"
+
 msgid "Eisspiegel"
 msgstr "氷の鏡"
 
 msgid "Eisstab"
 msgstr "氷の杖"
+
+msgid "Eiswolf"
+msgstr "氷狼"
 
 msgid "Elfenbrief"
 msgstr "エルフの手紙"
@@ -563,6 +695,9 @@ msgstr "発見済み：%d / %d"
 
 msgid "Episch"
 msgstr "エピック"
+
+msgid "Erdkoloss"
+msgstr "大地の巨像"
 
 msgid "Erdstab"
 msgstr "大地の杖"
@@ -582,6 +717,9 @@ msgstr "爆発する弾、連射が遅い"
 msgid "Fahre mit der Maus über ein Item"
 msgstr "アイテムにマウスを合わせる"
 
+msgid "Feder"
+msgstr "羽根"
+
 msgid "Feenstaub"
 msgstr "妖精の粉"
 
@@ -593,6 +731,12 @@ msgstr "ウィンドウ"
 
 msgid "Fenstergröße"
 msgstr "ウィンドウサイズ"
+
+msgid "Fester Griff, härtere Treffer."
+msgstr "しっかり握れば一撃も重い。"
+
+msgid "Feuerelementar"
+msgstr "炎の精霊"
 
 msgid "Feuerfester Bomber"
 msgstr "耐火ボマー"
@@ -606,6 +750,9 @@ msgstr "炎の輪"
 msgid "Feuerlanze"
 msgstr "炎の槍"
 
+msgid "Feuersalamander"
+msgstr "火サラマンダー"
+
 msgid "Feuerstab"
 msgstr "炎の杖"
 
@@ -614,6 +761,9 @@ msgstr "火の玉の代わりに火炎ビーム: ボタン長押し"
 
 msgid "Feuerwerk"
 msgstr "花火"
+
+msgid "Feuerwolf"
+msgstr "炎の狼"
 
 msgid "Flechtenleder"
 msgstr "地衣の革"
@@ -639,6 +789,9 @@ msgstr "コウモリの皮"
 msgid "Flüchten"
 msgstr "逃げる"
 
+msgid "Flüssiges Feuer in einer Flasche."
+msgstr "瓶に入った液体の炎。"
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "暗くなると小さくささやく。"
 
@@ -651,11 +804,23 @@ msgstr "霜と炎"
 msgid "Frostflechte"
 msgstr "霜の地衣"
 
+msgid "Frostgeist"
+msgstr "霜の精"
+
+msgid "Frostgipfel"
+msgstr "フロスト峰"
+
+msgid "Frostgolem"
+msgstr "フロストゴーレム"
+
 msgid "Frostkristall"
 msgstr "霜の結晶"
 
 msgid "Frostmähne"
 msgstr "霜のたてがみ"
+
+msgid "Frostmähnen-Fell"
+msgstr "フロストメインの毛皮"
 
 msgid "Funkenbüchse"
 msgstr "火花の缶"
@@ -695,6 +860,9 @@ msgstr "足"
 
 msgid "Gebiete: %s"
 msgstr "エリア：%s"
+
+msgid "Gebirge"
+msgstr "山岳"
 
 msgid "Geflüchtet!"
 msgstr "脱出成功！"
@@ -744,6 +912,12 @@ msgstr "クリア！"
 msgid "Gesperrt"
 msgstr "未解放"
 
+msgid "Gesperrt: ab Stufe %d."
+msgstr "ロック中：レベル%dから。"
+
+msgid "Gesperrt: erst %s schaffen."
+msgstr "ロック中：先に%sを攻略しよう。"
+
 msgid "Gesprengte Fessel"
 msgstr "砕けた枷"
 
@@ -789,20 +963,38 @@ msgstr "グール"
 msgid "Giftratte"
 msgstr "毒ネズミ"
 
+msgid "Giftschleim"
+msgstr "毒スライム"
+
 msgid "Giftstab"
 msgstr "毒の杖"
 
 msgid "Giftzahn"
 msgstr "毒牙"
 
+msgid "Glatt, grün und noch ein bisschen warm."
+msgstr "すべすべで緑色、まだ少し温かい。"
+
 msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
 msgstr "エゴンの店のすぐ裏から下へ降りられる。一番下にはボスと、噂では宝が待っている。エゴンいわく。"
+
+msgid "Glutdrache"
+msgstr "残り火のドレイク"
+
+msgid "Glutessenz"
+msgstr "残り火のエッセンス"
+
+msgid "Glutgeist"
+msgstr "残り火の精"
 
 msgid "Glutkern"
 msgstr "残り火の核"
 
 msgid "Glutklinge"
 msgstr "残り火の刃"
+
+msgid "Glutkobold"
+msgstr "残り火のインプ"
 
 msgid "Glutmantel"
 msgstr "残り火のマント"
@@ -813,11 +1005,17 @@ msgstr "残り火の月"
 msgid "Glutsammler"
 msgstr "残り火の器"
 
+msgid "Glutschlund"
+msgstr "残り火の顎"
+
 msgid "Glutschwert"
 msgstr "残り火の剣"
 
 msgid "Glutstab"
 msgstr "残り火の杖"
+
+msgid "Glutstollen"
+msgstr "残り火の坑道"
 
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "緑っぽく光る。商人の好物。"
@@ -870,6 +1068,30 @@ msgstr "ゴールド"
 msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
 msgstr "ダンジョンの商人からの金。残りは缶に入る。死ぬと失う（安全枠の中は除く）。"
 
+msgid "Gold-Beinschienen"
+msgstr "金のすね当て"
+
+msgid "Gold-Bogen"
+msgstr "金の弓"
+
+msgid "Gold-Brustplatte"
+msgstr "金の胸当て"
+
+msgid "Gold-Handschuhe"
+msgstr "金の手袋"
+
+msgid "Gold-Helm"
+msgstr "金の兜"
+
+msgid "Gold-Schwert"
+msgstr "金の剣"
+
+msgid "Gold-Stiefel"
+msgstr "金のブーツ"
+
+msgid "Gold-Zauberstab"
+msgstr "金の杖"
+
 msgid "Goldader"
 msgstr "金脈"
 
@@ -912,11 +1134,20 @@ msgstr "グラフィック"
 msgid "Gratis"
 msgstr "無料"
 
+msgid "Greif"
+msgstr "グリフォン"
+
 msgid "Greifenfell"
 msgstr "グリフォンの毛皮"
 
 msgid "Greifenmantel"
 msgstr "グリフォンのマント"
+
+msgid "Grimbald Eisenfaust"
+msgstr "鉄拳グリムバルド"
+
+msgid "Grobian"
+msgstr "乱暴者"
 
 msgid "Große, schwere Schüsse mit viel Rückstoß"
 msgstr "大きく重い弾、強いノックバック"
@@ -936,11 +1167,17 @@ msgstr "爆弾が大きくなり、爆弾3個"
 msgid "Größere Bomben, und keine tut dir weh"
 msgstr "爆弾が大きくなり、どれも自分を傷つけない"
 
+msgid "Größere Dose"
+msgstr "大きな缶"
+
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "火の玉が大きくなり、ダメージ上昇"
 
 msgid "Größerer Rucksack"
 msgstr "大きなリュック"
+
+msgid "Grün wie das Moor, nur teurer."
+msgstr "沼のように緑、でもずっと高い。"
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "いい選択だ！コレクターズアイテムだぜ。正直に！"
@@ -953,6 +1190,18 @@ msgstr "コインを同時に%d枚持つ"
 
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "青いハートを同時に%d個持つ"
+
+msgid "Halb Fell, halb Feder."
+msgstr "半分毛皮、半分羽根。"
+
+msgid "Harpyie"
+msgstr "ハーピー"
+
+msgid "Harpyien-Matriarchin"
+msgstr "ハーピーの女王"
+
+msgid "Harpyienfeder"
+msgstr "ハーピーの羽根"
 
 msgid "Hauptmenü"
 msgstr "メインメニュー"
@@ -987,6 +1236,12 @@ msgstr "魔女の大釜"
 msgid "Hier klicken"
 msgstr "ここをクリック"
 
+msgid "Hinter dem Wald liegt ein Moor voller Lichter. Wer ihnen folgt, kommt nicht wieder. Sagt Egon. Er verkauft Laternen."
+msgstr "森の向こうに光だらけの沼がある。光について行った者は戻らない。とエゴンは言う。彼はランタンを売っている。"
+
+msgid "Hippogreif"
+msgstr "ヒッポグリフ"
+
 msgid "Holzstab"
 msgstr "木の杖"
 
@@ -1014,6 +1269,9 @@ msgstr "高い段階はプレイヤーLvで解放される。"
 msgid "Höhlentroll"
 msgstr "洞窟トロール"
 
+msgid "Höllenhund"
+msgstr "ヘルハウンド"
+
 msgid "Höllenhundfell"
 msgstr "ヘルハウンドの毛皮"
 
@@ -1023,14 +1281,32 @@ msgstr "地獄の革"
 msgid "Höllenstab"
 msgstr "地獄の杖"
 
+msgid "Höllentor"
+msgstr "地獄の門"
+
+msgid "Höllenwächter"
+msgstr "地獄の番人"
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "俺は詐欺… いや、商人だ。売ってるのは… …装備だ！そう、装備を売ってる。"
+
+msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
+msgstr "火山の中では溶岩が煮えたぎり、一番下には門がある。エゴンは行ったことがない。と本人は言う。でもブーツが焦げている。"
 
 msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
 msgstr "ダンジョンに金は持っていけない。下ではオレの同業者が戦利品を買う。オレとほぼ同じくらい正直なヤツさ。"
 
 msgid "Inventar"
 msgstr "持ち物"
+
+msgid "Irrlicht"
+msgstr "鬼火"
+
+msgid "Irrlicht-Glut"
+msgstr "鬼火の残り火"
+
+msgid "Irrlichtkönigin"
+msgstr "鬼火の女王"
 
 msgid "Jadefigur"
 msgstr "翡翠の像"
@@ -1098,6 +1374,12 @@ msgstr "クリックで続ける"
 msgid "Klingenstern"
 msgstr "刃の星"
 
+msgid "Klippenharpyie"
+msgstr "崖のハーピー"
+
+msgid "Knistert in der Hand."
+msgstr "手の中でパチパチ鳴る。"
+
 msgid "Knochengeneral"
 msgstr "骨の将軍"
 
@@ -1122,6 +1404,9 @@ msgstr "頭"
 msgid "Kraft"
 msgstr "力"
 
+msgid "Kreischt noch, wenn man sie schüttelt."
+msgstr "振るとまだ金切り声を上げる。"
+
 msgid "Krieger"
 msgstr "戦士"
 
@@ -1134,11 +1419,17 @@ msgstr "戦斧"
 msgid "Kristallkarte"
 msgstr "水晶の地図"
 
+msgid "Kristallkrabbe"
+msgstr "クリスタルクラブ"
+
 msgid "Kristallsplitter"
 msgstr "水晶の欠片"
 
 msgid "Kräuterbeutel"
 msgstr "薬草袋"
+
+msgid "Kupfer"
+msgstr "銅"
 
 msgid "Kupfer-Beinschienen"
 msgstr "銅のすね当て"
@@ -1194,6 +1485,12 @@ msgstr "徐々に回復する"
 msgid "Lautstärke"
 msgstr "音量"
 
+msgid "Lavagolem"
+msgstr "溶岩ゴーレム"
+
+msgid "Lavahund"
+msgstr "溶岩の猟犬"
+
 msgid "Lebendiger Wind"
 msgstr "生ける風"
 
@@ -1221,8 +1518,14 @@ msgstr "レジェンダリー"
 msgid "Leicht und schnell."
 msgstr "軽くて速い。"
 
+msgid "Leicht wie Luft, wertvoll wie … naja."
+msgstr "空気のように軽く、価値は…まあね。"
+
 msgid "Leichte Feder"
 msgstr "軽い羽根"
+
+msgid "Leichte Sohlen, schnelle Schritte."
+msgstr "軽い靴底、速い足取り。"
 
 msgid "Leichtfuß"
 msgstr "軽い足取り"
@@ -1254,6 +1557,15 @@ msgstr "削除"
 msgid "Magier"
 msgstr "魔法使い"
 
+msgid "Magma-Rohling"
+msgstr "マグマの荒くれ"
+
+msgid "Magmakammer"
+msgstr "マグマの間"
+
+msgid "Magmaschleim"
+msgstr "マグマスライム"
+
 msgid "Makelloser Schild"
 msgstr "完璧な盾"
 
@@ -1278,6 +1590,9 @@ msgstr "弾が時々毒を与える"
 msgid "Manchmal weichst du Treffern aus"
 msgstr "時々攻撃を回避する"
 
+msgid "Material: %s"
+msgstr "素材：%s"
+
 msgid "Maus"
 msgstr "マウス"
 
@@ -1295,6 +1610,9 @@ msgstr "持っているコイン1枚ごとにダメージ上昇"
 
 msgid "Mehr Ware"
 msgstr "品ぞろえ増加"
+
+msgid "Messerstecher"
+msgstr "ナイフ使い"
 
 msgid "Meteor"
 msgstr "メテオ"
@@ -1314,8 +1632,29 @@ msgstr "月の印章"
 msgid "Mondsturm"
 msgstr "月の嵐"
 
+msgid "Moor der Irrlichter"
+msgstr "鬼火の沼"
+
+msgid "Moor-Egel"
+msgstr "沼ヒル"
+
+msgid "Moorgeist"
+msgstr "沼の亡霊"
+
 msgid "Moorherz"
 msgstr "沼の心臓"
+
+msgid "Moorkern"
+msgstr "沼の核"
+
+msgid "Moorkröte"
+msgstr "沼ガエル"
+
+msgid "Moorleiche"
+msgstr "沼の死体"
+
+msgid "Moormutter"
+msgstr "沼の母"
 
 msgid "Musik"
 msgstr "音楽"
@@ -1382,6 +1721,9 @@ msgstr "次のページ"
 
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "次のレベル：%dゴールド、スキルポイント%d、プレイヤーLv%dから"
+
+msgid "Obsidianwächter"
+msgstr "黒曜石の守護者"
 
 msgid "Offensiv"
 msgstr "攻撃"
@@ -1452,6 +1794,9 @@ msgstr "プラチナの刃"
 msgid "Platinspitze"
 msgstr "プラチナの矢じり"
 
+msgid "Pocht leise. Besser nicht drüber nachdenken."
+msgstr "かすかに脈打つ。考えないほうがいい。"
+
 msgid "Preis: %d Gold"
 msgstr "価格：%dゴールド"
 
@@ -1478,6 +1823,9 @@ msgstr "ネズミの地下室"
 
 msgid "Rattenkönig"
 msgstr "ネズミの王"
+
+msgid "Raucht ein bisschen."
+msgstr "少し煙が出ている。"
 
 msgid "Rechts"
 msgstr "右"
@@ -1536,6 +1884,15 @@ msgstr "レリック：レバー1回%d %%、段階 %s"
 msgid "Reliktpflege"
 msgstr "レリックの手入れ"
 
+msgid "Riecht nach Moor. Für immer."
+msgstr "沼の匂いがする。永遠に。"
+
+msgid "Riesenfledermaus"
+msgstr "大コウモリ"
+
+msgid "Riesenkeiler"
+msgstr "大イノシシ"
+
 msgid "Riesenratte"
 msgstr "大ネズミ"
 
@@ -1569,6 +1926,9 @@ msgstr "ルビー"
 msgid "Rucksack"
 msgstr "リュック"
 
+msgid "Rudelführer"
+msgstr "群れのリーダー"
+
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "手が安定し、射撃が速くなる。"
 
@@ -1583,6 +1943,9 @@ msgstr "ノックバック"
 
 msgid "Rückwärts"
 msgstr "後退"
+
+msgid "Salamanderkönigin"
+msgstr "サラマンダーの女王"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "砂の鍛冶屋の手袋"
@@ -1659,6 +2022,15 @@ msgstr "ダメージ: %s"
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "%d階連続で被弾せずに進む"
 
+msgid "Schakal"
+msgstr "ジャッカル"
+
+msgid "Schattenbrut"
+msgstr "影の落とし子"
+
+msgid "Schattenfürst"
+msgstr "影の王"
+
 msgid "Schattenmantel"
 msgstr "影のマント"
 
@@ -1689,6 +2061,9 @@ msgstr "戦の楔"
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "蛇炎: 弾がくねくね進み、少し強い"
 
+msgid "Schlangenschuppe"
+msgstr "蛇の鱗"
+
 msgid "Schlangenschüsse, die Gegner verfolgen"
 msgstr "敵を追う蛇行弾"
 
@@ -1697,6 +2072,9 @@ msgstr "スライム"
 
 msgid "Schließen"
 msgstr "閉じる"
+
+msgid "Schläger"
+msgstr "ごろつき"
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "反射する蛇行弾"
@@ -1731,6 +2109,9 @@ msgstr "連射が速く、弾は最後に弾ける"
 msgid "Schnellere Schüsse fliegen durch Gegner"
 msgstr "速い弾が敵を貫通する"
 
+msgid "Schon einmal geschafft!"
+msgstr "攻略済み！"
+
 msgid "Schreckensbrief"
 msgstr "恐怖の手紙"
 
@@ -1740,11 +2121,20 @@ msgstr "ショットガン: 近距離に火の粉を6発"
 msgid "Schrumpftrank"
 msgstr "縮小の薬"
 
+msgid "Schuppig, schwer und sehr gefragt."
+msgstr "鱗だらけで重く、引く手あまた。"
+
 msgid "Schusstempo"
 msgstr "弾速"
 
+msgid "Schwarz und hart wie Lava, die nachgedacht hat."
+msgstr "黒くて硬い。考え直した溶岩のよう。"
+
 msgid "Schwarzer Kristall"
 msgstr "黒水晶"
+
+msgid "Schwarzwolf"
+msgstr "黒狼"
 
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "重くて黄色い。どの商人も好きだ。"
@@ -1845,6 +2235,33 @@ msgstr "視野"
 msgid "Siegerring"
 msgstr "勝者の指輪"
 
+msgid "Silber"
+msgstr "銀"
+
+msgid "Silber-Beinschienen"
+msgstr "銀のすね当て"
+
+msgid "Silber-Bogen"
+msgstr "銀の弓"
+
+msgid "Silber-Brustplatte"
+msgstr "銀の胸当て"
+
+msgid "Silber-Handschuhe"
+msgstr "銀の手袋"
+
+msgid "Silber-Helm"
+msgstr "銀の兜"
+
+msgid "Silber-Schwert"
+msgstr "銀の剣"
+
+msgid "Silber-Stiefel"
+msgstr "銀のブーツ"
+
+msgid "Silber-Zauberstab"
+msgstr "銀の杖"
+
 msgid "Silberader"
 msgstr "銀脈"
 
@@ -1871,6 +2288,9 @@ msgstr "銀の指輪"
 
 msgid "Silberspitze"
 msgstr "銀の矢じり"
+
+msgid "Silberwolf"
+msgstr "銀狼"
 
 msgid "Skelett"
 msgstr "骸骨"
@@ -1959,6 +2379,9 @@ msgstr "岩を踏み砕き、戦利品が増える"
 msgid "Steine zertreten, fünf Bomben"
 msgstr "岩を踏み砕く、爆弾5個"
 
+msgid "Steingolem"
+msgstr "ストーンゴーレム"
+
 msgid "Sternenfessel"
 msgstr "星の枷"
 
@@ -2019,8 +2442,17 @@ msgstr "レベルが足りない"
 msgid "Sturmessenz"
 msgstr "嵐の精髄"
 
+msgid "Sturmgeist"
+msgstr "嵐の精"
+
+msgid "Sturmgipfel"
+msgstr "嵐の頂"
+
 msgid "Sturmkarte"
 msgstr "嵐の地図"
+
+msgid "Sturmkrähe"
+msgstr "嵐ガラス"
 
 msgid "Sturmsiegel"
 msgstr "嵐の印章"
@@ -2055,11 +2487,26 @@ msgstr "追尾ビーム"
 msgid "Sumpfhaut"
 msgstr "沼の皮"
 
+msgid "Sumpfhydra"
+msgstr "沼のヒドラ"
+
 msgid "Sumpfleder"
 msgstr "沼の革"
 
 msgid "Sumpfmantel"
 msgstr "沼のマント"
+
+msgid "Sumpfschamane"
+msgstr "沼のシャーマン"
+
+msgid "Sumpfschlange"
+msgstr "沼の大蛇"
+
+msgid "Sumpfschleim"
+msgstr "沼スライム"
+
+msgid "Sumpfufer"
+msgstr "沼のほとり"
 
 msgid "Synergie: %s!"
 msgstr "シナジー: %s！"
@@ -2096,6 +2543,12 @@ msgstr "移動速度: %s"
 
 msgid "Testraum · P: zurück"
 msgstr "テスト部屋 · P: 戻る"
+
+msgid "Tiefes Moor"
+msgstr "深い沼"
+
+msgid "Topas"
+msgstr "トパーズ"
 
 msgid "Topasjuwel"
 msgstr "トパーズの宝石"
@@ -2150,6 +2603,12 @@ msgstr "補助"
 
 msgid "Vampir"
 msgstr "吸血鬼"
+
+msgid "Varrik der Fuchs"
+msgstr "狐のヴァリク"
+
+msgid "Verbrennt nicht. Riecht aber so."
+msgstr "燃えない。でも焦げ臭い。"
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "敵に毒、ダメージ少し上昇"
@@ -2220,6 +2679,9 @@ msgstr "旅人の包み"
 msgid "Warm und dicht."
 msgstr "暖かくて厚い。"
 
+msgid "Warm. Grau. Überall."
+msgstr "温かい。灰色。どこにでも。"
+
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "ここに置いた物は死んでも失わない。"
 
@@ -2250,6 +2712,9 @@ msgstr "価値:%d ゴールド"
 msgid "Wettkampfstiefel"
 msgstr "競技用ブーツ"
 
+msgid "Wildschwein"
+msgstr "イノシシ"
+
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "俺のささやかな店へようこそ！上のテーブルに品物がある。まあ…もうすぐな。"
 
@@ -2268,17 +2733,29 @@ msgstr "風の杖"
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "ビームが当たった所で爆発する"
 
+msgid "Wolf"
+msgstr "狼"
+
 msgid "Wolfsfell"
 msgstr "狼の毛皮"
 
+msgid "Wolfsleder"
+msgstr "狼の革"
+
 msgid "Wolfsmantel"
 msgstr "狼のマント"
+
+msgid "Wolfswald"
+msgstr "狼の森"
 
 msgid "Wurfsterne"
 msgstr "手裏剣"
 
 msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
 msgstr "手裏剣が敵を貫通し、よく出血させる"
+
+msgid "Wächst nur, wo es richtig kalt ist."
+msgstr "本当に寒い所にしか生えない。"
 
 msgid "Wähle deinen Charakter"
 msgstr "キャラクターを選ぶ"
@@ -2378,6 +2855,9 @@ msgstr "青いハート2つ。1つ失うと敵全体に攻撃"
 
 msgid "Zwillingshandschuhe"
 msgstr "双子の手袋"
+
+msgid "Zäh und warm."
+msgstr "丈夫で暖かい。"
 
 msgid "Zähigkeit"
 msgstr "タフネス"

@@ -66,3 +66,11 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 1. Gegner und Bosse lassen Materialien und Gussformen fallen (`data/enemies.json` `loot`).
 2. Funde schalten Ware beim Händler frei (Eisen, Bronze …).
 3. Mehrere Dungeons mit Gefahrenstufe; Bogenschütze/Krieger über die Story freischalten.
+
+### Balance und neue Dungeons (2026-11-27, `feature/balance`)
+
+- ✅ Vier Dungeons (Glut, Moor der Irrlichter, Frostgipfel, Glutschlund), je 6 Ebenen in 3 Gebieten, der nächste öffnet nach dem Sieg.
+- ✅ 65 neue Gegner und Bosse, 23 neue Beute-Sorten, Fallen (Gift, Stacheln, Eisstacheln, Lava).
+- ✅ Materialien bei Egon: Kupfer, Bronze (ab Stufe 3), Eisen (nach Dungeon 1), Silber, Gold; Hebel teurer mit besserem Material.
+- ✅ Balance-Rechner und `docs/BALANCE.md`; Stufen, Skill-Preise, Seltenheits-Stufen angepasst; Skill „Größere Dose“.
+- Offen: im Spiel ausprobieren und nachjustieren (Liste in `docs/BALANCE.md`).

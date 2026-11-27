@@ -260,3 +260,16 @@ Gilt ab jetzt statt der älteren Abschnitte über Geldbörse, Münzsack und Mün
 - `MetaState.pull_lever` würfelt mit den Chancen des aktuellen Zugs (`ShopGoods.roll(rng, pulls_today)`); der Chancen-Balken zeigt den nächsten Zug (Tooltip nennt die Verschiebung). Neuer Tag = wieder Grundwerte.
 - **Skill-Gruppe „Laden“** (`skills.json`, Spalte 6): Mehr Ware (+1 Sache auf dem Tisch je Stufe, `goods_extra`, 3 Stufen) → Glückliches Händchen (+5 % R2 je Stufe, 3 Stufen) → Seltene Ware (+3 % R3 je Stufe, 2 Stufen; R3 also schon vor Spielerstufe 10).
 - Egons Tour: neuer Satz beim Neu-Würfeln („Dafür wird die Ware mit jedem Dreh besser.“).
+
+## Vier Dungeons, Materialien, Fallen, Balance – 2026-11-27, `feature/balance`
+
+Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balance.py`.
+
+- **Mehrere Dungeons:** `dungeons.json` je Dungeon `floors` (Liste in `floors.json`: `floors` für die Glut, `floors_moor`, `floors_frost`, `floors_vulkan`), `unlock` (`dungeon` = vorher schaffen, `level`), `hp_mult`, `exp_mult`, `shop_mult`. `Content.active_dungeon` (gesetzt von `Game.start_new_run(character, dungeon)`) wählt die Ebenen; `Content.floors(id)` / `Content.floor_data(index, id)` rechnen die Dungeon-Faktoren ein (Leben = Ebene × Dungeon, EXP je Kill × `exp_mult` über `RunState.add_kill_exp`, Run-Shop × `shop_mult` × (1 + `shop.floor_step` × Ebene)).
+- **Siege je Spielstand:** `MetaState.win_dungeon` (beim Sieg in `RunScene`), `has_won`, `is_dungeon_open`, `meets({dungeon, level})`. Neues Spiel = nur der erste Dungeon offen. Dungeon-Brett: gesperrte Dungeons grau mit „Gesperrt: erst … schaffen.“, „Betreten“ aus; geschaffte mit „Schon einmal geschafft!“.
+- **Materialien bei Egon:** `shop.json` `materials` (Kupfer, Bronze ab Stufe 3, Eisen nach der Glut, Silber nach dem Moor, Gold nach Frost). `ShopGoods.roll` würfelt erst das Material (`open_materials`, alte Materialien × `old_material_mult`), dann das Teil (`pool`); Ware = `gear.json` `<material>_<teil>` (40 Teile). Der Hebel kostet × `lever_mult` des besten offenen Materials. Tooltip des Chancen-Balkens: Material-Chancen und was als Nächstes öffnet.
+- **Ausrüstung neu verteilt:** Waffe und Handschuhe = Schaden, Helm/Brust/Beine = Schild-Herzen, Stiefel = Tempo (Werte je Material, `docs/BALANCE.md`).
+- **Fallen** (`scenes/objects/hazard.gd`, `Hazard`): `floors.json` `hazard_types` (lava, poison, spikes, ice_spikes: damage, size, cycle, color, glow); Gebiete/Ebenen `hazards` [[Art, [min, max]]]. `Dungeon._add_hazards` legt sie in normale Räume (eigener Zufall, Tür-Wege ±1,4 m, Mitte und Steine frei), `_check_hazards` trifft den Spieler über `Player.take_hit` (danach die übliche Unverwundbarkeit). Stacheln fahren im Takt `cycle` [unten, oben] aus, kurz vorher wackeln sie.
+- **Neue Gegner:** 65 (davon 22 Bosse) aus den Smithy-Bildern, mit eigener Stimme und Beute; 23 neue Beute-Sorten (Werte steigen je Dungeon).
+- **Größere Dose** (Skill, Gruppe „Laden“): `MetaState.box_limit` = `meta.json` Limit + `Skills.bonus("box_limit")`.
+- **Stufen** `growth` 1,25; Seltenheiten R4/R5/R7 ab Stufe 16/21/28; Skill-Preise nach Stufe gestaffelt.

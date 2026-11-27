@@ -9,8 +9,17 @@ msgstr "%d золота"
 msgid "%d Herzen"
 msgstr "%d сердец"
 
+msgid "%s: ab Stufe %d"
+msgstr "%s: с уровня %d"
+
+msgid "%s: nach %s"
+msgstr "%s: после «%s»"
+
 msgid "3 % Chance auf R3 bei Egon."
 msgstr "3 % шанс на R3 у Эгона."
+
+msgid "300 Gold mehr sind in der Dose sicher."
+msgstr "В банке в безопасности на 300 золотых больше."
 
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "На 5 % больше шанс на R2 у Эгона."
@@ -63,6 +72,9 @@ msgstr "Амулет арены"
 msgid "Arenaherz"
 msgstr "Сердце арены"
 
+msgid "Asche"
+msgstr "Пепел"
+
 msgid "Audio"
 msgstr "Звук"
 
@@ -74,6 +86,9 @@ msgstr "Заряди, отпусти: мощный луч огня"
 
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "Сбежать из подземелья? Всё, что несёшь, останется у тебя."
+
+msgid "Aus der Beute der Banditen. Jetzt deine."
+msgstr "Из добычи бандитов. Теперь твоё."
 
 msgid "Ausgang"
 msgstr "Выход"
@@ -87,6 +102,15 @@ msgstr "Рывок"
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "Топор вместо огненных шаров: тяжёлый взмах, враги кровоточат"
 
+msgid "Bandit-Schildträger"
+msgstr "Бандит-щитоносец"
+
+msgid "Bandit-Schütze"
+msgstr "Бандит-стрелок"
+
+msgid "Banditenlager"
+msgstr "Лагерь бандитов"
+
 msgid "Beenden"
 msgstr "Выход"
 
@@ -95,6 +119,9 @@ msgstr "При попадании снаряд распадается на че�
 
 msgid "Beine"
 msgstr "Ноги"
+
+msgid "Bergfalke"
+msgstr "Горный сокол"
 
 msgid "Bernstein"
 msgstr "Янтарь"
@@ -117,6 +144,9 @@ msgstr "Добычу я выкупаю: ПКМ в инвентаре — и он
 msgid "Blasebalg"
 msgstr "Кузнечные мехи"
 
+msgid "Blau wie Gletschereis."
+msgstr "Синий, как ледниковый лёд."
+
 msgid "Blutphiole"
 msgstr "Флакон крови"
 
@@ -135,6 +165,9 @@ msgstr "Бомбы разлетаются на маленькие бомбы"
 msgid "Bombengürtel"
 msgstr "Пояс с бомбами"
 
+msgid "Brakk der Brecher"
+msgstr "Бракк Крушитель"
+
 msgid "Brandöl"
 msgstr "Горючее масло"
 
@@ -152,6 +185,33 @@ msgstr "Горящие, медленные враги и два синих се�
 
 msgid "Brennt gut in jeder Esse."
 msgstr "Хорошо горит в любом горне."
+
+msgid "Bronze"
+msgstr "Бронза"
+
+msgid "Bronze-Beinschienen"
+msgstr "Бронзовые поножи"
+
+msgid "Bronze-Bogen"
+msgstr "Бронзовый лук"
+
+msgid "Bronze-Brustplatte"
+msgstr "Бронзовый нагрудник"
+
+msgid "Bronze-Handschuhe"
+msgstr "Бронзовые перчатки"
+
+msgid "Bronze-Helm"
+msgstr "Бронзовый шлем"
+
+msgid "Bronze-Schwert"
+msgstr "Бронзовый меч"
+
+msgid "Bronze-Stiefel"
+msgstr "Бронзовые сапоги"
+
+msgid "Bronze-Zauberstab"
+msgstr "Бронзовый посох"
 
 msgid "Bronzebogen"
 msgstr "Бронзовый лук"
@@ -188,6 +248,9 @@ msgstr "Внутри застрял маленький жучок."
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "Сверх того… скажем так, тут водятся крысы. Большие. С руками."
+
+msgid "Das Fell eines Riesen aus Eis."
+msgstr "Шкура ледяного великана."
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "Золото этого забега. Если умрёшь, оно пропадёт, кроме лежащего в надёжной ячейке."
@@ -237,8 +300,14 @@ msgstr "Камень принимает твою жертву"
 msgid "Der Weg nach unten ist frei!"
 msgstr "Путь вниз открыт!"
 
+msgid "Diamant"
+msgstr "Алмаз"
+
 msgid "Diamantherz"
 msgstr "Алмазное сердце"
+
+msgid "Dick, weich und eiskalt."
+msgstr "Толстый, мягкий и ледяной."
 
 msgid "Dicke Haut"
 msgstr "Толстая кожа"
@@ -275,6 +344,9 @@ msgstr "Банка: перетащи золото сюда"
 
 msgid "Dose: hier liegt dein ganzes Gold"
 msgstr "Банка: здесь всё твоё золото"
+
+msgid "Drache"
+msgstr "Дракон"
 
 msgid "Drachenatem"
 msgstr "Дыхание дракона"
@@ -366,6 +438,12 @@ msgstr "Доска подземелий"
 msgid "Dungeons"
 msgstr "Подземелья"
 
+msgid "Dunkler Ritter"
+msgstr "Тёмный рыцарь"
+
+msgid "Dunkler Schütze"
+msgstr "Тёмный стрелок"
+
 msgid "Dunkler Zauberstab"
 msgstr "Тёмный жезл"
 
@@ -377,6 +455,9 @@ msgstr "Сквозь камни, и иногда враги бегут"
 
 msgid "Durchschlag, Abprallen und Zerplatzen"
 msgstr "Пробивает, отскакивает и разлетается"
+
+msgid "Dämon"
+msgstr "Демон"
 
 msgid "Dünne Haut aus einem Fledermausflügel."
 msgstr "Тонкая кожа с крыла летучей мыши."
@@ -402,11 +483,17 @@ msgstr "Эгон Честный, очень приятно. Честный — �
 msgid "Egon könnte klauen!"
 msgstr "Эгон может стащить!"
 
+msgid "Egons Augen werden ganz groß."
+msgstr "У Эгона глаза становятся огромными."
+
 msgid "Egons Laden"
 msgstr "Лавка Эгона"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Твои взрывы тебя лечат"
+
+msgid "Ein Berg aus Eis, oben tobt der Sturm. Unterwegs Wölfe, Harpyien und ein Greif. Egon empfiehlt warme Socken."
+msgstr "Ледяная гора, на вершине бушует буря. По пути волки, гарпии и грифон. Эгон советует тёплые носки."
 
 msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
 msgstr "Янтарь, три бомбы, три ключа"
@@ -422,6 +509,9 @@ msgstr "Искра и луна жара"
 
 msgid "Ein Funke und mehr Glück"
 msgstr "Искра и больше удачи"
+
+msgid "Ein Funke, der nicht ausgehen will."
+msgstr "Искра, которая не хочет гаснуть."
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "Открылся пакт жара"
@@ -455,6 +545,9 @@ msgstr "Сердце, монета, бомба и ключ"
 
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "Сердце, два синих сердца, урон выше"
+
+msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
+msgstr "Трава в форме сердца. Эгон заваривает из неё чай."
 
 msgid "Ein Platz mehr im Rucksack."
 msgstr "Ещё одна ячейка в рюкзаке."
@@ -537,6 +630,36 @@ msgstr "Раз в день я кручу стол бесплатно. Потом
 msgid "Einstellungen"
 msgstr "Настройки"
 
+msgid "Eiselementar"
+msgstr "Ледяной элементаль"
+
+msgid "Eisen"
+msgstr "Железо"
+
+msgid "Eisen-Beinschienen"
+msgstr "Железные поножи"
+
+msgid "Eisen-Bogen"
+msgstr "Железный лук"
+
+msgid "Eisen-Brustplatte"
+msgstr "Железный нагрудник"
+
+msgid "Eisen-Handschuhe"
+msgstr "Железные перчатки"
+
+msgid "Eisen-Helm"
+msgstr "Железный шлем"
+
+msgid "Eisen-Schwert"
+msgstr "Железный меч"
+
+msgid "Eisen-Stiefel"
+msgstr "Железные сапоги"
+
+msgid "Eisen-Zauberstab"
+msgstr "Железный посох"
+
 msgid "Eisenerz"
 msgstr "Железная руда"
 
@@ -546,11 +669,20 @@ msgstr "Железная кожа"
 msgid "Eisfeder"
 msgstr "Ледяное перо"
 
+msgid "Eishöhle"
+msgstr "Ледяная пещера"
+
+msgid "Eisrobbe"
+msgstr "Ледяной тюлень"
+
 msgid "Eisspiegel"
 msgstr "Ледяное зеркало"
 
 msgid "Eisstab"
 msgstr "Ледяной посох"
+
+msgid "Eiswolf"
+msgstr "Ледяной волк"
 
 msgid "Elfenbrief"
 msgstr "Эльфийское письмо"
@@ -563,6 +695,9 @@ msgstr "Найдено: %d / %d"
 
 msgid "Episch"
 msgstr "Эпический"
+
+msgid "Erdkoloss"
+msgstr "Земляной колосс"
 
 msgid "Erdstab"
 msgstr "Посох земли"
@@ -582,6 +717,9 @@ msgstr "Взрывные выстрелы, стрельба медленнее"
 msgid "Fahre mit der Maus über ein Item"
 msgstr "Наведи мышь на предмет"
 
+msgid "Feder"
+msgstr "Перо"
+
 msgid "Feenstaub"
 msgstr "Пыльца фей"
 
@@ -593,6 +731,12 @@ msgstr "Окно"
 
 msgid "Fenstergröße"
 msgstr "Размер окна"
+
+msgid "Fester Griff, härtere Treffer."
+msgstr "Крепкая хватка, сильнее удары."
+
+msgid "Feuerelementar"
+msgstr "Огненный элементаль"
 
 msgid "Feuerfester Bomber"
 msgstr "Огнеупорный подрывник"
@@ -606,6 +750,9 @@ msgstr "Огненный венец"
 msgid "Feuerlanze"
 msgstr "Огненное копьё"
 
+msgid "Feuersalamander"
+msgstr "Огненная саламандра"
+
 msgid "Feuerstab"
 msgstr "Огненный посох"
 
@@ -614,6 +761,9 @@ msgstr "Луч огня вместо шаров: держи кнопку мыш�
 
 msgid "Feuerwerk"
 msgstr "Фейерверк"
+
+msgid "Feuerwolf"
+msgstr "Огненный волк"
 
 msgid "Flechtenleder"
 msgstr "Лишайниковая кожа"
@@ -639,6 +789,9 @@ msgstr "Перепонка"
 msgid "Flüchten"
 msgstr "Сбежать"
 
+msgid "Flüssiges Feuer in einer Flasche."
+msgstr "Жидкий огонь в бутылке."
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Тихо шепчет в темноте."
 
@@ -651,11 +804,23 @@ msgstr "Мороз и пламя"
 msgid "Frostflechte"
 msgstr "Морозный лишайник"
 
+msgid "Frostgeist"
+msgstr "Морозный дух"
+
+msgid "Frostgipfel"
+msgstr "Морозный пик"
+
+msgid "Frostgolem"
+msgstr "Морозный голем"
+
 msgid "Frostkristall"
 msgstr "Морозный кристалл"
 
 msgid "Frostmähne"
 msgstr "Морозная грива"
+
+msgid "Frostmähnen-Fell"
+msgstr "Шкура Морозной гривы"
 
 msgid "Funkenbüchse"
 msgstr "Банка искр"
@@ -695,6 +860,9 @@ msgstr "Ступни"
 
 msgid "Gebiete: %s"
 msgstr "Области: %s"
+
+msgid "Gebirge"
+msgstr "Горы"
 
 msgid "Geflüchtet!"
 msgstr "Сбежал!"
@@ -744,6 +912,12 @@ msgstr "Победа!"
 msgid "Gesperrt"
 msgstr "Закрыто"
 
+msgid "Gesperrt: ab Stufe %d."
+msgstr "Закрыто: с уровня %d."
+
+msgid "Gesperrt: erst %s schaffen."
+msgstr "Закрыто: сначала пройди «%s»."
+
 msgid "Gesprengte Fessel"
 msgstr "Разбитые оковы"
 
@@ -789,20 +963,38 @@ msgstr "Упырь"
 msgid "Giftratte"
 msgstr "Ядовитая крыса"
 
+msgid "Giftschleim"
+msgstr "Ядовитая слизь"
+
 msgid "Giftstab"
 msgstr "Ядовитый посох"
 
 msgid "Giftzahn"
 msgstr "Ядовитый клык"
 
+msgid "Glatt, grün und noch ein bisschen warm."
+msgstr "Гладкая, зелёная и ещё немного тёплая."
+
 msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
 msgstr "Сразу за лавкой Эгона начинается спуск. В самом низу ждёт босс и, говорят, сокровище. Так говорит Эгон."
+
+msgid "Glutdrache"
+msgstr "Угольный дракон"
+
+msgid "Glutessenz"
+msgstr "Эссенция углей"
+
+msgid "Glutgeist"
+msgstr "Дух углей"
 
 msgid "Glutkern"
 msgstr "Угольное ядро"
 
 msgid "Glutklinge"
 msgstr "Клинок жара"
+
+msgid "Glutkobold"
+msgstr "Угольный бесёнок"
 
 msgid "Glutmantel"
 msgstr "Плащ жара"
@@ -813,11 +1005,17 @@ msgstr "Угольная луна"
 msgid "Glutsammler"
 msgstr "Собиратель углей"
 
+msgid "Glutschlund"
+msgstr "Огненная пасть"
+
 msgid "Glutschwert"
 msgstr "Меч жара"
 
 msgid "Glutstab"
 msgstr "Посох углей"
+
+msgid "Glutstollen"
+msgstr "Угольные штольни"
 
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Отливает зеленью. Торговец его любит."
@@ -870,6 +1068,30 @@ msgstr "Золото"
 msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
 msgstr "Золото от торговца в подземелье. Остаток попадёт в твою банку; при смерти пропадёт, кроме безопасного места."
 
+msgid "Gold-Beinschienen"
+msgstr "Золотые поножи"
+
+msgid "Gold-Bogen"
+msgstr "Золотой лук"
+
+msgid "Gold-Brustplatte"
+msgstr "Золотой нагрудник"
+
+msgid "Gold-Handschuhe"
+msgstr "Золотые перчатки"
+
+msgid "Gold-Helm"
+msgstr "Золотой шлем"
+
+msgid "Gold-Schwert"
+msgstr "Золотой меч"
+
+msgid "Gold-Stiefel"
+msgstr "Золотые сапоги"
+
+msgid "Gold-Zauberstab"
+msgstr "Золотой посох"
+
 msgid "Goldader"
 msgstr "Золотая жила"
 
@@ -912,11 +1134,20 @@ msgstr "Графика"
 msgid "Gratis"
 msgstr "Бесплатно"
 
+msgid "Greif"
+msgstr "Грифон"
+
 msgid "Greifenfell"
 msgstr "Мех грифона"
 
 msgid "Greifenmantel"
 msgstr "Плащ грифона"
+
+msgid "Grimbald Eisenfaust"
+msgstr "Гримбальд Железный Кулак"
+
+msgid "Grobian"
+msgstr "Громила"
 
 msgid "Große, schwere Schüsse mit viel Rückstoß"
 msgstr "Большие тяжёлые выстрелы с сильной отдачей"
@@ -936,11 +1167,17 @@ msgstr "Бомбы больше и три бомбы"
 msgid "Größere Bomben, und keine tut dir weh"
 msgstr "Бомбы больше, и ни одна тебе не вредит"
 
+msgid "Größere Dose"
+msgstr "Банка побольше"
+
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "Огненные шары больше, урон выше"
 
 msgid "Größerer Rucksack"
 msgstr "Большой рюкзак"
+
+msgid "Grün wie das Moor, nur teurer."
+msgstr "Зелёный, как болото, только дороже."
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "Хороший выбор! Коллекционная вещь. Честно!"
@@ -953,6 +1190,18 @@ msgstr "Имей %d монет одновременно"
 
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Имей %d синих сердец одновременно"
+
+msgid "Halb Fell, halb Feder."
+msgstr "Наполовину мех, наполовину перья."
+
+msgid "Harpyie"
+msgstr "Гарпия"
+
+msgid "Harpyien-Matriarchin"
+msgstr "Матриарх гарпий"
+
+msgid "Harpyienfeder"
+msgstr "Перо гарпии"
 
 msgid "Hauptmenü"
 msgstr "Главное меню"
@@ -987,6 +1236,12 @@ msgstr "Ведьмин котёл"
 msgid "Hier klicken"
 msgstr "Нажми здесь"
 
+msgid "Hinter dem Wald liegt ein Moor voller Lichter. Wer ihnen folgt, kommt nicht wieder. Sagt Egon. Er verkauft Laternen."
+msgstr "За лесом лежит болото, полное огоньков. Кто пойдёт за ними, не вернётся. Так говорит Эгон. Он продаёт фонари."
+
+msgid "Hippogreif"
+msgstr "Гиппогриф"
+
 msgid "Holzstab"
 msgstr "Деревянный посох"
 
@@ -1014,6 +1269,9 @@ msgstr "Высокие ступени открываются с уровнем �
 msgid "Höhlentroll"
 msgstr "Пещерный тролль"
 
+msgid "Höllenhund"
+msgstr "Адская гончая"
+
 msgid "Höllenhundfell"
 msgstr "Мех адской гончей"
 
@@ -1023,14 +1281,32 @@ msgstr "Адская кожа"
 msgid "Höllenstab"
 msgstr "Адский посох"
 
+msgid "Höllentor"
+msgstr "Врата ада"
+
+msgid "Höllenwächter"
+msgstr "Страж ада"
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Я жул… э-э, продавец. Я продаю… …снаряжение! Да, точно. Снаряжение продаю."
+
+msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
+msgstr "В вулкане кипит лава, а в самом низу стоят врата. Эгон там никогда не был. Так он говорит. Но сапоги у него опалены."
 
 msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
 msgstr "В подземелье золото не берёшь. Внизу мой коллега купит у тебя добычу, почти такой же честный, как я."
 
 msgid "Inventar"
 msgstr "Инвентарь"
+
+msgid "Irrlicht"
+msgstr "Блуждающий огонёк"
+
+msgid "Irrlicht-Glut"
+msgstr "Уголёк огонька"
+
+msgid "Irrlichtkönigin"
+msgstr "Королева огоньков"
 
 msgid "Jadefigur"
 msgstr "Нефритовая фигурка"
@@ -1098,6 +1374,12 @@ msgstr "Нажми, чтобы продолжить"
 msgid "Klingenstern"
 msgstr "Звезда клинков"
 
+msgid "Klippenharpyie"
+msgstr "Скальная гарпия"
+
+msgid "Knistert in der Hand."
+msgstr "Потрескивает в руке."
+
 msgid "Knochengeneral"
 msgstr "Костяной генерал"
 
@@ -1122,6 +1404,9 @@ msgstr "Голова"
 msgid "Kraft"
 msgstr "Сила"
 
+msgid "Kreischt noch, wenn man sie schüttelt."
+msgstr "Всё ещё визжит, если потрясти."
+
 msgid "Krieger"
 msgstr "Воин"
 
@@ -1134,11 +1419,17 @@ msgstr "Боевой топор"
 msgid "Kristallkarte"
 msgstr "Хрустальная карта"
 
+msgid "Kristallkrabbe"
+msgstr "Кристальный краб"
+
 msgid "Kristallsplitter"
 msgstr "Осколок кристалла"
 
 msgid "Kräuterbeutel"
 msgstr "Мешочек трав"
+
+msgid "Kupfer"
+msgstr "Медь"
 
 msgid "Kupfer-Beinschienen"
 msgstr "Медные поножи"
@@ -1194,6 +1485,12 @@ msgstr "Ты медленно лечишься"
 msgid "Lautstärke"
 msgstr "Громкость"
 
+msgid "Lavagolem"
+msgstr "Лавовый голем"
+
+msgid "Lavahund"
+msgstr "Лавовая гончая"
+
 msgid "Lebendiger Wind"
 msgstr "Живой ветер"
 
@@ -1221,8 +1518,14 @@ msgstr "Легендарный"
 msgid "Leicht und schnell."
 msgstr "Лёгкие и быстрые."
 
+msgid "Leicht wie Luft, wertvoll wie … naja."
+msgstr "Лёгкое, как воздух, ценное, как… ну."
+
 msgid "Leichte Feder"
 msgstr "Лёгкое перо"
+
+msgid "Leichte Sohlen, schnelle Schritte."
+msgstr "Лёгкая подошва, быстрый шаг."
 
 msgid "Leichtfuß"
 msgstr "Лёгкая поступь"
@@ -1254,6 +1557,15 @@ msgstr "Удалить"
 msgid "Magier"
 msgstr "Маг"
 
+msgid "Magma-Rohling"
+msgstr "Магмовый громила"
+
+msgid "Magmakammer"
+msgstr "Магмовая камера"
+
+msgid "Magmaschleim"
+msgstr "Магмовая слизь"
+
 msgid "Makelloser Schild"
 msgstr "Безупречный щит"
 
@@ -1278,6 +1590,9 @@ msgstr "Твои выстрелы иногда отравляют"
 msgid "Manchmal weichst du Treffern aus"
 msgstr "Иногда ты уклоняешься от ударов"
 
+msgid "Material: %s"
+msgstr "Материал: %s"
+
 msgid "Maus"
 msgstr "Мышь"
 
@@ -1295,6 +1610,9 @@ msgstr "Больше урона за каждую монету"
 
 msgid "Mehr Ware"
 msgstr "Больше товара"
+
+msgid "Messerstecher"
+msgstr "Поножовщик"
 
 msgid "Meteor"
 msgstr "Метеор"
@@ -1314,8 +1632,29 @@ msgstr "Лунная печать"
 msgid "Mondsturm"
 msgstr "Лунная буря"
 
+msgid "Moor der Irrlichter"
+msgstr "Болото огоньков"
+
+msgid "Moor-Egel"
+msgstr "Болотная пиявка"
+
+msgid "Moorgeist"
+msgstr "Болотный призрак"
+
 msgid "Moorherz"
 msgstr "Болотное сердце"
+
+msgid "Moorkern"
+msgstr "Болотное ядро"
+
+msgid "Moorkröte"
+msgstr "Трясинная жаба"
+
+msgid "Moorleiche"
+msgstr "Болотный мертвец"
+
+msgid "Moormutter"
+msgstr "Болотная матерь"
 
 msgid "Musik"
 msgstr "Музыка"
@@ -1382,6 +1721,9 @@ msgstr "Следующая страница"
 
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "След. уровень: %d золота, %d очков, с уровня игрока %d"
+
+msgid "Obsidianwächter"
+msgstr "Обсидиановый страж"
 
 msgid "Offensiv"
 msgstr "Атака"
@@ -1452,6 +1794,9 @@ msgstr "Платиновый клинок"
 msgid "Platinspitze"
 msgstr "Платиновый наконечник"
 
+msgid "Pocht leise. Besser nicht drüber nachdenken."
+msgstr "Тихо пульсирует. Лучше не думать об этом."
+
 msgid "Preis: %d Gold"
 msgstr "Цена: %d золота"
 
@@ -1478,6 +1823,9 @@ msgstr "Крысиный погреб"
 
 msgid "Rattenkönig"
 msgstr "Крысиный король"
+
+msgid "Raucht ein bisschen."
+msgstr "Слегка дымится."
 
 msgid "Rechts"
 msgstr "Вправо"
@@ -1536,6 +1884,15 @@ msgstr "Реликвии: %d %% за рывок, ступени %s"
 msgid "Reliktpflege"
 msgstr "Уход за реликвиями"
 
+msgid "Riecht nach Moor. Für immer."
+msgstr "Пахнет болотом. Навсегда."
+
+msgid "Riesenfledermaus"
+msgstr "Гигантская летучая мышь"
+
+msgid "Riesenkeiler"
+msgstr "Гигантский кабан"
+
 msgid "Riesenratte"
 msgstr "Гигантская крыса"
 
@@ -1569,6 +1926,9 @@ msgstr "Рубин"
 msgid "Rucksack"
 msgstr "Рюкзак"
 
+msgid "Rudelführer"
+msgstr "Вожак стаи"
+
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "Твёрдая рука, быстрее выстрелы."
 
@@ -1583,6 +1943,9 @@ msgstr "Отбрасывание"
 
 msgid "Rückwärts"
 msgstr "Назад"
+
+msgid "Salamanderkönigin"
+msgstr "Королева саламандр"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "Перчатки песчаного кузнеца"
@@ -1659,6 +2022,15 @@ msgstr "Урон: %s"
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "Пройди %d уровней подряд без удара"
 
+msgid "Schakal"
+msgstr "Шакал"
+
+msgid "Schattenbrut"
+msgstr "Порождение тьмы"
+
+msgid "Schattenfürst"
+msgstr "Повелитель теней"
+
 msgid "Schattenmantel"
 msgstr "Плащ тени"
 
@@ -1689,6 +2061,9 @@ msgstr "Боевой клин"
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "Змеиный огонь: снаряды извиваются, урон чуть выше"
 
+msgid "Schlangenschuppe"
+msgstr "Змеиная чешуя"
+
 msgid "Schlangenschüsse, die Gegner verfolgen"
 msgstr "Змеящиеся выстрелы, преследующие врагов"
 
@@ -1697,6 +2072,9 @@ msgstr "Слизень"
 
 msgid "Schließen"
 msgstr "Закрыть"
+
+msgid "Schläger"
+msgstr "Громила-бандит"
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "Змеящиеся отскакивающие выстрелы"
@@ -1731,6 +2109,9 @@ msgstr "Стрельба быстрее, выстрелы разлетаются
 msgid "Schnellere Schüsse fliegen durch Gegner"
 msgstr "Быстрые выстрелы пробивают врагов"
 
+msgid "Schon einmal geschafft!"
+msgstr "Уже пройдено!"
+
 msgid "Schreckensbrief"
 msgstr "Письмо ужаса"
 
@@ -1740,11 +2121,20 @@ msgstr "Дробовик: шесть угольков на короткой ди
 msgid "Schrumpftrank"
 msgstr "Зелье уменьшения"
 
+msgid "Schuppig, schwer und sehr gefragt."
+msgstr "Чешуйчатая, тяжёлая и очень востребованная."
+
 msgid "Schusstempo"
 msgstr "Скорость выстрела"
 
+msgid "Schwarz und hart wie Lava, die nachgedacht hat."
+msgstr "Чёрный и твёрдый, как лава, которая передумала."
+
 msgid "Schwarzer Kristall"
 msgstr "Чёрный кристалл"
+
+msgid "Schwarzwolf"
+msgstr "Чёрный волк"
 
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "Тяжёлая и жёлтая. Её любит любой торговец."
@@ -1845,6 +2235,33 @@ msgstr "Поле зрения"
 msgid "Siegerring"
 msgstr "Кольцо победителя"
 
+msgid "Silber"
+msgstr "Серебро"
+
+msgid "Silber-Beinschienen"
+msgstr "Серебряные поножи"
+
+msgid "Silber-Bogen"
+msgstr "Серебряный лук"
+
+msgid "Silber-Brustplatte"
+msgstr "Серебряный нагрудник"
+
+msgid "Silber-Handschuhe"
+msgstr "Серебряные перчатки"
+
+msgid "Silber-Helm"
+msgstr "Серебряный шлем"
+
+msgid "Silber-Schwert"
+msgstr "Серебряный меч"
+
+msgid "Silber-Stiefel"
+msgstr "Серебряные сапоги"
+
+msgid "Silber-Zauberstab"
+msgstr "Серебряный посох"
+
 msgid "Silberader"
 msgstr "Серебряная жила"
 
@@ -1871,6 +2288,9 @@ msgstr "Серебряное кольцо"
 
 msgid "Silberspitze"
 msgstr "Серебряный наконечник"
+
+msgid "Silberwolf"
+msgstr "Серебряный волк"
 
 msgid "Skelett"
 msgstr "Скелет"
@@ -1959,6 +2379,9 @@ msgstr "Дави камни и больше добычи"
 msgid "Steine zertreten, fünf Bomben"
 msgstr "Дави камни, пять бомб"
 
+msgid "Steingolem"
+msgstr "Каменный голем"
+
 msgid "Sternenfessel"
 msgstr "Звёздные оковы"
 
@@ -2019,8 +2442,17 @@ msgstr "Слишком низкий уровень"
 msgid "Sturmessenz"
 msgstr "Эссенция бури"
 
+msgid "Sturmgeist"
+msgstr "Дух бури"
+
+msgid "Sturmgipfel"
+msgstr "Вершина бурь"
+
 msgid "Sturmkarte"
 msgstr "Карта бурь"
+
+msgid "Sturmkrähe"
+msgstr "Штормовая ворона"
 
 msgid "Sturmsiegel"
 msgstr "Печать бури"
@@ -2055,11 +2487,26 @@ msgstr "Ищущий луч"
 msgid "Sumpfhaut"
 msgstr "Болотная шкура"
 
+msgid "Sumpfhydra"
+msgstr "Болотная гидра"
+
 msgid "Sumpfleder"
 msgstr "Болотная кожа"
 
 msgid "Sumpfmantel"
 msgstr "Болотный плащ"
+
+msgid "Sumpfschamane"
+msgstr "Болотный шаман"
+
+msgid "Sumpfschlange"
+msgstr "Болотная змея"
+
+msgid "Sumpfschleim"
+msgstr "Болотная слизь"
+
+msgid "Sumpfufer"
+msgstr "Болотный берег"
 
 msgid "Synergie: %s!"
 msgstr "Синергия: %s!"
@@ -2096,6 +2543,12 @@ msgstr "Скорость: %s"
 
 msgid "Testraum · P: zurück"
 msgstr "Тестовая комната · P: назад"
+
+msgid "Tiefes Moor"
+msgstr "Глубокое болото"
+
+msgid "Topas"
+msgstr "Топаз"
 
 msgid "Topasjuwel"
 msgstr "Топазовый самоцвет"
@@ -2150,6 +2603,12 @@ msgstr "Польза"
 
 msgid "Vampir"
 msgstr "Вампир"
+
+msgid "Varrik der Fuchs"
+msgstr "Варрик Лис"
+
+msgid "Verbrennt nicht. Riecht aber so."
+msgstr "Не горит. Но пахнет именно так."
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "Отравляет врагов, урон чуть выше"
@@ -2220,6 +2679,9 @@ msgstr "Узелок странника"
 msgid "Warm und dicht."
 msgstr "Тёплая и густая."
 
+msgid "Warm. Grau. Überall."
+msgstr "Тёплый. Серый. Повсюду."
+
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "То, что лежит здесь, не пропадёт после смерти."
 
@@ -2250,6 +2712,9 @@ msgstr "Цена: %d золота"
 msgid "Wettkampfstiefel"
 msgstr "Состязательные сапоги"
 
+msgid "Wildschwein"
+msgstr "Кабан"
+
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "Добро пожаловать в мою скромную лавку! Товар лежит наверху, на столе. Ну… сейчас будет."
 
@@ -2268,17 +2733,29 @@ msgstr "Посох ветра"
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Куда бьёт луч, там взрыв"
 
+msgid "Wolf"
+msgstr "Волк"
+
 msgid "Wolfsfell"
 msgstr "Волчья шкура"
 
+msgid "Wolfsleder"
+msgstr "Волчья кожа"
+
 msgid "Wolfsmantel"
 msgstr "Волчий плащ"
+
+msgid "Wolfswald"
+msgstr "Волчий лес"
 
 msgid "Wurfsterne"
 msgstr "Сюрикены"
 
 msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
 msgstr "Сюрикены пробивают врагов и часто вызывают кровотечение"
+
+msgid "Wächst nur, wo es richtig kalt ist."
+msgstr "Растёт только там, где очень холодно."
 
 msgid "Wähle deinen Charakter"
 msgstr "Выбери персонажа"
@@ -2378,6 +2855,9 @@ msgstr "Два синих сердца; потеря одного бьёт вс�
 
 msgid "Zwillingshandschuhe"
 msgstr "Перчатки-близнецы"
+
+msgid "Zäh und warm."
+msgstr "Прочная и тёплая."
 
 msgid "Zähigkeit"
 msgstr "Стойкость"

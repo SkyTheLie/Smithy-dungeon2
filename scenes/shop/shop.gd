@@ -699,7 +699,9 @@ func _open_board() -> void:
 	_board.open()
 
 
-## "Betreten": straight into the dungeon (every dungeon plays floors.json so far).
-func _on_dungeon_entered(_id: String) -> void:
+## "Betreten": straight into dungeon `id` (its floors, dungeons.json "floors").
+func _on_dungeon_entered(id: String) -> void:
+	if not MetaState.is_dungeon_open(id):
+		return
 	_board.hide()
-	Game.start_new_run(MetaState.run_character())
+	Game.start_new_run(MetaState.run_character(), id)

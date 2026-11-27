@@ -24,8 +24,10 @@ func _data() -> void:
 	var shop: Dictionary = script("res://scripts/core/content.gd").call("shop")
 	var gear: Dictionary = script("res://scripts/core/content.gd").call("gear")
 	var slots: Dictionary = script("res://scripts/core/content.gd").call("gear_slots")
-	for entry: Array in shop.get("pool", []):
-		check(gear.has(String(entry[0])), "pool item %s is in gear.json" % entry[0])
+	# Every material has every piece of the pool (gear.json <material>_<piece>).
+	for material: String in (shop.get("materials", {}) as Dictionary):
+		for entry: Array in shop.get("pool", []):
+			check(gear.has("%s_%s" % [material, entry[0]]), "%s_%s is in gear.json" % [material, entry[0]])
 	for id: String in gear:
 		check(slots.has(String(gear[id].get("slot", ""))), "%s has a known slot" % id)
 		check(ResourceLoader.exists(String(gear[id].get("icon", ""))), "%s has a picture" % id)
@@ -123,7 +125,7 @@ func _gear_in_run() -> void:
 		"weapon": {"id": "copper_staff", "rarity": 1},
 		"head": {"id": "copper_helmet", "rarity": 1},
 		"chest": {"id": "copper_chest", "rarity": 1},
-		"feet": {"id": "copper_boots", "rarity": 2}})
+		"legs": {"id": "copper_legs", "rarity": 2}})
 	check_eq(dressed.get("shield"), 3, "three armor pieces: 3 half shield hearts (R2 rounds to one half)")
 	check(is_equal_approx((dressed.get("stats") as Object).get("damage"), damage + 0.2), "the copper staff adds 0.2 damage")
 	var health: int = dressed.get("health")

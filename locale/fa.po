@@ -9,8 +9,17 @@ msgstr "%d طلا"
 msgid "%d Herzen"
 msgstr "%d قلب"
 
+msgid "%s: ab Stufe %d"
+msgstr "%s: از سطح %d"
+
+msgid "%s: nach %s"
+msgstr "%s: پس از %s"
+
 msgid "3 % Chance auf R3 bei Egon."
 msgstr "۳٪ شانس R3 پیش اگون."
+
+msgid "300 Gold mehr sind in der Dose sicher."
+msgstr "۳۰۰ طلای بیشتر در قوطی امن است."
 
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "۵٪ شانس بیشتر برای R2 پیش اگون."
@@ -63,6 +72,9 @@ msgstr "طلسم میدان"
 msgid "Arenaherz"
 msgstr "قلب میدان"
 
+msgid "Asche"
+msgstr "خاکستر"
+
 msgid "Audio"
 msgstr "صدا"
 
@@ -74,6 +86,9 @@ msgstr "شارژ کن، رها کن: یک پرتو آتش عظیم"
 
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "از سیاه‌چال فرار کنی؟ هرچه همراهت است را نگه می‌داری."
+
+msgid "Aus der Beute der Banditen. Jetzt deine."
+msgstr "از غنیمت راهزنان. حالا مال توست."
 
 msgid "Ausgang"
 msgstr "خروجی"
@@ -87,6 +102,15 @@ msgstr "جاخالی"
 msgid "Axt statt Feuerbällen: schwerer Schwung, Gegner bluten"
 msgstr "تبر به جای گلوله آتشین: ضربه سنگین، دشمنان خونریزی می‌کنند"
 
+msgid "Bandit-Schildträger"
+msgstr "راهزن سپردار"
+
+msgid "Bandit-Schütze"
+msgstr "راهزن کماندار"
+
+msgid "Banditenlager"
+msgstr "اردوگاه راهزنان"
+
 msgid "Beenden"
 msgstr "خروج"
 
@@ -95,6 +119,9 @@ msgstr "هنگام برخورد، گلوله به چهار جرقه تبدیل �
 
 msgid "Beine"
 msgstr "پاها"
+
+msgid "Bergfalke"
+msgstr "شاهین کوهی"
 
 msgid "Bernstein"
 msgstr "کهربا"
@@ -117,6 +144,9 @@ msgstr "غنیمت را از تو می‌خرم: در کوله راست‌کلی
 msgid "Blasebalg"
 msgstr "دم آهنگری"
 
+msgid "Blau wie Gletschereis."
+msgstr "آبی مثل یخ یخچال."
+
 msgid "Blutphiole"
 msgstr "شیشه خون"
 
@@ -135,6 +165,9 @@ msgstr "بمب‌ها به بمب‌های کوچک تقسیم می‌شوند"
 msgid "Bombengürtel"
 msgstr "کمربند بمب"
 
+msgid "Brakk der Brecher"
+msgstr "براک درهم‌شکن"
+
 msgid "Brandöl"
 msgstr "روغن آتش"
 
@@ -152,6 +185,33 @@ msgstr "دشمنان سوزان و کند، و دو قلب آبی"
 
 msgid "Brennt gut in jeder Esse."
 msgstr "در هر کوره‌ای خوب می‌سوزد."
+
+msgid "Bronze"
+msgstr "برنز"
+
+msgid "Bronze-Beinschienen"
+msgstr "ساق‌بند برنزی"
+
+msgid "Bronze-Bogen"
+msgstr "کمان برنزی"
+
+msgid "Bronze-Brustplatte"
+msgstr "زره سینه برنزی"
+
+msgid "Bronze-Handschuhe"
+msgstr "دستکش برنزی"
+
+msgid "Bronze-Helm"
+msgstr "کلاه‌خود برنزی"
+
+msgid "Bronze-Schwert"
+msgstr "شمشیر برنزی"
+
+msgid "Bronze-Stiefel"
+msgstr "چکمه برنزی"
+
+msgid "Bronze-Zauberstab"
+msgstr "عصای برنزی"
 
 msgid "Bronzebogen"
 msgstr "کمان برنزی"
@@ -188,6 +248,9 @@ msgstr "یک حشره‌ی کوچک داخلش گیر افتاده."
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "بیشتر از آن… بگذار بگوییم اینجا موش هست. موش‌های بزرگ. با دست."
+
+msgid "Das Fell eines Riesen aus Eis."
+msgstr "پوست یک غول یخی."
 
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "طلای این دور. اگر بمیری از دست می‌رود، مگر در خانه‌ی امن."
@@ -237,8 +300,14 @@ msgstr "سنگ قربانی تو را می‌پذیرد"
 msgid "Der Weg nach unten ist frei!"
 msgstr "راه پایین باز شد!"
 
+msgid "Diamant"
+msgstr "الماس"
+
 msgid "Diamantherz"
 msgstr "قلب الماس"
+
+msgid "Dick, weich und eiskalt."
+msgstr "ضخیم، نرم و یخ‌زده."
 
 msgid "Dicke Haut"
 msgstr "پوست کلفت"
@@ -275,6 +344,9 @@ msgstr "قوطی: طلا را اینجا بکش"
 
 msgid "Dose: hier liegt dein ganzes Gold"
 msgstr "قوطی: همهٔ طلاهات اینجاست"
+
+msgid "Drache"
+msgstr "اژدها"
 
 msgid "Drachenatem"
 msgstr "نفس اژدها"
@@ -366,6 +438,12 @@ msgstr "تابلوی سیاه‌چال‌ها"
 msgid "Dungeons"
 msgstr "سیاه‌چال‌ها"
 
+msgid "Dunkler Ritter"
+msgstr "شوالیه تاریک"
+
+msgid "Dunkler Schütze"
+msgstr "کماندار تاریک"
+
 msgid "Dunkler Zauberstab"
 msgstr "عصای تاریک"
 
@@ -377,6 +455,9 @@ msgstr "از میان سنگ‌ها، و گاهی دشمنان فرار می‌�
 
 msgid "Durchschlag, Abprallen und Zerplatzen"
 msgstr "نفوذ، کمانه و ترکیدن"
+
+msgid "Dämon"
+msgstr "دیو"
 
 msgid "Dünne Haut aus einem Fledermausflügel."
 msgstr "پوست نازک بال خفاش."
@@ -402,11 +483,17 @@ msgstr "اگون صادق، خوشوقتم. صادق اسم منه، صادق ک
 msgid "Egon könnte klauen!"
 msgstr "اگون ممکن است بدزدد!"
 
+msgid "Egons Augen werden ganz groß."
+msgstr "چشم‌های اگون گرد می‌شود."
+
 msgid "Egons Laden"
 msgstr "مغازهٔ اگون"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "انفجارهای خودت تو را شفا می‌دهند"
+
+msgid "Ein Berg aus Eis, oben tobt der Sturm. Unterwegs Wölfe, Harpyien und ein Greif. Egon empfiehlt warme Socken."
+msgstr "کوهی از یخ که بالایش طوفان می‌غرد. در راه گرگ‌ها، هارپی‌ها و یک شیردال. اگون جوراب گرم توصیه می‌کند."
 
 msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
 msgstr "یک کهربا، سه بمب، سه کلید"
@@ -422,6 +509,9 @@ msgstr "یک جرقه و یک ماه اخگر"
 
 msgid "Ein Funke und mehr Glück"
 msgstr "یک جرقه و شانس بیشتر"
+
+msgid "Ein Funke, der nicht ausgehen will."
+msgstr "جرقه‌ای که نمی‌خواهد خاموش شود."
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "یک پیمان اخگر باز شد"
@@ -455,6 +545,9 @@ msgstr "یک قلب، یک سکه، یک بمب و یک کلید"
 
 msgid "Ein Herz, zwei blaue Herzen, Schaden hoch"
 msgstr "یک قلب، دو قلب آبی، آسیب بالاتر"
+
+msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
+msgstr "گیاهی قلبی‌شکل. اگون از آن چای درست می‌کند."
 
 msgid "Ein Platz mehr im Rucksack."
 msgstr "یک خانه‌ی بیشتر در کوله."
@@ -537,6 +630,36 @@ msgstr "روزی یه بار میز رو مجانی می‌چرخونم. بعد�
 msgid "Einstellungen"
 msgstr "تنظیمات"
 
+msgid "Eiselementar"
+msgstr "عنصر یخ"
+
+msgid "Eisen"
+msgstr "آهن"
+
+msgid "Eisen-Beinschienen"
+msgstr "ساق‌بند آهنی"
+
+msgid "Eisen-Bogen"
+msgstr "کمان آهنی"
+
+msgid "Eisen-Brustplatte"
+msgstr "زره سینه آهنی"
+
+msgid "Eisen-Handschuhe"
+msgstr "دستکش آهنی"
+
+msgid "Eisen-Helm"
+msgstr "کلاه‌خود آهنی"
+
+msgid "Eisen-Schwert"
+msgstr "شمشیر آهنی"
+
+msgid "Eisen-Stiefel"
+msgstr "چکمه آهنی"
+
+msgid "Eisen-Zauberstab"
+msgstr "عصای آهنی"
+
 msgid "Eisenerz"
 msgstr "سنگ آهن"
 
@@ -546,11 +669,20 @@ msgstr "پوست آهنین"
 msgid "Eisfeder"
 msgstr "پر یخی"
 
+msgid "Eishöhle"
+msgstr "غار یخی"
+
+msgid "Eisrobbe"
+msgstr "فوک یخی"
+
 msgid "Eisspiegel"
 msgstr "آینه‌ی یخی"
 
 msgid "Eisstab"
 msgstr "عصای یخ"
+
+msgid "Eiswolf"
+msgstr "گرگ یخی"
 
 msgid "Elfenbrief"
 msgstr "نامه الف"
@@ -563,6 +695,9 @@ msgstr "کشف‌شده: %d / %d"
 
 msgid "Episch"
 msgstr "حماسی"
+
+msgid "Erdkoloss"
+msgstr "غول خاکی"
 
 msgid "Erdstab"
 msgstr "عصای زمین"
@@ -582,6 +717,9 @@ msgstr "تیرهای انفجاری، شلیک کندتر"
 msgid "Fahre mit der Maus über ein Item"
 msgstr "ماوس را روی یک آیتم ببر"
 
+msgid "Feder"
+msgstr "پر"
+
 msgid "Feenstaub"
 msgstr "گرد پری"
 
@@ -593,6 +731,12 @@ msgstr "پنجره"
 
 msgid "Fenstergröße"
 msgstr "اندازه‌ی پنجره"
+
+msgid "Fester Griff, härtere Treffer."
+msgstr "دست محکم، ضربه سخت‌تر."
+
+msgid "Feuerelementar"
+msgstr "عنصر آتش"
 
 msgid "Feuerfester Bomber"
 msgstr "بمب‌انداز نسوز"
@@ -606,6 +750,9 @@ msgstr "تاج آتش"
 msgid "Feuerlanze"
 msgstr "نیزه‌ی آتش"
 
+msgid "Feuersalamander"
+msgstr "سمندر آتشین"
+
 msgid "Feuerstab"
 msgstr "عصای آتش"
 
@@ -614,6 +761,9 @@ msgstr "پرتو آتش به جای گوی آتش: دکمه را نگه دار"
 
 msgid "Feuerwerk"
 msgstr "آتش‌بازی"
+
+msgid "Feuerwolf"
+msgstr "گرگ آتشین"
 
 msgid "Flechtenleder"
 msgstr "چرم گلسنگ"
@@ -639,6 +789,9 @@ msgstr "پوست خفاش"
 msgid "Flüchten"
 msgstr "فرار"
 
+msgid "Flüssiges Feuer in einer Flasche."
+msgstr "آتش مایع در یک بطری."
+
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "وقتی تاریک است آرام زمزمه می‌کند."
 
@@ -651,11 +804,23 @@ msgstr "یخ و آتش"
 msgid "Frostflechte"
 msgstr "گلسنگ یخی"
 
+msgid "Frostgeist"
+msgstr "روح یخبندان"
+
+msgid "Frostgipfel"
+msgstr "قله یخبندان"
+
+msgid "Frostgolem"
+msgstr "گولم یخی"
+
 msgid "Frostkristall"
 msgstr "بلور یخ"
 
 msgid "Frostmähne"
 msgstr "یال یخی"
+
+msgid "Frostmähnen-Fell"
+msgstr "پوست یال یخی"
 
 msgid "Funkenbüchse"
 msgstr "قوطی جرقه"
@@ -695,6 +860,9 @@ msgstr "پاها (کفش)"
 
 msgid "Gebiete: %s"
 msgstr "مناطق: %s"
+
+msgid "Gebirge"
+msgstr "کوهستان"
 
 msgid "Geflüchtet!"
 msgstr "فرار کردی!"
@@ -744,6 +912,12 @@ msgstr "موفق شدی!"
 msgid "Gesperrt"
 msgstr "قفل"
 
+msgid "Gesperrt: ab Stufe %d."
+msgstr "قفل: از سطح %d."
+
+msgid "Gesperrt: erst %s schaffen."
+msgstr "قفل: اول %s را تمام کن."
+
 msgid "Gesprengte Fessel"
 msgstr "زنجیر شکسته"
 
@@ -789,20 +963,38 @@ msgstr "غول"
 msgid "Giftratte"
 msgstr "موش سمی"
 
+msgid "Giftschleim"
+msgstr "لجن سمی"
+
 msgid "Giftstab"
 msgstr "عصای زهر"
 
 msgid "Giftzahn"
 msgstr "دندان زهری"
 
+msgid "Glatt, grün und noch ein bisschen warm."
+msgstr "صاف، سبز و هنوز کمی گرم."
+
 msgid "Gleich hinter Egons Laden geht es hinunter. Ganz unten wartet ein Boss, und angeblich ein Schatz. Sagt Egon."
 msgstr "درست پشت مغازهٔ اگون راه به پایین می‌رود. آن پایین یک غول منتظر است، و ظاهراً یک گنج. اگون این‌طور می‌گوید."
+
+msgid "Glutdrache"
+msgstr "اژدهای اخگر"
+
+msgid "Glutessenz"
+msgstr "جوهر اخگر"
+
+msgid "Glutgeist"
+msgstr "روح اخگر"
 
 msgid "Glutkern"
 msgstr "هسته‌ی اخگر"
 
 msgid "Glutklinge"
 msgstr "تیغ اخگر"
+
+msgid "Glutkobold"
+msgstr "اجنه اخگر"
 
 msgid "Glutmantel"
 msgstr "ردای اخگر"
@@ -813,11 +1005,17 @@ msgstr "ماه اخگر"
 msgid "Glutsammler"
 msgstr "گردآورنده‌ی اخگر"
 
+msgid "Glutschlund"
+msgstr "دهانه اخگر"
+
 msgid "Glutschwert"
 msgstr "شمشیر اخگر"
 
 msgid "Glutstab"
 msgstr "عصای اخگر"
+
+msgid "Glutstollen"
+msgstr "تونل‌های اخگر"
 
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "سبز می‌درخشد. تاجر دوستش دارد."
@@ -870,6 +1068,30 @@ msgstr "طلا"
 msgid "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz."
 msgstr "طلا از فروشندهٔ سیاه‌چال. باقی‌مانده به قوطی‌ات می‌رود؛ با مرگ از دست می‌رود، مگر در جای امن."
 
+msgid "Gold-Beinschienen"
+msgstr "ساق‌بند طلایی"
+
+msgid "Gold-Bogen"
+msgstr "کمان طلایی"
+
+msgid "Gold-Brustplatte"
+msgstr "زره سینه طلایی"
+
+msgid "Gold-Handschuhe"
+msgstr "دستکش طلایی"
+
+msgid "Gold-Helm"
+msgstr "کلاه‌خود طلایی"
+
+msgid "Gold-Schwert"
+msgstr "شمشیر طلایی"
+
+msgid "Gold-Stiefel"
+msgstr "چکمه طلایی"
+
+msgid "Gold-Zauberstab"
+msgstr "عصای طلایی"
+
 msgid "Goldader"
 msgstr "رگه طلا"
 
@@ -912,11 +1134,20 @@ msgstr "گرافیک"
 msgid "Gratis"
 msgstr "رایگان"
 
+msgid "Greif"
+msgstr "شیردال"
+
 msgid "Greifenfell"
 msgstr "پوست گریفون"
 
 msgid "Greifenmantel"
 msgstr "ردای گریفون"
+
+msgid "Grimbald Eisenfaust"
+msgstr "گریمبالد مشت‌آهنین"
+
+msgid "Grobian"
+msgstr "گردن‌کلفت"
 
 msgid "Große, schwere Schüsse mit viel Rückstoß"
 msgstr "تیرهای بزرگ و سنگین با پس‌زنی زیاد"
@@ -936,11 +1167,17 @@ msgstr "بمب‌های بزرگ‌تر و سه بمب"
 msgid "Größere Bomben, und keine tut dir weh"
 msgstr "بمب‌های بزرگ‌تر، و هیچ‌کدام به تو آسیب نمی‌زنند"
 
+msgid "Größere Dose"
+msgstr "قوطی بزرگ‌تر"
+
 msgid "Größere Feuerbälle, mehr Schaden"
 msgstr "گلوله‌های آتشین بزرگ‌تر، آسیب بیشتر"
 
 msgid "Größerer Rucksack"
 msgstr "کوله‌ی بزرگ‌تر"
+
+msgid "Grün wie das Moor, nur teurer."
+msgstr "سبز مثل مرداب، فقط گران‌تر."
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "انتخاب خوبی بود! یه تیکه‌ی کلکسیونی. صادقانه!"
@@ -953,6 +1190,18 @@ msgstr "همزمان %d سکه داشته باش"
 
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "همزمان %d قلب آبی داشته باش"
+
+msgid "Halb Fell, halb Feder."
+msgstr "نیمی پوست، نیمی پر."
+
+msgid "Harpyie"
+msgstr "هارپی"
+
+msgid "Harpyien-Matriarchin"
+msgstr "مادرسالار هارپی‌ها"
+
+msgid "Harpyienfeder"
+msgstr "پر هارپی"
 
 msgid "Hauptmenü"
 msgstr "منوی اصلی"
@@ -987,6 +1236,12 @@ msgstr "دیگ جادوگر"
 msgid "Hier klicken"
 msgstr "اینجا کلیک کن"
 
+msgid "Hinter dem Wald liegt ein Moor voller Lichter. Wer ihnen folgt, kommt nicht wieder. Sagt Egon. Er verkauft Laternen."
+msgstr "پشت جنگل مردابی پر از نور است. هر کس دنبالشان برود برنمی‌گردد. این را اگون می‌گوید. او فانوس می‌فروشد."
+
+msgid "Hippogreif"
+msgstr "هیپوگریف"
+
 msgid "Holzstab"
 msgstr "عصای چوبی"
 
@@ -1014,6 +1269,9 @@ msgstr "سطوح بالاتر با سطح بازیکن می‌آیند."
 msgid "Höhlentroll"
 msgstr "ترول غار"
 
+msgid "Höllenhund"
+msgstr "سگ دوزخی"
+
 msgid "Höllenhundfell"
 msgstr "پوست سگ جهنمی"
 
@@ -1023,14 +1281,32 @@ msgstr "چرم جهنمی"
 msgid "Höllenstab"
 msgstr "عصای جهنمی"
 
+msgid "Höllentor"
+msgstr "دروازه دوزخ"
+
+msgid "Höllenwächter"
+msgstr "نگهبان دوزخ"
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "من کلاه‌بر… اِه، فروشنده‌ام. من… …تجهیزات می‌فروشم! آره، دقیقاً. تجهیزات می‌فروشم."
+
+msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
+msgstr "در آتشفشان گدازه می‌جوشد و ته آن دروازه‌ای است. اگون هرگز آنجا نبوده. خودش این‌طور می‌گوید. ولی چکمه‌هایش سوخته است."
 
 msgid "In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
 msgstr "به سیاه‌چال طلا نمی‌بری. آن پایین همکارم غنیمتت را می‌خرد، تقریباً به صداقت من."
 
 msgid "Inventar"
 msgstr "کوله‌پشتی"
+
+msgid "Irrlicht"
+msgstr "آتش سرگردان"
+
+msgid "Irrlicht-Glut"
+msgstr "اخگر آتش سرگردان"
+
+msgid "Irrlichtkönigin"
+msgstr "ملکه آتش‌های سرگردان"
 
 msgid "Jadefigur"
 msgstr "پیکره یشم"
@@ -1098,6 +1374,12 @@ msgstr "برای ادامه کلیک کن"
 msgid "Klingenstern"
 msgstr "ستاره تیغه"
 
+msgid "Klippenharpyie"
+msgstr "هارپی صخره"
+
+msgid "Knistert in der Hand."
+msgstr "در دست جرق‌جرق می‌کند."
+
 msgid "Knochengeneral"
 msgstr "ژنرال استخوانی"
 
@@ -1122,6 +1404,9 @@ msgstr "سر"
 msgid "Kraft"
 msgstr "قدرت"
 
+msgid "Kreischt noch, wenn man sie schüttelt."
+msgstr "اگر تکانش بدهی هنوز جیغ می‌کشد."
+
 msgid "Krieger"
 msgstr "جنگجو"
 
@@ -1134,11 +1419,17 @@ msgstr "تبر جنگی"
 msgid "Kristallkarte"
 msgstr "نقشه بلورین"
 
+msgid "Kristallkrabbe"
+msgstr "خرچنگ کریستالی"
+
 msgid "Kristallsplitter"
 msgstr "تکه بلور"
 
 msgid "Kräuterbeutel"
 msgstr "کیسه گیاهان"
+
+msgid "Kupfer"
+msgstr "مس"
 
 msgid "Kupfer-Beinschienen"
 msgstr "ساق‌بند مسی"
@@ -1194,6 +1485,12 @@ msgstr "به آرامی شفا می‌گیری"
 msgid "Lautstärke"
 msgstr "صدا"
 
+msgid "Lavagolem"
+msgstr "گولم گدازه"
+
+msgid "Lavahund"
+msgstr "سگ گدازه"
+
 msgid "Lebendiger Wind"
 msgstr "باد زنده"
 
@@ -1221,8 +1518,14 @@ msgstr "افسانه‌ای"
 msgid "Leicht und schnell."
 msgstr "سبک و سریع."
 
+msgid "Leicht wie Luft, wertvoll wie … naja."
+msgstr "سبک مثل هوا، باارزش مثل… خب."
+
 msgid "Leichte Feder"
 msgstr "پَر سبک"
+
+msgid "Leichte Sohlen, schnelle Schritte."
+msgstr "کفی سبک، قدم‌های تند."
 
 msgid "Leichtfuß"
 msgstr "سبک‌پا"
@@ -1254,6 +1557,15 @@ msgstr "حذف"
 msgid "Magier"
 msgstr "جادوگر"
 
+msgid "Magma-Rohling"
+msgstr "گردن‌کلفت ماگما"
+
+msgid "Magmakammer"
+msgstr "اتاق ماگما"
+
+msgid "Magmaschleim"
+msgstr "لجن ماگما"
+
 msgid "Makelloser Schild"
 msgstr "سپر بی‌نقص"
 
@@ -1278,6 +1590,9 @@ msgstr "تیرهایت گاهی مسموم می‌کنند"
 msgid "Manchmal weichst du Treffern aus"
 msgstr "گاهی از ضربه‌ها جاخالی می‌دهی"
 
+msgid "Material: %s"
+msgstr "جنس: %s"
+
 msgid "Maus"
 msgstr "ماوس"
 
@@ -1295,6 +1610,9 @@ msgstr "آسیب بیشتر برای هر سکه‌ای که داری"
 
 msgid "Mehr Ware"
 msgstr "کالای بیشتر"
+
+msgid "Messerstecher"
+msgstr "چاقوکش"
 
 msgid "Meteor"
 msgstr "شهاب"
@@ -1314,8 +1632,29 @@ msgstr "مهر ماه"
 msgid "Mondsturm"
 msgstr "طوفان ماه"
 
+msgid "Moor der Irrlichter"
+msgstr "مرداب آتش‌های سرگردان"
+
+msgid "Moor-Egel"
+msgstr "زالوی مرداب"
+
+msgid "Moorgeist"
+msgstr "شبح مرداب"
+
 msgid "Moorherz"
 msgstr "قلب مرداب"
+
+msgid "Moorkern"
+msgstr "هسته مرداب"
+
+msgid "Moorkröte"
+msgstr "وزغ مرداب"
+
+msgid "Moorleiche"
+msgstr "جسد مرداب"
+
+msgid "Moormutter"
+msgstr "مادر مرداب"
 
 msgid "Musik"
 msgstr "موسیقی"
@@ -1382,6 +1721,9 @@ msgstr "صفحه بعد"
 
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "سطح بعد: %d طلا، %d امتیاز مهارت، از سطح بازیکن %d"
+
+msgid "Obsidianwächter"
+msgstr "نگهبان ابسیدین"
 
 msgid "Offensiv"
 msgstr "تهاجمی"
@@ -1452,6 +1794,9 @@ msgstr "تیغ پلاتینی"
 msgid "Platinspitze"
 msgstr "نوک پلاتینی"
 
+msgid "Pocht leise. Besser nicht drüber nachdenken."
+msgstr "آرام می‌تپد. بهتر است فکرش را نکنی."
+
 msgid "Preis: %d Gold"
 msgstr "قیمت: %d طلا"
 
@@ -1478,6 +1823,9 @@ msgstr "زیرزمین موش‌ها"
 
 msgid "Rattenkönig"
 msgstr "شاه موش‌ها"
+
+msgid "Raucht ein bisschen."
+msgstr "کمی دود می‌کند."
 
 msgid "Rechts"
 msgstr "راست"
@@ -1536,6 +1884,15 @@ msgstr "یادگارها: %d %% برای هر اهرم، سطوح %s"
 msgid "Reliktpflege"
 msgstr "نگهداری یادگار"
 
+msgid "Riecht nach Moor. Für immer."
+msgstr "بوی مرداب می‌دهد. برای همیشه."
+
+msgid "Riesenfledermaus"
+msgstr "خفاش غول‌پیکر"
+
+msgid "Riesenkeiler"
+msgstr "گراز غول‌پیکر"
+
 msgid "Riesenratte"
 msgstr "موش غول‌پیکر"
 
@@ -1569,6 +1926,9 @@ msgstr "یاقوت"
 msgid "Rucksack"
 msgstr "کوله‌پشتی"
 
+msgid "Rudelführer"
+msgstr "سردسته گله"
+
 msgid "Ruhige Hände, schnellere Schüsse."
 msgstr "دست‌های آرام، شلیک‌های سریع‌تر."
 
@@ -1583,6 +1943,9 @@ msgstr "عقب‌راندن"
 
 msgid "Rückwärts"
 msgstr "عقب"
+
+msgid "Salamanderkönigin"
+msgstr "ملکه سمندرها"
 
 msgid "Sandschmied-Handschuhe"
 msgstr "دستکش آهنگر شن"
@@ -1659,6 +2022,15 @@ msgstr "آسیب: %s"
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "%d طبقه پشت سر هم بدون ضربه رد شو"
 
+msgid "Schakal"
+msgstr "شغال"
+
+msgid "Schattenbrut"
+msgstr "زاده سایه"
+
+msgid "Schattenfürst"
+msgstr "ارباب سایه‌ها"
+
 msgid "Schattenmantel"
 msgstr "ردای سایه"
 
@@ -1689,6 +2061,9 @@ msgstr "گوه نبرد"
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "آتش ماری: گلوله‌ها مارپیچ می‌روند، کمی آسیب بیشتر"
 
+msgid "Schlangenschuppe"
+msgstr "فلس مار"
+
 msgid "Schlangenschüsse, die Gegner verfolgen"
 msgstr "تیرهای مارپیچ که دشمنان را دنبال می‌کنند"
 
@@ -1697,6 +2072,9 @@ msgstr "لجن"
 
 msgid "Schließen"
 msgstr "بستن"
+
+msgid "Schläger"
+msgstr "اوباش"
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "تیرهای مارپیچ که کمانه می‌کنند"
@@ -1731,6 +2109,9 @@ msgstr "سریع‌تر شلیک، تیرها در پایان می‌ترکند"
 msgid "Schnellere Schüsse fliegen durch Gegner"
 msgstr "تیرهای سریع‌تر از دشمنان عبور می‌کنند"
 
+msgid "Schon einmal geschafft!"
+msgstr "قبلاً تمامش کرده‌ای!"
+
 msgid "Schreckensbrief"
 msgstr "نامه وحشت"
 
@@ -1740,11 +2121,20 @@ msgstr "شاتگان: شش اخگر در فاصله‌ی کوتاه"
 msgid "Schrumpftrank"
 msgstr "معجون کوچک‌شدن"
 
+msgid "Schuppig, schwer und sehr gefragt."
+msgstr "فلس‌دار، سنگین و بسیار پرطرفدار."
+
 msgid "Schusstempo"
 msgstr "سرعت تیر"
 
+msgid "Schwarz und hart wie Lava, die nachgedacht hat."
+msgstr "سیاه و سخت، مثل گدازه‌ای که فکرهایش را کرده."
+
 msgid "Schwarzer Kristall"
 msgstr "بلور سیاه"
+
+msgid "Schwarzwolf"
+msgstr "گرگ سیاه"
 
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "سنگین و زرد. هر فروشنده‌ای دوستش دارد."
@@ -1845,6 +2235,33 @@ msgstr "میدان دید"
 msgid "Siegerring"
 msgstr "انگشتر پیروز"
 
+msgid "Silber"
+msgstr "نقره"
+
+msgid "Silber-Beinschienen"
+msgstr "ساق‌بند نقره‌ای"
+
+msgid "Silber-Bogen"
+msgstr "کمان نقره‌ای"
+
+msgid "Silber-Brustplatte"
+msgstr "زره سینه نقره‌ای"
+
+msgid "Silber-Handschuhe"
+msgstr "دستکش نقره‌ای"
+
+msgid "Silber-Helm"
+msgstr "کلاه‌خود نقره‌ای"
+
+msgid "Silber-Schwert"
+msgstr "شمشیر نقره‌ای"
+
+msgid "Silber-Stiefel"
+msgstr "چکمه نقره‌ای"
+
+msgid "Silber-Zauberstab"
+msgstr "عصای نقره‌ای"
+
 msgid "Silberader"
 msgstr "رگه نقره"
 
@@ -1871,6 +2288,9 @@ msgstr "انگشتر نقره‌ای"
 
 msgid "Silberspitze"
 msgstr "نوک نقره‌ای"
+
+msgid "Silberwolf"
+msgstr "گرگ نقره‌ای"
 
 msgid "Skelett"
 msgstr "اسکلت"
@@ -1959,6 +2379,9 @@ msgstr "سنگ‌ها را خرد کن و غنیمت بیشتر"
 msgid "Steine zertreten, fünf Bomben"
 msgstr "سنگ‌ها را خرد کن، پنج بمب"
 
+msgid "Steingolem"
+msgstr "گولم سنگی"
+
 msgid "Sternenfessel"
 msgstr "زنجیر ستاره"
 
@@ -2019,8 +2442,17 @@ msgstr "سطح خیلی پایین است"
 msgid "Sturmessenz"
 msgstr "جوهر طوفان"
 
+msgid "Sturmgeist"
+msgstr "روح طوفان"
+
+msgid "Sturmgipfel"
+msgstr "قله طوفان"
+
 msgid "Sturmkarte"
 msgstr "نقشه طوفان"
+
+msgid "Sturmkrähe"
+msgstr "کلاغ طوفان"
 
 msgid "Sturmsiegel"
 msgstr "مهر طوفان"
@@ -2055,11 +2487,26 @@ msgstr "پرتو جوینده"
 msgid "Sumpfhaut"
 msgstr "پوست مرداب"
 
+msgid "Sumpfhydra"
+msgstr "هیدرای مرداب"
+
 msgid "Sumpfleder"
 msgstr "چرم مرداب"
 
 msgid "Sumpfmantel"
 msgstr "ردای مرداب"
+
+msgid "Sumpfschamane"
+msgstr "شمن مرداب"
+
+msgid "Sumpfschlange"
+msgstr "مار مرداب"
+
+msgid "Sumpfschleim"
+msgstr "لجن مرداب"
+
+msgid "Sumpfufer"
+msgstr "کرانه مرداب"
 
 msgid "Synergie: %s!"
 msgstr "هم‌افزایی: %s!"
@@ -2096,6 +2543,12 @@ msgstr "سرعت: %s"
 
 msgid "Testraum · P: zurück"
 msgstr "اتاق آزمایش · P: بازگشت"
+
+msgid "Tiefes Moor"
+msgstr "مرداب ژرف"
+
+msgid "Topas"
+msgstr "توپاز"
 
 msgid "Topasjuwel"
 msgstr "جواهر توپاز"
@@ -2150,6 +2603,12 @@ msgstr "کاربردی"
 
 msgid "Vampir"
 msgstr "خون‌آشام"
+
+msgid "Varrik der Fuchs"
+msgstr "واریک روباه"
+
+msgid "Verbrennt nicht. Riecht aber so."
+msgstr "نمی‌سوزد. ولی بویش همان است."
 
 msgid "Vergiftet Gegner, Schaden etwas hoch"
 msgstr "دشمنان را مسموم می‌کند، کمی آسیب بیشتر"
@@ -2220,6 +2679,9 @@ msgstr "بقچه مسافر"
 msgid "Warm und dicht."
 msgstr "گرم و پرپشت."
 
+msgid "Warm. Grau. Überall."
+msgstr "گرم. خاکستری. همه‌جا."
+
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "آنچه اینجاست با مرگت از دست نمی‌رود."
 
@@ -2250,6 +2712,9 @@ msgstr "ارزش: %d طلا"
 msgid "Wettkampfstiefel"
 msgstr "چکمه مسابقه"
 
+msgid "Wildschwein"
+msgstr "گراز وحشی"
+
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "به مغازه‌ی کوچیک من خوش اومدی! جنس‌ها اون بالا روی میزن. یعنی… الان میان."
 
@@ -2268,17 +2733,29 @@ msgstr "عصای باد"
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "هرجا پرتو بخورد، منفجر می‌شود"
 
+msgid "Wolf"
+msgstr "گرگ"
+
 msgid "Wolfsfell"
 msgstr "پوست گرگ"
 
+msgid "Wolfsleder"
+msgstr "چرم گرگ"
+
 msgid "Wolfsmantel"
 msgstr "ردای گرگ"
+
+msgid "Wolfswald"
+msgstr "جنگل گرگ‌ها"
 
 msgid "Wurfsterne"
 msgstr "ستاره‌های پرتابی"
 
 msgid "Wurfsterne fliegen durch Gegner und lassen sie oft bluten"
 msgstr "ستاره‌ها از دشمنان عبور می‌کنند و اغلب خونریزی ایجاد می‌کنند"
+
+msgid "Wächst nur, wo es richtig kalt ist."
+msgstr "فقط جایی می‌روید که واقعاً سرد است."
 
 msgid "Wähle deinen Charakter"
 msgstr "شخصیتت را انتخاب کن"
@@ -2378,6 +2855,9 @@ msgstr "دو قلب آبی؛ از دست دادن یکی به همه دشمنا�
 
 msgid "Zwillingshandschuhe"
 msgstr "دستکش‌های دوقلو"
+
+msgid "Zäh und warm."
+msgstr "محکم و گرم."
 
 msgid "Zähigkeit"
 msgstr "سرسختی"

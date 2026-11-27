@@ -32,6 +32,9 @@ Aus Smithy übernommen, was hier gilt (Smithy: `docs/FEHLERKLASSEN.md`). Kurz ha
 
 Format: `Datum · Branch · Ursache · Regel-Nummer (oder „neu“)`
 
+- 2026-11-27 · feature/balance · Neue Klasse `Hazard` (class_name) war den Tests unbekannt, weil Godots Klassen-Liste noch alt war · neu: nach einer neuen `class_name` einmal `Godot --headless --path . --import` laufen lassen (oder den Editor öffnen), dann erst testen
+- 2026-11-27 · feature/balance · Anführungszeichen in einem `_info`-Text machten eine JSON-Datei kaputt · neu: in `_info`-Texten keine `"`, nach jeder JSON-Änderung laden (Test oder `py -c "import json…"`)
+
 - 2026-11-26 · feature/beute-inventar · Nach dem Tod sammelte der Spieler in der Sekunde bis zum End-Bildschirm noch Beute auf, die dann in der schon geleerten Tasche landete · neu: Pickups prüfen `run.is_dead()`; was nach dem Run-Ende passiert, darf keine Regeln mehr ändern
 - 2026-11-26 · feature/beute-inventar · Hilfsfunktion `_set` in `MetaState` überschrieb Godots eingebautes `Object._set` · neu: keine Namen von Godot-Methoden (`_set`, `_get`, `_init` …) für eigene Hilfsfunktionen
 

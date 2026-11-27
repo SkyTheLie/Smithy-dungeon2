@@ -23,11 +23,14 @@ func _ready() -> void:
 	DisplaySettings.apply()
 
 
-## A new run on floor 1 with a fresh random seed, as `character` (data/characters.json). Without
-## one: the character of the last run (Neuer Run on the end screen).
-func start_new_run(character: String = "") -> void:
+## A new run on floor 1 with a fresh random seed, as `character` (data/characters.json), in
+## `dungeon` (data/dungeons.json). Without them: those of the last run.
+func start_new_run(character: String = "", dungeon: String = "") -> void:
 	if character.is_empty():
 		character = run.character if run else "magier"
+	if dungeon.is_empty():
+		dungeon = Content.active_dungeon
+	Content.active_dungeon = Content.dungeon_id(dungeon)
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	run = RunState.new(rng.randi(), character)

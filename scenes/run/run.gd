@@ -138,6 +138,7 @@ func _on_trapdoor_entered(final: bool) -> void:
 	if final:
 		if Game.run.record_progress:
 			Game.run.announce(Progress.add_win(Game.run.time))
+			MetaState.win_dungeon(Content.dungeon_id())
 		# Made it out: the coins and the whole bag come home.
 		var rng := RandomNumberGenerator.new()
 		rng.randomize()
