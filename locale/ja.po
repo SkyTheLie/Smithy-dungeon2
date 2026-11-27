@@ -54,6 +54,9 @@ msgstr "全アイテムを外した"
 msgid "Alle Items ablegen"
 msgstr "全アイテムを外す"
 
+msgid "Alle Rucksäcke sind angebaut. Mehr gibt es im Skillbaum."
+msgstr "リュックはすべて取り付け済み。スキルツリーでもっと手に入る。"
+
 msgid "Alle Werte ein bisschen hoch"
 msgstr "全ステータスが少し上昇"
 
@@ -149,6 +152,9 @@ msgstr "山鷹"
 
 msgid "Bernstein"
 msgstr "琥珀"
+
+msgid "Beschläge aus Kupfer, Platz für einen Rubin."
+msgstr "銅の金具付き。ルビーが入る。"
 
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "敵を%d体倒す（%d / %d）"
@@ -288,8 +294,14 @@ msgstr "それには金が足りないな、相棒。残念、残念。"
 msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
 msgstr "その代わり、回すたびに品物が良くなる。バーに書いてあるだろ、正直に！"
 
+msgid "Daran hängt noch ein anderer Rucksack."
+msgstr "まだ別のリュックがつながっている。"
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "中に小さな虫が閉じ込められている。"
+
+msgid "Darin wohnt fast ein ganzer Laden."
+msgstr "ほとんど店が丸ごと入る。"
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "それ以上は…まあ、ここにはネズミがいるんだ。でかいネズミが。手のあるやつ。"
@@ -360,6 +372,9 @@ msgstr "下への道が開いた！"
 msgid "Der Wildhüter"
 msgstr "猟場番人"
 
+msgid "Der sichere Platz wird eine Spalte breiter."
+msgstr "安全な場所が1列広くなる。"
+
 msgid "Diamant"
 msgstr "ダイヤモンド"
 
@@ -377,6 +392,9 @@ msgstr "分厚い皮膚"
 
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "ウィンドウサイズはウィンドウモードでのみ有効です。"
+
+msgid "Die Tür ist offen. Geh in den nächsten Raum."
+msgstr "扉が開いた。次の部屋へ進もう。"
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "弓使いの武器：矢をためて放つ、遠くへ強く"
@@ -639,6 +657,15 @@ msgstr "キャラのレリック枠が1つ増える。"
 msgid "Ein Rubin"
 msgstr "ルビー1つ"
 
+msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "3×3マスのリュック。エゴンの店で持ち物に取り付けよう。"
+
+msgid "Ein Rucksack mit 4×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "4×2マスのリュック。エゴンの店で持ち物に取り付けよう。"
+
+msgid "Ein Rucksack mit 4×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "4×3マスのリュック。エゴンの店で持ち物に取り付けよう。"
+
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "掘り出し物だ！俺にとって。いや…君にとって！正直に！"
 
@@ -687,6 +714,9 @@ msgstr "隠し部屋だ！"
 msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
 msgstr "探索開始時に白いシールドハートが半分増える。"
 
+msgid "Ein riesiger Rucksack mit 5×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "5×3マスの巨大リュック。エゴンの店で持ち物に取り付けよう。"
+
 msgid "Ein rotes Herz mehr."
 msgstr "赤いハートが1つ増える。"
 
@@ -705,6 +735,9 @@ msgstr "2つ目の命！"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "エゴンのテーブルの品物が1つ増える。"
 
+msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "2×2マスのポーチ。エゴンの店で持ち物に取り付けよう。"
+
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "ドワーフほどの高さの草原。草がざわめき、狩人が罠を仕掛ける。エゴンは鎌を売っている。あいにく品切れ。"
 
@@ -713,6 +746,9 @@ msgstr "パン屋まるごと一斉発射"
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "短い刃。戦士用。"
+
+msgid "Eine Übungsratte! Sie tut dir nichts. Schieß sie ab."
+msgstr "練習用ネズミだ！ 攻撃してこない。撃ってみよう。"
 
 msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
 msgstr "一日一回はテーブルをタダで回してやる。その後は友達価格だ。毎回ちょっとずつ友好的になる。"
@@ -740,6 +776,9 @@ msgstr "鉄の手袋"
 
 msgid "Eisen-Helm"
 msgstr "鉄の兜"
+
+msgid "Eisen-Rucksack"
+msgstr "鉄のリュック"
 
 msgid "Eisen-Schwert"
 msgstr "鉄の剣"
@@ -1152,6 +1191,9 @@ msgstr "残り火の坑道"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "緑っぽく光る。商人の好物。"
 
+msgid "Glänzt sogar im Dunkeln."
+msgstr "暗闇でも光る。"
+
 msgid "Glänzt wie der Mond. Der Händler wird ganz still."
 msgstr "月のように輝く。商人がすっかり黙り込む。"
 
@@ -1319,6 +1361,9 @@ msgstr "緑"
 
 msgid "Grün wie das Moor, nur teurer."
 msgstr "沼のように緑、でもずっと高い。"
+
+msgid "Gut gemacht! Jetzt ab in den Dungeon."
+msgstr "よくやった！ さあダンジョンへ。"
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "いい選択だ！コレクターズアイテムだぜ。正直に！"
@@ -1524,6 +1569,9 @@ msgstr "戦闘"
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "これからダンジョンに出現する"
 
+msgid "Karawanen-Rucksack"
+msgstr "キャラバンのリュック"
+
 msgid "Karawanenrucksack"
 msgstr "隊商の背嚢"
 
@@ -1547,6 +1595,9 @@ msgstr "子供の靴"
 
 msgid "Klappern bei jedem Schritt."
 msgstr "歩くたびにカチャカチャ鳴る。"
+
+msgid "Klein, riecht nach Kräutern."
+msgstr "小さくて薬草の香り。"
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "小さく速くなり、時々回避"
@@ -1638,6 +1689,9 @@ msgstr "水晶の草原"
 msgid "Kräuterbeutel"
 msgstr "薬草袋"
 
+msgid "Kräutertasche"
+msgstr "薬草ポーチ"
+
 msgid "Kupfer"
 msgstr "銅"
 
@@ -1655,6 +1709,9 @@ msgstr "銅の手袋"
 
 msgid "Kupfer-Helm"
 msgstr "銅の兜"
+
+msgid "Kupfer-Rucksack"
+msgstr "銅のリュック"
 
 msgid "Kupfer-Schwert"
 msgstr "銅の剣"
@@ -1683,6 +1740,9 @@ msgstr "店"
 msgid "Ladenschild"
 msgstr "店の看板"
 
+msgid "Lang und schmal, schwer wie ein Amboss."
+msgstr "細長くて金床のように重い。"
+
 msgid "Lange Flugbahnen, gewaltiger Einschlag"
 msgstr "長い弾道、強烈な一撃"
 
@@ -1691,6 +1751,9 @@ msgstr "徐々に回復、青いハート1つ"
 
 msgid "Langsam heilst du dich"
 msgstr "徐々に回復する"
+
+msgid "Laufe mit W A S D."
+msgstr "W A S D で歩こう。"
 
 msgid "Lautstärke"
 msgstr "音量"
@@ -1754,6 +1817,9 @@ msgstr "光の杖"
 
 msgid "Links"
 msgstr "左"
+
+msgid "Linksklick: schießen. Probier es!"
+msgstr "左クリックで撃つ。やってみよう！"
 
 msgid "Länge"
 msgstr "長さ"
@@ -1884,6 +1950,9 @@ msgstr "沼の死体"
 msgid "Moormutter"
 msgstr "沼の母"
 
+msgid "Morscher Zauberstab"
+msgstr "朽ちた杖"
+
 msgid "Musik"
 msgstr "音楽"
 
@@ -1919,6 +1988,9 @@ msgstr "ニューゲーム"
 
 msgid "Nicht ablecken."
 msgstr "なめないこと。"
+
+msgid "Nicht angebaut"
+msgstr "未取り付け"
 
 msgid "Nicht während eines Kampfes"
 msgstr "戦闘中は不可"
@@ -2055,6 +2127,9 @@ msgstr "火薬の手袋"
 msgid "Punkt in der Mitte"
 msgstr "中央のドット"
 
+msgid "R / Rechtsklick beim Ziehen: drehen"
+msgstr "ドラッグ中にR / 右クリック：回転"
+
 msgid "Rahmenlos"
 msgstr "ボーダーレス"
 
@@ -2187,6 +2262,9 @@ msgstr "ルビー"
 msgid "Rucksack"
 msgstr "リュック"
 
+msgid "Rucksäcke"
+msgstr "リュック"
+
 msgid "Rudelführer"
 msgstr "群れのリーダー"
 
@@ -2309,6 +2387,9 @@ msgstr "宝袋"
 
 msgid "Schatzkarte"
 msgstr "宝の地図"
+
+msgid "Schau dich mit der Maus um."
+msgstr "マウスで周りを見回そう。"
 
 msgid "Schießt Feuerbälle"
 msgstr "火の玉を撃つ"
@@ -2502,6 +2583,9 @@ msgstr "安全な枠:死んでも残る"
 msgid "Sichtfeld"
 msgstr "視野"
 
+msgid "Sie hat etwas fallen lassen. Lauf darüber, um es aufzuheben."
+msgstr "何か落とした。上を歩いて拾おう。"
+
 msgid "Siegerring"
 msgstr "勝者の指輪"
 
@@ -2522,6 +2606,9 @@ msgstr "銀の手袋"
 
 msgid "Silber-Helm"
 msgstr "銀の兜"
+
+msgid "Silber-Rucksack"
+msgstr "銀のリュック"
 
 msgid "Silber-Schwert"
 msgstr "銀の剣"
@@ -3117,11 +3204,23 @@ msgstr "砂漠の羅針盤"
 msgid "Zauberbuch"
 msgstr "魔導書"
 
+msgid "Zaubert nicht mehr. Lang ist er trotzdem."
+msgstr "もう魔法は出ない。でも長い。"
+
 msgid "Zehn Bomben"
 msgstr "爆弾10個"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "コイン10枚、運上昇"
+
+msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
+msgstr "ネズミの毛皮を金色の安全な場所へドラッグしよう。そこにある物は死んでも失わない。"
+
+msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
+msgstr "リュックを持ち物にドラッグしよう。辺で接している必要がある。"
+
+msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
+msgstr "ドラッグ：取り付け · ドラッグ中にR / 右クリック：回転 · リストへ：取り外し"
 
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "ドラッグ:並べ替え · 窓の外へ:捨てる · Tab:閉じる"
@@ -3219,6 +3318,9 @@ msgstr "最大"
 msgid "oder Leertaste"
 msgstr "またはスペースキー"
 
+msgid "Öffne dein Inventar mit Tab."
+msgstr "Tabで持ち物を開こう。"
+
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "上限超え：エゴンがカンを狙ってる！"
 
@@ -3227,6 +3329,9 @@ msgstr "生存"
 
 msgid "Überschreiben"
 msgstr "上書き"
+
+msgid "Übungsratte"
+msgstr "練習用ネズミ"
 
 msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
 msgstr "…せめて戦利品は？ない？ふむ。なら手は一つ、薬だ！"

@@ -72,6 +72,9 @@ var seed_value: int = 0
 var seen_items: Array[String] = []
 ## Glutmantel ("mantle"): can still catch a hit in this room (Dungeon refreshes it per room).
 var mantle_ready: bool = true
+## The guide of the very first run leads this run (DungeonGuide, first floor only). Set by
+## Game.start_new_run while MetaState.guide_done is false.
+var guided: bool = false
 ## false after the test room was used: then nothing of this run counts for the Lexikon/unlocks.
 var record_progress: bool = true
 ## Seconds played in this run (pause not counted).
@@ -288,10 +291,11 @@ func add_kill_exp(boss: bool, mult: float = 1.0) -> void:
 	exp_earned += roundi(Skills.kill_exp(boss) * maxf(0.0, mult))
 
 
-## The skills learned at home (Skills, MetaState): more places in the bag, shield hearts, blue
+## The skills learned at home (Skills, MetaState): the backpacks attached to the bag, a wider safe place, shield hearts, blue
 ## hearts, red hearts, the stats (one source, like an item) and more gold for loot in the dungeon shop. Called once at the start.
 func use_skills() -> void:
-	bag.grow(int(Skills.bonus("bag_slots")), int(Skills.bonus("safe_slots")))
+	bag.add_backpacks(MetaState.backpacks())
+	bag.grow_safe(int(Skills.bonus("safe_slots")))
 	shield += int(Skills.bonus("shield_halves"))
 	add_blue_hearts(int(Skills.bonus("blue_hearts")))
 	var hearts: int = int(Skills.bonus("hearts"))
@@ -326,16 +330,16 @@ func sell_price(index: int) -> int:
 
 
 ## Sells bag place `index` (the whole stack) in the dungeon shop: its gold goes into the bag
-## (onto the gold stack, else into the freed place). Returns the gold (0 = nothing sold: empty
+## (onto the gold stack, else into a free spot, else where the sold loot lay). Returns the gold (0 = nothing sold: empty
 ## place, the gold itself, worth nothing, or the run is over).
 func sell_from_bag(index: int) -> int:
 	var gold: int = sell_price(index)
 	if gold <= 0 or is_dead():
 		return 0
-	bag.take(index)
+	var place: Dictionary = bag.take(index)
 	var left: int = add_coins(gold)
 	if left > 0:
-		bag.put(index, Bag.GOLD, left)
+		bag.put_at(Vector2i(int(place["x"]), int(place["y"])), Bag.GOLD, left)
 	return gold
 
 

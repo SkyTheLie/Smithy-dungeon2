@@ -24,6 +24,12 @@ extends Node3D
 ## stepping on it sends exit_entered (the run scene asks whether to flee).
 ## Rules about life, coins and items are in RunState; this node only calls them.
 ##
+## Guide of the very first run (guide = true, set by RunScene before build; DungeonGuide leads):
+## the start room has no writing on the floor and its doors stay shut until the guide opens the
+## one to the practice room (open_guide_door): a normal room next to the start with only the
+## harmless practice rat (enemies.json "tutorial_rat", it always drops a rat fur), no rocks and
+## no traps. end_guide opens the other doors again.
+##
 ## Test room (P, only in debug builds): a closed room far away from the floor with every item on a
 ## pedestal and a red pedestal that drops all items again, to try out items and synergies.
 
@@ -118,6 +124,10 @@ var merchant_relic: Dictionary = {}
 const ROPE_SPOT := Vector3(-2.6, 0, 1.6)
 ## true once the boss of this floor died in its room (only then the rope may come).
 var _boss_beaten: bool = false
+## The guide of the first run is on (see above); its practice room (-1, -1 = none).
+var guide: bool = false
+var guide_cell := Vector2i(-1, -1)
+const GUIDE_ENEMY: String = "tutorial_rat"
 
 
 func build(run_state: RunState, the_player: Player, index: int) -> void:
@@ -143,9 +153,17 @@ func build(run_state: RunState, the_player: Player, index: int) -> void:
 	effects = Node3D.new()
 	effects.name = "Effects"
 	add_child(effects)
+	if guide:
+		for cell: Vector2i in layout.neighbours(FloorLayout.START):
+			if layout.get_type(cell) == FloorLayout.NORMAL:
+				guide_cell = cell
+				break
 	for cell: Vector2i in layout.rooms:
 		_build_room(cell)
 	_build_doors()
+	if guide:
+		for door: Door in doors_of(FloorLayout.START):
+			door.set_closed(true)
 	# After the rooms, so the rooms come out the same for a seed whatever bosses there are.
 	# A boss that did not come yet in this run (the floors of a theme share their bosses).
 	var bosses: Array = floor_data.get("bosses", ["rat_king"])
@@ -258,8 +276,11 @@ func _build_room(cell: Vector2i) -> void:
 		Meadow.add_grass(room, grass, hash([floor_index, cell]))
 	match room.type:
 		FloorLayout.START_ROOM:
-			_add_controls_hint(room)
+			if not guide:
+				_add_controls_hint(room)
 			_add_exit(room)
+		FloorLayout.NORMAL when cell == guide_cell:
+			room.spawn_list.append(GUIDE_ENEMY)
 		FloorLayout.NORMAL:
 			_add_rocks(room)
 			_roll_enemies(room)
@@ -313,6 +334,28 @@ func _add_controls_hint(room: DungeonRoom) -> void:
 	label.rotation.x = -PI / 2.0
 	label.position = Vector3(0, 0.02, -1.5)
 	room.add_child(label)
+
+
+## Guide: the door from the start room to the practice room opens.
+func open_guide_door() -> void:
+	for door: Door in doors_of(FloorLayout.START):
+		if door.cells.has(guide_cell) or guide_cell == Vector2i(-1, -1):
+			door.set_closed(false)
+
+
+## Guide over: every door of the start room opens (unless a fight there keeps them shut).
+func end_guide() -> void:
+	guide = false
+	if _fighting and current_cell == FloorLayout.START:
+		return
+	for door: Door in doors_of(FloorLayout.START):
+		if not (_fighting and door.cells.has(current_cell)):
+			door.set_closed(false)
+
+
+## true once the practice rat is beaten (its room is cleared).
+func guide_room_cleared() -> bool:
+	return rooms.has(guide_cell) and rooms[guide_cell].cleared
 
 
 ## The way out: a ladder in the back left corner of the start room (corners never have doors).

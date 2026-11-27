@@ -18,6 +18,8 @@ const DEATH_DELAY: float = 1.2
 @onready var end_screen: EndScreen = $EndScreen
 
 var bag_window: BagWindow
+## The guide of the very first run (null otherwise or once it is over).
+var guide: DungeonGuide = null
 ## P (only in debug builds): the admin menu for testing (AdminMenu).
 var admin_menu: AdminMenu = null
 var _leaving: bool = false
@@ -31,6 +33,8 @@ func _ready() -> void:
 		Game.run = RunState.new(randi())
 	var run: RunState = Game.run
 	player.setup(run, dungeon)
+	# The guide of the very first run (DungeonGuide): only on the first floor.
+	dungeon.guide = run.guided and run.floor_index == 0
 	dungeon.build(run, player, run.floor_index)
 	hud.setup(run, dungeon, player)
 	bag_window = BagWindow.new()
@@ -38,6 +42,11 @@ func _ready() -> void:
 	add_child(bag_window)
 	bag_window.setup(run, dungeon)
 	bag_window.closed.connect(_capture_mouse)
+	if dungeon.guide:
+		guide = DungeonGuide.new()
+		guide.name = "Guide"
+		add_child(guide)
+		guide.setup(dungeon, player, run, hud, bag_window)
 	if OS.is_debug_build():
 		admin_menu = AdminMenu.new()
 		admin_menu.name = "AdminMenu"

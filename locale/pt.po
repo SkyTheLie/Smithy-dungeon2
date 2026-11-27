@@ -54,6 +54,9 @@ msgstr "Todos os itens largados"
 msgid "Alle Items ablegen"
 msgstr "Largar todos os itens"
 
+msgid "Alle Rucksäcke sind angebaut. Mehr gibt es im Skillbaum."
+msgstr "Todas as mochilas estão presas. Há mais na árvore de habilidades."
+
 msgid "Alle Werte ein bisschen hoch"
 msgstr "Todos os atributos sobem um pouco"
 
@@ -149,6 +152,9 @@ msgstr "Falcão da montanha"
 
 msgid "Bernstein"
 msgstr "Âmbar"
+
+msgid "Beschläge aus Kupfer, Platz für einen Rubin."
+msgstr "Ferragens de cobre, cabe um rubi."
 
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "Derrote %d inimigos (%d / %d)"
@@ -288,8 +294,14 @@ msgstr "Seu ouro não dá pra isso, parceiro. Que pena, que pena."
 msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
 msgstr "Mas a mercadoria melhora a cada giro. Está escrito na barra, sério!"
 
+msgid "Daran hängt noch ein anderer Rucksack."
+msgstr "Outra mochila ainda está presa nesta."
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Tem um bichinho preso dentro."
+
+msgid "Darin wohnt fast ein ganzer Laden."
+msgstr "Cabe quase uma loja inteira dentro."
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "Acima disso… digamos que aqui tem ratos. Ratos grandes. Com mãos."
@@ -360,6 +372,9 @@ msgstr "O caminho para baixo está livre!"
 msgid "Der Wildhüter"
 msgstr "O Guarda-Caça"
 
+msgid "Der sichere Platz wird eine Spalte breiter."
+msgstr "O lugar seguro ganha uma coluna."
+
 msgid "Diamant"
 msgstr "Diamante"
 
@@ -377,6 +392,9 @@ msgstr "Pele grossa"
 
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "O tamanho da janela só vale no modo janela."
+
+msgid "Die Tür ist offen. Geh in den nächsten Raum."
+msgstr "A porta está aberta. Vá para a próxima sala."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "A arma do arqueiro: carregue flechas e solte, longe e forte"
@@ -639,6 +657,15 @@ msgstr "Mais um espaço de relíquia no seu herói."
 msgid "Ein Rubin"
 msgstr "Um rubi"
 
+msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Uma mochila de 3×3 casas. Prenda no inventário com o Egon."
+
+msgid "Ein Rucksack mit 4×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Uma mochila de 4×2 casas. Prenda no inventário com o Egon."
+
+msgid "Ein Rucksack mit 4×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Uma mochila de 4×3 casas. Prenda no inventário com o Egon."
+
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "Uma pechincha! Pra mim. É… pra você! Sério!"
 
@@ -687,6 +714,9 @@ msgstr "Uma sala secreta!"
 msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
 msgstr "Meio coração de escudo branco a mais no início de cada partida."
 
+msgid "Ein riesiger Rucksack mit 5×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Uma mochila enorme de 5×3 casas. Prenda no inventário com o Egon."
+
 msgid "Ein rotes Herz mehr."
 msgstr "Mais um coração vermelho."
 
@@ -705,6 +735,9 @@ msgstr "Uma segunda vida!"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "Um item a mais na mesa do Egon."
 
+msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Uma bolsa de 2×2 casas. Prenda no inventário com o Egon."
+
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "Uma campina da altura de um anão. Algo farfalha no capim, e um caçador arma armadilhas. Egon vende foices. Infelizmente, esgotadas."
 
@@ -713,6 +746,9 @@ msgstr "Uma padaria inteira de uma vez"
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "Uma lâmina curta. Para guerreiros."
+
+msgid "Eine Übungsratte! Sie tut dir nichts. Schieß sie ab."
+msgstr "Um rato de treino! Ele não te machuca. Atire nele."
 
 msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
 msgstr "Uma vez por dia eu giro a mesa de graça. Depois tem preço de amigo. Fica um pouco mais amigável a cada vez."
@@ -740,6 +776,9 @@ msgstr "Luvas de ferro"
 
 msgid "Eisen-Helm"
 msgstr "Elmo de ferro"
+
+msgid "Eisen-Rucksack"
+msgstr "Mochila de ferro"
 
 msgid "Eisen-Schwert"
 msgstr "Espada de ferro"
@@ -1152,6 +1191,9 @@ msgstr "Galerias de brasa"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Brilha esverdeado. O mercador gosta."
 
+msgid "Glänzt sogar im Dunkeln."
+msgstr "Brilha até no escuro."
+
 msgid "Glänzt wie der Mond. Der Händler wird ganz still."
 msgstr "Brilha como a lua. O mercador fica bem quieto."
 
@@ -1319,6 +1361,9 @@ msgstr "Verde"
 
 msgid "Grün wie das Moor, nur teurer."
 msgstr "Verde como o pântano, só que mais caro."
+
+msgid "Gut gemacht! Jetzt ab in den Dungeon."
+msgstr "Muito bem! Agora, para a masmorra."
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "Boa escolha! Uma peça de colecionador. Sério!"
@@ -1524,6 +1569,9 @@ msgstr "Combate"
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Agora pode aparecer na masmorra"
 
+msgid "Karawanen-Rucksack"
+msgstr "Mochila de caravana"
+
 msgid "Karawanenrucksack"
 msgstr "Mochila de caravana"
 
@@ -1547,6 +1595,9 @@ msgstr "Sapatos de criança"
 
 msgid "Klappern bei jedem Schritt."
 msgstr "Chacoalham a cada passo."
+
+msgid "Klein, riecht nach Kräutern."
+msgstr "Pequena, cheira a ervas."
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Menor, mais rápido e às vezes esquiva"
@@ -1638,6 +1689,9 @@ msgstr "Campina de Cristal"
 msgid "Kräuterbeutel"
 msgstr "Bolsa de ervas"
 
+msgid "Kräutertasche"
+msgstr "Bolsa de ervas"
+
 msgid "Kupfer"
 msgstr "Cobre"
 
@@ -1655,6 +1709,9 @@ msgstr "Luvas de cobre"
 
 msgid "Kupfer-Helm"
 msgstr "Elmo de cobre"
+
+msgid "Kupfer-Rucksack"
+msgstr "Mochila de cobre"
 
 msgid "Kupfer-Schwert"
 msgstr "Espada de cobre"
@@ -1683,6 +1740,9 @@ msgstr "Loja"
 msgid "Ladenschild"
 msgstr "Placa da loja"
 
+msgid "Lang und schmal, schwer wie ein Amboss."
+msgstr "Longa e estreita, pesada como uma bigorna."
+
 msgid "Lange Flugbahnen, gewaltiger Einschlag"
 msgstr "Voos longos, impacto enorme"
 
@@ -1691,6 +1751,9 @@ msgstr "Cura lenta e um coração azul"
 
 msgid "Langsam heilst du dich"
 msgstr "Você se cura lentamente"
+
+msgid "Laufe mit W A S D."
+msgstr "Ande com W A S D."
 
 msgid "Lautstärke"
 msgstr "Volume"
@@ -1754,6 +1817,9 @@ msgstr "Cajado de luz"
 
 msgid "Links"
 msgstr "Esquerda"
+
+msgid "Linksklick: schießen. Probier es!"
+msgstr "Clique esquerdo: atirar. Experimente!"
 
 msgid "Länge"
 msgstr "Comprimento"
@@ -1884,6 +1950,9 @@ msgstr "Cadáver do pântano"
 msgid "Moormutter"
 msgstr "Mãe do pântano"
 
+msgid "Morscher Zauberstab"
+msgstr "Cajado podre"
+
 msgid "Musik"
 msgstr "Música"
 
@@ -1919,6 +1988,9 @@ msgstr "Novo jogo"
 
 msgid "Nicht ablecken."
 msgstr "Não lamba."
+
+msgid "Nicht angebaut"
+msgstr "Não presas"
 
 msgid "Nicht während eines Kampfes"
 msgstr "Não durante um combate"
@@ -2055,6 +2127,9 @@ msgstr "Luva de pólvora"
 msgid "Punkt in der Mitte"
 msgstr "Ponto central"
 
+msgid "R / Rechtsklick beim Ziehen: drehen"
+msgstr "R / clique direito ao arrastar: girar"
+
 msgid "Rahmenlos"
 msgstr "Sem bordas"
 
@@ -2187,6 +2262,9 @@ msgstr "Rubi"
 msgid "Rucksack"
 msgstr "Mochila"
 
+msgid "Rucksäcke"
+msgstr "Mochilas"
+
 msgid "Rudelführer"
 msgstr "Líder da matilha"
 
@@ -2309,6 +2387,9 @@ msgstr "Bolsa do tesouro"
 
 msgid "Schatzkarte"
 msgstr "Mapa do tesouro"
+
+msgid "Schau dich mit der Maus um."
+msgstr "Olhe em volta com o mouse."
 
 msgid "Schießt Feuerbälle"
 msgstr "Atira bolas de fogo"
@@ -2502,6 +2583,9 @@ msgstr "Espaço seguro: fica quando você morre"
 msgid "Sichtfeld"
 msgstr "Campo de visão"
 
+msgid "Sie hat etwas fallen lassen. Lauf darüber, um es aufzuheben."
+msgstr "Ele deixou cair algo. Passe por cima para pegar."
+
 msgid "Siegerring"
 msgstr "Anel do vencedor"
 
@@ -2522,6 +2606,9 @@ msgstr "Luvas de prata"
 
 msgid "Silber-Helm"
 msgstr "Elmo de prata"
+
+msgid "Silber-Rucksack"
+msgstr "Mochila de prata"
 
 msgid "Silber-Schwert"
 msgstr "Espada de prata"
@@ -3117,11 +3204,23 @@ msgstr "Bússola do deserto"
 msgid "Zauberbuch"
 msgstr "Livro de feitiços"
 
+msgid "Zaubert nicht mehr. Lang ist er trotzdem."
+msgstr "Não faz mais magia. Mas continua comprido."
+
 msgid "Zehn Bomben"
 msgstr "Dez bombas"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Dez moedas, mais sorte"
+
+msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
+msgstr "Arraste a pele de rato para o lugar seguro dourado. O que estiver lá fica com você se morrer."
+
+msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
+msgstr "Arraste uma mochila até o inventário. Ela precisa encostar por uma borda."
+
+msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
+msgstr "Arrastar: prender · R / clique direito ao arrastar: girar · Para a lista: soltar"
 
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "Arrastar: organizar · Arrastar para fora: largar · Tab: fechar"
@@ -3219,6 +3318,9 @@ msgstr "máx."
 msgid "oder Leertaste"
 msgstr "ou aperte Espaço"
 
+msgid "Öffne dein Inventar mit Tab."
+msgstr "Abra o inventário com Tab."
+
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Acima do limite: o Egon está de olho na sua lata!"
 
@@ -3227,6 +3329,9 @@ msgstr "Sobrevivência"
 
 msgid "Überschreiben"
 msgstr "Sobrescrever"
+
+msgid "Übungsratte"
+msgstr "Rato de treino"
 
 msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
 msgstr "…Pelo menos trouxe o saque? Não? Hm. Então só uma coisa ajuda: poções!"

@@ -54,6 +54,9 @@ msgstr "All items dropped"
 msgid "Alle Items ablegen"
 msgstr "Drop all items"
 
+msgid "Alle Rucksäcke sind angebaut. Mehr gibt es im Skillbaum."
+msgstr "All backpacks are attached. More in the skill tree."
+
 msgid "Alle Werte ein bisschen hoch"
 msgstr "All stats up a little"
 
@@ -149,6 +152,9 @@ msgstr "Mountain Hawk"
 
 msgid "Bernstein"
 msgstr "Amber"
+
+msgid "Beschläge aus Kupfer, Platz für einen Rubin."
+msgstr "Copper fittings, room for a ruby."
 
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "Defeat %d enemies (%d / %d)"
@@ -288,8 +294,14 @@ msgstr "You don't have enough gold for that, partner. Such a shame."
 msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
 msgstr "But the goods get better with every spin. It says so on the bar, honest!"
 
+msgid "Daran hängt noch ein anderer Rucksack."
+msgstr "Another backpack still hangs on this one."
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "There is a tiny bug stuck inside."
+
+msgid "Darin wohnt fast ein ganzer Laden."
+msgstr "Almost a whole shop fits inside."
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "Above that… let's say there are rats here. Big rats. With hands."
@@ -360,6 +372,9 @@ msgstr "The way down is open!"
 msgid "Der Wildhüter"
 msgstr "The Gamekeeper"
 
+msgid "Der sichere Platz wird eine Spalte breiter."
+msgstr "The safe spot gets one column wider."
+
 msgid "Diamant"
 msgstr "Diamond"
 
@@ -377,6 +392,9 @@ msgstr "Thick skin"
 
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "The window size only applies in window mode."
+
+msgid "Die Tür ist offen. Geh in den nächsten Raum."
+msgstr "The door is open. Go into the next room."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "The archer's weapon: charge arrows and let go, far and strong"
@@ -639,6 +657,15 @@ msgstr "One more relic slot on your hero."
 msgid "Ein Rubin"
 msgstr "A ruby"
 
+msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "A backpack with 3×3 cells. Attach it to your inventory at Egon's."
+
+msgid "Ein Rucksack mit 4×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "A backpack with 4×2 cells. Attach it to your inventory at Egon's."
+
+msgid "Ein Rucksack mit 4×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "A backpack with 4×3 cells. Attach it to your inventory at Egon's."
+
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "A bargain! For me. Er… for you! Honestly!"
 
@@ -687,6 +714,9 @@ msgstr "A secret room!"
 msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
 msgstr "Half a white shield heart more at the start of every run."
 
+msgid "Ein riesiger Rucksack mit 5×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "A huge backpack with 5×3 cells. Attach it to your inventory at Egon's."
+
 msgid "Ein rotes Herz mehr."
 msgstr "One more red heart."
 
@@ -705,6 +735,9 @@ msgstr "A second life!"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "One more item on Egon's table."
 
+msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "A pouch with 2×2 cells. Attach it to your inventory at Egon's."
+
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "A meadow as tall as a dwarf. Something rustles in the grass, and a hunter sets traps. Egon sells scythes. Sadly, none in stock."
 
@@ -713,6 +746,9 @@ msgstr "A whole bakery at once"
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "A short blade. For warriors."
+
+msgid "Eine Übungsratte! Sie tut dir nichts. Schieß sie ab."
+msgstr "A practice rat! It can't hurt you. Shoot it."
 
 msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
 msgstr "Once a day I spin the table for free. After that there's a friendship price. It gets a little friendlier every time."
@@ -740,6 +776,9 @@ msgstr "Iron Gloves"
 
 msgid "Eisen-Helm"
 msgstr "Iron Helmet"
+
+msgid "Eisen-Rucksack"
+msgstr "Iron Backpack"
 
 msgid "Eisen-Schwert"
 msgstr "Iron Sword"
@@ -1152,6 +1191,9 @@ msgstr "Ember Tunnels"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Shines greenish. The merchant likes it."
 
+msgid "Glänzt sogar im Dunkeln."
+msgstr "Shines even in the dark."
+
 msgid "Glänzt wie der Mond. Der Händler wird ganz still."
 msgstr "Shines like the moon. The merchant goes very quiet."
 
@@ -1319,6 +1361,9 @@ msgstr "Green"
 
 msgid "Grün wie das Moor, nur teurer."
 msgstr "Green as the bog, only pricier."
+
+msgid "Gut gemacht! Jetzt ab in den Dungeon."
+msgstr "Well done! Now into the dungeon."
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "Good choice! A collector's item. Honestly!"
@@ -1524,6 +1569,9 @@ msgstr "Combat"
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Can now appear in the dungeon"
 
+msgid "Karawanen-Rucksack"
+msgstr "Caravan Backpack"
+
 msgid "Karawanenrucksack"
 msgstr "Caravan Pack"
 
@@ -1547,6 +1595,9 @@ msgstr "Child's Shoes"
 
 msgid "Klappern bei jedem Schritt."
 msgstr "Rattle with every step."
+
+msgid "Klein, riecht nach Kräutern."
+msgstr "Small, smells of herbs."
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Smaller, faster and sometimes dodge"
@@ -1638,6 +1689,9 @@ msgstr "Crystal Meadow"
 msgid "Kräuterbeutel"
 msgstr "Herb Pouch"
 
+msgid "Kräutertasche"
+msgstr "Herb Pouch"
+
 msgid "Kupfer"
 msgstr "Copper"
 
@@ -1655,6 +1709,9 @@ msgstr "Copper Gloves"
 
 msgid "Kupfer-Helm"
 msgstr "Copper Helmet"
+
+msgid "Kupfer-Rucksack"
+msgstr "Copper Backpack"
 
 msgid "Kupfer-Schwert"
 msgstr "Copper Sword"
@@ -1683,6 +1740,9 @@ msgstr "Shop"
 msgid "Ladenschild"
 msgstr "Shop Sign"
 
+msgid "Lang und schmal, schwer wie ein Amboss."
+msgstr "Long and narrow, heavy as an anvil."
+
 msgid "Lange Flugbahnen, gewaltiger Einschlag"
 msgstr "Long flights, mighty impact"
 
@@ -1691,6 +1751,9 @@ msgstr "Slow healing and a blue heart"
 
 msgid "Langsam heilst du dich"
 msgstr "You slowly heal"
+
+msgid "Laufe mit W A S D."
+msgstr "Walk with W A S D."
 
 msgid "Lautstärke"
 msgstr "Volume"
@@ -1754,6 +1817,9 @@ msgstr "Light Staff"
 
 msgid "Links"
 msgstr "Left"
+
+msgid "Linksklick: schießen. Probier es!"
+msgstr "Left click: shoot. Try it!"
 
 msgid "Länge"
 msgstr "Length"
@@ -1884,6 +1950,9 @@ msgstr "Bog Corpse"
 msgid "Moormutter"
 msgstr "Bog Mother"
 
+msgid "Morscher Zauberstab"
+msgstr "Rotten Staff"
+
 msgid "Musik"
 msgstr "Music"
 
@@ -1919,6 +1988,9 @@ msgstr "New Game"
 
 msgid "Nicht ablecken."
 msgstr "Do not lick."
+
+msgid "Nicht angebaut"
+msgstr "Not attached"
 
 msgid "Nicht während eines Kampfes"
 msgstr "Not during a fight"
@@ -2055,6 +2127,9 @@ msgstr "Powder Glove"
 msgid "Punkt in der Mitte"
 msgstr "Center dot"
 
+msgid "R / Rechtsklick beim Ziehen: drehen"
+msgstr "R / right click while dragging: rotate"
+
 msgid "Rahmenlos"
 msgstr "Borderless"
 
@@ -2187,6 +2262,9 @@ msgstr "Ruby"
 msgid "Rucksack"
 msgstr "Backpack"
 
+msgid "Rucksäcke"
+msgstr "Backpacks"
+
 msgid "Rudelführer"
 msgstr "Pack Leader"
 
@@ -2309,6 +2387,9 @@ msgstr "Treasure Bag"
 
 msgid "Schatzkarte"
 msgstr "Treasure Map"
+
+msgid "Schau dich mit der Maus um."
+msgstr "Look around with the mouse."
 
 msgid "Schießt Feuerbälle"
 msgstr "Shoots fireballs"
@@ -2502,6 +2583,9 @@ msgstr "Safe slot: kept when you die"
 msgid "Sichtfeld"
 msgstr "Field of view"
 
+msgid "Sie hat etwas fallen lassen. Lauf darüber, um es aufzuheben."
+msgstr "It dropped something. Walk over it to pick it up."
+
 msgid "Siegerring"
 msgstr "Victor's Ring"
 
@@ -2522,6 +2606,9 @@ msgstr "Silver Gloves"
 
 msgid "Silber-Helm"
 msgstr "Silver Helmet"
+
+msgid "Silber-Rucksack"
+msgstr "Silver Backpack"
 
 msgid "Silber-Schwert"
 msgstr "Silver Sword"
@@ -3117,11 +3204,23 @@ msgstr "Desert Compass"
 msgid "Zauberbuch"
 msgstr "Spellbook"
 
+msgid "Zaubert nicht mehr. Lang ist er trotzdem."
+msgstr "No magic left. Still long, though."
+
 msgid "Zehn Bomben"
 msgstr "Ten bombs"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Ten coins, luck up"
+
+msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
+msgstr "Drag the rat fur into the golden safe spot. What lies there stays with you when you die."
+
+msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
+msgstr "Drag a backpack to your inventory. It must touch it along an edge."
+
+msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
+msgstr "Drag: attach · R / right click while dragging: rotate · Drag onto the list: detach"
 
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "Drag: sort · Drag out of the window: drop · Tab: close"
@@ -3219,6 +3318,9 @@ msgstr "max."
 msgid "oder Leertaste"
 msgstr "or press Space"
 
+msgid "Öffne dein Inventar mit Tab."
+msgstr "Open your inventory with Tab."
+
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Over the limit: Egon is eyeing your money box!"
 
@@ -3227,6 +3329,9 @@ msgstr "Survival"
 
 msgid "Überschreiben"
 msgstr "Overwrite"
+
+msgid "Übungsratte"
+msgstr "Practice Rat"
 
 msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
 msgstr "…Did you at least bring the loot? No? Hm. Then only one thing helps: potions!"

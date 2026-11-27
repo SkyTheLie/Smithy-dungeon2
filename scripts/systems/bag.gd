@@ -1,50 +1,158 @@
 class_name Bag
 extends RefCounted
-## The bag of a run (Tab): loot from the dungeon (data/loot.json "materials"). A fixed number of
-## places (data/meta.json "bag": slots) plus safe places (safe_slots) at the end. Dying empties
-## the bag except the safe places (lose_unsafe). The gold of the run is in here too (material
-## "gold", GOLD, only from selling loot in the dungeon shop): it stacks higher (loot.json
-## "stack"), can be dropped and put into the safe place like everything else; RunState.coins
-## only counts it.
+## The bag of a run (Tab): loot from the dungeon (data/loot.json "materials") on a grid of cells,
+## like a backpack game. The base bag has columns × rows cells (data/meta.json "bag"); backpacks
+## the player attached at home add cells (add_backpacks, BagLayout). Every piece of loot takes
+## BagLayout.loot_size cells (a rat fur 2×2, a staff 4×1, a ruby 3×3) and can be turned by 90
+## degrees. Besides the bag lies the safe place (its own little grid, meta.json bag.safe; the
+## skill Geheimtasche makes it wider): what lies there stays when the player dies (lose_unsafe).
+## The gold of the run is in here too (material "gold", GOLD, only from selling loot in the
+## dungeon shop): it stacks (loot.json "stack"), RunState.coins only counts it.
 ##
-## A place is {} (empty) or {"id": String, "count": int}. Indices 0 .. slots - 1 are normal,
-## slots .. size() - 1 are safe.
+## A place (one piece of loot) is {"id", "count", "x", "y", "rot"}: x, y = its top left cell.
+## Places are addressed by their index in `places`; it changes when a place is taken out.
+## Cells of the safe place lie far right of the bag (SAFE_ORIGIN), so nothing reaches over both.
 
 signal changed
 
-var places: Array[Dictionary] = []
-var normal_count: int = 12
-var stack_limit: int = 20
-
 ## The material id of the run's gold (data/loot.json).
 const GOLD: String = "gold"
+const MAIN: String = "main"
+const SAFE: String = "safe"
+## The safe place's top left cell (far away from every backpack, see BagLayout.board_rect).
+const SAFE_ORIGIN := Vector2i(1000, 0)
+
+## Cell -> what it belongs to: "" = the base bag, a backpack id, or SAFE.
+var cells: Dictionary[Vector2i, String] = {}
+var places: Array[Dictionary] = []
+var stack_limit: int = 1
+## Width and height of the safe place in cells.
+var safe_size := Vector2i(2, 2)
 
 
 func _init() -> void:
-	var settings: Dictionary = Content.meta("bag")
-	normal_count = maxi(1, int(settings.get("slots", 12)))
-	stack_limit = maxi(1, int(settings.get("stack", 20)))
-	var total: int = normal_count + maxi(0, int(settings.get("safe_slots", 1)))
-	for i in total:
-		places.append({})
+	var settings: Dictionary = BagLayout.settings()
+	stack_limit = maxi(1, int(settings.get("stack", 1)))
+	for cell: Vector2i in BagLayout.base_cells():
+		cells[cell] = ""
+	var safe: Array = settings.get("safe", [2, 2])
+	safe_size = Vector2i(maxi(1, int(safe[0])), maxi(1, int(safe[1]))) if safe.size() >= 2 else Vector2i(2, 2)
+	_build_safe()
 
 
-## More places (skills: Größerer Rucksack, Geheimtasche): normal ones before the safe ones.
-func grow(extra_normal: int, extra_safe: int) -> void:
-	for i in maxi(0, extra_normal):
-		places.insert(normal_count, {})
-		normal_count += 1
-	for i in maxi(0, extra_safe):
-		places.append({})
+func _build_safe() -> void:
+	for y in safe_size.y:
+		for x in safe_size.x:
+			cells[SAFE_ORIGIN + Vector2i(x, y)] = SAFE
+
+
+## The backpacks attached at home (MetaState.backpacks): their cells join the bag. Invalid
+## placements (BagLayout.is_valid) are ignored as a whole.
+func add_backpacks(placements: Array) -> void:
+	if placements.is_empty() or not BagLayout.is_valid(placements):
+		return
+	for entry: Variant in placements:
+		for cell: Vector2i in BagLayout.cells_of(entry):
+			cells[cell] = String((entry as Dictionary)["id"])
 	changed.emit()
 
+
+## The safe place gets `extra_columns` more columns (skill Geheimtasche).
+func grow_safe(extra_columns: int) -> void:
+	if extra_columns <= 0:
+		return
+	safe_size.x += extra_columns
+	_build_safe()
+	changed.emit()
+
+
+# --- Cells ------------------------------------------------------------------------
+
+## MAIN or SAFE for a cell of the bag ("" = not a cell of the bag).
+func section_of(cell: Vector2i) -> String:
+	if not cells.has(cell):
+		return ""
+	return SAFE if cells[cell] == SAFE else MAIN
+
+
+## Every cell of `section` (MAIN: bag and backpacks, SAFE: the safe place).
+func section_cells(section: String) -> Array[Vector2i]:
+	var list: Array[Vector2i] = []
+	for cell: Vector2i in cells:
+		if section_of(cell) == section:
+			list.append(cell)
+	return list
+
+
+## Width × height of place `place` as it lies (turned or not).
+static func footprint(place: Dictionary) -> Vector2i:
+	return BagLayout.turned(BagLayout.loot_size(String(place.get("id", ""))), bool(place.get("rot", false)))
+
+
+static func cells_of_place(place: Dictionary) -> Array[Vector2i]:
+	var list: Array[Vector2i] = []
+	var span: Vector2i = footprint(place)
+	var at := Vector2i(int(place.get("x", 0)), int(place.get("y", 0)))
+	for y in span.y:
+		for x in span.x:
+			list.append(at + Vector2i(x, y))
+	return list
+
+
+## The index of the place lying on `cell` (-1 = free or not a cell).
+func place_at_cell(cell: Vector2i) -> int:
+	for i in places.size():
+		if cells_of_place(places[i]).has(cell):
+			return i
+	return -1
+
+
+## true if loot `id` (turned when `rot`) fits with its top left at `at`: every cell is a cell of
+## one section and free (the places in `ignore` do not count).
+func fits(id: String, at: Vector2i, rot: bool, ignore: Array[int] = []) -> bool:
+	var probe: Dictionary = {"id": id, "x": at.x, "y": at.y, "rot": rot}
+	var section: String = ""
+	var mine: Array[Vector2i] = cells_of_place(probe)
+	for cell: Vector2i in mine:
+		var here: String = section_of(cell)
+		if here.is_empty() or (not section.is_empty() and here != section):
+			return false
+		section = here
+	for i in places.size():
+		if ignore.has(i):
+			continue
+		for cell: Vector2i in cells_of_place(places[i]):
+			if mine.has(cell):
+				return false
+	return true
+
+
+## The first free spot for loot `id` in `section` (rows from the top, then turned): {"x", "y",
+## "rot"} or {} when it does not fit anywhere.
+func free_spot(id: String, section: String = MAIN) -> Dictionary:
+	var list: Array[Vector2i] = section_cells(section)
+	list.sort_custom(func(a: Vector2i, b: Vector2i) -> bool: return a.y < b.y if a.y != b.y else a.x < b.x)
+	var span: Vector2i = BagLayout.loot_size(id)
+	var turns: Array[bool] = [false]
+	if span.x != span.y:
+		turns.append(true)
+	for rot: bool in turns:
+		for cell: Vector2i in list:
+			if fits(id, cell, rot):
+				return {"x": cell.x, "y": cell.y, "rot": rot}
+	return {}
+
+
+# --- Places -----------------------------------------------------------------------
 
 func size() -> int:
 	return places.size()
 
 
 func is_safe(index: int) -> bool:
-	return index >= normal_count and index < places.size()
+	if index < 0 or index >= places.size():
+		return false
+	return section_of(Vector2i(int(places[index]["x"]), int(places[index]["y"]))) == SAFE
 
 
 func get_place(index: int) -> Dictionary:
@@ -58,132 +166,218 @@ func stack_of(id: String) -> int:
 	return maxi(1, int(Content.material(id).get("stack", stack_limit)))
 
 
-## How many of `id` are in the bag (normal and safe places).
+## How many of `id` are in the bag (bag and safe place).
 func count_of(id: String) -> int:
 	var total: int = 0
 	for place: Dictionary in places:
-		if not place.is_empty() and String(place["id"]) == id:
+		if String(place["id"]) == id:
 			total += int(place["count"])
 	return total
 
 
-## Takes `amount` of `id` out (normal places first, then the safe ones). false (nothing taken) if
-## there is not that much or the amount is <= 0.
+## Takes `amount` of `id` out (bag first, then the safe place). false (nothing taken) if there
+## is not that much or the amount is <= 0.
 func remove(id: String, amount: int) -> bool:
 	if amount <= 0 or count_of(id) < amount:
 		return false
 	var left: int = amount
+	var order: Array[int] = []
 	for i in places.size():
+		if not is_safe(i):
+			order.append(i)
+	for i in places.size():
+		if is_safe(i):
+			order.append(i)
+	var emptied: Array[int] = []
+	for i: int in order:
 		if left <= 0:
 			break
-		if places[i].is_empty() or String(places[i]["id"]) != id:
+		if String(places[i]["id"]) != id:
 			continue
 		var taken: int = mini(left, int(places[i]["count"]))
 		places[i]["count"] = int(places[i]["count"]) - taken
 		left -= taken
 		if int(places[i]["count"]) <= 0:
-			places[i] = {}
+			emptied.append(i)
+	emptied.sort()
+	emptied.reverse()
+	for i: int in emptied:
+		places.remove_at(i)
 	changed.emit()
 	return true
 
 
-## How many of `id` would still fit into the normal places (stacks first, then empty places).
+## How many of `id` would still fit into the bag (onto stacks, then into free spots).
 func room_for(id: String) -> int:
+	if Content.material(id).is_empty():
+		return 0
 	var room: int = 0
-	for i in normal_count:
-		if places[i].is_empty():
-			room += stack_of(id)
-		elif String(places[i]["id"]) == id:
+	for i in places.size():
+		if not is_safe(i) and String(places[i]["id"]) == id:
 			room += stack_of(id) - int(places[i]["count"])
+	# Fill a copy with full stacks until nothing fits any more.
+	var saved: Array[Dictionary] = places.duplicate(true)
+	var spot: Dictionary = free_spot(id)
+	while not spot.is_empty():
+		places.append({"id": id, "count": stack_of(id), "x": spot["x"], "y": spot["y"], "rot": spot["rot"]})
+		room += stack_of(id)
+		spot = free_spot(id)
+	places = saved
 	return room
 
 
-## Puts `amount` of `id` into the normal places (onto stacks of the same thing first).
-## Returns how many did not fit (0 = all in). Unknown ids and amounts <= 0 are refused.
+## Puts `amount` of `id` into the bag (onto stacks of the same thing first, then into the first
+## free spots; never into the safe place). Returns how many did not fit (0 = all in). Unknown ids
+## and amounts <= 0 are refused.
 func add(id: String, amount: int) -> int:
 	if amount <= 0 or Content.material(id).is_empty():
 		return maxi(amount, 0)
 	var left: int = amount
-	for i in normal_count:
-		if left > 0 and not places[i].is_empty() and String(places[i]["id"]) == id:
+	for i in places.size():
+		if left > 0 and not is_safe(i) and String(places[i]["id"]) == id:
 			var put: int = mini(left, stack_of(id) - int(places[i]["count"]))
 			places[i]["count"] = int(places[i]["count"]) + put
 			left -= put
-	for i in normal_count:
-		if left > 0 and places[i].is_empty():
-			var put: int = mini(left, stack_of(id))
-			places[i] = {"id": id, "count": put}
-			left -= put
+	while left > 0:
+		var spot: Dictionary = free_spot(id)
+		if spot.is_empty():
+			break
+		var put: int = mini(left, stack_of(id))
+		places.append({"id": id, "count": put, "x": int(spot["x"]), "y": int(spot["y"]), "rot": bool(spot["rot"])})
+		left -= put
 	if left < amount:
 		changed.emit()
 	return left
 
 
-## Puts `count` of `id` onto the empty place `index` (also a safe one). false (nothing changes)
-## if the place is taken, the index is wrong, the id unknown or the count <= 0.
-func put(index: int, id: String, count: int) -> bool:
-	if index < 0 or index >= places.size() or not places[index].is_empty():
+## Puts `count` of `id` with its top left on `cell` (also in the safe place). false (nothing
+## changes) if it does not fit there, the id is unknown or the count <= 0.
+func put_at(cell: Vector2i, id: String, count: int, rot: bool = false) -> bool:
+	if count <= 0 or Content.material(id).is_empty() or not fits(id, cell, rot):
 		return false
-	if count <= 0 or Content.material(id).is_empty():
-		return false
-	places[index] = {"id": id, "count": count}
+	places.append({"id": id, "count": count, "x": cell.x, "y": cell.y, "rot": rot})
 	changed.emit()
 	return true
 
 
-## Drag and drop from place `from` to place `to`: the same thing stacks (what does not fit stays),
-## otherwise the two places swap. Works between normal and safe places.
-func move(from: int, to: int) -> void:
-	if from == to or from < 0 or to < 0 or from >= places.size() or to >= places.size():
-		return
-	var source: Dictionary = places[from]
-	if source.is_empty():
-		return
-	var target: Dictionary = places[to]
-	if not target.is_empty() and String(target["id"]) == String(source["id"]):
-		var put: int = mini(int(source["count"]), stack_of(String(source["id"])) - int(target["count"]))
+## Drag and drop: place `index` goes with its top left onto `cell`, turned when `rot`. If it lands
+## on exactly one other place: the same thing stacks (what does not fit stays), otherwise the two
+## swap when the other one fits where the dragged one was. false = nothing changed.
+func move_to(index: int, cell: Vector2i, rot: bool) -> bool:
+	if index < 0 or index >= places.size():
+		return false
+	var source: Dictionary = places[index]
+	var id: String = String(source["id"])
+	if BagLayout.loot_size(id).x == BagLayout.loot_size(id).y:
+		rot = false
+	if fits(id, cell, rot, [index]):
+		source["x"] = cell.x
+		source["y"] = cell.y
+		source["rot"] = rot
+		changed.emit()
+		return true
+	# What lies under it?
+	var probe: Dictionary = {"id": id, "x": cell.x, "y": cell.y, "rot": rot}
+	var under: Array[int] = []
+	for c: Vector2i in cells_of_place(probe):
+		if section_of(c).is_empty():
+			return false
+		var other: int = place_at_cell(c)
+		if other >= 0 and other != index and not under.has(other):
+			under.append(other)
+	if under.size() != 1:
+		return false
+	var target: Dictionary = places[under[0]]
+	if String(target["id"]) == id and stack_of(id) > 1:
+		var put: int = mini(int(source["count"]), stack_of(id) - int(target["count"]))
+		if put <= 0:
+			return false
 		target["count"] = int(target["count"]) + put
 		source["count"] = int(source["count"]) - put
 		if int(source["count"]) <= 0:
-			places[from] = {}
-	else:
-		places[from] = target
-		places[to] = source
-	changed.emit()
+			places.remove_at(index)
+		changed.emit()
+		return true
+	# Swap: the dragged one to `cell`, the other one to where the dragged one was.
+	var old := Vector2i(int(source["x"]), int(source["y"]))
+	var old_rot: bool = bool(source["rot"])
+	var other_id: String = String(target["id"])
+	var other_old := Vector2i(int(target["x"]), int(target["y"]))
+	var other_rot: bool = bool(target["rot"])
+	source["x"] = cell.x
+	source["y"] = cell.y
+	source["rot"] = rot
+	target["x"] = -99999
+	target["y"] = -99999
+	for turn: bool in [other_rot, not other_rot]:
+		if fits(other_id, old, turn, [under[0]]) and _fits_with(under[0], old, turn):
+			target["x"] = old.x
+			target["y"] = old.y
+			target["rot"] = turn
+			changed.emit()
+			return true
+	source["x"] = old.x
+	source["y"] = old.y
+	source["rot"] = old_rot
+	target["x"] = other_old.x
+	target["y"] = other_old.y
+	target["rot"] = other_rot
+	return false
 
 
-## Takes the whole place out (to drop it on the floor). Returns what was there ({} if empty).
+## true if place `index` at `at` (turned `rot`) covers no cell of the other places.
+func _fits_with(index: int, at: Vector2i, rot: bool) -> bool:
+	var probe: Dictionary = {"id": places[index]["id"], "x": at.x, "y": at.y, "rot": rot}
+	var mine: Array[Vector2i] = cells_of_place(probe)
+	for i in places.size():
+		if i == index:
+			continue
+		for c: Vector2i in cells_of_place(places[i]):
+			if mine.has(c):
+				return false
+	return true
+
+
+## Takes the whole place out (to drop it on the floor or sell it). Returns what was there.
 func take(index: int) -> Dictionary:
-	var place: Dictionary = get_place(index)
-	if place.is_empty():
+	if index < 0 or index >= places.size():
 		return {}
-	places[index] = {}
+	var place: Dictionary = places[index]
+	places.remove_at(index)
 	changed.emit()
 	return place
 
 
-## Death: everything outside the safe places is gone. Returns what stays (the safe places).
+## Everything out (bag and safe place).
+func clear() -> void:
+	places.clear()
+	changed.emit()
+
+
+## Death: everything outside the safe place is gone. Returns what stays.
 func lose_unsafe() -> Array[Dictionary]:
-	for i in normal_count:
-		places[i] = {}
+	var kept: Array[Dictionary] = []
+	for i in places.size():
+		if is_safe(i):
+			kept.append(places[i])
+	places = kept
 	changed.emit()
 	return safe_contents()
 
 
 func safe_contents() -> Array[Dictionary]:
 	var kept: Array[Dictionary] = []
-	for i in range(normal_count, places.size()):
-		if not places[i].is_empty():
+	for i in places.size():
+		if is_safe(i):
 			kept.append(places[i].duplicate())
 	return kept
 
 
-## Everything in the bag (normal and safe), as a list of copies.
+## Everything in the bag (bag and safe place), as a list of copies.
 func contents() -> Array[Dictionary]:
 	var all: Array[Dictionary] = []
 	for place: Dictionary in places:
-		if not place.is_empty():
-			all.append(place.duplicate())
+		all.append(place.duplicate())
 	return all
 
 
@@ -191,6 +385,5 @@ func contents() -> Array[Dictionary]:
 func total_value() -> int:
 	var total: int = 0
 	for place: Dictionary in places:
-		if not place.is_empty():
-			total += int(Content.material(String(place["id"])).get("value", 0)) * int(place["count"])
+		total += int(Content.material(String(place["id"])).get("value", 0)) * int(place["count"])
 	return total

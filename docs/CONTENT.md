@@ -70,7 +70,9 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 
 ## Spielstand-Regeln (`data/meta.json`)
 
-- `bag`: `slots` (normale Plätze), `safe_slots` (bleiben beim Tod), `stack` (höchste Anzahl pro Platz).
+- `bag`: `columns` × `rows` (Raster des Inventars im Run), `safe` [Breite, Höhe] (sicherer Platz, bleibt beim Tod), `stack` (höchste Anzahl pro Platz), `board` [links, oben, rechts, unten] (Bereich, in dem Rucksäcke angebaut werden dürfen; das Inventar liegt bei 0,0).
+- Beute (`loot.json` materials): `size` [Breite, Höhe] in Inventar-Feldern (fehlt = `default_size`). Faustregel: Kleinkram 1×1, Felle/Häute 2×2, Federn/Essenzen 1×2, Stäbe 4×1, seltene Edelsteine und große Felle 3×3. Alles muss ins 8×3-Inventar passen (Test).
+- Rucksäcke (`backpacks.json`): `name`, `desc`, `icon`, `size` [Breite, Höhe], `color` [r, g, b]. Bekommen über einen Skill mit `effect` `{"backpack": "<id>"}`.
 - `money_box`: `limit` (so viel ist in der Dose sicher), `steal_all_chance`, `steal_part_chance`, `steal_part_share` [min, max].
 
 ## Dungeon auf Egons Brett (`data/dungeons.json`)
@@ -110,7 +112,7 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 ## Stufen (`data/levels.json`) und Skills (`data/skills.json`)
 
 - `levels.json`: `exp_per_kill`, `exp_per_boss`, `first_level_exp`, `growth`, `max_level`, `points_per_level`, `start_points`.
-- `skills.json` je Skill: `name`, `desc`, `icon`, `pos` [Spalte, Zeile], `requires`, `max_level`, `gold` [je Stufe], `points` [je Stufe], `min_level` [Spielerstufe je Stufe], `effect` (`stats`, `shield_halves`, `hearts`, `bag_slots`, `safe_slots`, `relic_slots`, `relic_runs`, `sell_bonus`, `goods_extra` (mehr Ware auf Egons Tisch), `rarity` (`{"2": 5}` = 5 % von R1 zu R2 je Stufe)). Neuer Skill = neuer Eintrag; Texte danach übersetzen.
+- `skills.json` je Skill: `name`, `desc`, `icon`, `pos` [Spalte, Zeile], `requires`, `max_level`, `gold` [je Stufe], `points` [je Stufe], `min_level` [Spielerstufe je Stufe], `effect` (`stats`, `shield_halves`, `hearts`, `backpack` (Id aus backpacks.json), `safe_slots` (sicherer Platz eine Spalte breiter), `relic_slots`, `relic_runs`, `sell_bonus`, `goods_extra` (mehr Ware auf Egons Tisch), `rarity` (`{"2": 5}` = 5 % von R1 zu R2 je Stufe)). Neuer Skill = neuer Eintrag; Texte danach übersetzen.
 
 ## Dungeons, Fallen, Materialien (2026-11-27)
 

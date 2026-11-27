@@ -54,6 +54,9 @@ msgstr "Tous les objets lâchés"
 msgid "Alle Items ablegen"
 msgstr "Lâcher tous les objets"
 
+msgid "Alle Rucksäcke sind angebaut. Mehr gibt es im Skillbaum."
+msgstr "Tous les sacs sont attachés. D'autres dans l'arbre de compétences."
+
 msgid "Alle Werte ein bisschen hoch"
 msgstr "Toutes les stats un peu en hausse"
 
@@ -149,6 +152,9 @@ msgstr "Faucon des montagnes"
 
 msgid "Bernstein"
 msgstr "Ambre"
+
+msgid "Beschläge aus Kupfer, Platz für einen Rubin."
+msgstr "Ferrures en cuivre, de la place pour un rubis."
 
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "Vaincs %d ennemis (%d / %d)"
@@ -288,8 +294,14 @@ msgstr "Ton or ne suffit pas pour ça, partenaire. Hélas, hélas."
 msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
 msgstr "Mais la marchandise s'améliore à chaque tour. C'est écrit sur la barre, honnêtement !"
 
+msgid "Daran hängt noch ein anderer Rucksack."
+msgstr "Un autre sac y est encore accroché."
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Une petite bestiole est coincée dedans."
+
+msgid "Darin wohnt fast ein ganzer Laden."
+msgstr "Presque toute une boutique y tient."
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "Au-delà… disons qu'il y a des rats ici. Des gros rats. Avec des mains."
@@ -360,6 +372,9 @@ msgstr "Le chemin vers le bas est ouvert !"
 msgid "Der Wildhüter"
 msgstr "Le Garde-Chasse"
 
+msgid "Der sichere Platz wird eine Spalte breiter."
+msgstr "L'emplacement sûr gagne une colonne."
+
 msgid "Diamant"
 msgstr "Diamant"
 
@@ -377,6 +392,9 @@ msgstr "Peau épaisse"
 
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "La taille de la fenêtre ne s'applique qu'en mode fenêtré."
+
+msgid "Die Tür ist offen. Geh in den nächsten Raum."
+msgstr "La porte est ouverte. Va dans la salle suivante."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "L'arme de l'archer : charge tes flèches et relâche, loin et fort"
@@ -639,6 +657,15 @@ msgstr "Un emplacement de relique de plus sur ton héros."
 msgid "Ein Rubin"
 msgstr "Un rubis"
 
+msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Un sac de 3×3 cases. À attacher à ton inventaire chez Egon."
+
+msgid "Ein Rucksack mit 4×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Un sac de 4×2 cases. À attacher à ton inventaire chez Egon."
+
+msgid "Ein Rucksack mit 4×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Un sac de 4×3 cases. À attacher à ton inventaire chez Egon."
+
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "Une affaire ! Pour moi. Euh… pour toi ! Honnêtement !"
 
@@ -687,6 +714,9 @@ msgstr "Une salle secrète !"
 msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
 msgstr "Un demi-cœur-bouclier blanc de plus au début de chaque partie."
 
+msgid "Ein riesiger Rucksack mit 5×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Un énorme sac de 5×3 cases. À attacher à ton inventaire chez Egon."
+
 msgid "Ein rotes Herz mehr."
 msgstr "Un cœur rouge de plus."
 
@@ -705,6 +735,9 @@ msgstr "Une seconde vie !"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "Un objet de plus sur la table d'Egon."
 
+msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Une sacoche de 2×2 cases. À attacher à ton inventaire chez Egon."
+
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "Une prairie haute comme un nain. Ça bruisse dans l'herbe, et un chasseur pose des pièges. Egon vend des faux. Hélas, plus en stock."
 
@@ -713,6 +746,9 @@ msgstr "Une boulangerie entière d'un coup"
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "Une lame courte. Pour les guerriers."
+
+msgid "Eine Übungsratte! Sie tut dir nichts. Schieß sie ab."
+msgstr "Un rat d'entraînement ! Il ne te fera rien. Tire-lui dessus."
 
 msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
 msgstr "Une fois par jour, je tourne la table gratuitement. Ensuite, prix d'ami. Un peu plus amical à chaque fois."
@@ -740,6 +776,9 @@ msgstr "Gants en fer"
 
 msgid "Eisen-Helm"
 msgstr "Casque en fer"
+
+msgid "Eisen-Rucksack"
+msgstr "Sac en fer"
 
 msgid "Eisen-Schwert"
 msgstr "Épée en fer"
@@ -1152,6 +1191,9 @@ msgstr "Galeries de braise"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Brille d'un éclat verdâtre. Le marchand adore."
 
+msgid "Glänzt sogar im Dunkeln."
+msgstr "Brille même dans le noir."
+
 msgid "Glänzt wie der Mond. Der Händler wird ganz still."
 msgstr "Brille comme la lune. Le marchand devient tout silencieux."
 
@@ -1319,6 +1361,9 @@ msgstr "Vert"
 
 msgid "Grün wie das Moor, nur teurer."
 msgstr "Vert comme le marais, mais plus cher."
+
+msgid "Gut gemacht! Jetzt ab in den Dungeon."
+msgstr "Bien joué ! Maintenant, au donjon."
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "Bon choix ! Une pièce de collection. Honnêtement !"
@@ -1524,6 +1569,9 @@ msgstr "Combat"
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Peut maintenant apparaître dans le donjon"
 
+msgid "Karawanen-Rucksack"
+msgstr "Sac de caravane"
+
 msgid "Karawanenrucksack"
 msgstr "Sac de caravane"
 
@@ -1547,6 +1595,9 @@ msgstr "Chaussures d'enfant"
 
 msgid "Klappern bei jedem Schritt."
 msgstr "Cliquettent à chaque pas."
+
+msgid "Klein, riecht nach Kräutern."
+msgstr "Petite, sent les herbes."
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Plus petit, plus rapide et parfois esquiver"
@@ -1638,6 +1689,9 @@ msgstr "Prairie de Cristal"
 msgid "Kräuterbeutel"
 msgstr "Sachet d'herbes"
 
+msgid "Kräutertasche"
+msgstr "Sacoche d'herbes"
+
 msgid "Kupfer"
 msgstr "Cuivre"
 
@@ -1655,6 +1709,9 @@ msgstr "Gants en cuivre"
 
 msgid "Kupfer-Helm"
 msgstr "Casque en cuivre"
+
+msgid "Kupfer-Rucksack"
+msgstr "Sac en cuivre"
 
 msgid "Kupfer-Schwert"
 msgstr "Épée en cuivre"
@@ -1683,6 +1740,9 @@ msgstr "Boutique"
 msgid "Ladenschild"
 msgstr "Enseigne de boutique"
 
+msgid "Lang und schmal, schwer wie ein Amboss."
+msgstr "Long et étroit, lourd comme une enclume."
+
 msgid "Lange Flugbahnen, gewaltiger Einschlag"
 msgstr "Longues trajectoires, impact énorme"
 
@@ -1691,6 +1751,9 @@ msgstr "Soin lent et un cœur bleu"
 
 msgid "Langsam heilst du dich"
 msgstr "Tu te soignes lentement"
+
+msgid "Laufe mit W A S D."
+msgstr "Marche avec Z Q S D (W A S D)."
 
 msgid "Lautstärke"
 msgstr "Volume"
@@ -1754,6 +1817,9 @@ msgstr "Bâton de lumière"
 
 msgid "Links"
 msgstr "Gauche"
+
+msgid "Linksklick: schießen. Probier es!"
+msgstr "Clic gauche : tirer. Essaie !"
 
 msgid "Länge"
 msgstr "Longueur"
@@ -1884,6 +1950,9 @@ msgstr "Cadavre des marais"
 msgid "Moormutter"
 msgstr "Mère des marais"
 
+msgid "Morscher Zauberstab"
+msgstr "Bâton pourri"
+
 msgid "Musik"
 msgstr "Musique"
 
@@ -1919,6 +1988,9 @@ msgstr "Nouvelle partie"
 
 msgid "Nicht ablecken."
 msgstr "Ne pas lécher."
+
+msgid "Nicht angebaut"
+msgstr "Non attachés"
 
 msgid "Nicht während eines Kampfes"
 msgstr "Pas pendant un combat"
@@ -2055,6 +2127,9 @@ msgstr "Gant à poudre"
 msgid "Punkt in der Mitte"
 msgstr "Point central"
 
+msgid "R / Rechtsklick beim Ziehen: drehen"
+msgstr "R / clic droit en glissant : tourner"
+
 msgid "Rahmenlos"
 msgstr "Sans bordure"
 
@@ -2187,6 +2262,9 @@ msgstr "Rubis"
 msgid "Rucksack"
 msgstr "Sac à dos"
 
+msgid "Rucksäcke"
+msgstr "Sacs"
+
 msgid "Rudelführer"
 msgstr "Chef de meute"
 
@@ -2309,6 +2387,9 @@ msgstr "Sac au trésor"
 
 msgid "Schatzkarte"
 msgstr "Carte au trésor"
+
+msgid "Schau dich mit der Maus um."
+msgstr "Regarde autour de toi avec la souris."
 
 msgid "Schießt Feuerbälle"
 msgstr "Tire des boules de feu"
@@ -2502,6 +2583,9 @@ msgstr "Emplacement sûr : gardé si tu meurs"
 msgid "Sichtfeld"
 msgstr "Champ de vision"
 
+msgid "Sie hat etwas fallen lassen. Lauf darüber, um es aufzuheben."
+msgstr "Il a laissé tomber quelque chose. Marche dessus pour le ramasser."
+
 msgid "Siegerring"
 msgstr "Anneau du vainqueur"
 
@@ -2522,6 +2606,9 @@ msgstr "Gants en argent"
 
 msgid "Silber-Helm"
 msgstr "Casque en argent"
+
+msgid "Silber-Rucksack"
+msgstr "Sac en argent"
 
 msgid "Silber-Schwert"
 msgstr "Épée en argent"
@@ -3117,11 +3204,23 @@ msgstr "Boussole du désert"
 msgid "Zauberbuch"
 msgstr "Grimoire"
 
+msgid "Zaubert nicht mehr. Lang ist er trotzdem."
+msgstr "Il ne fait plus de magie. Mais il reste long."
+
 msgid "Zehn Bomben"
 msgstr "Dix bombes"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Dix pièces, chance en hausse"
+
+msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
+msgstr "Glisse la fourrure de rat dans l'emplacement sûr doré. Ce qui s'y trouve reste à toi si tu meurs."
+
+msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
+msgstr "Glisse un sac contre ton inventaire. Il doit le toucher par un bord."
+
+msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
+msgstr "Glisser : attacher · R / clic droit en glissant : tourner · Sur la liste : détacher"
 
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "Glisser : trier · Glisser hors de la fenêtre : lâcher · Tab : fermer"
@@ -3219,6 +3318,9 @@ msgstr "max."
 msgid "oder Leertaste"
 msgstr "ou appuyez sur Espace"
 
+msgid "Öffne dein Inventar mit Tab."
+msgstr "Ouvre ton inventaire avec Tab."
+
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Au-dessus de la limite : Egon lorgne ta boîte !"
 
@@ -3227,6 +3329,9 @@ msgstr "Survie"
 
 msgid "Überschreiben"
 msgstr "Écraser"
+
+msgid "Übungsratte"
+msgstr "Rat d'entraînement"
 
 msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
 msgstr "…Tu as au moins le butin ? Non ? Hm. Alors une seule solution : des potions !"
