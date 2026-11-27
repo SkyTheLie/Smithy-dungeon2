@@ -175,7 +175,24 @@ func _check_loot(content: Script, enemies: Dictionary) -> void:
 	for enemy_id: String in enemies:
 		check(tables.has(enemy_id), "enemy %s drops something (loot.json)" % enemy_id)
 	var bag: Dictionary = content.call("meta", "bag")
-	check(int(bag.get("slots", 0)) > 0 and int(bag.get("safe_slots", 0)) >= 1 and int(bag.get("stack", 0)) >= 1, "bag sizes in meta.json")
+	check(int(bag.get("columns", 0)) > 0 and int(bag.get("rows", 0)) > 0 and (bag.get("safe", []) as Array).size() == 2 and int(bag.get("stack", 0)) >= 1, "bag sizes in meta.json")
+	check((bag.get("board", []) as Array).size() == 4, "the backpack board in meta.json")
+	# Every loot fits into the bag (turned if needed) and has a size of at least 1 x 1.
+	var bag_cells := Vector2i(int(bag.get("columns", 0)), int(bag.get("rows", 0)))
+	for id: String in materials:
+		var cells: Vector2i = script("res://scripts/systems/bag_layout.gd").call("loot_size", id)
+		check(cells.x >= 1 and cells.y >= 1, "loot %s: size" % id)
+		check((cells.x <= bag_cells.x and cells.y <= bag_cells.y) or (cells.y <= bag_cells.x and cells.x <= bag_cells.y), "loot %s fits into the bag" % id)
+	# Backpacks: known, with a picture and a size; every skill with "backpack" names one.
+	var backpacks: Dictionary = (content.call("get_file", "backpacks") as Dictionary).get("backpacks", {})
+	check(not backpacks.is_empty(), "backpacks.json has backpacks")
+	for id: String in backpacks:
+		check(ResourceLoader.exists(String((backpacks[id] as Dictionary).get("icon", ""))), "backpack %s: icon" % id)
+		check(((backpacks[id] as Dictionary).get("size", []) as Array).size() == 2, "backpack %s: size" % id)
+	for skill_id: String in ((content.call("get_file", "skills") as Dictionary).get("skills", {}) as Dictionary):
+		var effect: Dictionary = (((content.call("get_file", "skills") as Dictionary)["skills"] as Dictionary)[skill_id] as Dictionary).get("effect", {})
+		if effect.has("backpack"):
+			check(backpacks.has(String(effect["backpack"])), "skill %s gives a known backpack" % skill_id)
 	check(int((content.call("material", "gold") as Dictionary).get("stack", 0)) > 1, "gold stacks (loot.json)")
 	# Keys are rare: one chance for every enemy (loot.json key_chance), none from room rewards.
 	var key_chance: float = float((content.call("get_file", "loot") as Dictionary).get("key_chance", -1.0))

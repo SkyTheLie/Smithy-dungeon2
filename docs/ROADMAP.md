@@ -36,6 +36,14 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Bosse rufen höchstens 5 Helfer gleichzeitig (`enemies.json` `summon_max`).
 - Offen: Preise im Run-Shop im Spiel prüfen (Gold kommt nur aus Beute).
 
+### Raster-Inventar und Tutorial (2026-11-27, `feature/raster-inventar`)
+
+- ✅ Inventar-Fenster kleiner und übersichtlicher.
+- ✅ Inventar als Raster 8×3, Beute mit Größen (Fell 2×2, Zauberstab 4×1, Rubin 3×3), drehen mit R / Rechtsklick, sicherer Platz 2×2.
+- ✅ Rucksäcke (2×2 bis 5×3) im Skillbaum (Gold), bei Egon ans Inventar anbauen.
+- ✅ Tutorial im ersten Run: laufen, umsehen, schießen, Übungsratte, Beute aufheben, Tab, sicherer Platz.
+- Offen: Raster auch für das Inventar zu Hause? Rucksack-Preise im Spiel prüfen.
+
 ## Phase 2 – Intro
 
 1. ✅ (2026-11-26) Intro: schwarz → hell, Mine, Egon winkt, in 3 Bildern auf ihn zu, dann der Laden (`scenes/story/intro.gd`).

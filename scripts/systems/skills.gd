@@ -77,7 +77,7 @@ static func problem(id: String) -> String:
 	return ""
 
 
-## The sum of effect `kind` over every bought level (e.g. "bag_slots", "shield_halves").
+## The sum of effect `kind` over every bought level (e.g. "safe_slots", "shield_halves").
 static func bonus(kind: String) -> float:
 	var total: float = 0.0
 	for id: String in all():
@@ -85,6 +85,17 @@ static func bonus(kind: String) -> float:
 		if level > 0:
 			total += float((data(id).get("effect", {}) as Dictionary).get(kind, 0.0)) * level
 	return total
+
+
+## The backpacks the player owns: effect "backpack" of every learned skill (data/backpacks.json
+## ids, in the order of the tree).
+static func backpacks() -> Array[String]:
+	var list: Array[String] = []
+	for id: String in all():
+		var backpack: String = String((data(id).get("effect", {}) as Dictionary).get("backpack", ""))
+		if not backpack.is_empty() and MetaState.skill_level(id) > 0 and not list.has(backpack):
+			list.append(backpack)
+	return list
 
 
 ## The "rarity" effects of every bought level: {rarity: percent} that move from R1 to that

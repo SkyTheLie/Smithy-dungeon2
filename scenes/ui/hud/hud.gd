@@ -20,6 +20,9 @@ var _boss: Enemy = null
 var _boss_fill_left: float = 0.0
 var _banner_tween: Tween
 var _message_tween: Tween
+## The guide's box (show_guide; null until the guide shows a line).
+var guide_box: PanelContainer = null
+var _guide_label: Label
 ## The potion taken along (built in code under the counters): picture and key.
 var _potion_row: HBoxContainer
 var _potion_icon: TextureRect
@@ -274,6 +277,39 @@ func show_banner(title: String, text: String) -> void:
 	_banner_tween = create_tween()
 	_banner_tween.tween_interval(BANNER_TIME)
 	_banner_tween.tween_property(_banner, "modulate:a", 0.0, 0.6)
+
+
+## The guide of the first run (DungeonGuide): one line in a box at the top middle, until the
+## next step ("" hides it). `text` is already translated.
+func show_guide(text: String) -> void:
+	if guide_box == null:
+		guide_box = PanelContainer.new()
+		guide_box.name = "GuideBox"
+		guide_box.theme_type_variation = &"HudPanel"
+		guide_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		guide_box.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
+		guide_box.grow_horizontal = Control.GROW_DIRECTION_BOTH
+		guide_box.offset_top = 38
+		_guide_label = Label.new()
+		_guide_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		_guide_label.add_theme_font_size_override("font_size", 12)
+		_guide_label.add_theme_color_override("font_color", Color(0.6, 1.0, 0.65))
+		_guide_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_guide_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		_guide_label.custom_minimum_size = Vector2(260, 0)
+		guide_box.add_child(_guide_label)
+		add_child(guide_box)
+	guide_box.visible = not text.is_empty()
+	if text.is_empty():
+		return
+	_guide_label.text = text
+	guide_box.reset_size()
+	guide_box.offset_left = -guide_box.get_combined_minimum_size().x / 2.0
+	guide_box.offset_right = guide_box.get_combined_minimum_size().x / 2.0
+	# A little hop, so the new step catches the eye.
+	guide_box.pivot_offset = guide_box.get_combined_minimum_size() / 2.0
+	guide_box.scale = Vector2(1.15, 1.15)
+	create_tween().tween_property(guide_box, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 ## Short line at the bottom ("Du brauchst einen Schlüssel"). `text` is the German key.

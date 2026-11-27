@@ -54,6 +54,9 @@ msgstr "已丢弃所有物品"
 msgid "Alle Items ablegen"
 msgstr "丢弃所有物品"
 
+msgid "Alle Rucksäcke sind angebaut. Mehr gibt es im Skillbaum."
+msgstr "所有背包都已装上。技能树里还有更多。"
+
 msgid "Alle Werte ein bisschen hoch"
 msgstr "所有属性略微提升"
 
@@ -149,6 +152,9 @@ msgstr "山鹰"
 
 msgid "Bernstein"
 msgstr "琥珀"
+
+msgid "Beschläge aus Kupfer, Platz für einen Rubin."
+msgstr "铜扣件，放得下一颗红宝石。"
 
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "击败%d个敌人（%d / %d）"
@@ -288,8 +294,14 @@ msgstr "你的金币不够，伙计。可惜，可惜。"
 msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
 msgstr "不过每转一次货就更好。条上写着呢，真的！"
 
+msgid "Daran hängt noch ein anderer Rucksack."
+msgstr "上面还挂着另一个背包。"
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "里面封着一只小虫子。"
+
+msgid "Darin wohnt fast ein ganzer Laden."
+msgstr "里面几乎能装下一整家店。"
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "超过的话……这么说吧，这里有老鼠。大老鼠。带手的那种。"
@@ -360,6 +372,9 @@ msgstr "通往下层的路已打开！"
 msgid "Der Wildhüter"
 msgstr "猎场看守"
 
+msgid "Der sichere Platz wird eine Spalte breiter."
+msgstr "安全格多一列。"
+
 msgid "Diamant"
 msgstr "钻石"
 
@@ -377,6 +392,9 @@ msgstr "厚皮"
 
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "窗口大小仅在窗口模式下生效。"
+
+msgid "Die Tür ist offen. Geh in den nächsten Raum."
+msgstr "门开了。进入下一个房间。"
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "弓箭手的武器：蓄力后放箭，又远又强"
@@ -639,6 +657,15 @@ msgstr "角色多一个圣物格。"
 msgid "Ein Rubin"
 msgstr "一颗红宝石"
 
+msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "3×3格的背包。在埃贡那里装到你的背包栏上。"
+
+msgid "Ein Rucksack mit 4×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "4×2格的背包。在埃贡那里装到你的背包栏上。"
+
+msgid "Ein Rucksack mit 4×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "4×3格的背包。在埃贡那里装到你的背包栏上。"
+
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "真划算！对我来说。呃…对你来说！真的！"
 
@@ -687,6 +714,9 @@ msgstr "一个秘密房间！"
 msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
 msgstr "每次冒险开始时多半颗白色护盾之心。"
 
+msgid "Ein riesiger Rucksack mit 5×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "5×3格的巨大背包。在埃贡那里装到你的背包栏上。"
+
 msgid "Ein rotes Herz mehr."
 msgstr "多一颗红心。"
 
@@ -705,6 +735,9 @@ msgstr "第二条命！"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "埃贡的桌上多一件货物。"
 
+msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "2×2格的小包。在埃贡那里装到你的背包栏上。"
+
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "草长得和矮人一样高。草丛里沙沙作响，还有个猎人在设陷阱。埃贡卖镰刀。可惜卖完了。"
 
@@ -713,6 +746,9 @@ msgstr "一次射出整间面包店"
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "一把短刃。战士专用。"
+
+msgid "Eine Übungsratte! Sie tut dir nichts. Schieß sie ab."
+msgstr "一只练习鼠！它不会伤害你。射它。"
 
 msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
 msgstr "每天我免费转一次桌子。之后就是友情价。每次都更友情一点。"
@@ -740,6 +776,9 @@ msgstr "铁手套"
 
 msgid "Eisen-Helm"
 msgstr "铁头盔"
+
+msgid "Eisen-Rucksack"
+msgstr "铁背包"
 
 msgid "Eisen-Schwert"
 msgstr "铁剑"
@@ -1152,6 +1191,9 @@ msgstr "余烬坑道"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "泛着绿光。商人很喜欢。"
 
+msgid "Glänzt sogar im Dunkeln."
+msgstr "在黑暗中也闪闪发亮。"
+
 msgid "Glänzt wie der Mond. Der Händler wird ganz still."
 msgstr "像月亮一样闪亮。商人一下子安静了。"
 
@@ -1319,6 +1361,9 @@ msgstr "绿色"
 
 msgid "Grün wie das Moor, nur teurer."
 msgstr "像沼泽一样绿，只是更贵。"
+
+msgid "Gut gemacht! Jetzt ab in den Dungeon."
+msgstr "干得好！现在进入地牢吧。"
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "好眼光！收藏级好货。真的！"
@@ -1524,6 +1569,9 @@ msgstr "战斗"
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "现在可以在地牢中出现"
 
+msgid "Karawanen-Rucksack"
+msgstr "商队背包"
+
 msgid "Karawanenrucksack"
 msgstr "商队背包"
 
@@ -1547,6 +1595,9 @@ msgstr "童鞋"
 
 msgid "Klappern bei jedem Schritt."
 msgstr "每走一步都哐当作响。"
+
+msgid "Klein, riecht nach Kräutern."
+msgstr "小小的，带着草药味。"
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "更小、更快，有时闪避"
@@ -1638,6 +1689,9 @@ msgstr "水晶草原"
 msgid "Kräuterbeutel"
 msgstr "草药袋"
 
+msgid "Kräutertasche"
+msgstr "草药袋"
+
 msgid "Kupfer"
 msgstr "铜"
 
@@ -1655,6 +1709,9 @@ msgstr "铜手套"
 
 msgid "Kupfer-Helm"
 msgstr "铜头盔"
+
+msgid "Kupfer-Rucksack"
+msgstr "铜背包"
 
 msgid "Kupfer-Schwert"
 msgstr "铜剑"
@@ -1683,6 +1740,9 @@ msgstr "商店"
 msgid "Ladenschild"
 msgstr "商店招牌"
 
+msgid "Lang und schmal, schwer wie ein Amboss."
+msgstr "又长又窄，重得像铁砧。"
+
 msgid "Lange Flugbahnen, gewaltiger Einschlag"
 msgstr "长距离飞行，猛烈冲击"
 
@@ -1691,6 +1751,9 @@ msgstr "缓慢恢复和一颗蓝心"
 
 msgid "Langsam heilst du dich"
 msgstr "你会缓慢恢复"
+
+msgid "Laufe mit W A S D."
+msgstr "用 W A S D 移动。"
 
 msgid "Lautstärke"
 msgstr "音量"
@@ -1754,6 +1817,9 @@ msgstr "光之杖"
 
 msgid "Links"
 msgstr "左"
+
+msgid "Linksklick: schießen. Probier es!"
+msgstr "左键：射击。试试看！"
 
 msgid "Länge"
 msgstr "长度"
@@ -1884,6 +1950,9 @@ msgstr "沼泽尸"
 msgid "Moormutter"
 msgstr "沼泽之母"
 
+msgid "Morscher Zauberstab"
+msgstr "腐朽法杖"
+
 msgid "Musik"
 msgstr "音乐"
 
@@ -1919,6 +1988,9 @@ msgstr "新游戏"
 
 msgid "Nicht ablecken."
 msgstr "别舔。"
+
+msgid "Nicht angebaut"
+msgstr "未装上"
 
 msgid "Nicht während eines Kampfes"
 msgstr "战斗中不可用"
@@ -2055,6 +2127,9 @@ msgstr "火药手套"
 msgid "Punkt in der Mitte"
 msgstr "中心点"
 
+msgid "R / Rechtsklick beim Ziehen: drehen"
+msgstr "拖动时按 R / 右键：旋转"
+
 msgid "Rahmenlos"
 msgstr "无边框"
 
@@ -2187,6 +2262,9 @@ msgstr "红宝石"
 msgid "Rucksack"
 msgstr "背包"
 
+msgid "Rucksäcke"
+msgstr "背包"
+
 msgid "Rudelführer"
 msgstr "狼群首领"
 
@@ -2309,6 +2387,9 @@ msgstr "宝藏袋"
 
 msgid "Schatzkarte"
 msgstr "藏宝图"
+
+msgid "Schau dich mit der Maus um."
+msgstr "用鼠标环顾四周。"
 
 msgid "Schießt Feuerbälle"
 msgstr "发射火球"
@@ -2502,6 +2583,9 @@ msgstr "安全格:死亡时保留"
 msgid "Sichtfeld"
 msgstr "视野"
 
+msgid "Sie hat etwas fallen lassen. Lauf darüber, um es aufzuheben."
+msgstr "它掉了东西。走过去捡起来。"
+
 msgid "Siegerring"
 msgstr "胜者之戒"
 
@@ -2522,6 +2606,9 @@ msgstr "银手套"
 
 msgid "Silber-Helm"
 msgstr "银头盔"
+
+msgid "Silber-Rucksack"
+msgstr "银背包"
 
 msgid "Silber-Schwert"
 msgstr "银剑"
@@ -3117,11 +3204,23 @@ msgstr "沙漠罗盘"
 msgid "Zauberbuch"
 msgstr "法术书"
 
+msgid "Zaubert nicht mehr. Lang ist er trotzdem."
+msgstr "已经不能施法了。但还是很长。"
+
 msgid "Zehn Bomben"
 msgstr "十枚炸弹"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "十枚硬币，幸运提升"
+
+msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
+msgstr "把鼠皮拖进金色的安全格。放在那里的东西死后也会保留。"
+
+msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
+msgstr "把背包拖到背包栏旁边。它必须有一条边相接。"
+
+msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
+msgstr "拖动：装上 · 拖动时按 R / 右键：旋转 · 拖到列表：卸下"
 
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "拖动:整理 · 拖出窗口:丢弃 · Tab:关闭"
@@ -3219,6 +3318,9 @@ msgstr "满级"
 msgid "oder Leertaste"
 msgstr "或按空格键"
 
+msgid "Öffne dein Inventar mit Tab."
+msgstr "按 Tab 打开背包。"
+
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "超过上限：埃贡正盯着你的罐子！"
 
@@ -3227,6 +3329,9 @@ msgstr "生存"
 
 msgid "Überschreiben"
 msgstr "覆盖"
+
+msgid "Übungsratte"
+msgstr "练习鼠"
 
 msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
 msgstr "……至少战利品带回来了吧？没有？嗯。那只剩一个办法：药水！"

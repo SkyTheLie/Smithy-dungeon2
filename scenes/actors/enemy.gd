@@ -679,7 +679,8 @@ func _physics_process(delta: float) -> void:
 	_turn_facing(delta, toward)
 	_turn_look(delta, move, toward)
 	_animate(move)
-	if distance < radius + player.hit_radius() + 0.1 and _freeze_left <= 0.0 and not hidden_phase:
+	# "damage" 0 (the practice rat of the guide): touching does nothing.
+	if distance < radius + player.hit_radius() + 0.1 and _freeze_left <= 0.0 and not hidden_phase and int(data.get("damage", 1)) > 0:
 		var life_before: int = player.run.health + player.run.blue if player.run else 0
 		player.take_hit(int(data.get("damage", 1)))
 		# lifesteal: the boss heals when it hurts the player.

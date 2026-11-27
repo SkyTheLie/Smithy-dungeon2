@@ -10,6 +10,8 @@ extends RefCounted
 ##          new day (roll_theft): spend it or risk it.
 ##   stash  the inventory at home: loot brought home (from the bag) and gear bought from Egon.
 ##   table, pulls_today, equipment, tutorial_done  Egon's shop (see below).
+##   backpacks  the backpacks attached to the bag (BagLayout placements, place_backpack).
+##   guide_done  the guide of the first run is over (DungeonGuide).
 ##   day    one run = one day.
 ##   deaths, potions_unlocked  deaths in the dungeon; after the second one Egon shows the
 ##          potions (potion_tour_due), then potions come on the table and the potion place shows.
@@ -139,8 +141,70 @@ static func buy_skill(id: String) -> bool:
 	var learned: Dictionary = (_read("skills", {}) as Dictionary).duplicate()
 	learned[id] = skill_level(id) + 1
 	_write("skills", learned)
+	# A new backpack is attached at once where it fits (it can be moved in the shop).
+	var backpack: String = String((Skills.data(id).get("effect", {}) as Dictionary).get("backpack", ""))
+	if not backpack.is_empty():
+		_auto_place_backpack(backpack)
 	_save()
 	return true
+
+
+# --- Backpacks (data/backpacks.json, BagLayout) --------------------------------------
+
+## The backpacks attached to the bag: [{"id", "x", "y", "rot"}] (only owned ones; an invalid
+## save gives none, then the shop shows them all as not attached).
+static func backpacks() -> Array:
+	var owned: Array[String] = Skills.backpacks()
+	var list: Array = []
+	for entry: Variant in _read("backpacks", []):
+		if entry is Dictionary and owned.has(String((entry as Dictionary).get("id", ""))):
+			list.append((entry as Dictionary).duplicate())
+	return list if BagLayout.is_valid(list) else []
+
+
+## Owned backpacks that are not attached (they lie beside the bag in the shop).
+static func loose_backpacks() -> Array[String]:
+	var placed: Array[String] = []
+	for entry: Variant in backpacks():
+		placed.append(String((entry as Dictionary)["id"]))
+	var loose: Array[String] = []
+	for id: String in Skills.backpacks():
+		if not placed.has(id):
+			loose.append(id)
+	return loose
+
+
+## Attaches (or moves) owned backpack `id` with its top left on `at`, turned when `rot`. false
+## (nothing changes) if it is not owned or the bag would not be allowed (BagLayout.is_valid).
+static func place_backpack(id: String, at: Vector2i, rot: bool) -> bool:
+	if not Skills.backpacks().has(id):
+		return false
+	var next: Array = BagLayout.with_moved(backpacks(), id, at, rot)
+	if not BagLayout.is_valid(next):
+		return false
+	_write("backpacks", next)
+	_save()
+	return true
+
+
+## Takes backpack `id` off the bag. false if it is not attached or others hang only on it.
+static func remove_backpack(id: String) -> bool:
+	var before: Array = backpacks()
+	var next: Array = BagLayout.without(before, id)
+	if next.size() == before.size() or not BagLayout.is_valid(next):
+		return false
+	_write("backpacks", next)
+	_save()
+	return true
+
+
+static func _auto_place_backpack(id: String) -> void:
+	var spot: Dictionary = BagLayout.first_spot(backpacks(), id)
+	if spot.is_empty():
+		return
+	var next: Array = backpacks()
+	next.append(spot)
+	_write("backpacks", next)
 
 
 ## The relic places on the hero now: "relic_1" and one more per skill level (data/skills.json
@@ -495,6 +559,17 @@ static func lay_tutorial_table() -> void:
 
 static func finish_tutorial() -> void:
 	_write("tutorial_done", true)
+	_save()
+
+
+## true once the player went through the guide of the very first run (DungeonGuide: walking,
+## aiming, shooting, the practice rat, the bag and the safe place).
+static func guide_done() -> bool:
+	return bool(_read("guide_done", false))
+
+
+static func finish_guide() -> void:
+	_write("guide_done", true)
 	_save()
 
 

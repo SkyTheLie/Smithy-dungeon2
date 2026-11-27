@@ -1,50 +1,53 @@
 class_name BagWindow
 extends CanvasLayer
-## Tab during a run: the bag (RunState.bag). The game stops while it is open.
-##   - every place shows its loot with a frame in its rarity colour and the count;
-##   - drag and drop between places sorts (same things stack, else they swap);
-##   - dragging a place out of the window drops it on the floor in front of the player
-##     (Dungeon.drop_from_bag), to make room;
-##   - the safe place (golden frame) keeps its things when the player dies;
-##   - the gold of the run lies in the bag like everything else (Bag.GOLD): drop it, stack it,
-##     put it into the safe place;
+## Tab during a run: the bag (RunState.bag). The game stops while it is open. Kept small:
+##   - in the middle the bag as a grid (BagBoard, Bag.MAIN: the bag and the backpacks attached at
+##     home), below it the safe place (golden, Bag.SAFE): what lies there stays when the player
+##     dies. Every piece of loot covers its cells (a rat fur 2×2, a staff 4×1, a ruby 3×3);
+##   - drag and drop moves it (the same thing stacks, else two pieces swap), R or the right mouse
+##     button while dragging turns it; dragging it out of the window drops it on the floor in
+##     front of the player (Dungeon.drop_from_bag), to make room;
+##   - the gold of the run lies in the bag like everything else (Bag.GOLD);
 ##   - opened with F at the merchant (open(true), Dungeon.trading) it is his trade window: a right
-##     click sells a place (Dungeon.sell_from_bag), above the bag he offers a relic
+##     click sells a piece (Dungeon.sell_from_bag), above the bag he offers a relic
 ##     (Dungeon.merchant_relic, button: Dungeon.buy_relic);
-##   - left the hero: his equipment from home (HeroPanel, only shown) and below it the values of
-##     the run (damage, attack speed, walking speed, luck);
-##   - right the whole floor (Minimap.always_big), zoomed out so every known room fits;
-##   - below the items of the run, big, with their description when the mouse is over one.
+##   - left, small: the hero's equipment from home (HeroPanel, only shown) and the values of the
+##     run; right the whole floor (Minimap.always_big); below the items of the run;
+##   - the guide of the first run (DungeonGuide) can show a line at the top and let the safe place
+##     pulse (set_guide).
 ## Only shows and forwards; the rules are in Bag and Dungeon. Built in code (no .tscn).
 
 signal closed
 
-const SLOT_SIZE := Vector2(36, 36)
-const ICON_SIZE := Vector2(27, 27)
-const COLUMNS: int = 6
-const MAP_SIZE := Vector2(180, 200)
-const ITEM_SIZE := Vector2(26, 26)
+const MAP_SIZE := Vector2(132, 150)
+const ITEM_SIZE := Vector2(18, 18)
+const HERO_SCALE: float = 0.6
+## Room for the bag grid (with its backpacks) in the middle; the cells shrink to fit.
+const BOARD_ROOM := Vector2(250, 130)
 const STATS_COLOR := Color(1, 0.9, 0.75)
 const SAFE_COLOR := Color(1.0, 0.78, 0.3)
-const EMPTY_BORDER := Color(0.32, 0.27, 0.24)
+const GUIDE_COLOR := Color(0.55, 1.0, 0.6)
 const PANEL_COLOR := Color(0.11, 0.08, 0.07, 0.96)
-const SLOT_COLOR := Color(0.18, 0.14, 0.12)
+const PANEL_BORDER := Color(0.55, 0.38, 0.2)
 
 var run: RunState
 var dungeon: Dungeon
 
 var _backdrop: ColorRect
 var _panel: PanelContainer
-var _map_panel: PanelContainer
 var _hero: HeroPanel
+var _hero_holder: Control
 var _stats: Label
 var _items: HFlowContainer
 ## The floor map beside the bag.
 var map: Minimap
-var _slots: Array[Panel] = []
+## The bag with its backpacks, and the safe place.
+var main_board: BagBoard
+var safe_board: BagBoard
 var _info_name: Label
 var _info_text: Label
 var _hint: Label
+var _guide: Label
 ## The merchant's relic offer (only shown in the trade window).
 var _offer: HBoxContainer
 var _offer_icon: TextureRect
@@ -61,7 +64,6 @@ func setup(run_state: RunState, the_dungeon: Dungeon) -> void:
 	run = run_state
 	dungeon = the_dungeon
 	_build()
-	run.bag.changed.connect(_refresh)
 	hide()
 
 
@@ -71,7 +73,8 @@ func open(trade: bool = false) -> void:
 		dungeon.trading = trade and dungeon.in_shop()
 	_refresh_offer()
 	_hint.text = _hint_text()
-	_refresh()
+	main_board.refresh()
+	safe_board.refresh()
 	_refresh_run()
 	_show_info(-1)
 	show()
@@ -97,6 +100,19 @@ func close() -> void:
 	closed.emit()
 
 
+## The guide's line at the top ("" = none) and whether the safe place pulses.
+func set_guide(text: String, point_at_safe: bool) -> void:
+	_guide.text = text
+	_guide.visible = not text.is_empty()
+	safe_board.pulse = point_at_safe
+
+
+func _input(event: InputEvent) -> void:
+	# Turning a dragged piece (before the GUI sees the right click).
+	if visible and BagBoard.is_turn_event(event) and BagBoard.rotate_drag(get_viewport()):
+		get_viewport().set_input_as_handled()
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if visible and (event.is_action_pressed(Controls.BAG) or event.is_action_pressed(Controls.PAUSE)):
 		get_viewport().set_input_as_handled()
@@ -118,85 +134,116 @@ func _build() -> void:
 	center.set_anchors_preset(Control.PRESET_FULL_RECT)
 	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(center)
-	# Left the hero and his values, in the middle the bag, right the floor; below the items.
 	var outer := VBoxContainer.new()
-	outer.add_theme_constant_override("separation", 6)
+	outer.add_theme_constant_override("separation", 4)
 	outer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	center.add_child(outer)
 	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 6)
+	row.add_theme_constant_override("separation", 4)
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	outer.add_child(row)
 	row.add_child(_build_hero())
-	_panel = PanelContainer.new()
-	_panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))
-	# Only as tall as its content, not as tall as the hero column / map beside it.
+	_panel = _new_panel()
 	_panel.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	row.add_child(_panel)
-	_map_panel = PanelContainer.new()
-	_map_panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))
-	row.add_child(_map_panel)
+	var map_panel: PanelContainer = _new_panel()
+	map_panel.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	row.add_child(map_panel)
 	map = Minimap.new()
 	map.always_big = true
 	map.custom_minimum_size = MAP_SIZE
 	map.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_map_panel.add_child(map)
+	map_panel.add_child(map)
 	map.setup(dungeon, dungeon.player)
 	outer.add_child(_build_items())
-	var column := VBoxContainer.new()
-	column.add_theme_constant_override("separation", 6)
-	_panel.add_child(column)
 
-	var title := Label.new()
-	title.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	title.text = Language.translate("Inventar")
+	var column := VBoxContainer.new()
+	column.add_theme_constant_override("separation", 4)
+	_panel.add_child(column)
+	var title := _small_label(Language.translate("Inventar"), 10)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_color_override("font_color", Color(1.0, 0.85, 0.55))
 	column.add_child(title)
+	_guide = _small_label("", 8)
+	_guide.add_theme_color_override("font_color", GUIDE_COLOR)
+	_guide.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_guide.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_guide.custom_minimum_size = Vector2(180, 0)
+	_guide.hide()
+	column.add_child(_guide)
 	column.add_child(_build_offer())
 
-	var grid := GridContainer.new()
-	grid.columns = COLUMNS
-	grid.add_theme_constant_override("h_separation", 4)
-	grid.add_theme_constant_override("v_separation", 4)
-	column.add_child(grid)
-	for i in run.bag.normal_count:
-		grid.add_child(_make_slot(i))
+	main_board = BagBoard.new()
+	main_board.name = "MainBoard"
+	safe_board = BagBoard.new()
+	safe_board.name = "SafeBoard"
+	var cell: float = BagBoard.fit_cell(_span_of(Bag.MAIN), BOARD_ROOM)
+	main_board.cell_px = cell
+	safe_board.cell_px = cell
+	main_board.setup(run.bag, Bag.MAIN)
+	safe_board.setup(run.bag, Bag.SAFE)
+	for board: BagBoard in [main_board, safe_board]:
+		board.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		board.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+		board.hovered.connect(_show_info)
+		board.right_clicked.connect(_on_right_click)
+		board.dropped.connect(func() -> void: _show_info(-1))
+	column.add_child(main_board)
 
 	var bottom := HBoxContainer.new()
 	bottom.add_theme_constant_override("separation", 6)
 	column.add_child(bottom)
-	for i in range(run.bag.normal_count, run.bag.size()):
-		bottom.add_child(_make_slot(i))
-	var safe_text := Label.new()
-	safe_text.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	safe_text.text = Language.translate("Sicherer Platz: bleibt, wenn du stirbst")
+	bottom.add_child(safe_board)
+	var info := VBoxContainer.new()
+	info.add_theme_constant_override("separation", 1)
+	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	bottom.add_child(info)
+	var safe_text := _small_label(Language.translate("Sicherer Platz: bleibt, wenn du stirbst"), 8)
 	safe_text.add_theme_color_override("font_color", SAFE_COLOR)
-	safe_text.add_theme_font_size_override("font_size", 8)
 	safe_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	safe_text.custom_minimum_size = Vector2(120, 0)
-	safe_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	safe_text.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	bottom.add_child(safe_text)
-
-	_info_name = Label.new()
-	_info_name.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	column.add_child(_info_name)
-	_info_text = Label.new()
-	_info_text.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	_info_text.add_theme_font_size_override("font_size", 8)
+	safe_text.custom_minimum_size = Vector2(110, 0)
+	info.add_child(safe_text)
+	_info_name = _small_label("", 8)
+	info.add_child(_info_name)
+	_info_text = _small_label("", 8)
 	_info_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_info_text.custom_minimum_size = Vector2(220, 22)
+	_info_text.custom_minimum_size = Vector2(110, 20)
 	_info_text.modulate = Color(0.85, 0.8, 0.75)
-	column.add_child(_info_text)
+	info.add_child(_info_text)
 
-	_hint = Label.new()
-	_hint.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	_hint.text = _hint_text()
-	_hint.add_theme_font_size_override("font_size", 8)
+	_hint = _small_label(_hint_text(), 8)
 	_hint.modulate = Color(0.7, 0.65, 0.6)
 	_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_hint.custom_minimum_size = Vector2(180, 0)
 	column.add_child(_hint)
+
+
+## Width × height in cells of a section of the bag (to pick the cell size).
+func _span_of(section: String) -> Vector2i:
+	var cells: Array[Vector2i] = run.bag.section_cells(section)
+	if cells.is_empty():
+		return Vector2i.ONE
+	var low: Vector2i = cells[0]
+	var high: Vector2i = cells[0]
+	for c: Vector2i in cells:
+		low = low.min(c)
+		high = high.max(c)
+	return high - low + Vector2i.ONE
+
+
+func _new_panel() -> PanelContainer:
+	var panel := PanelContainer.new()
+	panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, PANEL_BORDER, 2, 5))
+	return panel
+
+
+func _small_label(text: String, font_size: int) -> Label:
+	var label := Label.new()
+	label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	label.text = text
+	label.add_theme_font_size_override("font_size", font_size)
+	return label
 
 
 func _in_shop() -> bool:
@@ -204,43 +251,12 @@ func _in_shop() -> bool:
 
 
 func _hint_text() -> String:
+	var turn: String = Language.translate("R / Rechtsklick beim Ziehen: drehen")
 	if _in_shop():
-		return Language.translate("Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen")
+		return Language.translate("Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen") + "\n" + turn
 	if dungeon != null and dungeon.in_shop():
-		return Language.translate("Verkaufen: zum Händler gehen und %s drücken · Tab: schließen") % Controls.key_name(Controls.get_key(Controls.TALK))
-	return Language.translate("Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen")
-
-
-func _make_slot(index: int) -> Panel:
-	var slot := Panel.new()
-	slot.custom_minimum_size = SLOT_SIZE
-	slot.mouse_filter = Control.MOUSE_FILTER_STOP
-	var icon := TextureRect.new()
-	icon.name = "Icon"
-	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	icon.size = ICON_SIZE
-	icon.position = (SLOT_SIZE - ICON_SIZE) / 2.0
-	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	slot.add_child(icon)
-	var count := Label.new()
-	count.name = "Count"
-	count.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	count.add_theme_font_size_override("font_size", 8)
-	count.add_theme_color_override("font_outline_color", Color.BLACK)
-	count.add_theme_constant_override("outline_size", 3)
-	count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	count.size = Vector2(SLOT_SIZE.x - 4, 12)
-	count.position = Vector2(0, SLOT_SIZE.y - 13)
-	count.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	slot.add_child(count)
-	slot.set_drag_forwarding(_get_drag.bind(index), _can_drop_on_slot.bind(index), _drop_on_slot.bind(index))
-	slot.mouse_entered.connect(_show_info.bind(index))
-	slot.mouse_exited.connect(_show_info.bind(-1))
-	slot.gui_input.connect(_on_slot_input.bind(index))
-	_slots.append(slot)
-	return slot
+		return Language.translate("Verkaufen: zum Händler gehen und %s drücken · Tab: schließen") % Controls.key_name(Controls.get_key(Controls.TALK)) + "\n" + turn
+	return Language.translate("Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen") + "\n" + turn
 
 
 static func _box(fill: Color, border: Color, width: int, corner: int) -> StyleBoxFlat:
@@ -249,28 +265,26 @@ static func _box(fill: Color, border: Color, width: int, corner: int) -> StyleBo
 	style.border_color = border
 	style.set_border_width_all(width)
 	style.set_corner_radius_all(corner)
-	style.content_margin_left = 8
-	style.content_margin_right = 8
-	style.content_margin_top = 6
-	style.content_margin_bottom = 6
+	style.content_margin_left = 6
+	style.content_margin_right = 6
+	style.content_margin_top = 4
+	style.content_margin_bottom = 4
 	return style
 
 
 ## The merchant's relic offer: picture, name, runs and price, a button to buy it.
 func _build_offer() -> Control:
 	_offer = HBoxContainer.new()
-	_offer.add_theme_constant_override("separation", 6)
+	_offer.add_theme_constant_override("separation", 4)
 	_offer_icon = TextureRect.new()
 	_offer_icon.custom_minimum_size = ITEM_SIZE
 	_offer_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_offer_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	_offer_icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	_offer.add_child(_offer_icon)
-	_offer_text = Label.new()
-	_offer_text.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	_offer_text.add_theme_font_size_override("font_size", 8)
+	_offer_text = _small_label("", 8)
 	_offer_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_offer_text.custom_minimum_size = Vector2(150, 0)
+	_offer_text.custom_minimum_size = Vector2(120, 0)
 	_offer_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_offer_text.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	_offer.add_child(_offer_text)
@@ -296,8 +310,7 @@ func _refresh_offer() -> void:
 	_offer_icon.texture = load(String(data.get("icon", ""))) as Texture2D
 	var runs: int = int(relic.get("left", -1))
 	var lasts: String = Language.translate("hält für immer") if ShopGoods.relic_forever(relic) else Language.translate("hält %d Runs") % runs
-	_offer_text.text = "%s: %s (%s)
-%s" % [Language.translate("Relikt"), Language.translate(String(data.get("name", ""))), lasts, Language.translate(String(data.get("desc", "")))]
+	_offer_text.text = "%s: %s (%s)\n%s" % [Language.translate("Relikt"), Language.translate(String(data.get("name", ""))), lasts, Language.translate(String(data.get("desc", "")))]
 	_offer_text.modulate = Rarity.color(ShopGoods.relic_tier(String(relic["id"])))
 	_offer_button.text = Language.translate("Kaufen: %d Gold") % int(relic.get("price", 0))
 	_offer_button.disabled = run.coins < int(relic.get("price", 0))
@@ -313,19 +326,20 @@ func buy_relic() -> bool:
 	return true
 
 
-## The hero's equipment (only shown: it is changed at home) and the values below it.
+## The hero's equipment (small, only shown: it is changed at home) and the values below it.
 func _build_hero() -> Control:
 	var column := VBoxContainer.new()
-	column.add_theme_constant_override("separation", 6)
+	column.add_theme_constant_override("separation", 4)
+	column.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	_hero_holder = Control.new()
+	_hero_holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	column.add_child(_hero_holder)
 	_hero = HeroPanel.new()
-	column.add_child(_hero)
-	var stats_panel := PanelContainer.new()
-	stats_panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))
-	stats_panel.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_hero.scale = Vector2(HERO_SCALE, HERO_SCALE)
+	_hero_holder.add_child(_hero)
+	var stats_panel: PanelContainer = _new_panel()
 	column.add_child(stats_panel)
-	_stats = Label.new()
-	_stats.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	_stats.add_theme_font_size_override("font_size", 10)
+	_stats = _small_label("", 8)
 	_stats.add_theme_color_override("font_color", STATS_COLOR)
 	stats_panel.add_child(_stats)
 	return column
@@ -333,11 +347,10 @@ func _build_hero() -> Control:
 
 ## The items of the run in a row, each with its name and description as tooltip.
 func _build_items() -> Control:
-	var panel := PanelContainer.new()
-	panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))
+	var panel: PanelContainer = _new_panel()
 	_items = HFlowContainer.new()
-	_items.add_theme_constant_override("h_separation", 4)
-	_items.add_theme_constant_override("v_separation", 4)
+	_items.add_theme_constant_override("h_separation", 3)
+	_items.add_theme_constant_override("v_separation", 3)
 	_items.custom_minimum_size = Vector2(ITEM_SIZE.x, ITEM_SIZE.y)
 	panel.add_child(_items)
 	return panel
@@ -348,15 +361,13 @@ func _build_items() -> Control:
 ## Equipment, values and items as they are now.
 func _refresh_run() -> void:
 	_hero.refresh()
+	_hero_holder.custom_minimum_size = _hero.get_combined_minimum_size() * HERO_SCALE
 	var s: ShotStats = run.stats
-	_stats.text = "%s: %s
-%s: %s/s
-%s: %s
-%s: %s" % [
-		Language.translate("Schaden"), PauseMenu.format_number(s.damage),
-		Language.translate("Angriffstempo"), PauseMenu.format_number(1.0 / s.fire_delay),
-		Language.translate("Tempo"), PauseMenu.format_number(s.move_speed),
-		Language.translate("Glück"), PauseMenu.format_number(s.luck)]
+	_stats.text = "%s: %s\n%s: %s/s\n%s: %s\n%s: %s" % [
+			Language.translate("Schaden"), PauseMenu.format_number(s.damage),
+			Language.translate("Angriffstempo"), PauseMenu.format_number(1.0 / s.fire_delay),
+			Language.translate("Tempo"), PauseMenu.format_number(s.move_speed),
+			Language.translate("Glück"), PauseMenu.format_number(s.luck)]
 	for child: Node in _items.get_children():
 		child.queue_free()
 	var counts: Dictionary[String, int] = {}
@@ -374,46 +385,19 @@ func _refresh_run() -> void:
 		var name_text: String = Language.translate(String(data.get("name", id)))
 		if counts[id] > 1:
 			name_text += " ×%d" % counts[id]
-		icon.tooltip_text = name_text + "
-" + Language.translate(String(data.get("desc", "")))
+		icon.tooltip_text = name_text + "\n" + Language.translate(String(data.get("desc", "")))
 		_items.add_child(icon)
 	if counts.is_empty():
-		var none := Label.new()
-		none.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-		none.text = Language.translate("Noch keine Items in diesem Run.")
-		none.add_theme_font_size_override("font_size", 10)
+		var none := _small_label(Language.translate("Noch keine Items in diesem Run."), 8)
 		none.modulate = Color(0.7, 0.65, 0.6)
 		_items.add_child(none)
 
 
 # --- Showing --------------------------------------------------------------------
 
-func _refresh() -> void:
-	if _offer != null and _offer.visible:
-		_offer_button.disabled = run.coins < int(dungeon.merchant_relic.get("price", 0))
-	for i in _slots.size():
-		var place: Dictionary = run.bag.get_place(i)
-		var slot: Panel = _slots[i]
-		var icon := slot.get_node("Icon") as TextureRect
-		var count := slot.get_node("Count") as Label
-		var border: Color = SAFE_COLOR if run.bag.is_safe(i) else EMPTY_BORDER
-		if place.is_empty():
-			icon.texture = null
-			count.text = ""
-		else:
-			var data: Dictionary = Content.material(String(place["id"]))
-			icon.texture = load(String(data.get("icon", ""))) as Texture2D
-			count.text = str(int(place["count"])) if int(place["count"]) > 1 else ""
-			if not run.bag.is_safe(i):
-				border = Rarity.color(int(data.get("rarity", 1)))
-		slot.add_theme_stylebox_override("panel", _box(SLOT_COLOR, border, 3 if run.bag.is_safe(i) else 2, 4))
-
-
-## Right click in the shop room: the merchant buys the place.
-func _on_slot_input(event: InputEvent, index: int) -> void:
-	if not (event is InputEventMouseButton and (event as InputEventMouseButton).pressed):
-		return
-	if (event as InputEventMouseButton).button_index == MOUSE_BUTTON_RIGHT and _in_shop():
+## Right click on a piece: in the trade window the merchant buys it.
+func _on_right_click(index: int) -> void:
+	if _in_shop():
 		sell(index)
 
 
@@ -423,7 +407,8 @@ func sell(index: int) -> int:
 		return 0
 	var gold: int = dungeon.sell_from_bag(index)
 	if gold > 0:
-		_show_info(index)
+		_refresh_offer()
+		_info_name.text = ""
 		_info_text.text = Language.translate("Verkauft für %d Gold") % gold
 	return gold
 
@@ -431,46 +416,21 @@ func sell(index: int) -> int:
 func _show_info(index: int) -> void:
 	var place: Dictionary = run.bag.get_place(index) if index >= 0 else {}
 	if place.is_empty():
-		_info_name.text = Language.translate("Sicherer Platz") if run.bag.is_safe(index) else ""
-		_info_name.modulate = SAFE_COLOR
-		_info_text.text = Language.translate("Was hier liegt, verlierst du nicht, wenn du stirbst.") if run.bag.is_safe(index) else ""
+		_info_name.text = ""
+		_info_text.text = ""
 		return
 	var data: Dictionary = Content.material(String(place["id"]))
 	var tier: int = int(data.get("rarity", 1))
 	_info_name.text = "%s ×%d" % [Language.translate(String(data.get("name", ""))), int(place["count"])]
 	_info_name.modulate = Rarity.color(tier)
+	var cells: Vector2i = BagLayout.loot_size(String(place["id"]))
 	var worth: String = Language.translate("Wert: %d Gold") % int(data.get("value", 0))
 	if _in_shop() and run.sell_price(index) > 0:
 		worth = Language.translate("Rechtsklick: verkaufen für %d Gold") % run.sell_price(index)
-	_info_text.text = "%s · %s\n%s" % [Rarity.label(tier), worth, Language.translate(String(data.get("desc", "")))]
+	_info_text.text = "%s · %d×%d · %s\n%s" % [Rarity.label(tier), cells.x, cells.y, worth, Language.translate(String(data.get("desc", "")))]
 
 
-# --- Drag and drop --------------------------------------------------------------
-
-func _get_drag(_at: Vector2, index: int) -> Variant:
-	var place: Dictionary = run.bag.get_place(index)
-	if place.is_empty():
-		return null
-	var preview := TextureRect.new()
-	preview.texture = (_slots[index].get_node("Icon") as TextureRect).texture
-	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	preview.size = ICON_SIZE
-	preview.position = -ICON_SIZE / 2.0
-	var holder := Control.new()
-	holder.add_child(preview)
-	_slots[index].set_drag_preview(holder)
-	return {"bag_index": index}
-
-
-func _can_drop_on_slot(_at: Vector2, data: Variant, _index: int) -> bool:
-	return data is Dictionary and (data as Dictionary).has("bag_index")
-
-
-func _drop_on_slot(_at: Vector2, data: Variant, index: int) -> void:
-	run.bag.move(int((data as Dictionary)["bag_index"]), index)
-	AudioManager.play_sound("pickup", 1.3)
-
+# --- Dropping on the floor --------------------------------------------------------
 
 func _can_drop_on_floor(_at: Vector2, data: Variant) -> bool:
 	return data is Dictionary and (data as Dictionary).has("bag_index")
@@ -479,3 +439,4 @@ func _can_drop_on_floor(_at: Vector2, data: Variant) -> bool:
 func _drop_on_floor(_at: Vector2, data: Variant) -> void:
 	if dungeon and dungeon.drop_from_bag(int((data as Dictionary)["bag_index"])):
 		AudioManager.play_sound("pickup", 0.6)
+		_show_info(-1)

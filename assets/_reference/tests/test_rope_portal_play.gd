@@ -121,8 +121,7 @@ func _rope() -> void:
 	if not rubies.is_empty():
 		# The boss loot around the player may fill the bag (one item per place): only the ruby stays.
 		var bag: Object = run_state.get("bag")
-		for i: int in bag.call("size"):
-			bag.call("take", i)
+		bag.call("clear")
 		for n: Node in room.get_children():
 			if n.get("material_id") != null and n.get("material_id") != "ruby" and n.get("material_id") != "":
 				n.free()

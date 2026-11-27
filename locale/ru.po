@@ -54,6 +54,9 @@ msgstr "Все предметы сброшены"
 msgid "Alle Items ablegen"
 msgstr "Сбросить все предметы"
 
+msgid "Alle Rucksäcke sind angebaut. Mehr gibt es im Skillbaum."
+msgstr "Все рюкзаки пристёгнуты. Больше — в древе навыков."
+
 msgid "Alle Werte ein bisschen hoch"
 msgstr "Все характеристики немного выше"
 
@@ -149,6 +152,9 @@ msgstr "Горный сокол"
 
 msgid "Bernstein"
 msgstr "Янтарь"
+
+msgid "Beschläge aus Kupfer, Platz für einen Rubin."
+msgstr "Медные заклёпки, место для рубина."
 
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "Победи %d врагов (%d / %d)"
@@ -288,8 +294,14 @@ msgstr "На это золота не хватит, партнёр. Увы, ув
 msgid "Dafür wird die Ware mit jedem Dreh besser. Steht auf dem Balken, ehrlich!"
 msgstr "Зато товар с каждым поворотом лучше. Так на полоске написано, честно!"
 
+msgid "Daran hängt noch ein anderer Rucksack."
+msgstr "К нему ещё пристёгнут другой рюкзак."
+
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Внутри застрял маленький жучок."
+
+msgid "Darin wohnt fast ein ganzer Laden."
+msgstr "Внутри поместится почти целая лавка."
 
 msgid "Darüber… sagen wir, hier gibt es Ratten. Große Ratten. Mit Händen."
 msgstr "Сверх того… скажем так, тут водятся крысы. Большие. С руками."
@@ -360,6 +372,9 @@ msgstr "Путь вниз открыт!"
 msgid "Der Wildhüter"
 msgstr "Егерь"
 
+msgid "Der sichere Platz wird eine Spalte breiter."
+msgstr "Надёжное место становится на столбец шире."
+
 msgid "Diamant"
 msgstr "Алмаз"
 
@@ -377,6 +392,9 @@ msgstr "Толстая кожа"
 
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "Размер окна действует только в оконном режиме."
+
+msgid "Die Tür ist offen. Geh in den nächsten Raum."
+msgstr "Дверь открыта. Иди в следующую комнату."
 
 msgid "Die Waffe des Bogenschützen: Pfeile aufladen und loslassen, weit und stark"
 msgstr "Оружие лучника: натяни стрелу и отпусти, далеко и сильно"
@@ -639,6 +657,15 @@ msgstr "Ещё одна ячейка реликвии у героя."
 msgid "Ein Rubin"
 msgstr "Рубин"
 
+msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Рюкзак на 3×3 клетки. Пристегни к инвентарю у Эгона."
+
+msgid "Ein Rucksack mit 4×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Рюкзак на 4×2 клетки. Пристегни к инвентарю у Эгона."
+
+msgid "Ein Rucksack mit 4×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Рюкзак на 4×3 клетки. Пристегни к инвентарю у Эгона."
+
 msgid "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!"
 msgstr "Выгодная сделка! Для меня. Э-э… для тебя! Честно!"
 
@@ -687,6 +714,9 @@ msgstr "Тайная комната!"
 msgid "Ein halbes weißes Schild-Herz mehr zu Beginn jedes Runs."
 msgstr "Ещё половина белого сердца-щита в начале каждого забега."
 
+msgid "Ein riesiger Rucksack mit 5×3 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Огромный рюкзак на 5×3 клетки. Пристегни к инвентарю у Эгона."
+
 msgid "Ein rotes Herz mehr."
 msgstr "Ещё одно красное сердце."
 
@@ -705,6 +735,9 @@ msgstr "Вторая жизнь!"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "На столе Эгона на одну вещь больше."
 
+msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
+msgstr "Сумка на 2×2 клетки. Пристегни к инвентарю у Эгона."
+
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "Луг высотой с гнома. В траве что-то шуршит, а охотник ставит капканы. Эгон продаёт косы. Увы, их нет."
 
@@ -713,6 +746,9 @@ msgstr "Целая пекарня разом"
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "Короткий клинок. Для воинов."
+
+msgid "Eine Übungsratte! Sie tut dir nichts. Schieß sie ab."
+msgstr "Учебная крыса! Она не кусается. Подстрели её."
 
 msgid "Einmal am Tag dreh ich den Tisch umsonst. Danach gibt's einen Freundschaftspreis. Wird jedes Mal ein bisschen freundschaftlicher."
 msgstr "Раз в день я кручу стол бесплатно. Потом — цена для друзей. С каждым разом всё дружелюбнее."
@@ -740,6 +776,9 @@ msgstr "Железные перчатки"
 
 msgid "Eisen-Helm"
 msgstr "Железный шлем"
+
+msgid "Eisen-Rucksack"
+msgstr "Железный рюкзак"
 
 msgid "Eisen-Schwert"
 msgstr "Железный меч"
@@ -1152,6 +1191,9 @@ msgstr "Угольные штольни"
 msgid "Glänzt grünlich. Der Händler mag es."
 msgstr "Отливает зеленью. Торговец его любит."
 
+msgid "Glänzt sogar im Dunkeln."
+msgstr "Блестит даже в темноте."
+
 msgid "Glänzt wie der Mond. Der Händler wird ganz still."
 msgstr "Сияет, как луна. Торговец совсем притихает."
 
@@ -1319,6 +1361,9 @@ msgstr "Зелёный"
 
 msgid "Grün wie das Moor, nur teurer."
 msgstr "Зелёный, как болото, только дороже."
+
+msgid "Gut gemacht! Jetzt ab in den Dungeon."
+msgstr "Отлично! Теперь — в подземелье."
 
 msgid "Gute Wahl! Ein Sammlerstück. Ehrlich!"
 msgstr "Хороший выбор! Коллекционная вещь. Честно!"
@@ -1524,6 +1569,9 @@ msgstr "Бой"
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Теперь может появиться в подземелье"
 
+msgid "Karawanen-Rucksack"
+msgstr "Караванный рюкзак"
+
 msgid "Karawanenrucksack"
 msgstr "Караванный рюкзак"
 
@@ -1547,6 +1595,9 @@ msgstr "Детские ботинки"
 
 msgid "Klappern bei jedem Schritt."
 msgstr "Гремят при каждом шаге."
+
+msgid "Klein, riecht nach Kräutern."
+msgstr "Маленькая, пахнет травами."
 
 msgid "Kleiner, schneller und manchmal ausweichen"
 msgstr "Меньше, быстрее и иногда уклонение"
@@ -1638,6 +1689,9 @@ msgstr "Хрустальный луг"
 msgid "Kräuterbeutel"
 msgstr "Мешочек трав"
 
+msgid "Kräutertasche"
+msgstr "Сумка для трав"
+
 msgid "Kupfer"
 msgstr "Медь"
 
@@ -1655,6 +1709,9 @@ msgstr "Медные перчатки"
 
 msgid "Kupfer-Helm"
 msgstr "Медный шлем"
+
+msgid "Kupfer-Rucksack"
+msgstr "Медный рюкзак"
 
 msgid "Kupfer-Schwert"
 msgstr "Медный меч"
@@ -1683,6 +1740,9 @@ msgstr "Лавка"
 msgid "Ladenschild"
 msgstr "Вывеска лавки"
 
+msgid "Lang und schmal, schwer wie ein Amboss."
+msgstr "Длинный и узкий, тяжёлый как наковальня."
+
 msgid "Lange Flugbahnen, gewaltiger Einschlag"
 msgstr "Долгий полёт, мощный удар"
 
@@ -1691,6 +1751,9 @@ msgstr "Медленное лечение и синее сердце"
 
 msgid "Langsam heilst du dich"
 msgstr "Ты медленно лечишься"
+
+msgid "Laufe mit W A S D."
+msgstr "Ходи на W A S D."
 
 msgid "Lautstärke"
 msgstr "Громкость"
@@ -1754,6 +1817,9 @@ msgstr "Посох света"
 
 msgid "Links"
 msgstr "Влево"
+
+msgid "Linksklick: schießen. Probier es!"
+msgstr "ЛКМ: стрелять. Попробуй!"
 
 msgid "Länge"
 msgstr "Длина"
@@ -1884,6 +1950,9 @@ msgstr "Болотный мертвец"
 msgid "Moormutter"
 msgstr "Болотная матерь"
 
+msgid "Morscher Zauberstab"
+msgstr "Гнилой посох"
+
 msgid "Musik"
 msgstr "Музыка"
 
@@ -1919,6 +1988,9 @@ msgstr "Новая игра"
 
 msgid "Nicht ablecken."
 msgstr "Не облизывать."
+
+msgid "Nicht angebaut"
+msgstr "Не пристёгнуты"
 
 msgid "Nicht während eines Kampfes"
 msgstr "Не во время боя"
@@ -2055,6 +2127,9 @@ msgstr "Пороховая перчатка"
 msgid "Punkt in der Mitte"
 msgstr "Точка в центре"
 
+msgid "R / Rechtsklick beim Ziehen: drehen"
+msgstr "R / ПКМ при перетаскивании: повернуть"
+
 msgid "Rahmenlos"
 msgstr "Без рамки"
 
@@ -2187,6 +2262,9 @@ msgstr "Рубин"
 msgid "Rucksack"
 msgstr "Рюкзак"
 
+msgid "Rucksäcke"
+msgstr "Рюкзаки"
+
 msgid "Rudelführer"
 msgstr "Вожак стаи"
 
@@ -2309,6 +2387,9 @@ msgstr "Мешок сокровищ"
 
 msgid "Schatzkarte"
 msgstr "Карта сокровищ"
+
+msgid "Schau dich mit der Maus um."
+msgstr "Осмотрись мышью."
 
 msgid "Schießt Feuerbälle"
 msgstr "Стреляет огненными шарами"
@@ -2502,6 +2583,9 @@ msgstr "Надёжное место: остаётся после смерти"
 msgid "Sichtfeld"
 msgstr "Поле зрения"
 
+msgid "Sie hat etwas fallen lassen. Lauf darüber, um es aufzuheben."
+msgstr "Она что-то обронила. Пройди по этому, чтобы подобрать."
+
 msgid "Siegerring"
 msgstr "Кольцо победителя"
 
@@ -2522,6 +2606,9 @@ msgstr "Серебряные перчатки"
 
 msgid "Silber-Helm"
 msgstr "Серебряный шлем"
+
+msgid "Silber-Rucksack"
+msgstr "Серебряный рюкзак"
 
 msgid "Silber-Schwert"
 msgstr "Серебряный меч"
@@ -3117,11 +3204,23 @@ msgstr "Пустынный компас"
 msgid "Zauberbuch"
 msgstr "Книга заклинаний"
 
+msgid "Zaubert nicht mehr. Lang ist er trotzdem."
+msgstr "Больше не колдует. Зато длинный."
+
 msgid "Zehn Bomben"
 msgstr "Десять бомб"
 
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Десять монет, удача выше"
+
+msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
+msgstr "Перетащи крысиную шкурку в золотое надёжное место. Что там лежит, останется при смерти."
+
+msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
+msgstr "Перетащи рюкзак к инвентарю. Он должен касаться его краем."
+
+msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
+msgstr "Тянуть: пристегнуть · R / ПКМ при перетаскивании: повернуть · На список: снять"
 
 msgid "Ziehen: sortieren · Aus dem Fenster ziehen: fallen lassen · Tab: schließen"
 msgstr "Перетащить: сортировать · За окно: выбросить · Tab: закрыть"
@@ -3219,6 +3318,9 @@ msgstr "макс."
 msgid "oder Leertaste"
 msgstr "или пробел"
 
+msgid "Öffne dein Inventar mit Tab."
+msgstr "Открой инвентарь клавишей Tab."
+
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Сверх лимита: Эгон косится на твою банку!"
 
@@ -3227,6 +3329,9 @@ msgstr "Выживание"
 
 msgid "Überschreiben"
 msgstr "Перезаписать"
+
+msgid "Übungsratte"
+msgstr "Учебная крыса"
 
 msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
 msgstr "…Добычу-то хоть принёс? Нет? Хм. Тогда поможет только одно: зелья!"

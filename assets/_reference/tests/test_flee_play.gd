@@ -63,7 +63,7 @@ func _sell_in_shop() -> void:
 	right.button_index = MOUSE_BUTTON_RIGHT
 	right.pressed = true
 	window.call("open")
-	window.call("_on_slot_input", right, index)
+	window.call("_on_right_click", index)
 	check_eq(run_state.get("coins"), 0, "Tab in the shop room: the merchant does not buy")
 	window.call("close")
 	check(not dungeon.call("near_merchant"), "far from the merchant")
@@ -82,7 +82,7 @@ func _sell_in_shop() -> void:
 	Input.parse_input_event(talk)
 	check(await wait_until(func() -> bool: return window.visible, 1.0), "F opens his trade window")
 	check(dungeon.get("trading"), "trading")
-	window.call("_on_slot_input", right, index)
+	window.call("_on_right_click", index)
 	check_eq(run_state.get("coins"), 12, "a right click sells the amber for 12 gold")
 	window.call("close")
 	check(not dungeon.get("trading"), "closing ends the trade")

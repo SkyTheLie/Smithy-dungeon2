@@ -14,6 +14,8 @@ extends Control
 ##   (MetaState.sell), a click on the sell place gives it back.
 ##   "Skills" (bottom right): the skill tree (SkillTreeWindow); the day, the player level and the
 ##   EXP at the top left.
+##   "Rucksäcke" (left of "Skills", once a backpack is owned): the backpack window
+##   (BackpackWindow): attach backpacks from the skill tree to the bag.
 ##   "Dungeons" (bottom right): the dungeon board; "Betreten" starts the run at once, as the
 ##   character of the weapon on the hero (MetaState.run_character), no choice window.
 ## First visit (MetaState.tutorial_done false): Egon shows everything himself: he pulls the lever,
@@ -78,6 +80,8 @@ var _sell_button: Button
 ## Inventory place waiting on the sell place (-1 = none). Only shown; sold on the button.
 var _sell_index: int = -1
 var _skill_window: SkillTreeWindow
+var _backpacks_button: Button
+var _backpack_window: BackpackWindow
 var _black: ColorRect
 ## true while Egon does something by himself (tutorial, lever): clicks are ignored.
 var _locked: bool = false
@@ -221,6 +225,10 @@ func _build() -> void:
 	_skills_button.name = "SkillsButton"
 	_skills_button.add_theme_font_size_override("font_size", 18)
 	_skills_button.pressed.connect(_open_skills)
+	_backpacks_button = _button(Language.translate("Rucksäcke"), Vector2(0, 322))
+	_backpacks_button.name = "BackpacksButton"
+	_backpacks_button.add_theme_font_size_override("font_size", 18)
+	_backpacks_button.pressed.connect(_open_backpacks)
 
 	var windows := CanvasLayer.new()
 	add_child(windows)
@@ -232,6 +240,13 @@ func _build() -> void:
 	_skill_window.hide()
 	_skill_window.learned.connect(func(_id: String) -> void: _refresh())
 	windows.add_child(_skill_window)
+	_backpack_window = BackpackWindow.new()
+	_backpack_window.hide()
+	_backpack_window.visibility_changed.connect(_refresh)
+	windows.add_child(_backpack_window)
+	# Egon's tours hide "Skills"; the backpack button goes and comes with it.
+	_skills_button.visibility_changed.connect(func() -> void:
+		_backpacks_button.visible = _skills_button.visible and not Skills.backpacks().is_empty())
 	var fade_layer := CanvasLayer.new()
 	fade_layer.layer = 10
 	add_child(fade_layer)
@@ -283,6 +298,12 @@ func _refresh() -> void:
 	_skills_button.text = Language.translate("Skills") + (" (%d)" % points if points > 0 else "")
 	_skills_button.reset_size()
 	_skills_button.position.x = _dungeons_button.position.x - 6 - _skills_button.get_combined_minimum_size().x
+	# "Rucksäcke (1)" while a backpack waits to be attached.
+	var loose: int = MetaState.loose_backpacks().size()
+	_backpacks_button.text = Language.translate("Rucksäcke") + (" (%d)" % loose if loose > 0 else "")
+	_backpacks_button.reset_size()
+	_backpacks_button.position.x = _skills_button.position.x - 6 - _backpacks_button.get_combined_minimum_size().x
+	_backpacks_button.visible = not Skills.backpacks().is_empty() and _skills_button.visible
 	_gold.text = str(MetaState.box())
 	var price: int = MetaState.lever_price()
 	_lever_price.text = Language.translate("Gratis") if price == 0 else Language.translate("%d Gold") % price
@@ -824,13 +845,27 @@ func _open_skills() -> void:
 	if _locked:
 		return
 	_board.hide()
+	_backpack_window.hide()
 	_skill_window.open()
+
+
+func get_backpack_window() -> BackpackWindow:
+	return _backpack_window
+
+
+func _open_backpacks() -> void:
+	if _locked:
+		return
+	_board.hide()
+	_skill_window.hide()
+	_backpack_window.open()
 
 
 func _open_board() -> void:
 	if _locked:
 		return
 	_skill_window.hide()
+	_backpack_window.hide()
 	_board.open()
 
 
