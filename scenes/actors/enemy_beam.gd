@@ -66,7 +66,10 @@ func _physics_process(delta: float) -> void:
 	if firing():
 		if not _fired:
 			_fired = true
-			AudioManager.play_sound("enemy_shoot", 0.55)
+			if is_instance_valid(source):
+				source.sound("enemy_shoot", 0.55)
+			else:
+				AudioManager.play_sound("enemy_shoot", 0.55)
 		if sweep != 0.0:
 			direction = direction.rotated(Vector3.UP, sweep * delta)
 	_update_shape()

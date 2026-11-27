@@ -62,8 +62,6 @@ const LOOK_TURN_SPEED: float = 7.0
 const ATTACK_CUE_LEAD: float = 0.45
 ## Idle cries of all enemies together at most this often (a room full of rats is not a choir).
 const IDLE_GAP_MS: int = 700
-## Cries get quieter by this many dB per metre beyond 2 m.
-const CRY_FALLOFF_DB: float = 0.8
 ## A hit this strong is the boss taking its helpers along (Dungeon): no death tricks then.
 const FORCED_DAMAGE: float = 9000.0
 
@@ -283,13 +281,13 @@ func take_damage(amount: float, push: Vector3, confuse: bool) -> void:
 	_forced = amount >= FORCED_DAMAGE
 	if armored and not _forced:
 		_flash = 0.0
-		AudioManager.play_sound("blocked", randf_range(0.9, 1.1))
+		sound("blocked", randf_range(0.9, 1.1))
 		Fx.puff(dungeon.effects, aim_point(), "spark", 0.4)
 		return
 	# Shield in front: a hit coming against its face bounces off.
 	if bool(data.get("front_guard", false)) and push.length() > 0.01 and Vector3(push.x, 0, push.z).normalized().dot(_facing) < -0.35:
 		_flash = 0.0
-		AudioManager.play_sound("blocked", randf_range(0.9, 1.1))
+		sound("blocked", randf_range(0.9, 1.1))
 		Fx.puff(dungeon.effects, global_position + Vector3(0, height * 0.6, 0) + _facing * radius, "spark", 0.4)
 		return
 	if stun_left > 0.0:
@@ -426,7 +424,7 @@ func _guard(delta: float, toward: Vector3, distance: float) -> Vector3:
 			if _guard_left <= 0.0:
 				_guard_step = 2
 				_guard_left = GUARD_RAM
-				AudioManager.play_sound("dash", 0.6)
+				sound("dash", 0.6)
 			return Vector3.ZERO
 		2:
 			if _guard_left <= 0.0 or is_on_wall():
@@ -457,7 +455,7 @@ func _burrowing(delta: float, distance: float) -> bool:
 			hidden_phase = false
 			collision_layer = RoomBuilder.LAYER_ENEMIES
 			Fx.puff(dungeon.effects, global_position + Vector3(0, 0.3, 0), "spark", 1.0)
-			AudioManager.play_sound("boss_burrow", 1.3)
+			sound("boss_burrow", 1.3)
 			hurt_player_near(0.9)
 			if burrow.has("shots"):
 				shoot_pattern(String(burrow["shots"]), {})
@@ -470,7 +468,7 @@ func _burrowing(delta: float, distance: float) -> bool:
 		hidden_phase = true
 		collision_layer = 0
 		Fx.puff(dungeon.effects, global_position + Vector3(0, 0.3, 0), "spark", 1.0)
-		AudioManager.play_sound("boss_burrow", 1.3)
+		sound("boss_burrow", 1.3)
 		return true
 	return false
 
@@ -502,7 +500,7 @@ func _leaping(delta: float, distance: float) -> bool:
 			_leap_to = Vector3(clampf(target.x, rect.position.x, rect.end.x), 0.0, clampf(target.z, rect.position.y, rect.end.y))
 			_air_time = clampf(_leap_from.distance_to(_leap_to) / 7.0, 0.35, 0.8)
 			_air_left = _air_time
-			AudioManager.play_sound("dash", 0.7)
+			sound("dash", 0.7)
 		return true
 	_leap_wait -= delta
 	if _leap_wait <= 0.0 and _awake and distance < float(leap.get("range", 5.0)) and distance > 1.2:
@@ -517,21 +515,19 @@ func _leaping(delta: float, distance: float) -> bool:
 func _voice(kind: String, pitch: float) -> void:
 	var voice: Dictionary = data.get("voice", {})
 	if voice.is_empty():
-		AudioManager.play_sound("enemy_hit" if kind == "hit" else "enemy_die", pitch)
+		sound("enemy_hit" if kind == "hit" else "enemy_die", pitch)
 		return
-	AudioManager.play_stream(SoundSynth.make(voice, kind), pitch, -4.0 if kind == "hit" else 0.0)
+	AudioManager.play_stream_at(SoundSynth.make(voice, kind), global_position, dungeon.effects if dungeon else null, pitch, -4.0 if kind == "hit" else 0.0)
 
 
 ## The animal sound `kind` from "cries" (idle, wake, near, attack); nothing if it has none.
-## Further away from the player = quieter.
+## In 3D: from where it stands, quieter further away (AudioManager.play_stream_at).
 func cry(kind: String) -> void:
 	var cries: Dictionary = data.get("cries", {})
 	if not alive or not cries.has(kind):
 		return
 	var sound: Dictionary = cries[kind]
-	var distance: float = global_position.distance_to(player.global_position) if player else 0.0
-	var volume: float = float(sound.get("volume", 0.0)) - clampf(distance - 2.0, 0.0, 14.0) * CRY_FALLOFF_DB
-	AudioManager.play_stream(SoundSynth.make(sound, "cry"), randf_range(0.94, 1.06), volume)
+	AudioManager.play_stream_at(SoundSynth.make(sound, "cry"), global_position, dungeon.effects if dungeon else null, randf_range(0.94, 1.06), float(sound.get("volume", 0.0)))
 
 
 ## Idle cries now and then, the near cry when the player comes close.
@@ -563,7 +559,7 @@ func _out_of_life() -> void:
 		_downs += 1
 		_downed_left = float(revive.get("time", 3.0))
 		hp = max_hp * float(revive.get("down_life", 0.3))
-		AudioManager.play_sound("enemy_die", 0.7)
+		sound("enemy_die", 0.7)
 		return
 	_die()
 
@@ -765,7 +761,7 @@ func shoot_from(at: Vector3, direction: Vector3, options: Dictionary) -> void:
 		shot.returns_to = self
 	dungeon.effects.add_child(shot)
 	shot.global_position = Vector3(at.x, 0.8, at.z)
-	AudioManager.play_sound("enemy_shoot", randf_range(1.2, 1.5))
+	sound("enemy_shoot", randf_range(1.2, 1.5))
 
 
 ## A fan of `count` shots at the player.
@@ -857,7 +853,7 @@ func throw_snare(at: Vector3, life: float) -> void:
 	if not is_inside_tree() or not alive:
 		return
 	dungeon.add_hazard(String(data.get("snare", "snare_thrown")), at, life)
-	AudioManager.play_sound("blocked", 1.4)
+	sound("blocked", 1.4)
 
 
 ## What happens when it dies (not when the boss takes its helpers with it): death_shots,
@@ -921,7 +917,7 @@ func mark(at: Vector3, size: float, time: float) -> void:
 
 func shake(time: float) -> void:
 	player.shake(time)
-	AudioManager.play_sound("explosion", 0.7)
+	sound("explosion", 0.7)
 
 
 ## The player takes a hit if closer than `distance`.
@@ -932,8 +928,9 @@ func hurt_player_near(distance: float) -> void:
 		player.take_hit(int(data.get("damage", 2)))
 
 
-func sound(id: String) -> void:
-	AudioManager.play_sound(id)
+## A sound of this enemy: it comes from where it stands (3D, AudioManager.play_sound_at).
+func sound(id: String, pitch: float = 1.0) -> void:
+	AudioManager.play_sound_at(id, global_position + Vector3(0, height * 0.5, 0), dungeon.effects if dungeon else null, pitch)
 
 
 ## Keeps enemies of a room from standing inside each other.

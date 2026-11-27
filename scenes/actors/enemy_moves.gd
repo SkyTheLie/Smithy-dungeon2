@@ -142,7 +142,7 @@ func _charger(delta: float) -> Vector3:
 				_state = 3 if not laser.is_empty() else 2
 				_left = float(laser.get("fire", 0.5)) + 0.3 if not laser.is_empty() else RUSH_TIME
 				if laser.is_empty():
-					AudioManager.play_sound("dash", 0.8)
+					enemy.sound("dash", 0.8)
 			return Vector3.ZERO
 		2:
 			if _left <= 0.0:

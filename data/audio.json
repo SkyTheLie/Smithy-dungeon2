@@ -1,6 +1,7 @@
 {
-	"_info": "Sound-Ids -> Dateien (Liste = eine zufällig). sound_volume_db: Lautstärke je Id in dB. sound_buses: Id -> Bus (sonst Sounds). music: Musik-Ids (Hauptmenü 'title', Ebenen über floors.json 'music', Boss 'boss', Boss-Altar: Altar 'altar', Kampf 'boss_rock' (boss_altar.json)).",
+	"_info": "Sound-Ids -> Dateien (Liste = eine zufällig). spatial: Töne der Gegner kommen räumlich aus ihrer Richtung (unit_size = bis zu dieser Entfernung in Metern volle Lautstärke, max_distance = ab hier still, panning_strength = wie stark links/rechts, voices = so viele gleichzeitig). sound_volume_db: Lautstärke je Id in dB. sound_buses: Id -> Bus (sonst Sounds). music: Musik-Ids (Hauptmenü 'title', Ebenen über floors.json 'music', Boss 'boss', Boss-Altar: Altar 'altar', Kampf 'boss_rock' (boss_altar.json)).",
 	"music_volume_db": -4,
+	"spatial": {"unit_size": 4.0, "max_distance": 40.0, "panning_strength": 1.0, "voices": 16},
 	"music": {
 		"title": "res://assets/audio/music/title_01.ogg",
 		"cellar": "res://assets/audio/music/mine_02.wav",
