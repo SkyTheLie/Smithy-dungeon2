@@ -10,6 +10,9 @@ extends RefCounted
 ## dungeon shop): it stacks (loot.json "stack"), RunState.coins only counts it.
 ##
 ## A place (one piece of loot) is {"id", "count", "x", "y", "rot"}: x, y = its top left cell.
+## A piece of gear, a relic or a potion brought from the stash at home (is_piece) is a place too,
+## with its own fields (rarity / relic, left / potion) and count 1; it never stacks, its size is
+## ShopGoods.piece_size. Put in with put_place / add_piece, not with add / put_at.
 ## Places are addressed by their index in `places`; it changes when a place is taken out.
 ## Cells of the safe place lie far right of the bag (SAFE_ORIGIN), so nothing reaches over both.
 
@@ -86,7 +89,29 @@ func section_cells(section: String) -> Array[Vector2i]:
 
 ## Width × height of place `place` as it lies (turned or not).
 static func footprint(place: Dictionary) -> Vector2i:
-	return BagLayout.turned(BagLayout.loot_size(String(place.get("id", ""))), bool(place.get("rot", false)))
+	return BagLayout.turned(size_of(place), bool(place.get("rot", false)))
+
+
+## Width × height of a place, not turned: pieces by ShopGoods.piece_size, loot by loot.json size.
+static func size_of(place: Dictionary) -> Vector2i:
+	return ShopGoods.piece_size(place) if is_piece(place) else BagLayout.loot_size(String(place.get("id", "")))
+
+
+## true for a piece of gear, a relic or a potion (not loot).
+static func is_piece(place: Dictionary) -> bool:
+	return place.has("rarity") or ShopGoods.is_relic(place) or ShopGoods.is_potion(place)
+
+
+## true if the bag may hold `place`: loot of loot.json, or gear / a relic / a potion that exists.
+static func is_known(place: Dictionary) -> bool:
+	var id: String = String(place.get("id", ""))
+	if ShopGoods.is_relic(place):
+		return (Content.relics().get("items", {}) as Dictionary).has(id)
+	if ShopGoods.is_potion(place):
+		return not Content.potion(id).is_empty()
+	if place.has("rarity"):
+		return ShopGoods.is_gear(id)
+	return not Content.material(id).is_empty()
 
 
 static func cells_of_place(place: Dictionary) -> Array[Vector2i]:
@@ -110,7 +135,13 @@ func place_at_cell(cell: Vector2i) -> int:
 ## true if loot `id` (turned when `rot`) fits with its top left at `at`: every cell is a cell of
 ## one section and free (the places in `ignore` do not count).
 func fits(id: String, at: Vector2i, rot: bool, ignore: Array[int] = []) -> bool:
-	var probe: Dictionary = {"id": id, "x": at.x, "y": at.y, "rot": rot}
+	return fits_piece({"id": id}, at, rot, ignore)
+
+
+## Like fits, for any place (loot or a piece; its size by size_of).
+func fits_piece(piece: Dictionary, at: Vector2i, rot: bool, ignore: Array[int] = []) -> bool:
+	var probe: Dictionary = piece.duplicate()
+	probe.merge({"x": at.x, "y": at.y, "rot": rot}, true)
 	var section: String = ""
 	var mine: Array[Vector2i] = cells_of_place(probe)
 	for cell: Vector2i in mine:
@@ -130,15 +161,20 @@ func fits(id: String, at: Vector2i, rot: bool, ignore: Array[int] = []) -> bool:
 ## The first free spot for loot `id` in `section` (rows from the top, then turned): {"x", "y",
 ## "rot"} or {} when it does not fit anywhere.
 func free_spot(id: String, section: String = MAIN) -> Dictionary:
+	return free_spot_for({"id": id}, section)
+
+
+## Like free_spot, for any place (loot or a piece).
+func free_spot_for(piece: Dictionary, section: String = MAIN) -> Dictionary:
 	var list: Array[Vector2i] = section_cells(section)
 	list.sort_custom(func(a: Vector2i, b: Vector2i) -> bool: return a.y < b.y if a.y != b.y else a.x < b.x)
-	var span: Vector2i = BagLayout.loot_size(id)
+	var span: Vector2i = size_of(piece)
 	var turns: Array[bool] = [false]
 	if span.x != span.y:
 		turns.append(true)
 	for rot: bool in turns:
 		for cell: Vector2i in list:
-			if fits(id, cell, rot):
+			if fits_piece(piece, cell, rot):
 				return {"x": cell.x, "y": cell.y, "rot": rot}
 	return {}
 
@@ -260,6 +296,34 @@ func put_at(cell: Vector2i, id: String, count: int, rot: bool = false) -> bool:
 	return true
 
 
+## Puts `place` (loot or a piece, with "x", "y", "rot") onto its cells. A piece keeps its own
+## fields and gets count 1. false (nothing changes) if it does not fit or is unknown.
+func put_place(place: Dictionary) -> bool:
+	var at := Vector2i(int(place.get("x", -9999)), int(place.get("y", -9999)))
+	var rot: bool = bool(place.get("rot", false))
+	if not is_piece(place):
+		return put_at(at, String(place.get("id", "")), int(place.get("count", 1)), rot)
+	if not is_known(place) or not fits_piece(place, at, rot):
+		return false
+	var copy: Dictionary = place.duplicate()
+	copy.merge({"count": 1, "x": at.x, "y": at.y, "rot": rot}, true)
+	places.append(copy)
+	changed.emit()
+	return true
+
+
+## A piece into the first free spot of the bag (never the safe place). false = no room / unknown.
+func add_piece(piece: Dictionary) -> bool:
+	if not is_piece(piece) or not is_known(piece):
+		return false
+	var spot: Dictionary = free_spot_for(piece)
+	if spot.is_empty():
+		return false
+	var placed: Dictionary = piece.duplicate()
+	placed.merge(spot, true)
+	return put_place(placed)
+
+
 ## Drag and drop: place `index` goes with its top left onto `cell`, turned when `rot`. If it lands
 ## on exactly one other place: the same thing stacks (what does not fit stays), otherwise the two
 ## swap when the other one fits where the dragged one was. false = nothing changed.
@@ -268,16 +332,17 @@ func move_to(index: int, cell: Vector2i, rot: bool) -> bool:
 		return false
 	var source: Dictionary = places[index]
 	var id: String = String(source["id"])
-	if BagLayout.loot_size(id).x == BagLayout.loot_size(id).y:
+	if size_of(source).x == size_of(source).y:
 		rot = false
-	if fits(id, cell, rot, [index]):
+	if fits_piece(source, cell, rot, [index]):
 		source["x"] = cell.x
 		source["y"] = cell.y
 		source["rot"] = rot
 		changed.emit()
 		return true
 	# What lies under it?
-	var probe: Dictionary = {"id": id, "x": cell.x, "y": cell.y, "rot": rot}
+	var probe: Dictionary = source.duplicate()
+	probe.merge({"x": cell.x, "y": cell.y, "rot": rot}, true)
 	var under: Array[int] = []
 	for c: Vector2i in cells_of_place(probe):
 		if section_of(c).is_empty():
@@ -288,7 +353,7 @@ func move_to(index: int, cell: Vector2i, rot: bool) -> bool:
 	if under.size() != 1:
 		return false
 	var target: Dictionary = places[under[0]]
-	if String(target["id"]) == id and stack_of(id) > 1:
+	if String(target["id"]) == id and stack_of(id) > 1 and not is_piece(source) and not is_piece(target):
 		var put: int = mini(int(source["count"]), stack_of(id) - int(target["count"]))
 		if put <= 0:
 			return false
@@ -301,7 +366,6 @@ func move_to(index: int, cell: Vector2i, rot: bool) -> bool:
 	# Swap: the dragged one to `cell`, the other one to where the dragged one was.
 	var old := Vector2i(int(source["x"]), int(source["y"]))
 	var old_rot: bool = bool(source["rot"])
-	var other_id: String = String(target["id"])
 	var other_old := Vector2i(int(target["x"]), int(target["y"]))
 	var other_rot: bool = bool(target["rot"])
 	source["x"] = cell.x
@@ -310,7 +374,7 @@ func move_to(index: int, cell: Vector2i, rot: bool) -> bool:
 	target["x"] = -99999
 	target["y"] = -99999
 	for turn: bool in [other_rot, not other_rot]:
-		if fits(other_id, old, turn, [under[0]]) and _fits_with(under[0], old, turn):
+		if fits_piece(target, old, turn, [under[0]]) and _fits_with(under[0], old, turn):
 			target["x"] = old.x
 			target["y"] = old.y
 			target["rot"] = turn
@@ -327,7 +391,8 @@ func move_to(index: int, cell: Vector2i, rot: bool) -> bool:
 
 ## true if place `index` at `at` (turned `rot`) covers no cell of the other places.
 func _fits_with(index: int, at: Vector2i, rot: bool) -> bool:
-	var probe: Dictionary = {"id": places[index]["id"], "x": at.x, "y": at.y, "rot": rot}
+	var probe: Dictionary = places[index].duplicate()
+	probe.merge({"x": at.x, "y": at.y, "rot": rot}, true)
 	var mine: Array[Vector2i] = cells_of_place(probe)
 	for i in places.size():
 		if i == index:
@@ -358,7 +423,14 @@ func restore(list: Array) -> Array[Dictionary]:
 		var place: Dictionary = entry
 		var id: String = String(place.get("id", ""))
 		var count: int = int(place.get("count", 1))
-		if put_at(Vector2i(int(place.get("x", -9999)), int(place.get("y", -9999))), id, count, bool(place.get("rot", false))):
+		if put_place(place):
+			continue
+		if is_piece(place):
+			if not add_piece(place) and is_known(place):
+				var lost: Dictionary = place.duplicate()
+				for key: String in ["x", "y", "rot"]:
+					lost.erase(key)
+				left.append(lost)
 			continue
 		var over: int = add(id, count)
 		if over > 0:

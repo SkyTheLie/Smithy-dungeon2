@@ -2,6 +2,8 @@ extends "res://assets/_reference/_lib/base_test.gd"
 ## The bag at home (MetaState.bag_places) in Egon's shop, tab Inventar: the loot brought home lies
 ## in it on its cells, can be moved, dragged into the stash and back, into the safe place, onto the
 ## table (sold); a backpack with loot in it stays attached; the board is big enough to see.
+## Gear (with its rarity) goes from the stash into the bag too, comes along into the run, is lost
+## on death outside the safe place and goes back into the stash with its rarity.
 
 
 func run() -> void:
@@ -56,9 +58,7 @@ func run() -> void:
 	board.call("_drop_data", (Vector2(Vector2i(7, 2) - area.position) + Vector2(0.5, 0.5)) * px, back)
 	check((meta.call("stash") as Array).is_empty(), "the stash is empty again")
 	check((meta.call("bag_places") as Array).any(func(p: Dictionary) -> bool: return p.get("id") == "copper_ore" and int(p["x"]) == 7 and int(p["y"]) == 2), "the ore lies in the bag at 7,2")
-	meta.call("give_piece", {"id": "copper_helmet", "rarity": 1})
-	var helmet: Dictionary = {"from": "stash", "index": 0, "piece": (meta.call("stash") as Array)[0], "rot": false, "grab": Vector2i.ZERO, "size": Vector2i(2, 2)}
-	check(not board.call("_can_drop_data", Vector2(5, 5), helmet) or not (meta.call("stash_fits_bag", 0, Vector2i(0, 0), false)), "gear does not go into the bag")
+	_gear_in_bag(meta, board, area, px)
 
 	# Selling from the bag: onto the table.
 	var table: Control = shop.call("get_table_board")
@@ -80,3 +80,33 @@ func run() -> void:
 	check(bag != null, "(bag model)")
 	shop.queue_free()
 	await process_frame
+
+
+func _gear_in_bag(meta: Script, board: Control, area: Rect2i, px: float) -> void:
+	meta.call("give_piece", {"id": "copper_helmet", "rarity": 3})
+	var helmet: Dictionary = {"from": "stash", "index": 0, "piece": (meta.call("stash") as Array)[0], "rot": false, "grab": Vector2i.ZERO, "size": Vector2i.ONE}
+	var at: Vector2 = (Vector2(Vector2i(0, 0) - area.position) + Vector2(0.5, 0.5)) * px
+	check(board.call("_can_drop_data", at, helmet), "the bag takes gear from the stash")
+	check(meta.call("stash_fits_bag", 0, Vector2i(0, 0), false), "gear fits into the bag")
+	board.call("_drop_data", at, helmet)
+	check((meta.call("stash") as Array).is_empty(), "the helmet left the stash")
+	var index: int = (meta.call("bag_places") as Array).find_custom(func(p: Dictionary) -> bool: return p.get("id") == "copper_helmet")
+	check(index >= 0, "the helmet lies in the bag")
+	var place: Dictionary = (meta.call("bag_places") as Array)[index]
+	check_eq(int(place.get("rarity", 0)), 3, "it keeps its rarity")
+	check_eq(Vector2i(int(place["x"]), int(place["y"])), Vector2i(0, 0), "on the cell it was dropped on")
+	# Into the run: the bag of the run has it; dying without the safe place loses it.
+	var bag: Object = script("res://scripts/systems/bag.gd").new()
+	bag.call("restore", meta.call("bag_places"))
+	check_eq(bag.call("count_of", "copper_helmet"), 1, "the run starts with the helmet")
+	check(bag.call("move_to", (bag.get("places") as Array).find_custom(func(p: Dictionary) -> bool: return p.get("id") == "copper_helmet"), Vector2i(6, 0), false), "gear moves in the bag of the run")
+	bag.call("lose_unsafe")
+	check_eq(bag.call("count_of", "copper_helmet"), 0, "death: the helmet is gone (not in the safe place)")
+	# A run that ends well brings it home in the bag, still rarity 3.
+	meta.call("end_run", 0, meta.call("bag_places"), RandomNumberGenerator.new())
+	index = (meta.call("bag_places") as Array).find_custom(func(p: Dictionary) -> bool: return p.get("id") == "copper_helmet")
+	check(index >= 0 and int((meta.call("bag_places") as Array)[index].get("rarity", 0)) == 3, "home again in the bag with its rarity")
+	# Back into the stash, still rarity 3.
+	check(meta.call("bag_to_stash", index), "back into the stash")
+	var own: Array = meta.call("stash")
+	check(own.size() == 1 and own[0].get("id") == "copper_helmet" and int(own[0].get("rarity", 0)) == 3, "in the stash with its rarity")

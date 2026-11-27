@@ -454,7 +454,10 @@ func _stash_judge(data: Dictionary, cell: Vector2i, rot: bool) -> int:
 	if String(data.get("from", "")) == "hero":
 		return 1 if ItemGrid.fits(own, grid, data["piece"], cell, rot) else 0
 	if String(data.get("from", "")) == "bag":
-		var single: Dictionary = {"id": String((data["piece"] as Dictionary).get("id", "")), "count": 1}
+		var single: Dictionary = (data["piece"] as Dictionary).duplicate()
+		for key: String in ["x", "y", "rot"]:
+			single.erase(key)
+		single["count"] = 1
 		return 1 if ItemGrid.fits(own, grid, single, cell, rot) else 0
 	var index: int = int(data.get("index", -1))
 	if index < 0 or index >= own.size():

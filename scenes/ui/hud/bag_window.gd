@@ -419,6 +419,14 @@ func _show_info(index: int) -> void:
 		_info_name.text = ""
 		_info_text.text = ""
 		return
+	if Bag.is_piece(place):
+		# Gear, a relic or a potion carried along: the same text as in Egon's shop.
+		var lines: PackedStringArray = ShopSlot.describe(place, false).split("
+", false, 1)
+		_info_name.text = lines[0]
+		_info_name.modulate = Rarity.color(ShopSlot.rarity_of(place))
+		_info_text.text = lines[1] if lines.size() > 1 else ""
+		return
 	var data: Dictionary = Content.material(String(place["id"]))
 	var tier: int = int(data.get("rarity", 1))
 	_info_name.text = "%s ×%d" % [Language.translate(String(data.get("name", ""))), int(place["count"])]
@@ -432,8 +440,9 @@ func _show_info(index: int) -> void:
 
 # --- Dropping on the floor --------------------------------------------------------
 
+## Loot can be thrown on the floor; gear, relics and potions cannot (there is no pickup for them).
 func _can_drop_on_floor(_at: Vector2, data: Variant) -> bool:
-	return data is Dictionary and (data as Dictionary).has("bag_index")
+	return data is Dictionary and (data as Dictionary).has("bag_index") 			and not Bag.is_piece(run.bag.get_place(int((data as Dictionary)["bag_index"])))
 
 
 func _drop_on_floor(_at: Vector2, data: Variant) -> void:

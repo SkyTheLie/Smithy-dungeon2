@@ -909,6 +909,9 @@ func _drop_loot(room: DungeonRoom, at: Vector3, id: String, count: int, dropped:
 
 ## Bag window: place `index` is thrown on the floor in front of the player (to make room).
 func drop_from_bag(index: int) -> Pickup:
+	# Gear, relics and potions have no pickup: they stay in the bag.
+	if Bag.is_piece(run.bag.get_place(index)):
+		return null
 	var place: Dictionary = run.bag.take(index)
 	if place.is_empty():
 		return null
