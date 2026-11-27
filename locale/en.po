@@ -1773,6 +1773,12 @@ msgstr "Meteor"
 msgid "Minotaurus"
 msgstr "Minotaur"
 
+msgid "Mit Gold"
+msgstr "With gold"
+
+msgid "Mit Skillpunkten"
+msgstr "With skill points"
+
 msgid "Mit dem Händler handeln"
 msgstr "Trade with the merchant"
 
@@ -3113,6 +3119,9 @@ msgstr "or press Space"
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Over the limit: Egon is eyeing your money box!"
+
+msgid "Überleben"
+msgstr "Survival"
 
 msgid "Überschreiben"
 msgstr "Overwrite"

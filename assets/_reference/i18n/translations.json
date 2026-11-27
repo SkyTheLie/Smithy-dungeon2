@@ -1046,5 +1046,8 @@
 	"Ab Spielerstufe %d": {"en": "From player level %d", "es": "Desde el nivel de jugador %d", "fr": "À partir du niveau %d", "pt": "A partir do nível %d", "ru": "С уровня игрока %d", "ja": "プレイヤーレベル %d から", "zh": "玩家等级 %d 起", "fa": "از سطح بازیکن %d"},
 	"Erst die Stufe davor lernen": {"en": "Learn the level above first", "es": "Aprende antes el nivel anterior", "fr": "Apprends d'abord le niveau précédent", "pt": "Aprenda antes o nível anterior", "ru": "Сначала изучи предыдущий уровень", "ja": "先に前の段階を習得しよう", "zh": "请先学习上一级", "fa": "اول سطح قبلی را یاد بگیر"},
 	"Gelernt": {"en": "Learned", "es": "Aprendido", "fr": "Appris", "pt": "Aprendido", "ru": "Изучено", "ja": "習得済み", "zh": "已学会", "fa": "یاد گرفته شد"},
-	"Kostet: %s": {"en": "Costs: %s", "es": "Cuesta: %s", "fr": "Coût : %s", "pt": "Custa: %s", "ru": "Стоит: %s", "ja": "コスト: %s", "zh": "花费：%s", "fa": "هزینه: %s"}
+	"Kostet: %s": {"en": "Costs: %s", "es": "Cuesta: %s", "fr": "Coût : %s", "pt": "Custa: %s", "ru": "Стоит: %s", "ja": "コスト: %s", "zh": "花费：%s", "fa": "هزینه: %s"},
+	"Mit Gold": {"en": "With gold", "es": "Con oro", "fr": "Avec de l'or", "pt": "Com ouro", "ru": "За золото", "ja": "ゴールドで", "zh": "用金币", "fa": "با طلا"},
+	"Mit Skillpunkten": {"en": "With skill points", "es": "Con puntos de habilidad", "fr": "Avec des points de compétence", "pt": "Com pontos de habilidade", "ru": "За очки навыков", "ja": "スキルポイントで", "zh": "用技能点", "fa": "با امتیاز مهارت"},
+	"Überleben": {"en": "Survival", "es": "Supervivencia", "fr": "Survie", "pt": "Sobrevivência", "ru": "Выживание", "ja": "生存", "zh": "生存", "fa": "بقا"}
 }

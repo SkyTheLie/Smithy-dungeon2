@@ -126,12 +126,18 @@ static func levels() -> Dictionary:
 	return Content.get_file("levels")
 
 
-## EXP needed from `level` to the next one (level 0 -> 1: first_level_exp; 0 at the highest level).
+## EXP needed from `level` to the next one (0 at the highest level): the first ones from
+## levels.json exp_table, then base_exp × growth^level, at least the last value of the table.
 static func exp_to_next(level: int) -> int:
 	var rules: Dictionary = levels()
-	if level >= int(rules.get("max_level", 30)):
+	if level >= int(rules.get("max_level", 30)) or level < 0:
 		return 0
-	return roundi(float(rules.get("first_level_exp", 30)) * pow(float(rules.get("growth", 1.3)), level))
+	var table: Array = rules.get("exp_table", [30])
+	if table.is_empty():
+		return 0
+	if level < table.size():
+		return int(table[level])
+	return maxi(int(table.back()), roundi(float(rules.get("base_exp", 30)) * pow(float(rules.get("growth", 1.25)), level)))
 
 
 ## EXP for one kill (a boss gives more).

@@ -1773,6 +1773,12 @@ msgstr "メテオ"
 msgid "Minotaurus"
 msgstr "ミノタウロス"
 
+msgid "Mit Gold"
+msgstr "ゴールドで"
+
+msgid "Mit Skillpunkten"
+msgstr "スキルポイントで"
+
 msgid "Mit dem Händler handeln"
 msgstr "商人と取引する"
 
@@ -3113,6 +3119,9 @@ msgstr "またはスペースキー"
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "上限超え：エゴンがカンを狙ってる！"
+
+msgid "Überleben"
+msgstr "生存"
 
 msgid "Überschreiben"
 msgstr "上書き"

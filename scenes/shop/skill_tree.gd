@@ -8,7 +8,9 @@ extends Control
 ## Under each icon: what that level costs (or a tick when learned). The frame shows the state:
 ## gold (pulsing) = can be learned now, green = learned, grey = the next one but too dear / level
 ## too low, dark = the level above (or the skill before) is missing. The tooltip says everything.
-## Groups (skills.json "groups"): a title over the skills of a group.
+## Groups (skills.json "groups"): a title over the skills of a group ("big": the side titles).
+## Left of column 0 the skills that cost only skill points (they grow to the left), right of it
+## those that cost only gold (they grow to the right); a line in column 0 parts the two sides.
 ## A click sends learn_requested (the window learns it through MetaState). Lies in a PanZoomView
 ## (pull in every direction, wheel zooms): a click that was a drag learns nothing.
 
@@ -35,6 +37,9 @@ var _lines: Array = []
 ## [rect, colour] per icon.
 var _frames: Array = []
 var _any_affordable: bool = false
+## x of the line between the two sides (NAN: no line).
+var _divider_x: float = NAN
+const DIVIDER := Color(0.9, 0.78, 0.3, 0.35)
 var _pulse_time: float = 0.0
 
 
@@ -58,6 +63,7 @@ func build() -> void:
 	if skills.is_empty():
 		first = Vector2.ZERO
 		last = Vector2.ZERO
+	_divider_x = _center(Vector2.ZERO, first).x if first.x < 0.0 and last.x > 0.0 else NAN
 	# Lines first (they lie under the icons), then the icons.
 	for id: String in skills:
 		var top: Vector2 = _center(_cell(id), first)
@@ -78,8 +84,9 @@ func build() -> void:
 		var title := Label.new()
 		title.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		title.text = Language.translate(String(data.get("name", group)))
-		title.add_theme_font_size_override("font_size", 11)
-		title.add_theme_color_override("font_color", LINE_LIT)
+		var big: bool = bool(data.get("big", false))
+		title.add_theme_font_size_override("font_size", 14 if big else 11)
+		title.add_theme_color_override("font_color", Color(1.0, 0.95, 0.7) if big else LINE_LIT)
 		title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		title.size = Vector2(CELL.x * 3.0, 16)
 		title.position = center - Vector2(CELL.x * 1.5, 4)
@@ -107,6 +114,8 @@ func _draw() -> void:
 	for x in range(int(MARGIN.x), int(size.x), int(CELL.x / 2.0)):
 		for y in range(int(MARGIN.y), int(size.y), int(CELL.y / 2.0)):
 			draw_rect(Rect2(x, y, 1, 1), GRID_DOT)
+	if not is_nan(_divider_x):
+		draw_line(Vector2(_divider_x, 4.0), Vector2(_divider_x, size.y - 4.0), DIVIDER, 2.0)
 	for line: Array in _lines:
 		var points: PackedVector2Array = line[0]
 		draw_polyline(points, LINE_SHADOW, 4.0)

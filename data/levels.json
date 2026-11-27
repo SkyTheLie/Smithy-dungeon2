@@ -1,8 +1,9 @@
 {
-	"_info": "Stufen des Spielers (bleiben über alle Runs, MetaState). Jeder Kill gibt exp_per_kill EXP, ein Boss exp_per_boss; gutgeschrieben am Ende des Runs (auch beim Tod). Man beginnt mit Stufe 0; für Stufe 1 braucht man first_level_exp EXP, jede weitere Stufe growth-mal so viel (gerundet). max_level = höchste Stufe. Jede neue Stufe gibt points_per_level Skillpunkte, ein neuer Spielstand beginnt mit start_points.",
+	"_info": "Stufen des Spielers (bleiben über alle Runs, MetaState). Jeder Kill gibt exp_per_kill EXP, ein Boss exp_per_boss; gutgeschrieben am Ende des Runs (auch beim Tod). Man beginnt mit Stufe 0; exp_table = EXP für die ersten Stufen (Stufe 1, Stufe 2 …; so gewählt, dass man nach dem ersten Run etwa 80 % von Stufe 1 hat und nach dem zweiten Stufe 1 plus etwa 80 % von Stufe 2), danach base_exp × growth hoch Stufe (gerundet), aber nie weniger als der letzte Wert der Tabelle (so bleibt die Kurve für spätere Stufen wie vorher). max_level = höchste Stufe. Jede neue Stufe gibt points_per_level Skillpunkte, ein neuer Spielstand beginnt mit start_points.",
 	"exp_per_kill": 2,
 	"exp_per_boss": 25,
-	"first_level_exp": 30,
+	"exp_table": [64, 90],
+	"base_exp": 30,
 	"growth": 1.25,
 	"max_level": 30,
 	"points_per_level": 1,

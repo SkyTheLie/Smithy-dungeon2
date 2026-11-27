@@ -1773,6 +1773,12 @@ msgstr "Meteoro"
 msgid "Minotaurus"
 msgstr "Minotauro"
 
+msgid "Mit Gold"
+msgstr "Con oro"
+
+msgid "Mit Skillpunkten"
+msgstr "Con puntos de habilidad"
+
 msgid "Mit dem Händler handeln"
 msgstr "Comerciar con el mercader"
 
@@ -3113,6 +3119,9 @@ msgstr "o pulsa Espacio"
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "¡Por encima del límite: Egon mira tu lata!"
+
+msgid "Überleben"
+msgstr "Supervivencia"
 
 msgid "Überschreiben"
 msgstr "Sobrescribir"
