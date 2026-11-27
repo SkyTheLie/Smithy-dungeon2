@@ -6,6 +6,9 @@ extends Control
 ## (MetaState.attach_backpack), drag an attached one to move it (place_backpack) or back into
 ## the stash (the shop: detach_backpack). R or the right mouse button while dragging turns it;
 ## the cells it would cover show green (allowed) or red.
+## The loot brought home lies on it too (MetaState.bag_places, not the safe place: that is its own
+## board in the shop): drag it to move it (move_in_bag), into the stash (the shop) or from the
+## stash into the bag (stash_to_bag). A backpack with loot in it stays where it is.
 
 signal changed
 
@@ -19,6 +22,9 @@ var cell_px: float = 16.0
 var _area: Rect2i
 var _drop_hint: Dictionary = {}
 var _icons: Dictionary = {}
+## The bag at home (MetaState.bag_places) and the pictures of its loot, read in refresh.
+var _places: Array[Dictionary] = []
+var _loot_icons: Array[Texture2D] = []
 
 
 func _ready() -> void:
@@ -32,7 +38,49 @@ func _ready() -> void:
 func refresh() -> void:
 	_area = BagLayout.board_rect()
 	custom_minimum_size = Vector2(_area.size) * cell_px
+	# Load every picture now: a texture loaded while drawing shows white.
+	for id: String in BagLayout.backpacks():
+		icon_of(id)
+	_places = MetaState.bag_places()
+	_loot_icons.clear()
+	for place: Dictionary in _places:
+		_loot_icons.append(ShopSlot.icon_of_piece(place))
 	queue_redraw()
+
+
+## Index of the bag place on `cell` (-1 = none; the safe place is not on this board).
+func place_at(cell: Vector2i) -> int:
+	for i in _places.size():
+		if Bag.cells_of_place(_places[i]).has(cell):
+			return i
+	return -1
+
+
+## A loot drag from the bag or the stash ("" = something else).
+static func dragged_loot(data: Variant) -> String:
+	if not data is Dictionary:
+		return ""
+	var drag: Dictionary = data
+	var piece: Dictionary = drag.get("piece", {})
+	if String(drag.get("from", "")) == "bag":
+		return String(piece.get("id", ""))
+	if String(drag.get("from", "")) == "stash" and not ShopGoods.is_backpack(piece) and not Content.material(String(piece.get("id", ""))).is_empty():
+		return String(piece.get("id", ""))
+	return ""
+
+
+## true if the loot drag would go onto `cell` (bag coordinates).
+static func loot_allowed(drag: Dictionary, cell: Vector2i) -> bool:
+	if String(drag.get("from", "")) == "bag":
+		return MetaState.bag_fits(int(drag["index"]), cell, bool(drag["rot"]))
+	return MetaState.stash_fits_bag(int(drag["index"]), cell, bool(drag["rot"]))
+
+
+## Moves / puts the loot of the drag onto `cell`. false = nothing changed.
+static func drop_loot(drag: Dictionary, cell: Vector2i) -> bool:
+	if String(drag.get("from", "")) == "bag":
+		return MetaState.move_in_bag(int(drag["index"]), cell, bool(drag["rot"]))
+	return MetaState.stash_to_bag(int(drag["index"]), cell, bool(drag["rot"]))
 
 
 func cell_at(at: Vector2) -> Vector2i:
@@ -87,9 +135,18 @@ func _draw() -> void:
 		if texture:
 			var side: float = minf(minf(whole.size.x, whole.size.y) * 0.8, 40.0)
 			draw_texture_rect(texture, Rect2(whole.get_center() - Vector2(side, side) / 2.0, Vector2(side, side)), false, Color(1, 1, 1, 0.85))
+	for i in _places.size():
+		var place: Dictionary = _places[i]
+		var at := Vector2i(int(place["x"]), int(place["y"]))
+		if at.x >= Bag.SAFE_ORIGIN.x:
+			continue
+		var rect: Rect2 = _rect_of(at, Bag.footprint(place)).grow(-1.0)
+		var color: Color = Rarity.color(ShopSlot.rarity_of(place))
+		draw_rect(rect, Color(color, 0.22))
+		draw_rect(rect, color, false, 1.0)
+		BagBoard.draw_icon(self, _loot_icons[i], rect.grow(-0.5), bool(place.get("rot", false)))
 	if not _drop_hint.is_empty():
-		var hint_span: Vector2i = BagLayout.turned(BagLayout.backpack_size(String(_drop_hint["id"])), bool(_drop_hint["rot"]))
-		draw_rect(_rect_of(_drop_hint["cell"], hint_span), _drop_hint["color"])
+		draw_rect(_rect_of(_drop_hint["cell"], _drop_hint["span"]), _drop_hint["color"])
 
 
 func _notification(what: int) -> void:
@@ -120,6 +177,11 @@ func make_drag(source: Control, id: String, rot: bool, grab: Vector2i) -> Dictio
 
 func _get_drag_data(at: Vector2) -> Variant:
 	var cell: Vector2i = cell_at(at)
+	# Loot first (it lies on top of the backpacks).
+	var index: int = place_at(cell)
+	if index >= 0:
+		var place: Dictionary = _places[index]
+		return ItemBoard.make_drag(self, "bag", index, place, bool(place.get("rot", false)), cell - Vector2i(int(place["x"]), int(place["y"])), cell_px)
 	var id: String = backpack_at(cell)
 	if id.is_empty():
 		return null
@@ -154,13 +216,21 @@ static func allowed(drag: Dictionary, cell: Vector2i) -> bool:
 
 
 func _can_drop_data(at: Vector2, data: Variant) -> bool:
+	var loot: String = dragged_loot(data)
+	if not loot.is_empty():
+		var loot_drag: Dictionary = data
+		var at_cell: Vector2i = cell_at(at) - (loot_drag["grab"] as Vector2i)
+		_drop_hint = {"cell": at_cell, "span": BagLayout.turned(BagLayout.loot_size(loot), bool(loot_drag["rot"])),
+				"color": OK_COLOR if loot_allowed(loot_drag, at_cell) else BAD_COLOR}
+		queue_redraw()
+		return true
 	var id: String = dragged_backpack(data)
 	if id.is_empty():
 		return false
 	var drag: Dictionary = data
 	var cell: Vector2i = cell_at(at) - (drag["grab"] as Vector2i)
 	var ok: bool = allowed(drag, cell)
-	_drop_hint = {"cell": cell, "id": id, "rot": bool(drag["rot"]), "color": OK_COLOR if ok else BAD_COLOR}
+	_drop_hint = {"cell": cell, "span": BagLayout.turned(BagLayout.backpack_size(id), bool(drag["rot"])), "color": OK_COLOR if ok else BAD_COLOR}
 	queue_redraw()
 	return true
 
@@ -170,7 +240,9 @@ func _drop_data(at: Vector2, data: Variant) -> void:
 	var cell: Vector2i = cell_at(at) - (drag["grab"] as Vector2i)
 	_drop_hint = {}
 	var done: bool = false
-	if drag.has("backpack"):
+	if not dragged_loot(drag).is_empty():
+		done = drop_loot(drag, cell)
+	elif drag.has("backpack"):
 		done = MetaState.place_backpack(String(drag["backpack"]), cell, bool(drag["rot"]))
 	else:
 		done = MetaState.attach_backpack(int(drag["index"]), cell, bool(drag["rot"]))

@@ -198,6 +198,9 @@ msgstr "دشمنان شکست‌خورده: %d"
 msgid "Betreten"
 msgstr "ورود"
 
+msgid "Beute aus dem Dungeon bleibt hier. Ins Lager ziehen, auf den Tisch ziehen (verkaufen) oder wieder mitnehmen. Rucksäcke aus dem Lager an den Rand ziehen (R dreht)."
+msgstr "غنیمت سیاه‌چال اینجا می‌ماند. به انبار بکش، روی میز بکش (فروش) یا دوباره با خودت ببر. کوله‌ها را از انبار به لبه بکش (R می‌چرخاند)."
+
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "غنیمت را از تو می‌خرم: در کوله راست‌کلیک کن، می‌رود بالا پیش خرید من. قیمت منصفانه. صادقانه!"
 
@@ -431,6 +434,9 @@ msgstr "فروشنده غنیمت می‌خرد: Tab، کلیک راست"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "عقیق! می‌درخشد! تقریباً به روشنی آینده‌ام."
+
+msgid "Der Stein liegt in deinem Inventar!"
+msgstr "سنگ در کیف توست!"
 
 msgid "Der Stein liegt in deinem Lager!"
 msgstr "سنگ در انبار توست!"
@@ -1649,6 +1655,9 @@ msgstr "کیف در سیاه‌چال"
 
 msgid "Inventar voll!"
 msgstr "کوله‌پشتی پر است!"
+
+msgid "Inventar: das nimmst du mit in den Dungeon"
+msgstr "کیف: این را با خودت به سیاه‌چال می‌بری"
 
 msgid "Irrlicht"
 msgstr "آتش سرگردان"

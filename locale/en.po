@@ -198,6 +198,9 @@ msgstr "Enemies defeated: %d"
 msgid "Betreten"
 msgstr "Enter"
 
+msgid "Beute aus dem Dungeon bleibt hier. Ins Lager ziehen, auf den Tisch ziehen (verkaufen) oder wieder mitnehmen. Rucksäcke aus dem Lager an den Rand ziehen (R dreht)."
+msgstr "Loot from the dungeon stays here. Drag it into the stash, onto the table (sell) or take it along again. Drag backpacks from the stash to the edge (R rotates)."
+
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "I buy your loot: right-click it in the inventory and it lands up at my buying spot. Fair prices. Honestly!"
 
@@ -431,6 +434,9 @@ msgstr "The merchant buys loot: Tab, right click"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "The opal! It glows! Almost as bright as my future."
+
+msgid "Der Stein liegt in deinem Inventar!"
+msgstr "The stone is in your inventory!"
 
 msgid "Der Stein liegt in deinem Lager!"
 msgstr "The stone is in your stash!"
@@ -1649,6 +1655,9 @@ msgstr "Inventory in the dungeon"
 
 msgid "Inventar voll!"
 msgstr "Inventory full!"
+
+msgid "Inventar: das nimmst du mit in den Dungeon"
+msgstr "Inventory: you take this into the dungeon"
 
 msgid "Irrlicht"
 msgstr "Will-o'-the-Wisp"

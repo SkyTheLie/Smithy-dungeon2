@@ -112,8 +112,9 @@ func _death() -> void:
 	var end_screen: CanvasLayer = scene.get_node("EndScreen")
 	check(await wait_until(func() -> bool: return end_screen.visible, 3.0), "end screen after death")
 	check_eq((bag.call("contents") as Array).size(), 1, "death: only the safe place is left in the bag")
-	var stash: Array = meta.call("stash")
-	check(stash.size() == 1 and (stash[0] as Dictionary).get("id") == saved_id, "the safe place comes home (%s)" % saved_id)
+	var home: Array = meta.call("bag_places")
+	check(home.size() == 1 and (home[0] as Dictionary).get("id") == saved_id, "the safe place comes home, still in the bag (%s)" % saved_id)
+	check((meta.call("stash") as Array).is_empty(), "nothing went into the stash by itself")
 	check_eq(meta.call("box"), 0, "the gold of the run is lost")
 	check_eq(meta.call("day"), day + 1, "a new day")
 	paused = false

@@ -49,11 +49,12 @@ const BOX_DANGER := Color(1.0, 0.4, 0.35)
 const CAVE_SHADE := Color(0.45, 0.4, 0.4)
 const GOLD_COLOR := Color(1, 0.86, 0.35)
 const SCREEN := Vector2(640, 360)
-const TABLE_CELL: float = 24.0
+const TABLE_CELL: float = 20.0
 const STASH_CELL: float = 26.0
 ## Room for the bag and its backpacks in the Inventar tab (the cells shrink to fit).
-const BAG_ROOM := Vector2(134, 110)
-const SAFE_CELL: float = 13.0
+const BAG_ROOM := Vector2(212, 140)
+## Where the things right of the wide left column start.
+const MIDDLE_X: float = 244.0
 const BUTTON_Y: float = 334.0
 const MERCHANT_SCALE: float = 3.0
 const FADE_TIME: float = 0.5
@@ -74,7 +75,8 @@ var _equipment_tab: Button
 var _inventory_tab_button: Button
 var _inventory_tab: PanelContainer
 var _backpack_board: BackpackBoard
-var _safe_view: Control
+## The safe place of the bag at home (an ItemBoard in its own coordinates, Bag.SAFE_ORIGIN).
+var _safe_board: ItemBoard
 var _lever: TextureButton
 var _lever_price: Label
 var _chance_bar: ChanceBar
@@ -179,7 +181,7 @@ func _build() -> void:
 	gold_row.add_child(_location)
 
 	_hero = HeroPanel.new()
-	_hero.position = Vector2(8, 66)
+	_hero.position = Vector2(50, 66)
 	_hero.slot_clicked.connect(_on_hero_slot_clicked)
 	_hero.drag_for = _hero_drag
 	_hero.judge_for = _hero_judge
@@ -187,13 +189,13 @@ func _build() -> void:
 	_frame.add_child(_hero)
 	_build_tabs()
 
-	_table_panel = _panel(Vector2(170, 10))
+	_table_panel = _panel(Vector2(MIDDLE_X, 10))
 	_table_board = ItemBoard.new()
 	_table_board.name = "TableBoard"
 	_table_board.cell_px = TABLE_CELL
 	_table_board.show_price = true
 	_table_board.drag_from = "table"
-	_table_board.accepts = func(data: Dictionary) -> bool: return String(data.get("from", "")) == "stash"
+	_table_board.accepts = func(data: Dictionary) -> bool: return String(data.get("from", "")) in ["stash", "bag"]
 	_table_board.judge = _table_judge
 	_table_board.dropped.connect(_on_table_dropped)
 	_table_board.clicked.connect(_on_table_clicked)
@@ -206,20 +208,20 @@ func _build() -> void:
 	_lever.ignore_texture_size = true
 	_lever.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 	_lever.size = LEVER_UP.get_size() * 2.0
-	_lever.position = Vector2(410, 30)
+	_lever.position = Vector2(436, 30)
 	_lever.focus_mode = Control.FOCUS_NONE
 	_lever.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	_lever.pressed.connect(_on_lever_pressed)
 	_frame.add_child(_lever)
 	_lever_price = _label("", 12, GOLD_COLOR)
 	_lever_price.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_lever_price.position = Vector2(392, 114)
+	_lever_price.position = Vector2(418, 114)
 	_lever_price.size = Vector2(88, 16)
 	_frame.add_child(_lever_price)
 	_chance_bar = ChanceBar.new()
 	_chance_bar.name = "ChanceBar"
-	_chance_bar.position = Vector2(388, 8)
-	_chance_bar.size = Vector2(96, 20)
+	_chance_bar.position = Vector2(420, 8)
+	_chance_bar.size = Vector2(82, 20)
 	_frame.add_child(_chance_bar)
 	_build_quest_place()
 	_build_money_box()
@@ -227,9 +229,9 @@ func _build() -> void:
 	_build_stash()
 
 	_dialog = DialogBox.new()
-	_dialog.position = Vector2(170, 122)
-	_dialog.custom_minimum_size = Vector2(320, 88)
-	_dialog.size = Vector2(320, 88)
+	_dialog.position = Vector2(MIDDLE_X, 134)
+	_dialog.custom_minimum_size = Vector2(256, 72)
+	_dialog.size = Vector2(256, 72)
 	_frame.add_child(_dialog)
 	_dialog.hide()
 
@@ -259,9 +261,9 @@ func _build() -> void:
 	windows.add_child(_skill_window)
 	_quest_window = QuestWindow.new()
 	_quest_window.hide()
-	_quest_window.deliver_requested.connect(func(index: int) -> void:
+	_quest_window.deliver_requested.connect(func(index: int, from_bag: bool) -> void:
 		_quest_window.hide()
-		_deliver(index))
+		_deliver(index, from_bag))
 	windows.add_child(_quest_window)
 	var fade_layer := CanvasLayer.new()
 	fade_layer.layer = 10
@@ -290,7 +292,7 @@ func _build_tabs() -> void:
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 3)
 	_inventory_tab.add_child(column)
-	var title := _label(Language.translate("Inventar im Dungeon"), 10, Color(1, 0.86, 0.55))
+	var title := _label(Language.translate("Inventar: das nimmst du mit in den Dungeon"), 10, Color(1, 0.86, 0.55))
 	title.add_theme_constant_override("outline_size", 0)
 	column.add_child(title)
 	_backpack_board = BackpackBoard.new()
@@ -301,11 +303,18 @@ func _build_tabs() -> void:
 	var safe_title := _label(Language.translate("Sicherer Platz: bleibt, wenn du stirbst"), 8, Color(1.0, 0.78, 0.3))
 	safe_title.add_theme_constant_override("outline_size", 0)
 	column.add_child(safe_title)
-	_safe_view = Control.new()
-	_safe_view.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_safe_view.draw.connect(_draw_safe_place)
-	column.add_child(_safe_view)
-	var hint := _label(Language.translate("Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."), 8, Color(0.75, 0.7, 0.65))
+	_safe_board = ItemBoard.new()
+	_safe_board.name = "SafeBoard"
+	_safe_board.cell_px = _bag_cell()
+	_safe_board.drag_from = "bag"
+	_safe_board.accepts = func(data: Dictionary) -> bool: return not BackpackBoard.dragged_loot(data).is_empty()
+	_safe_board.judge = func(data: Dictionary, cell: Vector2i, _rot: bool) -> int:
+		return 1 if BackpackBoard.loot_allowed(data, cell + Bag.SAFE_ORIGIN) else 0
+	_safe_board.dropped.connect(func(data: Dictionary, cell: Vector2i, _rot: bool) -> void:
+		AudioManager.play_sound("pickup" if BackpackBoard.drop_loot(data, cell + Bag.SAFE_ORIGIN) else "denied", 1.2)
+		_refresh())
+	column.add_child(_safe_board)
+	var hint := _label(Language.translate("Beute aus dem Dungeon bleibt hier. Ins Lager ziehen, auf den Tisch ziehen (verkaufen) oder wieder mitnehmen. Rucksäcke aus dem Lager an den Rand ziehen (R dreht)."), 8, Color(0.75, 0.7, 0.65))
 	hint.add_theme_constant_override("outline_size", 0)
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hint.custom_minimum_size = Vector2(BAG_ROOM.x, 0)
@@ -337,8 +346,7 @@ func _show_tab(tab: String) -> void:
 	_equipment_tab.set_pressed_no_signal(tab == "equipment")
 	_inventory_tab_button.set_pressed_no_signal(tab == "inventory")
 	if tab == "inventory":
-		_backpack_board.refresh()
-		_refresh_safe_view()
+		_refresh_bag()
 
 
 func get_inventory_tab() -> PanelContainer:
@@ -354,23 +362,24 @@ func _safe_size() -> Vector2i:
 	return Vector2i(int(safe[0]) + int(Skills.bonus("safe_slots")), int(safe[1]))
 
 
-func _refresh_safe_view() -> void:
-	_safe_view.custom_minimum_size = Vector2(_safe_size()) * SAFE_CELL
-	_safe_view.queue_redraw()
-
-
-func _draw_safe_place() -> void:
-	var cells: Vector2i = _safe_size()
-	for y in cells.y:
-		for x in cells.x:
-			var rect := Rect2(Vector2(x, y) * SAFE_CELL, Vector2(SAFE_CELL, SAFE_CELL)).grow(-0.5)
-			_safe_view.draw_rect(rect, BagBoard.SAFE_CELL)
-			_safe_view.draw_rect(rect, BagBoard.SAFE_LINE.darkened(0.2), false, 1.0)
+## The bag at home in the Inventar tab: the board with backpacks and loot, the safe place.
+func _refresh_bag() -> void:
+	_backpack_board.refresh()
+	var safe_pieces: Array = []
+	for place: Dictionary in MetaState.bag_places():
+		if int(place["x"]) >= Bag.SAFE_ORIGIN.x:
+			var shifted: Dictionary = place.duplicate()
+			shifted["x"] = int(place["x"]) - Bag.SAFE_ORIGIN.x
+			shifted["y"] = int(place["y"]) - Bag.SAFE_ORIGIN.y
+			safe_pieces.append(shifted)
+		else:
+			safe_pieces.append({})
+	_safe_board.show_pieces(safe_pieces, _safe_size())
 
 
 ## Bottom: the stash grid and beside it what has no room ("Kein Platz").
 func _build_stash() -> void:
-	_stash_panel = _panel(Vector2(170, 210))
+	_stash_panel = _panel(Vector2(MIDDLE_X, 210))
 	_stash_panel.name = "StashPanel"
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 8)
@@ -400,11 +409,11 @@ func _build_stash() -> void:
 	none.mouse_filter = Control.MOUSE_FILTER_STOP
 	side.add_child(none)
 	var scroll := ScrollContainer.new()
-	scroll.custom_minimum_size = Vector2(150, 4 * STASH_CELL - 12)
+	scroll.custom_minimum_size = Vector2(100, 4 * STASH_CELL - 12)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	side.add_child(scroll)
 	_overflow = HFlowContainer.new()
-	_overflow.custom_minimum_size = Vector2(146, 0)
+	_overflow.custom_minimum_size = Vector2(96, 0)
 	_overflow.add_theme_constant_override("h_separation", 3)
 	_overflow.add_theme_constant_override("v_separation", 3)
 	scroll.add_child(_overflow)
@@ -421,7 +430,7 @@ func get_table_board() -> ItemBoard:
 ## The stash takes pieces of the stash (also from "Kein Platz"), goods from the table (buy),
 ## what the hero wears (take off) and attached backpacks.
 func _stash_accepts(data: Dictionary) -> bool:
-	return String(data.get("from", "")) in ["stash", "table", "hero"] or data.has("backpack")
+	return String(data.get("from", "")) in ["stash", "table", "hero", "bag"] or data.has("backpack")
 
 
 ## 1 = fits, 2 = swaps with one other piece, 0 = no.
@@ -436,6 +445,9 @@ func _stash_judge(data: Dictionary, cell: Vector2i, rot: bool) -> int:
 		return 1 if price <= MetaState.box() and ItemGrid.fits(own, grid, data["piece"], cell, rot) else 0
 	if String(data.get("from", "")) == "hero":
 		return 1 if ItemGrid.fits(own, grid, data["piece"], cell, rot) else 0
+	if String(data.get("from", "")) == "bag":
+		var single: Dictionary = {"id": String((data["piece"] as Dictionary).get("id", "")), "count": 1}
+		return 1 if ItemGrid.fits(own, grid, single, cell, rot) else 0
 	var index: int = int(data.get("index", -1))
 	if index < 0 or index >= own.size():
 		return 0
@@ -470,6 +482,8 @@ func _on_stash_dropped(data: Dictionary, cell: Vector2i, rot: bool) -> void:
 		return
 	elif String(data.get("from", "")) == "hero":
 		done = MetaState.unequip(String(data["slot"]), cell, rot)
+	elif String(data.get("from", "")) == "bag":
+		done = MetaState.bag_to_stash(int(data["index"]), cell, rot)
 	else:
 		done = MetaState.move_in_stash(int(data["index"]), cell, rot)
 	AudioManager.play_sound("pickup" if done else "denied", 1.2)
@@ -532,8 +546,7 @@ func _refresh() -> void:
 	_table_board.show_pieces(table_layout(MetaState.table()), table_grid())
 	_refresh_inventory()
 	if _inventory_tab.visible:
-		_backpack_board.refresh()
-		_refresh_safe_view()
+		_refresh_bag()
 	_hero.refresh()
 	_chance_bar.refresh()
 
@@ -604,6 +617,9 @@ static func _rect(control: Control) -> Rect2:
 
 ## A stash piece over the table: green when Egon buys it (not the quest stones), else red.
 func _table_judge(data: Dictionary, _cell: Vector2i, _rot: bool) -> int:
+	if String(data.get("from", "")) == "bag":
+		var id: String = String((data["piece"] as Dictionary).get("id", ""))
+		return 0 if Quests.is_stone(id) or id == Bag.GOLD else 1
 	var own: Array[Dictionary] = MetaState.stash()
 	var index: int = int(data.get("index", -1))
 	if index < 0 or index >= own.size() or Quests.is_stone(String(own[index].get("id", ""))):
@@ -612,9 +628,9 @@ func _table_judge(data: Dictionary, _cell: Vector2i, _rot: bool) -> int:
 
 
 func _on_table_dropped(data: Dictionary, _cell: Vector2i, _rot: bool) -> void:
-	if _locked or String(data.get("from", "")) != "stash":
+	if _locked or not String(data.get("from", "")) in ["stash", "bag"]:
 		return
-	var gold: int = MetaState.sell(int(data["index"]))
+	var gold: int = MetaState.sell_from_bag(int(data["index"])) if String(data["from"]) == "bag" else MetaState.sell(int(data["index"]))
 	if gold <= 0:
 		AudioManager.play_sound("denied")
 		_bark("not_for_sale")
@@ -676,7 +692,7 @@ func _hero_drop(slot: String, data: Variant) -> void:
 
 ## The quest place: the stone of the first open quest shows faintly; drop the stone on it.
 func _build_quest_place() -> void:
-	var panel := _panel(Vector2(486, 10))
+	var panel := _panel(Vector2(508, 10))
 	panel.name = "QuestPanel"
 	_quest_panel = panel
 	var column := VBoxContainer.new()
@@ -707,13 +723,17 @@ func _refresh_quest_place() -> void:
 	_quest_slot.hint_name = Language.translate("Den Quest-Stein hierher ziehen") if not stone.is_empty() else Language.translate("Egon hat gerade keinen Auftrag.")
 	_quest_slot.show_entry({})
 	_quest_label.text = Language.translate(String(Quests.data(open[0]).get("name", ""))) if not open.is_empty() else Language.translate("Keine Quest")
-	var ready_now: bool = Quests.deliverable_index() >= 0
+	var ready_now: bool = Quests.deliverable_index() >= 0 or Quests.stone_in_bag() >= 0
 	_quest_slot.set_glow(ready_now)
 	_quests_button.text = Language.translate("Quests") + (" !" if ready_now else "")
 	_location.text = "  " + Language.translate(String(Quests.location_data(MetaState.location()).get("name", "")))
 
 
 func _can_drop_on_quest(_at: Vector2, data: Variant) -> bool:
+	if data is Dictionary and String((data as Dictionary).get("from", "")) == "bag":
+		var stone: String = String(((data as Dictionary).get("piece", {}) as Dictionary).get("id", ""))
+		_quest_slot.set_drop_hint(1 if not Quests.quest_of_stone(stone).is_empty() else 2)
+		return true
 	if not data is Dictionary or String((data as Dictionary).get("from", "")) != "stash":
 		return false
 	var own: Array[Dictionary] = MetaState.stash()
@@ -725,7 +745,7 @@ func _can_drop_on_quest(_at: Vector2, data: Variant) -> bool:
 
 func _drop_on_quest(_at: Vector2, data: Variant) -> void:
 	_quest_slot.set_drop_hint(0)
-	_deliver(int((data as Dictionary).get("index", -1)))
+	_deliver(int((data as Dictionary).get("index", -1)), String((data as Dictionary).get("from", "stash")) == "bag")
 
 
 func get_quest_slot() -> ShopSlot:
@@ -764,16 +784,16 @@ func _announce_quest(id: String) -> void:
 
 ## Hands in the stone on stash place `index`: it flies to Egon, he talks, pays and moves on
 ## (the screen goes dark, the new place shows). Nothing happens for anything else.
-func _deliver(index: int) -> void:
-	var own: Array[Dictionary] = MetaState.stash()
+func _deliver(index: int, from_bag: bool = false) -> void:
+	var own: Array[Dictionary] = MetaState.bag_places() if from_bag else MetaState.stash()
 	if _locked or index < 0 or index >= own.size() or Quests.quest_of_stone(String(own[index].get("id", ""))).is_empty():
 		AudioManager.play_sound("denied")
 		return
 	_locked = true
 	var icon: Texture2D = ShopSlot.icon_of_piece(own[index])
-	var from: Vector2 = _stash_rect(index).position
+	var from: Vector2 = _rect(_inventory_tab).get_center() if from_bag else _stash_rect(index).position
 	var before: String = MetaState.location()
-	var id: String = MetaState.deliver_quest(index)
+	var id: String = MetaState.deliver_quest_from_bag(index) if from_bag else MetaState.deliver_quest(index)
 	_refresh()
 	await _fly_to_egon(icon, from)
 	if not is_inside_tree():

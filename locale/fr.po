@@ -198,6 +198,9 @@ msgstr "Ennemis vaincus : %d"
 msgid "Betreten"
 msgstr "Entrer"
 
+msgid "Beute aus dem Dungeon bleibt hier. Ins Lager ziehen, auf den Tisch ziehen (verkaufen) oder wieder mitnehmen. Rucksäcke aus dem Lager an den Rand ziehen (R dreht)."
+msgstr "Le butin du donjon reste ici. Glisse-le dans la réserve, sur la table (vendre) ou garde-le pour la suite. Glisse les sacs de la réserve sur le bord (R tourne)."
+
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "Je rachète ton butin : clic droit dans l'inventaire et il arrive en haut, à mon rachat. Prix honnêtes. Honnêtement !"
 
@@ -431,6 +434,9 @@ msgstr "Le marchand achète le butin : Tab, clic droit"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "L'opale ! Elle brille ! Presque autant que mon avenir."
+
+msgid "Der Stein liegt in deinem Inventar!"
+msgstr "La pierre est dans ton inventaire !"
 
 msgid "Der Stein liegt in deinem Lager!"
 msgstr "La pierre est dans ta réserve !"
@@ -1649,6 +1655,9 @@ msgstr "Inventaire au donjon"
 
 msgid "Inventar voll!"
 msgstr "Inventaire plein !"
+
+msgid "Inventar: das nimmst du mit in den Dungeon"
+msgstr "Inventaire : tu l'emportes au donjon"
 
 msgid "Irrlicht"
 msgstr "Feu follet"

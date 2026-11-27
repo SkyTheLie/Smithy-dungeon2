@@ -83,6 +83,8 @@ func _shop_dragging() -> void:
 
 	# Selling: from the stash onto the table.
 	meta.call("end_run", 0, [{"id": "rat_fur", "count": 1}] as Array[Dictionary], RandomNumberGenerator.new())
+	check_eq((meta.call("bag_places") as Array).size(), 1, "the fur came home in the bag")
+	check(meta.call("bag_to_stash", 0), "dragged into the stash")
 	own = meta.call("stash")
 	var fur: int = own.find_custom(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur")
 	var sell: Dictionary = {"from": "stash", "index": fur, "piece": own[fur], "rot": false, "grab": Vector2i.ZERO, "size": Vector2i(2, 2)}

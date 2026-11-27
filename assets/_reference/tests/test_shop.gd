@@ -82,6 +82,7 @@ func _buy_and_equip() -> void:
 	check_eq((meta.call("equipment") as Dictionary).get("feet"), {"id": "copper_boots", "rarity": 1}, "on the feet")
 	check_eq((meta.call("stash") as Array).size(), 1, "and out of the inventory")
 	meta.call("end_run", 0, [{"id": "rat_fur", "count": 2}] as Array[Dictionary], RandomNumberGenerator.new())
+	check(meta.call("bag_to_stash", 0), "a fur from the bag into the stash")
 	var fur: int = (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur")
 	check(not meta.call("equip", fur), "loot cannot be put on")
 	check(meta.call("unequip", "feet"), "the boots come off")
@@ -198,6 +199,8 @@ func _relics() -> void:
 func _selling() -> void:
 	meta.call("start_new")
 	meta.call("end_run", 0, [{"id": "rat_fur", "count": 3}] as Array[Dictionary], RandomNumberGenerator.new())
+	for i in 3:
+		meta.call("bag_to_stash", 0)
 	meta.call("lay_tutorial_table")
 	var table: Array = meta.call("table")
 	meta.call("buy", table.find_custom(func(place: Dictionary) -> bool: return place.get("id") == "copper_staff"), true)

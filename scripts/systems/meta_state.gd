@@ -13,6 +13,8 @@ extends RefCounted
 ##   table, pulls_today, equipment, tutorial_done  Egon's shop (see below).
 ##   backpacks  the backpacks attached to the bag (BagLayout placements, attach_backpack).
 ##   guide_done  the guide of the first run is over (DungeonGuide).
+##   bag    the bag brought home ({id, count, x, y, rot}): loot stays in it between runs
+##          (bag_places, Bag.restore at the start of a run); dragged into the stash in the shop.
 ##   day    one run = one day.
 ##   deaths, potions_unlocked  deaths in the dungeon; after the second one Egon shows the
 ##          potions (potion_tour_due), then potions come on the table and the potion place shows.
@@ -195,6 +197,8 @@ static func attach_backpack_anywhere(index: int) -> bool:
 ## Moves attached backpack `id` to `at` (turned `rot`). false if it is not attached or the bag
 ## would not be allowed.
 static func place_backpack(id: String, at: Vector2i, rot: bool) -> bool:
+	if backpack_in_use(id):
+		return false
 	var before: Array = backpacks()
 	if BagLayout.without(before, id).size() == before.size():
 		return false
@@ -209,6 +213,8 @@ static func place_backpack(id: String, at: Vector2i, rot: bool) -> bool:
 ## Takes attached backpack `id` off into the stash: on `cell` (turned `rot`), or anywhere for
 ## cell (-1, -1). false if it is not attached, others hang only on it, or there is no room.
 static func detach_backpack(id: String, cell: Vector2i = Vector2i(-1, -1), rot: bool = false) -> bool:
+	if backpack_in_use(id):
+		return false
 	var before: Array = backpacks()
 	var next: Array = BagLayout.without(before, id)
 	if next.size() == before.size() or not BagLayout.is_valid(next):
@@ -838,6 +844,9 @@ static func deliver_ruby() -> bool:
 static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenerator) -> int:
 	var gold_home: int = maxi(0, coins)
 	var list: Array[Dictionary] = stash()
+	# What comes home stays in the bag (on its cells); only what has no room there goes into the
+	# stash. Egon's errand ruby goes into the stash (he takes it from there).
+	var bag: Bag = _empty_bag()
 	for entry: Dictionary in kept:
 		var id: String = String(entry.get("id", ""))
 		var count: int = int(entry.get("count", 0))
@@ -847,9 +856,16 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 		if id == Bag.GOLD:
 			gold_home += count
 			continue
-		# Every piece of loot lies on its own in the stash grid (no room: beside it).
-		for i in count:
+		if ruby_due_for(id):
+			for i in count:
+				list.append({"id": id, "count": 1})
+			continue
+		if entry.has("x") and bag.put_at(Vector2i(int(entry["x"]), int(entry["y"])), id, count, bool(entry.get("rot", false))):
+			continue
+		var over: int = bag.add(id, count)
+		for i in over:
 			list.append({"id": id, "count": 1})
+	_write("bag", bag.contents())
 	_write_stash(list)
 	if gold_home > 0:
 		_write("box", box() + gold_home)
@@ -861,6 +877,152 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 	_write("last_theft", stolen)
 	_save()
 	return stolen
+
+
+# --- The bag at home (what comes back from the dungeon stays in it) --------------------
+
+## The places of the bag brought home ({id, count, x, y, rot}, Bag cells; the safe place at
+## Bag.SAFE_ORIGIN). The next run starts with them (Bag.restore).
+static func bag_places() -> Array[Dictionary]:
+	return _bag_model().contents()
+
+
+## An empty bag as the next run gets it: the base bag, the attached backpacks, the safe place
+## with Geheimtasche.
+static func _empty_bag() -> Bag:
+	var bag := Bag.new()
+	bag.add_backpacks(backpacks())
+	bag.grow_safe(int(Skills.bonus("safe_slots")))
+	return bag
+
+
+## The saved bag as a Bag (places that do not fit any more are left out; they stay saved).
+static func _bag_model() -> Bag:
+	var bag: Bag = _empty_bag()
+	for entry: Variant in _read("bag", []):
+		if entry is Dictionary:
+			var place: Dictionary = entry
+			bag.put_at(Vector2i(int(place.get("x", -9999)), int(place.get("y", -9999))), String(place.get("id", "")), int(place.get("count", 1)), bool(place.get("rot", false)))
+	return bag
+
+
+static func _save_bag(bag: Bag) -> void:
+	_write("bag", bag.contents())
+	_save()
+
+
+## true if bag place `index` would fit with its top left on `cell` (turned `rot`).
+static func bag_fits(index: int, cell: Vector2i, rot: bool) -> bool:
+	var bag: Bag = _bag_model()
+	var place: Dictionary = bag.get_place(index)
+	return not place.is_empty() and bag.fits(String(place["id"]), cell, rot, [index])
+
+
+## Moves bag place `index` (Bag.move_to: also stacks or swaps). false = nothing changed.
+static func move_in_bag(index: int, cell: Vector2i, rot: bool) -> bool:
+	var bag: Bag = _bag_model()
+	if not bag.move_to(index, cell, rot):
+		return false
+	_save_bag(bag)
+	return true
+
+
+## true if stash piece `index` is loot that may go into the bag on `cell`.
+static func stash_fits_bag(index: int, cell: Vector2i, rot: bool) -> bool:
+	var own: Array[Dictionary] = stash()
+	if index < 0 or index >= own.size() or not _is_loot(own[index]) or Content.material(String(own[index].get("id", ""))).is_empty():
+		return false
+	return _bag_model().fits(String(own[index]["id"]), cell, rot)
+
+
+## Stash piece `index` (loot only) into the bag on `cell`. false = nothing changed.
+static func stash_to_bag(index: int, cell: Vector2i, rot: bool) -> bool:
+	if not stash_fits_bag(index, cell, rot):
+		return false
+	var own: Array[Dictionary] = stash()
+	var bag: Bag = _bag_model()
+	if not bag.put_at(cell, String(own[index]["id"]), maxi(1, int(own[index].get("count", 1))), rot):
+		return false
+	own.remove_at(index)
+	_write_stash(own)
+	_save_bag(bag)
+	return true
+
+
+## Bag place `index` into the stash on `cell` (turned `rot`); cell (-1, -1) = anywhere. false if
+## there is no room.
+static func bag_to_stash(index: int, cell: Vector2i = Vector2i(-1, -1), rot: bool = false) -> bool:
+	var bag: Bag = _bag_model()
+	var place: Dictionary = bag.get_place(index)
+	if place.is_empty():
+		return false
+	var own: Array[Dictionary] = stash()
+	var pieces: Array[Dictionary] = []
+	for i in maxi(1, int(place.get("count", 1))):
+		pieces.append({"id": String(place["id"]), "count": 1})
+	if cell != Vector2i(-1, -1):
+		if pieces.size() != 1 or not ItemGrid.fits(own, stash_grid(), pieces[0], cell, rot):
+			return false
+		pieces[0].merge({"x": cell.x, "y": cell.y, "rot": rot}, true)
+	elif ItemGrid.free_spot(own, stash_grid(), pieces[0]).is_empty():
+		return false
+	own.append_array(pieces)
+	bag.take(index)
+	_write_stash(own)
+	_save_bag(bag)
+	return true
+
+
+## Egon buys bag place `index` (like MetaState.sell). Returns the gold (0 = nothing sold).
+static func sell_from_bag(index: int) -> int:
+	var bag: Bag = _bag_model()
+	var place: Dictionary = bag.get_place(index)
+	if place.is_empty() or String(place["id"]) == Bag.GOLD or Quests.is_stone(String(place["id"])):
+		return 0
+	var gold: int = ShopGoods.sell_price({"id": String(place["id"]), "count": int(place.get("count", 1))})
+	bag.take(index)
+	_write("box", box() + gold)
+	_save_bag(bag)
+	return gold
+
+
+## Hands in the quest stone lying on bag place `index` (like deliver_quest). Returns the quest id.
+static func deliver_quest_from_bag(index: int) -> String:
+	var bag: Bag = _bag_model()
+	var place: Dictionary = bag.get_place(index)
+	if place.is_empty() or Quests.quest_of_stone(String(place["id"])).is_empty():
+		return ""
+	var own: Array[Dictionary] = stash()
+	own.append({"id": String(place["id"]), "count": 1})
+	_write_stash(own)
+	bag.take(index)
+	_save_bag(bag)
+	return deliver_quest(_last_index_of(String(place["id"])))
+
+
+static func _last_index_of(id: String) -> int:
+	var own: Array[Dictionary] = stash()
+	for i in range(own.size() - 1, -1, -1):
+		if String(own[i].get("id", "")) == id:
+			return i
+	return -1
+
+
+## true while the cells of attached backpack `id` hold something of the bag at home.
+static func backpack_in_use(id: String) -> bool:
+	var bag: Bag = _bag_model()
+	for i in bag.size():
+		var place: Dictionary = bag.get_place(i)
+		for cell: Vector2i in Bag.cells_of_place(place):
+			if bag.cells.get(cell, "") == id:
+				return true
+	return false
+
+
+## true if `id` is the ruby of Egon's first errand while he still waits for it (it goes into the
+## stash, where he takes it from).
+static func ruby_due_for(id: String) -> bool:
+	return id == String(Content.meta("ruby_quest").get("item", "")) and not ruby_delivered()
 
 
 ## A run with the relic on: one run less; at 0 it is broken and gone (broken_relic = its id, for

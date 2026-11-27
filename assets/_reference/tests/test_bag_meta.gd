@@ -167,11 +167,30 @@ func _end_of_run() -> void:
 	var more: Array[Dictionary] = [{"id": "rat_fur", "count": 3}]
 	meta.call("end_run", 0, more, _rng(3))
 	check_eq(meta.call("day"), day + 2, "every run is a new day")
-	var stash: Array = meta.call("stash")
-	check_eq(stash.size(), 6, "every piece lies on its own: 5 rat furs and an amber")
-	check_eq(stash.filter(func(place: Dictionary) -> bool: return place.has("x")).size(), 4, "only four 2 x 2 fit into 5 x 4: two have no room")
+	var home: Array = meta.call("bag_places")
+	# The bag of the second run (it took the first one along) is what is home now: 3 furs.
+	check_eq(home.size(), 3, "the loot stays in the bag")
+	check((meta.call("stash") as Array).is_empty(), "nothing goes into the stash by itself")
+	meta.call("end_run", 0, [{"id": "rat_fur", "count": 5}, {"id": "amber", "count": 1}] as Array[Dictionary], _rng(4))
+	check_eq((meta.call("bag_places") as Array).size(), 4, "a full bag: four 2 x 2 fit into 8 x 3")
+	check_eq((meta.call("stash") as Array).size(), 2, "what has no room in the bag goes into the stash")
 	meta.call("reload")
-	check_eq((meta.call("stash") as Array).size(), 6, "the stash is saved")
+	check_eq((meta.call("bag_places") as Array).size(), 4, "the bag is saved")
+	# Bag and stash: moving, selling.
+	check(meta.call("move_in_bag", 0, Vector2i(0, 0), false), "moving in the bag (onto itself)")
+	check(meta.call("bag_to_stash", 0), "a fur from the bag into the stash")
+	check_eq((meta.call("bag_places") as Array).size(), 3, "one less in the bag")
+	var stash_fur: int = (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur" and place.has("x"))
+	check(not meta.call("stash_fits_bag", stash_fur, Vector2i(7, 0), false), "half outside the bag: no")
+	var free: Dictionary = (meta.call("_bag_model") as Object).call("free_spot", "rat_fur")
+	check(meta.call("stash_to_bag", stash_fur, Vector2i(int(free["x"]), int(free["y"])), false), "and back from the stash into the bag")
+	var box: int = meta.call("box")
+	check_eq(meta.call("sell_from_bag", 0), 2, "Egon buys a fur from the bag")
+	check_eq(int(meta.call("box")), box + 2, "into the box")
+	# A run starts with the bag brought home.
+	var next_run: Object = script("res://scripts/systems/run_state.gd").new(3)
+	(next_run.get("bag") as Object).call("restore", meta.call("bag_places"))
+	check_eq(((next_run.get("bag") as Object).call("contents") as Array).size(), (meta.call("bag_places") as Array).size(), "the next run starts with it")
 
 
 func _theft() -> void:

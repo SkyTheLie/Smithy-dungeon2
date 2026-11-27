@@ -5,7 +5,7 @@ extends PanelContainer
 ## done. "Abgeben" hands in a stone lying in the stash (signal deliver_requested; the shop plays
 ## Egon's scene). Esc / "Schließen". The rules are in Quests / MetaState.
 
-signal deliver_requested(index: int)
+signal deliver_requested(index: int, from_bag: bool)
 
 const COLOR_TITLE := Color(1, 0.86, 0.55)
 const COLOR_DONE := Color(0.45, 0.9, 0.45)
@@ -103,11 +103,16 @@ func _row(id: String) -> Control:
 	status.add_theme_font_size_override("font_size", 9)
 	text.add_child(status)
 	var index: int = _stone_index(stone)
+	var bag_index: int = -1
+	var places: Array[Dictionary] = MetaState.bag_places()
+	for i in places.size():
+		if String(places[i].get("id", "")) == stone:
+			bag_index = i
 	if done:
 		status.text = Language.translate("Erledigt")
 		status.modulate = COLOR_DONE
-	elif index >= 0:
-		status.text = Language.translate("Der Stein liegt in deinem Lager!")
+	elif index >= 0 or bag_index >= 0:
+		status.text = Language.translate("Der Stein liegt in deinem Lager!") if index >= 0 else Language.translate("Der Stein liegt in deinem Inventar!")
 		status.modulate = COLOR_OPEN
 		var give := Button.new()
 		give.name = "Deliver_" + id
@@ -115,7 +120,11 @@ func _row(id: String) -> Control:
 		give.text = Language.translate("Abgeben")
 		give.focus_mode = Control.FOCUS_NONE
 		give.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-		give.pressed.connect(func() -> void: deliver_requested.emit(index))
+		give.pressed.connect(func() -> void:
+			if index >= 0:
+				deliver_requested.emit(index, false)
+			else:
+				deliver_requested.emit(bag_index, true))
 		row.add_child(give)
 	else:
 		status.text = Language.translate("Belohnung: der nächste Dungeon und %d Gold") % int(data.get("gold", 0))

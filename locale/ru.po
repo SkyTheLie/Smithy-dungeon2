@@ -198,6 +198,9 @@ msgstr "Побеждено врагов: %d"
 msgid "Betreten"
 msgstr "Войти"
 
+msgid "Beute aus dem Dungeon bleibt hier. Ins Lager ziehen, auf den Tisch ziehen (verkaufen) oder wieder mitnehmen. Rucksäcke aus dem Lager an den Rand ziehen (R dreht)."
+msgstr "Добыча из подземелья остаётся здесь. Перетащи её на склад, на стол (продать) или возьми снова. Рюкзаки со склада тащи к краю (R поворачивает)."
+
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "Добычу я выкупаю: ПКМ в инвентаре — и она у моей скупки наверху. Честные цены. Честно!"
 
@@ -431,6 +434,9 @@ msgstr "Торговец покупает добычу: Tab, правый кли
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "Опал! Он светится! Почти как моё будущее."
+
+msgid "Der Stein liegt in deinem Inventar!"
+msgstr "Камень у тебя в инвентаре!"
 
 msgid "Der Stein liegt in deinem Lager!"
 msgstr "Камень лежит на твоём складе!"
@@ -1649,6 +1655,9 @@ msgstr "Инвентарь в подземелье"
 
 msgid "Inventar voll!"
 msgstr "Инвентарь полон!"
+
+msgid "Inventar: das nimmst du mit in den Dungeon"
+msgstr "Инвентарь: это ты берёшь в подземелье"
 
 msgid "Irrlicht"
 msgstr "Блуждающий огонёк"

@@ -198,6 +198,9 @@ msgstr "Inimigos derrotados: %d"
 msgid "Betreten"
 msgstr "Entrar"
 
+msgid "Beute aus dem Dungeon bleibt hier. Ins Lager ziehen, auf den Tisch ziehen (verkaufen) oder wieder mitnehmen. Rucksäcke aus dem Lager an den Rand ziehen (R dreht)."
+msgstr "O saque da masmorra fica aqui. Arraste para o depósito, para a mesa (vender) ou leve de novo. Arraste mochilas do depósito até a borda (R gira)."
+
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "Eu compro seu saque: clique com o botão direito no inventário e ele vai para a minha compra lá em cima. Preços justos. Sério!"
 
@@ -431,6 +434,9 @@ msgstr "O mercador compra espólio: Tab, clique direito"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "A opala! Ela brilha! Quase tanto quanto meu futuro."
+
+msgid "Der Stein liegt in deinem Inventar!"
+msgstr "A pedra está no seu inventário!"
 
 msgid "Der Stein liegt in deinem Lager!"
 msgstr "A pedra está no seu depósito!"
@@ -1649,6 +1655,9 @@ msgstr "Inventário na masmorra"
 
 msgid "Inventar voll!"
 msgstr "Inventário cheio!"
+
+msgid "Inventar: das nimmst du mit in den Dungeon"
+msgstr "Inventário: isso você leva para a masmorra"
 
 msgid "Irrlicht"
 msgstr "Fogo-fátuo"
