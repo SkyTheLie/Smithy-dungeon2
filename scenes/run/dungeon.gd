@@ -7,8 +7,8 @@ extends Node3D
 ##   - item room: one item on a pedestal; shop: an item and goods for coins; the merchant there
 ##     buys loot (Tab, right click: sell_from_bag), the only gold of the dungeon;
 ##   - boss room: one boss of the theme, picked at random when the floor is built; after it a
-##     trapdoor down and a boss item. The very first boss (MetaState.rope_due) only leaves a rope
-##     out of the dungeon (Rope, climb_rope). After the boss of the last floor a portal rises
+##     trapdoor down and a boss item. Beating the very first boss (MetaState.rope_due) in the boss
+##     room also lets a rope fall: the way out of the dungeon (Rope, climb_rope). After the boss of the last floor a portal rises
 ##     instead of the trapdoor (Portal); it leads to the Boss-Altar (BossAltar), where the end
 ##     boss of the dungeon waits (dungeons.json end_boss); after it the golden light (victory).
 ## Only the room the player is in and its neighbours are visible (drawn); the rest is hidden.
@@ -104,6 +104,10 @@ var altar: BossAltar = null
 var _portal: Portal = null
 ## After the very first boss: the way out (null else).
 var _rope: Rope = null
+## The rope's place in the boss room (next to the trapdoor, which stays in the middle).
+const ROPE_SPOT := Vector3(-2.6, 0, 1.6)
+## true once the boss of this floor died in its room (only then the rope may come).
+var _boss_beaten: bool = false
 
 
 func build(run_state: RunState, the_player: Player, index: int) -> void:
@@ -676,6 +680,7 @@ func _on_enemy_died(enemy: Enemy) -> void:
 	_drop_enemy_loot(enemy)
 	if enemy == boss:
 		boss = null
+		_boss_beaten = not in_boss_altar()
 		for other: Enemy in enemies.duplicate():
 			other.take_damage(9999.0, Vector3.ZERO, false)
 		AudioManager.play_sound("boss_die")
@@ -708,10 +713,10 @@ func _clear_room(room: DungeonRoom) -> void:
 		return
 	if room.type == FloorLayout.BOSS:
 		AudioManager.play_music(String(floor_data.get("music", "")))
-		if MetaState.rope_due(Content.dungeon_id(), floor_index):
+		_boss_rewards(room, Vector3.ZERO, end_boss_id.is_empty())
+		# Egon's errand: only after a real victory over the boss, the rope next to the trapdoor.
+		if _boss_beaten and MetaState.rope_due(Content.dungeon_id(), floor_index):
 			_drop_rope(room)
-		else:
-			_boss_rewards(room, Vector3.ZERO, end_boss_id.is_empty())
 		return
 	var drops: Dictionary = Content.floors_extra("room_drops")
 	if _rng.randf() < float(drops.get("chance", 0.4)) + run.stats.luck * _luck_drop():
@@ -1105,7 +1110,7 @@ func _drop_rope(room: DungeonRoom) -> void:
 	_rope.player = player
 	_rope.grabbed.connect(rope_grabbed.emit)
 	room.add_child(_rope)
-	_rope.position = Vector3.ZERO
+	_rope.position = ROPE_SPOT
 	message.emit("Ein Seil fällt vom Himmel!")
 
 

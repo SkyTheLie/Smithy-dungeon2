@@ -1,7 +1,7 @@
 class_name Rope
 extends Node3D
-## The way out after the very first boss (MetaState.rope_due, data/meta.json ruby_quest): instead
-## of the trapdoor and the boss item, a rope falls from the sky into the boss room. Its upper end
+## The way out after the very first boss (MetaState.rope_due, data/meta.json ruby_quest): next to
+## the trapdoor (which still leads down), a rope falls from the sky into the boss room. Its upper end
 ## stays up in the sky (the rooms have no ceiling), with a pale light from above. Walking to it
 ## sends `grabbed` once; Dungeon.climb_rope lets the player climb up, RunScene ends the day.
 

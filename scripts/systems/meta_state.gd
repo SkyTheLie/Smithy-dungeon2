@@ -524,9 +524,10 @@ static func ruby_delivered() -> bool:
 	return bool(_read("ruby_delivered", false))
 
 
-## Egon waits for his ruby: climbed out at the rope, not given yet.
+## Egon waits for his ruby: not given yet, and the player climbed out at the rope or brought a
+## ruby home some other way (e.g. down the trapdoor and out through a ladder).
 static func ruby_due() -> bool:
-	return rope_done() and not ruby_delivered()
+	return not ruby_delivered() and (rope_done() or ruby_index() >= 0)
 
 
 ## Index of the first ruby (ruby_quest "item") in the inventory, -1 if there is none.
