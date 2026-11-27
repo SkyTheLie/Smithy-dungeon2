@@ -1749,6 +1749,9 @@ msgstr "Material: %s"
 msgid "Maus"
 msgstr "Mouse"
 
+msgid "Maus-Empfindlichkeit"
+msgstr "Sensibilidade do mouse"
+
 msgid "Maustaste halten zum Aufladen: größer und stärker"
 msgstr "Segure para carregar: maior e mais forte"
 
@@ -2939,6 +2942,9 @@ msgstr "Urso-Vespa"
 
 msgid "Wettkampfstiefel"
 msgstr "Botas de competição"
+
+msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
+msgstr "Como no Counter-Strike 2: o mesmo número gira a mesma distância."
 
 msgid "Wiesenwespe"
 msgstr "Vespa da Campina"

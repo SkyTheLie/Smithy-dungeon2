@@ -1749,6 +1749,9 @@ msgstr "材料：%s"
 msgid "Maus"
 msgstr "鼠标"
 
+msgid "Maus-Empfindlichkeit"
+msgstr "鼠标灵敏度"
+
 msgid "Maustaste halten zum Aufladen: größer und stärker"
 msgstr "按住蓄力：更大更强"
 
@@ -2939,6 +2942,9 @@ msgstr "黄蜂熊"
 
 msgid "Wettkampfstiefel"
 msgstr "竞技靴"
+
+msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
+msgstr "与 Counter-Strike 2 相同：同样的数值转动同样的角度。"
 
 msgid "Wiesenwespe"
 msgstr "草原黄蜂"

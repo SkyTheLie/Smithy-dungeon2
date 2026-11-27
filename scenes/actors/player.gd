@@ -17,8 +17,6 @@ const BODY_HEIGHT: float = 1.8
 const ACCELERATION: float = 40.0
 const INVULNERABLE_TIME: float = 1.0
 const PITCH_LIMIT: float = 1.35
-## Radians per pixel of mouse movement at sensitivity 1.0.
-const MAX_LOOK_SPEED: float = 0.006
 const BOB_SPEED: float = 9.0
 const BOB_AMOUNT: float = 0.045
 const BOMB_DISTANCE: float = 1.6
@@ -71,7 +69,8 @@ func _on_fov_changed(degrees: float) -> void:
 func look(relative: Vector2) -> void:
 	if not controls_enabled:
 		return
-	var speed: float = MAX_LOOK_SPEED * lerpf(0.15, 1.6, Game.get_mouse_sensitivity())
+	# As in CS2: sensitivity × 0.022 degrees per count, the same for left/right and up/down.
+	var speed: float = Game.look_radians_per_count()
 	rotation.y -= relative.x * speed
 	camera.rotation.x = clampf(camera.rotation.x - relative.y * speed, -PITCH_LIMIT, PITCH_LIMIT)
 

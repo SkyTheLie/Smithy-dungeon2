@@ -1749,6 +1749,9 @@ msgstr "Material: %s"
 msgid "Maus"
 msgstr "Ratón"
 
+msgid "Maus-Empfindlichkeit"
+msgstr "Sensibilidad del ratón"
+
 msgid "Maustaste halten zum Aufladen: größer und stärker"
 msgstr "Mantén el botón para cargar: más grande y fuerte"
 
@@ -2939,6 +2942,9 @@ msgstr "Oso Avispa"
 
 msgid "Wettkampfstiefel"
 msgstr "Botas de competición"
+
+msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
+msgstr "Como en Counter-Strike 2: el mismo número gira lo mismo."
 
 msgid "Wiesenwespe"
 msgstr "Avispa de la Pradera"

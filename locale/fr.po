@@ -1749,6 +1749,9 @@ msgstr "Matériau : %s"
 msgid "Maus"
 msgstr "Souris"
 
+msgid "Maus-Empfindlichkeit"
+msgstr "Sensibilité de la souris"
+
 msgid "Maustaste halten zum Aufladen: größer und stärker"
 msgstr "Maintiens pour charger : plus gros et plus fort"
 
@@ -2939,6 +2942,9 @@ msgstr "Ours à Guêpes"
 
 msgid "Wettkampfstiefel"
 msgstr "Bottes de compétition"
+
+msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
+msgstr "Comme dans Counter-Strike 2 : le même nombre tourne autant."
 
 msgid "Wiesenwespe"
 msgstr "Guêpe des Prés"

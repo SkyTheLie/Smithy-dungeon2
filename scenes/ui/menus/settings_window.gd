@@ -4,7 +4,7 @@ extends PanelContainer
 ##   Grafik:    Anzeige (Fenster / Rahmenlos / Vollbild), Fenstergröße (only in window mode),
 ##              VSync, Sichtfeld (field of view in the dungeon), Sprache (main menu only: flags)
 ##   Audio:     Lautstärke, Musik, Effekte
-##   Steuerung: Maus (sensitivity) and the changeable keys (Controls.REBINDABLE): click a key,
+##   Steuerung: mouse sensitivity as in CS2 (slider and number field) and the changeable keys (Controls.REBINDABLE): click a key,
 ##              then press the new one (Esc = cancel); "Standard wiederherstellen".
 ## Values are saved at once in user://settings.cfg (DisplaySettings, AudioManager, Game, Controls).
 ## Built in code; the .tscn is only the window.
@@ -158,9 +158,9 @@ func _build_controls() -> Control:
 	page.add_theme_constant_override("separation", 4)
 	var grid := _grid()
 	page.add_child(grid)
-	grid.add_child(_label(Language.translate("Maus")))
-	grid.add_child(_slider(0, 100, Game.get_mouse_sensitivity() * 100.0,
-			func(v: float) -> void: Game.set_mouse_sensitivity(v / 100.0), "%d %%"))
+	grid.add_child(_label(Language.translate("Maus-Empfindlichkeit")))
+	grid.add_child(_sensitivity_row())
+	page.add_child(_label(Language.translate("Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."), COLOR_HINT, 10))
 	page.add_child(_label(Language.translate("Klick auf eine Taste, dann die neue drücken. Esc = abbrechen."), COLOR_HINT, 10))
 	var keys := GridContainer.new()
 	keys.columns = 4
@@ -240,6 +240,54 @@ func _grid() -> GridContainer:
 	grid.add_theme_constant_override("h_separation", 10)
 	grid.add_theme_constant_override("v_separation", 6)
 	return grid
+
+
+## Mouse sensitivity: a slider (0.1 … 10) and right of it a field for the exact number (also
+## with a comma, 0.01 … 20, like the CS2 value). Both show the same value.
+func _sensitivity_row() -> Control:
+	var row := HBoxContainer.new()
+	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var slider := HSlider.new()
+	slider.name = "SensitivitySlider"
+	slider.min_value = 0.1
+	slider.max_value = 10.0
+	slider.step = 0.01
+	slider.value = Game.get_mouse_sensitivity()
+	slider.focus_mode = Control.FOCUS_NONE
+	slider.custom_minimum_size = Vector2(120, 0)
+	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	slider.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(slider)
+	var field := LineEdit.new()
+	field.name = "SensitivityField"
+	field.text = _sensitivity_text(Game.get_mouse_sensitivity())
+	field.custom_minimum_size = Vector2(56, 0)
+	field.alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	field.add_theme_font_size_override("font_size", FONT_SIZE)
+	field.select_all_on_focus = true
+	row.add_child(field)
+	slider.value_changed.connect(func(v: float) -> void:
+			Game.set_mouse_sensitivity(v)
+			field.text = _sensitivity_text(Game.get_mouse_sensitivity()))
+	var take := func(text: String) -> void:
+		var number: float = parse_sensitivity(text)
+		if number > 0.0:
+			Game.set_mouse_sensitivity(number)
+		field.text = _sensitivity_text(Game.get_mouse_sensitivity())
+		slider.set_value_no_signal(Game.get_mouse_sensitivity())
+	field.text_submitted.connect(take)
+	field.focus_exited.connect(func() -> void: take.call(field.text))
+	return row
+
+
+## "1,25" or "1.25" -> 1.25; 0 for text that is no number.
+static func parse_sensitivity(text: String) -> float:
+	var clean: String = text.strip_edges().replace(",", ".")
+	return clean.to_float() if clean.is_valid_float() else 0.0
+
+
+static func _sensitivity_text(value: float) -> String:
+	return String.num(value, 3)
 
 
 ## A slider with its value as text beside it (`format` e.g. "%d %%").

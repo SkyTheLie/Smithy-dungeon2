@@ -1749,6 +1749,9 @@ msgstr "جنس: %s"
 msgid "Maus"
 msgstr "ماوس"
 
+msgid "Maus-Empfindlichkeit"
+msgstr "حساسیت ماوس"
+
 msgid "Maustaste halten zum Aufladen: größer und stärker"
 msgstr "برای شارژ نگه دار: بزرگ‌تر و قوی‌تر"
 
@@ -2939,6 +2942,9 @@ msgstr "خرس زنبوری"
 
 msgid "Wettkampfstiefel"
 msgstr "چکمه مسابقه"
+
+msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
+msgstr "مثل Counter-Strike 2: همان عدد همان‌قدر می‌چرخاند."
 
 msgid "Wiesenwespe"
 msgstr "زنبور چمنزار"
