@@ -117,6 +117,8 @@ func _build() -> void:
 	row.add_child(_build_hero())
 	_panel = PanelContainer.new()
 	_panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))
+	# Only as tall as its content, not as tall as the hero column / map beside it.
+	_panel.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	row.add_child(_panel)
 	_map_panel = PanelContainer.new()
 	_map_panel.add_theme_stylebox_override("panel", _box(PANEL_COLOR, Color(0.55, 0.38, 0.2), 2, 6))

@@ -65,6 +65,7 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - `materials`: `"id": {"name", "desc", "icon", "rarity": 1-8, "value"}`. `rarity` = Rahmenfarbe (R1 grau … R8 rosa), `value` = Gold beim Händler.
 - `enemies`: `"gegner_id": [{"id": "material", "chance": 0.3, "amount": [1, 2]}, …]`. Jede Zeile wird einzeln gewürfelt. **Jeder Gegner braucht eine Zeile** (der Test prüft das).
 - `luck_bonus`: zusätzliche Chance je Glückspunkt.
+- `key_chance`: Chance (0–1), dass ein normaler Gegner einen Schlüssel fallen lässt – ein Wert für alle Gegner (Bosse nie). Zufällige Raum-Belohnungen (`floors.json` `room_drops`) geben keine Schlüssel.
 - Neue Texte (`name`, `desc`) danach übersetzen (`build_po.py` findet sie selbst).
 
 ## Spielstand-Regeln (`data/meta.json`)

@@ -659,8 +659,15 @@ func _on_enemy_died(enemy: Enemy) -> void:
 		AudioManager.play_sound("boss_die")
 		boss_defeated.emit()
 		return
-	if _rng.randf() < float(enemy.data.get("drop_chance", 0.0)) + run.stats.luck * _luck_drop() * 0.5:
+	if _rng.randf() < key_drop_chance():
+		_drop(rooms[current_cell], enemy.global_position, "key")
+	elif _rng.randf() < float(enemy.data.get("drop_chance", 0.0)) + run.stats.luck * _luck_drop() * 0.5:
 		_drop(rooms[current_cell], enemy.global_position, _roll_drop())
+
+
+## Chance that a normal enemy drops a key (data/loot.json "key_chance", one value for all).
+func key_drop_chance() -> float:
+	return maxf(0.0, float(Content.get_file("loot").get("key_chance", 0.0)))
 
 
 func _clear_room(room: DungeonRoom) -> void:

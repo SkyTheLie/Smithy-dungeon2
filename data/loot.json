@@ -1,6 +1,8 @@
 {
 	"_info": "Beute aus dem Dungeon, die man ins Inventar (Tab) aufhebt und beim Händler verkauft. materials: name, desc (Deutsch = Übersetzungs-Schlüssel), icon, rarity 1-8 (Rahmenfarbe), value = Gold beim Verkauf (bei Egon und beim Händler im Dungeon-Shop), stack = so viele passen auf einen Platz (fehlt = meta.json bag.stack). gold ist das Gold des Runs (zählt als Münzen): es gibt es nur beim Händler im Dungeon-Shop für verkaufte Beute; was übrig bleibt, kommt nach dem Run in die Dose. enemies: Gegner-Id (data/enemies.json) -> Liste von {id, chance 0-1, amount [min, max]}; jeder Eintrag wird einzeln gewürfelt. Glück erhöht die Chance (luck_bonus je Punkt). Siehe docs/CONTENT.md.",
 	"luck_bonus": 0.03,
+	"_key_info": "key_chance = Chance 0-1, dass ein normaler Gegner (kein Boss) einen Schlüssel fallen lässt. Gilt für alle Gegner. 0.003 = 0,3 Prozent: bei etwa 130 Kills je Run ungefähr jeder dritte Run ein Schlüssel. Zufällige Raum-Belohnungen geben keine Schlüssel mehr.",
+	"key_chance": 0.003,
 	"materials": {
 		"gold": {"name": "Münzsack", "desc": "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz.", "icon": "res://assets/sprites/items/coin_purse.png", "rarity": 1, "value": 1, "stack": 999},
 		"rat_fur": {"name": "Rattenfell", "desc": "Struppig und leicht angekaut.", "icon": "res://assets/sprites/items/rat_fur.png", "rarity": 1, "value": 2},

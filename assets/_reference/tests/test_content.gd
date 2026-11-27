@@ -177,6 +177,11 @@ func _check_loot(content: Script, enemies: Dictionary) -> void:
 	var bag: Dictionary = content.call("meta", "bag")
 	check(int(bag.get("slots", 0)) > 0 and int(bag.get("safe_slots", 0)) >= 1 and int(bag.get("stack", 0)) >= 1, "bag sizes in meta.json")
 	check(int((content.call("material", "gold") as Dictionary).get("stack", 0)) > 1, "gold stacks (loot.json)")
+	# Keys are rare: one chance for every enemy (loot.json key_chance), none from room rewards.
+	var key_chance: float = float((content.call("get_file", "loot") as Dictionary).get("key_chance", -1.0))
+	check(key_chance >= 0.0 and key_chance <= 0.05, "key_chance 0-5 %% (%s)" % key_chance)
+	for entry: Variant in ((content.call("floors_extra", "room_drops") as Dictionary).get("table", []) as Array):
+		check(String((entry as Array)[0]) != "key", "room_drops give no keys")
 	var box: Dictionary = content.call("meta", "money_box")
 	check(int(box.get("limit", 0)) > 0, "money box limit")
 	check(float(box.get("steal_all_chance", 1.0)) + float(box.get("steal_part_chance", 1.0)) < 1.0, "theft chances below 100 %")
