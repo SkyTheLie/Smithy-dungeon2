@@ -753,6 +753,9 @@ msgstr "Un emplacement de relique de plus sur ton héros."
 msgid "Ein Rubin"
 msgstr "Un rubis"
 
+msgid "Ein Rucksack mehr an deinem Inventar."
+msgstr "Un sac de plus sur ton inventaire."
+
 msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "Un sac de 3×3 cases. À attacher à ton inventaire chez Egon."
 
@@ -2121,6 +2124,9 @@ msgstr "Musique"
 msgid "Mythisch"
 msgstr "Mythique"
 
+msgid "Münze"
+msgstr "Pièce"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Les pièces et les cœurs volent vers toi"
 
@@ -2439,11 +2445,17 @@ msgstr "Sac à dos"
 msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
 msgstr "Glisse un sac de la réserve vers l'inventaire (R tourne). Remets-le dans la réserve pour le détacher."
 
+msgid "Rucksack-Riemen"
+msgstr "Sangles de sac"
+
 msgid "Rucksack: %d×%d Felder"
 msgstr "Sac : %d×%d cases"
 
 msgid "Rucksäcke"
 msgstr "Sacs"
+
+msgid "Rucksäcke %d/%d"
+msgstr "Sacs %d/%d"
 
 msgid "Rudelführer"
 msgstr "Chef de meute"
@@ -2856,6 +2868,9 @@ msgstr "Un truc magique. Aucune idée, je suis un escr… euh, un vendeur !"
 msgid "So kalt, dass die Finger kleben bleiben."
 msgstr "Si froid que les doigts y collent."
 
+msgid "So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen."
+msgstr "Tu peux attacher autant de sacs. Plus avec la compétence Sangles de sac."
+
 msgid "Solide"
 msgstr "Solide"
 
@@ -3263,6 +3278,9 @@ msgstr "Au maximum"
 
 msgid "Vollbild"
 msgstr "Plein écran"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "Des ennemis ou du marchand du donjon. Jusqu'à 999 sur une case. Après la partie, elle va dans ta boîte ; à la mort, elle est perdue, sauf dans la place sûre."
 
 msgid "Vorwärts"
 msgstr "Avancer"

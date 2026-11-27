@@ -5,7 +5,8 @@ extends Control
 ## also halves), the next levels beside it in the same row, outwards (left side to the left,
 ## right side to the right). A level opens only when the one before it is learned. A skill that
 ## `requires` another one stands in a row below: a line from level 1 of that skill (gold once it
-## is learned) down along the inner edge (towards the middle) to level 1 of this one.
+## is learned) down along the inner edge (towards the middle) to level 1 of this one; one in the
+## same row (further out) hangs on the last level of that skill with a straight line.
 ## Under each icon: what that level costs (or a tick when learned). The frame shows the state:
 ## gold (pulsing) = can be learned now, green = learned, grey = the next one but too dear / level
 ## too low, dark = the level above (or the skill before) is missing. The tooltip says everything.
@@ -70,7 +71,11 @@ func build() -> void:
 	for id: String in skills:
 		var top: Vector2 = _center(_cell(id), first)
 		var needed: String = String(Skills.data(id).get("requires", ""))
-		if skills.has(needed):
+		if skills.has(needed) and _cell(needed).y == _cell(id).y:
+			# A chain in one row: straight from the last level of the skill before.
+			var last_level: Vector2 = _center(_level_cell(needed, Skills.max_level(needed)), first)
+			_lines.append([PackedVector2Array([last_level, top]), MetaState.skill_level(needed) > 0])
+		elif skills.has(needed):
 			# Down along the inner edge (towards the middle line), then into the skill.
 			var from: Vector2 = _center(_cell(needed), first)
 			var rail_x: float = from.x - _outwards(needed) * CELL.x / 2.0

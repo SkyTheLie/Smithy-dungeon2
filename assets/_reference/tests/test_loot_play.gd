@@ -2,7 +2,8 @@ extends "res://assets/_reference/_lib/base_test.gd"
 ## Loot in the real run scene: walking over loot puts it into the bag, enemies drop their loot
 ## (data/loot.json), Tab opens the bag window (game paused), dragging a place out of the window
 ## drops it on the floor and it is only picked up again after walking away, a full bag says so,
-## and on death only the safe place comes home (MetaState).
+## and on death only the safe place comes home (MetaState). Enemies drop coins (loot.json coins),
+## which stack to 999 on one cell.
 
 var scene: Node
 var dungeon: Node
@@ -55,6 +56,25 @@ func _enemy_loot() -> void:
 				return true
 		return false, 3.0)
 	check(found, "the Spinnenmutter drops her poison fangs (chance 1.0 in loot.json)")
+	var coins: bool = await wait_until(func() -> bool:
+		for node: Variant in _room().get("loot"):
+			if is_instance_valid(node) and (node as Node).get("material_id") == "gold":
+				return true
+		return false, 3.0)
+	check(coins, "a boss always drops coins (loot.json coins boss_amount)")
+	for node: Variant in _room().get("loot"):
+		if is_instance_valid(node) and (node as Node).get("material_id") == "gold":
+			(node as Node).queue_free()
+	_coin_stacks()
+
+
+## Coins are one kind of loot in the bag: up to 999 on one cell, more goes onto a new cell.
+func _coin_stacks() -> void:
+	var probe: Object = script("res://scripts/systems/bag.gd").new()
+	check_eq(probe.call("add", "gold", 1500), 0, "1500 coins fit")
+	check_eq(probe.call("count_of", "gold"), 1500, "1500 coins counted")
+	check_eq((probe.call("get_place", 0) as Dictionary).get("count"), 999, "999 coins on one cell")
+	check_eq((probe.call("get_place", 1) as Dictionary).get("count"), 501, "the rest on the next cell")
 
 
 func _bag_window() -> void:
@@ -71,6 +91,16 @@ func _bag_window() -> void:
 	check_eq(main_board.call("board_span"), Vector2i(8, 3), "the bag: 8 x 3 cells")
 	check_eq(safe_board.call("board_span"), Vector2i(2, 2), "the safe place: 2 x 2 cells")
 	check(window.get("_panel").size.x < 400.0, "the bag window is not wider than needed (%d)" % int(window.get("_panel").size.x))
+	# Fixed size: hovering a piece with a long description does not make the window grow.
+	var before: Vector2 = window.get("_panel").size
+	bag.call("add_piece", {"id": "copper_helmet", "rarity": 2})
+	var helmet: int = (bag.get("places") as Array).find_custom(func(p: Dictionary) -> bool: return p.get("id") == "copper_helmet")
+	window.call("_show_info", helmet)
+	await process_frame
+	check_eq(window.get("_panel").size, before, "the window keeps its size with a long description")
+	var outer: Control = (window.get("_panel") as Control).get_parent().get_parent()
+	check(outer.size.x <= 640.0 and outer.size.y <= 360.0, "the whole window fits the screen (%s)" % str(outer.size))
+	bag.call("take", helmet)
 	# Drag the bat skin out of the window = onto the floor.
 	window.call("_drop_on_floor", Vector2.ZERO, {"bag_index": 0})
 	check_eq(bag.call("count_of", "bat_skin"), 1, "dropped out of the bag")

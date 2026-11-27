@@ -60,7 +60,7 @@ func board_span() -> Vector2i:
 func refresh() -> void:
 	# Load the pictures now, not while drawing (a texture loaded in _draw shows white).
 	for i in bag.size():
-		_icon(String(bag.get_place(i)["id"]))
+		icon_of_place(bag.get_place(i))
 	var cells: Array[Vector2i] = bag.section_cells(section)
 	if cells.is_empty():
 		_origin = Vector2i.ZERO
@@ -123,19 +123,18 @@ func _draw() -> void:
 		var at := Vector2i(int(place["x"]), int(place["y"]))
 		if bag.section_of(at) != section:
 			continue
-		var data: Dictionary = Content.material(String(place["id"]))
 		var rect: Rect2 = _rect_of(at, Bag.footprint(place)).grow(-1.5)
-		var tier_color: Color = Rarity.color(int(data.get("rarity", 1)))
+		var tier_color: Color = Rarity.color(ShopSlot.rarity_of(place))
 		draw_rect(rect, Color(tier_color, 0.16 if i != _hover_index else 0.32))
 		draw_rect(rect, tier_color, false, 1.5)
-		draw_loot_icon(self, String(place["id"]), rect, bool(place["rot"]))
+		draw_icon(self, icon_of_place(place), rect, bool(place["rot"]))
 		if int(place["count"]) > 1 and font:
 			var text: String = str(int(place["count"]))
 			var at_text := Vector2(rect.end.x - 2 - font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, 8).x, rect.end.y - 2)
 			draw_string_outline(font, at_text, text, HORIZONTAL_ALIGNMENT_LEFT, -1, 8, 3, Color.BLACK)
 			draw_string(font, at_text, text, HORIZONTAL_ALIGNMENT_LEFT, -1, 8, Color.WHITE)
 	if not _drop_hint.is_empty():
-		var footprint: Vector2i = BagLayout.turned(BagLayout.loot_size(String(_drop_hint["id"])), bool(_drop_hint["rot"]))
+		var footprint: Vector2i = BagLayout.turned(Bag.size_of(_drop_hint["piece"]), bool(_drop_hint["rot"]))
 		draw_rect(_rect_of(_drop_hint["cell"], footprint), _drop_hint["color"])
 	if pulse:
 		var glow: float = 0.5 + 0.5 * sin(_time * 6.0)
@@ -171,6 +170,20 @@ static func draw_icon(canvas: CanvasItem, texture: Texture2D, rect: Rect2, rot: 
 
 
 static var _icons: Dictionary = {}
+## Pictures of gear, relics and potions in the bag ("relic:<id>", "potion:<id>", "gear:<id>").
+static var _piece_icons: Dictionary = {}
+
+
+## The picture of a bag place: loot from loot.json, a piece like in Egon's shop (ShopSlot).
+## Loads once; call it before drawing (refresh), not first in _draw.
+static func icon_of_place(place: Dictionary) -> Texture2D:
+	if not Bag.is_piece(place):
+		return _icon(String(place.get("id", "")))
+	var kind: String = "relic" if ShopGoods.is_relic(place) else ("potion" if ShopGoods.is_potion(place) else "gear")
+	var key: String = "%s:%s" % [kind, String(place.get("id", ""))]
+	if not _piece_icons.has(key):
+		_piece_icons[key] = ShopSlot.icon_of_piece(place)
+	return _piece_icons[key]
 
 
 static func _icon(id: String) -> Texture2D:
@@ -224,36 +237,43 @@ func _get_drag_data(at: Vector2) -> Variant:
 	var place: Dictionary = bag.get_place(index)
 	var grab: Vector2i = cell_at(at) - Vector2i(int(place["x"]), int(place["y"]))
 	var preview := DragPreview.new()
-	preview.setup_loot(String(place["id"]), bool(place["rot"]), grab, cell_px)
+	if Bag.is_piece(place):
+		preview.setup_box(icon_of_place(place), Bag.size_of(place), bool(place["rot"]), grab, cell_px, Rarity.color(ShopSlot.rarity_of(place)))
+	else:
+		preview.setup_loot(String(place["id"]), bool(place["rot"]), grab, cell_px)
 	# Godot moves the preview's root with the mouse; the picture is its child, shifted by grab.
 	var holder := Control.new()
 	holder.add_child(preview)
 	set_drag_preview(holder)
 	AudioManager.play_sound("pickup", 1.4)
-	return {"bag_index": index, "id": String(place["id"]), "rot": bool(place["rot"]), "grab": grab, "preview": preview,
-			"size": BagLayout.loot_size(String(place["id"]))}
+	return {"bag_index": index, "id": String(place["id"]), "piece": place.duplicate(), "rot": bool(place["rot"]), "grab": grab,
+			"preview": preview, "size": Bag.size_of(place)}
 
 
 func _can_drop_data(at: Vector2, data: Variant) -> bool:
 	if not (data is Dictionary and (data as Dictionary).has("bag_index")):
 		return false
+	fit_preview(data, cell_px)
 	var drag: Dictionary = data
 	var cell: Vector2i = cell_at(at) - (drag["grab"] as Vector2i)
 	var index: int = int(drag["bag_index"])
 	var color: Color = BAD_COLOR
-	if bag.fits(String(drag["id"]), cell, bool(drag["rot"]), [index]):
+	var piece: Dictionary = drag.get("piece", {"id": String(drag["id"])})
+	if bag.fits_piece(piece, cell, bool(drag["rot"]), [index]):
 		color = FIT_COLOR
-	elif _covers_one(String(drag["id"]), cell, bool(drag["rot"]), index):
+	elif _covers_one(piece, cell, bool(drag["rot"]), index):
 		color = SWAP_COLOR
-	_drop_hint = {"cell": cell, "id": String(drag["id"]), "rot": bool(drag["rot"]), "color": color}
+	_drop_hint = {"cell": cell, "piece": piece, "rot": bool(drag["rot"]), "color": color}
 	queue_redraw()
 	return true
 
 
-## true if loot `id` at `cell` lies on exactly one other place and only on cells of the bag.
-func _covers_one(id: String, cell: Vector2i, rot: bool, index: int) -> bool:
+## true if `piece` at `cell` lies on exactly one other place and only on cells of the bag.
+func _covers_one(piece: Dictionary, cell: Vector2i, rot: bool, index: int) -> bool:
 	var under: Array[int] = []
-	for c: Vector2i in Bag.cells_of_place({"id": id, "x": cell.x, "y": cell.y, "rot": rot}):
+	var probe: Dictionary = piece.duplicate()
+	probe.merge({"x": cell.x, "y": cell.y, "rot": rot}, true)
+	for c: Vector2i in Bag.cells_of_place(probe):
 		if bag.section_of(c).is_empty():
 			return false
 		var other: int = bag.place_at_cell(c)
@@ -296,6 +316,14 @@ static func rotate_drag(viewport: Viewport) -> bool:
 	return true
 
 
+## The picture of a drag (data "preview") takes cell size `cell` (the grid under the mouse).
+static func fit_preview(data: Variant, cell: float) -> void:
+	if data is Dictionary:
+		var preview: Variant = (data as Dictionary).get("preview")
+		if preview is DragPreview and is_instance_valid(preview):
+			(preview as DragPreview).use_cell(cell)
+
+
 ## true for the keys that turn a dragged thing (R, right mouse button).
 static func is_turn_event(event: InputEvent) -> bool:
 	if event is InputEventKey and (event as InputEventKey).pressed and not (event as InputEventKey).echo:
@@ -316,6 +344,7 @@ class DragPreview:
 	var rot: bool = false
 	var px: float = 16.0
 	var tint := Color(1, 1, 1, 0.25)
+	var _grab := Vector2i.ZERO
 
 	func setup_loot(id: String, turned_now: bool, grab: Vector2i, cell: float) -> void:
 		loot_id = id
@@ -333,10 +362,18 @@ class DragPreview:
 
 	func turn(turned_now: bool, grab: Vector2i) -> void:
 		rot = turned_now
+		_grab = grab
 		var span: Vector2i = BagLayout.turned(cells_size, rot)
 		size = Vector2(span) * px
 		position = -(Vector2(grab) + Vector2(0.5, 0.5)) * px
 		queue_redraw()
+
+	## Takes the cell size of the grid under the mouse (a stash piece over the bag is as big as
+	## the bag's cells it would cover).
+	func use_cell(cell: float) -> void:
+		if cell > 0.0 and not is_equal_approx(cell, px):
+			px = cell
+			turn(rot, _grab)
 
 	func _draw() -> void:
 		var rect := Rect2(Vector2.ZERO, size)

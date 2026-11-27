@@ -204,6 +204,7 @@ static func make_drag(source: Control, from: String, index: int, piece: Dictiona
 func _can_drop_data(at: Vector2, data: Variant) -> bool:
 	if not data is Dictionary or not accepts.is_valid() or not bool(accepts.call(data)):
 		return false
+	BagBoard.fit_preview(data, cell_px)
 	var drag: Dictionary = data
 	var cell: Vector2i = cell_at(at) - (drag["grab"] as Vector2i)
 	var verdict: int = int(judge.call(drag, cell, bool(drag["rot"]))) if judge.is_valid() else 1

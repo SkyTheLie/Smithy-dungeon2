@@ -166,12 +166,23 @@ static func backpacks() -> Array:
 	return list if BagLayout.is_valid(list) else []
 
 
+## How many backpacks may be attached: meta.json bag.backpack_slots, one more per level of the
+## skill Rucksack-Riemen (skills.json effect backpack_slots).
+static func backpack_limit() -> int:
+	return maxi(0, int(Content.meta("bag").get("backpack_slots", 1)) + int(Skills.bonus("backpack_slots")))
+
+
+## true while one more backpack may be attached (backpack_limit not reached).
+static func can_attach_backpack() -> bool:
+	return backpacks().size() < backpack_limit()
+
+
 ## Attaches the backpack lying on stash place `index` with its top left on `at` (turned `rot`).
-## false (nothing changes) for something else, or if the bag would not be allowed
+## false (nothing changes) for something else, at the backpack_limit, or if the bag would not be allowed
 ## (BagLayout.is_valid: touching, nothing covered, inside the board, not the same backpack twice).
 static func attach_backpack(index: int, at: Vector2i, rot: bool) -> bool:
 	var own: Array[Dictionary] = stash()
-	if index < 0 or index >= own.size() or not ShopGoods.is_backpack(own[index]):
+	if index < 0 or index >= own.size() or not ShopGoods.is_backpack(own[index]) or not can_attach_backpack():
 		return false
 	var id: String = String(own[index]["id"])
 	var next: Array = backpacks()
@@ -750,6 +761,91 @@ static func give_piece(piece: Dictionary) -> int:
 	return own.size() - 1
 
 
+# --- Admin menus (debug builds only: AdminMenu, ShopAdminMenu) -------------------------
+
+## A loot piece {id, count 1} straight into the stash. false for an unknown id.
+static func admin_give_loot(id: String) -> bool:
+	if Content.material(id).is_empty():
+		return false
+	_give_to_stash({"id": id, "count": 1})
+	_save()
+	return true
+
+
+## The stash is emptied (the bag at home stays).
+static func admin_clear_stash() -> void:
+	_write("stash", [])
+	_save()
+
+
+## The box holds exactly `amount` gold (negative = 0).
+static func admin_set_box(amount: int) -> void:
+	_write("box", maxi(0, amount))
+	_save()
+
+
+static func admin_add_skill_points(amount: int) -> void:
+	if amount <= 0:
+		return
+	_write("skill_points", skill_points() + amount)
+	_save()
+
+
+## New goods on the table without paying and without counting a pull.
+static func admin_roll_table(rng: RandomNumberGenerator) -> void:
+	_write("table", ShopGoods.roll(rng, pulls_today()))
+	_save()
+
+
+## Egon's table without goods.
+static func admin_clear_table() -> void:
+	_write("table", ShopGoods.empty_table())
+	_save()
+
+
+## The lever is free again (no pulls today).
+static func admin_reset_lever() -> void:
+	_write("pulls_today", 0)
+	_save()
+
+
+## A new day without a run: day + 1, the lever free again (no theft, the bag stays).
+static func admin_next_day() -> void:
+	_write("day", day() + 1)
+	_write("pulls_today", 0)
+	_save()
+
+
+## Quest `id` counts as done without its stone (opens its dungeons, Egon moves on, pays).
+static func admin_finish_quest(id: String) -> bool:
+	if Quests.data(id).is_empty() or quest_done(id):
+		return false
+	var done: Array = quests_done().duplicate()
+	done.append(id)
+	_write("quests_done", done)
+	var target: String = String(Quests.data(id).get("moves_to", ""))
+	if not target.is_empty():
+		_write("location", target)
+	_write("box", box() + maxi(0, int(Quests.data(id).get("gold", 0))))
+	_save()
+	return true
+
+
+## Egon's potion show is due at the next visit (died often enough, not shown yet).
+static func admin_potion_tour_due() -> void:
+	_write("potions_unlocked", false)
+	_write("deaths", maxi(deaths(), int(Content.potions().get("unlock_deaths", 2))))
+	_write("tutorial_done", true)
+	_save()
+
+
+## Egon has his ruby (the errand is over).
+static func admin_ruby_delivered() -> void:
+	_write("ruby_delivered", true)
+	_write("rope_done", true)
+	_save()
+
+
 ## true once Egon showed the shop (first visit after the intro).
 static func tutorial_done() -> bool:
 	return bool(_read("tutorial_done", false))
@@ -852,6 +948,11 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 		var count: int = int(entry.get("count", 0))
 		if id.is_empty() or count <= 0:
 			continue
+		# Gear, relics and potions carried along: back onto their cells, else into the stash.
+		if Bag.is_piece(entry):
+			if not bag.put_place(entry) and not bag.add_piece(entry):
+				list.append(_owned(entry))
+			continue
 		# The gold of the bag goes into the box, not into the inventory.
 		if id == Bag.GOLD:
 			gold_home += count
@@ -901,8 +1002,7 @@ static func _bag_model() -> Bag:
 	var bag: Bag = _empty_bag()
 	for entry: Variant in _read("bag", []):
 		if entry is Dictionary:
-			var place: Dictionary = entry
-			bag.put_at(Vector2i(int(place.get("x", -9999)), int(place.get("y", -9999))), String(place.get("id", "")), int(place.get("count", 1)), bool(place.get("rot", false)))
+			bag.put_place(entry)
 	return bag
 
 
@@ -915,7 +1015,7 @@ static func _save_bag(bag: Bag) -> void:
 static func bag_fits(index: int, cell: Vector2i, rot: bool) -> bool:
 	var bag: Bag = _bag_model()
 	var place: Dictionary = bag.get_place(index)
-	return not place.is_empty() and bag.fits(String(place["id"]), cell, rot, [index])
+	return not place.is_empty() and bag.fits_piece(place, cell, rot, [index])
 
 
 ## Moves bag place `index` (Bag.move_to: also stacks or swaps). false = nothing changed.
@@ -927,21 +1027,37 @@ static func move_in_bag(index: int, cell: Vector2i, rot: bool) -> bool:
 	return true
 
 
-## true if stash piece `index` is loot that may go into the bag on `cell`.
+## Stash piece `piece` as the bag holds it: loot {id, count}, gear / relic / potion with its fields
+## ({} for a backpack: it is attached, not carried).
+static func _bag_piece(piece: Dictionary) -> Dictionary:
+	if ShopGoods.is_backpack(piece):
+		return {}
+	if _is_loot(piece):
+		return {"id": String(piece.get("id", "")), "count": maxi(1, int(piece.get("count", 1)))}
+	return _owned(piece)
+
+
+## true if stash piece `index` (loot, gear, a relic or a potion; not a backpack) may go into the
+## bag on `cell`.
 static func stash_fits_bag(index: int, cell: Vector2i, rot: bool) -> bool:
 	var own: Array[Dictionary] = stash()
-	if index < 0 or index >= own.size() or not _is_loot(own[index]) or Content.material(String(own[index].get("id", ""))).is_empty():
+	if index < 0 or index >= own.size():
 		return false
-	return _bag_model().fits(String(own[index]["id"]), cell, rot)
+	var piece: Dictionary = _bag_piece(own[index])
+	if piece.is_empty() or not Bag.is_known(piece):
+		return false
+	return _bag_model().fits_piece(piece, cell, rot)
 
 
-## Stash piece `index` (loot only) into the bag on `cell`. false = nothing changed.
+## Stash piece `index` into the bag on `cell` (stash_fits_bag). false = nothing changed.
 static func stash_to_bag(index: int, cell: Vector2i, rot: bool) -> bool:
 	if not stash_fits_bag(index, cell, rot):
 		return false
 	var own: Array[Dictionary] = stash()
 	var bag: Bag = _bag_model()
-	if not bag.put_at(cell, String(own[index]["id"]), maxi(1, int(own[index].get("count", 1))), rot):
+	var piece: Dictionary = _bag_piece(own[index])
+	piece.merge({"x": cell.x, "y": cell.y, "rot": rot}, true)
+	if not bag.put_place(piece):
 		return false
 	own.remove_at(index)
 	_write_stash(own)
@@ -958,8 +1074,11 @@ static func bag_to_stash(index: int, cell: Vector2i = Vector2i(-1, -1), rot: boo
 		return false
 	var own: Array[Dictionary] = stash()
 	var pieces: Array[Dictionary] = []
-	for i in maxi(1, int(place.get("count", 1))):
-		pieces.append({"id": String(place["id"]), "count": 1})
+	if Bag.is_piece(place):
+		pieces.append(_owned(place))
+	else:
+		for i in maxi(1, int(place.get("count", 1))):
+			pieces.append({"id": String(place["id"]), "count": 1})
 	if cell != Vector2i(-1, -1):
 		if pieces.size() != 1 or not ItemGrid.fits(own, stash_grid(), pieces[0], cell, rot):
 			return false
@@ -979,7 +1098,7 @@ static func sell_from_bag(index: int) -> int:
 	var place: Dictionary = bag.get_place(index)
 	if place.is_empty() or String(place["id"]) == Bag.GOLD or Quests.is_stone(String(place["id"])):
 		return 0
-	var gold: int = ShopGoods.sell_price({"id": String(place["id"]), "count": int(place.get("count", 1))})
+	var gold: int = ShopGoods.sell_price(place)
 	bag.take(index)
 	_write("box", box() + gold)
 	_save_bag(bag)

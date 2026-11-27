@@ -753,6 +753,9 @@ msgstr "角色多一个圣物格。"
 msgid "Ein Rubin"
 msgstr "一颗红宝石"
 
+msgid "Ein Rucksack mehr an deinem Inventar."
+msgstr "背包栏可以多挂一个背包。"
+
 msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "3×3格的背包。在埃贡那里装到你的背包栏上。"
 
@@ -2121,6 +2124,9 @@ msgstr "音乐"
 msgid "Mythisch"
 msgstr "神话"
 
+msgid "Münze"
+msgstr "硬币"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "硬币和心会飞向你"
 
@@ -2439,11 +2445,17 @@ msgstr "背包"
 msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
 msgstr "把背包从仓库拖到背包栏（R 旋转）。拖回仓库即卸下。"
 
+msgid "Rucksack-Riemen"
+msgstr "背包背带"
+
 msgid "Rucksack: %d×%d Felder"
 msgstr "背包：%d×%d格"
 
 msgid "Rucksäcke"
 msgstr "背包"
+
+msgid "Rucksäcke %d/%d"
+msgstr "背包 %d/%d"
 
 msgid "Rudelführer"
 msgstr "狼群首领"
@@ -2856,6 +2868,9 @@ msgstr "某种魔法玩意儿。我哪知道，我是个骗……呃，商人！
 msgid "So kalt, dass die Finger kleben bleiben."
 msgstr "冷得手指都会粘住。"
 
+msgid "So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen."
+msgstr "可以挂这么多背包。学习技能“背包背带”可以更多。"
+
 msgid "Solide"
 msgstr "坚固"
 
@@ -3263,6 +3278,9 @@ msgstr "已满级"
 
 msgid "Vollbild"
 msgstr "全屏"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "来自敌人或地牢里的商人。一格最多999枚。跑图结束后放进你的罐子；死亡时会丢失，安全位置里的除外。"
 
 msgid "Vorwärts"
 msgstr "前进"

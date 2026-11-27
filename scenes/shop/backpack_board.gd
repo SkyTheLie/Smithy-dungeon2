@@ -8,7 +8,8 @@ extends Control
 ## the cells it would cover show green (allowed) or red.
 ## The loot brought home lies on it too (MetaState.bag_places, not the safe place: that is its own
 ## board in the shop): drag it to move it (move_in_bag), into the stash (the shop) or from the
-## stash into the bag (stash_to_bag). A backpack with loot in it stays where it is.
+## stash into the bag (stash_to_bag), also gear, relics and potions (carried along, lost on death
+## unless in the safe place). A backpack with loot in it stays where it is.
 
 signal changed
 
@@ -56,7 +57,8 @@ func place_at(cell: Vector2i) -> int:
 	return -1
 
 
-## A loot drag from the bag or the stash ("" = something else).
+## A drag of something the bag can hold, from the bag or the stash: loot, gear, a relic, a potion
+## (its id; "" = something else, e.g. a backpack).
 static func dragged_loot(data: Variant) -> String:
 	if not data is Dictionary:
 		return ""
@@ -64,7 +66,7 @@ static func dragged_loot(data: Variant) -> String:
 	var piece: Dictionary = drag.get("piece", {})
 	if String(drag.get("from", "")) == "bag":
 		return String(piece.get("id", ""))
-	if String(drag.get("from", "")) == "stash" and not ShopGoods.is_backpack(piece) and not Content.material(String(piece.get("id", ""))).is_empty():
+	if String(drag.get("from", "")) == "stash" and not ShopGoods.is_backpack(piece):
 		return String(piece.get("id", ""))
 	return ""
 
@@ -210,6 +212,9 @@ static func allowed(drag: Dictionary, cell: Vector2i) -> bool:
 	var placed: Array = MetaState.backpacks()
 	if drag.has("backpack"):
 		return BagLayout.is_valid(BagLayout.with_moved(placed, id, cell, bool(drag["rot"])))
+	# A new one from the stash: only below the limit (MetaState.backpack_limit).
+	if not MetaState.can_attach_backpack():
+		return false
 	var next: Array = placed.duplicate()
 	next.append({"id": id, "x": cell.x, "y": cell.y, "rot": bool(drag["rot"])})
 	return BagLayout.is_valid(next)
@@ -217,10 +222,13 @@ static func allowed(drag: Dictionary, cell: Vector2i) -> bool:
 
 func _can_drop_data(at: Vector2, data: Variant) -> bool:
 	var loot: String = dragged_loot(data)
+	# What the bag takes: the dragged picture as big as the cells here (stash cells are bigger).
+	if not loot.is_empty() or not dragged_backpack(data).is_empty():
+		BagBoard.fit_preview(data, cell_px)
 	if not loot.is_empty():
 		var loot_drag: Dictionary = data
 		var at_cell: Vector2i = cell_at(at) - (loot_drag["grab"] as Vector2i)
-		_drop_hint = {"cell": at_cell, "span": BagLayout.turned(BagLayout.loot_size(loot), bool(loot_drag["rot"])),
+		_drop_hint = {"cell": at_cell, "span": BagLayout.turned(Bag.size_of(loot_drag.get("piece", {"id": loot})), bool(loot_drag["rot"])),
 				"color": OK_COLOR if loot_allowed(loot_drag, at_cell) else BAD_COLOR}
 		queue_redraw()
 		return true

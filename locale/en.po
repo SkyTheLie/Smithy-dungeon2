@@ -753,6 +753,9 @@ msgstr "One more relic slot on your hero."
 msgid "Ein Rubin"
 msgstr "A ruby"
 
+msgid "Ein Rucksack mehr an deinem Inventar."
+msgstr "One more backpack on your inventory."
+
 msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "A backpack with 3×3 cells. Attach it to your inventory at Egon's."
 
@@ -2121,6 +2124,9 @@ msgstr "Music"
 msgid "Mythisch"
 msgstr "Mythic"
 
+msgid "Münze"
+msgstr "Coin"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Coins and hearts fly to you"
 
@@ -2439,11 +2445,17 @@ msgstr "Backpack"
 msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
 msgstr "Drag a backpack from the stash to the inventory (R rotates). Drag it back into the stash to detach."
 
+msgid "Rucksack-Riemen"
+msgstr "Backpack Straps"
+
 msgid "Rucksack: %d×%d Felder"
 msgstr "Backpack: %d×%d cells"
 
 msgid "Rucksäcke"
 msgstr "Backpacks"
+
+msgid "Rucksäcke %d/%d"
+msgstr "Backpacks %d/%d"
 
 msgid "Rudelführer"
 msgstr "Pack Leader"
@@ -2856,6 +2868,9 @@ msgstr "Some magic thing. No idea, I'm a crook… uh, a salesman!"
 msgid "So kalt, dass die Finger kleben bleiben."
 msgstr "So cold your fingers stick to it."
 
+msgid "So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen."
+msgstr "This many backpacks can be attached. More with the skill Backpack Straps."
+
 msgid "Solide"
 msgstr "Sturdy"
 
@@ -3263,6 +3278,9 @@ msgstr "Fully learned"
 
 msgid "Vollbild"
 msgstr "Fullscreen"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "From enemies or the merchant in the dungeon. Up to 999 on one cell. After the run it goes into your box; on death it is lost, unless in the safe place."
 
 msgid "Vorwärts"
 msgstr "Forward"

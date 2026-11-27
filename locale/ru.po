@@ -753,6 +753,9 @@ msgstr "Ещё одна ячейка реликвии у героя."
 msgid "Ein Rubin"
 msgstr "Рубин"
 
+msgid "Ein Rucksack mehr an deinem Inventar."
+msgstr "Ещё один рюкзак к твоему инвентарю."
+
 msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "Рюкзак на 3×3 клетки. Пристегни к инвентарю у Эгона."
 
@@ -2121,6 +2124,9 @@ msgstr "Музыка"
 msgid "Mythisch"
 msgstr "Мифический"
 
+msgid "Münze"
+msgstr "Монета"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Монеты и сердца летят к тебе"
 
@@ -2439,11 +2445,17 @@ msgstr "Рюкзак"
 msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
 msgstr "Перетащи рюкзак со склада к инвентарю (R поворачивает). Обратно на склад — снять."
 
+msgid "Rucksack-Riemen"
+msgstr "Ремни рюкзака"
+
 msgid "Rucksack: %d×%d Felder"
 msgstr "Рюкзак: %d×%d клеток"
 
 msgid "Rucksäcke"
 msgstr "Рюкзаки"
+
+msgid "Rucksäcke %d/%d"
+msgstr "Рюкзаки %d/%d"
 
 msgid "Rudelführer"
 msgstr "Вожак стаи"
@@ -2856,6 +2868,9 @@ msgstr "Какая-то магия. Понятия не имею, я же жу�
 msgid "So kalt, dass die Finger kleben bleiben."
 msgstr "Такой холодный, что пальцы прилипают."
 
+msgid "So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen."
+msgstr "Столько рюкзаков можно пристегнуть. Больше — с навыком «Ремни рюкзака»."
+
 msgid "Solide"
 msgstr "Прочный"
 
@@ -3263,6 +3278,9 @@ msgstr "Изучено полностью"
 
 msgid "Vollbild"
 msgstr "Полный экран"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "От врагов или от торговца в подземелье. До 999 в одной клетке. После забега попадает в твою копилку; при смерти пропадает, если не в безопасном месте."
 
 msgid "Vorwärts"
 msgstr "Вперёд"

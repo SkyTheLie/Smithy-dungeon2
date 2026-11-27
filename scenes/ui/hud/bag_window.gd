@@ -24,6 +24,11 @@ const ITEM_SIZE := Vector2(18, 18)
 const HERO_SCALE: float = 0.6
 ## Room for the bag grid (with its backpacks) in the middle; the cells shrink to fit.
 const BOARD_ROOM := Vector2(250, 130)
+## The middle panel always has this size (it does not grow or jump while the text changes).
+const PANEL_SIZE := Vector2(300, 292)
+## The description of the piece under the mouse: this wide, at most this many lines (fixed room).
+const INFO_WIDTH: float = 200.0
+const INFO_LINES: int = 7
 const STATS_COLOR := Color(1, 0.9, 0.75)
 const SAFE_COLOR := Color(1.0, 0.78, 0.3)
 const GUIDE_COLOR := Color(0.55, 1.0, 0.6)
@@ -144,6 +149,7 @@ func _build() -> void:
 	outer.add_child(row)
 	row.add_child(_build_hero())
 	_panel = _new_panel()
+	_panel.custom_minimum_size = PANEL_SIZE
 	_panel.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	row.add_child(_panel)
 	var map_panel: PanelContainer = _new_panel()
@@ -204,10 +210,14 @@ func _build() -> void:
 	safe_text.custom_minimum_size = Vector2(110, 0)
 	info.add_child(safe_text)
 	_info_name = _small_label("", 8)
+	_info_name.custom_minimum_size = Vector2(INFO_WIDTH, 0)
+	_info_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	info.add_child(_info_name)
 	_info_text = _small_label("", 8)
 	_info_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_info_text.custom_minimum_size = Vector2(110, 20)
+	# Fixed room: always INFO_LINES lines high, longer texts are cut (the window keeps its size).
+	_info_text.max_lines_visible = INFO_LINES
+	_info_text.custom_minimum_size = Vector2(INFO_WIDTH, INFO_LINES * 10.0)
 	_info_text.modulate = Color(0.85, 0.8, 0.75)
 	info.add_child(_info_text)
 
@@ -419,6 +429,14 @@ func _show_info(index: int) -> void:
 		_info_name.text = ""
 		_info_text.text = ""
 		return
+	if Bag.is_piece(place):
+		# Gear, a relic or a potion carried along: the same text as in Egon's shop.
+		var lines: PackedStringArray = ShopSlot.describe(place, false).split("
+", false, 1)
+		_info_name.text = lines[0]
+		_info_name.modulate = Rarity.color(ShopSlot.rarity_of(place))
+		_info_text.text = lines[1] if lines.size() > 1 else ""
+		return
 	var data: Dictionary = Content.material(String(place["id"]))
 	var tier: int = int(data.get("rarity", 1))
 	_info_name.text = "%s ×%d" % [Language.translate(String(data.get("name", ""))), int(place["count"])]
@@ -432,8 +450,9 @@ func _show_info(index: int) -> void:
 
 # --- Dropping on the floor --------------------------------------------------------
 
+## Loot can be thrown on the floor; gear, relics and potions cannot (there is no pickup for them).
 func _can_drop_on_floor(_at: Vector2, data: Variant) -> bool:
-	return data is Dictionary and (data as Dictionary).has("bag_index")
+	return data is Dictionary and (data as Dictionary).has("bag_index") 			and not Bag.is_piece(run.bag.get_place(int((data as Dictionary)["bag_index"])))
 
 
 func _drop_on_floor(_at: Vector2, data: Variant) -> void:

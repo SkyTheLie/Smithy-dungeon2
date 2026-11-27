@@ -32,6 +32,7 @@ Aus Smithy übernommen, was hier gilt (Smithy: `docs/FEHLERKLASSEN.md`). Kurz ha
 
 Format: `Datum · Branch · Ursache · Regel-Nummer (oder „neu“)`
 
+- 2026-11-27 · feature/admin-laden · `angles = [..] if a else [..]` gab ein ungetyptes Array; Zuweisung an `Array[float]` brach ab (zeigte sich erst, als Münzen den Zufall verschoben) · neu: getypte Arrays nicht über `x if c else y` füllen, sondern mit `if`/`else`
 - 2026-11-27 · feature/laden-raster · Bilder, die erst in `_draw` geladen wurden, erschienen als weiße Flächen (nur das erste klappte) · 9 (Bilder vorher laden, z. B. in `show_pieces`/`refresh`)
 
 - 2026-11-27 · feature/leveln-skillseiten · Karte gab aufgesammelte (freigegebene) Pickups aus `room.loot` an eine Funktion mit Parameter `Node3D` → Script-Fehler · neu: Listen, die freigegebene Nodes enthalten können, nur über ungetypte Parameter (`Variant`) weiterreichen und zuerst `is_instance_valid` prüfen

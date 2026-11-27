@@ -76,7 +76,9 @@ func _learning() -> void:
 		if not needed.is_empty():
 			var from: Array = (skills.call("data", needed) as Dictionary)["pos"]
 			var row: float = float(((skills.call("data", id) as Dictionary)["pos"] as Array)[1])
-			check((x < 0) == (float(from[0]) < 0) and row > float(from[1]), "%s hangs below %s on its side" % [id, needed])
+			# Below it, or in the same row further out (a chain from left to right).
+			var further_out: bool = row == float(from[1]) and absf(x) > absf(float(from[0]))
+			check((x < 0) == (float(from[0]) < 0) and (row > float(from[1]) or further_out), "%s hangs below %s or beside it on its side" % [id, needed])
 	# Straight into the box (an end_run above the limit could let Egon steal that night).
 	meta.call("gift_gold", 1500)
 	var points: int = meta.call("skill_points")
@@ -87,7 +89,12 @@ func _learning() -> void:
 	check(meta.call("attach_backpack_anywhere", (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "kraeutertasche")), "and can be attached")
 	check(not meta.call("buy_skill", "rucksack"), "the pouch has one level")
 	check(meta.call("buy_skill", "kupferrucksack"), "the copper backpack (needs level 4: we are 6)")
-	check(meta.call("attach_backpack_anywhere", (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "kupferrucksack")), "the copper one too")
+	var copper: Callable = func() -> int: return (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "kupferrucksack")
+	check_eq(meta.call("backpack_limit"), 1, "one backpack may be attached at first (meta.json bag.backpack_slots)")
+	check(not meta.call("attach_backpack_anywhere", copper.call()), "a second one: over the limit")
+	check(meta.call("buy_skill", "rucksack_riemen"), "Rucksack-Riemen: one backpack more")
+	check_eq(meta.call("backpack_limit"), 2, "now two")
+	check(meta.call("attach_backpack_anywhere", copper.call()), "the copper one too")
 	check_eq((meta.call("backpacks") as Array).size(), 2, "both attached")
 	check_eq(skills.call("problem", "eisenrucksack"), "Stufe zu niedrig", "the iron backpack needs level 10")
 	check(not meta.call("buy_skill", "eisenrucksack"), "so it cannot be learned")

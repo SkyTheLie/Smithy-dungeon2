@@ -37,6 +37,7 @@ extends Control
 ## Egon's ruby (MetaState.ruby_due: after climbing out at the rope of the first boss): the ruby
 ## shines in the inventory and flies over to Egon (MetaState.deliver_ruby); without one he asks
 ## for it again (until one comes home).
+## P (only in debug builds, started from the editor): the admin menu of the shop (ShopAdminMenu).
 ## All rules live in MetaState / ShopGoods; this screen only shows them and plays the animations.
 
 const MERCHANT: Texture2D = preload("res://assets/sprites/npcs/black_market_dealer.png")
@@ -75,6 +76,8 @@ var _equipment_tab: Button
 var _inventory_tab_button: Button
 var _inventory_tab: PanelContainer
 var _backpack_board: BackpackBoard
+## "Rucksäcke 1/2" over the bag: attached / allowed (MetaState.backpack_limit).
+var _backpack_count: Label
 ## The safe place of the bag at home (an ItemBoard in its own coordinates, Bag.SAFE_ORIGIN).
 var _safe_board: ItemBoard
 var _lever: TextureButton
@@ -108,6 +111,8 @@ var _black: ColorRect
 ## true while Egon does something by himself (tutorial, lever): clicks are ignored.
 var _locked: bool = false
 var _rng := RandomNumberGenerator.new()
+## P (only in debug builds): the admin menu for testing (ShopAdminMenu), null otherwise.
+var admin_menu: ShopAdminMenu = null
 
 
 func _ready() -> void:
@@ -116,6 +121,11 @@ func _ready() -> void:
 	_rng.randomize()
 	_build()
 	_refresh()
+	if OS.is_debug_build():
+		admin_menu = ShopAdminMenu.new()
+		admin_menu.name = "ShopAdminMenu"
+		add_child(admin_menu)
+		admin_menu.setup(self)
 	AudioManager.play_music("title")
 	create_tween().tween_property(_black, "modulate:a", 0.0, FADE_TIME)
 	if not MetaState.tutorial_done():
@@ -295,6 +305,12 @@ func _build_tabs() -> void:
 	var title := _label(Language.translate("Inventar: das nimmst du mit in den Dungeon"), 10, Color(1, 0.86, 0.55))
 	title.add_theme_constant_override("outline_size", 0)
 	column.add_child(title)
+	_backpack_count = _label("", 9, BOX_SAFE)
+	_backpack_count.name = "BackpackCount"
+	_backpack_count.add_theme_constant_override("outline_size", 0)
+	_backpack_count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_backpack_count.mouse_filter = Control.MOUSE_FILTER_STOP
+	column.add_child(_backpack_count)
 	_backpack_board = BackpackBoard.new()
 	_backpack_board.name = "BackpackBoard"
 	_backpack_board.cell_px = _bag_cell()
@@ -365,6 +381,11 @@ func _safe_size() -> Vector2i:
 ## The bag at home in the Inventar tab: the board with backpacks and loot, the safe place.
 func _refresh_bag() -> void:
 	_backpack_board.refresh()
+	var attached: int = MetaState.backpacks().size()
+	var limit: int = MetaState.backpack_limit()
+	_backpack_count.text = Language.translate("Rucksäcke %d/%d") % [attached, limit]
+	_backpack_count.add_theme_color_override("font_color", BOX_SAFE if attached < limit else GOLD_COLOR)
+	_backpack_count.tooltip_text = Language.translate("So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen.")
 	var safe_pieces: Array = []
 	for place: Dictionary in MetaState.bag_places():
 		if int(place["x"]) >= Bag.SAFE_ORIGIN.x:
@@ -446,7 +467,10 @@ func _stash_judge(data: Dictionary, cell: Vector2i, rot: bool) -> int:
 	if String(data.get("from", "")) == "hero":
 		return 1 if ItemGrid.fits(own, grid, data["piece"], cell, rot) else 0
 	if String(data.get("from", "")) == "bag":
-		var single: Dictionary = {"id": String((data["piece"] as Dictionary).get("id", "")), "count": 1}
+		var single: Dictionary = (data["piece"] as Dictionary).duplicate()
+		for key: String in ["x", "y", "rot"]:
+			single.erase(key)
+		single["count"] = 1
 		return 1 if ItemGrid.fits(own, grid, single, cell, rot) else 0
 	var index: int = int(data.get("index", -1))
 	if index < 0 or index >= own.size():
@@ -494,6 +518,19 @@ func _on_stash_dropped(data: Dictionary, cell: Vector2i, rot: bool) -> void:
 func _input(event: InputEvent) -> void:
 	if BagBoard.is_turn_event(event) and BagBoard.rotate_drag(get_viewport()):
 		get_viewport().set_input_as_handled()
+
+
+## P: the admin menu (debug builds only).
+func _unhandled_input(event: InputEvent) -> void:
+	if admin_menu != null and not admin_menu.visible and event.is_action_pressed(Controls.TEST_ROOM):
+		get_viewport().set_input_as_handled()
+		admin_menu.open()
+
+
+## After a change from the admin menu: background, table, stash, hero, everything new.
+func refresh_all() -> void:
+	_cave.texture = _location_background()
+	_refresh()
 
 
 func _panel(at: Vector2) -> PanelContainer:
