@@ -65,8 +65,10 @@ func run() -> void:
 	var enemies: Dictionary = content.call("enemies")
 	for id: String in enemies:
 		var base: String = String(enemies[id].get("sprite", ""))
-		check(ResourceLoader.exists(base + "_walk.png"), "enemy %s walk sheet" % id)
+		var walk_path: String = "%s_%s.png" % [base, String(enemies[id].get("walk", "walk"))]
+		check(ResourceLoader.exists(walk_path), "enemy %s walk sheet" % id)
 		check(ResourceLoader.exists(base + "_death.png"), "enemy %s death sheet" % id)
+		_check_sheet(id, enemies[id], walk_path)
 		check(float(enemies[id].get("hp", 0)) > 0.0, "enemy %s has life" % id)
 		check(not (enemies[id].get("voice", {}) as Dictionary).is_empty(), "enemy %s has its own voice" % id)
 		check(String(enemies[id].get("ai", "")) in ["lurk", "chase", "fly", "hop", "shooter", "guard", "boss", "charger", "turret", "wall", "bouncer", "spawner", "shell"], "enemy %s: known ai" % id)
@@ -203,6 +205,17 @@ func _check_loot(content: Script, enemies: Dictionary) -> void:
 	var box: Dictionary = content.call("meta", "money_box")
 	check(int(box.get("limit", 0)) > 0, "money box limit")
 	check(float(box.get("steal_all_chance", 1.0)) + float(box.get("steal_part_chance", 1.0)) < 1.0, "theft chances below 100 %")
+
+
+## The walk sheet is one row of pictures of the enemy's frame size (data "frame", else 48):
+## else the game shows a squeezed strip (the lich once moved "from bottom to top").
+func _check_sheet(id: String, data: Dictionary, path: String) -> void:
+	var texture: Texture2D = load(path) as Texture2D if ResourceLoader.exists(path) else null
+	if texture == null:
+		return
+	var frame: Array = data.get("frame", [48, 48])
+	check_eq(texture.get_height(), int(frame[-1]), "enemy %s: walk sheet is one row of %d px" % [id, int(frame[-1])])
+	check_eq(texture.get_width() % int(frame[0]), 0, "enemy %s: walk sheet width fits %d px pictures" % [id, int(frame[0])])
 
 
 func _check_bonus(what: String, source: Dictionary) -> void:

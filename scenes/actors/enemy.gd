@@ -230,7 +230,8 @@ func _ready() -> void:
 		var path: String = "%s_%s.png" % [base, sheets[attack]]
 		if ResourceLoader.exists(path):
 			_attack_sheets[attack] = load(path) as Texture2D
-	_walk = load(base + "_walk.png") as Texture2D
+	# data "walk": another walk sheet (<sprite>_<walk>.png), e.g. the lich's one-row battle sheet.
+	_walk = load("%s_%s.png" % [base, String(data.get("walk", "walk"))]) as Texture2D
 	_idle = load(base + ".png") as Texture2D if ResourceLoader.exists(base + ".png") else _walk
 	_death = load(base + "_death.png") as Texture2D if ResourceLoader.exists(base + "_death.png") else null
 	_sprite = Fx.billboard(_walk if _awake else _idle, height)
@@ -605,6 +606,9 @@ func _die() -> void:
 func _set_sheet(texture: Texture2D) -> void:
 	_sprite.texture = texture
 	_sprite.hframes = maxi(1, texture.get_width() / _frame_w)
+	# A sheet with several rows (e.g. one per direction) shows only its first row; without this
+	# the whole column would be squeezed into one picture.
+	_sprite.vframes = maxi(1, texture.get_height() / _frame_h)
 	_sprite.frame = 0
 
 
