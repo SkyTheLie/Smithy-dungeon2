@@ -8,7 +8,7 @@ Vorher: offener Stand `feature/rubin-seil-altar` (Seil nach dem ersten Boss, Rub
 |---|---|---|
 | 1 | **Händler im Dungeon mit F ansprechen**, um Sachen zu verkaufen; auch Relikte verkaufen. | offen |
 | 2 | **Schlüssel:** am Anfang keinen Schlüssel. Beim Verlassen des Dungeons zerbrechen die Schlüssel; Egon sagt das: „so ein Magie-Ding, keine Ahnung, bin ein Gaunerverkäufer“. | ✅ erledigt |
-| 3 | **Erste Ebene kleiner:** höchstens 6 Räume, davon Boss-Raum und Opfer-Raum. | offen |
+| 3 | **Erste Ebene kleiner:** höchstens 6 Räume, davon Boss-Raum und Opfer-Raum. | ✅ erledigt |
 | 4 | **Start-Bildschirm** „Hier klicken“ nur einmal. Spiel → Hauptmenü landet im Hauptmenü ohne die Reingeh-Animation. | offen |
 | 5 | **3D-Ton:** Geräusche von Gegnern räumlich (Stereo/3D), Musik bleibt mono. | offen |
 | 6 | **Skills einzeln:** jede Stufe ein eigener Skill, untereinander; kauft man den oberen, wird der darunter freigeschaltet. | offen |
@@ -26,6 +26,8 @@ Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 
 ## Erledigt
 
 (neueste oben, mit Branch und Datum)
+
+- **3** · `feature/erste-ebene-klein` · 2026-11-27 · Erste Ebene (Dungeon der Glut): Start, 3 normale Räume, Boss und sicher ein Opferraum = 6 Räume; kein Shop, kein Geheimraum, kein Sonderraum (neue Felder in floors.json). Im Spiel: neues Spiel → Dungeon → M: Karte hat 6 Räume.
 
 - **2** · `feature/schluessel` · 2026-11-27 · Start ohne Schlüssel (data/player.json keys 0). Schlüssel gehören zum Run und bleiben im Dungeon; der End-Bildschirm zeigt „Schlüssel zerbrochen: N“. Egon erklärt es im ersten Laden-Besuch (tutorial_dungeon). Im Spiel: neues Spiel → Laden-Tour bis zum Ende anhören → im Dungeon 0 Schlüssel; mit Schlüssel über die Leiter raus → End-Bildschirm.
 

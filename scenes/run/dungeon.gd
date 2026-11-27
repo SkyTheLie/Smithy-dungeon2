@@ -116,13 +116,20 @@ func build(run_state: RunState, the_player: Player, index: int) -> void:
 	floor_index = index
 	floor_data = Content.floor_data(index)
 	_rng.seed = hash(run.seed_value + index * 7919)
-	layout = FloorLayout.generate(_rng, int(floor_data.get("rooms", 7)))
+	# floors.json "shop_room": false = no shop on this floor (and no room for it).
+	var dead_ends: Array[String] = [FloorLayout.ITEM]
+	if bool(floor_data.get("shop_room", true)):
+		dead_ends.append(FloorLayout.SHOP)
+	layout = FloorLayout.generate(_rng, int(floor_data.get("rooms", 7)), dead_ends)
 	if not bool(floor_data.get("item_room", true)):
 		layout.remove_item_room()
 	# Extra rooms with their own random numbers: the normal rooms stay the same for a seed.
+	# A floor may ask for a sure sacrifice room ("sacrifice_chance") and leave out the secret
+	# room and the special room behind the boss ("secret_room", "special_room": false).
 	var extra_rng := RandomNumberGenerator.new()
 	extra_rng.seed = hash(run.seed_value * 31 + index * 104729)
-	layout.add_extras(extra_rng, float((Content.floors_extra("sacrifice") as Dictionary).get("room_chance", 0.5)))
+	var sacrifice: float = float(floor_data.get("sacrifice_chance", (Content.floors_extra("sacrifice") as Dictionary).get("room_chance", 0.5)))
+	layout.add_extras(extra_rng, sacrifice, bool(floor_data.get("secret_room", true)), bool(floor_data.get("special_room", true)))
 	effects = Node3D.new()
 	effects.name = "Effects"
 	add_child(effects)

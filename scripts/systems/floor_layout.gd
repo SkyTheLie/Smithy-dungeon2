@@ -48,19 +48,20 @@ func neighbours(cell: Vector2i) -> Array[Vector2i]:
 	return list
 
 
-## A new layout with `normal_rooms` normal rooms (plus start, item, shop, boss).
-static func generate(rng: RandomNumberGenerator, normal_rooms: int) -> FloorLayout:
+## A new layout with `normal_rooms` normal rooms plus start, boss and the rooms in `dead_ends`
+## (each at its own dead end; a floor without a shop leaves SHOP out, floors.json "shop_room").
+static func generate(rng: RandomNumberGenerator, normal_rooms: int, dead_ends: Array[String] = [ITEM, SHOP]) -> FloorLayout:
 	for attempt in 500:
-		var layout: FloorLayout = _try(rng, normal_rooms + 4)
+		var layout: FloorLayout = _try(rng, normal_rooms + 2 + dead_ends.size(), dead_ends)
 		if layout != null:
 			return layout
 	push_error("FloorLayout: no layout found, using a straight line")
-	return _fallback(normal_rooms)
+	return _fallback(normal_rooms, dead_ends)
 
 
 ## Grows `total` rooms from the start (each new room touches only one room, so there are dead ends),
-## then turns three dead ends into boss, item room and shop. null if that did not work out.
-static func _try(rng: RandomNumberGenerator, total: int) -> FloorLayout:
+## then turns dead ends into the boss room and the rooms of `special`. null if that did not work out.
+static func _try(rng: RandomNumberGenerator, total: int, special: Array[String]) -> FloorLayout:
 	var layout := FloorLayout.new()
 	layout.rooms[START] = NORMAL
 	var queue: Array[Vector2i] = [START]
@@ -85,7 +86,7 @@ static func _try(rng: RandomNumberGenerator, total: int) -> FloorLayout:
 	for cell: Vector2i in layout.rooms:
 		if cell != START and layout.neighbours(cell).size() == 1:
 			dead_ends.append(cell)
-	if dead_ends.size() < 3:
+	if dead_ends.size() < 1 + special.size():
 		return null
 	dead_ends.sort_custom(func(a: Vector2i, b: Vector2i) -> bool: return layout.distance[a] > layout.distance[b])
 	# The boss room must not sit right next to the start.
@@ -94,8 +95,8 @@ static func _try(rng: RandomNumberGenerator, total: int) -> FloorLayout:
 	layout.rooms[dead_ends[0]] = BOSS
 	var rest: Array[Vector2i] = dead_ends.slice(1)
 	_shuffle(rest, rng)
-	layout.rooms[rest[0]] = ITEM
-	layout.rooms[rest[1]] = SHOP
+	for i in special.size():
+		layout.rooms[rest[i]] = special[i]
 	layout.rooms[START] = START_ROOM
 	return layout
 
@@ -107,23 +108,25 @@ func remove_item_room() -> void:
 			rooms[cell] = NORMAL
 
 
-static func _fallback(normal_rooms: int) -> FloorLayout:
+static func _fallback(normal_rooms: int, special: Array[String]) -> FloorLayout:
 	var layout := FloorLayout.new()
 	layout.rooms[START] = START_ROOM
 	var cell: Vector2i = START
 	for i in normal_rooms:
 		cell += Vector2i(1, 0) if i % 2 == 0 else Vector2i(0, 1)
 		layout.rooms[cell] = NORMAL
-	layout.rooms[START + Vector2i(-1, 0)] = ITEM
-	layout.rooms[START + Vector2i(0, -1)] = SHOP
+	var spots: Array[Vector2i] = [START + Vector2i(-1, 0), START + Vector2i(0, -1)]
+	for i in mini(special.size(), spots.size()):
+		layout.rooms[spots[i]] = special[i]
 	layout.rooms[cell + Vector2i(1, 0)] = BOSS
 	layout._measure()
 	return layout
 
 
-## Adds the secret room, the special room behind the boss and (with `sacrifice_chance`) a
-## sacrifice room on free cells. Uses its own `rng`, so the other rooms stay the same.
-func add_extras(rng: RandomNumberGenerator, sacrifice_chance: float) -> void:
+## Adds the secret room, the special room behind the boss (each only if asked for) and (with
+## `sacrifice_chance`) a sacrifice room on free cells. Uses its own `rng`, so the other rooms
+## stay the same.
+func add_extras(rng: RandomNumberGenerator, sacrifice_chance: float, secret: bool = true, special: bool = true) -> void:
 	var free: Array[Vector2i] = []
 	for cell: Vector2i in rooms:
 		for dir: Vector2i in DIRECTIONS:
@@ -135,22 +138,28 @@ func add_extras(rng: RandomNumberGenerator, sacrifice_chance: float) -> void:
 	# Behind the boss: a free cell that touches only the boss room.
 	for cell: Vector2i in free:
 		var around: Array[Vector2i] = neighbours(cell)
-		if around.size() == 1 and around[0] == boss:
+		if special and around.size() == 1 and around[0] == boss:
 			rooms[cell] = SPECIAL
 			free.erase(cell)
 			break
 	# Secret room: touches two or more rooms, none of them boss or special.
 	for cell: Vector2i in free:
 		var around: Array[Vector2i] = neighbours(cell)
-		if around.size() >= 2 and around.all(func(c: Vector2i) -> bool: return rooms[c] in [NORMAL, START_ROOM, ITEM, SHOP]):
+		if secret and around.size() >= 2 and around.all(func(c: Vector2i) -> bool: return rooms[c] in [NORMAL, START_ROOM, ITEM, SHOP]):
 			rooms[cell] = SECRET
 			free.erase(cell)
 			break
 	if rng.randf() < sacrifice_chance:
-		for cell: Vector2i in free:
-			var around: Array[Vector2i] = neighbours(cell)
-			if around.size() == 1 and rooms[around[0]] == NORMAL:
-				rooms[cell] = SACRIFICE
+		# A dead end at a normal room; if there is none, at the start room.
+		for allowed: String in [NORMAL, START_ROOM]:
+			var placed: bool = false
+			for cell: Vector2i in free:
+				var around: Array[Vector2i] = neighbours(cell)
+				if around.size() == 1 and rooms[around[0]] == allowed:
+					rooms[cell] = SACRIFICE
+					placed = true
+					break
+			if placed:
 				break
 	_measure()
 
