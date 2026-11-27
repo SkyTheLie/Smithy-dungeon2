@@ -156,6 +156,9 @@ msgstr "Vaincs %d ennemis (%d / %d)"
 msgid "Besiege: %s"
 msgstr "Vaincs : %s"
 
+msgid "Besiegt: %d / %d"
+msgstr "Vaincus : %d / %d"
+
 msgid "Besiegte Gegner: %d"
 msgstr "Ennemis vaincus : %d"
 
@@ -164,6 +167,9 @@ msgstr "Entrer"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "Je rachète ton butin : clic droit dans l'inventaire et il arrive en haut, à mon rachat. Prix honnêtes. Honnêtement !"
+
+msgid "Beute: %s"
+msgstr "Butin : %s"
 
 msgid "Blasebalg"
 msgstr "Soufflet"
@@ -194,6 +200,9 @@ msgstr "Les bombes éclatent en petites bombes"
 
 msgid "Bombengürtel"
 msgstr "Ceinture de bombes"
+
+msgid "Boss"
+msgstr "Boss"
 
 msgid "Brakk der Brecher"
 msgstr "Brakk le Briseur"
@@ -918,6 +927,9 @@ msgstr "Crinière de givre"
 msgid "Frostmähnen-Fell"
 msgstr "Fourrure de Crinière-de-givre"
 
+msgid "Fundort: %s"
+msgstr "Lieu : %s"
+
 msgid "Funkelstein"
 msgstr "Pierre Scintillante"
 
@@ -969,6 +981,9 @@ msgstr "Évadé !"
 msgid "Gegabelter Stab"
 msgstr "Bâton fourchu"
 
+msgid "Gegner"
+msgstr "Ennemis"
+
 msgid "Gegner brennen, Schaden hoch"
 msgstr "Les ennemis brûlent, dégâts en hausse"
 
@@ -977,6 +992,9 @@ msgstr "Les ennemis ralentissent, portée en hausse"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "Les ennemis qui te touchent subissent des dégâts"
+
+msgid "Gegner:"
+msgstr "Ennemis :"
 
 msgid "Geheimtasche"
 msgstr "Poche secrète"
@@ -1467,6 +1485,9 @@ msgstr "Braise follette"
 msgid "Irrlichtkönigin"
 msgstr "Reine des feux follets"
 
+msgid "Items"
+msgstr "Objets"
+
 msgid "Jadefigur"
 msgstr "Figurine de jade"
 
@@ -1679,6 +1700,9 @@ msgstr "Golem de lave"
 
 msgid "Lavahund"
 msgstr "Chien de lave"
+
+msgid "Leben: %d · Schaden: %d"
+msgstr "Vie : %d · Dégâts : %d"
 
 msgid "Lebendiger Wind"
 msgstr "Vent vivant"
@@ -1913,6 +1937,9 @@ msgstr "Pas encore d'objets"
 
 msgid "Noch keine Items in diesem Run."
 msgstr "Pas encore d'objets dans cette partie."
+
+msgid "Noch nicht besiegt"
+msgstr "Pas encore vaincu"
 
 msgid "Noch nicht entdeckt"
 msgstr "Pas encore découvert"
@@ -2255,6 +2282,9 @@ msgstr "Dégâts : %s"
 
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "Termine %d étages d'affilée sans être touché"
+
+msgid "Schaffe einen Dungeon, dann öffnet sich der nächste."
+msgstr "Termine un donjon et le suivant s'ouvre."
 
 msgid "Schakal"
 msgstr "Chacal"

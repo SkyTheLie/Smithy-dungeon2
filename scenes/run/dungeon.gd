@@ -698,6 +698,7 @@ func _on_enemy_died(enemy: Enemy) -> void:
 	run.on_kill()
 	if run.record_progress:
 		run.announce(Progress.add_kills(1))
+		run.announce(Progress.meet_enemy(enemy.id))
 		if enemy.is_boss:
 			run.announce(Progress.beat_boss(enemy.id))
 	_drop_enemy_loot(enemy)

@@ -378,3 +378,9 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 
 - Vorher war kein Ton räumlich (alles `AudioStreamPlayer`, mittig). Jetzt: `AudioManager.play_sound_at(id, ort, parent)` / `play_stream_at(...)` legen einen kurzlebigen `AudioStreamPlayer3D` an den Ort (in `Dungeon.effects`), gehört von der Kamera der SubViewport (`audio_listener_enable_3d`). `data/audio.json` `spatial`: `unit_size`, `max_distance`, `panning_strength`, `voices` (höchstens so viele gleichzeitig, der älteste hört auf).
 - Alle Gegner-Töne laufen über `Enemy.sound(id, pitch)` (Treffer, Tod, Rufe, Schüsse, Ansturm, Graben, Laser, Explosion, Boss-Töne) und kommen aus ihrer Richtung; die manuelle Abschwächung der Rufe (`CRY_FALLOFF_DB`) ist weg. Musik und Spieler-/Menü-Töne bleiben ohne Richtung.
+
+## Dungeon-Brett nur offene Dungeons, Gegner im Lexikon – 2026-11-27
+
+- `DungeonBoard`: nur Dungeons mit `MetaState.is_dungeon_open` (`open_dungeons()`), dazu der Hinweis, dass der Sieg den nächsten öffnet. Rechts unter der Beschreibung die Gegner des Dungeons (`Content.dungeon_enemies`: Gegner, Start-Gegner und Bosse aller Ebenen, End-Boss) als kleine Bilder (`Content.enemy_icon`: erstes Bild des Sheets), unbekannte als schwarze Silhouette.
+- `Progress.meet_enemy / has_met / met_enemies` (`user://progress.cfg` `enemies`): beim ersten Kill eines Gegners (`Dungeon._on_enemy_died`).
+- `LexiconWindow`: Reiter „Items“ (wie vorher) und „Gegner“ (nach Smithy): Gegner nach Dungeon gruppiert, besiegte mit Bild, Leben, Schaden, Tempo, Boss, Beute (`loot.json` mit Chance) und Fundort; sonst Silhouette und „???“.

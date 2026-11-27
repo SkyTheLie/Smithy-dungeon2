@@ -156,6 +156,9 @@ msgstr "Победи %d врагов (%d / %d)"
 msgid "Besiege: %s"
 msgstr "Победи: %s"
 
+msgid "Besiegt: %d / %d"
+msgstr "Побеждено: %d / %d"
+
 msgid "Besiegte Gegner: %d"
 msgstr "Побеждено врагов: %d"
 
@@ -164,6 +167,9 @@ msgstr "Войти"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "Добычу я выкупаю: ПКМ в инвентаре — и она у моей скупки наверху. Честные цены. Честно!"
+
+msgid "Beute: %s"
+msgstr "Добыча: %s"
 
 msgid "Blasebalg"
 msgstr "Кузнечные мехи"
@@ -194,6 +200,9 @@ msgstr "Бомбы разлетаются на маленькие бомбы"
 
 msgid "Bombengürtel"
 msgstr "Пояс с бомбами"
+
+msgid "Boss"
+msgstr "Босс"
 
 msgid "Brakk der Brecher"
 msgstr "Бракк Крушитель"
@@ -918,6 +927,9 @@ msgstr "Морозная грива"
 msgid "Frostmähnen-Fell"
 msgstr "Шкура Морозной гривы"
 
+msgid "Fundort: %s"
+msgstr "Где: %s"
+
 msgid "Funkelstein"
 msgstr "Искрокамень"
 
@@ -969,6 +981,9 @@ msgstr "Сбежал!"
 msgid "Gegabelter Stab"
 msgstr "Раздвоенный посох"
 
+msgid "Gegner"
+msgstr "Враги"
+
 msgid "Gegner brennen, Schaden hoch"
 msgstr "Враги горят, урон выше"
 
@@ -977,6 +992,9 @@ msgstr "Враги замедляются, дальность выше"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "Враги, касающиеся тебя, получают урон"
+
+msgid "Gegner:"
+msgstr "Враги:"
 
 msgid "Geheimtasche"
 msgstr "Потайной карман"
@@ -1467,6 +1485,9 @@ msgstr "Уголёк огонька"
 msgid "Irrlichtkönigin"
 msgstr "Королева огоньков"
 
+msgid "Items"
+msgstr "Предметы"
+
 msgid "Jadefigur"
 msgstr "Нефритовая фигурка"
 
@@ -1679,6 +1700,9 @@ msgstr "Лавовый голем"
 
 msgid "Lavahund"
 msgstr "Лавовая гончая"
+
+msgid "Leben: %d · Schaden: %d"
+msgstr "Здоровье: %d · Урон: %d"
 
 msgid "Lebendiger Wind"
 msgstr "Живой ветер"
@@ -1913,6 +1937,9 @@ msgstr "Пока нет предметов"
 
 msgid "Noch keine Items in diesem Run."
 msgstr "В этом забеге пока нет предметов."
+
+msgid "Noch nicht besiegt"
+msgstr "Ещё не побеждён"
 
 msgid "Noch nicht entdeckt"
 msgstr "Ещё не найдено"
@@ -2255,6 +2282,9 @@ msgstr "Урон: %s"
 
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "Пройди %d уровней подряд без удара"
+
+msgid "Schaffe einen Dungeon, dann öffnet sich der nächste."
+msgstr "Пройди подземелье — откроется следующее."
 
 msgid "Schakal"
 msgstr "Шакал"

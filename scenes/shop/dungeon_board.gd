@@ -3,8 +3,9 @@ extends PanelContainer
 ## Egon's dungeon board (the button at the bottom right of the shop), like the dungeon board of the
 ## adventurers' guild in Smithy: left one tab per region (data/dungeons.json "region"), a click
 ## opens or closes its dungeon list; right the chosen dungeon (name, level, floors, areas from
-## floors.json, description) and "Betreten". A dungeon whose "unlock" is not met yet
-## (MetaState.is_dungeon_open: the dungeon before it won) is grey and says what opens it.
+## floors.json, description, its enemies as small pictures: the ones beaten already with their
+## name, the others as black silhouettes, like the lexicon) and "Betreten". Only dungeons that
+## are open (MetaState.is_dungeon_open) are on the board; a line says that winning opens the next.
 ## Built in code.
 
 ## "Betreten" for dungeon `id` (the shop then asks for the character).
@@ -23,6 +24,8 @@ var _regions: VBoxContainer
 var _name_label: Label
 var _facts_label: Label
 var _desc_label: Label
+## The enemies of the chosen dungeon (Content.dungeon_enemies).
+var _enemies: HFlowContainer
 var _enter_button: Button
 var _group := ButtonGroup.new()
 
@@ -64,6 +67,12 @@ func _ready() -> void:
 	_desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_desc_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	details.add_child(_desc_label)
+	details.add_child(_label(Language.translate("Gegner:"), COLOR_HINT, 10))
+	_enemies = HFlowContainer.new()
+	_enemies.name = "Enemies"
+	_enemies.add_theme_constant_override("h_separation", 2)
+	_enemies.add_theme_constant_override("v_separation", 2)
+	details.add_child(_enemies)
 	_enter_button = _button(Language.translate("Betreten"))
 	_enter_button.add_theme_font_size_override("font_size", 16)
 	_enter_button.size_flags_horizontal = Control.SIZE_SHRINK_END
@@ -79,8 +88,9 @@ func open(must_go: bool = false) -> void:
 	forced = must_go
 	_close_button.visible = not forced
 	_build_regions()
-	if _selected.is_empty() or not Content.dungeons().has(_selected):
-		_selected = String(Content.dungeons().keys().front()) if not Content.dungeons().is_empty() else ""
+	if _selected.is_empty() or not MetaState.is_dungeon_open(_selected):
+		var open_ones: Array[String] = open_dungeons()
+		_selected = open_ones.back() if not open_ones.is_empty() else ""
 	_show_dungeon()
 	show()
 
@@ -89,12 +99,21 @@ func get_selected() -> String:
 	return _selected
 
 
+## The dungeons on the board: the open ones, in dungeons.json order.
+static func open_dungeons() -> Array[String]:
+	var list: Array[String] = []
+	for id: String in Content.dungeons():
+		if MetaState.is_dungeon_open(id):
+			list.append(id)
+	return list
+
+
 func _build_regions() -> void:
 	for child: Node in _regions.get_children():
 		_regions.remove_child(child)
 		child.queue_free()
 	var lists: Dictionary = {}
-	for id: String in Content.dungeons():
+	for id: String in open_dungeons():
 		var data: Dictionary = Content.dungeons()[id]
 		var region: String = String(data.get("region", ""))
 		if not lists.has(region):
@@ -107,9 +126,8 @@ func _build_regions() -> void:
 			tab.pressed.connect(func() -> void: list.visible = not list.visible)
 			lists[region] = list
 		var button := _button(Language.translate(String(data.get("name", id))))
+		button.name = "Dungeon_" + id
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		if not MetaState.is_dungeon_open(id):
-			button.modulate = COLOR_HINT
 		button.toggle_mode = true
 		button.button_group = _group
 		button.button_pressed = id == _selected
@@ -121,6 +139,12 @@ func _build_regions() -> void:
 		row.add_theme_constant_override("margin_left", 8)
 		row.add_child(button)
 		(lists[region] as VBoxContainer).add_child(row)
+	# More to come: winning the last open dungeon opens the next one.
+	if open_dungeons().size() < Content.dungeons().size():
+		var more := _label(Language.translate("Schaffe einen Dungeon, dann öffnet sich der nächste."), COLOR_HINT, 9)
+		more.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		more.custom_minimum_size = Vector2(LIST_WIDTH, 0)
+		_regions.add_child(more)
 
 
 func _show_dungeon() -> void:
@@ -139,6 +163,29 @@ func _show_dungeon() -> void:
 		_desc_label.text += "\n\n" + lock_text(_selected)
 	elif MetaState.has_won(_selected):
 		_desc_label.text += "\n\n" + Language.translate("Schon einmal geschafft!")
+	_show_enemies()
+
+
+## The enemies of the chosen dungeon: known ones with picture and name (tooltip), others black.
+func _show_enemies() -> void:
+	for child: Node in _enemies.get_children():
+		_enemies.remove_child(child)
+		child.queue_free()
+	for id: String in Content.dungeon_enemies(_selected):
+		var icon := TextureRect.new()
+		icon.name = "Enemy_" + id
+		icon.texture = Content.enemy_icon(id)
+		icon.custom_minimum_size = Vector2(20, 20)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		icon.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		if Progress.has_met(id):
+			icon.tooltip_text = Language.translate(String(Content.enemy(id).get("name", id)))
+		else:
+			icon.modulate = Color(0, 0, 0, 0.85)
+			icon.tooltip_text = "???"
+		_enemies.add_child(icon)
 
 
 ## What opens dungeon `id`: "Gesperrt: erst Dungeon der Glut schaffen." ("" = open).

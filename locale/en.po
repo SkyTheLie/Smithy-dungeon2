@@ -156,6 +156,9 @@ msgstr "Defeat %d enemies (%d / %d)"
 msgid "Besiege: %s"
 msgstr "Defeat: %s"
 
+msgid "Besiegt: %d / %d"
+msgstr "Beaten: %d / %d"
+
 msgid "Besiegte Gegner: %d"
 msgstr "Enemies defeated: %d"
 
@@ -164,6 +167,9 @@ msgstr "Enter"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "I buy your loot: right-click it in the inventory and it lands up at my buying spot. Fair prices. Honestly!"
+
+msgid "Beute: %s"
+msgstr "Loot: %s"
 
 msgid "Blasebalg"
 msgstr "Bellows"
@@ -194,6 +200,9 @@ msgstr "Bombs burst into little bombs"
 
 msgid "Bombengürtel"
 msgstr "Bomb Belt"
+
+msgid "Boss"
+msgstr "Boss"
 
 msgid "Brakk der Brecher"
 msgstr "Brakk the Breaker"
@@ -918,6 +927,9 @@ msgstr "Frost Mane"
 msgid "Frostmähnen-Fell"
 msgstr "Frost Mane Pelt"
 
+msgid "Fundort: %s"
+msgstr "Found in: %s"
+
 msgid "Funkelstein"
 msgstr "Sparkstone"
 
@@ -969,6 +981,9 @@ msgstr "Escaped!"
 msgid "Gegabelter Stab"
 msgstr "Forked Staff"
 
+msgid "Gegner"
+msgstr "Enemies"
+
 msgid "Gegner brennen, Schaden hoch"
 msgstr "Enemies burn, damage up"
 
@@ -977,6 +992,9 @@ msgstr "Enemies slow down, range up"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "Enemies that touch you take damage"
+
+msgid "Gegner:"
+msgstr "Enemies:"
 
 msgid "Geheimtasche"
 msgstr "Secret pocket"
@@ -1467,6 +1485,9 @@ msgstr "Wisp Ember"
 msgid "Irrlichtkönigin"
 msgstr "Wisp Queen"
 
+msgid "Items"
+msgstr "Items"
+
 msgid "Jadefigur"
 msgstr "Jade Figure"
 
@@ -1679,6 +1700,9 @@ msgstr "Lava Golem"
 
 msgid "Lavahund"
 msgstr "Lava Hound"
+
+msgid "Leben: %d · Schaden: %d"
+msgstr "Life: %d · Damage: %d"
 
 msgid "Lebendiger Wind"
 msgstr "Living Wind"
@@ -1913,6 +1937,9 @@ msgstr "No items yet"
 
 msgid "Noch keine Items in diesem Run."
 msgstr "No items in this run yet."
+
+msgid "Noch nicht besiegt"
+msgstr "Not beaten yet"
 
 msgid "Noch nicht entdeckt"
 msgstr "Not discovered yet"
@@ -2255,6 +2282,9 @@ msgstr "Damage: %s"
 
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "Clear %d floors in a row without a hit"
+
+msgid "Schaffe einen Dungeon, dann öffnet sich der nächste."
+msgstr "Beat a dungeon and the next one opens."
 
 msgid "Schakal"
 msgstr "Jackal"

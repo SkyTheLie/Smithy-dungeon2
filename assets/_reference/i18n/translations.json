@@ -1071,5 +1071,15 @@
 	"Stil": {"en": "Style", "es": "Estilo", "fr": "Style", "pt": "Estilo", "ru": "Стиль", "ja": "スタイル", "zh": "样式", "fa": "سبک"},
 	"T-Form (oben offen)": {"en": "T shape (open on top)", "es": "Forma de T (abierta arriba)", "fr": "Forme en T (ouvert en haut)", "pt": "Formato T (aberto em cima)", "ru": "Т-образный (без верха)", "ja": "T字型（上なし）", "zh": "T 形（上方开口）", "fa": "شکل T (بالا باز)"},
 	"Umriss": {"en": "Outline", "es": "Contorno", "fr": "Contour", "pt": "Contorno", "ru": "Обводка", "ja": "アウトライン", "zh": "轮廓", "fa": "حاشیه"},
-	"Umriss-Dicke": {"en": "Outline thickness", "es": "Grosor del contorno", "fr": "Épaisseur du contour", "pt": "Espessura do contorno", "ru": "Толщина обводки", "ja": "アウトラインの太さ", "zh": "轮廓粗细", "fa": "ضخامت حاشیه"}
+	"Umriss-Dicke": {"en": "Outline thickness", "es": "Grosor del contorno", "fr": "Épaisseur du contour", "pt": "Espessura do contorno", "ru": "Толщина обводки", "ja": "アウトラインの太さ", "zh": "轮廓粗细", "fa": "ضخامت حاشیه"},
+	"Besiegt: %d / %d": {"en": "Beaten: %d / %d", "es": "Derrotados: %d / %d", "fr": "Vaincus : %d / %d", "pt": "Derrotados: %d / %d", "ru": "Побеждено: %d / %d", "ja": "撃破: %d / %d", "zh": "已击败：%d / %d", "fa": "شکست‌خورده: %d / %d"},
+	"Beute: %s": {"en": "Loot: %s", "es": "Botín: %s", "fr": "Butin : %s", "pt": "Saque: %s", "ru": "Добыча: %s", "ja": "戦利品: %s", "zh": "战利品：%s", "fa": "غنیمت: %s"},
+	"Boss": {"en": "Boss", "es": "Jefe", "fr": "Boss", "pt": "Chefe", "ru": "Босс", "ja": "ボス", "zh": "首领", "fa": "رئیس"},
+	"Fundort: %s": {"en": "Found in: %s", "es": "Lugar: %s", "fr": "Lieu : %s", "pt": "Local: %s", "ru": "Где: %s", "ja": "出現場所: %s", "zh": "出没地：%s", "fa": "محل: %s"},
+	"Gegner": {"en": "Enemies", "es": "Enemigos", "fr": "Ennemis", "pt": "Inimigos", "ru": "Враги", "ja": "敵", "zh": "敌人", "fa": "دشمنان"},
+	"Gegner:": {"en": "Enemies:", "es": "Enemigos:", "fr": "Ennemis :", "pt": "Inimigos:", "ru": "Враги:", "ja": "敵:", "zh": "敌人：", "fa": "دشمنان:"},
+	"Items": {"en": "Items", "es": "Objetos", "fr": "Objets", "pt": "Itens", "ru": "Предметы", "ja": "アイテム", "zh": "物品", "fa": "آیتم‌ها"},
+	"Leben: %d · Schaden: %d": {"en": "Life: %d · Damage: %d", "es": "Vida: %d · Daño: %d", "fr": "Vie : %d · Dégâts : %d", "pt": "Vida: %d · Dano: %d", "ru": "Здоровье: %d · Урон: %d", "ja": "体力: %d · ダメージ: %d", "zh": "生命：%d · 伤害：%d", "fa": "جان: %d · آسیب: %d"},
+	"Noch nicht besiegt": {"en": "Not beaten yet", "es": "Aún no derrotado", "fr": "Pas encore vaincu", "pt": "Ainda não derrotado", "ru": "Ещё не побеждён", "ja": "まだ倒していない", "zh": "尚未击败", "fa": "هنوز شکست نخورده"},
+	"Schaffe einen Dungeon, dann öffnet sich der nächste.": {"en": "Beat a dungeon and the next one opens.", "es": "Supera una mazmorra y se abrirá la siguiente.", "fr": "Termine un donjon et le suivant s'ouvre.", "pt": "Vença uma masmorra e a próxima se abre.", "ru": "Пройди подземелье — откроется следующее.", "ja": "ダンジョンを攻略すると次が開く。", "zh": "通关一个地牢，下一个就会开启。", "fa": "یک سیاه‌چال را تمام کن تا بعدی باز شود."}
 }

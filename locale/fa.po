@@ -156,6 +156,9 @@ msgstr "%d دشمن را شکست بده (%d / %d)"
 msgid "Besiege: %s"
 msgstr "شکست بده: %s"
 
+msgid "Besiegt: %d / %d"
+msgstr "شکست‌خورده: %d / %d"
+
 msgid "Besiegte Gegner: %d"
 msgstr "دشمنان شکست‌خورده: %d"
 
@@ -164,6 +167,9 @@ msgstr "ورود"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "غنیمت را از تو می‌خرم: در کوله راست‌کلیک کن، می‌رود بالا پیش خرید من. قیمت منصفانه. صادقانه!"
+
+msgid "Beute: %s"
+msgstr "غنیمت: %s"
 
 msgid "Blasebalg"
 msgstr "دم آهنگری"
@@ -194,6 +200,9 @@ msgstr "بمب‌ها به بمب‌های کوچک تقسیم می‌شوند"
 
 msgid "Bombengürtel"
 msgstr "کمربند بمب"
+
+msgid "Boss"
+msgstr "رئیس"
 
 msgid "Brakk der Brecher"
 msgstr "براک درهم‌شکن"
@@ -918,6 +927,9 @@ msgstr "یال یخی"
 msgid "Frostmähnen-Fell"
 msgstr "پوست یال یخی"
 
+msgid "Fundort: %s"
+msgstr "محل: %s"
+
 msgid "Funkelstein"
 msgstr "سنگ درخشان"
 
@@ -969,6 +981,9 @@ msgstr "فرار کردی!"
 msgid "Gegabelter Stab"
 msgstr "عصای دوشاخه"
 
+msgid "Gegner"
+msgstr "دشمنان"
+
 msgid "Gegner brennen, Schaden hoch"
 msgstr "دشمنان می‌سوزند، آسیب بالاتر"
 
@@ -977,6 +992,9 @@ msgstr "دشمنان کند می‌شوند، برد بالاتر"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "دشمنانی که به تو برخورد کنند آسیب می‌بینند"
+
+msgid "Gegner:"
+msgstr "دشمنان:"
 
 msgid "Geheimtasche"
 msgstr "جیب مخفی"
@@ -1467,6 +1485,9 @@ msgstr "اخگر آتش سرگردان"
 msgid "Irrlichtkönigin"
 msgstr "ملکه آتش‌های سرگردان"
 
+msgid "Items"
+msgstr "آیتم‌ها"
+
 msgid "Jadefigur"
 msgstr "پیکره یشم"
 
@@ -1679,6 +1700,9 @@ msgstr "گولم گدازه"
 
 msgid "Lavahund"
 msgstr "سگ گدازه"
+
+msgid "Leben: %d · Schaden: %d"
+msgstr "جان: %d · آسیب: %d"
 
 msgid "Lebendiger Wind"
 msgstr "باد زنده"
@@ -1913,6 +1937,9 @@ msgstr "هنوز آیتمی نداری"
 
 msgid "Noch keine Items in diesem Run."
 msgstr "هنوز در این دور هیچ آیتمی نداری."
+
+msgid "Noch nicht besiegt"
+msgstr "هنوز شکست نخورده"
 
 msgid "Noch nicht entdeckt"
 msgstr "هنوز کشف نشده"
@@ -2255,6 +2282,9 @@ msgstr "آسیب: %s"
 
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "%d طبقه پشت سر هم بدون ضربه رد شو"
+
+msgid "Schaffe einen Dungeon, dann öffnet sich der nächste."
+msgstr "یک سیاه‌چال را تمام کن تا بعدی باز شود."
 
 msgid "Schakal"
 msgstr "شغال"

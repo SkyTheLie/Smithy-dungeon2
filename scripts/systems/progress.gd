@@ -90,6 +90,24 @@ static func discover(id: String) -> Array[String]:
 	return _change("discovered", list)
 
 
+## Enemies beaten at least once (the lexicon shows them; the others are silhouettes).
+static func met_enemies() -> Array:
+	return _read("enemies", [])
+
+
+static func has_met(id: String) -> bool:
+	return met_enemies().has(id)
+
+
+## Enemy `id` was beaten (first time: it goes into the lexicon).
+static func meet_enemy(id: String) -> Array[String]:
+	if has_met(id) or Content.enemy(id).is_empty():
+		return []
+	var list: Array = met_enemies().duplicate()
+	list.append(id)
+	return _change("enemies", list)
+
+
 static func add_kills(amount: int) -> Array[String]:
 	if amount <= 0:
 		return []

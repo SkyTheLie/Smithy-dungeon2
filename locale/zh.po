@@ -156,6 +156,9 @@ msgstr "击败%d个敌人（%d / %d）"
 msgid "Besiege: %s"
 msgstr "击败：%s"
 
+msgid "Besiegt: %d / %d"
+msgstr "已击败：%d / %d"
+
 msgid "Besiegte Gegner: %d"
 msgstr "击败敌人：%d"
 
@@ -164,6 +167,9 @@ msgstr "进入"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "战利品我收：在背包里右键点击，它就到上面我的收购处。公道价格。真的！"
+
+msgid "Beute: %s"
+msgstr "战利品：%s"
 
 msgid "Blasebalg"
 msgstr "风箱"
@@ -194,6 +200,9 @@ msgstr "炸弹会炸成小炸弹"
 
 msgid "Bombengürtel"
 msgstr "炸弹腰带"
+
+msgid "Boss"
+msgstr "首领"
 
 msgid "Brakk der Brecher"
 msgstr "破坏者布拉克"
@@ -918,6 +927,9 @@ msgstr "霜鬃"
 msgid "Frostmähnen-Fell"
 msgstr "霜鬃毛皮"
 
+msgid "Fundort: %s"
+msgstr "出没地：%s"
+
 msgid "Funkelstein"
 msgstr "闪光石"
 
@@ -969,6 +981,9 @@ msgstr "逃出来了！"
 msgid "Gegabelter Stab"
 msgstr "分叉法杖"
 
+msgid "Gegner"
+msgstr "敌人"
+
 msgid "Gegner brennen, Schaden hoch"
 msgstr "敌人燃烧，伤害提升"
 
@@ -977,6 +992,9 @@ msgstr "敌人减速，射程提升"
 
 msgid "Gegner, die dich berühren, nehmen Schaden"
 msgstr "碰到你的敌人会受伤"
+
+msgid "Gegner:"
+msgstr "敌人："
 
 msgid "Geheimtasche"
 msgstr "暗袋"
@@ -1467,6 +1485,9 @@ msgstr "鬼火余烬"
 msgid "Irrlichtkönigin"
 msgstr "鬼火女王"
 
+msgid "Items"
+msgstr "物品"
+
 msgid "Jadefigur"
 msgstr "玉雕像"
 
@@ -1679,6 +1700,9 @@ msgstr "熔岩魔像"
 
 msgid "Lavahund"
 msgstr "熔岩猎犬"
+
+msgid "Leben: %d · Schaden: %d"
+msgstr "生命：%d · 伤害：%d"
 
 msgid "Lebendiger Wind"
 msgstr "活之风"
@@ -1913,6 +1937,9 @@ msgstr "还没有物品"
 
 msgid "Noch keine Items in diesem Run."
 msgstr "本次冒险还没有物品。"
+
+msgid "Noch nicht besiegt"
+msgstr "尚未击败"
 
 msgid "Noch nicht entdeckt"
 msgstr "尚未发现"
@@ -2255,6 +2282,9 @@ msgstr "伤害：%s"
 
 msgid "Schaffe %d Ebenen nacheinander ohne Treffer"
 msgstr "连续%d层不受伤"
+
+msgid "Schaffe einen Dungeon, dann öffnet sich der nächste."
+msgstr "通关一个地牢，下一个就会开启。"
 
 msgid "Schakal"
 msgstr "豺"
