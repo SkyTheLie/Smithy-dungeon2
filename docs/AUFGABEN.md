@@ -16,7 +16,7 @@ Vorher: offener Stand `feature/rubin-seil-altar` (Seil nach dem ersten Boss, Rub
 | 8 | **Relikt-Skills:** Skill „Stufe-1-Relikte gehen nicht mehr kaputt“, dann Stufe 2 usw. Skill „Eisenherzen“ entfernen; neuer Skill: 1 blaues Herz zusätzlich. | ✅ erledigt |
 | 9 | **Maus-Empfindlichkeit** als Zahl mit Eingabefeld (Kommazahl), 1 zu 1 wie in Counter-Strike 2. | ✅ erledigt |
 | 10 | **Fadenkreuz** einstellbar (auch aus), Einstellungen wie in CS2 (Länge, Dicke, Abstand, Punkt, Umriss, Farbe). | ✅ erledigt |
-| 11 | **Blickrichtung der Gegner:** Kreis am Boden unter jedem Gegner, ein Viertel gefüllt = Blickrichtung (sieht man, ob man hinter ihm steht). | offen |
+| 11 | **Blickrichtung der Gegner:** Kreis am Boden unter jedem Gegner, ein Viertel gefüllt = Blickrichtung (sieht man, ob man hinter ihm steht). | ✅ erledigt |
 | 12 | **Leveln langsamer:** nach dem ersten Run etwa 80 % Erfahrung zur nächsten Stufe, nach dem zweiten ebenso. **Skill-Baum:** Skills mit Geld rechts (gehen von links nach rechts), Skills nur mit Skill-Punkten links (gehen von rechts nach links). | ✅ erledigt |
 | 13 | **Dungeon-Brett** zeigt nur freigeschaltete Dungeons. **Lexikon** mit Gegnern, beim Dungeon sind seine Gegner aufgelistet (nach dem Lexikon von Smithy). | offen |
 | 14 | **Oberfläche schöner:** bunter, Effekte, „Dopamin“; Vorschläge machen und direkt umsetzen. | offen |
@@ -26,6 +26,8 @@ Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 
 ## Erledigt
 
 (neueste oben, mit Branch und Datum)
+
+- **11** · `feature/gegner-blickrichtung` · 2026-11-27 · Unter jedem Gegner ist ein Viertel des Rings gefüllt und zeigt die Blickrichtung (wohin er läuft; im Stand zum Spieler; Schildträger: Schild-Seite). Im Spiel: Gegner umlaufen → der Keil dreht mit, steht man hinter ihm, zeigt der Keil weg.
 
 - **10** · `feature/fadenkreuz` · 2026-11-27 · Neuer Reiter „Fadenkreuz“ in den Einstellungen wie in CS2: Stil (Kreuz, nur Punkt, aus), Farbe (CS2-Farben oder eigene), Deckkraft, Länge, Dicke, Abstand (auch negativ), Mittelpunkt, Umriss mit Dicke, T-Form, Vorschau, Standard wiederherstellen. Im Spiel: Esc → Einstellungen → Fadenkreuz → ändern, im Dungeon sofort sichtbar.
 
