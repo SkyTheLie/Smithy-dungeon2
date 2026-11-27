@@ -2,7 +2,8 @@ extends "res://assets/_reference/_lib/base_test.gd"
 ## Egon's errand and the way to the end boss, in the real run scene (data/meta.json ruby_quest,
 ## dungeons.json end_boss):
 ##   - the very first boss (new save, first floor): it leaves a ruby, then a rope falls from the
-##     sky, no trapdoor, no boss item; at the rope the player climbs out, the achievement comes,
+##     sky next to the normal trapdoor and boss item; a room cleared without beating the boss
+##     gets no rope; at the rope the player climbs out, the achievement comes,
 ##     the end screen says "Hinausgeklettert!", the ruby is at home; from then on no more rope;
 ##   - Egon's shop: he takes the ruby (once);
 ##   - the last floor: after its boss a portal rises instead of the trapdoor; walking into it
@@ -21,6 +22,7 @@ func run() -> void:
 	progress = script("res://scripts/systems/progress.gd")
 	game = root.get_node("Game")
 	_data()
+	await _no_rope_without_boss()
 	await _rope()
 	await _ruby_in_shop()
 	await _portal()
@@ -77,6 +79,28 @@ func _children_with(room: Node, ending: String) -> Array:
 	return room.get_children().filter(func(n: Node) -> bool: return n.get_script() != null and (n.get_script() as Script).resource_path.ends_with(ending))
 
 
+## The boss room cleared without the boss dying there (here: the boss is simply gone): only the
+## trapdoor, no rope.
+func _no_rope_without_boss() -> void:
+	meta.call("start_new")
+	var scene: Node = await _start("glut", 0, 5)
+	var dungeon: Node = scene.get_node("%Dungeon")
+	var player: Node3D = scene.get_node("%Player") as Node3D
+	var cell: Vector2i = (dungeon.get("layout") as Object).call("cell_of", "boss")
+	var room: Node3D = (dungeon.get("rooms") as Dictionary)[cell]
+	player.global_position = room.global_position + Vector3(0, 0, 3.0)
+	check(await wait_until(func() -> bool: return dungeon.get("boss") != null, 2.0), "the boss appears")
+	var gone: Node = dungeon.get("boss")
+	(dungeon.get("enemies") as Array).clear()
+	dungeon.set("boss", null)
+	gone.queue_free()
+	check(await wait_until(func() -> bool: return not dungeon.call("is_fighting"), 2.0), "the room is cleared")
+	check_eq(_children_with(room, "trapdoor.gd").size(), 1, "without a victory: the trapdoor")
+	check(dungeon.call("get_rope") == null, "but no rope")
+	scene.queue_free()
+	await process_frame
+
+
 func _rope() -> void:
 	meta.call("start_new")
 	var scene: Node = await _start("glut", 0, 5)
@@ -86,8 +110,8 @@ func _rope() -> void:
 	var room: Node3D = await _beat_boss(dungeon, player)
 	var rubies: Array = room.get_children().filter(func(n: Node) -> bool: return n.get("material_id") == "ruby")
 	check(not rubies.is_empty(), "the first boss leaves a ruby")
-	check(_children_with(room, "trapdoor.gd").is_empty(), "no trapdoor after the first boss")
-	check(_children_with(room, "pedestal.gd").is_empty(), "no boss item after the first boss")
+	check_eq(_children_with(room, "trapdoor.gd").size(), 1, "the trapdoor down as always after the first boss")
+	check(not _children_with(room, "pedestal.gd").is_empty(), "and the boss item")
 	var rope: Node3D = dungeon.call("get_rope")
 	check(rope != null, "a rope falls from the sky")
 	if rope == null:

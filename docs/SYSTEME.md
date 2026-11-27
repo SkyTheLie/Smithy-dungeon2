@@ -328,3 +328,11 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - **Ausrüstung:** Ausrüstung (mit Seltenheit), Relikte, Tränke – Doppelklick legt an (bleibt im Spielstand, der Run nutzt es sofort); angelegte Teile anklicken = ablegen (ins Inventar zu Hause).
 - **Cheats:** Leben voll, Unverwundbar, Raum leeren, +5 Bomben/Schlüssel, +1000 Gold in die Dose, +1 Spielerstufe, Dungeon als geschafft markieren.
 - Texte nur deutsch (Entwickler-Werkzeug, absichtlich ohne Übersetzung).
+
+## Egons Rubin-Auftrag, Seil und Portal (Rope, Portal, BossAltar) – 2026-11-27
+
+- **Dateien:** `scenes/objects/rope.gd`, `scenes/objects/portal.gd`, `scenes/run/boss_altar.gd`, `scenes/run/dungeon.gd`, `scenes/run/run.gd`, `MetaState.rope_due/ruby_due/deliver_ruby`, `data/meta.json` `ruby_quest`, `data/achievements.json`
+- Erster Boss (Spielstand neu, Ebene `ruby_quest.floor`): lässt sicher den Rubin fallen. **Nur wenn der Boss im Boss-Raum besiegt wurde** (`Dungeon._boss_beaten`), fällt zusätzlich ein Seil vom Himmel (`ROPE_SPOT`, neben der Mitte). Falltür nach unten und Boss-Item kommen wie immer.
+- Am Seil: hinaufklettern, Tag zu Ende, alles kommt mit, Erfolg `first_boss`, End-Bildschirm „Hinausgeklettert!“. Danach nie mehr ein Seil (`rope_done`).
+- Egon nimmt den Rubin im Laden (`ruby_due`: nach dem Seil oder sobald ein Rubin im Inventar ist), einmal.
+- Letzte Ebene: nach dem Boss steigt ein Portal statt der Falltür auf → Boss-Altar mit dem End-Boss (`dungeons.json` `end_boss`) → goldenes Licht (Sieg).
