@@ -39,6 +39,9 @@ msgstr "キャンセル"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "でも装備なしじゃだめだ。まずは俺の店を見ていきな。"
 
+msgid "Abgeben"
+msgstr "渡す"
+
 msgid "Abstand"
 msgstr "間隔"
 
@@ -69,14 +72,29 @@ msgstr "店の品が半額"
 msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
 msgstr "だから使っちまいな、相棒。できればオレの店でな！"
 
+msgid "Am Dungeon der Glut"
+msgstr "残り火のダンジョン前"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "弾は最後に4つの火花に弾ける"
+
+msgid "Am Frostgipfel"
+msgstr "霜の峰のふもと"
+
+msgid "Am Glutschlund"
+msgstr "灼熱の喉のそば"
+
+msgid "Am Moor der Irrlichter"
+msgstr "鬼火の沼のほとり"
 
 msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
 msgstr "英雄みたいにロープで登ってきたな！でも…俺のルビーはどこだ？"
 
 msgid "Amethyst"
 msgstr "アメジスト"
+
+msgid "An der Wispernden Wiese"
+msgstr "ささやく草原のそば"
 
 msgid "Angriffstempo"
 msgstr "攻撃速度"
@@ -101,6 +119,12 @@ msgstr "灰"
 
 msgid "Audio"
 msgstr "オーディオ"
+
+msgid "Auf der Wiese bewacht der Endboss einen Kristall. Er summt, sagt man. Bring ihn mir. Ich brauch was zum Summen. Ehrlich!"
+msgstr "草原では最後のボスが水晶を守っている。うなるらしい。持ってきてくれ。うなる物が欲しいんだ。本当さ！"
+
+msgid "Auf zur Wiese, Partner. Ich hab gehört, da wächst Gold. Oder Gras."
+msgstr "草原へ行こう、相棒。金が生えるらしい。いや、草かも。"
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "チャージした巨大な火球が落ちて爆発する"
@@ -147,6 +171,9 @@ msgstr "命中すると4つの火花に弾ける"
 msgid "Beine"
 msgstr "脚"
 
+msgid "Belohnung: der nächste Dungeon und %d Gold"
+msgstr "報酬：次のダンジョンと%dゴールド"
+
 msgid "Bergfalke"
 msgstr "山鷹"
 
@@ -173,6 +200,9 @@ msgstr "入る"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "戦利品は買い取るぜ：インベントリで右クリックすれば上の買い取りに置かれる。適正価格だ。正直に！"
+
+msgid "Beute kaufe ich dir ab: Zieh sie einfach auf meinen Tisch. Faire Preise. Ehrlich!"
+msgstr "戦利品は買い取るよ。机にドラッグするだけ。適正価格さ。本当だよ！"
 
 msgid "Beute: %s"
 msgstr "戦利品: %s"
@@ -231,6 +261,9 @@ msgstr "敵が燃えて遅くなり、青いハート2つ"
 msgid "Brennt gut in jeder Esse."
 msgstr "どの炉でもよく燃える。"
 
+msgid "Bring Egon den Stein vom Endboss (Quests), dann öffnet sich der nächste Dungeon."
+msgstr "最後のボスの石をエゴンに渡すと（クエスト）、次のダンジョンが開く。"
+
 msgid "Bronze"
 msgstr "青銅"
 
@@ -285,6 +318,9 @@ msgstr "シアン"
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "あっちが残り火のダンジョンの入口だ。戻ってくる奴もいるんだぜ！"
 
+msgid "Da passt das nicht hin, Partner. Mach erst Platz."
+msgstr "そこには入らないよ、相棒。まず場所を空けて。"
+
 msgid "Dafür reicht dein Gold nicht"
 msgstr "金が足りない"
 
@@ -300,6 +336,9 @@ msgstr "まだ別のリュックがつながっている。"
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "中に小さな虫が閉じ込められている。"
 
+msgid "Darin tanzt ein kleines Licht. Egon will ihn haben."
+msgstr "中で小さな光が踊っている。エゴンが欲しがっている。"
+
 msgid "Darin wohnt fast ein ganzer Laden."
 msgstr "ほとんど店が丸ごと入る。"
 
@@ -312,11 +351,17 @@ msgstr "氷の巨獣の毛皮。"
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "この探索の金。死ぬと失う。安全枠に入れた分は残る。"
 
+msgid "Das Herz des Drachen"
+msgstr "竜の心臓"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "それは着られないぜ、相棒。信じろ、俺も試した。"
 
 msgid "Das kostet zu viel Leben"
 msgstr "体力を払いすぎる"
+
+msgid "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest."
+msgstr "それ？買わないよ。タダで欲しいんだ！ええと…クエストとしてね。"
 
 msgid "Deckkraft"
 msgstr "不透明度"
@@ -342,6 +387,12 @@ msgstr "所持アイテム"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "弾が敵を追いかける"
 
+msgid "Den Quest-Stein hierher ziehen"
+msgstr "クエストの石をここへドラッグ"
+
+msgid "Den Stein aus dem Lager auf den Quest-Platz oben rechts ziehen oder hier abgeben."
+msgstr "倉庫の石を右上のクエスト枠へドラッグするか、ここで渡そう。"
+
 msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
 msgstr "最初のボスを倒し、ロープで脱出した。"
 
@@ -354,8 +405,23 @@ msgstr "レバーの上のバーで何が出るか分かる：灰色は普通、
 msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
 msgstr "ボスが持ってたはずだ！見つけたら持ってきてくれ。待ってるぞ。じりじりとな。"
 
+msgid "Der Endboss am Frostgipfel hat einen Frost-Aquamarin. Bring ihn Egon."
+msgstr "霜の峰の最後のボスが霜のアクアマリンを持っている。エゴンに届けよう。"
+
+msgid "Der Endboss der Wispernden Wiese bewacht einen Wiesenkristall. Bring ihn Egon."
+msgstr "ささやく草原の最後のボスが草原の水晶を守っている。エゴンに届けよう。"
+
+msgid "Der Endboss im Dungeon der Glut hütet einen Glutrubin. Bring ihn Egon."
+msgstr "残り火のダンジョンの最後のボスが残り火のルビーを守っている。エゴンに届けよう。"
+
+msgid "Der Endboss im Moor der Irrlichter trägt einen Irrlicht-Opal. Bring ihn Egon."
+msgstr "鬼火の沼の最後のボスが鬼火のオパールを持っている。エゴンに届けよう。"
+
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "火炎ビームが敵へ曲がる"
+
+msgid "Der Glutrubin! Echt! Also … ich hab nie gezweifelt."
+msgstr "残り火のルビー！本物だ！いや…疑ってなんかいなかったよ。"
 
 msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
 msgstr "ダンジョンの商人が戦利品1つにつき2ゴールド多く払う。"
@@ -363,14 +429,26 @@ msgstr "ダンジョンの商人が戦利品1つにつき2ゴールド多く払�
 msgid "Der Händler kauft Beute: Tab, Rechtsklick"
 msgstr "商人が戦利品を買い取る：Tab、右クリック"
 
+msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
+msgstr "オパールだ！光ってる！俺の未来くらい明るい。"
+
+msgid "Der Stein liegt in deinem Lager!"
+msgstr "石は君の倉庫にある！"
+
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "石が生贄を受け入れた"
+
+msgid "Der Vulkandrache im Glutschlund hat ein Herz aus Glut. Bring es Egon."
+msgstr "灼熱の喉の火山竜は残り火の心臓を持っている。エゴンに届けよう。"
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "下への道が開いた！"
 
 msgid "Der Wildhüter"
 msgstr "猟場番人"
+
+msgid "Der einzige auch, aber das sagen wir keinem."
+msgstr "唯一の客でもあるけど、それは内緒だ。"
 
 msgid "Der sichere Platz wird eine Spalte breiter."
 msgstr "安全な場所が1列広くなる。"
@@ -437,6 +515,9 @@ msgstr "ドラゴンブレス"
 
 msgid "Drachenhaut"
 msgstr "竜の皮"
+
+msgid "Drachenherz"
+msgstr "竜の心臓"
 
 msgid "Drachenleder"
 msgstr "竜の革"
@@ -567,11 +648,17 @@ msgstr "効果音"
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "エゴン・オネスト、よろしくな。正直が俺の名前で、正直が俺の商売。正直に！"
 
+msgid "Egon hat gerade keinen Auftrag."
+msgstr "エゴンは今、頼み事がない。"
+
 msgid "Egon könnte klauen!"
 msgstr "エゴンが盗むかも！"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "エゴンの目がまん丸になる。"
+
+msgid "Egons Glutrubin"
+msgstr "エゴンの残り火ルビー"
 
 msgid "Egons Laden"
 msgstr "エゴンの店"
@@ -645,6 +732,9 @@ msgstr "商人だ！近づいて話しかけよう。"
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "ハート形の薬草。エゴンはお茶にする。"
 
+msgid "Ein Licht für Egon"
+msgstr "エゴンに光を"
+
 msgid "Ein Platz mehr im Rucksack."
 msgstr "リュックの枠が1つ増える。"
 
@@ -705,6 +795,9 @@ msgstr "青いハート1つ、被弾後の無敵が長い"
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "青いハート1つ、移動が速くなる"
 
+msgid "Ein echtes Drachenherz! Partner, du bist der beste Kunde, den ich je hatte."
+msgstr "本物の竜の心臓！相棒、君は今までで最高の客だよ。"
+
 msgid "Ein einfacher Bogen. Für Bogenschützen."
 msgstr "簡素な弓。弓使い用。"
 
@@ -719,6 +812,9 @@ msgstr "5×3マスの巨大リュック。エゴンの店で持ち物に取り�
 
 msgid "Ein rotes Herz mehr."
 msgstr "赤いハートが1つ増える。"
+
+msgid "Ein seltener Stein! Egon wird staunen."
+msgstr "珍しい石だ！エゴンが驚くぞ。"
 
 msgid "Ein sicherer Platz mehr im Rucksack."
 msgstr "リュックの安全枠が1つ増える。"
@@ -801,6 +897,9 @@ msgstr "氷の羽"
 msgid "Eishöhle"
 msgstr "氷の洞窟"
 
+msgid "Eiskalte Gier"
+msgstr "凍てつく強欲"
+
 msgid "Eisrobbe"
 msgstr "氷アザラシ"
 
@@ -833,6 +932,9 @@ msgstr "大地の杖"
 
 msgid "Erfolg: %s"
 msgstr "実績: %s"
+
+msgid "Erledigt"
+msgstr "完了"
 
 msgid "Erreiche Ebene %d"
 msgstr "%d階に到達する"
@@ -944,6 +1046,9 @@ msgstr "解放：%s"
 
 msgid "Frost und Feuer"
 msgstr "霜と炎"
+
+msgid "Frost-Aquamarin"
+msgstr "霜のアクアマリン"
 
 msgid "Frostflechte"
 msgstr "霜の地衣"
@@ -1083,6 +1188,9 @@ msgstr "ロック中：レベル%dから。"
 msgid "Gesperrt: erst %s schaffen."
 msgstr "ロック中：先に%sを攻略しよう。"
 
+msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
+msgstr "未開放：まずエゴンのクエスト「%s」を達成しよう。"
+
 msgid "Gesprengte Fessel"
 msgstr "砕けた枷"
 
@@ -1173,6 +1281,9 @@ msgstr "残り火のマント"
 msgid "Glutmond"
 msgstr "残り火の月"
 
+msgid "Glutrubin"
+msgstr "残り火のルビー"
+
 msgid "Glutsammler"
 msgstr "残り火の器"
 
@@ -1223,6 +1334,9 @@ msgstr "幸運児"
 
 msgid "Glühender Schlüssel"
 msgstr "灼熱の鍵"
+
+msgid "Glüht von innen. Den gibt es nur einmal, sagt Egon."
+msgstr "内側から光っている。一つしかない、とエゴンは言う。"
 
 msgid "Goblin"
 msgstr "ゴブリン"
@@ -1434,6 +1548,9 @@ msgstr "魔女の大釜"
 msgid "Hier klicken"
 msgstr "ここをクリック"
 
+msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
+msgstr "倉庫に入らない物はここに置かれる。場所を空けるか売ろう。"
+
 msgid "Hinausgeklettert!"
 msgstr "脱出成功！"
 
@@ -1494,6 +1611,9 @@ msgstr "地獄の門"
 msgid "Höllenwächter"
 msgstr "地獄の番人"
 
+msgid "Hörst du das? Er summt! Das Geld … äh, das Glück summt mit."
+msgstr "聞こえる？うなってる！金が…いや、運がうなってる。"
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "俺は詐欺… いや、商人だ。売ってるのは… …装備だ！そう、装備を売ってる。"
 
@@ -1509,6 +1629,12 @@ msgstr "ダンジョンで %s を押す。ゴクゴク、ハートが2つ戻る�
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "ダンジョンで：%s で飲む"
 
+msgid "Im Glutschlund wohnt ein Drache. Sein Herz glüht. Bring es mir, und ich … ich bin sehr, sehr dankbar. Ehrlich!"
+msgstr "灼熱の喉には竜が住んでいる。その心臓は燃えている。持ってきてくれたら…すごく、すごく感謝するよ。本当さ！"
+
+msgid "Im Moor trägt der Endboss einen Irrlicht-Opal. Hübsch. Sehr hübsch. Bring ihn mir, ich … verwahre ihn. Ganz legal!"
+msgstr "沼では最後のボスが鬼火のオパールを持っている。きれいだ。とてもきれいだ。持ってきてくれ、俺が…預かっておく。完全に合法さ！"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "火山の中では溶岩が煮えたぎり、一番下には門がある。エゴンは行ったことがない。と本人は言う。でもブーツが焦げている。"
 
@@ -1518,6 +1644,9 @@ msgstr "ダンジョンに金は持っていけない。下ではオレの同業
 msgid "Inventar"
 msgstr "持ち物"
 
+msgid "Inventar im Dungeon"
+msgstr "ダンジョンでの持ち物"
+
 msgid "Inventar voll!"
 msgstr "持ち物がいっぱい！"
 
@@ -1526,6 +1655,9 @@ msgstr "鬼火"
 
 msgid "Irrlicht-Glut"
 msgstr "鬼火の残り火"
+
+msgid "Irrlicht-Opal"
+msgstr "鬼火のオパール"
 
 msgid "Irrlichtkönigin"
 msgstr "鬼火の女王"
@@ -1560,6 +1692,12 @@ msgstr "今日さらに回すたびに：R1から%d %%がよりレアな段階�
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "2発に1発がとても強い"
 
+msgid "Jetzt zum Glutschlund, Partner. Da ist es wenigstens warm."
+msgstr "次は灼熱の喉だ、相棒。少なくとも暖かい。"
+
+msgid "Kalt! Kalt! Aber schön. Wie meine Preise."
+msgstr "冷たい！冷たい！でもきれいだ。俺の値段みたいに。"
+
 msgid "Kamille"
 msgstr "カモミール"
 
@@ -1581,6 +1719,9 @@ msgstr "マップ"
 msgid "Kaufen: %d Gold"
 msgstr "購入: %d ゴールド"
 
+msgid "Kein Platz"
+msgstr "置き場なし"
+
 msgid "Kein Relikt"
 msgstr "レリックではない"
 
@@ -1589,6 +1730,9 @@ msgstr "薬を持っていない"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "被弾は最大でもハート半分"
+
+msgid "Keine Quest"
+msgstr "クエストなし"
 
 msgid "Kinderschuhe"
 msgstr "子供の靴"
@@ -1607,6 +1751,9 @@ msgstr "キーをクリックして新しいキーを押す。Esc＝キャンセ
 
 msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
 msgstr "インベントリの物をクリックで装備。キャラをクリックで外す。"
+
+msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
+msgstr "クリックか持ち物タブへドラッグ：持ち物に取り付け"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "クリックで続ける"
@@ -1667,6 +1814,9 @@ msgstr "戦士の剣"
 
 msgid "Kriegsaxt"
 msgstr "戦斧"
+
+msgid "Kristall aus dem Gras"
+msgstr "草むらの水晶"
 
 msgid "Kristallbrocken"
 msgstr "水晶の塊"
@@ -1739,6 +1889,9 @@ msgstr "店"
 
 msgid "Ladenschild"
 msgstr "店の看板"
+
+msgid "Lager"
+msgstr "倉庫"
 
 msgid "Lang und schmal, schwer wie ein Amboss."
 msgstr "細長くて金床のように重い。"
@@ -2028,6 +2181,9 @@ msgstr "次のページ"
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "次のレベル：%dゴールド、スキルポイント%d、プレイヤーLv%dから"
 
+msgid "Oben am Frostgipfel hat der Endboss einen Frost-Aquamarin. Bring ihn mir. Handschuhe hab ich. Gegen einen kleinen Obolus."
+msgstr "霜の峰の上で、最後のボスが霜のアクアマリンを持っている。持ってきてくれ。手袋ならある。ちょっとした手数料でね。"
+
 msgid "Obsidianwächter"
 msgstr "黒曜石の守護者"
 
@@ -2054,6 +2210,9 @@ msgstr "オーク"
 
 msgid "Ork-Häuptling"
 msgstr "オークの族長"
+
+msgid "Pack ein, Partner, wir ziehen um. Ans Moor! Da gibt's Kundschaft. Und Mücken."
+msgstr "荷物をまとめろ、相棒、引っ越しだ。沼へ！客がいる。蚊もいる。"
 
 msgid "Paktschatulle"
 msgstr "契約の小箱"
@@ -2126,6 +2285,12 @@ msgstr "火薬の手袋"
 
 msgid "Punkt in der Mitte"
 msgstr "中央のドット"
+
+msgid "Quest"
+msgstr "クエスト"
+
+msgid "Quests"
+msgstr "クエスト"
 
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "ドラッグ中にR / 右クリック：回転"
@@ -2261,6 +2426,12 @@ msgstr "ルビー"
 
 msgid "Rucksack"
 msgstr "リュック"
+
+msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
+msgstr "リュックを倉庫から持ち物へドラッグ（Rで回転）。倉庫に戻すと取り外し。"
+
+msgid "Rucksack: %d×%d Felder"
+msgstr "リュック：%d×%dマス"
 
 msgid "Rucksäcke"
 msgstr "リュック"
@@ -2423,6 +2594,9 @@ msgstr "閉じる"
 
 msgid "Schläger"
 msgstr "ごろつき"
+
+msgid "Schlägt noch. Ganz langsam."
+msgstr "まだ脈打っている。とてもゆっくり。"
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "反射する蛇行弾"
@@ -2670,6 +2844,9 @@ msgstr "エメラルドの宝石"
 msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
 msgstr "魔法の何かだ。知らんよ、俺はペテ…いや、商人だからな！"
 
+msgid "So kalt, dass die Finger kleben bleiben."
+msgstr "指がくっつくほど冷たい。"
+
 msgid "Solide"
 msgstr "頑丈"
 
@@ -2856,6 +3033,9 @@ msgstr "追尾の火花"
 msgid "Suchender Strahl"
 msgstr "追尾ビーム"
 
+msgid "Summt leise wie eine Wiese im Sommer."
+msgstr "夏の草原のように静かにうなる。"
+
 msgid "Sumpfhaut"
 msgstr "沼の皮"
 
@@ -2997,8 +3177,14 @@ msgstr "で、左がお前だ。じっとしてな、着せてやる…"
 msgid "Ungewöhnlich"
 msgstr "アンコモン"
 
+msgid "Unten ist dein Lager. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst. Zieh Sachen einfach hin und her."
+msgstr "下が君の倉庫だ。買った物やダンジョンから持ち帰った物はここに入る。自由にドラッグしていい。"
+
 msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
 msgstr "下がお前のカバンだ。買った物やダンジョンから持ち帰った物は全部ここに入る。"
+
+msgid "Unter uns, Partner: Der Endboss der Glut hütet einen Glutrubin. Bring ihn mir, und ich zeig dir den Weg ins Moor. Ehrlich!"
+msgstr "ここだけの話、相棒：残り火の最後のボスが残り火のルビーを守っている。持ってきたら沼への道を教えるよ。本当さ！"
 
 msgid "Utility"
 msgstr "補助"
@@ -3105,6 +3291,9 @@ msgstr "遠見"
 msgid "Weiter"
 msgstr "再開"
 
+msgid "Weiter zum Frostgipfel! Zieh dich warm an. Ich hab da zufällig Mäntel."
+msgstr "霜の峰へ！暖かくしていけ。たまたまコートがあるんだ。"
+
 msgid "Weiterkämpfen"
 msgstr "戦い続ける"
 
@@ -3128,6 +3317,9 @@ msgstr "競技用ブーツ"
 
 msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
 msgstr "Counter-Strike 2 と同じ：同じ数値なら同じだけ回る。"
+
+msgid "Wiesenkristall"
+msgstr "草原の水晶"
 
 msgid "Wiesenwespe"
 msgstr "草原のハチ"

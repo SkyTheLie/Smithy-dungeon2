@@ -2,9 +2,10 @@ class_name SkillTree
 extends Control
 ## The skill tree picture (after the upgrade tree of Smithy Defense). Every LEVEL of a skill of
 ## data/skills.json is its own icon: level 1 at the skill's `pos` [column, row] (also negative,
-## also halves), the next levels right below it. A level opens only when the one above it is
-## learned. A skill that `requires` another one hangs beside it: an L-shaped line from level 1 of
-## that skill (gold once it is learned) to level 1 of this one, so the chains run sideways.
+## also halves), the next levels beside it in the same row, outwards (left side to the left,
+## right side to the right). A level opens only when the one before it is learned. A skill that
+## `requires` another one stands in a row below: a line from level 1 of that skill (gold once it
+## is learned) down along the inner edge (towards the middle) to level 1 of this one.
 ## Under each icon: what that level costs (or a tick when learned). The frame shows the state:
 ## gold (pulsing) = can be learned now, green = learned, grey = the next one but too dear / level
 ## too low, dark = the level above (or the skill before) is missing. The tooltip says everything.
@@ -54,8 +55,9 @@ func build() -> void:
 	var last := Vector2(-INF, -INF)
 	var groups: Dictionary = Content.get_file("skills").get("groups", {})
 	for id: String in skills:
-		first = first.min(_cell(id))
-		last = last.max(_cell(id) + Vector2(0, Skills.max_level(id) - 1))
+		var outer: Vector2 = _level_cell(id, Skills.max_level(id))
+		first = first.min(_cell(id)).min(outer)
+		last = last.max(_cell(id)).max(outer)
 	for group: String in groups:
 		var cell: Vector2 = _vector((groups[group] as Dictionary).get("pos", [0, 0]))
 		first = first.min(cell)
@@ -69,15 +71,16 @@ func build() -> void:
 		var top: Vector2 = _center(_cell(id), first)
 		var needed: String = String(Skills.data(id).get("requires", ""))
 		if skills.has(needed):
+			# Down along the inner edge (towards the middle line), then into the skill.
 			var from: Vector2 = _center(_cell(needed), first)
-			var mid_x: float = from.x + signf(top.x - from.x) * CELL.x / 2.0
-			_lines.append([PackedVector2Array([from, Vector2(mid_x, from.y), Vector2(mid_x, top.y), top]), MetaState.skill_level(needed) > 0])
+			var rail_x: float = from.x - _outwards(needed) * CELL.x / 2.0
+			_lines.append([PackedVector2Array([from, Vector2(rail_x, from.y), Vector2(rail_x, top.y), top]), MetaState.skill_level(needed) > 0])
 		for level in range(2, Skills.max_level(id) + 1):
-			var above: Vector2 = _center(_cell(id) + Vector2(0, level - 2), first)
-			_lines.append([PackedVector2Array([above, above + Vector2(0, CELL.y)]), MetaState.skill_level(id) >= level - 1])
+			var before: Vector2 = _center(_level_cell(id, level - 1), first)
+			_lines.append([PackedVector2Array([before, _center(_level_cell(id, level), first)]), MetaState.skill_level(id) >= level - 1])
 	for id: String in skills:
 		for level in range(1, Skills.max_level(id) + 1):
-			_add_node(id, level, _center(_cell(id) + Vector2(0, level - 1), first))
+			_add_node(id, level, _center(_level_cell(id, level), first))
 	for group: String in groups:
 		var data: Dictionary = groups[group]
 		var center: Vector2 = _center(_vector(data.get("pos", [0, 0])), first)
@@ -98,6 +101,16 @@ func build() -> void:
 
 func _cell(id: String) -> Vector2:
 	return _vector(Skills.data(id).get("pos", [0, 0]))
+
+
+## -1 for the left side (levels grow to the left), +1 for the right side.
+func _outwards(id: String) -> float:
+	return -1.0 if _cell(id).x < 0.0 else 1.0
+
+
+## Where level `level` of `id` stands: level 1 at pos, every further one a column further out.
+func _level_cell(id: String, level: int) -> Vector2:
+	return _cell(id) + Vector2(_outwards(id) * (level - 1), 0)
 
 
 static func _vector(pos: Variant) -> Vector2:

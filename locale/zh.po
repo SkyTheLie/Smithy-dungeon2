@@ -39,6 +39,9 @@ msgstr "取消"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "可别就这样去，一件装备都没有。来，先看看我的店。"
 
+msgid "Abgeben"
+msgstr "交付"
+
 msgid "Abstand"
 msgstr "间距"
 
@@ -69,14 +72,29 @@ msgstr "商店所有东西半价"
 msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
 msgstr "所以最好花掉，伙计。最好花在我这儿！"
 
+msgid "Am Dungeon der Glut"
+msgstr "余烬地牢旁"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "每发射击最后炸成四个火花"
+
+msgid "Am Frostgipfel"
+msgstr "霜峰旁"
+
+msgid "Am Glutschlund"
+msgstr "炽焰喉旁"
+
+msgid "Am Moor der Irrlichter"
+msgstr "鬼火沼泽旁"
 
 msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
 msgstr "像英雄一样顺着绳子爬出来了！可是……我的红宝石呢？"
 
 msgid "Amethyst"
 msgstr "紫水晶"
+
+msgid "An der Wispernden Wiese"
+msgstr "低语草原旁"
 
 msgid "Angriffstempo"
 msgstr "攻击速度"
@@ -101,6 +119,12 @@ msgstr "灰烬"
 
 msgid "Audio"
 msgstr "音频"
+
+msgid "Auf der Wiese bewacht der Endboss einen Kristall. Er summt, sagt man. Bring ihn mir. Ich brauch was zum Summen. Ehrlich!"
+msgstr "草原上的最终首领守着一块水晶。听说它会嗡嗡响。拿来给我。我需要个会嗡嗡响的东西。真的！"
+
+msgid "Auf zur Wiese, Partner. Ich hab gehört, da wächst Gold. Oder Gras."
+msgstr "去草原吧，伙计。听说那儿长金子。或者长草。"
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "蓄力的巨型余烬撞击并爆炸"
@@ -147,6 +171,9 @@ msgstr "命中时子弹炸成四颗火花"
 msgid "Beine"
 msgstr "腿部"
 
+msgid "Belohnung: der nächste Dungeon und %d Gold"
+msgstr "奖励：下一个地牢和 %d 金币"
+
 msgid "Bergfalke"
 msgstr "山鹰"
 
@@ -173,6 +200,9 @@ msgstr "进入"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "战利品我收：在背包里右键点击，它就到上面我的收购处。公道价格。真的！"
+
+msgid "Beute kaufe ich dir ab: Zieh sie einfach auf meinen Tisch. Faire Preise. Ehrlich!"
+msgstr "战利品我收：拖到我桌上就行。价格公道。真的！"
 
 msgid "Beute: %s"
 msgstr "战利品：%s"
@@ -231,6 +261,9 @@ msgstr "敌人燃烧并减速，外加两颗蓝心"
 msgid "Brennt gut in jeder Esse."
 msgstr "在任何熔炉里都烧得很旺。"
 
+msgid "Bring Egon den Stein vom Endboss (Quests), dann öffnet sich der nächste Dungeon."
+msgstr "把最终首领的石头交给埃贡（任务），下一个地牢就会开启。"
+
 msgid "Bronze"
 msgstr "青铜"
 
@@ -285,6 +318,9 @@ msgstr "青色"
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "那边就是余烬地牢的入口。有些人甚至还能出来！"
 
+msgid "Da passt das nicht hin, Partner. Mach erst Platz."
+msgstr "那儿放不下，伙计。先腾点地方。"
+
 msgid "Dafür reicht dein Gold nicht"
 msgstr "你的金币不够"
 
@@ -300,6 +336,9 @@ msgstr "上面还挂着另一个背包。"
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "里面封着一只小虫子。"
 
+msgid "Darin tanzt ein kleines Licht. Egon will ihn haben."
+msgstr "里面有一点小光在跳舞。埃贡想要它。"
+
 msgid "Darin wohnt fast ein ganzer Laden."
 msgstr "里面几乎能装下一整家店。"
 
@@ -312,11 +351,17 @@ msgstr "冰之巨兽的毛皮。"
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "本次冒险的金币。死亡后会丢失，安全格中的除外。"
 
+msgid "Das Herz des Drachen"
+msgstr "巨龙之心"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "这个可穿不了，伙计。相信我，我试过。"
 
 msgid "Das kostet zu viel Leben"
 msgstr "这会消耗太多生命"
+
+msgid "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest."
+msgstr "这个？我不买。我要你送我！呃……当任务交。"
 
 msgid "Deckkraft"
 msgstr "不透明度"
@@ -342,6 +387,12 @@ msgstr "你的物品"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "子弹会追踪敌人"
 
+msgid "Den Quest-Stein hierher ziehen"
+msgstr "把任务石拖到这里"
+
+msgid "Den Stein aus dem Lager auf den Quest-Platz oben rechts ziehen oder hier abgeben."
+msgstr "把仓库里的石头拖到右上角的任务格，或在这里交付。"
+
 msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
 msgstr "击败第一个首领并顺着绳子爬了出去。"
 
@@ -354,8 +405,23 @@ msgstr "拉杆上方的条显示可能出现什么：灰色普通，绿色结实
 msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
 msgstr "那个首领有一颗，我知道！找到了就带给我。我等着。急着等。"
 
+msgid "Der Endboss am Frostgipfel hat einen Frost-Aquamarin. Bring ihn Egon."
+msgstr "霜峰的最终首领有一颗霜冻海蓝宝石。带给埃贡。"
+
+msgid "Der Endboss der Wispernden Wiese bewacht einen Wiesenkristall. Bring ihn Egon."
+msgstr "低语草原的最终首领守着一块草原水晶。带给埃贡。"
+
+msgid "Der Endboss im Dungeon der Glut hütet einen Glutrubin. Bring ihn Egon."
+msgstr "余烬地牢的最终首领守着一颗余烬红宝石。带给埃贡。"
+
+msgid "Der Endboss im Moor der Irrlichter trägt einen Irrlicht-Opal. Bring ihn Egon."
+msgstr "鬼火沼泽的最终首领带着一颗鬼火蛋白石。带给埃贡。"
+
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "火焰光束会弯向敌人"
+
+msgid "Der Glutrubin! Echt! Also … ich hab nie gezweifelt."
+msgstr "余烬红宝石！真的！嗯……我从没怀疑过。"
 
 msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
 msgstr "地牢商人每件战利品多付2金币。"
@@ -363,14 +429,26 @@ msgstr "地牢商人每件战利品多付2金币。"
 msgid "Der Händler kauft Beute: Tab, Rechtsklick"
 msgstr "商人收购战利品：Tab，右键"
 
+msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
+msgstr "蛋白石！它在发光！差不多跟我的前途一样亮。"
+
+msgid "Der Stein liegt in deinem Lager!"
+msgstr "石头在你的仓库里！"
+
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "石头接受了你的献祭"
+
+msgid "Der Vulkandrache im Glutschlund hat ein Herz aus Glut. Bring es Egon."
+msgstr "炽焰喉的火山龙有一颗余烬之心。带给埃贡。"
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "通往下层的路已打开！"
 
 msgid "Der Wildhüter"
 msgstr "猎场看守"
+
+msgid "Der einzige auch, aber das sagen wir keinem."
+msgstr "也是唯一的一个，不过这事别告诉别人。"
 
 msgid "Der sichere Platz wird eine Spalte breiter."
 msgstr "安全格多一列。"
@@ -437,6 +515,9 @@ msgstr "龙息"
 
 msgid "Drachenhaut"
 msgstr "龙皮"
+
+msgid "Drachenherz"
+msgstr "龙心"
 
 msgid "Drachenleder"
 msgstr "龙皮革"
@@ -567,11 +648,17 @@ msgstr "音效"
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "埃贡·诚实，幸会。诚实是我的名字，诚实是我的生意。真的！"
 
+msgid "Egon hat gerade keinen Auftrag."
+msgstr "埃贡现在没有任务。"
+
 msgid "Egon könnte klauen!"
 msgstr "埃贡可能会偷！"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "埃贡的眼睛瞪得老大。"
+
+msgid "Egons Glutrubin"
+msgstr "埃贡的余烬红宝石"
 
 msgid "Egons Laden"
 msgstr "埃贡的商店"
@@ -645,6 +732,9 @@ msgstr "一个商人！走过去和他说话。"
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "心形的草药。埃贡拿它泡茶。"
 
+msgid "Ein Licht für Egon"
+msgstr "给埃贡的光"
+
 msgid "Ein Platz mehr im Rucksack."
 msgstr "背包多一个格子。"
 
@@ -705,6 +795,9 @@ msgstr "一颗蓝心，受击后安全时间更长"
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "一颗蓝心，移动更快"
 
+msgid "Ein echtes Drachenherz! Partner, du bist der beste Kunde, den ich je hatte."
+msgstr "真正的龙心！伙计，你是我遇过最好的客人。"
+
 msgid "Ein einfacher Bogen. Für Bogenschützen."
 msgstr "一把简单的弓。弓箭手专用。"
 
@@ -719,6 +812,9 @@ msgstr "5×3格的巨大背包。在埃贡那里装到你的背包栏上。"
 
 msgid "Ein rotes Herz mehr."
 msgstr "多一颗红心。"
+
+msgid "Ein seltener Stein! Egon wird staunen."
+msgstr "稀有的石头！埃贡会大吃一惊。"
 
 msgid "Ein sicherer Platz mehr im Rucksack."
 msgstr "背包多一个安全格。"
@@ -801,6 +897,9 @@ msgstr "冰羽"
 msgid "Eishöhle"
 msgstr "冰窟"
 
+msgid "Eiskalte Gier"
+msgstr "冰冷的贪婪"
+
 msgid "Eisrobbe"
 msgstr "冰海豹"
 
@@ -833,6 +932,9 @@ msgstr "大地之杖"
 
 msgid "Erfolg: %s"
 msgstr "成就：%s"
+
+msgid "Erledigt"
+msgstr "已完成"
 
 msgid "Erreiche Ebene %d"
 msgstr "到达第%d层"
@@ -944,6 +1046,9 @@ msgstr "已解锁：%s"
 
 msgid "Frost und Feuer"
 msgstr "冰与火"
+
+msgid "Frost-Aquamarin"
+msgstr "霜冻海蓝宝石"
 
 msgid "Frostflechte"
 msgstr "霜地衣"
@@ -1083,6 +1188,9 @@ msgstr "未解锁：%d级起。"
 msgid "Gesperrt: erst %s schaffen."
 msgstr "未解锁：先通关%s。"
 
+msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
+msgstr "未开放：先完成埃贡的任务「%s」。"
+
 msgid "Gesprengte Fessel"
 msgstr "破碎镣铐"
 
@@ -1173,6 +1281,9 @@ msgstr "余烬斗篷"
 msgid "Glutmond"
 msgstr "余烬之月"
 
+msgid "Glutrubin"
+msgstr "余烬红宝石"
+
 msgid "Glutsammler"
 msgstr "聚火器"
 
@@ -1223,6 +1334,9 @@ msgstr "幸运儿"
 
 msgid "Glühender Schlüssel"
 msgstr "炽热钥匙"
+
+msgid "Glüht von innen. Den gibt es nur einmal, sagt Egon."
+msgstr "从内部发光。埃贡说世上只有一颗。"
 
 msgid "Goblin"
 msgstr "哥布林"
@@ -1434,6 +1548,9 @@ msgstr "女巫大锅"
 msgid "Hier klicken"
 msgstr "点击这里"
 
+msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
+msgstr "放不进仓库的东西在这里。腾出空间或卖掉。"
+
 msgid "Hinausgeklettert!"
 msgstr "爬出来了！"
 
@@ -1494,6 +1611,9 @@ msgstr "地狱之门"
 msgid "Höllenwächter"
 msgstr "地狱守卫"
 
+msgid "Hörst du das? Er summt! Das Geld … äh, das Glück summt mit."
+msgstr "听到了吗？它在嗡嗡响！钱……呃，好运也跟着响。"
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "我是骗… 呃，卖货的。我卖… …装备！对，没错。我卖装备。"
 
@@ -1509,6 +1629,12 @@ msgstr "在地牢里按 %s。咕咚咕咚，两颗心就回来了。"
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "在地牢中：按 %s 喝下"
 
+msgid "Im Glutschlund wohnt ein Drache. Sein Herz glüht. Bring es mir, und ich … ich bin sehr, sehr dankbar. Ehrlich!"
+msgstr "炽焰喉里住着一条龙。它的心在发光。拿来给我，我会……非常非常感激。真的！"
+
+msgid "Im Moor trägt der Endboss einen Irrlicht-Opal. Hübsch. Sehr hübsch. Bring ihn mir, ich … verwahre ihn. Ganz legal!"
+msgstr "沼泽里的最终首领带着一颗鬼火蛋白石。好看。非常好看。拿来给我，我……替你保管。完全合法！"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "火山里岩浆翻滚，最深处有一道门。埃贡从没去过。他是这么说的。可他的靴子被烧焦了。"
 
@@ -1518,6 +1644,9 @@ msgstr "进地牢可不带金币。下面我的同行会收你的战利品，差
 msgid "Inventar"
 msgstr "背包"
 
+msgid "Inventar im Dungeon"
+msgstr "地牢中的背包"
+
 msgid "Inventar voll!"
 msgstr "物品栏已满！"
 
@@ -1526,6 +1655,9 @@ msgstr "鬼火"
 
 msgid "Irrlicht-Glut"
 msgstr "鬼火余烬"
+
+msgid "Irrlicht-Opal"
+msgstr "鬼火蛋白石"
 
 msgid "Irrlichtkönigin"
 msgstr "鬼火女王"
@@ -1560,6 +1692,12 @@ msgstr "今天每多转一次：%d %%从R1移到更稀有的等级（最多%d %%
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "每第二发射击强得多"
 
+msgid "Jetzt zum Glutschlund, Partner. Da ist es wenigstens warm."
+msgstr "现在去炽焰喉吧，伙计。至少那儿暖和。"
+
+msgid "Kalt! Kalt! Aber schön. Wie meine Preise."
+msgstr "好冰！好冰！但真漂亮。就像我的价格。"
+
 msgid "Kamille"
 msgstr "洋甘菊"
 
@@ -1581,6 +1719,9 @@ msgstr "地图"
 msgid "Kaufen: %d Gold"
 msgstr "购买：%d 金币"
 
+msgid "Kein Platz"
+msgstr "没有空间"
+
 msgid "Kein Relikt"
 msgstr "不是圣物"
 
@@ -1589,6 +1730,9 @@ msgstr "没有带药水"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "任何攻击最多只扣半颗心"
+
+msgid "Keine Quest"
+msgstr "没有任务"
 
 msgid "Kinderschuhe"
 msgstr "童鞋"
@@ -1607,6 +1751,9 @@ msgstr "点击一个按键，再按下新按键。Esc = 取消。"
 
 msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
 msgstr "点击背包里的物品就能穿上，点击角色就能脱下。"
+
+msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
+msgstr "点击或拖到背包标签：装到背包上"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "点击继续"
@@ -1667,6 +1814,9 @@ msgstr "战士之剑"
 
 msgid "Kriegsaxt"
 msgstr "战斧"
+
+msgid "Kristall aus dem Gras"
+msgstr "草中的水晶"
 
 msgid "Kristallbrocken"
 msgstr "水晶块"
@@ -1739,6 +1889,9 @@ msgstr "商店"
 
 msgid "Ladenschild"
 msgstr "商店招牌"
+
+msgid "Lager"
+msgstr "仓库"
 
 msgid "Lang und schmal, schwer wie ein Amboss."
 msgstr "又长又窄，重得像铁砧。"
@@ -2028,6 +2181,9 @@ msgstr "下一页"
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "下一级：%d金币，%d技能点，玩家等级%d起"
 
+msgid "Oben am Frostgipfel hat der Endboss einen Frost-Aquamarin. Bring ihn mir. Handschuhe hab ich. Gegen einen kleinen Obolus."
+msgstr "霜峰顶上的最终首领有一颗霜冻海蓝宝石。拿来给我。手套我有。收点小钱就行。"
+
 msgid "Obsidianwächter"
 msgstr "黑曜石守卫"
 
@@ -2054,6 +2210,9 @@ msgstr "兽人"
 
 msgid "Ork-Häuptling"
 msgstr "兽人酋长"
+
+msgid "Pack ein, Partner, wir ziehen um. Ans Moor! Da gibt's Kundschaft. Und Mücken."
+msgstr "收拾一下，伙计，我们搬家。去沼泽！那儿有客人。还有蚊子。"
 
 msgid "Paktschatulle"
 msgstr "契约之匣"
@@ -2126,6 +2285,12 @@ msgstr "火药手套"
 
 msgid "Punkt in der Mitte"
 msgstr "中心点"
+
+msgid "Quest"
+msgstr "任务"
+
+msgid "Quests"
+msgstr "任务"
 
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "拖动时按 R / 右键：旋转"
@@ -2261,6 +2426,12 @@ msgstr "红宝石"
 
 msgid "Rucksack"
 msgstr "背包"
+
+msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
+msgstr "把背包从仓库拖到背包栏（R 旋转）。拖回仓库即卸下。"
+
+msgid "Rucksack: %d×%d Felder"
+msgstr "背包：%d×%d格"
 
 msgid "Rucksäcke"
 msgstr "背包"
@@ -2423,6 +2594,9 @@ msgstr "关闭"
 
 msgid "Schläger"
 msgstr "打手"
+
+msgid "Schlägt noch. Ganz langsam."
+msgstr "还在跳动。非常缓慢。"
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "会反弹的蛇形射击"
@@ -2670,6 +2844,9 @@ msgstr "祖母绿宝石"
 msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
 msgstr "某种魔法玩意儿。我哪知道，我是个骗……呃，商人！"
 
+msgid "So kalt, dass die Finger kleben bleiben."
+msgstr "冷得手指都会粘住。"
+
 msgid "Solide"
 msgstr "坚固"
 
@@ -2856,6 +3033,9 @@ msgstr "追踪火花"
 msgid "Suchender Strahl"
 msgstr "追踪光束"
 
+msgid "Summt leise wie eine Wiese im Sommer."
+msgstr "像夏日草原一样轻轻嗡鸣。"
+
 msgid "Sumpfhaut"
 msgstr "沼泽皮"
 
@@ -2997,8 +3177,14 @@ msgstr "左边就是你。别动，我给你穿上…"
 msgid "Ungewöhnlich"
 msgstr "罕见"
 
+msgid "Unten ist dein Lager. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst. Zieh Sachen einfach hin und her."
+msgstr "下面是你的仓库。你买的或从地牢带回来的东西都放这里。随便拖动就行。"
+
 msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
 msgstr "下面是你的背包。买的东西和从地牢带回来的东西都放这儿。"
+
+msgid "Unter uns, Partner: Der Endboss der Glut hütet einen Glutrubin. Bring ihn mir, und ich zeig dir den Weg ins Moor. Ehrlich!"
+msgstr "跟你说句悄悄话，伙计：余烬的最终首领守着一颗余烬红宝石。拿来给我，我就告诉你去沼泽的路。真的！"
 
 msgid "Utility"
 msgstr "辅助"
@@ -3105,6 +3291,9 @@ msgstr "远见"
 msgid "Weiter"
 msgstr "继续"
 
+msgid "Weiter zum Frostgipfel! Zieh dich warm an. Ich hab da zufällig Mäntel."
+msgstr "去霜峰！穿暖和点。我刚好有大衣。"
+
 msgid "Weiterkämpfen"
 msgstr "继续战斗"
 
@@ -3128,6 +3317,9 @@ msgstr "竞技靴"
 
 msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
 msgstr "与 Counter-Strike 2 相同：同样的数值转动同样的角度。"
+
+msgid "Wiesenkristall"
+msgstr "草原水晶"
 
 msgid "Wiesenwespe"
 msgstr "草原黄蜂"

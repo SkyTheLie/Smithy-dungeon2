@@ -59,6 +59,10 @@ func _scene() -> void:
 	boss.call("take_damage", 99999.0, Vector3.ZERO, false)
 	check(await wait_until(func() -> bool: return not dungeon.call("is_fighting"), 2.0), "boss beaten")
 	check(hall.get("exit_open"), "the gate opens")
+	# Egon's quest: the end boss leaves the Glutrubin (data/quests.json).
+	var stone: bool = (hall.get("loot") as Array).any(func(node: Variant) -> bool:
+		return is_instance_valid(node) and (node as Node).get("material_id") == "glutrubin")
+	check(stone, "the end boss drops the Glutrubin for Egon's quest")
 
 
 func _admin() -> void:

@@ -8,9 +8,10 @@ extends RefCounted
 ##          home into the box). Buying, the lever and skills pay from it, selling to Egon fills it.
 ##          Safe up to data/meta.json money_box.limit; above it the merchant may steal on every
 ##          new day (roll_theft): spend it or risk it.
-##   stash  the inventory at home: loot brought home (from the bag) and gear bought from Egon.
+##   stash  the stash at home (a grid, stash_grid): loot brought home, gear, relics, potions and
+##          backpacks; every piece {id, count, x, y, rot} (ItemGrid).
 ##   table, pulls_today, equipment, tutorial_done  Egon's shop (see below).
-##   backpacks  the backpacks attached to the bag (BagLayout placements, place_backpack).
+##   backpacks  the backpacks attached to the bag (BagLayout placements, attach_backpack).
 ##   guide_done  the guide of the first run is over (DungeonGuide).
 ##   day    one run = one day.
 ##   deaths, potions_unlocked  deaths in the dungeon; after the second one Egon shows the
@@ -141,45 +142,63 @@ static func buy_skill(id: String) -> bool:
 	var learned: Dictionary = (_read("skills", {}) as Dictionary).duplicate()
 	learned[id] = skill_level(id) + 1
 	_write("skills", learned)
-	# A new backpack is attached at once where it fits (it can be moved in the shop).
+	# A new backpack comes into the stash (attached in the shop, tab Inventar).
 	var backpack: String = String((Skills.data(id).get("effect", {}) as Dictionary).get("backpack", ""))
 	if not backpack.is_empty():
-		_auto_place_backpack(backpack)
+		_give_to_stash({"id": backpack, "count": 1, "backpack": true})
 	_save()
 	return true
 
 
 # --- Backpacks (data/backpacks.json, BagLayout) --------------------------------------
+# A backpack is a piece in the stash ({id, backpack: true}) until it is attached to the bag
+# (Inventar tab in the shop); then it is a placement {"id", "x", "y", "rot"} in "backpacks" and
+# not in the stash any more. Each backpack id can be attached once.
 
-## The backpacks attached to the bag: [{"id", "x", "y", "rot"}] (only owned ones; an invalid
-## save gives none, then the shop shows them all as not attached).
+## The backpacks attached to the bag (an invalid save gives none).
 static func backpacks() -> Array:
-	var owned: Array[String] = Skills.backpacks()
 	var list: Array = []
 	for entry: Variant in _read("backpacks", []):
-		if entry is Dictionary and owned.has(String((entry as Dictionary).get("id", ""))):
+		if entry is Dictionary:
 			list.append((entry as Dictionary).duplicate())
 	return list if BagLayout.is_valid(list) else []
 
 
-## Owned backpacks that are not attached (they lie beside the bag in the shop).
-static func loose_backpacks() -> Array[String]:
-	var placed: Array[String] = []
-	for entry: Variant in backpacks():
-		placed.append(String((entry as Dictionary)["id"]))
-	var loose: Array[String] = []
-	for id: String in Skills.backpacks():
-		if not placed.has(id):
-			loose.append(id)
-	return loose
-
-
-## Attaches (or moves) owned backpack `id` with its top left on `at`, turned when `rot`. false
-## (nothing changes) if it is not owned or the bag would not be allowed (BagLayout.is_valid).
-static func place_backpack(id: String, at: Vector2i, rot: bool) -> bool:
-	if not Skills.backpacks().has(id):
+## Attaches the backpack lying on stash place `index` with its top left on `at` (turned `rot`).
+## false (nothing changes) for something else, or if the bag would not be allowed
+## (BagLayout.is_valid: touching, nothing covered, inside the board, not the same backpack twice).
+static func attach_backpack(index: int, at: Vector2i, rot: bool) -> bool:
+	var own: Array[Dictionary] = stash()
+	if index < 0 or index >= own.size() or not ShopGoods.is_backpack(own[index]):
 		return false
-	var next: Array = BagLayout.with_moved(backpacks(), id, at, rot)
+	var id: String = String(own[index]["id"])
+	var next: Array = backpacks()
+	next.append({"id": id, "x": at.x, "y": at.y, "rot": rot})
+	if not BagLayout.is_valid(next):
+		return false
+	own.remove_at(index)
+	_write_stash(own)
+	_write("backpacks", next)
+	_save()
+	return true
+
+
+## Attaches stash place `index` where it fits first (BagLayout.first_spot). false if nowhere.
+static func attach_backpack_anywhere(index: int) -> bool:
+	var own: Array[Dictionary] = stash()
+	if index < 0 or index >= own.size() or not ShopGoods.is_backpack(own[index]):
+		return false
+	var spot: Dictionary = BagLayout.first_spot(backpacks(), String(own[index]["id"]))
+	return not spot.is_empty() and attach_backpack(index, Vector2i(int(spot["x"]), int(spot["y"])), bool(spot["rot"]))
+
+
+## Moves attached backpack `id` to `at` (turned `rot`). false if it is not attached or the bag
+## would not be allowed.
+static func place_backpack(id: String, at: Vector2i, rot: bool) -> bool:
+	var before: Array = backpacks()
+	if BagLayout.without(before, id).size() == before.size():
+		return false
+	var next: Array = BagLayout.with_moved(before, id, at, rot)
 	if not BagLayout.is_valid(next):
 		return false
 	_write("backpacks", next)
@@ -187,24 +206,36 @@ static func place_backpack(id: String, at: Vector2i, rot: bool) -> bool:
 	return true
 
 
-## Takes backpack `id` off the bag. false if it is not attached or others hang only on it.
-static func remove_backpack(id: String) -> bool:
+## Takes attached backpack `id` off into the stash: on `cell` (turned `rot`), or anywhere for
+## cell (-1, -1). false if it is not attached, others hang only on it, or there is no room.
+static func detach_backpack(id: String, cell: Vector2i = Vector2i(-1, -1), rot: bool = false) -> bool:
 	var before: Array = backpacks()
 	var next: Array = BagLayout.without(before, id)
 	if next.size() == before.size() or not BagLayout.is_valid(next):
 		return false
+	var own: Array[Dictionary] = stash()
+	var piece: Dictionary = {"id": id, "count": 1, "backpack": true}
+	if cell == Vector2i(-1, -1):
+		var spot: Dictionary = ItemGrid.free_spot(own, stash_grid(), piece)
+		if spot.is_empty():
+			return false
+		piece.merge(spot, true)
+	elif ItemGrid.fits(own, stash_grid(), piece, cell, rot):
+		piece.merge({"x": cell.x, "y": cell.y, "rot": rot}, true)
+	else:
+		return false
+	own.append(piece)
+	_write_stash(own)
 	_write("backpacks", next)
 	_save()
 	return true
 
 
-static func _auto_place_backpack(id: String) -> void:
-	var spot: Dictionary = BagLayout.first_spot(backpacks(), id)
-	if spot.is_empty():
-		return
-	var next: Array = backpacks()
-	next.append(spot)
-	_write("backpacks", next)
+## Puts `piece` into the stash (first free spot; no room: beside the grid).
+static func _give_to_stash(piece: Dictionary) -> void:
+	var own: Array[Dictionary] = stash()
+	own.append(piece)
+	_write_stash(own)
 
 
 ## The relic places on the hero now: "relic_1" and one more per skill level (data/skills.json
@@ -274,10 +305,13 @@ static func win_dungeon(id: String) -> void:
 	_save()
 
 
-## A dungeons.json / shop.json "unlock" in this save slot: {"dungeon": id} = that dungeon won,
+## A dungeons.json / shop.json "unlock" in this save slot: {"quest": id} = Egon's quest done,
+## {"dungeon": id} = that dungeon won,
 ## {"level": n} = player level n; both may stand together, {} is always met.
 static func meets(unlock: Dictionary) -> bool:
 	if unlock.has("dungeon") and not has_won(String(unlock["dungeon"])):
+		return false
+	if unlock.has("quest") and not quest_done(String(unlock["quest"])):
 		return false
 	return level() >= int(unlock.get("level", 0))
 
@@ -287,12 +321,94 @@ static func is_dungeon_open(id: String) -> bool:
 	return Content.dungeons().has(id) and meets((Content.dungeons()[id] as Dictionary).get("unlock", {}))
 
 
+## The stash (Egon's shop, data/meta.json "stash"): a grid of pieces (ItemGrid), every piece
+## {id, count, x, y, rot, …}; a piece without "x" has no room in the grid and lies beside it.
+## Loot that older saves stacked ({id, count 5}) becomes single pieces. Always settled: every piece
+## that can lie in the grid lies there.
 static func stash() -> Array[Dictionary]:
-	var list: Array[Dictionary] = []
+	var list: Array = []
 	for entry: Variant in _read("stash", []):
-		if entry is Dictionary:
-			list.append((entry as Dictionary).duplicate())
-	return list
+		if not entry is Dictionary:
+			continue
+		var piece: Dictionary = (entry as Dictionary).duplicate()
+		var count: int = int(piece.get("count", 1))
+		if _is_loot(piece) and count > 1:
+			piece["count"] = 1
+			for i in count:
+				var single: Dictionary = piece.duplicate()
+				if i > 0:
+					single.erase("x")
+					single.erase("y")
+				list.append(single)
+		else:
+			list.append(piece)
+	ItemGrid.settle(list, stash_grid())
+	var typed: Array[Dictionary] = []
+	for piece: Variant in list:
+		typed.append(piece)
+	return typed
+
+
+## Width × height of the stash grid (data/meta.json stash).
+static func stash_grid() -> Vector2i:
+	var rules: Dictionary = Content.meta("stash")
+	return Vector2i(maxi(1, int(rules.get("columns", 5))), maxi(1, int(rules.get("rows", 4))))
+
+
+static func _is_loot(piece: Dictionary) -> bool:
+	return not (piece.has("rarity") or ShopGoods.is_relic(piece) or ShopGoods.is_potion(piece) or ShopGoods.is_backpack(piece))
+
+
+static func _write_stash(list: Array) -> void:
+	_write("stash", ItemGrid.settle(list, stash_grid()))
+
+
+## Drag and drop in the stash: piece `index` goes with its top left onto `cell`, turned when
+## `rot` (also a piece that had no room). On exactly one other piece the two swap if the other one
+## fits where the dragged one was. false = nothing changed.
+static func move_in_stash(index: int, cell: Vector2i, rot: bool) -> bool:
+	var own: Array[Dictionary] = stash()
+	if index < 0 or index >= own.size():
+		return false
+	var piece: Dictionary = own[index]
+	var span: Vector2i = ShopGoods.piece_size(piece)
+	if span.x == span.y:
+		rot = false
+	var grid: Vector2i = stash_grid()
+	if ItemGrid.fits(own, grid, piece, cell, rot, [index]):
+		piece["x"] = cell.x
+		piece["y"] = cell.y
+		piece["rot"] = rot
+		_write_stash(own)
+		_save()
+		return true
+	var under: Array[int] = []
+	for c: Vector2i in ItemGrid.cells_of(piece, cell, rot):
+		if not Rect2i(Vector2i.ZERO, grid).has_point(c):
+			return false
+		var other: int = ItemGrid.index_at(own, c)
+		if other >= 0 and other != index and not under.has(other):
+			under.append(other)
+	if under.size() != 1 or not ItemGrid.is_placed(piece):
+		return false
+	var target: Dictionary = own[under[0]]
+	var old := Vector2i(int(piece["x"]), int(piece["y"]))
+	var old_rot: bool = bool(piece.get("rot", false))
+	piece["x"] = cell.x
+	piece["y"] = cell.y
+	piece["rot"] = rot
+	for turn: bool in [bool(target.get("rot", false)), not bool(target.get("rot", false))]:
+		if ItemGrid.fits(own, grid, target, old, turn, [under[0]]):
+			target["x"] = old.x
+			target["y"] = old.y
+			target["rot"] = turn
+			_write_stash(own)
+			_save()
+			return true
+	piece["x"] = old.x
+	piece["y"] = old.y
+	piece["rot"] = old_rot
+	return false
 
 
 # --- Egon's shop: table, inventory (stash), equipment -----------------------------
@@ -330,9 +446,10 @@ static func pull_lever(rng: RandomNumberGenerator) -> bool:
 	return true
 
 
-## Buys table place `index` into the inventory. `free` = Egon's gift (tutorial). false for an
-## empty place or too little gold.
-static func buy(index: int, free: bool = false) -> bool:
+## Buys table place `index` into the stash (first free spot, or on `cell` turned `rot` when it
+## was dragged there). `free` = Egon's gift (tutorial). false for an empty place, too little gold
+## or no room on `cell`.
+static func buy(index: int, free: bool = false, cell: Vector2i = Vector2i(-1, -1), rot: bool = false) -> bool:
 	var list: Array[Dictionary] = table()
 	if index < 0 or index >= list.size() or list[index].is_empty():
 		return false
@@ -340,11 +457,17 @@ static func buy(index: int, free: bool = false) -> bool:
 	var price: int = 0 if free else int(piece.get("price", 0))
 	if price < 0 or price > box():
 		return false
+	var owned: Dictionary = _owned(piece)
+	var own: Array[Dictionary] = stash()
+	# Dragged onto the stash: it must fit where it was dropped.
+	if cell != Vector2i(-1, -1):
+		if not ItemGrid.fits(own, stash_grid(), owned, cell, rot):
+			return false
+		owned.merge({"x": cell.x, "y": cell.y, "rot": rot}, true)
 	list[index] = {}
 	_write("table", list)
-	var own: Array[Dictionary] = stash()
-	own.append(_owned(piece))
-	_write("stash", own)
+	own.append(owned)
+	_write_stash(own)
 	_write("box", box() - price)
 	_save()
 	return true
@@ -357,6 +480,8 @@ static func _owned(piece: Dictionary) -> Dictionary:
 		return {"id": String(piece["id"]), "count": 1, "relic": true, "left": int(piece.get("left", -1))}
 	if ShopGoods.is_potion(piece):
 		return {"id": String(piece["id"]), "count": 1, "potion": true}
+	if ShopGoods.is_backpack(piece):
+		return {"id": String(piece["id"]), "count": 1, "backpack": true}
 	return {"id": String(piece["id"]), "count": 1, "rarity": int(piece.get("rarity", 1))}
 
 
@@ -374,6 +499,8 @@ static func slot_of(piece: Dictionary) -> String:
 		return _first_free(relic_slot_names())
 	if ShopGoods.is_potion(piece):
 		return _first_free(potion_slot_names()) if potions_unlocked() else ""
+	if ShopGoods.is_backpack(piece):
+		return ""
 	return String(Content.gear_item(String(piece.get("id", ""))).get("slot", ""))
 
 
@@ -457,12 +584,66 @@ static func sell(index: int) -> int:
 	var own: Array[Dictionary] = stash()
 	if index < 0 or index >= own.size() or String(own[index].get("id", "")) == Bag.GOLD:
 		return 0
+	# Quest stones are not for sale (Egon wants them for his quest).
+	if Quests.is_stone(String(own[index].get("id", ""))):
+		return 0
 	var gold: int = ShopGoods.sell_price(own[index])
 	own.remove_at(index)
-	_write("stash", own)
+	_write_stash(own)
 	_write("box", box() + gold)
 	_save()
 	return gold
+
+
+# --- Egon's quests (data/quests.json, rules in Quests) ---------------------------------
+
+static func quests_done() -> Array:
+	return _read("quests_done", [])
+
+
+static func quest_done(id: String) -> bool:
+	return quests_done().has(id)
+
+
+## Where Egon's shop stands now (data/quests.json locations): where the last quest sent him.
+static func location() -> String:
+	return String(_read("location", Quests.start()))
+
+
+## Quests Egon has told about already (he tells each once).
+static func quest_announced(id: String) -> bool:
+	return (_read("quests_announced", []) as Array).has(id)
+
+
+static func announce_quest(id: String) -> void:
+	var list: Array = (_read("quests_announced", []) as Array).duplicate()
+	if not list.has(id):
+		list.append(id)
+	_write("quests_announced", list)
+	_save()
+
+
+## Hands in the stone on stash place `index`: the quest is done (opens its dungeons), Egon moves
+## on (moves_to) and pays its gold into the box. Returns the quest id ("" = nothing handed in:
+## not a stone of an open quest).
+static func deliver_quest(index: int) -> String:
+	var own: Array[Dictionary] = stash()
+	if index < 0 or index >= own.size():
+		return ""
+	var id: String = Quests.quest_of_stone(String(own[index].get("id", "")))
+	if id.is_empty():
+		return ""
+	own.remove_at(index)
+	_write_stash(own)
+	var done: Array = quests_done().duplicate()
+	done.append(id)
+	_write("quests_done", done)
+	var target: String = String(Quests.data(id).get("moves_to", ""))
+	if not target.is_empty():
+		_write("location", target)
+	_write("box", box() + maxi(0, int(Quests.data(id).get("gold", 0))))
+	_save()
+	return id
 
 
 ## The hero's equipment: slot (data/gear.json slots) -> {id, rarity}.
@@ -477,37 +658,55 @@ static func equipment() -> Dictionary:
 	return result
 
 
-## Puts inventory place `index` on (gear only); what was in that slot goes back into the
-## inventory. false for loot, an empty place or unknown gear.
-static func equip(index: int) -> bool:
+## Puts stash place `index` on; what was in that slot goes back into the stash. `target` = a
+## chosen place (dragged onto it): a relic place for relics, a potion place for potions, else
+## the gear's own slot. false for loot, an empty place, unknown gear or a wrong place.
+static func equip(index: int, target: String = "") -> bool:
 	var own: Array[Dictionary] = stash()
 	if index < 0 or index >= own.size():
 		return false
 	var entry: Dictionary = own[index]
 	var slot: String = slot_of(entry)
+	if not target.is_empty():
+		var allowed: bool = relic_slot_names().has(target) if ShopGoods.is_relic(entry) 				else (potion_slot_names().has(target) and potions_unlocked()) if ShopGoods.is_potion(entry) 				else target == slot
+		if not allowed:
+			return false
+		slot = target
 	if slot.is_empty() or not (Content.gear_slots().has(slot) or relic_slot_names().has(slot) or potion_slot_names().has(slot)):
 		return false
 	var worn: Dictionary = equipment()
 	own.remove_at(index)
 	if worn.has(slot):
-		own.insert(index, _owned(worn[slot]))
+		# What was worn takes the place of the new piece (if it fits there; else somewhere).
+		var back: Dictionary = _owned(worn[slot])
+		if ItemGrid.is_placed(entry):
+			back["x"] = int(entry["x"])
+			back["y"] = int(entry["y"])
+			back["rot"] = bool(entry.get("rot", false))
+		own.insert(index, back)
 	worn[slot] = _worn(entry)
-	_write("stash", own)
+	_write_stash(own)
 	_write("equipment", worn)
 	_save()
 	return true
 
 
 ## Takes `slot` off into the inventory. false if nothing is worn there.
-static func unequip(slot: String) -> bool:
+static func unequip(slot: String, cell: Vector2i = Vector2i(-1, -1), rot: bool = false) -> bool:
 	var worn: Dictionary = equipment()
 	if not worn.has(slot):
 		return false
 	var old: Dictionary = worn[slot]
-	worn.erase(slot)
+	var back: Dictionary = _owned(old)
 	var own: Array[Dictionary] = stash()
-	own.append(_owned(old))
-	_write("stash", own)
+	# Dragged onto the stash: it must fit there.
+	if cell != Vector2i(-1, -1):
+		if not ItemGrid.fits(own, stash_grid(), back, cell, rot):
+			return false
+		back.merge({"x": cell.x, "y": cell.y, "rot": rot}, true)
+	worn.erase(slot)
+	own.append(back)
+	_write_stash(own)
 	_write("equipment", worn)
 	_save()
 	return true
@@ -540,7 +739,7 @@ static func give_piece(piece: Dictionary) -> int:
 		return -1
 	var own: Array[Dictionary] = stash()
 	own.append(_owned(piece))
-	_write("stash", own)
+	_write_stash(own)
 	_save()
 	return own.size() - 1
 
@@ -626,7 +825,7 @@ static func deliver_ruby() -> bool:
 	own[index]["count"] = int(own[index]["count"]) - 1
 	if int(own[index]["count"]) <= 0:
 		own.remove_at(index)
-	_write("stash", own)
+	_write_stash(own)
 	_write("ruby_delivered", true)
 	_save()
 	return true
@@ -648,15 +847,10 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 		if id == Bag.GOLD:
 			gold_home += count
 			continue
-		var merged: bool = false
-		for own: Dictionary in list:
-			if String(own["id"]) == id and not own.has("rarity"):
-				own["count"] = int(own["count"]) + count
-				merged = true
-				break
-		if not merged:
-			list.append({"id": id, "count": count})
-	_write("stash", list)
+		# Every piece of loot lies on its own in the stash grid (no room: beside it).
+		for i in count:
+			list.append({"id": id, "count": 1})
+	_write_stash(list)
 	if gold_home > 0:
 		_write("box", box() + gold_home)
 	_wear_relic()

@@ -141,7 +141,7 @@ func _build_regions() -> void:
 		(lists[region] as VBoxContainer).add_child(row)
 	# More to come: winning the last open dungeon opens the next one.
 	if open_dungeons().size() < Content.dungeons().size():
-		var more := _label(Language.translate("Schaffe einen Dungeon, dann öffnet sich der nächste."), COLOR_HINT, 9)
+		var more := _label(Language.translate("Bring Egon den Stein vom Endboss (Quests), dann öffnet sich der nächste Dungeon."), COLOR_HINT, 9)
 		more.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		more.custom_minimum_size = Vector2(LIST_WIDTH, 0)
 		_regions.add_child(more)
@@ -188,11 +188,14 @@ func _show_enemies() -> void:
 		_enemies.add_child(icon)
 
 
-## What opens dungeon `id`: "Gesperrt: erst Dungeon der Glut schaffen." ("" = open).
+## What opens dungeon `id`: "Gesperrt: erst Egons Quest … erledigen." ("" = open).
 static func lock_text(id: String) -> String:
 	var unlock: Dictionary = Content.dungeons().get(id, {}).get("unlock", {})
 	if MetaState.meets(unlock):
 		return ""
+	if unlock.has("quest") and not MetaState.quest_done(String(unlock["quest"])):
+		var quest: String = Language.translate(String(Quests.data(String(unlock["quest"])).get("name", unlock["quest"])))
+		return Language.translate("Gesperrt: erst Egons Quest „%s“ erledigen.") % quest
 	if unlock.has("dungeon") and not MetaState.has_won(String(unlock["dungeon"])):
 		var before: String = Language.translate(String(Content.dungeon(String(unlock["dungeon"])).get("name", unlock["dungeon"])))
 		return Language.translate("Gesperrt: erst %s schaffen.") % before

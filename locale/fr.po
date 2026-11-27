@@ -39,6 +39,9 @@ msgstr "Annuler"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "Mais pas comme ça, sans aucun équipement. Viens, jette d'abord un œil à ma boutique."
 
+msgid "Abgeben"
+msgstr "Remettre"
+
 msgid "Abstand"
 msgstr "Écart"
 
@@ -69,14 +72,29 @@ msgstr "Tout coûte moitié prix au magasin"
 msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
 msgstr "Alors dépense-le plutôt, partenaire. De préférence chez moi !"
 
+msgid "Am Dungeon der Glut"
+msgstr "Au Donjon des Braises"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "À la fin chaque tir éclate en quatre étincelles"
+
+msgid "Am Frostgipfel"
+msgstr "Au Pic du Givre"
+
+msgid "Am Glutschlund"
+msgstr "À la Gueule de Braise"
+
+msgid "Am Moor der Irrlichter"
+msgstr "Au Marais des Feux Follets"
 
 msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
 msgstr "Sorti par la corde comme un héros ! Mais… où est mon rubis ?"
 
 msgid "Amethyst"
 msgstr "Améthyste"
+
+msgid "An der Wispernden Wiese"
+msgstr "À la Prairie Murmurante"
 
 msgid "Angriffstempo"
 msgstr "Vitesse d'attaque"
@@ -101,6 +119,12 @@ msgstr "Cendre"
 
 msgid "Audio"
 msgstr "Audio"
+
+msgid "Auf der Wiese bewacht der Endboss einen Kristall. Er summt, sagt man. Bring ihn mir. Ich brauch was zum Summen. Ehrlich!"
+msgstr "Sur la prairie, le boss final garde un cristal. Il bourdonne, paraît-il. Apporte-le-moi. Il me faut un truc qui bourdonne. Promis !"
+
+msgid "Auf zur Wiese, Partner. Ich hab gehört, da wächst Gold. Oder Gras."
+msgstr "En route pour la prairie, partenaire. Il paraît que l'or y pousse. Ou l'herbe."
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "Les braises géantes chargées s'écrasent et explosent"
@@ -147,6 +171,9 @@ msgstr "À l'impact, le tir éclate en quatre étincelles"
 msgid "Beine"
 msgstr "Jambes"
 
+msgid "Belohnung: der nächste Dungeon und %d Gold"
+msgstr "Récompense : le donjon suivant et %d or"
+
 msgid "Bergfalke"
 msgstr "Faucon des montagnes"
 
@@ -173,6 +200,9 @@ msgstr "Entrer"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "Je rachète ton butin : clic droit dans l'inventaire et il arrive en haut, à mon rachat. Prix honnêtes. Honnêtement !"
+
+msgid "Beute kaufe ich dir ab: Zieh sie einfach auf meinen Tisch. Faire Preise. Ehrlich!"
+msgstr "Je t'achète ton butin : glisse-le sur ma table. Prix honnêtes. Promis !"
 
 msgid "Beute: %s"
 msgstr "Butin : %s"
@@ -231,6 +261,9 @@ msgstr "Ennemis brûlés et ralentis, et deux cœurs bleus"
 msgid "Brennt gut in jeder Esse."
 msgstr "Brûle bien dans toute forge."
 
+msgid "Bring Egon den Stein vom Endboss (Quests), dann öffnet sich der nächste Dungeon."
+msgstr "Apporte à Egon la pierre du boss final (Quêtes) pour ouvrir le donjon suivant."
+
 msgid "Bronze"
 msgstr "Bronze"
 
@@ -285,6 +318,9 @@ msgstr "Cyan"
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Là-derrière, c'est l'entrée du Donjon des Braises. Certains en ressortent même !"
 
+msgid "Da passt das nicht hin, Partner. Mach erst Platz."
+msgstr "Ça ne rentre pas là, partenaire. Fais d'abord de la place."
+
 msgid "Dafür reicht dein Gold nicht"
 msgstr "Tu n'as pas assez d'or pour ça"
 
@@ -300,6 +336,9 @@ msgstr "Un autre sac y est encore accroché."
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "Une petite bestiole est coincée dedans."
 
+msgid "Darin tanzt ein kleines Licht. Egon will ihn haben."
+msgstr "Une petite lumière y danse. Egon le veut."
+
 msgid "Darin wohnt fast ein ganzer Laden."
 msgstr "Presque toute une boutique y tient."
 
@@ -312,11 +351,17 @@ msgstr "La fourrure d'un géant de glace."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "L'or de cette partie. Si tu meurs, il est perdu, sauf dans l'emplacement sûr."
 
+msgid "Das Herz des Drachen"
+msgstr "Le cœur du dragon"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Ça ne se porte pas, partenaire. Crois-moi, j'ai essayé."
 
 msgid "Das kostet zu viel Leben"
 msgstr "Cela coûte trop de vie"
+
+msgid "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest."
+msgstr "Ça ? Je ne l'achète pas. Je le veux en cadeau ! Euh… en quête."
 
 msgid "Deckkraft"
 msgstr "Opacité"
@@ -342,6 +387,12 @@ msgstr "Tes objets"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Tes tirs poursuivent les ennemis"
 
+msgid "Den Quest-Stein hierher ziehen"
+msgstr "Glisse la pierre de quête ici"
+
+msgid "Den Stein aus dem Lager auf den Quest-Platz oben rechts ziehen oder hier abgeben."
+msgstr "Glisse la pierre de la réserve sur l'emplacement de quête en haut à droite, ou remets-la ici."
+
 msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
 msgstr "Vaincu le premier boss et sorti par la corde."
 
@@ -354,8 +405,23 @@ msgstr "La barre au-dessus du levier montre ce qui peut tomber : gris commun, ve
 msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
 msgstr "Le boss en avait un, je le sais ! Apporte-le-moi si tu en trouves un. J'attends. Avec impatience."
 
+msgid "Der Endboss am Frostgipfel hat einen Frost-Aquamarin. Bring ihn Egon."
+msgstr "Le boss final du Pic du Givre a une aigue-marine de givre. Apporte-la à Egon."
+
+msgid "Der Endboss der Wispernden Wiese bewacht einen Wiesenkristall. Bring ihn Egon."
+msgstr "Le boss final de la Prairie Murmurante garde un cristal de prairie. Apporte-le à Egon."
+
+msgid "Der Endboss im Dungeon der Glut hütet einen Glutrubin. Bring ihn Egon."
+msgstr "Le boss final du Donjon des Braises garde un rubis de braise. Apporte-le à Egon."
+
+msgid "Der Endboss im Moor der Irrlichter trägt einen Irrlicht-Opal. Bring ihn Egon."
+msgstr "Le boss final du Marais des Feux Follets porte une opale follette. Apporte-la à Egon."
+
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "Le rayon de feu se courbe vers l'ennemi"
+
+msgid "Der Glutrubin! Echt! Also … ich hab nie gezweifelt."
+msgstr "Le rubis de braise ! Pour de vrai ! Enfin… je n'ai jamais douté."
 
 msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
 msgstr "Le marchand du donjon paie 2 pièces d'or de plus pour chaque butin."
@@ -363,14 +429,26 @@ msgstr "Le marchand du donjon paie 2 pièces d'or de plus pour chaque butin."
 msgid "Der Händler kauft Beute: Tab, Rechtsklick"
 msgstr "Le marchand achète le butin : Tab, clic droit"
 
+msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
+msgstr "L'opale ! Elle brille ! Presque autant que mon avenir."
+
+msgid "Der Stein liegt in deinem Lager!"
+msgstr "La pierre est dans ta réserve !"
+
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "La pierre accepte ton sacrifice"
+
+msgid "Der Vulkandrache im Glutschlund hat ein Herz aus Glut. Bring es Egon."
+msgstr "Le dragon du volcan dans la Gueule de Braise a un cœur de braise. Apporte-le à Egon."
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "Le chemin vers le bas est ouvert !"
 
 msgid "Der Wildhüter"
 msgstr "Le Garde-Chasse"
+
+msgid "Der einzige auch, aber das sagen wir keinem."
+msgstr "Le seul aussi, mais ça, on ne le dit à personne."
 
 msgid "Der sichere Platz wird eine Spalte breiter."
 msgstr "L'emplacement sûr gagne une colonne."
@@ -437,6 +515,9 @@ msgstr "Souffle du dragon"
 
 msgid "Drachenhaut"
 msgstr "Peau de dragon"
+
+msgid "Drachenherz"
+msgstr "Cœur de dragon"
 
 msgid "Drachenleder"
 msgstr "Cuir de dragon"
@@ -567,11 +648,17 @@ msgstr "Effets"
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "Egon Honnête, enchanté. Honnête est mon nom, honnête est mon commerce. Honnêtement !"
 
+msgid "Egon hat gerade keinen Auftrag."
+msgstr "Egon n'a pas de mission pour l'instant."
+
 msgid "Egon könnte klauen!"
 msgstr "Egon pourrait voler !"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "Les yeux d'Egon s'écarquillent."
+
+msgid "Egons Glutrubin"
+msgstr "Le rubis de braise d'Egon"
 
 msgid "Egons Laden"
 msgstr "La boutique d'Egon"
@@ -645,6 +732,9 @@ msgstr "Un marchand ! Va lui parler."
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "Une herbe en forme de cœur. Egon en fait du thé."
 
+msgid "Ein Licht für Egon"
+msgstr "Une lumière pour Egon"
+
 msgid "Ein Platz mehr im Rucksack."
 msgstr "Un emplacement de plus dans le sac."
 
@@ -705,6 +795,9 @@ msgstr "Un cœur bleu, plus longtemps à l'abri après un coup"
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "Un cœur bleu, tu cours plus vite"
 
+msgid "Ein echtes Drachenherz! Partner, du bist der beste Kunde, den ich je hatte."
+msgstr "Un vrai cœur de dragon ! Partenaire, tu es le meilleur client que j'aie jamais eu."
+
 msgid "Ein einfacher Bogen. Für Bogenschützen."
 msgstr "Un arc simple. Pour les archers."
 
@@ -719,6 +812,9 @@ msgstr "Un énorme sac de 5×3 cases. À attacher à ton inventaire chez Egon."
 
 msgid "Ein rotes Herz mehr."
 msgstr "Un cœur rouge de plus."
+
+msgid "Ein seltener Stein! Egon wird staunen."
+msgstr "Une pierre rare ! Egon va être épaté."
 
 msgid "Ein sicherer Platz mehr im Rucksack."
 msgstr "Un emplacement sûr de plus dans le sac."
@@ -801,6 +897,9 @@ msgstr "Plume de glace"
 msgid "Eishöhle"
 msgstr "Grotte de glace"
 
+msgid "Eiskalte Gier"
+msgstr "Avidité glaciale"
+
 msgid "Eisrobbe"
 msgstr "Phoque des glaces"
 
@@ -833,6 +932,9 @@ msgstr "Bâton de terre"
 
 msgid "Erfolg: %s"
 msgstr "Succès : %s"
+
+msgid "Erledigt"
+msgstr "Terminé"
 
 msgid "Erreiche Ebene %d"
 msgstr "Atteins l'étage %d"
@@ -944,6 +1046,9 @@ msgstr "Débloqué : %s"
 
 msgid "Frost und Feuer"
 msgstr "Givre et feu"
+
+msgid "Frost-Aquamarin"
+msgstr "Aigue-marine de givre"
 
 msgid "Frostflechte"
 msgstr "Lichen de givre"
@@ -1083,6 +1188,9 @@ msgstr "Verrouillé : dès le niveau %d."
 msgid "Gesperrt: erst %s schaffen."
 msgstr "Verrouillé : termine d'abord %s."
 
+msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
+msgstr "Verrouillé : termine d'abord la quête d'Egon « %s »."
+
 msgid "Gesprengte Fessel"
 msgstr "Entrave brisée"
 
@@ -1173,6 +1281,9 @@ msgstr "Cape de braise"
 msgid "Glutmond"
 msgstr "Lune de braise"
 
+msgid "Glutrubin"
+msgstr "Rubis de braise"
+
 msgid "Glutsammler"
 msgstr "Collecteur de braises"
 
@@ -1223,6 +1334,9 @@ msgstr "Veinard"
 
 msgid "Glühender Schlüssel"
 msgstr "Clé ardente"
+
+msgid "Glüht von innen. Den gibt es nur einmal, sagt Egon."
+msgstr "Il brûle de l'intérieur. Il n'en existe qu'un, dit Egon."
 
 msgid "Goblin"
 msgstr "Gobelin"
@@ -1434,6 +1548,9 @@ msgstr "Chaudron de sorcière"
 msgid "Hier klicken"
 msgstr "Cliquez ici"
 
+msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
+msgstr "Ici se trouve ce qui ne rentre pas dans la réserve. Fais de la place ou vends-le."
+
 msgid "Hinausgeklettert!"
 msgstr "Sorti en grimpant !"
 
@@ -1494,6 +1611,9 @@ msgstr "Porte des Enfers"
 msgid "Höllenwächter"
 msgstr "Gardien des enfers"
 
+msgid "Hörst du das? Er summt! Das Geld … äh, das Glück summt mit."
+msgstr "Tu entends ? Il bourdonne ! L'argent… euh, la chance bourdonne aussi."
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Je suis l'escr… euh, le marchand. Je vends… …de l'équipement ! Oui, voilà. Je vends de l'équipement."
 
@@ -1509,6 +1629,12 @@ msgstr "Dans le donjon, tu appuies sur %s. Glou, glou, et deux cœurs reviennent
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "Dans le donjon : %s pour la boire"
 
+msgid "Im Glutschlund wohnt ein Drache. Sein Herz glüht. Bring es mir, und ich … ich bin sehr, sehr dankbar. Ehrlich!"
+msgstr "Un dragon vit dans la Gueule de Braise. Son cœur brûle. Apporte-le-moi, et je… je serai très, très reconnaissant. Promis !"
+
+msgid "Im Moor trägt der Endboss einen Irrlicht-Opal. Hübsch. Sehr hübsch. Bring ihn mir, ich … verwahre ihn. Ganz legal!"
+msgstr "Dans le marais, le boss final porte une opale follette. Jolie. Très jolie. Apporte-la-moi, je… la garde. Tout à fait légal !"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "Dans le volcan bouillonne la lave, tout au fond se dresse une porte. Egon n'y est jamais allé. C'est ce qu'il dit. Ses bottes sont pourtant roussies."
 
@@ -1518,6 +1644,9 @@ msgstr "Tu n'emportes pas d'or dans le donjon. En bas, mon collègue t'achète t
 msgid "Inventar"
 msgstr "Inventaire"
 
+msgid "Inventar im Dungeon"
+msgstr "Inventaire au donjon"
+
 msgid "Inventar voll!"
 msgstr "Inventaire plein !"
 
@@ -1526,6 +1655,9 @@ msgstr "Feu follet"
 
 msgid "Irrlicht-Glut"
 msgstr "Braise follette"
+
+msgid "Irrlicht-Opal"
+msgstr "Opale follette"
 
 msgid "Irrlichtkönigin"
 msgstr "Reine des feux follets"
@@ -1560,6 +1692,12 @@ msgstr "Chaque tour de plus aujourd'hui : %d %% de R1 vers les niveaux plus rare
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "Un tir sur deux est bien plus fort"
 
+msgid "Jetzt zum Glutschlund, Partner. Da ist es wenigstens warm."
+msgstr "Maintenant, direction la Gueule de Braise, partenaire. Au moins il y fait chaud."
+
+msgid "Kalt! Kalt! Aber schön. Wie meine Preise."
+msgstr "Froid ! Froid ! Mais beau. Comme mes prix."
+
 msgid "Kamille"
 msgstr "Camomille"
 
@@ -1581,6 +1719,9 @@ msgstr "Carte"
 msgid "Kaufen: %d Gold"
 msgstr "Acheter : %d or"
 
+msgid "Kein Platz"
+msgstr "Pas de place"
+
 msgid "Kein Relikt"
 msgstr "Pas une relique"
 
@@ -1589,6 +1730,9 @@ msgstr "Aucune potion sur toi"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Aucun coup ne prend plus d'un demi-cœur"
+
+msgid "Keine Quest"
+msgstr "Pas de quête"
 
 msgid "Kinderschuhe"
 msgstr "Chaussures d'enfant"
@@ -1607,6 +1751,9 @@ msgstr "Clique sur une touche, puis appuie sur la nouvelle. Échap = annuler."
 
 msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
 msgstr "Clique sur un objet de l'inventaire pour l'équiper. Clique sur ta silhouette pour l'enlever."
+
+msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
+msgstr "Clic ou glisser sur l'onglet Inventaire : attacher à l'inventaire"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "Clique pour continuer"
@@ -1667,6 +1814,9 @@ msgstr "Épée du guerrier"
 
 msgid "Kriegsaxt"
 msgstr "Hache de guerre"
+
+msgid "Kristall aus dem Gras"
+msgstr "Cristal dans l'herbe"
 
 msgid "Kristallbrocken"
 msgstr "Bloc de Cristal"
@@ -1739,6 +1889,9 @@ msgstr "Boutique"
 
 msgid "Ladenschild"
 msgstr "Enseigne de boutique"
+
+msgid "Lager"
+msgstr "Réserve"
 
 msgid "Lang und schmal, schwer wie ein Amboss."
 msgstr "Long et étroit, lourd comme une enclume."
@@ -2028,6 +2181,9 @@ msgstr "Page suivante"
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "Niveau suivant : %d or, %d points, à partir du niveau %d"
 
+msgid "Oben am Frostgipfel hat der Endboss einen Frost-Aquamarin. Bring ihn mir. Handschuhe hab ich. Gegen einen kleinen Obolus."
+msgstr "Au sommet du Pic du Givre, le boss final a une aigue-marine de givre. Apporte-la-moi. J'ai des gants. Contre une petite obole."
+
 msgid "Obsidianwächter"
 msgstr "Gardien d'obsidienne"
 
@@ -2054,6 +2210,9 @@ msgstr "Orc"
 
 msgid "Ork-Häuptling"
 msgstr "Chef orc"
+
+msgid "Pack ein, Partner, wir ziehen um. Ans Moor! Da gibt's Kundschaft. Und Mücken."
+msgstr "Fais tes bagages, partenaire, on déménage. Au marais ! Il y a des clients. Et des moustiques."
 
 msgid "Paktschatulle"
 msgstr "Coffret du pacte"
@@ -2126,6 +2285,12 @@ msgstr "Gant à poudre"
 
 msgid "Punkt in der Mitte"
 msgstr "Point central"
+
+msgid "Quest"
+msgstr "Quête"
+
+msgid "Quests"
+msgstr "Quêtes"
 
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "R / clic droit en glissant : tourner"
@@ -2261,6 +2426,12 @@ msgstr "Rubis"
 
 msgid "Rucksack"
 msgstr "Sac à dos"
+
+msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
+msgstr "Glisse un sac de la réserve vers l'inventaire (R tourne). Remets-le dans la réserve pour le détacher."
+
+msgid "Rucksack: %d×%d Felder"
+msgstr "Sac : %d×%d cases"
 
 msgid "Rucksäcke"
 msgstr "Sacs"
@@ -2423,6 +2594,9 @@ msgstr "Fermer"
 
 msgid "Schläger"
 msgstr "Voyou"
+
+msgid "Schlägt noch. Ganz langsam."
+msgstr "Il bat encore. Très lentement."
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "Tirs sinueux qui rebondissent"
@@ -2670,6 +2844,9 @@ msgstr "Joyau d'émeraude"
 msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
 msgstr "Un truc magique. Aucune idée, je suis un escr… euh, un vendeur !"
 
+msgid "So kalt, dass die Finger kleben bleiben."
+msgstr "Si froid que les doigts y collent."
+
 msgid "Solide"
 msgstr "Solide"
 
@@ -2856,6 +3033,9 @@ msgstr "Étincelle chercheuse"
 msgid "Suchender Strahl"
 msgstr "Rayon chercheur"
 
+msgid "Summt leise wie eine Wiese im Sommer."
+msgstr "Bourdonne doucement comme une prairie en été."
+
 msgid "Sumpfhaut"
 msgstr "Peau des marais"
 
@@ -2997,8 +3177,14 @@ msgstr "Et à gauche, c'est toi. Ne bouge pas, je t'habille…"
 msgid "Ungewöhnlich"
 msgstr "Peu commun"
 
+msgid "Unten ist dein Lager. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst. Zieh Sachen einfach hin und her."
+msgstr "En bas, c'est ta réserve. Tout ce que tu achètes ou rapportes du donjon y va. Glisse les objets comme tu veux."
+
 msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
 msgstr "En bas, c'est ton sac. Tout ce que tu achètes ou rapportes du donjon va dedans."
+
+msgid "Unter uns, Partner: Der Endboss der Glut hütet einen Glutrubin. Bring ihn mir, und ich zeig dir den Weg ins Moor. Ehrlich!"
+msgstr "Entre nous, partenaire : le boss final des braises garde un rubis de braise. Apporte-le-moi et je te montre le chemin du marais. Promis !"
 
 msgid "Utility"
 msgstr "Utilitaire"
@@ -3105,6 +3291,9 @@ msgstr "Vue perçante"
 msgid "Weiter"
 msgstr "Reprendre"
 
+msgid "Weiter zum Frostgipfel! Zieh dich warm an. Ich hab da zufällig Mäntel."
+msgstr "En route pour le Pic du Givre ! Couvre-toi bien. J'ai justement des manteaux."
+
 msgid "Weiterkämpfen"
 msgstr "Continuer le combat"
 
@@ -3128,6 +3317,9 @@ msgstr "Bottes de compétition"
 
 msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
 msgstr "Comme dans Counter-Strike 2 : le même nombre tourne autant."
+
+msgid "Wiesenkristall"
+msgstr "Cristal de prairie"
 
 msgid "Wiesenwespe"
 msgstr "Guêpe des Prés"

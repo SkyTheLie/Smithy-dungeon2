@@ -39,6 +39,9 @@ msgstr "لغو"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "ولی نه این‌طوری، بدون هیچ تجهیزاتی. بیا، اول یه نگاهی به مغازه‌ام بنداز."
 
+msgid "Abgeben"
+msgstr "تحویل"
+
 msgid "Abstand"
 msgstr "فاصله"
 
@@ -69,14 +72,29 @@ msgstr "همه چیز در مغازه نصف قیمت است"
 msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
 msgstr "پس بهتره خرجش کنی، رفیق. ترجیحاً پیش من!"
 
+msgid "Am Dungeon der Glut"
+msgstr "کنار سیاه‌چال اخگر"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "هر تیر در پایان به چهار جرقه می‌ترکد"
+
+msgid "Am Frostgipfel"
+msgstr "کنار قلهٔ یخ"
+
+msgid "Am Glutschlund"
+msgstr "کنار گلوگاه آتش"
+
+msgid "Am Moor der Irrlichter"
+msgstr "کنار مرداب شبتاب‌ها"
 
 msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
 msgstr "مثل یک قهرمان با طناب بالا آمدی! ولی… یاقوت من کجاست؟"
 
 msgid "Amethyst"
 msgstr "آمتیست"
+
+msgid "An der Wispernden Wiese"
+msgstr "کنار چمنزار نجواگر"
 
 msgid "Angriffstempo"
 msgstr "سرعت حمله"
@@ -101,6 +119,12 @@ msgstr "خاکستر"
 
 msgid "Audio"
 msgstr "صدا"
+
+msgid "Auf der Wiese bewacht der Endboss einen Kristall. Er summt, sagt man. Bring ihn mir. Ich brauch was zum Summen. Ehrlich!"
+msgstr "در چمنزار، غول آخر از یک کریستال نگهبانی می‌کند. می‌گویند وزوز می‌کند. برایم بیاورش. یک چیز وزوزی لازم دارم. راست می‌گویم!"
+
+msgid "Auf zur Wiese, Partner. Ich hab gehört, da wächst Gold. Oder Gras."
+msgstr "برویم چمنزار، رفیق. شنیده‌ام آنجا طلا می‌روید. یا علف."
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "اخگر عظیم شارژشده فرود می‌آید و منفجر می‌شود"
@@ -147,6 +171,9 @@ msgstr "هنگام برخورد، گلوله به چهار جرقه تبدیل �
 msgid "Beine"
 msgstr "پاها"
 
+msgid "Belohnung: der nächste Dungeon und %d Gold"
+msgstr "پاداش: سیاه‌چال بعدی و %d طلا"
+
 msgid "Bergfalke"
 msgstr "شاهین کوهی"
 
@@ -173,6 +200,9 @@ msgstr "ورود"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "غنیمت را از تو می‌خرم: در کوله راست‌کلیک کن، می‌رود بالا پیش خرید من. قیمت منصفانه. صادقانه!"
+
+msgid "Beute kaufe ich dir ab: Zieh sie einfach auf meinen Tisch. Faire Preise. Ehrlich!"
+msgstr "غنیمتت را می‌خرم: فقط بکشش روی میزم. قیمت منصفانه. راست می‌گویم!"
 
 msgid "Beute: %s"
 msgstr "غنیمت: %s"
@@ -231,6 +261,9 @@ msgstr "دشمنان سوزان و کند، و دو قلب آبی"
 msgid "Brennt gut in jeder Esse."
 msgstr "در هر کوره‌ای خوب می‌سوزد."
 
+msgid "Bring Egon den Stein vom Endboss (Quests), dann öffnet sich der nächste Dungeon."
+msgstr "سنگ غول آخر را برای اگون بیاور (مأموریت‌ها) تا سیاه‌چال بعدی باز شود."
+
 msgid "Bronze"
 msgstr "برنز"
 
@@ -285,6 +318,9 @@ msgstr "فیروزه‌ای"
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "اون پشت راه سیاه‌چال اخگره. بعضی‌ها حتی برمی‌گردن بیرون!"
 
+msgid "Da passt das nicht hin, Partner. Mach erst Platz."
+msgstr "آنجا جا نمی‌شود، رفیق. اول جا باز کن."
+
 msgid "Dafür reicht dein Gold nicht"
 msgstr "طلایت برای این کافی نیست"
 
@@ -300,6 +336,9 @@ msgstr "کولهٔ دیگری هنوز به این وصل است."
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "یک حشره‌ی کوچک داخلش گیر افتاده."
 
+msgid "Darin tanzt ein kleines Licht. Egon will ihn haben."
+msgstr "نور کوچکی درونش می‌رقصد. اگون آن را می‌خواهد."
+
 msgid "Darin wohnt fast ein ganzer Laden."
 msgstr "تقریباً یک مغازهٔ کامل تویش جا می‌شود."
 
@@ -312,11 +351,17 @@ msgstr "پوست یک غول یخی."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "طلای این دور. اگر بمیری از دست می‌رود، مگر در خانه‌ی امن."
 
+msgid "Das Herz des Drachen"
+msgstr "قلب اژدها"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "این پوشیدنی نیست، رفیق. باور کن، امتحان کردم."
 
 msgid "Das kostet zu viel Leben"
 msgstr "این زندگی زیادی می‌گیرد"
+
+msgid "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest."
+msgstr "این؟ این را نمی‌خرم. هدیه می‌خواهمش! اِ… به‌عنوان مأموریت."
 
 msgid "Deckkraft"
 msgstr "شفافیت"
@@ -342,6 +387,12 @@ msgstr "آیتم‌های تو"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "گلوله‌هایت دشمن را دنبال می‌کنند"
 
+msgid "Den Quest-Stein hierher ziehen"
+msgstr "سنگ مأموریت را اینجا بکش"
+
+msgid "Den Stein aus dem Lager auf den Quest-Platz oben rechts ziehen oder hier abgeben."
+msgstr "سنگ را از انبار به جای مأموریت بالا سمت راست بکش یا همین‌جا تحویل بده."
+
 msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
 msgstr "اولین رئیس را شکست دادی و با طناب بیرون آمدی."
 
@@ -354,8 +405,23 @@ msgstr "نوار بالای اهرم نشان می‌دهد چه چیزی ممک
 msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
 msgstr "رئیس یکی داشت، می‌دانم! اگر پیدا کردی برایم بیاور. منتظرم. بی‌صبرانه."
 
+msgid "Der Endboss am Frostgipfel hat einen Frost-Aquamarin. Bring ihn Egon."
+msgstr "غول آخر قلهٔ یخ یک زبرجد یخی دارد. آن را برای اگون بیاور."
+
+msgid "Der Endboss der Wispernden Wiese bewacht einen Wiesenkristall. Bring ihn Egon."
+msgstr "غول آخر چمنزار نجواگر از کریستال چمنزار نگهبانی می‌کند. آن را برای اگون بیاور."
+
+msgid "Der Endboss im Dungeon der Glut hütet einen Glutrubin. Bring ihn Egon."
+msgstr "غول آخر سیاه‌چال اخگر یک یاقوت اخگر دارد. آن را برای اگون بیاور."
+
+msgid "Der Endboss im Moor der Irrlichter trägt einen Irrlicht-Opal. Bring ihn Egon."
+msgstr "غول آخر مرداب شبتاب‌ها یک عقیق شبتاب دارد. آن را برای اگون بیاور."
+
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "پرتو آتش به سمت دشمن خم می‌شود"
+
+msgid "Der Glutrubin! Echt! Also … ich hab nie gezweifelt."
+msgstr "یاقوت اخگر! واقعی! خب… من هیچ‌وقت شک نکردم."
 
 msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
 msgstr "فروشندهٔ سیاه‌چال برای هر غنیمت ۲ طلا بیشتر می‌دهد."
@@ -363,14 +429,26 @@ msgstr "فروشندهٔ سیاه‌چال برای هر غنیمت ۲ طلا ب
 msgid "Der Händler kauft Beute: Tab, Rechtsklick"
 msgstr "فروشنده غنیمت می‌خرد: Tab، کلیک راست"
 
+msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
+msgstr "عقیق! می‌درخشد! تقریباً به روشنی آینده‌ام."
+
+msgid "Der Stein liegt in deinem Lager!"
+msgstr "سنگ در انبار توست!"
+
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "سنگ قربانی تو را می‌پذیرد"
+
+msgid "Der Vulkandrache im Glutschlund hat ein Herz aus Glut. Bring es Egon."
+msgstr "اژدهای آتشفشان در گلوگاه آتش قلبی از اخگر دارد. آن را برای اگون بیاور."
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "راه پایین باز شد!"
 
 msgid "Der Wildhüter"
 msgstr "شکاربان"
+
+msgid "Der einzige auch, aber das sagen wir keinem."
+msgstr "تنها مشتری هم هستی، ولی این را به کسی نمی‌گوییم."
 
 msgid "Der sichere Platz wird eine Spalte breiter."
 msgstr "جای امن یک ستون پهن‌تر می‌شود."
@@ -437,6 +515,9 @@ msgstr "نفس اژدها"
 
 msgid "Drachenhaut"
 msgstr "پوست اژدها"
+
+msgid "Drachenherz"
+msgstr "قلب اژدها"
 
 msgid "Drachenleder"
 msgstr "چرم اژدها"
@@ -567,11 +648,17 @@ msgstr "افکت‌ها"
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "اگون صادق، خوشوقتم. صادق اسم منه، صادق کسب‌وکار من. صادقانه!"
 
+msgid "Egon hat gerade keinen Auftrag."
+msgstr "اگون فعلاً کاری برایت ندارد."
+
 msgid "Egon könnte klauen!"
 msgstr "اگون ممکن است بدزدد!"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "چشم‌های اگون گرد می‌شود."
+
+msgid "Egons Glutrubin"
+msgstr "یاقوت اخگر اگون"
 
 msgid "Egons Laden"
 msgstr "مغازهٔ اگون"
@@ -645,6 +732,9 @@ msgstr "یک فروشنده! برو پیشش و با او حرف بزن."
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "گیاهی قلبی‌شکل. اگون از آن چای درست می‌کند."
 
+msgid "Ein Licht für Egon"
+msgstr "نوری برای اگون"
+
 msgid "Ein Platz mehr im Rucksack."
 msgstr "یک خانه‌ی بیشتر در کوله."
 
@@ -705,6 +795,9 @@ msgstr "یک قلب آبی، بعد از ضربه مدت بیشتری امنی"
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "یک قلب آبی، سریع‌تر راه می‌روی"
 
+msgid "Ein echtes Drachenherz! Partner, du bist der beste Kunde, den ich je hatte."
+msgstr "یک قلب اژدهای واقعی! رفیق، تو بهترین مشتری‌ای هستی که داشته‌ام."
+
 msgid "Ein einfacher Bogen. Für Bogenschützen."
 msgstr "یک کمان ساده. برای کمانداران."
 
@@ -719,6 +812,9 @@ msgstr "کولهٔ بزرگی با ۵×۳ خانه. پیش اگون به کیف�
 
 msgid "Ein rotes Herz mehr."
 msgstr "یک قلب قرمز بیشتر."
+
+msgid "Ein seltener Stein! Egon wird staunen."
+msgstr "یک سنگ کمیاب! اگون شگفت‌زده می‌شود."
 
 msgid "Ein sicherer Platz mehr im Rucksack."
 msgstr "یک خانه‌ی امن بیشتر در کوله."
@@ -801,6 +897,9 @@ msgstr "پر یخی"
 msgid "Eishöhle"
 msgstr "غار یخی"
 
+msgid "Eiskalte Gier"
+msgstr "طمع یخ‌زده"
+
 msgid "Eisrobbe"
 msgstr "فوک یخی"
 
@@ -833,6 +932,9 @@ msgstr "عصای زمین"
 
 msgid "Erfolg: %s"
 msgstr "دستاورد: %s"
+
+msgid "Erledigt"
+msgstr "انجام شد"
 
 msgid "Erreiche Ebene %d"
 msgstr "به طبقه %d برس"
@@ -944,6 +1046,9 @@ msgstr "باز شد: %s"
 
 msgid "Frost und Feuer"
 msgstr "یخ و آتش"
+
+msgid "Frost-Aquamarin"
+msgstr "زبرجد یخی"
 
 msgid "Frostflechte"
 msgstr "گلسنگ یخی"
@@ -1083,6 +1188,9 @@ msgstr "قفل: از سطح %d."
 msgid "Gesperrt: erst %s schaffen."
 msgstr "قفل: اول %s را تمام کن."
 
+msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
+msgstr "قفل: اول مأموریت اگون «%s» را انجام بده."
+
 msgid "Gesprengte Fessel"
 msgstr "زنجیر شکسته"
 
@@ -1173,6 +1281,9 @@ msgstr "ردای اخگر"
 msgid "Glutmond"
 msgstr "ماه اخگر"
 
+msgid "Glutrubin"
+msgstr "یاقوت اخگر"
+
 msgid "Glutsammler"
 msgstr "گردآورنده‌ی اخگر"
 
@@ -1223,6 +1334,9 @@ msgstr "خوش‌شانس"
 
 msgid "Glühender Schlüssel"
 msgstr "کلید گداخته"
+
+msgid "Glüht von innen. Den gibt es nur einmal, sagt Egon."
+msgstr "از درون می‌درخشد. اگون می‌گوید فقط یکی هست."
 
 msgid "Goblin"
 msgstr "گابلین"
@@ -1434,6 +1548,9 @@ msgstr "دیگ جادوگر"
 msgid "Hier klicken"
 msgstr "اینجا کلیک کن"
 
+msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
+msgstr "هرچه در انبار جا نشود اینجاست. جا باز کن یا بفروشش."
+
 msgid "Hinausgeklettert!"
 msgstr "بیرون آمدی!"
 
@@ -1494,6 +1611,9 @@ msgstr "دروازه دوزخ"
 msgid "Höllenwächter"
 msgstr "نگهبان دوزخ"
 
+msgid "Hörst du das? Er summt! Das Geld … äh, das Glück summt mit."
+msgstr "می‌شنوی؟ وزوز می‌کند! پول… اِ، بخت هم همراهش وزوز می‌کند."
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "من کلاه‌بر… اِه، فروشنده‌ام. من… …تجهیزات می‌فروشم! آره، دقیقاً. تجهیزات می‌فروشم."
 
@@ -1509,6 +1629,12 @@ msgstr "در سیاه‌چال %s را فشار می‌دهی. قلپ، قلپ،
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "در سیاه‌چال: %s برای نوشیدن"
 
+msgid "Im Glutschlund wohnt ein Drache. Sein Herz glüht. Bring es mir, und ich … ich bin sehr, sehr dankbar. Ehrlich!"
+msgstr "در گلوگاه آتش اژدهایی زندگی می‌کند. قلبش می‌درخشد. برایم بیاورش و من… خیلی خیلی ممنون می‌شوم. راست می‌گویم!"
+
+msgid "Im Moor trägt der Endboss einen Irrlicht-Opal. Hübsch. Sehr hübsch. Bring ihn mir, ich … verwahre ihn. Ganz legal!"
+msgstr "در مرداب، غول آخر یک عقیق شبتاب دارد. قشنگ. خیلی قشنگ. برایم بیاورش، من… نگهش می‌دارم. کاملاً قانونی!"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "در آتشفشان گدازه می‌جوشد و ته آن دروازه‌ای است. اگون هرگز آنجا نبوده. خودش این‌طور می‌گوید. ولی چکمه‌هایش سوخته است."
 
@@ -1518,6 +1644,9 @@ msgstr "به سیاه‌چال طلا نمی‌بری. آن پایین همکا�
 msgid "Inventar"
 msgstr "کوله‌پشتی"
 
+msgid "Inventar im Dungeon"
+msgstr "کیف در سیاه‌چال"
+
 msgid "Inventar voll!"
 msgstr "کوله‌پشتی پر است!"
 
@@ -1526,6 +1655,9 @@ msgstr "آتش سرگردان"
 
 msgid "Irrlicht-Glut"
 msgstr "اخگر آتش سرگردان"
+
+msgid "Irrlicht-Opal"
+msgstr "عقیق شبتاب"
 
 msgid "Irrlichtkönigin"
 msgstr "ملکه آتش‌های سرگردان"
@@ -1560,6 +1692,12 @@ msgstr "هر چرخش بیشتر امروز: %d %% از R1 به سطح‌های 
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "هر تیر دوم خیلی قوی‌تر است"
 
+msgid "Jetzt zum Glutschlund, Partner. Da ist es wenigstens warm."
+msgstr "حالا برویم گلوگاه آتش، رفیق. لااقل آنجا گرم است."
+
+msgid "Kalt! Kalt! Aber schön. Wie meine Preise."
+msgstr "سرد! سرد! ولی قشنگ. مثل قیمت‌های من."
+
 msgid "Kamille"
 msgstr "بابونه"
 
@@ -1581,6 +1719,9 @@ msgstr "نقشه"
 msgid "Kaufen: %d Gold"
 msgstr "خرید: %d طلا"
 
+msgid "Kein Platz"
+msgstr "جا نیست"
+
 msgid "Kein Relikt"
 msgstr "یادگار نیست"
 
@@ -1589,6 +1730,9 @@ msgstr "معجونی همراهت نیست"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "هیچ ضربه‌ای بیش از نیم قلب نمی‌گیرد"
+
+msgid "Keine Quest"
+msgstr "بدون مأموریت"
 
 msgid "Kinderschuhe"
 msgstr "کفش کودک"
@@ -1607,6 +1751,9 @@ msgstr "روی یک کلید کلیک کن، بعد کلید جدید را بز�
 
 msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
 msgstr "روی چیزی در کوله کلیک کن تا بپوشی. روی قهرمانت کلیک کن تا درش بیاوری."
+
+msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
+msgstr "کلیک یا کشیدن روی زبانهٔ کیف: وصل کردن به کیف"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "برای ادامه کلیک کن"
@@ -1667,6 +1814,9 @@ msgstr "شمشیر جنگجو"
 
 msgid "Kriegsaxt"
 msgstr "تبر جنگی"
+
+msgid "Kristall aus dem Gras"
+msgstr "کریستال میان علف‌ها"
 
 msgid "Kristallbrocken"
 msgstr "تکه بلور"
@@ -1739,6 +1889,9 @@ msgstr "مغازه"
 
 msgid "Ladenschild"
 msgstr "تابلو مغازه"
+
+msgid "Lager"
+msgstr "انبار"
 
 msgid "Lang und schmal, schwer wie ein Amboss."
 msgstr "بلند و باریک، سنگین مثل سندان."
@@ -2028,6 +2181,9 @@ msgstr "صفحه بعد"
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "سطح بعد: %d طلا، %d امتیاز مهارت، از سطح بازیکن %d"
 
+msgid "Oben am Frostgipfel hat der Endboss einen Frost-Aquamarin. Bring ihn mir. Handschuhe hab ich. Gegen einen kleinen Obolus."
+msgstr "بالای قلهٔ یخ، غول آخر یک زبرجد یخی دارد. برایم بیاورش. دستکش دارم. با یک مبلغ ناچیز."
+
 msgid "Obsidianwächter"
 msgstr "نگهبان ابسیدین"
 
@@ -2054,6 +2210,9 @@ msgstr "اورک"
 
 msgid "Ork-Häuptling"
 msgstr "رئیس اورک‌ها"
+
+msgid "Pack ein, Partner, wir ziehen um. Ans Moor! Da gibt's Kundschaft. Und Mücken."
+msgstr "وسایل را جمع کن، رفیق، اسباب‌کشی داریم. به مرداب! آنجا مشتری هست. و پشه."
 
 msgid "Paktschatulle"
 msgstr "صندوقچه پیمان"
@@ -2126,6 +2285,12 @@ msgstr "دستکش باروت"
 
 msgid "Punkt in der Mitte"
 msgstr "نقطه وسط"
+
+msgid "Quest"
+msgstr "مأموریت"
+
+msgid "Quests"
+msgstr "مأموریت‌ها"
 
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "R / کلیک راست هنگام کشیدن: چرخاندن"
@@ -2261,6 +2426,12 @@ msgstr "یاقوت"
 
 msgid "Rucksack"
 msgstr "کوله‌پشتی"
+
+msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
+msgstr "کوله را از انبار به کیف بکش (R می‌چرخاند). برگرداندن به انبار = جدا کردن."
+
+msgid "Rucksack: %d×%d Felder"
+msgstr "کوله: %d×%d خانه"
 
 msgid "Rucksäcke"
 msgstr "کوله‌ها"
@@ -2423,6 +2594,9 @@ msgstr "بستن"
 
 msgid "Schläger"
 msgstr "اوباش"
+
+msgid "Schlägt noch. Ganz langsam."
+msgstr "هنوز می‌تپد. خیلی آهسته."
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "تیرهای مارپیچ که کمانه می‌کنند"
@@ -2670,6 +2844,9 @@ msgstr "جواهر زمرد"
 msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
 msgstr "یک چیز جادویی. نمی‌دانم، من یک کلاه‌بر… اِ، یک فروشنده‌ام!"
 
+msgid "So kalt, dass die Finger kleben bleiben."
+msgstr "آن‌قدر سرد که انگشت‌ها به آن می‌چسبند."
+
 msgid "Solide"
 msgstr "محکم"
 
@@ -2856,6 +3033,9 @@ msgstr "جرقه‌ی جوینده"
 msgid "Suchender Strahl"
 msgstr "پرتو جوینده"
 
+msgid "Summt leise wie eine Wiese im Sommer."
+msgstr "آرام وزوز می‌کند، مثل چمنزاری در تابستان."
+
 msgid "Sumpfhaut"
 msgstr "پوست مرداب"
 
@@ -2997,8 +3177,14 @@ msgstr "و سمت چپ خودتی. تکون نخور، لباس تنت می‌ک
 msgid "Ungewöhnlich"
 msgstr "غیرمعمول"
 
+msgid "Unten ist dein Lager. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst. Zieh Sachen einfach hin und her."
+msgstr "پایین انبار توست. هرچه بخری یا از سیاه‌چال بیاوری آنجا می‌رود. چیزها را هرجا خواستی بکش."
+
 msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
 msgstr "پایین کیف توئه. هرچی بخری یا از سیاه‌چال بیاری میره اون تو."
+
+msgid "Unter uns, Partner: Der Endboss der Glut hütet einen Glutrubin. Bring ihn mir, und ich zeig dir den Weg ins Moor. Ehrlich!"
+msgstr "بین خودمان باشد، رفیق: غول آخر اخگر از یک یاقوت اخگر نگهبانی می‌کند. برایم بیاورش تا راه مرداب را نشانت بدهم. راست می‌گویم!"
 
 msgid "Utility"
 msgstr "کاربردی"
@@ -3105,6 +3291,9 @@ msgstr "دوربینی"
 msgid "Weiter"
 msgstr "ادامه"
 
+msgid "Weiter zum Frostgipfel! Zieh dich warm an. Ich hab da zufällig Mäntel."
+msgstr "به‌سوی قلهٔ یخ! گرم بپوش. اتفاقاً پالتو دارم."
+
 msgid "Weiterkämpfen"
 msgstr "ادامه‌ی نبرد"
 
@@ -3128,6 +3317,9 @@ msgstr "چکمه مسابقه"
 
 msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
 msgstr "مثل Counter-Strike 2: همان عدد همان‌قدر می‌چرخاند."
+
+msgid "Wiesenkristall"
+msgstr "کریستال چمنزار"
 
 msgid "Wiesenwespe"
 msgstr "زنبور چمنزار"

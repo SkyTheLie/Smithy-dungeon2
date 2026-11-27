@@ -323,7 +323,7 @@ func add_coins(amount: int) -> int:
 ## sell_bonus) per piece. 0 for an empty place and for the gold itself.
 func sell_price(index: int) -> int:
 	var place: Dictionary = bag.get_place(index)
-	if place.is_empty() or String(place["id"]) == Bag.GOLD:
+	if place.is_empty() or String(place["id"]) == Bag.GOLD or Quests.is_stone(String(place["id"])):
 		return 0
 	var value: int = maxi(0, int(Content.material(String(place["id"])).get("value", 0)))
 	return (value + sell_bonus) * int(place["count"])

@@ -162,7 +162,8 @@ func _check_loot(content: Script, enemies: Dictionary) -> void:
 		check(ResourceLoader.exists(String(entry.get("icon", ""))), "loot %s picture" % id)
 		check(not String(entry.get("name", "")).is_empty() and not String(entry.get("desc", "")).is_empty(), "loot %s name and text" % id)
 		check(int(entry.get("rarity", 0)) >= 1 and int(entry.get("rarity", 0)) <= 8, "loot %s rarity 1-8" % id)
-		check(int(entry.get("value", 0)) > 0, "loot %s has a value" % id)
+		# Quest stones (quests.json) are worth nothing at the merchant; all other loot is.
+		check(int(entry.get("value", 0)) > 0 or bool(entry.get("quest", false)), "loot %s has a value" % id)
 	var tables: Dictionary = (content.call("get_file", "loot") as Dictionary).get("enemies", {})
 	for enemy_id: String in tables:
 		check(enemies.has(enemy_id), "loot for enemy %s: enemy exists" % enemy_id)

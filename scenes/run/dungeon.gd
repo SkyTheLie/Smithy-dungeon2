@@ -753,6 +753,12 @@ func _on_enemy_died(enemy: Enemy) -> void:
 		for other: Enemy in enemies.duplicate():
 			other.take_damage(9999.0, Vector3.ZERO, false)
 		AudioManager.play_sound("boss_die")
+		# Egon's quest: the end boss (Boss-Altar) leaves the stone of the open quest of this dungeon.
+		if in_boss_altar():
+			var stone: String = Quests.drop_for(Content.dungeon_id(), run.bag)
+			if not stone.is_empty():
+				_drop_loot(altar, enemy.global_position, stone, 1, false)
+				message.emit("Ein seltener Stein! Egon wird staunen.")
 		# Egon's errand: the very first boss always leaves the ruby.
 		if not in_boss_altar() and MetaState.rope_due(Content.dungeon_id(), floor_index):
 			_drop_loot(rooms[current_cell], enemy.global_position, String(Content.meta("ruby_quest").get("item", "")), 1, false)

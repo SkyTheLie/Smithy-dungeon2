@@ -172,7 +172,7 @@ func _flee() -> void:
 	check_eq((end_screen.get_node("%Title") as Label).text, "Geflüchtet!", "it says Geflüchtet!")
 	check_eq(meta.call("box"), coins, "the gold comes home into the box")
 	var stash: Array = meta.call("stash")
-	check(stash.any(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur" and int(place.get("count")) == 3), "the whole bag comes home")
+	check_eq(stash.filter(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur").size(), 3, "the whole bag comes home (each fur on its own)")
 	check_eq(meta.call("day"), day + 1, "a new day")
 	# No buttons: a click (after a moment) wakes you up in front of Egon.
 	check(not end_screen.call("can_go_on"), "a click right away does nothing")

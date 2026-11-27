@@ -39,6 +39,9 @@ msgstr "Cancel"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "But not like that, without any equipment. Come, have a look at my shop first."
 
+msgid "Abgeben"
+msgstr "Hand in"
+
 msgid "Abstand"
 msgstr "Gap"
 
@@ -69,14 +72,29 @@ msgstr "Everything in the shop costs half"
 msgid "Also lieber ausgeben, Partner. Am besten bei mir!"
 msgstr "So better spend it, partner. Preferably with me!"
 
+msgid "Am Dungeon der Glut"
+msgstr "At the Dungeon of Embers"
+
 msgid "Am Ende zerplatzt jeder Schuss in vier Funken"
 msgstr "At the end every shot bursts into four sparks"
+
+msgid "Am Frostgipfel"
+msgstr "At Frost Peak"
+
+msgid "Am Glutschlund"
+msgstr "At the Ember Maw"
+
+msgid "Am Moor der Irrlichter"
+msgstr "At the Moor of Wisps"
 
 msgid "Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?"
 msgstr "Climbed out on the rope like a hero! But… where's my ruby?"
 
 msgid "Amethyst"
 msgstr "Amethyst"
+
+msgid "An der Wispernden Wiese"
+msgstr "At the Whispering Meadow"
 
 msgid "Angriffstempo"
 msgstr "Attack speed"
@@ -101,6 +119,12 @@ msgstr "Ash"
 
 msgid "Audio"
 msgstr "Audio"
+
+msgid "Auf der Wiese bewacht der Endboss einen Kristall. Er summt, sagt man. Bring ihn mir. Ich brauch was zum Summen. Ehrlich!"
+msgstr "On the meadow the final boss guards a crystal. It hums, they say. Bring it to me. I need something to hum. Honest!"
+
+msgid "Auf zur Wiese, Partner. Ich hab gehört, da wächst Gold. Oder Gras."
+msgstr "Off to the meadow, partner. I hear gold grows there. Or grass."
 
 msgid "Aufgeladene Riesenglut schlägt ein und explodiert"
 msgstr "Charged giant embers crash down and explode"
@@ -147,6 +171,9 @@ msgstr "On a hit the shot bursts into four sparks"
 msgid "Beine"
 msgstr "Legs"
 
+msgid "Belohnung: der nächste Dungeon und %d Gold"
+msgstr "Reward: the next dungeon and %d gold"
+
 msgid "Bergfalke"
 msgstr "Mountain Hawk"
 
@@ -173,6 +200,9 @@ msgstr "Enter"
 
 msgid "Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"
 msgstr "I buy your loot: right-click it in the inventory and it lands up at my buying spot. Fair prices. Honestly!"
+
+msgid "Beute kaufe ich dir ab: Zieh sie einfach auf meinen Tisch. Faire Preise. Ehrlich!"
+msgstr "I'll buy your loot: just drag it onto my table. Fair prices. Honest!"
 
 msgid "Beute: %s"
 msgstr "Loot: %s"
@@ -231,6 +261,9 @@ msgstr "Burning, slowed enemies and two blue hearts"
 msgid "Brennt gut in jeder Esse."
 msgstr "Burns well in any forge."
 
+msgid "Bring Egon den Stein vom Endboss (Quests), dann öffnet sich der nächste Dungeon."
+msgstr "Bring Egon the stone from the final boss (Quests) to open the next dungeon."
+
 msgid "Bronze"
 msgstr "Bronze"
 
@@ -285,6 +318,9 @@ msgstr "Cyan"
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Back there is the way into the Dungeon of Embers. Some even come back out!"
 
+msgid "Da passt das nicht hin, Partner. Mach erst Platz."
+msgstr "That won't fit there, partner. Make room first."
+
 msgid "Dafür reicht dein Gold nicht"
 msgstr "You don't have enough gold for that"
 
@@ -300,6 +336,9 @@ msgstr "Another backpack still hangs on this one."
 msgid "Darin steckt ein kleines Krabbeltier."
 msgstr "There is a tiny bug stuck inside."
 
+msgid "Darin tanzt ein kleines Licht. Egon will ihn haben."
+msgstr "A little light dances inside. Egon wants it."
+
 msgid "Darin wohnt fast ein ganzer Laden."
 msgstr "Almost a whole shop fits inside."
 
@@ -312,11 +351,17 @@ msgstr "The pelt of a giant made of ice."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "The gold of this run. If you die it is gone, unless it is in the safe slot."
 
+msgid "Das Herz des Drachen"
+msgstr "The Dragon's Heart"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "You can't wear that, partner. Trust me, I've tried."
 
 msgid "Das kostet zu viel Leben"
 msgstr "That costs too much life"
+
+msgid "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest."
+msgstr "That? I'm not buying that. I want it as a gift! Er… as a quest."
 
 msgid "Deckkraft"
 msgstr "Opacity"
@@ -342,6 +387,12 @@ msgstr "Your items"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Your shots chase enemies"
 
+msgid "Den Quest-Stein hierher ziehen"
+msgstr "Drag the quest stone here"
+
+msgid "Den Stein aus dem Lager auf den Quest-Platz oben rechts ziehen oder hier abgeben."
+msgstr "Drag the stone from the stash onto the quest spot at the top right, or hand it in here."
+
 msgid "Den ersten Boss besiegt und am Seil hinausgeklettert."
 msgstr "Beat the first boss and climbed out on the rope."
 
@@ -354,8 +405,23 @@ msgstr "The bar above the lever shows what can come: grey is common, green solid
 msgid "Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
 msgstr "The boss had one, I know it! Bring it to me if you find one. I'll wait. Impatiently."
 
+msgid "Der Endboss am Frostgipfel hat einen Frost-Aquamarin. Bring ihn Egon."
+msgstr "The final boss of Frost Peak has a frost aquamarine. Bring it to Egon."
+
+msgid "Der Endboss der Wispernden Wiese bewacht einen Wiesenkristall. Bring ihn Egon."
+msgstr "The final boss of the Whispering Meadow guards a meadow crystal. Bring it to Egon."
+
+msgid "Der Endboss im Dungeon der Glut hütet einen Glutrubin. Bring ihn Egon."
+msgstr "The final boss of the Dungeon of Embers guards an ember ruby. Bring it to Egon."
+
+msgid "Der Endboss im Moor der Irrlichter trägt einen Irrlicht-Opal. Bring ihn Egon."
+msgstr "The final boss of the Moor of Wisps carries a wisp opal. Bring it to Egon."
+
 msgid "Der Feuerstrahl biegt sich zum Gegner"
 msgstr "The fire beam bends toward enemies"
+
+msgid "Der Glutrubin! Echt! Also … ich hab nie gezweifelt."
+msgstr "The ember ruby! For real! Well… I never doubted you."
 
 msgid "Der Händler im Dungeon zahlt 2 Gold mehr für jede Beute."
 msgstr "The merchant in the dungeon pays 2 gold more for each piece of loot."
@@ -363,14 +429,26 @@ msgstr "The merchant in the dungeon pays 2 gold more for each piece of loot."
 msgid "Der Händler kauft Beute: Tab, Rechtsklick"
 msgstr "The merchant buys loot: Tab, right click"
 
+msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
+msgstr "The opal! It glows! Almost as bright as my future."
+
+msgid "Der Stein liegt in deinem Lager!"
+msgstr "The stone is in your stash!"
+
 msgid "Der Stein nimmt dein Opfer an"
 msgstr "The stone accepts your sacrifice"
+
+msgid "Der Vulkandrache im Glutschlund hat ein Herz aus Glut. Bring es Egon."
+msgstr "The volcano dragon in the Ember Maw has a heart of embers. Bring it to Egon."
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "The way down is open!"
 
 msgid "Der Wildhüter"
 msgstr "The Gamekeeper"
+
+msgid "Der einzige auch, aber das sagen wir keinem."
+msgstr "The only one too, but let's not tell anyone."
 
 msgid "Der sichere Platz wird eine Spalte breiter."
 msgstr "The safe spot gets one column wider."
@@ -437,6 +515,9 @@ msgstr "Dragon Breath"
 
 msgid "Drachenhaut"
 msgstr "Dragon Hide"
+
+msgid "Drachenherz"
+msgstr "Dragon Heart"
 
 msgid "Drachenleder"
 msgstr "Dragon Leather"
@@ -567,11 +648,17 @@ msgstr "Effects"
 msgid "Egon Ehrlich, sehr erfreut. Ehrlich ist mein Name, ehrlich mein Geschäft. Ehrlich!"
 msgstr "Egon Honest, pleased to meet you. Honest is my name, honest is my business. Honestly!"
 
+msgid "Egon hat gerade keinen Auftrag."
+msgstr "Egon has no job for you right now."
+
 msgid "Egon könnte klauen!"
 msgstr "Egon might steal!"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "Egon's eyes go very wide."
+
+msgid "Egons Glutrubin"
+msgstr "Egon's Ember Ruby"
 
 msgid "Egons Laden"
 msgstr "Egon's Shop"
@@ -645,6 +732,9 @@ msgstr "A merchant! Go over and talk to him."
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "A heart-shaped herb. Egon makes tea from it."
 
+msgid "Ein Licht für Egon"
+msgstr "A Light for Egon"
+
 msgid "Ein Platz mehr im Rucksack."
 msgstr "One more backpack slot."
 
@@ -705,6 +795,9 @@ msgstr "A blue heart, safe longer after hits"
 msgid "Ein blaues Herz, schneller laufen"
 msgstr "One blue heart, move faster"
 
+msgid "Ein echtes Drachenherz! Partner, du bist der beste Kunde, den ich je hatte."
+msgstr "A real dragon heart! Partner, you're the best customer I've ever had."
+
 msgid "Ein einfacher Bogen. Für Bogenschützen."
 msgstr "A simple bow. For archers."
 
@@ -719,6 +812,9 @@ msgstr "A huge backpack with 5×3 cells. Attach it to your inventory at Egon's."
 
 msgid "Ein rotes Herz mehr."
 msgstr "One more red heart."
+
+msgid "Ein seltener Stein! Egon wird staunen."
+msgstr "A rare stone! Egon will be amazed."
 
 msgid "Ein sicherer Platz mehr im Rucksack."
 msgstr "One more safe slot in the backpack."
@@ -801,6 +897,9 @@ msgstr "Ice Feather"
 msgid "Eishöhle"
 msgstr "Ice Cave"
 
+msgid "Eiskalte Gier"
+msgstr "Ice-Cold Greed"
+
 msgid "Eisrobbe"
 msgstr "Ice Seal"
 
@@ -833,6 +932,9 @@ msgstr "Earth Staff"
 
 msgid "Erfolg: %s"
 msgstr "Achievement: %s"
+
+msgid "Erledigt"
+msgstr "Done"
 
 msgid "Erreiche Ebene %d"
 msgstr "Reach floor %d"
@@ -944,6 +1046,9 @@ msgstr "Unlocked: %s"
 
 msgid "Frost und Feuer"
 msgstr "Frost and Fire"
+
+msgid "Frost-Aquamarin"
+msgstr "Frost Aquamarine"
 
 msgid "Frostflechte"
 msgstr "Frost Lichen"
@@ -1083,6 +1188,9 @@ msgstr "Locked: from level %d."
 msgid "Gesperrt: erst %s schaffen."
 msgstr "Locked: beat %s first."
 
+msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
+msgstr "Locked: first finish Egon's quest “%s”."
+
 msgid "Gesprengte Fessel"
 msgstr "Broken Shackle"
 
@@ -1173,6 +1281,9 @@ msgstr "Ember Cloak"
 msgid "Glutmond"
 msgstr "Ember Moon"
 
+msgid "Glutrubin"
+msgstr "Ember Ruby"
+
 msgid "Glutsammler"
 msgstr "Ember Gatherer"
 
@@ -1223,6 +1334,9 @@ msgstr "Lucky devil"
 
 msgid "Glühender Schlüssel"
 msgstr "Glowing Key"
+
+msgid "Glüht von innen. Den gibt es nur einmal, sagt Egon."
+msgstr "Glows from within. There's only one, says Egon."
 
 msgid "Goblin"
 msgstr "Goblin"
@@ -1434,6 +1548,9 @@ msgstr "Witch's Cauldron"
 msgid "Hier klicken"
 msgstr "Click here"
 
+msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
+msgstr "What doesn't fit into the stash lies here. Make room or sell it."
+
 msgid "Hinausgeklettert!"
 msgstr "Climbed out!"
 
@@ -1494,6 +1611,9 @@ msgstr "Gate of Hell"
 msgid "Höllenwächter"
 msgstr "Hell Warden"
 
+msgid "Hörst du das? Er summt! Das Geld … äh, das Glück summt mit."
+msgstr "Hear that? It hums! The money… er, the luck hums along."
+
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "I'm the swind… er, the gear-seller. I sell… …equipment! Yes, exactly. I sell equipment."
 
@@ -1509,6 +1629,12 @@ msgstr "In the dungeon you press %s. Glug, glug, and two hearts are back."
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "In the dungeon: %s drinks it"
 
+msgid "Im Glutschlund wohnt ein Drache. Sein Herz glüht. Bring es mir, und ich … ich bin sehr, sehr dankbar. Ehrlich!"
+msgstr "A dragon lives in the Ember Maw. Its heart glows. Bring it to me, and I'll… I'll be very, very grateful. Honest!"
+
+msgid "Im Moor trägt der Endboss einen Irrlicht-Opal. Hübsch. Sehr hübsch. Bring ihn mir, ich … verwahre ihn. Ganz legal!"
+msgstr "In the moor the final boss carries a wisp opal. Pretty. Very pretty. Bring it to me, I'll… keep it safe. Totally legal!"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "Lava bubbles inside the volcano, and at the very bottom stands a gate. Egon was never there. So he says. His boots are scorched, though."
 
@@ -1518,6 +1644,9 @@ msgstr "You don't take gold into the dungeon. Down there my colleague buys your 
 msgid "Inventar"
 msgstr "Inventory"
 
+msgid "Inventar im Dungeon"
+msgstr "Inventory in the dungeon"
+
 msgid "Inventar voll!"
 msgstr "Inventory full!"
 
@@ -1526,6 +1655,9 @@ msgstr "Will-o'-the-Wisp"
 
 msgid "Irrlicht-Glut"
 msgstr "Wisp Ember"
+
+msgid "Irrlicht-Opal"
+msgstr "Wisp Opal"
 
 msgid "Irrlichtkönigin"
 msgstr "Wisp Queen"
@@ -1560,6 +1692,12 @@ msgstr "Every further spin today: %d %% from R1 to the rarer tiers (at most %d %
 msgid "Jeder zweite Schuss ist viel stärker"
 msgstr "Every second shot is much stronger"
 
+msgid "Jetzt zum Glutschlund, Partner. Da ist es wenigstens warm."
+msgstr "Now to the Ember Maw, partner. At least it's warm there."
+
+msgid "Kalt! Kalt! Aber schön. Wie meine Preise."
+msgstr "Cold! Cold! But beautiful. Like my prices."
+
 msgid "Kamille"
 msgstr "Chamomile"
 
@@ -1581,6 +1719,9 @@ msgstr "Map"
 msgid "Kaufen: %d Gold"
 msgstr "Buy: %d gold"
 
+msgid "Kein Platz"
+msgstr "No room"
+
 msgid "Kein Relikt"
 msgstr "No relic"
 
@@ -1589,6 +1730,9 @@ msgstr "No potion with you"
 
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "No hit takes more than half a heart"
+
+msgid "Keine Quest"
+msgstr "No quest"
 
 msgid "Kinderschuhe"
 msgstr "Child's Shoes"
@@ -1607,6 +1751,9 @@ msgstr "Click a key, then press the new one. Esc = cancel."
 
 msgid "Klick auf etwas im Inventar, dann ziehst du es an. Klick auf deine Figur, dann ziehst du es wieder aus."
 msgstr "Click something in the inventory to put it on. Click your figure to take it off again."
+
+msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
+msgstr "Click or drag onto the Inventory tab: attach to your inventory"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "Click to continue"
@@ -1667,6 +1814,9 @@ msgstr "Warrior's Sword"
 
 msgid "Kriegsaxt"
 msgstr "War Axe"
+
+msgid "Kristall aus dem Gras"
+msgstr "Crystal from the Grass"
 
 msgid "Kristallbrocken"
 msgstr "Crystal Lump"
@@ -1739,6 +1889,9 @@ msgstr "Shop"
 
 msgid "Ladenschild"
 msgstr "Shop Sign"
+
+msgid "Lager"
+msgstr "Stash"
 
 msgid "Lang und schmal, schwer wie ein Amboss."
 msgstr "Long and narrow, heavy as an anvil."
@@ -2028,6 +2181,9 @@ msgstr "Next page"
 msgid "Nächste Stufe: %d Gold, %d Skillpunkte, ab Spielerstufe %d"
 msgstr "Next level: %d gold, %d skill points, from player level %d"
 
+msgid "Oben am Frostgipfel hat der Endboss einen Frost-Aquamarin. Bring ihn mir. Handschuhe hab ich. Gegen einen kleinen Obolus."
+msgstr "Up on Frost Peak the final boss has a frost aquamarine. Bring it to me. I've got gloves. For a small fee."
+
 msgid "Obsidianwächter"
 msgstr "Obsidian Guardian"
 
@@ -2054,6 +2210,9 @@ msgstr "Orc"
 
 msgid "Ork-Häuptling"
 msgstr "Orc Chieftain"
+
+msgid "Pack ein, Partner, wir ziehen um. Ans Moor! Da gibt's Kundschaft. Und Mücken."
+msgstr "Pack up, partner, we're moving. To the moor! There are customers there. And mosquitoes."
 
 msgid "Paktschatulle"
 msgstr "Pact Casket"
@@ -2126,6 +2285,12 @@ msgstr "Powder Glove"
 
 msgid "Punkt in der Mitte"
 msgstr "Center dot"
+
+msgid "Quest"
+msgstr "Quest"
+
+msgid "Quests"
+msgstr "Quests"
 
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "R / right click while dragging: rotate"
@@ -2261,6 +2426,12 @@ msgstr "Ruby"
 
 msgid "Rucksack"
 msgstr "Backpack"
+
+msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
+msgstr "Drag a backpack from the stash to the inventory (R rotates). Drag it back into the stash to detach."
+
+msgid "Rucksack: %d×%d Felder"
+msgstr "Backpack: %d×%d cells"
 
 msgid "Rucksäcke"
 msgstr "Backpacks"
@@ -2423,6 +2594,9 @@ msgstr "Close"
 
 msgid "Schläger"
 msgstr "Thug"
+
+msgid "Schlägt noch. Ganz langsam."
+msgstr "Still beating. Very slowly."
 
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "Snaking shots that bounce"
@@ -2670,6 +2844,9 @@ msgstr "Emerald Jewel"
 msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
 msgstr "Some magic thing. No idea, I'm a crook… uh, a salesman!"
 
+msgid "So kalt, dass die Finger kleben bleiben."
+msgstr "So cold your fingers stick to it."
+
 msgid "Solide"
 msgstr "Sturdy"
 
@@ -2856,6 +3033,9 @@ msgstr "Seeking Spark"
 msgid "Suchender Strahl"
 msgstr "Seeking Beam"
 
+msgid "Summt leise wie eine Wiese im Sommer."
+msgstr "Hums softly like a meadow in summer."
+
 msgid "Sumpfhaut"
 msgstr "Swamp Hide"
 
@@ -2997,8 +3177,14 @@ msgstr "And on the left, that's you. Hold still, I'll dress you…"
 msgid "Ungewöhnlich"
 msgstr "Uncommon"
 
+msgid "Unten ist dein Lager. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst. Zieh Sachen einfach hin und her."
+msgstr "Down below is your stash. Everything you buy or bring from the dungeon goes there. Just drag things around."
+
 msgid "Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."
 msgstr "Down there is your bag. Everything you buy or bring back from the dungeon goes in there."
+
+msgid "Unter uns, Partner: Der Endboss der Glut hütet einen Glutrubin. Bring ihn mir, und ich zeig dir den Weg ins Moor. Ehrlich!"
+msgstr "Between us, partner: the final boss of the embers guards an ember ruby. Bring it to me and I'll show you the way to the moor. Honest!"
 
 msgid "Utility"
 msgstr "Utility"
@@ -3105,6 +3291,9 @@ msgstr "Far sight"
 msgid "Weiter"
 msgstr "Resume"
 
+msgid "Weiter zum Frostgipfel! Zieh dich warm an. Ich hab da zufällig Mäntel."
+msgstr "On to Frost Peak! Dress warmly. I happen to have coats."
+
 msgid "Weiterkämpfen"
 msgstr "Keep fighting"
 
@@ -3128,6 +3317,9 @@ msgstr "Contest Boots"
 
 msgid "Wie in Counter-Strike 2: dieselbe Zahl dreht genauso weit."
 msgstr "Like in Counter-Strike 2: the same number turns just as far."
+
+msgid "Wiesenkristall"
+msgstr "Meadow Crystal"
 
 msgid "Wiesenwespe"
 msgstr "Meadow Wasp"

@@ -40,7 +40,8 @@
 5. **Der Ankauf:** Er zahlt für Beute fast nichts und lobt sich dafür („Weil du es bist!“).
 6. **Aufs Haus:** Den allerersten Einkauf schenkt er (Tutorial) und erinnert danach gern daran, dass ab jetzt alles einen „kleinen Obolus“ kostet.
 7. **Die Sorge, die zwei Minuten dauert:** Nach dem zweiten Tod des Spielers ist er „fast zwei Minuten lang“ besorgt und schenkt ihm einen Heiltrank (Begründung: „Ein toter Kunde kauft ja nichts mehr.“). Seine Tränke schmecken nach Kirsche und ein bisschen nach Socke.
-8. **Die Schlüssel:** Schlüssel aus dem Dungeon zerbrechen, sobald man ihn verlässt. Egon weiß nicht, warum („So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!“) und erzählt es beim ersten Besuch vor dem Dungeon.
+8. **Die Quest-Steine:** Jeder Endboss hütet einen seltenen Stein (Glutrubin, Irrlicht-Opal, Wiesenkristall, Frost-Aquamarin, Drachenherz). Egon will sie unbedingt, kauft sie aber nie: „Das will ich geschenkt! Äh … als Quest.“ Für jeden Stein zieht er mit seinem Laden einen Dungeon weiter und findet jeden neuen Ort sofort großartig, mit einem kleinen Haken („Da gibt's Kundschaft. Und Mücken.“).
+9. **Die Schlüssel:** Schlüssel aus dem Dungeon zerbrechen, sobald man ihn verlässt. Egon weiß nicht, warum („So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!“) und erzählt es beim ersten Besuch vor dem Dungeon.
 
 ## Was Egon nie tut
 

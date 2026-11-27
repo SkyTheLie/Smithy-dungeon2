@@ -10,6 +10,7 @@ Texts it finds by itself:
   - "name" and "desc" in data/items.json, data/synergies.json, data/enemies.json, data/characters.json, materials in data/loot.json, theme "name" in floors.json,
     "name"/"region"/"desc" in data/dungeons.json, gear and slot names in data/gear.json,
     every line in data/story.json, skill names in data/skills.json, potions in data/potions.json,
+    quests and Egon's places in data/quests.json, backpacks in data/backpacks.json,
     achievements in data/achievements.json
 """
 import json
@@ -89,6 +90,16 @@ def find_texts():
             continue
         for line in (value.values() if isinstance(value, dict) else value):
             texts.add(line)
+    quests = json.load(open(os.path.join(data, "quests.json"), encoding="utf-8"))
+    for entry in list(quests.get("quests", {}).values()) + list(quests.get("locations", {}).values()):
+        for field in ("name", "desc"):
+            if entry.get(field):
+                texts.add(entry[field])
+    backpacks = json.load(open(os.path.join(data, "backpacks.json"), encoding="utf-8"))
+    for entry in backpacks.get("backpacks", {}).values():
+        for field in ("name", "desc"):
+            if entry.get(field):
+                texts.add(entry[field])
     floors = json.load(open(os.path.join(data, "floors.json"), encoding="utf-8"))
     for theme in floors.get("themes", {}).values():
         texts.add(theme["name"])

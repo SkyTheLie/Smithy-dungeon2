@@ -14,7 +14,7 @@
 	"tutorial_lever": ["Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"],
 	"tutorial_goods": ["Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"],
 	"tutorial_gifts": ["Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"],
-	"tutorial_bag": ["Unten ist deine Tasche. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst."],
+	"tutorial_bag": ["Unten ist dein Lager. Da kommt alles rein, was du kaufst oder aus dem Dungeon mitbringst. Zieh Sachen einfach hin und her."],
 	"tutorial_dress": ["Und links bist du. Halt still, ich zieh dich an…"],
 	"tutorial_chances": ["Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."],
 	"tutorial_reroll": [
@@ -32,7 +32,7 @@
 		"Also lieber ausgeben, Partner. Am besten bei mir!",
 		"In den Dungeon nimmst du kein Gold mit. Unten kauft dir mein Kollege Beute ab, fast so ehrlich wie ich."
 	],
-	"tutorial_sell": ["Beute kaufe ich dir ab: Rechtsklick im Inventar, dann liegt sie oben bei meinem Ankauf. Faire Preise. Ehrlich!"],
+	"tutorial_sell": ["Beute kaufe ich dir ab: Zieh sie einfach auf meinen Tisch. Faire Preise. Ehrlich!"],
 	"tutorial_skills": ["Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."],
 	"tutorial_dungeon": [
 		"Und jetzt ab in den Dungeon! Unter uns, Partner: Ich hätte da einen kleinen Auftrag.",
@@ -67,12 +67,22 @@
 		"Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?",
 		"Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
 	],
+	"quest_glutrubin_intro": ["Unter uns, Partner: Der Endboss der Glut hütet einen Glutrubin. Bring ihn mir, und ich zeig dir den Weg ins Moor. Ehrlich!"],
+	"quest_glutrubin_done": ["Der Glutrubin! Echt! Also … ich hab nie gezweifelt.", "Pack ein, Partner, wir ziehen um. Ans Moor! Da gibt's Kundschaft. Und Mücken."],
+	"quest_moorperle_intro": ["Im Moor trägt der Endboss einen Irrlicht-Opal. Hübsch. Sehr hübsch. Bring ihn mir, ich … verwahre ihn. Ganz legal!"],
+	"quest_moorperle_done": ["Der Opal! Er leuchtet! Fast so hell wie meine Zukunft.", "Auf zur Wiese, Partner. Ich hab gehört, da wächst Gold. Oder Gras."],
+	"quest_wiesenkristall_intro": ["Auf der Wiese bewacht der Endboss einen Kristall. Er summt, sagt man. Bring ihn mir. Ich brauch was zum Summen. Ehrlich!"],
+	"quest_wiesenkristall_done": ["Hörst du das? Er summt! Das Geld … äh, das Glück summt mit.", "Weiter zum Frostgipfel! Zieh dich warm an. Ich hab da zufällig Mäntel."],
+	"quest_frostsaphir_intro": ["Oben am Frostgipfel hat der Endboss einen Frost-Aquamarin. Bring ihn mir. Handschuhe hab ich. Gegen einen kleinen Obolus."],
+	"quest_frostsaphir_done": ["Kalt! Kalt! Aber schön. Wie meine Preise.", "Jetzt zum Glutschlund, Partner. Da ist es wenigstens warm."],
+	"quest_drachenherz_intro": ["Im Glutschlund wohnt ein Drache. Sein Herz glüht. Bring es mir, und ich … ich bin sehr, sehr dankbar. Ehrlich!"],
+	"quest_drachenherz_done": ["Ein echtes Drachenherz! Partner, du bist der beste Kunde, den ich je hatte.", "Der einzige auch, aber das sagen wir keinem."],
 	"barks": {
 		"too_poor": "Dafür reicht dein Gold nicht, Partner. Leider, leider.",
 		"bought": "Gute Wahl! Ein Sammlerstück. Ehrlich!",
 		"rolled": "Hereinspaziert! Frische Ware!",
 		"no_slot": "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht.",
-		"sold": "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!",
+		"no_room": "Da passt das nicht hin, Partner. Mach erst Platz.", "not_for_sale": "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest.", "sold": "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!",
 		"relic_broken": "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 	}
 }
