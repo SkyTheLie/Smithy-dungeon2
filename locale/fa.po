@@ -753,6 +753,9 @@ msgstr "یک خانه‌ی یادگار بیشتر روی قهرمانت."
 msgid "Ein Rubin"
 msgstr "یک یاقوت"
 
+msgid "Ein Rucksack mehr an deinem Inventar."
+msgstr "یک کوله بیشتر روی کیفت."
+
 msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "کوله‌ای با ۳×۳ خانه. پیش اگون به کیفت وصلش کن."
 
@@ -2442,11 +2445,17 @@ msgstr "کوله‌پشتی"
 msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
 msgstr "کوله را از انبار به کیف بکش (R می‌چرخاند). برگرداندن به انبار = جدا کردن."
 
+msgid "Rucksack-Riemen"
+msgstr "بند کوله‌پشتی"
+
 msgid "Rucksack: %d×%d Felder"
 msgstr "کوله: %d×%d خانه"
 
 msgid "Rucksäcke"
 msgstr "کوله‌ها"
+
+msgid "Rucksäcke %d/%d"
+msgstr "کوله‌ها %d/%d"
 
 msgid "Rudelführer"
 msgstr "سردسته گله"
@@ -2858,6 +2867,9 @@ msgstr "یک چیز جادویی. نمی‌دانم، من یک کلاه‌بر�
 
 msgid "So kalt, dass die Finger kleben bleiben."
 msgstr "آن‌قدر سرد که انگشت‌ها به آن می‌چسبند."
+
+msgid "So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen."
+msgstr "این‌قدر کوله می‌توانی وصل کنی. با مهارت بند کوله‌پشتی بیشتر."
 
 msgid "Solide"
 msgstr "محکم"

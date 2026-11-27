@@ -212,6 +212,9 @@ static func allowed(drag: Dictionary, cell: Vector2i) -> bool:
 	var placed: Array = MetaState.backpacks()
 	if drag.has("backpack"):
 		return BagLayout.is_valid(BagLayout.with_moved(placed, id, cell, bool(drag["rot"])))
+	# A new one from the stash: only below the limit (MetaState.backpack_limit).
+	if not MetaState.can_attach_backpack():
+		return false
 	var next: Array = placed.duplicate()
 	next.append({"id": id, "x": cell.x, "y": cell.y, "rot": bool(drag["rot"])})
 	return BagLayout.is_valid(next)
@@ -219,6 +222,9 @@ static func allowed(drag: Dictionary, cell: Vector2i) -> bool:
 
 func _can_drop_data(at: Vector2, data: Variant) -> bool:
 	var loot: String = dragged_loot(data)
+	# What the bag takes: the dragged picture as big as the cells here (stash cells are bigger).
+	if not loot.is_empty() or not dragged_backpack(data).is_empty():
+		BagBoard.fit_preview(data, cell_px)
 	if not loot.is_empty():
 		var loot_drag: Dictionary = data
 		var at_cell: Vector2i = cell_at(at) - (loot_drag["grab"] as Vector2i)

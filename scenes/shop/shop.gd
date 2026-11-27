@@ -76,6 +76,8 @@ var _equipment_tab: Button
 var _inventory_tab_button: Button
 var _inventory_tab: PanelContainer
 var _backpack_board: BackpackBoard
+## "Rucksäcke 1/2" over the bag: attached / allowed (MetaState.backpack_limit).
+var _backpack_count: Label
 ## The safe place of the bag at home (an ItemBoard in its own coordinates, Bag.SAFE_ORIGIN).
 var _safe_board: ItemBoard
 var _lever: TextureButton
@@ -303,6 +305,12 @@ func _build_tabs() -> void:
 	var title := _label(Language.translate("Inventar: das nimmst du mit in den Dungeon"), 10, Color(1, 0.86, 0.55))
 	title.add_theme_constant_override("outline_size", 0)
 	column.add_child(title)
+	_backpack_count = _label("", 9, BOX_SAFE)
+	_backpack_count.name = "BackpackCount"
+	_backpack_count.add_theme_constant_override("outline_size", 0)
+	_backpack_count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_backpack_count.mouse_filter = Control.MOUSE_FILTER_STOP
+	column.add_child(_backpack_count)
 	_backpack_board = BackpackBoard.new()
 	_backpack_board.name = "BackpackBoard"
 	_backpack_board.cell_px = _bag_cell()
@@ -373,6 +381,11 @@ func _safe_size() -> Vector2i:
 ## The bag at home in the Inventar tab: the board with backpacks and loot, the safe place.
 func _refresh_bag() -> void:
 	_backpack_board.refresh()
+	var attached: int = MetaState.backpacks().size()
+	var limit: int = MetaState.backpack_limit()
+	_backpack_count.text = Language.translate("Rucksäcke %d/%d") % [attached, limit]
+	_backpack_count.add_theme_color_override("font_color", BOX_SAFE if attached < limit else GOLD_COLOR)
+	_backpack_count.tooltip_text = Language.translate("So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen.")
 	var safe_pieces: Array = []
 	for place: Dictionary in MetaState.bag_places():
 		if int(place["x"]) >= Bag.SAFE_ORIGIN.x:

@@ -103,6 +103,14 @@ func _backpacks() -> void:
 	check(layout.call("is_valid", [{"id": "eisenrucksack", "x": 8, "y": 0, "rot": true}]), "turned (2 x 4) beside the bag")
 
 	meta.call("start_new")
+	# Two backpacks may be attached: level 3, the pouch and Rucksack-Riemen learned (the pouch of
+	# the skill is cleared away again).
+	while int(meta.call("level")) < 3:
+		meta.call("add_exp", 1000)
+	meta.call("gift_gold", 1000)
+	check(meta.call("buy_skill", "rucksack") and meta.call("buy_skill", "rucksack_riemen"), "Rucksack-Riemen learned")
+	meta.call("admin_clear_stash")
+	check_eq(meta.call("backpack_limit"), 2, "two backpacks allowed")
 	check(not meta.call("place_backpack", "kupferrucksack", Vector2i(8, 0), false), "only attached backpacks can be moved")
 	meta.call("give_piece", {"id": "kupferrucksack", "backpack": true})
 	meta.call("give_piece", {"id": "kraeutertasche", "backpack": true})

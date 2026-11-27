@@ -166,12 +166,23 @@ static func backpacks() -> Array:
 	return list if BagLayout.is_valid(list) else []
 
 
+## How many backpacks may be attached: meta.json bag.backpack_slots, one more per level of the
+## skill Rucksack-Riemen (skills.json effect backpack_slots).
+static func backpack_limit() -> int:
+	return maxi(0, int(Content.meta("bag").get("backpack_slots", 1)) + int(Skills.bonus("backpack_slots")))
+
+
+## true while one more backpack may be attached (backpack_limit not reached).
+static func can_attach_backpack() -> bool:
+	return backpacks().size() < backpack_limit()
+
+
 ## Attaches the backpack lying on stash place `index` with its top left on `at` (turned `rot`).
-## false (nothing changes) for something else, or if the bag would not be allowed
+## false (nothing changes) for something else, at the backpack_limit, or if the bag would not be allowed
 ## (BagLayout.is_valid: touching, nothing covered, inside the board, not the same backpack twice).
 static func attach_backpack(index: int, at: Vector2i, rot: bool) -> bool:
 	var own: Array[Dictionary] = stash()
-	if index < 0 or index >= own.size() or not ShopGoods.is_backpack(own[index]):
+	if index < 0 or index >= own.size() or not ShopGoods.is_backpack(own[index]) or not can_attach_backpack():
 		return false
 	var id: String = String(own[index]["id"])
 	var next: Array = backpacks()

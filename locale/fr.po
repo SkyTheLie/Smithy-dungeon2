@@ -753,6 +753,9 @@ msgstr "Un emplacement de relique de plus sur ton héros."
 msgid "Ein Rubin"
 msgstr "Un rubis"
 
+msgid "Ein Rucksack mehr an deinem Inventar."
+msgstr "Un sac de plus sur ton inventaire."
+
 msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "Un sac de 3×3 cases. À attacher à ton inventaire chez Egon."
 
@@ -2442,11 +2445,17 @@ msgstr "Sac à dos"
 msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
 msgstr "Glisse un sac de la réserve vers l'inventaire (R tourne). Remets-le dans la réserve pour le détacher."
 
+msgid "Rucksack-Riemen"
+msgstr "Sangles de sac"
+
 msgid "Rucksack: %d×%d Felder"
 msgstr "Sac : %d×%d cases"
 
 msgid "Rucksäcke"
 msgstr "Sacs"
+
+msgid "Rucksäcke %d/%d"
+msgstr "Sacs %d/%d"
 
 msgid "Rudelführer"
 msgstr "Chef de meute"
@@ -2858,6 +2867,9 @@ msgstr "Un truc magique. Aucune idée, je suis un escr… euh, un vendeur !"
 
 msgid "So kalt, dass die Finger kleben bleiben."
 msgstr "Si froid que les doigts y collent."
+
+msgid "So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen."
+msgstr "Tu peux attacher autant de sacs. Plus avec la compétence Sangles de sac."
 
 msgid "Solide"
 msgstr "Solide"

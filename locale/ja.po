@@ -753,6 +753,9 @@ msgstr "キャラのレリック枠が1つ増える。"
 msgid "Ein Rubin"
 msgstr "ルビー1つ"
 
+msgid "Ein Rucksack mehr an deinem Inventar."
+msgstr "持ち物にリュックをもう1つ。"
+
 msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "3×3マスのリュック。エゴンの店で持ち物に取り付けよう。"
 
@@ -2442,11 +2445,17 @@ msgstr "リュック"
 msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
 msgstr "リュックを倉庫から持ち物へドラッグ（Rで回転）。倉庫に戻すと取り外し。"
 
+msgid "Rucksack-Riemen"
+msgstr "リュックのベルト"
+
 msgid "Rucksack: %d×%d Felder"
 msgstr "リュック：%d×%dマス"
 
 msgid "Rucksäcke"
 msgstr "リュック"
+
+msgid "Rucksäcke %d/%d"
+msgstr "リュック %d/%d"
 
 msgid "Rudelführer"
 msgstr "群れのリーダー"
@@ -2858,6 +2867,9 @@ msgstr "魔法の何かだ。知らんよ、俺はペテ…いや、商人だか
 
 msgid "So kalt, dass die Finger kleben bleiben."
 msgstr "指がくっつくほど冷たい。"
+
+msgid "So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen."
+msgstr "取り付けられるリュックの数。スキル「リュックのベルト」で増える。"
 
 msgid "Solide"
 msgstr "頑丈"

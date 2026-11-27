@@ -753,6 +753,9 @@ msgstr "角色多一个圣物格。"
 msgid "Ein Rubin"
 msgstr "一颗红宝石"
 
+msgid "Ein Rucksack mehr an deinem Inventar."
+msgstr "背包栏可以多挂一个背包。"
+
 msgid "Ein Rucksack mit 3×3 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "3×3格的背包。在埃贡那里装到你的背包栏上。"
 
@@ -2442,11 +2445,17 @@ msgstr "背包"
 msgid "Rucksack aus dem Lager an das Inventar ziehen (R dreht). Zurück ins Lager ziehen = abnehmen."
 msgstr "把背包从仓库拖到背包栏（R 旋转）。拖回仓库即卸下。"
 
+msgid "Rucksack-Riemen"
+msgstr "背包背带"
+
 msgid "Rucksack: %d×%d Felder"
 msgstr "背包：%d×%d格"
 
 msgid "Rucksäcke"
 msgstr "背包"
+
+msgid "Rucksäcke %d/%d"
+msgstr "背包 %d/%d"
 
 msgid "Rudelführer"
 msgstr "狼群首领"
@@ -2858,6 +2867,9 @@ msgstr "某种魔法玩意儿。我哪知道，我是个骗……呃，商人！
 
 msgid "So kalt, dass die Finger kleben bleiben."
 msgstr "冷得手指都会粘住。"
+
+msgid "So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen."
+msgstr "可以挂这么多背包。学习技能“背包背带”可以更多。"
 
 msgid "Solide"
 msgstr "坚固"

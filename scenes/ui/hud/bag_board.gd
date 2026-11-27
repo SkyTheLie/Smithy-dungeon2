@@ -253,6 +253,7 @@ func _get_drag_data(at: Vector2) -> Variant:
 func _can_drop_data(at: Vector2, data: Variant) -> bool:
 	if not (data is Dictionary and (data as Dictionary).has("bag_index")):
 		return false
+	fit_preview(data, cell_px)
 	var drag: Dictionary = data
 	var cell: Vector2i = cell_at(at) - (drag["grab"] as Vector2i)
 	var index: int = int(drag["bag_index"])
@@ -315,6 +316,14 @@ static func rotate_drag(viewport: Viewport) -> bool:
 	return true
 
 
+## The picture of a drag (data "preview") takes cell size `cell` (the grid under the mouse).
+static func fit_preview(data: Variant, cell: float) -> void:
+	if data is Dictionary:
+		var preview: Variant = (data as Dictionary).get("preview")
+		if preview is DragPreview and is_instance_valid(preview):
+			(preview as DragPreview).use_cell(cell)
+
+
 ## true for the keys that turn a dragged thing (R, right mouse button).
 static func is_turn_event(event: InputEvent) -> bool:
 	if event is InputEventKey and (event as InputEventKey).pressed and not (event as InputEventKey).echo:
@@ -335,6 +344,7 @@ class DragPreview:
 	var rot: bool = false
 	var px: float = 16.0
 	var tint := Color(1, 1, 1, 0.25)
+	var _grab := Vector2i.ZERO
 
 	func setup_loot(id: String, turned_now: bool, grab: Vector2i, cell: float) -> void:
 		loot_id = id
@@ -352,10 +362,18 @@ class DragPreview:
 
 	func turn(turned_now: bool, grab: Vector2i) -> void:
 		rot = turned_now
+		_grab = grab
 		var span: Vector2i = BagLayout.turned(cells_size, rot)
 		size = Vector2(span) * px
 		position = -(Vector2(grab) + Vector2(0.5, 0.5)) * px
 		queue_redraw()
+
+	## Takes the cell size of the grid under the mouse (a stash piece over the bag is as big as
+	## the bag's cells it would cover).
+	func use_cell(cell: float) -> void:
+		if cell > 0.0 and not is_equal_approx(cell, px):
+			px = cell
+			turn(rot, _grab)
 
 	func _draw() -> void:
 		var rect := Rect2(Vector2.ZERO, size)
