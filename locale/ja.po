@@ -33,6 +33,9 @@ msgstr "キャンセル"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "でも装備なしじゃだめだ。まずは俺の店を見ていきな。"
 
+msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
+msgstr "そうだ、鍵！下で見つかるが、ダンジョンを出た瞬間に壊れちまう。"
+
 msgid "Acht Bomben"
 msgstr "爆弾8個"
 
@@ -2202,6 +2205,9 @@ msgstr "ごろつき"
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "反射する蛇行弾"
 
+msgid "Schlüssel zerbrochen: %d"
+msgstr "壊れた鍵: %d"
+
 msgid "Schlüsselform"
 msgstr "鍵の鋳型"
 
@@ -2432,6 +2438,9 @@ msgstr "エメラルド"
 
 msgid "Smaragdjuwel"
 msgstr "エメラルドの宝石"
+
+msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
+msgstr "魔法の何かだ。知らんよ、俺はペテ…いや、商人だからな！"
 
 msgid "Solide"
 msgstr "頑丈"

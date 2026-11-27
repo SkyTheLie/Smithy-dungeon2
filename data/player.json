@@ -2,7 +2,7 @@
 	"_info": "Startwerte des Spielers. Herzen in ganzen Herzen (Leben intern in halben). Reichweite in Metern, fire_delay = Sekunden zwischen zwei Schüssen. Gold gibt es im Dungeon nicht zu finden, nur beim Händler im Dungeon-Shop für Beute.",
 	"hearts": 3,
 	"bombs": 1,
-	"keys": 1,
+	"keys": 0,
 	"stats": {
 		"damage": 1.0,
 		"fire_delay": 0.42,

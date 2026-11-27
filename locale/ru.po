@@ -33,6 +33,9 @@ msgstr "Отмена"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "Но не так же, совсем без снаряжения. Пойдём, сначала глянь мою лавку."
 
+msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
+msgstr "Ах да, ключи! Найдёшь их внизу, но они ломаются, как только выходишь из подземелья."
+
 msgid "Acht Bomben"
 msgstr "Восемь бомб"
 
@@ -2202,6 +2205,9 @@ msgstr "Громила-бандит"
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "Змеящиеся отскакивающие выстрелы"
 
+msgid "Schlüssel zerbrochen: %d"
+msgstr "Ключей сломано: %d"
+
 msgid "Schlüsselform"
 msgstr "Форма для ключей"
 
@@ -2432,6 +2438,9 @@ msgstr "Изумруд"
 
 msgid "Smaragdjuwel"
 msgstr "Изумрудный самоцвет"
+
+msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
+msgstr "Какая-то магия. Понятия не имею, я же жу… э-э, продавец!"
 
 msgid "Solide"
 msgstr "Прочный"
