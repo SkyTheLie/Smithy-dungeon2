@@ -69,7 +69,8 @@ func run() -> void:
 		check(ResourceLoader.exists(base + "_death.png"), "enemy %s death sheet" % id)
 		check(float(enemies[id].get("hp", 0)) > 0.0, "enemy %s has life" % id)
 		check(not (enemies[id].get("voice", {}) as Dictionary).is_empty(), "enemy %s has its own voice" % id)
-		check(String(enemies[id].get("ai", "")) in ["lurk", "chase", "fly", "hop", "shooter", "guard", "boss"], "enemy %s: known ai" % id)
+		check(String(enemies[id].get("ai", "")) in ["lurk", "chase", "fly", "hop", "shooter", "guard", "boss", "charger", "turret", "wall", "bouncer", "spawner", "shell"], "enemy %s: known ai" % id)
+		_check_enemy_tricks(id, enemies)
 		if bool(enemies[id].get("front_guard", false)):
 			check(enemies[id].get("ai", "") == "guard", "enemy %s: shield bearers use ai guard (so they can be beaten)" % id)
 		if enemies[id].has("summon"):
@@ -84,7 +85,8 @@ func run() -> void:
 			var every: Array = (cries["idle"] as Dictionary).get("every", [3.0, 7.0])
 			check(every.size() == 2 and float(every[0]) > 0.5 and float(every[1]) >= float(every[0]), "enemy %s: idle cry not too often" % id)
 	# Every boss is different: known attacks, no two with the same list.
-	var known_attacks: Array[String] = ["dash", "charge", "summon", "rat_wave", "ring", "spray", "spiral", "burrow", "leap", "teleport", "phase", "mirror", "web", "axes", "boulder", "skulls", "march"]
+	var known_attacks: Array[String] = ["dash", "charge", "summon", "rat_wave", "ring", "spray", "spiral", "burrow", "leap", "teleport", "phase", "mirror", "web", "axes", "boulder", "skulls", "march",
+			"aimed_shot", "snares", "volley", "laser", "laser_sweep", "cross"]
 	var attack_lists: Array = []
 	for id: String in enemies:
 		if enemies[id].get("ai", "") != "boss":
@@ -120,6 +122,34 @@ func run() -> void:
 		elif index > 0:
 			check(theme_of[index] != theme_of[index - 1], "floor %d has a new theme" % (index + 1))
 	_check_loot(content, enemies)
+
+
+## The newer enemy values: known shot patterns, death_spawn / summon / snare name things that
+## exist, a spawner has someone to call, a tint is a colour.
+func _check_enemy_tricks(id: String, enemies: Dictionary) -> void:
+	var data: Dictionary = enemies[id]
+	var patterns: Array[String] = ["aimed", "fan3", "cross", "diagonal", "star", "alternate", "ring"]
+	for key: String in ["pattern", "death_shots"]:
+		if data.has(key):
+			check(patterns.has(String(data[key])), "enemy %s: known %s %s" % [id, key, data[key]])
+	var burrow: Dictionary = data.get("burrow", {})
+	if burrow.has("shots"):
+		check(patterns.has(String(burrow["shots"])), "enemy %s: known burrow shots" % id)
+	var spawn: Array = data.get("death_spawn", [])
+	if not spawn.is_empty():
+		check(spawn.size() == 2 and enemies.has(String(spawn[0])) and int(spawn[1]) > 0, "enemy %s: death_spawn [known id, count]" % id)
+		check(String(spawn[0]) != id, "enemy %s does not split into itself (no end)" % id)
+	if String(data.get("ai", "")) == "spawner":
+		check(enemies.has(String(data.get("summon", ""))), "enemy %s: spawner calls a known enemy" % id)
+	if data.has("snare") or (data.get("attacks", []) as Array).has("snares"):
+		var kind: String = String(data.get("snare", "snare_thrown"))
+		var types: Dictionary = script("res://scripts/core/content.gd").call("floors_extra", "hazard_types")
+		check(float((types.get(kind, {}) as Dictionary).get("hold", 0.0)) > 0.0, "enemy %s: its snare %s holds" % [id, kind])
+	if data.has("tint"):
+		check((data["tint"] as Array).size() == 3, "enemy %s: tint [r, g, b]" % id)
+	var revive: Dictionary = data.get("revive", {})
+	if not revive.is_empty():
+		check(float(revive.get("time", 0.0)) > 0.5 and int(revive.get("times", 0)) >= 1, "enemy %s: revive time and times" % id)
 
 
 ## data/loot.json: every material has a picture, a name, a rarity 1-8 and a value; every enemy

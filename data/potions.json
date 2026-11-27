@@ -1,0 +1,12 @@
+{
+	"_info": "Tränke (Egons Laden, Trank-Platz unter der Helden-Figur). unlock_deaths = nach so vielen Toden im Dungeon zeigt Egon die Tränke (er dreht einmal den Tisch, ein Trank liegt darauf, er schenkt ihn und legt ihn in den Trank-Platz); erst danach kommen Tränke auf den Tisch. slots = so viele Trank-Plätze hat der Held. table_chance = Chance je Hebel-Zug, dass ein Trank auf einem freien Platz liegt. hint = Bild im leeren Trank-Platz. tour_potion = der Trank, den Egon schenkt. potions: name, desc (deutsch = Übersetzungs-Schlüssel), icon, price = Preis in Gold, heal = so viele halbe Herzen heilt er (im Dungeon mit Q trinken, dann ist er weg), rarity = Rahmenfarbe 1-8, unlock = ab wann er auf den Tisch kommt (wie shop.json materials: level, dungeon).",
+	"unlock_deaths": 2,
+	"slots": 1,
+	"table_chance": 0.35,
+	"hint": "res://assets/sprites/ui/slot/potion.png",
+	"tour_potion": "heal_potion",
+	"potions": {
+		"heal_potion": {"name": "Heiltrank", "desc": "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke.", "icon": "res://assets/sprites/items/attribute_point_potion.png", "price": 25, "heal": 4, "rarity": 1},
+		"big_heal_potion": {"name": "Großer Heiltrank", "desc": "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke.", "icon": "res://assets/sprites/items/skill_point_potion.png", "price": 70, "heal": 6, "rarity": 2, "unlock": {"dungeon": "glut"}}
+	}
+}

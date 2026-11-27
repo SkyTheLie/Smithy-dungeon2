@@ -89,6 +89,9 @@ var fought_bosses: Array[String] = []
 var character: String = "magier"
 ## Loot from the dungeon (Tab). Lost on death except the safe places.
 var bag: Bag = Bag.new()
+## Potions taken along from the hero's potion places (use_gear): [{slot, id}, …]; Q drinks the
+## first one (drink_potion).
+var potions: Array[Dictionary] = []
 var _regen_left: float = 0.0
 var _kills_to_heal: int = 0
 
@@ -265,6 +268,19 @@ func heal(halves: int) -> bool:
 	return true
 
 
+## Q in the dungeon: drinks the first potion (data/potions.json "heal" half hearts); it is gone
+## from the hero's potion place at home too (MetaState.use_potion). false (nothing happens)
+## without a potion, when dead or at full life.
+func drink_potion() -> bool:
+	if potions.is_empty() or is_dead() or health >= max_hearts * 2:
+		return false
+	var potion: Dictionary = potions.pop_front()
+	heal(maxi(1, int(Content.potion(String(potion["id"])).get("heal", 4))))
+	MetaState.use_potion(String(potion["slot"]))
+	changed.emit()
+	return true
+
+
 ## A kill: its EXP (a boss more, data/levels.json), times the dungeon's exp_mult.
 func add_kill_exp(boss: bool, mult: float = 1.0) -> void:
 	exp_earned += roundi(Skills.kill_exp(boss) * maxf(0.0, mult))
@@ -404,9 +420,14 @@ func add_item(id: String) -> void:
 ## shield_hearts become white shield hearts, its other stats count for the whole run.
 func use_gear(worn: Dictionary) -> void:
 	gear_sources.clear()
+	potions.clear()
 	shield = 0
 	for slot: Variant in worn:
 		var piece: Dictionary = worn[slot]
+		# Potions do nothing by themselves: they are drunk with Q (drink_potion).
+		if ShopGoods.is_potion(piece):
+			potions.append({"slot": String(slot), "id": String(piece.get("id", ""))})
+			continue
 		# The relic works like the item itself (synergies too).
 		if ShopGoods.is_relic(piece):
 			add_item(String(piece.get("id", "")))
@@ -500,6 +521,9 @@ func compute_stats() -> ShotStats:
 		for flag: Variant in source.get("flags", []):
 			result.flags[String(flag)] = true
 		result.apply_chances(source.get("chance", {}))
+		for trap: Variant in source.get("traps", []):
+			if trap is Dictionary:
+				result.traps.append((trap as Dictionary).duplicate())
 		var mode: String = String(source.get("mode", ""))
 		has_beam = has_beam or mode == ShotStats.MODE_BEAM
 		has_bomb = has_bomb or mode == ShotStats.MODE_BOMB

@@ -4,11 +4,12 @@ extends Node3D
 ## half a heart. A Glutmond circling the player (and the Funkenfänger) destroys it.
 ## Options for bosses (set before adding it): homing (turn rate), slows (a hit slows the player),
 ## returns_to (flies back to that node after half its life, like an axe), burst (bursts into
-## that many shots when it ends), size, lifetime.
+## that many shots when it ends), size, lifetime, arrow (looks like an arrow), damage.
 
 const RADIUS: float = 0.2
 const LIFETIME: float = 6.0
 const GROUP: StringName = &"enemy_shots"
+const ARROW_LENGTH: float = 0.7
 
 var velocity: Vector3 = Vector3.ZERO
 var player: Player
@@ -19,6 +20,8 @@ var returns_to: Node3D = null
 var burst: int = 0
 var size: float = 1.0
 var lifetime: float = LIFETIME
+## Looks like an arrow (a boss with a bow) instead of an orb.
+var arrow: bool = false
 
 var _age: float = 0.0
 var _returning: bool = false
@@ -26,6 +29,9 @@ var _returning: bool = false
 
 func _ready() -> void:
 	add_to_group(GROUP)
+	if arrow:
+		_build_arrow()
+		return
 	var kind: String = "enemy"
 	var sprite := Fx.billboard(Fx.ball_texture(kind), 0.45 * size)
 	if slows:
@@ -40,6 +46,34 @@ func _ready() -> void:
 	light.light_energy = 0.6
 	light.omni_range = 1.8
 	add_child(light)
+
+
+## An arrow: a thin wooden shaft with a grey tip and a light feather end, pointing where it flies.
+func _build_arrow() -> void:
+	var holder := Node3D.new()
+	add_child(holder)
+	if velocity.length() > 0.01:
+		holder.basis = Basis.looking_at(velocity.normalized(), Vector3.UP)
+	var shaft := MeshInstance3D.new()
+	var shaft_mesh := BoxMesh.new()
+	shaft_mesh.size = Vector3(0.04, 0.04, ARROW_LENGTH)
+	shaft.mesh = shaft_mesh
+	shaft.material_override = RoomBuilder.color_material(Color(0.55, 0.38, 0.2))
+	holder.add_child(shaft)
+	var tip := MeshInstance3D.new()
+	var tip_mesh := BoxMesh.new()
+	tip_mesh.size = Vector3(0.08, 0.08, 0.12)
+	tip.mesh = tip_mesh
+	tip.material_override = RoomBuilder.color_material(Color(0.75, 0.75, 0.8), 0.4)
+	tip.position.z = -ARROW_LENGTH / 2.0
+	holder.add_child(tip)
+	var feather := MeshInstance3D.new()
+	var feather_mesh := BoxMesh.new()
+	feather_mesh.size = Vector3(0.12, 0.02, 0.14)
+	feather.mesh = feather_mesh
+	feather.material_override = RoomBuilder.color_material(Color(0.9, 0.9, 0.85))
+	feather.position.z = ARROW_LENGTH / 2.0 - 0.07
+	holder.add_child(feather)
 
 
 func radius() -> float:

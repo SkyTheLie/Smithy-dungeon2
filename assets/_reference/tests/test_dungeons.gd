@@ -1,5 +1,5 @@
 extends "res://assets/_reference/_lib/base_test.gd"
-## Four dungeons (data/dungeons.json): each has its own six floors (floors.json floors_<id>, two
+## Five dungeons (data/dungeons.json; the Wispernde Wiese opens after the Moor like the Frostgipfel): each has its own six floors (floors.json floors_<id>, two
 ## per area), the next one opens after the one before was won (MetaState.win_dungeon), and its
 ## numbers work into the floors (life, EXP, shop prices). Egon's materials open with the dungeons
 ## (shop.json materials: bronze at level 3, iron after the first dungeon …), the lever gets dearer
@@ -25,7 +25,7 @@ func run() -> void:
 
 func _floors() -> void:
 	var dungeons: Dictionary = content.call("dungeons")
-	check_eq(dungeons.keys(), ["glut", "moor", "frost", "vulkan"], "four dungeons in order")
+	check_eq(dungeons.keys(), ["glut", "moor", "wiese", "frost", "vulkan"], "five dungeons in order")
 	var enemies: Dictionary = content.call("enemies")
 	var types: Dictionary = content.call("floors_extra", "hazard_types")
 	var used_themes: Array = []
@@ -50,7 +50,10 @@ func _floors() -> void:
 				check(types.has(String(hazard[0])), "%s: known trap %s" % [name, hazard[0]])
 			if id != "glut" and index % 2 == 0 and not used_themes.has(data.get("theme")):
 				used_themes.append(data.get("theme"))
-	check_eq(used_themes.size(), 9, "nine new areas")
+	check_eq(used_themes.size(), 12, "twelve new areas")
+	# The meadow has tall grass in every area.
+	for index in 6:
+		check(not (content.call("floor_data", index, "wiese").get("grass", {}) as Dictionary).is_empty(), "wiese floor %d: tall grass" % (index + 1))
 	# The dungeon's numbers work into the floor (dungeons.json hp_mult x floor hp_mult …).
 	var deep: Dictionary = content.call("floor_data", 5, "vulkan")
 	var vulkan: Dictionary = dungeons["vulkan"]
@@ -68,6 +71,9 @@ func _unlocks() -> void:
 	meta.call("win_dungeon", "glut")
 	check(meta.call("is_dungeon_open", "moor"), "won the first: the Moor opens")
 	check(not meta.call("is_dungeon_open", "frost"), "but not the one after it")
+	check(not meta.call("is_dungeon_open", "wiese"), "the meadow is still closed")
+	meta.call("win_dungeon", "moor")
+	check(meta.call("is_dungeon_open", "wiese") and meta.call("is_dungeon_open", "frost"), "won the Moor: the meadow and the Frostgipfel open")
 	meta.call("reload")
 	check(meta.call("has_won", "glut"), "the win is saved in the slot")
 	meta.call("start_new")
@@ -113,7 +119,15 @@ func _hazards() -> void:
 	for kind: String in types:
 		if kind.begins_with("_"):
 			continue
+		if String(types[kind].get("owner", "")) == "player":
+			# The player's own traps: hurt enemies with a share of the shot, and go away again.
+			check(float(types[kind].get("damage_mult", 0.0)) > 0.0, "own trap %s hurts enemies" % kind)
+			check(float(types[kind].get("life", 0.0)) > 0.0, "own trap %s goes away again" % kind)
+			continue
 		check(int(types[kind].get("damage", 0)) > 0, "trap %s hurts" % kind)
+		if types[kind].has("decor"):
+			check(ResourceLoader.exists(String(types[kind]["decor"].get("sprite", ""))), "trap %s: its decor picture exists" % kind)
+			check(not bool(types[kind].get("hidden", false)), "trap %s: no decor on hidden traps" % kind)
 	var lava: Node3D = script("res://scenes/objects/hazard.gd").new()
 	lava.call("setup", "lava", types["lava"], 2.0, 0.0)
 	root.add_child(lava)

@@ -19,6 +19,10 @@ extends Control
 ## First visit (MetaState.tutorial_done false): Egon shows everything himself: he pulls the lever,
 ## his gifts (data/shop.json tutorial) shine, he buys them, they land in the inventory, he puts
 ## them on the hero, then he sends you off: the dungeon board opens and cannot be closed.
+## Egon's potion show (MetaState.potion_tour_due: after the second death in the dungeon): he is
+## worried for a moment, turns the table once (only a potion on it), gives the potion away, it
+## flies into the inventory and from there into the potion place under the hero. From then on
+## potions can come on the table (ShopGoods.roll).
 ## All rules live in MetaState / ShopGoods; this screen only shows them and plays the animations.
 
 const CAVE: Texture2D = preload("res://assets/sprites/battle/mine_rats.png")
@@ -86,6 +90,8 @@ func _ready() -> void:
 	create_tween().tween_property(_black, "modulate:a", 0.0, FADE_TIME)
 	if not MetaState.tutorial_done():
 		_run_tutorial()
+	elif MetaState.potion_tour_due():
+		_run_potion_tour()
 	elif not MetaState.broken_relic().is_empty():
 		_bark("relic_broken")
 		MetaState.clear_broken_relic()
@@ -420,7 +426,7 @@ func _bark(key: String) -> void:
 func _on_lever_pressed() -> void:
 	if _locked:
 		return
-	if not await _pull_lever(false):
+	if not await _pull_lever():
 		_bark("too_poor")
 		AudioManager.play_sound("denied")
 		return
@@ -467,10 +473,11 @@ func _on_hero_slot_clicked(slot: String) -> void:
 
 # --- Animations ---------------------------------------------------------------------
 
-## The lever goes down, the table flips over and comes back with the new goods. `tutorial` =
-## Egon's free first pull with his gifts. false (nothing happens) without enough gold.
-func _pull_lever(tutorial: bool) -> bool:
-	if not tutorial and MetaState.lever_price() > MetaState.box():
+## The lever goes down, the table flips over and comes back with the new goods. `kind`:
+## "" = a normal pull (paid), "tutorial" = Egon's free first pull with his gifts, "potion" = his
+## free potion show. false (nothing happens) without enough gold.
+func _pull_lever(kind: String = "") -> bool:
+	if kind.is_empty() and MetaState.lever_price() > MetaState.box():
 		return false
 	_locked = true
 	_lever.texture_normal = LEVER_DOWN
@@ -480,8 +487,10 @@ func _pull_lever(tutorial: bool) -> bool:
 	var flip := create_tween()
 	flip.tween_property(table_panel, "scale:y", 0.0, FLIP_TIME).set_ease(Tween.EASE_IN)
 	await flip.finished
-	if tutorial:
+	if kind == "tutorial":
 		MetaState.lay_tutorial_table()
+	elif kind == "potion":
+		MetaState.lay_potion_table()
 	else:
 		MetaState.pull_lever(_rng)
 	_refresh()
@@ -548,7 +557,7 @@ func _run_tutorial() -> void:
 	if not await _explain("tutorial_lever", [_lever]):
 		return
 	_dialog.hide()
-	await _pull_lever(true)
+	await _pull_lever("tutorial")
 	_locked = true
 	if not is_inside_tree() or not await _explain("tutorial_goods", [table_panel]):
 		return
@@ -613,6 +622,65 @@ func _run_tutorial() -> void:
 	_board.open(true)
 
 
+# --- Egon's potion show (after the second death) ---------------------------------------
+
+func _run_potion_tour() -> void:
+	_locked = true
+	_menu_button.hide()
+	_dungeons_button.hide()
+	_skills_button.hide()
+	await get_tree().create_timer(FADE_TIME, false).timeout
+	if not is_inside_tree() or not await _explain("potion_worried", []):
+		return
+	if not await _explain("potion_lever", [_lever]):
+		return
+	_dialog.hide()
+	await _pull_lever("potion")
+	_locked = true
+	if not is_inside_tree():
+		return
+	var cell: int = -1
+	var table: Array[Dictionary] = MetaState.table()
+	for i in table.size():
+		if ShopGoods.is_potion(table[i]):
+			cell = i
+			_table_slots[i].set_glow(true)
+	if not await _say("potion_gift"):
+		return
+	if cell >= 0:
+		# Egon buys it for you (free) and it lands in the inventory.
+		_table_slots[cell].set_glow(false)
+		var from: ShopSlot = _table_slots[cell]
+		var icon: Texture2D = from.get_icon()
+		MetaState.buy(cell, true)
+		MetaState.unlock_potions()
+		AudioManager.play_sound("buy")
+		_refresh()
+		var index: int = _stash_index(String(table[cell]["id"]), true)
+		if index >= 0:
+			await _fly(icon, from, _inventory_slots[index])
+	MetaState.unlock_potions()
+	_refresh()
+	if not is_inside_tree() or not await _explain("potion_slot", [_hero.get_potion_row()]):
+		return
+	# … and puts it into the potion place under the hero.
+	var potion_index: int = _stash_index(String(Content.potions().get("tour_potion", "")), true)
+	if potion_index >= 0:
+		await _equip_animated(potion_index)
+		if not is_inside_tree():
+			return
+	_spotlight([_hero.get_potion_row()])
+	if not await _say("potion_drink", Controls.key_name(Controls.get_key(Controls.POTION))):
+		return
+	_spotlight([])
+	_dialog.hide()
+	_locked = false
+	_menu_button.show()
+	_dungeons_button.show()
+	_skills_button.show()
+	_refresh()
+
+
 ## Egon says story.json `key` while `targets` shine. false if the shop is gone meanwhile.
 func _explain(key: String, targets: Array) -> bool:
 	_spotlight(targets)
@@ -656,17 +724,19 @@ func get_spotlights() -> Array[Control]:
 	return _spotlights
 
 
-## Egon says the lines of story.json `key`. false if the shop is gone meanwhile.
-func _say(key: String) -> bool:
-	await _dialog.speak(Content.story(key))
+## Egon says the lines of story.json `key` (`insert` goes into a "%s"). false if the shop is gone
+## meanwhile.
+func _say(key: String, insert: String = "") -> bool:
+	await _dialog.speak(Content.story(key), insert)
 	return is_inside_tree()
 
 
-## Where gear `id` lies in the inventory; -1 = nowhere.
-func _stash_index(id: String) -> int:
+## Where gear `id` (or potion `id` with `potion`) lies in the inventory; -1 = nowhere.
+func _stash_index(id: String, potion: bool = false) -> int:
 	var own: Array[Dictionary] = MetaState.stash()
 	for i in own.size():
-		if String(own[i].get("id", "")) == id and own[i].has("rarity"):
+		var kind_fits: bool = ShopGoods.is_potion(own[i]) if potion else own[i].has("rarity")
+		if String(own[i].get("id", "")) == id and kind_fits:
 			return i
 	return -1
 

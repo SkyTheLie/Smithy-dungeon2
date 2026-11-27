@@ -202,6 +202,15 @@ func _boss(layout: Object) -> void:
 	# 100 % only if no red heart was lost on this floor (a hit earlier in the test halves it).
 	run_state.set("lost_red_this_floor", false)
 	_teleport(cell, Vector3(0, 0, 3.0))
+	check(await wait_until(func() -> bool: return dungeon.get("current_cell") == cell, 1.0), "into the boss room (Vorhalle)")
+	check(dungeon.get("boss") == null and not dungeon.call("is_fighting"), "no fight in the Vorhalle")
+	# Walking into the gate leads into the hall.
+	var gate: Node3D = dungeon.get("_hall_gate")
+	(player as Node3D).global_position = Vector3(gate.global_position.x, 0, gate.global_position.z)
+	check(await wait_until(func() -> bool: return dungeon.call("in_boss_hall"), 1.0), "the gate leads into the boss hall")
+	var hall: Node3D = dungeon.get("hall")
+	check(dungeon.get("boss") == null, "the boss is not there before the altar wakes")
+	hall.call("skip_intro")
 	check(await wait_until(func() -> bool: return dungeon.get("boss") != null, 2.0), "boss appears")
 	var boss: Node = dungeon.get("boss")
 	check(boss.get("is_boss"), "boss is a boss")
@@ -214,7 +223,7 @@ func _boss(layout: Object) -> void:
 	check(int(dungeon.call("helper_count")) <= helpers_max, "never more than 5 helpers (%d)" % int(dungeon.call("helper_count")))
 	boss.call("take_damage", 9999.0, Vector3.ZERO, false)
 	check(await wait_until(func() -> bool: return not dungeon.call("is_fighting"), 2.0), "boss room cleared")
-	var room: Node = (dungeon.get("rooms") as Dictionary)[cell]
+	var room: Node = hall
 	var has_trapdoor: bool = false
 	var has_pedestal: bool = false
 	for child: Node in room.get_children():
@@ -227,6 +236,10 @@ func _boss(layout: Object) -> void:
 		for door: Node in dungeon.call("doors_of", special):
 			check(not door.get("hidden"), "the special room behind the boss opens (chance 100 %)")
 	check(has_pedestal, "boss item after the boss")
+	# The gate opens: back into the Vorhalle.
+	check(hall.get("exit_open"), "the gate of the hall opens after the boss")
+	(player as Node3D).global_position = hall.global_position + Vector3(0, 0, float((hall.get("half") as Vector2).y) - 0.6)
+	check(await wait_until(func() -> bool: return dungeon.get("current_cell") == cell, 1.0), "the open gate leads back into the Vorhalle")
 
 
 func _test_room() -> void:

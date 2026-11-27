@@ -132,6 +132,24 @@
 		"earth_elemental": [{"id": "diamond", "chance": 0.6, "amount": [1, 1]}, {"id": "onyx", "chance": 1.0, "amount": [1, 2]}],
 		"dragon": [{"id": "dragon_hide", "chance": 1.0, "amount": [1, 2]}, {"id": "diamond", "chance": 0.4, "amount": [1, 1]}],
 		"shadow_lord": [{"id": "diamond", "chance": 1.0, "amount": [1, 1]}, {"id": "hell_leather", "chance": 0.8, "amount": [1, 2]}],
-		"hellhound_lord": [{"id": "diamond", "chance": 1.0, "amount": [1, 1]}, {"id": "hellhound_fur", "chance": 0.8, "amount": [1, 2]}]
+		"hellhound_lord": [{"id": "diamond", "chance": 1.0, "amount": [1, 1]}, {"id": "hellhound_fur", "chance": 0.8, "amount": [1, 2]}],
+		"grass_viper": [{"id": "serpent_scale", "chance": 0.35, "amount": [1, 1]}],
+		"cross_crab": [{"id": "emerald", "chance": 0.15, "amount": [1, 1]}, {"id": "heartleaf", "chance": 0.3, "amount": [1, 1]}],
+		"meadow_mole": [{"id": "rat_fur", "chance": 0.4, "amount": [1, 2]}],
+		"meadow_wasp": [{"id": "feather", "chance": 0.15, "amount": [1, 1]}],
+		"wasp_bear": [{"id": "amber", "chance": 0.5, "amount": [1, 2]}, {"id": "wolf_fur", "chance": 0.3, "amount": [1, 1]}],
+		"crystal_eye": [{"id": "topaz", "chance": 0.3, "amount": [1, 1]}],
+		"wall_spider": [{"id": "bat_skin", "chance": 0.35, "amount": [1, 1]}],
+		"split_slime": [{"id": "heartleaf", "chance": 0.4, "amount": [1, 1]}],
+		"slimelet": [{"id": "heartleaf", "chance": 0.15, "amount": [1, 1]}],
+		"crystal_shell": [{"id": "sapphire", "chance": 0.15, "amount": [1, 1]}, {"id": "topaz", "chance": 0.3, "amount": [1, 1]}],
+		"boom_beetle": [{"id": "amber", "chance": 0.3, "amount": [1, 1]}],
+		"scarecrow": [{"id": "heartleaf", "chance": 0.4, "amount": [1, 2]}],
+		"thistle_crow": [{"id": "feather", "chance": 0.4, "amount": [1, 1]}],
+		"poacher": [{"id": "wolf_leather", "chance": 0.3, "amount": [1, 1]}, {"id": "topaz", "chance": 0.15, "amount": [1, 1]}],
+		"reed_warden": [{"id": "emerald", "chance": 0.25, "amount": [1, 1]}],
+		"crystal_colossus": [{"id": "sapphire", "chance": 1.0, "amount": [1, 2]}, {"id": "topaz", "chance": 0.6, "amount": [1, 2]}],
+		"wild_warden": [{"id": "wolf_leather", "chance": 1.0, "amount": [2, 3]}, {"id": "emerald", "chance": 0.7, "amount": [1, 1]}],
+		"volcano_dragon": [{"id": "dragon_hide", "chance": 1.0, "amount": [2, 3]}, {"id": "diamond", "chance": 1.0, "amount": [1, 2]}]
 	}
 }

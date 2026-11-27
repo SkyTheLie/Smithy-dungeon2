@@ -81,11 +81,14 @@ func _draw() -> void:
 # --- Small map: the current room ---------------------------------------------------------
 
 func _draw_small(alpha: float) -> void:
-	var room_size := Vector2(RoomBuilder.ROOM_W, RoomBuilder.ROOM_D) * SMALL_SCALE
+	# A bigger room (the boss hall) is drawn smaller, so it fits the same box.
+	var real_size: Vector2 = dungeon.room_size(dungeon.current_cell)
+	var scale_by: float = SMALL_SCALE * minf(RoomBuilder.ROOM_W / real_size.x, RoomBuilder.ROOM_D / real_size.y)
+	var room_size: Vector2 = real_size * scale_by
 	var origin := Vector2(size.x - room_size.x - SMALL_MARGIN - 4.0, SMALL_MARGIN + 4.0)
 	draw_rect(Rect2(origin - Vector2(4, 4), room_size + Vector2(8, 8)), _fade(COLOR_PANEL, alpha))
 	var center: Vector3 = RoomBuilder.cell_center(dungeon.current_cell)
-	_draw_room_inside(origin, room_size, center, SMALL_SCALE, alpha, true)
+	_draw_room_inside(origin, room_size, center, scale_by, alpha, true)
 
 
 ## Walls, doors, rocks, loot, enemies and the player of the current room, drawn into

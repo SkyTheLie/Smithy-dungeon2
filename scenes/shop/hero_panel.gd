@@ -4,7 +4,10 @@ extends PanelContainer
 ## assets/_reference/vorlagen/helden_ansicht.png): a silhouette (ui/doll.png) and one ShopSlot per
 ## place of data/gear.json "slots" (at = centre of the place). An empty place shows a faint hint
 ## picture. Below the figure a row of relic places (MetaState.relic_slot_names: 1, more with the
-## skill Relikt-Platz). A click on a place sends slot_clicked (the shop takes it off). Built in code.
+## skill Relikt-Platz). The potion place (MetaState.potion_slot_names) sits in the free corner
+## left of the feet, with a small "Trank" above it; it shows once Egon showed the potions
+## (MetaState.potions_unlocked). A click on a place sends slot_clicked (the shop takes it off).
+## Built in code.
 
 signal slot_clicked(slot: String)
 
@@ -13,9 +16,12 @@ const DOLL_OFFSET := Vector2(14, 8)
 const AREA_SIZE := Vector2(124, 146)
 const HINT_PATH: String = "res://assets/sprites/ui/slot_hints/equip_%s.png"
 const RELIC_HINT: String = "necklace"
+## Top left of the potion corner (label + places) inside the figure area.
+const POTION_AT := Vector2(3, 97)
 
 var _slots: Dictionary = {}
 var _relic_row: HBoxContainer
+var _potion_row: VBoxContainer
 
 
 func _ready() -> void:
@@ -63,12 +69,34 @@ func _ready() -> void:
 	_relic_row.alignment = BoxContainer.ALIGNMENT_CENTER
 	_relic_row.add_theme_constant_override("separation", 4)
 	column.add_child(_relic_row)
+	_potion_row = VBoxContainer.new()
+	_potion_row.name = "PotionRow"
+	_potion_row.position = POTION_AT
+	_potion_row.add_theme_constant_override("separation", 0)
+	area.add_child(_potion_row)
+	var potion_title := Label.new()
+	potion_title.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	potion_title.text = Language.translate("Trank")
+	potion_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	potion_title.add_theme_font_size_override("font_size", 9)
+	potion_title.add_theme_color_override("font_color", Color(1, 0.86, 0.55))
+	_potion_row.add_child(potion_title)
+	var potion_hint: String = String(Content.potions().get("hint", ""))
+	for slot: String in MetaState.potion_slot_names():
+		var place := ShopSlot.new()
+		place.name = "Slot_" + slot
+		place.hint = load(potion_hint) as Texture2D if ResourceLoader.exists(potion_hint) else null
+		place.hint_name = Language.translate("Trank-Platz: im Dungeon mit %s trinken") % Controls.key_name(Controls.get_key(Controls.POTION))
+		place.clicked.connect(slot_clicked.emit.bind(slot))
+		_potion_row.add_child(place)
+		_slots[slot] = place
 	refresh()
 
 
 ## Shows what MetaState says the hero wears.
 func refresh() -> void:
 	_build_relic_places()
+	_potion_row.visible = MetaState.potions_unlocked()
 	var worn: Dictionary = MetaState.equipment()
 	for slot: String in _slots:
 		(_slots[slot] as ShopSlot).show_entry(worn.get(slot, {}))
@@ -76,6 +104,11 @@ func refresh() -> void:
 
 func get_slot(slot: String) -> ShopSlot:
 	return _slots.get(slot)
+
+
+## The potion corner (Egon points at it in his potion show).
+func get_potion_row() -> Control:
+	return _potion_row
 
 
 ## One place per relic place the player has (more after the skill); kept when the number is the same.

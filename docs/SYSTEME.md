@@ -32,7 +32,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 ## Testraum (nur beim Start aus dem Editor)
 
 - **Dateien:** `scenes/run/dungeon.gd` (Abschnitt „Test room“), `scenes/objects/pedestal.gd` (`refill`, `RESET`), `RunState.clear_items`
-- **P** (nur `OS.is_debug_build()`, also nicht im exportierten Spiel) bringt den Spieler in einen geschlossenen Raum weit weg von der Ebene (Zelle -10/-10). Nicht während eines Kampfes. Nochmal P = zurück an die alte Stelle.
+- Admin-Menü (P, nur `OS.is_debug_build()`) → Knopf „Testraum“ bringt den Spieler in einen geschlossenen Raum weit weg von der Ebene (Zelle -10/-10). Nicht während eines Kampfes. Derselbe Knopf = zurück an die alte Stelle.
 - Darin ein Sockel für jedes Item aus `data/items.json` (kostenlos). Der rote Sockel „Alle Items ablegen“ nimmt alle Items weg (Herzen zurück auf den Startwert) und füllt alle Sockel wieder. Münzen, Bomben und Schlüssel bleiben.
 - Der Raum wird erst beim ersten P gebaut. Keine Gegner darin.
 
@@ -273,3 +273,58 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - **Neue Gegner:** 65 (davon 22 Bosse) aus den Smithy-Bildern, mit eigener Stimme und Beute; 23 neue Beute-Sorten (Werte steigen je Dungeon).
 - **Größere Dose** (Skill, Gruppe „Laden“): `MetaState.box_limit` = `meta.json` Limit + `Skills.bonus("box_limit")`.
 - **Stufen** `growth` 1,25; Seltenheiten R4/R5/R7 ab Stufe 16/21/28; Skill-Preise nach Stufe gestaffelt.
+
+## Tränke und Trank-Platz – 2026-11-27, `feature/wiese-traenke`
+
+- **Daten:** `data/potions.json` (`unlock_deaths` 2, `slots` 1, `table_chance`, `tour_potion`, `potions`: Heiltrank heilt 2 Herzen, Großer Heiltrank 3 Herzen nach der Glut). Ein Trank ist `{id, potion: true}` (+ `price` auf dem Tisch, + `count` im Inventar).
+- **Tode zählen:** `MetaState.add_death` (in `RunScene._on_died`, Flucht zählt nicht), `deaths`. Nach dem 2. Tod ist `MetaState.potion_tour_due`: beim nächsten Laden-Besuch macht Egon seine **Trank-Vorführung** (`MerchantShop._run_potion_tour`): kurz besorgt, er zieht den Hebel (gratis, kein Zug des Tages, `MetaState.lay_potion_table` / `ShopGoods.potion_table`), der Heiltrank leuchtet, er kauft ihn (gratis), er fliegt ins Inventar, dann in den Trank-Platz. Danach `MetaState.unlock_potions`: Tränke kommen auf den Tisch (`ShopGoods.pick_potion`, Chance `table_chance`).
+- **Trank-Platz:** in der Helden-Ansicht unten links neben den Füßen (`HeroPanel`, „Trank“, erst nach der Vorführung sichtbar; eine eigene Reihe unter den Relikten hätte den Hauptmenü-Knopf verdeckt). `MetaState.potion_slot_names`, `slot_of` (Trank → erster freier Trank-Platz), `equip`/`unequip` wie bei Ausrüstung; Egon kauft Tränke für 30 % zurück.
+- **Im Dungeon:** `RunState.use_gear` nimmt die Tränke mit (`RunState.potions`), **Q** (`Controls.POTION`, in den Einstellungen änderbar) ruft `Player._drink_potion` → `RunState.drink_potion` (heilt, nimmt den Trank auch zu Hause vom Helden: `MetaState.use_potion`). Bei vollem Leben oder ohne Trank passiert nichts (HUD-Meldung). Das HUD zeigt unter Bomben/Schlüsseln das Trank-Bild und die Taste.
+
+## Wispernde Wiese, neue Gegner-Muster – 2026-11-27, `feature/wiese-traenke`
+
+- **Dungeon `wiese`** (nach dem Moor, wie der Frostgipfel; Leben ×2,5): Gebiete Hohes Gras, Kristallwiese, Jagdgrund (`floors_wiese`). Ebene 6 hat immer den Wildhüter als Boss (Ebene 3/4 nehmen Kristallkoloss und Spinnenmutter vorweg).
+- **Hohes Gras** (`scenes/run/meadow.gd`, `Meadow.add_grass`): je Raum ein `MultiMeshInstance3D` aus vielen gekreuzten 2D-Büscheln (Bild im Code), `floors.json` `grass` {height, per_m2, color, spread}. Kleine Gegner (Grasotter 0,8 m) und Fallen verschwinden darin. Nicht im Startraum (Steuerungs-Text).
+- **Neue Fallen:** `snare` (Fangeisen, versteckt), `snare_thrown` (vom Boss geworfen, sichtbar), `hidden_spikes`. `Hazard.holds()` / `spring(player)`: schnappt einmal zu, halber Herz Schaden, `Player.hold(sek)` (kein Laufen, kein Dash; Schießen geht), dann weg. `hidden`: kaum sichtbarer Fleck. `Dungeon.add_hazard(kind, at, life)` für geworfene Fallen.
+- **Neue Gegner-Arten** (`scenes/actors/enemy_moves.gd`, `EnemyMoves`), jede mit Vorwarnung (Wackeln, Anschwellen, Ziel-Linie):
+  - `charger` (Grasotter): läuft auf den Raum-Achsen; steht der Spieler in seiner Reihe/Spalte, wackelt er und stürmt geradeaus bis zur Wand, dann kurz betäubt. Mit `laser` (Funkelstein): Strahl statt Ansturm. Schutz: schräg zu ihm stehen.
+  - `turret` (Kreuzkrabbe hüpft, Riedwächter steht fest und wird nicht geschubst): schießt sein `pattern`.
+  - `wall` (Wandspinne): klettert an den Wänden (`climb` m hoch), berührt nie, schießt Dreifach-Schuss.
+  - `bouncer` (Knallkäfer): fliegt schräg, prallt ab, explodiert beim Tod (`death_blast`, trifft auch den Spieler).
+  - `spawner` (Wespenbär): flieht, lässt Wespen frei (schwillt vorher an), platzt beim Tod in Wespen (`death_spawn`).
+  - `shell` (Kristallbrocken): im Panzer unverwundbar (Treffer prallen ab), öffnet sich kurz, schießt, nur dann verwundbar.
+  - Dazu: `revive` (Strohmann fällt erst um, liegend nochmal treffen), `death_spawn` (Teilschleim → 2 Schleimchen), `death_shots` (Distelkrähe), `burrow.shots` (Wühlmaus schießt beim Auftauchen), `pattern` für Schützen (Wilderer: Dreifach-Schuss), `tint` (ein Bild, mehrere Gegner).
+- **Schussmuster** (`Enemy.shoot_pattern`): aimed, fan3, cross (+), diagonal (x), star, alternate (+ dann x), ring.
+- **Laser** (`scenes/actors/enemy_beam.gd`, `EnemyBeam`, `Enemy.fire_beam`): erst dünne blinkende Warn-Linie (blinkt kurz vor dem Schuss schneller), dann dicker Strahl bis zur Wand; `sweep` dreht ihn, `track` lässt die Linie dem Spieler folgen (Bogen spannen), `fire` 0 = nur die Linie.
+- **Bosse** (`BossBrain`): `keep_distance` (umkreist den Spieler auf Abstand), `stationary`, Trait `evade` (springt zur Seite, wenn ein Schuss kommt; nicht beim Spannen; Spieler-Schüsse in Gruppe `Projectile.GROUP`). Neue Angriffe: `aimed_shot` (Bogen spannen mit Ziel-Linie, dann schneller Pfeil, 1 Herz), `snares` (3 Fangeisen im Dreieck um den Spieler, Lücken dazwischen), `volley` (3 Pfeile, wütend 5), `laser`, `laser_sweep` (hinter dem Boss ist sicher), `cross` (+ dann x). Hängt der Spieler in einem Fangeisen, spannt der Wildhüter sofort (kurz) – Rüstung/Schild-Herzen fangen den Treffer ab.
+- **Pfeile:** `EnemyShot.arrow` (Stab mit Spitze in 3D), `damage`.
+- Tests: `test_meadow_play.gd` (Gras, jedes Muster einmal), `test_potions.gd` (Regeln, Vorführung im echten Laden, Trinken im echten Dungeon).
+
+## Tauben auf Fallen, eigene Fallen, Vulkandrache – 2026-11-27
+
+- **Tauben** (`floors.json` `hazard_types` `decor`: sprite `world_props/city_7_walk.png`, 6 Bilder, fps, height, count, return): `Hazard._build_decor` stellt sie auf sichtbare Fallen (nie auf `hidden`), sie picken; `Hazard.scare()` (von `Dungeon._check_hazards`, wenn der Spieler getroffen wird) lässt sie hoch und weg fliegen, nach `return` Sekunden landen sie wieder.
+- **Eigene Fallen** (Logik fertig, noch kein Item): `hazard_types` mit `owner: "player"` (Krähenfüße `player_spikes`, Glutfleck `player_fire`, eigenes Fangeisen `player_snare`). `Hazard.from_player`, `touch_enemy` (Schaden `damage_mult` × Schuss-Schaden, je Gegner höchstens alle `every` s, Fangeisen betäubt `hold` s über `stun_left`; fliegende und eingegrabene Gegner nicht), `hurts_at` trifft nie den Spieler bei eigenen Fallen. Item-/Relikt-Feld `traps` [{kind, chance}] → `ShotStats.traps` (`RunState.compute_stats`) → `Projectile._end` → `Dungeon.shot_ended` würfelt und ruft `place_player_trap` (höchstens `PLAYER_TRAPS_MAX` 6 je Raum, die älteste geht, verschwindet nach `life`).
+- **Große Gegner-Bilder:** `enemies.json` `frame` [Breite, Höhe] (Standard 48 × 48), `attack_sheets` {Angriff: Endung} → `Enemy.show_attack` / `end_attack` (von `BossBrain._start` / `_finish`).
+- **Boss-Arena:** `enemies.json` `arena` {light, hazards} → `Dungeon._build_arena` nach der Boss-Wahl (eigener Zufall; `_place_hazards` wie bei normalen Räumen, Tür-Wege und Mitte frei).
+- **Vulkandrache** (`volcano_dragon`): 128 × 96, 4,4 m, Leben 240, Feuer (spray/spiral/ring, Bild `breath`), Schwanzhieb (charge, Bild `tail`), ruft Lavahunde; Arena mit 4–5 Lava-Feldern und rotem Licht; fester Boss von `floors_vulkan` Ebene 6.
+- Tests: `test_traps_play.gd` (Tauben, eigene Fallen, Schuss legt Falle, Höchstzahl), `test_new_dungeons_play.gd` (Drache, Arena), `test_dungeons.gd` (Daten eigener Fallen und Tauben).
+
+## Boss-Halle mit dem Altar der Neun (BossHall) – 2026-11-27
+
+- **Dateien:** `scenes/run/boss_hall.gd` (`BossHall`, erbt von `DungeonRoom`), `scenes/run/dungeon.gd` (Abschnitt „Boss hall“), Daten `data/boss_hall.json`, Musik `boss_rock` (`assets/audio/music/boss_rock_01.wav`, erzeugt von `assets/_reference/music/make_boss_rock.py`)
+- Der Boss-Raum des Rasters ist jetzt eine **Vorhalle** ohne Kampf: in der Mitte steht ein offenes Tor (zur Eingangstür gedreht). Hineinlaufen → `Dungeon.enter_boss_hall`: die Halle wird beim ersten Mal gebaut, weit weg vom Raster (`HALL_CELL`, wie der Testraum), `size` Räume groß (2 × 2 = 29 × 21 m), dunkler (`ambient_dark`), düstere Musik (`music_altar`), das Tor hinter dem Spieler ist zu.
+- In der Mitte der Altar (Smithy-Amboss), rundherum 9 Säulen auf einer Ellipse, Rillen im Boden vom Altar zu jeder Säule. Der Boss-Raum-Teil aus `enemies.json` `arena` (Licht, Lava) kommt in die Halle (`_build_arena(hall)`).
+- **Szene** (näher als `wake_distance` an den Altar): Steuerung aus, HUD aus, schwarze Balken, Blick zum Altar → die 9 heiligen Kristalle fliegen von oben herein (eigenes Licht in ihrer Farbe) → kreisen immer schneller über dem Altar → blitzen auf und fallen schnell hinein → der Altar leuchtet → Energie fließt durch die Rillen (`beam_<element>.png`), jede Säule leuchtet auf (`pillar_<element>.png`, Element schwebt oben) → Stille (`silence`) → der Boss fällt von oben (`boss_drop`) mit Schatten → Landung: Schlag, `Dungeon.start_boss_fight`, Rock-Musik (`music_fight`), HUD zurück, der Lebensbalken füllt sich (`BossHall.WAKE_TIME`), so lange steht der Boss still → Kampf.
+- Wartezeiten laufen über `create_timer(t, false)` (Pause hält die Szene an); `skip_intro()` springt ans Ende (Admin-Menü, Tests).
+- Nach dem Boss: Halle hell, Tor offen (`exit_open`), Falltür, Boss-Item und Herz zwischen Altar und Tor (`_boss_rewards(room, base)`). Durchs Tor zurück in die Vorhalle (dort ggf. der Sonderraum).
+- Raum-Grenzen laufen jetzt über `Dungeon.room_rect` / `rect_of` / `room_size` (Gegner, Spieler, Fallen, Beute, Karte), weil die Halle größer ist als ein Raum.
+
+## Admin-Menü (AdminMenu, nur im Editor) – 2026-11-27
+
+- **Dateien:** `scenes/ui/menus/admin_menu.gd` (im Code gebaut), `scenes/run/run.gd`, `Game.travel`, `MetaState.give_piece`
+- **P** (nur `OS.is_debug_build()`) öffnet es statt des Testraums; das Spiel hält an, P/Esc schließt.
+- **Reise:** Dungeon + Ebene wählen → „Hinreisen“ (gleicher Run, Ebene neu gebaut); Knöpfe Boss-Halle, Boss-Szene überspringen, Räume dieser Ebene (Start, Boss, Item, Shop, Geheim, Opfer, Sonderraum), Testraum (alle Items auf Sockeln, wie vorher).
+- **Items:** alle Items mit Suche, Doppelklick gibt eins, „Alle Items ablegen“.
+- **Ausrüstung:** Ausrüstung (mit Seltenheit), Relikte, Tränke – Doppelklick legt an (bleibt im Spielstand, der Run nutzt es sofort); angelegte Teile anklicken = ablegen (ins Inventar zu Hause).
+- **Cheats:** Leben voll, Unverwundbar, Raum leeren, +5 Bomben/Schlüssel, +1000 Gold in die Dose, +1 Spielerstufe, Dungeon als geschafft markieren.
+- Texte nur deutsch (Entwickler-Werkzeug, absichtlich ohne Übersetzung).

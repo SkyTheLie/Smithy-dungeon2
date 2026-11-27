@@ -27,6 +27,8 @@ const WAVE_FREQ: float = 9.0
 const WAVE_AMP: float = 0.45
 const LIFETIME: float = 6.0
 const BOUNCES: int = 2
+## Every shot of the player is in this group (bosses that dodge look for it).
+const GROUP: StringName = &"player_shots"
 
 var dungeon: Dungeon
 var player: Node3D
@@ -97,6 +99,8 @@ func ignore(enemies: Array) -> void:
 
 
 func _ready() -> void:
+	# Enemies that dodge (BossBrain trait "evade") look for these.
+	add_to_group(GROUP)
 	var texture: Texture2D = Fx.ball_texture("spark" if small else "fire")
 	var height: float = radius * 2.6
 	if is_bomb:
@@ -289,4 +293,7 @@ func _end(on_ground: bool) -> void:
 			dungeon.spawn_projectile(global_position + Vector3(0, 0.4, 0), forward.rotated(Vector3.UP, deg_to_rad(angle)), stats, 0.0, true, [])
 	else:
 		Fx.puff(dungeon.effects, global_position, "fire", radius * 2.0)
+	# Traps from items and relics (ShotStats.traps) lie where the shot ended (not the small sparks).
+	if not small and not stats.traps.is_empty():
+		dungeon.shot_ended(Vector3(global_position.x, 0.0, global_position.z), stats)
 	queue_free()

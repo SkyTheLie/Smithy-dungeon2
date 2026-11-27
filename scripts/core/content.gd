@@ -142,6 +142,15 @@ static func relics() -> Dictionary:
 	return get_file("relics")
 
 
+## Potions (data/potions.json): unlock_deaths, slots, table_chance, potions (id -> {name, heal …}).
+static func potions() -> Dictionary:
+	return get_file("potions")
+
+
+static func potion(id: String) -> Dictionary:
+	return (potions().get("potions", {}) as Dictionary).get(id, {})
+
+
 ## Egon's shop rules (data/shop.json).
 static func shop() -> Dictionary:
 	return get_file("shop")

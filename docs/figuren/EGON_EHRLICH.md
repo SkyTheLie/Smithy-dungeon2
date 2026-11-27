@@ -39,6 +39,7 @@
 4. **Der Hebel:** Er zieht dramatisch daran und kündigt jede neue Ware an wie ein Zirkusdirektor, egal wie schlecht sie ist.
 5. **Der Ankauf:** Er zahlt für Beute fast nichts und lobt sich dafür („Weil du es bist!“).
 6. **Aufs Haus:** Den allerersten Einkauf schenkt er (Tutorial) und erinnert danach gern daran, dass ab jetzt alles einen „kleinen Obolus“ kostet.
+7. **Die Sorge, die zwei Minuten dauert:** Nach dem zweiten Tod des Spielers ist er „fast zwei Minuten lang“ besorgt und schenkt ihm einen Heiltrank (Begründung: „Ein toter Kunde kauft ja nichts mehr.“). Seine Tränke schmecken nach Kirsche und ein bisschen nach Socke.
 
 ## Was Egon nie tut
 

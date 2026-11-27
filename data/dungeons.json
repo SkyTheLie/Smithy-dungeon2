@@ -23,6 +23,19 @@
 			"exp_mult": 2.0,
 			"shop_mult": 2.5
 		},
+		"wiese": {
+			"name": "Wispernde Wiese",
+			"region": "Umgebung",
+			"desc": "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine.",
+			"level": 18,
+			"floors": "floors_wiese",
+			"unlock": {
+				"dungeon": "moor"
+			},
+			"hp_mult": 2.5,
+			"exp_mult": 2.8,
+			"shop_mult": 3.5
+		},
 		"frost": {
 			"name": "Frostgipfel",
 			"region": "Gebirge",

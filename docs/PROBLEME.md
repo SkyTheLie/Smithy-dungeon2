@@ -20,5 +20,5 @@ Bekannt: Werte sind noch nicht ausbalanciert (203 Items, 6 Ebenen, Bosse). Krieg
 - **2026-11-26 · Run-Shop-Preise ungeprüft:** Gold im Run kommt jetzt nur aus verkaufter Beute (4 Taschen-Plätze, Beute stapelt nicht, Werte 1–30). Item 15, Herz 3, Bombe/Schlüssel 5 sind ein erster Vorschlag, im Spiel ausprobieren. Die Spardose (freischalten mit 55 Gold gleichzeitig) ist damit schwerer zu bekommen.
 
 - **2026-11-27 · Balance nur gerechnet:** Alle Werte der vier Dungeons kommen aus `assets/_reference/balance/balance.py`, nicht aus dem Spielen. Prüfliste: `docs/BALANCE.md`.
-- **2026-11-27 · Fallen sind einfache Formen:** farbige Flächen und Kegel aus dem Code, keine Grafik. Gegner laufen ohne Schaden über Fallen.
+- **2026-11-27 · Fallen:** die Fläche selbst ist eine farbige Form aus dem Code; darauf picken Tauben (`world_props/city_7_walk`), die beim Hineintreten auffliegen. Fallen der Welt treffen absichtlich keine Gegner; eigene Fallen des Spielers (Logik fertig) hat noch kein Item.
 - **2026-11-27 · Chinesisch:** das Material „Gold“ nutzt den Text „Gold“ (= 金币, Münzen) aus dem übrigen Spiel.

@@ -24,6 +24,9 @@ msgstr "۳۰۰ طلای بیشتر در قوطی امن است."
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "۵٪ شانس بیشتر برای R2 پیش اگون."
 
+msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
+msgstr "از این به بعد بیشتر وقت‌ها روی میزم معجون هست. البته با قیمت دوستانه."
+
 msgid "Abbrechen"
 msgstr "لغو"
 
@@ -282,6 +285,9 @@ msgstr "آیتم‌های تو"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "گلوله‌هایت دشمن را دنبال می‌کنند"
 
+msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
+msgstr "این یکی مهمان من. مشتری مُرده که چیزی نمی‌خرد. راست می‌گویم!"
+
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "نوار بالای اهرم نشان می‌دهد چه چیزی ممکن است بیاید: خاکستری معمولی، سبز محکم و غیره. هرچه باتجربه‌تر، رنگارنگ‌تر."
 
@@ -299,6 +305,9 @@ msgstr "سنگ قربانی تو را می‌پذیرد"
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "راه پایین باز شد!"
+
+msgid "Der Wildhüter"
+msgstr "شکاربان"
 
 msgid "Diamant"
 msgstr "الماس"
@@ -326,6 +335,9 @@ msgstr "سلاح جادوگر: گلوله‌های آتشین شلیک می‌ک
 
 msgid "Dietrich"
 msgstr "شاه‌کلید"
+
+msgid "Distelkrähe"
+msgstr "کلاغ خارزار"
 
 msgid "Doppelschuss"
 msgstr "شلیک دوتایی"
@@ -383,6 +395,9 @@ msgstr "سی سکه و ده کلید"
 
 msgid "Du bist gefallen"
 msgstr "از پا افتادی"
+
+msgid "Du bist schon gesund"
+msgstr "تو همین حالا سالمی"
 
 msgid "Du brauchst einen Schlüssel"
 msgstr "به یک کلید نیاز داری"
@@ -519,6 +534,9 @@ msgstr "یک پیمان اخگر باز شد"
 msgid "Ein Golderz"
 msgstr "یک سنگ طلا"
 
+msgid "Ein Heiltrank! Frisch gebraut, fast ohne Nebenwirkungen."
+msgstr "یک معجون شفا! تازه دم، تقریباً بدون عوارض."
+
 msgid "Ein Herz mehr"
 msgstr "یک قلب بیشتر"
 
@@ -617,6 +635,9 @@ msgstr "زندگی دوم!"
 
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "یک کالای بیشتر روی میز اگون."
+
+msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
+msgstr "چمنزاری به بلندی یک کوتوله. در علف‌ها خش‌خش است و شکارچی‌ای تله می‌گذارد. اِگون داس می‌فروشد. متأسفانه تمام شده."
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "یک نانوایی کامل یک‌جا"
@@ -735,6 +756,9 @@ msgstr "اندازه‌ی پنجره"
 msgid "Fester Griff, härtere Treffer."
 msgstr "دست محکم، ضربه سخت‌تر."
 
+msgid "Festgehalten!"
+msgstr "گیر افتادی!"
+
 msgid "Feuerelementar"
 msgstr "عنصر آتش"
 
@@ -821,6 +845,9 @@ msgstr "یال یخی"
 
 msgid "Frostmähnen-Fell"
 msgstr "پوست یال یخی"
+
+msgid "Funkelstein"
+msgstr "سنگ درخشان"
 
 msgid "Funkenbüchse"
 msgstr "قوطی جرقه"
@@ -1131,6 +1158,9 @@ msgstr "چکمه طلایی"
 msgid "Grafik"
 msgstr "گرافیک"
 
+msgid "Grasotter"
+msgstr "افعی علفزار"
+
 msgid "Gratis"
 msgstr "رایگان"
 
@@ -1151,6 +1181,9 @@ msgstr "گردن‌کلفت"
 
 msgid "Große, schwere Schüsse mit viel Rückstoß"
 msgstr "تیرهای بزرگ و سنگین با پس‌زنی زیاد"
+
+msgid "Großer Heiltrank"
+msgstr "معجون شفای بزرگ"
 
 msgid "Grubenhacke"
 msgstr "کلنگ معدن"
@@ -1212,8 +1245,20 @@ msgstr "با شکست دشمنان شفا، آسیب بالاتر"
 msgid "Heilerkräuter"
 msgstr "گیاهان شفا"
 
+msgid "Heilt %s Herzen"
+msgstr "%s قلب را شفا می‌دهد"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "تو را کامل درمان می‌کند، سریع‌تر راه می‌روی"
+
+msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "سه قلب را شفا می‌دهد. دو برابر گیلاس، نصف جوراب."
+
+msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "دو قلب را شفا می‌دهد. طعم گیلاس می‌دهد. و کمی طعم جوراب."
+
+msgid "Heiltrank"
+msgstr "معجون شفا"
 
 msgid "Heißer Sand"
 msgstr "شن داغ"
@@ -1236,11 +1281,17 @@ msgstr "دیگ جادوگر"
 msgid "Hier klicken"
 msgstr "اینجا کلیک کن"
 
+msgid "Hinter dem Tor wartet etwas"
+msgstr "چیزی پشت دروازه منتظر است"
+
 msgid "Hinter dem Wald liegt ein Moor voller Lichter. Wer ihnen folgt, kommt nicht wieder. Sagt Egon. Er verkauft Laternen."
 msgstr "پشت جنگل مردابی پر از نور است. هر کس دنبالشان برود برنمی‌گردد. این را اگون می‌گوید. او فانوس می‌فروشد."
 
 msgid "Hippogreif"
 msgstr "هیپوگریف"
+
+msgid "Hohes Gras"
+msgstr "علف بلند"
 
 msgid "Holzstab"
 msgstr "عصای چوبی"
@@ -1290,6 +1341,15 @@ msgstr "نگهبان دوزخ"
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "من کلاه‌بر… اِه، فروشنده‌ام. من… …تجهیزات می‌فروشم! آره، دقیقاً. تجهیزات می‌فروشم."
 
+msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
+msgstr "من برایت می‌گذارمش. مجانی! منظورم گذاشتنش است."
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
+msgstr "در سیاه‌چال %s را فشار می‌دهی. قلپ، قلپ، و دو قلب برمی‌گردد."
+
+msgid "Im Dungeon: %s trinkt ihn"
+msgstr "در سیاه‌چال: %s برای نوشیدن"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "در آتشفشان گدازه می‌جوشد و ته آن دروازه‌ای است. اگون هرگز آنجا نبوده. خودش این‌طور می‌گوید. ولی چکمه‌هایش سوخته است."
 
@@ -1313,6 +1373,9 @@ msgstr "پیکره یشم"
 
 msgid "Jagdbogen"
 msgstr "کمان شکار"
+
+msgid "Jagdgrund"
+msgstr "شکارگاه"
 
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "هرچه تیر دورتر برود، آسیب بیشتر است"
@@ -1350,6 +1413,9 @@ msgstr "نقشه"
 msgid "Kein Relikt"
 msgstr "یادگار نیست"
 
+msgid "Kein Trank dabei"
+msgstr "معجونی همراهت نیست"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "هیچ ضربه‌ای بیش از نیم قلب نمی‌گیرد"
 
@@ -1376,6 +1442,9 @@ msgstr "ستاره تیغه"
 
 msgid "Klippenharpyie"
 msgstr "هارپی صخره"
+
+msgid "Knallkäfer"
+msgstr "سوسک ترقه‌ای"
 
 msgid "Knistert in der Hand."
 msgstr "در دست جرق‌جرق می‌کند."
@@ -1407,6 +1476,9 @@ msgstr "قدرت"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "اگر تکانش بدهی هنوز جیغ می‌کشد."
 
+msgid "Kreuzkrabbe"
+msgstr "خرچنگ صلیبی"
+
 msgid "Krieger"
 msgstr "جنگجو"
 
@@ -1416,14 +1488,23 @@ msgstr "شمشیر جنگجو"
 msgid "Kriegsaxt"
 msgstr "تبر جنگی"
 
+msgid "Kristallbrocken"
+msgstr "تکه بلور"
+
 msgid "Kristallkarte"
 msgstr "نقشه بلورین"
+
+msgid "Kristallkoloss"
+msgstr "غول بلورین"
 
 msgid "Kristallkrabbe"
 msgstr "خرچنگ کریستالی"
 
 msgid "Kristallsplitter"
 msgstr "تکه بلور"
+
+msgid "Kristallwiese"
+msgstr "چمنزار بلورین"
 
 msgid "Kräuterbeutel"
 msgstr "کیسه گیاهان"
@@ -1761,6 +1842,12 @@ msgstr "شمش پالادیوم"
 msgid "Palladiumklinge"
 msgstr "تیغ پالادیوم"
 
+msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
+msgstr "شریک! باز هم مُردی؟ نگرانت شدم. تقریباً دو دقیقهٔ کامل!"
+
+msgid "Pass auf, ich hab da was Neues reinbekommen. Ganz legal. Hebel, bitte!"
+msgstr "ببین، یک چیز تازه رسیده. کاملاً قانونی. اهرم، لطفاً!"
+
 msgid "Pause"
 msgstr "توقف"
 
@@ -1886,6 +1973,9 @@ msgstr "نگهداری یادگار"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "بوی مرداب می‌دهد. برای همیشه."
+
+msgid "Riedwächter"
+msgstr "نگهبان نیزار"
 
 msgid "Riesenfledermaus"
 msgstr "خفاش غول‌پیکر"
@@ -2069,6 +2159,9 @@ msgstr "تیرهای مارپیچ که دشمنان را دنبال می‌کن�
 
 msgid "Schleim"
 msgstr "لجن"
+
+msgid "Schleimchen"
+msgstr "لجنک"
 
 msgid "Schließen"
 msgstr "بستن"
@@ -2418,6 +2511,9 @@ msgstr "گرز"
 msgid "Streubombe"
 msgstr "بمب خوشه‌ای"
 
+msgid "Strohmann"
+msgstr "مترسک"
+
 msgid "Struppig und leicht angekaut."
 msgstr "ژولیده و کمی جویده‌شده."
 
@@ -2532,6 +2628,9 @@ msgstr "علف تلوتلو"
 msgid "Tausendklinge"
 msgstr "تیغ هزار"
 
+msgid "Teilschleim"
+msgstr "لجن دوپاره"
+
 msgid "Tempo"
 msgstr "سرعت"
 
@@ -2540,6 +2639,9 @@ msgstr "سرعت +۰٫۲."
 
 msgid "Tempo: %s"
 msgstr "سرعت: %s"
+
+msgid "Testraum · P: Admin-Menü"
+msgstr "اتاق آزمایش · P: منوی مدیر"
 
 msgid "Testraum · P: zurück"
 msgstr "اتاق آزمایش · P: بازگشت"
@@ -2559,6 +2661,15 @@ msgstr "احضارگر مردگان"
 msgid "Totengruft"
 msgstr "دخمه مردگان"
 
+msgid "Trank"
+msgstr "معجون"
+
+msgid "Trank trinken"
+msgstr "نوشیدن معجون"
+
+msgid "Trank-Platz: im Dungeon mit %s trinken"
+msgstr "جای معجون: در سیاه‌چال با %s بنوش"
+
 msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
 msgstr "برخوردها می‌ترکند، تیرها از سنگ‌ها عبور می‌کنند"
 
@@ -2573,6 +2684,9 @@ msgstr "زره ترول"
 
 msgid "Truhenschlüssel"
 msgstr "کلید صندوق"
+
+msgid "Tränke gehören hierher, gleich neben die Füße. Da kommst du im Dungeon schnell ran."
+msgstr "معجون‌ها اینجا می‌روند، درست کنار پاها. اینطوری در سیاه‌چال سریع به آن‌ها می‌رسی."
 
 msgid "Umgebung"
 msgstr "اطراف"
@@ -2667,6 +2781,9 @@ msgstr "تمام‌صفحه"
 msgid "Vorwärts"
 msgstr "جلو"
 
+msgid "Vulkandrache"
+msgstr "اژدهای آتشفشان"
+
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: راه رفتن · ماوس: نشانه‌گیری · کلیک چپ: شلیک"
 
@@ -2675,6 +2792,9 @@ msgstr "سلاح"
 
 msgid "Wanderbündel"
 msgstr "بقچه مسافر"
+
+msgid "Wandspinne"
+msgstr "عنکبوت دیوار"
 
 msgid "Warm und dicht."
 msgstr "گرم و پرپشت."
@@ -2709,8 +2829,17 @@ msgstr "تیری که بکشد با باقیمانده ادامه می‌دهد"
 msgid "Wert: %d Gold"
 msgstr "ارزش: %d طلا"
 
+msgid "Wespenbär"
+msgstr "خرس زنبوری"
+
 msgid "Wettkampfstiefel"
 msgstr "چکمه مسابقه"
+
+msgid "Wiesenwespe"
+msgstr "زنبور چمنزار"
+
+msgid "Wilderer"
+msgstr "شکارچی غیرمجاز"
 
 msgid "Wildschwein"
 msgstr "گراز وحشی"
@@ -2729,6 +2858,9 @@ msgstr "گل باد"
 
 msgid "Windstab"
 msgstr "عصای باد"
+
+msgid "Wispernde Wiese"
+msgstr "چمنزار نجواگر"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "هرجا پرتو بخورد، منفجر می‌شود"
@@ -2765,6 +2897,9 @@ msgstr "از سمت چپ یک سیاه‌چال انتخاب کن."
 
 msgid "Wählen"
 msgstr "انتخاب"
+
+msgid "Wühlmaus"
+msgstr "موش صحرایی"
 
 msgid "Wüstenkompass"
 msgstr "قطب‌نمای صحرا"
@@ -2873,3 +3008,6 @@ msgstr "بیش از حد: اگون به قوطی‌ات چشم دوخته!"
 
 msgid "Überschreiben"
 msgstr "بازنویسی"
+
+msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
+msgstr "…حداقل غنیمت را آوردی؟ نه؟ هوم. پس فقط یک چیز کمک می‌کند: معجون!"

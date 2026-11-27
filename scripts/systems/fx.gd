@@ -12,7 +12,7 @@ static var _textures: Dictionary[String, Texture2D] = {}
 
 
 ## Round pixel ball: white-yellow core, orange, red rim. `kind` "fire", "enemy" (purple),
-## "spark" (small yellow).
+## "spark" (small yellow), "heal" (green, a potion), "grass" (blades flying up).
 static func ball_texture(kind: String) -> Texture2D:
 	if _textures.has(kind):
 		return _textures[kind]
@@ -21,6 +21,10 @@ static func ball_texture(kind: String) -> Texture2D:
 		colors = [Color(0.95, 0.85, 1), Color(0.75, 0.45, 1), Color(0.5, 0.2, 0.8), Color(0.25, 0.08, 0.4)]
 	elif kind == "spark":
 		colors = [Color(1, 1, 0.9), Color(1, 0.9, 0.4), Color(1, 0.65, 0.2), Color(0.8, 0.35, 0.1)]
+	elif kind == "heal":
+		colors = [Color(0.9, 1, 0.9), Color(0.5, 1, 0.55), Color(0.2, 0.8, 0.35), Color(0.1, 0.45, 0.2)]
+	elif kind == "grass":
+		colors = [Color(0.75, 0.9, 0.45), Color(0.45, 0.7, 0.25), Color(0.3, 0.5, 0.15), Color(0.2, 0.35, 0.1)]
 	var image := Image.create(FIRE_SIZE, FIRE_SIZE, false, Image.FORMAT_RGBA8)
 	var center := Vector2(FIRE_SIZE, FIRE_SIZE) / 2.0 - Vector2(0.5, 0.5)
 	for y in FIRE_SIZE:

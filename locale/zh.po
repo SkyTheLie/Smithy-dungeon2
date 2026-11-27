@@ -24,6 +24,9 @@ msgstr "罐子里安全的金币多300。"
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "在埃贡那里出现R2的几率提高5 %。"
 
+msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
+msgstr "从现在起我桌上会常有药水。当然是友情价。"
+
 msgid "Abbrechen"
 msgstr "取消"
 
@@ -282,6 +285,9 @@ msgstr "你的物品"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "子弹会追踪敌人"
 
+msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
+msgstr "这瓶免费。死掉的顾客可不会再买东西了。真的！"
+
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "拉杆上方的条显示可能出现什么：灰色普通，绿色结实，依此类推。你越有经验，颜色越丰富。"
 
@@ -299,6 +305,9 @@ msgstr "石头接受了你的献祭"
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "通往下层的路已打开！"
+
+msgid "Der Wildhüter"
+msgstr "猎场看守"
 
 msgid "Diamant"
 msgstr "钻石"
@@ -326,6 +335,9 @@ msgstr "法师的武器：发射火球"
 
 msgid "Dietrich"
 msgstr "撬锁器"
+
+msgid "Distelkrähe"
+msgstr "蓟鸦"
 
 msgid "Doppelschuss"
 msgstr "双发"
@@ -383,6 +395,9 @@ msgstr "三十枚硬币和十把钥匙"
 
 msgid "Du bist gefallen"
 msgstr "你倒下了"
+
+msgid "Du bist schon gesund"
+msgstr "你已经很健康了"
 
 msgid "Du brauchst einen Schlüssel"
 msgstr "你需要一把钥匙"
@@ -519,6 +534,9 @@ msgstr "余烬契约已开启"
 msgid "Ein Golderz"
 msgstr "一块金矿石"
 
+msgid "Ein Heiltrank! Frisch gebraut, fast ohne Nebenwirkungen."
+msgstr "一瓶治疗药水！新鲜酿造，几乎没有副作用。"
+
 msgid "Ein Herz mehr"
 msgstr "多一颗心"
 
@@ -617,6 +635,9 @@ msgstr "第二条命！"
 
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "埃贡的桌上多一件货物。"
+
+msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
+msgstr "草长得和矮人一样高。草丛里沙沙作响，还有个猎人在设陷阱。埃贡卖镰刀。可惜卖完了。"
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "一次射出整间面包店"
@@ -735,6 +756,9 @@ msgstr "窗口大小"
 msgid "Fester Griff, härtere Treffer."
 msgstr "握得更稳，打得更狠。"
 
+msgid "Festgehalten!"
+msgstr "被夹住了！"
+
 msgid "Feuerelementar"
 msgstr "火元素"
 
@@ -821,6 +845,9 @@ msgstr "霜鬃"
 
 msgid "Frostmähnen-Fell"
 msgstr "霜鬃毛皮"
+
+msgid "Funkelstein"
+msgstr "闪光石"
 
 msgid "Funkenbüchse"
 msgstr "火花罐"
@@ -1131,6 +1158,9 @@ msgstr "黄金靴"
 msgid "Grafik"
 msgstr "画面"
 
+msgid "Grasotter"
+msgstr "草蝰"
+
 msgid "Gratis"
 msgstr "免费"
 
@@ -1151,6 +1181,9 @@ msgstr "莽汉"
 
 msgid "Große, schwere Schüsse mit viel Rückstoß"
 msgstr "又大又重的射击，击退很强"
+
+msgid "Großer Heiltrank"
+msgstr "大治疗药水"
 
 msgid "Grubenhacke"
 msgstr "矿镐"
@@ -1212,8 +1245,20 @@ msgstr "击杀回血，伤害提升"
 msgid "Heilerkräuter"
 msgstr "治疗草药"
 
+msgid "Heilt %s Herzen"
+msgstr "恢复 %s 颗心"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "完全治疗，移动更快"
+
+msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "恢复三颗心。樱桃加倍，袜子减半。"
+
+msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "恢复两颗心。樱桃味。还有点袜子味。"
+
+msgid "Heiltrank"
+msgstr "治疗药水"
 
 msgid "Heißer Sand"
 msgstr "热沙"
@@ -1236,11 +1281,17 @@ msgstr "女巫大锅"
 msgid "Hier klicken"
 msgstr "点击这里"
 
+msgid "Hinter dem Tor wartet etwas"
+msgstr "门后有什么在等待"
+
 msgid "Hinter dem Wald liegt ein Moor voller Lichter. Wer ihnen folgt, kommt nicht wieder. Sagt Egon. Er verkauft Laternen."
 msgstr "森林后面有一片满是光点的沼泽。跟着光走的人再也回不来。埃贡说的。他卖灯笼。"
 
 msgid "Hippogreif"
 msgstr "鹰马"
+
+msgid "Hohes Gras"
+msgstr "高草丛"
 
 msgid "Holzstab"
 msgstr "木杖"
@@ -1290,6 +1341,15 @@ msgstr "地狱守卫"
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "我是骗… 呃，卖货的。我卖… …装备！对，没错。我卖装备。"
 
+msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
+msgstr "我帮你放进去。免费！我是说，放进去免费。"
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
+msgstr "在地牢里按 %s。咕咚咕咚，两颗心就回来了。"
+
+msgid "Im Dungeon: %s trinkt ihn"
+msgstr "在地牢中：按 %s 喝下"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "火山里岩浆翻滚，最深处有一道门。埃贡从没去过。他是这么说的。可他的靴子被烧焦了。"
 
@@ -1313,6 +1373,9 @@ msgstr "玉雕像"
 
 msgid "Jagdbogen"
 msgstr "狩猎弓"
+
+msgid "Jagdgrund"
+msgstr "狩猎场"
 
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "射击飞得越远，伤害越高"
@@ -1350,6 +1413,9 @@ msgstr "地图"
 msgid "Kein Relikt"
 msgstr "不是圣物"
 
+msgid "Kein Trank dabei"
+msgstr "没有带药水"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "任何攻击最多只扣半颗心"
 
@@ -1376,6 +1442,9 @@ msgstr "刃之星"
 
 msgid "Klippenharpyie"
 msgstr "悬崖鹰身女妖"
+
+msgid "Knallkäfer"
+msgstr "爆炸甲虫"
 
 msgid "Knistert in der Hand."
 msgstr "在手里噼啪作响。"
@@ -1407,6 +1476,9 @@ msgstr "力量"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "一晃还会尖叫。"
 
+msgid "Kreuzkrabbe"
+msgstr "十字蟹"
+
 msgid "Krieger"
 msgstr "战士"
 
@@ -1416,14 +1488,23 @@ msgstr "战士之剑"
 msgid "Kriegsaxt"
 msgstr "战斧"
 
+msgid "Kristallbrocken"
+msgstr "水晶块"
+
 msgid "Kristallkarte"
 msgstr "水晶地图"
+
+msgid "Kristallkoloss"
+msgstr "水晶巨像"
 
 msgid "Kristallkrabbe"
 msgstr "水晶蟹"
 
 msgid "Kristallsplitter"
 msgstr "水晶碎片"
+
+msgid "Kristallwiese"
+msgstr "水晶草原"
 
 msgid "Kräuterbeutel"
 msgstr "草药袋"
@@ -1761,6 +1842,12 @@ msgstr "钯锭"
 msgid "Palladiumklinge"
 msgstr "钯金之刃"
 
+msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
+msgstr "伙计！又死了？我可担心了。足足快两分钟！"
+
+msgid "Pass auf, ich hab da was Neues reinbekommen. Ganz legal. Hebel, bitte!"
+msgstr "瞧，我进了点新货。完全合法。拉杆，请！"
+
 msgid "Pause"
 msgstr "暂停"
 
@@ -1886,6 +1973,9 @@ msgstr "圣物保养"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "一股沼泽味。永远散不掉。"
+
+msgid "Riedwächter"
+msgstr "芦苇守卫"
 
 msgid "Riesenfledermaus"
 msgstr "巨型蝙蝠"
@@ -2069,6 +2159,9 @@ msgstr "追踪敌人的蛇形射击"
 
 msgid "Schleim"
 msgstr "史莱姆"
+
+msgid "Schleimchen"
+msgstr "小史莱姆"
 
 msgid "Schließen"
 msgstr "关闭"
@@ -2418,6 +2511,9 @@ msgstr "钉头锤"
 msgid "Streubombe"
 msgstr "集束炸弹"
 
+msgid "Strohmann"
+msgstr "稻草人"
+
 msgid "Struppig und leicht angekaut."
 msgstr "乱糟糟的,还被啃过一点。"
 
@@ -2532,6 +2628,9 @@ msgstr "蹒跚草"
 msgid "Tausendklinge"
 msgstr "千刃"
 
+msgid "Teilschleim"
+msgstr "分裂史莱姆"
+
 msgid "Tempo"
 msgstr "速度"
 
@@ -2540,6 +2639,9 @@ msgstr "速度+0.2。"
 
 msgid "Tempo: %s"
 msgstr "速度：%s"
+
+msgid "Testraum · P: Admin-Menü"
+msgstr "测试房间 · P：管理菜单"
 
 msgid "Testraum · P: zurück"
 msgstr "测试房间 · P：返回"
@@ -2559,6 +2661,15 @@ msgstr "死灵法师"
 msgid "Totengruft"
 msgstr "亡者墓穴"
 
+msgid "Trank"
+msgstr "药水"
+
+msgid "Trank trinken"
+msgstr "喝药水"
+
+msgid "Trank-Platz: im Dungeon mit %s trinken"
+msgstr "药水栏：在地牢中按 %s 喝下"
+
 msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
 msgstr "命中后爆裂，射击穿过岩石"
 
@@ -2573,6 +2684,9 @@ msgstr "巨魔铠甲"
 
 msgid "Truhenschlüssel"
 msgstr "宝箱钥匙"
+
+msgid "Tränke gehören hierher, gleich neben die Füße. Da kommst du im Dungeon schnell ran."
+msgstr "药水放这儿，就在脚边。在地牢里能马上拿到。"
 
 msgid "Umgebung"
 msgstr "周边"
@@ -2667,6 +2781,9 @@ msgstr "全屏"
 msgid "Vorwärts"
 msgstr "前进"
 
+msgid "Vulkandrache"
+msgstr "火山巨龙"
+
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD：移动 · 鼠标：瞄准 · 左键：射击"
 
@@ -2675,6 +2792,9 @@ msgstr "武器"
 
 msgid "Wanderbündel"
 msgstr "旅人包裹"
+
+msgid "Wandspinne"
+msgstr "壁蛛"
 
 msgid "Warm und dicht."
 msgstr "又暖又厚。"
@@ -2709,8 +2829,17 @@ msgstr "击杀后射击带着剩余伤害继续飞行"
 msgid "Wert: %d Gold"
 msgstr "价值:%d 金币"
 
+msgid "Wespenbär"
+msgstr "黄蜂熊"
+
 msgid "Wettkampfstiefel"
 msgstr "竞技靴"
+
+msgid "Wiesenwespe"
+msgstr "草原黄蜂"
+
+msgid "Wilderer"
+msgstr "偷猎者"
 
 msgid "Wildschwein"
 msgstr "野猪"
@@ -2729,6 +2858,9 @@ msgstr "风向玫瑰"
 
 msgid "Windstab"
 msgstr "风之杖"
+
+msgid "Wispernde Wiese"
+msgstr "低语草原"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "光束击中处会爆炸"
@@ -2765,6 +2897,9 @@ msgstr "在左侧选择一个地牢。"
 
 msgid "Wählen"
 msgstr "选择"
+
+msgid "Wühlmaus"
+msgstr "田鼠"
 
 msgid "Wüstenkompass"
 msgstr "沙漠罗盘"
@@ -2873,3 +3008,6 @@ msgstr "超过上限：埃贡正盯着你的罐子！"
 
 msgid "Überschreiben"
 msgstr "覆盖"
+
+msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
+msgstr "……至少战利品带回来了吧？没有？嗯。那只剩一个办法：药水！"

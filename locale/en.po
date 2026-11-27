@@ -24,6 +24,9 @@ msgstr "300 more gold is safe in the can."
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "5 % more chance of R2 at Egon's."
 
+msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
+msgstr "From now on there'll often be potions on my table. At a friendship price, of course."
+
 msgid "Abbrechen"
 msgstr "Cancel"
 
@@ -282,6 +285,9 @@ msgstr "Your items"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "Your shots chase enemies"
 
+msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
+msgstr "This one's on the house. A dead customer doesn't buy anything. Honest!"
+
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "The bar above the lever shows what can come: grey is common, green solid and so on. The more experienced you are, the more colourful it gets."
 
@@ -299,6 +305,9 @@ msgstr "The stone accepts your sacrifice"
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "The way down is open!"
+
+msgid "Der Wildhüter"
+msgstr "The Gamekeeper"
 
 msgid "Diamant"
 msgstr "Diamond"
@@ -326,6 +335,9 @@ msgstr "The mage's weapon: shoots fireballs"
 
 msgid "Dietrich"
 msgstr "Lockpick"
+
+msgid "Distelkrähe"
+msgstr "Thistle Crow"
 
 msgid "Doppelschuss"
 msgstr "Double shot"
@@ -383,6 +395,9 @@ msgstr "Thirty coins and ten keys"
 
 msgid "Du bist gefallen"
 msgstr "You have fallen"
+
+msgid "Du bist schon gesund"
+msgstr "You are already healthy"
 
 msgid "Du brauchst einen Schlüssel"
 msgstr "You need a key"
@@ -519,6 +534,9 @@ msgstr "An ember pact has opened"
 msgid "Ein Golderz"
 msgstr "A gold ore"
 
+msgid "Ein Heiltrank! Frisch gebraut, fast ohne Nebenwirkungen."
+msgstr "A healing potion! Freshly brewed, almost no side effects."
+
 msgid "Ein Herz mehr"
 msgstr "One more heart"
 
@@ -617,6 +635,9 @@ msgstr "A second life!"
 
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "One more item on Egon's table."
+
+msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
+msgstr "A meadow as tall as a dwarf. Something rustles in the grass, and a hunter sets traps. Egon sells scythes. Sadly, none in stock."
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "A whole bakery at once"
@@ -735,6 +756,9 @@ msgstr "Window size"
 msgid "Fester Griff, härtere Treffer."
 msgstr "Firm grip, harder hits."
 
+msgid "Festgehalten!"
+msgstr "Caught!"
+
 msgid "Feuerelementar"
 msgstr "Fire Elemental"
 
@@ -821,6 +845,9 @@ msgstr "Frost Mane"
 
 msgid "Frostmähnen-Fell"
 msgstr "Frost Mane Pelt"
+
+msgid "Funkelstein"
+msgstr "Sparkstone"
 
 msgid "Funkenbüchse"
 msgstr "Spark Tin"
@@ -1131,6 +1158,9 @@ msgstr "Gold Boots"
 msgid "Grafik"
 msgstr "Graphics"
 
+msgid "Grasotter"
+msgstr "Grass Viper"
+
 msgid "Gratis"
 msgstr "Free"
 
@@ -1151,6 +1181,9 @@ msgstr "Brute"
 
 msgid "Große, schwere Schüsse mit viel Rückstoß"
 msgstr "Big, heavy shots with lots of knockback"
+
+msgid "Großer Heiltrank"
+msgstr "Large Healing Potion"
 
 msgid "Grubenhacke"
 msgstr "Mine Pick"
@@ -1212,8 +1245,20 @@ msgstr "Heal from kills, damage up"
 msgid "Heilerkräuter"
 msgstr "Healer's Herbs"
 
+msgid "Heilt %s Herzen"
+msgstr "Heals %s hearts"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "Heals you fully, move faster"
+
+msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "Heals three hearts. Twice the cherry, half the sock."
+
+msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "Heals two hearts. Tastes of cherry. And a little of sock."
+
+msgid "Heiltrank"
+msgstr "Healing Potion"
 
 msgid "Heißer Sand"
 msgstr "Hot Sand"
@@ -1236,11 +1281,17 @@ msgstr "Witch's Cauldron"
 msgid "Hier klicken"
 msgstr "Click here"
 
+msgid "Hinter dem Tor wartet etwas"
+msgstr "Something waits beyond the gate"
+
 msgid "Hinter dem Wald liegt ein Moor voller Lichter. Wer ihnen folgt, kommt nicht wieder. Sagt Egon. Er verkauft Laternen."
 msgstr "Beyond the forest lies a bog full of lights. Whoever follows them never comes back. Says Egon. He sells lanterns."
 
 msgid "Hippogreif"
 msgstr "Hippogriff"
+
+msgid "Hohes Gras"
+msgstr "Tall Grass"
 
 msgid "Holzstab"
 msgstr "Wooden Staff"
@@ -1290,6 +1341,15 @@ msgstr "Hell Warden"
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "I'm the swind… er, the gear-seller. I sell… …equipment! Yes, exactly. I sell equipment."
 
+msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
+msgstr "I'll put it in for you. Free of charge! The putting in, I mean."
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
+msgstr "In the dungeon you press %s. Glug, glug, and two hearts are back."
+
+msgid "Im Dungeon: %s trinkt ihn"
+msgstr "In the dungeon: %s drinks it"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "Lava bubbles inside the volcano, and at the very bottom stands a gate. Egon was never there. So he says. His boots are scorched, though."
 
@@ -1313,6 +1373,9 @@ msgstr "Jade Figure"
 
 msgid "Jagdbogen"
 msgstr "Hunting Bow"
+
+msgid "Jagdgrund"
+msgstr "Hunting Ground"
 
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "The farther the shot flies, the more damage"
@@ -1350,6 +1413,9 @@ msgstr "Map"
 msgid "Kein Relikt"
 msgstr "No relic"
 
+msgid "Kein Trank dabei"
+msgstr "No potion with you"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "No hit takes more than half a heart"
 
@@ -1376,6 +1442,9 @@ msgstr "Blade Star"
 
 msgid "Klippenharpyie"
 msgstr "Cliff Harpy"
+
+msgid "Knallkäfer"
+msgstr "Bang Beetle"
 
 msgid "Knistert in der Hand."
 msgstr "Crackles in your hand."
@@ -1407,6 +1476,9 @@ msgstr "Strength"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "Still shrieks when you shake it."
 
+msgid "Kreuzkrabbe"
+msgstr "Cross Crab"
+
 msgid "Krieger"
 msgstr "Warrior"
 
@@ -1416,14 +1488,23 @@ msgstr "Warrior's Sword"
 msgid "Kriegsaxt"
 msgstr "War Axe"
 
+msgid "Kristallbrocken"
+msgstr "Crystal Lump"
+
 msgid "Kristallkarte"
 msgstr "Crystal Map"
+
+msgid "Kristallkoloss"
+msgstr "Crystal Colossus"
 
 msgid "Kristallkrabbe"
 msgstr "Crystal Crab"
 
 msgid "Kristallsplitter"
 msgstr "Crystal Shard"
+
+msgid "Kristallwiese"
+msgstr "Crystal Meadow"
 
 msgid "Kräuterbeutel"
 msgstr "Herb Pouch"
@@ -1761,6 +1842,12 @@ msgstr "Palladium Bar"
 msgid "Palladiumklinge"
 msgstr "Palladium Blade"
 
+msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
+msgstr "Partner! Dead again? I was worried. For almost two whole minutes!"
+
+msgid "Pass auf, ich hab da was Neues reinbekommen. Ganz legal. Hebel, bitte!"
+msgstr "Look, I've got something new in. Totally legal. Lever, please!"
+
 msgid "Pause"
 msgstr "Paused"
 
@@ -1886,6 +1973,9 @@ msgstr "Relic care"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "Smells of bog. Forever."
+
+msgid "Riedwächter"
+msgstr "Reed Warden"
 
 msgid "Riesenfledermaus"
 msgstr "Giant Bat"
@@ -2069,6 +2159,9 @@ msgstr "Snaking shots that chase enemies"
 
 msgid "Schleim"
 msgstr "Slime"
+
+msgid "Schleimchen"
+msgstr "Slimelet"
 
 msgid "Schließen"
 msgstr "Close"
@@ -2418,6 +2511,9 @@ msgstr "Mace"
 msgid "Streubombe"
 msgstr "Cluster Bomb"
 
+msgid "Strohmann"
+msgstr "Scarecrow"
+
 msgid "Struppig und leicht angekaut."
 msgstr "Scruffy and a little chewed."
 
@@ -2532,6 +2628,9 @@ msgstr "Stagger Weed"
 msgid "Tausendklinge"
 msgstr "Thousand Blade"
 
+msgid "Teilschleim"
+msgstr "Splitting Slime"
+
 msgid "Tempo"
 msgstr "Speed"
 
@@ -2540,6 +2639,9 @@ msgstr "Speed +0.2."
 
 msgid "Tempo: %s"
 msgstr "Speed: %s"
+
+msgid "Testraum · P: Admin-Menü"
+msgstr "Test room · P: admin menu"
 
 msgid "Testraum · P: zurück"
 msgstr "Test room · P: back"
@@ -2559,6 +2661,15 @@ msgstr "Necromancer"
 msgid "Totengruft"
 msgstr "Death Crypt"
 
+msgid "Trank"
+msgstr "Potion"
+
+msgid "Trank trinken"
+msgstr "Drink potion"
+
+msgid "Trank-Platz: im Dungeon mit %s trinken"
+msgstr "Potion slot: drink it in the dungeon with %s"
+
 msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
 msgstr "Hits burst, shots fly through rocks"
 
@@ -2573,6 +2684,9 @@ msgstr "Troll Armor"
 
 msgid "Truhenschlüssel"
 msgstr "Chest Key"
+
+msgid "Tränke gehören hierher, gleich neben die Füße. Da kommst du im Dungeon schnell ran."
+msgstr "Potions go here, right next to the feet. That way you can reach them fast in the dungeon."
 
 msgid "Umgebung"
 msgstr "Surroundings"
@@ -2667,6 +2781,9 @@ msgstr "Fullscreen"
 msgid "Vorwärts"
 msgstr "Forward"
 
+msgid "Vulkandrache"
+msgstr "Volcano Dragon"
+
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: walk · Mouse: aim · Left click: shoot"
 
@@ -2675,6 +2792,9 @@ msgstr "Weapon"
 
 msgid "Wanderbündel"
 msgstr "Wanderer's Bundle"
+
+msgid "Wandspinne"
+msgstr "Wall Spider"
 
 msgid "Warm und dicht."
 msgstr "Warm and thick."
@@ -2709,8 +2829,17 @@ msgstr "A killing shot flies on with what is left"
 msgid "Wert: %d Gold"
 msgstr "Value: %d gold"
 
+msgid "Wespenbär"
+msgstr "Wasp Bear"
+
 msgid "Wettkampfstiefel"
 msgstr "Contest Boots"
+
+msgid "Wiesenwespe"
+msgstr "Meadow Wasp"
+
+msgid "Wilderer"
+msgstr "Poacher"
 
 msgid "Wildschwein"
 msgstr "Wild Boar"
@@ -2729,6 +2858,9 @@ msgstr "Compass Rose"
 
 msgid "Windstab"
 msgstr "Wind Staff"
+
+msgid "Wispernde Wiese"
+msgstr "Whispering Meadow"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "Wherever the beam hits, things go boom"
@@ -2765,6 +2897,9 @@ msgstr "Choose a dungeon on the left."
 
 msgid "Wählen"
 msgstr "Choose"
+
+msgid "Wühlmaus"
+msgstr "Vole"
 
 msgid "Wüstenkompass"
 msgstr "Desert Compass"
@@ -2873,3 +3008,6 @@ msgstr "Over the limit: Egon is eyeing your money box!"
 
 msgid "Überschreiben"
 msgstr "Overwrite"
+
+msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
+msgstr "…Did you at least bring the loot? No? Hm. Then only one thing helps: potions!"

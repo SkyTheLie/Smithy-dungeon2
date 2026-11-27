@@ -139,3 +139,26 @@ Beantwortet am 2026-11-26: Dungeon bleibt 1 : 1 wie Dungeon Smithy (3D), ein Tag
 
 - Skills, die man bei Egon kaufen kann und die den Laden verbessern, z. B. **mehr Ware auf dem Tisch**, **bessere Chance auf R2**, **Chance auf R3**.
 - **Mit jedem Neu-Würfeln am selben Tag** steigt die Chance auf seltenere Stufen, die Chance auf R1 sinkt (zusätzlich zum steigenden Preis).
+
+## Gras-Dungeon, Gegner-Muster, Tränke (Nachricht vom 2026-11-27) – ✅ größtenteils gebaut (`feature/wiese-traenke`)
+
+- ✅ **Dungeon mit Rasen:** pro Feld 2D-Gras, ein paar Dutzend Zentimeter hoch; kleine Gegner sind schwerer zu sehen, unter dem Gras liegen Fallen, die man kaum sieht → „Wispernde Wiese“.
+- ✅ **Bogenschützen-Boss:** steht auf Abstand, weicht Schüssen aus, spannt den Bogen (Vorwarnung), wirft ab und zu 3 Fallen um den Spieler; wer hineintritt, wird festgehalten, und der nächste Schuss trifft → „Der Wildhüter“.
+- ✅ Feste Gegner (Riedwächter), Spinnen, die nur an der Wand klettern und schießen (Wandspinne), Laser-Strahl (Funkelstein, Kristallkoloss), Dreifach-Schuss (Wilderer, Wandspinne).
+- ✅ Jeder Gegner eigen, Muster zum Lernen, jede Gefahr mit Vorwarnung, Rüstung fängt Fehler ab.
+- ✅ **Tränke nach dem 2. Tod:** Egon zeigt Tränke, dreht den Tisch, schenkt einen, legt ihn in den Trank-Platz (an der Helden-Figur unten links).
+- Gebaute Bausteine nach der Ideen-Liste: auf Linie stürmen, stehen und im Kreuz/Diagonal/abwechselnd schießen, springen (gab es), eingraben und beim Auftauchen schießen, fliehen und Helfer rufen, beim Tod teilen / explodieren / schießen, umfallen und wieder aufstehen, Panzer mit kurzem offenem Fenster, von vorne geschützt (gab es), abprallen.
+- **Noch offen (Vorschläge, eigene Ausführung):**
+  - Zwei-Teile-Boss: stirbt ein Teil, wird der andere wilder.
+  - Wurm-Boss aus Gliedern, die einzeln zerstört werden und Hindernisse hinterlassen.
+  - Boss, der den Raum nicht betritt, sondern aus den Türen und von oben angreift (Schatten vor dem Stampfen).
+  - Boss, der Fliegen um sich kreisen lässt und dann auf den Spieler stößt.
+  - Boss mit Pfützen, dem bei Schaden Teile abfallen, die selbst angreifen.
+  - End-Boss mit Phasen (Kugelmuster, Laser, Beschwörungen im Wechsel).
+  - Neue Muster auch in den alten Gebieten mischen (z. B. Wandspinnen in der Totengruft), damit Raum-Kombinationen schwierig werden.
+  - Gras, das sich im Wind wiegt und beim Durchlaufen zur Seite biegt.
+  - Trank-Skills „Mehr Tränke“, „Stärkere Tränke“; weitere Trank-Arten (Tempo, Schild).
+
+## Eigene Fallen (Nachricht vom 2026-11-27) – Logik fertig, Inhalt offen
+
+- Fallen, die der Spieler selbst legt und die Gegner treffen: aus **Relikten** oder einem **Projektil**, das beim Aufprall eine Falle hinterlässt. Arten bisher: Krähenfüße, Glutfleck, eigenes Fangeisen (`hazard_types` `owner: player`). Offen: Items/Relikte mit `traps`, eigene Bilder, ggf. Fallen werfen (Taste).

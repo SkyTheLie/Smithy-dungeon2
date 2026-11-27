@@ -60,11 +60,15 @@ func _ready() -> void:
 
 
 ## Shows `lines` (German keys) one after the other; returns after the last one was confirmed.
-## The box stays open (the caller hides it).
-func speak(lines: Array) -> void:
+## The box stays open (the caller hides it). `insert` goes into a "%s" of a line (after the
+## translation, e.g. the name of a key).
+func speak(lines: Array, insert: String = "") -> void:
 	show()
 	for line: Variant in lines:
-		_show_line(Language.translate(String(line)))
+		var text: String = Language.translate(String(line))
+		if not insert.is_empty() and text.contains("%s"):
+			text = text % insert
+		_show_line(text)
 		_waiting = true
 		await confirmed
 		if not is_inside_tree():

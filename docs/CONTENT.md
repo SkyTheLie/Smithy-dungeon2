@@ -118,3 +118,25 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - **Fallen-Arten (`floors.json` `hazard_types`):** `damage` (halbe Herzen), `size` [min, max] m, `cycle` [unten, oben] Sekunden (nur Stacheln), `color` RGB, `glow`.
 - **Material (`shop.json` `materials`):** `name`, `weight`, `lever_mult`, `unlock` (`level`, `dungeon`). Für jedes Material braucht `gear.json` alle Teile aus `pool` als `<material>_<teil>` (Test prüft das).
 - **Balance nachrechnen:** `py assets/_reference/balance/balance.py`, Erklärung in `docs/BALANCE.md`.
+
+## Tränke (`data/potions.json`, 2026-11-27)
+
+- `potions`: `name`, `desc`, `icon`, `price`, `heal` (halbe Herzen), `rarity`, `unlock` (wie Materialien). `tour_potion` = Egons Geschenk, `unlock_deaths` = nach so vielen Toden zeigt Egon die Tränke, `slots` = Trank-Plätze, `table_chance` = Chance je Hebel-Zug. Neuer Trank = neuer Eintrag, Texte übersetzen (`build_po.py` liest `potions.json` mit).
+
+## Neue Gegner-Muster und hohes Gras (2026-11-27)
+
+- **Gegner (`enemies.json`):** `ai` `charger`, `turret`, `wall`, `bouncer`, `spawner`, `shell` (Erklärung im Kopf von `scenes/actors/enemy_moves.gd`); `pattern` (aimed, fan3, cross, diagonal, star, alternate, ring); `tint` [r, g, b]; `death_shots`, `death_spawn` [Id, Anzahl], `death_blast` {radius, damage}; `revive` {time, times, down_life}; `burrow.shots`; `laser` {aim, fire, width} für `charger`; `range`, `climb`, `flee`, `spawn_every`, `open`, `windup`, `rush`, `sight`.
+- **Bosse:** `keep_distance`, `stationary`, Trait `evade`, `snare` (Fallen-Art), Angriffe `aimed_shot`, `snares`, `volley`, `laser`, `laser_sweep`, `cross`.
+- **Gras (`floors.json` Gebiet/Ebene `grass`):** `height` m, `per_m2`, `color`, `spread`.
+- **Fallen:** `hold` = Sekunden festhalten (Fangeisen), `hidden` = kaum sichtbar.
+- Faustregel für neue Gegner: **ein** klares Muster, eine Vorwarnung (Wackeln, Anschwellen, Linie), ein sicherer Weg (schräg stehen, hinter ihn laufen, warten bis er offen ist). Zwei Bausteine kombinieren ergibt neue Gegner.
+
+## Tauben, eigene Fallen, große Bosse (2026-11-27)
+
+- **Etwas auf einer Falle** (`hazard_types` `decor`): `sprite` (Bildstreifen), `frames`, `fps`, `height` (m), `count`, `return` (Sekunden bis es nach dem Aufscheuchen wiederkommt). Nicht auf `hidden`-Fallen.
+- **Eigene Falle** (`hazard_types` mit `"owner": "player"`): `damage_mult` (× Schuss-Schaden), `every` (Sekunden je Gegner), `hold` (Fangeisen: betäubt so lange), `life`, `size`, `color`, `glow`.
+- **Item oder Relikt, das Fallen legt:** `"traps": [{"kind": "player_fire", "chance": 0.25}]` – der Schuss legt die Falle, wo er endet.
+- **Großer Gegner:** `frame` [Breite, Höhe] der Einzelbilder; `attack_sheets` {"spray": "breath"} = `<sprite>_breath.png` während des Angriffs; `arena` {"light": [r, g, b], "hazards": [["lava", [4, 5]]]} für den Boss-Raum.
+
+- **Boss-Halle** (`data/boss_hall.json`): `size` (in Räumen), `wall_height`, Texturen, `gate`/`gate_open`/`altar` (Bilder), `ambient_dark`/`ambient_lit`, `wake_distance`, `pillars` [quer, längs] (Abstand der Säulen), `elements` (9 Kristalle, Bilder `holy_<element>_crystal.png`, `pillar_<element>.png`, `beam_<element>.png`, `crown_<element>.png`), `colors`, `music_altar`, `music_fight`, `silence`, `boss_drop`.
+- **Musik austauschen:** in `data/audio.json` `music` z. B. `"boss_rock"` auf eine andere Datei zeigen lassen (ogg/wav/mp3).

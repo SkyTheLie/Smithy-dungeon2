@@ -24,6 +24,9 @@ msgstr "缶の中で安全な金が300増える。"
 msgid "5 % mehr Chance auf R2 bei Egon."
 msgstr "エゴンの店でR2が出る確率が5 %アップ。"
 
+msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
+msgstr "これからは机によく薬が並ぶぞ。もちろん友達価格でな。"
+
 msgid "Abbrechen"
 msgstr "キャンセル"
 
@@ -282,6 +285,9 @@ msgstr "所持アイテム"
 msgid "Deine Schüsse verfolgen Gegner"
 msgstr "弾が敵を追いかける"
 
+msgid "Den gibt's aufs Haus. Ein toter Kunde kauft ja nichts mehr. Ehrlich!"
+msgstr "これはサービスだ。死んだ客は何も買わないからな。本当だよ！"
+
 msgid "Der Balken über dem Hebel zeigt, was drin sein kann: grau ist gewöhnlich, grün solide und so weiter. Je erfahrener du bist, desto bunter wird's."
 msgstr "レバーの上のバーで何が出るか分かる：灰色は普通、緑は良品、とかな。経験を積むほど色とりどりになる。"
 
@@ -299,6 +305,9 @@ msgstr "石が生贄を受け入れた"
 
 msgid "Der Weg nach unten ist frei!"
 msgstr "下への道が開いた！"
+
+msgid "Der Wildhüter"
+msgstr "猟場番人"
 
 msgid "Diamant"
 msgstr "ダイヤモンド"
@@ -326,6 +335,9 @@ msgstr "魔法使いの武器：火の玉を撃つ"
 
 msgid "Dietrich"
 msgstr "鍵開け具"
+
+msgid "Distelkrähe"
+msgstr "アザミガラス"
 
 msgid "Doppelschuss"
 msgstr "ダブルショット"
@@ -383,6 +395,9 @@ msgstr "コイン30枚と鍵10本"
 
 msgid "Du bist gefallen"
 msgstr "力尽きた"
+
+msgid "Du bist schon gesund"
+msgstr "もう元気だ"
 
 msgid "Du brauchst einen Schlüssel"
 msgstr "鍵が必要だ"
@@ -519,6 +534,9 @@ msgstr "残り火の契約が開いた"
 msgid "Ein Golderz"
 msgstr "金鉱石1つ"
 
+msgid "Ein Heiltrank! Frisch gebraut, fast ohne Nebenwirkungen."
+msgstr "回復薬だ！作りたて、副作用はほぼなし。"
+
 msgid "Ein Herz mehr"
 msgstr "ハートが1つ増える"
 
@@ -617,6 +635,9 @@ msgstr "2つ目の命！"
 
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "エゴンのテーブルの品物が1つ増える。"
+
+msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
+msgstr "ドワーフほどの高さの草原。草がざわめき、狩人が罠を仕掛ける。エゴンは鎌を売っている。あいにく品切れ。"
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "パン屋まるごと一斉発射"
@@ -735,6 +756,9 @@ msgstr "ウィンドウサイズ"
 msgid "Fester Griff, härtere Treffer."
 msgstr "しっかり握れば一撃も重い。"
 
+msgid "Festgehalten!"
+msgstr "捕まった！"
+
 msgid "Feuerelementar"
 msgstr "炎の精霊"
 
@@ -821,6 +845,9 @@ msgstr "霜のたてがみ"
 
 msgid "Frostmähnen-Fell"
 msgstr "フロストメインの毛皮"
+
+msgid "Funkelstein"
+msgstr "きらめき石"
 
 msgid "Funkenbüchse"
 msgstr "火花の缶"
@@ -1131,6 +1158,9 @@ msgstr "金のブーツ"
 msgid "Grafik"
 msgstr "グラフィック"
 
+msgid "Grasotter"
+msgstr "草マムシ"
+
 msgid "Gratis"
 msgstr "無料"
 
@@ -1151,6 +1181,9 @@ msgstr "乱暴者"
 
 msgid "Große, schwere Schüsse mit viel Rückstoß"
 msgstr "大きく重い弾、強いノックバック"
+
+msgid "Großer Heiltrank"
+msgstr "大回復薬"
 
 msgid "Grubenhacke"
 msgstr "鉱山のつるはし"
@@ -1212,8 +1245,20 @@ msgstr "倒すと回復、ダメージ上昇"
 msgid "Heilerkräuter"
 msgstr "治癒の薬草"
 
+msgid "Heilt %s Herzen"
+msgstr "ハートを%s回復"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "全回復、移動が速くなる"
+
+msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "ハートを3つ回復。さくらんぼ2倍、靴下半分。"
+
+msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "ハートを2つ回復。さくらんぼ味。ちょっと靴下味。"
+
+msgid "Heiltrank"
+msgstr "回復薬"
 
 msgid "Heißer Sand"
 msgstr "熱い砂"
@@ -1236,11 +1281,17 @@ msgstr "魔女の大釜"
 msgid "Hier klicken"
 msgstr "ここをクリック"
 
+msgid "Hinter dem Tor wartet etwas"
+msgstr "門の向こうで何かが待っている"
+
 msgid "Hinter dem Wald liegt ein Moor voller Lichter. Wer ihnen folgt, kommt nicht wieder. Sagt Egon. Er verkauft Laternen."
 msgstr "森の向こうに光だらけの沼がある。光について行った者は戻らない。とエゴンは言う。彼はランタンを売っている。"
 
 msgid "Hippogreif"
 msgstr "ヒッポグリフ"
+
+msgid "Hohes Gras"
+msgstr "高い草むら"
 
 msgid "Holzstab"
 msgstr "木の杖"
@@ -1290,6 +1341,15 @@ msgstr "地獄の番人"
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "俺は詐欺… いや、商人だ。売ってるのは… …装備だ！そう、装備を売ってる。"
 
+msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
+msgstr "入れといてやる。無料だ！入れる手間がな。"
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
+msgstr "ダンジョンで %s を押す。ゴクゴク、ハートが2つ戻る。"
+
+msgid "Im Dungeon: %s trinkt ihn"
+msgstr "ダンジョンで：%s で飲む"
+
 msgid "Im Vulkan brodelt die Lava, ganz unten steht ein Tor. Egon war nie dort. Sagt er. Seine Stiefel sind aber angesengt."
 msgstr "火山の中では溶岩が煮えたぎり、一番下には門がある。エゴンは行ったことがない。と本人は言う。でもブーツが焦げている。"
 
@@ -1313,6 +1373,9 @@ msgstr "翡翠の像"
 
 msgid "Jagdbogen"
 msgstr "狩猟弓"
+
+msgid "Jagdgrund"
+msgstr "狩り場"
 
 msgid "Je weiter der Schuss fliegt, desto mehr Schaden"
 msgstr "弾が遠くへ飛ぶほどダメージが増す"
@@ -1350,6 +1413,9 @@ msgstr "マップ"
 msgid "Kein Relikt"
 msgstr "レリックではない"
 
+msgid "Kein Trank dabei"
+msgstr "薬を持っていない"
+
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "被弾は最大でもハート半分"
 
@@ -1376,6 +1442,9 @@ msgstr "刃の星"
 
 msgid "Klippenharpyie"
 msgstr "崖のハーピー"
+
+msgid "Knallkäfer"
+msgstr "バクハツ虫"
 
 msgid "Knistert in der Hand."
 msgstr "手の中でパチパチ鳴る。"
@@ -1407,6 +1476,9 @@ msgstr "力"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "振るとまだ金切り声を上げる。"
 
+msgid "Kreuzkrabbe"
+msgstr "十字ガニ"
+
 msgid "Krieger"
 msgstr "戦士"
 
@@ -1416,14 +1488,23 @@ msgstr "戦士の剣"
 msgid "Kriegsaxt"
 msgstr "戦斧"
 
+msgid "Kristallbrocken"
+msgstr "水晶の塊"
+
 msgid "Kristallkarte"
 msgstr "水晶の地図"
+
+msgid "Kristallkoloss"
+msgstr "水晶の巨像"
 
 msgid "Kristallkrabbe"
 msgstr "クリスタルクラブ"
 
 msgid "Kristallsplitter"
 msgstr "水晶の欠片"
+
+msgid "Kristallwiese"
+msgstr "水晶の草原"
 
 msgid "Kräuterbeutel"
 msgstr "薬草袋"
@@ -1761,6 +1842,12 @@ msgstr "パラジウムの延べ棒"
 msgid "Palladiumklinge"
 msgstr "パラジウムの刃"
 
+msgid "Partner! Schon wieder tot? Ich hab mir Sorgen gemacht. Fast zwei Minuten lang!"
+msgstr "相棒！また死んだのか？心配したぞ。ほぼ2分間もな！"
+
+msgid "Pass auf, ich hab da was Neues reinbekommen. Ganz legal. Hebel, bitte!"
+msgstr "見てくれ、新入荷だ。完全に合法。レバー、どうぞ！"
+
 msgid "Pause"
 msgstr "ポーズ"
 
@@ -1886,6 +1973,9 @@ msgstr "レリックの手入れ"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "沼の匂いがする。永遠に。"
+
+msgid "Riedwächter"
+msgstr "葦の番人"
 
 msgid "Riesenfledermaus"
 msgstr "大コウモリ"
@@ -2069,6 +2159,9 @@ msgstr "敵を追う蛇行弾"
 
 msgid "Schleim"
 msgstr "スライム"
+
+msgid "Schleimchen"
+msgstr "ちびスライム"
 
 msgid "Schließen"
 msgstr "閉じる"
@@ -2418,6 +2511,9 @@ msgstr "メイス"
 msgid "Streubombe"
 msgstr "クラスター爆弾"
 
+msgid "Strohmann"
+msgstr "かかし"
+
 msgid "Struppig und leicht angekaut."
 msgstr "ぼさぼさで少しかじられている。"
 
@@ -2532,6 +2628,9 @@ msgstr "よろめき草"
 msgid "Tausendklinge"
 msgstr "千の刃"
 
+msgid "Teilschleim"
+msgstr "分裂スライム"
+
 msgid "Tempo"
 msgstr "移動速度"
 
@@ -2540,6 +2639,9 @@ msgstr "速度+0.2。"
 
 msgid "Tempo: %s"
 msgstr "移動速度: %s"
+
+msgid "Testraum · P: Admin-Menü"
+msgstr "テスト部屋 · P: 管理メニュー"
 
 msgid "Testraum · P: zurück"
 msgstr "テスト部屋 · P: 戻る"
@@ -2559,6 +2661,15 @@ msgstr "死霊術師"
 msgid "Totengruft"
 msgstr "死者の墓所"
 
+msgid "Trank"
+msgstr "薬"
+
+msgid "Trank trinken"
+msgstr "薬を飲む"
+
+msgid "Trank-Platz: im Dungeon mit %s trinken"
+msgstr "薬スロット：ダンジョンで %s で飲む"
+
 msgid "Treffer zerplatzen, Schüsse fliegen durch Steine"
 msgstr "命中で弾け、岩を貫通する"
 
@@ -2573,6 +2684,9 @@ msgstr "トロールの鎧"
 
 msgid "Truhenschlüssel"
 msgstr "宝箱の鍵"
+
+msgid "Tränke gehören hierher, gleich neben die Füße. Da kommst du im Dungeon schnell ran."
+msgstr "薬はここ、足のすぐ横だ。ダンジョンですぐ取り出せる。"
 
 msgid "Umgebung"
 msgstr "周辺"
@@ -2667,6 +2781,9 @@ msgstr "フルスクリーン"
 msgid "Vorwärts"
 msgstr "前進"
 
+msgid "Vulkandrache"
+msgstr "火山竜"
+
 msgid "WASD: laufen · Maus: zielen · Linksklick: schießen"
 msgstr "WASD: 移動 · マウス: 狙う · 左クリック: 撃つ"
 
@@ -2675,6 +2792,9 @@ msgstr "武器"
 
 msgid "Wanderbündel"
 msgstr "旅人の包み"
+
+msgid "Wandspinne"
+msgstr "壁グモ"
 
 msgid "Warm und dicht."
 msgstr "暖かくて厚い。"
@@ -2709,8 +2829,17 @@ msgstr "倒した弾は残りの威力で飛び続ける"
 msgid "Wert: %d Gold"
 msgstr "価値:%d ゴールド"
 
+msgid "Wespenbär"
+msgstr "ハチグマ"
+
 msgid "Wettkampfstiefel"
 msgstr "競技用ブーツ"
+
+msgid "Wiesenwespe"
+msgstr "草原のハチ"
+
+msgid "Wilderer"
+msgstr "密猟者"
 
 msgid "Wildschwein"
 msgstr "イノシシ"
@@ -2729,6 +2858,9 @@ msgstr "風配図"
 
 msgid "Windstab"
 msgstr "風の杖"
+
+msgid "Wispernde Wiese"
+msgstr "ささやく草原"
 
 msgid "Wo der Strahl auftrifft, knallt es"
 msgstr "ビームが当たった所で爆発する"
@@ -2765,6 +2897,9 @@ msgstr "左でダンジョンを選んでください。"
 
 msgid "Wählen"
 msgstr "選ぶ"
+
+msgid "Wühlmaus"
+msgstr "ハタネズミ"
 
 msgid "Wüstenkompass"
 msgstr "砂漠の羅針盤"
@@ -2873,3 +3008,6 @@ msgstr "上限超え：エゴンがカンを狙ってる！"
 
 msgid "Überschreiben"
 msgstr "上書き"
+
+msgid "…Hast du wenigstens die Beute? Nein? Hm. Dann hilft nur eins: Tränke!"
+msgstr "…せめて戦利品は？ない？ふむ。なら手は一つ、薬だ！"

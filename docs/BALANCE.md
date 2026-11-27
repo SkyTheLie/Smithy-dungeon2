@@ -19,10 +19,11 @@ Kein Dungeon soll mit der Ausrüstung, die man beim Betreten erwarten kann, zu l
 |---|---|---|---|---|---|---|
 | Dungeon der Glut | Rattenkeller, Goblinstollen, Totengruft | 1,0 | 1 | 1 | – | Kupfer (Bronze ab Stufe 3) |
 | Moor der Irrlichter | Sumpfufer, Banditenlager, Tiefes Moor | 2,0 | 2 | 2,5 | nach Glut | **Eisen** |
+| Wispernde Wiese (Neben-Dungeon) | Hohes Gras, Kristallwiese, Jagdgrund | 2,5 | 2,8 | 3,5 | nach Moor | – |
 | Frostgipfel | Wolfswald, Eishöhle, Sturmgipfel | 3,0 | 3,5 | 5 | nach Moor | Silber |
 | Glutschlund | Glutstollen, Magmakammer, Höllentor | 4,2 | 5,5 | 9 | nach Frost | Gold |
 
-Jeder Dungeon hat 6 Ebenen wie der erste (zwei je Gebiet, die zweite schwerer: Leben ×1,0 / 1,25 / 1,1 / 1,4 / 1,25 / 1,55). Die neuen Dungeons haben **Fallen**: Giftpfützen (Moor), Stacheln (Banditen, Wald), Eisstacheln (Eis, Sturm), Lava (Vulkan).
+Jeder Dungeon hat 6 Ebenen wie der erste (zwei je Gebiet, die zweite schwerer: Leben ×1,0 / 1,25 / 1,1 / 1,4 / 1,25 / 1,55). Die neuen Dungeons haben **Fallen**: Giftpfützen (Moor), Stacheln (Banditen, Wald), Eisstacheln (Eis, Sturm), Lava (Vulkan), Fangeisen und versteckte Stacheln im hohen Gras (Wiese).
 
 Materialien kommen auf Egons Tisch, sobald sie offen sind (`shop.json` `materials`). Ein Material, das zwei Stufen unter dem besten offenen liegt, kommt nur noch ¼ so oft (Kupfer wird selten, wenn Silber offen ist). Der Hebel kostet mit dem besten Material mehr (×1 / ×3 Eisen / ×7 Silber / ×15 Gold), sonst wäre Neu-Würfeln später geschenkt.
 

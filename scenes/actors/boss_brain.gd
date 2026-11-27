@@ -17,13 +17,37 @@ extends RefCounted
 ##   boulder   a big slow rock that bursts into shots
 ##   skulls    shots that follow the player
 ##   march     a moving wall of shots with one gap
-## Traits ("traits"): regen (heals when not hit for a while), lifesteal (heals when it hits you).
+##   aimed_shot  draws its bow: a thin line follows the player (blinking faster just before),
+##             then a fast arrow flies where the line points. Stands still and cannot dodge
+##             while drawing (the moment to hit it). A player held by a snare gets one at once.
+##   snares    throws 3 snares around the player (red marks first, gaps between them); stepping
+##             in one holds the player (Player.hold), and the boss draws its bow at once
+##   volley    3 arrows in a fan (5 when angry)
+##   laser     a beam at the player (warning line first; 3 beams when angry)
+##   laser_sweep  a beam that starts beside the player and sweeps across (behind the boss is safe)
+##   cross     shots in a + pattern, a moment later in an x pattern
+## Traits ("traits"): regen (heals when not hit for a while), lifesteal (heals when it hits you),
+## evade (jumps aside when a shot of the player flies at it; not while drawing its bow).
+## "keep_distance": metres it keeps away from the player between attacks (circling them, an
+## archer); "stationary": true = does not walk at all.
 
 const PAUSE: float = 2.0
 const MARK_TIME: float = 0.9
 const STUN_TIME: float = 1.6
 ## Seconds between the attack cry and the attack.
 const CUE_LEAD: float = 0.5
+## evade: how far it sees shots coming, how long a jump aside lasts, the pause after it.
+const EVADE_REACH: float = 3.5
+const EVADE_TIME: float = 0.25
+const EVADE_WAIT: float = 1.4
+const ARROW_SPEED: float = 3.2
+## Thrown snares lie this long; this far around the player.
+const SNARE_LIFE: float = 8.0
+const SNARE_RING: float = 1.5
+const DRAW_TIME: float = 1.0
+const DRAW_QUICK: float = 0.55
+const RELEASE: float = 0.35
+const BEAM_COLOR := Color(0.55, 0.85, 1.0)
 
 var boss: Enemy
 
@@ -39,6 +63,14 @@ var _turn: float = 0.0
 var _done_once: bool = false
 ## The attack cry for the coming attack was played.
 var _cued: bool = false
+var _evade_left: float = 0.0
+var _evade_wait: float = 0.0
+var _evade_dir: Vector3 = Vector3.ZERO
+## The next aimed_shot is a quick one (the player is held by a snare).
+var _quick: bool = false
+var _was_held: bool = false
+## The player just got caught: the quick shot is still to come.
+var _punish: bool = false
 
 
 func _init(the_boss: Enemy) -> void:
@@ -53,6 +85,25 @@ func angry() -> bool:
 ## Movement of this frame.
 func update(delta: float, toward: Vector3, distance: float) -> Vector3:
 	_traits(delta)
+	_evade_wait = maxf(0.0, _evade_wait - delta)
+	if _evade_left > 0.0:
+		_evade_left -= delta
+		return _evade_dir * boss.speed() * 6.0
+	if _try_evade():
+		return Vector3.ZERO
+	# Caught in a snare: the boss draws its bow at once (quickly).
+	var held: bool = boss.player.is_held()
+	if held and not _was_held:
+		_punish = true
+	_was_held = held
+	if not held:
+		_punish = false
+	elif _punish and _attacks.has("aimed_shot") and _attack in ["", "volley", "snares"]:
+		_punish = false
+		_attack = "aimed_shot"
+		_quick = true
+		_cued = false
+		_start(toward)
 	if _attack.is_empty():
 		_wait -= delta
 		# The attack cry (data "cries" "attack") comes a moment before the attack.
@@ -64,9 +115,7 @@ func update(delta: float, toward: Vector3, distance: float) -> Vector3:
 			_attack = String(_attacks[_index % _attacks.size()])
 			_index += 1
 			_start(toward)
-		# Between attacks: walk at the player, a bit sideways so it is not a straight line.
-		var side: Vector3 = toward.cross(Vector3.UP) * sin(boss.age() * 1.3) * 0.5
-		return (toward + side).normalized() * boss.speed()
+		return _walk_between(toward, distance)
 	_left -= delta
 	var move: Vector3 = _run(delta, toward, distance)
 	if _left <= 0.0:
@@ -74,15 +123,53 @@ func update(delta: float, toward: Vector3, distance: float) -> Vector3:
 	return move
 
 
+## Between attacks: walk at the player, a bit sideways so it is not a straight line; an archer
+## ("keep_distance") circles the player at that distance; "stationary" stays where it is.
+func _walk_between(toward: Vector3, distance: float) -> Vector3:
+	if bool(boss.data.get("stationary", false)):
+		return Vector3.ZERO
+	var keep: float = float(boss.data.get("keep_distance", 0.0))
+	if keep > 0.0:
+		var around: Vector3 = toward.cross(Vector3.UP) * (1.0 if sin(boss.age() * 0.5) > 0.0 else -1.0)
+		var closer: Vector3 = toward * clampf((distance - keep) / 2.0, -1.0, 1.0)
+		return (around * 0.8 + closer).normalized() * boss.speed()
+	var side: Vector3 = toward.cross(Vector3.UP) * sin(boss.age() * 1.3) * 0.5
+	return (toward + side).normalized() * boss.speed()
+
+
+## Trait "evade": a shot of the player flies at it -> a quick jump aside (not while drawing the
+## bow, and only every EVADE_WAIT seconds). true if it jumps now.
+func _try_evade() -> bool:
+	if not (boss.data.get("traits", []) as Array).has("evade") or _evade_wait > 0.0 or _attack == "aimed_shot":
+		return false
+	var shot: Node3D = boss.incoming_shot(EVADE_REACH)
+	if shot == null:
+		return false
+	var flight: Vector3 = ((boss.global_position - shot.global_position) * Vector3(1, 0, 1)).normalized()
+	_evade_dir = flight.cross(Vector3.UP).normalized()
+	# The side with more room.
+	var rect: Rect2 = boss.room_rect(1.0)
+	var ahead: Vector3 = boss.global_position + _evade_dir * 1.5
+	if not rect.has_point(Vector2(ahead.x, ahead.z)):
+		_evade_dir = -_evade_dir
+	_evade_left = EVADE_TIME
+	_evade_wait = EVADE_WAIT * (0.7 if angry() else 1.0)
+	boss.sound("dash")
+	return true
+
+
 func _finish() -> void:
+	boss.end_attack()
 	boss.hidden_phase = false
 	boss.reflecting = false
 	boss.stun_left = 0.0 if _attack != "charge" else boss.stun_left
+	_quick = false
 	_attack = ""
 	_wait = PAUSE * (0.55 if angry() else 1.0)
 
 
 func _start(toward: Vector3) -> void:
+	boss.show_attack(_attack)
 	_dir = toward
 	_step = 0.0
 	_done_once = false
@@ -147,6 +234,35 @@ func _start(toward: Vector3) -> void:
 		"march":
 			_left = 0.6
 			_march()
+		"aimed_shot":
+			var draw: float = DRAW_QUICK if _quick else DRAW_TIME * (0.75 if angry() else 1.0)
+			_left = draw + RELEASE
+			boss.wobble(draw)
+			boss.sound("swing")
+			# The aim line follows the player while the bow is drawn.
+			boss.fire_beam(toward, {"aim": draw, "fire": 0.0, "track": true, "color": Color(1.0, 0.9, 0.4)})
+		"snares":
+			_left = 1.0
+			var turn: float = boss.rng.randf() * TAU
+			var middle: Vector3 = boss.player.global_position
+			for i in 3:
+				boss.throw_snare(middle + Vector3.FORWARD.rotated(Vector3.UP, turn + TAU * i / 3.0) * SNARE_RING, SNARE_LIFE)
+		"volley":
+			_left = 0.7
+			boss.shoot_spray(5 if angry() else 3, 16.0, {"arrow": true, "speed": ARROW_SPEED * 0.75})
+		"laser":
+			_left = 1.6
+			var aim: float = 0.7 if angry() else 0.9
+			for angle: float in ([-30.0, 0.0, 30.0] if angry() else [0.0]):
+				boss.fire_beam(toward.rotated(Vector3.UP, deg_to_rad(angle)), {"aim": aim, "fire": 0.6, "width": 0.6, "damage": 2, "color": BEAM_COLOR})
+		"laser_sweep":
+			_left = 3.0
+			var way: float = 1.0 if boss.rng.randf() < 0.5 else -1.0
+			# Starts beside the player and sweeps across them; behind the boss stays safe.
+			boss.fire_beam(toward.rotated(Vector3.UP, -way * 1.2), {"aim": 0.8, "fire": 2.0, "width": 0.5, "damage": 1, "sweep": way * (1.4 if angry() else 1.1), "color": BEAM_COLOR})
+		"cross":
+			_left = 1.1
+			boss.shoot_pattern("cross", {"speed": 0.9})
 
 
 func _run(delta: float, toward: Vector3, distance: float) -> Vector3:
@@ -234,6 +350,17 @@ func _run(delta: float, toward: Vector3, distance: float) -> Vector3:
 			return toward * boss.speed() * 0.4
 		"axes":
 			return -toward * boss.speed() * 0.3
+		"aimed_shot":
+			if _left <= RELEASE and not _done_once:
+				_done_once = true
+				var aim: Vector3 = (boss.player.global_position - boss.global_position) * Vector3(1, 0, 1)
+				boss.shoot(aim.normalized(), {"arrow": true, "speed": ARROW_SPEED, "damage": 2})
+			return Vector3.ZERO
+		"cross":
+			if _left <= 0.6 and not _done_once:
+				_done_once = true
+				boss.shoot_pattern("diagonal", {"speed": 0.9})
+			return Vector3.ZERO
 	return Vector3.ZERO
 
 

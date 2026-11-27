@@ -11,6 +11,9 @@ extends RefCounted
 ##   stash  the inventory at home: loot brought home (from the bag) and gear bought from Egon.
 ##   table, pulls_today, equipment, tutorial_done  Egon's shop (see below).
 ##   day    one run = one day.
+##   deaths, potions_unlocked  deaths in the dungeon; after the second one Egon shows the
+##          potions (potion_tour_due), then potions come on the table and the potion place shows.
+##          A potion on the hero lies in "potion_1" of the equipment (potion_slot_names).
 ## Rules about this gold live here (deposit / withdraw check the amounts); screens only call them.
 ## The chosen slot is a setting (user://settings.cfg, "save" / "slot"); the slot choice after the
 ## language choice sets it (SlotSelect).
@@ -281,10 +284,13 @@ static func buy(index: int, free: bool = false) -> bool:
 	return true
 
 
-## A piece as it lies in the inventory: gear {id, count 1, rarity}, relic {id, count 1, relic, left}.
+## A piece as it lies in the inventory: gear {id, count 1, rarity}, relic {id, count 1, relic, left},
+## potion {id, count 1, potion}.
 static func _owned(piece: Dictionary) -> Dictionary:
 	if ShopGoods.is_relic(piece):
 		return {"id": String(piece["id"]), "count": 1, "relic": true, "left": int(piece.get("left", -1))}
+	if ShopGoods.is_potion(piece):
+		return {"id": String(piece["id"]), "count": 1, "potion": true}
 	return {"id": String(piece["id"]), "count": 1, "rarity": int(piece.get("rarity", 1))}
 
 
@@ -295,16 +301,88 @@ static func _worn(piece: Dictionary) -> Dictionary:
 	return worn
 
 
-## The slot a piece goes into: the first free relic place for relics (all full: the first one),
-## else gear.json "slot" ("" = cannot be worn).
+## The slot a piece goes into: the first free relic place for relics, the first free potion place
+## for potions (all full: the first one), else gear.json "slot" ("" = cannot be worn).
 static func slot_of(piece: Dictionary) -> String:
 	if ShopGoods.is_relic(piece):
-		var worn: Dictionary = equipment()
-		for name: String in relic_slot_names():
-			if not worn.has(name):
-				return name
-		return relic_slot_names()[0]
+		return _first_free(relic_slot_names())
+	if ShopGoods.is_potion(piece):
+		return _first_free(potion_slot_names()) if potions_unlocked() else ""
 	return String(Content.gear_item(String(piece.get("id", ""))).get("slot", ""))
+
+
+static func _first_free(names: Array[String]) -> String:
+	if names.is_empty():
+		return ""
+	var worn: Dictionary = equipment()
+	for name: String in names:
+		if not worn.has(name):
+			return name
+	return names[0]
+
+
+# --- Potions (data/potions.json) -------------------------------------------------------
+
+## The potion places on the hero: "potion_1" … (potions.json slots).
+static func potion_slot_names() -> Array[String]:
+	var names: Array[String] = []
+	for i in maxi(0, int(Content.potions().get("slots", 1))):
+		names.append("potion_%d" % (i + 1))
+	return names
+
+
+## Deaths in the dungeon in this save slot (fleeing does not count).
+static func deaths() -> int:
+	return int(_read("deaths", 0))
+
+
+## A death in the dungeon: counted and saved.
+static func add_death() -> void:
+	_write("deaths", deaths() + 1)
+	_save()
+
+
+## true once Egon showed the potions (then potions come on the table and the potion place shows).
+static func potions_unlocked() -> bool:
+	return bool(_read("potions_unlocked", false))
+
+
+## true if Egon's potion show is due: died often enough (potions.json unlock_deaths), not shown yet.
+static func potion_tour_due() -> bool:
+	return tutorial_done() and not potions_unlocked() and deaths() >= int(Content.potions().get("unlock_deaths", 2))
+
+
+## Egon's potion show: he turns the table once (free, not a pull of the day): only the potion
+## he gives away lies on it (ShopGoods.potion_table).
+static func lay_potion_table() -> void:
+	_write("table", ShopGoods.potion_table())
+	_save()
+
+
+static func unlock_potions() -> void:
+	_write("potions_unlocked", true)
+	_save()
+
+
+## The potions on the hero: [{slot, id}, …] in place order.
+static func worn_potions() -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	var worn: Dictionary = equipment()
+	for place: String in potion_slot_names():
+		if worn.has(place) and ShopGoods.is_potion(worn[place]):
+			list.append({"slot": place, "id": String((worn[place] as Dictionary).get("id", ""))})
+	return list
+
+
+## A potion was drunk in the dungeon: it is gone from potion place `place`. false if none was there.
+static func use_potion(place: String) -> bool:
+	var worn: Dictionary = equipment()
+	if not potion_slot_names().has(place) or not worn.has(place) or not ShopGoods.is_potion(worn[place]):
+		return false
+	worn.erase(place)
+	_write("equipment", worn)
+	_save()
+	return true
 
 
 ## Sells inventory place `index` (the whole stack) to Egon: ShopGoods.sell_price goes into the
@@ -341,7 +419,7 @@ static func equip(index: int) -> bool:
 		return false
 	var entry: Dictionary = own[index]
 	var slot: String = slot_of(entry)
-	if slot.is_empty() or not (Content.gear_slots().has(slot) or relic_slot_names().has(slot)):
+	if slot.is_empty() or not (Content.gear_slots().has(slot) or relic_slot_names().has(slot) or potion_slot_names().has(slot)):
 		return false
 	var worn: Dictionary = equipment()
 	own.remove_at(index)
@@ -387,6 +465,18 @@ static func gift_gold(amount: int) -> void:
 		return
 	_write("box", box() + amount)
 	_save()
+
+
+## Admin menu (debug builds): `piece` (ShopGoods.make_piece / make_relic / make_potion) straight
+## into the inventory, free. Returns its place (for equip), -1 for an empty piece.
+static func give_piece(piece: Dictionary) -> int:
+	if String(piece.get("id", "")).is_empty():
+		return -1
+	var own: Array[Dictionary] = stash()
+	own.append(_owned(piece))
+	_write("stash", own)
+	_save()
+	return own.size() - 1
 
 
 ## true once Egon showed the shop (first visit after the intro).

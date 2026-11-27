@@ -159,6 +159,11 @@ static func _door_frame(room: Node3D, dir: Vector2i, type: String) -> void:
 	box(room, top, face + Vector3(0, DOOR_H + 0.1, 0), material, 0)
 
 
+## A wall torch with its light at `pos` (local to `room`), e.g. in the boss hall.
+static func torch(room: Node3D, pos: Vector3, color: Color) -> void:
+	_torch(room, pos, color)
+
+
 static func _torch(room: Node3D, pos: Vector3, color: Color) -> void:
 	var sheet := load(TORCH_SHEET) as Texture2D
 	var sprite := Fx.billboard(sheet, 1.0)

@@ -43,6 +43,17 @@ func start_new_run(character: String = "", dungeon: String = "") -> void:
 	get_tree().change_scene_to_file.call_deferred(RUN_SCENE)
 
 
+## Admin menu (debug builds): the same run goes on in `dungeon` (dungeons.json) on floor
+## `floor_index` (0 = the first), the floor is built anew.
+func travel(dungeon: String, floor_index: int) -> void:
+	if run == null:
+		return
+	Content.active_dungeon = Content.dungeon_id(dungeon)
+	run.floor_index = clampi(floor_index, 0, Content.floors().size() - 1)
+	get_tree().paused = false
+	get_tree().change_scene_to_file.call_deferred(RUN_SCENE)
+
+
 ## Down the trapdoor: the next floor (same run).
 func next_floor() -> void:
 	if run == null:

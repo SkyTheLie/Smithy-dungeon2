@@ -6,6 +6,8 @@ extends RefCounted
 ## table, + count 1 in the inventory).
 ## A relic (data/relics.json) is {id (an item of items.json), relic: true, left} (+ price on the
 ## table): left = runs it still holds (-1 = for ever). Only items picked up once (Progress) come.
+## A potion (data/potions.json) is {id, potion: true} (+ price on the table). Potions only come
+## after Egon showed them (MetaState.potions_unlocked).
 
 
 ## A new table: data/shop.json table_slots places, goods_count pieces (+ skill Mehr Ware,
@@ -36,7 +38,46 @@ static func roll(rng: RandomNumberGenerator, pulls_today: int = 0) -> Array[Dict
 		if table[i].is_empty():
 			cells.append(i)
 	if not relic.is_empty() and not cells.is_empty() and rng.randf() < float(Content.relics().get("table_chance", 0.0)):
-		table[cells[rng.randi_range(0, cells.size() - 1)]] = make_relic(relic)
+		var cell: int = cells[rng.randi_range(0, cells.size() - 1)]
+		cells.erase(cell)
+		table[cell] = make_relic(relic)
+	# After Egon showed them: sometimes a potion.
+	var potion: String = pick_potion(rng)
+	if not potion.is_empty() and not cells.is_empty() and rng.randf() < float(Content.potions().get("table_chance", 0.0)):
+		table[cells[rng.randi_range(0, cells.size() - 1)]] = make_potion(potion)
+	return table
+
+
+# --- Potions (data/potions.json) -------------------------------------------------------
+
+static func is_potion(piece: Dictionary) -> bool:
+	return bool(piece.get("potion", false))
+
+
+## A potion on the table: {id, potion: true, price}.
+static func make_potion(id: String) -> Dictionary:
+	return {"id": id, "potion": true, "price": maxi(0, int(Content.potion(id).get("price", 0)))}
+
+
+## A random potion that may come on the table now (only after Egon showed them, only open ones
+## by their "unlock"); "" = none.
+static func pick_potion(rng: RandomNumberGenerator) -> String:
+	if not MetaState.potions_unlocked():
+		return ""
+	var choices: Array = []
+	for id: String in (Content.potions().get("potions", {}) as Dictionary):
+		if MetaState.meets((Content.potion(id)).get("unlock", {})):
+			choices.append([id, 1.0])
+	return Content.pick_weighted(choices, rng) if not choices.is_empty() else ""
+
+
+## The table of Egon's potion show: only the potion he gives away (potions.json tour_potion),
+## in the middle of the table.
+static func potion_table() -> Array[Dictionary]:
+	var table: Array[Dictionary] = empty_table()
+	var id: String = String(Content.potions().get("tour_potion", ""))
+	if not Content.potion(id).is_empty() and not table.is_empty():
+		table[mini(2, table.size() - 1)] = make_potion(id)
 	return table
 
 
@@ -230,6 +271,8 @@ static func sell_price(piece: Dictionary) -> int:
 	var share: float = float(Content.shop().get("sell_share", 0.3))
 	if is_relic(piece):
 		return maxi(1, roundi(float(_tier(relic_tier(id)).get("price", 0)) * share))
+	if is_potion(piece):
+		return maxi(1, roundi(float(Content.potion(id).get("price", 0)) * share))
 	if is_gear(id):
 		return maxi(1, roundi(price(id, int(piece.get("rarity", 1))) * share))
 	return int(Content.material(id).get("value", 0)) * count
