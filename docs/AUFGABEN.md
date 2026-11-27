@@ -10,7 +10,7 @@ Vorher: offener Stand `feature/rubin-seil-altar` (Seil nach dem ersten Boss, Rub
 | 2 | **Schlüssel:** am Anfang keinen Schlüssel. Beim Verlassen des Dungeons zerbrechen die Schlüssel; Egon sagt das: „so ein Magie-Ding, keine Ahnung, bin ein Gaunerverkäufer“. | ✅ erledigt |
 | 3 | **Erste Ebene kleiner:** höchstens 6 Räume, davon Boss-Raum und Opfer-Raum. | ✅ erledigt |
 | 4 | **Start-Bildschirm** „Hier klicken“ nur einmal. Spiel → Hauptmenü landet im Hauptmenü ohne die Reingeh-Animation. | ✅ erledigt |
-| 5 | **3D-Ton:** Geräusche von Gegnern räumlich (Stereo/3D), Musik bleibt mono. | offen |
+| 5 | **3D-Ton:** Geräusche von Gegnern räumlich (Stereo/3D), Musik bleibt mono. | ✅ erledigt |
 | 6 | **Skills einzeln:** jede Stufe ein eigener Skill, untereinander; kauft man den oberen, wird der darunter freigeschaltet. | ✅ erledigt |
 | 7 | **Seil nur nach Boss-Sieg im Boss-Raum**, sonst wie vorher die Treppe/Falltür nach unten. | ✅ erledigt |
 | 8 | **Relikt-Skills:** Skill „Stufe-1-Relikte gehen nicht mehr kaputt“, dann Stufe 2 usw. Skill „Eisenherzen“ entfernen; neuer Skill: 1 blaues Herz zusätzlich. | ✅ erledigt |
@@ -26,6 +26,8 @@ Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 
 ## Erledigt
 
 (neueste oben, mit Branch und Datum)
+
+- **5** · `feature/3d-ton` · 2026-11-27 · Vorher war kein Ton 3D. Jetzt kommen alle Gegner-Geräusche (Treffer, Tod, Rufe, Schüsse, Boss) räumlich aus ihrer Richtung (links/rechts, leiser mit Abstand, AudioStreamPlayer3D). Musik und eigene Töne bleiben ohne Richtung. Im Spiel: mit Kopfhörern einen Gegner links stehen lassen → sein Ruf kommt von links.
 
 - **11** · `feature/gegner-blickrichtung` · 2026-11-27 · Unter jedem Gegner ist ein Viertel des Rings gefüllt und zeigt die Blickrichtung (wohin er läuft; im Stand zum Spieler; Schildträger: Schild-Seite). Im Spiel: Gegner umlaufen → der Keil dreht mit, steht man hinter ihm, zeigt der Keil weg.
 

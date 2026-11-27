@@ -7,6 +7,10 @@ extends Node
 ## A sound can be a list of files: one is picked at random each time.
 ## Volumes (0-100 %) live on the buses "Master", "Music", "Sounds" and "Interface"; saved in
 ## user://settings.cfg (section "audio", WindowLayout).
+## Sounds of things in the dungeon (enemies) play in 3D: play_sound_at / play_stream_at put a
+## short-lived AudioStreamPlayer3D at the spot (left/right and quieter further away, heard by the
+## camera of the run's SubViewport). audio.json "spatial": unit_size, max_distance, voices.
+## Music and the player's own sounds stay plain (no direction).
 
 const CONFIG_PATH: String = "res://data/audio.json"
 ## Sounds that can play at the same time (more cut off the oldest one).
@@ -25,6 +29,8 @@ var _music_player: AudioStreamPlayer
 var _music_id: String = ""
 var _sound_players: Array[AudioStreamPlayer] = []
 var _next_voice: int = 0
+## The 3D sounds playing now (at most "spatial" voices).
+var _spatial_playing: Array[AudioStreamPlayer3D] = []
 
 
 func _ready() -> void:
@@ -115,6 +121,58 @@ func play_sound(id: String, pitch: float = 1.0) -> void:
 	player.volume_db = float((_config.get("sound_volume_db", {}) as Dictionary).get(id, 0.0))
 	player.bus = String((_config.get("sound_buses", {}) as Dictionary).get(id, SOUNDS))
 	player.play()
+
+
+## A sound from "sounds" at `at` in the 3D world of `parent` (e.g. Dungeon.effects): it comes
+## from that side and is quieter further away. Without a parent in the tree: plain play_sound.
+func play_sound_at(id: String, at: Vector3, parent: Node3D, pitch: float = 1.0) -> void:
+	if parent == null or not parent.is_inside_tree():
+		play_sound(id, pitch)
+		return
+	var entry: Variant = (_config.get("sounds", {}) as Dictionary).get(id, "")
+	if entry is Array:
+		entry = (entry as Array).pick_random() if not (entry as Array).is_empty() else ""
+	var stream: AudioStream = _get_stream(String(entry), id)
+	var volume: float = float((_config.get("sound_volume_db", {}) as Dictionary).get(id, 0.0))
+	_play_3d(stream, at, parent, pitch, volume, String((_config.get("sound_buses", {}) as Dictionary).get(id, SOUNDS)))
+
+
+## A sound made in code (SoundSynth) at `at`, like play_sound_at.
+func play_stream_at(stream: AudioStream, at: Vector3, parent: Node3D, pitch: float = 1.0, volume_db: float = 0.0) -> void:
+	if parent == null or not parent.is_inside_tree():
+		play_stream(stream, pitch, volume_db)
+		return
+	_play_3d(stream, at, parent, pitch, volume_db, SOUNDS)
+
+
+func _play_3d(stream: AudioStream, at: Vector3, parent: Node3D, pitch: float, volume_db: float, bus: String) -> void:
+	if stream == null:
+		return
+	var settings: Dictionary = _config.get("spatial", {})
+	_spatial_playing = _spatial_playing.filter(func(p: AudioStreamPlayer3D) -> bool: return is_instance_valid(p) and p.playing)
+	# Too many at once: the oldest one stops (like the plain voices).
+	if _spatial_playing.size() >= int(settings.get("voices", 16)):
+		var oldest: AudioStreamPlayer3D = _spatial_playing.pop_front()
+		oldest.queue_free()
+	var player := AudioStreamPlayer3D.new()
+	player.stream = stream
+	player.pitch_scale = pitch
+	player.volume_db = volume_db
+	player.bus = bus
+	player.unit_size = float(settings.get("unit_size", 4.0))
+	player.max_distance = float(settings.get("max_distance", 40.0))
+	player.panning_strength = float(settings.get("panning_strength", 1.0))
+	player.attenuation_filter_cutoff_hz = 20500.0
+	player.finished.connect(player.queue_free)
+	parent.add_child(player)
+	player.global_position = at
+	player.play()
+	_spatial_playing.append(player)
+
+
+## How many 3D sounds play right now (tests).
+func spatial_count() -> int:
+	return _spatial_playing.filter(func(p: AudioStreamPlayer3D) -> bool: return is_instance_valid(p) and p.playing).size()
 
 
 ## Starts a piece from "music" (the same piece keeps running). "" = silence.

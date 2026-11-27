@@ -373,3 +373,8 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 ## Blickrichtung der Gegner – 2026-11-27
 
 - Unter jedem Gegner liegt neben dem Ring ein gefülltes Viertel (`Fx.facing_wedge`, 90°-Keil, Farbe `Enemy.WEDGE_COLOR`), gedreht nach `Enemy.look_direction()`: wohin er läuft (dreht mit `LOOK_TURN_SPEED`), im Stand zum Spieler; Schildträger (`front_guard`, `guard`) zeigen ihre Schild-Seite (`_facing`). Unsichtbar mit dem Ring (unter der Erde, an der Wand).
+
+## 3D-Ton der Gegner – 2026-11-27
+
+- Vorher war kein Ton räumlich (alles `AudioStreamPlayer`, mittig). Jetzt: `AudioManager.play_sound_at(id, ort, parent)` / `play_stream_at(...)` legen einen kurzlebigen `AudioStreamPlayer3D` an den Ort (in `Dungeon.effects`), gehört von der Kamera der SubViewport (`audio_listener_enable_3d`). `data/audio.json` `spatial`: `unit_size`, `max_distance`, `panning_strength`, `voices` (höchstens so viele gleichzeitig, der älteste hört auf).
+- Alle Gegner-Töne laufen über `Enemy.sound(id, pitch)` (Treffer, Tod, Rufe, Schüsse, Ansturm, Graben, Laser, Explosion, Boss-Töne) und kommen aus ihrer Richtung; die manuelle Abschwächung der Rufe (`CRY_FALLOFF_DB`) ist weg. Musik und Spieler-/Menü-Töne bleiben ohne Richtung.
