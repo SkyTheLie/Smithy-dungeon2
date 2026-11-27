@@ -108,7 +108,7 @@ func _init(run_seed: int = 0, character_id: String = "magier") -> void:
 	# Gold in the bag changes the coins (Goldglut items count them).
 	bag.changed.connect(_coins_changed)
 	bombs = int(base.get("bombs", 1))
-	keys = int(base.get("keys", 1))
+	keys = int(base.get("keys", 0))
 	compute_stats()
 	_add_start_items()
 

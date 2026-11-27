@@ -33,6 +33,9 @@ msgstr "Cancel"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "But not like that, without any equipment. Come, have a look at my shop first."
 
+msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
+msgstr "Oh right, keys! You'll find them down there, but they break as soon as you leave the dungeon."
+
 msgid "Acht Bomben"
 msgstr "Eight bombs"
 
@@ -2202,6 +2205,9 @@ msgstr "Thug"
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "Snaking shots that bounce"
 
+msgid "Schlüssel zerbrochen: %d"
+msgstr "Keys broken: %d"
+
 msgid "Schlüsselform"
 msgstr "Key Mold"
 
@@ -2432,6 +2438,9 @@ msgstr "Emerald"
 
 msgid "Smaragdjuwel"
 msgstr "Emerald Jewel"
+
+msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
+msgstr "Some magic thing. No idea, I'm a crook… uh, a salesman!"
 
 msgid "Solide"
 msgstr "Sturdy"

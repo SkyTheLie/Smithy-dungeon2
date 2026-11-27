@@ -33,6 +33,9 @@ msgstr "Cancelar"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "Pero así no, sin nada de equipo. Ven, mira primero mi tienda."
 
+msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
+msgstr "¡Ah, sí, las llaves! Las encontrarás ahí abajo, pero se rompen en cuanto sales de la mazmorra."
+
 msgid "Acht Bomben"
 msgstr "Ocho bombas"
 
@@ -2202,6 +2205,9 @@ msgstr "Matón"
 msgid "Schlängelnde Schüsse, die abprallen"
 msgstr "Disparos serpenteantes que rebotan"
 
+msgid "Schlüssel zerbrochen: %d"
+msgstr "Llaves rotas: %d"
+
 msgid "Schlüsselform"
 msgstr "Molde de llave"
 
@@ -2432,6 +2438,9 @@ msgstr "Esmeralda"
 
 msgid "Smaragdjuwel"
 msgstr "Joya de esmeralda"
+
+msgid "So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!"
+msgstr "Cosa de magia. Ni idea, soy un estaf… eh, ¡un vendedor!"
 
 msgid "Solide"
 msgstr "Sólido"
