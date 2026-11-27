@@ -2121,6 +2121,9 @@ msgstr "Música"
 msgid "Mythisch"
 msgstr "Mítico"
 
+msgid "Münze"
+msgstr "Moeda"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Moedas e corações voam até você"
 
@@ -3263,6 +3266,9 @@ msgstr "No máximo"
 
 msgid "Vollbild"
 msgstr "Tela cheia"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "De inimigos ou do mercador na masmorra. Até 999 numa casa. Depois da partida vai para a tua caixa; ao morrer perde-se, exceto no lugar seguro."
 
 msgid "Vorwärts"
 msgstr "Para frente"

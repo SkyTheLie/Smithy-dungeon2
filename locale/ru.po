@@ -2121,6 +2121,9 @@ msgstr "Музыка"
 msgid "Mythisch"
 msgstr "Мифический"
 
+msgid "Münze"
+msgstr "Монета"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Монеты и сердца летят к тебе"
 
@@ -3263,6 +3266,9 @@ msgstr "Изучено полностью"
 
 msgid "Vollbild"
 msgstr "Полный экран"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "От врагов или от торговца в подземелье. До 999 в одной клетке. После забега попадает в твою копилку; при смерти пропадает, если не в безопасном месте."
 
 msgid "Vorwärts"
 msgstr "Вперёд"

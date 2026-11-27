@@ -4,8 +4,10 @@
 	"default_size": [1, 1],
 	"_key_info": "key_chance = Chance 0-1, dass ein normaler Gegner (kein Boss) einen Schlüssel fallen lässt. Gilt für alle Gegner. 0.003 = 0,3 Prozent: bei etwa 130 Kills je Run ungefähr jeder dritte Run ein Schlüssel. Zufällige Raum-Belohnungen geben keine Schlüssel mehr.",
 	"key_chance": 0.003,
+	"_coins_info": "coins = Münzen von Gegnern (Beute gold, stapelt bis 999 auf einem Feld). chance = Chance 0-1, dass ein normaler Gegner Münzen fallen lässt (Glück hilft wie bei Beute), amount = [min, max] Münzen, boss_amount = [min, max] Münzen eines Bosses (immer), per_floor = so viele Münzen mehr je tiefere Ebene (0 = erste Ebene ohne Zuschlag).",
+	"coins": {"chance": 0.6, "amount": [1, 3], "boss_amount": [10, 20], "per_floor": 1},
 	"materials": {
-		"gold": {"name": "Münzsack", "desc": "Gold vom Händler im Dungeon. Was übrig bleibt, kommt in deine Dose; beim Tod ist es weg, außer im sicheren Platz.", "icon": "res://assets/sprites/items/coin_purse.png", "rarity": 1, "value": 1, "stack": 999, "size": [1, 1]},
+		"gold": {"name": "Münze", "desc": "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz.", "icon": "res://assets/sprites/ui/slot/coin.png", "rarity": 1, "value": 1, "stack": 999, "size": [1, 1]},
 		"rat_fur": {"name": "Rattenfell", "desc": "Struppig und leicht angekaut.", "icon": "res://assets/sprites/items/rat_fur.png", "rarity": 1, "value": 2, "size": [2, 2]},
 		"rat_venom_fang": {"name": "Giftzahn", "desc": "Nicht ablecken.", "icon": "res://assets/sprites/items/rat_venom_fang.png", "rarity": 1, "value": 4, "size": [1, 1]},
 		"bat_skin": {"name": "Flughaut", "desc": "Dünne Haut aus einem Fledermausflügel.", "icon": "res://assets/sprites/items/leather.png", "rarity": 1, "value": 3, "size": [2, 1]},

@@ -2,7 +2,8 @@ extends "res://assets/_reference/_lib/base_test.gd"
 ## Loot in the real run scene: walking over loot puts it into the bag, enemies drop their loot
 ## (data/loot.json), Tab opens the bag window (game paused), dragging a place out of the window
 ## drops it on the floor and it is only picked up again after walking away, a full bag says so,
-## and on death only the safe place comes home (MetaState).
+## and on death only the safe place comes home (MetaState). Enemies drop coins (loot.json coins),
+## which stack to 999 on one cell.
 
 var scene: Node
 var dungeon: Node
@@ -55,6 +56,25 @@ func _enemy_loot() -> void:
 				return true
 		return false, 3.0)
 	check(found, "the Spinnenmutter drops her poison fangs (chance 1.0 in loot.json)")
+	var coins: bool = await wait_until(func() -> bool:
+		for node: Variant in _room().get("loot"):
+			if is_instance_valid(node) and (node as Node).get("material_id") == "gold":
+				return true
+		return false, 3.0)
+	check(coins, "a boss always drops coins (loot.json coins boss_amount)")
+	for node: Variant in _room().get("loot"):
+		if is_instance_valid(node) and (node as Node).get("material_id") == "gold":
+			(node as Node).queue_free()
+	_coin_stacks()
+
+
+## Coins are one kind of loot in the bag: up to 999 on one cell, more goes onto a new cell.
+func _coin_stacks() -> void:
+	var probe: Object = script("res://scripts/systems/bag.gd").new()
+	check_eq(probe.call("add", "gold", 1500), 0, "1500 coins fit")
+	check_eq(probe.call("count_of", "gold"), 1500, "1500 coins counted")
+	check_eq((probe.call("get_place", 0) as Dictionary).get("count"), 999, "999 coins on one cell")
+	check_eq((probe.call("get_place", 1) as Dictionary).get("count"), 501, "the rest on the next cell")
 
 
 func _bag_window() -> void:

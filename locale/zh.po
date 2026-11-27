@@ -2121,6 +2121,9 @@ msgstr "音乐"
 msgid "Mythisch"
 msgstr "神话"
 
+msgid "Münze"
+msgstr "硬币"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "硬币和心会飞向你"
 
@@ -3263,6 +3266,9 @@ msgstr "已满级"
 
 msgid "Vollbild"
 msgstr "全屏"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "来自敌人或地牢里的商人。一格最多999枚。跑图结束后放进你的罐子；死亡时会丢失，安全位置里的除外。"
 
 msgid "Vorwärts"
 msgstr "前进"

@@ -2121,6 +2121,9 @@ msgstr "Musique"
 msgid "Mythisch"
 msgstr "Mythique"
 
+msgid "Münze"
+msgstr "Pièce"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Les pièces et les cœurs volent vers toi"
 
@@ -3263,6 +3266,9 @@ msgstr "Au maximum"
 
 msgid "Vollbild"
 msgstr "Plein écran"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "Des ennemis ou du marchand du donjon. Jusqu'à 999 sur une case. Après la partie, elle va dans ta boîte ; à la mort, elle est perdue, sauf dans la place sûre."
 
 msgid "Vorwärts"
 msgstr "Avancer"

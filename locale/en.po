@@ -2121,6 +2121,9 @@ msgstr "Music"
 msgid "Mythisch"
 msgstr "Mythic"
 
+msgid "Münze"
+msgstr "Coin"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Coins and hearts fly to you"
 
@@ -3263,6 +3266,9 @@ msgstr "Fully learned"
 
 msgid "Vollbild"
 msgstr "Fullscreen"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "From enemies or the merchant in the dungeon. Up to 999 on one cell. After the run it goes into your box; on death it is lost, unless in the safe place."
 
 msgid "Vorwärts"
 msgstr "Forward"

@@ -2121,6 +2121,9 @@ msgstr "音楽"
 msgid "Mythisch"
 msgstr "ミシック"
 
+msgid "Münze"
+msgstr "コイン"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "コインとハートが飛んでくる"
 
@@ -3263,6 +3266,9 @@ msgstr "最大まで習得"
 
 msgid "Vollbild"
 msgstr "フルスクリーン"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "敵やダンジョンの商人から。1マスに999枚まで。ラン後は缶に入る。死ぬと失われる（安全な場所にあるものは除く）。"
 
 msgid "Vorwärts"
 msgstr "前進"

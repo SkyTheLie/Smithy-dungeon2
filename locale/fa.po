@@ -2121,6 +2121,9 @@ msgstr "موسیقی"
 msgid "Mythisch"
 msgstr "اسطوره‌ای"
 
+msgid "Münze"
+msgstr "سکه"
+
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "سکه‌ها و قلب‌ها به سمتت پرواز می‌کنند"
 
@@ -3263,6 +3266,9 @@ msgstr "کاملاً آموخته شده"
 
 msgid "Vollbild"
 msgstr "تمام‌صفحه"
+
+msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
+msgstr "از دشمنان یا تاجر داخل سیاه‌چال. تا ۹۹۹ عدد در یک خانه. بعد از دور به قوطی تو می‌رود؛ با مرگ از دست می‌رود، مگر در جای امن."
 
 msgid "Vorwärts"
 msgstr "جلو"

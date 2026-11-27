@@ -795,7 +795,11 @@ func shoot_pattern(pattern: String, options: Dictionary) -> void:
 			angles = [0.0, 45.0, 90.0, 135.0, 180.0, 225.0, 270.0, 315.0]
 		"alternate":
 			_pattern_flip = not _pattern_flip
-			angles = [0.0, 90.0, 180.0, 270.0] if _pattern_flip else [45.0, 135.0, 225.0, 315.0]
+			# Not a ternary: it would give an untyped Array (script error on Array[float]).
+			if _pattern_flip:
+				angles = [0.0, 90.0, 180.0, 270.0]
+			else:
+				angles = [45.0, 135.0, 225.0, 315.0]
 		"ring":
 			var count: int = maxi(3, int(data.get("ring", 8)))
 			for i in count:
