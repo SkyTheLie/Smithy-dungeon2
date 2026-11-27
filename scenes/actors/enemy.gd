@@ -54,6 +54,10 @@ const GUARD_RECOVER: float = 1.7
 const GUARD_DISTANCE: float = 4.0
 ## Thin ring on the floor around the body (Fx.ring).
 const RING_COLOR := Color(1.0, 0.55, 0.1, 0.85)
+## The filled quarter of the ring that shows where it looks (Fx.facing_wedge).
+const WEDGE_COLOR := Color(1.0, 0.55, 0.1, 0.62)
+## How fast the look direction follows the walking direction (radians per second).
+const LOOK_TURN_SPEED: float = 7.0
 ## Shooters: the attack cry starts this many seconds before the shot.
 const ATTACK_CUE_LEAD: float = 0.45
 ## Idle cries of all enemies together at most this often (a room full of rats is not a choir).
@@ -85,6 +89,11 @@ var _speed: float = 2.0
 var _sprite: Sprite3D
 ## Thin orange ring on the floor: how big the body is (the hit radius).
 var _ring: MeshInstance3D
+## The quarter of the ring towards look_direction(): is the player in front or behind it?
+var _wedge: MeshInstance3D
+## Where it looks on the floor: where it walks (turning smoothly); standing, at the player.
+## Shield bearers (front_guard) use their shield direction (_facing).
+var _look: Vector3 = Vector3.FORWARD
 var _walk: Texture2D
 var _idle: Texture2D
 ## Size of one picture in the sheets (data "frame" [width, height], default 48 x 48).
@@ -233,8 +242,10 @@ func _ready() -> void:
 	_sprite.position.y = height / 2.0 + (FLY_HEIGHT if _ai == "fly" else 0.0)
 	add_child(_sprite)
 	_ring = Fx.ring(self, radius, RING_COLOR)
+	_wedge = Fx.facing_wedge(self, radius, WEDGE_COLOR)
 	# High up on the wall: no ring on the floor.
 	_ring.visible = not (_moves and _moves.places_itself())
+	_wedge.visible = _ring.visible
 
 
 ## A boss starts `attack`: its attack picture (data "attack_sheets") plays while it lasts.
@@ -375,6 +386,25 @@ func _turn_facing(delta: float, toward: Vector3) -> void:
 		return
 	var angle: float = _facing.signed_angle_to(toward, Vector3.UP)
 	_facing = _facing.rotated(Vector3.UP, clampf(angle, -1.6 * delta, 1.6 * delta)).normalized()
+
+
+## The look direction on the floor (look_direction) and the wedge under the enemy that shows it.
+func _turn_look(delta: float, move: Vector3, toward: Vector3) -> void:
+	var target: Vector3 = toward
+	if bool(data.get("front_guard", false)) or _ai == "guard":
+		target = _facing
+	elif Vector3(move.x, 0, move.z).length() > 0.2:
+		target = Vector3(move.x, 0, move.z).normalized()
+	target.y = 0.0
+	if target.length() > 0.01:
+		var angle: float = _look.signed_angle_to(target.normalized(), Vector3.UP)
+		_look = _look.rotated(Vector3.UP, clampf(angle, -LOOK_TURN_SPEED * delta, LOOK_TURN_SPEED * delta)).normalized()
+	_wedge.rotation.y = atan2(-_look.x, -_look.z)
+
+
+## Where the enemy looks, flat on the floor (the wedge under it points there).
+func look_direction() -> Vector3:
+	return _look
 
 
 ## Shield bearer: circle at a distance, wind up, ram straight, then stand still (back open).
@@ -647,6 +677,7 @@ func _physics_process(delta: float) -> void:
 		_moves.after_move()
 	global_position.y = 0.0
 	_turn_facing(delta, toward)
+	_turn_look(delta, move, toward)
 	_animate(move)
 	if distance < radius + player.hit_radius() + 0.1 and _freeze_left <= 0.0 and not hidden_phase:
 		var life_before: int = player.run.health + player.run.blue if player.run else 0
@@ -939,6 +970,7 @@ func _animate(move: Vector3) -> void:
 		_sprite.flip_h = move.dot(camera.global_basis.x) > 0.0
 	# Underground / invisible: no ring either.
 	_ring.visible = not hidden_phase
+	_wedge.visible = _ring.visible
 	if hidden_phase:
 		_sprite.modulate = Color(0.6, 0.6, 0.8, 0.12 if is_boss else 0.0)
 	elif reflecting:

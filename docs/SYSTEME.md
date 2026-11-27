@@ -369,3 +369,7 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 
 - `scenes/ui/hud/crosshair.gd` (`class_name Crosshair`): Stil (Kreuz / nur Punkt / aus), Farbe (die fünf CS2-Farben oder eigene), Deckkraft 0–255, Länge, Dicke, Abstand (auch negativ), Punkt in der Mitte, Umriss + Dicke, T-Form. Größen in Pixeln bei 1080p. Gespeichert in `user://settings.cfg` Abschnitt `crosshair`; `Crosshair.set_value` sendet `Game.crosshair_changed`, HUD und Vorschau zeichnen neu.
 - Einstellungen: neuer Reiter „Fadenkreuz“ mit Vorschau und „Standard wiederherstellen“ (= das alte Aussehen).
+
+## Blickrichtung der Gegner – 2026-11-27
+
+- Unter jedem Gegner liegt neben dem Ring ein gefülltes Viertel (`Fx.facing_wedge`, 90°-Keil, Farbe `Enemy.WEDGE_COLOR`), gedreht nach `Enemy.look_direction()`: wohin er läuft (dreht mit `LOOK_TURN_SPEED`), im Stand zum Spieler; Schildträger (`front_guard`, `guard`) zeigen ihre Schild-Seite (`_facing`). Unsichtbar mit dem Ring (unter der Erde, an der Wand).

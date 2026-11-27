@@ -133,6 +133,40 @@ static func ring(parent: Node3D, radius: float, color: Color) -> MeshInstance3D:
 	return ring_node
 
 
+## A filled quarter of a disc on the floor (90 degrees around local -Z), for where an enemy
+## looks (Enemy: turned with rotation.y). Built once per enemy, not every frame.
+static func facing_wedge(parent: Node3D, radius: float, color: Color) -> MeshInstance3D:
+	var vertices := PackedVector3Array()
+	var steps: int = 8
+	var inner: float = radius * 0.25
+	for i in steps:
+		var a0: float = -PI / 4.0 + PI / 2.0 * float(i) / float(steps)
+		var a1: float = -PI / 4.0 + PI / 2.0 * float(i + 1) / float(steps)
+		var p0 := Vector3(sin(a0), 0, -cos(a0))
+		var p1 := Vector3(sin(a1), 0, -cos(a1))
+		# Two triangles per step: from the inner edge out to the ring (a quarter of a ring, so the
+		# middle under the sprite stays free).
+		vertices.append_array([p0 * inner, p1 * inner, p1 * radius, p0 * inner, p1 * radius, p0 * radius])
+	var arrays: Array = []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = vertices
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	var node := MeshInstance3D.new()
+	node.name = "FacingWedge"
+	node.mesh = mesh
+	var material := StandardMaterial3D.new()
+	material.albedo_color = color
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	node.material_override = material
+	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	node.position.y = 0.025
+	parent.add_child(node)
+	return node
+
+
 ## A small grey four-pointed throwing star.
 static func star_texture() -> Texture2D:
 	if _textures.has("star"):
