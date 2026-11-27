@@ -91,6 +91,16 @@ func _bag_window() -> void:
 	check_eq(main_board.call("board_span"), Vector2i(8, 3), "the bag: 8 x 3 cells")
 	check_eq(safe_board.call("board_span"), Vector2i(2, 2), "the safe place: 2 x 2 cells")
 	check(window.get("_panel").size.x < 400.0, "the bag window is not wider than needed (%d)" % int(window.get("_panel").size.x))
+	# Fixed size: hovering a piece with a long description does not make the window grow.
+	var before: Vector2 = window.get("_panel").size
+	bag.call("add_piece", {"id": "copper_helmet", "rarity": 2})
+	var helmet: int = (bag.get("places") as Array).find_custom(func(p: Dictionary) -> bool: return p.get("id") == "copper_helmet")
+	window.call("_show_info", helmet)
+	await process_frame
+	check_eq(window.get("_panel").size, before, "the window keeps its size with a long description")
+	var outer: Control = (window.get("_panel") as Control).get_parent().get_parent()
+	check(outer.size.x <= 640.0 and outer.size.y <= 360.0, "the whole window fits the screen (%s)" % str(outer.size))
+	bag.call("take", helmet)
 	# Drag the bat skin out of the window = onto the floor.
 	window.call("_drop_on_floor", Vector2.ZERO, {"bag_index": 0})
 	check_eq(bag.call("count_of", "bat_skin"), 1, "dropped out of the bag")

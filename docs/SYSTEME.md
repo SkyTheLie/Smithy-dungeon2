@@ -436,3 +436,11 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 
 - Gegner lassen **Münzen** fallen (`data/loot.json` `coins`): normale Gegner mit `chance` (Glück hilft) `amount` Münzen, Bosse immer `boss_amount`, je tiefere Ebene `per_floor` mehr (`Dungeon._drop_coins`). Sie liegen als ein Häufchen Beute `gold` am Boden.
 - Aufheben legt sie ins Inventar (`RunState.add_coins`); eine Münze ist ein Stück Beute „Münze“ (Bild `sprites/ui/slot/coin.png`), **bis 999 auf einem Feld** (`loot.json` `gold.stack`), mehr kommt aufs nächste Feld. Nach dem Run kommen sie in die Dose, beim Tod sind sie weg (außer im sicheren Platz) – wie vorher das Gold vom Händler im Dungeon.
+
+## Ausrüstung im Inventar, Rucksack-Grenze – 2026-11-27, `feature/ausruestung-im-inventar`
+
+- **Ausrüstung, Relikte und Tränke** lassen sich im Laden aus dem Lager ins Inventar ziehen (auch in den sicheren Platz) und kommen mit in den Dungeon. Ein Platz im `Bag` ist dann ein Teil mit eigenen Feldern (`rarity` / `relic`, `left` / `potion`), Anzahl 1, Größe nach `ShopGoods.piece_size` (`Bag.is_piece`, `size_of`, `put_place`, `add_piece`, `fits_piece`). Im Dungeon: verschieben ja, fallen lassen nein (es gibt kein Bodenbild dafür), der Händler kauft sie nicht. Beim Tod weg, außer im sicheren Platz; nach einem guten Run wieder im Inventar zu Hause. Ins Lager zurück mit Seltenheit.
+- **Rucksack-Grenze:** `meta.json` `bag.backpack_slots` (1) + Skill **Rucksack-Riemen** (`effect.backpack_slots`, 4 Stufen) = `MetaState.backpack_limit`. Anbauen über der Grenze geht nicht (rot). Über dem Inventar im Laden steht „Rucksäcke 1/2“.
+- **Skillbaum:** die Rucksack-Kette steht nebeneinander (links nach rechts); Ketten in derselben Zeile bekommen eine gerade Linie von der letzten Stufe (`SkillTree.build`). Gruppen Relikte und Laden nach rechts gerückt.
+- **Ziehen:** das Bild unter der Maus nimmt die Feldgröße des Rasters an, über dem es gerade ist (`BagBoard.fit_preview`, `DragPreview.use_cell`).
+- **Tab-Fenster im Dungeon:** feste Größe (`BagWindow.PANEL_SIZE` 300×292), Beschreibung mit fester Fläche (200 px breit, 7 Zeilen); das Fenster springt beim Überfahren nicht mehr.
