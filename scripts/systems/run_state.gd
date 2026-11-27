@@ -286,11 +286,12 @@ func add_kill_exp(boss: bool, mult: float = 1.0) -> void:
 	exp_earned += roundi(Skills.kill_exp(boss) * maxf(0.0, mult))
 
 
-## The skills learned at home (Skills, MetaState): more places in the bag, shield hearts, red
-## hearts, the stats (one source, like an item) and more gold for loot in the dungeon shop. Called once at the start.
+## The skills learned at home (Skills, MetaState): more places in the bag, shield hearts, blue
+## hearts, red hearts, the stats (one source, like an item) and more gold for loot in the dungeon shop. Called once at the start.
 func use_skills() -> void:
 	bag.grow(int(Skills.bonus("bag_slots")), int(Skills.bonus("safe_slots")))
 	shield += int(Skills.bonus("shield_halves"))
+	add_blue_hearts(int(Skills.bonus("blue_hearts")))
 	var hearts: int = int(Skills.bonus("hearts"))
 	if hearts > 0:
 		max_hearts = mini(MAX_HEARTS_LIMIT, max_hearts + hearts)

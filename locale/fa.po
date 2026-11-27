@@ -159,6 +159,9 @@ msgstr "دم آهنگری"
 msgid "Blau wie Gletschereis."
 msgstr "آبی مثل یخ یخچال."
 
+msgid "Blaues Herz"
+msgstr "قلب آبی"
+
 msgid "Blutphiole"
 msgstr "شیشه خون"
 
@@ -623,6 +626,9 @@ msgstr "عصایی با نوک آتشین. برای جادوگران."
 
 msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
 msgstr "یک پوست گرگ، سه بمب، سه کلید"
+
+msgid "Ein blaues Herz mehr zu Beginn jedes Runs."
+msgstr "در شروع هر دور یک قلب آبی بیشتر."
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "یک قلب آبی و خار"
@@ -2025,11 +2031,17 @@ msgstr "یادگارها"
 msgid "Relikte & Überleben"
 msgstr "یادگارها و بقا"
 
+msgid "Relikte einer Stufe mehr gehen nie kaputt: erst Stufe 1, dann Stufe 2 und so weiter."
+msgstr "یادگارهای یک سطح بیشتر هرگز نمی‌شکنند: اول سطح ۱، بعد سطح ۲ و همین‌طور."
+
 msgid "Relikte: %d %% pro Hebel, Stufen %s"
 msgstr "یادگارها: %d %% برای هر اهرم، سطوح %s"
 
 msgid "Reliktpflege"
 msgstr "نگهداری یادگار"
+
+msgid "Reliktschutz"
+msgstr "محافظت از یادگار"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "بوی مرداب می‌دهد. برای همیشه."

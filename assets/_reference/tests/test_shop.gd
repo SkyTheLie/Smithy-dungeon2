@@ -145,7 +145,7 @@ func _relics() -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 8
 	check_eq(goods.call("pick_relic", rng), "", "nothing found yet: no relics")
-	check(goods.call("relic_tier", "moorherz") == 1 and goods.call("relic_runs", "moorherz") == -1, "Moorherz (+1 heart) is weak and holds for ever")
+	check(goods.call("relic_tier", "moorherz") == 1 and goods.call("relic_runs", "moorherz") == 5, "Moorherz (+1 heart) is weak and holds 5 dungeons")
 	check(goods.call("relic_tier", "dreizack") == 4 and goods.call("relic_runs", "dreizack") == 1, "Dreifachschuss is strong and holds one dungeon")
 	check_eq(goods.call("relic_tier", "glutstab"), 0, "the start weapons are no relics")
 	progress.call("discover", "dreizack")
@@ -184,9 +184,11 @@ func _relics() -> void:
 	meta.call("_write", "table", [goods.call("make_relic", "moorherz")])
 	meta.call("buy", 0)
 	meta.call("equip", (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "moorherz"))
-	for i in 5:
+	for i in 4:
 		meta.call("end_run", 0, [] as Array[Dictionary], RandomNumberGenerator.new())
-	check_eq(String((meta.call("equipment") as Dictionary).get("relic_1", {}).get("id", "")), "moorherz", "a weak relic stays for ever")
+	check_eq(String((meta.call("equipment") as Dictionary).get("relic_1", {}).get("id", "")), "moorherz", "a weak relic holds 5 dungeons: still there after 4")
+	meta.call("end_run", 0, [] as Array[Dictionary], RandomNumberGenerator.new())
+	check(not (meta.call("equipment") as Dictionary).has("relic_1"), "and broken after the 5th (without Reliktschutz)")
 
 
 ## Selling to Egon: loot for its loot.json value (the whole stack), gear and relics for

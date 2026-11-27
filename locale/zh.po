@@ -159,6 +159,9 @@ msgstr "风箱"
 msgid "Blau wie Gletschereis."
 msgstr "蓝得像冰川的冰。"
 
+msgid "Blaues Herz"
+msgstr "蓝色之心"
+
 msgid "Blutphiole"
 msgstr "血之瓶"
 
@@ -623,6 +626,9 @@ msgstr "顶端带火的法杖。法师专用。"
 
 msgid "Ein Wolfsfell, drei Bomben, drei Schlüssel"
 msgstr "一张狼皮、三颗炸弹、三把钥匙"
+
+msgid "Ein blaues Herz mehr zu Beginn jedes Runs."
+msgstr "每次冒险开始时多一颗蓝色之心。"
 
 msgid "Ein blaues Herz und Dornen"
 msgstr "一颗蓝心和荆棘"
@@ -2025,11 +2031,17 @@ msgstr "圣物"
 msgid "Relikte & Überleben"
 msgstr "圣物与生存"
 
+msgid "Relikte einer Stufe mehr gehen nie kaputt: erst Stufe 1, dann Stufe 2 und so weiter."
+msgstr "再多一个等级的遗物永不损坏：先是 1 级，然后 2 级，依此类推。"
+
 msgid "Relikte: %d %% pro Hebel, Stufen %s"
 msgstr "圣物：每拉一次%d %%，等级 %s"
 
 msgid "Reliktpflege"
 msgstr "圣物保养"
+
+msgid "Reliktschutz"
+msgstr "遗物守护"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "一股沼泽味。永远散不掉。"

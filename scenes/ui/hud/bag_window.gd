@@ -295,7 +295,7 @@ func _refresh_offer() -> void:
 	var data: Dictionary = Content.item(String(relic["id"]))
 	_offer_icon.texture = load(String(data.get("icon", ""))) as Texture2D
 	var runs: int = int(relic.get("left", -1))
-	var lasts: String = Language.translate("hält für immer") if runs < 0 else Language.translate("hält %d Runs") % runs
+	var lasts: String = Language.translate("hält für immer") if ShopGoods.relic_forever(relic) else Language.translate("hält %d Runs") % runs
 	_offer_text.text = "%s: %s (%s)
 %s" % [Language.translate("Relikt"), Language.translate(String(data.get("name", ""))), lasts, Language.translate(String(data.get("desc", "")))]
 	_offer_text.modulate = Rarity.color(ShopGoods.relic_tier(String(relic["id"])))

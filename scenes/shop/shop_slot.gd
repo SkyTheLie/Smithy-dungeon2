@@ -191,7 +191,7 @@ static func _describe_relic(piece: Dictionary, with_price: bool) -> String:
 	var data: Dictionary = Content.item(String(piece.get("id", "")))
 	var lines: Array[String] = [Language.translate(String(data.get("name", ""))), Language.translate("Relikt") + " · " + Rarity.label(rarity_of(piece))]
 	var left: int = int(piece.get("left", -1))
-	lines.append(Language.translate("Hält für immer") if left < 0 else Language.translate("Hält noch %d Dungeons") % left)
+	lines.append(Language.translate("Hält für immer") if ShopGoods.relic_forever(piece) else Language.translate("Hält noch %d Dungeons") % left)
 	if with_price:
 		lines.append(Language.translate("Preis: %d Gold") % int(piece.get("price", 0)))
 	lines.append(Language.translate(String(data.get("desc", ""))))
