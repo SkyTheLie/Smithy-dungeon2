@@ -499,7 +499,10 @@ static func _owned(piece: Dictionary) -> Dictionary:
 		return {"id": String(piece["id"]), "count": 1, "potion": true}
 	if ShopGoods.is_backpack(piece):
 		return {"id": String(piece["id"]), "count": 1, "backpack": true}
-	return {"id": String(piece["id"]), "count": 1, "rarity": int(piece.get("rarity", 1))}
+	var gear: Dictionary = {"id": String(piece["id"]), "count": 1, "rarity": int(piece.get("rarity", 1))}
+	if not String(piece.get("type", "")).is_empty():
+		gear["type"] = String(piece["type"])
+	return gear
 
 
 ## As it is worn: the same without the count.

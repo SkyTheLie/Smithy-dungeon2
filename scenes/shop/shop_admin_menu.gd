@@ -2,7 +2,7 @@ class_name ShopAdminMenu
 extends CanvasLayer
 ## P in Egon's shop, only in debug builds (started from the editor): a menu for testing quickly,
 ## like the AdminMenu of the dungeon. P or Esc closes it. Built in code (no .tscn).
-##   Geben       gear (with rarity), relics, potions, backpacks and loot into the stash, put on
+##   Geben       gear (with rarity, a random Bauart if ticked), relics, potions, backpacks and loot into the stash, put on
 ##               at once, empty the stash
 ##   Laden       gold into the box / empty the box, new goods for free, lever free again, a new day
 ##   Fortschritt a level, skill points, a dungeon won / all dungeons open, a quest done without its
@@ -22,6 +22,8 @@ var _status: Label
 var _filter: LineEdit
 var _list: ItemList
 var _rarity: SpinBox
+## On: gear gets a random Bauart (gear.json types), off: normal.
+var _random_type: CheckBox
 ## Pieces in the list: {"kind": "gear" / "relic" / "potion" / "backpack" / "loot", "id"}.
 var _entries: Array[Dictionary] = []
 var _dungeon_pick: OptionButton
@@ -132,6 +134,9 @@ func _build_give() -> Control:
 	_rarity.max_value = maxi(1, (Content.get_file("gear").get("rarity_stats", [1]) as Array).size())
 	_rarity.value = 1
 	row.add_child(_rarity)
+	_random_type = CheckBox.new()
+	_random_type.text = "Bauart würfeln"
+	row.add_child(_random_type)
 	_list = ItemList.new()
 	_list.custom_minimum_size.y = LIST_HEIGHT
 	_list.select_mode = ItemList.SELECT_MULTI
@@ -303,7 +308,8 @@ func _on_give(index: int, wear: bool = false) -> void:
 	var piece: Dictionary = {}
 	match kind:
 		"gear":
-			piece = ShopGoods.make_piece(id, int(_rarity.value))
+			var type: String = ShopGoods.pick_type(id, _rng) if _random_type.button_pressed else ""
+			piece = ShopGoods.make_piece(id, int(_rarity.value), type)
 		"relic":
 			piece = ShopGoods.make_relic(id)
 		"potion":

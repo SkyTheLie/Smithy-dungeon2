@@ -489,6 +489,9 @@ msgstr "The warrior's weapon: a sword swing hits everyone in front of you"
 msgid "Die Waffe des Magiers: schießt Feuerbälle"
 msgstr "The mage's weapon: shoots fireballs"
 
+msgid "Diebeshand"
+msgstr "Thief's hand"
+
 msgid "Dietrich"
 msgstr "Lockpick"
 
@@ -900,6 +903,9 @@ msgstr "Iron ore"
 msgid "Eisenhaut"
 msgstr "Iron Skin"
 
+msgid "Eisenschuh"
+msgstr "Iron shoe"
+
 msgid "Eisfeder"
 msgstr "Ice Feather"
 
@@ -1028,6 +1034,9 @@ msgstr "Lichen Cloak"
 
 msgid "Fledermaus"
 msgstr "Bat"
+
+msgid "Flinke Hand"
+msgstr "Quick hand"
 
 msgid "Flinke Hände"
 msgstr "Quick hands"
@@ -1340,6 +1349,9 @@ msgstr "Lucky Flax"
 
 msgid "Glückspilz"
 msgstr "Lucky devil"
+
+msgid "Glücksschuh"
+msgstr "Lucky shoe"
 
 msgid "Glühender Schlüssel"
 msgstr "Glowing Key"
@@ -1716,8 +1728,14 @@ msgstr "Chamomile"
 msgid "Kampf"
 msgstr "Combat"
 
+msgid "Kampfhand"
+msgstr "Brawler"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Can now appear in the dungeon"
+
+msgid "Kapuze"
+msgstr "Hood"
 
 msgid "Karawanen-Rucksack"
 msgstr "Caravan Backpack"
@@ -1941,6 +1959,9 @@ msgstr "Lifewood"
 msgid "Lebenstau"
 msgstr "Life Dew"
 
+msgid "Leder"
+msgstr "Leather"
+
 msgid "Lederstiefel"
 msgstr "Leather Boots"
 
@@ -1955,6 +1976,9 @@ msgstr "Legend Gloves"
 
 msgid "Legendär"
 msgstr "Legendary"
+
+msgid "Leicht"
+msgstr "Light"
 
 msgid "Leicht und schnell."
 msgstr "Light and fast."
@@ -2283,6 +2307,9 @@ msgstr "Platinum Blade"
 msgid "Platinspitze"
 msgstr "Platinum Tip"
 
+msgid "Platte"
+msgstr "Plate"
+
 msgid "Pocht leise. Besser nicht drüber nachdenken."
 msgstr "Beats softly. Better not think about it."
 
@@ -2429,6 +2456,9 @@ msgstr "Seal Fur"
 
 msgid "Robbenmantel"
 msgstr "Seal Cloak"
+
+msgid "Robe"
+msgstr "Robe"
 
 msgid "Rot"
 msgstr "Red"
@@ -2682,6 +2712,9 @@ msgstr "Black Crystal"
 msgid "Schwarzwolf"
 msgstr "Black Wolf"
 
+msgid "Schwer"
+msgstr "Heavy"
+
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "Heavy and yellow. Every merchant likes it."
 
@@ -2921,6 +2954,9 @@ msgstr "Blasting Sack"
 
 msgid "Sprengstrahl"
 msgstr "Blast Beam"
+
+msgid "Sprint"
+msgstr "Sprint"
 
 msgid "Sprinterrucksack"
 msgstr "Sprinter's Pack"
@@ -3273,6 +3309,9 @@ msgstr "Many seeking sparks at once"
 msgid "Vier Schlüssel"
 msgstr "Four keys"
 
+msgid "Visier"
+msgstr "Visor"
+
 msgid "Voll ausgebaut"
 msgstr "Fully learned"
 
@@ -3323,6 +3362,9 @@ msgstr "On to Frost Peak! Dress warmly. I happen to have coats."
 
 msgid "Weiterkämpfen"
 msgstr "Keep fighting"
+
+msgid "Weitreichend"
+msgstr "Long-range"
 
 msgid "Weltenstab"
 msgstr "World Staff"

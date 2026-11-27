@@ -185,7 +185,8 @@ static func rarity_of(piece: Dictionary) -> int:
 	return int(Content.material(id).get("rarity", 1))
 
 
-## Tooltip: name, rarity, values, for whom, price, description.
+## Tooltip: name (with its Bauart), rarity, values (pros with +, cons with -), for whom, price,
+## description.
 static func describe(piece: Dictionary, with_price: bool) -> String:
 	var id: String = String(piece.get("id", ""))
 	if ShopGoods.is_relic(piece):
@@ -196,11 +197,17 @@ static func describe(piece: Dictionary, with_price: bool) -> String:
 		return _describe_backpack(piece, with_price)
 	var gear: bool = ShopGoods.is_gear(id)
 	var data: Dictionary = Content.gear_item(id) if gear else Content.material(id)
-	var lines: Array[String] = [Language.translate(String(data.get("name", id))), Rarity.label(rarity_of(piece))]
+	var title: String = Language.translate(String(data.get("name", id)))
+	var type_name: String = ShopGoods.type_name(piece) if gear else ""
+	if not type_name.is_empty():
+		title += " (%s)" % Language.translate(type_name)
+	var lines: Array[String] = [title, Rarity.label(rarity_of(piece))]
 	if gear:
-		var values: Dictionary = ShopGoods.stats(id, int(piece.get("rarity", 1)))
+		var values: Dictionary = ShopGoods.piece_stats(piece)
 		for key: String in values:
-			lines.append("%s %s" % [stat_name(key), _signed(float(values[key]))])
+			var line: String = stat_line(key, float(values[key]))
+			if not line.is_empty():
+				lines.append(line)
 		if data.has("class"):
 			var character: Dictionary = Content.character(String(data["class"]))
 			lines.append(Language.translate("Nur für: %s") % Language.translate(String(character.get("name", data["class"]))))
@@ -260,7 +267,21 @@ static func stat_name(key: String) -> String:
 		"fire_delay": return Language.translate("Pause zwischen Schüssen")
 		"knockback": return Language.translate("Rückstoß")
 		"move_speed": return Language.translate("Tempo")
+		"reach": return Language.translate("Reichweite")
 	return key
+
+
+## One value of a piece: "Schaden +0.4", "Tempo -0.5"; fire_delay_mult as "Angriffstempo +18 %"
+## (a shorter pause = faster); 0 and ×1 are left out ("").
+static func stat_line(key: String, value: float) -> String:
+	if key == "fire_delay_mult":
+		var percent: int = roundi((1.0 / maxf(value, 0.01) - 1.0) * 100.0)
+		return "" if percent == 0 else "%s %s%d %%" % [Language.translate("Angriffstempo"), "+" if percent > 0 else "-", absi(percent)]
+	if key.ends_with("_mult"):
+		return "" if is_equal_approx(value, 1.0) else "%s ×%s" % [stat_name(key.trim_suffix("_mult")), String.num(value, 2)]
+	if is_zero_approx(value):
+		return ""
+	return "%s %s" % [stat_name(key), _signed(value)]
 
 
 ## +0,25 / -0,01: up to two decimals, no trailing zeros.

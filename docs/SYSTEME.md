@@ -444,3 +444,10 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - **Skillbaum:** die Rucksack-Kette steht nebeneinander (links nach rechts); Ketten in derselben Zeile bekommen eine gerade Linie von der letzten Stufe (`SkillTree.build`). Gruppen Relikte und Laden nach rechts gerückt.
 - **Ziehen:** das Bild unter der Maus nimmt die Feldgröße des Rasters an, über dem es gerade ist (`BagBoard.fit_preview`, `DragPreview.use_cell`).
 - **Tab-Fenster im Dungeon:** feste Größe (`BagWindow.PANEL_SIZE` 300×292), Beschreibung mit fester Fläche (200 px breit, 7 Zeilen); das Fenster springt beim Überfahren nicht mehr.
+
+## Bauarten der Ausrüstung – 2026-11-27, `feature/bauarten`
+
+- Jedes Teil auf Egons Tisch bekommt eine **Bauart** seines Platzes (`gear.json` `types`, `ShopGoods.pick_type`); das Teil merkt sie sich als `type` (Tisch, Lager, Inventar, Figur). Normal = ohne Feld.
+- Werte: `ShopGoods.stats(id, rarity, type)` = eigene Werte × `mult` der Bauart × Seltenheit, dazu `stats` der Bauart (Vor-/Nachteile, wachsen nicht). `RunState.use_gear` nimmt sie; Schild-Herzen nie unter 0.
+- Bauarten: Waffe Schwer (+60 % Schaden, langsamer) / Leicht (−40 % Schaden, schneller) / Weitreichend (+Reichweite, −20 % Schaden); Kopf Visier (mehr Schild, −Glück) / Kapuze (weniger Schild, +Glück); Brust Platte (mehr Schild, −Tempo) / Leder (weniger Schild, +Tempo) / Robe (kein Schild, schneller schießen); Hände Kampfhand (mehr Schaden, −Tempo) / Diebeshand / Flinke Hand; Beine Schwer / Leicht; Füße Sprint (viel Tempo, −½ Schild-Herz) / Eisenschuh (kein Tempo, +½ Schild-Herz) / Glücksschuh.
+- Beschreibung: „Eisen-Brustplatte (Platte)“, darunter jeder Wert mit + oder − (`ShopSlot.stat_line`; schneller schießen als „Angriffstempo +18 %“). Admin-Menü im Laden: „Bauart würfeln“.

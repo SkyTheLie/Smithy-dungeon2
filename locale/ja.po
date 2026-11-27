@@ -489,6 +489,9 @@ msgstr "戦士の武器：剣のひと振りで前方の敵すべてに当たる
 msgid "Die Waffe des Magiers: schießt Feuerbälle"
 msgstr "魔法使いの武器：火の玉を撃つ"
 
+msgid "Diebeshand"
+msgstr "盗賊の手"
+
 msgid "Dietrich"
 msgstr "鍵開け具"
 
@@ -900,6 +903,9 @@ msgstr "鉄鉱石"
 msgid "Eisenhaut"
 msgstr "鉄の肌"
 
+msgid "Eisenschuh"
+msgstr "鉄靴"
+
 msgid "Eisfeder"
 msgstr "氷の羽"
 
@@ -1028,6 +1034,9 @@ msgstr "地衣のマント"
 
 msgid "Fledermaus"
 msgstr "コウモリ"
+
+msgid "Flinke Hand"
+msgstr "素早い手"
 
 msgid "Flinke Hände"
 msgstr "素早い手"
@@ -1340,6 +1349,9 @@ msgstr "幸運の亜麻"
 
 msgid "Glückspilz"
 msgstr "幸運児"
+
+msgid "Glücksschuh"
+msgstr "幸運の靴"
 
 msgid "Glühender Schlüssel"
 msgstr "灼熱の鍵"
@@ -1716,8 +1728,14 @@ msgstr "カモミール"
 msgid "Kampf"
 msgstr "戦闘"
 
+msgid "Kampfhand"
+msgstr "拳闘"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "これからダンジョンに出現する"
+
+msgid "Kapuze"
+msgstr "フード"
 
 msgid "Karawanen-Rucksack"
 msgstr "キャラバンのリュック"
@@ -1941,6 +1959,9 @@ msgstr "命の木"
 msgid "Lebenstau"
 msgstr "命の露"
 
+msgid "Leder"
+msgstr "革"
+
 msgid "Lederstiefel"
 msgstr "革のブーツ"
 
@@ -1955,6 +1976,9 @@ msgstr "伝説の手袋"
 
 msgid "Legendär"
 msgstr "レジェンダリー"
+
+msgid "Leicht"
+msgstr "軽い"
 
 msgid "Leicht und schnell."
 msgstr "軽くて速い。"
@@ -2283,6 +2307,9 @@ msgstr "プラチナの刃"
 msgid "Platinspitze"
 msgstr "プラチナの矢じり"
 
+msgid "Platte"
+msgstr "プレート"
+
 msgid "Pocht leise. Besser nicht drüber nachdenken."
 msgstr "かすかに脈打つ。考えないほうがいい。"
 
@@ -2429,6 +2456,9 @@ msgstr "アザラシの毛皮"
 
 msgid "Robbenmantel"
 msgstr "アザラシのマント"
+
+msgid "Robe"
+msgstr "ローブ"
 
 msgid "Rot"
 msgstr "赤"
@@ -2682,6 +2712,9 @@ msgstr "黒水晶"
 msgid "Schwarzwolf"
 msgstr "黒狼"
 
+msgid "Schwer"
+msgstr "重い"
+
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "重くて黄色い。どの商人も好きだ。"
 
@@ -2921,6 +2954,9 @@ msgstr "爆薬袋"
 
 msgid "Sprengstrahl"
 msgstr "爆裂ビーム"
+
+msgid "Sprint"
+msgstr "スプリント"
 
 msgid "Sprinterrucksack"
 msgstr "俊足の背嚢"
@@ -3273,6 +3309,9 @@ msgstr "追尾する火花がたくさん"
 msgid "Vier Schlüssel"
 msgstr "鍵4本"
 
+msgid "Visier"
+msgstr "バイザー"
+
 msgid "Voll ausgebaut"
 msgstr "最大まで習得"
 
@@ -3323,6 +3362,9 @@ msgstr "霜の峰へ！暖かくしていけ。たまたまコートがあるん
 
 msgid "Weiterkämpfen"
 msgstr "戦い続ける"
+
+msgid "Weitreichend"
+msgstr "長射程"
 
 msgid "Weltenstab"
 msgstr "世界の杖"

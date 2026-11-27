@@ -92,6 +92,7 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - `slots`: Plätze an der Figur, `"id": {"name", "hint", "at": [x, y]}` (`hint` = Bild `assets/sprites/ui/slot_hints/equip_<hint>.png`, `at` = Mitte in der Helden-Ansicht).
 - `gear`: `"id": {"name", "desc", "slot", "icon", "price", "class"?, "stats"}`. `stats` wie in `player.json` (wirken ab Phase 3), mal `rarity_stats` je Seltenheit. `class` = nur für diese Klasse (Tooltip „Nur für“).
 - Neue Ausrüstung taucht im Laden erst auf, wenn sie in `shop.json` `pool` steht. Der Test prüft Bild und Platz.
+- **Bauarten** (`gear.json` `types`, je Platz): `normal` (ohne Name) und Bauarten mit `name`, `weight` (wie oft auf dem Tisch), `mult` (Faktor auf die eigenen Werte des Teils, wächst mit der Seltenheit) und `stats` (Vor-/Nachteile dazu, wachsen nicht; `fire_delay_mult` < 1 = schneller schießen). Jede Bauart braucht einen Vorteil und einen Nachteil (Test). Neue Namen: `build_po.py` nimmt sie mit.
 
 ## Egons Laden (`data/shop.json`)
 

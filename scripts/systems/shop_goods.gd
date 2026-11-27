@@ -2,8 +2,8 @@ class_name ShopGoods
 extends RefCounted
 ## Egon's goods (data/shop.json, data/gear.json): what lies on the table after the lever, what a
 ## piece costs and what it gives. Only rules, no screen; MetaState keeps the table, the shop shows it.
-## A piece of gear (on the table, in the inventory, on the hero) is {id, rarity} (+ price on the
-## table, + count 1 in the inventory).
+## A piece of gear (on the table, in the inventory, on the hero) is {id, rarity} (+ type, its
+## Bauart, gear.json types; missing = normal) (+ price on the table, + count 1 in the inventory).
 ## A relic (data/relics.json) is {id (an item of items.json), relic: true, left} (+ price on the
 ## table): left = runs it still holds (-1 = for ever). Only items picked up once (Progress) come.
 ## A potion (data/potions.json) is {id, potion: true} (+ price on the table). Potions only come
@@ -32,7 +32,7 @@ static func roll(rng: RandomNumberGenerator, pulls_today: int = 0) -> Array[Dict
 		var id: String = "%s_%s" % [material, Content.pick_weighted(rules.get("pool", []), rng)]
 		if not is_gear(id):
 			continue
-		table[cell] = make_piece(id, _pick_rarity(weights, rng))
+		table[cell] = make_piece(id, _pick_rarity(weights, rng), pick_type(id, rng))
 	# Sometimes a relic: an item the player has found, on a free place.
 	var relic: String = pick_relic(rng)
 	cells = []
@@ -360,8 +360,42 @@ static func empty_table() -> Array[Dictionary]:
 	return table
 
 
-static func make_piece(id: String, rarity: int) -> Dictionary:
-	return {"id": id, "rarity": rarity, "price": price(id, rarity)}
+## A piece of gear on the table; `type` = its Bauart (gear.json types, "" / "normal" = none).
+static func make_piece(id: String, rarity: int, type: String = "") -> Dictionary:
+	var piece: Dictionary = {"id": id, "rarity": rarity, "price": price(id, rarity)}
+	if not type_data(id, type).is_empty() and type != NORMAL:
+		piece["type"] = type
+	return piece
+
+
+# --- Bauarten (data/gear.json types) ---------------------------------------------------
+
+const NORMAL: String = "normal"
+
+
+## The Bauarten of gear `id` (by its slot): type -> {name, weight, mult, stats}.
+static func types_of(id: String) -> Dictionary:
+	var slot: String = String(Content.gear_item(id).get("slot", ""))
+	return (Content.get_file("gear").get("types", {}) as Dictionary).get(slot, {})
+
+
+## Bauart `type` of gear `id` ({} = unknown; "" counts as normal).
+static func type_data(id: String, type: String) -> Dictionary:
+	return types_of(id).get(NORMAL if type.is_empty() else type, {})
+
+
+## A random Bauart for gear `id` by the weights (NORMAL when the slot has none).
+static func pick_type(id: String, rng: RandomNumberGenerator) -> String:
+	var table: Array = []
+	var all: Dictionary = types_of(id)
+	for type: String in all:
+		table.append([type, float((all[type] as Dictionary).get("weight", 1.0))])
+	return Content.pick_weighted(table, rng) if not table.is_empty() else NORMAL
+
+
+## The name of the Bauart of `piece` (German key; "" for normal).
+static func type_name(piece: Dictionary) -> String:
+	return String(type_data(String(piece.get("id", "")), String(piece.get("type", ""))).get("name", ""))
 
 
 ## Base price (gear.json) times shop.json rarity_price of the rarity.
@@ -371,15 +405,29 @@ static func price(id: String, rarity: int) -> int:
 	return roundi(float(Content.gear_item(id).get("price", 0)) * factor)
 
 
-## The stats of a piece: gear.json stats times rarity_stats of its rarity.
-static func stats(id: String, rarity: int) -> Dictionary:
+## The stats of a piece: gear.json stats times the mult of its Bauart `type`, times rarity_stats
+## of its rarity; then the stats of the Bauart (its pros and cons, not grown by the rarity).
+static func stats(id: String, rarity: int, type: String = "") -> Dictionary:
 	var factors: Array = Content.get_file("gear").get("rarity_stats", [1.0])
 	var factor: float = float(factors[clampi(rarity, 1, factors.size()) - 1])
+	var kind: Dictionary = type_data(id, type)
+	var mult: Dictionary = kind.get("mult", {})
 	var result: Dictionary = {}
 	var base: Dictionary = Content.gear_item(id).get("stats", {})
 	for key: String in base:
-		result[key] = float(base[key]) * factor
+		result[key] = float(base[key]) * float(mult.get(key, 1.0)) * factor
+	var extra: Dictionary = kind.get("stats", {})
+	for key: String in extra:
+		if key.ends_with("_mult"):
+			result[key] = float(result.get(key, 1.0)) * float(extra[key])
+		else:
+			result[key] = float(result.get(key, 0.0)) + float(extra[key])
 	return result
+
+
+## stats of a worn / owned piece {id, rarity, type}.
+static func piece_stats(piece: Dictionary) -> Dictionary:
+	return stats(String(piece.get("id", "")), int(piece.get("rarity", 1)), String(piece.get("type", "")))
 
 
 static func is_gear(id: String) -> bool:

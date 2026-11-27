@@ -489,6 +489,9 @@ msgstr "A arma do guerreiro: um golpe de espada acerta todos à sua frente"
 msgid "Die Waffe des Magiers: schießt Feuerbälle"
 msgstr "A arma do mago: dispara bolas de fogo"
 
+msgid "Diebeshand"
+msgstr "Mão de ladrão"
+
 msgid "Dietrich"
 msgstr "Gazua"
 
@@ -900,6 +903,9 @@ msgstr "Minério de ferro"
 msgid "Eisenhaut"
 msgstr "Pele de ferro"
 
+msgid "Eisenschuh"
+msgstr "Sapato de ferro"
+
 msgid "Eisfeder"
 msgstr "Pena de gelo"
 
@@ -1028,6 +1034,9 @@ msgstr "Manto de líquen"
 
 msgid "Fledermaus"
 msgstr "Morcego"
+
+msgid "Flinke Hand"
+msgstr "Mão ágil"
 
 msgid "Flinke Hände"
 msgstr "Mãos ágeis"
@@ -1340,6 +1349,9 @@ msgstr "Linho da sorte"
 
 msgid "Glückspilz"
 msgstr "Sortudo"
+
+msgid "Glücksschuh"
+msgstr "Sapato da sorte"
 
 msgid "Glühender Schlüssel"
 msgstr "Chave incandescente"
@@ -1716,8 +1728,14 @@ msgstr "Camomila"
 msgid "Kampf"
 msgstr "Combate"
 
+msgid "Kampfhand"
+msgstr "Punho de luta"
+
 msgid "Kann ab jetzt im Dungeon auftauchen"
 msgstr "Agora pode aparecer na masmorra"
+
+msgid "Kapuze"
+msgstr "Capuz"
 
 msgid "Karawanen-Rucksack"
 msgstr "Mochila de caravana"
@@ -1941,6 +1959,9 @@ msgstr "Madeira da vida"
 msgid "Lebenstau"
 msgstr "Orvalho da vida"
 
+msgid "Leder"
+msgstr "Couro"
+
 msgid "Lederstiefel"
 msgstr "Botas de couro"
 
@@ -1955,6 +1976,9 @@ msgstr "Luvas lendárias"
 
 msgid "Legendär"
 msgstr "Lendário"
+
+msgid "Leicht"
+msgstr "Leve"
 
 msgid "Leicht und schnell."
 msgstr "Leves e rápidas."
@@ -2283,6 +2307,9 @@ msgstr "Lâmina de platina"
 msgid "Platinspitze"
 msgstr "Ponta de platina"
 
+msgid "Platte"
+msgstr "Placas"
+
 msgid "Pocht leise. Besser nicht drüber nachdenken."
 msgstr "Pulsa baixinho. Melhor não pensar nisso."
 
@@ -2429,6 +2456,9 @@ msgstr "Pele de foca"
 
 msgid "Robbenmantel"
 msgstr "Manto de foca"
+
+msgid "Robe"
+msgstr "Túnica"
 
 msgid "Rot"
 msgstr "Vermelho"
@@ -2682,6 +2712,9 @@ msgstr "Cristal negro"
 msgid "Schwarzwolf"
 msgstr "Lobo negro"
 
+msgid "Schwer"
+msgstr "Pesado"
+
 msgid "Schwer und gelb. Jeder Händler mag es."
 msgstr "Pesado e amarelo. Todo mercador gosta."
 
@@ -2921,6 +2954,9 @@ msgstr "Saco de explosivos"
 
 msgid "Sprengstrahl"
 msgstr "Raio explosivo"
+
+msgid "Sprint"
+msgstr "Corrida"
 
 msgid "Sprinterrucksack"
 msgstr "Mochila de velocista"
@@ -3273,6 +3309,9 @@ msgstr "Muitas faíscas teleguiadas de uma vez"
 msgid "Vier Schlüssel"
 msgstr "Quatro chaves"
 
+msgid "Visier"
+msgstr "Viseira"
+
 msgid "Voll ausgebaut"
 msgstr "No máximo"
 
@@ -3323,6 +3362,9 @@ msgstr "Para o Pico Gelado! Agasalhe-se. Por acaso tenho casacos."
 
 msgid "Weiterkämpfen"
 msgstr "Continuar lutando"
+
+msgid "Weitreichend"
+msgstr "Longo alcance"
 
 msgid "Weltenstab"
 msgstr "Cajado dos mundos"

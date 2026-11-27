@@ -439,11 +439,14 @@ func use_gear(worn: Dictionary) -> void:
 		if ShopGoods.is_relic(piece):
 			add_item(String(piece.get("id", "")))
 			continue
-		var values: Dictionary = ShopGoods.stats(String(piece.get("id", "")), int(piece.get("rarity", 1)))
+		# Gear with its Bauart (pros and cons, e.g. Sprint boots: fast, half a shield heart less).
+		var values: Dictionary = ShopGoods.piece_stats(piece)
 		shield += roundi(float(values.get("shield_hearts", 0.0)) * 2.0)
 		values.erase("shield_hearts")
 		if not values.is_empty():
 			gear_sources.append({"stats": values})
+	# Cons of several pieces never take more shield than the gear gives.
+	shield = maxi(0, shield)
 	compute_stats()
 	changed.emit()
 

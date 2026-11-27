@@ -1191,5 +1191,19 @@
 	"Rucksack-Riemen": {"en": "Backpack Straps", "es": "Correas de mochila", "fr": "Sangles de sac", "pt": "Alças de mochila", "ru": "Ремни рюкзака", "ja": "リュックのベルト", "zh": "背包背带", "fa": "بند کوله‌پشتی"},
 	"Rucksäcke %d/%d": {"en": "Backpacks %d/%d", "es": "Mochilas %d/%d", "fr": "Sacs %d/%d", "pt": "Mochilas %d/%d", "ru": "Рюкзаки %d/%d", "ja": "リュック %d/%d", "zh": "背包 %d/%d", "fa": "کوله‌ها %d/%d"},
 	"So viele Rucksäcke kannst du anbauen. Mehr mit dem Skill Rucksack-Riemen.": {"en": "This many backpacks can be attached. More with the skill Backpack Straps.", "es": "Puedes acoplar tantas mochilas. Más con la habilidad Correas de mochila.", "fr": "Tu peux attacher autant de sacs. Plus avec la compétence Sangles de sac.", "pt": "Podes acoplar tantas mochilas. Mais com a habilidade Alças de mochila.", "ru": "Столько рюкзаков можно пристегнуть. Больше — с навыком «Ремни рюкзака».", "ja": "取り付けられるリュックの数。スキル「リュックのベルト」で増える。", "zh": "可以挂这么多背包。学习技能“背包背带”可以更多。", "fa": "این‌قدر کوله می‌توانی وصل کنی. با مهارت بند کوله‌پشتی بیشتر."},
-	"Ein Rucksack mehr an deinem Inventar.": {"en": "One more backpack on your inventory.", "es": "Una mochila más en tu inventario.", "fr": "Un sac de plus sur ton inventaire.", "pt": "Mais uma mochila no teu inventário.", "ru": "Ещё один рюкзак к твоему инвентарю.", "ja": "持ち物にリュックをもう1つ。", "zh": "背包栏可以多挂一个背包。", "fa": "یک کوله بیشتر روی کیفت."}
+	"Ein Rucksack mehr an deinem Inventar.": {"en": "One more backpack on your inventory.", "es": "Una mochila más en tu inventario.", "fr": "Un sac de plus sur ton inventaire.", "pt": "Mais uma mochila no teu inventário.", "ru": "Ещё один рюкзак к твоему инвентарю.", "ja": "持ち物にリュックをもう1つ。", "zh": "背包栏可以多挂一个背包。", "fa": "یک کوله بیشتر روی کیفت."},
+	"Schwer": {"en": "Heavy", "es": "Pesado", "fr": "Lourd", "pt": "Pesado", "ru": "Тяжёлое", "ja": "重い", "zh": "重型", "fa": "سنگین"},
+	"Leicht": {"en": "Light", "es": "Ligero", "fr": "Léger", "pt": "Leve", "ru": "Лёгкое", "ja": "軽い", "zh": "轻型", "fa": "سبک"},
+	"Weitreichend": {"en": "Long-range", "es": "De largo alcance", "fr": "Longue portée", "pt": "Longo alcance", "ru": "Дальнобойное", "ja": "長射程", "zh": "远程", "fa": "دوربرد"},
+	"Visier": {"en": "Visor", "es": "Visera", "fr": "Visière", "pt": "Viseira", "ru": "Забрало", "ja": "バイザー", "zh": "面甲", "fa": "نقاب"},
+	"Kapuze": {"en": "Hood", "es": "Capucha", "fr": "Capuche", "pt": "Capuz", "ru": "Капюшон", "ja": "フード", "zh": "兜帽", "fa": "کلاه‌شنل"},
+	"Platte": {"en": "Plate", "es": "Placas", "fr": "Plates", "pt": "Placas", "ru": "Латы", "ja": "プレート", "zh": "板甲", "fa": "زره صفحه‌ای"},
+	"Leder": {"en": "Leather", "es": "Cuero", "fr": "Cuir", "pt": "Couro", "ru": "Кожа", "ja": "革", "zh": "皮革", "fa": "چرمی"},
+	"Robe": {"en": "Robe", "es": "Túnica", "fr": "Robe", "pt": "Túnica", "ru": "Мантия", "ja": "ローブ", "zh": "长袍", "fa": "ردا"},
+	"Kampfhand": {"en": "Brawler", "es": "Puño de pelea", "fr": "Poing de combat", "pt": "Punho de luta", "ru": "Боевая рука", "ja": "拳闘", "zh": "搏击手", "fa": "دست جنگجو"},
+	"Diebeshand": {"en": "Thief's hand", "es": "Mano de ladrón", "fr": "Main de voleur", "pt": "Mão de ladrão", "ru": "Рука вора", "ja": "盗賊の手", "zh": "盗贼之手", "fa": "دست دزد"},
+	"Flinke Hand": {"en": "Quick hand", "es": "Mano rápida", "fr": "Main agile", "pt": "Mão ágil", "ru": "Ловкая рука", "ja": "素早い手", "zh": "灵巧之手", "fa": "دست چابک"},
+	"Sprint": {"en": "Sprint", "es": "Carrera", "fr": "Sprint", "pt": "Corrida", "ru": "Спринт", "ja": "スプリント", "zh": "疾跑", "fa": "دوندگی"},
+	"Eisenschuh": {"en": "Iron shoe", "es": "Zapato de hierro", "fr": "Soulier de fer", "pt": "Sapato de ferro", "ru": "Железный башмак", "ja": "鉄靴", "zh": "铁靴", "fa": "کفش آهنی"},
+	"Glücksschuh": {"en": "Lucky shoe", "es": "Zapato de la suerte", "fr": "Soulier porte-bonheur", "pt": "Sapato da sorte", "ru": "Счастливый башмак", "ja": "幸運の靴", "zh": "幸运靴", "fa": "کفش شانس"}
 }
