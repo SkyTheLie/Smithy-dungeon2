@@ -18,6 +18,8 @@ const CS_YAW: float = 0.022
 
 ## The field of view of the dungeon camera was changed in the settings (DisplaySettings).
 signal fov_changed(degrees: float)
+## The crosshair was changed in the settings (Crosshair.set_value).
+signal crosshair_changed
 
 ## The run being played (null in the main menu before the first run). Not saved on purpose.
 var run: RunState = null

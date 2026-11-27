@@ -4,6 +4,7 @@ extends PanelContainer
 ##   Grafik:    Anzeige (Fenster / Rahmenlos / Vollbild), Fenstergröße (only in window mode),
 ##              VSync, Sichtfeld (field of view in the dungeon), Sprache (main menu only: flags)
 ##   Audio:     Lautstärke, Musik, Effekte
+##   Fadenkreuz: the crosshair like in CS2 (Crosshair), with a preview;
 ##   Steuerung: mouse sensitivity as in CS2 (slider and number field) and the changeable keys (Controls.REBINDABLE): click a key,
 ##              then press the new one (Esc = cancel); "Standard wiederherstellen".
 ## Values are saved at once in user://settings.cfg (DisplaySettings, AudioManager, Game, Controls).
@@ -43,8 +44,8 @@ func _ready() -> void:
 	tabs.add_theme_constant_override("separation", 2)
 	column.add_child(tabs)
 	var group := ButtonGroup.new()
-	var names: Array[String] = [Language.translate("Grafik"), Language.translate("Audio"), Language.translate("Steuerung")]
-	var builders: Array[Callable] = [_build_graphics, _build_audio, _build_controls]
+	var names: Array[String] = [Language.translate("Grafik"), Language.translate("Audio"), Language.translate("Steuerung"), Language.translate("Fadenkreuz")]
+	var builders: Array[Callable] = [_build_graphics, _build_audio, _build_controls, _build_crosshair]
 	for i in names.size():
 		var tab := _button(names[i])
 		tab.toggle_mode = true
@@ -149,6 +150,117 @@ func _build_audio() -> Control:
 				AudioManager.set_volume(AudioManager.SOUNDS, v / 100.0)
 				AudioManager.set_volume(AudioManager.INTERFACE, v / 100.0), "%d %%"))
 	return grid
+
+
+# --- Fadenkreuz ---------------------------------------------------------------------
+
+## Like the crosshair settings of CS2 (Crosshair): a preview on top, below style, colour,
+## opacity, length, thickness, gap, dot, outline, T shape and "Standard wiederherstellen".
+## Scrolls, the page has more rows than room.
+func _build_crosshair() -> Control:
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	var page := VBoxContainer.new()
+	page.add_theme_constant_override("separation", 4)
+	page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(page)
+	var preview := Panel.new()
+	preview.name = "CrosshairPreview"
+	preview.custom_minimum_size = Vector2(0, 54)
+	var back := StyleBoxFlat.new()
+	back.bg_color = Color(0.32, 0.36, 0.4)
+	back.set_corner_radius_all(4)
+	preview.add_theme_stylebox_override("panel", back)
+	preview.draw.connect(func() -> void: Crosshair.draw_at(preview, preview.size / 2.0, 3.0))
+	Game.crosshair_changed.connect(preview.queue_redraw)
+	page.add_child(preview)
+	var grid := _grid()
+	page.add_child(grid)
+	grid.add_child(_label(Language.translate("Stil")))
+	var styles: Array[String] = [Language.translate("Kreuz"), Language.translate("Nur Punkt"), Language.translate("Aus")]
+	grid.add_child(_choice("CrosshairStyle", styles, Crosshair.STYLES.find(String(Crosshair.get_value("style"))),
+			func(index: int) -> void: Crosshair.set_value("style", Crosshair.STYLES[index])))
+	grid.add_child(_label(Language.translate("Farbe")))
+	var colors := HBoxContainer.new()
+	var picker := ColorPickerButton.new()
+	picker.name = "CrosshairCustomColor"
+	picker.custom_minimum_size = Vector2(28, 0)
+	picker.edit_alpha = false
+	picker.focus_mode = Control.FOCUS_NONE
+	picker.color = Crosshair.get_value("custom_color") as Color
+	picker.visible = String(Crosshair.get_value("color")) == "custom"
+	picker.color_changed.connect(func(value: Color) -> void: Crosshair.set_value("custom_color", value))
+	var names: Array[String] = [Language.translate("Rot"), Language.translate("Grün"), Language.translate("Gelb"),
+			Language.translate("Blau"), Language.translate("Cyan"), Language.translate("Eigene")]
+	colors.add_child(_choice("CrosshairColor", names, Crosshair.COLORS.find(String(Crosshair.get_value("color"))),
+			func(index: int) -> void:
+				Crosshair.set_value("color", Crosshair.COLORS[index])
+				picker.visible = Crosshair.COLORS[index] == "custom"))
+	colors.add_child(picker)
+	grid.add_child(colors)
+	for row: Array in [["Deckkraft", "alpha", 0, 255], ["Länge", "length", 0, 40], ["Dicke", "thickness", 1, 12],
+			["Abstand", "gap", -10, 30], ["Umriss-Dicke", "outline_thickness", 1, 6]]:
+		grid.add_child(_label(_crosshair_label(String(row[0]))))
+		var key: String = row[1]
+		var slider_row: Control = _slider(float(row[2]), float(row[3]), float(Crosshair.get_value(key)),
+				func(v: float) -> void: Crosshair.set_value(key, roundi(v)), "%d")
+		slider_row.name = "Crosshair_" + key
+		grid.add_child(slider_row)
+	for row: Array in [["Punkt in der Mitte", "dot"], ["Umriss", "outline"], ["T-Form (oben offen)", "t_style"]]:
+		grid.add_child(_label(_crosshair_label(String(row[0]))))
+		var key: String = row[1]
+		var box := CheckBox.new()
+		box.name = "Crosshair_" + key
+		box.focus_mode = Control.FOCUS_NONE
+		box.button_pressed = bool(Crosshair.get_value(key))
+		box.toggled.connect(func(on: bool) -> void: Crosshair.set_value(key, on))
+		grid.add_child(box)
+	var reset := _button(Language.translate("Standard wiederherstellen"))
+	reset.pressed.connect(_reset_crosshair.bind(scroll))
+	page.add_child(reset)
+	return scroll
+
+
+## "Standard wiederherstellen": every value back, the page built again with them.
+func _reset_crosshair(old_page: Control) -> void:
+	Crosshair.reset()
+	var at: int = _pages.find(old_page)
+	if at < 0:
+		return
+	var page: Control = _build_crosshair()
+	page.custom_minimum_size = PAGE_SIZE
+	old_page.get_parent().add_child(page)
+	old_page.get_parent().move_child(page, old_page.get_index())
+	_pages[at] = page
+	old_page.queue_free()
+	_show_page(at)
+
+
+## Written out so the translation script finds every text.
+func _crosshair_label(text: String) -> String:
+	match text:
+		"Deckkraft": return Language.translate("Deckkraft")
+		"Länge": return Language.translate("Länge")
+		"Dicke": return Language.translate("Dicke")
+		"Abstand": return Language.translate("Abstand")
+		"Umriss-Dicke": return Language.translate("Umriss-Dicke")
+		"Punkt in der Mitte": return Language.translate("Punkt in der Mitte")
+		"Umriss": return Language.translate("Umriss")
+	return Language.translate("T-Form (oben offen)")
+
+
+## A drop-down with `items` (already translated), `selected` chosen, `on_select(index)`.
+func _choice(node_name: String, items: Array[String], selected: int, on_select: Callable) -> OptionButton:
+	var button := OptionButton.new()
+	button.name = node_name
+	button.focus_mode = Control.FOCUS_NONE
+	button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	button.add_theme_font_size_override("font_size", FONT_SIZE)
+	for text: String in items:
+		button.add_item(text)
+	button.select(maxi(0, selected))
+	button.item_selected.connect(on_select)
+	return button
 
 
 # --- Steuerung ----------------------------------------------------------------------

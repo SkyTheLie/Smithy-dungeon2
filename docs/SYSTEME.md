@@ -364,3 +364,8 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 
 - `Game.get_mouse_sensitivity` / `set_mouse_sensitivity` (0,01–20, Standard 2,5, gespeichert als `controls/mouse_sensitivity_cs2`), `Game.look_radians_per_count` = Empfindlichkeit × 0,022° (CS2 `m_yaw`/`m_pitch`) je Zählschritt der Maus, links/rechts und hoch/runter gleich (`Player.look`, mit `screen_relative`, also ohne Skalierung des Fensters).
 - Einstellungen → Steuerung: Schieber (0,1–10) und rechts ein Zahlenfeld (auch mit Komma). Gleiche Zahl wie in CS2 = gleicher Weg pro Zentimeter (gleiche Maus-DPI vorausgesetzt; Windows-Mausbeschleunigung „Zeigerbeschleunigung verbessern“ sollte aus sein).
+
+## Fadenkreuz wie CS2 (Crosshair) – 2026-11-27
+
+- `scenes/ui/hud/crosshair.gd` (`class_name Crosshair`): Stil (Kreuz / nur Punkt / aus), Farbe (die fünf CS2-Farben oder eigene), Deckkraft 0–255, Länge, Dicke, Abstand (auch negativ), Punkt in der Mitte, Umriss + Dicke, T-Form. Größen in Pixeln bei 1080p. Gespeichert in `user://settings.cfg` Abschnitt `crosshair`; `Crosshair.set_value` sendet `Game.crosshair_changed`, HUD und Vorschau zeichnen neu.
+- Einstellungen: neuer Reiter „Fadenkreuz“ mit Vorschau und „Standard wiederherstellen“ (= das alte Aussehen).

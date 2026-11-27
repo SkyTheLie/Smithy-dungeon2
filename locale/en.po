@@ -39,6 +39,9 @@ msgstr "Cancel"
 msgid "Aber doch nicht so, ganz ohne Ausrüstung. Komm, schau dir erst meinen Laden an."
 msgstr "But not like that, without any equipment. Come, have a look at my shop first."
 
+msgid "Abstand"
+msgstr "Gap"
+
 msgid "Ach ja, Schlüssel! Die findest du da unten, aber sie zerbrechen, sobald du den Dungeon verlässt."
 msgstr "Oh right, keys! You'll find them down there, but they break as soon as you leave the dungeon."
 
@@ -102,6 +105,9 @@ msgstr "Charged giant embers crash down and explode"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Charge, release: a mighty fire beam"
 
+msgid "Aus"
+msgstr "Off"
+
 msgid "Aus dem Dungeon flüchten? Du nimmst alles mit, was du trägst."
 msgstr "Flee the dungeon? You keep everything you carry."
 
@@ -161,6 +167,9 @@ msgstr "I buy your loot: right-click it in the inventory and it lands up at my b
 
 msgid "Blasebalg"
 msgstr "Bellows"
+
+msgid "Blau"
+msgstr "Blue"
 
 msgid "Blau wie Gletschereis."
 msgstr "Blue as glacier ice."
@@ -255,6 +264,9 @@ msgstr "Boomerang Hook"
 msgid "Chancen auf dem Tisch:"
 msgstr "Chances on the table:"
 
+msgid "Cyan"
+msgstr "Cyan"
+
 msgid "Da hinten geht's in den Dungeon der Glut. Manche kommen sogar wieder raus!"
 msgstr "Back there is the way into the Dungeon of Embers. Some even come back out!"
 
@@ -284,6 +296,9 @@ msgstr "You can't wear that, partner. Trust me, I've tried."
 
 msgid "Das kostet zu viel Leben"
 msgstr "That costs too much life"
+
+msgid "Deckkraft"
+msgstr "Opacity"
 
 msgid "Defensiv"
 msgstr "Defensive"
@@ -344,6 +359,9 @@ msgstr "Diamond Heart"
 
 msgid "Dick, weich und eiskalt."
 msgstr "Thick, soft and ice-cold."
+
+msgid "Dicke"
+msgstr "Thickness"
 
 msgid "Dicke Haut"
 msgstr "Thick skin"
@@ -530,6 +548,9 @@ msgstr "Egon's eyes go very wide."
 
 msgid "Egons Laden"
 msgstr "Egon's Shop"
+
+msgid "Eigene"
+msgstr "Custom"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Your own explosions heal you"
@@ -780,8 +801,14 @@ msgstr "First Ember"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "Explosive shots, slower fire rate"
 
+msgid "Fadenkreuz"
+msgstr "Crosshair"
+
 msgid "Fahre mit der Maus über ein Item"
 msgstr "Hover over an item"
+
+msgid "Farbe"
+msgstr "Color"
 
 msgid "Feder"
 msgstr "Feather"
@@ -968,6 +995,9 @@ msgstr "Ghost Staff"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "Bought! The relic is waiting in your inventory at home."
+
+msgid "Gelb"
+msgstr "Yellow"
 
 msgid "Geldbündel: %d Gold"
 msgstr "Money bundle: %d gold"
@@ -1266,6 +1296,9 @@ msgstr "Bigger fireballs, more damage"
 msgid "Größerer Rucksack"
 msgstr "Bigger backpack"
 
+msgid "Grün"
+msgstr "Green"
+
 msgid "Grün wie das Moor, nur teurer."
 msgstr "Green as the bog, only pricier."
 
@@ -1548,6 +1581,9 @@ msgstr "Strength"
 msgid "Kreischt noch, wenn man sie schüttelt."
 msgstr "Still shrieks when you shake it."
 
+msgid "Kreuz"
+msgstr "Cross"
+
 msgid "Kreuzkrabbe"
 msgstr "Cross Crab"
 
@@ -1694,6 +1730,9 @@ msgstr "Light Staff"
 
 msgid "Links"
 msgstr "Left"
+
+msgid "Länge"
+msgstr "Length"
 
 msgid "Länger sicher nach einem Treffer"
 msgstr "Safe longer after a hit"
@@ -1878,6 +1917,9 @@ msgstr "No items in this run yet."
 msgid "Noch nicht entdeckt"
 msgstr "Not discovered yet"
 
+msgid "Nur Punkt"
+msgstr "Dot only"
+
 msgid "Nur für: %s"
 msgstr "Only for: %s"
 
@@ -1982,6 +2024,9 @@ msgstr "Powder Keg"
 
 msgid "Pulverhandschuh"
 msgstr "Powder Glove"
+
+msgid "Punkt in der Mitte"
+msgstr "Center dot"
 
 msgid "Rahmenlos"
 msgstr "Borderless"
@@ -2102,6 +2147,9 @@ msgstr "Seal Fur"
 
 msgid "Robbenmantel"
 msgstr "Seal Cloak"
+
+msgid "Rot"
+msgstr "Red"
 
 msgid "Rot wie Glut."
 msgstr "Red as embers."
@@ -2595,6 +2643,9 @@ msgstr "Starlight Draught"
 msgid "Steuerung"
 msgstr "Controls"
 
+msgid "Stil"
+msgstr "Style"
+
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Standing still makes you invulnerable"
 
@@ -2712,6 +2763,9 @@ msgstr "Synergy: %s!"
 msgid "Synergien: %s"
 msgstr "Synergies: %s"
 
+msgid "T-Form (oben offen)"
+msgstr "T shape (open on top)"
+
 msgid "Tadaa! Frische Ware, direkt aus… woher auch immer. Ganz legal!"
 msgstr "Ta-da! Fresh goods, straight from… wherever. Totally legal!"
 
@@ -2792,6 +2846,12 @@ msgstr "Potions go here, right next to the feet. That way you can reach them fas
 
 msgid "Umgebung"
 msgstr "Surroundings"
+
+msgid "Umriss"
+msgstr "Outline"
+
+msgid "Umriss-Dicke"
+msgstr "Outline thickness"
 
 msgid "Und das ist mein Hebel. Mein ganzer Stolz. Pass auf!"
 msgstr "And this is my lever. My pride and joy. Watch this!"

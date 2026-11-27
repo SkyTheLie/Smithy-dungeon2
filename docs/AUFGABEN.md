@@ -15,7 +15,7 @@ Vorher: offener Stand `feature/rubin-seil-altar` (Seil nach dem ersten Boss, Rub
 | 7 | **Seil nur nach Boss-Sieg im Boss-Raum**, sonst wie vorher die Treppe/Falltür nach unten. | ✅ erledigt |
 | 8 | **Relikt-Skills:** Skill „Stufe-1-Relikte gehen nicht mehr kaputt“, dann Stufe 2 usw. Skill „Eisenherzen“ entfernen; neuer Skill: 1 blaues Herz zusätzlich. | ✅ erledigt |
 | 9 | **Maus-Empfindlichkeit** als Zahl mit Eingabefeld (Kommazahl), 1 zu 1 wie in Counter-Strike 2. | ✅ erledigt |
-| 10 | **Fadenkreuz** einstellbar (auch aus), Einstellungen wie in CS2 (Länge, Dicke, Abstand, Punkt, Umriss, Farbe). | offen |
+| 10 | **Fadenkreuz** einstellbar (auch aus), Einstellungen wie in CS2 (Länge, Dicke, Abstand, Punkt, Umriss, Farbe). | ✅ erledigt |
 | 11 | **Blickrichtung der Gegner:** Kreis am Boden unter jedem Gegner, ein Viertel gefüllt = Blickrichtung (sieht man, ob man hinter ihm steht). | offen |
 | 12 | **Leveln langsamer:** nach dem ersten Run etwa 80 % Erfahrung zur nächsten Stufe, nach dem zweiten ebenso. **Skill-Baum:** Skills mit Geld rechts (gehen von links nach rechts), Skills nur mit Skill-Punkten links (gehen von rechts nach links). | ✅ erledigt |
 | 13 | **Dungeon-Brett** zeigt nur freigeschaltete Dungeons. **Lexikon** mit Gegnern, beim Dungeon sind seine Gegner aufgelistet (nach dem Lexikon von Smithy). | offen |
@@ -26,6 +26,8 @@ Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 
 ## Erledigt
 
 (neueste oben, mit Branch und Datum)
+
+- **10** · `feature/fadenkreuz` · 2026-11-27 · Neuer Reiter „Fadenkreuz“ in den Einstellungen wie in CS2: Stil (Kreuz, nur Punkt, aus), Farbe (CS2-Farben oder eigene), Deckkraft, Länge, Dicke, Abstand (auch negativ), Mittelpunkt, Umriss mit Dicke, T-Form, Vorschau, Standard wiederherstellen. Im Spiel: Esc → Einstellungen → Fadenkreuz → ändern, im Dungeon sofort sichtbar.
 
 - **9** · `feature/maus-cs2` · 2026-11-27 · Maus-Empfindlichkeit als Zahl wie in CS2 (Empfindlichkeit × 0,022° je Maus-Zählschritt), Schieber plus Zahlenfeld rechts (Komma oder Punkt). Standard 2,5. Im Spiel: Einstellungen → Steuerung → eigene CS2-Zahl eintragen → im Dungeon fühlt sich das Drehen gleich an.
 

@@ -92,7 +92,7 @@ func _window() -> void:
 	await process_frame
 	window.call("open", false)
 	var tabs: Array = window.get("_tab_buttons")
-	check_eq(tabs.size(), 3, "three tabs: Grafik, Audio, Steuerung")
+	check_eq(tabs.size(), 4, "four tabs: Grafik, Audio, Steuerung, Fadenkreuz")
 	var pages: Array = window.get("_pages")
 	check((pages[0] as Control).visible and not (pages[2] as Control).visible, "Grafik first")
 	(tabs[2] as Button).pressed.emit()
@@ -110,6 +110,7 @@ func _window() -> void:
 	check_eq((buttons[&"bag"] as Button).text, "J", "the button shows J")
 	script("res://scripts/core/controls.gd").call("reset_keys")
 	await _sensitivity(pages[2] as Control)
+	await _crosshair(window, tabs[3] as Button)
 	window.queue_free()
 
 
@@ -136,4 +137,35 @@ func _sensitivity(page: Control) -> void:
 	field.text_submitted.emit(field.text)
 	check(is_equal_approx(float(game.call("get_mouse_sensitivity")), 20.0), "at most 20")
 	game.call("set_mouse_sensitivity", 2.5)
+	await process_frame
+
+
+## The crosshair tab: style, colour, sizes change the settings (and the preview); off hides it;
+## "Standard wiederherstellen" brings the old look back.
+func _crosshair(window: Control, tab: Button) -> void:
+	var crosshair: Script = script("res://scenes/ui/hud/crosshair.gd")
+	tab.pressed.emit()
+	var page: Control = (window.get("_pages") as Array)[3]
+	check(page.visible, "the Fadenkreuz tab opens")
+	check(page.find_child("CrosshairPreview", true, false) != null, "with a preview")
+	var style: OptionButton = page.find_child("CrosshairStyle", true, false)
+	style.select(2)
+	style.item_selected.emit(2)
+	check_eq(crosshair.call("get_value", "style"), "off", "style: off")
+	var colour: OptionButton = page.find_child("CrosshairColor", true, false)
+	colour.item_selected.emit(1)
+	check_eq(crosshair.call("get_value", "color"), "green", "colour: green (CS2 colour 1)")
+	check((crosshair.call("color") as Color).is_equal_approx(Color8(50, 250, 50)), "the CS2 green")
+	check(not (page.find_child("CrosshairCustomColor", true, false) as Control).visible, "no colour picker for a CS2 colour")
+	colour.item_selected.emit(5)
+	check((page.find_child("CrosshairCustomColor", true, false) as Control).visible, "own colour: the picker shows")
+	var gap: HSlider = (page.find_child("Crosshair_gap", true, false) as Control).get_child(0)
+	gap.value = -4
+	check_eq(int(crosshair.call("get_value", "gap")), -4, "the gap can be negative")
+	var t_box: CheckBox = page.find_child("Crosshair_t_style", true, false)
+	t_box.toggled.emit(true)
+	check(crosshair.call("get_value", "t_style"), "T shape")
+	crosshair.call("reset")
+	check_eq(crosshair.call("get_value", "style"), "cross", "reset: the cross again")
+	check_eq(int(crosshair.call("get_value", "gap")), 9, "and its old gap")
 	await process_frame
