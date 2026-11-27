@@ -14,6 +14,8 @@ var run_state: Object
 func run() -> void:
 	var game: Node = root.get_node("Game")
 	run_state = script("res://scripts/systems/run_state.gd").new(77)
+	# Floor 2: the first floor is small (no shop, no secret room, floors.json).
+	run_state.set("floor_index", 1)
 	game.set("run", run_state)
 	scene = (load("res://scenes/run/run.tscn") as PackedScene).instantiate()
 	root.add_child(scene)

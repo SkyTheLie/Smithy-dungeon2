@@ -198,6 +198,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 ## Item-Raum nur mit Schlüssel – 2026-11-26, `feature/item-raum-schluessel`
 
 - Ebene 1 hat keinen Item-Raum (`floors.json` `"item_room": false` → `FloorLayout.remove_item_room`, der Raum wird ein normaler Raum; die Karte bleibt für denselben Seed gleich). Ab Ebene 2 steht `item` in `key_doors`: die Tür geht nur mit einem Schlüssel auf, drin liegt ein zufälliges Item aus dem Item-Pool auf einem Sockel.
+- **Erste Ebene des ersten Dungeons klein (2026-11-27):** höchstens 6 Räume: Start, 3 normale, Boss, sicherer Opferraum. `floors.json` je Ebene: `shop_room: false` (kein Shop, `FloorLayout.generate(rng, n, dead_ends)` braucht dann eine Sackgasse weniger), `secret_room` / `special_room: false` (`add_extras`), `sacrifice_chance` (überschreibt `sacrifice.room_chance`; findet sich keine Sackgasse an einem normalen Raum, kommt der Opferraum an den Start-Raum).
 
 ## Gold in der Tasche – 2026-11-26, `feature/geld-in-tasche`
 
