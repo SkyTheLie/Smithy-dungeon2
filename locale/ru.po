@@ -1773,6 +1773,12 @@ msgstr "Метеор"
 msgid "Minotaurus"
 msgstr "Минотавр"
 
+msgid "Mit Gold"
+msgstr "За золото"
+
+msgid "Mit Skillpunkten"
+msgstr "За очки навыков"
+
 msgid "Mit dem Händler handeln"
 msgstr "Торговать с торговцем"
 
@@ -3113,6 +3119,9 @@ msgstr "или пробел"
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Сверх лимита: Эгон косится на твою банку!"
+
+msgid "Überleben"
+msgstr "Выживание"
 
 msgid "Überschreiben"
 msgstr "Перезаписать"

@@ -1773,6 +1773,12 @@ msgstr "شهاب"
 msgid "Minotaurus"
 msgstr "مینوتور"
 
+msgid "Mit Gold"
+msgstr "با طلا"
+
+msgid "Mit Skillpunkten"
+msgstr "با امتیاز مهارت"
+
 msgid "Mit dem Händler handeln"
 msgstr "معامله با فروشنده"
 
@@ -3113,6 +3119,9 @@ msgstr "یا کلید فاصله"
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "بیش از حد: اگون به قوطی‌ات چشم دوخته!"
+
+msgid "Überleben"
+msgstr "بقا"
 
 msgid "Überschreiben"
 msgstr "بازنویسی"

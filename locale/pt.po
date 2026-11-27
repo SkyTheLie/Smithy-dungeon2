@@ -1773,6 +1773,12 @@ msgstr "Meteoro"
 msgid "Minotaurus"
 msgstr "Minotauro"
 
+msgid "Mit Gold"
+msgstr "Com ouro"
+
+msgid "Mit Skillpunkten"
+msgstr "Com pontos de habilidade"
+
 msgid "Mit dem Händler handeln"
 msgstr "Negociar com o mercador"
 
@@ -3113,6 +3119,9 @@ msgstr "ou aperte Espaço"
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Acima do limite: o Egon está de olho na sua lata!"
+
+msgid "Überleben"
+msgstr "Sobrevivência"
 
 msgid "Überschreiben"
 msgstr "Sobrescrever"

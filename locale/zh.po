@@ -1773,6 +1773,12 @@ msgstr "流星"
 msgid "Minotaurus"
 msgstr "牛头人"
 
+msgid "Mit Gold"
+msgstr "用金币"
+
+msgid "Mit Skillpunkten"
+msgstr "用技能点"
+
 msgid "Mit dem Händler handeln"
 msgstr "与商人交易"
 
@@ -3113,6 +3119,9 @@ msgstr "或按空格键"
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "超过上限：埃贡正盯着你的罐子！"
+
+msgid "Überleben"
+msgstr "生存"
 
 msgid "Überschreiben"
 msgstr "覆盖"

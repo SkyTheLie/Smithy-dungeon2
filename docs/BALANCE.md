@@ -56,7 +56,7 @@ So passt es: Ein früher Run im ersten Dungeon (≈ 80 Gold heim) reicht für **
 
 ## Stufen und Skills
 
-Stufen: `levels.json` `growth` 1,25 (Stufe 10 = 1 000 EXP, 15 = 3 300, 20 = 10 300, 25 = 31 600, 30 = 96 800). Mit dem EXP-Faktor der Dungeons ist man nach dem ersten Dungeon etwa Stufe 14, nach dem Moor 20, nach Frost 23, nach dem Vulkan 26–28. Die Seltenheiten bei Egon kommen passend dazu: R2 ab 5, R3 ab 10, R4 ab 16, R5 ab 21, R6 ab 25, R7 ab 28.
+Stufen: `levels.json` `exp_table` [64, 90] für den Anfang (erster Run ≈ 80 % von Stufe 1), danach `base_exp` 30 × `growth` 1,25 (Stufe 10 ≈ 1 200 EXP, 15 = 3 300, 20 = 10 300, 25 = 31 600, 30 = 96 800). Mit dem EXP-Faktor der Dungeons ist man nach dem ersten Dungeon etwa Stufe 14, nach dem Moor 20, nach Frost 23, nach dem Vulkan 26–28. Die Seltenheiten bei Egon kommen passend dazu: R2 ab 5, R3 ab 10, R4 ab 16, R5 ab 21, R6 ab 25, R7 ab 28.
 
 Skill-Preise richten sich nach der Stufe, ab der man sie lernen kann (dann ist man in diesem Dungeon und verdient so viel): Stufe 1–6 ≈ 30–180 Gold, 8–14 ≈ 150–600, 15–20 ≈ 500–1 200, ab 22 ≈ 1 500–4 000. So bleibt „Skill oder Ausrüstung?“ in jedem Dungeon eine echte Frage.
 

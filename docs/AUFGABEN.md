@@ -17,7 +17,7 @@ Vorher: offener Stand `feature/rubin-seil-altar` (Seil nach dem ersten Boss, Rub
 | 9 | **Maus-Empfindlichkeit** als Zahl mit Eingabefeld (Kommazahl), 1 zu 1 wie in Counter-Strike 2. | offen |
 | 10 | **Fadenkreuz** einstellbar (auch aus), Einstellungen wie in CS2 (Länge, Dicke, Abstand, Punkt, Umriss, Farbe). | offen |
 | 11 | **Blickrichtung der Gegner:** Kreis am Boden unter jedem Gegner, ein Viertel gefüllt = Blickrichtung (sieht man, ob man hinter ihm steht). | offen |
-| 12 | **Leveln langsamer:** nach dem ersten Run etwa 80 % Erfahrung zur nächsten Stufe, nach dem zweiten ebenso. **Skill-Baum:** Skills mit Geld rechts (gehen von links nach rechts), Skills nur mit Skill-Punkten links (gehen von rechts nach links). | offen |
+| 12 | **Leveln langsamer:** nach dem ersten Run etwa 80 % Erfahrung zur nächsten Stufe, nach dem zweiten ebenso. **Skill-Baum:** Skills mit Geld rechts (gehen von links nach rechts), Skills nur mit Skill-Punkten links (gehen von rechts nach links). | ✅ erledigt |
 | 13 | **Dungeon-Brett** zeigt nur freigeschaltete Dungeons. **Lexikon** mit Gegnern, beim Dungeon sind seine Gegner aufgelistet (nach dem Lexikon von Smithy). | offen |
 | 14 | **Oberfläche schöner:** bunter, Effekte, „Dopamin“; Vorschläge machen und direkt umsetzen. | offen |
 
@@ -26,6 +26,8 @@ Reihenfolge: 7 zuerst (baut auf dem Seil-Stand auf), dann 2, 3, 4, 1, 8, 6, 12, 
 ## Erledigt
 
 (neueste oben, mit Branch und Datum)
+
+- **12** · `feature/leveln-skillseiten` · 2026-11-27 · Leveln langsamer am Anfang (Stufe 1 = 64 EXP, dann 90; erster Run ≈ 80 %, zweiter Run Stufe 1 + ≈ 80 %), später wie vorher. Skill-Baum: links nur Skillpunkte (Kampf, Überleben), wächst nach links; rechts nur Gold (Rucksack, Relikte, Laden), wächst nach rechts; Trennstrich in der Mitte. Im Spiel: neues Spiel → erster Run → End-Bildschirm/Laden: EXP-Balken bei ~80 %; Skills → zwei Seiten.
 
 - **6** · `feature/skills-einzeln` · 2026-11-27 · Jede Skill-Stufe ist ein eigenes Feld; die Stufen stehen untereinander, die nächste geht erst nach der darüber auf. Ketten laufen seitlich. Im Spiel: Laden → Skills → oberste Stufe lernen → die darunter leuchtet golden.
 

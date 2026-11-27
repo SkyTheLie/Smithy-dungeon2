@@ -218,7 +218,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 
 ## Stufen und Skillbaum – 2026-11-26, `feature/level-skillbaum`
 
-- **Stufen** (`data/levels.json`, `Skills`, `MetaState.level/exp_points/skill_points/add_exp`): jeder Kill gibt EXP (`RunState.add_kill_exp`, Boss mehr), gutgeschrieben am Ende jedes Runs (Tod, Flucht, Sieg; `RunScene`). Start mit Stufe 0 und 0 Skillpunkten; Stufe 1 braucht 30 EXP, jede weitere ×1,3, bis Stufe 30. Jede Stufe +1 Skillpunkt. Laden oben links: Tag, Stufe, EXP; End-Bildschirm: EXP und neue Stufe.
+- **Stufen** (`data/levels.json`, `Skills`, `MetaState.level/exp_points/skill_points/add_exp`): jeder Kill gibt EXP (`RunState.add_kill_exp`, Boss mehr), gutgeschrieben am Ende jedes Runs (Tod, Flucht, Sieg; `RunScene`). Start mit Stufe 0 und 0 Skillpunkten; Stufe 1 braucht 64 EXP, Stufe 2–4 je 90 (`exp_table`, nach dem ersten Run ≈ 80 % von Stufe 1, nach dem zweiten Stufe 1 + ≈ 80 %), danach 30 × 1,25^Stufe wie vorher, bis Stufe 30. Jede Stufe +1 Skillpunkt. Laden oben links: Tag, Stufe, EXP; End-Bildschirm: EXP und neue Stufe.
 - **Skillbaum** (`data/skills.json`, `scenes/shop/skill_tree.gd`, `skill_tree_window.gd`, `scenes/ui/common/pan_zoom_view.gd` aus Smithy Defense): Knopf „Skills (N)“ im Laden. Jeder Skill: Position, Vorgänger, Stufen mit Gold-, Skillpunkt-Preis und Mindest-Spielerstufe. Ziehen in alle Richtungen, Mausrad zoomt, goldener Rahmen = lernbar (`MetaState.buy_skill`, prüft `Skills.problem`).
 - **Wirkung im Run** (`RunState.use_skills`, von `Game.start_new_run`): Rucksack-Plätze und sichere Plätze (`Bag.grow`), weiße Schild-Herzen, rote Herzen, Werte (eine Quelle wie ein Item), Gold je Münze. Relikt-Plätze: Reihe unter der Figur (`MetaState.relic_slot_names`, relic_1 … bis 3), Reliktpflege: neue Relikte halten länger (`ShopGoods.make_relic`).
 
@@ -354,3 +354,8 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 
 - `scenes/shop/skill_tree.gd`: Jede Stufe eines Skills ist ein eigener Knopf (`Skill_<id>_<stufe>`), Stufe 1 an `pos`, die weiteren direkt darunter. Eine Stufe geht erst auf, wenn die darüber gelernt ist (`SkillTree.level_problem`: „Erst die Stufe davor lernen“). Unter jedem Feld der Preis dieser Stufe (`G` Gold, `P` Skillpunkte) oder ✓. Ketten (`requires`) laufen seitlich (L-Linie von Stufe 1 zu Stufe 1).
 - `Skills.gold_at / points_at / min_level_at` = Kosten einer bestimmten Stufe.
+
+## Skill-Baum in zwei Seiten, langsameres Leveln – 2026-11-27
+
+- **Links** (Spalten < 0, wachsen nach links): Skills, die nur Skillpunkte kosten (Kampf, Überleben mit Blaues Herz → Dicke Haut). **Rechts** (Spalten > 0, wachsen nach rechts): Skills, die nur Gold kosten (Rucksack, Relikte, Laden; Goldnase hängt an Reliktpflege). Trennstrich in Spalte 0, große Seiten-Überschriften (`groups` mit `big`).
+- `data/levels.json` `exp_table` [64, 90] + `base_exp` 30: Anfang langsamer, ab etwa Stufe 5 dieselbe Kurve wie vorher.
