@@ -119,6 +119,10 @@ var _black: ColorRect
 ## true while Egon does something by himself (tutorial, lever): clicks are ignored.
 var _locked: bool = false
 var _rng := RandomNumberGenerator.new()
+## Under the stash: sorts it (T), right click changes how.
+var _sort_button: Button
+## Readiness check before a run: warned once for this visit (the second click goes).
+var _ready_warned: bool = false
 ## Egon at his place (quests.json locations "egon"): where his picture stands, his gimmick
 ## (shiver, sweat, mosquitoes, sneeze) and its timer and little helpers (mosquitoes, drops).
 var _merchant_base: Vector2 = Vector2.ZERO
@@ -478,7 +482,23 @@ func _build_stash() -> void:
 	_stash_board.judge = _stash_judge
 	_stash_board.clicked.connect(_on_inventory_clicked)
 	_stash_board.dropped.connect(_on_stash_dropped)
+	_stash_board.lock_clicked.connect(_on_lock_clicked)
+	_stash_board.show_sell_value = true
 	column.add_child(_stash_board)
+	_sort_button = Button.new()
+	_sort_button.name = "SortButton"
+	_sort_button.focus_mode = Control.FOCUS_NONE
+	_sort_button.add_theme_font_size_override("font_size", 8)
+	_sort_button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_sort_button.tooltip_text = Language.translate("Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren")
+	_sort_button.pressed.connect(sort_stash)
+	_sort_button.gui_input.connect(func(event: InputEvent) -> void:
+		var click := event as InputEventMouseButton
+		if click and click.pressed and click.button_index == MOUSE_BUTTON_RIGHT:
+			MetaState.next_sort_mode()
+			_refresh_sort_button())
+	column.add_child(_sort_button)
+	_refresh_sort_button()
 	var side := VBoxContainer.new()
 	side.add_theme_constant_override("separation", 2)
 	row.add_child(side)
@@ -601,6 +621,43 @@ func _container_under(data: Dictionary, cell: Vector2i) -> int:
 func _input(event: InputEvent) -> void:
 	if BagBoard.is_turn_event(event) and BagBoard.rotate_drag(get_viewport()):
 		get_viewport().set_input_as_handled()
+		return
+	var key := event as InputEventKey
+	if key and key.pressed and not key.echo and key.physical_keycode == SORT_KEY and not get_viewport().gui_is_dragging() and not _board.visible:
+		get_viewport().set_input_as_handled()
+		sort_stash()
+
+
+# --- Stash comfort: sort (T), lock (Strg+Klick) ----------------------------------------
+
+const SORT_KEY: Key = KEY_T
+
+
+## Packs the stash (MetaState.sort_stash), with a little sound.
+func sort_stash() -> void:
+	if _locked:
+		return
+	MetaState.sort_stash()
+	AudioManager.play_sound("pickup", 1.1)
+	_refresh()
+
+
+func _refresh_sort_button() -> void:
+	var mode: String = Language.translate("Art")
+	match MetaState.sort_mode():
+		"rarity":
+			mode = Language.translate("Seltenheit")
+		"value":
+			mode = Language.translate("Wert")
+	_sort_button.text = Language.translate("Sortieren: %s") % mode
+
+
+func _on_lock_clicked(index: int) -> void:
+	if _locked:
+		return
+	var locked: bool = MetaState.toggle_lock(index)
+	AudioManager.play_sound("unlock", 1.3 if locked else 0.9)
+	_refresh()
 
 
 ## P: the admin menu (debug builds only).
@@ -950,6 +1007,34 @@ func _move_shop() -> void:
 	var arrive: String = _place_line("arrive")
 	if not arrive.is_empty():
 		_dialog.bark(arrive)
+
+
+## What is missing before a run ("" = all fine): an empty potion place (once potions are open),
+## a relic with only one run left, an almost full inventory. One line, Egon's words.
+func readiness_warning() -> String:
+	var parts: PackedStringArray = []
+	if MetaState.potions_unlocked() and MetaState.worn_potions().is_empty():
+		parts.append(Language.translate("dein Trank-Platz ist leer"))
+	var worn: Dictionary = MetaState.equipment()
+	for slot: String in MetaState.relic_slot_names():
+		if worn.has(slot) and int((worn[slot] as Dictionary).get("left", -1)) == 1:
+			parts.append(Language.translate("dein Relikt hält nur noch einen Run"))
+			break
+	var bag: Bag = MetaState._bag_model()
+	var cells: int = bag.section_cells(Bag.MAIN).size()
+	var used: int = 0
+	for place: Dictionary in MetaState.bag_places():
+		var span: Vector2i = BagLayout.loot_size(String(place.get("id", ""))) if not Bag.is_piece(place) else ShopGoods.piece_size(place)
+		used += span.x * span.y
+	if cells > 0 and float(used) / cells >= READY_FULL:
+		parts.append(Language.translate("dein Inventar ist fast voll"))
+	if parts.is_empty():
+		return ""
+	return Language.translate("Moment, Partner: %s. Nochmal klicken, dann geht's los.") % ", ".join(parts)
+
+
+## Inventory this full (share of cells) counts as almost full.
+const READY_FULL: float = 0.8
 
 
 ## The picture behind the shop at Egon's place (data/quests.json locations).
@@ -1546,6 +1631,14 @@ func _open_board() -> void:
 ## "Betreten": straight into dungeon `id` (its floors, dungeons.json "floors").
 func _on_dungeon_entered(id: String) -> void:
 	if not MetaState.is_dungeon_open(id):
+		return
+	# Readiness check: Egon mentions what is missing once; going again starts the run.
+	var warning: String = readiness_warning()
+	if not warning.is_empty() and not _ready_warned:
+		_ready_warned = true
+		_board.hide()
+		_dialog.bark(warning)
+		AudioManager.play_sound("denied", 1.2)
 		return
 	_board.hide()
 	Game.start_new_run(MetaState.run_character(), id)

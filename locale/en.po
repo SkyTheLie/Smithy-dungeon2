@@ -123,6 +123,9 @@ msgstr "Arena Amulet"
 msgid "Arenaherz"
 msgstr "Arena Heart"
 
+msgid "Art"
+msgstr "Kind"
+
 msgid "Asche"
 msgstr "Ash"
 
@@ -729,6 +732,9 @@ msgstr "Egon might steal!"
 msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
 msgstr "Egon was never here, he says. Then whose are the scorched boot prints?"
 
+msgid "Egon zahlt: %d Gold"
+msgstr "Egon pays: %d gold"
+
 msgid "Egons Augen werden ganz groß."
 msgstr "Egon's eyes go very wide."
 
@@ -1316,6 +1322,9 @@ msgstr "Locked: beat %s first."
 
 msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
 msgstr "Locked: first finish Egon's quest “%s”."
+
+msgid "Gesperrt: wird nicht verkauft (Strg+Klick: entsperren)"
+msgstr "Locked: will not be sold (Ctrl+click: unlock)"
 
 msgid "Gesprengte Fessel"
 msgstr "Broken Shackle"
@@ -1929,6 +1938,9 @@ msgstr "Click something in the inventory to put it on. Click your figure to take
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "Click or drag onto the Inventory tab: attach to your inventory"
 
+msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
+msgstr "Click: sort (T) · Right click: change sorting · Ctrl+click a piece: lock it"
+
 msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
 msgstr "Click: open. Drag pieces onto it: put them in."
 
@@ -2264,6 +2276,9 @@ msgstr "Throw it with the bomb key. Up to 5 on one cell."
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "Brought home: %d gold, %d loot"
+
+msgid "Moment, Partner: %s. Nochmal klicken, dann geht's los."
+msgstr "Hold on, partner: %s. Click again and off you go."
 
 msgid "Mondlilie"
 msgstr "Moon Lily"
@@ -2997,6 +3012,9 @@ msgstr "Rare"
 msgid "Seltene Ware"
 msgstr "Rare Goods"
 
+msgid "Seltenheit"
+msgstr "Rarity"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: you jump to where you aim"
 
@@ -3113,6 +3131,9 @@ msgstr "Special room"
 
 msgid "Sonnenblume"
 msgstr "Sunflower"
+
+msgid "Sortieren: %s"
+msgstr "Sort: %s"
 
 msgid "Spardose"
 msgstr "Money Box"
@@ -3645,6 +3666,9 @@ msgstr "Buy here and get a free icicle. The one off my nose. Honest!"
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "A killing shot flies on with what is left"
 
+msgid "Wert"
+msgstr "Value"
+
 msgid "Wert der Tasche: %d Gold"
 msgstr "Bag worth: %d gold"
 
@@ -3854,6 +3878,15 @@ msgstr "Tough and warm."
 
 msgid "Zähigkeit"
 msgstr "Toughness"
+
+msgid "dein Inventar ist fast voll"
+msgstr "your inventory is almost full"
+
+msgid "dein Relikt hält nur noch einen Run"
+msgstr "your relic lasts only one more run"
+
+msgid "dein Trank-Platz ist leer"
+msgstr "your potion slot is empty"
 
 msgid "hält %d Runs"
 msgstr "lasts %d runs"

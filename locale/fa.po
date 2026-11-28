@@ -123,6 +123,9 @@ msgstr "طلسم میدان"
 msgid "Arenaherz"
 msgstr "قلب میدان"
 
+msgid "Art"
+msgstr "نوع"
+
 msgid "Asche"
 msgstr "خاکستر"
 
@@ -729,6 +732,9 @@ msgstr "اگون ممکن است بدزدد!"
 msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
 msgstr "اگون می‌گوید هرگز اینجا نبوده. پس این ردّ چکمه‌های سوخته مال کیست؟"
 
+msgid "Egon zahlt: %d Gold"
+msgstr "اگون می‌پردازد: %d طلا"
+
 msgid "Egons Augen werden ganz groß."
 msgstr "چشم‌های اگون گرد می‌شود."
 
@@ -1316,6 +1322,9 @@ msgstr "قفل: اول %s را تمام کن."
 
 msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
 msgstr "قفل: اول مأموریت اگون «%s» را انجام بده."
+
+msgid "Gesperrt: wird nicht verkauft (Strg+Klick: entsperren)"
+msgstr "قفل شده: فروخته نمی‌شود (Ctrl+کلیک: باز کردن قفل)"
 
 msgid "Gesprengte Fessel"
 msgstr "زنجیر شکسته"
@@ -1929,6 +1938,9 @@ msgstr "روی چیزی در کوله کلیک کن تا بپوشی. روی قه
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "کلیک یا کشیدن روی زبانهٔ کیف: وصل کردن به کیف"
 
+msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
+msgstr "کلیک: مرتب‌سازی (T) · کلیک راست: تغییر ترتیب · Ctrl+کلیک روی یک تکه: قفل"
+
 msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
 msgstr "کلیک: باز کردن. کشیدن قطعه‌ها روی آن: گذاشتن داخلش."
 
@@ -2264,6 +2276,9 @@ msgstr "با کلید بمب پرتاب کن. تا ۵ تا در یک خانه."
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "به خانه آوردی: %d طلا، %d غنیمت"
+
+msgid "Moment, Partner: %s. Nochmal klicken, dann geht's los."
+msgstr "صبر کن رفیق: %s. دوباره کلیک کن تا راه بیفتیم."
 
 msgid "Mondlilie"
 msgstr "سوسن ماه"
@@ -2997,6 +3012,9 @@ msgstr "کمیاب"
 msgid "Seltene Ware"
 msgstr "کالای کمیاب"
 
+msgid "Seltenheit"
+msgstr "کمیابی"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: به جایی که نشانه می‌گیری می‌پری"
 
@@ -3113,6 +3131,9 @@ msgstr "اتاق ویژه"
 
 msgid "Sonnenblume"
 msgstr "آفتابگردان"
+
+msgid "Sortieren: %s"
+msgstr "مرتب‌سازی: %s"
 
 msgid "Spardose"
 msgstr "قلک"
@@ -3645,6 +3666,9 @@ msgstr "هر کی اینجا بخره یه قندیل یخ مجانی می‌گ�
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "تیری که بکشد با باقیمانده ادامه می‌دهد"
 
+msgid "Wert"
+msgstr "ارزش"
+
 msgid "Wert der Tasche: %d Gold"
 msgstr "ارزش کیسه: %d طلا"
 
@@ -3854,6 +3878,15 @@ msgstr "محکم و گرم."
 
 msgid "Zähigkeit"
 msgstr "سرسختی"
+
+msgid "dein Inventar ist fast voll"
+msgstr "کوله‌ات تقریباً پر است"
+
+msgid "dein Relikt hält nur noch einen Run"
+msgstr "یادگارت فقط یک دور دیگر دوام می‌آورد"
+
+msgid "dein Trank-Platz ist leer"
+msgstr "جای معجونت خالی است"
 
 msgid "hält %d Runs"
 msgstr "%d دور دوام می‌آورد"

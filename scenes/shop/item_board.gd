@@ -10,7 +10,13 @@ extends Control
 
 signal clicked(index: int)
 signal right_clicked(index: int)
+## Strg + left click on a piece (lock / unlock it).
+signal lock_clicked(index: int)
 signal dropped(data: Dictionary, cell: Vector2i, rot: bool)
+
+const LOCK_COLOR := Color(1.0, 0.85, 0.3)
+## Stash: the tooltip also says what Egon pays (and whether it is locked).
+var show_sell_value: bool = false
 
 const CELL_COLOR := Color(0.18, 0.14, 0.12, 0.92)
 const CELL_LINE := Color(0.32, 0.27, 0.24)
@@ -131,6 +137,8 @@ func _draw() -> void:
 			var at := Vector2(rect.end.x - 2 - font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, 8).x, rect.end.y - 2)
 			draw_string_outline(font, at, text, HORIZONTAL_ALIGNMENT_LEFT, -1, 8, 3, Color.BLACK)
 			draw_string(font, at, text, HORIZONTAL_ALIGNMENT_LEFT, -1, 8, PRICE_COLOR if show_price else Color.WHITE)
+		if bool(piece.get("locked", false)):
+			_draw_lock(rect.position + Vector2(2, 2))
 		if glowing.has(i):
 			var glow: float = 0.5 + 0.5 * sin(_time * 7.0)
 			draw_rect(rect.grow(2.0), Color(GLOW_COLOR, 0.35 + 0.65 * glow), false, 2.5)
@@ -138,10 +146,23 @@ func _draw() -> void:
 		draw_rect(Rect2(Vector2(_hint["cell"] as Vector2i) * cell_px, Vector2(_hint["span"] as Vector2i) * cell_px), _hint["color"])
 
 
+## A small padlock (locked piece: never sold, stays when sorting).
+func _draw_lock(at: Vector2) -> void:
+	draw_rect(Rect2(at + Vector2(0, 3), Vector2(6, 5)), LOCK_COLOR)
+	draw_arc(at + Vector2(3, 3), 2.0, PI, TAU, 6, LOCK_COLOR, 1.0)
+
+
 func _tooltip(index: int) -> String:
 	if index < 0 or index >= pieces.size() or not pieces[index] is Dictionary:
 		return ""
-	return ShopSlot.describe(pieces[index], show_price)
+	var text: String = ShopSlot.describe(pieces[index], show_price)
+	if show_sell_value:
+		var piece: Dictionary = pieces[index]
+		if bool(piece.get("locked", false)):
+			text += "\n" + Language.translate("Gesperrt: wird nicht verkauft (Strg+Klick: entsperren)")
+		elif not Quests.is_stone(String(piece.get("id", ""))) and ShopGoods.sell_price(piece) > 0:
+			text += "\n" + Language.translate("Egon zahlt: %d Gold") % ShopGoods.sell_price(piece)
+	return text
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -154,6 +175,12 @@ func _gui_input(event: InputEvent) -> void:
 		return
 	var button := event as InputEventMouseButton
 	if button == null:
+		return
+	if button.button_index == MOUSE_BUTTON_LEFT and button.pressed and button.ctrl_pressed:
+		var locking: int = index_at(button.position)
+		if locking >= 0:
+			accept_event()
+			lock_clicked.emit(locking)
 		return
 	if button.button_index == MOUSE_BUTTON_LEFT:
 		if button.pressed:
