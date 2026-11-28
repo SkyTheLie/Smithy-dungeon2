@@ -337,7 +337,7 @@ Jeder Gegner-Schuss bekommt seine Farbe **aus dem Schaden** (eine Tabelle in den
 - Unsichtbar greifen sie nicht an (oder erst nach dem Auftauchen mit kurzer Vorwarnung). Treffer im unsichtbaren Zustand machen sie kurz sichtbar.
 - Werte in den Daten: `invisible` {every, duration, hit_reveal}.
 
-### Untote stehen wieder auf (Zombies, Skelette)
+### Untote stehen wieder auf (Zombies, Skelette) – ✅ gebaut (`feature/untote`; Zertreten und Kreis-Balken noch offen, statt Balken ein wachsender Lichthof)
 
 - Bei 0 Leben fallen sie **zu Boden** (liegen als „Leiche“, keine Kollision mit Schüssen außer gezielt am Boden). Nach **3 Sekunden** stehen sie wieder auf, mit **50 % ihres vollen Lebens**. Das passiert jedes Mal wieder (immer 50 %).
 - Endgültig tot sind sie nur, wenn der Spieler die **Leiche zerstört**: liegend nochmal treffen (Feuerball, Schwert, Bombe) oder darüber laufen und zertreten (Taste oder mit Item „Steine zertreten“).
