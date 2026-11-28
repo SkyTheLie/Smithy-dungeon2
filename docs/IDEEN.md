@@ -247,3 +247,46 @@ Reihenfolge zum Bauen (zuerst, was schnell geht oder viel bringt; ✅ = gebaut a
 - Wasserpfützen statt Stacheln (Banditenlager, Wolfswald): Wasser wäscht die Glut ab, man verliert Leben. Höllentor behält Stacheln.
 - **Später: verschiedene Schicht-Arten mit eigenen Effekten**, z. B. Schlamm mit Glasstücken: Wirst du getroffen, verlierst du die Schicht (vielleicht golden), aber der Schuss wird zurückgeworfen. Weitere Arten mit anderen Effekten sammeln.
 - Später vielleicht: Pfützen nicht eckig, sondern als runde Pfütze mit Wellen (Shader).
+
+## Raum-Fallen, Vorwarnungen, Ton für alles (Nachricht vom 2026-11-28)
+
+### Neue Raum-Fallen (Gefahren im Raum, treffen den Spieler)
+
+Gehören zu `floors.json` `hazard_types` (wie Stacheln/Lava), Takt und Schaden in den Daten. Jede Falle **warnt vorher** (Bild + Ton), damit man reagieren kann.
+
+1. **Pfeil-Wände:** Löcher in der Wand schießen Pfeile quer durch den Raum (`EnemyShot.arrow` gibt es schon).
+   - Arten: im festen Takt; per **Druckplatte** ausgelöst; in Reihen nacheinander (Lauf-Muster).
+   - Vorwarnung: Loch glimmt/rüttelt kurz, Klick-Ton (Mechanik spannt), dann Zisch beim Schuss.
+   - Pfeile treffen auch Gegner (wer Gegner auf die Platte lockt, lässt sie sich selbst abschießen).
+2. **Wandernde Stachelsteine:** Steine mit Spitzen bewegen sich in **festen Mustern** durch den Raum (hin und her, im Kreis, an der Wand entlang, auf Schienen). Berührung = ½ Kohle Schaden und kurzer Rückstoß.
+   - Muster in den Daten (`path`: Punkte, `speed`, `loop`/`pingpong`), damit man sie lernen kann.
+   - Rumpeln/Schleifen als 3D-Ton, lauter je näher; Funken an der Wand beim Umdrehen.
+   - Feuerbälle halten sie nicht auf (nicht zerstörbar), Bomben vielleicht kurz.
+3. **Monster-Falle (Decke):** Eine versteckte Platte; tritt man darauf, **fallen Gegner von oben** in den Raum.
+   - Vorwarnung: Klick unter dem Fuß, Staub rieselt von der Decke, Schatten am Boden, wo sie landen; dann Aufprall-Ton und Staubwolke.
+   - Passt zum geplanten „Hinterhalt“-Raum (Abschnitt „Besondere Räume“).
+   - Nach dem Auslösen ist die Platte sichtbar (kein zweites Mal).
+
+### Gegner- und Boss-Aktionen mit Bild und Ton
+
+Viele Angriffe gibt es schon (`burrow`, `teleport`, `leap`, `charge`, `laser` …, `docs/SYSTEME.md`). Jede Aktion bekommt einen **eigenen Effekt und einen eigenen Ton**, damit der Spieler sie erkennt, bevor sie trifft:
+
+| Aktion | Bild (Vorwarnung) | Ton |
+|---|---|---|
+| Eingraben (`burrow`) | Erdbrocken fliegen, Erdhügel wandert unter dem Boden zum Spieler, rote Markierung | Graben, dumpfes Wühlen, beim Auftauchen Erd-Krachen |
+| Teleport hinter den Spieler (`teleport`) | Gegner flimmert und zerfällt in Funken, **am Zielort** (hinter dem Spieler) erscheint kurz vorher ein Leuchten | „Wusch“ beim Verschwinden, leises Summen am Zielort, „Plopp“ beim Erscheinen |
+| Sprung (`leap`) | duckt sich, Schatten wächst am Landepunkt | Grunzen beim Absprung, Aufprall mit Wackeln |
+| Ansturm (`charge`) | scharrt mit dem Fuß, Staub, Ziel-Linie | Schnauben/Brüllen, schwere Schritte |
+| Aufladen/Zaubern | Gegner leuchtet stärker, Teilchen sammeln sich | ansteigender Ton (höher = gleich geht's los) |
+| Beschwören (`summon`) | Kreis/Rune am Boden, wo Helfer kommen | tiefes Murmeln, dann Knall |
+| Unsichtbar (`phase`) | Flimmern, leichte Verzerrung, wo er ist | leises Atmen/Flüstern verrät die Richtung |
+
+### Regel: Jede Aktion hat einen Ton
+
+- **Alles, was passiert, macht ein Geräusch:** jeder Angriff, jede Vorwarnung, jeder Treffer, jede Falle, jedes Aufheben, jede Tür, jeder Knopf. Stille nur mit Absicht (z. B. Boss-Halle vor dem Kampf).
+- **Angriffe kündigen sich hörbar an:** Der Ton kommt **vor** dem Treffer (Vorwarnung), nicht erst mit ihm. Der Abstand zwischen Ton und Treffer ist fair (Richtwert 0,4–0,8 s, in den Daten).
+- **Ton passt zur Aktion und zum Gegner:** Ratte quiekt, Golem grollt, Magier summt; Graben klingt nach Erde, Teleport nach Magie.
+- **Ton kommt aus der Richtung** der Quelle (3D-Ton über `Enemy.sound` / `AudioManager.play_sound_at`), damit man z. B. einen Teleport hinter sich hört.
+- **Bild und Ton zusammen:** Jede gefährliche Aktion hat beides; wer nicht hinsieht, hört sie, wer leise spielt, sieht sie.
+- Fehlt eine Datei, wird der Ton mit `SoundSynth` erzeugt (wie die Gegner-Rufe), Werte in den Daten (`voice`, `audio.json`).
+- Prüfen: Neuer Gegner/Angriff/Falle ohne Ton = nicht fertig. Ein Test könnte prüfen, dass jeder Angriff und jede Falle in den Daten einen Ton hat.
