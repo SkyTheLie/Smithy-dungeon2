@@ -353,7 +353,7 @@ Jeder Gegner-Schuss bekommt seine Farbe **aus dem Schaden** (eine Tabelle in den
 - Treffbar nur, wenn er draußen ist (Kopf), sonst nicht.
 - Ab 50 %: zwei Sprünge hintereinander oder Pfützen bleiben länger; ab 25 %: Kopf und Schwanzspitze tauchen gleichzeitig auf (zwei Angriffe auf einmal).
 
-### Boss: Vogel mit Meteoriten
+### Boss: Vogel mit Meteoriten – ✅ gebaut als „Sturmadler“ (`feature/vogel-boss`, Boss am Sturmgipfel)
 
 - Fliegt **hoch** (aus der Reichweite, Schatten am Boden zeigt, wo er ist) und lässt **Meteoriten** fallen: rote Kreise am Boden, die sich füllen, dann Einschlag mit Wackeln und Krater (Glut kurz liegen lassen). Der Spieler muss ausweichen.
 - Weitere Angriffe:

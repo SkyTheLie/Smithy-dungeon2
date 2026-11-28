@@ -1401,6 +1401,9 @@ msgstr "ردای اخگر"
 msgid "Glutmond"
 msgstr "ماه اخگر"
 
+msgid "Glutreste"
+msgstr "اخگرها"
+
 msgid "Glutrubin"
 msgstr "یاقوت اخگر"
 
@@ -3227,6 +3230,9 @@ msgstr "سطح %d/%d"
 
 msgid "Stufe zu niedrig"
 msgstr "سطح خیلی پایین است"
+
+msgid "Sturmadler"
+msgstr "عقاب طوفان"
 
 msgid "Sturmessenz"
 msgstr "جوهر طوفان"

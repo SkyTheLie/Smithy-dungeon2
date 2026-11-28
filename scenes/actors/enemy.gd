@@ -763,6 +763,40 @@ func lob_acid(at: Vector3, time: float) -> void:
 	tween.tween_callback(land)
 
 
+## A meteor falls on `at` in `time` seconds (a red circle shows where first): hurts the player
+## within 1.1 m (flying too: it comes from above), embers lie there a moment.
+func drop_meteor(at: Vector3, time: float) -> void:
+	if dungeon == null:
+		return
+	var target := Vector3(at.x, 0.0, at.z)
+	var rect: Rect2 = room_rect(0.6)
+	target = Vector3(clampf(target.x, rect.position.x, rect.end.x), 0.0, clampf(target.z, rect.position.y, rect.end.y))
+	mark(target, 1.1, time)
+	var rock := Fx.billboard(Fx.ball_texture("fire"), 0.8)
+	dungeon.effects.add_child(rock)
+	var top: Vector3 = target + Vector3(0.8, 7.0, 0.4)
+	rock.global_position = top
+	var effects: Node3D = dungeon.effects
+	var fall := func(t: float) -> void:
+		rock.global_position = top.lerp(target + Vector3(0, 0.3, 0), t * t)
+	var hit := func() -> void:
+		rock.queue_free()
+		if not is_instance_valid(effects) or not effects.is_inside_tree():
+			return
+		Fx.explosion(effects, target, 1.1)
+		AudioManager.play_sound_at("explosion", target, effects, randf_range(0.8, 0.95))
+		if player and Vector2(player.global_position.x - target.x, player.global_position.z - target.z).length() < 1.1:
+			player.take_hit(int(data.get("damage", 2)))
+		if player:
+			player.shake(0.15)
+		if is_instance_valid(dungeon):
+			dungeon.add_hazard("embers", target, float(data.get("ember_life", 1.5)))
+	AudioManager.play_sound_at("boss_teleport", target, effects, 0.5)
+	var tween := rock.create_tween()
+	tween.tween_method(fall, 0.0, 1.0, time)
+	tween.tween_callback(hit)
+
+
 ## Boss phases: the colour of the new phase (multiplied onto its own tint).
 func set_phase_tint(color: Color) -> void:
 	_base_color = _own_tint * color

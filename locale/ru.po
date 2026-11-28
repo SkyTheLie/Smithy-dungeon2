@@ -1401,6 +1401,9 @@ msgstr "Плащ жара"
 msgid "Glutmond"
 msgstr "Угольная луна"
 
+msgid "Glutreste"
+msgstr "Тлеющие угли"
+
 msgid "Glutrubin"
 msgstr "Угольный рубин"
 
@@ -3227,6 +3230,9 @@ msgstr "Уровень %d/%d"
 
 msgid "Stufe zu niedrig"
 msgstr "Слишком низкий уровень"
+
+msgid "Sturmadler"
+msgstr "Штормовой орёл"
 
 msgid "Sturmessenz"
 msgstr "Эссенция бури"

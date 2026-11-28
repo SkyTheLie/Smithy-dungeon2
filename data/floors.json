@@ -923,7 +923,8 @@
 			],
 			"bosses": [
 				"griffin",
-				"harpy_matriarch"
+				"harpy_matriarch",
+				"storm_eagle"
 			],
 			"hazards": [
 				[
@@ -2645,6 +2646,7 @@
 				"return": 5.0
 			}
 		},
+		"embers": {"name": "Glutreste", "damage": 1, "size": [1.0, 1.2], "color": [1.0, 0.45, 0.1], "glow": 1.4},
 		"acid": {"name": "Säurepfütze", "damage": 1, "size": [1.2, 1.6], "color": [0.65, 0.95, 0.2], "glow": 0.9},
 		"poison": {
 			"name": "Giftpfütze",

@@ -31,6 +31,12 @@ extends RefCounted
 ##   acid_spit comes up, sways, then spits "spit" blobs of acid in arcs at the player and around
 ##             (marks where they land); each leaves an acid puddle ("acid" in floors.json
 ##             hazard_types) for "acid_life" seconds; flying players are safe
+##   sky_meteors flies up out of reach (cannot be hurt, its shadow shows where it is) and drops
+##             "meteors" meteors: a red circle first, then the impact (hurts close by, embers lie
+##             there a moment); from half life more of them, in the rage in a ring round the player
+##   dive      screeches and aims (mark where the player stands), then dives down onto that spot
+##             and lies dazed on the floor for a moment (double damage, the moment to hit it)
+##   gust      a wing beat (shakes first, wind sound) that pushes the player far away
 ## Trait "underground": between attacks it stays under the floor (cannot be hurt, a dust mound
 ## shows where it is), so it can only be hit while it is out (jumping, spitting).
 ## Traits ("traits"): regen (heals when not hit for a while), lifesteal (heals when it hits you),
@@ -88,6 +94,12 @@ var _from: Vector3 = Vector3.ZERO
 var _dust_wait: float = 0.0
 const DIVE_JUMP: float = 0.6
 const DIVE_HEIGHT: float = 2.4
+## sky_meteors: how high it flies, rise/sink time, seconds between meteors.
+const SKY_HEIGHT: float = 4.5
+const SKY_RISE: float = 0.5
+const METEOR_GAP: float = 0.35
+const METEOR_FALL: float = 1.0
+const WIND := {"wave": "noise", "freq": 380, "slide": 0.8, "length": 0.6, "noise": 1.0, "vibrato": 0.2}
 
 
 func _init(the_boss: Enemy) -> void:
@@ -244,6 +256,37 @@ func _try_evade() -> bool:
 	return true
 
 
+## sky_meteors: up, meteors one after another (in the rage in a ring round the player), down.
+func _sky_meteors(delta: float) -> Vector3:
+	var meteors: int = int(boss.data.get("meteors", 4)) + (2 if angry() else 0)
+	var total: float = SKY_RISE * 2.0 + meteors * METEOR_GAP + METEOR_FALL
+	var spent: float = total - _left
+	var height_now: float = SKY_HEIGHT
+	if spent < SKY_RISE:
+		height_now = SKY_HEIGHT * spent / SKY_RISE
+	elif _left < SKY_RISE:
+		height_now = SKY_HEIGHT * _left / SKY_RISE
+	boss.set_jump(height_now)
+	# Its shadow follows it on the floor.
+	_dust_wait -= delta
+	if _dust_wait <= 0.0:
+		_dust_wait = 0.25
+		boss.mark(boss.global_position, 0.9, 0.25)
+	if spent >= SKY_RISE and int(_turn) < meteors and spent >= SKY_RISE + _turn * METEOR_GAP:
+		var spot: Vector3 = boss.player.global_position
+		if phase >= 3:
+			spot += Vector3.FORWARD.rotated(Vector3.UP, TAU * _turn / meteors) * 2.0
+		elif _turn > 0.0:
+			spot += Vector3.FORWARD.rotated(Vector3.UP, boss.rng.randf() * TAU) * boss.rng.randf_range(0.5, 2.5)
+		boss.drop_meteor(spot, METEOR_FALL)
+		_turn += 1.0
+	if _left < SKY_RISE * 0.5:
+		boss.hidden_phase = false
+	# Hovers after the player, high above.
+	var toward: Vector3 = (boss.player.global_position - boss.global_position) * Vector3(1, 0, 1)
+	return toward.normalized() * boss.speed() * 0.6 if toward.length() > 1.0 else Vector3.ZERO
+
+
 ## worm_dive: under the floor towards the player, the mark, a short rumble, then the jump.
 func _worm_dive(delta: float, toward: Vector3) -> Vector3:
 	if _left > DIVE_JUMP + MARK_TIME:
@@ -340,6 +383,23 @@ func _start(toward: Vector3) -> void:
 			_left = 1.3
 			_target = boss.player.global_position
 			boss.mark(_target, 1.6, 1.0)
+		"sky_meteors":
+			var meteors: int = int(boss.data.get("meteors", 4)) + (2 if angry() else 0)
+			_left = SKY_RISE * 2.0 + meteors * METEOR_GAP + METEOR_FALL
+			_turn = 0.0
+			boss.hidden_phase = true
+			boss.cry("attack")
+			boss.sound("boss_teleport", 0.7)
+		"dive":
+			_left = 0.8 + 0.45 + 1.4
+			_target = boss.player.global_position
+			boss.mark(_target, 1.3, 0.8)
+			boss.cry("attack")
+			boss.wobble(0.8)
+		"gust":
+			_left = 1.1
+			boss.wobble(0.55)
+			AudioManager.play_stream_at(SoundSynth.make(WIND, "cry"), boss.global_position, boss.dungeon.effects, 0.8, -2.0)
 		"worm_dive":
 			_left = 2.6
 			boss.hidden_phase = true
@@ -415,6 +475,33 @@ func _run(delta: float, toward: Vector3, distance: float) -> Vector3:
 	match _attack:
 		"worm_dive":
 			return _worm_dive(delta, toward)
+		"sky_meteors":
+			return _sky_meteors(delta)
+		"dive":
+			if _left > 1.85:
+				boss.flash(0.05)
+				return Vector3.ZERO
+			if _left > 1.4:
+				var to_target: Vector3 = (_target - boss.global_position) * Vector3(1, 0, 1)
+				if to_target.length() > 0.3:
+					return to_target.normalized() * minf(to_target.length() / delta, boss.speed() * 8.0)
+				return Vector3.ZERO
+			if _step == 0.0:
+				_step = 1.0
+				boss.shake(0.4)
+				boss.hurt_player_near(1.3)
+				boss.stun_left = 1.4
+				Fx.puff(boss.dungeon.effects, boss.global_position + Vector3(0, 0.3, 0), "dust", 1.8)
+			return Vector3.ZERO
+		"gust":
+			if _left <= 0.55 and not _done_once:
+				_done_once = true
+				var away: Vector3 = (boss.player.global_position - boss.global_position) * Vector3(1, 0, 1)
+				if away.length() < 7.0 and not boss.player.is_held():
+					boss.player.knock(away.normalized() * float(boss.data.get("gust", 9.0)))
+				for i in 4:
+					Fx.puff(boss.dungeon.effects, boss.global_position.lerp(boss.player.global_position, (i + 1) / 5.0) + Vector3(0, 1.0, 0), "ghost_puff", 0.6)
+			return Vector3.ZERO
 		"acid_spit":
 			if _left <= 1.4 and not _done_once:
 				_done_once = true

@@ -88,7 +88,7 @@ func run() -> void:
 			check(every.size() == 2 and float(every[0]) > 0.5 and float(every[1]) >= float(every[0]), "enemy %s: idle cry not too often" % id)
 	# Every boss is different: known attacks, no two with the same list.
 	var known_attacks: Array[String] = ["dash", "charge", "summon", "rat_wave", "ring", "spray", "spiral", "burrow", "leap", "teleport", "phase", "mirror", "web", "axes", "boulder", "skulls", "march",
-			"aimed_shot", "snares", "volley", "laser", "laser_sweep", "cross", "worm_dive", "acid_spit"]
+			"aimed_shot", "snares", "volley", "laser", "laser_sweep", "cross", "worm_dive", "acid_spit", "sky_meteors", "dive", "gust"]
 	var attack_lists: Array = []
 	for id: String in enemies:
 		if enemies[id].get("ai", "") != "boss":

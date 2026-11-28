@@ -1289,5 +1289,7 @@
 	"Eine Falle!": {"en": "A trap!", "es": "¡Una trampa!", "fr": "Un piège !", "pt": "Uma armadilha!", "ru": "Ловушка!", "ja": "罠だ！", "zh": "陷阱！", "fa": "یک تله!"},
 	"Wandgeist": {"en": "Wall Wraith", "es": "Espectro del muro", "fr": "Spectre du mur", "pt": "Espectro da parede", "ru": "Стенной призрак", "ja": "壁の亡霊", "zh": "墙中幽灵", "fa": "شبح دیوار"},
 	"Säurewurm": {"en": "Acid Worm", "es": "Gusano ácido", "fr": "Ver acide", "pt": "Verme ácido", "ru": "Кислотный червь", "ja": "酸の大ミミズ", "zh": "酸液巨虫", "fa": "کرم اسیدی"},
-	"Säurepfütze": {"en": "Acid puddle", "es": "Charco de ácido", "fr": "Flaque d'acide", "pt": "Poça de ácido", "ru": "Кислотная лужа", "ja": "酸の水たまり", "zh": "酸液水坑", "fa": "گودال اسید"}
+	"Säurepfütze": {"en": "Acid puddle", "es": "Charco de ácido", "fr": "Flaque d'acide", "pt": "Poça de ácido", "ru": "Кислотная лужа", "ja": "酸の水たまり", "zh": "酸液水坑", "fa": "گودال اسید"},
+	"Sturmadler": {"en": "Storm Eagle", "es": "Águila de tormenta", "fr": "Aigle des tempêtes", "pt": "Águia da tempestade", "ru": "Штормовой орёл", "ja": "嵐の大鷲", "zh": "风暴巨鹰", "fa": "عقاب طوفان"},
+	"Glutreste": {"en": "Embers", "es": "Brasas", "fr": "Braises", "pt": "Brasas", "ru": "Тлеющие угли", "ja": "残り火", "zh": "余烬", "fa": "اخگرها"}
 }

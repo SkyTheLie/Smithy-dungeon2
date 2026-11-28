@@ -1401,6 +1401,9 @@ msgstr "余烬斗篷"
 msgid "Glutmond"
 msgstr "余烬之月"
 
+msgid "Glutreste"
+msgstr "余烬"
+
 msgid "Glutrubin"
 msgstr "余烬红宝石"
 
@@ -3227,6 +3230,9 @@ msgstr "等级 %d/%d"
 
 msgid "Stufe zu niedrig"
 msgstr "等级太低"
+
+msgid "Sturmadler"
+msgstr "风暴巨鹰"
 
 msgid "Sturmessenz"
 msgstr "风暴精华"
