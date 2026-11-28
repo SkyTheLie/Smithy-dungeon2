@@ -239,4 +239,4 @@ Reihenfolge zum Bauen (zuerst, was schnell geht oder viel bringt; ✅ = gebaut a
 - ✅ (`feature/kaputte-deko`) **Zerstörbare Deko:** Kisten und Fässer aus `room_props.gd` gehen durch Feuerbälle kaputt, manchmal mit Münze (braucht Kollision).
 - ✅ (`feature/wand-schriften`) **Wand-Schriften:** kurze Sätze früherer Abenteurer (Story, z. B. über Egon; Texte nach `docs/figuren/`).
 - ✅ (`feature/raum-ton`) **Ton je Raum:** Tropfen, Wind, Ketten, leise und zufällig.
-- **Mini-Boss** in der Mitte jeder Ebene mit eigenem Lebensbalken.
+- ✅ (`feature/mini-boss`, „Anführer“) **Mini-Boss** in der Mitte jeder Ebene mit eigenem Lebensbalken.

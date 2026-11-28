@@ -102,6 +102,9 @@ msgstr "Amatista"
 msgid "An der Wispernden Wiese"
 msgstr "Junto a la Pradera Susurrante"
 
+msgid "Anführer: %s"
+msgstr "Cabecilla: %s"
+
 msgid "Angriffstempo"
 msgstr "Velocidad de ataque"
 
@@ -734,6 +737,9 @@ msgstr "Personalizado"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Tus propias explosiones te curan"
+
+msgid "Ein Anführer!"
+msgstr "¡Un cabecilla!"
 
 msgid "Ein Berg aus Eis, oben tobt der Sturm. Unterwegs Wölfe, Harpyien und ein Greif. Egon empfiehlt warme Socken."
 msgstr "Una montaña de hielo con una tormenta en la cima. Por el camino: lobos, arpías y un grifo. Egon recomienda calcetines gordos."

@@ -10,6 +10,8 @@ var visited: bool = false
 var cleared: bool = false
 ## Enemy ids that appear when the player enters (rolled when the floor is built).
 var spawn_list: Array[String] = []
+## Enemy id of the leader waiting here (floors.json "mini_boss"), "" = none.
+var leader: String = ""
 var rocks: Array[Rock] = []
 ## Crates, barrels … that break (RoomProps, Dungeon.break_prop).
 var breakables: Array[BreakableProp] = []

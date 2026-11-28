@@ -102,6 +102,9 @@ msgstr "アメジスト"
 msgid "An der Wispernden Wiese"
 msgstr "ささやく草原のそば"
 
+msgid "Anführer: %s"
+msgstr "リーダー：%s"
+
 msgid "Angriffstempo"
 msgstr "攻撃速度"
 
@@ -734,6 +737,9 @@ msgstr "カスタム"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "自分の爆発で回復する"
+
+msgid "Ein Anführer!"
+msgstr "リーダーだ！"
 
 msgid "Ein Berg aus Eis, oben tobt der Sturm. Unterwegs Wölfe, Harpyien und ein Greif. Egon empfiehlt warme Socken."
 msgstr "氷の山、頂上では嵐が荒れ狂う。道中には狼、ハーピー、グリフォン。エゴンのおすすめは暖かい靴下。"

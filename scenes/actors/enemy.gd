@@ -79,6 +79,8 @@ var alive: bool = true
 var radius: float = 0.4
 var height: float = 1.2
 var is_boss: bool = false
+## A leader (mini boss in the middle of a floor, floors.json "mini_boss"): bigger, golden, more life.
+var is_leader: bool = false
 ## Does not walk at all (the end boss on the dais of the Räderkluft, GearChasm).
 var pinned: bool = false
 ## Hits bounce off (a closed shell). Set by EnemyMoves.
@@ -215,6 +217,21 @@ func setup(enemy_id: String, the_dungeon: Dungeon, the_player: Player, rng_seed:
 	_timer = _rng.randf_range(0.5, float(data.get("fire_interval", ATTACK_PAUSE)))
 	# Not all at once when the room starts (own random numbers stay untouched).
 	_idle_wait = randf_range(0.8, 4.0)
+
+
+## Makes this enemy a leader (call after setup, before it enters the tree): floors.json
+## "mini_boss" hp_mult, size, speed_mult, tint.
+func make_leader(rules: Dictionary) -> void:
+	is_leader = true
+	max_hp *= float(rules.get("hp_mult", 4.0))
+	hp = max_hp
+	var size: float = float(rules.get("size", 1.35))
+	height *= size
+	radius *= size
+	_speed *= float(rules.get("speed_mult", 1.0))
+	var tint: Array = rules.get("tint", [])
+	if tint.size() >= 3:
+		_base_color = Color(float(tint[0]), float(tint[1]), float(tint[2]))
 
 
 func _ready() -> void:

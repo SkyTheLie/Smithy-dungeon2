@@ -1,5 +1,5 @@
 {
-	"_info": "Ebenen der Reihe nach; jede nennt ein theme (Aussehen, Musik, Gegner, Bosse) und hat eigene Zahlen: rooms = Anzahl normaler Räume (dazu Start, Item-Raum, Shop, Boss), enemy_count [min, max] je Raum, hp_mult = Leben aller Gegner mal diesem Wert, first_room_enemies = feste Gegner neben dem Start, key_doors = Raumarten mit Schlüssel-Tür, item_room: false = diese Ebene hat keinen Item-Raum (wird ein normaler Raum), shop_room: false = kein Shop (und kein Raum dafür), secret_room / special_room: false = kein Geheimraum / kein Sonderraum hinter dem Boss, sacrifice_chance = Chance auf den Opferraum (sonst sacrifice.room_chance). Erste Ebene: rooms 2 + Item-Raum als normaler Raum = 3 normale Räume, mit Start, Boss und sicherem Opferraum 6 Räume. Felder der Ebene überschreiben das Thema. themes: name, Texturen (32x32 Boden, 32x48 Wand), music (Id aus audio.json), light, enemies [Id, Gewicht], bosses (einer wird zufällig gewählt). Die letzte Ebene endet mit dem Sieg. props = Deko an den Wänden [Bild, Gewicht, Höhe in Metern] (Menge: props oben). air = was in der Luft schwebt (Id aus air_types). ambience = leise Geräusche im Raum [[Art, Gewicht], …] (Arten in ambience_types). rock_patterns: [Muster, Gewicht] (scatter, walls, pillars, ring, corners, columns, checker), rock_texture. floors = die Ebenen des ersten Dungeons; floors_<dungeon> = die Ebenen weiterer Dungeons (dungeons.json floors). hazards = Fallen in normalen Räumen ([Art, [min, max]], Arten in hazard_types). shop.floor_step = Run-Shop je Ebene so viel teurer (mal dungeons.json shop_mult); talk_distance = so nah muss man an den Händler, um ihn mit F anzusprechen (erst dann kauft er Beute); relic_chance = Chance, dass er ein Relikt anbietet (ein schon gefundenes Item, relics.json), relic_price_mult = dessen Preis mal diesem Wert (Gold aus der Tasche; gekauft liegt es danach zu Hause im Inventar). grass = hohes Gras auf dem Boden (Höhe in Metern, per_m2 Büschel je Quadratmeter, color, spread = wie unterschiedlich), verdeckt kleine Gegner und Fallen (scenes/run/meadow.gd).",
+	"_info": "Ebenen der Reihe nach; jede nennt ein theme (Aussehen, Musik, Gegner, Bosse) und hat eigene Zahlen: rooms = Anzahl normaler Räume (dazu Start, Item-Raum, Shop, Boss), enemy_count [min, max] je Raum, hp_mult = Leben aller Gegner mal diesem Wert, first_room_enemies = feste Gegner neben dem Start, key_doors = Raumarten mit Schlüssel-Tür, item_room: false = diese Ebene hat keinen Item-Raum (wird ein normaler Raum), shop_room: false = kein Shop (und kein Raum dafür), secret_room / special_room: false = kein Geheimraum / kein Sonderraum hinter dem Boss, sacrifice_chance = Chance auf den Opferraum (sonst sacrifice.room_chance). Erste Ebene: rooms 2 + Item-Raum als normaler Raum = 3 normale Räume, mit Start, Boss und sicherem Opferraum 6 Räume. Felder der Ebene überschreiben das Thema. themes: name, Texturen (32x32 Boden, 32x48 Wand), music (Id aus audio.json), light, enemies [Id, Gewicht], bosses (einer wird zufällig gewählt). Die letzte Ebene endet mit dem Sieg. props = Deko an den Wänden [Bild, Gewicht, Höhe in Metern] (Menge: props oben). air = was in der Luft schwebt (Id aus air_types). mini_bosses = Anführer der Ebene [[Id, Gewicht], …] (Regeln in mini_boss), mini_boss: false = keiner. ambience = leise Geräusche im Raum [[Art, Gewicht], …] (Arten in ambience_types). rock_patterns: [Muster, Gewicht] (scatter, walls, pillars, ring, corners, columns, checker), rock_texture. floors = die Ebenen des ersten Dungeons; floors_<dungeon> = die Ebenen weiterer Dungeons (dungeons.json floors). hazards = Fallen in normalen Räumen ([Art, [min, max]], Arten in hazard_types). shop.floor_step = Run-Shop je Ebene so viel teurer (mal dungeons.json shop_mult); talk_distance = so nah muss man an den Händler, um ihn mit F anzusprechen (erst dann kauft er Beute); relic_chance = Chance, dass er ein Relikt anbietet (ein schon gefundenes Item, relics.json), relic_price_mult = dessen Preis mal diesem Wert (Gold aus der Tasche; gekauft liegt es danach zu Hause im Inventar). grass = hohes Gras auf dem Boden (Höhe in Metern, per_m2 Büschel je Quadratmeter, color, spread = wie unterschiedlich), verdeckt kleine Gegner und Fallen (scenes/run/meadow.gd).",
 	"themes": {
 		"rattenkeller": {
 			"name": "Rattenkeller",
@@ -88,6 +88,16 @@
 				],
 				[
 					"chain",
+					1
+				]
+			],
+			"mini_bosses": [
+				[
+					"giant_rat",
+					3
+				],
+				[
+					"spider",
 					1
 				]
 			]
@@ -193,6 +203,20 @@
 					"chain",
 					2
 				]
+			],
+			"mini_bosses": [
+				[
+					"orc",
+					2
+				],
+				[
+					"ogre",
+					1
+				],
+				[
+					"goblin_shaman",
+					1
+				]
 			]
 		},
 		"totengruft": {
@@ -293,6 +317,20 @@
 					"wind",
 					1
 				]
+			],
+			"mini_bosses": [
+				[
+					"ghoul",
+					2
+				],
+				[
+					"skeleton",
+					1
+				],
+				[
+					"skeleton_knight",
+					1
+				]
 			]
 		},
 		"sumpfufer": {
@@ -389,6 +427,16 @@
 				],
 				[
 					"drip",
+					1
+				]
+			],
+			"mini_bosses": [
+				[
+					"wild_boar",
+					3
+				],
+				[
+					"mire_toad",
 					1
 				]
 			]
@@ -495,6 +543,20 @@
 					"chain",
 					1
 				]
+			],
+			"mini_bosses": [
+				[
+					"bandit_brute",
+					2
+				],
+				[
+					"bandit_thug",
+					1
+				],
+				[
+					"black_wolf",
+					1
+				]
 			]
 		},
 		"tiefes_moor": {
@@ -591,6 +653,16 @@
 				],
 				[
 					"wind",
+					1
+				]
+			],
+			"mini_bosses": [
+				[
+					"swamp_serpent",
+					2
+				],
+				[
+					"swamp_shaman",
 					1
 				]
 			]
@@ -696,6 +768,16 @@
 					"howl",
 					1
 				]
+			],
+			"mini_bosses": [
+				[
+					"silver_wolf",
+					2
+				],
+				[
+					"wild_boar",
+					1
+				]
 			]
 		},
 		"eishoehle": {
@@ -783,6 +865,16 @@
 				],
 				[
 					"wind",
+					1
+				]
+			],
+			"mini_bosses": [
+				[
+					"ice_wolf",
+					2
+				],
+				[
+					"ice_elemental",
 					1
 				]
 			]
@@ -883,6 +975,20 @@
 					"ice_crack",
 					1
 				]
+			],
+			"mini_bosses": [
+				[
+					"storm_spirit",
+					1
+				],
+				[
+					"harpy",
+					1
+				],
+				[
+					"stone_golem",
+					1
+				]
 			]
 		},
 		"glutstollen": {
@@ -977,6 +1083,16 @@
 					"drip",
 					1
 				]
+			],
+			"mini_bosses": [
+				[
+					"lava_hound",
+					2
+				],
+				[
+					"fire_salamander",
+					1
+				]
 			]
 		},
 		"magmakammer": {
@@ -1068,6 +1184,16 @@
 				],
 				[
 					"bubble",
+					1
+				]
+			],
+			"mini_bosses": [
+				[
+					"fire_wolf",
+					2
+				],
+				[
+					"magma_brute",
 					1
 				]
 			]
@@ -1176,6 +1302,16 @@
 					"crackle",
 					1
 				]
+			],
+			"mini_bosses": [
+				[
+					"demon",
+					2
+				],
+				[
+					"demon_hound",
+					1
+				]
 			]
 		},
 		"hohes_gras": {
@@ -1282,6 +1418,16 @@
 					"wind",
 					1
 				]
+			],
+			"mini_bosses": [
+				[
+					"grass_viper",
+					2
+				],
+				[
+					"wasp_bear",
+					1
+				]
 			]
 		},
 		"kristallwiese": {
@@ -1379,6 +1525,16 @@
 				],
 				[
 					"bird",
+					1
+				]
+			],
+			"mini_bosses": [
+				[
+					"crystal_eye",
+					2
+				],
+				[
+					"split_slime",
 					1
 				]
 			]
@@ -1484,6 +1640,16 @@
 					"wind",
 					1
 				]
+			],
+			"mini_bosses": [
+				[
+					"scarecrow",
+					2
+				],
+				[
+					"poacher",
+					1
+				]
 			]
 		}
 	},
@@ -1520,7 +1686,8 @@
 					"pillars",
 					1
 				]
-			]
+			],
+			"mini_boss": false
 		},
 		{
 			"theme": "rattenkeller",
@@ -1921,6 +2088,19 @@
 			"repeat_pitch": 1.5,
 			"volume": -20
 		}
+	},
+	"mini_boss": {
+		"_info": "Anführer (Mini-Boss) in der Mitte jeder Ebene: ein normaler Raum etwa auf halbem Weg zum Boss bekommt einen großen, goldenen Gegner aus mini_bosses im Thema [[Id, Gewicht], …] und nur die Hälfte seiner normalen Gegner. hp_mult = Leben mal, size = Größe mal, speed_mult = Tempo mal, tint = Farbe, exp_share = EXP wie ein Boss mal diesem Wert, heart_chance = Chance auf ein Herz. Er lässt seine ganze Beute und sicher Münzen fallen (zählt nicht zum Raum-Budget). Ebene mit mini_boss: false = kein Anführer.",
+		"hp_mult": 4.0,
+		"size": 1.35,
+		"speed_mult": 1.0,
+		"tint": [
+			1.0,
+			0.82,
+			0.4
+		],
+		"exp_share": 0.5,
+		"heart_chance": 0.5
 	},
 	"air_types": {
 		"_info": "Was in der Luft schwebt (scenes/run/room_air.gd), gewählt mit air im Thema: color [r, g, b, Deckkraft], amount = Teilchen je Raum, size in Metern, glow = leuchtet (addiert sich, ohne Nebel), gravity [x, y, z] (y > 0 steigt, < 0 fällt), speed [min, max] Startgeschwindigkeit in alle Richtungen, damping = Bremsen, lifetime in Sekunden (jedes Teilchen blendet ein und aus).",
