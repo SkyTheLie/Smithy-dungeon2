@@ -311,3 +311,72 @@ Ergänzt Punkt 8 „Komfort“ oben (Shift+Klick, „Alle Beute verkaufen“, Ve
 - **Gleiche Steuerung überall:** Ziehen, **R** drehen, **Shift+Klick** schieben, **Rechtsklick**, **Strg+Klick** sperren, **X** wegwerfen machen im Laden und im Dungeon dasselbe.
 - **Ton und Bild für jede Aktion:** Aufheben, Ablegen, Drehen, „Kein Platz“, Sperren, Verkaufen, Sortieren bekommen je einen kurzen Ton und einen kleinen Effekt (Ploppen, Wackeln, Rot-Blinken). Gilt nach der Regel „Jede Aktion hat einen Ton“ oben.
 - **Tastenhilfe am Rand:** eine Zeile „R drehen · Shift schieben · Strg sperren · X wegwerfen“, in den Einstellungen abschaltbar; zeigt nur, was im Moment geht (z. B. „R drehen“ nur beim Ziehen).
+
+## Gegner, Bosse, Schuss-Farben (Nachricht vom 2026-11-28)
+
+### Schuss-Farbe = Schaden
+
+Jeder Gegner-Schuss bekommt seine Farbe **aus dem Schaden** (eine Tabelle in den Daten, z. B. `audio.json`-artig in `enemies.json` `shot_colors`; nie je Gegner von Hand). So sieht man sofort, wie gefährlich ein Schuss ist.
+
+| Schaden | Farbe | Zusatz |
+|---|---|---|
+| ½ Kohle | **Grün** | klein, schwacher Lichthof |
+| 1 Kohle | **Rot** | normaler Lichthof |
+| 1½ Kohle | **Violett** | größer, flackert leicht |
+| 2 Kohlen | **Schwarz mit weißem Kern** | dunkler Rauchschweif |
+| ab 2½ | **Weiß-gold, pulsierend** | Funken, eigener Zisch-Ton |
+
+- Gilt für Kugeln, Pfeile (Spitze/Schweif in der Farbe), Laser und Spucke.
+- Farbenblind-Modus: zusätzlich Form oder Größe (½ = Punkt, 1 = Kugel, 1½ = Raute, 2 = Stern).
+- Ausnahmen nur mit Absicht (z. B. Säure bleibt giftgrün, dann Schaden über die Größe zeigen).
+
+### Geister: unsichtbar werden
+
+- Geister (normale Gegner, nicht nur Bosse; `phase` gibt es bei Bossen schon) werden alle paar Sekunden **unsichtbar**: Bild, Ring, Blickrichtungs-Keil und Lebensbalken verschwinden, sie bewegen sich weiter.
+- Fair bleiben (Regel „Jede Aktion hat einen Ton“): beim Verschwinden ein Flimmern und „Wusch“, unsichtbar ein leises **Flüstern/Atmen aus ihrer Richtung** (3D-Ton), leichte Verzerrung in der Luft, wenn man genau hinsieht. Kurz vor dem Erscheinen ein Schimmer.
+- Unsichtbar greifen sie nicht an (oder erst nach dem Auftauchen mit kurzer Vorwarnung). Treffer im unsichtbaren Zustand machen sie kurz sichtbar.
+- Werte in den Daten: `invisible` {every, duration, hit_reveal}.
+
+### Untote stehen wieder auf (Zombies, Skelette)
+
+- Bei 0 Leben fallen sie **zu Boden** (liegen als „Leiche“, keine Kollision mit Schüssen außer gezielt am Boden). Nach **3 Sekunden** stehen sie wieder auf, mit **50 % ihres vollen Lebens**. Das passiert jedes Mal wieder (immer 50 %).
+- Endgültig tot sind sie nur, wenn der Spieler die **Leiche zerstört**: liegend nochmal treffen (Feuerball, Schwert, Bombe) oder darüber laufen und zertreten (Taste oder mit Item „Steine zertreten“).
+- Vorwarnung beim Aufstehen: Leiche zuckt, Knochen klappern, Stöhnen (Ton), grüner/blauer Schimmer, ein Kreis-Balken über der Leiche läuft ab (3 s).
+- Baut auf `revive` (Strohmann) auf; neu: wiederholbar, Zeit und Leben in den Daten (`revive` {delay: 3, hp: 0.5, repeat: true}).
+- Beute und EXP erst beim endgültigen Tod. Leichen zählen, damit der Raum erst offen ist, wenn alle Leichen weg sind.
+
+### Boss: Wurm/Schlange aus dem Boden
+
+- Gräbt sich ein (Erdhügel wandert sichtbar, Wühl-Ton), **springt im Bogen aus dem Boden** auf den Spieler zu, landet auf der **Position, die der Spieler beim Absprung hatte**, und taucht wieder ab. Vorwarnung: Boden bebt, Risse und Schatten am Landepunkt, Brüllen beim Absprung.
+- **Säure spucken:** taucht ab und zu auf, bleibt kurz stehen und spuckt Säure auf den Spieler und um ihn herum (Bogen-Schüsse, Landepunkte als grüne Kreise). Wo sie landet, bleibt eine **Säurepfütze** (Falle, wie `poison`), die beim Drüberlaufen Schaden macht und nach einiger Zeit austrocknet.
+- **Fliegt der Spieler** (Flug-Items), tut die Pfütze nichts (wie alle Bodenfallen).
+- Treffbar nur, wenn er draußen ist (Kopf), sonst nicht.
+- Ab 50 %: zwei Sprünge hintereinander oder Pfützen bleiben länger; ab 25 %: Kopf und Schwanzspitze tauchen gleichzeitig auf (zwei Angriffe auf einmal).
+
+### Boss: Vogel mit Meteoriten
+
+- Fliegt **hoch** (aus der Reichweite, Schatten am Boden zeigt, wo er ist) und lässt **Meteoriten** fallen: rote Kreise am Boden, die sich füllen, dann Einschlag mit Wackeln und Krater (Glut kurz liegen lassen). Der Spieler muss ausweichen.
+- Weitere Angriffe:
+  - **Sturzflug:** kreischt, legt die Flügel an, stürzt auf den Spieler (Ziel-Linie), schlägt auf und ist kurz **am Boden betäubt** (Moment zum Angreifen).
+  - **Federhagel:** Fächer aus Federn (Schüsse) im Flug.
+  - **Windstoß:** Flügelschlag drückt den Spieler weg (in Pfützen/Meteor-Kreise).
+  - **Ruf:** kleine Vögel als Helfer.
+- Ab 50 % mehr Meteoriten auf einmal, ab 25 % Meteoriten in Mustern (Ring um den Spieler, Linie quer durch den Raum).
+
+### Boss-Phasen (für alle Bosse)
+
+Heute: unter 50 % schneller und mehr Schüsse. Neu als feste Regel mit Phasen in den Daten (`phases` [{at: 0.5, …}, {at: 0.25, …}]):
+
+- **Phase 1 (100–50 %):** Grund-Muster, langsam, lernbar.
+- **Phase 2 (ab 50 %):** **neues Muster** (neuer Angriff dazu oder Angriffe kombiniert), Übergang mit kurzer Pause: Boss brüllt, Bildschirm wackelt, Farbe/Aussehen ändert sich (z. B. rot glühende Augen), Musik wird intensiver. In der Pause ist er unverwundbar, aber greift nicht an.
+- **Phase 3 (ab 25 %, „Wut“):** **schneller** (kürzere Pausen zwischen Angriffen, schnellere Schüsse), dafür etwas kürzere Vorwarnungen, aber nie unter dem fairen Mindestwert.
+- Optional je Boss: beim Phasenwechsel Helfer rufen, Raum verändern (Lava steigt, Säulen fallen), Schwachstelle wird sichtbar.
+- Lebensbalken zeigt die Phasen-Grenzen als Striche bei 50 % und 25 %.
+
+### Geist aus der Wand (zieht den Spieler an)
+
+- Taucht **aus einer Wand** auf (Wand bekommt Risse und leuchtet vorher, Stöhnen/Heulen aus der Richtung).
+- **Saugt den Spieler an:** zieht ihn langsam zur Wand (sichtbar als Luft-Strudel/Linien zum Geist, Saug-Ton wird lauter). Man kann dagegen anlaufen, kommt aber langsamer voran; Dash/Sprint hilft.
+- Ist der Spieler **zu nah**, holt der Geist mit seiner **Kralle** aus (kurzes Ausholen mit Kratz-Ton als Vorwarnung, dann Treffer).
+- Nach einigen Sekunden oder nach einem Treffer verschwindet er wieder in der Wand und kommt woanders heraus. Verwundbar nur, solange er draußen ist.
+- Gut kombinierbar mit Fallen/Pfützen vor der Wand.
