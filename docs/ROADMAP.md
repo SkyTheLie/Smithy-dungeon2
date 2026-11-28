@@ -150,6 +150,7 @@ Reihenfolge (klein zuerst): Schuss-Farben → Untote stehen auf → Geister unsi
 - ✅ Sturmadler-Boss (Meteoriten, Sturzflug, Windstoß; `storm_eagle`, `feature/vogel-boss`).
 - ✅ Säurewurm-Boss (Sprung aus dem Boden, Säurepfützen; `acid_worm`, `feature/wurm-boss`).
 - ✅ Wandgeist: kommt aus der Wand, zieht an, Kralle (`wall_wraith`, ai `wall_ghost`, `feature/wand-geist`).
+- ✅ Musik wird je Boss-Phase schneller (`feature/boss-musik`).
 - ✅ Boss-Phasen für alle Bosse (50 %: neues Muster, 25 %: Wut; Brüllen dazwischen, Striche am Balken; `enemies.json` `boss_phases`, `feature/boss-phasen`).
 - ✅ Monster-Falle: versteckte Platte, Gegner fallen von der Decke (`floors.json` `ceiling_traps`, `feature/monster-falle`).
 - ✅ Stachelsteine auf festen Bahnen (`floors.json` `spike_stones`, `feature/stachelsteine`).

@@ -191,11 +191,22 @@ func play_music(id: String) -> void:
 		return
 	_music_id = id
 	_music_player.stop()
+	set_music_intensity(1.0)
 	var stream: AudioStream = _get_stream(String((_config.get("music", {}) as Dictionary).get(id, "")), id)
 	if stream == null:
 		return
 	_music_player.stream = _with_loop(stream)
 	_music_player.play()
+
+
+## Boss phases: the music plays a little faster and higher (1.0 = normal). Reset by every new
+## piece of music.
+func set_music_intensity(pitch: float) -> void:
+	_music_player.pitch_scale = clampf(pitch, 0.5, 2.0)
+
+
+func get_music_intensity() -> float:
+	return _music_player.pitch_scale
 
 
 func get_music_id() -> String:

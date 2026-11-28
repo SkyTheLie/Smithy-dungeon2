@@ -166,6 +166,9 @@ func _enter_phase(new_phase: int) -> void:
 	if not extra.is_empty():
 		_attacks = _attacks.duplicate()
 		_attacks.insert(_index % maxi(1, _attacks.size()), extra)
+	var music: Array = rules.get("music", [])
+	if phase - 1 < music.size():
+		AudioManager.set_music_intensity(float(music[phase - 1]))
 	boss.hidden_phase = false
 	boss.roar(_transition_left)
 
