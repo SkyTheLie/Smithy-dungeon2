@@ -1701,6 +1701,9 @@ msgstr "ハート"
 msgid "Herzen heilen doppelt"
 msgstr "ハートの回復量が2倍"
 
+msgid "Heute Verkauftes zum gleichen Preis zurückkaufen"
+msgstr "今日売った物を同じ値段で買い戻す"
+
 msgid "Hexenkessel"
 msgstr "魔女の大釜"
 
@@ -3818,6 +3821,12 @@ msgstr "店へ"
 
 msgid "Zunderbüchse"
 msgstr "火口箱"
+
+msgid "Zurück? Na gut. Kein Aufschlag. Diesmal. Ehrlich!"
+msgstr "返せって？いいだろう。上乗せなしだ。今回はな。本当だぞ！"
+
+msgid "Zurückkaufen"
+msgstr "買い戻し"
 
 msgid "Zwanzig Münzen"
 msgstr "コイン20枚"

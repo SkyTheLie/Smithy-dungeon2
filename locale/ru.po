@@ -1701,6 +1701,9 @@ msgstr "Сердца"
 msgid "Herzen heilen doppelt"
 msgstr "Сердца лечат вдвое"
 
+msgid "Heute Verkauftes zum gleichen Preis zurückkaufen"
+msgstr "Выкупить проданное сегодня по той же цене"
+
 msgid "Hexenkessel"
 msgstr "Ведьмин котёл"
 
@@ -3818,6 +3821,12 @@ msgstr "В лавку"
 
 msgid "Zunderbüchse"
 msgstr "Трутница"
+
+msgid "Zurück? Na gut. Kein Aufschlag. Diesmal. Ehrlich!"
+msgstr "Назад? Ладно. Без наценки. На этот раз. Честно!"
+
+msgid "Zurückkaufen"
+msgstr "Выкупить"
 
 msgid "Zwanzig Münzen"
 msgstr "Двадцать монет"

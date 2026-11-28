@@ -92,6 +92,10 @@ Frühere Abenteurer kratzen Sätze an die Wände (`data/story.json` `walls`, `wa
 **Nach einem Sieg:**
 > „Du bist zurück! Mit Beute! Ich wusste es. Ich hab nie an dir gezweifelt. Fast nie.“
 
+## Rückkauf (2026-11-28, `story.json` `barks.bought_back`)
+
+- „Zurück? Na gut. Kein Aufschlag. Diesmal. Ehrlich!“ – Egon gibt Verkauftes am selben Tag zum gleichen Preis zurück (und tut so, als sei das ein großes Opfer).
+
 ## Umzug und Orte (Ideen vom 2026-11-28, Moor/Wiese/Frost/Glutschlund im Spiel: `story.json` `place_lines`)
 
 Egon zieht mit jedem neuen Dungeon um und steht dann vor dessen Eingang. Jeder Ort hat ein Gimmick und ein paar dumme, aber passende Sprüche (Stand: Vorschläge, noch nicht im Spiel):

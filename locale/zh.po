@@ -1701,6 +1701,9 @@ msgstr "心"
 msgid "Herzen heilen doppelt"
 msgstr "心的治疗量翻倍"
 
+msgid "Heute Verkauftes zum gleichen Preis zurückkaufen"
+msgstr "以原价买回今天卖出的物品"
+
 msgid "Hexenkessel"
 msgstr "女巫大锅"
 
@@ -3818,6 +3821,12 @@ msgstr "去商店"
 
 msgid "Zunderbüchse"
 msgstr "火绒盒"
+
+msgid "Zurück? Na gut. Kein Aufschlag. Diesmal. Ehrlich!"
+msgstr "要回去？行吧。不加价。就这一次。真的！"
+
+msgid "Zurückkaufen"
+msgstr "回购"
 
 msgid "Zwanzig Münzen"
 msgstr "二十枚硬币"

@@ -632,11 +632,57 @@ static func sell(index: int) -> int:
 	# A container with something in it is not for sale (sell_price 0).
 	if gold <= 0 and ShopGoods.is_container(own[index]):
 		return 0
+	_remember_sold(own[index], gold)
 	own.remove_at(index)
 	_write_stash(own)
 	_write("box", box() + gold)
 	_save()
 	return gold
+
+
+# --- Buying back (Egon's last sales of the day) ------------------------------------------
+
+## How many sales Egon keeps for buying back (the newest first).
+const BUY_BACK_PLACES: int = 3
+
+
+## What was sold today and can be bought back: [{piece, gold}, …], newest first.
+static func sold_today() -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	for entry: Variant in _read("sold_today", []):
+		if entry is Dictionary:
+			list.append((entry as Dictionary).duplicate(true))
+	return list
+
+
+static func _remember_sold(piece: Dictionary, gold: int) -> void:
+	var clean: Dictionary = piece.duplicate(true)
+	for key: String in ["x", "y", "rot", "locked"]:
+		clean.erase(key)
+	var list: Array[Dictionary] = sold_today()
+	list.push_front({"piece": clean, "gold": gold})
+	while list.size() > BUY_BACK_PLACES:
+		list.pop_back()
+	_write("sold_today", list)
+
+
+## Buys back sale `index` of today for the same price: into the stash (beside it if no room).
+## false if there is no such sale or the box has too little gold.
+static func buy_back(index: int) -> bool:
+	var list: Array[Dictionary] = sold_today()
+	if index < 0 or index >= list.size():
+		return false
+	var gold: int = int(list[index].get("gold", 0))
+	if gold < 0 or gold > box():
+		return false
+	_write("box", box() - gold)
+	var own: Array[Dictionary] = stash()
+	own.append(_owned(list[index]["piece"]))
+	_write_stash(own)
+	list.remove_at(index)
+	_write("sold_today", list)
+	_save()
+	return true
 
 
 # --- Comfort in the stash: lock, sort -----------------------------------------------------
@@ -1120,6 +1166,7 @@ static func admin_reset_lever() -> void:
 static func admin_next_day() -> void:
 	_write("day", day() + 1)
 	_write("pulls_today", 0)
+	_write("sold_today", [])
 	_save()
 
 
@@ -1296,6 +1343,7 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 	_wear_relic()
 	_write("day", day() + 1)
 	_write("pulls_today", 0)
+	_write("sold_today", [])
 	var stolen: int = roll_theft(rng)
 	_write("box", box() - stolen)
 	_write("last_theft", stolen)
@@ -1422,6 +1470,7 @@ static func sell_from_bag(index: int) -> int:
 	if place.is_empty() or String(place["id"]) == Bag.GOLD or Quests.is_stone(String(place["id"])):
 		return 0
 	var gold: int = ShopGoods.sell_price(place)
+	_remember_sold(place, gold)
 	bag.take(index)
 	_write("box", box() + gold)
 	_save_bag(bag)
