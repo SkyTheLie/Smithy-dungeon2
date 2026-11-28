@@ -9,6 +9,11 @@ extends CanvasLayer
 
 const BANNER_TIME: float = 3.0
 const MESSAGE_TIME: float = 2.2
+## Colour of the life bar for the boss (as in hud.tscn) and for a leader (mini boss).
+const BOSS_BAR_COLOR := Color(1, 0.35, 0.3, 1)
+const LEADER_BAR_COLOR := Color(1, 0.8, 0.25, 1)
+## Seconds the leader's bar fills up when it comes.
+const LEADER_FILL_TIME: float = 0.6
 const ITEM_ICON_SIZE := Vector2(16, 16)
 
 var run: RunState
@@ -69,6 +74,10 @@ func setup(run_state: RunState, the_dungeon: Dungeon, the_player: Player) -> voi
 	# The boss hall scene: only the picture, no HUD.
 	dungeon.cutscene_changed.connect(func(active: bool) -> void: visible = not active)
 	dungeon.boss_defeated.connect(_boss_box.hide)
+	dungeon.leader_appeared.connect(_on_leader_appeared)
+	dungeon.leader_defeated.connect(func() -> void:
+		if _boss == null or not is_instance_valid(_boss) or _boss.is_leader:
+			_boss_box.hide())
 	dungeon.message.connect(show_message)
 	player.hurt.connect(_on_hurt)
 	player.potion_tried.connect(_on_potion_tried)
@@ -382,10 +391,22 @@ func _add_item_icon(id: String) -> void:
 func _on_boss_appeared(boss: Enemy) -> void:
 	_boss = boss
 	_boss_name.text = Language.translate(String(boss.data.get("name", "")))
+	_boss_bar.modulate = BOSS_BAR_COLOR
 	# The bar fills up while the boss wakes (it gets its life).
 	_boss_bar.value = 0.0
 	_boss_fill_left = BossAltar.WAKE_TIME
 	create_tween().tween_property(_boss_bar, "value", 100.0, BossAltar.WAKE_TIME)
+	_boss_box.show()
+
+
+## The leader (mini boss) of the floor: the same bar as the boss, golden, filling up quickly.
+func _on_leader_appeared(leader: Enemy) -> void:
+	_boss = leader
+	_boss_name.text = Language.translate("Anführer: %s") % Language.translate(String(leader.data.get("name", "")))
+	_boss_bar.modulate = LEADER_BAR_COLOR
+	_boss_bar.value = 0.0
+	_boss_fill_left = LEADER_FILL_TIME
+	create_tween().tween_property(_boss_bar, "value", 100.0, LEADER_FILL_TIME)
 	_boss_box.show()
 
 

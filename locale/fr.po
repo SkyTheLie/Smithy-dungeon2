@@ -102,6 +102,9 @@ msgstr "Améthyste"
 msgid "An der Wispernden Wiese"
 msgstr "À la Prairie Murmurante"
 
+msgid "Anführer: %s"
+msgstr "Chef : %s"
+
 msgid "Angriffstempo"
 msgstr "Vitesse d'attaque"
 
@@ -734,6 +737,9 @@ msgstr "Personnalisée"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Tes propres explosions te soignent"
+
+msgid "Ein Anführer!"
+msgstr "Un chef !"
 
 msgid "Ein Berg aus Eis, oben tobt der Sturm. Unterwegs Wölfe, Harpyien und ein Greif. Egon empfiehlt warme Socken."
 msgstr "Une montagne de glace, au sommet gronde la tempête. En chemin : loups, harpies et un griffon. Egon conseille des chaussettes chaudes."

@@ -102,6 +102,9 @@ msgstr "Amethyst"
 msgid "An der Wispernden Wiese"
 msgstr "At the Whispering Meadow"
 
+msgid "Anführer: %s"
+msgstr "Leader: %s"
+
 msgid "Angriffstempo"
 msgstr "Attack speed"
 
@@ -734,6 +737,9 @@ msgstr "Custom"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "Your own explosions heal you"
+
+msgid "Ein Anführer!"
+msgstr "A leader!"
 
 msgid "Ein Berg aus Eis, oben tobt der Sturm. Unterwegs Wölfe, Harpyien und ein Greif. Egon empfiehlt warme Socken."
 msgstr "A mountain of ice with a storm raging at the top. On the way: wolves, harpies and a griffin. Egon recommends warm socks."

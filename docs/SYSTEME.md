@@ -421,6 +421,12 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - Eigener Zufall je Raum (`hash([Ebene, Zelle, "props"])`), damit Gegner, Steine und Beute denselben Zufall behalten wie vorher. Test: `test_room_props_play`.
 - **Zerbrechliche Deko** (2026-11-28, `feature/kaputte-deko`): Bilder aus `props.break.textures` (Bild -> Ton) werden ein `BreakableProp` (`scenes/objects/breakable_prop.gd`, StaticBody3D auf `LAYER_ROCKS`, Zylinder so hoch wie das Bild): blockiert Laufen und Schüsse wie ein kleiner Stein. Kaputt machen ihn Feuerbälle/Pfeile (`Projectile._move`, der Schuss endet dort), der Schwertschwung (`FireSlash._blocked`, geht weiter) und Bomben/Explosionen (`Dungeon.explode`). `Dungeon.break_prop`: Splitter (`Fx.shards`: Bild in 2×2 Teile, fliegen auseinander), Ton im Raum, mit `coin_chance` (+ Glück) Münzen `coins` [min, max]; die zählen zum Raum-Budget (`loot.json` `room_budget`), eine Kiste gibt also nie mehr her, als der Raum erlaubt. Der Raum kennt seine Kisten (`DungeonRoom.breakables`).
 
+## Anführer (Mini-Boss) – 2026-11-28 (`feature/mini-boss`)
+
+- `Dungeon._place_leader` (nach dem Bau der Räume, eigener Zufall `hash([Seed, Ebene, "leader"])`): ein normaler Raum, dessen Abstand zum Start am nächsten an der Hälfte des Boss-Abstands liegt (nie der erste Raum, nie der Übungsraum), bekommt `DungeonRoom.leader` = ein Gegner aus `mini_bosses` des Themas; seine normalen Gegner werden halbiert. Ebene mit `mini_boss: false` (erste Ebene der Glut) und das Tutorial: keiner.
+- Beim Betreten: `spawn_enemy(id, at, true)` → `Enemy.make_leader` (vor `_ready`): Leben `hp_mult`, Größe `size` (Bild und Körper), Tempo `speed_mult`, goldene Tönung `tint`; `Enemy.is_leader`. Signal `leader_appeared` → HUD zeigt den Boss-Balken in Gold mit „Anführer: Name“, `leader_defeated` blendet ihn aus.
+- Besiegt: ganze Beute (`_drop_enemy_loot`), sichere Münzen (`_drop_coins` wie beim Boss), mit `heart_chance` ein Herz; zählt nicht zum Raum-Budget. EXP wie ein Boss mal `exp_share`. Daten: `floors.json` `mini_boss`, Thema `mini_bosses`. Test: `test_leader_play`.
+
 ## Geräusche im Raum – 2026-11-28 (`feature/raum-ton`)
 
 - `RoomSounds` (`scenes/run/room_sounds.gd`, Kind `RoomSounds` des Dungeons, pausiert mit dem Spiel): alle `every` [min, max] Sekunden (`floors.json` `ambience`) ein leises Geräusch aus der Liste des Themas (`ambience` [[Art, Gewicht], …]), als 3D-Ton 2,5–6 m vom Spieler entfernt, aber im selben Raum (`distance`). Still in den Hallen der Endbosse (`in_end_hall`) und nach dem Tod.

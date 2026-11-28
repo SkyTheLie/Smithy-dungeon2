@@ -102,6 +102,9 @@ msgstr "آمتیست"
 msgid "An der Wispernden Wiese"
 msgstr "کنار چمنزار نجواگر"
 
+msgid "Anführer: %s"
+msgstr "سرکرده: %s"
+
 msgid "Angriffstempo"
 msgstr "سرعت حمله"
 
@@ -734,6 +737,9 @@ msgstr "دلخواه"
 
 msgid "Eigene Explosionen heilen dich"
 msgstr "انفجارهای خودت تو را شفا می‌دهند"
+
+msgid "Ein Anführer!"
+msgstr "یک سرکرده!"
 
 msgid "Ein Berg aus Eis, oben tobt der Sturm. Unterwegs Wölfe, Harpyien und ein Greif. Egon empfiehlt warme Socken."
 msgstr "کوهی از یخ که بالایش طوفان می‌غرد. در راه گرگ‌ها، هارپی‌ها و یک شیردال. اگون جوراب گرم توصیه می‌کند."

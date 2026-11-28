@@ -42,6 +42,9 @@ signal floor_started(name: String)
 signal room_entered(cell: Vector2i)
 signal boss_appeared(boss: Enemy)
 signal boss_defeated
+## The leader (mini boss) of this floor comes / is beaten (HUD shows its life bar).
+signal leader_appeared(leader: Enemy)
+signal leader_defeated
 signal trapdoor_entered(final: bool)
 ## The player took hold of the rope after the first boss (RunScene then ends the day).
 signal rope_grabbed
@@ -176,6 +179,7 @@ func build(run_state: RunState, the_player: Player, index: int) -> void:
 		_build_room(cell)
 	_build_doors()
 	_add_writings()
+	_place_leader()
 	if guide:
 		for door: Door in doors_of(FloorLayout.START):
 			door.set_closed(true)
@@ -334,6 +338,34 @@ func _add_writings() -> void:
 			if layout.rooms.has(cell + dir):
 				door_dirs.append(dir)
 		RoomWriting.add_writing(rooms[cell], chosen[cell], door_dirs, hash([floor_index, cell, "writing"]))
+
+
+## The leader of this floor (floors.json "mini_boss", floor "mini_boss": false = none): one normal
+## room about halfway to the boss gets a big golden enemy of the theme ("mini_bosses"), and only
+## half of its normal enemies. Own random numbers, so the rooms stay the same for a seed.
+func _place_leader() -> void:
+	var table: Array = floor_data.get("mini_bosses", [])
+	if table.is_empty() or not bool(floor_data.get("mini_boss", true)) or guide:
+		return
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash([run.seed_value, floor_index, "leader"])
+	var middle: float = float(layout.distance.get(layout.cell_of(FloorLayout.BOSS), 2)) / 2.0
+	var best: Array[Vector2i] = []
+	var best_gap: float = INF
+	for cell: Vector2i in layout.rooms:
+		if layout.get_type(cell) != FloorLayout.NORMAL or cell == guide_cell or layout.distance.get(cell, 0) < 2:
+			continue
+		var gap: float = absf(float(layout.distance.get(cell, 0)) - middle)
+		if gap < best_gap - 0.01:
+			best_gap = gap
+			best = [cell]
+		elif absf(gap - best_gap) < 0.01:
+			best.append(cell)
+	if best.is_empty():
+		return
+	var room: DungeonRoom = rooms[best[rng.randi() % best.size()]]
+	room.leader = Content.pick_weighted(table, rng)
+	room.spawn_list.resize(ceili(room.spawn_list.size() / 2.0))
 
 
 ## The wall picture of the room at `cell` (room style or floor).
@@ -712,12 +744,16 @@ func _enter_room(cell: Vector2i) -> void:
 		return
 	match room.type:
 		FloorLayout.NORMAL:
-			if room.spawn_list.is_empty():
+			if room.spawn_list.is_empty() and room.leader.is_empty():
 				room.cleared = true
 				return
 			_start_fight(room)
 			for id: String in room.spawn_list:
 				spawn_enemy(id, room.position + _spawn_spot(room))
+			if not room.leader.is_empty():
+				var leader := spawn_enemy(room.leader, room.position + _spawn_spot(room), true)
+				leader_appeared.emit(leader)
+				message.emit("Ein Anführer!")
 		FloorLayout.BOSS:
 			_start_fight(room)
 			var toward_player: Vector3 = (player.global_position - room.position) * Vector3(1, 0, 1)
@@ -754,9 +790,11 @@ func _spawn_spot(room: DungeonRoom) -> Vector3:
 	return Vector3(0, 0, -2.0)
 
 
-func spawn_enemy(id: String, at: Vector3) -> Enemy:
+func spawn_enemy(id: String, at: Vector3, leader: bool = false) -> Enemy:
 	var enemy := Enemy.new()
 	enemy.setup(id, self, player, _rng.randi())
+	if leader:
+		enemy.make_leader(Content.floors_extra("mini_boss"))
 	enemy.name = "%s_%d" % [id, enemies.size()]
 	enemy.died.connect(_on_enemy_died)
 	rooms[current_cell].add_child(enemy)
@@ -789,7 +827,8 @@ func helper_count() -> int:
 func _on_enemy_died(enemy: Enemy) -> void:
 	enemies.erase(enemy)
 	run.kills += 1
-	run.add_kill_exp(enemy.is_boss, float(floor_data.get("exp_mult", 1.0)))
+	var leader_rules: Dictionary = Content.floors_extra("mini_boss")
+	run.add_kill_exp(enemy.is_boss or enemy.is_leader, float(floor_data.get("exp_mult", 1.0)) * (float(leader_rules.get("exp_share", 0.5)) if enemy.is_leader else 1.0))
 	run.on_kill()
 	if run.record_progress:
 		run.announce(Progress.add_kills(1))
@@ -799,6 +838,13 @@ func _on_enemy_died(enemy: Enemy) -> void:
 	if enemy.is_boss:
 		_drop_enemy_loot(enemy)
 		_drop_coins(enemy)
+	elif enemy.is_leader:
+		# Its own reward, on top of the room's drop budget: all its loot, sure coins, maybe a heart.
+		_drop_enemy_loot(enemy)
+		_drop_coins(enemy)
+		if _rng.randf() < float(leader_rules.get("heart_chance", 0.0)):
+			_drop(rooms[current_cell], enemy.global_position + Vector3(0.5, 0, 0), "heart")
+		leader_defeated.emit()
 	else:
 		_drop_from_normal(enemy)
 	if enemy == boss:
@@ -980,7 +1026,7 @@ func _drop_coins(enemy: Enemy) -> bool:
 	if rules.is_empty():
 		return false
 	var luck_bonus: float = float(Content.get_file("loot").get("luck_bonus", 0.03)) * run.stats.luck
-	if not enemy.is_boss and _rng.randf() >= float(rules.get("chance", 0.0)) + luck_bonus:
+	if not enemy.is_boss and not enemy.is_leader and _rng.randf() >= float(rules.get("chance", 0.0)) + luck_bonus:
 		return false
 	var range_of: Array = rules.get("boss_amount" if enemy.is_boss else "amount", [1, 1])
 	var count: int = _rng.randi_range(int(range_of[0]), int(range_of[-1])) + int(rules.get("per_floor", 0)) * floor_index
