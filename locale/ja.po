@@ -501,8 +501,14 @@ msgstr "太さ"
 msgid "Dicke Haut"
 msgstr "分厚い皮膚"
 
+msgid "Die Blumen? Dekoration. Kosten aber extra, wenn du hinsiehst."
+msgstr "花か？飾りだ。だが見るなら別料金だぞ。"
+
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "ウィンドウサイズはウィンドウモードでのみ有効です。"
+
+msgid "Die Mücken hier stechen nur Ehrliche. Siehst du? Mich lassen sie in Ru… *klatsch* …Ruhe."
+msgstr "ここの蚊は正直者しか刺さないんだ。ほらな？俺は放って… *パチン* …おかれてる。"
 
 msgid "Die Tür ist offen. Geh in den nächsten Raum."
 msgstr "扉が開いた。次の部屋へ進もう。"
@@ -1047,6 +1053,9 @@ msgstr "始まりの残り火"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "爆発する弾、連射が遅い"
 
+msgid "F-f-freundschaftspreis! W-weil mir k-kalt ist, nicht weil ich nett bin."
+msgstr "と、と、友達価格だ！さ、寒いからだ、優しいからじゃないぞ。"
+
 msgid "Fadenkreuz"
 msgstr "照準"
 
@@ -1076,6 +1085,9 @@ msgstr "しっかり握れば一撃も重い。"
 
 msgid "Festgehalten!"
 msgstr "捕まった！"
+
+msgid "Feuchtes Klima, feuchte Ware. Das ist kein Schimmel, das ist Patina!"
+msgstr "湿った気候に湿った品。これはカビじゃない、味わいだ！"
 
 msgid "Feuerelementar"
 msgstr "炎の精霊"
@@ -1632,6 +1644,9 @@ msgstr "ハーピーの女王"
 msgid "Harpyienfeder"
 msgstr "ハーピーの羽根"
 
+msgid "Hatschi! Das ist keine Allergie, das ist… Hatschi! …Vorfreude auf dein Gold."
+msgstr "ハックション！アレルギーじゃない、これは…ハックション！…お前の金への期待だ。"
+
 msgid "Hauptmenü"
 msgstr "メインメニュー"
 
@@ -1655,6 +1670,9 @@ msgstr "ハートを2つ回復。さくらんぼ味。ちょっと靴下味。"
 
 msgid "Heiltrank"
 msgstr "回復薬"
+
+msgid "Heiß hier, Partner. Die Preise schmelzen… nach oben."
+msgstr "ここは暑いな、相棒。値段が溶けていく…上の方にな。"
 
 msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
 msgstr "熱い。熱い。熱い。パン屋になればよかった。"
@@ -1757,6 +1775,9 @@ msgstr "聞こえる？うなってる！金が…いや、運がうなってる
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "俺は詐欺… いや、商人だ。売ってるのは… …装備だ！そう、装備を売ってる。"
+
+msgid "Ich schwitze nicht, ich… glänze geschäftlich."
+msgstr "汗じゃない、これは…商売の輝きだ。"
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "入れといてやる。無料だ！入れる手間がな。"
@@ -3611,6 +3632,9 @@ msgstr "強くなったらここでスキルを覚えな。ちょっとした手
 
 msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
 msgstr "これを読んだ者へ：「友情価格」の物は絶対に買うな！"
+
+msgid "Wer hier kauft, kriegt einen Eiszapfen gratis. Der von meiner Nase. Ehrlich!"
+msgstr "ここで買えばつららを一本おまけだ。俺の鼻のやつな。本当だぞ！"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "倒した弾は残りの威力で飛び続ける"

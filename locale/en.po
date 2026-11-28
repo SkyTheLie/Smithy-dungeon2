@@ -501,8 +501,14 @@ msgstr "Thickness"
 msgid "Dicke Haut"
 msgstr "Thick skin"
 
+msgid "Die Blumen? Dekoration. Kosten aber extra, wenn du hinsiehst."
+msgstr "The flowers? Decoration. But they cost extra if you look at them."
+
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "The window size only applies in window mode."
+
+msgid "Die Mücken hier stechen nur Ehrliche. Siehst du? Mich lassen sie in Ru… *klatsch* …Ruhe."
+msgstr "The mosquitoes here only bite honest folk. See? They leave me in pea… *slap* …peace."
 
 msgid "Die Tür ist offen. Geh in den nächsten Raum."
 msgstr "The door is open. Go into the next room."
@@ -1047,6 +1053,9 @@ msgstr "First Ember"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "Explosive shots, slower fire rate"
 
+msgid "F-f-freundschaftspreis! W-weil mir k-kalt ist, nicht weil ich nett bin."
+msgstr "F-f-friendship price! B-because I'm c-cold, not because I'm nice."
+
 msgid "Fadenkreuz"
 msgstr "Crosshair"
 
@@ -1076,6 +1085,9 @@ msgstr "Firm grip, harder hits."
 
 msgid "Festgehalten!"
 msgstr "Caught!"
+
+msgid "Feuchtes Klima, feuchte Ware. Das ist kein Schimmel, das ist Patina!"
+msgstr "Damp climate, damp goods. That's not mould, that's patina!"
 
 msgid "Feuerelementar"
 msgstr "Fire Elemental"
@@ -1632,6 +1644,9 @@ msgstr "Harpy Matriarch"
 msgid "Harpyienfeder"
 msgstr "Harpy Feather"
 
+msgid "Hatschi! Das ist keine Allergie, das ist… Hatschi! …Vorfreude auf dein Gold."
+msgstr "Achoo! That's no allergy, that's… achoo! …looking forward to your gold."
+
 msgid "Hauptmenü"
 msgstr "Main Menu"
 
@@ -1655,6 +1670,9 @@ msgstr "Heals two hearts. Tastes of cherry. And a little of sock."
 
 msgid "Heiltrank"
 msgstr "Healing Potion"
+
+msgid "Heiß hier, Partner. Die Preise schmelzen… nach oben."
+msgstr "Hot here, partner. The prices are melting… upwards."
 
 msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
 msgstr "Hot. Hot. Hot. I should have become a baker."
@@ -1757,6 +1775,9 @@ msgstr "Hear that? It hums! The money… er, the luck hums along."
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "I'm the swind… er, the gear-seller. I sell… …equipment! Yes, exactly. I sell equipment."
+
+msgid "Ich schwitze nicht, ich… glänze geschäftlich."
+msgstr "I'm not sweating, I'm… glowing professionally."
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "I'll put it in for you. Free of charge! The putting in, I mean."
@@ -3611,6 +3632,9 @@ msgstr "When you get stronger, you learn skills here. For a small fee, of course
 
 msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
 msgstr "Whoever reads this: never buy anything at a friendship price!"
+
+msgid "Wer hier kauft, kriegt einen Eiszapfen gratis. Der von meiner Nase. Ehrlich!"
+msgstr "Buy here and get a free icicle. The one off my nose. Honest!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "A killing shot flies on with what is left"

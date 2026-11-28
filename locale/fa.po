@@ -501,8 +501,14 @@ msgstr "ضخامت"
 msgid "Dicke Haut"
 msgstr "پوست کلفت"
 
+msgid "Die Blumen? Dekoration. Kosten aber extra, wenn du hinsiehst."
+msgstr "گل‌ها؟ تزئینی‌اند. ولی اگر نگاهشان کنی، پولش جداست."
+
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "اندازه‌ی پنجره فقط در حالت پنجره‌ای اعمال می‌شود."
+
+msgid "Die Mücken hier stechen nur Ehrliche. Siehst du? Mich lassen sie in Ru… *klatsch* …Ruhe."
+msgstr "پشه‌های اینجا فقط آدم‌های درستکار را نیش می‌زنند. دیدی؟ مرا به حال… *شَپ* …خودم می‌گذارند."
 
 msgid "Die Tür ist offen. Geh in den nächsten Raum."
 msgstr "در باز است. به اتاق بعدی برو."
@@ -1047,6 +1053,9 @@ msgstr "نخستین اخگر"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "تیرهای انفجاری، شلیک کندتر"
 
+msgid "F-f-freundschaftspreis! W-weil mir k-kalt ist, nicht weil ich nett bin."
+msgstr "ق-ق-قیمت دوستانه! چ-چون سردمه، نه چون مهربونم."
+
 msgid "Fadenkreuz"
 msgstr "نشانگر"
 
@@ -1076,6 +1085,9 @@ msgstr "دست محکم، ضربه سخت‌تر."
 
 msgid "Festgehalten!"
 msgstr "گیر افتادی!"
+
+msgid "Feuchtes Klima, feuchte Ware. Das ist kein Schimmel, das ist Patina!"
+msgstr "هوای نمناک، جنس نمناک. این کپک نیست، زنگار عتیقه است!"
 
 msgid "Feuerelementar"
 msgstr "عنصر آتش"
@@ -1632,6 +1644,9 @@ msgstr "مادرسالار هارپی‌ها"
 msgid "Harpyienfeder"
 msgstr "پر هارپی"
 
+msgid "Hatschi! Das ist keine Allergie, das ist… Hatschi! …Vorfreude auf dein Gold."
+msgstr "هاپچی! این حساسیت نیست، این… هاپچی! …ذوق طلاهای توست."
+
 msgid "Hauptmenü"
 msgstr "منوی اصلی"
 
@@ -1655,6 +1670,9 @@ msgstr "دو قلب را شفا می‌دهد. طعم گیلاس می‌دهد. 
 
 msgid "Heiltrank"
 msgstr "معجون شفا"
+
+msgid "Heiß hier, Partner. Die Preise schmelzen… nach oben."
+msgstr "اینجا داغه، رفیق. قیمت‌ها دارن آب می‌شن… رو به بالا."
 
 msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
 msgstr "داغ. داغ. داغ. باید نانوا می‌شدم."
@@ -1757,6 +1775,9 @@ msgstr "می‌شنوی؟ وزوز می‌کند! پول… اِ، بخت هم �
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "من کلاه‌بر… اِه، فروشنده‌ام. من… …تجهیزات می‌فروشم! آره، دقیقاً. تجهیزات می‌فروشم."
+
+msgid "Ich schwitze nicht, ich… glänze geschäftlich."
+msgstr "عرق نمی‌کنم، دارم… کاسبانه می‌درخشم."
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "من برایت می‌گذارمش. مجانی! منظورم گذاشتنش است."
@@ -3611,6 +3632,9 @@ msgstr "وقتی قوی‌تر شدی، اینجا مهارت یاد می‌گی
 
 msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
 msgstr "هر کس این را می‌خواند: هرگز چیزی را با قیمت دوستانه نخر!"
+
+msgid "Wer hier kauft, kriegt einen Eiszapfen gratis. Der von meiner Nase. Ehrlich!"
+msgstr "هر کی اینجا بخره یه قندیل یخ مجانی می‌گیره. همونی که از دماغم آویزونه. راست می‌گم!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "تیری که بکشد با باقیمانده ادامه می‌دهد"
