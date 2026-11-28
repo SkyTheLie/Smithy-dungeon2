@@ -69,7 +69,7 @@ static func floors(id: String = "") -> Array:
 
 ## Floor `index` of a dungeon with the values of its theme (name, textures, music, enemies,
 ## bosses); values of the floor itself win. The dungeon's numbers (dungeons.json) are worked in:
-## hp_mult = floor x dungeon, exp_mult and shop_mult (dungeon, the shop also floors.json shop
+## hp_mult = floor x dungeon, damage_mult = enemy damage (floor x dungeon), exp_mult and shop_mult (dungeon, the shop also floors.json shop
 ## floor_step dearer per floor). A new Dictionary each call (called once per floor).
 static func floor_data(index: int, id: String = "") -> Dictionary:
 	var list: Array = floors(id)
@@ -82,6 +82,7 @@ static func floor_data(index: int, id: String = "") -> Dictionary:
 	var info: Dictionary = dungeon(id)
 	result["hp_mult"] = float(result.get("hp_mult", 1.0)) * float(info.get("hp_mult", 1.0))
 	result["exp_mult"] = float(info.get("exp_mult", 1.0))
+	result["damage_mult"] = float(result.get("damage_mult", 1.0)) * float(info.get("damage_mult", 1.0))
 	var step: float = float((floors_extra("shop") as Dictionary).get("floor_step", 0.0))
 	result["shop_mult"] = float(info.get("shop_mult", 1.0)) * (1.0 + step * index)
 	return result

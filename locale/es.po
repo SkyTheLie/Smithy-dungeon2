@@ -2742,6 +2742,9 @@ msgstr "Joya de zafiro"
 msgid "Schaden"
 msgstr "Daño"
 
+msgid "Schaden +0,4."
+msgstr "Daño +0,4."
+
 msgid "Schaden +0,5."
 msgstr "Daño +0,5."
 

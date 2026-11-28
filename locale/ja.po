@@ -2742,6 +2742,9 @@ msgstr "サファイアの宝石"
 msgid "Schaden"
 msgstr "ダメージ"
 
+msgid "Schaden +0,4."
+msgstr "ダメージ +0.4。"
+
 msgid "Schaden +0,5."
 msgstr "ダメージ+0.5。"
 

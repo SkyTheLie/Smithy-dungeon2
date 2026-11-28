@@ -2742,6 +2742,9 @@ msgstr "Joyau de saphir"
 msgid "Schaden"
 msgstr "Dégâts"
 
+msgid "Schaden +0,4."
+msgstr "Dégâts +0,4."
+
 msgid "Schaden +0,5."
 msgstr "Dégâts +0,5."
 

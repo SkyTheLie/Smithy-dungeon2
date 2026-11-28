@@ -1327,5 +1327,6 @@
 	"Tastenhilfe anzeigen": {"en": "Show key help", "es": "Mostrar ayuda de teclas", "fr": "Afficher l'aide des touches", "pt": "Mostrar ajuda de teclas", "ru": "Показывать подсказки клавиш", "ja": "キー操作のヒントを表示", "zh": "显示按键提示", "fa": "نمایش راهنمای کلیدها"},
 	"Tempo +0,25.": {"en": "Speed +0.25.", "es": "Velocidad +0,25.", "fr": "Vitesse +0,25.", "pt": "Velocidade +0,25.", "ru": "Скорость +0,25.", "ja": "速さ +0.25。", "zh": "速度 +0.25。", "fa": "سرعت +۰٫۲۵."},
 	"Erst wenn offen: %s": {"en": "Only once open: %s", "es": "Solo cuando esté abierto: %s", "fr": "Seulement une fois ouvert : %s", "pt": "Só quando estiver aberto: %s", "ru": "Только когда открыт: %s", "ja": "開放後のみ：%s", "zh": "开放后才可学：%s", "fa": "فقط وقتی باز شد: %s"},
-	"Dungeon noch nicht offen": {"en": "Dungeon not open yet", "es": "La mazmorra aún no está abierta", "fr": "Donjon pas encore ouvert", "pt": "Masmorra ainda não aberta", "ru": "Подземелье ещё закрыто", "ja": "ダンジョンがまだ開いていない", "zh": "地牢尚未开放", "fa": "سیاه‌چال هنوز باز نشده"}
+	"Dungeon noch nicht offen": {"en": "Dungeon not open yet", "es": "La mazmorra aún no está abierta", "fr": "Donjon pas encore ouvert", "pt": "Masmorra ainda não aberta", "ru": "Подземелье ещё закрыто", "ja": "ダンジョンがまだ開いていない", "zh": "地牢尚未开放", "fa": "سیاه‌چال هنوز باز نشده"},
+	"Schaden +0,4.": {"en": "Damage +0.4.", "es": "Daño +0,4.", "fr": "Dégâts +0,4.", "pt": "Dano +0,4.", "ru": "Урон +0,4.", "ja": "ダメージ +0.4。", "zh": "伤害 +0.4。", "fa": "آسیب +۰٫۴."}
 }

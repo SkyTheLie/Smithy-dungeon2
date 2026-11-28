@@ -296,7 +296,7 @@ func _wall_ghost(delta: float, distance: float) -> void:
 		Ghost.CLAW:
 			if _left <= 0.0:
 				if distance < float(data.get("reach", 1.7)) + 0.3:
-					enemy.player.take_hit(int(data.get("damage", 2)))
+					enemy.player.take_hit(enemy.hit_damage(int(data.get("damage", 2))))
 				enemy.sound("swing", 0.8)
 				_sink(data)
 
