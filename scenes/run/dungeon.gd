@@ -296,7 +296,8 @@ func _build_room(cell: Vector2i) -> void:
 		FloorLayout.START_ROOM:
 			if not guide:
 				_add_controls_hint(room)
-			_add_exit(room)
+			if _rolls_exit():
+				add_exit()
 		FloorLayout.NORMAL when cell == guide_cell:
 			room.spawn_list.append(GUIDE_ENEMY)
 		FloorLayout.NORMAL:
@@ -376,8 +377,21 @@ func guide_room_cleared() -> bool:
 	return rooms.has(guide_cell) and rooms[guide_cell].cleared
 
 
+## Is there a ladder out on this floor? floors.json "exit" chance (a floor may set its own
+## "exit_chance"); own random numbers, so the rooms stay the same for a seed.
+func _rolls_exit() -> bool:
+	var chance: float = float(floor_data.get("exit_chance", (Content.floors_extra("exit") as Dictionary).get("chance", 1.0)))
+	var exit_rng := RandomNumberGenerator.new()
+	exit_rng.seed = hash([run.seed_value, floor_index, "exit"])
+	return exit_rng.randf() < chance
+
+
 ## The way out: a ladder in the back left corner of the start room (corners never have doors).
-func _add_exit(room: DungeonRoom) -> void:
+## Only on some floors (_rolls_exit); tests may put it there by hand. Does nothing twice.
+func add_exit() -> void:
+	if not rooms.has(FloorLayout.START) or (rooms[FloorLayout.START] as Node).has_node("Exit"):
+		return
+	var room: DungeonRoom = rooms[FloorLayout.START]
 	var way_out := DungeonExit.new()
 	way_out.name = "Exit"
 	way_out.player = player

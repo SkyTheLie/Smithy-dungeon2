@@ -28,9 +28,12 @@ func _bag() -> void:
 	check_eq(bag.call("add", "rotten_staff", 1), 0, "a staff (4 x 1) fits below the furs")
 	var staff: int = _index_of(bag, "rotten_staff")
 	check_eq(_at(bag, staff), Vector2i(0, 2), "lying in the bottom row")
-	check_eq(bag.call("room_for", "amber"), 0, "no room for a 2 x 2 any more")
-	check_eq(bag.call("add", "amber", 1), 1, "a full bag refuses new loot")
-	check_eq(bag.call("room_for", "coal"), 3, "but the last column takes 3 small things")
+	check_eq(bag.call("room_for", "amber"), 1, "the bag is full, the safe place still takes a 2 x 2")
+	check_eq(bag.call("add", "amber", 1), 0, "so new loot goes there")
+	check(bag.call("is_safe", _index_of(bag, "amber")), "the amber lies in the safe place")
+	check_eq(bag.call("add", "amber", 1), 1, "a full bag and safe place refuse new loot")
+	bag.call("take", _index_of(bag, "amber"))
+	check_eq(bag.call("room_for", "coal"), 7, "but the last column takes 3 small things, the safe place 4")
 	check_eq(bag.call("add", "nonsense", 1), 1, "unknown loot is refused")
 	check_eq(bag.call("add", "rat_fur", 0), 0, "nothing to add: nothing happens")
 	check_eq(bag.call("add", "rat_fur", -4), 0, "negative amounts are refused")
@@ -39,7 +42,7 @@ func _bag() -> void:
 	check_eq(bag.call("add", "gold", 30), 0, "more gold")
 	check_eq((bag.call("get_place", _index_of(bag, "gold")) as Dictionary).get("count"), 80, "only gold stacks")
 	for i: int in bag.call("size"):
-		check(not bag.call("is_safe", i), "the safe place is only filled by hand (%d)" % i)
+		check(not bag.call("is_safe", i), "while the bag has room, the safe place stays free (%d)" % i)
 
 	# Drag and drop: into the safe place, swapping, turning.
 	check(bag.call("move_to", 0, safe_origin, false), "a rat fur fits into the safe place")
@@ -72,6 +75,15 @@ func _bag() -> void:
 	check_eq(kept.size(), 1, "death: only the safe place is left")
 	check_eq((kept[0] as Dictionary).get("id"), "rat_fur", "with its loot")
 	check_eq((bag.call("contents") as Array).size(), 1, "the bag holds nothing else")
+
+	# The safe place is a part of the bag: its stacks fill up and count.
+	var pouch: Object = script("res://scripts/systems/bag.gd").new()
+	check(pouch.call("put_at", safe_origin, "bomb", 2, false), "2 bombs in the safe place")
+	check_eq(pouch.call("add", "bomb", 2), 0, "picked up bombs")
+	check_eq(pouch.call("size"), 1, "they go onto the stack in the safe place")
+	check_eq(pouch.call("count_of", "bomb"), 4, "and count")
+	check(pouch.call("remove", "bomb", 1), "a bomb from the safe place can be thrown")
+	check_eq(pouch.call("count_of", "bomb"), 3, "one less")
 
 
 func _index_of(bag: Object, id: String) -> int:
@@ -184,14 +196,14 @@ func _end_of_run() -> void:
 	check_eq(home.size(), 3, "the loot stays in the bag")
 	check((meta.call("stash") as Array).is_empty(), "nothing goes into the stash by itself")
 	meta.call("end_run", 0, [{"id": "rat_fur", "count": 5}, {"id": "amber", "count": 1}] as Array[Dictionary], _rng(4))
-	check_eq((meta.call("bag_places") as Array).size(), 4, "a full bag: four 2 x 2 fit into 8 x 3")
-	check_eq((meta.call("stash") as Array).size(), 2, "what has no room in the bag goes into the stash")
+	check_eq((meta.call("bag_places") as Array).size(), 5, "a full bag: four 2 x 2 fit into 8 x 3, one into the safe place")
+	check_eq((meta.call("stash") as Array).size(), 1, "what has no room in the bag goes into the stash")
 	meta.call("reload")
-	check_eq((meta.call("bag_places") as Array).size(), 4, "the bag is saved")
+	check_eq((meta.call("bag_places") as Array).size(), 5, "the bag is saved")
 	# Bag and stash: moving, selling.
 	check(meta.call("move_in_bag", 0, Vector2i(0, 0), false), "moving in the bag (onto itself)")
 	check(meta.call("bag_to_stash", 0), "a fur from the bag into the stash")
-	check_eq((meta.call("bag_places") as Array).size(), 3, "one less in the bag")
+	check_eq((meta.call("bag_places") as Array).size(), 4, "one less in the bag")
 	var stash_fur: int = (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur" and place.has("x"))
 	check(not meta.call("stash_fits_bag", stash_fur, Vector2i(7, 0), false), "half outside the bag: no")
 	var free: Dictionary = (meta.call("_bag_model") as Object).call("free_spot", "rat_fur")
@@ -315,7 +327,7 @@ func _sell_in_dungeon() -> void:
 	(full.get("bag") as Object).call("clear")
 	var full_bag: Object = full.get("bag")
 	full_bag.call("add", "coal", 24)
-	check_eq(full_bag.call("room_for", "coal"), 0, "the bag is full of coal")
+	check_eq(full_bag.call("room_for", "coal"), 4, "the bag is full of coal, only the safe place has room")
 	check(full_bag.call("put_at", full_bag.get("SAFE_ORIGIN"), "rat_fur", 1, false), "a fur in the safe place")
 	check_eq(full.call("sell_from_bag", _index_of(full_bag, "rat_fur")), 2, "fur from the safe place")
 	check(full_bag.call("is_safe", _index_of(full_bag, "gold")), "the gold lies in the safe place then")

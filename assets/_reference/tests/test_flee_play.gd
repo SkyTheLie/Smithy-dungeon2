@@ -142,8 +142,12 @@ func _bag_map() -> void:
 
 
 func _flee() -> void:
+	# The ladder stands only on some floors (floors.json exit.chance); here it is put there by hand.
+	dungeon.call("add_exit")
 	var way_out: Node3D = dungeon.find_child("Exit", true, false)
 	check(way_out != null, "the start room has a way out")
+	dungeon.call("add_exit")
+	check_eq(dungeon.find_children("Exit", "", true, false).size(), 1, "only one ladder")
 	run_state.call("add_coins", 40)
 	(run_state.get("bag") as Object).call("add", "rat_fur", 3)
 	var coins: int = run_state.get("coins")
