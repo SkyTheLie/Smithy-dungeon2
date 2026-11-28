@@ -2,6 +2,7 @@
 
 Neue Entscheidungen unten anhängen (Datum, was, warum).
 
+- **2026-11-28 · Gegner-Schaden je Dungeon** (`dungeons.json` `damage_mult`) statt Schaden je Gegner von Hand anzuheben: ein Wert je Dungeon, alle Angriffe ziehen mit; Ziel 6–8 Treffer bis zum Tod beim Betreten. Kraft +0,4 statt +0,5 je Stufe. Zahlen: `docs/BALANCE.md`.
 - **2026-11-28 · Skills hängen am Dungeon-Fortschritt** (`skills.json` `dungeon`): große Stufen erst, wenn der passende Dungeon offen ist; Punkt-Skills kosten zusammen mehr, als man bekommt (31 zu ~26), damit es eine Wahl gibt; Kraft teurer, Flinke Hände/Leichtfuß stärker, Blaues Herz 2 Punkte, keine Stufe mehr erst ab 30. Begründung und Zahlen: `docs/BALANCE.md`, „Skill-Überarbeitung“.
 - **2026-11-26 · Eigenes Projekt neben Smithy** (`Game/dungeon_smithy`), Assets kopiert statt verlinkt: Smithy bleibt unberührt, beide Spiele können sich unabhängig ändern.
 - **2026-11-26 · 3D-Räume, Gegner/Items als Billboards:** Smithy-Grafik ist 2D; Billboards (`Sprite3D`, immer zur Kamera) nutzen sie direkt.

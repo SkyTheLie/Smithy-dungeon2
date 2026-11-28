@@ -83,6 +83,21 @@ Gold-Preise blieben: Sie liegen wie geplant bei etwa einem Run des Dungeons, in 
 
 **Größere Dose** (Gruppe „Laden“): +300 sicheres Gold je Stufe (bis 1 400). Ohne sie ist das Limit 200 – wer später sparen will, muss das Risiko tragen oder in die Dose investieren.
 
+## Gegner je Dungeon stärker (2026-11-28, `feature/gegner-skalierung`)
+
+Vorher stieg der Gegner-Schaden kaum (im Schnitt 1,4 halbe Kohlen in der Glut, 1,9 im Glutschlund), das Leben des Spielers mit Eisen/Silber/Gold-Rüstung aber stark: Spätere Dungeons waren gefährlicher zu laufen als zu kämpfen (Glut 7 Treffer bis zum Tod, Frost 12, Wiese 14). Jetzt:
+
+- **`damage_mult` je Dungeon** (`dungeons.json`, wirkt auf Berührung, Schüsse, Laser, Krallen, Säure, Meteoriten der Gegner; `Enemy.hit_damage`, gerundet, mindestens ½ Kohle): Glut 1,0 · Moor 1,3 · Wiese 1,7 · Frost 1,6 · Glutschlund 2,0. Ergebnis (Rechner, Abschnitt „Gegner-Schaden je Dungeon“): in jedem Dungeon **6–8 Treffer bis zum Tod** mit der Rüstung, die man beim Betreten erwarten kann. Weil die Schuss-Farbe am Schaden hängt, sieht man es auch: im Glutschlund sind normale Schüsse rot oder violett statt grün.
+- **Mehr Leben:** Moor 2,0 → 2,3, Wiese 2,5 → 2,7. Frost und Glutschlund bleiben bei 3,0 und 4,2: Weil **Kraft jetzt +0,4 statt +0,5** Schaden je Stufe gibt, brauchen Gegner dort schon etwa 8 % mehr Schüsse und liegen am oberen Rand des Ziels.
+- Fallen (Gift, Lava, Pfeile, Stachelsteine) skalieren nicht mit; sie haben je Dungeon eigene Werte.
+
+| Spieler (Kraft je Stufe 0,4) | Schaden | Ebene 1 | Ebene 6 | Boss Ebene 6 |
+|---|---|---|---|---|
+| Ende Dungeon 1 (Bronze R2, Kraft 2) | 2,55 | 1,5 | 4,6 | 69 |
+| Start Moor (Eisen R2, Kraft 3) | 3,6 | 3,2 | 7,3 | 116 |
+| Start Frost (Silber R2, Kraft 4) | 4,8 | 4,1 | 6,7 | 120 |
+| Start Vulkan (Gold R3, Kraft 5) | 6,75 | 3,9 | 8,1 | 118 |
+
 ## Schwierigkeit: Schüsse je Gegner
 
 Der Rechner nimmt an, wie stark man beim Betreten ist (nur Waffe, Handschuhe und Kraft, ohne Items des Runs; tiefe Ebenen mit Items ×1,6):

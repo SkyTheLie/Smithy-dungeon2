@@ -150,6 +150,7 @@ Reihenfolge (klein zuerst): Schuss-Farben → Untote stehen auf → Geister unsi
 - ✅ Sturmadler-Boss (Meteoriten, Sturzflug, Windstoß; `storm_eagle`, `feature/vogel-boss`).
 - ✅ Säurewurm-Boss (Sprung aus dem Boden, Säurepfützen; `acid_worm`, `feature/wurm-boss`).
 - ✅ Wandgeist: kommt aus der Wand, zieht an, Kralle (`wall_wraith`, ai `wall_ghost`, `feature/wand-geist`).
+- ✅ Gegner machen je Dungeon mehr Schaden (`damage_mult`), Moor/Wiese mehr Leben, Kraft +0,4 (`feature/gegner-skalierung`).
 - ✅ Skills überarbeitet: große Stufen am Dungeon-Fortschritt, Punkte reichen nicht für alles, Kraft/Blaues Herz teurer, schwache Skills stärker (`feature/skills-dungeons`).
 - ✅ Musik wird je Boss-Phase schneller (`feature/boss-musik`).
 - ✅ Boss-Phasen für alle Bosse (50 %: neues Muster, 25 %: Wut; Brüllen dazwischen, Striche am Balken; `enemies.json` `boss_phases`, `feature/boss-phasen`).

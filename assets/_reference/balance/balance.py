@@ -124,7 +124,8 @@ def player_damage(material, rarity, kraft):
     base = load("player")["stats"]["damage"]
     weapon = gear["gear"]["%s_staff" % material]["stats"]["damage"] * factor
     gloves = gear["gear"]["%s_gloves" % material]["stats"]["damage"] * factor
-    return base + weapon + gloves + 0.5 * kraft
+    per_level = skills["kraft"]["effect"]["stats"]["damage"]
+    return base + weapon + gloves + per_level * kraft
 
 
 def main():
@@ -152,6 +153,7 @@ def main():
         rows = floor_report(dungeon)
         out.write("%-40s Schaden %.2f: Ebene 1 %.1f Schüsse, Ebene 6 %.1f, Boss 6: %.0f Schüsse\n" % (
             label, dmg, rows[0]["hp"] / dmg, rows[-1]["hp"] / (dmg * RUN_ITEMS), rows[-1]["boss_hp"] / (dmg * RUN_ITEMS)))
+    damage_report(out)
     out.write("\n== Stufen (EXP gesamt)\n")
     for lvl in (1, 2, 3, 5, 8, 10, 12, 15, 18, 20, 25, 30):
         out.write("Stufe %2d: %6d EXP\n" % (lvl, exp_total(lvl)))
@@ -162,6 +164,35 @@ def main():
         out.write("%-24s %4d / %4d / %4d   %s %s\n" % (gid, p, round(p * factors[1]), round(p * factors[2]), g.get("stats"), g.get("unlock", g.get("min_level", ""))))
     skill_report(out)
     out.write("\nHebel: %s\n" % shop.get("roll_prices"))
+
+
+# Gear the player wears when he enters a dungeon (material, rarity), for his shield hearts.
+ARMOUR_MODEL = {"glut": ("copper", 1), "moor": ("iron", 2), "wiese": ("iron", 2), "frost": ("silver", 2), "vulkan": ("gold", 3)}
+
+
+def damage_report(out):
+    """Enemy damage per dungeon after damage_mult (as Enemy.hit_damage) against the player's life:
+    3 red hearts + shield hearts of helmet, chest and legs of the expected gear."""
+    out.write("\n== Gegner-Schaden je Dungeon (nach damage_mult) gegen das Leben beim Betreten\n")
+    for did, d in dungeons.items():
+        mult = float(d.get("damage_mult", 1.0))
+        weights = 0
+        total = 0.0
+        biggest = 0
+        for entry in floor_list(did):
+            theme = floors_file["themes"][entry["theme"]]
+            for eid, w in theme.get("enemies", []):
+                hit = max(1, round(enemies[eid].get("damage", 1) * mult + 1e-9)) if enemies[eid].get("damage", 1) > 0 else 0
+                total += hit * w
+                weights += w
+                biggest = max(biggest, hit)
+        material, rarity = ARMOUR_MODEL.get(did, ("copper", 1))
+        factor = gear["rarity_stats"][rarity - 1]
+        shield = sum(gear["gear"]["%s_%s" % (material, part)]["stats"].get("shield_hearts", 0) for part in ("helmet", "chest", "legs")) * factor
+        life = 2 * (load("player").get("hearts", 3) + shield)
+        avg = total / max(1, weights)
+        out.write("%-22s x%.1f  Treffer im Schnitt %.1f halbe Kohlen (stärkster %d), Leben %.0f halbe Kohlen = %.0f Treffer bis zum Tod\n" % (
+            d.get("name", did), mult, avg, biggest, life, life / avg))
 
 
 # Where the player is when a dungeon opens (player level after the dungeons before, see

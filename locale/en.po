@@ -2742,6 +2742,9 @@ msgstr "Sapphire Jewel"
 msgid "Schaden"
 msgstr "Damage"
 
+msgid "Schaden +0,4."
+msgstr "Damage +0.4."
+
 msgid "Schaden +0,5."
 msgstr "Damage +0.5."
 

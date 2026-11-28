@@ -728,6 +728,15 @@ func _next_vanish(cfg: Dictionary) -> float:
 	return randf_range(float(every[0]), float(every[1]))
 
 
+## Damage in half hearts after the dungeon's "damage_mult" (dungeons.json, floors.json): deeper
+## dungeons hurt more. Never less than half a heart; 0 stays 0 (the practice rat).
+func hit_damage(halves: int) -> int:
+	if halves <= 0:
+		return 0
+	var mult: float = float(dungeon.floor_data.get("damage_mult", 1.0)) if dungeon else 1.0
+	return maxi(1, roundi(halves * mult))
+
+
 ## Height above the floor of its picture (a boss jumping in an arc).
 func set_jump(height_now: float) -> void:
 	_jump_y = height_now
@@ -755,7 +764,7 @@ func lob_acid(at: Vector3, time: float) -> void:
 		Fx.puff(effects, target + Vector3(0, 0.2, 0), "shot_1", 1.0)
 		AudioManager.play_sound_at("enemy_shoot", target, effects, 0.55)
 		if player and not player.flying() and Vector2(player.global_position.x - target.x, player.global_position.z - target.z).length() < 0.9:
-			player.take_hit(1)
+			player.take_hit(hit_damage(1))
 		if is_instance_valid(dungeon):
 			dungeon.add_hazard("acid", target, float(data.get("acid_life", 6.0)))
 	var tween := blob.create_tween()
@@ -786,7 +795,7 @@ func drop_meteor(at: Vector3, time: float) -> void:
 		Fx.explosion(effects, target, 1.1)
 		AudioManager.play_sound_at("explosion", target, effects, randf_range(0.8, 0.95))
 		if player and Vector2(player.global_position.x - target.x, player.global_position.z - target.z).length() < 1.1:
-			player.take_hit(int(data.get("damage", 2)))
+			player.take_hit(hit_damage(int(data.get("damage", 2))))
 		if player:
 			player.shake(0.15)
 		if is_instance_valid(dungeon):
@@ -930,7 +939,7 @@ func _physics_process(delta: float) -> void:
 	# "damage" 0 (the practice rat of the guide): touching does nothing.
 	if distance < radius + player.hit_radius() + 0.1 and _freeze_left <= 0.0 and not hidden_phase and not invisible and int(data.get("damage", 1)) > 0:
 		var life_before: int = player.run.health + player.run.blue if player.run else 0
-		player.take_hit(int(data.get("damage", 1)))
+		player.take_hit(hit_damage(int(data.get("damage", 1))))
 		# lifesteal: the boss heals when it hurts the player.
 		if player.run and (data.get("traits", []) as Array).has("lifesteal") and player.run.health + player.run.blue < life_before:
 			hp = minf(max_hp, hp + max_hp * 0.08)
@@ -1012,7 +1021,7 @@ func shoot_from(at: Vector3, direction: Vector3, options: Dictionary) -> void:
 	shot.homing = float(options.get("homing", 0.0))
 	shot.lifetime = float(options.get("life", EnemyShot.LIFETIME))
 	shot.arrow = bool(options.get("arrow", false))
-	shot.damage = maxi(1, int(options.get("damage", 1)))
+	shot.damage = hit_damage(maxi(1, int(options.get("damage", 1))))
 	if bool(options.get("returns", false)):
 		shot.returns_to = self
 	dungeon.effects.add_child(shot)
@@ -1075,7 +1084,7 @@ func fire_beam(direction: Vector3, options: Dictionary) -> EnemyBeam:
 	beam.aim_time = float(options.get("aim", 0.8))
 	beam.fire_time = float(options.get("fire", 0.6))
 	beam.width = float(options.get("width", 0.5))
-	beam.damage = int(options.get("damage", 1))
+	beam.damage = hit_damage(int(options.get("damage", 1)))
 	beam.sweep = float(options.get("sweep", 0.0))
 	beam.track = bool(options.get("track", false))
 	beam.color = EnemyShot.color_for(beam.damage)
@@ -1188,7 +1197,7 @@ func hurt_player_near(distance: float) -> void:
 	var offset: Vector3 = player.global_position - global_position
 	offset.y = 0.0
 	if offset.length() < distance + radius:
-		player.take_hit(int(data.get("damage", 2)))
+		player.take_hit(hit_damage(int(data.get("damage", 2))))
 
 
 ## A sound of this enemy: it comes from where it stands (3D, AudioManager.play_sound_at).

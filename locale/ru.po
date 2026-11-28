@@ -2742,6 +2742,9 @@ msgstr "Сапфировый самоцвет"
 msgid "Schaden"
 msgstr "Урон"
 
+msgid "Schaden +0,4."
+msgstr "Урон +0,4."
+
 msgid "Schaden +0,5."
 msgstr "Урон +0,5."
 

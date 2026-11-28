@@ -2742,6 +2742,9 @@ msgstr "蓝宝石珠宝"
 msgid "Schaden"
 msgstr "伤害"
 
+msgid "Schaden +0,4."
+msgstr "伤害 +0.4。"
+
 msgid "Schaden +0,5."
 msgstr "伤害+0.5。"
 

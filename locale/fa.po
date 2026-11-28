@@ -2742,6 +2742,9 @@ msgstr "جواهر یاقوت کبود"
 msgid "Schaden"
 msgstr "آسیب"
 
+msgid "Schaden +0,4."
+msgstr "آسیب +۰٫۴."
+
 msgid "Schaden +0,5."
 msgstr "آسیب +۰٫۵."
 
