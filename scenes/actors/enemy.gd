@@ -807,7 +807,8 @@ func shoot_from(at: Vector3, direction: Vector3, options: Dictionary) -> void:
 		shot.returns_to = self
 	dungeon.effects.add_child(shot)
 	shot.global_position = Vector3(at.x, 0.8, at.z)
-	sound("enemy_shoot", randf_range(1.2, 1.5))
+	var pitch: float = EnemyShot.pitch_for(shot.damage)
+	sound("enemy_shoot", randf_range(pitch - 0.1, pitch + 0.1))
 
 
 ## A fan of `count` shots at the player.
@@ -854,7 +855,8 @@ func shoot_pattern(pattern: String, options: Dictionary) -> void:
 
 ## A laser (EnemyBeam) along `direction`. `options`: aim (warning seconds), fire (seconds),
 ## width, damage (half hearts), sweep (turning while firing, radians per second), track (the
-## warning line follows the player), color.
+## warning line follows the player), color (only for an intended exception; normally the colour
+## comes from the damage like a shot's, EnemyShot.color_for).
 func fire_beam(direction: Vector3, options: Dictionary) -> EnemyBeam:
 	var beam := EnemyBeam.new()
 	beam.source = self
@@ -866,6 +868,7 @@ func fire_beam(direction: Vector3, options: Dictionary) -> EnemyBeam:
 	beam.damage = int(options.get("damage", 1))
 	beam.sweep = float(options.get("sweep", 0.0))
 	beam.track = bool(options.get("track", false))
+	beam.color = EnemyShot.color_for(beam.damage)
 	if options.has("color"):
 		beam.color = options["color"]
 	dungeon.effects.add_child(beam)

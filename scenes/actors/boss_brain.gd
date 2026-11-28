@@ -47,7 +47,6 @@ const SNARE_RING: float = 1.5
 const DRAW_TIME: float = 1.0
 const DRAW_QUICK: float = 0.55
 const RELEASE: float = 0.35
-const BEAM_COLOR := Color(0.55, 0.85, 1.0)
 
 var boss: Enemy
 
@@ -254,12 +253,12 @@ func _start(toward: Vector3) -> void:
 			_left = 1.6
 			var aim: float = 0.7 if angry() else 0.9
 			for angle: float in ([-30.0, 0.0, 30.0] if angry() else [0.0]):
-				boss.fire_beam(toward.rotated(Vector3.UP, deg_to_rad(angle)), {"aim": aim, "fire": 0.6, "width": 0.6, "damage": 2, "color": BEAM_COLOR})
+				boss.fire_beam(toward.rotated(Vector3.UP, deg_to_rad(angle)), {"aim": aim, "fire": 0.6, "width": 0.6, "damage": 2})
 		"laser_sweep":
 			_left = 3.0
 			var way: float = 1.0 if boss.rng.randf() < 0.5 else -1.0
 			# Starts beside the player and sweeps across them; behind the boss stays safe.
-			boss.fire_beam(toward.rotated(Vector3.UP, -way * 1.2), {"aim": 0.8, "fire": 2.0, "width": 0.5, "damage": 1, "sweep": way * (1.4 if angry() else 1.1), "color": BEAM_COLOR})
+			boss.fire_beam(toward.rotated(Vector3.UP, -way * 1.2), {"aim": 0.8, "fire": 2.0, "width": 0.5, "damage": 1, "sweep": way * (1.4 if angry() else 1.1)})
 		"cross":
 			_left = 1.1
 			boss.shoot_pattern("cross", {"speed": 0.9})

@@ -27,6 +27,19 @@ static func ball_texture(kind: String) -> Texture2D:
 		colors = [Color(0.9, 1, 0.9), Color(0.5, 1, 0.55), Color(0.2, 0.8, 0.35), Color(0.1, 0.45, 0.2)]
 	elif kind == "grass":
 		colors = [Color(0.75, 0.9, 0.45), Color(0.45, 0.7, 0.25), Color(0.3, 0.5, 0.15), Color(0.2, 0.35, 0.1)]
+	return _make_ball(kind, colors)
+
+
+## A ball like ball_texture, in its own colours: `core` in the middle, `color` outside (two
+## steps in between and a darker rim). Kept under `kind`, so Fx.puff(…, kind, …) can use it too.
+static func colored_ball(kind: String, core: Color, color: Color) -> Texture2D:
+	if _textures.has(kind):
+		return _textures[kind]
+	var colors: Array[Color] = [core, core.lerp(color, 0.55), color, color.darkened(0.5)]
+	return _make_ball(kind, colors)
+
+
+static func _make_ball(kind: String, colors: Array[Color]) -> Texture2D:
 	var image := Image.create(FIRE_SIZE, FIRE_SIZE, false, Image.FORMAT_RGBA8)
 	var center := Vector2(FIRE_SIZE, FIRE_SIZE) / 2.0 - Vector2(0.5, 0.5)
 	for y in FIRE_SIZE:

@@ -314,7 +314,7 @@ Ergänzt Punkt 8 „Komfort“ oben (Shift+Klick, „Alle Beute verkaufen“, Ve
 
 ## Gegner, Bosse, Schuss-Farben (Nachricht vom 2026-11-28)
 
-### Schuss-Farbe = Schaden
+### Schuss-Farbe = Schaden – ✅ gebaut (`feature/schuss-farben`; Farbenblind-Formen noch offen)
 
 Jeder Gegner-Schuss bekommt seine Farbe **aus dem Schaden** (eine Tabelle in den Daten, z. B. `enemies.json` `shot_colors`; nie je Gegner von Hand). So sieht man sofort, wie gefährlich ein Schuss ist.
 
@@ -396,7 +396,7 @@ Drei Arten, Werte und Beute in den Daten (z. B. `data/chests.json`: Art, Bild, B
 - Jede Art sieht man sofort an (Farbe/Beschläge); Tooltip bzw. kurzer Text beim Anschauen: „Verschlossen“ / „Nur mit Schlüssel“.
 - Ton je Aktion: Holz knarzt, Schloss klickt, Tresor-Runen summen, Aufsprengen splittert.
 - Zählt zum Raum-Budget der Beute (`loot.json` `room_budget`) wie zerbrechliche Deko; Kisten geben ihre eigene Beute obendrauf nur, wenn der Raum das erlaubt (Wert in den Daten).
-- Eisenschlüssel (bleibt über Runs) und zerbrechliche Schlüssel öffnen beide; Tresorkisten vielleicht nur mit Eisenschlüssel (offen).
+- Eisenschlüssel (bleibt über Runs) und zerbrechliche Schlüssel öffnen beide; auch Tresorkisten (entschieden 2026-11-28: „Schlüssel ist Schlüssel“).
 
 ### Stein-Kammer (Raum-Art)
 
