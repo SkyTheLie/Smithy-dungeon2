@@ -170,6 +170,7 @@ func build(run_state: RunState, the_player: Player, index: int) -> void:
 	for cell: Vector2i in layout.rooms:
 		_build_room(cell)
 	_build_doors()
+	_add_writings()
 	if guide:
 		for door: Door in doors_of(FloorLayout.START):
 			door.set_closed(true)
@@ -311,6 +312,23 @@ func _build_room(cell: Vector2i) -> void:
 			_build_secret_room(room)
 		FloorLayout.SACRIFICE:
 			_build_sacrifice_room(room)
+
+
+## Lines of earlier adventurers on the walls of some normal rooms (floors.json "writings",
+## lines in story.json "walls" / "walls_<dungeon>"), own random numbers per floor.
+func _add_writings() -> void:
+	var cells: Array[Vector2i] = []
+	for cell: Vector2i in layout.rooms:
+		if layout.get_type(cell) == FloorLayout.NORMAL and cell != guide_cell:
+			cells.append(cell)
+	var lines: Array[String] = RoomWriting.lines_for(Content.dungeon_id())
+	var chosen: Dictionary[Vector2i, String] = RoomWriting.plan(cells, lines, Content.floors_extra("writings"), hash([run.seed_value, floor_index, "writings"]))
+	for cell: Vector2i in chosen:
+		var door_dirs: Array[Vector2i] = []
+		for dir: Vector2i in FloorLayout.DIRECTIONS:
+			if layout.rooms.has(cell + dir):
+				door_dirs.append(dir)
+		RoomWriting.add_writing(rooms[cell], chosen[cell], door_dirs, hash([floor_index, cell, "writing"]))
 
 
 ## The wall picture of the room at `cell` (room style or floor).

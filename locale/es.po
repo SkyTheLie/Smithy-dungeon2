@@ -369,6 +369,9 @@ msgstr "La piel de un gigante de hielo."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "El oro de esta partida. Si mueres, se pierde, salvo en el espacio seguro."
 
+msgid "Das Gras raschelt. Das Gras raschelt immer. Bis es beißt."
+msgstr "La hierba cruje. La hierba siempre cruje. Hasta que muerde."
+
 msgid "Das Herz des Drachen"
 msgstr "El corazón del dragón"
 
@@ -449,6 +452,9 @@ msgstr "El mercader compra botín: Tab, clic derecho"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "¡El ópalo! ¡Brilla! Casi tanto como mi futuro."
+
+msgid "Der Rubin gehört mir! … Gehörte."
+msgstr "¡El rubí es mío! … Era."
 
 msgid "Der Stein liegt in deinem Inventar!"
 msgstr "¡La piedra está en tu inventario!"
@@ -702,8 +708,14 @@ msgstr "Egon Honrado, encantado. Honrado es mi nombre, honrado mi negocio. ¡De 
 msgid "Egon hat gerade keinen Auftrag."
 msgstr "Egon no tiene ningún encargo ahora."
 
+msgid "Egon hat gesagt, hier unten ist es sicher. Egon hat gelogen. – B."
+msgstr "Egon dijo que aquí abajo es seguro. Egon mintió. – B."
+
 msgid "Egon könnte klauen!"
 msgstr "¡Egon podría robar!"
+
+msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
+msgstr "Egon nunca estuvo aquí, dice. ¿Y de quién son estas huellas de botas chamuscadas?"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "A Egon se le ponen los ojos como platos."
@@ -713,6 +725,9 @@ msgstr "El rubí de brasa de Egon"
 
 msgid "Egons Laden"
 msgstr "La tienda de Egon"
+
+msgid "Egons Laterne ging nach einer Stunde aus. Garantie: eine Stunde."
+msgstr "La linterna de Egon se apagó al cabo de una hora. Garantía: una hora."
 
 msgid "Eigene"
 msgstr "Personalizado"
@@ -1116,6 +1131,9 @@ msgstr "Fuego líquido en una botella."
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Susurra en voz baja cuando está oscuro."
 
+msgid "Folge nicht den Lichtern. Ich bin ihnen gefolgt. Jetzt schreib ich an Wände."
+msgstr "No sigas las luces. Yo las seguí. Ahora escribo en las paredes."
+
 msgid "Freigeschaltet: %s"
 msgstr "Desbloqueado: %s"
 
@@ -1190,6 +1208,9 @@ msgstr "Para ti: una varita de cobre, un casco y un peto. ¡La primera compra in
 
 msgid "Füße"
 msgstr "Pies"
+
+msgid "Ganz unten wartet ein Schatz, sagt Egon. Ganz unten wartet ein Lich, sag ich."
+msgstr "Al fondo espera un tesoro, dice Egon. Al fondo espera un liche, digo yo."
 
 msgid "Gebiete: %s"
 msgstr "Zonas: %s"
@@ -1617,6 +1638,9 @@ msgstr "Cura dos corazones. Sabe a cereza. Y un poco a calcetín."
 msgid "Heiltrank"
 msgstr "Poción curativa"
 
+msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
+msgstr "Calor. Calor. Calor. Debí hacerme panadero."
+
 msgid "Heißer Sand"
 msgstr "Arena caliente"
 
@@ -1643,6 +1667,9 @@ msgstr "Aquí está lo que no cabe en el almacén. Haz sitio o véndelo."
 
 msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
 msgstr "Aquí cabe toda una compañía de caballeros. Casi."
+
+msgid "Hier war Gundolf. Gundolf war nicht lange hier."
+msgstr "Gundolf estuvo aquí. Gundolf no estuvo aquí mucho tiempo."
 
 msgid "Hinausgeklettert!"
 msgstr "¡Saliste trepando!"
@@ -2282,6 +2309,9 @@ msgstr "No lo lamas."
 
 msgid "Nicht angebaut"
 msgstr "Sin acoplar"
+
+msgid "Nicht nach unten schauen. Nach oben auch nicht."
+msgstr "No mires abajo. Arriba tampoco."
 
 msgid "Nicht während eines Kampfes"
 msgstr "No durante un combate"
@@ -3273,6 +3303,9 @@ msgstr "Día %d"
 msgid "Tag %d · %d Gold"
 msgstr "Día %d · %d de oro"
 
+msgid "Tag drei. Die Ratten haben mein Brot. Und meine Stiefel."
+msgstr "Día tres. Las ratas tienen mi pan. Y mis botas."
+
 msgid "Taste …"
 msgstr "Tecla …"
 
@@ -3468,6 +3501,9 @@ msgstr "Pantalla completa"
 msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
 msgstr "De enemigos o del mercader de la mazmorra. Hasta 999 en una casilla. Tras la partida va a tu caja; al morir se pierde, salvo en el lugar seguro."
 
+msgid "Vorsicht, Fangeisen! Woher ich das weiß? Frag mein Bein."
+msgstr "¡Cuidado, cepos! ¿Cómo lo sé? Pregúntale a mi pierna."
+
 msgid "Vorwärts"
 msgstr "Adelante"
 
@@ -3501,6 +3537,9 @@ msgstr "Cálido y espeso."
 msgid "Warm. Grau. Überall."
 msgstr "Caliente. Gris. Por todas partes."
 
+msgid "Warme Socken von Egon: eine Socke. Für dreißig Gold."
+msgstr "Calcetines calentitos de Egon: un calcetín. Por treinta de oro."
+
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "Lo que está aquí no se pierde al morir."
 
@@ -3528,8 +3567,14 @@ msgstr "Alas blancas"
 msgid "Weltenstab"
 msgstr "Bastón del mundo"
 
+msgid "Wenn du das lesen kannst, ist deine Nase noch dran."
+msgstr "Si puedes leer esto, todavía tienes nariz."
+
 msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
 msgstr "Cuando seas más fuerte, aprendes habilidades aquí. Por una pequeña propina, claro."
+
+msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
+msgstr "Quien lea esto: ¡nunca compres nada a precio de amigo!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "El disparo que mata sigue con lo que queda"
@@ -3680,6 +3725,9 @@ msgstr "Yesquero"
 
 msgid "Zwanzig Münzen"
 msgstr "Veinte monedas"
+
+msgid "Zwanzigmal am Hebel gezogen. Jetzt hab ich einen Löffel."
+msgstr "Tiré de la palanca veinte veces. Ahora tengo una cuchara."
 
 msgid "Zwei Funken folgen dir und schießen"
 msgstr "Dos chispas te siguen y disparan"

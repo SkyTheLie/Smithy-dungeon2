@@ -369,6 +369,9 @@ msgstr "A pele de um gigante de gelo."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "O ouro desta partida. Se você morrer, ele some, exceto no espaço seguro."
 
+msgid "Das Gras raschelt. Das Gras raschelt immer. Bis es beißt."
+msgstr "A grama farfalha. A grama sempre farfalha. Até morder."
+
 msgid "Das Herz des Drachen"
 msgstr "O coração do dragão"
 
@@ -449,6 +452,9 @@ msgstr "O mercador compra espólio: Tab, clique direito"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "A opala! Ela brilha! Quase tanto quanto meu futuro."
+
+msgid "Der Rubin gehört mir! … Gehörte."
+msgstr "O rubi é meu! … Era."
 
 msgid "Der Stein liegt in deinem Inventar!"
 msgstr "A pedra está no seu inventário!"
@@ -702,8 +708,14 @@ msgstr "Egon Honesto, muito prazer. Honesto é meu nome, honesto é meu negócio
 msgid "Egon hat gerade keinen Auftrag."
 msgstr "Egon não tem nenhuma tarefa agora."
 
+msgid "Egon hat gesagt, hier unten ist es sicher. Egon hat gelogen. – B."
+msgstr "O Egon disse que aqui embaixo é seguro. O Egon mentiu. – B."
+
 msgid "Egon könnte klauen!"
 msgstr "O Egon pode roubar!"
+
+msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
+msgstr "O Egon nunca esteve aqui, diz ele. Então de quem são essas pegadas de bota chamuscadas?"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "Os olhos do Egon ficam enormes."
@@ -713,6 +725,9 @@ msgstr "O rubi de brasa de Egon"
 
 msgid "Egons Laden"
 msgstr "A loja do Egon"
+
+msgid "Egons Laterne ging nach einer Stunde aus. Garantie: eine Stunde."
+msgstr "A lanterna do Egon apagou depois de uma hora. Garantia: uma hora."
 
 msgid "Eigene"
 msgstr "Personalizada"
@@ -1116,6 +1131,9 @@ msgstr "Fogo líquido numa garrafa."
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Sussurra baixinho no escuro."
 
+msgid "Folge nicht den Lichtern. Ich bin ihnen gefolgt. Jetzt schreib ich an Wände."
+msgstr "Não siga as luzes. Eu segui. Agora escrevo nas paredes."
+
 msgid "Freigeschaltet: %s"
 msgstr "Desbloqueado: %s"
 
@@ -1190,6 +1208,9 @@ msgstr "Pra você: uma varinha de cobre, um elmo e um peitoral. A primeira compr
 
 msgid "Füße"
 msgstr "Pés"
+
+msgid "Ganz unten wartet ein Schatz, sagt Egon. Ganz unten wartet ein Lich, sag ich."
+msgstr "Lá no fundo há um tesouro, diz o Egon. Lá no fundo há um lich, digo eu."
 
 msgid "Gebiete: %s"
 msgstr "Áreas: %s"
@@ -1617,6 +1638,9 @@ msgstr "Cura dois corações. Tem gosto de cereja. E um pouco de meia."
 msgid "Heiltrank"
 msgstr "Poção de cura"
 
+msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
+msgstr "Quente. Quente. Quente. Eu devia ter virado padeiro."
+
 msgid "Heißer Sand"
 msgstr "Areia quente"
 
@@ -1643,6 +1667,9 @@ msgstr "Aqui fica o que não cabe no depósito. Abra espaço ou venda."
 
 msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
 msgstr "Cabe uma companhia inteira de cavaleiros aqui. Quase."
+
+msgid "Hier war Gundolf. Gundolf war nicht lange hier."
+msgstr "O Gundolf esteve aqui. O Gundolf não ficou muito tempo."
 
 msgid "Hinausgeklettert!"
 msgstr "Escalou para fora!"
@@ -2282,6 +2309,9 @@ msgstr "Não lamba."
 
 msgid "Nicht angebaut"
 msgstr "Não presas"
+
+msgid "Nicht nach unten schauen. Nach oben auch nicht."
+msgstr "Não olhe para baixo. Para cima também não."
 
 msgid "Nicht während eines Kampfes"
 msgstr "Não durante um combate"
@@ -3273,6 +3303,9 @@ msgstr "Dia %d"
 msgid "Tag %d · %d Gold"
 msgstr "Dia %d · %d de ouro"
 
+msgid "Tag drei. Die Ratten haben mein Brot. Und meine Stiefel."
+msgstr "Dia três. Os ratos estão com o meu pão. E com as minhas botas."
+
 msgid "Taste …"
 msgstr "Tecla …"
 
@@ -3468,6 +3501,9 @@ msgstr "Tela cheia"
 msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
 msgstr "De inimigos ou do mercador na masmorra. Até 999 numa casa. Depois da partida vai para a tua caixa; ao morrer perde-se, exceto no lugar seguro."
 
+msgid "Vorsicht, Fangeisen! Woher ich das weiß? Frag mein Bein."
+msgstr "Cuidado, armadilhas! Como eu sei? Pergunte à minha perna."
+
 msgid "Vorwärts"
 msgstr "Para frente"
 
@@ -3501,6 +3537,9 @@ msgstr "Quente e espessa."
 msgid "Warm. Grau. Überall."
 msgstr "Quente. Cinza. Em todo lugar."
 
+msgid "Warme Socken von Egon: eine Socke. Für dreißig Gold."
+msgstr "Meias quentinhas do Egon: uma meia. Por trinta de ouro."
+
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "O que está aqui não se perde quando você morre."
 
@@ -3528,8 +3567,14 @@ msgstr "Asas brancas"
 msgid "Weltenstab"
 msgstr "Cajado dos mundos"
 
+msgid "Wenn du das lesen kannst, ist deine Nase noch dran."
+msgstr "Se você consegue ler isto, seu nariz ainda está no lugar."
+
 msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
 msgstr "Quando ficar mais forte, aprende habilidades aqui. Por uma pequena gorjeta, claro."
+
+msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
+msgstr "Quem ler isto: nunca compre nada a preço de amigo!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Um tiro que mata segue com o que sobra"
@@ -3680,6 +3725,9 @@ msgstr "Caixa de isca"
 
 msgid "Zwanzig Münzen"
 msgstr "Vinte moedas"
+
+msgid "Zwanzigmal am Hebel gezogen. Jetzt hab ich einen Löffel."
+msgstr "Puxei a alavanca vinte vezes. Agora tenho uma colher."
 
 msgid "Zwei Funken folgen dir und schießen"
 msgstr "Duas faíscas te seguem e atiram"

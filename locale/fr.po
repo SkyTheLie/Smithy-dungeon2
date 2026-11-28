@@ -369,6 +369,9 @@ msgstr "La fourrure d'un géant de glace."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "L'or de cette partie. Si tu meurs, il est perdu, sauf dans l'emplacement sûr."
 
+msgid "Das Gras raschelt. Das Gras raschelt immer. Bis es beißt."
+msgstr "L'herbe bruisse. L'herbe bruisse toujours. Jusqu'à ce qu'elle morde."
+
 msgid "Das Herz des Drachen"
 msgstr "Le cœur du dragon"
 
@@ -449,6 +452,9 @@ msgstr "Le marchand achète le butin : Tab, clic droit"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "L'opale ! Elle brille ! Presque autant que mon avenir."
+
+msgid "Der Rubin gehört mir! … Gehörte."
+msgstr "Le rubis est à moi ! … Était."
 
 msgid "Der Stein liegt in deinem Inventar!"
 msgstr "La pierre est dans ton inventaire !"
@@ -702,8 +708,14 @@ msgstr "Egon Honnête, enchanté. Honnête est mon nom, honnête est mon commerc
 msgid "Egon hat gerade keinen Auftrag."
 msgstr "Egon n'a pas de mission pour l'instant."
 
+msgid "Egon hat gesagt, hier unten ist es sicher. Egon hat gelogen. – B."
+msgstr "Egon a dit qu'ici en bas, c'est sûr. Egon a menti. – B."
+
 msgid "Egon könnte klauen!"
 msgstr "Egon pourrait voler !"
+
+msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
+msgstr "Egon n'est jamais venu ici, dit-il. Alors à qui sont ces traces de bottes roussies ?"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "Les yeux d'Egon s'écarquillent."
@@ -713,6 +725,9 @@ msgstr "Le rubis de braise d'Egon"
 
 msgid "Egons Laden"
 msgstr "La boutique d'Egon"
+
+msgid "Egons Laterne ging nach einer Stunde aus. Garantie: eine Stunde."
+msgstr "La lanterne d'Egon s'est éteinte au bout d'une heure. Garantie : une heure."
 
 msgid "Eigene"
 msgstr "Personnalisée"
@@ -1116,6 +1131,9 @@ msgstr "Du feu liquide en bouteille."
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Chuchote doucement quand il fait noir."
 
+msgid "Folge nicht den Lichtern. Ich bin ihnen gefolgt. Jetzt schreib ich an Wände."
+msgstr "Ne suis pas les lumières. Je les ai suivies. Maintenant, j'écris sur les murs."
+
 msgid "Freigeschaltet: %s"
 msgstr "Débloqué : %s"
 
@@ -1190,6 +1208,9 @@ msgstr "Pour toi : une baguette en cuivre, un casque et un plastron. Le premier 
 
 msgid "Füße"
 msgstr "Pieds"
+
+msgid "Ganz unten wartet ein Schatz, sagt Egon. Ganz unten wartet ein Lich, sag ich."
+msgstr "Tout en bas, un trésor attend, dit Egon. Tout en bas, une liche attend, dis-je."
 
 msgid "Gebiete: %s"
 msgstr "Zones : %s"
@@ -1617,6 +1638,9 @@ msgstr "Soigne deux cœurs. Goût cerise. Et un peu chaussette."
 msgid "Heiltrank"
 msgstr "Potion de soin"
 
+msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
+msgstr "Chaud. Chaud. Chaud. J'aurais dû devenir boulanger."
+
 msgid "Heißer Sand"
 msgstr "Sable brûlant"
 
@@ -1643,6 +1667,9 @@ msgstr "Ici se trouve ce qui ne rentre pas dans la réserve. Fais de la place ou
 
 msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
 msgstr "Toute une compagnie de chevaliers tient là-dedans. Presque."
+
+msgid "Hier war Gundolf. Gundolf war nicht lange hier."
+msgstr "Gundolf était ici. Gundolf n'est pas resté longtemps."
 
 msgid "Hinausgeklettert!"
 msgstr "Sorti en grimpant !"
@@ -2282,6 +2309,9 @@ msgstr "Ne pas lécher."
 
 msgid "Nicht angebaut"
 msgstr "Non attachés"
+
+msgid "Nicht nach unten schauen. Nach oben auch nicht."
+msgstr "Ne regarde pas en bas. En haut non plus."
 
 msgid "Nicht während eines Kampfes"
 msgstr "Pas pendant un combat"
@@ -3273,6 +3303,9 @@ msgstr "Jour %d"
 msgid "Tag %d · %d Gold"
 msgstr "Jour %d · %d or"
 
+msgid "Tag drei. Die Ratten haben mein Brot. Und meine Stiefel."
+msgstr "Jour trois. Les rats ont mon pain. Et mes bottes."
+
 msgid "Taste …"
 msgstr "Touche …"
 
@@ -3468,6 +3501,9 @@ msgstr "Plein écran"
 msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
 msgstr "Des ennemis ou du marchand du donjon. Jusqu'à 999 sur une case. Après la partie, elle va dans ta boîte ; à la mort, elle est perdue, sauf dans la place sûre."
 
+msgid "Vorsicht, Fangeisen! Woher ich das weiß? Frag mein Bein."
+msgstr "Attention, pièges à loup ! Comment je le sais ? Demande à ma jambe."
+
 msgid "Vorwärts"
 msgstr "Avancer"
 
@@ -3501,6 +3537,9 @@ msgstr "Chaude et épaisse."
 msgid "Warm. Grau. Überall."
 msgstr "Chaude. Grise. Partout."
 
+msgid "Warme Socken von Egon: eine Socke. Für dreißig Gold."
+msgstr "Chaussettes chaudes d'Egon : une chaussette. Pour trente pièces d'or."
+
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "Ce qui est ici n'est pas perdu si tu meurs."
 
@@ -3528,8 +3567,14 @@ msgstr "Ailes blanches"
 msgid "Weltenstab"
 msgstr "Bâton des mondes"
 
+msgid "Wenn du das lesen kannst, ist deine Nase noch dran."
+msgstr "Si tu peux lire ceci, ton nez est encore là."
+
 msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
 msgstr "Quand tu deviens plus fort, tu apprends des compétences ici. Contre une petite obole, bien sûr."
+
+msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
+msgstr "Toi qui lis ceci : n'achète jamais rien à prix d'ami !"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Un tir qui tue continue avec le reste"
@@ -3680,6 +3725,9 @@ msgstr "Boîte à amadou"
 
 msgid "Zwanzig Münzen"
 msgstr "Vingt pièces"
+
+msgid "Zwanzigmal am Hebel gezogen. Jetzt hab ich einen Löffel."
+msgstr "J'ai tiré le levier vingt fois. Maintenant, j'ai une cuillère."
 
 msgid "Zwei Funken folgen dir und schießen"
 msgstr "Deux étincelles te suivent et tirent"

@@ -45,6 +45,16 @@
 
 10. **Das Dankeschön:** Für den Rubin vom ersten Boss schenkt Egon ein Moorherz-Relikt (ein Herz mehr, hält vier Runs) und betont, dass es „diesmal wirklich“ gratis ist.
 
+## Was andere über Egon schreiben (Wand-Schriften im Dungeon)
+
+Frühere Abenteurer kratzen Sätze an die Wände (`data/story.json` `walls`, `walls_<dungeon>`). Sie zeigen Egon von außen: Seine Kunden kommen selten gut weg, er selbst nie schlecht genug, um aufzuhören.
+
+- Egon versprach, „hier unten ist es sicher“. War es nicht.
+- Seine Laterne fürs Moor hat „eine Stunde Garantie“ und geht nach einer Stunde aus.
+- Seine „warmen Socken“ für den Frostgipfel sind eine Socke, für dreißig Gold.
+- Jemand hat zwanzigmal am Hebel gezogen und einen Löffel bekommen.
+- Im Glutschlund gibt es angesengte Stiefelspuren, obwohl Egon „nie dort war“.
+
 ## Was Egon nie tut
 
 - Er sagt nie direkt „Ich habe dich betrogen.“

@@ -369,6 +369,9 @@ msgstr "پوست یک غول یخی."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "طلای این دور. اگر بمیری از دست می‌رود، مگر در خانه‌ی امن."
 
+msgid "Das Gras raschelt. Das Gras raschelt immer. Bis es beißt."
+msgstr "علف خش‌خش می‌کند. علف همیشه خش‌خش می‌کند. تا وقتی که گاز بگیرد."
+
 msgid "Das Herz des Drachen"
 msgstr "قلب اژدها"
 
@@ -449,6 +452,9 @@ msgstr "فروشنده غنیمت می‌خرد: Tab، کلیک راست"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "عقیق! می‌درخشد! تقریباً به روشنی آینده‌ام."
+
+msgid "Der Rubin gehört mir! … Gehörte."
+msgstr "یاقوت مال من است! … بود."
 
 msgid "Der Stein liegt in deinem Inventar!"
 msgstr "سنگ در کیف توست!"
@@ -702,8 +708,14 @@ msgstr "اگون صادق، خوشوقتم. صادق اسم منه، صادق ک
 msgid "Egon hat gerade keinen Auftrag."
 msgstr "اگون فعلاً کاری برایت ندارد."
 
+msgid "Egon hat gesagt, hier unten ist es sicher. Egon hat gelogen. – B."
+msgstr "اگون گفت این پایین امن است. اگون دروغ گفت. – ب."
+
 msgid "Egon könnte klauen!"
 msgstr "اگون ممکن است بدزدد!"
+
+msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
+msgstr "اگون می‌گوید هرگز اینجا نبوده. پس این ردّ چکمه‌های سوخته مال کیست؟"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "چشم‌های اگون گرد می‌شود."
@@ -713,6 +725,9 @@ msgstr "یاقوت اخگر اگون"
 
 msgid "Egons Laden"
 msgstr "مغازهٔ اگون"
+
+msgid "Egons Laterne ging nach einer Stunde aus. Garantie: eine Stunde."
+msgstr "فانوس اگون بعد از یک ساعت خاموش شد. ضمانت: یک ساعت."
 
 msgid "Eigene"
 msgstr "دلخواه"
@@ -1116,6 +1131,9 @@ msgstr "آتش مایع در یک بطری."
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "وقتی تاریک است آرام زمزمه می‌کند."
 
+msgid "Folge nicht den Lichtern. Ich bin ihnen gefolgt. Jetzt schreib ich an Wände."
+msgstr "دنبال نورها نرو. من رفتم. حالا روی دیوارها می‌نویسم."
+
 msgid "Freigeschaltet: %s"
 msgstr "باز شد: %s"
 
@@ -1190,6 +1208,9 @@ msgstr "برای تو: یه عصای مسی، یه کلاه‌خود و یه ز�
 
 msgid "Füße"
 msgstr "پاها (کفش)"
+
+msgid "Ganz unten wartet ein Schatz, sagt Egon. Ganz unten wartet ein Lich, sag ich."
+msgstr "اگون می‌گوید آن پایینِ پایین گنجی منتظر است. من می‌گویم آن پایین یک لیچ منتظر است."
 
 msgid "Gebiete: %s"
 msgstr "مناطق: %s"
@@ -1617,6 +1638,9 @@ msgstr "دو قلب را شفا می‌دهد. طعم گیلاس می‌دهد. 
 msgid "Heiltrank"
 msgstr "معجون شفا"
 
+msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
+msgstr "داغ. داغ. داغ. باید نانوا می‌شدم."
+
 msgid "Heißer Sand"
 msgstr "شن داغ"
 
@@ -1643,6 +1667,9 @@ msgstr "هرچه در انبار جا نشود اینجاست. جا باز کن 
 
 msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
 msgstr "یک گروه کامل شوالیه اینجا جا می‌شود. تقریباً."
+
+msgid "Hier war Gundolf. Gundolf war nicht lange hier."
+msgstr "گوندولف اینجا بود. گوندولف زیاد اینجا نماند."
 
 msgid "Hinausgeklettert!"
 msgstr "بیرون آمدی!"
@@ -2282,6 +2309,9 @@ msgstr "لیس نزن."
 
 msgid "Nicht angebaut"
 msgstr "وصل‌نشده"
+
+msgid "Nicht nach unten schauen. Nach oben auch nicht."
+msgstr "پایین را نگاه نکن. بالا را هم نه."
 
 msgid "Nicht während eines Kampfes"
 msgstr "نه در حین نبرد"
@@ -3273,6 +3303,9 @@ msgstr "روز %d"
 msgid "Tag %d · %d Gold"
 msgstr "روز %d · %d طلا"
 
+msgid "Tag drei. Die Ratten haben mein Brot. Und meine Stiefel."
+msgstr "روز سوم. موش‌ها نانم را بردند. و چکمه‌هایم را."
+
 msgid "Taste …"
 msgstr "کلید …"
 
@@ -3468,6 +3501,9 @@ msgstr "تمام‌صفحه"
 msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
 msgstr "از دشمنان یا تاجر داخل سیاه‌چال. تا ۹۹۹ عدد در یک خانه. بعد از دور به قوطی تو می‌رود؛ با مرگ از دست می‌رود، مگر در جای امن."
 
+msgid "Vorsicht, Fangeisen! Woher ich das weiß? Frag mein Bein."
+msgstr "مواظب تله‌ها باش! از کجا می‌دانم؟ از پایم بپرس."
+
 msgid "Vorwärts"
 msgstr "جلو"
 
@@ -3501,6 +3537,9 @@ msgstr "گرم و پرپشت."
 msgid "Warm. Grau. Überall."
 msgstr "گرم. خاکستری. همه‌جا."
 
+msgid "Warme Socken von Egon: eine Socke. Für dreißig Gold."
+msgstr "جوراب گرم از اگون: یک لنگه. به قیمت سی سکه طلا."
+
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "آنچه اینجاست با مرگت از دست نمی‌رود."
 
@@ -3528,8 +3567,14 @@ msgstr "بال‌های سفید"
 msgid "Weltenstab"
 msgstr "عصای جهان"
 
+msgid "Wenn du das lesen kannst, ist deine Nase noch dran."
+msgstr "اگر می‌توانی این را بخوانی، هنوز دماغت سر جایش است."
+
 msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
 msgstr "وقتی قوی‌تر شدی، اینجا مهارت یاد می‌گیری. با یه پول ناقابل، البته."
+
+msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
+msgstr "هر کس این را می‌خواند: هرگز چیزی را با قیمت دوستانه نخر!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "تیری که بکشد با باقیمانده ادامه می‌دهد"
@@ -3680,6 +3725,9 @@ msgstr "جعبه آتش‌زنه"
 
 msgid "Zwanzig Münzen"
 msgstr "بیست سکه"
+
+msgid "Zwanzigmal am Hebel gezogen. Jetzt hab ich einen Löffel."
+msgstr "بیست بار اهرم را کشیدم. حالا یک قاشق دارم."
 
 msgid "Zwei Funken folgen dir und schießen"
 msgstr "دو جرقه دنبالت می‌آیند و شلیک می‌کنند"
