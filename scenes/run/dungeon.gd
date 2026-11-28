@@ -323,6 +323,7 @@ func _build_room(cell: Vector2i) -> void:
 			_maybe_add_arrow_traps(room)
 			if not chamber:
 				_maybe_add_spike_stones(room)
+				_maybe_add_ceiling_trap(room)
 		FloorLayout.ITEM:
 			_add_item_pedestal(room, Vector3.ZERO, "item", 0)
 		FloorLayout.SHOP:
@@ -1229,6 +1230,10 @@ func _tick_arrow_traps(delta: float) -> void:
 	if room == null or run.is_dead() or (room.arrow_traps.is_empty() and room.plates.is_empty()):
 		return
 	for plate: PressurePlate in room.plates:
+		if plate.ambush:
+			if not plate.spent and plate.press(delta, plate.covers(player.global_position) and not player.flying()):
+				_spring_ceiling_trap(room, plate)
+			continue
 		var on_it: bool = plate.covers(player.global_position) and not player.flying()
 		for enemy: Enemy in enemies:
 			if not on_it and enemy.alive and String(enemy.data.get("ai", "")) != "fly" and plate.covers(enemy.global_position):
@@ -1239,6 +1244,103 @@ func _tick_arrow_traps(delta: float) -> void:
 					trap.warn()
 	for trap: ArrowTrap in room.arrow_traps:
 		trap.tick(delta)
+
+
+# --- Monster trap (floors.json "ceiling_traps") ---------------------------------------
+
+## Sometimes a normal room gets a hidden plate: stepping on it lets enemies fall from the ceiling.
+## Own random numbers per room; a floor may set its own "ceiling_trap_chance".
+func _maybe_add_ceiling_trap(room: DungeonRoom) -> void:
+	var rules: Dictionary = Content.floors_extra("ceiling_traps")
+	if rules.is_empty() or floor_index < int(rules.get("from_floor", 1)) or layout.distance.get(room.cell, 99) <= 1:
+		return
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash([run.seed_value, floor_index, room.cell, "ceiling"])
+	if rng.randf() >= float(floor_data.get("ceiling_trap_chance", rules.get("chance", 0.0))):
+		return
+	for attempt in 30:
+		var spot := Vector3(roundf(rng.randf_range(-4.5, 4.5)), 0, roundf(rng.randf_range(-3.0, 3.0)))
+		if spot.length() < 1.0:
+			continue
+		var blocked: bool = false
+		for rock: Rock in room.rocks:
+			if rock.position.distance_to(spot) < 1.3:
+				blocked = true
+		for hazard: Hazard in room.hazards:
+			if absf(hazard.position.x - spot.x) < hazard.size / 2.0 + 0.8 and absf(hazard.position.z - spot.z) < hazard.size / 2.0 + 0.8:
+				blocked = true
+		for other: PressurePlate in room.plates:
+			if other.position.distance_to(spot) < 1.5:
+				blocked = true
+		if not blocked:
+			add_ceiling_trap(room, spot)
+			return
+
+
+## A hidden monster plate at `at` (local to `room`).
+func add_ceiling_trap(room: DungeonRoom, at: Vector3) -> PressurePlate:
+	var plate := PressurePlate.new()
+	plate.hidden = true
+	plate.ambush = true
+	room.add_child(plate)
+	plate.position = at
+	room.plates.append(plate)
+	return plate
+
+
+## Stepped on: rumbling and dust from above, red shadows where enemies of this floor will land
+## around the player; after "warn" seconds they drop down (thud, dust, a little shake) and the
+## doors close.
+func _spring_ceiling_trap(room: DungeonRoom, plate: PressurePlate) -> void:
+	var rules: Dictionary = Content.floors_extra("ceiling_traps")
+	var warn: float = float(rules.get("warn", 1.0))
+	var count_range: Array = rules.get("count", [2, 3])
+	var spread: Array = rules.get("spread", [1.8, 3.0])
+	var rect: Rect2 = rect_of(room.cell, 0.9)
+	AudioManager.play_sound_at("ceiling_rumble", player.global_position + Vector3(0, 2.8, 0), effects, 0.6)
+	message.emit("Eine Falle!")
+	var spots: Array[Vector3] = []
+	var ids: Array[String] = []
+	var count: int = _rng.randi_range(int(count_range[0]), int(count_range[1]))
+	for i in count:
+		var angle: float = TAU * (float(i) / count) + _rng.randf_range(-0.4, 0.4)
+		var at: Vector3 = player.global_position + Vector3(cos(angle), 0, sin(angle)) * _rng.randf_range(float(spread[0]), float(spread[1]))
+		at = Vector3(clampf(at.x, rect.position.x, rect.end.x), 0, clampf(at.z, rect.position.y, rect.end.y))
+		spots.append(at)
+		ids.append(Content.pick_weighted(floor_data.get("enemies", [["giant_rat", 1]]), _rng))
+		Fx.marker(effects, at, 0.7, warn)
+		Fx.puff(effects, at + Vector3(0, 2.7, 0), "dust", 0.6)
+	await get_tree().create_timer(warn * 0.7, false).timeout
+	if not is_inside_tree() or run.is_dead() or current_cell != room.cell:
+		return
+	for i in spots.size():
+		_falling_picture(ids[i], spots[i], warn * 0.3)
+	await get_tree().create_timer(warn * 0.3, false).timeout
+	if not is_inside_tree() or run.is_dead() or current_cell != room.cell:
+		return
+	if not _fighting:
+		room.cleared = false
+		_start_fight(room)
+	for i in spots.size():
+		spawn_enemy(ids[i], spots[i])
+		Fx.puff(effects, spots[i] + Vector3(0, 0.3, 0), "dust", 1.2)
+		AudioManager.play_sound_at("ceiling_drop", spots[i], effects, randf_range(0.8, 0.95))
+	player.shake(0.25)
+
+
+## The picture of an enemy dropping from the ceiling to `at` in `time` seconds (only a picture;
+## the real enemy comes when it lands).
+func _falling_picture(id: String, at: Vector3, time: float) -> void:
+	var icon: Texture2D = Content.enemy_icon(id)
+	if icon == null:
+		return
+	var height: float = float(Content.enemy(id).get("height", 1.6))
+	var sprite := Fx.billboard(icon, height)
+	effects.add_child(sprite)
+	sprite.global_position = at + Vector3(0, RoomBuilder.WALL_H, 0)
+	var tween := sprite.create_tween()
+	tween.tween_property(sprite, "global_position", at + Vector3(0, height / 2.0, 0), time).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	tween.tween_callback(sprite.queue_free)
 
 
 # --- Spiked stones (floors.json "spike_stones") --------------------------------------

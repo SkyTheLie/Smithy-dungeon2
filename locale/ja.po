@@ -912,6 +912,9 @@ msgstr "2つ目の命と火花"
 msgid "Ein zweites Leben!"
 msgstr "2つ目の命！"
 
+msgid "Eine Falle!"
+msgstr "罠だ！"
+
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "エゴンのテーブルの品物が1つ増える。"
 

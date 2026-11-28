@@ -912,6 +912,9 @@ msgstr "第二条命和一个火花"
 msgid "Ein zweites Leben!"
 msgstr "第二条命！"
 
+msgid "Eine Falle!"
+msgstr "陷阱！"
+
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "埃贡的桌上多一件货物。"
 

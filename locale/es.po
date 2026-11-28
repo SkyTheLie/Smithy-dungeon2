@@ -912,6 +912,9 @@ msgstr "Una segunda vida y una chispa"
 msgid "Ein zweites Leben!"
 msgstr "¡Una segunda vida!"
 
+msgid "Eine Falle!"
+msgstr "¡Una trampa!"
+
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "Un objeto más en la mesa de Egon."
 

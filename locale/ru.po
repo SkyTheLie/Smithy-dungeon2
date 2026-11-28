@@ -912,6 +912,9 @@ msgstr "Вторая жизнь и искра"
 msgid "Ein zweites Leben!"
 msgstr "Вторая жизнь!"
 
+msgid "Eine Falle!"
+msgstr "Ловушка!"
+
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "На столе Эгона на одну вещь больше."
 

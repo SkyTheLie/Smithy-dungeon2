@@ -912,6 +912,9 @@ msgstr "Une seconde vie et une étincelle"
 msgid "Ein zweites Leben!"
 msgstr "Une seconde vie !"
 
+msgid "Eine Falle!"
+msgstr "Un piège !"
+
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "Un objet de plus sur la table d'Egon."
 

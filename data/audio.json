@@ -61,6 +61,8 @@
 		"chest_break": "res://assets/audio/sfx/wood_break.wav",
 		"chest_clank": "res://assets/audio/sfx/anvil_good.wav",
 		"spike_rumble": "res://assets/audio/sfx/stone_grind.wav",
+		"ceiling_rumble": "res://assets/audio/sfx/stone_grind.wav",
+		"ceiling_drop": ["res://assets/audio/sfx/kenney/impactMining_000.ogg", "res://assets/audio/sfx/kenney/impactMining_001.ogg", "res://assets/audio/sfx/kenney/impactMining_002.ogg"],
 		"explosion": "res://assets/audio/sfx/rock_break.wav",
 		"boss_die": "res://assets/audio/sfx/level_up.wav",
 		"enemy_shoot": "res://assets/audio/sfx/quench_hiss.wav",

@@ -2608,6 +2608,14 @@
 		"push": 4.0,
 		"speed": 2.2
 	},
+	"ceiling_traps": {
+		"_info": "Monster-Falle: versteckte Platte in normalen Räumen (nicht Stein-Kammer, nicht direkt am Start, ab Ebene from_floor), chance je Raum (Ebene: ceiling_trap_chance). Tritt der Spieler drauf (nicht fliegend): Klick, Platte wird sichtbar, Grollen von oben, Staub rieselt, rote Schatten zeigen für warn Sekunden, wo count [min, max] Gegner der Ebene landen (spread [min, max] Meter um den Spieler), dann fallen sie herunter (Aufprall, Staub, Wackeln) und die Türen gehen zu. Nur einmal.",
+		"chance": 0.1,
+		"from_floor": 1,
+		"warn": 1.0,
+		"count": [2, 3],
+		"spread": [1.8, 3.0]
+	},
 	"hazard_types": {
 		"_info": "Fallen auf dem Boden der normalen Räume (Gebiet/Ebene \"hazards\": [Art, [min, max] je Raum]). Drüberlaufen kostet damage halbe Herzen (dann kurz unverwundbar wie bei jedem Treffer). size [min, max] = Seitenlänge in Metern. cycle [unten, oben] = Stacheln fahren aus und ein, Schaden nur wenn oben (fehlt = immer gefährlich). color = Farbe (RGB), glow = Leuchten. hold = Sekunden, die eine Falle (Fangeisen) den Spieler festhält; sie schnappt einmal zu und ist dann weg. hidden: true = kaum zu sehen (im hohen Gras fast unsichtbar). snare_thrown = das Fangeisen, das ein Boss wirft (enemies.json snare). decor = etwas, das auf einer sichtbaren Falle sitzt (sprite = Bildstreifen, frames, fps, height in m, count, return = Sekunden, bis es nach dem Aufscheuchen wiederkommt); die Tauben fliegen auf, wenn man hineintritt. owner = player: eine eigene Falle des Spielers (von Items/Relikten traps [{kind, chance}]: der Schuss legt sie, wo er endet); sie trifft nur Gegner (nicht fliegende): damage_mult x Schuss-Schaden, höchstens alle every Sekunden je Gegner, mit hold schnappt sie einmal zu und betäubt; life = Sekunden, bis sie weg ist.",
 		"lava": {
