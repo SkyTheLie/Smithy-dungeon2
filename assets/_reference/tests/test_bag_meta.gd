@@ -129,7 +129,7 @@ func _backpacks() -> void:
 	meta.call("reload")
 	check_eq((meta.call("backpacks") as Array).size(), 1, "saved")
 	var wallet: Object = script("res://scripts/systems/run_state.gd").new(8)
-	# A run starts with its start bomb in the bag; this test wants an empty bag.
+	# This test wants an empty bag (player.json could give start bombs).
 	(wallet.get("bag") as Object).call("clear")
 	wallet.call("use_skills")
 	check_eq(((wallet.get("bag") as Object).call("section_cells", "main") as Array).size(), 33, "in the run: 24 + 9 cells")
@@ -145,7 +145,7 @@ func _box() -> void:
 	check_eq(meta.call("box"), 150, "a won run brings its gold home into the box")
 	check(not (meta.call("stash") as Array).any(func(place: Dictionary) -> bool: return place.get("id") == "gold"), "no coin bag in the inventory at home")
 	var run_state: Object = script("res://scripts/systems/run_state.gd").new(5)
-	# A run starts with its start bomb in the bag; this test wants an empty bag.
+	# This test wants an empty bag (player.json could give start bombs).
 	(run_state.get("bag") as Object).call("clear")
 	check_eq(run_state.get("coins"), 0, "a run starts without gold")
 	meta.call("reload")
@@ -201,7 +201,7 @@ func _end_of_run() -> void:
 	check_eq(int(meta.call("box")), box + 2, "into the box")
 	# A run starts with the bag brought home.
 	var next_run: Object = script("res://scripts/systems/run_state.gd").new(3)
-	# A run starts with its start bomb in the bag; this test wants an empty bag.
+	# This test wants an empty bag (player.json could give start bombs).
 	(next_run.get("bag") as Object).call("clear")
 	(next_run.get("bag") as Object).call("restore", meta.call("bag_places"))
 	check_eq(((next_run.get("bag") as Object).call("contents") as Array).size(), (meta.call("bag_places") as Array).size(), "the next run starts with it")
@@ -266,7 +266,7 @@ func _gold_in_bag() -> void:
 	var meta: Script = script("res://scripts/systems/meta_state.gd")
 	meta.call("start_new")
 	var wallet: Object = script("res://scripts/systems/run_state.gd").new(3)
-	# A run starts with its start bomb in the bag; this test wants an empty bag.
+	# This test wants an empty bag (player.json could give start bombs).
 	(wallet.get("bag") as Object).call("clear")
 	var bag: Object = wallet.get("bag")
 	check_eq(wallet.call("add_coins", 30), 0, "30 gold fit")
@@ -289,7 +289,7 @@ func _gold_in_bag() -> void:
 ## the gold lands in the bag. The gold itself and places that do not exist cannot be sold.
 func _sell_in_dungeon() -> void:
 	var wallet: Object = script("res://scripts/systems/run_state.gd").new(4)
-	# A run starts with its start bomb in the bag; this test wants an empty bag.
+	# This test wants an empty bag (player.json could give start bombs).
 	(wallet.get("bag") as Object).call("clear")
 	var bag: Object = wallet.get("bag")
 	bag.call("add", "ruby", 1)
@@ -311,7 +311,7 @@ func _sell_in_dungeon() -> void:
 	check_eq(wallet.get("coins"), 43, "gold stacks")
 	# Without a gold stack and no room: the gold lies where the sold loot lay.
 	var full: Object = script("res://scripts/systems/run_state.gd").new(6)
-	# A run starts with its start bomb in the bag; this test wants an empty bag.
+	# This test wants an empty bag (player.json could give start bombs).
 	(full.get("bag") as Object).call("clear")
 	var full_bag: Object = full.get("bag")
 	full_bag.call("add", "coal", 24)

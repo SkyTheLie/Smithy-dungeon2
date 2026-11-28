@@ -128,9 +128,10 @@ func _keys_home(meta: Script) -> void:
 	check(ids.has("iron_key"), "the iron key came home")
 	check(ids.has("bomb"), "the bombs came home")
 	var run: Object = script("res://scripts/systems/run_state.gd").new(1)
+	check_eq(run.get("bombs"), 0, "a run starts without a bomb (player.json bombs 0)")
 	run.get("bag").call("remove", "bomb", run.get("bombs"))
 	run.get("bag").call("restore", meta.call("bag_places"))
 	run.call("top_up_start")
-	check_eq(run.get("bombs"), 3, "three bombs from home, no extra start bomb on top")
+	check_eq(run.get("bombs"), 3, "the three bombs from home, nothing on top")
 	check_eq(run.get("keys"), 1, "the iron key goes into the dungeon again")
 
