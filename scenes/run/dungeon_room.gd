@@ -15,6 +15,9 @@ var rocks: Array[Rock] = []
 var loot: Array[Node3D] = []
 ## Traps on the floor (lava, poison, spikes; Dungeon checks them).
 var hazards: Array[Hazard] = []
+## Drops this room still gives from normal enemies and its reward (data/loot.json room_budget;
+## -1 = not counted yet, Dungeon sets it the first time).
+var drops_left: int = -1
 
 
 func remove_rock(rock: Rock) -> void:

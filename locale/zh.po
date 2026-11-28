@@ -1599,6 +1599,9 @@ msgstr "永久有效"
 msgid "Hält noch %d Dungeons"
 msgstr "还能用%d个地牢"
 
+msgid "Hält vier Runs, dann ist es hin. Wie alles Gute. Gratis! Diesmal wirklich."
+msgstr "能撑四趟，然后就没了。好东西都这样。免费！这次是真的。"
+
 msgid "Hände"
 msgstr "手部"
 
@@ -3233,6 +3236,9 @@ msgstr "现在去地牢吧！咱俩私下说，伙计：我有个小差事。"
 
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "左边就是你。别动，我给你穿上…"
+
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
+msgstr "因为我这么大方：一颗沼泽之心！是件遗物。给人偶戴上，你就多一颗心。"
 
 msgid "Ungewöhnlich"
 msgstr "罕见"

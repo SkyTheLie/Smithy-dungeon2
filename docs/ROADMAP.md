@@ -104,3 +104,9 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Boss-Raum = Vorhalle mit Tor; dahinter die große Halle (2 × 2 Räume) mit Altar der Neun und 9 Kristallsäulen; Szene: Kristalle fliegen ein, fallen in den Altar, Energie läuft zu den Säulen, Stille, Boss fällt herein, Rock-Musik.
 - ✅ Admin-Menü auf P (nur im Editor): Reisen, Items, Ausrüstung/Relikte/Tränke, Cheats.
 - Offen: Szene im Spiel ansehen und Zeiten nachjustieren; echten Rock-Track statt erzeugtem Loop suchen (lizenzfrei).
+
+### Spielgefühl, Behälter, Tausch (Nachricht vom 2026-11-28, Liste in `docs/IDEEN.md`)
+
+- ✅ Weniger Beute: höchstens 1 Ding je Raum (`loot.json` `room_budget`), Münzen seltener.
+- ✅ Egon schenkt für den Rubin ein Moorherz-Relikt (4 Runs).
+- Offen: Behälter im Lager, Tausch-Reiter, Treffer-Gefühl, Tod-Zusammenfassung, Heimkehr, Komfort, Tagesangebot (Reihenfolge in `docs/IDEEN.md`).

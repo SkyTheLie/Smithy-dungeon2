@@ -919,7 +919,7 @@ static func ruby_index() -> int:
 	return -1
 
 
-## Egon takes one ruby out of the inventory. false (nothing changes) without one or if he has it.
+## Egon takes one ruby out of the inventory and gives ruby_reward() into the stash. false (nothing changes) without one or if he has it.
 static func deliver_ruby() -> bool:
 	if ruby_delivered():
 		return false
@@ -930,10 +930,23 @@ static func deliver_ruby() -> bool:
 	own[index]["count"] = int(own[index]["count"]) - 1
 	if int(own[index]["count"]) <= 0:
 		own.remove_at(index)
+	var gift: Dictionary = ruby_reward()
+	if not gift.is_empty():
+		own.append(_owned(gift))
 	_write_stash(own)
 	_write("ruby_delivered", true)
 	_save()
 	return true
+
+
+## Egon's thanks for the ruby (meta.json ruby_quest reward_relic / reward_runs): a relic that holds
+## that many runs. {} without one.
+static func ruby_reward() -> Dictionary:
+	var rules: Dictionary = Content.meta("ruby_quest")
+	var id: String = String(rules.get("reward_relic", ""))
+	if id.is_empty() or Content.item(id).is_empty():
+		return {}
+	return {"id": id, "relic": true, "left": maxi(1, int(rules.get("reward_runs", 1)))}
 
 
 ## A run is over (a new day begins): `coins` go into the box, `kept` (bag places

@@ -1599,6 +1599,9 @@ msgstr "برای همیشه می‌ماند"
 msgid "Hält noch %d Dungeons"
 msgstr "%d سیاه‌چال دیگر دوام می‌آورد"
 
+msgid "Hält vier Runs, dann ist es hin. Wie alles Gute. Gratis! Diesmal wirklich."
+msgstr "چهار دور دوام می‌آورد، بعد تمام. مثل همهٔ چیزهای خوب. مجانی! این بار واقعاً."
+
 msgid "Hände"
 msgstr "دست‌ها"
 
@@ -3233,6 +3236,9 @@ msgstr "و حالا برو به سیاه‌چال! بین خودمان باشد 
 
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "و سمت چپ خودتی. تکون نخور، لباس تنت می‌کنم…"
+
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
+msgstr "و چون من خیلی دست‌ودل‌بازم: یک قلب مرداب! یک یادگار. روی پیکره بگذارش تا یک قلب بیشتر داشته باشی."
 
 msgid "Ungewöhnlich"
 msgstr "غیرمعمول"

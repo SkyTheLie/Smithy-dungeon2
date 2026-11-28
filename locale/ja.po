@@ -1599,6 +1599,9 @@ msgstr "永久に持つ"
 msgid "Hält noch %d Dungeons"
 msgstr "あと%dダンジョン持つ"
 
+msgid "Hält vier Runs, dann ist es hin. Wie alles Gute. Gratis! Diesmal wirklich."
+msgstr "4回の探索でおしまい。いいものはみんなそうさ。タダだ！今回は本当に。"
+
 msgid "Hände"
 msgstr "手"
 
@@ -3233,6 +3236,9 @@ msgstr "さあ、ダンジョンへ行け！ここだけの話だが相棒、ち
 
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "で、左がお前だ。じっとしてな、着せてやる…"
+
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
+msgstr "俺は気前がいいからな：沼の心臓だ！遺物だぞ。人形に付ければハートが1つ増える。"
 
 msgid "Ungewöhnlich"
 msgstr "アンコモン"

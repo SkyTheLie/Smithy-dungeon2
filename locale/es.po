@@ -1599,6 +1599,9 @@ msgstr "Dura para siempre"
 msgid "Hält noch %d Dungeons"
 msgstr "Dura %d mazmorras más"
 
+msgid "Hält vier Runs, dann ist es hin. Wie alles Gute. Gratis! Diesmal wirklich."
+msgstr "Dura cuatro partidas y luego se rompe. Como todo lo bueno. ¡Gratis! Esta vez de verdad."
+
 msgid "Hände"
 msgstr "Manos"
 
@@ -3233,6 +3236,9 @@ msgstr "¡Y ahora, a la mazmorra! Entre nosotros, socio: tengo un pequeño encar
 
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "Y a la izquierda estás tú. Quieto, que te visto…"
+
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
+msgstr "Y como soy tan generoso: ¡un Corazón del pantano! Una reliquia. Póntela en la figura y tendrás un corazón más."
 
 msgid "Ungewöhnlich"
 msgstr "Poco común"

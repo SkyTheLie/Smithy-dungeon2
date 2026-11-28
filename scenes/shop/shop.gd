@@ -1219,6 +1219,13 @@ func _run_ruby() -> void:
 		await _fly_to_egon(icon, from)
 		if not is_inside_tree() or not await _say("ruby_taken"):
 			return
+		# His thanks: a relic for a few runs (meta.json ruby_quest reward_relic), it shines in the stash.
+		var gift: int = _gift_index(String(MetaState.ruby_reward().get("id", "")))
+		if gift >= 0:
+			_stash_board.set_glow(gift, true)
+			if not await _say("ruby_reward"):
+				return
+			_stash_board.set_glow(gift, false)
 	_dialog.hide()
 	_locked = false
 	_menu_button.show()
@@ -1226,6 +1233,15 @@ func _run_ruby() -> void:
 	_skills_button.show()
 	_quests_button.show()
 	_refresh()
+
+
+## Place of the last relic `id` in the stash (Egon's gift), -1 if there is none.
+func _gift_index(id: String) -> int:
+	var own: Array[Dictionary] = MetaState.stash()
+	for i in range(own.size() - 1, -1, -1):
+		if String(own[i].get("id", "")) == id and ShopGoods.is_relic(own[i]):
+			return i
+	return -1
 
 
 ## `icon` flies from `from` (global) into Egon's hands and is gone.

@@ -1599,6 +1599,9 @@ msgstr "Dure pour toujours"
 msgid "Hält noch %d Dungeons"
 msgstr "Dure encore %d donjons"
 
+msgid "Hält vier Runs, dann ist es hin. Wie alles Gute. Gratis! Diesmal wirklich."
+msgstr "Ça tient quatre expéditions, puis c'est fichu. Comme tout ce qui est bien. Gratuit ! Pour de vrai, cette fois."
+
 msgid "Hände"
 msgstr "Mains"
 
@@ -3233,6 +3236,9 @@ msgstr "Et maintenant, au donjon ! Entre nous, partenaire : j'aurais une petite 
 
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "Et à gauche, c'est toi. Ne bouge pas, je t'habille…"
+
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
+msgstr "Et comme je suis si généreux : un Cœur des marais ! Une relique. Mets-la sur ta figurine, tu auras un cœur de plus."
 
 msgid "Ungewöhnlich"
 msgstr "Peu commun"

@@ -29,6 +29,7 @@ func run() -> void:
 
 	await _pick_up()
 	await _enemy_loot()
+	await _room_budget()
 	await _bag_window()
 	await _full_bag()
 	await _death()
@@ -66,6 +67,45 @@ func _enemy_loot() -> void:
 		if is_instance_valid(node) and (node as Node).get("material_id") == "gold":
 			(node as Node).queue_free()
 	_coin_stacks()
+
+
+## A room gives only room_budget drops from normal enemies (loot.json): the first rat with loot
+## uses it up, the next ones drop nothing.
+func _room_budget() -> void:
+	var room: Node3D = _room()
+	room.set("drops_left", 1)
+	var before: int = _live_loot()
+	var spot: Vector3 = player.global_position + Vector3(3.5, 0, 0)
+	for i in 12:
+		var rat: Node = dungeon.call("spawn_enemy", "giant_rat", spot)
+		rat.call("take_damage", 99999.0, Vector3.ZERO, false)
+	await process_frame
+	check_eq(int(room.get("drops_left")), 0, "the budget of the room is used")
+	check(_live_loot() - before <= 1, "twelve rats: at most one thing (budget 1)")
+	room.set("drops_left", 0)
+	var after: int = _live_loot()
+	var rat: Node = dungeon.call("spawn_enemy", "tutorial_rat", spot)
+	rat.call("take_damage", 99999.0, Vector3.ZERO, false)
+	await process_frame
+	check_eq(_live_loot(), after, "an empty room gives nothing, even loot with chance 1.0")
+	room.set("drops_left", -1)
+	check_eq(int(dungeon.call("room_drops_left", room)), int((content_loot().get("room_budget", {}) as Dictionary).get("drops", 0)), "a new room starts with room_budget drops")
+	for node: Variant in room.get("loot"):
+		if is_instance_valid(node) and node is Node and (node as Node).get("material_id") != null:
+			(node as Node).queue_free()
+	await process_frame
+
+
+func content_loot() -> Dictionary:
+	return script("res://scripts/core/content.gd").call("get_file", "loot")
+
+
+func _live_loot() -> int:
+	var count: int = 0
+	for node: Variant in _room().get("loot"):
+		if is_instance_valid(node) and not (node as Node).is_queued_for_deletion():
+			count += 1
+	return count
 
 
 ## Coins are one kind of loot in the bag: up to 999 on one cell, more goes onto a new cell.

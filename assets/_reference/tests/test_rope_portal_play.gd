@@ -154,7 +154,14 @@ func _ruby_in_shop() -> void:
 	check(await _click_until(func() -> bool: return not meta.call("ruby_due") and not shop.get("_locked"), 20.0), "Egon takes the ruby and the shop is free again")
 	check(meta.call("ruby_delivered"), "Egon has his ruby")
 	check_eq(int(meta.call("ruby_index")), -1, "it is gone from the inventory")
-	check((meta.call("stash") as Array).size() <= before, "nothing else came or went")
+	check((meta.call("stash") as Array).size() <= before, "nothing else came or went (ruby out, relic in)")
+	var rules: Dictionary = content.call("meta", "ruby_quest")
+	var gift: Dictionary = {}
+	for piece: Variant in meta.call("stash"):
+		if String((piece as Dictionary).get("id", "")) == String(rules.get("reward_relic", "")) and (piece as Dictionary).get("relic", false):
+			gift = piece
+	check(not gift.is_empty(), "Egon's thanks: the relic lies in the stash")
+	check_eq(int(gift.get("left", 0)), int(rules.get("reward_runs", 0)), "it holds reward_runs runs")
 	check(not meta.call("deliver_ruby"), "only once")
 	game.call("to_main_menu")
 	await process_frame
