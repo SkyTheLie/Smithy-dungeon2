@@ -405,7 +405,7 @@ Drei Arten, Werte und Beute in den Daten (z. B. `data/chests.json`: Art, Bild, B
 - Achtung: Bombt man zu nah an einer Holzkiste, geht sie mit kaputt (Inhalt bleibt aber liegen); bei der Schlosskiste wird sie dabei aufgesprengt (Teil der Beute weg). So lohnt es sich zu zielen.
 - Hinweis, damit man es versteht: auf der Karte ein Kisten-Symbol, beim ersten Mal ein kurzer Satz (Tutorial-Hinweis oder Wand-Schrift: „Wer keine Bombe hat, hat keine Kiste.“).
 
-### Egons Umzug zu jedem neuen Dungeon
+### Egons Umzug zu jedem neuen Dungeon – ✅ Gimmicks und Sprüche gebaut (`feature/egon-umzug`; Tisch auf Rädern ins Bild schieben, Hut/Schal-Bilder und Wüste noch offen)
 
 Heute zieht Egon nach einer Quest schon um (`quests.json` `locations`: anderer Hintergrund, Ortsname). Neu dazu:
 

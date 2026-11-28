@@ -92,7 +92,7 @@ Frühere Abenteurer kratzen Sätze an die Wände (`data/story.json` `walls`, `wa
 **Nach einem Sieg:**
 > „Du bist zurück! Mit Beute! Ich wusste es. Ich hab nie an dir gezweifelt. Fast nie.“
 
-## Umzug und Orte (Ideen vom 2026-11-28)
+## Umzug und Orte (Ideen vom 2026-11-28, Moor/Wiese/Frost/Glutschlund im Spiel: `story.json` `place_lines`)
 
 Egon zieht mit jedem neuen Dungeon um und steht dann vor dessen Eingang. Jeder Ort hat ein Gimmick und ein paar dumme, aber passende Sprüche (Stand: Vorschläge, noch nicht im Spiel):
 

@@ -501,8 +501,14 @@ msgstr "Épaisseur"
 msgid "Dicke Haut"
 msgstr "Peau épaisse"
 
+msgid "Die Blumen? Dekoration. Kosten aber extra, wenn du hinsiehst."
+msgstr "Les fleurs ? De la déco. Mais c'est en supplément si tu les regardes."
+
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "La taille de la fenêtre ne s'applique qu'en mode fenêtré."
+
+msgid "Die Mücken hier stechen nur Ehrliche. Siehst du? Mich lassen sie in Ru… *klatsch* …Ruhe."
+msgstr "Ici, les moustiques ne piquent que les honnêtes gens. Tu vois ? Moi, ils me laissent tran… *clac* …tranquille."
 
 msgid "Die Tür ist offen. Geh in den nächsten Raum."
 msgstr "La porte est ouverte. Va dans la salle suivante."
@@ -1047,6 +1053,9 @@ msgstr "Braise première"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "Tirs explosifs, cadence plus lente"
 
+msgid "F-f-freundschaftspreis! W-weil mir k-kalt ist, nicht weil ich nett bin."
+msgstr "P-p-prix d'ami ! P-parce que j'ai f-froid, pas parce que je suis gentil."
+
 msgid "Fadenkreuz"
 msgstr "Réticule"
 
@@ -1076,6 +1085,9 @@ msgstr "Prise ferme, coups plus durs."
 
 msgid "Festgehalten!"
 msgstr "Pris au piège !"
+
+msgid "Feuchtes Klima, feuchte Ware. Das ist kein Schimmel, das ist Patina!"
+msgstr "Climat humide, marchandise humide. Ce n'est pas de la moisissure, c'est de la patine !"
 
 msgid "Feuerelementar"
 msgstr "Élémentaire de feu"
@@ -1632,6 +1644,9 @@ msgstr "Matriarche harpie"
 msgid "Harpyienfeder"
 msgstr "Plume de harpie"
 
+msgid "Hatschi! Das ist keine Allergie, das ist… Hatschi! …Vorfreude auf dein Gold."
+msgstr "Atchoum ! Ce n'est pas une allergie, c'est… atchoum ! …l'impatience de voir ton or."
+
 msgid "Hauptmenü"
 msgstr "Menu principal"
 
@@ -1655,6 +1670,9 @@ msgstr "Soigne deux cœurs. Goût cerise. Et un peu chaussette."
 
 msgid "Heiltrank"
 msgstr "Potion de soin"
+
+msgid "Heiß hier, Partner. Die Preise schmelzen… nach oben."
+msgstr "Il fait chaud ici, partenaire. Les prix fondent… vers le haut."
 
 msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
 msgstr "Chaud. Chaud. Chaud. J'aurais dû devenir boulanger."
@@ -1757,6 +1775,9 @@ msgstr "Tu entends ? Il bourdonne ! L'argent… euh, la chance bourdonne aussi."
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Je suis l'escr… euh, le marchand. Je vends… …de l'équipement ! Oui, voilà. Je vends de l'équipement."
+
+msgid "Ich schwitze nicht, ich… glänze geschäftlich."
+msgstr "Je ne transpire pas, je… brille professionnellement."
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "Je te la range. Gratuitement ! Le rangement, je veux dire."
@@ -3611,6 +3632,9 @@ msgstr "Quand tu deviens plus fort, tu apprends des compétences ici. Contre une
 
 msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
 msgstr "Toi qui lis ceci : n'achète jamais rien à prix d'ami !"
+
+msgid "Wer hier kauft, kriegt einen Eiszapfen gratis. Der von meiner Nase. Ehrlich!"
+msgstr "Qui achète ici reçoit un glaçon gratuit. Celui de mon nez. Promis !"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Un tir qui tue continue avec le reste"

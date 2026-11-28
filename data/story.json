@@ -94,5 +94,15 @@
 		"no_slot": "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht.",
 		"no_room": "Da passt das nicht hin, Partner. Mach erst Platz.", "not_for_sale": "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest.", "sold": "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!", "traded": "Getauscht ist getauscht! Kein Umtausch. Äh … kein Rücktausch.",
 		"relic_broken": "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
+	},
+	"place_lines": {
+		"moor_arrive": "Die Mücken hier stechen nur Ehrliche. Siehst du? Mich lassen sie in Ru… *klatsch* …Ruhe.",
+		"moor_lever_1": "Feuchtes Klima, feuchte Ware. Das ist kein Schimmel, das ist Patina!",
+		"wiese_arrive": "Hatschi! Das ist keine Allergie, das ist… Hatschi! …Vorfreude auf dein Gold.",
+		"wiese_lever_1": "Die Blumen? Dekoration. Kosten aber extra, wenn du hinsiehst.",
+		"frost_arrive": "F-f-freundschaftspreis! W-weil mir k-kalt ist, nicht weil ich nett bin.",
+		"frost_lever_1": "Wer hier kauft, kriegt einen Eiszapfen gratis. Der von meiner Nase. Ehrlich!",
+		"vulkan_arrive": "Heiß hier, Partner. Die Preise schmelzen… nach oben.",
+		"vulkan_lever_1": "Ich schwitze nicht, ich… glänze geschäftlich."
 	}
 }

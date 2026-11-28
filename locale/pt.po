@@ -501,8 +501,14 @@ msgstr "Espessura"
 msgid "Dicke Haut"
 msgstr "Pele grossa"
 
+msgid "Die Blumen? Dekoration. Kosten aber extra, wenn du hinsiehst."
+msgstr "As flores? Decoração. Mas custam extra se você olhar."
+
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "O tamanho da janela só vale no modo janela."
+
+msgid "Die Mücken hier stechen nur Ehrliche. Siehst du? Mich lassen sie in Ru… *klatsch* …Ruhe."
+msgstr "Aqui os mosquitos só picam gente honesta. Viu? Comigo eles me deixam em pa… *plaft* …paz."
 
 msgid "Die Tür ist offen. Geh in den nächsten Raum."
 msgstr "A porta está aberta. Vá para a próxima sala."
@@ -1047,6 +1053,9 @@ msgstr "Brasa primeira"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "Tiros explosivos, atira mais devagar"
 
+msgid "F-f-freundschaftspreis! W-weil mir k-kalt ist, nicht weil ich nett bin."
+msgstr "P-p-preço de amigo! P-porque estou com f-frio, não porque sou legal."
+
 msgid "Fadenkreuz"
 msgstr "Mira"
 
@@ -1076,6 +1085,9 @@ msgstr "Pegada firme, golpes mais fortes."
 
 msgid "Festgehalten!"
 msgstr "Preso!"
+
+msgid "Feuchtes Klima, feuchte Ware. Das ist kein Schimmel, das ist Patina!"
+msgstr "Clima úmido, mercadoria úmida. Isso não é mofo, é pátina!"
 
 msgid "Feuerelementar"
 msgstr "Elemental de fogo"
@@ -1632,6 +1644,9 @@ msgstr "Matriarca harpia"
 msgid "Harpyienfeder"
 msgstr "Pena de harpia"
 
+msgid "Hatschi! Das ist keine Allergie, das ist… Hatschi! …Vorfreude auf dein Gold."
+msgstr "Atchim! Não é alergia, é… atchim! …ansiedade pelo seu ouro."
+
 msgid "Hauptmenü"
 msgstr "Menu principal"
 
@@ -1655,6 +1670,9 @@ msgstr "Cura dois corações. Tem gosto de cereja. E um pouco de meia."
 
 msgid "Heiltrank"
 msgstr "Poção de cura"
+
+msgid "Heiß hier, Partner. Die Preise schmelzen… nach oben."
+msgstr "Quente aqui, parceiro. Os preços estão derretendo… pra cima."
 
 msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
 msgstr "Quente. Quente. Quente. Eu devia ter virado padeiro."
@@ -1757,6 +1775,9 @@ msgstr "Ouviu? Ele zumbe! O dinheiro… ah, a sorte zumbe junto."
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Eu sou o vigar… é, o vendedor. Eu vendo… …equipamento! Isso mesmo. Vendo equipamento."
+
+msgid "Ich schwitze nicht, ich… glänze geschäftlich."
+msgstr "Eu não estou suando, estou… brilhando profissionalmente."
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "Eu coloco para você. De graça! O colocar, quero dizer."
@@ -3611,6 +3632,9 @@ msgstr "Quando ficar mais forte, aprende habilidades aqui. Por uma pequena gorje
 
 msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
 msgstr "Quem ler isto: nunca compre nada a preço de amigo!"
+
+msgid "Wer hier kauft, kriegt einen Eiszapfen gratis. Der von meiner Nase. Ehrlich!"
+msgstr "Quem compra aqui ganha um pingente de gelo grátis. O do meu nariz. Sério!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Um tiro que mata segue com o que sobra"

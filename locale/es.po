@@ -501,8 +501,14 @@ msgstr "Grosor"
 msgid "Dicke Haut"
 msgstr "Piel gruesa"
 
+msgid "Die Blumen? Dekoration. Kosten aber extra, wenn du hinsiehst."
+msgstr "¿Las flores? Decoración. Pero cuestan extra si las miras."
+
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "El tamaño de ventana solo se aplica en modo ventana."
+
+msgid "Die Mücken hier stechen nur Ehrliche. Siehst du? Mich lassen sie in Ru… *klatsch* …Ruhe."
+msgstr "Aquí los mosquitos solo pican a los honrados. ¿Ves? A mí me dejan en pa… *plaf* …paz."
 
 msgid "Die Tür ist offen. Geh in den nächsten Raum."
 msgstr "La puerta está abierta. Entra en la siguiente sala."
@@ -1047,6 +1053,9 @@ msgstr "Brasa primera"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "Disparos explosivos, disparas más lento"
 
+msgid "F-f-freundschaftspreis! W-weil mir k-kalt ist, nicht weil ich nett bin."
+msgstr "¡P-p-precio de amigo! P-porque tengo f-frío, no porque sea amable."
+
 msgid "Fadenkreuz"
 msgstr "Mira"
 
@@ -1076,6 +1085,9 @@ msgstr "Agarre firme, golpes más duros."
 
 msgid "Festgehalten!"
 msgstr "¡Atrapado!"
+
+msgid "Feuchtes Klima, feuchte Ware. Das ist kein Schimmel, das ist Patina!"
+msgstr "Clima húmedo, mercancía húmeda. ¡Eso no es moho, es pátina!"
 
 msgid "Feuerelementar"
 msgstr "Elemental de fuego"
@@ -1632,6 +1644,9 @@ msgstr "Matriarca arpía"
 msgid "Harpyienfeder"
 msgstr "Pluma de arpía"
 
+msgid "Hatschi! Das ist keine Allergie, das ist… Hatschi! …Vorfreude auf dein Gold."
+msgstr "¡Achís! No es alergia, es… ¡achís! …ilusión por tu oro."
+
 msgid "Hauptmenü"
 msgstr "Menú principal"
 
@@ -1655,6 +1670,9 @@ msgstr "Cura dos corazones. Sabe a cereza. Y un poco a calcetín."
 
 msgid "Heiltrank"
 msgstr "Poción curativa"
+
+msgid "Heiß hier, Partner. Die Preise schmelzen… nach oben."
+msgstr "Hace calor aquí, socio. Los precios se derriten… hacia arriba."
 
 msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
 msgstr "Calor. Calor. Calor. Debí hacerme panadero."
@@ -1757,6 +1775,9 @@ msgstr "¿Lo oyes? ¡Zumba! El dinero… eh, la suerte zumba también."
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Soy el estaf… eh, el vendedor. Vendo… …¡equipo! Sí, eso. Vendo equipo."
+
+msgid "Ich schwitze nicht, ich… glänze geschäftlich."
+msgstr "No estoy sudando, estoy… brillando por negocios."
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "Te la meto yo. ¡Gratis! Lo de meterla, quiero decir."
@@ -3611,6 +3632,9 @@ msgstr "Cuando seas más fuerte, aprendes habilidades aquí. Por una pequeña pr
 
 msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
 msgstr "Quien lea esto: ¡nunca compres nada a precio de amigo!"
+
+msgid "Wer hier kauft, kriegt einen Eiszapfen gratis. Der von meiner Nase. Ehrlich!"
+msgstr "Quien compra aquí se lleva un carámbano gratis. El de mi nariz. ¡De verdad!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "El disparo que mata sigue con lo que queda"

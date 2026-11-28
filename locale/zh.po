@@ -501,8 +501,14 @@ msgstr "粗细"
 msgid "Dicke Haut"
 msgstr "厚皮"
 
+msgid "Die Blumen? Dekoration. Kosten aber extra, wenn du hinsiehst."
+msgstr "花？装饰而已。不过你要是看了，得另外付钱。"
+
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "窗口大小仅在窗口模式下生效。"
+
+msgid "Die Mücken hier stechen nur Ehrliche. Siehst du? Mich lassen sie in Ru… *klatsch* …Ruhe."
+msgstr "这里的蚊子只叮老实人。看见没？它们从不打扰… *啪* …我。"
 
 msgid "Die Tür ist offen. Geh in den nächsten Raum."
 msgstr "门开了。进入下一个房间。"
@@ -1047,6 +1053,9 @@ msgstr "初始余烬"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "爆炸射击，射速变慢"
 
+msgid "F-f-freundschaftspreis! W-weil mir k-kalt ist, nicht weil ich nett bin."
+msgstr "友、友、友情价！因、因为我冷，不是因为我好心。"
+
 msgid "Fadenkreuz"
 msgstr "准星"
 
@@ -1076,6 +1085,9 @@ msgstr "握得更稳，打得更狠。"
 
 msgid "Festgehalten!"
 msgstr "被夹住了！"
+
+msgid "Feuchtes Klima, feuchte Ware. Das ist kein Schimmel, das ist Patina!"
+msgstr "潮湿的气候，潮湿的货。这不是霉，这是包浆！"
 
 msgid "Feuerelementar"
 msgstr "火元素"
@@ -1632,6 +1644,9 @@ msgstr "鹰身女妖女族长"
 msgid "Harpyienfeder"
 msgstr "鹰身女妖羽毛"
 
+msgid "Hatschi! Das ist keine Allergie, das ist… Hatschi! …Vorfreude auf dein Gold."
+msgstr "阿嚏！这不是过敏，这是……阿嚏！……期待你的金子。"
+
 msgid "Hauptmenü"
 msgstr "主菜单"
 
@@ -1655,6 +1670,9 @@ msgstr "恢复两颗心。樱桃味。还有点袜子味。"
 
 msgid "Heiltrank"
 msgstr "治疗药水"
+
+msgid "Heiß hier, Partner. Die Preise schmelzen… nach oben."
+msgstr "这儿真热，伙计。价格都在融化……往上涨。"
 
 msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
 msgstr "热。热。热。我早该去当面包师的。"
@@ -1757,6 +1775,9 @@ msgstr "听到了吗？它在嗡嗡响！钱……呃，好运也跟着响。"
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "我是骗… 呃，卖货的。我卖… …装备！对，没错。我卖装备。"
+
+msgid "Ich schwitze nicht, ich… glänze geschäftlich."
+msgstr "我没出汗，我这是……生意人的光彩。"
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "我帮你放进去。免费！我是说，放进去免费。"
@@ -3611,6 +3632,9 @@ msgstr "等你变强了，就来这里学技能。当然要收点小费。"
 
 msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
 msgstr "看到这行字的人：千万别买任何“友情价”的东西！"
+
+msgid "Wer hier kauft, kriegt einen Eiszapfen gratis. Der von meiner Nase. Ehrlich!"
+msgstr "在这儿买东西送冰柱一根。我鼻子上那根。真的！"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "击杀后射击带着剩余伤害继续飞行"

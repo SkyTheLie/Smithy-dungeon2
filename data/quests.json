@@ -8,19 +8,19 @@
 		},
 		"moor": {
 			"name": "Am Moor der Irrlichter",
-			"background": "res://assets/sprites/battle/swamp_mire.png"
+			"background": "res://assets/sprites/battle/swamp_mire.png", "egon": {"tint": [0.85, 1.0, 0.85], "gimmick": "mosquitoes"}
 		},
 		"wiese": {
 			"name": "An der Wispernden Wiese",
-			"background": "res://assets/sprites/battle/forest.png"
+			"background": "res://assets/sprites/battle/forest.png", "egon": {"tint": [1.0, 1.0, 0.9], "gimmick": "sneeze"}
 		},
 		"frost": {
 			"name": "Am Frostgipfel",
-			"background": "res://assets/sprites/battle/ice_falls.png"
+			"background": "res://assets/sprites/battle/ice_falls.png", "egon": {"tint": [0.75, 0.85, 1.0], "gimmick": "shiver"}
 		},
 		"vulkan": {
 			"name": "Am Glutschlund",
-			"background": "res://assets/sprites/battle/volcano.png"
+			"background": "res://assets/sprites/battle/volcano.png", "egon": {"tint": [1.0, 0.8, 0.7], "gimmick": "sweat"}
 		}
 	},
 	"quests": {

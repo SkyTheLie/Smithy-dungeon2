@@ -119,6 +119,18 @@ var _black: ColorRect
 ## true while Egon does something by himself (tutorial, lever): clicks are ignored.
 var _locked: bool = false
 var _rng := RandomNumberGenerator.new()
+## Egon at his place (quests.json locations "egon"): where his picture stands, his gimmick
+## (shiver, sweat, mosquitoes, sneeze) and its timer and little helpers (mosquitoes, drops).
+var _merchant_base: Vector2 = Vector2.ZERO
+var _gimmick: String = ""
+var _gimmick_wait: float = 3.0
+var _gimmick_time: float = 0.0
+var _gimmick_bits: Array[ColorRect] = []
+## Chance that a lever pull brings a line of Egon's place instead of the usual one.
+const PLACE_LINE_CHANCE: float = 0.35
+const CHATTER := {"wave": "square", "freq": 900, "slide": 1.0, "length": 0.03, "noise": 0.4, "vibrato": 0, "repeat": 6, "gap": 0.04}
+const SLAP := {"wave": "noise", "freq": 1200, "slide": 0.5, "length": 0.06, "noise": 1.0, "vibrato": 0}
+const SNEEZE := {"wave": "noise", "freq": 2200, "slide": 0.4, "length": 0.3, "noise": 0.9, "vibrato": 0.2}
 ## P (only in debug builds): the admin menu for testing (ShopAdminMenu), null otherwise.
 var admin_menu: ShopAdminMenu = null
 
@@ -179,6 +191,8 @@ func _build() -> void:
 	merchant.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_frame.add_child(merchant)
 	_merchant = merchant
+	_merchant_base = merchant.position
+	_apply_place_look()
 
 	_day = _label("", 14, Color.WHITE)
 	_day.position = Vector2(10, 6)
@@ -926,11 +940,16 @@ func _move_shop() -> void:
 	fade.tween_property(_black, "modulate:a", 1.0, FADE_TIME)
 	await fade.finished
 	_cave.texture = _location_background()
+	_apply_place_look()
 	_refresh()
 	AudioManager.play_sound("door")
 	fade = create_tween()
 	fade.tween_property(_black, "modulate:a", 0.0, FADE_TIME)
 	await fade.finished
+	# Arrived: Egon says something about his new place.
+	var arrive: String = _place_line("arrive")
+	if not arrive.is_empty():
+		_dialog.bark(arrive)
 
 
 ## The picture behind the shop at Egon's place (data/quests.json locations).
@@ -997,7 +1016,92 @@ func _on_lever_pressed() -> void:
 		_bark("too_poor")
 		AudioManager.play_sound("denied")
 		return
-	_bark("rolled")
+	var line: String = _place_line("lever")
+	if not line.is_empty() and _rng.randf() < PLACE_LINE_CHANCE:
+		_dialog.bark(line)
+	else:
+		_bark("rolled")
+
+
+# --- Egon at his place (quests.json locations "egon", story.json place_lines) -------------
+
+## A line of story.json place_lines for Egon's place: "arrive" or a random "lever_N"; "" = none.
+func _place_line(kind: String) -> String:
+	var lines: Dictionary = Content.story("place_lines") if Content.story("place_lines") is Dictionary else {}
+	var place: String = MetaState.location()
+	if kind == "arrive":
+		return String(lines.get("%s_arrive" % place, ""))
+	var choices: Array[String] = []
+	for key: String in lines:
+		if key.begins_with("%s_lever_" % place):
+			choices.append(String(lines[key]))
+	return "" if choices.is_empty() else choices[_rng.randi_range(0, choices.size() - 1)]
+
+
+## Egon's look at this place: a colour and a gimmick (shiver, sweat, mosquitoes, sneeze).
+func _apply_place_look() -> void:
+	var look: Dictionary = Quests.location_data(MetaState.location()).get("egon", {})
+	var tint: Array = look.get("tint", [1, 1, 1])
+	_merchant.modulate = Color(float(tint[0]), float(tint[1]), float(tint[2]))
+	_merchant.position = _merchant_base
+	_gimmick = String(look.get("gimmick", ""))
+	_gimmick_wait = _rng.randf_range(2.0, 4.0)
+	for bit: ColorRect in _gimmick_bits:
+		bit.queue_free()
+	_gimmick_bits.clear()
+	if _gimmick == "mosquitoes":
+		for i in 3:
+			var mosquito := ColorRect.new()
+			mosquito.color = Color(0.1, 0.1, 0.1)
+			mosquito.size = Vector2(2, 2)
+			mosquito.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			_frame.add_child(mosquito)
+			_gimmick_bits.append(mosquito)
+
+
+## The gimmick moves every frame; now and then it does its thing (with a sound).
+func _process(delta: float) -> void:
+	if _merchant == null or _gimmick.is_empty():
+		return
+	_gimmick_time += delta
+	_gimmick_wait -= delta
+	var head: Vector2 = _merchant_base + Vector2(_merchant.size.x * MERCHANT_SCALE * 0.5, _merchant.size.y * MERCHANT_SCALE * 0.22)
+	match _gimmick:
+		"shiver":
+			_merchant.position = _merchant_base + Vector2(_rng.randf_range(-1.0, 1.0), 0)
+			if _gimmick_wait <= 0.0:
+				_gimmick_wait = _rng.randf_range(3.0, 6.0)
+				AudioManager.play_stream(SoundSynth.make(CHATTER, "cry"), 1.0, -8.0)
+		"mosquitoes":
+			for i in _gimmick_bits.size():
+				var angle: float = _gimmick_time * (3.0 + i) + i * 2.1
+				_gimmick_bits[i].position = head + Vector2(cos(angle) * (14 + i * 5), sin(angle * 1.3) * 9)
+			if _gimmick_wait <= 0.0:
+				_gimmick_wait = _rng.randf_range(4.0, 7.0)
+				AudioManager.play_stream(SoundSynth.make(SLAP, "cry"), 1.0, -6.0)
+				var slap := create_tween()
+				slap.tween_property(_merchant, "position", _merchant_base + Vector2(-3, 0), 0.05)
+				slap.tween_property(_merchant, "position", _merchant_base, 0.1)
+		"sneeze":
+			if _gimmick_wait <= 0.0:
+				_gimmick_wait = _rng.randf_range(5.0, 9.0)
+				AudioManager.play_stream(SoundSynth.make(SNEEZE, "cry"), 1.0, -6.0)
+				var pop := create_tween()
+				pop.tween_property(_merchant, "position", _merchant_base + Vector2(0, -6), 0.08)
+				pop.tween_property(_merchant, "position", _merchant_base, 0.15)
+		"sweat":
+			if _gimmick_wait <= 0.0:
+				_gimmick_wait = _rng.randf_range(1.0, 1.8)
+				var drop := ColorRect.new()
+				drop.color = Color(0.6, 0.8, 1.0, 0.9)
+				drop.size = Vector2(2, 3)
+				drop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+				drop.position = head + Vector2(_rng.randf_range(-10, 10), 0)
+				_frame.add_child(drop)
+				var fall := create_tween()
+				fall.tween_property(drop, "position:y", drop.position.y + 24, 0.8)
+				fall.parallel().tween_property(drop, "modulate:a", 0.0, 0.8)
+				fall.tween_callback(drop.queue_free)
 
 
 func _on_table_clicked(index: int) -> void:

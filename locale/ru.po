@@ -501,8 +501,14 @@ msgstr "Толщина"
 msgid "Dicke Haut"
 msgstr "Толстая кожа"
 
+msgid "Die Blumen? Dekoration. Kosten aber extra, wenn du hinsiehst."
+msgstr "Цветы? Для красоты. Но если смотришь — плати отдельно."
+
 msgid "Die Fenstergröße gilt nur im Fenster-Modus."
 msgstr "Размер окна действует только в оконном режиме."
+
+msgid "Die Mücken hier stechen nur Ehrliche. Siehst du? Mich lassen sie in Ru… *klatsch* …Ruhe."
+msgstr "Комары тут кусают только честных. Видишь? Меня они не тро… *шлёп* …трогают."
 
 msgid "Die Tür ist offen. Geh in den nächsten Raum."
 msgstr "Дверь открыта. Иди в следующую комнату."
@@ -1047,6 +1053,9 @@ msgstr "Первый жар"
 msgid "Explosive Schüsse, langsamer schießen"
 msgstr "Взрывные выстрелы, стрельба медленнее"
 
+msgid "F-f-freundschaftspreis! W-weil mir k-kalt ist, nicht weil ich nett bin."
+msgstr "Д-д-дружеская цена! П-потому что мне х-холодно, а не потому что я добрый."
+
 msgid "Fadenkreuz"
 msgstr "Прицел"
 
@@ -1076,6 +1085,9 @@ msgstr "Крепкая хватка, сильнее удары."
 
 msgid "Festgehalten!"
 msgstr "Попался!"
+
+msgid "Feuchtes Klima, feuchte Ware. Das ist kein Schimmel, das ist Patina!"
+msgstr "Сырой климат — сырой товар. Это не плесень, это патина!"
 
 msgid "Feuerelementar"
 msgstr "Огненный элементаль"
@@ -1632,6 +1644,9 @@ msgstr "Матриарх гарпий"
 msgid "Harpyienfeder"
 msgstr "Перо гарпии"
 
+msgid "Hatschi! Das ist keine Allergie, das ist… Hatschi! …Vorfreude auf dein Gold."
+msgstr "Апчхи! Это не аллергия, это… апчхи! …предвкушение твоего золота."
+
 msgid "Hauptmenü"
 msgstr "Главное меню"
 
@@ -1655,6 +1670,9 @@ msgstr "Лечит два сердца. На вкус как вишня. И не
 
 msgid "Heiltrank"
 msgstr "Лечебное зелье"
+
+msgid "Heiß hier, Partner. Die Preise schmelzen… nach oben."
+msgstr "Жарко тут, напарник. Цены тают… вверх."
 
 msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
 msgstr "Жарко. Жарко. Жарко. Надо было идти в пекари."
@@ -1757,6 +1775,9 @@ msgstr "Слышишь? Гудит! Деньги… э, удача гудит в
 
 msgid "Ich bin der Gau… äh, der Mann-Verkäufer. Ich verkaufe Mann… …Ausrüstung! Ja, genau. Ich verkaufe Ausrüstung."
 msgstr "Я жул… э-э, продавец. Я продаю… …снаряжение! Да, точно. Снаряжение продаю."
+
+msgid "Ich schwitze nicht, ich… glänze geschäftlich."
+msgstr "Я не потею, я… сияю по-деловому."
 
 msgid "Ich steck ihn dir rein. Kostenlos! Das Reinstecken, mein ich."
 msgstr "Я её положу. Бесплатно! В смысле, положить — бесплатно."
@@ -3611,6 +3632,9 @@ msgstr "Когда станешь сильнее, учи тут навыки. З
 
 msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
 msgstr "Кто это читает: никогда не покупай ничего по дружеской цене!"
+
+msgid "Wer hier kauft, kriegt einen Eiszapfen gratis. Der von meiner Nase. Ehrlich!"
+msgstr "Кто тут купит — получит сосульку даром. С моего носа. Честно!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Убивший выстрел летит дальше с остатком"
