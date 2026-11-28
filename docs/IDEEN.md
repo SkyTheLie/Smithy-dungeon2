@@ -283,3 +283,31 @@ Viele Angriffe gibt es schon (`burrow`, `teleport`, `leap`, `charge`, `laser` �
 - **Bild und Ton zusammen:** Jede gefährliche Aktion hat beides; wer nicht hinsieht, hört sie, wer leise spielt, sieht sie.
 - Fehlt eine Datei, wird der Ton mit `SoundSynth` erzeugt (wie die Gegner-Rufe), Werte in den Daten (`voice`, `audio.json`).
 - Prüfen: Neuer Gegner/Angriff/Falle ohne Ton = nicht fertig. Ein Test könnte prüfen, dass jeder Angriff und jede Falle in den Daten einen Ton hat.
+
+## UI und Komfort: Laden und Tab (Nachricht vom 2026-11-28)
+
+Ergänzt Punkt 8 „Komfort“ oben (Shift+Klick, „Alle Beute verkaufen“, Vergleichs-Pfeile, Farbenblind-Modus).
+
+### Laden (Egon)
+
+1. **Auto-Sortieren:** Knopf (oder Taste **T**) packt Lager und Inventar dicht; sortiert nach Art, Seltenheit oder Wert (Auswahl merkt sich das Spiel). Gesperrte Teile bleiben liegen.
+2. **Sperren:** **Strg+Klick** setzt ein Schloss auf ein Teil. Gesperrtes wird nie verkauft (auch nicht bei „Alle Beute verkaufen“), nicht weggeworfen und nicht vom Sortieren bewegt.
+3. **Rückkauf:** Verkauftes kann man **bis zum Ende des Tages** zum gleichen Preis zurückkaufen. Das sind die „3 Plätze Verlauf“ aus Abschnitt 3 (Verkauf/Verlauf rechts).
+4. **Wert im Tooltip:** Jedes Teil zeigt „Egon zahlt: X Gold“. Mit **Alt** gedrückt: Gesamtwert des Inventars bzw. Lagers.
+5. **„Kann ich mir leisten“:** Zu teure Ware abgedunkelt, Preis rot. Ware, die besser ist als das Getragene, hat schon auf dem Tisch einen kleinen grünen Pfeil (ohne Darüberfahren).
+6. **Hebel-Kosten vorher:** „Nächster Zug: 40 Gold“ direkt am Hebel. Rückfrage, wenn die Dose danach unter einen Wert fällt (Wert in den Einstellungen oder `shop.json`).
+7. **Bereit-Check vor dem Run:** Beim Dungeon-Start kurzer Hinweis, wenn etwas fehlt: „Trank-Platz leer“, „Relikt hält nur noch 1 Run“, „Inventar fast voll“. Weiter mit einem Klick, abschaltbar.
+8. **Ausrüstungs-Sets:** Ein Set speichern und mit einem Klick wieder anlegen (wichtig, sobald es mehr Klassen gibt).
+
+### Tab im Dungeon
+
+1. **Pause oder Zeitlupe beim Öffnen:** Einstellung „Tab: Pause / Zeitlupe / läuft weiter“, damit Sortieren im Kampf kein Frust ist.
+2. **Run-Übersicht:** alle Run-Items mit ihren Synergien, aktive Effekte, Werte mit Herkunft („Schaden 3,5 (+1,5 durch Items)“).
+3. **Schnell-Wegwerfen:** Teil mit der Maus berühren und **X** halten (kurzer Balken) → fällt auf den Boden, ohne Ziehen. Gesperrte Teile nicht.
+4. **Beute-Wert der Tasche:** unten im Fenster „Wert der Tasche: 230 Gold“ (was Egon dafür zahlt), damit man sieht, ob sich Umkehren lohnt.
+
+### Für Laden und Tab gleich
+
+- **Gleiche Steuerung überall:** Ziehen, **R** drehen, **Shift+Klick** schieben, **Rechtsklick**, **Strg+Klick** sperren, **X** wegwerfen machen im Laden und im Dungeon dasselbe.
+- **Ton und Bild für jede Aktion:** Aufheben, Ablegen, Drehen, „Kein Platz“, Sperren, Verkaufen, Sortieren bekommen je einen kurzen Ton und einen kleinen Effekt (Ploppen, Wackeln, Rot-Blinken). Gilt nach der Regel „Jede Aktion hat einen Ton“ oben.
+- **Tastenhilfe am Rand:** eine Zeile „R drehen · Shift schieben · Strg sperren · X wegwerfen“, in den Einstellungen abschaltbar; zeigt nur, was im Moment geht (z. B. „R drehen“ nur beim Ziehen).
