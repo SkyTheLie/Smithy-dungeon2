@@ -3336,6 +3336,9 @@ msgstr "Болотный берег"
 msgid "Synergie: %s!"
 msgstr "Синергия: %s!"
 
+msgid "Synergien"
+msgstr "Синергии"
+
 msgid "Synergien: %s"
 msgstr "Синергии: %s"
 
@@ -3603,6 +3606,9 @@ msgstr "То, что лежит здесь, не пропадёт после с�
 msgid "Wasserstab"
 msgstr "Посох воды"
 
+msgid "Wegwerfen …"
+msgstr "Выбрасываю …"
+
 msgid "Weitblick"
 msgstr "Дальнозоркость"
 
@@ -3638,6 +3644,9 @@ msgstr "Кто тут купит — получит сосульку даром.
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Убивший выстрел летит дальше с остатком"
+
+msgid "Wert der Tasche: %d Gold"
+msgstr "Цена сумки: %d золота"
 
 msgid "Wert: %d Gold"
 msgstr "Цена: %d золота"
@@ -3731,6 +3740,9 @@ msgstr "Полёвка"
 
 msgid "Wüstenkompass"
 msgstr "Пустынный компас"
+
+msgid "X halten: wegwerfen"
+msgstr "Удерживать X: выбросить"
 
 msgid "Zauberbuch"
 msgstr "Книга заклинаний"

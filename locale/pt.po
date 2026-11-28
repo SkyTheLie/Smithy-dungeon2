@@ -3336,6 +3336,9 @@ msgstr "Margem do pântano"
 msgid "Synergie: %s!"
 msgstr "Sinergia: %s!"
 
+msgid "Synergien"
+msgstr "Sinergias"
+
 msgid "Synergien: %s"
 msgstr "Sinergias: %s"
 
@@ -3603,6 +3606,9 @@ msgstr "O que está aqui não se perde quando você morre."
 msgid "Wasserstab"
 msgstr "Cajado de água"
 
+msgid "Wegwerfen …"
+msgstr "Jogando fora …"
+
 msgid "Weitblick"
 msgstr "Visão longa"
 
@@ -3638,6 +3644,9 @@ msgstr "Quem compra aqui ganha um pingente de gelo grátis. O do meu nariz. Sér
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Um tiro que mata segue com o que sobra"
+
+msgid "Wert der Tasche: %d Gold"
+msgstr "Valor da bolsa: %d de ouro"
 
 msgid "Wert: %d Gold"
 msgstr "Valor: %d de ouro"
@@ -3731,6 +3740,9 @@ msgstr "Rato-do-campo"
 
 msgid "Wüstenkompass"
 msgstr "Bússola do deserto"
+
+msgid "X halten: wegwerfen"
+msgstr "Segure X: jogar fora"
 
 msgid "Zauberbuch"
 msgstr "Livro de feitiços"

@@ -299,7 +299,7 @@ Ergänzt Punkt 8 „Komfort“ oben (Shift+Klick, „Alle Beute verkaufen“, Ve
 7. **Bereit-Check vor dem Run:** Beim Dungeon-Start kurzer Hinweis, wenn etwas fehlt: „Trank-Platz leer“, „Relikt hält nur noch 1 Run“, „Inventar fast voll“. Weiter mit einem Klick, abschaltbar.
 8. **Ausrüstungs-Sets:** Ein Set speichern und mit einem Klick wieder anlegen (wichtig, sobald es mehr Klassen gibt).
 
-### Tab im Dungeon
+### Tab im Dungeon – ✅ gebaut (`feature/tab-komfort`; Tab hält das Spiel schon an, Run-Übersicht = Werte + Synergien-Zahl mit Namen)
 
 1. **Pause oder Zeitlupe beim Öffnen:** Einstellung „Tab: Pause / Zeitlupe / läuft weiter“, damit Sortieren im Kampf kein Frust ist.
 2. **Run-Übersicht:** alle Run-Items mit ihren Synergien, aktive Effekte, Werte mit Herkunft („Schaden 3,5 (+1,5 durch Items)“).
