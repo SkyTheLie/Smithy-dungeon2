@@ -320,6 +320,7 @@ func _build_room(cell: Vector2i) -> void:
 			_add_hazards(room)
 			if not chamber:
 				_maybe_add_loose_chest(room)
+			_maybe_add_arrow_traps(room)
 		FloorLayout.ITEM:
 			_add_item_pedestal(room, Vector3.ZERO, "item", 0)
 		FloorLayout.SHOP:
@@ -755,6 +756,7 @@ func _physics_process(delta: float) -> void:
 		_clear_room(rooms[current_cell])
 	_check_locked_doors(pos)
 	_check_chests(pos)
+	_tick_arrow_traps(delta)
 
 
 func _enter_room(cell: Vector2i) -> void:
@@ -1144,6 +1146,96 @@ func _check_locked_doors(pos: Vector3) -> void:
 			_warned_door = door
 			AudioManager.play_sound("denied")
 			message.emit("Du brauchst einen Schlüssel")
+
+
+# --- Arrow traps (floors.json "arrow_traps") ------------------------------------------
+
+## Sometimes a normal room gets arrow holes in a wall (chance "chance", a floor may set its own
+## "arrow_trap_chance"; not on the first floor of a dungeon and not next to the start). Kinds:
+## timed (1–2 holes shooting by themselves), row (holes along a long wall shooting one after
+## another), plate (2 holes and a pressure plate in their line). Own random numbers per room.
+func _maybe_add_arrow_traps(room: DungeonRoom) -> void:
+	var rules: Dictionary = Content.floors_extra("arrow_traps")
+	if rules.is_empty() or floor_index < int(rules.get("from_floor", 1)) or layout.distance.get(room.cell, 99) <= 1:
+		return
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash([run.seed_value, floor_index, room.cell, "arrows"])
+	if rng.randf() >= float(floor_data.get("arrow_trap_chance", rules.get("chance", 0.0))):
+		return
+	add_arrow_traps(room, Content.pick_weighted(rules.get("kinds", [["timed", 1]]), rng), rng)
+
+
+## Arrow traps of `kind` (timed, row, plate) in `room`, placed with `rng`.
+func add_arrow_traps(room: DungeonRoom, kind: String, rng: RandomNumberGenerator) -> void:
+	var rules: Dictionary = Content.floors_extra("arrow_traps")
+	var inner_x: float = RoomBuilder.ROOM_W / 2.0 - RoomBuilder.WALL_T - 0.02
+	var inner_z: float = RoomBuilder.ROOM_D / 2.0 - RoomBuilder.WALL_T - 0.02
+	match kind:
+		"row":
+			# Along the north or south wall, shooting across the short side.
+			var settings: Dictionary = rules.get("row", {})
+			var side: float = -1.0 if rng.randf() < 0.5 else 1.0
+			var spots: Array = settings.get("spots", [-5.5, -3.5, 3.5, 5.5])
+			var gap: float = float(settings.get("gap", 0.35))
+			var cycle: float = float(settings.get("cycle", 4.0))
+			for i in spots.size():
+				_add_arrow_trap(room, Vector3(float(spots[i]), 0, side * inner_z), Vector3(0, 0, -side), "row", cycle, 1.5 + i * gap, rules)
+		"plate":
+			var settings: Dictionary = rules.get("plate", {})
+			var side: float = -1.0 if rng.randf() < 0.5 else 1.0
+			var lanes: Array = settings.get("lanes", [-3.5, 3.5])
+			for lane: Variant in lanes:
+				_add_arrow_trap(room, Vector3(side * inner_x, 0, float(lane)), Vector3(-side, 0, 0), "plate", 0.0, 0.0, rules)
+			var plate := PressurePlate.new()
+			plate.size = float(settings.get("size", 0.9))
+			plate.cooldown = float(settings.get("cooldown", 2.0))
+			room.add_child(plate)
+			plate.position = Vector3(rng.randf_range(-3.0, 3.0), 0, float(lanes[rng.randi_range(0, lanes.size() - 1)]))
+			room.plates.append(plate)
+		_:
+			var settings: Dictionary = rules.get("timed", {})
+			var side: float = -1.0 if rng.randf() < 0.5 else 1.0
+			var count_range: Array = settings.get("count", [1, 2])
+			var lanes: Array = (settings.get("lanes", [-3.5, -2.5, 2.5, 3.5]) as Array).duplicate()
+			var cycle_range: Array = settings.get("cycle", [2.5, 3.5])
+			for i in rng.randi_range(int(count_range[0]), int(count_range[1])):
+				var lane: float = float(lanes.pop_at(rng.randi_range(0, lanes.size() - 1)))
+				_add_arrow_trap(room, Vector3(side * inner_x, 0, lane), Vector3(-side, 0, 0), "timed",
+						rng.randf_range(float(cycle_range[0]), float(cycle_range[1])), rng.randf_range(1.0, 2.5), rules)
+
+
+func _add_arrow_trap(room: DungeonRoom, at: Vector3, direction: Vector3, mode: String, cycle: float, delay: float, rules: Dictionary) -> ArrowTrap:
+	var trap := ArrowTrap.new()
+	trap.direction = direction
+	trap.mode = mode
+	trap.cycle = cycle
+	trap.delay = delay
+	trap.settings = rules
+	trap.player = player
+	trap.dungeon = self
+	room.add_child(trap)
+	trap.position = at
+	room.arrow_traps.append(trap)
+	return trap
+
+
+## Only the room the player is in: its holes count down and shoot; a plate under the player or an
+## enemy (not a flying one) makes the plate holes of the room shoot.
+func _tick_arrow_traps(delta: float) -> void:
+	var room: DungeonRoom = rooms.get(current_cell)
+	if room == null or run.is_dead() or (room.arrow_traps.is_empty() and room.plates.is_empty()):
+		return
+	for plate: PressurePlate in room.plates:
+		var on_it: bool = plate.covers(player.global_position) and not player.flying()
+		for enemy: Enemy in enemies:
+			if not on_it and enemy.alive and String(enemy.data.get("ai", "")) != "fly" and plate.covers(enemy.global_position):
+				on_it = true
+		if plate.press(delta, on_it):
+			for trap: ArrowTrap in room.arrow_traps:
+				if trap.mode == "plate":
+					trap.warn()
+	for trap: ArrowTrap in room.arrow_traps:
+		trap.tick(delta)
 
 
 # --- Chests (data/chests.json) -------------------------------------------------------
