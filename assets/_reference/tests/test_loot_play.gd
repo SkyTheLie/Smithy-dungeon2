@@ -142,7 +142,8 @@ func _bag_window() -> void:
 	check(outer.size.x <= 640.0 and outer.size.y <= 360.0, "the whole window fits the screen (%s)" % str(outer.size))
 	bag.call("take", helmet)
 	# Drag the bat skin out of the window = onto the floor.
-	window.call("_drop_on_floor", Vector2.ZERO, {"bag_index": 0})
+	var skin: int = (bag.get("places") as Array).find_custom(func(p: Dictionary) -> bool: return p.get("id") == "bat_skin")
+	window.call("_drop_on_floor", Vector2.ZERO, {"bag_index": skin})
 	check_eq(bag.call("count_of", "bat_skin"), 1, "dropped out of the bag")
 	var dropped: Node3D = null
 	for node: Variant in _room().get("loot"):

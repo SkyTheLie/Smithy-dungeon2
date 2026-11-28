@@ -921,6 +921,9 @@ msgstr "Железная руда"
 msgid "Eisenhaut"
 msgstr "Железная кожа"
 
+msgid "Eisenschlüssel"
+msgstr "Железный ключ"
+
 msgid "Eisenschuh"
 msgstr "Железный башмак"
 
@@ -2150,6 +2153,9 @@ msgstr "За очки навыков"
 
 msgid "Mit dem Händler handeln"
 msgstr "Торговать с торговцем"
+
+msgid "Mit der Bomben-Taste werfen. Bis zu 5 auf einem Feld."
+msgstr "Бросай клавишей бомбы. До 5 в одной ячейке."
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "Домой принесено: %d золота, %d добычи"
@@ -3570,6 +3576,9 @@ msgstr "Десять бомб"
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Десять монет, удача выше"
 
+msgid "Zerbrechlicher Schlüssel"
+msgstr "Хрупкий ключ"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "Перетащи крысиную шкурку в золотое надёжное место. Что там лежит, останется при смерти."
 
@@ -3677,6 +3686,12 @@ msgstr "или пробел"
 
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Открой инвентарь клавишей Tab."
+
+msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
+msgstr "Открывает дверь в подземелье. Вечный: вернётся с тобой домой и снова пойдёт внутрь."
+
+msgid "Öffnet eine Tür im Dungeon. Zerbricht, sobald du den Dungeon verlässt."
+msgstr "Открывает дверь в подземелье. Ломается, как только ты выходишь из подземелья."
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Сверх лимита: Эгон косится на твою банку!"

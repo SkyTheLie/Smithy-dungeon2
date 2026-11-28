@@ -47,6 +47,8 @@ static func piece_of(offer: Dictionary) -> Dictionary:
 		return {"id": String(gets["backpack"]), "backpack": true}
 	if gets.has("potion") and not Content.potion(String(gets["potion"])).is_empty():
 		return {"id": String(gets["potion"]), "potion": true}
+	if gets.has("loot") and not Content.material(String(gets["loot"])).is_empty():
+		return {"id": String(gets["loot"]), "count": 1}
 	if gets.has("relic") and not Content.item(String(gets["relic"])).is_empty():
 		return {"id": String(gets["relic"]), "relic": true, "left": maxi(1, int(gets.get("runs", 1)))}
 	return {}

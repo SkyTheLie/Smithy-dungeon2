@@ -921,6 +921,9 @@ msgstr "Iron ore"
 msgid "Eisenhaut"
 msgstr "Iron Skin"
 
+msgid "Eisenschlüssel"
+msgstr "Iron key"
+
 msgid "Eisenschuh"
 msgstr "Iron shoe"
 
@@ -2150,6 +2153,9 @@ msgstr "With skill points"
 
 msgid "Mit dem Händler handeln"
 msgstr "Trade with the merchant"
+
+msgid "Mit der Bomben-Taste werfen. Bis zu 5 auf einem Feld."
+msgstr "Throw it with the bomb key. Up to 5 on one cell."
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "Brought home: %d gold, %d loot"
@@ -3570,6 +3576,9 @@ msgstr "Ten bombs"
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Ten coins, luck up"
 
+msgid "Zerbrechlicher Schlüssel"
+msgstr "Fragile key"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "Drag the rat fur into the golden safe spot. What lies there stays with you when you die."
 
@@ -3677,6 +3686,12 @@ msgstr "or press Space"
 
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Open your inventory with Tab."
+
+msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
+msgstr "Opens a door in the dungeon. Lasts forever, comes home with you and back in again."
+
+msgid "Öffnet eine Tür im Dungeon. Zerbricht, sobald du den Dungeon verlässt."
+msgstr "Opens a door in the dungeon. Breaks as soon as you leave the dungeon."
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Over the limit: Egon is eyeing your money box!"

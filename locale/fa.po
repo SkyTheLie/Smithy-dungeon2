@@ -921,6 +921,9 @@ msgstr "سنگ آهن"
 msgid "Eisenhaut"
 msgstr "پوست آهنین"
 
+msgid "Eisenschlüssel"
+msgstr "کلید آهنی"
+
 msgid "Eisenschuh"
 msgstr "کفش آهنی"
 
@@ -2150,6 +2153,9 @@ msgstr "با امتیاز مهارت"
 
 msgid "Mit dem Händler handeln"
 msgstr "معامله با فروشنده"
+
+msgid "Mit der Bomben-Taste werfen. Bis zu 5 auf einem Feld."
+msgstr "با کلید بمب پرتاب کن. تا ۵ تا در یک خانه."
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "به خانه آوردی: %d طلا، %d غنیمت"
@@ -3570,6 +3576,9 @@ msgstr "ده بمب"
 msgid "Zehn Münzen, Glück hoch"
 msgstr "ده سکه، شانس بالاتر"
 
+msgid "Zerbrechlicher Schlüssel"
+msgstr "کلید شکننده"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "پوست موش را به جای امن طلایی بکش. هرچه آنجا باشد، وقتی بمیری برایت می‌ماند."
 
@@ -3677,6 +3686,12 @@ msgstr "یا کلید فاصله"
 
 msgid "Öffne dein Inventar mit Tab."
 msgstr "با Tab کیفت را باز کن."
+
+msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
+msgstr "دری را در سیاه‌چال باز می‌کند. همیشه می‌ماند، با تو به خانه می‌آید و دوباره به داخل می‌رود."
+
+msgid "Öffnet eine Tür im Dungeon. Zerbricht, sobald du den Dungeon verlässt."
+msgstr "دری را در سیاه‌چال باز می‌کند. به محض خروج از سیاه‌چال می‌شکند."
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "بیش از حد: اگون به قوطی‌ات چشم دوخته!"

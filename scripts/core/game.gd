@@ -51,7 +51,10 @@ func start_new_run(character: String = "", dungeon: String = "") -> void:
 	# The skills learned at Egon's (bag places, hearts, damage …).
 	run.use_skills()
 	# The loot brought home last time is still in the bag (MetaState.bag_places).
+	# (The start bombs leave first and are topped up after, so they never pile up.)
+	run.bag.remove(Bag.BOMB, run.bombs)
 	run.bag.restore(MetaState.bag_places())
+	run.top_up_start()
 	# The very first run: the guide shows walking, shooting, loot and the safe place.
 	run.guided = not MetaState.guide_done()
 	# The gold at home stays in the money box: the run starts without gold.

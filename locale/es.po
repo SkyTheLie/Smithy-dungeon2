@@ -921,6 +921,9 @@ msgstr "Mineral de hierro"
 msgid "Eisenhaut"
 msgstr "Piel de hierro"
 
+msgid "Eisenschlüssel"
+msgstr "Llave de hierro"
+
 msgid "Eisenschuh"
 msgstr "Zapato de hierro"
 
@@ -2150,6 +2153,9 @@ msgstr "Con puntos de habilidad"
 
 msgid "Mit dem Händler handeln"
 msgstr "Comerciar con el mercader"
+
+msgid "Mit der Bomben-Taste werfen. Bis zu 5 auf einem Feld."
+msgstr "Lánzala con la tecla de bomba. Hasta 5 en una casilla."
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "Llevado a casa: %d de oro, %d botín"
@@ -3570,6 +3576,9 @@ msgstr "Diez bombas"
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Diez monedas, más suerte"
 
+msgid "Zerbrechlicher Schlüssel"
+msgstr "Llave frágil"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "Arrastra la piel de rata al lugar seguro dorado. Lo que esté ahí lo conservas al morir."
 
@@ -3677,6 +3686,12 @@ msgstr "o pulsa Espacio"
 
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Abre tu inventario con Tab."
+
+msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
+msgstr "Abre una puerta de la mazmorra. Dura para siempre, vuelve contigo a casa y entra otra vez."
+
+msgid "Öffnet eine Tür im Dungeon. Zerbricht, sobald du den Dungeon verlässt."
+msgstr "Abre una puerta de la mazmorra. Se rompe en cuanto sales de la mazmorra."
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "¡Por encima del límite: Egon mira tu lata!"

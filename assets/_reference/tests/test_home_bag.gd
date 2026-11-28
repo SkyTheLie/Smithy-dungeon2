@@ -80,6 +80,7 @@ func run() -> void:
 	check(bag != null, "(bag model)")
 	shop.queue_free()
 	await process_frame
+	_keys_home(meta)
 
 
 func _gear_in_bag(meta: Script, board: Control, area: Rect2i, px: float) -> void:
@@ -110,3 +111,26 @@ func _gear_in_bag(meta: Script, board: Control, area: Rect2i, px: float) -> void
 	check(meta.call("bag_to_stash", index), "back into the stash")
 	var own: Array = meta.call("stash")
 	check(own.size() == 1 and own[0].get("id") == "copper_helmet" and int(own[0].get("rarity", 0)) == 3, "in the stash with its rarity")
+
+
+## Leaving the dungeon: fragile keys break, iron keys and bombs come home in the bag; the next
+## run only tops the start bombs up (no free pile).
+func _keys_home(meta: Script) -> void:
+	meta.call("start_new")
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 3
+	var kept: Array[Dictionary] = [{"id": "key", "count": 1, "x": 0, "y": 0}, {"id": "iron_key", "count": 1, "x": 1, "y": 0}, {"id": "bomb", "count": 3, "x": 2, "y": 0}]
+	meta.call("end_run", 0, kept, rng)
+	var ids: Array[String] = []
+	for place: Dictionary in meta.call("bag_places"):
+		ids.append(String(place["id"]))
+	check(not ids.has("key"), "the fragile key broke")
+	check(ids.has("iron_key"), "the iron key came home")
+	check(ids.has("bomb"), "the bombs came home")
+	var run: Object = script("res://scripts/systems/run_state.gd").new(1)
+	run.get("bag").call("remove", "bomb", run.get("bombs"))
+	run.get("bag").call("restore", meta.call("bag_places"))
+	run.call("top_up_start")
+	check_eq(run.get("bombs"), 3, "three bombs from home, no extra start bomb on top")
+	check_eq(run.get("keys"), 1, "the iron key goes into the dungeon again")
+

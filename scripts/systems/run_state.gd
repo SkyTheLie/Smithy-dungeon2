@@ -55,8 +55,17 @@ var gear_sources: Array[Dictionary] = []
 var coins: int:
 	get:
 		return bag.count_of(Bag.GOLD)
-var bombs: int = 0
-var keys: int = 0
+## Bombs and keys lie in the bag as loot (Bag.BOMB stacks to 5; keys: loot.json "key", each on
+## its own cell); counted here only, like the coins.
+var bombs: int:
+	get:
+		return bag.count_of(Bag.BOMB)
+var keys: int:
+	get:
+		var total: int = 0
+		for id: String in key_ids():
+			total += bag.count_of(id)
+		return total
 ## Collected item ids in the order they were picked up (the same item can come twice).
 var items: Array[String] = []
 ## Index into data/floors.json "floors".
@@ -112,8 +121,7 @@ func _init(run_seed: int = 0, character_id: String = "magier") -> void:
 	health = max_hearts * 2
 	# Gold in the bag changes the coins (Goldglut items count them).
 	bag.changed.connect(_coins_changed)
-	bombs = int(base.get("bombs", 1))
-	keys = int(base.get("keys", 0))
+	top_up_start()
 	compute_stats()
 	_add_start_items()
 
@@ -343,18 +351,61 @@ func sell_from_bag(index: int) -> int:
 	return gold
 
 
-func add_bombs(amount: int) -> void:
-	if amount <= 0:
-		return
-	bombs = mini(MAX_COUNT, bombs + amount)
-	changed.emit()
+## Bombs into the bag; what does not fit falls to the floor (loot_overflow). Returns that.
+func add_bombs(amount: int) -> int:
+	return _add_to_bag(Bag.BOMB, amount)
 
 
-func add_keys(amount: int) -> void:
+## Fragile keys (Bag.KEY) into the bag, like add_bombs.
+func add_keys(amount: int) -> int:
+	return _add_to_bag(Bag.KEY, amount)
+
+
+func _add_to_bag(id: String, amount: int) -> int:
 	if amount <= 0:
-		return
-	keys = mini(MAX_COUNT, keys + amount)
-	changed.emit()
+		return 0
+	var left: int = bag.add(id, amount)
+	if left > 0:
+		loot_overflow.emit(id, left)
+	return left
+
+
+## The start bombs and keys (player.json "bombs" / "keys"): only what is missing in the bag
+## comes in, so bombs brought from home do not pile up.
+func top_up_start() -> void:
+	var base: Dictionary = Content.player()
+	bag.add(Bag.BOMB, maxi(0, int(base.get("bombs", 0)) - bombs))
+	bag.add(Bag.KEY, maxi(0, int(base.get("keys", 0)) - keys))
+
+
+## Every loot id that is a key (loot.json "key": true), fragile ones first.
+static func key_ids() -> Array[String]:
+	var fragile: Array[String] = []
+	var lasting: Array[String] = []
+	var materials: Dictionary = Content.materials()
+	for id: String in materials:
+		var data: Dictionary = materials[id]
+		if bool(data.get("key", false)):
+			if bool(data.get("fragile", false)):
+				fragile.append(id)
+			else:
+				lasting.append(id)
+	fragile.append_array(lasting)
+	return fragile
+
+
+## true for loot that breaks when the dungeon is left (loot.json "fragile").
+static func is_fragile(id: String) -> bool:
+	return bool(Content.material(id).get("fragile", false))
+
+
+## Fragile keys in the bag (they break at the end of the run).
+func fragile_keys() -> int:
+	var total: int = 0
+	for id: String in key_ids():
+		if is_fragile(id):
+			total += bag.count_of(id)
+	return total
 
 
 ## Pays `price` coins; false (and nothing paid) if there are not enough.
@@ -366,20 +417,16 @@ func spend(price: int) -> bool:
 	return true
 
 
+## Opens a lock: a fragile key first (it breaks anyway), else a lasting one.
 func use_key() -> bool:
-	if keys <= 0:
-		return false
-	keys -= 1
-	changed.emit()
-	return true
+	for id: String in key_ids():
+		if bag.remove(id, 1):
+			return true
+	return false
 
 
 func use_bomb() -> bool:
-	if bombs <= 0:
-		return false
-	bombs -= 1
-	changed.emit()
-	return true
+	return bag.remove(Bag.BOMB, 1)
 
 
 ## Takes an item: its values count at once; new synergies are announced.
@@ -409,8 +456,8 @@ func add_item(id: String) -> void:
 		var over: int = bag.add(loot_id, count) if count > 0 else 0
 		if over > 0:
 			loot_overflow.emit(loot_id, over)
-	bombs = mini(MAX_COUNT, bombs + maxi(0, int(give.get("bombs", 0))))
-	keys = mini(MAX_COUNT, keys + maxi(0, int(give.get("keys", 0))))
+	add_bombs(int(give.get("bombs", 0)))
+	add_keys(int(give.get("keys", 0)))
 	var before: Array[String] = synergies.duplicate()
 	compute_stats()
 	note_best("hearts", max_hearts)
