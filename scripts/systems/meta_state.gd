@@ -366,10 +366,24 @@ static func stash() -> Array[Dictionary]:
 	return typed
 
 
-## Width × height of the stash grid (data/meta.json stash).
+## Width × height of the stash grid (data/meta.json stash, plus the columns from trades).
 static func stash_grid() -> Vector2i:
 	var rules: Dictionary = Content.meta("stash")
-	return Vector2i(maxi(1, int(rules.get("columns", 5))), maxi(1, int(rules.get("rows", 4))))
+	return Vector2i(maxi(1, int(rules.get("columns", 5))) + stash_extra_columns(), maxi(1, int(rules.get("rows", 4))))
+
+
+## Columns the stash gained by trades (data/trades.json get.stash_columns).
+static func stash_extra_columns() -> int:
+	return maxi(0, int(_read("stash_extra_columns", 0)))
+
+
+## Ids of the once-only trades already done in this save.
+static func trades_done() -> Array:
+	return (_read("trades_done", []) as Array).duplicate()
+
+
+static func trade_done(id: String) -> bool:
+	return trades_done().has(id)
 
 
 static func _is_loot(piece: Dictionary) -> bool:
@@ -744,7 +758,7 @@ static func home_count(id: String) -> int:
 ## true when offer `id` is open, its piece exists and everything it costs is at home.
 static func can_trade(id: String) -> bool:
 	var offer: Dictionary = Trades.find(id)
-	if offer.is_empty() or not Trades.is_open(offer) or Trades.piece_of(offer).is_empty():
+	if offer.is_empty() or not Trades.is_open(offer) or Trades.is_used_up(offer) or not Trades.gives_something(offer):
 		return false
 	for cost: Array in Trades.costs(offer):
 		if home_count(String(cost[0])) < int(cost[1]):
@@ -797,8 +811,17 @@ static func trade(id: String) -> bool:
 				if int(stored["count"]) <= 0:
 					items.remove_at(i)
 			piece["items"] = items
-	var gained: Dictionary = Trades.piece_of(offer)
-	own.append(gained if _is_loot(gained) else _owned(gained))
+	if Trades.is_once(offer):
+		var done: Array = trades_done()
+		done.append(id)
+		_write("trades_done", done)
+	var wider: int = Trades.stash_columns(offer)
+	if wider > 0:
+		# The grid grows before the stash is written, so pieces without room find a place.
+		_write("stash_extra_columns", stash_extra_columns() + wider)
+	else:
+		var gained: Dictionary = Trades.piece_of(offer)
+		own.append(gained if _is_loot(gained) else _owned(gained))
 	_write_stash(own)
 	_save_bag(bag)
 	_save()

@@ -375,6 +375,9 @@ msgstr "草沙沙作响。草总是沙沙作响。直到它咬人。"
 msgid "Das Herz des Drachen"
 msgstr "巨龙之心"
 
+msgid "Das Lager bekommt %d Spalten mehr. Für immer."
+msgstr "仓库多出%d列。永久有效。"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "这个可穿不了，伙计。相信我，我试过。"
 
@@ -1581,6 +1584,9 @@ msgstr "火球更大，伤害更高"
 msgid "Größerer Rucksack"
 msgstr "更大的背包"
 
+msgid "Größeres Lager"
+msgstr "更大的仓库"
+
 msgid "Grün"
 msgstr "绿色"
 
@@ -2340,6 +2346,9 @@ msgstr "尚未发现"
 msgid "Nur Punkt"
 msgstr "仅圆点"
 
+msgid "Nur einmal."
+msgstr "仅限一次。"
+
 msgid "Nur für: %s"
 msgstr "仅限：%s"
 
@@ -2837,6 +2846,9 @@ msgstr "更快的射击穿透敌人"
 
 msgid "Schon einmal geschafft!"
 msgstr "已通关过！"
+
+msgid "Schon getauscht"
+msgstr "已交换"
 
 msgid "Schreckensbrief"
 msgstr "恐惧信函"

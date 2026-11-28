@@ -375,6 +375,9 @@ msgstr "The grass rustles. The grass always rustles. Until it bites."
 msgid "Das Herz des Drachen"
 msgstr "The Dragon's Heart"
 
+msgid "Das Lager bekommt %d Spalten mehr. Für immer."
+msgstr "The storage gets %d more columns. Forever."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "You can't wear that, partner. Trust me, I've tried."
 
@@ -1581,6 +1584,9 @@ msgstr "Bigger fireballs, more damage"
 msgid "Größerer Rucksack"
 msgstr "Bigger backpack"
 
+msgid "Größeres Lager"
+msgstr "Bigger storage"
+
 msgid "Grün"
 msgstr "Green"
 
@@ -2340,6 +2346,9 @@ msgstr "Not discovered yet"
 msgid "Nur Punkt"
 msgstr "Dot only"
 
+msgid "Nur einmal."
+msgstr "Only once."
+
 msgid "Nur für: %s"
 msgstr "Only for: %s"
 
@@ -2837,6 +2846,9 @@ msgstr "Faster shots fly through enemies"
 
 msgid "Schon einmal geschafft!"
 msgstr "Beaten before!"
+
+msgid "Schon getauscht"
+msgstr "Already traded"
 
 msgid "Schreckensbrief"
 msgstr "Letter of Dread"

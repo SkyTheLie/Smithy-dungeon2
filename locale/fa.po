@@ -375,6 +375,9 @@ msgstr "علف خش‌خش می‌کند. علف همیشه خش‌خش می‌�
 msgid "Das Herz des Drachen"
 msgstr "قلب اژدها"
 
+msgid "Das Lager bekommt %d Spalten mehr. Für immer."
+msgstr "انبار %d ستون بیشتر می‌گیرد. برای همیشه."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "این پوشیدنی نیست، رفیق. باور کن، امتحان کردم."
 
@@ -1581,6 +1584,9 @@ msgstr "گلوله‌های آتشین بزرگ‌تر، آسیب بیشتر"
 msgid "Größerer Rucksack"
 msgstr "کوله‌ی بزرگ‌تر"
 
+msgid "Größeres Lager"
+msgstr "انبار بزرگ‌تر"
+
 msgid "Grün"
 msgstr "سبز"
 
@@ -2340,6 +2346,9 @@ msgstr "هنوز کشف نشده"
 msgid "Nur Punkt"
 msgstr "فقط نقطه"
 
+msgid "Nur einmal."
+msgstr "فقط یک بار."
+
 msgid "Nur für: %s"
 msgstr "فقط برای: %s"
 
@@ -2837,6 +2846,9 @@ msgstr "تیرهای سریع‌تر از دشمنان عبور می‌کنند"
 
 msgid "Schon einmal geschafft!"
 msgstr "قبلاً تمامش کرده‌ای!"
+
+msgid "Schon getauscht"
+msgstr "قبلاً معاوضه شده"
 
 msgid "Schreckensbrief"
 msgstr "نامه وحشت"

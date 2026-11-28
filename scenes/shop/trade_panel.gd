@@ -11,6 +11,7 @@ const ROOM := Vector2(222, 252)
 const COST_ICON := Vector2(18, 18)
 const ENOUGH := Color(0.45, 0.9, 0.45)
 const MISSING := Color(1.0, 0.4, 0.35)
+const STASH_ICON: Texture2D = preload("res://assets/sprites/props/chest.png")
 
 var _rows: VBoxContainer
 var _buttons: Dictionary[String, Button] = {}
@@ -48,15 +49,15 @@ func refresh() -> void:
 		child.queue_free()
 	_buttons.clear()
 	for offer: Dictionary in Trades.all():
-		var piece: Dictionary = Trades.piece_of(offer)
-		if piece.is_empty():
+		if not Trades.gives_something(offer):
 			continue
+		var piece: Dictionary = Trades.piece_of(offer)
 		_rows.add_child(_row(offer, piece))
 
 
 func _row(offer: Dictionary, piece: Dictionary) -> Control:
 	var id: String = String(offer.get("id", ""))
-	var open: bool = Trades.is_open(offer)
+	var open: bool = Trades.is_open(offer) and not Trades.is_used_up(offer)
 	var frame := PanelContainer.new()
 	frame.add_theme_stylebox_override("panel", ShopSlot.box(Color(0.16, 0.12, 0.1, 0.95), Color(0.32, 0.27, 0.24), 1))
 	var line := HBoxContainer.new()
@@ -83,10 +84,7 @@ func _row(offer: Dictionary, piece: Dictionary) -> Control:
 		pair.add_child(_label("%d/%d" % [mini(have, 999), need], 9, ENOUGH if have >= need else MISSING))
 		costs.add_child(pair)
 	line.add_child(_label("→", 12, Color(1, 0.86, 0.55)))
-	var slot := ShopSlot.new()
-	slot.show_entry(piece)
-	slot.tooltip_text = ShopSlot.describe(piece, false)
-	line.add_child(slot)
+	line.add_child(_reward(offer, piece))
 	if open:
 		var button := Button.new()
 		button.name = "Trade_" + id
@@ -107,6 +105,28 @@ func _row(offer: Dictionary, piece: Dictionary) -> Control:
 		reason.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		line.add_child(reason)
 	return frame
+
+
+## What you get: the piece as a ShopSlot, or for a bigger stash a chest with its tooltip.
+func _reward(offer: Dictionary, piece: Dictionary) -> Control:
+	if not piece.is_empty():
+		var slot := ShopSlot.new()
+		slot.show_entry(piece)
+		slot.tooltip_text = ShopSlot.describe(piece, false)
+		return slot
+	var chest := TextureRect.new()
+	chest.texture = STASH_ICON
+	chest.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	chest.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	chest.custom_minimum_size = ShopSlot.SIZE
+	chest.mouse_filter = Control.MOUSE_FILTER_STOP
+	chest.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	var title: String = Language.translate("Größeres Lager")
+	var text: String = Language.translate("Das Lager bekommt %d Spalten mehr. Für immer.") % Trades.stash_columns(offer)
+	if Trades.is_once(offer):
+		text += "\n" + Language.translate("Nur einmal.")
+	chest.tooltip_text = title + "\n" + text
+	return chest
 
 
 func _label(text: String, font_size: int, color: Color) -> Label:

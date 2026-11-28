@@ -375,6 +375,9 @@ msgstr "草がカサカサいう。草はいつもカサカサいう。噛みつ
 msgid "Das Herz des Drachen"
 msgstr "竜の心臓"
 
+msgid "Das Lager bekommt %d Spalten mehr. Für immer."
+msgstr "倉庫の列が%d増える。ずっと。"
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "それは着られないぜ、相棒。信じろ、俺も試した。"
 
@@ -1581,6 +1584,9 @@ msgstr "火の玉が大きくなり、ダメージ上昇"
 msgid "Größerer Rucksack"
 msgstr "大きなリュック"
 
+msgid "Größeres Lager"
+msgstr "大きな倉庫"
+
 msgid "Grün"
 msgstr "緑"
 
@@ -2340,6 +2346,9 @@ msgstr "未発見"
 msgid "Nur Punkt"
 msgstr "ドットのみ"
 
+msgid "Nur einmal."
+msgstr "一度だけ。"
+
 msgid "Nur für: %s"
 msgstr "専用：%s"
 
@@ -2837,6 +2846,9 @@ msgstr "速い弾が敵を貫通する"
 
 msgid "Schon einmal geschafft!"
 msgstr "攻略済み！"
+
+msgid "Schon getauscht"
+msgstr "交換済み"
 
 msgid "Schreckensbrief"
 msgstr "恐怖の手紙"

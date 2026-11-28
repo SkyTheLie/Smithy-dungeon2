@@ -375,6 +375,9 @@ msgstr "Трава шуршит. Трава всегда шуршит. Пока 
 msgid "Das Herz des Drachen"
 msgstr "Сердце дракона"
 
+msgid "Das Lager bekommt %d Spalten mehr. Für immer."
+msgstr "На складе станет на %d столбцов больше. Навсегда."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Это не наденешь, партнёр. Поверь, я пробовал."
 
@@ -1581,6 +1584,9 @@ msgstr "Огненные шары больше, урон выше"
 msgid "Größerer Rucksack"
 msgstr "Большой рюкзак"
 
+msgid "Größeres Lager"
+msgstr "Большой склад"
+
 msgid "Grün"
 msgstr "Зелёный"
 
@@ -2340,6 +2346,9 @@ msgstr "Ещё не найдено"
 msgid "Nur Punkt"
 msgstr "Только точка"
 
+msgid "Nur einmal."
+msgstr "Только один раз."
+
 msgid "Nur für: %s"
 msgstr "Только для: %s"
 
@@ -2837,6 +2846,9 @@ msgstr "Быстрые выстрелы пробивают врагов"
 
 msgid "Schon einmal geschafft!"
 msgstr "Уже пройдено!"
+
+msgid "Schon getauscht"
+msgstr "Уже обменяно"
 
 msgid "Schreckensbrief"
 msgstr "Письмо ужаса"
