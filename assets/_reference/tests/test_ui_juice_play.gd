@@ -2,7 +2,8 @@ extends "res://assets/_reference/_lib/base_test.gd"
 ## The colourful feedback in the real run scene: a hit makes a damage number pop up over the
 ## enemy and the hit marker flash at the crosshair (red for a kill, with confetti); loot from the
 ## floor shows "+1 …" at the side; low life makes the edge pulse red; every button gets UiJuice;
-## the end screen fills the EXP bar and bursts "Stufe X!" for a new level.
+## the end screen fills the EXP bar and bursts "Stufe X!" for a new level. Mood: a hit paints the
+## enemy white for a moment, torches flicker their light, fireballs have a soft light spot.
 
 var scene: Node
 var dungeon: Node
@@ -25,6 +26,7 @@ func run() -> void:
 	player = scene.get_node("%Player") as Node3D
 	player.set("invulnerable", 999.0)
 	await _hits()
+	await _flash_and_torches()
 	await _loot()
 	await _low_life()
 	await _buttons()
@@ -49,6 +51,42 @@ func _hits() -> void:
 	check(_labels_in(effects).any(func(n: Label3D) -> bool: return n.text == "999" and n.font_size > 32), "a strong hit: a big number")
 	check(effects.get_children().any(func(n: Node) -> bool: return n is CPUParticles3D), "confetti when it dies")
 	check(await wait_until(func() -> bool: return _labels_in(effects).is_empty(), 2.0), "the numbers fade away")
+
+
+func _flash_and_torches() -> void:
+	var rat: Node3D = dungeon.call("spawn_enemy", "giant_rat", player.global_position + Vector3(2.0, 0, -4.0))
+	await physics_frame
+	var material: ShaderMaterial = rat.get("_material")
+	check(material != null and material.get_shader_parameter("sprite_texture") != null, "the enemy picture has its own material with the sheet")
+	rat.call("take_damage", 0.01, Vector3.ZERO, false)
+	check_eq(material.get_shader_parameter("flash"), 1.0, "a hit paints the enemy white")
+	check(await wait_until(func() -> bool: return float(material.get_shader_parameter("flash")) == 0.0, 0.5), "and only for a moment")
+	rat.call("take_damage", 999.0, Vector3.ZERO, false)
+	# Torches: their light changes over time.
+	var room: Node = (dungeon.get("rooms") as Dictionary)[dungeon.get("current_cell")]
+	var torch: Node = null
+	for child: Node in room.get_children():
+		if child is Sprite3D and child.get("light") != null:
+			torch = child
+	check(torch != null, "a torch with its light")
+	if torch:
+		var light: OmniLight3D = torch.get("light")
+		var energies: Dictionary = {}
+		for i: int in 20:
+			await process_frame
+			energies[snappedf(light.light_energy, 0.001)] = true
+		check(energies.size() > 3, "the torch light flickers")
+	# A fireball carries a light spot (Fx.halo: a quad with an additive material).
+	var shot: Node3D = load("res://scenes/actors/projectile.gd").new()
+	effects_holder().add_child(shot)
+	shot.set_physics_process(false)
+	check(shot.get_children().any(func(n: Node) -> bool: return n is MeshInstance3D and (n as MeshInstance3D).mesh is QuadMesh), "a fireball has a light spot")
+	shot.queue_free()
+	await wait_until(func() -> bool: return dungeon.call("get_enemies").is_empty(), 2.0)
+
+
+func effects_holder() -> Node3D:
+	return dungeon.get("effects")
 
 
 func _loot() -> void:

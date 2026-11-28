@@ -172,10 +172,16 @@ static func _torch(room: Node3D, pos: Vector3, color: Color) -> void:
 	sprite.pixel_size = 1.0 / 48.0
 	sprite.position = pos
 	sprite.set_script(preload("res://scenes/objects/torch.gd"))
-	room.add_child(sprite)
 	var light := OmniLight3D.new()
 	light.light_color = color
 	light.light_energy = 0.8
 	light.omni_range = 5.0
 	light.position = pos + Vector3(0, 0.4, 0) - Vector3(signf(pos.x) * 0.0, 0, signf(pos.z) * 0.4)
 	room.add_child(light)
+	# The torch flickers its own light (set before add_child, so its _ready sees it).
+	sprite.set("light", light)
+	room.add_child(sprite)
+	# Soft shine around the flame (in front of the wall, so the wall does not cut it).
+	var halo := Fx.halo(Color(color.r, color.g * 0.8, color.b * 0.6, 0.6), 1.1)
+	halo.position = pos + Vector3(0, 0.2, 0) - Vector3(signf(pos.x) * 0.0, 0, signf(pos.z) * 0.15)
+	room.add_child(halo)

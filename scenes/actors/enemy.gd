@@ -40,6 +40,9 @@ const FRAMES: int = 6
 const FRAME_SIZE: int = 48
 const WALK_FPS: float = 8.0
 const DEATH_FPS: float = 10.0
+## Hit flash: the picture is all white for this long after a hit (then the red tint of _flash).
+const HIT_WHITE: float = 0.05
+const SPRITE_SHADER: Shader = preload("res://scenes/actors/enemy_sprite.gdshader")
 const SEPARATION: float = 0.8
 const CONFUSED_TIME: float = 2.5
 const FLY_HEIGHT: float = 0.7
@@ -108,6 +111,9 @@ var _wake_left: float = 0.0
 var _awake: bool = true
 var _push: Vector3 = Vector3.ZERO
 var _flash: float = 0.0
+## Seconds of the white hit flash left; the sprite's own material (enemy_sprite.gdshader).
+var _white_left: float = 0.0
+var _material: ShaderMaterial
 var _confused: float = 0.0
 var _timer: float = 0.0
 var _hop_phase: bool = false
@@ -239,6 +245,10 @@ func _ready() -> void:
 	_sprite = Fx.billboard(_walk if _awake else _idle, height)
 	_sprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 	_sprite.pixel_size = height / float(_frame_h)
+	# Own material, so a hit can paint just this enemy white (billboard is done in the shader).
+	_material = ShaderMaterial.new()
+	_material.shader = SPRITE_SHADER
+	_sprite.material_override = _material
 	_set_sheet(_walk if _awake else _idle)
 	_sprite.position.y = height / 2.0 + (FLY_HEIGHT if _ai == "fly" else 0.0)
 	add_child(_sprite)
@@ -298,6 +308,8 @@ func take_damage(amount: float, push: Vector3, confuse: bool) -> void:
 	_last_hit = _anim_time
 	hp -= amount
 	_flash = 0.12
+	_white_left = HIT_WHITE
+	_material.set_shader_parameter("flash", 1.0)
 	_awake = true
 	_push += Vector3(push.x, 0, push.z) * (0.15 if is_boss else 1.0)
 	if confuse and not is_boss:
@@ -607,6 +619,8 @@ func _die() -> void:
 
 func _set_sheet(texture: Texture2D) -> void:
 	_sprite.texture = texture
+	if _material:
+		_material.set_shader_parameter("sprite_texture", texture)
 	_sprite.hframes = maxi(1, texture.get_width() / _frame_w)
 	# A sheet with several rows (e.g. one per direction) shows only its first row; without this
 	# the whole column would be squeezed into one picture.
@@ -616,6 +630,10 @@ func _set_sheet(texture: Texture2D) -> void:
 
 func _physics_process(delta: float) -> void:
 	_anim_time += delta
+	if _white_left > 0.0:
+		_white_left = maxf(0.0, _white_left - delta)
+		if _white_left <= 0.0:
+			_material.set_shader_parameter("flash", 0.0)
 	if not alive:
 		var frame: int = int(_anim_time * DEATH_FPS)
 		if frame >= _sprite.hframes:

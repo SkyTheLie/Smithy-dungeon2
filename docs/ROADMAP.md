@@ -123,3 +123,8 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Behälter im Lager (Relikte, Rüstung, Waffen, Materialien; klein und groß) und Tausch-Reiter bei Egon (`data/trades.json`).
 - ✅ Bomben (bis 5 je Feld) und Schlüssel (je ein Feld) als Beute im Inventar; zerbrechliche Schlüssel aus dem Dungeon, Eisenschlüssel bleiben (Tausch bei Egon).
 - Offen: Treffer-Gefühl, Tod-Zusammenfassung, Heimkehr, Komfort, Tagesangebot (Reihenfolge in `docs/IDEEN.md`).
+
+### Aussehen und Stimmung (Nachricht vom 2026-11-28, Liste in `docs/IDEEN.md`)
+
+- ✅ Treffer-Blitz (Gegner kurz weiß), Fackeln flackern, Lichthof um Feuerbälle und Fackeln statt Glow (`feature/stimmung`).
+- Offen: Deko in den Räumen (`floors.json` `props`), Partikel je Thema, Boden-Decals, Vignette/Farbstimmung, Head-Bob; im Laden Seltenheitsrahmen, lebender Hintergrund, R3-Moment, Abblenden.

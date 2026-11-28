@@ -9,6 +9,8 @@ const FIRE_SIZE: int = 12
 const RING_WIDTH: float = 0.04
 
 static var _textures: Dictionary[String, Texture2D] = {}
+## Colour -> halo material (read-only cache).
+static var _halo_materials: Dictionary[String, StandardMaterial3D] = {}
 
 
 ## Round pixel ball: white-yellow core, orange, red rim. `kind` "fire", "enemy" (purple),
@@ -49,6 +51,56 @@ static func billboard(texture: Texture2D, world_height: float) -> Sprite3D:
 	sprite.shaded = false
 	sprite.pixel_size = world_height / float(maxi(1, texture.get_height()))
 	return sprite
+
+
+## Soft glow around something bright (fireball, torch flame): a camera-facing square with a round,
+## stepped (pixel-look) light spot, added on top of what is behind it. `size` in metres.
+## (Real glow of the WorldEnvironment is almost invisible in GL Compatibility for unshaded sprites.)
+static func halo(color: Color, size: float) -> MeshInstance3D:
+	var mesh_instance := MeshInstance3D.new()
+	var quad := QuadMesh.new()
+	quad.size = Vector2(size, size)
+	mesh_instance.mesh = quad
+	mesh_instance.material_override = _halo_material(color)
+	mesh_instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	return mesh_instance
+
+
+static func _halo_material(color: Color) -> StandardMaterial3D:
+	var key: String = "halo|%s" % color
+	if _halo_materials.has(key):
+		return _halo_materials[key]
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	material.depth_draw_mode = BaseMaterial3D.DEPTH_DRAW_DISABLED
+	material.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
+	material.disable_fog = true
+	material.albedo_texture = _halo_texture()
+	material.albedo_color = color
+	_halo_materials[key] = material
+	return material
+
+
+## White round spot, 32 x 32, brightness in 6 steps towards the rim.
+static func _halo_texture() -> Texture2D:
+	if _textures.has("halo"):
+		return _textures["halo"]
+	const SIZE: int = 32
+	var image := Image.create(SIZE, SIZE, false, Image.FORMAT_RGBA8)
+	var center := Vector2(SIZE, SIZE) / 2.0 - Vector2(0.5, 0.5)
+	for y in SIZE:
+		for x in SIZE:
+			var d: float = Vector2(x, y).distance_to(center) / (SIZE / 2.0)
+			if d >= 1.0:
+				continue
+			var strength: float = ceilf((1.0 - d) * (1.0 - d) * 6.0) / 6.0
+			image.set_pixel(x, y, Color(1, 1, 1, strength))
+	var texture := ImageTexture.create_from_image(image)
+	_textures["halo"] = texture
+	return texture
 
 
 ## A short flash of light (fades out and removes itself).
