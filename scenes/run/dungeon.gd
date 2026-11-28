@@ -162,6 +162,11 @@ func build(run_state: RunState, the_player: Player, index: int) -> void:
 	effects = Node3D.new()
 	effects.name = "Effects"
 	add_child(effects)
+	# Quiet sounds of the place (floors.json theme "ambience").
+	var sounds := RoomSounds.new()
+	sounds.name = "RoomSounds"
+	add_child(sounds)
+	sounds.setup(self, floor_data.get("ambience", []), hash([run.seed_value, index, "ambience"]))
 	if guide:
 		for cell: Vector2i in layout.neighbours(FloorLayout.START):
 			if layout.get_type(cell) == FloorLayout.NORMAL:

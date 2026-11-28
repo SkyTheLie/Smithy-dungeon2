@@ -421,6 +421,12 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - Eigener Zufall je Raum (`hash([Ebene, Zelle, "props"])`), damit Gegner, Steine und Beute denselben Zufall behalten wie vorher. Test: `test_room_props_play`.
 - **Zerbrechliche Deko** (2026-11-28, `feature/kaputte-deko`): Bilder aus `props.break.textures` (Bild -> Ton) werden ein `BreakableProp` (`scenes/objects/breakable_prop.gd`, StaticBody3D auf `LAYER_ROCKS`, Zylinder so hoch wie das Bild): blockiert Laufen und Schüsse wie ein kleiner Stein. Kaputt machen ihn Feuerbälle/Pfeile (`Projectile._move`, der Schuss endet dort), der Schwertschwung (`FireSlash._blocked`, geht weiter) und Bomben/Explosionen (`Dungeon.explode`). `Dungeon.break_prop`: Splitter (`Fx.shards`: Bild in 2×2 Teile, fliegen auseinander), Ton im Raum, mit `coin_chance` (+ Glück) Münzen `coins` [min, max]; die zählen zum Raum-Budget (`loot.json` `room_budget`), eine Kiste gibt also nie mehr her, als der Raum erlaubt. Der Raum kennt seine Kisten (`DungeonRoom.breakables`).
 
+## Geräusche im Raum – 2026-11-28 (`feature/raum-ton`)
+
+- `RoomSounds` (`scenes/run/room_sounds.gd`, Kind `RoomSounds` des Dungeons, pausiert mit dem Spiel): alle `every` [min, max] Sekunden (`floors.json` `ambience`) ein leises Geräusch aus der Liste des Themas (`ambience` [[Art, Gewicht], …]), als 3D-Ton 2,5–6 m vom Spieler entfernt, aber im selben Raum (`distance`). Still in den Hallen der Endbosse (`in_end_hall`) und nach dem Tod.
+- Die Arten (`ambience_types`: Tropfen, Quieken, Ketten, Wind, Grollen, Frosch, Blubbern, Grille, Vogel, Knistern, Eis knackt, Heulen, Klingen) sind Stimmen für `SoundSynth` wie die Rufe der Gegner, mit `volume` in dB (Test: höchstens -12). Keine Ton-Dateien nötig.
+- Eigener Zufall (`hash([Seed, Ebene, "ambience"])`). Test: `test_room_sounds_play`.
+
 ## Wand-Schriften – 2026-11-28 (`feature/wand-schriften`)
 
 - `RoomWriting` (`scenes/run/room_writing.gd`): `Dungeon._add_writings` (nach `_build_doors`) wählt mit `RoomWriting.plan` normale Räume aus (`floors.json` `writings`: `chance` je Raum, `max_per_floor`; nie der Übungsraum des Tutorials), jeder Satz höchstens einmal je Ebene. `add_writing` hängt ein `Label3D` (Name `Writing`) auf die Ost- oder Westwand in Augenhöhe, neben die Tür, falls dort eine ist; leicht schief, blass wie gekratzt.

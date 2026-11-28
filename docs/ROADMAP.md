@@ -129,6 +129,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Treffer-Blitz (Gegner kurz weiß), Fackeln flackern, Lichthof um Feuerbälle und Fackeln statt Glow (`feature/stimmung`).
 - ✅ Deko in den Räumen: 2–5 Bilder je Raum an den Wänden, je Thema eigene (`floors.json` `props`, `feature/deko`).
 - ✅ In der Luft je Thema: Staub, Grabstaub, Sporen, Schnee, Schneesturm, Glut, Asche-Glut, Glühwürmchen (`floors.json` `air`/`air_types`, `feature/luft`).
+- ✅ Leise Geräusche je Thema im Raum (Tropfen, Ketten, Wind, Frösche, Grillen …; `floors.json` `ambience`, `feature/raum-ton`).
 - ✅ Wand-Schriften früherer Abenteurer (`story.json` `walls`, `floors.json` `writings`, `feature/wand-schriften`).
 - ✅ Zerbrechliche Deko: Kisten, Fässer, Säcke, Kristalle gehen durch Schuss, Schwert und Bombe kaputt, manchmal Münzen (`floors.json` `props.break`, `feature/kaputte-deko`).
 - Offen: Boden-Decals, Vignette/Farbstimmung, Head-Bob; im Laden Seltenheitsrahmen, lebender Hintergrund, R3-Moment, Abblenden.
