@@ -324,11 +324,19 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 
 - **Dateien:** `scenes/ui/menus/admin_menu.gd` (im Code gebaut), `scenes/run/run.gd`, `Game.travel`, `MetaState.give_piece`
 - **P** (nur `OS.is_debug_build()`) öffnet es statt des Testraums; das Spiel hält an, P/Esc schließt.
-- **Reise:** Dungeon + Ebene wählen → „Hinreisen“ (gleicher Run, Ebene neu gebaut); Knöpfe Boss-Halle, Boss-Szene überspringen, Räume dieser Ebene (Start, Boss, Item, Shop, Geheim, Opfer, Sonderraum), Testraum (alle Items auf Sockeln, wie vorher).
+- **Reise:** Dungeon + Ebene wählen → „Hinreisen“ (gleicher Run, Ebene neu gebaut); Knöpfe Boss-Halle, Boss-Szene überspringen, Räderkluft, Räume dieser Ebene (Start, Boss, Item, Shop, Geheim, Opfer, Sonderraum), Testraum (alle Items auf Sockeln, wie vorher).
 - **Items:** alle Items mit Suche, Doppelklick gibt eins, „Alle Items ablegen“.
 - **Ausrüstung:** Ausrüstung (mit Seltenheit), Relikte, Tränke – Doppelklick legt an (bleibt im Spielstand, der Run nutzt es sofort); angelegte Teile anklicken = ablegen (ins Inventar zu Hause).
 - **Cheats:** Leben voll, Unverwundbar, Raum leeren, +5 Bomben/Schlüssel, +1000 Gold in die Dose, +1 Spielerstufe, Dungeon als geschafft markieren.
 - Texte nur deutsch (Entwickler-Werkzeug, absichtlich ohne Übersetzung).
+
+## Räderkluft (GearChasm) – 2026-11-28
+
+- **Dateien:** `scenes/run/gear_chasm.gd`, `data/gear_chasm.json`, `scenes/run/dungeon.gd` (`CHASM_CELL`, `chasm`, `enter_gear_chasm`, `in_gear_chasm`), Admin-Menü Knopf „Räderkluft“, Test `test_gear_chasm_play.gd`
+- Boss-Halle über einem Abgrund, weit weg vom Ebenen-Raster (wie der Boss-Altar). Boden nur auf Plattformen: feste Mitte (Boss-Podest = Hindernis), vier feste Tür-Plattformen an den Wänden (Ankunft: Süden), innerer Ring 4 Plattformen gegen den Uhrzeigersinn, äußerer Ring 4 Plattformen im Uhrzeigersinn. Die Schienen sind Rechtecke (`GearChasm.path_point`), beide Ringe brauchen `period` Sekunden je Runde → alle `period`/4 Sekunden ist von jeder Tür ein Weg bis zur Mitte offen (Tür, außen, innen, Mitte). Der erste Weg öffnet `wait_at_start` Sekunden nach dem Betreten.
+- Der Spieler hat keine Schwerkraft; `GearChasm.tick` (aus `Dungeon._physics_process`) prüft, ob unter ihm eine Plattform ist (bis `reach` über den Rand), verschiebt ihn mit der Plattform und lässt ihn sonst fallen: Steuerung aus, nach unten, `fall_damage` halbe Herzen, zurück an die letzte Stelle auf festem Boden. `on_leave` bricht einen Fall ab (Admin-Teleport, Testraum).
+- **Endboss-Halle:** `dungeons.json` `end_room: "gear_chasm"` (Moor) → das Portal der letzten Ebene führt hierher statt zum Boss-Altar. Der Endboss erscheint auf dem Podest, `Enemy.pinned` (läuft nicht, `tick` hält ihn fest). Das Podest blockt nur den Spieler (Ebene 16, `DAIS_LAYER`), Schüsse gehen durch. Helfer fahren mit ihrer Plattform mit und können nur dort hinüber, wo Plattformen sich berühren. Danach: Podest frei, goldenes Licht, Boss-Item und Herz auf der Mitte, Quest-Stein wie im Boss-Altar (`Dungeon.in_end_hall`).
+- Bomben und Blinzeln bleiben nur im Hallen-Rechteck.
 
 ## Egons Rubin-Auftrag, Seil und Portal (Rope, Portal, BossAltar) – 2026-11-27
 

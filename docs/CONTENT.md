@@ -158,3 +158,8 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - Tausch: Liste `trades`, je `id`, `give` {Beute-Id: Anzahl}, `get` = eins von `container`, `backpack`, `potion`, `relic` (+ `runs`), optional `unlock` (`level`, `dungeon`, `quest`).
 - Neue Namen und Beschreibungen danach durch `py assets/_reference/i18n/build_po.py` (liest beide Dateien).
 
+## Räderkluft (`data/gear_chasm.json`)
+
+- Maße in Metern als halbe Größe `[breit, tief]`: `center` (Mitte), `dais` (Boss-Podest), `door` (Tür-Plattform), `platform` (Ring-Plattform), `gap` (Spalt zwischen Nachbarn). Die Schienen ergeben sich daraus.
+- `period` = Sekunden je Runde (kleiner = schneller), `wait_at_start`, `reach`, `fall_damage` (halbe Herzen), `fall_depth`, `fall_time`.
+- `textures` und `colors` je Art: `fixed`, `outer`, `inner`, `dais` (+ `abyss` für den glühenden Grund).

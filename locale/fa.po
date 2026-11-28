@@ -2559,6 +2559,9 @@ msgstr "دست‌های آرام، شلیک‌های سریع‌تر."
 msgid "Ruhmeskette"
 msgstr "زنجیر افتخار"
 
+msgid "Räderkluft"
+msgstr "شکاف چرخ‌دنده‌ها"
+
 msgid "Rückenamulett"
 msgstr "طلسم پشت"
 

@@ -30,6 +30,11 @@ extends Node3D
 ## harmless practice rat (enemies.json "tutorial_rat", it always drops a rat fur), no rocks and
 ## no traps. end_guide opens the other doors again.
 ##
+## Räderkluft (GearChasm, data/gear_chasm.json): a boss hall over a chasm with turning platforms,
+## far away from the floor grid like the Boss-Altar. In a dungeon with "end_room": "gear_chasm"
+## (dungeons.json) the portal after the last floor leads there instead of the Boss-Altar; the
+## end boss stands still on the dais in the middle.
+##
 ## Test room (P, only in debug builds): a closed room far away from the floor with every item on a
 ## pedestal and a red pedestal that drops all items again, to try out items and synergies.
 
@@ -69,6 +74,8 @@ const SECRET_BLAST_REACH: float = 1.2
 const SACRIFICE_STEP: float = 0.7
 ## The Boss-Altar (BossAltar) lies far away from the floor grid, like the test room.
 const ALTAR_CELL: Vector2i = Vector2i(-12, 12)
+## The Räderkluft (GearChasm), also far away from the floor grid.
+const CHASM_CELL: Vector2i = Vector2i(14, -14)
 ## Walking this close to the portal in the boss room leads to the Boss-Altar.
 const PORTAL_TOUCH: float = 1.2
 ## Seconds of climbing up the rope (then RunScene fades out) and how high the player gets.
@@ -110,6 +117,8 @@ var _sacrifices: int = 0
 var _on_stone: bool = false
 ## Boss-Altar: built the first time the player walks into the portal of the boss room.
 var altar: BossAltar = null
+## Räderkluft: built the first time the player is taken there (enter_gear_chasm).
+var chasm: GearChasm = null
 ## After the boss of the last floor (leads to the Boss-Altar); null before.
 var _portal: Portal = null
 ## After the very first boss: the way out (null else).
@@ -639,6 +648,12 @@ func _physics_process(delta: float) -> void:
 		elif _fighting and enemies.is_empty():
 			_clear_room(altar)
 		return
+	if in_gear_chasm():
+		# It may move the player (platforms, falls): nothing more this frame.
+		chasm.tick(delta)
+		if _fighting and enemies.is_empty():
+			_clear_room(chasm)
+		return
 	if _check_portal(pos):
 		return
 	var cell: Vector2i = RoomBuilder.cell_at(pos)
@@ -753,18 +768,18 @@ func _on_enemy_died(enemy: Enemy) -> void:
 		_drop_from_normal(enemy)
 	if enemy == boss:
 		boss = null
-		_boss_beaten = not in_boss_altar()
+		_boss_beaten = not in_end_hall()
 		for other: Enemy in enemies.duplicate():
 			other.take_damage(9999.0, Vector3.ZERO, false)
 		AudioManager.play_sound("boss_die")
 		# Egon's quest: the end boss (Boss-Altar) leaves the stone of the open quest of this dungeon.
-		if in_boss_altar():
+		if in_end_hall():
 			var stone: String = Quests.drop_for(Content.dungeon_id(), run.bag)
 			if not stone.is_empty():
-				_drop_loot(altar, enemy.global_position, stone, 1, false)
+				_drop_loot(rooms[current_cell], enemy.global_position, stone, 1, false)
 				message.emit("Ein seltener Stein! Egon wird staunen.")
 		# Egon's errand: the very first boss always leaves the ruby.
-		if not in_boss_altar() and MetaState.rope_due(Content.dungeon_id(), floor_index):
+		if not in_end_hall() and MetaState.rope_due(Content.dungeon_id(), floor_index):
 			_drop_loot(rooms[current_cell], enemy.global_position, String(Content.meta("ruby_quest").get("item", "")), 1, false)
 		boss_defeated.emit()
 		return
@@ -816,6 +831,12 @@ func _clear_room(room: DungeonRoom) -> void:
 		altar.on_cleared()
 		# Between the altar and the gate back: the golden light.
 		_boss_rewards(room, Vector3(0, 0, 4.5), true)
+		AudioManager.play_music(String(floor_data.get("music", "")))
+		return
+	if room == chasm:
+		chasm.on_cleared()
+		# On the center, in front of the dais: the golden light.
+		_boss_rewards(room, Vector3(0, 0, 2.6), true)
 		AudioManager.play_music(String(floor_data.get("music", "")))
 		return
 	if room.type == FloorLayout.BOSS:
@@ -872,7 +893,7 @@ func _boss_rewards(room: DungeonRoom, base: Vector3, way_down: bool) -> void:
 			first.taken.connect(func(_p: Pedestal) -> void: second.show_item(""))
 			second.taken.connect(func(_p: Pedestal) -> void: first.show_item(""))
 	_drop(room, room.position + base + Vector3(2.0, 0, 0), "heart")
-	if room == altar:
+	if room == altar or room == chasm:
 		message.emit("Du hast den Dungeon bezwungen!")
 		return
 	_open_special_room()
@@ -1178,6 +1199,8 @@ func _on_blue_heart_lost() -> void:
 func rect_of(cell: Vector2i, margin: float) -> Rect2:
 	if altar and cell == ALTAR_CELL:
 		return altar.inner_rect(margin)
+	if chasm and cell == CHASM_CELL:
+		return chasm.inner_rect(margin)
 	return RoomBuilder.inner_rect(cell, margin)
 
 
@@ -1190,6 +1213,8 @@ func room_rect(margin: float) -> Rect2:
 func room_size(cell: Vector2i) -> Vector2:
 	if altar and cell == ALTAR_CELL:
 		return (altar.half + Vector2(RoomBuilder.WALL_T, RoomBuilder.WALL_T)) * 2.0
+	if chasm and cell == CHASM_CELL:
+		return (chasm.half + Vector2(RoomBuilder.WALL_T, RoomBuilder.WALL_T)) * 2.0
 	return Vector2(RoomBuilder.ROOM_W, RoomBuilder.ROOM_D)
 
 
@@ -1211,7 +1236,10 @@ func _check_portal(pos: Vector3) -> bool:
 	offset.y = 0.0
 	if offset.length() >= PORTAL_TOUCH:
 		return false
-	enter_boss_altar()
+	if String(Content.dungeon().get("end_room", "")) == GearChasm.TYPE:
+		enter_gear_chasm()
+	else:
+		enter_boss_altar()
 	return true
 
 
@@ -1320,6 +1348,8 @@ func teleport_to_cell(cell: Vector2i) -> void:
 	end_fight_now()
 	if in_boss_altar():
 		altar.on_leave()
+	if in_gear_chasm():
+		chasm.on_leave()
 	_move_player(RoomBuilder.cell_center(cell) + Vector3(0, 0, 1.5))
 	_enter_room(cell)
 
@@ -1328,6 +1358,51 @@ func teleport_to_cell(cell: Vector2i) -> void:
 func teleport_to_boss_altar() -> void:
 	end_fight_now()
 	enter_boss_altar()
+
+
+# --- Räderkluft ------------------------------------------------------------------------------
+
+func in_gear_chasm() -> bool:
+	return chasm != null and current_cell == CHASM_CELL
+
+
+## In the hall of the end boss (Boss-Altar or Räderkluft).
+func in_end_hall() -> bool:
+	return in_boss_altar() or in_gear_chasm()
+
+
+## Into the Räderkluft (built the first time), on its south door platform, looking at the
+## center; the end boss of the dungeon appears on the dais (not again once beaten). From the
+## portal of the last floor, or the admin menu (ends a fight first).
+func enter_gear_chasm() -> void:
+	end_fight_now()
+	if in_boss_altar():
+		altar.on_leave()
+	if chasm == null:
+		chasm = GearChasm.new()
+		chasm.setup(self, player, CHASM_CELL)
+		add_child(chasm)
+		rooms[CHASM_CELL] = chasm
+	current_cell = CHASM_CELL
+	chasm.visited = true
+	_show_near(CHASM_CELL)
+	_move_player(chasm.arrival_point())
+	player.rotation.y = 0.0
+	player.camera.rotation.x = 0.0
+	run.refresh_mantle()
+	room_entered.emit(CHASM_CELL)
+	chasm.on_enter()
+	message.emit(String(chasm.settings.get("name", "")))
+	if chasm.cleared or boss != null:
+		return
+	if end_boss_id.is_empty():
+		end_boss_id = Content.end_boss()
+	if end_boss_id.is_empty():
+		end_boss_id = boss_id
+	_fighting = true
+	boss = spawn_enemy(end_boss_id, chasm.boss_spot())
+	boss.pinned = true
+	boss_appeared.emit(boss)
 
 
 # --- Test room ----------------------------------------------------------------------------
@@ -1351,6 +1426,8 @@ func toggle_test_room() -> void:
 		_build_test_room()
 	# Free items: from now on this run does not count for the Lexikon and unlocks.
 	run.record_progress = false
+	if in_gear_chasm():
+		chasm.on_leave()
 	_return_cell = current_cell
 	_return_position = player.global_position
 	current_cell = TEST_CELL

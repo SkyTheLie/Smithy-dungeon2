@@ -1,5 +1,5 @@
 {
-	"_info": "Dungeons auf Egons Dungeon-Brett (Laden, Knopf unten rechts), der Reihe nach. name, desc: Text auf dem Brett (deutsch = Übersetzungs-Schlüssel), region: Reiter auf dem Brett, level: empfohlene Stufe, floors = Liste in floors.json (fehlt = floors), unlock = quest (Egons Quest aus quests.json erledigt), dungeon (diesen Dungeon vorher schaffen) und/oder level (Spielerstufe), hp_mult = Leben aller Gegner mal diesem Wert, exp_mult = EXP je Kill mal, shop_mult = Preise im Run-Shop mal. end_boss = Endboss im Boss-Altar: nach dem Boss der letzten Ebene öffnet sich ein Portal zu ihm (er kommt dann nicht als Boss einer Ebene). Wer einen Dungeon schafft, öffnet den nächsten und ein neues Material bei Egon (shop.json materials). Zahlen erklärt: docs/BALANCE.md.",
+	"_info": "Dungeons auf Egons Dungeon-Brett (Laden, Knopf unten rechts), der Reihe nach. name, desc: Text auf dem Brett (deutsch = Übersetzungs-Schlüssel), region: Reiter auf dem Brett, level: empfohlene Stufe, floors = Liste in floors.json (fehlt = floors), unlock = quest (Egons Quest aus quests.json erledigt), dungeon (diesen Dungeon vorher schaffen) und/oder level (Spielerstufe), hp_mult = Leben aller Gegner mal diesem Wert, exp_mult = EXP je Kill mal, shop_mult = Preise im Run-Shop mal. end_room = Halle des Endbosses: fehlt = Boss-Altar, gear_chasm = Räderkluft (data/gear_chasm.json, der Endboss steht fest auf dem Podest). end_boss = Endboss im Boss-Altar: nach dem Boss der letzten Ebene öffnet sich ein Portal zu ihm (er kommt dann nicht als Boss einer Ebene). Wer einen Dungeon schafft, öffnet den nächsten und ein neues Material bei Egon (shop.json materials). Zahlen erklärt: docs/BALANCE.md.",
 	"dungeons": {
 		"glut": {
 			"end_boss": "lich",
@@ -12,7 +12,7 @@
 			"shop_mult": 1.0
 		},
 		"moor": {
-			"end_boss": "swamp_hydra",
+			"end_boss": "swamp_hydra", "end_room": "gear_chasm",
 			"name": "Moor der Irrlichter",
 			"region": "Umgebung",
 			"desc": "Hinter dem Wald liegt ein Moor voller Lichter. Wer ihnen folgt, kommt nicht wieder. Sagt Egon. Er verkauft Laternen.",

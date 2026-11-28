@@ -2559,6 +2559,9 @@ msgstr "Steady hands, faster shots."
 msgid "Ruhmeskette"
 msgstr "Chain of Glory"
 
+msgid "Räderkluft"
+msgstr "Gear Chasm"
+
 msgid "Rückenamulett"
 msgstr "Back Amulet"
 

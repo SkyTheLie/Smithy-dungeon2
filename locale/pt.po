@@ -2559,6 +2559,9 @@ msgstr "Mãos firmes, disparos mais rápidos."
 msgid "Ruhmeskette"
 msgstr "Corrente da glória"
 
+msgid "Räderkluft"
+msgstr "Abismo das Engrenagens"
+
 msgid "Rückenamulett"
 msgstr "Amuleto das costas"
 

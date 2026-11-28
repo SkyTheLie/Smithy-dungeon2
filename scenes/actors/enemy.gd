@@ -76,6 +76,8 @@ var alive: bool = true
 var radius: float = 0.4
 var height: float = 1.2
 var is_boss: bool = false
+## Does not walk at all (the end boss on the dais of the Räderkluft, GearChasm).
+var pinned: bool = false
 ## Hits bounce off (a closed shell). Set by EnemyMoves.
 var armored: bool = false
 

@@ -159,6 +159,7 @@ func _build_travel() -> Control:
 	page.add_child(rooms)
 	_button(rooms, "Boss-Altar", func() -> void: _act(dungeon.teleport_to_boss_altar))
 	_button(rooms, "Boss-Szene überspringen", _on_skip_scene)
+	_button(rooms, "Räderkluft", func() -> void: _act(dungeon.enter_gear_chasm))
 	for type: String in [FloorLayout.START_ROOM, FloorLayout.BOSS, FloorLayout.ITEM, FloorLayout.SHOP, FloorLayout.SECRET, FloorLayout.SACRIFICE, FloorLayout.SPECIAL]:
 		_button(rooms, "Raum: %s" % type, _on_room.bind(type))
 	_button(rooms, "Testraum (alle Items)", func() -> void: _act(dungeon.toggle_test_room))

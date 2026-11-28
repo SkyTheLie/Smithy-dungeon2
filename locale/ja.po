@@ -2559,6 +2559,9 @@ msgstr "手が安定し、射撃が速くなる。"
 msgid "Ruhmeskette"
 msgstr "栄光の鎖"
 
+msgid "Räderkluft"
+msgstr "歯車の裂け目"
+
 msgid "Rückenamulett"
 msgstr "背中の護符"
 

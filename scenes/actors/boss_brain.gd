@@ -126,7 +126,7 @@ func update(delta: float, toward: Vector3, distance: float) -> Vector3:
 ## Between attacks: walk at the player, a bit sideways so it is not a straight line; an archer
 ## ("keep_distance") circles the player at that distance; "stationary" stays where it is.
 func _walk_between(toward: Vector3, distance: float) -> Vector3:
-	if bool(boss.data.get("stationary", false)):
+	if boss.pinned or bool(boss.data.get("stationary", false)):
 		return Vector3.ZERO
 	var keep: float = float(boss.data.get("keep_distance", 0.0))
 	if keep > 0.0:

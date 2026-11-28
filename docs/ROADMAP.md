@@ -105,6 +105,12 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Admin-Menü auf P (nur im Editor): Reisen, Items, Ausrüstung/Relikte/Tränke, Cheats.
 - Offen: Szene im Spiel ansehen und Zeiten nachjustieren; echten Rock-Track statt erzeugtem Loop suchen (lizenzfrei).
 
+### Räderkluft (2026-11-28, `feature/raederkluft`)
+
+- ✅ Neue Boss-Halle über einem Abgrund (`scenes/run/gear_chasm.gd`, `data/gear_chasm.json`): feste Mitte mit Boss-Podest, vier Tür-Plattformen, innerer Ring (4, gegen den Uhrzeigersinn) und äußerer Ring (4, im Uhrzeigersinn) auf Schienen; Absturz = ½ Herz, zurück auf festen Boden.
+- ✅ Endboss-Halle des Moors (`dungeons.json` `end_room`): Portal nach der letzten Ebene → Räderkluft, die Sumpfhydra steht fest auf dem Podest, ihre Schleime bleiben auf den Plattformen; danach goldenes Licht auf der Mitte.
+- Offen: eigener Boss mit Mustern für die Halle; Bomben über dem Abgrund.
+
 ### Spielgefühl, Behälter, Tausch (Nachricht vom 2026-11-28, Liste in `docs/IDEEN.md`)
 
 - ✅ Weniger Beute: höchstens 1 Ding je Raum (`loot.json` `room_budget`), Münzen seltener.

@@ -2559,6 +2559,9 @@ msgstr "Твёрдая рука, быстрее выстрелы."
 msgid "Ruhmeskette"
 msgstr "Цепь славы"
 
+msgid "Räderkluft"
+msgstr "Шестерёнчатая пропасть"
+
 msgid "Rückenamulett"
 msgstr "Амулет спины"
 

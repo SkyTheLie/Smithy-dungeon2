@@ -2559,6 +2559,9 @@ msgstr "手稳，射得更快。"
 msgid "Ruhmeskette"
 msgstr "荣耀之链"
 
+msgid "Räderkluft"
+msgstr "齿轮深渊"
+
 msgid "Rückenamulett"
 msgstr "背护符"
 

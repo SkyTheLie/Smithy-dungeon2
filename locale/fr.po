@@ -2559,6 +2559,9 @@ msgstr "Mains sûres, tirs plus rapides."
 msgid "Ruhmeskette"
 msgstr "Chaîne de gloire"
 
+msgid "Räderkluft"
+msgstr "Gouffre des Rouages"
+
 msgid "Rückenamulett"
 msgstr "Amulette dorsale"
 

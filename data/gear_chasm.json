@@ -1,0 +1,35 @@
+{
+	"_info": "Räderkluft (scenes/run/gear_chasm.gd): Boss-Halle über einem Abgrund. Boden gibt es nur auf Plattformen. Fest: die Mitte (center, mit dem Boss-Podest dais in der Mitte) und vier Tür-Plattformen an den Rändern (door). Zwei Ringe fahren auf Schienen um die Mitte: der innere Ring (inner, 4 Plattformen) gegen den Uhrzeigersinn, der äußere Ring (outer, 4 Plattformen) im Uhrzeigersinn. Alle Maße in Metern, [breit, tief] = halbe Größe. gap = Spalt zwischen Plattformen, die nebeneinander stehen. period = Sekunden für eine ganze Runde (beide Ringe); alle period/4 Sekunden steht von jeder Tür ein Weg bis zur Mitte offen. wait_at_start = Sekunden nach dem Betreten bis zum ersten offenen Weg. reach = so weit (Meter) darf man über den Rand einer Plattform hinaus stehen, ohne zu fallen. fall_damage = halbe Herzen beim Absturz, fall_depth = so tief fällt man sichtbar, fall_time = Sekunden dafür; danach steht man wieder auf dem letzten festen Boden. textures/colors = Bild und Leuchtfarbe je Plattform-Art. abyss_depth = Tiefe des glühenden Grundes. music = Musik in der Halle (audio.json).",
+	"name": "Räderkluft",
+	"center": [5.0, 4.0],
+	"dais": [2.5, 1.5],
+	"dais_height": 0.15,
+	"door": [3.0, 1.0],
+	"platform": [2.0, 2.0],
+	"gap": 0.2,
+	"period": 48.0,
+	"wait_at_start": 4.0,
+	"reach": 0.3,
+	"fall_damage": 1,
+	"fall_depth": 9.0,
+	"fall_time": 0.7,
+	"wall_height": 6.0,
+	"wall_texture": "res://assets/sprites/rooms/styles/wall_obsidian.png",
+	"rail_texture": "res://assets/sprites/rooms/styles/floor_obsidian.png",
+	"abyss_depth": 18.0,
+	"gate": "res://assets/sprites/altar/gate.png",
+	"music": "boss_rock",
+	"textures": {
+		"fixed": "res://assets/sprites/rooms/styles/floor_tourney_copper.png",
+		"outer": "res://assets/sprites/rooms/styles/floor_tourney_bronze.png",
+		"inner": "res://assets/sprites/rooms/styles/floor_tourney_silver.png",
+		"dais": "res://assets/sprites/rooms/styles/floor_red_carpet.png"
+	},
+	"colors": {
+		"fixed": [1.0, 0.55, 0.2],
+		"outer": [0.35, 0.95, 0.4],
+		"inner": [0.3, 0.65, 1.0],
+		"dais": [1.0, 0.15, 0.1],
+		"abyss": [0.55, 0.12, 0.05]
+	}
+}
