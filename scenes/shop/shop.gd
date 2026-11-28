@@ -720,7 +720,10 @@ func _refresh() -> void:
 	_gold.text = str(MetaState.box())
 	var price: int = MetaState.lever_price()
 	_lever_price.text = Language.translate("Gratis") if price == 0 else Language.translate("%d Gold") % price
-	_table_board.show_pieces(table_layout(MetaState.table()), table_grid())
+	var laid: Array = table_layout(MetaState.table())
+	_table_board.gold_limit = MetaState.box()
+	_table_board.better = better_pieces(laid)
+	_table_board.show_pieces(laid, table_grid())
 	_refresh_inventory()
 	if _inventory_tab.visible:
 		_refresh_bag()
@@ -1007,6 +1010,17 @@ func _move_shop() -> void:
 	var arrive: String = _place_line("arrive")
 	if not arrive.is_empty():
 		_dialog.bark(arrive)
+
+
+## Indices of table pieces that are better than what the hero wears (green arrow).
+static func better_pieces(laid: Array) -> Array[int]:
+	var worn: Dictionary = MetaState.equipment()
+	var character: String = MetaState.run_character()
+	var result: Array[int] = []
+	for i in laid.size():
+		if laid[i] is Dictionary and not (laid[i] as Dictionary).is_empty() and ShopGoods.better_than_worn(laid[i], worn, character):
+			result.append(i)
+	return result
 
 
 ## What is missing before a run ("" = all fine): an empty potion place (once potions are open),
