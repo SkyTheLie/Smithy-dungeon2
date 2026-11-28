@@ -316,7 +316,7 @@ Ergänzt Punkt 8 „Komfort“ oben (Shift+Klick, „Alle Beute verkaufen“, Ve
 
 ### Schuss-Farbe = Schaden
 
-Jeder Gegner-Schuss bekommt seine Farbe **aus dem Schaden** (eine Tabelle in den Daten, z. B. `audio.json`-artig in `enemies.json` `shot_colors`; nie je Gegner von Hand). So sieht man sofort, wie gefährlich ein Schuss ist.
+Jeder Gegner-Schuss bekommt seine Farbe **aus dem Schaden** (eine Tabelle in den Daten, z. B. `enemies.json` `shot_colors`; nie je Gegner von Hand). So sieht man sofort, wie gefährlich ein Schuss ist.
 
 | Schaden | Farbe | Zusatz |
 |---|---|---|
