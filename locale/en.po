@@ -369,6 +369,9 @@ msgstr "The pelt of a giant made of ice."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "The gold of this run. If you die it is gone, unless it is in the safe slot."
 
+msgid "Das Gras raschelt. Das Gras raschelt immer. Bis es beißt."
+msgstr "The grass rustles. The grass always rustles. Until it bites."
+
 msgid "Das Herz des Drachen"
 msgstr "The Dragon's Heart"
 
@@ -449,6 +452,9 @@ msgstr "The merchant buys loot: Tab, right click"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "The opal! It glows! Almost as bright as my future."
+
+msgid "Der Rubin gehört mir! … Gehörte."
+msgstr "The ruby is mine! … Was."
 
 msgid "Der Stein liegt in deinem Inventar!"
 msgstr "The stone is in your inventory!"
@@ -702,8 +708,14 @@ msgstr "Egon Honest, pleased to meet you. Honest is my name, honest is my busine
 msgid "Egon hat gerade keinen Auftrag."
 msgstr "Egon has no job for you right now."
 
+msgid "Egon hat gesagt, hier unten ist es sicher. Egon hat gelogen. – B."
+msgstr "Egon said it's safe down here. Egon lied. – B."
+
 msgid "Egon könnte klauen!"
 msgstr "Egon might steal!"
+
+msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
+msgstr "Egon was never here, he says. Then whose are the scorched boot prints?"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "Egon's eyes go very wide."
@@ -713,6 +725,9 @@ msgstr "Egon's Ember Ruby"
 
 msgid "Egons Laden"
 msgstr "Egon's Shop"
+
+msgid "Egons Laterne ging nach einer Stunde aus. Garantie: eine Stunde."
+msgstr "Egon's lantern went out after an hour. Warranty: one hour."
 
 msgid "Eigene"
 msgstr "Custom"
@@ -1116,6 +1131,9 @@ msgstr "Liquid fire in a bottle."
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Whispers softly in the dark."
 
+msgid "Folge nicht den Lichtern. Ich bin ihnen gefolgt. Jetzt schreib ich an Wände."
+msgstr "Don't follow the lights. I followed them. Now I write on walls."
+
 msgid "Freigeschaltet: %s"
 msgstr "Unlocked: %s"
 
@@ -1190,6 +1208,9 @@ msgstr "For you: a copper wand, a helmet and a breastplate. Your first purchase 
 
 msgid "Füße"
 msgstr "Feet"
+
+msgid "Ganz unten wartet ein Schatz, sagt Egon. Ganz unten wartet ein Lich, sag ich."
+msgstr "There's treasure at the very bottom, says Egon. There's a lich at the very bottom, say I."
 
 msgid "Gebiete: %s"
 msgstr "Areas: %s"
@@ -1617,6 +1638,9 @@ msgstr "Heals two hearts. Tastes of cherry. And a little of sock."
 msgid "Heiltrank"
 msgstr "Healing Potion"
 
+msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
+msgstr "Hot. Hot. Hot. I should have become a baker."
+
 msgid "Heißer Sand"
 msgstr "Hot Sand"
 
@@ -1643,6 +1667,9 @@ msgstr "What doesn't fit into the stash lies here. Make room or sell it."
 
 msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
 msgstr "A whole company of knights fits in here. Almost."
+
+msgid "Hier war Gundolf. Gundolf war nicht lange hier."
+msgstr "Gundolf was here. Gundolf wasn't here for long."
 
 msgid "Hinausgeklettert!"
 msgstr "Climbed out!"
@@ -2282,6 +2309,9 @@ msgstr "Do not lick."
 
 msgid "Nicht angebaut"
 msgstr "Not attached"
+
+msgid "Nicht nach unten schauen. Nach oben auch nicht."
+msgstr "Don't look down. Don't look up either."
 
 msgid "Nicht während eines Kampfes"
 msgstr "Not during a fight"
@@ -3273,6 +3303,9 @@ msgstr "Day %d"
 msgid "Tag %d · %d Gold"
 msgstr "Day %d · %d gold"
 
+msgid "Tag drei. Die Ratten haben mein Brot. Und meine Stiefel."
+msgstr "Day three. The rats have my bread. And my boots."
+
 msgid "Taste …"
 msgstr "Key …"
 
@@ -3468,6 +3501,9 @@ msgstr "Fullscreen"
 msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
 msgstr "From enemies or the merchant in the dungeon. Up to 999 on one cell. After the run it goes into your box; on death it is lost, unless in the safe place."
 
+msgid "Vorsicht, Fangeisen! Woher ich das weiß? Frag mein Bein."
+msgstr "Watch out, snares! How do I know? Ask my leg."
+
 msgid "Vorwärts"
 msgstr "Forward"
 
@@ -3501,6 +3537,9 @@ msgstr "Warm and thick."
 msgid "Warm. Grau. Überall."
 msgstr "Warm. Grey. Everywhere."
 
+msgid "Warme Socken von Egon: eine Socke. Für dreißig Gold."
+msgstr "Warm socks from Egon: one sock. For thirty gold."
+
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "What lies here is not lost when you die."
 
@@ -3528,8 +3567,14 @@ msgstr "White Wings"
 msgid "Weltenstab"
 msgstr "World Staff"
 
+msgid "Wenn du das lesen kannst, ist deine Nase noch dran."
+msgstr "If you can read this, your nose is still attached."
+
 msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
 msgstr "When you get stronger, you learn skills here. For a small fee, of course."
+
+msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
+msgstr "Whoever reads this: never buy anything at a friendship price!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "A killing shot flies on with what is left"
@@ -3680,6 +3725,9 @@ msgstr "Tinderbox"
 
 msgid "Zwanzig Münzen"
 msgstr "Twenty coins"
+
+msgid "Zwanzigmal am Hebel gezogen. Jetzt hab ich einen Löffel."
+msgstr "Pulled the lever twenty times. Now I own a spoon."
 
 msgid "Zwei Funken folgen dir und schießen"
 msgstr "Two sparks follow you and shoot"

@@ -1554,6 +1554,11 @@
 			}
 		}
 	},
+	"writings": {
+		"_info": "Wand-Schriften früherer Abenteurer (scenes/run/room_writing.gd): chance = Chance je normalem Raum, max_per_floor = höchstens so viele auf einer Ebene. Die Sätze stehen in data/story.json (walls für alle Dungeons, walls_<dungeon> nur dort).",
+		"chance": 0.3,
+		"max_per_floor": 2
+	},
 	"air_types": {
 		"_info": "Was in der Luft schwebt (scenes/run/room_air.gd), gewählt mit air im Thema: color [r, g, b, Deckkraft], amount = Teilchen je Raum, size in Metern, glow = leuchtet (addiert sich, ohne Nebel), gravity [x, y, z] (y > 0 steigt, < 0 fällt), speed [min, max] Startgeschwindigkeit in alle Richtungen, damping = Bremsen, lifetime in Sekunden (jedes Teilchen blendet ein und aus).",
 		"dust": {

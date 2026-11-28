@@ -369,6 +369,9 @@ msgstr "冰之巨兽的毛皮。"
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "本次冒险的金币。死亡后会丢失，安全格中的除外。"
 
+msgid "Das Gras raschelt. Das Gras raschelt immer. Bis es beißt."
+msgstr "草沙沙作响。草总是沙沙作响。直到它咬人。"
+
 msgid "Das Herz des Drachen"
 msgstr "巨龙之心"
 
@@ -449,6 +452,9 @@ msgstr "商人收购战利品：Tab，右键"
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "蛋白石！它在发光！差不多跟我的前途一样亮。"
+
+msgid "Der Rubin gehört mir! … Gehörte."
+msgstr "红宝石是我的！……曾经是。"
 
 msgid "Der Stein liegt in deinem Inventar!"
 msgstr "石头在你的背包里！"
@@ -702,8 +708,14 @@ msgstr "埃贡·诚实，幸会。诚实是我的名字，诚实是我的生意�
 msgid "Egon hat gerade keinen Auftrag."
 msgstr "埃贡现在没有任务。"
 
+msgid "Egon hat gesagt, hier unten ist es sicher. Egon hat gelogen. – B."
+msgstr "埃贡说下面很安全。埃贡撒谎了。——B"
+
 msgid "Egon könnte klauen!"
 msgstr "埃贡可能会偷！"
+
+msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
+msgstr "埃贡说他从没来过这儿。那这些烧焦的靴印是谁的？"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "埃贡的眼睛瞪得老大。"
@@ -713,6 +725,9 @@ msgstr "埃贡的余烬红宝石"
 
 msgid "Egons Laden"
 msgstr "埃贡的商店"
+
+msgid "Egons Laterne ging nach einer Stunde aus. Garantie: eine Stunde."
+msgstr "埃贡的灯笼一小时后就灭了。保修期：一小时。"
 
 msgid "Eigene"
 msgstr "自定义"
@@ -1116,6 +1131,9 @@ msgstr "装在瓶子里的液体火焰。"
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "天黑时会轻声低语。"
 
+msgid "Folge nicht den Lichtern. Ich bin ihnen gefolgt. Jetzt schreib ich an Wände."
+msgstr "别跟着那些光走。我跟了。现在我在墙上写字。"
+
 msgid "Freigeschaltet: %s"
 msgstr "已解锁：%s"
 
@@ -1190,6 +1208,9 @@ msgstr "给你的：一根铜法杖、一顶头盔和一副胸甲。第一次购
 
 msgid "Füße"
 msgstr "脚部"
+
+msgid "Ganz unten wartet ein Schatz, sagt Egon. Ganz unten wartet ein Lich, sag ich."
+msgstr "埃贡说最底下有宝藏。我说最底下有巫妖。"
 
 msgid "Gebiete: %s"
 msgstr "区域：%s"
@@ -1617,6 +1638,9 @@ msgstr "恢复两颗心。樱桃味。还有点袜子味。"
 msgid "Heiltrank"
 msgstr "治疗药水"
 
+msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
+msgstr "热。热。热。我早该去当面包师的。"
+
 msgid "Heißer Sand"
 msgstr "热沙"
 
@@ -1643,6 +1667,9 @@ msgstr "放不进仓库的东西在这里。腾出空间或卖掉。"
 
 msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
 msgstr "能装下一整队骑士。差不多吧。"
+
+msgid "Hier war Gundolf. Gundolf war nicht lange hier."
+msgstr "贡多夫到此一游。没游多久。"
 
 msgid "Hinausgeklettert!"
 msgstr "爬出来了！"
@@ -2282,6 +2309,9 @@ msgstr "别舔。"
 
 msgid "Nicht angebaut"
 msgstr "未装上"
+
+msgid "Nicht nach unten schauen. Nach oben auch nicht."
+msgstr "别往下看。也别往上看。"
 
 msgid "Nicht während eines Kampfes"
 msgstr "战斗中不可用"
@@ -3273,6 +3303,9 @@ msgstr "第%d天"
 msgid "Tag %d · %d Gold"
 msgstr "第%d天 · %d金币"
 
+msgid "Tag drei. Die Ratten haben mein Brot. Und meine Stiefel."
+msgstr "第三天。老鼠拿走了我的面包。还有我的靴子。"
+
 msgid "Taste …"
 msgstr "按键…"
 
@@ -3468,6 +3501,9 @@ msgstr "全屏"
 msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
 msgstr "来自敌人或地牢里的商人。一格最多999枚。跑图结束后放进你的罐子；死亡时会丢失，安全位置里的除外。"
 
+msgid "Vorsicht, Fangeisen! Woher ich das weiß? Frag mein Bein."
+msgstr "小心捕兽夹！我怎么知道的？问我的腿去。"
+
 msgid "Vorwärts"
 msgstr "前进"
 
@@ -3501,6 +3537,9 @@ msgstr "又暖又厚。"
 msgid "Warm. Grau. Überall."
 msgstr "温热。灰色。到处都是。"
 
+msgid "Warme Socken von Egon: eine Socke. Für dreißig Gold."
+msgstr "埃贡的保暖袜：一只。三十金币。"
+
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "放在这里的东西死后也不会丢。"
 
@@ -3528,8 +3567,14 @@ msgstr "白色之翼"
 msgid "Weltenstab"
 msgstr "世界之杖"
 
+msgid "Wenn du das lesen kannst, ist deine Nase noch dran."
+msgstr "你要是还能看清这行字，说明鼻子还没冻掉。"
+
 msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
 msgstr "等你变强了，就来这里学技能。当然要收点小费。"
+
+msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
+msgstr "看到这行字的人：千万别买任何“友情价”的东西！"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "击杀后射击带着剩余伤害继续飞行"
@@ -3680,6 +3725,9 @@ msgstr "火绒盒"
 
 msgid "Zwanzig Münzen"
 msgstr "二十枚硬币"
+
+msgid "Zwanzigmal am Hebel gezogen. Jetzt hab ich einen Löffel."
+msgstr "拉了二十次拉杆。现在我有一把勺子。"
 
 msgid "Zwei Funken folgen dir und schießen"
 msgstr "两个火花跟随你并射击"

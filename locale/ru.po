@@ -369,6 +369,9 @@ msgstr "Шкура ледяного великана."
 msgid "Das Gold des Runs. Stirbst du, ist es weg, außer im sicheren Platz."
 msgstr "Золото этого забега. Если умрёшь, оно пропадёт, кроме лежащего в надёжной ячейке."
 
+msgid "Das Gras raschelt. Das Gras raschelt immer. Bis es beißt."
+msgstr "Трава шуршит. Трава всегда шуршит. Пока не укусит."
+
 msgid "Das Herz des Drachen"
 msgstr "Сердце дракона"
 
@@ -449,6 +452,9 @@ msgstr "Торговец покупает добычу: Tab, правый кли
 
 msgid "Der Opal! Er leuchtet! Fast so hell wie meine Zukunft."
 msgstr "Опал! Он светится! Почти как моё будущее."
+
+msgid "Der Rubin gehört mir! … Gehörte."
+msgstr "Рубин мой! … Был."
 
 msgid "Der Stein liegt in deinem Inventar!"
 msgstr "Камень у тебя в инвентаре!"
@@ -702,8 +708,14 @@ msgstr "Эгон Честный, очень приятно. Честный — �
 msgid "Egon hat gerade keinen Auftrag."
 msgstr "Сейчас у Эгона нет поручений."
 
+msgid "Egon hat gesagt, hier unten ist es sicher. Egon hat gelogen. – B."
+msgstr "Эгон сказал, что здесь внизу безопасно. Эгон соврал. – Б."
+
 msgid "Egon könnte klauen!"
 msgstr "Эгон может стащить!"
+
+msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
+msgstr "Эгон говорит, что никогда здесь не был. Чьи же тогда эти подпалённые следы сапог?"
 
 msgid "Egons Augen werden ganz groß."
 msgstr "У Эгона глаза становятся огромными."
@@ -713,6 +725,9 @@ msgstr "Угольный рубин Эгона"
 
 msgid "Egons Laden"
 msgstr "Лавка Эгона"
+
+msgid "Egons Laterne ging nach einer Stunde aus. Garantie: eine Stunde."
+msgstr "Фонарь Эгона погас через час. Гарантия: один час."
 
 msgid "Eigene"
 msgstr "Своя"
@@ -1116,6 +1131,9 @@ msgstr "Жидкий огонь в бутылке."
 msgid "Flüstert leise, wenn es dunkel ist."
 msgstr "Тихо шепчет в темноте."
 
+msgid "Folge nicht den Lichtern. Ich bin ihnen gefolgt. Jetzt schreib ich an Wände."
+msgstr "Не иди за огоньками. Я пошёл. Теперь пишу на стенах."
+
 msgid "Freigeschaltet: %s"
 msgstr "Открыто: %s"
 
@@ -1190,6 +1208,9 @@ msgstr "Для тебя: медный посох, шлем и нагрудник
 
 msgid "Füße"
 msgstr "Ступни"
+
+msgid "Ganz unten wartet ein Schatz, sagt Egon. Ganz unten wartet ein Lich, sag ich."
+msgstr "В самом низу ждёт сокровище, говорит Эгон. В самом низу ждёт лич, говорю я."
 
 msgid "Gebiete: %s"
 msgstr "Области: %s"
@@ -1617,6 +1638,9 @@ msgstr "Лечит два сердца. На вкус как вишня. И не
 msgid "Heiltrank"
 msgstr "Лечебное зелье"
 
+msgid "Heiß. Heiß. Heiß. Ich hätte Bäcker werden sollen."
+msgstr "Жарко. Жарко. Жарко. Надо было идти в пекари."
+
 msgid "Heißer Sand"
 msgstr "Горячий песок"
 
@@ -1643,6 +1667,9 @@ msgstr "Здесь лежит то, что не влезло в склад. Ос
 
 msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
 msgstr "Сюда влезет целая рота рыцарей. Почти."
+
+msgid "Hier war Gundolf. Gundolf war nicht lange hier."
+msgstr "Здесь был Гундольф. Недолго."
 
 msgid "Hinausgeklettert!"
 msgstr "Выбрался!"
@@ -2282,6 +2309,9 @@ msgstr "Не облизывать."
 
 msgid "Nicht angebaut"
 msgstr "Не пристёгнуты"
+
+msgid "Nicht nach unten schauen. Nach oben auch nicht."
+msgstr "Не смотри вниз. И вверх тоже."
 
 msgid "Nicht während eines Kampfes"
 msgstr "Не во время боя"
@@ -3273,6 +3303,9 @@ msgstr "День %d"
 msgid "Tag %d · %d Gold"
 msgstr "День %d · %d золота"
 
+msgid "Tag drei. Die Ratten haben mein Brot. Und meine Stiefel."
+msgstr "День третий. Крысы забрали мой хлеб. И мои сапоги."
+
 msgid "Taste …"
 msgstr "Клавиша …"
 
@@ -3468,6 +3501,9 @@ msgstr "Полный экран"
 msgid "Von Gegnern oder vom Händler im Dungeon. Bis zu 999 auf einem Feld. Nach dem Run kommt sie in deine Dose; beim Tod ist sie weg, außer im sicheren Platz."
 msgstr "От врагов или от торговца в подземелье. До 999 в одной клетке. После забега попадает в твою копилку; при смерти пропадает, если не в безопасном месте."
 
+msgid "Vorsicht, Fangeisen! Woher ich das weiß? Frag mein Bein."
+msgstr "Осторожно, капканы! Откуда знаю? Спроси мою ногу."
+
 msgid "Vorwärts"
 msgstr "Вперёд"
 
@@ -3501,6 +3537,9 @@ msgstr "Тёплая и густая."
 msgid "Warm. Grau. Überall."
 msgstr "Тёплый. Серый. Повсюду."
 
+msgid "Warme Socken von Egon: eine Socke. Für dreißig Gold."
+msgstr "Тёплые носки от Эгона: один носок. За тридцать золотых."
+
 msgid "Was hier liegt, verlierst du nicht, wenn du stirbst."
 msgstr "То, что лежит здесь, не пропадёт после смерти."
 
@@ -3528,8 +3567,14 @@ msgstr "Белые крылья"
 msgid "Weltenstab"
 msgstr "Посох миров"
 
+msgid "Wenn du das lesen kannst, ist deine Nase noch dran."
+msgstr "Если ты можешь это прочитать, нос у тебя ещё на месте."
+
 msgid "Wenn du stärker wirst, lernst du hier Skills. Gegen einen kleinen Obolus, versteht sich."
 msgstr "Когда станешь сильнее, учи тут навыки. За небольшую мзду, разумеется."
+
+msgid "Wer das liest: Kauf nie etwas zum Freundschaftspreis!"
+msgstr "Кто это читает: никогда не покупай ничего по дружеской цене!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Убивший выстрел летит дальше с остатком"
@@ -3680,6 +3725,9 @@ msgstr "Трутница"
 
 msgid "Zwanzig Münzen"
 msgstr "Двадцать монет"
+
+msgid "Zwanzigmal am Hebel gezogen. Jetzt hab ich einen Löffel."
+msgstr "Двадцать раз дёрнул рычаг. Теперь у меня есть ложка."
 
 msgid "Zwei Funken folgen dir und schießen"
 msgstr "Две искры следуют за тобой и стреляют"
