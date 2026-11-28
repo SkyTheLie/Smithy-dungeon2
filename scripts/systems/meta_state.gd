@@ -1487,6 +1487,17 @@ static func stash_to_bag(index: int, cell: Vector2i, rot: bool) -> bool:
 	return true
 
 
+## Shift+click in the shop: stash place `index` into the bag wherever it fits first.
+static func stash_to_bag_anywhere(index: int) -> bool:
+	var own: Array[Dictionary] = stash()
+	if index < 0 or index >= own.size():
+		return false
+	var spot: Dictionary = _bag_model().free_spot_for(_bag_piece(own[index]), Bag.MAIN)
+	if spot.is_empty():
+		return false
+	return stash_to_bag(index, Vector2i(int(spot["x"]), int(spot["y"])), bool(spot["rot"]))
+
+
 ## Bag place `index` into the stash on `cell` (turned `rot`); cell (-1, -1) = anywhere. false if
 ## there is no room.
 static func bag_to_stash(index: int, cell: Vector2i = Vector2i(-1, -1), rot: bool = false) -> bool:

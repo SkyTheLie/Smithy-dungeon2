@@ -2529,6 +2529,9 @@ msgstr "مأموریت‌ها"
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "R / کلیک راست هنگام کشیدن: چرخاندن"
 
+msgid "R: drehen · Shift+Klick: ins Inventar · Strg+Klick: sperren · T: sortieren"
+msgstr "R: چرخاندن · Shift+کلیک: به کوله · Ctrl+کلیک: قفل · T: مرتب‌سازی"
+
 msgid "Rahmenlos"
 msgstr "بدون حاشیه"
 
@@ -3030,6 +3033,9 @@ msgstr "دست %d ذخیره شد."
 msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
 msgstr "دست %d خالی است. کلیک راست آنچه پوشیده‌ای را ذخیره می‌کند."
 
+msgid "Shift+Klick: sicherer Platz"
+msgstr "Shift+کلیک: جای امن"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: به جایی که نشانه می‌گیری می‌پری"
 
@@ -3401,6 +3407,9 @@ msgstr "روز سوم. موش‌ها نانم را بردند. و چکمه‌ه�
 
 msgid "Taste …"
 msgstr "کلید …"
+
+msgid "Tastenhilfe anzeigen"
+msgstr "نمایش راهنمای کلیدها"
 
 msgid "Taumelkraut"
 msgstr "علف تلوتلو"

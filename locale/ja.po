@@ -2529,6 +2529,9 @@ msgstr "クエスト"
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "ドラッグ中にR / 右クリック：回転"
 
+msgid "R: drehen · Shift+Klick: ins Inventar · Strg+Klick: sperren · T: sortieren"
+msgstr "R：回転・Shift+クリック：インベントリへ・Ctrl+クリック：ロック・T：整理"
+
 msgid "Rahmenlos"
 msgstr "ボーダーレス"
 
@@ -3030,6 +3033,9 @@ msgstr "セット%dを保存した。"
 msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
 msgstr "セット%dは空だ。右クリックで今の装備を保存できる。"
 
+msgid "Shift+Klick: sicherer Platz"
+msgstr "Shift+クリック：安全な場所"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift：狙った場所へ瞬間移動"
 
@@ -3401,6 +3407,9 @@ msgstr "三日目。ネズミにパンを取られた。ブーツも。"
 
 msgid "Taste …"
 msgstr "キー…"
+
+msgid "Tastenhilfe anzeigen"
+msgstr "キー操作のヒントを表示"
 
 msgid "Taumelkraut"
 msgstr "よろめき草"

@@ -115,6 +115,13 @@ func _build_graphics() -> Control:
 	vsync.button_pressed = DisplaySettings.is_vsync()
 	vsync.toggled.connect(DisplaySettings.set_vsync)
 	grid.add_child(vsync)
+	grid.add_child(_label(Language.translate("Tastenhilfe anzeigen")))
+	var key_help := CheckBox.new()
+	key_help.name = "KeyHelp"
+	key_help.focus_mode = Control.FOCUS_NONE
+	key_help.button_pressed = BagWindow.key_help_on()
+	key_help.toggled.connect(func(on: bool) -> void: WindowLayout.set_setting("ui", "key_help", on))
+	grid.add_child(key_help)
 	grid.add_child(_label(Language.translate("Sichtfeld")))
 	grid.add_child(_slider(DisplaySettings.FOV_MIN, DisplaySettings.FOV_MAX, DisplaySettings.get_fov(), DisplaySettings.set_fov, "%d°"))
 	_size_hint = _label(Language.translate("Die Fenstergröße gilt nur im Fenster-Modus."), COLOR_HINT, 10)

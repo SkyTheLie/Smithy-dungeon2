@@ -88,6 +88,7 @@ func open(trade: bool = false) -> void:
 		dungeon.trading = trade and dungeon.in_shop()
 	_refresh_offer()
 	_hint.text = _hint_text()
+	_hint.visible = key_help_on()
 	main_board.refresh()
 	safe_board.refresh()
 	_refresh_run()
@@ -205,6 +206,7 @@ func _build() -> void:
 		board.hovered.connect(_show_info)
 		board.dropped.connect(_refresh_worth)
 		board.right_clicked.connect(_on_right_click)
+		board.shift_clicked.connect(shift_move)
 		board.dropped.connect(func() -> void: _show_info(-1))
 	column.add_child(main_board)
 
@@ -309,7 +311,7 @@ func _can_drop_index(index: int) -> bool:
 
 
 func _hint_text() -> String:
-	var turn: String = Language.translate("R / Rechtsklick beim Ziehen: drehen") + " · " + Language.translate("X halten: wegwerfen")
+	var turn: String = Language.translate("R / Rechtsklick beim Ziehen: drehen") + " · " + Language.translate("X halten: wegwerfen") + " · " + Language.translate("Shift+Klick: sicherer Platz")
 	if _in_shop():
 		return Language.translate("Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen") + "\n" + turn
 	if dungeon != null and dungeon.in_shop():
@@ -459,6 +461,30 @@ func _refresh_run() -> void:
 
 
 # --- Showing --------------------------------------------------------------------
+
+## Shift+click: the piece goes from the bag into the safe place or back (where there is room).
+func shift_move(index: int) -> bool:
+	var place: Dictionary = run.bag.get_place(index)
+	if place.is_empty():
+		return false
+	var from: String = run.bag.section_of(Vector2i(int(place["x"]), int(place["y"])))
+	var target: String = Bag.SAFE if from == Bag.MAIN else Bag.MAIN
+	var spot: Dictionary = run.bag.free_spot_for(place, target)
+	if spot.is_empty() or not run.bag.move_to(index, Vector2i(int(spot["x"]), int(spot["y"])), bool(spot["rot"])):
+		AudioManager.play_sound("denied")
+		_info_text.text = Language.translate("Kein Platz")
+		return false
+	AudioManager.play_sound("pickup", 1.1)
+	main_board.refresh()
+	safe_board.refresh()
+	_show_info(-1)
+	return true
+
+
+## Key help on (settings: "Tastenhilfe anzeigen").
+static func key_help_on() -> bool:
+	return bool(WindowLayout.get_setting("ui", "key_help", true))
+
 
 ## Right click on a piece: in the trade window the merchant buys it.
 func _on_right_click(index: int) -> void:

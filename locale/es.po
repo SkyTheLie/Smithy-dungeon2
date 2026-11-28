@@ -2529,6 +2529,9 @@ msgstr "Misiones"
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "R / clic derecho al arrastrar: girar"
 
+msgid "R: drehen · Shift+Klick: ins Inventar · Strg+Klick: sperren · T: sortieren"
+msgstr "R: girar · Mayús+clic: al inventario · Ctrl+clic: bloquear · T: ordenar"
+
 msgid "Rahmenlos"
 msgstr "Sin bordes"
 
@@ -3030,6 +3033,9 @@ msgstr "Conjunto %d guardado."
 msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
 msgstr "El conjunto %d está vacío. Clic derecho guarda lo que llevas."
 
+msgid "Shift+Klick: sicherer Platz"
+msgstr "Mayús+clic: lugar seguro"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: saltas a donde apuntas"
 
@@ -3401,6 +3407,9 @@ msgstr "Día tres. Las ratas tienen mi pan. Y mis botas."
 
 msgid "Taste …"
 msgstr "Tecla …"
+
+msgid "Tastenhilfe anzeigen"
+msgstr "Mostrar ayuda de teclas"
 
 msgid "Taumelkraut"
 msgstr "Hierba del tambaleo"

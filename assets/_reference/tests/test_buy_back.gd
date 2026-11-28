@@ -8,7 +8,7 @@ func run() -> void:
 	meta.call("start_new")
 	meta.call("finish_tutorial")
 	for i in 4:
-		meta.call("give_piece", {"id": "rat_fur", "count": 1})
+		meta.call("admin_give_loot", "rat_fur")
 	var box: int = meta.call("box")
 	var gold: int = 0
 	for i in 4:
