@@ -41,6 +41,7 @@ func _ready() -> void:
 	elif homing > 0.0:
 		sprite.modulate = Color(0.6, 1.0, 0.6)
 	add_child(sprite)
+	add_child(Fx.halo(Color(0.7, 0.4, 1.0, 0.5) * sprite.modulate, 0.45 * size * 1.9))
 	var light := OmniLight3D.new()
 	light.light_color = Color(0.7, 0.4, 1.0)
 	light.light_energy = 0.6

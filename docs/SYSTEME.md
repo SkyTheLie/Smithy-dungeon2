@@ -395,6 +395,12 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - **Knöpfe** (`scripts/core/ui_juice.gd`, von `Game` an jeden neuen Knopf gehängt): wachsen unter der Maus, federn beim Drücken.
 - **End-Bildschirm:** EXP-Balken füllt sich animiert; jede neue Stufe: „Stufe X!“ springt auf, Konfetti, Ton.
 
+## Stimmung im Dungeon – 2026-11-28 (`feature/stimmung`)
+
+- **Treffer-Blitz:** Gegner-Bilder haben ein eigenes Material (`scenes/actors/enemy_sprite.gdshader`: wie ein Sprite3D, Billboard um Y, Alpha-Schnitt, plus `flash`). Ein Treffer macht den Gegner `Enemy.HIT_WHITE` (0,05 s) ganz weiß, danach die rote Tönung wie vorher (`_flash`). Das Bild setzt `Enemy._set_sheet` auch im Material (`sprite_texture`), sonst bleibt es leer.
+- **Fackeln flackern:** `scenes/objects/torch.gd` bekommt von `RoomBuilder._torch` ihr Licht (`light`) und lässt dessen Stärke um ±18 % schwanken (zwei Wellen + langsamer Zufall).
+- **Lichthof** (`Fx.halo`): weicher, gestufter Lichtfleck (32×32, additiv, zur Kamera gedreht, ohne Nebel) um Feuerbälle (`Projectile`), Gegner-Kugeln (`EnemyShot`) und Fackeln. Ersetzt Glow: Der Glow des WorldEnvironment ist in GL Compatibility bei ungeschatteten Bildern fast unsichtbar (siehe `docs/ENTSCHEIDUNGEN.md`).
+
 ## Raster-Inventar, Rucksäcke, Tutorial im ersten Run – 2026-11-27, `feature/raster-inventar`
 
 - **Dateien:** `scripts/systems/bag.gd` (`Bag`, Raster), `scripts/systems/bag_layout.gd` (`BagLayout`: Formen, Item-Größen, Rucksack-Regeln), `scenes/ui/hud/bag_board.gd` (`BagBoard`: ein Raster auf dem Bildschirm, Drag & Drop, Drehen), `scenes/ui/hud/bag_window.gd` (kompakter), `scenes/shop/backpack_board.gd` + `backpack_window.gd` (Rucksäcke anbauen bei Egon), `scenes/run/dungeon_guide.gd` (`DungeonGuide`), Daten `data/meta.json` „bag“, `data/loot.json` „size“, `data/backpacks.json`, `data/skills.json` Gruppe Rucksack.

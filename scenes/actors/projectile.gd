@@ -117,6 +117,9 @@ func _ready() -> void:
 		height = radius * 2.6
 	_sprite = Fx.billboard(texture, height)
 	add_child(_sprite)
+	# Fire and sparks shine: a soft light spot around the ball.
+	if not is_bomb and not _has("bread") and not _has("arrow") and not _has("shuriken"):
+		add_child(Fx.halo(Color(1.0, 0.55, 0.2, 0.45), height * 1.9))
 	if not small and get_tree().get_node_count_in_group(&"shot_light") < 10:
 		var light := OmniLight3D.new()
 		light.light_color = Color(1, 0.6, 0.25)

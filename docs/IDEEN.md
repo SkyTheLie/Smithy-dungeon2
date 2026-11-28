@@ -176,3 +176,23 @@ Reihenfolge zum Bauen (✅ = gebaut):
 7. **Laden als Zuhause:** Heimkehr-Moment (Egon sieht die Beute, schaut gierig, „Heute verdient: 340 Gold“); großer Auftritt bei R3+ am Hebel (Licht, eigener Ton, Egon staunt).
 8. **Komfort:** Shift+Klick schiebt direkt ins Lager/Inventar; „Alle Beute verkaufen“ mit Rückfrage; Vergleich beim Darüberfahren (grüne/rote Pfeile gegen das Getragene); Text- und Fadenkreuz-Größe einstellbar; Farbenblind-Modus (Seltenheit auch als Symbol).
 9. **Gründe für morgen:** Tagesangebot (ein besonderes Teil nur heute); kleine Ziele im Lexikon („10 Wandspinnen besiegt → Egon zahlt 10 % mehr für Spinnenseide“).
+
+## Aussehen und Stimmung (Nachricht vom 2026-11-28)
+
+Reihenfolge zum Bauen (zuerst, was schnell geht oder viel bringt; ✅ = gebaut auf `feature/stimmung`):
+
+**Dungeon**
+1. **Deko in den Räumen:** Kisten, Fässer, Knochen, Pilze, Steine als Billboards (wie die Fackeln) zufällig an den Wänden, je Thema eigene; Daten in `floors.json` (`"props": [...]`). Bringt am meisten.
+2. ✅ (als Lichthof `Fx.halo`, Glow wirkt in GL Compatibility kaum) **Glow im WorldEnvironment** (`run.tscn`, geht mit GL Compatibility seit 4.3): Feuerbälle, Fackeln, Türrahmen, Kristalle leuchten. Schnell auszuprobieren.
+3. ✅ **Treffer-Blitz:** Gegner 0,05 s weiß beim Treffer (Teil von „Treffer-Gefühl“, Punkt 5 oben).
+4. ✅ **Fackeln flackern:** Lichtstärke leicht und zufällig schwanken lassen.
+5. **Staub und Glut in der Luft:** wenige CPUParticles3D je Raum, je Thema: Staub, Glutfunken (Glutschlund), Schnee (Frostgipfel), Glühwürmchen (Wiese, `effects/fireflies.png` gibt es).
+6. **Boden-Decals:** Blutflecken, Risse, Moos, damit nicht jeder Raum gleich aussieht.
+7. **Vignette und Farbstimmung je Dungeon:** kleiner Bildschirm-Shader auf dem SubViewport (dunkle Ränder, Tönung: Glut warm, Frost kalt), optional Dithering.
+8. **Head-Bob beim Laufen** und leichte Neigung der Waffe beim Drehen.
+
+**Laden und Menüs**
+9. **Rahmen in der Seltenheitsfarbe** für jedes Teil auf Tisch und Lager (siehe Abschnitt 3), pulsierendes Leuchten ab R3.
+10. **Lebender Hintergrund bei Egon:** Kerzen flackern, Staub schwebt, beim Hebel-Zug ploppen die Waren nacheinander auf.
+11. **Großer Moment bei R3+ am Hebel:** Licht, kurzes Wackeln, Egon staunt (siehe Punkt 7 oben).
+12. **Weiche Übergänge** zwischen Laden und Dungeon (Abblenden) statt harter Schnitte.

@@ -111,3 +111,8 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Egon schenkt für den Rubin ein Moorherz-Relikt (4 Runs).
 - ✅ Behälter im Lager (Relikte, Rüstung, Waffen, Materialien; klein und groß) und Tausch-Reiter bei Egon (`data/trades.json`).
 - Offen: Treffer-Gefühl, Tod-Zusammenfassung, Heimkehr, Komfort, Tagesangebot (Reihenfolge in `docs/IDEEN.md`).
+
+### Aussehen und Stimmung (Nachricht vom 2026-11-28, Liste in `docs/IDEEN.md`)
+
+- ✅ Treffer-Blitz (Gegner kurz weiß), Fackeln flackern, Lichthof um Feuerbälle und Fackeln statt Glow (`feature/stimmung`).
+- Offen: Deko in den Räumen (`floors.json` `props`), Partikel je Thema, Boden-Decals, Vignette/Farbstimmung, Head-Bob; im Laden Seltenheitsrahmen, lebender Hintergrund, R3-Moment, Abblenden.
