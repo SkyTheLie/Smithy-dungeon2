@@ -138,6 +138,9 @@ msgstr "Brasas gigantes carregadas caem e explodem"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Carregue, solte: um raio de fogo enorme"
 
+msgid "Aufwind"
+msgstr "Corrente ascendente"
+
 msgid "Aus"
 msgstr "Desligado"
 
@@ -576,6 +579,24 @@ msgstr "Você já está saudável"
 msgid "Du brauchst einen Schlüssel"
 msgstr "Você precisa de uma chave"
 
+msgid "Du fliegst und bist nach Treffern länger geschützt"
+msgstr "Você voa e fica protegido por mais tempo após golpes"
+
+msgid "Du fliegst und schießt schneller"
+msgstr "Você voa e atira mais rápido"
+
+msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
+msgstr "Você voa sobre armadilhas e abismos, dano +1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
+msgstr "Você voa sobre armadilhas e abismos, dois corações azuis"
+
+msgid "Du fliegst, Schüsse fliegen schneller und weiter"
+msgstr "Você voa, os tiros vão mais rápido e mais longe"
+
+msgid "Du fliegst, Tempo hoch, Schüsse stoßen Gegner weg"
+msgstr "Você voa, mais velocidade, os tiros empurram os inimigos"
+
 msgid "Du hast den Dungeon bezwungen!"
 msgstr "Você conquistou a masmorra!"
 
@@ -618,6 +639,12 @@ msgstr "Você fica muito maior e mais forte, porém mais lento"
 msgid "Du wirst winzig und manchmal weichst du aus"
 msgstr "Você fica minúsculo e às vezes esquiva"
 
+msgid "Du wirst zu Nebel: du fliegst und weichst manchmal aus"
+msgstr "Você vira névoa: voa e às vezes desvia"
+
+msgid "Du wirst zum Geist: du schwebst durch Steine, deine Schüsse auch"
+msgstr "Você vira um fantasma: flutua através das pedras, e seus tiros também"
+
 msgid "Dungeon der Glut"
 msgstr "Masmorra das Brasas"
 
@@ -626,6 +653,9 @@ msgstr "Quadro de masmorras"
 
 msgid "Dungeons"
 msgstr "Masmorras"
+
+msgid "Dunkle Flügel"
+msgstr "Asas sombrias"
 
 msgid "Dunkler Ritter"
 msgstr "Cavaleiro sombrio"
@@ -713,6 +743,9 @@ msgstr "Uma faísca e mais sorte"
 
 msgid "Ein Funke, der nicht ausgehen will."
 msgstr "Uma faísca que não quer se apagar."
+
+msgid "Ein Geistervogel trägt dich: du fliegst, Glück +1"
+msgstr "Um pássaro fantasma te carrega: você voa, sorte +1"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "Um pacto de brasa se abriu"
@@ -1056,6 +1089,9 @@ msgstr "Manto de líquen"
 msgid "Fledermaus"
 msgstr "Morcego"
 
+msgid "Fledermausschwingen"
+msgstr "Asas de morcego"
+
 msgid "Flinke Hand"
 msgstr "Mão ágil"
 
@@ -1196,6 +1232,9 @@ msgstr "Vidro fantasma"
 
 msgid "Geisterstab"
 msgstr "Cajado fantasma"
+
+msgid "Geistgestalt"
+msgstr "Forma fantasma"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "Comprado! A relíquia espera no inventário em casa."
@@ -2793,6 +2832,9 @@ msgstr "Cristal negro"
 msgid "Schwarzwolf"
 msgstr "Lobo negro"
 
+msgid "Schwebestiefel"
+msgstr "Botas flutuantes"
+
 msgid "Schwer"
 msgstr "Pesado"
 
@@ -2864,6 +2906,9 @@ msgstr "Fragmento de alma"
 
 msgid "Seelenstab"
 msgstr "Cajado das almas"
+
+msgid "Seelenvogel"
+msgstr "Pássaro da alma"
 
 msgid "Seherbräu"
 msgstr "Poção do vidente"
@@ -3147,6 +3192,9 @@ msgstr "Mapa da tempestade"
 msgid "Sturmkrähe"
 msgstr "Corvo da tempestade"
 
+msgid "Sturmring"
+msgstr "Anel da tempestade"
+
 msgid "Sturmsiegel"
 msgstr "Selo da tempestade"
 
@@ -3191,6 +3239,9 @@ msgstr "Couro do pântano"
 
 msgid "Sumpfmantel"
 msgstr "Manto do pântano"
+
+msgid "Sumpfnebel"
+msgstr "Névoa do pântano"
 
 msgid "Sumpfschamane"
 msgstr "Xamã do pântano"
@@ -3471,6 +3522,9 @@ msgstr "Continuar lutando"
 msgid "Weitreichend"
 msgstr "Longo alcance"
 
+msgid "Weiße Flügel"
+msgstr "Asas brancas"
+
 msgid "Weltenstab"
 msgstr "Cajado dos mundos"
 
@@ -3507,6 +3561,9 @@ msgstr "Javali"
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "Bem-vindo à minha humilde loja! Lá em cima, na mesa, fica a mercadoria. Quer dizer… já já."
 
+msgid "Wind von unten trägt dich: du fliegst, Tempo +1"
+msgstr "O vento de baixo te carrega: você voa, velocidade +1"
+
 msgid "Windfeder"
 msgstr "Pena do vento"
 
@@ -3518,6 +3575,9 @@ msgstr "Rosa dos ventos"
 
 msgid "Windstab"
 msgstr "Cajado do vento"
+
+msgid "Wirbelwind"
+msgstr "Redemoinho"
 
 msgid "Wispernde Wiese"
 msgstr "Campina Sussurrante"

@@ -330,6 +330,11 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - **Cheats:** Leben voll, Unverwundbar, Raum leeren, +5 Bomben/Schlüssel, +1000 Gold in die Dose, +1 Spielerstufe, Dungeon als geschafft markieren.
 - Texte nur deutsch (Entwickler-Werkzeug, absichtlich ohne Übersetzung).
 
+## Fliegen (Flags fly, ghost) – 2026-11-28
+
+- **Dateien:** `scenes/actors/player.gd` (`flying`, `_update_flight`), `scenes/run/dungeon.gd` (`_check_hazards`), `scenes/run/gear_chasm.gd` (`tick`), `data/items.json`, `data/player.json` `fly_height`/`fly_bob`
+- `fly` oder `ghost`: Fallen am Boden (Gift, Stacheln, Lava, Fangeisen) wirken nicht auf den Spieler, in der Räderkluft fällt er nicht, die Sicht schwebt `fly_height` höher und leicht auf und ab. `ghost` nimmt zusätzlich die Stein-Ebene aus der Kollision des Spielers (geht durch Steine). Schüsse treffen den Flieger wie vorher.
+
 ## Räderkluft (GearChasm) – 2026-11-28
 
 - **Dateien:** `scenes/run/gear_chasm.gd`, `data/gear_chasm.json`, `scenes/run/dungeon.gd` (`CHASM_CELL`, `chasm`, `enter_gear_chasm`, `in_gear_chasm`), Admin-Menü Knopf „Räderkluft“, Test `test_gear_chasm_play.gd`

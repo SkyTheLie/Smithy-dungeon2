@@ -138,6 +138,9 @@ msgstr "Las brasas gigantes cargadas impactan y explotan"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Carga, suelta: un rayo de fuego enorme"
 
+msgid "Aufwind"
+msgstr "Corriente ascendente"
+
 msgid "Aus"
 msgstr "Desactivado"
 
@@ -576,6 +579,24 @@ msgstr "Ya estás sano"
 msgid "Du brauchst einen Schlüssel"
 msgstr "Necesitas una llave"
 
+msgid "Du fliegst und bist nach Treffern länger geschützt"
+msgstr "Vuelas y estás protegido más tiempo tras los golpes"
+
+msgid "Du fliegst und schießt schneller"
+msgstr "Vuelas y disparas más rápido"
+
+msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
+msgstr "Vuelas sobre trampas y abismos, daño +1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
+msgstr "Vuelas sobre trampas y abismos, dos corazones azules"
+
+msgid "Du fliegst, Schüsse fliegen schneller und weiter"
+msgstr "Vuelas, los disparos van más rápido y más lejos"
+
+msgid "Du fliegst, Tempo hoch, Schüsse stoßen Gegner weg"
+msgstr "Vuelas, más velocidad, los disparos empujan a los enemigos"
+
 msgid "Du hast den Dungeon bezwungen!"
 msgstr "¡Has conquistado la mazmorra!"
 
@@ -618,6 +639,12 @@ msgstr "Te haces mucho más grande y fuerte, pero más lento"
 msgid "Du wirst winzig und manchmal weichst du aus"
 msgstr "Te vuelves diminuto y a veces esquivas"
 
+msgid "Du wirst zu Nebel: du fliegst und weichst manchmal aus"
+msgstr "Te conviertes en niebla: vuelas y a veces esquivas"
+
+msgid "Du wirst zum Geist: du schwebst durch Steine, deine Schüsse auch"
+msgstr "Te conviertes en fantasma: atraviesas rocas flotando, y tus disparos también"
+
 msgid "Dungeon der Glut"
 msgstr "Mazmorra de las Brasas"
 
@@ -626,6 +653,9 @@ msgstr "Tablón de mazmorras"
 
 msgid "Dungeons"
 msgstr "Mazmorras"
+
+msgid "Dunkle Flügel"
+msgstr "Alas oscuras"
 
 msgid "Dunkler Ritter"
 msgstr "Caballero oscuro"
@@ -713,6 +743,9 @@ msgstr "Una chispa y más suerte"
 
 msgid "Ein Funke, der nicht ausgehen will."
 msgstr "Una chispa que no quiere apagarse."
+
+msgid "Ein Geistervogel trägt dich: du fliegst, Glück +1"
+msgstr "Un pájaro fantasma te lleva: vuelas, suerte +1"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "Se ha abierto un pacto de brasa"
@@ -1056,6 +1089,9 @@ msgstr "Capa de liquen"
 msgid "Fledermaus"
 msgstr "Murciélago"
 
+msgid "Fledermausschwingen"
+msgstr "Alas de murciélago"
+
 msgid "Flinke Hand"
 msgstr "Mano rápida"
 
@@ -1196,6 +1232,9 @@ msgstr "Vidrio fantasma"
 
 msgid "Geisterstab"
 msgstr "Bastón fantasma"
+
+msgid "Geistgestalt"
+msgstr "Forma espectral"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "¡Comprado! La reliquia te espera en el inventario de casa."
@@ -2793,6 +2832,9 @@ msgstr "Cristal negro"
 msgid "Schwarzwolf"
 msgstr "Lobo negro"
 
+msgid "Schwebestiefel"
+msgstr "Botas flotantes"
+
 msgid "Schwer"
 msgstr "Pesado"
 
@@ -2864,6 +2906,9 @@ msgstr "Fragmento de alma"
 
 msgid "Seelenstab"
 msgstr "Bastón de almas"
+
+msgid "Seelenvogel"
+msgstr "Pájaro del alma"
 
 msgid "Seherbräu"
 msgstr "Brebaje del vidente"
@@ -3147,6 +3192,9 @@ msgstr "Mapa de tormenta"
 msgid "Sturmkrähe"
 msgstr "Cuervo de la tormenta"
 
+msgid "Sturmring"
+msgstr "Anillo de tormenta"
+
 msgid "Sturmsiegel"
 msgstr "Sello de tormenta"
 
@@ -3191,6 +3239,9 @@ msgstr "Cuero de pantano"
 
 msgid "Sumpfmantel"
 msgstr "Capa de pantano"
+
+msgid "Sumpfnebel"
+msgstr "Niebla del pantano"
 
 msgid "Sumpfschamane"
 msgstr "Chamán del pantano"
@@ -3471,6 +3522,9 @@ msgstr "Seguir luchando"
 msgid "Weitreichend"
 msgstr "De largo alcance"
 
+msgid "Weiße Flügel"
+msgstr "Alas blancas"
+
 msgid "Weltenstab"
 msgstr "Bastón del mundo"
 
@@ -3507,6 +3561,9 @@ msgstr "Jabalí"
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "¡Bienvenido a mi humilde tienda! Arriba, en la mesa, está la mercancía. Bueno… enseguida."
 
+msgid "Wind von unten trägt dich: du fliegst, Tempo +1"
+msgstr "El viento de abajo te lleva: vuelas, velocidad +1"
+
 msgid "Windfeder"
 msgstr "Pluma del viento"
 
@@ -3518,6 +3575,9 @@ msgstr "Rosa de los vientos"
 
 msgid "Windstab"
 msgstr "Bastón de viento"
+
+msgid "Wirbelwind"
+msgstr "Torbellino"
 
 msgid "Wispernde Wiese"
 msgstr "Pradera Susurrante"

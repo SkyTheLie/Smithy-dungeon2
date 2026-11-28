@@ -138,6 +138,9 @@ msgstr "蓄力的巨型余烬撞击并爆炸"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "蓄力后松开：巨大的火焰光束"
 
+msgid "Aufwind"
+msgstr "上升气流"
+
 msgid "Aus"
 msgstr "关闭"
 
@@ -576,6 +579,24 @@ msgstr "你已经很健康了"
 msgid "Du brauchst einen Schlüssel"
 msgstr "你需要一把钥匙"
 
+msgid "Du fliegst und bist nach Treffern länger geschützt"
+msgstr "你能飞行，受击后保护时间更长"
+
+msgid "Du fliegst und schießt schneller"
+msgstr "你能飞行，射击更快"
+
+msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
+msgstr "你能飞越陷阱和深渊，伤害+1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
+msgstr "你能飞越陷阱和深渊，两颗蓝心"
+
+msgid "Du fliegst, Schüsse fliegen schneller und weiter"
+msgstr "你能飞行，子弹飞得更快更远"
+
+msgid "Du fliegst, Tempo hoch, Schüsse stoßen Gegner weg"
+msgstr "你能飞行，速度提升，子弹击退敌人"
+
 msgid "Du hast den Dungeon bezwungen!"
 msgstr "你征服了地牢！"
 
@@ -618,6 +639,12 @@ msgstr "你变得更大更强，但更慢"
 msgid "Du wirst winzig und manchmal weichst du aus"
 msgstr "你变得极小，有时闪避"
 
+msgid "Du wirst zu Nebel: du fliegst und weichst manchmal aus"
+msgstr "你化为迷雾：你能飞行，有时闪避"
+
+msgid "Du wirst zum Geist: du schwebst durch Steine, deine Schüsse auch"
+msgstr "你化为幽灵：飘过岩石，你的子弹也是"
+
 msgid "Dungeon der Glut"
 msgstr "余烬地牢"
 
@@ -626,6 +653,9 @@ msgstr "地牢告示板"
 
 msgid "Dungeons"
 msgstr "地牢"
+
+msgid "Dunkle Flügel"
+msgstr "暗影之翼"
 
 msgid "Dunkler Ritter"
 msgstr "黑暗骑士"
@@ -713,6 +743,9 @@ msgstr "一个火花和更多幸运"
 
 msgid "Ein Funke, der nicht ausgehen will."
 msgstr "一粒不肯熄灭的火星。"
+
+msgid "Ein Geistervogel trägt dich: du fliegst, Glück +1"
+msgstr "幽灵鸟托着你：你能飞行，幸运+1"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "余烬契约已开启"
@@ -1056,6 +1089,9 @@ msgstr "地衣斗篷"
 msgid "Fledermaus"
 msgstr "蝙蝠"
 
+msgid "Fledermausschwingen"
+msgstr "蝙蝠之翼"
+
 msgid "Flinke Hand"
 msgstr "灵巧之手"
 
@@ -1196,6 +1232,9 @@ msgstr "幽灵玻璃"
 
 msgid "Geisterstab"
 msgstr "幽灵之杖"
+
+msgid "Geistgestalt"
+msgstr "幽灵形态"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "买下了！遗物在家里的物品栏等你。"
@@ -2793,6 +2832,9 @@ msgstr "黑水晶"
 msgid "Schwarzwolf"
 msgstr "黑狼"
 
+msgid "Schwebestiefel"
+msgstr "悬浮靴"
+
 msgid "Schwer"
 msgstr "重型"
 
@@ -2864,6 +2906,9 @@ msgstr "灵魂碎片"
 
 msgid "Seelenstab"
 msgstr "灵魂之杖"
+
+msgid "Seelenvogel"
+msgstr "灵魂之鸟"
 
 msgid "Seherbräu"
 msgstr "先知药剂"
@@ -3147,6 +3192,9 @@ msgstr "风暴地图"
 msgid "Sturmkrähe"
 msgstr "风暴乌鸦"
 
+msgid "Sturmring"
+msgstr "风暴之戒"
+
 msgid "Sturmsiegel"
 msgstr "风暴之印"
 
@@ -3191,6 +3239,9 @@ msgstr "沼泽皮革"
 
 msgid "Sumpfmantel"
 msgstr "沼泽斗篷"
+
+msgid "Sumpfnebel"
+msgstr "沼泽迷雾"
 
 msgid "Sumpfschamane"
 msgstr "沼泽萨满"
@@ -3471,6 +3522,9 @@ msgstr "继续战斗"
 msgid "Weitreichend"
 msgstr "远程"
 
+msgid "Weiße Flügel"
+msgstr "白色之翼"
+
 msgid "Weltenstab"
 msgstr "世界之杖"
 
@@ -3507,6 +3561,9 @@ msgstr "野猪"
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "欢迎来到我的小店！货物摆在上面的桌子上。嗯…马上就有。"
 
+msgid "Wind von unten trägt dich: du fliegst, Tempo +1"
+msgstr "下方的风托起你：你能飞行，速度+1"
+
 msgid "Windfeder"
 msgstr "风之羽"
 
@@ -3518,6 +3575,9 @@ msgstr "风向玫瑰"
 
 msgid "Windstab"
 msgstr "风之杖"
+
+msgid "Wirbelwind"
+msgstr "旋风"
 
 msgid "Wispernde Wiese"
 msgstr "低语草原"

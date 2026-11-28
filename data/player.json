@@ -21,7 +21,7 @@
 		"body": 1.0
 	},
 	"effects": {
-		"_info": "burn/poison: brennt/vergiftet *_time Sekunden, pro Sekunde Schuss-Schaden x *_share. slow: Tempo x slow_factor. freeze/fear/daze: Gegner steht / flieht / torkelt *_time Sekunden. grow: Schaden bis x grow_max am Ende der Reichweite; shrink: startet x shrink_start, endet x shrink_end. alternate: jeder zweite Schuss x alternate_mult. bomb_ring: Feuerbälle beim Explodieren. regen_time: Sekunden je halbes Herz. kill_heal_every: Kills je halbes Herz. desperate_damage: Schaden bei höchstens einem Herz. fury_damage/fury_max: Schaden je Treffer auf dieser Ebene. small_radius: Trefferfläche mal. still_time: Sekunden stillstehen bis unverwundbar. thorns_damage: Schaden an Gegnern, die dich berühren. blue_burst_damage: Schaden an allen Gegnern, wenn ein blaues Herz verloren geht. discount: Preise mal. magnet_range/speed: Pickups fliegen zu dir. luck_drop: Extra-Chance auf Beute je Glück. helper_delay/helper_damage: Begleiter-Funken. dodge: Chance, einem Treffer auszuweichen, steht bei den Items (chance). bleed: jeder Treffer ein Stapel (bis bleed_max), je Stapel Schaden x bleed_share pro Sekunde. melee: Reichweite melee_reach + Reichweite x melee_reach_per_range, Bogen melee_arc Grad. fire_slash (Feuerhieb): Feuerschweif fliegt melee_reach + Reichweite weit, Schaden x fire_slash_damage, Tempo fire_slash_speed m/s. dash/blink: Shift.",
+		"_info": "burn/poison: brennt/vergiftet *_time Sekunden, pro Sekunde Schuss-Schaden x *_share. slow: Tempo x slow_factor. freeze/fear/daze: Gegner steht / flieht / torkelt *_time Sekunden. grow: Schaden bis x grow_max am Ende der Reichweite; shrink: startet x shrink_start, endet x shrink_end. alternate: jeder zweite Schuss x alternate_mult. bomb_ring: Feuerbälle beim Explodieren. regen_time: Sekunden je halbes Herz. kill_heal_every: Kills je halbes Herz. desperate_damage: Schaden bei höchstens einem Herz. fury_damage/fury_max: Schaden je Treffer auf dieser Ebene. small_radius: Trefferfläche mal. still_time: Sekunden stillstehen bis unverwundbar. thorns_damage: Schaden an Gegnern, die dich berühren. blue_burst_damage: Schaden an allen Gegnern, wenn ein blaues Herz verloren geht. discount: Preise mal. magnet_range/speed: Pickups fliegen zu dir. luck_drop: Extra-Chance auf Beute je Glück. helper_delay/helper_damage: Begleiter-Funken. dodge: Chance, einem Treffer auszuweichen, steht bei den Items (chance). bleed: jeder Treffer ein Stapel (bis bleed_max), je Stapel Schaden x bleed_share pro Sekunde. melee: Reichweite melee_reach + Reichweite x melee_reach_per_range, Bogen melee_arc Grad. fire_slash (Feuerhieb): Feuerschweif fliegt melee_reach + Reichweite weit, Schaden x fire_slash_damage, Tempo fire_slash_speed m/s. dash/blink: Shift. fly_height: so viel höher (Meter) sieht man beim Fliegen (fly, ghost), fly_bob: so stark schwebt die Sicht auf und ab.",
 		"burn_time": 3.0,
 		"burn_share": 0.4,
 		"slow_time": 2.0,
@@ -43,6 +43,8 @@
 		"fury_max": 6,
 		"small_radius": 0.65,
 		"still_time": 1.0,
+		"fly_height": 0.5,
+		"fly_bob": 0.06,
 		"thorns_damage": 3.0,
 		"blue_burst_damage": 12.0,
 		"discount": 0.5,

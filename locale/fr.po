@@ -138,6 +138,9 @@ msgstr "Les braises géantes chargées s'écrasent et explosent"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Charge, relâche : un rayon de feu colossal"
 
+msgid "Aufwind"
+msgstr "Courant ascendant"
+
 msgid "Aus"
 msgstr "Désactivé"
 
@@ -576,6 +579,24 @@ msgstr "Tu es déjà en pleine forme"
 msgid "Du brauchst einen Schlüssel"
 msgstr "Il te faut une clé"
 
+msgid "Du fliegst und bist nach Treffern länger geschützt"
+msgstr "Tu voles et restes protégé plus longtemps après un coup"
+
+msgid "Du fliegst und schießt schneller"
+msgstr "Tu voles et tires plus vite"
+
+msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
+msgstr "Tu voles au-dessus des pièges et des gouffres, dégâts +1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
+msgstr "Tu voles au-dessus des pièges et des gouffres, deux cœurs bleus"
+
+msgid "Du fliegst, Schüsse fliegen schneller und weiter"
+msgstr "Tu voles, les tirs vont plus vite et plus loin"
+
+msgid "Du fliegst, Tempo hoch, Schüsse stoßen Gegner weg"
+msgstr "Tu voles, vitesse en hausse, les tirs repoussent les ennemis"
+
 msgid "Du hast den Dungeon bezwungen!"
 msgstr "Tu as vaincu le donjon !"
 
@@ -618,6 +639,12 @@ msgstr "Tu deviens bien plus grand et fort, mais plus lent"
 msgid "Du wirst winzig und manchmal weichst du aus"
 msgstr "Tu deviens minuscule et esquives parfois"
 
+msgid "Du wirst zu Nebel: du fliegst und weichst manchmal aus"
+msgstr "Tu deviens brume : tu voles et esquives parfois"
+
+msgid "Du wirst zum Geist: du schwebst durch Steine, deine Schüsse auch"
+msgstr "Tu deviens un fantôme : tu traverses les rochers, tes tirs aussi"
+
 msgid "Dungeon der Glut"
 msgstr "Donjon des Braises"
 
@@ -626,6 +653,9 @@ msgstr "Tableau des donjons"
 
 msgid "Dungeons"
 msgstr "Donjons"
+
+msgid "Dunkle Flügel"
+msgstr "Ailes sombres"
 
 msgid "Dunkler Ritter"
 msgstr "Chevalier noir"
@@ -713,6 +743,9 @@ msgstr "Une étincelle et plus de chance"
 
 msgid "Ein Funke, der nicht ausgehen will."
 msgstr "Une étincelle qui refuse de s'éteindre."
+
+msgid "Ein Geistervogel trägt dich: du fliegst, Glück +1"
+msgstr "Un oiseau fantôme te porte : tu voles, chance +1"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "Un pacte de braise s'est ouvert"
@@ -1056,6 +1089,9 @@ msgstr "Cape de lichen"
 msgid "Fledermaus"
 msgstr "Chauve-souris"
 
+msgid "Fledermausschwingen"
+msgstr "Ailes de chauve-souris"
+
 msgid "Flinke Hand"
 msgstr "Main agile"
 
@@ -1196,6 +1232,9 @@ msgstr "Verre fantôme"
 
 msgid "Geisterstab"
 msgstr "Bâton fantôme"
+
+msgid "Geistgestalt"
+msgstr "Forme spectrale"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "Acheté ! La relique t'attend dans l'inventaire à la maison."
@@ -2793,6 +2832,9 @@ msgstr "Cristal noir"
 msgid "Schwarzwolf"
 msgstr "Loup noir"
 
+msgid "Schwebestiefel"
+msgstr "Bottes flottantes"
+
 msgid "Schwer"
 msgstr "Lourd"
 
@@ -2864,6 +2906,9 @@ msgstr "Éclat d'âme"
 
 msgid "Seelenstab"
 msgstr "Bâton des âmes"
+
+msgid "Seelenvogel"
+msgstr "Oiseau de l'âme"
 
 msgid "Seherbräu"
 msgstr "Breuvage du voyant"
@@ -3147,6 +3192,9 @@ msgstr "Carte des tempêtes"
 msgid "Sturmkrähe"
 msgstr "Corbeau des tempêtes"
 
+msgid "Sturmring"
+msgstr "Anneau de tempête"
+
 msgid "Sturmsiegel"
 msgstr "Sceau de tempête"
 
@@ -3191,6 +3239,9 @@ msgstr "Cuir des marais"
 
 msgid "Sumpfmantel"
 msgstr "Cape des marais"
+
+msgid "Sumpfnebel"
+msgstr "Brume du marais"
 
 msgid "Sumpfschamane"
 msgstr "Chaman des marais"
@@ -3471,6 +3522,9 @@ msgstr "Continuer le combat"
 msgid "Weitreichend"
 msgstr "Longue portée"
 
+msgid "Weiße Flügel"
+msgstr "Ailes blanches"
+
 msgid "Weltenstab"
 msgstr "Bâton des mondes"
 
@@ -3507,6 +3561,9 @@ msgstr "Sanglier"
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "Bienvenue dans ma modeste boutique ! La marchandise est là-haut sur la table. Enfin… bientôt."
 
+msgid "Wind von unten trägt dich: du fliegst, Tempo +1"
+msgstr "Le vent d'en bas te porte : tu voles, vitesse +1"
+
 msgid "Windfeder"
 msgstr "Plume du vent"
 
@@ -3518,6 +3575,9 @@ msgstr "Rose des vents"
 
 msgid "Windstab"
 msgstr "Bâton du vent"
+
+msgid "Wirbelwind"
+msgstr "Tourbillon"
 
 msgid "Wispernde Wiese"
 msgstr "Prairie Murmurante"

@@ -36,6 +36,7 @@ func run() -> void:
 	await _carry(hall)
 	await _fall(hall)
 	await _ways(hall)
+	await _flight(hall)
 	# Out again (admin menu: to the start room).
 	dungeon.call("teleport_to_cell", Vector2i(4, 4))
 	check(not dungeon.call("in_gear_chasm"), "back on the floor")
@@ -158,3 +159,27 @@ func _boss(hall: Node3D) -> void:
 	player.global_position = hall.call("arrival_point")
 	await physics_frame
 	await physics_frame
+
+
+## Flight items: over the chasm without falling, traps do nothing, a ghost walks through rocks.
+func _flight(hall: Node3D) -> void:
+	player.global_position = hall.global_position + Vector3(0, 0, 3.0)
+	await physics_frame
+	run_state.call("add_item", "aufwind")
+	check(player.call("flying"), "Aufwind: the player flies")
+	var health: int = run_state.get("health")
+	var half: Vector2 = hall.get("half")
+	player.global_position = hall.global_position + Vector3(half.x - 0.6, 0, half.y - 0.6)
+	for i in 20:
+		await physics_frame
+	check(not hall.get("falling"), "flying over the chasm: no fall")
+	var lava: Node3D = dungeon.call("add_hazard", "lava", player.global_position, 0.0)
+	player.set("invulnerable", 0.0)
+	dungeon.call("_check_hazards")
+	check_eq(int(run_state.get("health")), health, "lava does nothing to a flying player")
+	(hall.get("hazards") as Array).erase(lava)
+	check(await wait_until(func() -> bool: return float((player.get("camera") as Node3D).position.y) > 1.7, 2.0), "the view floats higher")
+	check(int(player.get("collision_mask")) & 2 != 0, "rocks still stop a flying player")
+	run_state.call("add_item", "geistgestalt")
+	await physics_frame
+	check(int(player.get("collision_mask")) & 2 == 0, "a ghost walks through rocks")

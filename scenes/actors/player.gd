@@ -5,7 +5,8 @@ extends CharacterBody3D
 ## Q drinks the potion from the potion place (RunState.drink_potion).
 ## Shooting is done by the child Weapon. After a hit the player cannot be hurt for a moment
 ## (longer with "guard_time"). Item flags here: dodge (chance to dodge a hit), still_guard
-## (standing still without shooting = safe), small (smaller body).
+## (standing still without shooting = safe), small (smaller body), fly (flying(): the view floats
+## higher; Dungeon/GearChasm let traps and the chasm alone), ghost (flies and walks through rocks).
 
 signal hurt
 ## Q was pressed: `drunk` = a potion was drunk (false: none taken along, or full life already).
@@ -43,6 +44,9 @@ var _dash_left: float = 0.0
 var _dash_dir: Vector3 = Vector3.ZERO
 var _dash_wait: float = 0.0
 var _ring: MeshInstance3D
+## How high the view floats now (grows to player.json fly_height while flying).
+var _lift: float = 0.0
+var _float_time: float = 0.0
 
 @onready var camera: Camera3D = $Camera
 @onready var weapon: Weapon = $Weapon
@@ -112,7 +116,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		_bob_time = lerpf(_bob_time, roundf(_bob_time / PI) * PI, 10.0 * delta)
 	var body: float = run.stats.body if run else 1.0
-	camera.position.y = EYE_HEIGHT * body + absf(sin(_bob_time)) * BOB_AMOUNT
+	_update_flight(delta)
+	camera.position.y = EYE_HEIGHT * body + absf(sin(_bob_time)) * BOB_AMOUNT + _lift
 	# The ring grows and shrinks with the body (size items).
 	var ring_scale: float = hit_radius() / RADIUS
 	_ring.scale = Vector3(ring_scale, 1.0, ring_scale)
@@ -145,6 +150,23 @@ func _drop_bomb() -> void:
 	var at: Vector3 = global_position + forward * BOMB_DISTANCE
 	var rect: Rect2 = dungeon.room_rect(0.4)
 	bomb.global_position = Vector3(clampf(at.x, rect.position.x, rect.end.x), 0.0, clampf(at.z, rect.position.y, rect.end.y))
+
+
+## Flying (item flag fly, or ghost): traps on the floor do nothing and the chasm of the
+## Räderkluft does not make the player fall.
+func flying() -> bool:
+	return run != null and (run.stats.has("fly") or run.stats.has("ghost"))
+
+
+## The view floats up while flying (slowly up and down); a ghost walks through rocks.
+func _update_flight(delta: float) -> void:
+	var effects: Dictionary = Content.player().get("effects", {})
+	var target: float = 0.0
+	if flying():
+		_float_time += delta
+		target = float(effects.get("fly_height", 0.5)) + sin(_float_time * 2.0) * float(effects.get("fly_bob", 0.06))
+	_lift = move_toward(_lift, target, delta * 1.5)
+	set_collision_mask_value(2, not (run != null and run.stats.has("ghost")))
 
 
 ## Radius of the body that can be hit: times the body size ("body"), smaller with "small".

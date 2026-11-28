@@ -138,6 +138,9 @@ msgstr "اخگر عظیم شارژشده فرود می‌آید و منفجر م
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "شارژ کن، رها کن: یک پرتو آتش عظیم"
 
+msgid "Aufwind"
+msgstr "باد بالارونده"
+
 msgid "Aus"
 msgstr "خاموش"
 
@@ -576,6 +579,24 @@ msgstr "تو همین حالا سالمی"
 msgid "Du brauchst einen Schlüssel"
 msgstr "به یک کلید نیاز داری"
 
+msgid "Du fliegst und bist nach Treffern länger geschützt"
+msgstr "پرواز می‌کنی و پس از ضربه مدت بیشتری محافظت می‌شوی"
+
+msgid "Du fliegst und schießt schneller"
+msgstr "پرواز می‌کنی و سریع‌تر شلیک می‌کنی"
+
+msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
+msgstr "از روی تله‌ها و پرتگاه‌ها پرواز می‌کنی، آسیب +۱"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
+msgstr "از روی تله‌ها و پرتگاه‌ها پرواز می‌کنی، دو قلب آبی"
+
+msgid "Du fliegst, Schüsse fliegen schneller und weiter"
+msgstr "پرواز می‌کنی، تیرها سریع‌تر و دورتر می‌روند"
+
+msgid "Du fliegst, Tempo hoch, Schüsse stoßen Gegner weg"
+msgstr "پرواز می‌کنی، سرعت بیشتر، تیرها دشمنان را عقب می‌رانند"
+
 msgid "Du hast den Dungeon bezwungen!"
 msgstr "سیاه‌چال را فتح کردی!"
 
@@ -618,6 +639,12 @@ msgstr "خیلی بزرگ‌تر و قوی‌تر، اما کندتر می‌ش�
 msgid "Du wirst winzig und manchmal weichst du aus"
 msgstr "ریز می‌شوی و گاهی جاخالی می‌دهی"
 
+msgid "Du wirst zu Nebel: du fliegst und weichst manchmal aus"
+msgstr "به مه تبدیل می‌شوی: پرواز می‌کنی و گاهی جاخالی می‌دهی"
+
+msgid "Du wirst zum Geist: du schwebst durch Steine, deine Schüsse auch"
+msgstr "به شبح تبدیل می‌شوی: از میان سنگ‌ها شناور می‌گذری، تیرهایت هم"
+
 msgid "Dungeon der Glut"
 msgstr "سیاه‌چال اخگر"
 
@@ -626,6 +653,9 @@ msgstr "تابلوی سیاه‌چال‌ها"
 
 msgid "Dungeons"
 msgstr "سیاه‌چال‌ها"
+
+msgid "Dunkle Flügel"
+msgstr "بال‌های تاریک"
 
 msgid "Dunkler Ritter"
 msgstr "شوالیه تاریک"
@@ -713,6 +743,9 @@ msgstr "یک جرقه و شانس بیشتر"
 
 msgid "Ein Funke, der nicht ausgehen will."
 msgstr "جرقه‌ای که نمی‌خواهد خاموش شود."
+
+msgid "Ein Geistervogel trägt dich: du fliegst, Glück +1"
+msgstr "پرنده‌ای شبح‌وار تو را می‌برد: پرواز می‌کنی، شانس +۱"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "یک پیمان اخگر باز شد"
@@ -1056,6 +1089,9 @@ msgstr "ردای گلسنگ"
 msgid "Fledermaus"
 msgstr "خفاش"
 
+msgid "Fledermausschwingen"
+msgstr "بال‌های خفاش"
+
 msgid "Flinke Hand"
 msgstr "دست چابک"
 
@@ -1196,6 +1232,9 @@ msgstr "شیشه روح"
 
 msgid "Geisterstab"
 msgstr "عصای روح"
+
+msgid "Geistgestalt"
+msgstr "شکل شبح"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "خریداری شد! یادگار در خانه در کوله‌پشتی منتظر است."
@@ -2793,6 +2832,9 @@ msgstr "بلور سیاه"
 msgid "Schwarzwolf"
 msgstr "گرگ سیاه"
 
+msgid "Schwebestiefel"
+msgstr "چکمه‌های شناور"
+
 msgid "Schwer"
 msgstr "سنگین"
 
@@ -2864,6 +2906,9 @@ msgstr "تکه روح"
 
 msgid "Seelenstab"
 msgstr "عصای روح‌ها"
+
+msgid "Seelenvogel"
+msgstr "پرنده روح"
 
 msgid "Seherbräu"
 msgstr "معجون پیشگو"
@@ -3147,6 +3192,9 @@ msgstr "نقشه طوفان"
 msgid "Sturmkrähe"
 msgstr "کلاغ طوفان"
 
+msgid "Sturmring"
+msgstr "حلقه طوفان"
+
 msgid "Sturmsiegel"
 msgstr "مهر طوفان"
 
@@ -3191,6 +3239,9 @@ msgstr "چرم مرداب"
 
 msgid "Sumpfmantel"
 msgstr "ردای مرداب"
+
+msgid "Sumpfnebel"
+msgstr "مه مرداب"
 
 msgid "Sumpfschamane"
 msgstr "شمن مرداب"
@@ -3471,6 +3522,9 @@ msgstr "ادامه‌ی نبرد"
 msgid "Weitreichend"
 msgstr "دوربرد"
 
+msgid "Weiße Flügel"
+msgstr "بال‌های سفید"
+
 msgid "Weltenstab"
 msgstr "عصای جهان"
 
@@ -3507,6 +3561,9 @@ msgstr "گراز وحشی"
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "به مغازه‌ی کوچیک من خوش اومدی! جنس‌ها اون بالا روی میزن. یعنی… الان میان."
 
+msgid "Wind von unten trägt dich: du fliegst, Tempo +1"
+msgstr "باد از پایین تو را می‌برد: پرواز می‌کنی، سرعت +۱"
+
 msgid "Windfeder"
 msgstr "پر باد"
 
@@ -3518,6 +3575,9 @@ msgstr "گل باد"
 
 msgid "Windstab"
 msgstr "عصای باد"
+
+msgid "Wirbelwind"
+msgstr "گردباد"
 
 msgid "Wispernde Wiese"
 msgstr "چمنزار نجواگر"

@@ -138,6 +138,9 @@ msgstr "Charged giant embers crash down and explode"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Charge, release: a mighty fire beam"
 
+msgid "Aufwind"
+msgstr "Updraft"
+
 msgid "Aus"
 msgstr "Off"
 
@@ -576,6 +579,24 @@ msgstr "You are already healthy"
 msgid "Du brauchst einen Schlüssel"
 msgstr "You need a key"
 
+msgid "Du fliegst und bist nach Treffern länger geschützt"
+msgstr "You fly and stay protected longer after hits"
+
+msgid "Du fliegst und schießt schneller"
+msgstr "You fly and shoot faster"
+
+msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
+msgstr "You fly over traps and chasms, damage +1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
+msgstr "You fly over traps and chasms, two blue hearts"
+
+msgid "Du fliegst, Schüsse fliegen schneller und weiter"
+msgstr "You fly, shots fly faster and farther"
+
+msgid "Du fliegst, Tempo hoch, Schüsse stoßen Gegner weg"
+msgstr "You fly, speed up, shots push enemies away"
+
 msgid "Du hast den Dungeon bezwungen!"
 msgstr "You have conquered the dungeon!"
 
@@ -618,6 +639,12 @@ msgstr "You grow much bigger and stronger, but slower"
 msgid "Du wirst winzig und manchmal weichst du aus"
 msgstr "You become tiny and sometimes dodge"
 
+msgid "Du wirst zu Nebel: du fliegst und weichst manchmal aus"
+msgstr "You turn into mist: you fly and sometimes dodge"
+
+msgid "Du wirst zum Geist: du schwebst durch Steine, deine Schüsse auch"
+msgstr "You become a ghost: you float through rocks, and so do your shots"
+
 msgid "Dungeon der Glut"
 msgstr "Dungeon of Embers"
 
@@ -626,6 +653,9 @@ msgstr "Dungeon Board"
 
 msgid "Dungeons"
 msgstr "Dungeons"
+
+msgid "Dunkle Flügel"
+msgstr "Dark Wings"
 
 msgid "Dunkler Ritter"
 msgstr "Dark Knight"
@@ -713,6 +743,9 @@ msgstr "A spark and more luck"
 
 msgid "Ein Funke, der nicht ausgehen will."
 msgstr "A spark that won't go out."
+
+msgid "Ein Geistervogel trägt dich: du fliegst, Glück +1"
+msgstr "A ghost bird carries you: you fly, luck +1"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "An ember pact has opened"
@@ -1056,6 +1089,9 @@ msgstr "Lichen Cloak"
 msgid "Fledermaus"
 msgstr "Bat"
 
+msgid "Fledermausschwingen"
+msgstr "Bat Wings"
+
 msgid "Flinke Hand"
 msgstr "Quick hand"
 
@@ -1196,6 +1232,9 @@ msgstr "Ghost Glass"
 
 msgid "Geisterstab"
 msgstr "Ghost Staff"
+
+msgid "Geistgestalt"
+msgstr "Ghost Form"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "Bought! The relic is waiting in your inventory at home."
@@ -2793,6 +2832,9 @@ msgstr "Black Crystal"
 msgid "Schwarzwolf"
 msgstr "Black Wolf"
 
+msgid "Schwebestiefel"
+msgstr "Hover Boots"
+
 msgid "Schwer"
 msgstr "Heavy"
 
@@ -2864,6 +2906,9 @@ msgstr "Soul Shard"
 
 msgid "Seelenstab"
 msgstr "Soul Staff"
+
+msgid "Seelenvogel"
+msgstr "Soul Bird"
 
 msgid "Seherbräu"
 msgstr "Seer's Brew"
@@ -3147,6 +3192,9 @@ msgstr "Storm Map"
 msgid "Sturmkrähe"
 msgstr "Storm Crow"
 
+msgid "Sturmring"
+msgstr "Storm Ring"
+
 msgid "Sturmsiegel"
 msgstr "Storm Seal"
 
@@ -3191,6 +3239,9 @@ msgstr "Swamp Leather"
 
 msgid "Sumpfmantel"
 msgstr "Swamp Cloak"
+
+msgid "Sumpfnebel"
+msgstr "Swamp Mist"
 
 msgid "Sumpfschamane"
 msgstr "Swamp Shaman"
@@ -3471,6 +3522,9 @@ msgstr "Keep fighting"
 msgid "Weitreichend"
 msgstr "Long-range"
 
+msgid "Weiße Flügel"
+msgstr "White Wings"
+
 msgid "Weltenstab"
 msgstr "World Staff"
 
@@ -3507,6 +3561,9 @@ msgstr "Wild Boar"
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "Welcome to my humble shop! The goods lie up there on the table. Well… in a moment."
 
+msgid "Wind von unten trägt dich: du fliegst, Tempo +1"
+msgstr "Wind from below carries you: you fly, speed +1"
+
 msgid "Windfeder"
 msgstr "Wind Feather"
 
@@ -3518,6 +3575,9 @@ msgstr "Compass Rose"
 
 msgid "Windstab"
 msgstr "Wind Staff"
+
+msgid "Wirbelwind"
+msgstr "Whirlwind"
 
 msgid "Wispernde Wiese"
 msgstr "Whispering Meadow"

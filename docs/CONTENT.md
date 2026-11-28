@@ -19,7 +19,8 @@ Alles in `data/`. Nach jeder Änderung: `bash assets/_reference/run_tests.sh tes
 - `pools`: zusätzlich `shop` (Laden) und/oder `boss` (Boss-Belohnung: nur einfache Werte- und Herz-Items, keine `flags`/`mode`; das prüft `test_run_state`).
 - `stats` kennt auch `blue_hearts` (blaue Herzen: kommen oben drauf, Treffer nehmen sie zuerst, nicht heilbar). Negative `hearts` nehmen Herzen weg.
 - `unlock`: das Item ist erst nach einer Freischaltung im Spiel: `{"type": "boss", "id": "rat_king"}`, `{"type": "wins", "count": 1}`, `{"type": "kills", "count": 200}`, `{"type": "discovered", "count": 25}`. Der Text im Lexikon entsteht daraus von selbst.
-- Es sind genau 203 Items: 200 plus die drei Start-Waffen der Helden (`test_content` prüft das).
+- Es sind genau 213 Items: 210 plus die drei Start-Waffen der Helden (`test_content` prüft das).
+- Flug: `fly` (fliegen: Fallen am Boden tun nichts, kein Absturz in der Räderkluft, Sicht höher, `player.json` `fly_height`/`fly_bob`), `ghost` (fliegen und durch Steine gehen).
 - `chance`: Zufallseffekte, z. B. `{"freeze": 0.15}` (15 % pro Schuss, Glück erhöht das).
 - `spawn`: Pickups, die beim Aufheben erscheinen (`heart`, `bomb`, `key`).
 - `secret: true`: nur im Geheimraum (dann keine `pools`). Weitere `pools`: `pact` (Glutpakt) und `shrine` (Schrein).

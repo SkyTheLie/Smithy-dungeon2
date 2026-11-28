@@ -138,6 +138,9 @@ msgstr "Заряженный огромный уголь врезается и �
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "Заряди, отпусти: мощный луч огня"
 
+msgid "Aufwind"
+msgstr "Восходящий ветер"
+
 msgid "Aus"
 msgstr "Выкл."
 
@@ -576,6 +579,24 @@ msgstr "Ты и так здоров"
 msgid "Du brauchst einen Schlüssel"
 msgstr "Нужен ключ"
 
+msgid "Du fliegst und bist nach Treffern länger geschützt"
+msgstr "Ты летаешь и дольше защищён после ударов"
+
+msgid "Du fliegst und schießt schneller"
+msgstr "Ты летаешь и стреляешь быстрее"
+
+msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
+msgstr "Ты летаешь над ловушками и пропастями, урон +1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
+msgstr "Ты летаешь над ловушками и пропастями, два синих сердца"
+
+msgid "Du fliegst, Schüsse fliegen schneller und weiter"
+msgstr "Ты летаешь, выстрелы летят быстрее и дальше"
+
+msgid "Du fliegst, Tempo hoch, Schüsse stoßen Gegner weg"
+msgstr "Ты летаешь, скорость выше, выстрелы отталкивают врагов"
+
 msgid "Du hast den Dungeon bezwungen!"
 msgstr "Ты покорил подземелье!"
 
@@ -618,6 +639,12 @@ msgstr "Ты становишься намного больше и сильне�
 msgid "Du wirst winzig und manchmal weichst du aus"
 msgstr "Ты крошечный и иногда уклоняешься"
 
+msgid "Du wirst zu Nebel: du fliegst und weichst manchmal aus"
+msgstr "Ты становишься туманом: летаешь и иногда уклоняешься"
+
+msgid "Du wirst zum Geist: du schwebst durch Steine, deine Schüsse auch"
+msgstr "Ты становишься призраком: проплываешь сквозь камни, и твои выстрелы тоже"
+
 msgid "Dungeon der Glut"
 msgstr "Подземелье углей"
 
@@ -626,6 +653,9 @@ msgstr "Доска подземелий"
 
 msgid "Dungeons"
 msgstr "Подземелья"
+
+msgid "Dunkle Flügel"
+msgstr "Тёмные крылья"
 
 msgid "Dunkler Ritter"
 msgstr "Тёмный рыцарь"
@@ -713,6 +743,9 @@ msgstr "Искра и больше удачи"
 
 msgid "Ein Funke, der nicht ausgehen will."
 msgstr "Искра, которая не хочет гаснуть."
+
+msgid "Ein Geistervogel trägt dich: du fliegst, Glück +1"
+msgstr "Призрачная птица несёт тебя: ты летаешь, удача +1"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "Открылся пакт жара"
@@ -1056,6 +1089,9 @@ msgstr "Лишайниковый плащ"
 msgid "Fledermaus"
 msgstr "Летучая мышь"
 
+msgid "Fledermausschwingen"
+msgstr "Крылья летучей мыши"
+
 msgid "Flinke Hand"
 msgstr "Ловкая рука"
 
@@ -1196,6 +1232,9 @@ msgstr "Призрачное стекло"
 
 msgid "Geisterstab"
 msgstr "Призрачный посох"
+
+msgid "Geistgestalt"
+msgstr "Облик призрака"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "Куплено! Реликвия ждёт дома в инвентаре."
@@ -2793,6 +2832,9 @@ msgstr "Чёрный кристалл"
 msgid "Schwarzwolf"
 msgstr "Чёрный волк"
 
+msgid "Schwebestiefel"
+msgstr "Парящие сапоги"
+
 msgid "Schwer"
 msgstr "Тяжёлое"
 
@@ -2864,6 +2906,9 @@ msgstr "Осколок души"
 
 msgid "Seelenstab"
 msgstr "Посох душ"
+
+msgid "Seelenvogel"
+msgstr "Птица души"
 
 msgid "Seherbräu"
 msgstr "Отвар провидца"
@@ -3147,6 +3192,9 @@ msgstr "Карта бурь"
 msgid "Sturmkrähe"
 msgstr "Штормовая ворона"
 
+msgid "Sturmring"
+msgstr "Кольцо бури"
+
 msgid "Sturmsiegel"
 msgstr "Печать бури"
 
@@ -3191,6 +3239,9 @@ msgstr "Болотная кожа"
 
 msgid "Sumpfmantel"
 msgstr "Болотный плащ"
+
+msgid "Sumpfnebel"
+msgstr "Болотный туман"
 
 msgid "Sumpfschamane"
 msgstr "Болотный шаман"
@@ -3471,6 +3522,9 @@ msgstr "Сражаться дальше"
 msgid "Weitreichend"
 msgstr "Дальнобойное"
 
+msgid "Weiße Flügel"
+msgstr "Белые крылья"
+
 msgid "Weltenstab"
 msgstr "Посох миров"
 
@@ -3507,6 +3561,9 @@ msgstr "Кабан"
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "Добро пожаловать в мою скромную лавку! Товар лежит наверху, на столе. Ну… сейчас будет."
 
+msgid "Wind von unten trägt dich: du fliegst, Tempo +1"
+msgstr "Ветер снизу несёт тебя: ты летаешь, скорость +1"
+
 msgid "Windfeder"
 msgstr "Перо ветра"
 
@@ -3518,6 +3575,9 @@ msgstr "Роза ветров"
 
 msgid "Windstab"
 msgstr "Посох ветра"
+
+msgid "Wirbelwind"
+msgstr "Вихрь"
 
 msgid "Wispernde Wiese"
 msgstr "Шепчущий луг"

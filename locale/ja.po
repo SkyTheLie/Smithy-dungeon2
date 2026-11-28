@@ -138,6 +138,9 @@ msgstr "チャージした巨大な火球が落ちて爆発する"
 msgid "Aufladen, loslassen: ein gewaltiger Feuerstrahl"
 msgstr "溜めて放つ: 強大な火炎ビーム"
 
+msgid "Aufwind"
+msgstr "上昇気流"
+
 msgid "Aus"
 msgstr "オフ"
 
@@ -576,6 +579,24 @@ msgstr "もう元気だ"
 msgid "Du brauchst einen Schlüssel"
 msgstr "鍵が必要だ"
 
+msgid "Du fliegst und bist nach Treffern länger geschützt"
+msgstr "飛べて、被弾後の無敵時間が長い"
+
+msgid "Du fliegst und schießt schneller"
+msgstr "飛べて、連射が速くなる"
+
+msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
+msgstr "罠や奈落の上を飛ぶ、ダメージ+1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
+msgstr "罠や奈落の上を飛ぶ、青いハート2つ"
+
+msgid "Du fliegst, Schüsse fliegen schneller und weiter"
+msgstr "飛べる、弾がより速く遠くへ飛ぶ"
+
+msgid "Du fliegst, Tempo hoch, Schüsse stoßen Gegner weg"
+msgstr "飛べる、速度アップ、弾が敵を押し返す"
+
 msgid "Du hast den Dungeon bezwungen!"
 msgstr "ダンジョンを制覇した！"
 
@@ -618,6 +639,12 @@ msgstr "とても大きく強くなるが遅くなる"
 msgid "Du wirst winzig und manchmal weichst du aus"
 msgstr "とても小さくなり、時々回避"
 
+msgid "Du wirst zu Nebel: du fliegst und weichst manchmal aus"
+msgstr "霧になる：飛べて、時々回避する"
+
+msgid "Du wirst zum Geist: du schwebst durch Steine, deine Schüsse auch"
+msgstr "幽霊になる：岩をすり抜けて漂い、弾もすり抜ける"
+
 msgid "Dungeon der Glut"
 msgstr "残り火のダンジョン"
 
@@ -626,6 +653,9 @@ msgstr "ダンジョン掲示板"
 
 msgid "Dungeons"
 msgstr "ダンジョン"
+
+msgid "Dunkle Flügel"
+msgstr "闇の翼"
 
 msgid "Dunkler Ritter"
 msgstr "暗黒騎士"
@@ -713,6 +743,9 @@ msgstr "火花と運の上昇"
 
 msgid "Ein Funke, der nicht ausgehen will."
 msgstr "消えようとしない火の粉。"
+
+msgid "Ein Geistervogel trägt dich: du fliegst, Glück +1"
+msgstr "幽霊の鳥が運ぶ：飛べる、運+1"
 
 msgid "Ein Glutpakt hat sich geöffnet"
 msgstr "残り火の契約が開いた"
@@ -1056,6 +1089,9 @@ msgstr "地衣のマント"
 msgid "Fledermaus"
 msgstr "コウモリ"
 
+msgid "Fledermausschwingen"
+msgstr "コウモリの翼"
+
 msgid "Flinke Hand"
 msgstr "素早い手"
 
@@ -1196,6 +1232,9 @@ msgstr "幽霊ガラス"
 
 msgid "Geisterstab"
 msgstr "幽霊の杖"
+
+msgid "Geistgestalt"
+msgstr "幽霊の姿"
 
 msgid "Gekauft! Das Relikt wartet zu Hause im Inventar."
 msgstr "購入！遺物は家の持ち物で待っている。"
@@ -2793,6 +2832,9 @@ msgstr "黒水晶"
 msgid "Schwarzwolf"
 msgstr "黒狼"
 
+msgid "Schwebestiefel"
+msgstr "浮遊ブーツ"
+
 msgid "Schwer"
 msgstr "重い"
 
@@ -2864,6 +2906,9 @@ msgstr "魂の欠片"
 
 msgid "Seelenstab"
 msgstr "魂の杖"
+
+msgid "Seelenvogel"
+msgstr "魂の鳥"
 
 msgid "Seherbräu"
 msgstr "予言者の薬"
@@ -3147,6 +3192,9 @@ msgstr "嵐の地図"
 msgid "Sturmkrähe"
 msgstr "嵐ガラス"
 
+msgid "Sturmring"
+msgstr "嵐の指輪"
+
 msgid "Sturmsiegel"
 msgstr "嵐の印章"
 
@@ -3191,6 +3239,9 @@ msgstr "沼の革"
 
 msgid "Sumpfmantel"
 msgstr "沼のマント"
+
+msgid "Sumpfnebel"
+msgstr "沼の霧"
 
 msgid "Sumpfschamane"
 msgstr "沼のシャーマン"
@@ -3471,6 +3522,9 @@ msgstr "戦い続ける"
 msgid "Weitreichend"
 msgstr "長射程"
 
+msgid "Weiße Flügel"
+msgstr "白い翼"
+
 msgid "Weltenstab"
 msgstr "世界の杖"
 
@@ -3507,6 +3561,9 @@ msgstr "イノシシ"
 msgid "Willkommen in meinem bescheidenen Laden! Oben auf dem Tisch liegt die Ware. Also… gleich."
 msgstr "俺のささやかな店へようこそ！上のテーブルに品物がある。まあ…もうすぐな。"
 
+msgid "Wind von unten trägt dich: du fliegst, Tempo +1"
+msgstr "下からの風が運ぶ：飛べる、速度+1"
+
 msgid "Windfeder"
 msgstr "風の羽"
 
@@ -3518,6 +3575,9 @@ msgstr "風配図"
 
 msgid "Windstab"
 msgstr "風の杖"
+
+msgid "Wirbelwind"
+msgstr "つむじ風"
 
 msgid "Wispernde Wiese"
 msgstr "ささやく草原"

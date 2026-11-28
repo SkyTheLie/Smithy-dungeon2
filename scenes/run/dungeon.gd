@@ -550,6 +550,9 @@ func _check_hazards() -> void:
 		if hazard.from_player:
 			for enemy: Enemy in enemies.duplicate():
 				hazard.touch_enemy(enemy)
+	# Flying over the traps (fly, ghost): they do nothing to the player.
+	if player.flying():
+		return
 	for hazard: Hazard in room.hazards:
 		if hazard.hurts_at(player.global_position):
 			hazard.scare()
