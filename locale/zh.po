@@ -9,6 +9,9 @@ msgstr "%d金币"
 msgid "%d Herzen"
 msgstr "%d颗心"
 
+msgid "%d Kohlestücke"
+msgstr "%d块煤"
+
 msgid "%d Skillpunkte"
 msgstr "%d 技能点"
 
@@ -71,6 +74,9 @@ msgstr "所有属性略微提升"
 
 msgid "Alle paar Besiegten heilst du ein halbes Herz"
 msgstr "每击败几个敌人恢复半颗心"
+
+msgid "Alle paar Besiegten heilst du ein halbes Kohlestück"
+msgstr "每击败几个敌人恢复半块煤"
 
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "商店所有东西半价"
@@ -275,6 +281,9 @@ msgstr "燃烧又减速：伤害更高"
 
 msgid "Brennende, explodierende Schüsse"
 msgstr "燃烧并爆炸的射击"
+
+msgid "Brennende, langsame Gegner und zwei Schlammschichten"
+msgstr "燃烧、减速的敌人和两层泥层"
 
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "敌人燃烧并减速，外加两颗蓝心"
@@ -564,6 +573,12 @@ msgstr "龙之斗篷"
 msgid "Drei Funken folgen dir und schießen"
 msgstr "三个火花跟随你并射击"
 
+msgid "Drei Schlammschichten"
+msgstr "三层泥层"
+
+msgid "Drei Schlammschichten und manchmal ausweichen"
+msgstr "三层泥层，有时闪避"
+
 msgid "Drei Schlüssel, Rabatt im Laden"
 msgstr "三把钥匙，商店打折"
 
@@ -599,6 +614,9 @@ msgstr "你能飞行，射击更快"
 
 msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
 msgstr "你能飞越陷阱和深渊，伤害+1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei Schlammschichten"
+msgstr "你飞越陷阱和深渊，两层泥层"
 
 msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
 msgstr "你能飞越陷阱和深渊，两颗蓝心"
@@ -638,6 +656,9 @@ msgstr "你投掷飞镖，被击中的敌人流血"
 
 msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
 msgstr "你变大：更多心和伤害，更容易被击中"
+
+msgid "Du wirst größer: mehr Kohlestücke und Schaden, leichter zu treffen"
+msgstr "你会变大：更多煤块和伤害，但更容易被击中"
 
 msgid "Du wirst kleiner und schneller"
 msgstr "你变小变快"
@@ -810,6 +831,36 @@ msgstr "一颗心、两颗蓝心，伤害提升"
 msgid "Ein Händler! Geh hin und sprich ihn an."
 msgstr "一个商人！走过去和他说话。"
 
+msgid "Ein Kohlestück mehr"
+msgstr "多一块煤"
+
+msgid "Ein Kohlestück mehr, Glück hoch"
+msgstr "多一块煤，幸运提升"
+
+msgid "Ein Kohlestück mehr, Schaden hoch"
+msgstr "多一块煤，伤害提升"
+
+msgid "Ein Kohlestück mehr, heilt dich ganz"
+msgstr "多一块煤，完全恢复"
+
+msgid "Ein Kohlestück mehr."
+msgstr "多一块煤。"
+
+msgid "Ein Kohlestück und eine Schlammschicht"
+msgstr "一块煤和一层泥层"
+
+msgid "Ein Kohlestück, Dornen, Explosionen tun dir nichts"
+msgstr "一块煤、荆棘、爆炸伤不到你"
+
+msgid "Ein Kohlestück, eine Bombe und ein Schlüssel"
+msgstr "一块煤、一颗炸弹和一把钥匙"
+
+msgid "Ein Kohlestück, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "一块煤、一枚硬币、一颗炸弹和一把钥匙"
+
+msgid "Ein Kohlestück, zwei Schlammschichten, Schaden hoch"
+msgstr "一块煤、两层泥层，伤害提升"
+
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "心形的草药。埃贡拿它泡茶。"
 
@@ -915,6 +966,21 @@ msgstr "第二条命！"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "埃贡的桌上多一件货物。"
 
+msgid "Eine Schlammschicht mehr zu Beginn jedes Runs."
+msgstr "每次冒险开始时多一层泥层。"
+
+msgid "Eine Schlammschicht und Dornen"
+msgstr "一层泥层和荆棘"
+
+msgid "Eine Schlammschicht, Schaden hoch"
+msgstr "一层泥层，伤害提升"
+
+msgid "Eine Schlammschicht, länger sicher nach Treffern"
+msgstr "一层泥层，受击后安全时间更长"
+
+msgid "Eine Schlammschicht, schneller laufen"
+msgstr "一层泥层，移动更快"
+
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "2×2格的小包。在埃贡那里装到你的背包栏上。"
 
@@ -926,6 +992,9 @@ msgstr "草长得和矮人一样高。草丛里沙沙作响，还有个猎人在
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "一次射出整间面包店"
+
+msgid "Eine halbe Eisenkohle mehr zu Beginn jedes Runs."
+msgstr "每次冒险开始时多半块铁煤。"
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "一把短刃。战士专用。"
@@ -977,6 +1046,9 @@ msgstr "铁矿石"
 
 msgid "Eisenhaut"
 msgstr "铁肤"
+
+msgid "Eisenkohle"
+msgstr "铁煤"
 
 msgid "Eisenschlüssel"
 msgstr "铁钥匙"
@@ -1608,8 +1680,14 @@ msgstr "好眼光！收藏级好货。真的！"
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "同时拥有%d个心之容器"
 
+msgid "Habe %d Kohlestücke gleichzeitig"
+msgstr "同时拥有%d块煤"
+
 msgid "Habe %d Münzen gleichzeitig"
 msgstr "同时拥有%d枚硬币"
+
+msgid "Habe %d Schlammschichten gleichzeitig"
+msgstr "同时拥有%d层泥层"
 
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "同时拥有%d颗蓝心"
@@ -1638,14 +1716,23 @@ msgstr "治疗草药"
 msgid "Heilt %s Herzen"
 msgstr "恢复 %s 颗心"
 
+msgid "Heilt %s Kohlestücke"
+msgstr "恢复%s块煤"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "完全治疗，移动更快"
 
 msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
 msgstr "恢复三颗心。樱桃加倍，袜子减半。"
 
+msgid "Heilt drei Kohlestücke. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "恢复三块煤。樱桃味加倍，袜子味减半。"
+
 msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
 msgstr "恢复两颗心。樱桃味。还有点袜子味。"
+
+msgid "Heilt zwei Kohlestücke. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "恢复两块煤。有樱桃味。还有一点袜子味。"
 
 msgid "Heiltrank"
 msgstr "治疗药水"
@@ -1722,6 +1809,12 @@ msgstr "每次受击最多半颗心，但更慢"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "每次受击最多半颗心，安全时间更长"
 
+msgid "Höchstens ein halbes Kohlestück pro Treffer, aber langsamer"
+msgstr "每次受击最多扣半块煤，但更慢"
+
+msgid "Höchstens ein halbes Kohlestück pro Treffer, länger sicher"
+msgstr "每次受击最多扣半块煤，安全时间更长"
+
 msgid "Höhere Stufen kommen mit deiner Spielerstufe."
 msgstr "更高的等级随玩家等级解锁。"
 
@@ -1760,6 +1853,9 @@ msgstr "我在这儿等着。小心驶得万年船。"
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "在地牢里按 %s。咕咚咕咚，两颗心就回来了。"
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Kohlestücke glühen wieder."
+msgstr "在地牢里按%s。咕嘟咕嘟，两块煤又亮起来了。"
 
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "在地牢中：按 %s 喝下"
@@ -1875,6 +1971,9 @@ msgstr "没有带药水"
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "任何攻击最多只扣半颗心"
 
+msgid "Kein Treffer nimmt mehr als ein halbes Kohlestück"
+msgstr "任何攻击最多只扣半块煤"
+
 msgid "Keine Quest"
 msgstr "没有任务"
 
@@ -1928,6 +2027,12 @@ msgstr "煤炭"
 
 msgid "Kohlenschrot"
 msgstr "煤炭霰弹"
+
+msgid "Kohlestücke"
+msgstr "煤块"
+
+msgid "Kohlestücke heilen doppelt"
+msgstr "煤块治疗效果翻倍"
 
 msgid "Kometenschweif"
 msgstr "彗尾"
@@ -2051,6 +2156,9 @@ msgstr "长距离飞行，猛烈冲击"
 
 msgid "Langsam heilen und ein blaues Herz"
 msgstr "缓慢恢复和一颗蓝心"
+
+msgid "Langsam heilen und eine Schlammschicht"
+msgstr "缓慢恢复和一层泥层"
 
 msgid "Langsam heilst du dich"
 msgstr "你会缓慢恢复"
@@ -2286,6 +2394,9 @@ msgstr "硬币"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "硬币和心会飞向你"
 
+msgid "Münzen und Kohlestücke fliegen zu dir"
+msgstr "硬币和煤块飞向你"
+
 msgid "Münzsack"
 msgstr "钱袋"
 
@@ -2387,6 +2498,9 @@ msgstr "祭祀匕首"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "献祭石：一颗心换一份馈赠"
+
+msgid "Opferstein: ein Kohlestück für eine Gabe"
+msgstr "献祭石：一块煤换一份馈赠"
 
 msgid "Ork"
 msgstr "兽人"
@@ -2789,6 +2903,9 @@ msgstr "持盾卫兵"
 
 msgid "Schlachtkeil"
 msgstr "战楔"
+
+msgid "Schlammschicht"
+msgstr "泥层"
 
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "蛇焰：子弹蛇形前进，伤害稍高"
@@ -3261,6 +3378,9 @@ msgstr "追踪射击，所有属性提升"
 msgid "Suchende Schüsse und ein blaues Herz"
 msgstr "追踪射击和一颗蓝心"
 
+msgid "Suchende Schüsse und eine Schlammschicht"
+msgstr "追踪射击和一层泥层"
+
 msgid "Suchende Schüsse, Glück hoch"
 msgstr "追踪射击，幸运提升"
 
@@ -3432,6 +3552,9 @@ msgstr "左边就是你。别动，我给你穿上…"
 msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
 msgstr "因为我这么大方：一颗沼泽之心！是件遗物。给人偶戴上，你就多一颗心。"
 
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Kohlestück mehr."
+msgstr "因为我这么大方：一颗沼泽之心！是件遗物。给人偶戴上，你就多一块煤。"
+
 msgid "Ungewöhnlich"
 msgstr "罕见"
 
@@ -3479,6 +3602,9 @@ msgstr "伤害大幅提升"
 
 msgid "Viel mehr Schaden mit nur einem Herz"
 msgstr "只剩一颗心时伤害大增"
+
+msgid "Viel mehr Schaden mit nur einem Kohlestück"
+msgstr "只剩一块煤时伤害大增"
 
 msgid "Viel mehr Schaden, langsamer schießen"
 msgstr "伤害大幅提升，射速变慢"
@@ -3773,6 +3899,36 @@ msgstr "多两颗心，但移动变慢"
 
 msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
 msgstr "两颗心、两颗蓝心，伤害提升"
+
+msgid "Zwei Kohlestücke mehr"
+msgstr "多两块煤"
+
+msgid "Zwei Kohlestücke mehr und Dornen"
+msgstr "多两块煤和荆棘"
+
+msgid "Zwei Kohlestücke mehr und langsam heilen"
+msgstr "多两块煤，缓慢恢复"
+
+msgid "Zwei Kohlestücke mehr, aber langsamer"
+msgstr "多两块煤，但更慢"
+
+msgid "Zwei Kohlestücke, zwei Schlammschichten, Schaden hoch"
+msgstr "两块煤、两层泥层，伤害提升"
+
+msgid "Zwei Schlammschichten"
+msgstr "两层泥层"
+
+msgid "Zwei Schlammschichten und Dornen"
+msgstr "两层泥层和荆棘"
+
+msgid "Zwei Schlammschichten, Schaden hoch"
+msgstr "两层泥层，伤害提升"
+
+msgid "Zwei Schlammschichten, länger sicher nach Treffern"
+msgstr "两层泥层，受击后安全时间更长"
+
+msgid "Zwei Schlammschichten; platzt eine ab, trifft es alle Gegner"
+msgstr "两层泥层；剥落一层时会击中所有敌人"
 
 msgid "Zwei Schüsse mehr, etwas schwächer"
 msgstr "多两发射击，略弱"

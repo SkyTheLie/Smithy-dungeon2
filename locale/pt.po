@@ -9,6 +9,9 @@ msgstr "%d de ouro"
 msgid "%d Herzen"
 msgstr "%d corações"
 
+msgid "%d Kohlestücke"
+msgstr "%d carvões"
+
 msgid "%d Skillpunkte"
 msgstr "%d pontos de habilidade"
 
@@ -71,6 +74,9 @@ msgstr "Todos os atributos sobem um pouco"
 
 msgid "Alle paar Besiegten heilst du ein halbes Herz"
 msgstr "A cada poucos inimigos derrotados você cura meio coração"
+
+msgid "Alle paar Besiegten heilst du ein halbes Kohlestück"
+msgstr "A cada poucos abates você recupera meio carvão"
 
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "Tudo na loja custa metade"
@@ -275,6 +281,9 @@ msgstr "Queimando e lento: mais dano"
 
 msgid "Brennende, explodierende Schüsse"
 msgstr "Tiros flamejantes que explodem"
+
+msgid "Brennende, langsame Gegner und zwei Schlammschichten"
+msgstr "Inimigos queimando e lentos, e duas camadas de lama"
 
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "Inimigos queimando e lentos, e dois corações azuis"
@@ -564,6 +573,12 @@ msgstr "Manto de dragão"
 msgid "Drei Funken folgen dir und schießen"
 msgstr "Três faíscas te seguem e atiram"
 
+msgid "Drei Schlammschichten"
+msgstr "Três camadas de lama"
+
+msgid "Drei Schlammschichten und manchmal ausweichen"
+msgstr "Três camadas de lama e às vezes desviar"
+
 msgid "Drei Schlüssel, Rabatt im Laden"
 msgstr "Três chaves, desconto na loja"
 
@@ -599,6 +614,9 @@ msgstr "Você voa e atira mais rápido"
 
 msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
 msgstr "Você voa sobre armadilhas e abismos, dano +1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei Schlammschichten"
+msgstr "Você voa sobre armadilhas e abismos, duas camadas de lama"
 
 msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
 msgstr "Você voa sobre armadilhas e abismos, dois corações azuis"
@@ -638,6 +656,9 @@ msgstr "Você arremessa shurikens, inimigos atingidos sangram"
 
 msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
 msgstr "Você fica maior: mais corações e dano, mais fácil de acertar"
+
+msgid "Du wirst größer: mehr Kohlestücke und Schaden, leichter zu treffen"
+msgstr "Você fica maior: mais carvões e dano, mais fácil de acertar"
 
 msgid "Du wirst kleiner und schneller"
 msgstr "Você fica menor e mais rápido"
@@ -810,6 +831,36 @@ msgstr "Um coração, dois corações azuis, mais dano"
 msgid "Ein Händler! Geh hin und sprich ihn an."
 msgstr "Um mercador! Vá até ele e converse."
 
+msgid "Ein Kohlestück mehr"
+msgstr "Um carvão a mais"
+
+msgid "Ein Kohlestück mehr, Glück hoch"
+msgstr "Um carvão a mais, mais sorte"
+
+msgid "Ein Kohlestück mehr, Schaden hoch"
+msgstr "Um carvão a mais, mais dano"
+
+msgid "Ein Kohlestück mehr, heilt dich ganz"
+msgstr "Um carvão a mais, cura você totalmente"
+
+msgid "Ein Kohlestück mehr."
+msgstr "Um carvão a mais."
+
+msgid "Ein Kohlestück und eine Schlammschicht"
+msgstr "Um carvão e uma camada de lama"
+
+msgid "Ein Kohlestück, Dornen, Explosionen tun dir nichts"
+msgstr "Um carvão, espinhos, explosões não te ferem"
+
+msgid "Ein Kohlestück, eine Bombe und ein Schlüssel"
+msgstr "Um carvão, uma bomba e uma chave"
+
+msgid "Ein Kohlestück, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "Um carvão, uma moeda, uma bomba e uma chave"
+
+msgid "Ein Kohlestück, zwei Schlammschichten, Schaden hoch"
+msgstr "Um carvão, duas camadas de lama, mais dano"
+
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "Uma erva em forma de coração. Egon faz chá com ela."
 
@@ -915,6 +966,21 @@ msgstr "Uma segunda vida!"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "Um item a mais na mesa do Egon."
 
+msgid "Eine Schlammschicht mehr zu Beginn jedes Runs."
+msgstr "Uma camada de lama a mais no início de cada partida."
+
+msgid "Eine Schlammschicht und Dornen"
+msgstr "Uma camada de lama e espinhos"
+
+msgid "Eine Schlammschicht, Schaden hoch"
+msgstr "Uma camada de lama, mais dano"
+
+msgid "Eine Schlammschicht, länger sicher nach Treffern"
+msgstr "Uma camada de lama, seguro por mais tempo após golpes"
+
+msgid "Eine Schlammschicht, schneller laufen"
+msgstr "Uma camada de lama, andar mais rápido"
+
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "Uma bolsa de 2×2 casas. Prenda no inventário com o Egon."
 
@@ -926,6 +992,9 @@ msgstr "Uma campina da altura de um anão. Algo farfalha no capim, e um caçador
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "Uma padaria inteira de uma vez"
+
+msgid "Eine halbe Eisenkohle mehr zu Beginn jedes Runs."
+msgstr "Meio carvão de ferro a mais no início de cada partida."
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "Uma lâmina curta. Para guerreiros."
@@ -977,6 +1046,9 @@ msgstr "Minério de ferro"
 
 msgid "Eisenhaut"
 msgstr "Pele de ferro"
+
+msgid "Eisenkohle"
+msgstr "Carvão de ferro"
 
 msgid "Eisenschlüssel"
 msgstr "Chave de ferro"
@@ -1608,8 +1680,14 @@ msgstr "Boa escolha! Uma peça de colecionador. Sério!"
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "Tenha %d recipientes de coração ao mesmo tempo"
 
+msgid "Habe %d Kohlestücke gleichzeitig"
+msgstr "Tenha %d carvões ao mesmo tempo"
+
 msgid "Habe %d Münzen gleichzeitig"
 msgstr "Tenha %d moedas ao mesmo tempo"
+
+msgid "Habe %d Schlammschichten gleichzeitig"
+msgstr "Tenha %d camadas de lama ao mesmo tempo"
 
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Tenha %d corações azuis ao mesmo tempo"
@@ -1638,14 +1716,23 @@ msgstr "Ervas curativas"
 msgid "Heilt %s Herzen"
 msgstr "Cura %s corações"
 
+msgid "Heilt %s Kohlestücke"
+msgstr "Cura %s carvões"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "Cura você totalmente, corre mais rápido"
 
 msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
 msgstr "Cura três corações. O dobro de cereja, metade da meia."
 
+msgid "Heilt drei Kohlestücke. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "Cura três carvões. O dobro de cereja, metade da meia."
+
 msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
 msgstr "Cura dois corações. Tem gosto de cereja. E um pouco de meia."
+
+msgid "Heilt zwei Kohlestücke. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "Cura dois carvões. Tem gosto de cereja. E um pouco de meia."
 
 msgid "Heiltrank"
 msgstr "Poção de cura"
@@ -1722,6 +1809,12 @@ msgstr "No máximo meio coração por golpe, porém mais lento"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "No máximo meio coração por golpe, mais tempo seguro"
 
+msgid "Höchstens ein halbes Kohlestück pro Treffer, aber langsamer"
+msgstr "No máximo meio carvão por golpe, mas mais lento"
+
+msgid "Höchstens ein halbes Kohlestück pro Treffer, länger sicher"
+msgstr "No máximo meio carvão por golpe, seguro por mais tempo"
+
 msgid "Höhere Stufen kommen mit deiner Spielerstufe."
 msgstr "Níveis mais altos vêm com seu nível de jogador."
 
@@ -1760,6 +1853,9 @@ msgstr "Eu espero aqui. Melhor prevenir."
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "Na masmorra você aperta %s. Glub, glub, e dois corações voltam."
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Kohlestücke glühen wieder."
+msgstr "Na masmorra você aperta %s. Glub, glub, e dois carvões voltam a brilhar."
 
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "Na masmorra: %s para beber"
@@ -1875,6 +1971,9 @@ msgstr "Nenhuma poção com você"
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Nenhum golpe tira mais de meio coração"
 
+msgid "Kein Treffer nimmt mehr als ein halbes Kohlestück"
+msgstr "Nenhum golpe tira mais de meio carvão"
+
 msgid "Keine Quest"
 msgstr "Sem missão"
 
@@ -1928,6 +2027,12 @@ msgstr "Carvão"
 
 msgid "Kohlenschrot"
 msgstr "Chumbo de carvão"
+
+msgid "Kohlestücke"
+msgstr "Carvões"
+
+msgid "Kohlestücke heilen doppelt"
+msgstr "Carvões curam o dobro"
 
 msgid "Kometenschweif"
 msgstr "Cauda de cometa"
@@ -2051,6 +2156,9 @@ msgstr "Voos longos, impacto enorme"
 
 msgid "Langsam heilen und ein blaues Herz"
 msgstr "Cura lenta e um coração azul"
+
+msgid "Langsam heilen und eine Schlammschicht"
+msgstr "Cura lenta e uma camada de lama"
 
 msgid "Langsam heilst du dich"
 msgstr "Você se cura lentamente"
@@ -2286,6 +2394,9 @@ msgstr "Moeda"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Moedas e corações voam até você"
 
+msgid "Münzen und Kohlestücke fliegen zu dir"
+msgstr "Moedas e carvões voam até você"
+
 msgid "Münzsack"
 msgstr "Saco de moedas"
 
@@ -2387,6 +2498,9 @@ msgstr "Faca ritual"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "Pedra do sacrifício: um coração por um presente"
+
+msgid "Opferstein: ein Kohlestück für eine Gabe"
+msgstr "Pedra de sacrifício: um carvão por um presente"
 
 msgid "Ork"
 msgstr "Orc"
@@ -2789,6 +2903,9 @@ msgstr "Guarda de escudo"
 
 msgid "Schlachtkeil"
 msgstr "Cunha de batalha"
+
+msgid "Schlammschicht"
+msgstr "Camada de lama"
 
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "Fogo serpente: tiros serpenteiam, um pouco mais de dano"
@@ -3261,6 +3378,9 @@ msgstr "Tiros teleguiados e todos os atributos sobem"
 msgid "Suchende Schüsse und ein blaues Herz"
 msgstr "Tiros teleguiados e um coração azul"
 
+msgid "Suchende Schüsse und eine Schlammschicht"
+msgstr "Tiros teleguiados e uma camada de lama"
+
 msgid "Suchende Schüsse, Glück hoch"
 msgstr "Tiros teleguiados, mais sorte"
 
@@ -3432,6 +3552,9 @@ msgstr "E à esquerda é você. Fica parado, que eu te visto…"
 msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
 msgstr "E como sou tão generoso: um Coração do pântano! Uma relíquia. Coloque na figura e terá um coração a mais."
 
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Kohlestück mehr."
+msgstr "E como sou tão generoso: um Coração do pântano! Uma relíquia. Coloque na figura e terá um carvão a mais."
+
 msgid "Ungewöhnlich"
 msgstr "Incomum"
 
@@ -3479,6 +3602,9 @@ msgstr "Muito mais dano"
 
 msgid "Viel mehr Schaden mit nur einem Herz"
 msgstr "Muito mais dano com só um coração"
+
+msgid "Viel mehr Schaden mit nur einem Kohlestück"
+msgstr "Muito mais dano com apenas um carvão"
 
 msgid "Viel mehr Schaden, langsamer schießen"
 msgstr "Muito mais dano, atira mais devagar"
@@ -3773,6 +3899,36 @@ msgstr "Dois corações a mais, porém mais lento"
 
 msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
 msgstr "Dois corações, dois corações azuis, mais dano"
+
+msgid "Zwei Kohlestücke mehr"
+msgstr "Dois carvões a mais"
+
+msgid "Zwei Kohlestücke mehr und Dornen"
+msgstr "Dois carvões a mais e espinhos"
+
+msgid "Zwei Kohlestücke mehr und langsam heilen"
+msgstr "Dois carvões a mais e cura lenta"
+
+msgid "Zwei Kohlestücke mehr, aber langsamer"
+msgstr "Dois carvões a mais, mas mais lento"
+
+msgid "Zwei Kohlestücke, zwei Schlammschichten, Schaden hoch"
+msgstr "Dois carvões, duas camadas de lama, mais dano"
+
+msgid "Zwei Schlammschichten"
+msgstr "Duas camadas de lama"
+
+msgid "Zwei Schlammschichten und Dornen"
+msgstr "Duas camadas de lama e espinhos"
+
+msgid "Zwei Schlammschichten, Schaden hoch"
+msgstr "Duas camadas de lama, mais dano"
+
+msgid "Zwei Schlammschichten, länger sicher nach Treffern"
+msgstr "Duas camadas de lama, seguro por mais tempo após golpes"
+
+msgid "Zwei Schlammschichten; platzt eine ab, trifft es alle Gegner"
+msgstr "Duas camadas de lama; se uma se soltar, atinge todos os inimigos"
 
 msgid "Zwei Schüsse mehr, etwas schwächer"
 msgstr "Dois tiros a mais, um pouco mais fracos"

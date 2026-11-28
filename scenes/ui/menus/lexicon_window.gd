@@ -325,11 +325,11 @@ static func unlock_text(unlock: Dictionary) -> String:
 			var text: String = ""
 			match key:
 				"hearts":
-					text = Language.translate("Habe %d Herz-Container gleichzeitig")
+					text = Language.translate("Habe %d Kohlestücke gleichzeitig")
 				"coins":
 					text = Language.translate("Habe %d Münzen gleichzeitig")
 				"blue":
-					text = Language.translate("Habe %d blaue Herzen gleichzeitig")
+					text = Language.translate("Habe %d Schlammschichten gleichzeitig")
 				"clean_floors":
 					text = Language.translate("Schaffe %d Ebenen nacheinander ohne Treffer")
 				"pacts":
