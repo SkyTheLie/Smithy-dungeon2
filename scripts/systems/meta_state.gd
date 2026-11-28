@@ -625,8 +625,8 @@ static func sell(index: int) -> int:
 	var own: Array[Dictionary] = stash()
 	if index < 0 or index >= own.size() or String(own[index].get("id", "")) == Bag.GOLD:
 		return 0
-	# Quest stones are not for sale (Egon wants them for his quest).
-	if Quests.is_stone(String(own[index].get("id", ""))):
+	# Quest stones are not for sale (Egon wants them for his quest); locked pieces neither.
+	if Quests.is_stone(String(own[index].get("id", ""))) or bool(own[index].get("locked", false)):
 		return 0
 	var gold: int = ShopGoods.sell_price(own[index])
 	# A container with something in it is not for sale (sell_price 0).
@@ -637,6 +637,97 @@ static func sell(index: int) -> int:
 	_write("box", box() + gold)
 	_save()
 	return gold
+
+
+# --- Comfort in the stash: lock, sort -----------------------------------------------------
+
+## Strg+click: locks stash place `index` (never sold, never moved by sorting) or unlocks it.
+## Returns the new state.
+static func toggle_lock(index: int) -> bool:
+	var own: Array[Dictionary] = stash()
+	if index < 0 or index >= own.size():
+		return false
+	var locked: bool = not bool(own[index].get("locked", false))
+	if locked:
+		own[index]["locked"] = true
+	else:
+		own[index].erase("locked")
+	_write_stash(own)
+	_save()
+	return locked
+
+
+## How the stash is sorted next ("kind", "rarity", "value"), saved with the game.
+const SORT_MODES: Array[String] = ["kind", "rarity", "value"]
+
+
+static func sort_mode() -> String:
+	var mode: String = String(_read("sort_mode", "kind"))
+	return mode if SORT_MODES.has(mode) else "kind"
+
+
+static func next_sort_mode() -> void:
+	_write("sort_mode", SORT_MODES[(SORT_MODES.find(sort_mode()) + 1) % SORT_MODES.size()])
+	_save()
+
+
+## Packs the stash tightly: locked pieces stay where they are, the others are laid out again
+## from the top left, sorted by `mode` (kind: gear, relics, potions, containers, backpacks, loot;
+## rarity: rare first; value: what Egon pays, most first). What has no room stays beside it.
+static func sort_stash(mode: String = "") -> void:
+	if mode.is_empty():
+		mode = sort_mode()
+	var own: Array[Dictionary] = stash()
+	var locked: Array[Dictionary] = []
+	var rest: Array[Dictionary] = []
+	for piece: Dictionary in own:
+		if bool(piece.get("locked", false)) and ItemGrid.is_placed(piece):
+			locked.append(piece)
+		else:
+			piece.erase("x")
+			piece.erase("y")
+			piece.erase("rot")
+			rest.append(piece)
+	rest.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return _sort_before(a, b, mode))
+	var list: Array = []
+	list.append_array(locked)
+	list.append_array(rest)
+	_write_stash(list)
+	_save()
+
+
+static func _sort_before(a: Dictionary, b: Dictionary, mode: String) -> bool:
+	var keys_a: Array = _sort_keys(a, mode)
+	var keys_b: Array = _sort_keys(b, mode)
+	for i in keys_a.size():
+		if keys_a[i] != keys_b[i]:
+			return keys_a[i] < keys_b[i]
+	return false
+
+
+## Smaller comes first. Bigger pieces first inside the same group (they pack better).
+static func _sort_keys(piece: Dictionary, mode: String) -> Array:
+	var kind: int = 5
+	if ShopGoods.is_relic(piece):
+		kind = 1
+	elif ShopGoods.is_potion(piece):
+		kind = 2
+	elif ShopGoods.is_container(piece):
+		kind = 3
+	elif ShopGoods.is_backpack(piece):
+		kind = 4
+	elif piece.has("rarity"):
+		kind = 0
+	var span: Vector2i = ShopGoods.piece_size(piece)
+	var rarity: int = -ShopSlot.rarity_of(piece)
+	var value: int = -ShopGoods.sell_price(piece)
+	var name_key: String = String(piece.get("id", ""))
+	match mode:
+		"rarity":
+			return [rarity, kind, -span.x * span.y, name_key]
+		"value":
+			return [value, kind, -span.x * span.y, name_key]
+	return [kind, -span.x * span.y, rarity, name_key]
 
 
 # --- Containers in the stash (data/containers.json, rules in ShopGoods) -----------------

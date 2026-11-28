@@ -123,6 +123,9 @@ msgstr "Амулет арены"
 msgid "Arenaherz"
 msgstr "Сердце арены"
 
+msgid "Art"
+msgstr "Тип"
+
 msgid "Asche"
 msgstr "Пепел"
 
@@ -729,6 +732,9 @@ msgstr "Эгон может стащить!"
 msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
 msgstr "Эгон говорит, что никогда здесь не был. Чьи же тогда эти подпалённые следы сапог?"
 
+msgid "Egon zahlt: %d Gold"
+msgstr "Эгон платит: %d золота"
+
 msgid "Egons Augen werden ganz groß."
 msgstr "У Эгона глаза становятся огромными."
 
@@ -1316,6 +1322,9 @@ msgstr "Закрыто: сначала пройди «%s»."
 
 msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
 msgstr "Закрыто: сначала выполни задание Эгона «%s»."
+
+msgid "Gesperrt: wird nicht verkauft (Strg+Klick: entsperren)"
+msgstr "Закреплено: не продаётся (Ctrl+клик: открепить)"
 
 msgid "Gesprengte Fessel"
 msgstr "Разбитые оковы"
@@ -1929,6 +1938,9 @@ msgstr "Кликни по вещи в инвентаре — наденешь. �
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "Клик или перетащить на вкладку Инвентарь: пристегнуть"
 
+msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
+msgstr "Клик: сортировать (T) · Правый клик: другой порядок · Ctrl+клик по предмету: закрепить"
+
 msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
 msgstr "Клик: открыть. Перетащить вещи на него: положить внутрь."
 
@@ -2264,6 +2276,9 @@ msgstr "Бросай клавишей бомбы. До 5 в одной ячей�
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "Домой принесено: %d золота, %d добычи"
+
+msgid "Moment, Partner: %s. Nochmal klicken, dann geht's los."
+msgstr "Погоди, напарник: %s. Нажми ещё раз — и вперёд."
 
 msgid "Mondlilie"
 msgstr "Лунная лилия"
@@ -2997,6 +3012,9 @@ msgstr "Редкий"
 msgid "Seltene Ware"
 msgstr "Редкий товар"
 
+msgid "Seltenheit"
+msgstr "Редкость"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: прыжок туда, куда целишься"
 
@@ -3113,6 +3131,9 @@ msgstr "Особая комната"
 
 msgid "Sonnenblume"
 msgstr "Подсолнух"
+
+msgid "Sortieren: %s"
+msgstr "Сортировка: %s"
 
 msgid "Spardose"
 msgstr "Копилка"
@@ -3645,6 +3666,9 @@ msgstr "Кто тут купит — получит сосульку даром.
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Убивший выстрел летит дальше с остатком"
 
+msgid "Wert"
+msgstr "Цена"
+
 msgid "Wert der Tasche: %d Gold"
 msgstr "Цена сумки: %d золота"
 
@@ -3854,6 +3878,15 @@ msgstr "Прочная и тёплая."
 
 msgid "Zähigkeit"
 msgstr "Стойкость"
+
+msgid "dein Inventar ist fast voll"
+msgstr "инвентарь почти полон"
+
+msgid "dein Relikt hält nur noch einen Run"
+msgstr "твоей реликвии остался один забег"
+
+msgid "dein Trank-Platz ist leer"
+msgstr "место для зелья пустое"
 
 msgid "hält %d Runs"
 msgstr "на %d забегов"

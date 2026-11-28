@@ -123,6 +123,9 @@ msgstr "Amuleto de la arena"
 msgid "Arenaherz"
 msgstr "Corazón de la arena"
 
+msgid "Art"
+msgstr "Tipo"
+
 msgid "Asche"
 msgstr "Ceniza"
 
@@ -729,6 +732,9 @@ msgstr "¡Egon podría robar!"
 msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
 msgstr "Egon nunca estuvo aquí, dice. ¿Y de quién son estas huellas de botas chamuscadas?"
 
+msgid "Egon zahlt: %d Gold"
+msgstr "Egon paga: %d de oro"
+
 msgid "Egons Augen werden ganz groß."
 msgstr "A Egon se le ponen los ojos como platos."
 
@@ -1316,6 +1322,9 @@ msgstr "Bloqueado: supera antes %s."
 
 msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
 msgstr "Bloqueado: primero completa la misión de Egon «%s»."
+
+msgid "Gesperrt: wird nicht verkauft (Strg+Klick: entsperren)"
+msgstr "Bloqueado: no se venderá (Ctrl+clic: desbloquear)"
 
 msgid "Gesprengte Fessel"
 msgstr "Grillete roto"
@@ -1929,6 +1938,9 @@ msgstr "Haz clic en algo del inventario para ponértelo. Clic en tu figura para 
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "Clic o arrastrar a la pestaña Inventario: acoplar al inventario"
 
+msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
+msgstr "Clic: ordenar (T) · Clic derecho: cambiar orden · Ctrl+clic en una pieza: bloquear"
+
 msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
 msgstr "Clic: abrir. Arrastra piezas encima: guardarlas."
 
@@ -2264,6 +2276,9 @@ msgstr "Lánzala con la tecla de bomba. Hasta 5 en una casilla."
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "Llevado a casa: %d de oro, %d botín"
+
+msgid "Moment, Partner: %s. Nochmal klicken, dann geht's los."
+msgstr "Un momento, socio: %s. Haz clic otra vez y en marcha."
 
 msgid "Mondlilie"
 msgstr "Lirio lunar"
@@ -2997,6 +3012,9 @@ msgstr "Raro"
 msgid "Seltene Ware"
 msgstr "Mercancía rara"
 
+msgid "Seltenheit"
+msgstr "Rareza"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: saltas a donde apuntas"
 
@@ -3113,6 +3131,9 @@ msgstr "Sala especial"
 
 msgid "Sonnenblume"
 msgstr "Girasol"
+
+msgid "Sortieren: %s"
+msgstr "Ordenar: %s"
 
 msgid "Spardose"
 msgstr "Hucha"
@@ -3645,6 +3666,9 @@ msgstr "Quien compra aquí se lleva un carámbano gratis. El de mi nariz. ¡De v
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "El disparo que mata sigue con lo que queda"
 
+msgid "Wert"
+msgstr "Valor"
+
 msgid "Wert der Tasche: %d Gold"
 msgstr "Valor de la bolsa: %d de oro"
 
@@ -3854,6 +3878,15 @@ msgstr "Resistente y cálido."
 
 msgid "Zähigkeit"
 msgstr "Dureza"
+
+msgid "dein Inventar ist fast voll"
+msgstr "tu inventario está casi lleno"
+
+msgid "dein Relikt hält nur noch einen Run"
+msgstr "tu reliquia solo aguanta una incursión más"
+
+msgid "dein Trank-Platz ist leer"
+msgstr "tu hueco de poción está vacío"
 
 msgid "hält %d Runs"
 msgstr "dura %d partidas"

@@ -123,6 +123,9 @@ msgstr "闘技場のお守り"
 msgid "Arenaherz"
 msgstr "闘技場の心臓"
 
+msgid "Art"
+msgstr "種類"
+
 msgid "Asche"
 msgstr "灰"
 
@@ -729,6 +732,9 @@ msgstr "エゴンが盗むかも！"
 msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
 msgstr "エゴンはここに来たことがないと言う。じゃあこの焦げた靴跡は誰のだ？"
 
+msgid "Egon zahlt: %d Gold"
+msgstr "エゴンの買値：%d ゴールド"
+
 msgid "Egons Augen werden ganz groß."
 msgstr "エゴンの目がまん丸になる。"
 
@@ -1316,6 +1322,9 @@ msgstr "ロック中：先に%sを攻略しよう。"
 
 msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
 msgstr "未開放：まずエゴンのクエスト「%s」を達成しよう。"
+
+msgid "Gesperrt: wird nicht verkauft (Strg+Klick: entsperren)"
+msgstr "ロック中：売却されない（Ctrl+クリックで解除）"
 
 msgid "Gesprengte Fessel"
 msgstr "砕けた枷"
@@ -1929,6 +1938,9 @@ msgstr "インベントリの物をクリックで装備。キャラをクリッ
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "クリックか持ち物タブへドラッグ：持ち物に取り付け"
 
+msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
+msgstr "クリック：整理（T）・右クリック：並び順変更・Ctrl+クリック：ロック"
+
 msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
 msgstr "クリック：開く。ドラッグで重ねる：しまう。"
 
@@ -2264,6 +2276,9 @@ msgstr "爆弾キーで投げる。1マスに5個まで。"
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "持ち帰り:%d ゴールド、戦利品 %d"
+
+msgid "Moment, Partner: %s. Nochmal klicken, dann geht's los."
+msgstr "待て、相棒：%s。もう一度クリックすれば出発だ。"
 
 msgid "Mondlilie"
 msgstr "月百合"
@@ -2997,6 +3012,9 @@ msgstr "レア"
 msgid "Seltene Ware"
 msgstr "レアな品"
 
+msgid "Seltenheit"
+msgstr "レア度"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift：狙った場所へ瞬間移動"
 
@@ -3113,6 +3131,9 @@ msgstr "特別な部屋"
 
 msgid "Sonnenblume"
 msgstr "ひまわり"
+
+msgid "Sortieren: %s"
+msgstr "整理：%s"
 
 msgid "Spardose"
 msgstr "貯金箱"
@@ -3645,6 +3666,9 @@ msgstr "ここで買えばつららを一本おまけだ。俺の鼻のやつな
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "倒した弾は残りの威力で飛び続ける"
 
+msgid "Wert"
+msgstr "価値"
+
 msgid "Wert der Tasche: %d Gold"
 msgstr "カバンの価値：%d ゴールド"
 
@@ -3854,6 +3878,15 @@ msgstr "丈夫で暖かい。"
 
 msgid "Zähigkeit"
 msgstr "タフネス"
+
+msgid "dein Inventar ist fast voll"
+msgstr "インベントリがほぼ満杯だ"
+
+msgid "dein Relikt hält nur noch einen Run"
+msgstr "レリックはあと1回で壊れる"
+
+msgid "dein Trank-Platz ist leer"
+msgstr "ポーション枠が空だ"
 
 msgid "hält %d Runs"
 msgstr "%d 回の探索で持つ"

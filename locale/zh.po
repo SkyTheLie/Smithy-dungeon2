@@ -123,6 +123,9 @@ msgstr "竞技场护符"
 msgid "Arenaherz"
 msgstr "竞技场之心"
 
+msgid "Art"
+msgstr "类型"
+
 msgid "Asche"
 msgstr "灰烬"
 
@@ -729,6 +732,9 @@ msgstr "埃贡可能会偷！"
 msgid "Egon war nie hier, sagt er. Von wem sind dann die angesengten Stiefelspuren?"
 msgstr "埃贡说他从没来过这儿。那这些烧焦的靴印是谁的？"
 
+msgid "Egon zahlt: %d Gold"
+msgstr "埃贡出价：%d 金币"
+
 msgid "Egons Augen werden ganz groß."
 msgstr "埃贡的眼睛瞪得老大。"
 
@@ -1316,6 +1322,9 @@ msgstr "未解锁：先通关%s。"
 
 msgid "Gesperrt: erst Egons Quest „%s“ erledigen."
 msgstr "未开放：先完成埃贡的任务「%s」。"
+
+msgid "Gesperrt: wird nicht verkauft (Strg+Klick: entsperren)"
+msgstr "已锁定：不会被卖出（Ctrl+点击：解锁）"
 
 msgid "Gesprengte Fessel"
 msgstr "破碎镣铐"
@@ -1929,6 +1938,9 @@ msgstr "点击背包里的物品就能穿上，点击角色就能脱下。"
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "点击或拖到背包标签：装到背包上"
 
+msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
+msgstr "点击：整理（T）· 右键：切换排序 · Ctrl+点击物品：锁定"
+
 msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
 msgstr "点击：打开。把物品拖上去：放进去。"
 
@@ -2264,6 +2276,9 @@ msgstr "用炸弹键投掷。每格最多5个。"
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "带回家:%d 金币,%d 件战利品"
+
+msgid "Moment, Partner: %s. Nochmal klicken, dann geht's los."
+msgstr "等一下，伙计：%s。再点一次就出发。"
 
 msgid "Mondlilie"
 msgstr "月百合"
@@ -2997,6 +3012,9 @@ msgstr "稀有"
 msgid "Seltene Ware"
 msgstr "稀有货物"
 
+msgid "Seltenheit"
+msgstr "稀有度"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift：瞬移到你瞄准的位置"
 
@@ -3113,6 +3131,9 @@ msgstr "特殊房间"
 
 msgid "Sonnenblume"
 msgstr "向日葵"
+
+msgid "Sortieren: %s"
+msgstr "整理：%s"
 
 msgid "Spardose"
 msgstr "存钱罐"
@@ -3645,6 +3666,9 @@ msgstr "在这儿买东西送冰柱一根。我鼻子上那根。真的！"
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "击杀后射击带着剩余伤害继续飞行"
 
+msgid "Wert"
+msgstr "价值"
+
 msgid "Wert der Tasche: %d Gold"
 msgstr "背包价值：%d 金币"
 
@@ -3854,6 +3878,15 @@ msgstr "结实又保暖。"
 
 msgid "Zähigkeit"
 msgstr "坚韧"
+
+msgid "dein Inventar ist fast voll"
+msgstr "你的背包快满了"
+
+msgid "dein Relikt hält nur noch einen Run"
+msgstr "你的圣物只能再撑一次"
+
+msgid "dein Trank-Platz ist leer"
+msgstr "你的药水栏是空的"
 
 msgid "hält %d Runs"
 msgstr "可用 %d 次冒险"
