@@ -127,6 +127,8 @@ func _draw_room_inside(origin: Vector2, room_size: Vector2, center: Vector3, sca
 			elif is_instance_valid(thing) and thing is Pickup:
 				draw_circle(to_map.call(thing.global_position), 2.0, _fade(COLOR_LOOT, alpha))
 	for enemy: Enemy in dungeon.get_enemies():
+		if enemy.is_unseen():
+			continue
 		draw_circle(to_map.call(enemy.global_position), maxf(2.0, enemy.radius * scale_by * 0.8), _fade(COLOR_ENEMY, alpha))
 	var me: Vector2 = to_map.call(player.global_position)
 	var look: Vector3 = player.aim_direction()

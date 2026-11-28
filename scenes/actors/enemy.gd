@@ -22,6 +22,10 @@ extends CharacterBody3D
 ##    up again after "time" seconds with "stand_life" (default 0.5) of its full life. "times" = how
 ##    often (0 = every time: undead only stay down when their body is destroyed).
 ## "burrow" "shots": a pattern it shoots when it comes up.
+## "invisible": {"every": [min, max], "duration", "hit_reveal", "whisper": voice}: every few
+##    seconds it fades out (ghosts): no picture, ring or map dot, but it still moves and can be
+##    hit (a hit shows it for "hit_reveal" seconds). Unseen it does not attack (no touch, no
+##    shots); it whispers from where it is, and shimmers just before it shows again.
 ## "leap": {"every", "range", "height"}: crouches, then jumps high at the player and lands on them.
 ## "burrow": {"every", "time"}: digs into the floor (cannot be hit), a red mark shows where it
 ##    will come up (under the player), then it bursts out there.
@@ -133,6 +137,12 @@ var rng: RandomNumberGenerator:
 		return _rng
 ## Bosses: underground / invisible (cannot be hit), mirror shield up, dazed (double damage).
 var hidden_phase: bool = false
+## "invisible": faded out right now (see is_unseen: a hit shows it for a moment).
+var invisible: bool = false
+var _invis_wait: float = -1.0
+var _invis_left: float = 0.0
+var _reveal_left: float = 0.0
+var _whisper_wait: float = 0.0
 var reflecting: bool = false
 var stun_left: float = 0.0
 var _brain: BossBrain = null
@@ -142,6 +152,8 @@ var _moves: EnemyMoves = null
 var _base_color: Color = Color.WHITE
 ## "revive": seconds before standing up when it twitches and groans; colour of the glow under it.
 const RISE_WARNING: float = 0.8
+## "invisible": seconds before showing again when it shimmers (the warning).
+const INVISIBLE_SHIMMER: float = 0.5
 const RISE_COLOR := Color(0.45, 1.0, 0.55, 0.45)
 ## Warnings before an attack: shaking, swelling up (seconds left).
 var _wobble_left: float = 0.0
@@ -331,6 +343,8 @@ func take_damage(amount: float, push: Vector3, confuse: bool) -> void:
 	if stun_left > 0.0:
 		amount *= 2.0
 	_last_hit = _anim_time
+	if invisible:
+		_reveal_left = float((data.get("invisible", {}) as Dictionary).get("hit_reveal", 0.6))
 	hp -= amount
 	_flash = 0.12
 	_white_left = HIT_WHITE
@@ -575,7 +589,7 @@ func cry(kind: String) -> void:
 ## Idle cries now and then, the near cry when the player comes close.
 func _update_cries(delta: float, distance: float) -> void:
 	var cries: Dictionary = data.get("cries", {})
-	if cries.is_empty() or hidden_phase:
+	if cries.is_empty() or hidden_phase or invisible:
 		return
 	_near_wait = maxf(0.0, _near_wait - delta)
 	if cries.has("near") and _awake and _near_wait <= 0.0:
@@ -654,8 +668,61 @@ func _hide_rise_glow() -> void:
 	_rise_glow = null
 
 
+## "invisible": hidden right now (faded out and not just shown by a hit). Map, aiming help and
+## homing shots skip it.
+func is_unseen() -> bool:
+	return invisible and _reveal_left <= 0.0
+
+
+func _update_invisible(delta: float) -> void:
+	var cfg: Dictionary = data.get("invisible", {})
+	if cfg.is_empty():
+		return
+	_reveal_left = maxf(0.0, _reveal_left - delta)
+	if _downed_left > 0.0 or not _awake or _freeze_left > 0.0:
+		if invisible:
+			_appear(cfg)
+		return
+	if invisible:
+		_invis_left -= delta
+		_whisper_wait -= delta
+		if _whisper_wait <= 0.0:
+			_whisper_wait = randf_range(0.8, 1.4)
+			var whisper: Dictionary = cfg.get("whisper", {})
+			if not whisper.is_empty():
+				AudioManager.play_stream_at(SoundSynth.make(whisper, "cry"), aim_point(), dungeon.effects if dungeon else null, randf_range(0.9, 1.1), float(whisper.get("volume", -10.0)))
+		if _invis_left <= 0.0:
+			_appear(cfg)
+		return
+	if _invis_wait < 0.0:
+		_invis_wait = _next_vanish(cfg)
+	_invis_wait -= delta
+	if _invis_wait <= 0.0:
+		invisible = true
+		_invis_left = float(cfg.get("duration", 2.5))
+		_whisper_wait = 0.3
+		sound("boss_teleport", 1.6)
+		if dungeon:
+			Fx.puff(dungeon.effects, aim_point(), "ghost_puff", 0.9)
+
+
+func _appear(cfg: Dictionary) -> void:
+	invisible = false
+	_reveal_left = 0.0
+	_invis_wait = _next_vanish(cfg)
+	sound("boss_teleport", 2.0)
+	if dungeon:
+		Fx.puff(dungeon.effects, aim_point(), "ghost_puff", 0.9)
+
+
+func _next_vanish(cfg: Dictionary) -> float:
+	var every: Array = cfg.get("every", [3.0, 5.0])
+	return randf_range(float(every[0]), float(every[1]))
+
+
 func _die() -> void:
 	alive = false
+	invisible = false
 	collision_layer = 0
 	collision_mask = 0
 	_downed_left = 0.0
@@ -713,6 +780,7 @@ func _physics_process(delta: float) -> void:
 	var toward: Vector3 = to_player / maxf(distance, 0.001)
 	var move := Vector3.ZERO
 	_update_cries(delta, distance)
+	_update_invisible(delta)
 	_wobble_left = maxf(0.0, _wobble_left - delta)
 	_swell_left = maxf(0.0, _swell_left - delta)
 	if _downed_left > 0.0:
@@ -762,7 +830,7 @@ func _physics_process(delta: float) -> void:
 	_turn_look(delta, move, toward)
 	_animate(move)
 	# "damage" 0 (the practice rat of the guide): touching does nothing.
-	if distance < radius + player.hit_radius() + 0.1 and _freeze_left <= 0.0 and not hidden_phase and int(data.get("damage", 1)) > 0:
+	if distance < radius + player.hit_radius() + 0.1 and _freeze_left <= 0.0 and not hidden_phase and not invisible and int(data.get("damage", 1)) > 0:
 		var life_before: int = player.run.health + player.run.blue if player.run else 0
 		player.take_hit(int(data.get("damage", 1)))
 		# lifesteal: the boss heals when it hurts the player.
@@ -834,6 +902,9 @@ func shoot(direction: Vector3, options: Dictionary) -> void:
 
 
 func shoot_from(at: Vector3, direction: Vector3, options: Dictionary) -> void:
+	# Unseen ghosts do not attack (fair: nothing comes out of nowhere).
+	if invisible:
+		return
 	var shot := EnemyShot.new()
 	shot.velocity = direction * float(data.get("shot_speed", 4.0)) * float(options.get("speed", 1.0))
 	shot.player = player
@@ -1060,9 +1131,15 @@ func _animate(move: Vector3) -> void:
 		# Sprites look left; walking to the right of the screen mirrors them.
 		_sprite.flip_h = move.dot(camera.global_basis.x) > 0.0
 	# Underground / invisible: no ring either.
-	_ring.visible = not hidden_phase
+	_ring.visible = not hidden_phase and not is_unseen()
 	_wedge.visible = _ring.visible
-	if hidden_phase:
+	if is_unseen() and not hidden_phase:
+		# Faded out: only a faint flicker in the air; just before it shows again it shimmers.
+		var alpha: float = 0.05 + 0.04 * sin(_anim_time * 9.0)
+		if _invis_left < INVISIBLE_SHIMMER:
+			alpha = 0.3 + 0.15 * sin(_anim_time * 40.0)
+		_sprite.modulate = Color(0.8, 0.85, 1.0, alpha)
+	elif hidden_phase:
 		_sprite.modulate = Color(0.6, 0.6, 0.8, 0.12 if is_boss else 0.0)
 	elif reflecting:
 		_sprite.modulate = Color(0.75 + sin(_anim_time * 20.0) * 0.2, 0.75, 1.0)
