@@ -192,7 +192,7 @@ func _add_node(id: String, level: int, center: Vector2) -> void:
 		info.modulate = Color(1.0, 0.9, 0.55)
 		_frames.append([frame, FRAME_AFFORD])
 		_any_affordable = true
-	elif problem == "Erst den Skill davor lernen" or problem == "Erst die Stufe davor lernen":
+	elif problem in ["Erst den Skill davor lernen", "Erst die Stufe davor lernen", "Dungeon noch nicht offen"]:
 		button.modulate = Color(0.4, 0.4, 0.4)
 		info.modulate = Color(0.5, 0.48, 0.45)
 		_frames.append([frame, FRAME_LOCKED])
@@ -242,6 +242,10 @@ static func describe(id: String, level: int = -1) -> String:
 		cost.append(Language.translate("%d Skillpunkte") % Skills.points_at(id, level))
 	lines.append(Language.translate("Kostet: %s") % ", ".join(cost))
 	lines.append(Language.translate("Ab Spielerstufe %d") % Skills.min_level_at(id, level))
+	var dungeon: String = Skills.dungeon_at(id, level)
+	if not dungeon.is_empty():
+		var dungeon_name: String = Language.translate(String((Content.dungeons().get(dungeon, {}) as Dictionary).get("name", dungeon)))
+		lines.append(Language.translate("Erst wenn offen: %s") % dungeon_name)
 	var needed: String = String(data.get("requires", ""))
 	if problem == "Erst den Skill davor lernen":
 		lines.append(Language.translate("Braucht: %s") % Language.translate(String(Skills.data(needed).get("name", needed))))
@@ -257,6 +261,7 @@ static func _problem_text(problem: String) -> String:
 		"Stufe zu niedrig": return Language.translate("Stufe zu niedrig")
 		"Zu wenig Skillpunkte": return Language.translate("Zu wenig Skillpunkte")
 		"Zu wenig Gold": return Language.translate("Zu wenig Gold")
+		"Dungeon noch nicht offen": return Language.translate("Dungeon noch nicht offen")
 		"Erst die Stufe davor lernen": return Language.translate("Erst die Stufe davor lernen")
 	return Language.translate("Erst den Skill davor lernen")
 

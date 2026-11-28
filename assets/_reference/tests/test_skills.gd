@@ -25,6 +25,23 @@ func _data_check() -> void:
 		check(ResourceLoader.exists(String(data.get("icon", ""))), "skill %s has a picture" % id)
 		var needed: String = String(data.get("requires", ""))
 		check(needed.is_empty() or (skills.call("all") as Dictionary).has(needed), "skill %s: known skill before it" % id)
+		# "dungeon": one known dungeon (or "") per level; never easier than the level before.
+		var dungeons: Array = data.get("dungeon", [])
+		check(dungeons.is_empty() or dungeons.size() == int(data.get("max_level", 1)), "skill %s: one dungeon entry per level" % id)
+		var order: Array = (script("res://scripts/core/content.gd").call("dungeons") as Dictionary).keys()
+		var last: int = -1
+		for entry: Variant in dungeons:
+			var dungeon: String = String(entry)
+			check(dungeon.is_empty() or order.has(dungeon), "skill %s: known dungeon %s" % [id, dungeon])
+			var at: int = order.find(dungeon)
+			check(at >= last or dungeon.is_empty(), "skill %s: later levels need later dungeons" % id)
+			last = maxi(last, at)
+	# The point skills together cost more than a player earns (about level 27): choices matter.
+	var total: int = 0
+	for id: String in skills.call("all"):
+		for points: Variant in (skills.call("data", id) as Dictionary).get("points", []):
+			total += int(points)
+	check(total > 26, "the skill points do not buy everything (%d)" % total)
 
 
 func _levels() -> void:
@@ -96,11 +113,11 @@ func _learning() -> void:
 	check_eq(meta.call("backpack_limit"), 2, "now two")
 	check(meta.call("attach_backpack_anywhere", copper.call()), "the copper one too")
 	check_eq((meta.call("backpacks") as Array).size(), 2, "both attached")
-	check_eq(skills.call("problem", "eisenrucksack"), "Stufe zu niedrig", "the iron backpack needs level 10")
+	check_eq(skills.call("problem", "eisenrucksack"), "Dungeon noch nicht offen", "the iron backpack needs the Moor open")
 	check(not meta.call("buy_skill", "eisenrucksack"), "so it cannot be learned")
 	check_eq(skills.call("problem", "dicke_haut"), "Erst den Skill davor lernen", "Dicke Haut needs Blaues Herz")
 	check(meta.call("buy_skill", "blaues_herz"), "Blaues Herz")
-	check_eq(meta.call("skill_points"), points - 1, "it cost a skill point (no gold)")
+	check_eq(meta.call("skill_points"), points - 2, "it cost two skill points (no gold)")
 	check(not meta.call("buy_skill", "blaues_herz"), "Blaues Herz has one level")
 	check_eq(skills.call("problem", "reliktplatz"), "Stufe zu niedrig", "Relikt-Platz needs level 10")
 	meta.call("add_exp", 2000)
@@ -108,6 +125,11 @@ func _learning() -> void:
 	for id: String in ["reliktplatz", "reliktpflege", "kraft", "kraft", "goldnase"]:
 		check(meta.call("buy_skill", id), "learn %s" % id)
 	check_eq(meta.call("skill_level", "kraft"), 2, "Kraft level 2")
+	# Dungeon gates: the iron backpack waits for the Moor, then only for the level.
+	check_eq(skills.call("problem", "eisenrucksack"), "Dungeon noch nicht offen", "level 10, but the Moor is closed")
+	meta.call("admin_finish_quest", "glutrubin")
+	check(meta.call("is_dungeon_open", "moor"), "the Moor is open now")
+	check(skills.call("problem", "eisenrucksack") != "Dungeon noch nicht offen", "the iron backpack does not wait for the Moor any more")
 	meta.call("reload")
 	check_eq(meta.call("skill_level", "kraft"), 2, "skills are saved")
 

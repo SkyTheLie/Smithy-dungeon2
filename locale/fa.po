@@ -669,6 +669,9 @@ msgstr "به شبح تبدیل می‌شوی: از میان سنگ‌ها شنا
 msgid "Dungeon der Glut"
 msgstr "سیاه‌چال اخگر"
 
+msgid "Dungeon noch nicht offen"
+msgstr "سیاه‌چال هنوز باز نشده"
+
 msgid "Dungeon-Brett"
 msgstr "تابلوی سیاه‌چال‌ها"
 
@@ -1052,6 +1055,9 @@ msgstr "اول مهارت قبلی را یاد بگیر"
 
 msgid "Erst die Stufe davor lernen"
 msgstr "اول سطح قبلی را یاد بگیر"
+
+msgid "Erst wenn offen: %s"
+msgstr "فقط وقتی باز شد: %s"
 
 msgid "Erstglut"
 msgstr "نخستین اخگر"
@@ -3434,6 +3440,9 @@ msgstr "سرعت"
 
 msgid "Tempo +0,2."
 msgstr "سرعت +۰٫۲."
+
+msgid "Tempo +0,25."
+msgstr "سرعت +۰٫۲۵."
 
 msgid "Tempo: %s"
 msgstr "سرعت: %s"

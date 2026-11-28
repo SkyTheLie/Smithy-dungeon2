@@ -39,6 +39,19 @@ static func points_at(id: String, level: int) -> int:
 	return _per_level(id, "points", level)
 
 
+## The dungeon that must be open for level `level` of `id` ("" = none; skills.json "dungeon").
+static func dungeon_at(id: String, level: int) -> String:
+	var list: Variant = data(id).get("dungeon", [])
+	if not list is Array or (list as Array).is_empty():
+		return ""
+	var values: Array = list
+	return String(values[clampi(level - 1, 0, values.size() - 1)])
+
+
+static func next_dungeon(id: String) -> String:
+	return dungeon_at(id, MetaState.skill_level(id) + 1)
+
+
 static func min_level_at(id: String, level: int) -> int:
 	return _per_level(id, "min_level", level)
 
@@ -68,6 +81,9 @@ static func problem(id: String) -> String:
 	var needed: String = String(data(id).get("requires", ""))
 	if not needed.is_empty() and MetaState.skill_level(needed) <= 0:
 		return "Erst den Skill davor lernen"
+	var dungeon: String = next_dungeon(id)
+	if not dungeon.is_empty() and not MetaState.is_dungeon_open(dungeon):
+		return "Dungeon noch nicht offen"
 	if MetaState.level() < next_min_level(id):
 		return "Stufe zu niedrig"
 	if MetaState.skill_points() < next_points(id):

@@ -669,6 +669,9 @@ msgstr "幽霊になる：岩をすり抜けて漂い、弾もすり抜ける"
 msgid "Dungeon der Glut"
 msgstr "残り火のダンジョン"
 
+msgid "Dungeon noch nicht offen"
+msgstr "ダンジョンがまだ開いていない"
+
 msgid "Dungeon-Brett"
 msgstr "ダンジョン掲示板"
 
@@ -1052,6 +1055,9 @@ msgstr "先に前のスキルを習得"
 
 msgid "Erst die Stufe davor lernen"
 msgstr "先に前の段階を習得しよう"
+
+msgid "Erst wenn offen: %s"
+msgstr "開放後のみ：%s"
 
 msgid "Erstglut"
 msgstr "始まりの残り火"
@@ -3434,6 +3440,9 @@ msgstr "移動速度"
 
 msgid "Tempo +0,2."
 msgstr "速度+0.2。"
+
+msgid "Tempo +0,25."
+msgstr "速さ +0.25。"
 
 msgid "Tempo: %s"
 msgstr "移動速度: %s"

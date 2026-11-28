@@ -60,6 +60,27 @@ Stufen: `levels.json` `exp_table` [64, 90] für den Anfang (erster Run ≈ 80 % 
 
 Skill-Preise richten sich nach der Stufe, ab der man sie lernen kann (dann ist man in diesem Dungeon und verdient so viel): Stufe 1–6 ≈ 30–180 Gold, 8–14 ≈ 150–600, 15–20 ≈ 500–1 200, ab 22 ≈ 1 500–4 000. So bleibt „Skill oder Ausrüstung?“ in jedem Dungeon eine echte Frage.
 
+### Skill-Überarbeitung (2026-11-28, `feature/skills-dungeons`)
+
+Nachrechnen: `py assets/_reference/balance/balance.py`, Abschnitt „Skills: Preis, Freischaltung, Wert“ (zeigt je Stufe Gold, Punkte, Spielerstufe, Dungeon und was sie dann bringt).
+
+Was vorher nicht stimmte:
+
+- **Keine Wahl bei den Punkten:** Alle Punkt-Skills zusammen kosteten 28 Punkte, Stufe 30 gibt 29. Wer lange spielt, bekommt alles. Jetzt kosten sie **31**, am Ende (Stufe ~27) hat man etwa **26**: man muss sich entscheiden (z. B. Weitblick oder Dicke Haut 2).
+- **Kraft war viel stärker als der Rest:** Kraft 1 bringt am Anfang +38 % Schaden für 1 Punkt, Flinke Hände nur +6 %. Kraft kostet jetzt mehr Punkte ab Stufe 3 (1/1/2/2/3), Flinke Hände bringen +9 % statt +6 % je Stufe (Feuerpause ×0,92), Leichtfuß +0,25 statt +0,2 Tempo.
+- **Blaues Herz war ein Schnäppchen:** ein zusätzliches Leben in jedem Run für 1 Punkt ab Stufe 2. Jetzt 2 Punkte ab Stufe 3.
+- **Tote Stufen:** Weitblick 3, Dicke Haut 2, Reliktschutz 4 brauchten Stufe 30 (praktisch nie erreicht), Relikt-Platz 2 Stufe 25. Jetzt Stufe 20 / 22 / 26 / 22.
+
+**Skills hängen am Dungeon-Fortschritt** (`skills.json` `dungeon` je Stufe): die großen Stufen gehen erst, wenn der passende Dungeon offen ist, nicht nur bei genug Erfahrung. So passt der Skill zum Material bei Egon und man kann nicht im ersten Dungeon alles hochfarmen:
+
+| Dungeon offen | Skill-Stufen |
+|---|---|
+| Moor (Eisen bei Egon) | Eisen-Rucksack, Kraft 4, Flinke Hände 3, Glückspilz 3, Geheimtasche 2, Rucksack-Riemen 2, Reliktschutz 3, Goldnase 2, Mehr Ware 3, Seltene Ware 2, Größere Dose 3 |
+| Frostgipfel (Silber) | Silber-Rucksack, Kraft 5, Dicke Haut 2, Relikt-Platz 2, Rucksack-Riemen 3, Reliktschutz 4, Goldnase 3, Größere Dose 4 |
+| Glutschlund (Gold) | Karawanen-Rucksack, Rucksack-Riemen 4 |
+
+Gold-Preise blieben: Sie liegen wie geplant bei etwa einem Run des Dungeons, in dem man die Stufe lernen kann (Eisen-Rucksack 900 ≈ ein Moor-Run, Karawanen-Rucksack 6 000 ≈ ein Glutschlund-Sieg). Spieler-Stufe *und* Dungeon müssen passen; der Baum zeigt beides im Tooltip („Erst wenn offen: …“), gesperrte Stufen sind grau.
+
 **Größere Dose** (Gruppe „Laden“): +300 sicheres Gold je Stufe (bis 1 400). Ohne sie ist das Limit 200 – wer später sparen will, muss das Risiko tragen oder in die Dose investieren.
 
 ## Schwierigkeit: Schüsse je Gegner

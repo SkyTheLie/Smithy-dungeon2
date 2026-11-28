@@ -669,6 +669,9 @@ msgstr "你化为幽灵：飘过岩石，你的子弹也是"
 msgid "Dungeon der Glut"
 msgstr "余烬地牢"
 
+msgid "Dungeon noch nicht offen"
+msgstr "地牢尚未开放"
+
 msgid "Dungeon-Brett"
 msgstr "地牢告示板"
 
@@ -1052,6 +1055,9 @@ msgstr "先学习前一个技能"
 
 msgid "Erst die Stufe davor lernen"
 msgstr "请先学习上一级"
+
+msgid "Erst wenn offen: %s"
+msgstr "开放后才可学：%s"
 
 msgid "Erstglut"
 msgstr "初始余烬"
@@ -3434,6 +3440,9 @@ msgstr "速度"
 
 msgid "Tempo +0,2."
 msgstr "速度+0.2。"
+
+msgid "Tempo +0,25."
+msgstr "速度 +0.25。"
 
 msgid "Tempo: %s"
 msgstr "速度：%s"
