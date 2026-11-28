@@ -60,6 +60,7 @@
 		"chest_unlock": "res://assets/audio/sfx/unlock.wav",
 		"chest_break": "res://assets/audio/sfx/wood_break.wav",
 		"chest_clank": "res://assets/audio/sfx/anvil_good.wav",
+		"spike_rumble": "res://assets/audio/sfx/stone_grind.wav",
 		"explosion": "res://assets/audio/sfx/rock_break.wav",
 		"boss_die": "res://assets/audio/sfx/level_up.wav",
 		"enemy_shoot": "res://assets/audio/sfx/quench_hiss.wav",
@@ -95,6 +96,7 @@
 		"title_strike": "Interface"
 	},
 	"sound_volume_db": {
+		"spike_rumble": -12,
 		"ui_click": -6,
 		"title_hammer": -14,
 		"title_door": -4,

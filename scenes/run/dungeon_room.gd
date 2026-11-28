@@ -20,6 +20,8 @@ var loot: Array[Node3D] = []
 ## Arrow holes in the walls and their pressure plates (floors.json "arrow_traps").
 var arrow_traps: Array[ArrowTrap] = []
 var plates: Array[PressurePlate] = []
+## Stones with spikes moving on paths (floors.json "spike_stones").
+var spike_stones: Array[SpikeStone] = []
 ## Chests (data/chests.json; Dungeon opens them).
 var chests: Array[Chest] = []
 ## Stone chamber: radius of its outer ring of rocks around the middle (0 = none), kept free of

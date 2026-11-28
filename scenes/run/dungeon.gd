@@ -321,6 +321,8 @@ func _build_room(cell: Vector2i) -> void:
 			if not chamber:
 				_maybe_add_loose_chest(room)
 			_maybe_add_arrow_traps(room)
+			if not chamber:
+				_maybe_add_spike_stones(room)
 		FloorLayout.ITEM:
 			_add_item_pedestal(room, Vector3.ZERO, "item", 0)
 		FloorLayout.SHOP:
@@ -757,6 +759,7 @@ func _physics_process(delta: float) -> void:
 	_check_locked_doors(pos)
 	_check_chests(pos)
 	_tick_arrow_traps(delta)
+	_tick_spike_stones(delta)
 
 
 func _enter_room(cell: Vector2i) -> void:
@@ -1236,6 +1239,70 @@ func _tick_arrow_traps(delta: float) -> void:
 					trap.warn()
 	for trap: ArrowTrap in room.arrow_traps:
 		trap.tick(delta)
+
+
+# --- Spiked stones (floors.json "spike_stones") --------------------------------------
+
+## Sometimes a normal room (not a stone chamber, not next to the start, from floor "from_floor")
+## gets 1–2 spiked stones on fixed paths ("paths": line_x, line_z, square, circle). Own random
+## numbers per room. A floor may set its own "spike_stone_chance".
+func _maybe_add_spike_stones(room: DungeonRoom) -> void:
+	var rules: Dictionary = Content.floors_extra("spike_stones")
+	if rules.is_empty() or floor_index < int(rules.get("from_floor", 1)) or layout.distance.get(room.cell, 99) <= 1:
+		return
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash([run.seed_value, floor_index, room.cell, "spikes"])
+	if rng.randf() >= float(floor_data.get("spike_stone_chance", rules.get("chance", 0.0))):
+		return
+	var count_range: Array = rules.get("count", [1, 2])
+	var used: Array[String] = []
+	for i in rng.randi_range(int(count_range[0]), int(count_range[1])):
+		var path: String = Content.pick_weighted(rules.get("paths", [["line_x", 1]]), rng)
+		var key: String = path
+		if path.begins_with("line"):
+			key = "%s_%d" % [path, i]
+		if used.has(key):
+			continue
+		used.append(key)
+		add_spike_stone(room, path, i, rng)
+
+
+## A spiked stone on path `path` (line_x, line_z, square, circle); `slot` picks its lane so two
+## stones do not share one.
+func add_spike_stone(room: DungeonRoom, path: String, slot: int, rng: RandomNumberGenerator) -> SpikeStone:
+	var rules: Dictionary = Content.floors_extra("spike_stones")
+	var stone := SpikeStone.new()
+	var side: float = -1.0 if (slot + rng.randi_range(0, 1)) % 2 == 0 else 1.0
+	match path:
+		"line_z":
+			stone.points = [Vector3(side * 4.5, 0, -3.6), Vector3(side * 4.5, 0, 3.6)]
+		"square":
+			stone.points = [Vector3(-4.5, 0, -3.0), Vector3(4.5, 0, -3.0), Vector3(4.5, 0, 3.0), Vector3(-4.5, 0, 3.0)]
+			stone.loop = true
+		"circle":
+			for i in 12:
+				var angle: float = TAU * i / 12.0
+				stone.points.append(Vector3(cos(angle) * 3.2, 0, sin(angle) * 2.6))
+			stone.loop = true
+		_:
+			stone.points = [Vector3(-5.8, 0, side * 2.8), Vector3(5.8, 0, side * 2.8)]
+	stone.speed = float(rules.get("speed", 2.2))
+	stone.damage = int(rules.get("damage", 1))
+	stone.push = float(rules.get("push", 4.0))
+	stone.texture_path = String(floor_data.get("rock_texture", (Content.floors_extra("rocks") as Dictionary).get("texture", "")))
+	stone.player = player
+	stone.dungeon = self
+	room.add_child(stone)
+	room.spike_stones.append(stone)
+	return stone
+
+
+func _tick_spike_stones(delta: float) -> void:
+	var room: DungeonRoom = rooms.get(current_cell)
+	if room == null or run.is_dead():
+		return
+	for stone: SpikeStone in room.spike_stones:
+		stone.tick(delta)
 
 
 # --- Chests (data/chests.json) -------------------------------------------------------
