@@ -17,6 +17,11 @@ var rocks: Array[Rock] = []
 var breakables: Array[BreakableProp] = []
 ## Pedestals and pickups in the room (for the map).
 var loot: Array[Node3D] = []
+## Chests (data/chests.json; Dungeon opens them).
+var chests: Array[Chest] = []
+## Stone chamber: radius of its outer ring of rocks around the middle (0 = none), kept free of
+## spawning enemies and other things.
+var chamber_radius: float = 0.0
 ## Traps on the floor (lava, poison, spikes; Dungeon checks them).
 var hazards: Array[Hazard] = []
 ## Drops this room still gives from normal enemies and its reward (data/loot.json room_budget;

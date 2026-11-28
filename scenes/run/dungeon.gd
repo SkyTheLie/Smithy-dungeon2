@@ -107,6 +107,8 @@ var _rng := RandomNumberGenerator.new()
 var _fighting: bool = false
 ## Locked door the player was told about (so the message comes once per approach).
 var _warned_door: Door = null
+## Locked chest the player was told about (once per approach).
+var _warned_chest: Chest = null
 ## Test room: built on the first P; where the player came from.
 var _test_room: DungeonRoom = null
 var _test_pedestals: Array[Pedestal] = []
@@ -311,9 +313,13 @@ func _build_room(cell: Vector2i) -> void:
 		FloorLayout.NORMAL when cell == guide_cell:
 			room.spawn_list.append(GUIDE_ENEMY)
 		FloorLayout.NORMAL:
-			_add_rocks(room)
+			var chamber: bool = _rolls_chest_chamber(room)
+			if not chamber:
+				_add_rocks(room)
 			_roll_enemies(room)
 			_add_hazards(room)
+			if not chamber:
+				_maybe_add_loose_chest(room)
 		FloorLayout.ITEM:
 			_add_item_pedestal(room, Vector3.ZERO, "item", 0)
 		FloorLayout.SHOP:
@@ -603,6 +609,8 @@ func _hazard_spot(room: DungeonRoom, side: float, rng: RandomNumberGenerator) ->
 		var spot := Vector3(rng.randf_range(-half.x, half.x), 0, rng.randf_range(-half.y, half.y))
 		if absf(spot.x) < keep or absf(spot.z) < keep:
 			continue
+		if room.chamber_radius > 0.0 and spot.length() < room.chamber_radius + side / 2.0 + 0.4:
+			continue
 		var blocked: bool = false
 		for rock: Rock in room.rocks:
 			if absf(rock.position.x - spot.x) < side / 2.0 + 0.7 and absf(rock.position.z - spot.z) < side / 2.0 + 0.7:
@@ -703,6 +711,9 @@ func _free_spot(room: DungeonRoom, margin: float, keep_middle_free: bool) -> Vec
 			continue
 		if keep_middle_free and spot.length() < 2.5:
 			continue
+		# Never inside (or right next to) a stone chamber in the middle.
+		if room.chamber_radius > 0.0 and spot.length() < room.chamber_radius + 1.0:
+			continue
 		var blocked: bool = false
 		for rock: Rock in room.rocks:
 			if rock.position.distance_to(spot) < 1.4:
@@ -743,6 +754,7 @@ func _physics_process(delta: float) -> void:
 	if _fighting and enemies.is_empty():
 		_clear_room(rooms[current_cell])
 	_check_locked_doors(pos)
+	_check_chests(pos)
 
 
 func _enter_room(cell: Vector2i) -> void:
@@ -1132,6 +1144,137 @@ func _check_locked_doors(pos: Vector3) -> void:
 			_warned_door = door
 			AudioManager.play_sound("denied")
 			message.emit("Du brauchst einen Schlüssel")
+
+
+# --- Chests (data/chests.json) -------------------------------------------------------
+
+## Stone chamber (chests.json room "chamber_chance"): a chest in the middle of a normal room,
+## walled in by one or two rings of rocks that a bomb has to blow open; then no other rocks.
+## Own random numbers per room (the rest of the floor stays the same for a seed). Not in the
+## practice room of the guide and not in the room right after the start.
+func _rolls_chest_chamber(room: DungeonRoom) -> bool:
+	var rules: Dictionary = Content.get_file("chests").get("room", {})
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash([run.seed_value, floor_index, room.cell, "chamber"])
+	if rng.randf() >= float(rules.get("chamber_chance", 0.0)) or layout.distance.get(room.cell, 99) <= 1:
+		return false
+	var kind: String = Content.pick_weighted(rules.get("chamber_kinds", [["wood", 1]]), rng)
+	var rings_table: Array = []
+	for entry: Variant in rules.get("rings", [[1, 1]]):
+		rings_table.append([str((entry as Array)[0]), (entry as Array)[1]])
+	var rings: int = int(Content.pick_weighted(rings_table, rng))
+	add_chest_chamber(room, kind, rings)
+	return true
+
+
+## A chest of `kind` in the middle of `room` with `rings` rings of rocks around it.
+func add_chest_chamber(room: DungeonRoom, kind: String, rings: int) -> Chest:
+	var rules: Dictionary = Content.get_file("chests").get("room", {})
+	var radii: Array = rules.get("ring_radius", [2.2, 3.4])
+	var counts: Array = rules.get("ring_rocks", [12, 18])
+	var settings: Dictionary = Content.floors_extra("rocks")
+	for ring in clampi(rings, 1, radii.size()):
+		var radius: float = float(radii[ring])
+		var count: int = int(counts[mini(ring, counts.size() - 1)])
+		for i in count:
+			var angle: float = TAU * (i + 0.5) / count
+			_place_rock(room, Vector3(cos(angle) * radius, 0, sin(angle) * radius), settings)
+		room.chamber_radius = radius + Rock.RADIUS
+	return add_chest(room, kind, Vector3.ZERO)
+
+
+## Sometimes a chest stands at a free place of a normal room (chests.json room "loose_chance"),
+## away from rocks and traps. Own random numbers per room.
+func _maybe_add_loose_chest(room: DungeonRoom) -> void:
+	var rules: Dictionary = Content.get_file("chests").get("room", {})
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash([run.seed_value, floor_index, room.cell, "loose_chest"])
+	if rng.randf() >= float(rules.get("loose_chance", 0.0)) or room.cell == guide_cell:
+		return
+	var kind: String = Content.pick_weighted(rules.get("loose_kinds", [["wood", 1]]), rng)
+	var half := Vector2(RoomBuilder.ROOM_W / 2.0 - RoomBuilder.WALL_T - 1.5, RoomBuilder.ROOM_D / 2.0 - RoomBuilder.WALL_T - 1.5)
+	for attempt in 30:
+		var spot := Vector3(roundf(rng.randf_range(-half.x, half.x)), 0, roundf(rng.randf_range(-half.y, half.y)))
+		if absf(spot.x) < 2.0 or absf(spot.z) < 2.0:
+			continue
+		var blocked: bool = false
+		for rock: Rock in room.rocks:
+			if rock.position.distance_to(spot) < 1.5:
+				blocked = true
+		for hazard: Hazard in room.hazards:
+			if absf(hazard.position.x - spot.x) < hazard.size / 2.0 + 1.0 and absf(hazard.position.z - spot.z) < hazard.size / 2.0 + 1.0:
+				blocked = true
+		if not blocked:
+			add_chest(room, kind, spot)
+			return
+
+
+## A chest of chests.json `kind` at `at` (local to `room`). Shown on the map while closed.
+func add_chest(room: DungeonRoom, kind: String, at: Vector3) -> Chest:
+	var chest := Chest.new()
+	chest.setup(kind)
+	room.add_child(chest)
+	chest.position = at
+	room.chests.append(chest)
+	room.loot.append(chest)
+	return chest
+
+
+## Walking against a closed chest of this room: a wooden one opens, a lock or vault chest takes a
+## key (any key); without one a message (once per approach).
+func _check_chests(pos: Vector3) -> void:
+	var room: DungeonRoom = rooms.get(current_cell)
+	if room == null or run.is_dead():
+		return
+	for chest: Chest in room.chests:
+		if chest.opened:
+			continue
+		var offset: Vector3 = chest.global_position - pos
+		offset.y = 0.0
+		if offset.length() > Chest.TOUCH:
+			if _warned_chest == chest:
+				_warned_chest = null
+			continue
+		if not chest.needs_key():
+			open_chest(room, chest, "touch")
+		elif run.use_key():
+			open_chest(room, chest, "key")
+		elif _warned_chest != chest:
+			_warned_chest = chest
+			AudioManager.play_sound("denied")
+			message.emit("Du brauchst einen Schlüssel")
+
+
+## Opens `chest` and lets its loot fall out around it (chests.json kinds: drops, table, coins,
+## item_chance). `how`: "touch", "key" or "bomb" (a bomb breaks it: bomb_loss things fewer).
+## Chest loot does not count against the room's budget: it costs a key or a bomb.
+func open_chest(room: DungeonRoom, chest: Chest, how: String) -> void:
+	if chest.opened:
+		return
+	var data: Dictionary = chest.data
+	var loss: int = 0
+	if how == "bomb":
+		chest.show_blasted()
+		loss = int(data.get("bomb_loss", 0))
+	else:
+		chest.show_open(how == "key")
+	var range_of: Array = data.get("drops", [1, 1])
+	var count: int = maxi(0, _rng.randi_range(int(range_of[0]), int(range_of[-1])) - loss)
+	var base: Vector3 = chest.global_position
+	for i in count:
+		var angle: float = TAU * (float(i) / maxf(1.0, count) + _rng.randf_range(-0.08, 0.08))
+		var spot: Vector3 = base + Vector3(cos(angle), 0, sin(angle)) * 0.95
+		var kind: String = Content.pick_weighted(data.get("table", [["coins", 1]]), _rng)
+		if kind == "coins":
+			var coins: Array = data.get("coins", [1, 3])
+			_drop_loot(room, spot, Bag.GOLD, _rng.randi_range(int(coins[0]), int(coins[-1])), false)
+		else:
+			_drop(room, spot, kind)
+	if _rng.randf() < float(data.get("item_chance", 0.0)):
+		# Towards the middle of the room (inside a stone chamber: just in front of the chest).
+		var inward: Vector3 = (room.global_position - base) * Vector3(1, 0, 1)
+		var step: Vector3 = Vector3(0, 0, 1.0) if inward.length() < 0.5 else inward.normalized() * 1.3
+		_add_item_pedestal(room, chest.position + step, "item", 0)
 
 
 # --- Extra rooms ---------------------------------------------------------------------
@@ -1655,6 +1798,13 @@ func explode(at: Vector3, radius: float, damage: float, hurts_player: bool) -> v
 		for prop: BreakableProp in room.breakables.duplicate():
 			if Vector2(prop.global_position.x - at.x, prop.global_position.z - at.z).length() < radius + 0.3:
 				break_prop(prop)
+		for chest: Chest in room.chests:
+			if chest.opened or Vector2(chest.global_position.x - at.x, chest.global_position.z - at.z).length() >= radius + Chest.RADIUS * 0.5:
+				continue
+			if chest.bomb_effect() == "none":
+				chest.show_bounce()
+			else:
+				open_chest(room, chest, "bomb")
 	if hurts_player and run.stats.has("blast_heal"):
 		var near: Vector3 = player.global_position - at
 		near.y = 0.0
