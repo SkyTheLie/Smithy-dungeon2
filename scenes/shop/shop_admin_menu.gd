@@ -2,7 +2,7 @@ class_name ShopAdminMenu
 extends CanvasLayer
 ## P in Egon's shop, only in debug builds (started from the editor): a menu for testing quickly,
 ## like the AdminMenu of the dungeon. P or Esc closes it. Built in code (no .tscn).
-##   Geben       gear (with rarity, a random Bauart if ticked), relics, potions, backpacks and loot into the stash, put on
+##   Geben       gear (with rarity, a random Bauart if ticked), relics, potions, backpacks, containers and loot into the stash, put on
 ##               at once, empty the stash
 ##   Laden       gold into the box / empty the box, new goods for free, lever free again, a new day
 ##   Fortschritt a level, skill points, a dungeon won / all dungeons open, a quest done without its
@@ -24,7 +24,7 @@ var _list: ItemList
 var _rarity: SpinBox
 ## On: gear gets a random Bauart (gear.json types), off: normal.
 var _random_type: CheckBox
-## Pieces in the list: {"kind": "gear" / "relic" / "potion" / "backpack" / "loot", "id"}.
+## Pieces in the list: {"kind": "gear" / "relic" / "potion" / "backpack" / "container" / "loot", "id"}.
 var _entries: Array[Dictionary] = []
 var _dungeon_pick: OptionButton
 var _quest_pick: OptionButton
@@ -266,6 +266,9 @@ func _refresh_list() -> void:
 	for id: String in BagLayout.backpacks():
 		var pack_name: String = String(BagLayout.backpack(id).get("name", id))
 		_add_entry("backpack", id, "Rucksack: %s (%s)" % [pack_name, id], [id, pack_name, "rucksack"])
+	for id: String in ShopGoods.containers():
+		var box_name: String = String(ShopGoods.container_data(id).get("name", id))
+		_add_entry("container", id, "Behälter: %s (%s)" % [box_name, id], [id, box_name, "behälter"])
 	for id: String in Content.materials():
 		var loot_name: String = String(Content.material(id).get("name", id))
 		_add_entry("loot", id, "Beute: %s (%s)" % [loot_name, id], [id, loot_name, "beute"])
@@ -316,6 +319,8 @@ func _on_give(index: int, wear: bool = false) -> void:
 			piece = ShopGoods.make_potion(id)
 		"backpack":
 			piece = ShopGoods.make_backpack(id)
+		"container":
+			piece = ShopGoods.make_container(id)
 	var place: int = MetaState.give_piece(piece)
 	if wear and place >= 0:
 		var worn: bool = MetaState.attach_backpack_anywhere(place) if kind == "backpack" else MetaState.equip(place)

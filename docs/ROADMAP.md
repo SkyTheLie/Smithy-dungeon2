@@ -109,4 +109,5 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 
 - ✅ Weniger Beute: höchstens 1 Ding je Raum (`loot.json` `room_budget`), Münzen seltener.
 - ✅ Egon schenkt für den Rubin ein Moorherz-Relikt (4 Runs).
-- Offen: Behälter im Lager, Tausch-Reiter, Treffer-Gefühl, Tod-Zusammenfassung, Heimkehr, Komfort, Tagesangebot (Reihenfolge in `docs/IDEEN.md`).
+- ✅ Behälter im Lager (Relikte, Rüstung, Waffen, Materialien; klein und groß) und Tausch-Reiter bei Egon (`data/trades.json`).
+- Offen: Treffer-Gefühl, Tod-Zusammenfassung, Heimkehr, Komfort, Tagesangebot (Reihenfolge in `docs/IDEEN.md`).

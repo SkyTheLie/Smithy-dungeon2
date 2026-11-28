@@ -151,3 +151,10 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 
 - **Boss-Halle** (`data/boss_hall.json`): `size` (in Räumen), `wall_height`, Texturen, `gate`/`gate_open`/`altar` (Bilder), `ambient_dark`/`ambient_lit`, `wake_distance`, `pillars` [quer, längs] (Abstand der Säulen), `elements` (9 Kristalle, Bilder `holy_<element>_crystal.png`, `pillar_<element>.png`, `beam_<element>.png`, `crown_<element>.png`), `colors`, `music_altar`, `music_fight`, `silence`, `boss_drop`.
 - **Musik austauschen:** in `data/audio.json` `music` z. B. `"boss_rock"` auf eine andere Datei zeigen lassen (ogg/wav/mp3).
+
+## Behälter und Tausch (`data/containers.json`, `data/trades.json`)
+
+- Behälter: `name`, `desc`, `icon`, `kind` (`relic`, `gear`, `weapon`, `loot`), `slots`, `stack` (nur Beute), `size` im Lager, `price` und `unlock` (Egons Tisch, `shop.json` `container_chance`).
+- Tausch: Liste `trades`, je `id`, `give` {Beute-Id: Anzahl}, `get` = eins von `container`, `backpack`, `potion`, `relic` (+ `runs`), optional `unlock` (`level`, `dungeon`, `quest`).
+- Neue Namen und Beschreibungen danach durch `py assets/_reference/i18n/build_po.py` (liest beide Dateien).
+

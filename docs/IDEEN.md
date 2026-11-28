@@ -169,8 +169,8 @@ Reihenfolge zum Bauen (✅ = gebaut):
 
 1. ✅ **Weniger Beute im Dungeon** (`feature/weniger-beute`): ein Raum gibt höchstens 1 Ding her (Beute, Münzen, Herz oder Bombe; `loot.json` `room_budget`), Münzen seltener.
 2. ✅ **Relikt nach dem ersten Boss** (`feature/weniger-beute`): Egon nimmt den Rubin und schenkt ein Moorherz-Relikt (+1 Herz, 4 Runs).
-3. **Behälter im Lager:** Taschen/Kisten, die man kauft oder geschenkt bekommt und öffnet. Je eine Art für Relikte, Rüstungen, Materialien, Waffen; zu Beginn 3–4 Plätze, später größere.
-4. **Tausch-Reiter bei Egon:** Sachen eintauschen, z. B. 3 Rubine → Relikt-Behälter, 3 Rubine → Rucksack 3×3.
+3. ✅ **Behälter im Lager** (`feature/behaelter-tausch`): Taschen/Kisten, die man kauft oder geschenkt bekommt und öffnet. Je eine Art für Relikte, Rüstungen, Materialien, Waffen; zu Beginn 3–4 Plätze, später größere.
+4. ✅ **Tausch-Reiter bei Egon** (`feature/behaelter-tausch`): Sachen eintauschen, z. B. 3 Rubine → Relikt-Behälter, 3 Rubine → Rucksack 3×3.
 5. **Treffer-Gefühl:** kurzer Stillstand (~0,05 s) bei starkem Treffer/Kill; leichtes Bildschirmwackeln (Explosion, Boss-Aufprall, eigener Treffer), in den Einstellungen abschaltbar; Gegner blinken weiß und werden zurückgestoßen; Beute fliegt zum Spieler, „Pling“ wird bei mehreren Münzen hintereinander höher.
 6. **Weniger Frust:** Tod-Zusammenfassung (was hat getötet, wie weit, was im sicheren Platz gerettet, Rekord); Egon kommentiert die Todesursache („Schon wieder die Fangeisen? Ich verkauf dir Stiefel… teure.“); bei 1 Herz Musik dumpfer, Herzschlag-Rand stärker, Trank-Taste Q leuchtet; ein Satz zum Boss vor dem Kampf, der sein Muster verrät.
 7. **Laden als Zuhause:** Heimkehr-Moment (Egon sieht die Beute, schaut gierig, „Heute verdient: 340 Gold“); großer Auftritt bei R3+ am Hebel (Licht, eigener Ton, Egon staunt).

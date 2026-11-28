@@ -30,6 +30,9 @@ msgstr "5 % de chance en plus d'avoir du R2 chez Egon."
 msgid "Ab Spielerstufe %d"
 msgstr "À partir du niveau %d"
 
+msgid "Ab Stufe %d"
+msgstr "À partir du niveau %d"
+
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "Désormais, il y aura souvent des potions sur ma table. Au prix d'ami, bien sûr."
 
@@ -41,6 +44,9 @@ msgstr "Mais pas comme ça, sans aucun équipement. Viens, jette d'abord un œil
 
 msgid "Abgeben"
 msgstr "Remettre"
+
+msgid "Abschließbar. Theoretisch."
+msgstr "Verrouillable. En théorie."
 
 msgid "Abstand"
 msgstr "Écart"
@@ -165,11 +171,17 @@ msgstr "Camp des bandits"
 msgid "Beenden"
 msgstr "Quitter"
 
+msgid "Behälter für %s"
+msgstr "Conteneur pour %s"
+
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "À l'impact, le tir éclate en quatre étincelles"
 
 msgid "Beine"
 msgstr "Jambes"
+
+msgid "Belegt: %d/%d"
+msgstr "Occupé : %d/%d"
 
 msgid "Belohnung: der nächste Dungeon und %d Gold"
 msgstr "Récompense : le donjon suivant et %d or"
@@ -684,6 +696,9 @@ msgstr "Une montagne de glace, au sommet gronde la tempête. En chemin : loups, 
 msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
 msgstr "Un ambre, trois bombes, trois clés"
 
+msgid "Ein Fass ohne Boden. Fast ohne."
+msgstr "Un tonneau sans fond. Presque."
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "Une boule de feu tourne autour de toi et bloque les tirs"
 
@@ -845,6 +860,9 @@ msgstr "Un objet de plus sur la table d'Egon."
 
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "Une sacoche de 2×2 cases. À attacher à ton inventaire chez Egon."
+
+msgid "Eine Truhe mit Schloss. Den Schlüssel hat Egon. Sagt er."
+msgstr "Un coffre avec serrure. Egon a la clé. À l'en croire."
 
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "Une prairie haute comme un nain. Ça bruisse dans l'herbe, et un chasseur pose des pièges. Egon vend des faux. Hélas, plus en stock."
@@ -1125,6 +1143,9 @@ msgstr "Quinze pièces"
 msgid "Für Schritte, die man lieber nicht hört."
 msgstr "Pour des pas qu'on préfère ne pas entendre."
 
+msgid "Für Stäbe, Bögen und alles mit spitzem Ende."
+msgstr "Pour bâtons, arcs et tout ce qui a un bout pointu."
+
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "Pour toi : une baguette en cuivre, un casque et un plastron. Le premier achat est offert !"
 
@@ -1212,6 +1233,9 @@ msgstr "Verrouillé : termine d'abord la quête d'Egon « %s »."
 msgid "Gesprengte Fessel"
 msgstr "Entrave brisée"
 
+msgid "Getauscht ist getauscht! Kein Umtausch. Äh … kein Rücktausch."
+msgstr "Échange fait, échange fait ! Ni repris. Euh… ni rendu."
+
 msgid "Getroffene Gegner brennen weiter"
 msgstr "Les ennemis touchés continuent de brûler"
 
@@ -1247,6 +1271,9 @@ msgstr "Gagne en moins de %d minutes"
 
 msgid "Gewöhnlich"
 msgstr "Commun"
+
+msgid "Gezählt wird alles zu Hause: Lager, Inventar und Behälter."
+msgstr "Tout compte à la maison : réserve, inventaire et conteneurs."
 
 msgid "Ghul"
 msgstr "Goule"
@@ -1572,6 +1599,9 @@ msgstr "Cliquez ici"
 msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
 msgstr "Ici se trouve ce qui ne rentre pas dans la réserve. Fais de la place ou vends-le."
 
+msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
+msgstr "Toute une compagnie de chevaliers tient là-dedans. Presque."
+
 msgid "Hinausgeklettert!"
 msgstr "Sorti en grimpant !"
 
@@ -1773,6 +1803,9 @@ msgstr "Chaussures d'enfant"
 msgid "Klappern bei jedem Schritt."
 msgstr "Cliquettent à chaque pas."
 
+msgid "Klein, golden, klappert ein bisschen."
+msgstr "Petite, dorée, elle cliquette un peu."
+
 msgid "Klein, riecht nach Kräutern."
 msgstr "Petite, sent les herbes."
 
@@ -1787,6 +1820,9 @@ msgstr "Clique sur un objet de l'inventaire pour l'équiper. Clique sur ta silho
 
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "Clic ou glisser sur l'onglet Inventaire : attacher à l'inventaire"
+
+msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
+msgstr "Clic : ouvrir. Glisser des objets dessus : les ranger."
 
 msgid "Klicken, um weiterzumachen"
 msgstr "Clique pour continuer"
@@ -2067,6 +2103,15 @@ msgstr "Tu esquives parfois les coups"
 msgid "Material: %s"
 msgstr "Matériau : %s"
 
+msgid "Materialbeutel"
+msgstr "Sac à matériaux"
+
+msgid "Materialfass"
+msgstr "Tonneau à matériaux"
+
+msgid "Materialien"
+msgstr "Matériaux"
+
 msgid "Maus"
 msgstr "Souris"
 
@@ -2162,6 +2207,12 @@ msgstr "Bourse"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "Alors, partenaire ? Nouveau ici ? Ça se voit tout de suite."
+
+msgid "Nach dem Sieg in: %s"
+msgstr "Après la victoire : %s"
+
+msgid "Nach der Quest: %s"
+msgstr "Après la quête : %s"
 
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "Deux objets au choix après chaque boss"
@@ -2406,6 +2457,9 @@ msgstr "Relique"
 msgid "Relikt-Platz"
 msgstr "Emplacement de relique"
 
+msgid "Reliktdose"
+msgstr "Boîte à reliques"
+
 msgid "Relikte"
 msgstr "Reliques"
 
@@ -2421,8 +2475,14 @@ msgstr "Reliques : %d %% par levier, niveaux %s"
 msgid "Reliktpflege"
 msgstr "Soin des reliques"
 
+msgid "Reliktruhe"
+msgstr "Coffre à reliques"
+
 msgid "Reliktschutz"
 msgstr "Protection des reliques"
+
+msgid "Riecht nach Fell, Erz und Abenteuer."
+msgstr "Ça sent la fourrure, le minerai et l'aventure."
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "Sent le marais. Pour toujours."
@@ -2507,6 +2567,15 @@ msgstr "Recul"
 
 msgid "Rückwärts"
 msgstr "Reculer"
+
+msgid "Rüstung"
+msgstr "Armure"
+
+msgid "Rüstungskiste"
+msgstr "Caisse à armures"
+
+msgid "Rüstungsständer"
+msgstr "Porte-armure"
 
 msgid "Salamanderkönigin"
 msgstr "Reine salamandre"
@@ -2973,6 +3042,9 @@ msgstr "Ça te va bien ! Presque aussi bien qu'à moi."
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "Ça te va bien ! Presque aussi bien qu'à moi. À partir de demain, tout coûte une petite obole, bien sûr."
 
+msgid "Steht stramm, auch wenn keiner hinsieht."
+msgstr "Au garde-à-vous, même quand personne ne regarde."
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "Écrase les rochers et plus de butin"
 
@@ -3146,6 +3218,15 @@ msgstr "Touche …"
 
 msgid "Taumelkraut"
 msgstr "Herbe titubante"
+
+msgid "Tausch"
+msgstr "Troc"
+
+msgid "Tausch: Beute gegen Besonderes"
+msgstr "Troc : butin contre du spécial"
+
+msgid "Tauschen"
+msgstr "Échanger"
 
 msgid "Tausendklinge"
 msgstr "Lame des mille"
@@ -3338,6 +3419,15 @@ msgstr "ZQSD : marcher · Souris : viser · Clic gauche : tirer"
 
 msgid "Waffe"
 msgstr "Arme"
+
+msgid "Waffen"
+msgstr "Armes"
+
+msgid "Waffenschrank"
+msgstr "Armoire à armes"
+
+msgid "Waffenständer"
+msgstr "Râtelier d'armes"
 
 msgid "Wanderbündel"
 msgstr "Baluchon du voyageur"

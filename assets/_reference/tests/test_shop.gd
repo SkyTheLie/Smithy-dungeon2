@@ -83,7 +83,7 @@ func _buy_and_equip() -> void:
 	check(meta.call("equip", 0), "the boots go on")
 	check_eq((meta.call("equipment") as Dictionary).get("feet"), {"id": "copper_boots", "rarity": 1}, "on the feet")
 	check_eq((meta.call("stash") as Array).size(), 1, "and out of the inventory")
-	meta.call("end_run", 0, [{"id": "rat_fur", "count": 2}] as Array[Dictionary], RandomNumberGenerator.new())
+	meta.call("end_run", 0, [{"id": "rat_fur", "count": 2}] as Array[Dictionary], _calm_rng())
 	check(meta.call("bag_to_stash", 0), "a fur from the bag into the stash")
 	var fur: int = (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "rat_fur")
 	check(not meta.call("equip", fur), "loot cannot be put on")
@@ -243,16 +243,17 @@ func _relics() -> void:
 	var run: Object = script("res://scripts/systems/run_state.gd").new(4)
 	run.call("use_gear", meta.call("equipment"))
 	check((run.get("items") as Array).has("dreizack"), "in the run it works like the item")
-	meta.call("end_run", 0, [] as Array[Dictionary], RandomNumberGenerator.new())
+	# Fixed seeds: with a random one Egon sometimes takes the whole box at night (steal_all_chance).
+	meta.call("end_run", 0, [] as Array[Dictionary], _calm_rng())
 	check(not (meta.call("equipment") as Dictionary).has("relic_1"), "after its dungeon it is broken")
 	check_eq(meta.call("broken_relic"), "dreizack", "Egon knows which one")
 	meta.call("_write", "table", [goods.call("make_relic", "moorherz")])
 	meta.call("buy", 0)
 	meta.call("equip", (meta.call("stash") as Array).find_custom(func(place: Dictionary) -> bool: return place.get("id") == "moorherz"))
 	for i in 4:
-		meta.call("end_run", 0, [] as Array[Dictionary], RandomNumberGenerator.new())
+		meta.call("end_run", 0, [] as Array[Dictionary], _calm_rng())
 	check_eq(String((meta.call("equipment") as Dictionary).get("relic_1", {}).get("id", "")), "moorherz", "a weak relic holds 5 dungeons: still there after 4")
-	meta.call("end_run", 0, [] as Array[Dictionary], RandomNumberGenerator.new())
+	meta.call("end_run", 0, [] as Array[Dictionary], _calm_rng())
 	check(not (meta.call("equipment") as Dictionary).has("relic_1"), "and broken after the 5th (without Reliktschutz)")
 
 
@@ -260,7 +261,7 @@ func _relics() -> void:
 ## shop.json sell_share of their price; the gold goes into the box.
 func _selling() -> void:
 	meta.call("start_new")
-	meta.call("end_run", 0, [{"id": "rat_fur", "count": 3}] as Array[Dictionary], RandomNumberGenerator.new())
+	meta.call("end_run", 0, [{"id": "rat_fur", "count": 3}] as Array[Dictionary], _calm_rng())
 	for i in 3:
 		meta.call("bag_to_stash", 0)
 	meta.call("lay_tutorial_table")
@@ -302,3 +303,10 @@ func _admin() -> void:
 	var points: int = meta.call("skill_points")
 	meta.call("admin_add_skill_points", 5)
 	check_eq(meta.call("skill_points"), points + 5, "admin: skill points")
+
+
+## A random generator with a fixed seed whose first roll steals nothing (Fehlerklasse 13).
+func _calm_rng() -> RandomNumberGenerator:
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 12345
+	return rng

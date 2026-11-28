@@ -373,7 +373,7 @@ static func stash_grid() -> Vector2i:
 
 
 static func _is_loot(piece: Dictionary) -> bool:
-	return not (piece.has("rarity") or ShopGoods.is_relic(piece) or ShopGoods.is_potion(piece) or ShopGoods.is_backpack(piece))
+	return not (piece.has("rarity") or ShopGoods.is_relic(piece) or ShopGoods.is_potion(piece) or ShopGoods.is_backpack(piece) or ShopGoods.is_container(piece))
 
 
 static func _write_stash(list: Array) -> void:
@@ -491,7 +491,8 @@ static func buy(index: int, free: bool = false, cell: Vector2i = Vector2i(-1, -1
 
 
 ## A piece as it lies in the inventory: gear {id, count 1, rarity}, relic {id, count 1, relic, left},
-## potion {id, count 1, potion}.
+## potion {id, count 1, potion}, container {id, count 1, container, uid, items} (a new uid if it
+## has none: the shop finds an open container by it).
 static func _owned(piece: Dictionary) -> Dictionary:
 	if ShopGoods.is_relic(piece):
 		return {"id": String(piece["id"]), "count": 1, "relic": true, "left": int(piece.get("left", -1))}
@@ -499,6 +500,12 @@ static func _owned(piece: Dictionary) -> Dictionary:
 		return {"id": String(piece["id"]), "count": 1, "potion": true}
 	if ShopGoods.is_backpack(piece):
 		return {"id": String(piece["id"]), "count": 1, "backpack": true}
+	if ShopGoods.is_container(piece):
+		var uid: int = int(piece.get("uid", 0))
+		if uid <= 0:
+			uid = int(_read("next_uid", 1))
+			_write("next_uid", uid + 1)
+		return {"id": String(piece["id"]), "count": 1, "container": true, "uid": uid, "items": (piece.get("items", []) as Array).duplicate(true)}
 	var gear: Dictionary = {"id": String(piece["id"]), "count": 1, "rarity": int(piece.get("rarity", 1))}
 	if not String(piece.get("type", "")).is_empty():
 		gear["type"] = String(piece["type"])
@@ -608,11 +615,193 @@ static func sell(index: int) -> int:
 	if Quests.is_stone(String(own[index].get("id", ""))):
 		return 0
 	var gold: int = ShopGoods.sell_price(own[index])
+	# A container with something in it is not for sale (sell_price 0).
+	if gold <= 0 and ShopGoods.is_container(own[index]):
+		return 0
 	own.remove_at(index)
 	_write_stash(own)
 	_write("box", box() + gold)
 	_save()
 	return gold
+
+
+# --- Containers in the stash (data/containers.json, rules in ShopGoods) -----------------
+
+## Stash place of the container with `uid`, -1 if there is none.
+static func container_index(uid: int) -> int:
+	var own: Array[Dictionary] = stash()
+	for i in own.size():
+		if ShopGoods.is_container(own[i]) and int(own[i].get("uid", 0)) == uid:
+			return i
+	return -1
+
+
+## What lies in container `uid` (one piece per place; loot with its count).
+static func container_items(uid: int) -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	var index: int = container_index(uid)
+	if index < 0:
+		return list
+	for entry: Variant in (stash()[index].get("items", []) as Array):
+		if entry is Dictionary:
+			list.append((entry as Dictionary).duplicate())
+	return list
+
+
+## true if stash piece `index` may go into container `uid` (its kind, a free place or a stack of
+## the same loot with room).
+static func container_fits(uid: int, index: int) -> bool:
+	var own: Array[Dictionary] = stash()
+	var at: int = container_index(uid)
+	if at < 0 or index < 0 or index >= own.size() or index == at:
+		return false
+	return _container_room(own[at], own[index]) != -2
+
+
+## Where `piece` goes in `box`: the index of a stack of the same loot with room, -1 = a new
+## place, -2 = no room or the wrong kind.
+static func _container_room(box: Dictionary, piece: Dictionary) -> int:
+	var id: String = String(box.get("id", ""))
+	if not ShopGoods.container_accepts(id, piece):
+		return -2
+	var items: Array = box.get("items", [])
+	if ShopGoods.kind_of(piece) == "loot":
+		for i in items.size():
+			var other: Dictionary = items[i]
+			if String(other.get("id", "")) == String(piece.get("id", "")) and int(other.get("count", 1)) < ShopGoods.container_stack(id):
+				return i
+	return -1 if items.size() < ShopGoods.container_slots(id) else -2
+
+
+## Stash piece `index` into container `uid`. false = nothing changed.
+static func container_put(uid: int, index: int) -> bool:
+	if not container_fits(uid, index):
+		return false
+	var own: Array[Dictionary] = stash()
+	var box: Dictionary = own[container_index(uid)]
+	var piece: Dictionary = own[index]
+	var items: Array = (box.get("items", []) as Array).duplicate(true)
+	var room: int = _container_room(box, piece)
+	if room >= 0:
+		items[room]["count"] = int(items[room].get("count", 1)) + 1
+	else:
+		var stored: Dictionary = _owned(piece)
+		for key: String in ["x", "y", "rot"]:
+			stored.erase(key)
+		items.append(stored)
+	box["items"] = items
+	own.remove_at(index)
+	_write_stash(own)
+	_save()
+	return true
+
+
+## One piece of place `slot` of container `uid` back into the stash, on `cell` turned `rot`
+## (cell (-1, -1) = anywhere, also under "Kein Platz"). Loot comes out one at a time. false = no
+## such piece, or no room on `cell`.
+static func container_take(uid: int, slot: int, cell: Vector2i = Vector2i(-1, -1), rot: bool = false) -> bool:
+	var own: Array[Dictionary] = stash()
+	var at: int = container_index(uid)
+	if at < 0:
+		return false
+	var box: Dictionary = own[at]
+	var items: Array = (box.get("items", []) as Array).duplicate(true)
+	if slot < 0 or slot >= items.size():
+		return false
+	var stored: Dictionary = items[slot]
+	var piece: Dictionary = stored.duplicate()
+	piece["count"] = 1
+	if cell != Vector2i(-1, -1):
+		if not ItemGrid.fits(own, stash_grid(), piece, cell, rot):
+			return false
+		piece.merge({"x": cell.x, "y": cell.y, "rot": rot}, true)
+	if int(stored.get("count", 1)) > 1:
+		stored["count"] = int(stored["count"]) - 1
+	else:
+		items.remove_at(slot)
+	box["items"] = items
+	own.append(piece)
+	_write_stash(own)
+	_save()
+	return true
+
+
+# --- Egon's exchange (data/trades.json, rules in Trades) -------------------------------
+
+## How much loot `id` is at home: stash (also "Kein Platz"), the bag at home, the containers.
+static func home_count(id: String) -> int:
+	var total: int = 0
+	for piece: Dictionary in stash():
+		if ShopGoods.is_container(piece):
+			for stored: Variant in piece.get("items", []):
+				if stored is Dictionary and String((stored as Dictionary).get("id", "")) == id and _is_loot(stored):
+					total += int((stored as Dictionary).get("count", 1))
+		elif _is_loot(piece) and String(piece.get("id", "")) == id:
+			total += int(piece.get("count", 1))
+	return total + _bag_model().count_of(id)
+
+
+## true when offer `id` is open, its piece exists and everything it costs is at home.
+static func can_trade(id: String) -> bool:
+	var offer: Dictionary = Trades.find(id)
+	if offer.is_empty() or not Trades.is_open(offer) or Trades.piece_of(offer).is_empty():
+		return false
+	for cost: Array in Trades.costs(offer):
+		if home_count(String(cost[0])) < int(cost[1]):
+			return false
+	return true
+
+
+## Exchange offer `id`: its loot goes (first from "Kein Platz", then the stash, the bag, the
+## containers), its piece comes into the stash. false = nothing changed.
+static func trade(id: String) -> bool:
+	if not can_trade(id):
+		return false
+	var offer: Dictionary = Trades.find(id)
+	var own: Array[Dictionary] = stash()
+	var bag: Bag = _bag_model()
+	for cost: Array in Trades.costs(offer):
+		var loot: String = String(cost[0])
+		var left: int = int(cost[1])
+		# Stash: pieces without room first, then those in the grid.
+		for placed: bool in [false, true]:
+			for i in range(own.size() - 1, -1, -1):
+				if left <= 0:
+					break
+				var piece: Dictionary = own[i]
+				if ItemGrid.is_placed(piece) != placed or not _is_loot(piece) or String(piece.get("id", "")) != loot:
+					continue
+				var taken: int = mini(left, int(piece.get("count", 1)))
+				left -= taken
+				piece["count"] = int(piece.get("count", 1)) - taken
+				if int(piece["count"]) <= 0:
+					own.remove_at(i)
+		var from_bag: int = mini(left, bag.count_of(loot))
+		if from_bag > 0 and bag.remove(loot, from_bag):
+			left -= from_bag
+		for piece: Dictionary in own:
+			if left <= 0:
+				break
+			if not ShopGoods.is_container(piece):
+				continue
+			var items: Array = (piece.get("items", []) as Array).duplicate(true)
+			for i in range(items.size() - 1, -1, -1):
+				if left <= 0:
+					break
+				var stored: Dictionary = items[i]
+				if String(stored.get("id", "")) != loot or not _is_loot(stored):
+					continue
+				var taken: int = mini(left, int(stored.get("count", 1)))
+				left -= taken
+				stored["count"] = int(stored.get("count", 1)) - taken
+				if int(stored["count"]) <= 0:
+					items.remove_at(i)
+			piece["items"] = items
+	own.append(_owned(Trades.piece_of(offer)))
+	_write_stash(own)
+	_save_bag(bag)
+	_save()
+	return true
 
 
 # --- Egon's quests (data/quests.json, rules in Quests) ---------------------------------

@@ -30,6 +30,9 @@ msgstr "在埃贡那里出现R2的几率提高5 %。"
 msgid "Ab Spielerstufe %d"
 msgstr "玩家等级 %d 起"
 
+msgid "Ab Stufe %d"
+msgstr "%d级起"
+
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "从现在起我桌上会常有药水。当然是友情价。"
 
@@ -41,6 +44,9 @@ msgstr "可别就这样去，一件装备都没有。来，先看看我的店。
 
 msgid "Abgeben"
 msgstr "交付"
+
+msgid "Abschließbar. Theoretisch."
+msgstr "能上锁。理论上。"
 
 msgid "Abstand"
 msgstr "间距"
@@ -165,11 +171,17 @@ msgstr "强盗营地"
 msgid "Beenden"
 msgstr "退出"
 
+msgid "Behälter für %s"
+msgstr "%s容器"
+
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "命中时子弹炸成四颗火花"
 
 msgid "Beine"
 msgstr "腿部"
+
+msgid "Belegt: %d/%d"
+msgstr "已用：%d/%d"
 
 msgid "Belohnung: der nächste Dungeon und %d Gold"
 msgstr "奖励：下一个地牢和 %d 金币"
@@ -684,6 +696,9 @@ msgstr "一座冰山，山顶狂风肆虐。路上有狼、鹰身女妖和一只
 msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
 msgstr "一块琥珀、三颗炸弹、三把钥匙"
 
+msgid "Ein Fass ohne Boden. Fast ohne."
+msgstr "无底的桶。差不多吧。"
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "一颗火球环绕着你并阻挡子弹"
 
@@ -845,6 +860,9 @@ msgstr "埃贡的桌上多一件货物。"
 
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "2×2格的小包。在埃贡那里装到你的背包栏上。"
+
+msgid "Eine Truhe mit Schloss. Den Schlüssel hat Egon. Sagt er."
+msgstr "带锁的箱子。钥匙在埃贡那儿。他说的。"
 
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "草长得和矮人一样高。草丛里沙沙作响，还有个猎人在设陷阱。埃贡卖镰刀。可惜卖完了。"
@@ -1125,6 +1143,9 @@ msgstr "十五枚硬币"
 msgid "Für Schritte, die man lieber nicht hört."
 msgstr "为了那些最好别听见的脚步。"
 
+msgid "Für Stäbe, Bögen und alles mit spitzem Ende."
+msgstr "放法杖、弓和一切带尖的东西。"
+
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "给你的：一根铜法杖、一顶头盔和一副胸甲。第一次购物算我的！"
 
@@ -1212,6 +1233,9 @@ msgstr "未开放：先完成埃贡的任务「%s」。"
 msgid "Gesprengte Fessel"
 msgstr "破碎镣铐"
 
+msgid "Getauscht ist getauscht! Kein Umtausch. Äh … kein Rücktausch."
+msgstr "换了就是换了！不退换。呃……不换回。"
+
 msgid "Getroffene Gegner brennen weiter"
 msgstr "被击中的敌人会持续燃烧"
 
@@ -1247,6 +1271,9 @@ msgstr "在%d分钟内通关"
 
 msgid "Gewöhnlich"
 msgstr "普通"
+
+msgid "Gezählt wird alles zu Hause: Lager, Inventar und Behälter."
+msgstr "家里的东西都算：仓库、背包和容器。"
 
 msgid "Ghul"
 msgstr "食尸鬼"
@@ -1572,6 +1599,9 @@ msgstr "点击这里"
 msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
 msgstr "放不进仓库的东西在这里。腾出空间或卖掉。"
 
+msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
+msgstr "能装下一整队骑士。差不多吧。"
+
 msgid "Hinausgeklettert!"
 msgstr "爬出来了！"
 
@@ -1773,6 +1803,9 @@ msgstr "童鞋"
 msgid "Klappern bei jedem Schritt."
 msgstr "每走一步都哐当作响。"
 
+msgid "Klein, golden, klappert ein bisschen."
+msgstr "小小的，金色的，有点咔嗒响。"
+
 msgid "Klein, riecht nach Kräutern."
 msgstr "小小的，带着草药味。"
 
@@ -1787,6 +1820,9 @@ msgstr "点击背包里的物品就能穿上，点击角色就能脱下。"
 
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "点击或拖到背包标签：装到背包上"
+
+msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
+msgstr "点击：打开。把物品拖上去：放进去。"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "点击继续"
@@ -2067,6 +2103,15 @@ msgstr "你有时会闪避攻击"
 msgid "Material: %s"
 msgstr "材料：%s"
 
+msgid "Materialbeutel"
+msgstr "材料袋"
+
+msgid "Materialfass"
+msgstr "材料桶"
+
+msgid "Materialien"
+msgstr "材料"
+
 msgid "Maus"
 msgstr "鼠标"
 
@@ -2162,6 +2207,12 @@ msgstr "钱袋"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "怎么样，伙计？新来的？一眼就看出来了。"
+
+msgid "Nach dem Sieg in: %s"
+msgstr "在%s获胜后"
+
+msgid "Nach der Quest: %s"
+msgstr "完成任务后：%s"
 
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "每个首领后可从两件物品中选择"
@@ -2406,6 +2457,9 @@ msgstr "圣物"
 msgid "Relikt-Platz"
 msgstr "圣物格"
 
+msgid "Reliktdose"
+msgstr "遗物盒"
+
 msgid "Relikte"
 msgstr "圣物"
 
@@ -2421,8 +2475,14 @@ msgstr "圣物：每拉一次%d %%，等级 %s"
 msgid "Reliktpflege"
 msgstr "圣物保养"
 
+msgid "Reliktruhe"
+msgstr "遗物箱"
+
 msgid "Reliktschutz"
 msgstr "遗物守护"
+
+msgid "Riecht nach Fell, Erz und Abenteuer."
+msgstr "有毛皮、矿石和冒险的味道。"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "一股沼泽味。永远散不掉。"
@@ -2507,6 +2567,15 @@ msgstr "击退"
 
 msgid "Rückwärts"
 msgstr "后退"
+
+msgid "Rüstung"
+msgstr "护甲"
+
+msgid "Rüstungskiste"
+msgstr "护甲箱"
+
+msgid "Rüstungsständer"
+msgstr "护甲架"
 
 msgid "Salamanderkönigin"
 msgstr "火蜥蜴女王"
@@ -2973,6 +3042,9 @@ msgstr "挺合身！差不多跟我一样帅。"
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "挺合身！差不多跟我一样帅。从明天起，一切都要收点小费，当然啦。"
 
+msgid "Steht stramm, auch wenn keiner hinsieht."
+msgstr "没人看也站得笔直。"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "踩碎岩石，战利品更多"
 
@@ -3146,6 +3218,15 @@ msgstr "按键…"
 
 msgid "Taumelkraut"
 msgstr "蹒跚草"
+
+msgid "Tausch"
+msgstr "交换"
+
+msgid "Tausch: Beute gegen Besonderes"
+msgstr "交换：用战利品换特别物品"
+
+msgid "Tauschen"
+msgstr "交换"
 
 msgid "Tausendklinge"
 msgstr "千刃"
@@ -3338,6 +3419,15 @@ msgstr "WASD：移动 · 鼠标：瞄准 · 左键：射击"
 
 msgid "Waffe"
 msgstr "武器"
+
+msgid "Waffen"
+msgstr "武器"
+
+msgid "Waffenschrank"
+msgstr "武器柜"
+
+msgid "Waffenständer"
+msgstr "武器架"
 
 msgid "Wanderbündel"
 msgstr "旅人包裹"

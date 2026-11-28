@@ -30,6 +30,9 @@ msgstr "エゴンの店でR2が出る確率が5 %アップ。"
 msgid "Ab Spielerstufe %d"
 msgstr "プレイヤーレベル %d から"
 
+msgid "Ab Stufe %d"
+msgstr "レベル%dから"
+
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "これからは机によく薬が並ぶぞ。もちろん友達価格でな。"
 
@@ -41,6 +44,9 @@ msgstr "でも装備なしじゃだめだ。まずは俺の店を見ていきな
 
 msgid "Abgeben"
 msgstr "渡す"
+
+msgid "Abschließbar. Theoretisch."
+msgstr "鍵付き。理論上は。"
 
 msgid "Abstand"
 msgstr "間隔"
@@ -165,11 +171,17 @@ msgstr "盗賊のアジト"
 msgid "Beenden"
 msgstr "終了"
 
+msgid "Behälter für %s"
+msgstr "%s用の入れ物"
+
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "命中すると4つの火花に弾ける"
 
 msgid "Beine"
 msgstr "脚"
+
+msgid "Belegt: %d/%d"
+msgstr "使用中：%d/%d"
 
 msgid "Belohnung: der nächste Dungeon und %d Gold"
 msgstr "報酬：次のダンジョンと%dゴールド"
@@ -684,6 +696,9 @@ msgstr "氷の山、頂上では嵐が荒れ狂う。道中には狼、ハーピ
 msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
 msgstr "琥珀1つ、爆弾3つ、鍵3つ"
 
+msgid "Ein Fass ohne Boden. Fast ohne."
+msgstr "底なしの樽。ほぼ。"
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "火の玉が周りを回り、弾を防ぐ"
 
@@ -845,6 +860,9 @@ msgstr "エゴンのテーブルの品物が1つ増える。"
 
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "2×2マスのポーチ。エゴンの店で持ち物に取り付けよう。"
+
+msgid "Eine Truhe mit Schloss. Den Schlüssel hat Egon. Sagt er."
+msgstr "鍵付きの箱。鍵はエゴンが持ってる。本人いわく。"
 
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "ドワーフほどの高さの草原。草がざわめき、狩人が罠を仕掛ける。エゴンは鎌を売っている。あいにく品切れ。"
@@ -1125,6 +1143,9 @@ msgstr "コイン15枚"
 msgid "Für Schritte, die man lieber nicht hört."
 msgstr "聞きたくない足音のために。"
 
+msgid "Für Stäbe, Bögen und alles mit spitzem Ende."
+msgstr "杖、弓、先のとがったもの全部に。"
+
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "君にはこれだ：銅の杖、兜、胸当て。初回の買い物は店のおごりだ！"
 
@@ -1212,6 +1233,9 @@ msgstr "未開放：まずエゴンのクエスト「%s」を達成しよう。"
 msgid "Gesprengte Fessel"
 msgstr "砕けた枷"
 
+msgid "Getauscht ist getauscht! Kein Umtausch. Äh … kein Rücktausch."
+msgstr "交換は交換だ！返品なし。えっと…取り消しなし。"
+
 msgid "Getroffene Gegner brennen weiter"
 msgstr "当たった敵は燃え続ける"
 
@@ -1247,6 +1271,9 @@ msgstr "%d分以内にクリアする"
 
 msgid "Gewöhnlich"
 msgstr "コモン"
+
+msgid "Gezählt wird alles zu Hause: Lager, Inventar und Behälter."
+msgstr "家にあるものは全部数える：倉庫、インベントリ、入れ物。"
 
 msgid "Ghul"
 msgstr "グール"
@@ -1572,6 +1599,9 @@ msgstr "ここをクリック"
 msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
 msgstr "倉庫に入らない物はここに置かれる。場所を空けるか売ろう。"
 
+msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
+msgstr "騎士団まるごと入る。ほぼ。"
+
 msgid "Hinausgeklettert!"
 msgstr "脱出成功！"
 
@@ -1773,6 +1803,9 @@ msgstr "子供の靴"
 msgid "Klappern bei jedem Schritt."
 msgstr "歩くたびにカチャカチャ鳴る。"
 
+msgid "Klein, golden, klappert ein bisschen."
+msgstr "小さくて金色、ちょっとカタカタ鳴る。"
+
 msgid "Klein, riecht nach Kräutern."
 msgstr "小さくて薬草の香り。"
 
@@ -1787,6 +1820,9 @@ msgstr "インベントリの物をクリックで装備。キャラをクリッ
 
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "クリックか持ち物タブへドラッグ：持ち物に取り付け"
+
+msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
+msgstr "クリック：開く。ドラッグで重ねる：しまう。"
 
 msgid "Klicken, um weiterzumachen"
 msgstr "クリックで続ける"
@@ -2067,6 +2103,15 @@ msgstr "時々攻撃を回避する"
 msgid "Material: %s"
 msgstr "素材：%s"
 
+msgid "Materialbeutel"
+msgstr "素材袋"
+
+msgid "Materialfass"
+msgstr "素材樽"
+
+msgid "Materialien"
+msgstr "素材"
+
 msgid "Maus"
 msgstr "マウス"
 
@@ -2162,6 +2207,12 @@ msgstr "コイン袋"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "よう、相棒。ここは初めてか？すぐわかるぜ。"
+
+msgid "Nach dem Sieg in: %s"
+msgstr "%sで勝利後"
+
+msgid "Nach der Quest: %s"
+msgstr "クエスト後：%s"
 
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "ボスの後にアイテムを2つから選べる"
@@ -2406,6 +2457,9 @@ msgstr "レリック"
 msgid "Relikt-Platz"
 msgstr "レリック枠"
 
+msgid "Reliktdose"
+msgstr "遺物ケース"
+
 msgid "Relikte"
 msgstr "レリック"
 
@@ -2421,8 +2475,14 @@ msgstr "レリック：レバー1回%d %%、段階 %s"
 msgid "Reliktpflege"
 msgstr "レリックの手入れ"
 
+msgid "Reliktruhe"
+msgstr "遺物の箱"
+
 msgid "Reliktschutz"
 msgstr "遺物の守り"
+
+msgid "Riecht nach Fell, Erz und Abenteuer."
+msgstr "毛皮と鉱石と冒険のにおい。"
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "沼の匂いがする。永遠に。"
@@ -2507,6 +2567,15 @@ msgstr "ノックバック"
 
 msgid "Rückwärts"
 msgstr "後退"
+
+msgid "Rüstung"
+msgstr "防具"
+
+msgid "Rüstungskiste"
+msgstr "防具箱"
+
+msgid "Rüstungsständer"
+msgstr "防具スタンド"
 
 msgid "Salamanderkönigin"
 msgstr "サラマンダーの女王"
@@ -2973,6 +3042,9 @@ msgstr "似合ってるぜ！俺ほどじゃないがな。"
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "似合ってるぜ！俺ほどじゃないがな。明日からは何でもちょっとした手数料がかかる、当然な。"
 
+msgid "Steht stramm, auch wenn keiner hinsieht."
+msgstr "誰も見ていなくても直立不動。"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "岩を踏み砕き、戦利品が増える"
 
@@ -3146,6 +3218,15 @@ msgstr "キー…"
 
 msgid "Taumelkraut"
 msgstr "よろめき草"
+
+msgid "Tausch"
+msgstr "交換"
+
+msgid "Tausch: Beute gegen Besonderes"
+msgstr "交換：戦利品を特別な品に"
+
+msgid "Tauschen"
+msgstr "交換する"
 
 msgid "Tausendklinge"
 msgstr "千の刃"
@@ -3338,6 +3419,15 @@ msgstr "WASD: 移動 · マウス: 狙う · 左クリック: 撃つ"
 
 msgid "Waffe"
 msgstr "武器"
+
+msgid "Waffen"
+msgstr "武器"
+
+msgid "Waffenschrank"
+msgstr "武器棚"
+
+msgid "Waffenständer"
+msgstr "武器立て"
 
 msgid "Wanderbündel"
 msgstr "旅人の包み"

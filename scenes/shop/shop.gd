@@ -37,6 +37,9 @@ extends Control
 ## Egon's ruby (MetaState.ruby_due: after climbing out at the rope of the first boss): the ruby
 ## shines in the inventory and flies over to Egon (MetaState.deliver_ruby); without one he asks
 ## for it again (until one comes home).
+## Containers (data/containers.json) lie in the stash: a click opens one (ContainerWindow above
+## the stash); drag a piece onto a container or one of its places = put it in, a place into the
+## stash = take one out (MetaState.container_put / container_take).
 ## P (only in debug builds, started from the editor): the admin menu of the shop (ShopAdminMenu).
 ## All rules live in MetaState / ShopGoods; this screen only shows them and plays the animations.
 
@@ -71,10 +74,15 @@ var _stash_board: ItemBoard
 var _overflow: HFlowContainer
 var _overflow_slots: Dictionary[int, ShopSlot] = {}
 var _hero: HeroPanel
+## An open container of the stash (click on it; ContainerWindow).
+var _container_window: ContainerWindow
 ## Left: the tabs Ausrüstung / Inventar.
 var _equipment_tab: Button
 var _inventory_tab_button: Button
 var _inventory_tab: PanelContainer
+## The Tausch tab: loot against containers, backpacks … (TradePanel, data/trades.json).
+var _trade_tab_button: Button
+var _trade_panel: TradePanel
 var _backpack_board: BackpackBoard
 ## "Rucksäcke 1/2" over the bag: attached / allowed (MetaState.backpack_limit).
 var _backpack_count: Label
@@ -244,6 +252,10 @@ func _build() -> void:
 	_dialog.size = Vector2(256, 72)
 	_frame.add_child(_dialog)
 	_dialog.hide()
+	_container_window = ContainerWindow.new()
+	_container_window.position = Vector2(MIDDLE_X, 112)
+	_container_window.changed.connect(_refresh)
+	_frame.add_child(_container_window)
 
 	# The buttons along the bottom edge.
 	_menu_button = _button(Language.translate("Hauptmenü"), Vector2(8, BUTTON_Y))
@@ -297,6 +309,13 @@ func _build_tabs() -> void:
 	_inventory_tab_button = _tab_button(Language.translate("Inventar"), "inventory")
 	_inventory_tab_button.name = "InventoryTab"
 	tabs.add_child(_inventory_tab_button)
+	_trade_tab_button = _tab_button(Language.translate("Tausch"), "trade")
+	_trade_tab_button.name = "TradeTab"
+	tabs.add_child(_trade_tab_button)
+	_trade_panel = TradePanel.new()
+	_trade_panel.position = Vector2(8, 66)
+	_trade_panel.trade_requested.connect(_on_trade_requested)
+	_frame.add_child(_trade_panel)
 	_inventory_tab = _panel(Vector2(8, 66))
 	_inventory_tab.name = "InventoryPanel"
 	var column := VBoxContainer.new()
@@ -355,18 +374,41 @@ func _tab_button(text: String, tab: String) -> Button:
 	return button
 
 
-## "equipment" (the hero) or "inventory" (the bag of the next run).
+## "equipment" (the hero), "inventory" (the bag of the next run) or "trade" (Egon's exchange).
 func _show_tab(tab: String) -> void:
 	_hero.visible = tab == "equipment"
 	_inventory_tab.visible = tab == "inventory"
+	_trade_panel.visible = tab == "trade"
 	_equipment_tab.set_pressed_no_signal(tab == "equipment")
 	_inventory_tab_button.set_pressed_no_signal(tab == "inventory")
+	_trade_tab_button.set_pressed_no_signal(tab == "trade")
 	if tab == "inventory":
 		_refresh_bag()
+	elif tab == "trade":
+		_trade_panel.refresh()
 
 
 func get_inventory_tab() -> PanelContainer:
 	return _inventory_tab
+
+
+func get_trade_panel() -> TradePanel:
+	return _trade_panel
+
+
+## Tausch: MetaState.trade; the new piece shines in the stash, Egon is pleased.
+func _on_trade_requested(id: String) -> void:
+	if _locked or not MetaState.trade(id):
+		AudioManager.play_sound("denied")
+		return
+	AudioManager.play_sound("unlock", 1.1)
+	_bark("traded")
+	_refresh()
+	var index: int = MetaState.stash().size() - 1
+	_stash_board.set_glow(index, true)
+	get_tree().create_timer(1.2, false).timeout.connect(func() -> void:
+		if is_instance_valid(_stash_board):
+			_stash_board.set_glow(index, false))
 
 
 func get_backpack_board() -> BackpackBoard:
@@ -448,10 +490,14 @@ func get_table_board() -> ItemBoard:
 	return _table_board
 
 
+func get_container_window() -> ContainerWindow:
+	return _container_window
+
+
 ## The stash takes pieces of the stash (also from "Kein Platz"), goods from the table (buy),
 ## what the hero wears (take off) and attached backpacks.
 func _stash_accepts(data: Dictionary) -> bool:
-	return String(data.get("from", "")) in ["stash", "table", "hero", "bag"] or data.has("backpack")
+	return String(data.get("from", "")) in ["stash", "table", "hero", "bag", "container"] or data.has("backpack")
 
 
 ## 1 = fits, 2 = swaps with one other piece, 0 = no.
@@ -464,7 +510,7 @@ func _stash_judge(data: Dictionary, cell: Vector2i, rot: bool) -> int:
 	if String(data.get("from", "")) == "table":
 		var price: int = int((data["piece"] as Dictionary).get("price", 0))
 		return 1 if price <= MetaState.box() and ItemGrid.fits(own, grid, data["piece"], cell, rot) else 0
-	if String(data.get("from", "")) == "hero":
+	if String(data.get("from", "")) in ["hero", "container"]:
 		return 1 if ItemGrid.fits(own, grid, data["piece"], cell, rot) else 0
 	if String(data.get("from", "")) == "bag":
 		var single: Dictionary = (data["piece"] as Dictionary).duplicate()
@@ -475,6 +521,9 @@ func _stash_judge(data: Dictionary, cell: Vector2i, rot: bool) -> int:
 	var index: int = int(data.get("index", -1))
 	if index < 0 or index >= own.size():
 		return 0
+	# Onto a container that takes it: in it goes.
+	if _container_under(data, cell) >= 0:
+		return 1
 	if ItemGrid.fits(own, grid, own[index], cell, rot, [index]):
 		return 1
 	var under: Array[int] = []
@@ -508,10 +557,28 @@ func _on_stash_dropped(data: Dictionary, cell: Vector2i, rot: bool) -> void:
 		done = MetaState.unequip(String(data["slot"]), cell, rot)
 	elif String(data.get("from", "")) == "bag":
 		done = MetaState.bag_to_stash(int(data["index"]), cell, rot)
+	elif String(data.get("from", "")) == "container":
+		done = MetaState.container_take(int(data["uid"]), int(data["index"]), cell, rot)
+	elif _container_under(data, cell) >= 0:
+		done = MetaState.container_put(_container_under(data, cell), int(data["index"]))
 	else:
 		done = MetaState.move_in_stash(int(data["index"]), cell, rot)
 	AudioManager.play_sound("pickup" if done else "denied", 1.2)
 	_refresh()
+
+
+## The uid of the container under the mouse when stash piece `data` is dropped with its top left
+## on `cell`, if it takes the piece (MetaState.container_fits); -1 otherwise.
+func _container_under(data: Dictionary, cell: Vector2i) -> int:
+	if String(data.get("from", "")) != "stash":
+		return -1
+	var own: Array[Dictionary] = MetaState.stash()
+	var target: int = ItemGrid.index_at(own, cell + (data.get("grab", Vector2i.ZERO) as Vector2i))
+	var index: int = int(data.get("index", -1))
+	if target < 0 or target == index or not ShopGoods.is_container(own[target]):
+		return -1
+	var uid: int = int(own[target].get("uid", 0))
+	return uid if MetaState.container_fits(uid, index) else -1
 
 
 ## R or the right mouse button while dragging turns the dragged piece or backpack.
@@ -584,6 +651,8 @@ func _refresh() -> void:
 	_refresh_inventory()
 	if _inventory_tab.visible:
 		_refresh_bag()
+	if _trade_panel.visible:
+		_trade_panel.refresh()
 	_hero.refresh()
 	_chance_bar.refresh()
 
@@ -632,6 +701,8 @@ func _refresh_inventory() -> void:
 			return ItemBoard.make_drag(place, "stash", index, piece, false, Vector2i.ZERO, STASH_CELL), Callable(), Callable())
 		_overflow.add_child(place)
 		_overflow_slots[i] = place
+	if _container_window.visible:
+		_container_window.refresh()
 	_refresh_quest_place()
 	_refresh_money_box()
 
@@ -946,6 +1017,15 @@ func _on_table_clicked(index: int) -> void:
 func _on_inventory_clicked(index: int) -> void:
 	var own: Array[Dictionary] = MetaState.stash()
 	if _locked or index < 0 or index >= own.size():
+		return
+	# A container: open it (again: close it).
+	if ShopGoods.is_container(own[index]):
+		var uid: int = int(own[index].get("uid", 0))
+		if _container_window.visible and _container_window.uid == uid:
+			_container_window.close_box()
+		else:
+			_container_window.show_box(uid)
+		AudioManager.play_sound("pickup", 0.9)
 		return
 	# A backpack: attach it to the bag (where it fits first), the Inventar tab shows it.
 	if ShopGoods.is_backpack(own[index]):

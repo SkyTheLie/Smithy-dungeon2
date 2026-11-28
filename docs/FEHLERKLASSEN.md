@@ -32,6 +32,7 @@ Aus Smithy übernommen, was hier gilt (Smithy: `docs/FEHLERKLASSEN.md`). Kurz ha
 
 Format: `Datum · Branch · Ursache · Regel-Nummer (oder „neu“)`
 
+- 2026-11-28 · feature/behaelter-tausch · `test_shop` schlug selten fehl: `end_run` mit ungesetztem Zufall, Egon nahm nachts manchmal die ganze Dose (1 %), danach fehlte Gold zum Kaufen · 13 (Tests geben `end_run` immer einen Zufall mit festem Seed)
 - 2026-11-27 · fix/lich-bild · Lich-Bild mit 64 px und 4 Reihen (eine je Richtung), Code nahm 48 px und eine Reihe an: ein gestauchter Streifen, das Bild lief „von unten nach oben“ · neu: Gegner-Bilder sind eine Reihe in `frame`-Größe (Test `_check_sheet`); `Enemy._set_sheet` setzt `vframes`, damit mehrreihige Bilder nur die erste Reihe zeigen
 - 2026-11-27 · feature/admin-laden · `angles = [..] if a else [..]` gab ein ungetyptes Array; Zuweisung an `Array[float]` brach ab (zeigte sich erst, als Münzen den Zufall verschoben) · neu: getypte Arrays nicht über `x if c else y` füllen, sondern mit `if`/`else`
 - 2026-11-27 · feature/laden-raster · Bilder, die erst in `_draw` geladen wurden, erschienen als weiße Flächen (nur das erste klappte) · 9 (Bilder vorher laden, z. B. in `show_pieces`/`refresh`)
