@@ -728,6 +728,41 @@ func _next_vanish(cfg: Dictionary) -> float:
 	return randf_range(float(every[0]), float(every[1]))
 
 
+## Height above the floor of its picture (a boss jumping in an arc).
+func set_jump(height_now: float) -> void:
+	_jump_y = height_now
+
+
+## Acid worm: a blob of acid flies in an arc to `at` (a mark shows where), lands after `time`
+## seconds: hurts the player standing there (not flying) and leaves an acid puddle.
+func lob_acid(at: Vector3, time: float) -> void:
+	if dungeon == null:
+		return
+	var target := Vector3(at.x, 0.0, at.z)
+	mark(target, 0.8, time)
+	var blob := Fx.billboard(EnemyShot.ball_for(1), 0.5)
+	dungeon.effects.add_child(blob)
+	var from: Vector3 = aim_point()
+	blob.global_position = from
+	sound("enemy_shoot", 0.7)
+	var effects: Node3D = dungeon.effects
+	var fly := func(t: float) -> void:
+		blob.global_position = from.lerp(target, t) + Vector3(0, sin(PI * t) * 2.2 + (1.0 - t) * 0.2, 0)
+	var land := func() -> void:
+		blob.queue_free()
+		if not is_instance_valid(effects) or not effects.is_inside_tree():
+			return
+		Fx.puff(effects, target + Vector3(0, 0.2, 0), "shot_1", 1.0)
+		AudioManager.play_sound_at("enemy_shoot", target, effects, 0.55)
+		if player and not player.flying() and Vector2(player.global_position.x - target.x, player.global_position.z - target.z).length() < 0.9:
+			player.take_hit(1)
+		if is_instance_valid(dungeon):
+			dungeon.add_hazard("acid", target, float(data.get("acid_life", 6.0)))
+	var tween := blob.create_tween()
+	tween.tween_method(fly, 0.0, 1.0, time)
+	tween.tween_callback(land)
+
+
 ## Boss phases: the colour of the new phase (multiplied onto its own tint).
 func set_phase_tint(color: Color) -> void:
 	_base_color = _own_tint * color

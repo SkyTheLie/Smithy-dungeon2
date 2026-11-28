@@ -3312,6 +3312,12 @@ msgstr "シナジー: %s！"
 msgid "Synergien: %s"
 msgstr "シナジー: %s"
 
+msgid "Säurepfütze"
+msgstr "酸の水たまり"
+
+msgid "Säurewurm"
+msgstr "酸の大ミミズ"
+
 msgid "T-Form (oben offen)"
 msgstr "T字型（上なし）"
 

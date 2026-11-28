@@ -140,6 +140,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 Reihenfolge (klein zuerst): Schuss-Farben → Untote stehen auf → Geister unsichtbar → Kisten und Stein-Kammer → Pfeil-Wände → Stachelsteine → Monster-Falle → Boss-Phasen → Wand-Geist → Wurm-Boss → Vogel-Boss → Egons Umzug mit Gimmicks → UI-Komfort im Laden und Tab.
 
 - ✅ Schuss-Farben nach Schaden (`enemies.json` `shot_colors`, `feature/schuss-farben`).
+- ✅ Säurewurm-Boss (Sprung aus dem Boden, Säurepfützen; `acid_worm`, `feature/wurm-boss`).
 - ✅ Wandgeist: kommt aus der Wand, zieht an, Kralle (`wall_wraith`, ai `wall_ghost`, `feature/wand-geist`).
 - ✅ Boss-Phasen für alle Bosse (50 %: neues Muster, 25 %: Wut; Brüllen dazwischen, Striche am Balken; `enemies.json` `boss_phases`, `feature/boss-phasen`).
 - ✅ Monster-Falle: versteckte Platte, Gegner fallen von der Decke (`floors.json` `ceiling_traps`, `feature/monster-falle`).

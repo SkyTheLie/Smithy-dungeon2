@@ -1287,5 +1287,7 @@
 	"Nur einmal.": {"en": "Only once.", "es": "Solo una vez.", "fr": "Une seule fois.", "pt": "Só uma vez.", "ru": "Только один раз.", "ja": "一度だけ。", "zh": "仅限一次。", "fa": "فقط یک بار."},
 	"Schon getauscht": {"en": "Already traded", "es": "Ya cambiado", "fr": "Déjà échangé", "pt": "Já trocado", "ru": "Уже обменяно", "ja": "交換済み", "zh": "已交换", "fa": "قبلاً معاوضه شده"},
 	"Eine Falle!": {"en": "A trap!", "es": "¡Una trampa!", "fr": "Un piège !", "pt": "Uma armadilha!", "ru": "Ловушка!", "ja": "罠だ！", "zh": "陷阱！", "fa": "یک تله!"},
-	"Wandgeist": {"en": "Wall Wraith", "es": "Espectro del muro", "fr": "Spectre du mur", "pt": "Espectro da parede", "ru": "Стенной призрак", "ja": "壁の亡霊", "zh": "墙中幽灵", "fa": "شبح دیوار"}
+	"Wandgeist": {"en": "Wall Wraith", "es": "Espectro del muro", "fr": "Spectre du mur", "pt": "Espectro da parede", "ru": "Стенной призрак", "ja": "壁の亡霊", "zh": "墙中幽灵", "fa": "شبح دیوار"},
+	"Säurewurm": {"en": "Acid Worm", "es": "Gusano ácido", "fr": "Ver acide", "pt": "Verme ácido", "ru": "Кислотный червь", "ja": "酸の大ミミズ", "zh": "酸液巨虫", "fa": "کرم اسیدی"},
+	"Säurepfütze": {"en": "Acid puddle", "es": "Charco de ácido", "fr": "Flaque d'acide", "pt": "Poça de ácido", "ru": "Кислотная лужа", "ja": "酸の水たまり", "zh": "酸液水坑", "fa": "گودال اسید"}
 }

@@ -345,7 +345,7 @@ Jeder Gegner-Schuss bekommt seine Farbe **aus dem Schaden** (eine Tabelle in den
 - Baut auf `revive` (Strohmann) auf; neu: wiederholbar, Zeit und Leben in den Daten (`revive` {delay: 3, hp: 0.5, repeat: true}).
 - Beute und EXP erst beim endgültigen Tod. Leichen zählen, damit der Raum erst offen ist, wenn alle Leichen weg sind.
 
-### Boss: Wurm/Schlange aus dem Boden
+### Boss: Wurm/Schlange aus dem Boden – ✅ gebaut als „Säurewurm“ (`feature/wurm-boss`, Boss im Tiefen Moor; Schwanzspitze in Phase 3 noch offen)
 
 - Gräbt sich ein (Erdhügel wandert sichtbar, Wühl-Ton), **springt im Bogen aus dem Boden** auf den Spieler zu, landet auf der **Position, die der Spieler beim Absprung hatte**, und taucht wieder ab. Vorwarnung: Boden bebt, Risse und Schatten am Landepunkt, Brüllen beim Absprung.
 - **Säure spucken:** taucht ab und zu auf, bleibt kurz stehen und spuckt Säure auf den Spieler und um ihn herum (Bogen-Schüsse, Landepunkte als grüne Kreise). Wo sie landet, bleibt eine **Säurepfütze** (Falle, wie `poison`), die beim Drüberlaufen Schaden macht und nach einiger Zeit austrocknet.

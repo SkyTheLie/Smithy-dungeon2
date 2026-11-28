@@ -3312,6 +3312,12 @@ msgstr "协同：%s！"
 msgid "Synergien: %s"
 msgstr "协同：%s"
 
+msgid "Säurepfütze"
+msgstr "酸液水坑"
+
+msgid "Säurewurm"
+msgstr "酸液巨虫"
+
 msgid "T-Form (oben offen)"
 msgstr "T 形（上方开口）"
 

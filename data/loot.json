@@ -109,6 +109,7 @@
 		"bandit_grimbald": [{"id": "emerald", "chance": 1.0, "amount": [1, 1]}, {"id": "topaz", "chance": 0.8, "amount": [1, 2]}],
 		"bandit_brakk": [{"id": "emerald", "chance": 1.0, "amount": [1, 2]}, {"id": "iron_ore", "chance": 0.6, "amount": [2, 3]}],
 		"swamp_hydra": [{"id": "serpent_scale", "chance": 1.0, "amount": [2, 3]}, {"id": "bog_core", "chance": 0.6, "amount": [1, 1]}],
+		"acid_worm": [{"id": "serpent_scale", "chance": 1.0, "amount": [2, 3]}, {"id": "bog_core", "chance": 0.6, "amount": [1, 1]}],
 		"wisp_queen": [{"id": "wisp_ember", "chance": 1.0, "amount": [2, 3]}, {"id": "emerald", "chance": 0.6, "amount": [1, 1]}],
 		"wolf": [{"id": "wolf_leather", "chance": 0.3, "amount": [1, 1]}],
 		"giant_bat": [{"id": "feather", "chance": 0.3, "amount": [1, 1]}],

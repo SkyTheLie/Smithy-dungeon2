@@ -3312,6 +3312,12 @@ msgstr "Синергия: %s!"
 msgid "Synergien: %s"
 msgstr "Синергии: %s"
 
+msgid "Säurepfütze"
+msgstr "Кислотная лужа"
+
+msgid "Säurewurm"
+msgstr "Кислотный червь"
+
 msgid "T-Form (oben offen)"
 msgstr "Т-образный (без верха)"
 

@@ -3312,6 +3312,12 @@ msgstr "هم‌افزایی: %s!"
 msgid "Synergien: %s"
 msgstr "هم‌افزایی‌ها: %s"
 
+msgid "Säurepfütze"
+msgstr "گودال اسید"
+
+msgid "Säurewurm"
+msgstr "کرم اسیدی"
+
 msgid "T-Form (oben offen)"
 msgstr "شکل T (بالا باز)"
 
