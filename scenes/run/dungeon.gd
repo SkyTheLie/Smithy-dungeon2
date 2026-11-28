@@ -255,7 +255,7 @@ func nearest_enemy(from: Vector3, max_distance: float, skip: Array) -> Enemy:
 	var best: Enemy = null
 	var best_distance: float = max_distance
 	for enemy: Enemy in enemies:
-		if skip.has(enemy) or enemy.hidden_phase:
+		if skip.has(enemy) or enemy.hidden_phase or enemy.is_unseen():
 			continue
 		var distance: float = from.distance_to(enemy.aim_point())
 		if distance < best_distance:

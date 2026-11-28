@@ -330,7 +330,7 @@ Jeder Gegner-Schuss bekommt seine Farbe **aus dem Schaden** (eine Tabelle in den
 - Farbenblind-Modus: zusätzlich Form oder Größe (½ = Punkt, 1 = Kugel, 1½ = Raute, 2 = Stern).
 - Ausnahmen nur mit Absicht (z. B. Säure bleibt giftgrün, dann Schaden über die Größe zeigen).
 
-### Geister: unsichtbar werden
+### Geister: unsichtbar werden – ✅ gebaut (`feature/geister-unsichtbar`)
 
 - Geister (normale Gegner, nicht nur Bosse; `phase` gibt es bei Bossen schon) werden alle paar Sekunden **unsichtbar**: Bild, Ring, Blickrichtungs-Keil und Lebensbalken verschwinden, sie bewegen sich weiter.
 - Fair bleiben (Regel „Jede Aktion hat einen Ton“): beim Verschwinden ein Flimmern und „Wusch“, unsichtbar ein leises **Flüstern/Atmen aus ihrer Richtung** (3D-Ton), leichte Verzerrung in der Luft, wenn man genau hinsieht. Kurz vor dem Erscheinen ein Schimmer.

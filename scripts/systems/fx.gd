@@ -14,7 +14,7 @@ static var _halo_materials: Dictionary[String, StandardMaterial3D] = {}
 
 
 ## Round pixel ball: white-yellow core, orange, red rim. `kind` "fire", "enemy" (purple),
-## "spark" (small yellow), "heal" (green, a potion), "grass" (blades flying up).
+## "spark" (small yellow), "heal" (green, a potion), "grass" (blades flying up), "ghost_puff" (pale, a ghost fades).
 static func ball_texture(kind: String) -> Texture2D:
 	if _textures.has(kind):
 		return _textures[kind]
@@ -25,6 +25,8 @@ static func ball_texture(kind: String) -> Texture2D:
 		colors = [Color(1, 1, 0.9), Color(1, 0.9, 0.4), Color(1, 0.65, 0.2), Color(0.8, 0.35, 0.1)]
 	elif kind == "heal":
 		colors = [Color(0.9, 1, 0.9), Color(0.5, 1, 0.55), Color(0.2, 0.8, 0.35), Color(0.1, 0.45, 0.2)]
+	elif kind == "ghost_puff":
+		colors = [Color(1, 1, 1), Color(0.85, 0.9, 1), Color(0.6, 0.7, 0.95), Color(0.35, 0.4, 0.6)]
 	elif kind == "grass":
 		colors = [Color(0.75, 0.9, 0.45), Color(0.45, 0.7, 0.25), Color(0.3, 0.5, 0.15), Color(0.2, 0.35, 0.1)]
 	return _make_ball(kind, colors)
