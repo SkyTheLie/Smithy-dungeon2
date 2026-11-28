@@ -1941,6 +1941,9 @@ msgstr "点击背包里的物品就能穿上，点击角色就能脱下。"
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "点击或拖到背包标签：装到背包上"
 
+msgid "Klick: dieses Set anlegen · Rechtsklick: Getragenes als Set speichern"
+msgstr "点击：穿上此套装 · 右键：保存当前装备"
+
 msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
 msgstr "点击：整理（T）· 右键：切换排序 · Ctrl+点击物品：锁定"
 
@@ -3017,6 +3020,15 @@ msgstr "稀有货物"
 
 msgid "Seltenheit"
 msgstr "稀有度"
+
+msgid "Set %d"
+msgstr "套装 %d"
+
+msgid "Set %d gespeichert."
+msgstr "套装 %d 已保存。"
+
+msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
+msgstr "套装 %d 是空的。右键保存当前装备。"
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift：瞬移到你瞄准的位置"

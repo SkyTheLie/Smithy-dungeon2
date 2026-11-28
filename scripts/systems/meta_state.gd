@@ -640,6 +640,57 @@ static func sell(index: int) -> int:
 	return gold
 
 
+# --- Equipment sets (save what is worn, put it on again with one click) -----------------
+
+const GEAR_SETS: int = 3
+
+
+## The gear of set `number` (1..GEAR_SETS): {slot: "id|rarity|type"}; {} = not saved yet.
+static func gear_set(number: int) -> Dictionary:
+	var sets: Variant = _read("gear_sets", {})
+	if not sets is Dictionary:
+		return {}
+	return ((sets as Dictionary).get(str(number), {}) as Dictionary).duplicate()
+
+
+## Saves the gear worn now (not relics and potions: they are used up) as set `number`.
+static func save_gear_set(number: int) -> void:
+	if number < 1 or number > GEAR_SETS:
+		return
+	var worn: Dictionary = equipment()
+	var chosen: Dictionary = {}
+	for slot: String in Content.gear_slots():
+		if worn.has(slot):
+			chosen[slot] = _piece_key(worn[slot])
+	var sets: Variant = _read("gear_sets", {})
+	var all: Dictionary = (sets as Dictionary).duplicate() if sets is Dictionary else {}
+	all[str(number)] = chosen
+	_write("gear_sets", all)
+	_save()
+
+
+## Puts on set `number`: every saved piece that lies in the stash goes onto its place (what was
+## worn there goes into the stash). Returns how many pieces were changed (0 = nothing to do).
+static func wear_gear_set(number: int) -> int:
+	var chosen: Dictionary = gear_set(number)
+	var changed: int = 0
+	for slot: String in chosen:
+		var worn: Dictionary = equipment()
+		if worn.has(slot) and _piece_key(worn[slot]) == String(chosen[slot]):
+			continue
+		var own: Array[Dictionary] = stash()
+		for i in own.size():
+			if own[i].has("rarity") and _piece_key(own[i]) == String(chosen[slot]) and slot_of(own[i]) == slot:
+				if equip(i, slot):
+					changed += 1
+				break
+	return changed
+
+
+static func _piece_key(piece: Dictionary) -> String:
+	return "%s|%d|%s" % [String(piece.get("id", "")), int(piece.get("rarity", 1)), String(piece.get("type", ""))]
+
+
 # --- Buying back (Egon's last sales of the day) ------------------------------------------
 
 ## How many sales Egon keeps for buying back (the newest first).

@@ -1941,6 +1941,9 @@ msgstr "Click something in the inventory to put it on. Click your figure to take
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "Click or drag onto the Inventory tab: attach to your inventory"
 
+msgid "Klick: dieses Set anlegen · Rechtsklick: Getragenes als Set speichern"
+msgstr "Click: put on this set · Right click: save what you wear as this set"
+
 msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
 msgstr "Click: sort (T) · Right click: change sorting · Ctrl+click a piece: lock it"
 
@@ -3017,6 +3020,15 @@ msgstr "Rare Goods"
 
 msgid "Seltenheit"
 msgstr "Rarity"
+
+msgid "Set %d"
+msgstr "Set %d"
+
+msgid "Set %d gespeichert."
+msgstr "Set %d saved."
+
+msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
+msgstr "Set %d is empty. Right click saves what you wear."
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: you jump to where you aim"

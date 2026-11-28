@@ -1941,6 +1941,9 @@ msgstr "Haz clic en algo del inventario para ponértelo. Clic en tu figura para 
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "Clic o arrastrar a la pestaña Inventario: acoplar al inventario"
 
+msgid "Klick: dieses Set anlegen · Rechtsklick: Getragenes als Set speichern"
+msgstr "Clic: ponerse este conjunto · Clic derecho: guardar lo que llevas"
+
 msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
 msgstr "Clic: ordenar (T) · Clic derecho: cambiar orden · Ctrl+clic en una pieza: bloquear"
 
@@ -3017,6 +3020,15 @@ msgstr "Mercancía rara"
 
 msgid "Seltenheit"
 msgstr "Rareza"
+
+msgid "Set %d"
+msgstr "Conjunto %d"
+
+msgid "Set %d gespeichert."
+msgstr "Conjunto %d guardado."
+
+msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
+msgstr "El conjunto %d está vacío. Clic derecho guarda lo que llevas."
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: saltas a donde apuntas"

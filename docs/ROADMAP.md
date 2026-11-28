@@ -140,6 +140,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 Reihenfolge (klein zuerst): Schuss-Farben → Untote stehen auf → Geister unsichtbar → Kisten und Stein-Kammer → Pfeil-Wände → Stachelsteine → Monster-Falle → Boss-Phasen → Wand-Geist → Wurm-Boss → Vogel-Boss → Egons Umzug mit Gimmicks → UI-Komfort im Laden und Tab.
 
 - ✅ Schuss-Farben nach Schaden (`enemies.json` `shot_colors`, `feature/schuss-farben`).
+- ✅ Ausrüstungs-Sets (3 Sets, Rechtsklick speichert, Klick legt an; `feature/ausruestungs-sets`).
 - ✅ Rückkauf der letzten 3 Verkäufe des Tages (`feature/rueckkauf`).
 - ✅ Tisch: zu teuer = dunkel/rot, besser als getragen = grüner Pfeil (`feature/laden-leisten`).
 - ✅ Laden-Komfort: Sperren (Strg+Klick), Sortieren (T), Verkaufswert im Tooltip, Bereit-Check (`feature/laden-komfort`).
