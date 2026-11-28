@@ -242,7 +242,7 @@ static func _describe_relic(piece: Dictionary, with_price: bool) -> String:
 static func _describe_potion(piece: Dictionary, with_price: bool) -> String:
 	var data: Dictionary = Content.potion(String(piece.get("id", "")))
 	var lines: Array[String] = [Language.translate(String(data.get("name", ""))), Language.translate("Trank") + " · " + Rarity.label(rarity_of(piece))]
-	lines.append(Language.translate("Heilt %s Herzen") % String.num(int(data.get("heal", 0)) / 2.0, 1))
+	lines.append(Language.translate("Heilt %s Kohlestücke") % String.num(int(data.get("heal", 0)) / 2.0, 1))
 	lines.append(Language.translate("Im Dungeon: %s trinkt ihn") % Controls.key_name(Controls.get_key(Controls.POTION)))
 	if with_price:
 		lines.append(Language.translate("Preis: %d Gold") % int(piece.get("price", 0)))
@@ -281,8 +281,8 @@ static func _describe_container(piece: Dictionary, with_price: bool) -> String:
 static func stat_name(key: String) -> String:
 	match key:
 		"damage": return Language.translate("Schaden")
-		"hearts": return Language.translate("Herzen")
-		"shield_hearts": return Language.translate("Schild-Herzen")
+		"hearts": return Language.translate("Kohlestücke")
+		"shield_hearts": return Language.translate("Eisenkohle")
 		"luck": return Language.translate("Glück")
 		"fire_delay": return Language.translate("Pause zwischen Schüssen")
 		"knockback": return Language.translate("Rückstoß")

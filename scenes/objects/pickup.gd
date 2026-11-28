@@ -1,6 +1,6 @@
 class_name Pickup
 extends Node3D
-## Something lying on the floor: a heart or loot for the bag ("loot": bombs and keys are loot too,
+## Something lying on the floor: a glowing coal piece (kind "heart": heals like the old hearts) or loot for the bag ("loot": bombs and keys are loot too,
 ## data/loot.json materials, setup_loot; also gold the player dropped from the bag). There are no
 ## coins in the dungeon. Walking over it picks it up (a heart only if the player is hurt, loot
 ## only if there is room in the bag). Pops out of the floor when it appears.
@@ -11,7 +11,7 @@ extends Node3D
 signal bag_full
 
 const KINDS: Dictionary[String, String] = {
-	"heart": "res://assets/sprites/items/arena_heart.png",
+	"heart": "res://assets/sprites/ui/life/coal.png",
 	"bomb": "res://assets/sprites/skills/smoke_bomb.png",
 	"key": "res://assets/sprites/items/smithy_key.png",
 }
@@ -69,6 +69,8 @@ func _ready() -> void:
 	_sprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 	add_child(_sprite)
 	_sprite.position.y = 1.0
+	if kind == "heart":
+		_sprite.add_child(Fx.halo(Color(1.0, 0.45, 0.15, 0.45), height * 1.6))
 	var pop := create_tween()
 	pop.tween_property(_sprite, "position:y", height / 2.0 + 0.05, 0.35).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BOUNCE)
 	_time = randf() * TAU

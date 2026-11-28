@@ -9,6 +9,9 @@ msgstr "%d gold"
 msgid "%d Herzen"
 msgstr "%d hearts"
 
+msgid "%d Kohlestücke"
+msgstr "%d coals"
+
 msgid "%d Skillpunkte"
 msgstr "%d skill points"
 
@@ -71,6 +74,9 @@ msgstr "All stats up a little"
 
 msgid "Alle paar Besiegten heilst du ein halbes Herz"
 msgstr "Every few kills heal half a heart"
+
+msgid "Alle paar Besiegten heilst du ein halbes Kohlestück"
+msgstr "Every few kills heal half a coal"
 
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "Everything in the shop costs half"
@@ -275,6 +281,9 @@ msgstr "Burning and slow: more damage"
 
 msgid "Brennende, explodierende Schüsse"
 msgstr "Burning, exploding shots"
+
+msgid "Brennende, langsame Gegner und zwei Schlammschichten"
+msgstr "Burning, slowed enemies and two mud layers"
 
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "Burning, slowed enemies and two blue hearts"
@@ -564,6 +573,12 @@ msgstr "Dragon Cloak"
 msgid "Drei Funken folgen dir und schießen"
 msgstr "Three sparks follow you and shoot"
 
+msgid "Drei Schlammschichten"
+msgstr "Three mud layers"
+
+msgid "Drei Schlammschichten und manchmal ausweichen"
+msgstr "Three mud layers and sometimes dodge"
+
 msgid "Drei Schlüssel, Rabatt im Laden"
 msgstr "Three keys, shop discount"
 
@@ -599,6 +614,9 @@ msgstr "You fly and shoot faster"
 
 msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
 msgstr "You fly over traps and chasms, damage +1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei Schlammschichten"
+msgstr "You fly over traps and chasms, two mud layers"
 
 msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
 msgstr "You fly over traps and chasms, two blue hearts"
@@ -638,6 +656,9 @@ msgstr "You throw shuriken, hit enemies bleed"
 
 msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
 msgstr "You grow bigger: more hearts and damage, easier to hit"
+
+msgid "Du wirst größer: mehr Kohlestücke und Schaden, leichter zu treffen"
+msgstr "You grow bigger: more coals and damage, easier to hit"
 
 msgid "Du wirst kleiner und schneller"
 msgstr "You get smaller and faster"
@@ -810,6 +831,36 @@ msgstr "A heart, two blue hearts, damage up"
 msgid "Ein Händler! Geh hin und sprich ihn an."
 msgstr "A merchant! Go over and talk to him."
 
+msgid "Ein Kohlestück mehr"
+msgstr "One more coal"
+
+msgid "Ein Kohlestück mehr, Glück hoch"
+msgstr "One more coal, luck up"
+
+msgid "Ein Kohlestück mehr, Schaden hoch"
+msgstr "One more coal, damage up"
+
+msgid "Ein Kohlestück mehr, heilt dich ganz"
+msgstr "One more coal, heals you fully"
+
+msgid "Ein Kohlestück mehr."
+msgstr "One more coal."
+
+msgid "Ein Kohlestück und eine Schlammschicht"
+msgstr "One coal and one mud layer"
+
+msgid "Ein Kohlestück, Dornen, Explosionen tun dir nichts"
+msgstr "A coal, thorns, explosions don't hurt you"
+
+msgid "Ein Kohlestück, eine Bombe und ein Schlüssel"
+msgstr "A coal, a bomb and a key"
+
+msgid "Ein Kohlestück, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "A coal, a coin, a bomb and a key"
+
+msgid "Ein Kohlestück, zwei Schlammschichten, Schaden hoch"
+msgstr "A coal, two mud layers, damage up"
+
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "A heart-shaped herb. Egon makes tea from it."
 
@@ -915,6 +966,21 @@ msgstr "A second life!"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "One more item on Egon's table."
 
+msgid "Eine Schlammschicht mehr zu Beginn jedes Runs."
+msgstr "One more mud layer at the start of every run."
+
+msgid "Eine Schlammschicht und Dornen"
+msgstr "A mud layer and thorns"
+
+msgid "Eine Schlammschicht, Schaden hoch"
+msgstr "One mud layer, damage up"
+
+msgid "Eine Schlammschicht, länger sicher nach Treffern"
+msgstr "A mud layer, safe longer after hits"
+
+msgid "Eine Schlammschicht, schneller laufen"
+msgstr "One mud layer, move faster"
+
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "A pouch with 2×2 cells. Attach it to your inventory at Egon's."
 
@@ -926,6 +992,9 @@ msgstr "A meadow as tall as a dwarf. Something rustles in the grass, and a hunte
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "A whole bakery at once"
+
+msgid "Eine halbe Eisenkohle mehr zu Beginn jedes Runs."
+msgstr "Half an iron coal more at the start of every run."
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "A short blade. For warriors."
@@ -977,6 +1046,9 @@ msgstr "Iron ore"
 
 msgid "Eisenhaut"
 msgstr "Iron Skin"
+
+msgid "Eisenkohle"
+msgstr "Iron coal"
 
 msgid "Eisenschlüssel"
 msgstr "Iron key"
@@ -1608,8 +1680,14 @@ msgstr "Good choice! A collector's item. Honestly!"
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "Have %d heart containers at once"
 
+msgid "Habe %d Kohlestücke gleichzeitig"
+msgstr "Have %d coals at once"
+
 msgid "Habe %d Münzen gleichzeitig"
 msgstr "Have %d coins at once"
+
+msgid "Habe %d Schlammschichten gleichzeitig"
+msgstr "Have %d mud layers at once"
 
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Have %d blue hearts at once"
@@ -1638,14 +1716,23 @@ msgstr "Healer's Herbs"
 msgid "Heilt %s Herzen"
 msgstr "Heals %s hearts"
 
+msgid "Heilt %s Kohlestücke"
+msgstr "Heals %s coals"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "Heals you fully, move faster"
 
 msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
 msgstr "Heals three hearts. Twice the cherry, half the sock."
 
+msgid "Heilt drei Kohlestücke. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "Heals three coals. Twice the cherry, half the sock."
+
 msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
 msgstr "Heals two hearts. Tastes of cherry. And a little of sock."
+
+msgid "Heilt zwei Kohlestücke. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "Heals two coals. Tastes of cherry. And a little of sock."
 
 msgid "Heiltrank"
 msgstr "Healing Potion"
@@ -1722,6 +1809,12 @@ msgstr "At most half a heart per hit, but slower"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "At most half a heart per hit, safe longer"
 
+msgid "Höchstens ein halbes Kohlestück pro Treffer, aber langsamer"
+msgstr "At most half a coal per hit, but slower"
+
+msgid "Höchstens ein halbes Kohlestück pro Treffer, länger sicher"
+msgstr "At most half a coal per hit, safe longer"
+
 msgid "Höhere Stufen kommen mit deiner Spielerstufe."
 msgstr "Higher tiers come with your player level."
 
@@ -1760,6 +1853,9 @@ msgstr "I'll wait here. Better safe than sorry."
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "In the dungeon you press %s. Glug, glug, and two hearts are back."
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Kohlestücke glühen wieder."
+msgstr "In the dungeon you press %s. Glug, glug, and two coals glow again."
 
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "In the dungeon: %s drinks it"
@@ -1875,6 +1971,9 @@ msgstr "No potion with you"
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "No hit takes more than half a heart"
 
+msgid "Kein Treffer nimmt mehr als ein halbes Kohlestück"
+msgstr "No hit takes more than half a coal"
+
 msgid "Keine Quest"
 msgstr "No quest"
 
@@ -1928,6 +2027,12 @@ msgstr "Coal"
 
 msgid "Kohlenschrot"
 msgstr "Coal Buckshot"
+
+msgid "Kohlestücke"
+msgstr "Coals"
+
+msgid "Kohlestücke heilen doppelt"
+msgstr "Coals heal twice as much"
 
 msgid "Kometenschweif"
 msgstr "Comet Tail"
@@ -2051,6 +2156,9 @@ msgstr "Long flights, mighty impact"
 
 msgid "Langsam heilen und ein blaues Herz"
 msgstr "Slow healing and a blue heart"
+
+msgid "Langsam heilen und eine Schlammschicht"
+msgstr "Slow healing and a mud layer"
 
 msgid "Langsam heilst du dich"
 msgstr "You slowly heal"
@@ -2286,6 +2394,9 @@ msgstr "Coin"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Coins and hearts fly to you"
 
+msgid "Münzen und Kohlestücke fliegen zu dir"
+msgstr "Coins and coals fly to you"
+
 msgid "Münzsack"
 msgstr "Coin bag"
 
@@ -2387,6 +2498,9 @@ msgstr "Sacrificial Knife"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "Sacrifice stone: a heart for a gift"
+
+msgid "Opferstein: ein Kohlestück für eine Gabe"
+msgstr "Sacrifice stone: a coal for a gift"
 
 msgid "Ork"
 msgstr "Orc"
@@ -2789,6 +2903,9 @@ msgstr "Shield Guard"
 
 msgid "Schlachtkeil"
 msgstr "Battle Wedge"
+
+msgid "Schlammschicht"
+msgstr "Mud Layer"
 
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "Serpent fire: shots snake along, a bit more damage"
@@ -3261,6 +3378,9 @@ msgstr "Seeking shots and all stats up"
 msgid "Suchende Schüsse und ein blaues Herz"
 msgstr "Seeking shots and a blue heart"
 
+msgid "Suchende Schüsse und eine Schlammschicht"
+msgstr "Seeking shots and a mud layer"
+
 msgid "Suchende Schüsse, Glück hoch"
 msgstr "Seeking shots, luck up"
 
@@ -3432,6 +3552,9 @@ msgstr "And on the left, that's you. Hold still, I'll dress you…"
 msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
 msgstr "And because I'm so generous: a Bog Heart! A relic. Put it on your figure and you get one more heart."
 
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Kohlestück mehr."
+msgstr "And because I'm so generous: a Bog Heart! A relic. Put it on your figure and you get one more coal."
+
 msgid "Ungewöhnlich"
 msgstr "Uncommon"
 
@@ -3479,6 +3602,9 @@ msgstr "Much more damage"
 
 msgid "Viel mehr Schaden mit nur einem Herz"
 msgstr "Much more damage with only one heart"
+
+msgid "Viel mehr Schaden mit nur einem Kohlestück"
+msgstr "Much more damage with only one coal"
 
 msgid "Viel mehr Schaden, langsamer schießen"
 msgstr "Much more damage, slower fire rate"
@@ -3773,6 +3899,36 @@ msgstr "Two more hearts, but slower"
 
 msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
 msgstr "Two hearts, two blue hearts, damage up"
+
+msgid "Zwei Kohlestücke mehr"
+msgstr "Two more coals"
+
+msgid "Zwei Kohlestücke mehr und Dornen"
+msgstr "Two more coals and thorns"
+
+msgid "Zwei Kohlestücke mehr und langsam heilen"
+msgstr "Two more coals and slow healing"
+
+msgid "Zwei Kohlestücke mehr, aber langsamer"
+msgstr "Two more coals, but slower"
+
+msgid "Zwei Kohlestücke, zwei Schlammschichten, Schaden hoch"
+msgstr "Two coals, two mud layers, damage up"
+
+msgid "Zwei Schlammschichten"
+msgstr "Two mud layers"
+
+msgid "Zwei Schlammschichten und Dornen"
+msgstr "Two mud layers and thorns"
+
+msgid "Zwei Schlammschichten, Schaden hoch"
+msgstr "Two mud layers, damage up"
+
+msgid "Zwei Schlammschichten, länger sicher nach Treffern"
+msgstr "Two mud layers, safe longer after hits"
+
+msgid "Zwei Schlammschichten; platzt eine ab, trifft es alle Gegner"
+msgstr "Two mud layers; when one breaks off, it hits all enemies"
 
 msgid "Zwei Schüsse mehr, etwas schwächer"
 msgstr "Two more shots, a bit weaker"

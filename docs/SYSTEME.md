@@ -53,14 +53,14 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - **Dateien:** `scenes/actors/enemy.gd`, `enemy_shot.gd`, Daten `data/enemies.json`
 - Smithy-Kampfbilder (`<sprite>_walk.png`, `_death.png`, 6 Bilder à 48 px) als Billboard, gespiegelt je nach Laufrichtung, rot beim Treffer. Dünner orangener Ring am Boden = Treffer-Radius (`radius`); unter der Erde / unsichtbar ausgeblendet.
 - KI: `lurk` (Ratten: stehen `wake` Sekunden, laufen dann langsam los), `chase`, `fly`, `hop`, `shooter` (hält Abstand, schießt), `boss` (Angriffe `dash`, `summon`, `ring`, `spray` reihum, unter halbem Leben schneller).
-- Berührung kostet `damage` halbe Herzen.
+- Berührung kostet `damage` halbe Herzen (halbe Kohlestücke).
 
 ## Oberfläche (Hud, Minimap, Menüs)
 
 - **Dateien:** `scenes/ui/hud/` (`hud.tscn`, `minimap.gd`, `heart_bar.gd`, `crosshair.gd`), `scenes/ui/menus/` (Einstellungen, Pause, Ende), `scenes/ui/main_menu/` (aus Smithy)
 - Minimap oben rechts: aktueller Raum von oben, Türen (grau offen, braun zu, gold verschlossen), Steine, liegende Dinge als ihr eigenes Bild (Herz, Bombe, Schlüssel, Beute, Item auf dem Sockel; `Pickup.map_icon`/`Pedestal.map_icon`), Gegner (rot), Spieler (grün mit Blickrichtung). **M** zoomt auf die Ebene. Nebel: nur besuchte Räume und ihre direkten Nachbarn sind zu sehen (`Dungeon.known_cells`), der Boss-Raum erscheint wie jeder Raum erst als Nachbar eines besuchten Raums und bekommt dann einen roten Rand. Geheimräume erscheinen erst nach dem Betreten. Auf der großen Karte zeigt jeder besuchte Raum unten eine Reihe Bilder von dem, was dort noch liegt (zu viele: „+“).
 - Pause zeigt die aktuellen Werte und Synergien.
-- Herzanzeige: rote Herzen (voll, halb, leer), danach blaue Herzen (`RunState.blue`).
+- Lebensanzeige (`HeartBar`, Bilder in `assets/sprites/ui/life/`): **Kohlestücke** statt roter Herzen (glühend = voll, halb glühend, kalt/dunkel = leer), danach **Schlammschichten** statt blauer Herzen (`RunState.blue`), danach **Eisenkohle** statt weißer Schild-Herzen (`RunState.shield`). Im Code heißt alles weiter `hearts`/`blue`/`shield`; Gegner lassen glühende Kohle fallen (`Pickup` Art `heart`, mit Lichthof). Seit 2026-11-28.
 
 ## Sprache und Ton
 

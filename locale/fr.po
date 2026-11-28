@@ -9,6 +9,9 @@ msgstr "%d or"
 msgid "%d Herzen"
 msgstr "%d cœurs"
 
+msgid "%d Kohlestücke"
+msgstr "%d charbons"
+
 msgid "%d Skillpunkte"
 msgstr "%d points de compétence"
 
@@ -71,6 +74,9 @@ msgstr "Toutes les stats un peu en hausse"
 
 msgid "Alle paar Besiegten heilst du ein halbes Herz"
 msgstr "Tous les quelques ennemis vaincus, tu soignes un demi-cœur"
+
+msgid "Alle paar Besiegten heilst du ein halbes Kohlestück"
+msgstr "Tous les quelques ennemis vaincus, tu récupères un demi-charbon"
 
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "Tout coûte moitié prix au magasin"
@@ -275,6 +281,9 @@ msgstr "En feu et ralenti : plus de dégâts"
 
 msgid "Brennende, explodierende Schüsse"
 msgstr "Tirs brûlants et explosifs"
+
+msgid "Brennende, langsame Gegner und zwei Schlammschichten"
+msgstr "Ennemis en feu et ralentis, et deux couches de boue"
 
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "Ennemis brûlés et ralentis, et deux cœurs bleus"
@@ -564,6 +573,12 @@ msgstr "Cape de dragon"
 msgid "Drei Funken folgen dir und schießen"
 msgstr "Trois étincelles te suivent et tirent"
 
+msgid "Drei Schlammschichten"
+msgstr "Trois couches de boue"
+
+msgid "Drei Schlammschichten und manchmal ausweichen"
+msgstr "Trois couches de boue et parfois esquiver"
+
 msgid "Drei Schlüssel, Rabatt im Laden"
 msgstr "Trois clés, réduction au magasin"
 
@@ -599,6 +614,9 @@ msgstr "Tu voles et tires plus vite"
 
 msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
 msgstr "Tu voles au-dessus des pièges et des gouffres, dégâts +1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei Schlammschichten"
+msgstr "Tu survoles pièges et gouffres, deux couches de boue"
 
 msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
 msgstr "Tu voles au-dessus des pièges et des gouffres, deux cœurs bleus"
@@ -638,6 +656,9 @@ msgstr "Tu lances des shurikens, les ennemis touchés saignent"
 
 msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
 msgstr "Tu grandis : plus de cœurs et de dégâts, plus facile à toucher"
+
+msgid "Du wirst größer: mehr Kohlestücke und Schaden, leichter zu treffen"
+msgstr "Tu grandis : plus de charbons et de dégâts, plus facile à toucher"
 
 msgid "Du wirst kleiner und schneller"
 msgstr "Tu deviens plus petit et plus rapide"
@@ -810,6 +831,36 @@ msgstr "Un cœur, deux cœurs bleus, dégâts en hausse"
 msgid "Ein Händler! Geh hin und sprich ihn an."
 msgstr "Un marchand ! Va lui parler."
 
+msgid "Ein Kohlestück mehr"
+msgstr "Un charbon de plus"
+
+msgid "Ein Kohlestück mehr, Glück hoch"
+msgstr "Un charbon de plus, chance en hausse"
+
+msgid "Ein Kohlestück mehr, Schaden hoch"
+msgstr "Un charbon de plus, dégâts en hausse"
+
+msgid "Ein Kohlestück mehr, heilt dich ganz"
+msgstr "Un charbon de plus, te soigne entièrement"
+
+msgid "Ein Kohlestück mehr."
+msgstr "Un charbon de plus."
+
+msgid "Ein Kohlestück und eine Schlammschicht"
+msgstr "Un charbon et une couche de boue"
+
+msgid "Ein Kohlestück, Dornen, Explosionen tun dir nichts"
+msgstr "Un charbon, des épines, les explosions ne te blessent pas"
+
+msgid "Ein Kohlestück, eine Bombe und ein Schlüssel"
+msgstr "Un charbon, une bombe et une clé"
+
+msgid "Ein Kohlestück, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "Un charbon, une pièce, une bombe et une clé"
+
+msgid "Ein Kohlestück, zwei Schlammschichten, Schaden hoch"
+msgstr "Un charbon, deux couches de boue, dégâts en hausse"
+
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "Une herbe en forme de cœur. Egon en fait du thé."
 
@@ -915,6 +966,21 @@ msgstr "Une seconde vie !"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "Un objet de plus sur la table d'Egon."
 
+msgid "Eine Schlammschicht mehr zu Beginn jedes Runs."
+msgstr "Une couche de boue de plus au début de chaque partie."
+
+msgid "Eine Schlammschicht und Dornen"
+msgstr "Une couche de boue et des épines"
+
+msgid "Eine Schlammschicht, Schaden hoch"
+msgstr "Une couche de boue, dégâts en hausse"
+
+msgid "Eine Schlammschicht, länger sicher nach Treffern"
+msgstr "Une couche de boue, à l'abri plus longtemps après un coup"
+
+msgid "Eine Schlammschicht, schneller laufen"
+msgstr "Une couche de boue, déplacement plus rapide"
+
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "Une sacoche de 2×2 cases. À attacher à ton inventaire chez Egon."
 
@@ -926,6 +992,9 @@ msgstr "Une prairie haute comme un nain. Ça bruisse dans l'herbe, et un chasseu
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "Une boulangerie entière d'un coup"
+
+msgid "Eine halbe Eisenkohle mehr zu Beginn jedes Runs."
+msgstr "Un demi-charbon de fer de plus au début de chaque partie."
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "Une lame courte. Pour les guerriers."
@@ -977,6 +1046,9 @@ msgstr "Minerai de fer"
 
 msgid "Eisenhaut"
 msgstr "Peau de fer"
+
+msgid "Eisenkohle"
+msgstr "Charbon de fer"
 
 msgid "Eisenschlüssel"
 msgstr "Clé de fer"
@@ -1608,8 +1680,14 @@ msgstr "Bon choix ! Une pièce de collection. Honnêtement !"
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "Aie %d réceptacles de cœur à la fois"
 
+msgid "Habe %d Kohlestücke gleichzeitig"
+msgstr "Aie %d charbons à la fois"
+
 msgid "Habe %d Münzen gleichzeitig"
 msgstr "Aie %d pièces à la fois"
+
+msgid "Habe %d Schlammschichten gleichzeitig"
+msgstr "Aie %d couches de boue à la fois"
 
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Aie %d cœurs bleus à la fois"
@@ -1638,14 +1716,23 @@ msgstr "Herbes de guérisseur"
 msgid "Heilt %s Herzen"
 msgstr "Soigne %s cœurs"
 
+msgid "Heilt %s Kohlestücke"
+msgstr "Soigne %s charbons"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "Te soigne entièrement, tu cours plus vite"
 
 msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
 msgstr "Soigne trois cœurs. Deux fois plus de cerise, moitié moins de chaussette."
 
+msgid "Heilt drei Kohlestücke. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "Soigne trois charbons. Deux fois plus de cerise, moitié moins de chaussette."
+
 msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
 msgstr "Soigne deux cœurs. Goût cerise. Et un peu chaussette."
+
+msgid "Heilt zwei Kohlestücke. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "Soigne deux charbons. Goût cerise. Et un peu chaussette."
 
 msgid "Heiltrank"
 msgstr "Potion de soin"
@@ -1722,6 +1809,12 @@ msgstr "Au plus un demi-cœur par coup, mais plus lent"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "Au plus un demi-cœur par coup, plus longtemps à l'abri"
 
+msgid "Höchstens ein halbes Kohlestück pro Treffer, aber langsamer"
+msgstr "Au plus un demi-charbon par coup, mais plus lent"
+
+msgid "Höchstens ein halbes Kohlestück pro Treffer, länger sicher"
+msgstr "Au plus un demi-charbon par coup, à l'abri plus longtemps"
+
 msgid "Höhere Stufen kommen mit deiner Spielerstufe."
 msgstr "Les niveaux supérieurs viennent avec ton niveau de joueur."
 
@@ -1760,6 +1853,9 @@ msgstr "J'attends ici. Prudence est mère de sûreté."
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "Dans le donjon, tu appuies sur %s. Glou, glou, et deux cœurs reviennent."
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Kohlestücke glühen wieder."
+msgstr "Dans le donjon, tu appuies sur %s. Glou, glou, et deux charbons rougeoient à nouveau."
 
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "Dans le donjon : %s pour la boire"
@@ -1875,6 +1971,9 @@ msgstr "Aucune potion sur toi"
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Aucun coup ne prend plus d'un demi-cœur"
 
+msgid "Kein Treffer nimmt mehr als ein halbes Kohlestück"
+msgstr "Aucun coup ne prend plus d'un demi-charbon"
+
 msgid "Keine Quest"
 msgstr "Pas de quête"
 
@@ -1928,6 +2027,12 @@ msgstr "Charbon"
 
 msgid "Kohlenschrot"
 msgstr "Chevrotine de charbon"
+
+msgid "Kohlestücke"
+msgstr "Charbons"
+
+msgid "Kohlestücke heilen doppelt"
+msgstr "Les charbons soignent deux fois plus"
 
 msgid "Kometenschweif"
 msgstr "Queue de comète"
@@ -2051,6 +2156,9 @@ msgstr "Longues trajectoires, impact énorme"
 
 msgid "Langsam heilen und ein blaues Herz"
 msgstr "Soin lent et un cœur bleu"
+
+msgid "Langsam heilen und eine Schlammschicht"
+msgstr "Soin lent et une couche de boue"
 
 msgid "Langsam heilst du dich"
 msgstr "Tu te soignes lentement"
@@ -2286,6 +2394,9 @@ msgstr "Pièce"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Les pièces et les cœurs volent vers toi"
 
+msgid "Münzen und Kohlestücke fliegen zu dir"
+msgstr "Les pièces et les charbons volent vers toi"
+
 msgid "Münzsack"
 msgstr "Bourse"
 
@@ -2387,6 +2498,9 @@ msgstr "Couteau rituel"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "Pierre sacrificielle : un cœur pour un don"
+
+msgid "Opferstein: ein Kohlestück für eine Gabe"
+msgstr "Pierre sacrificielle : un charbon contre un don"
 
 msgid "Ork"
 msgstr "Orc"
@@ -2789,6 +2903,9 @@ msgstr "Garde au bouclier"
 
 msgid "Schlachtkeil"
 msgstr "Coin de bataille"
+
+msgid "Schlammschicht"
+msgstr "Couche de boue"
 
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "Feu serpent : les tirs ondulent, un peu plus de dégâts"
@@ -3261,6 +3378,9 @@ msgstr "Tirs à tête chercheuse et toutes les stats en hausse"
 msgid "Suchende Schüsse und ein blaues Herz"
 msgstr "Tirs à tête chercheuse et un cœur bleu"
 
+msgid "Suchende Schüsse und eine Schlammschicht"
+msgstr "Tirs chercheurs et une couche de boue"
+
 msgid "Suchende Schüsse, Glück hoch"
 msgstr "Tirs à tête chercheuse, chance en hausse"
 
@@ -3432,6 +3552,9 @@ msgstr "Et à gauche, c'est toi. Ne bouge pas, je t'habille…"
 msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
 msgstr "Et comme je suis si généreux : un Cœur des marais ! Une relique. Mets-la sur ta figurine, tu auras un cœur de plus."
 
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Kohlestück mehr."
+msgstr "Et comme je suis si généreux : un Cœur des marais ! Une relique. Mets-la sur ta figurine, tu auras un charbon de plus."
+
 msgid "Ungewöhnlich"
 msgstr "Peu commun"
 
@@ -3479,6 +3602,9 @@ msgstr "Beaucoup plus de dégâts"
 
 msgid "Viel mehr Schaden mit nur einem Herz"
 msgstr "Beaucoup plus de dégâts avec un seul cœur"
+
+msgid "Viel mehr Schaden mit nur einem Kohlestück"
+msgstr "Beaucoup plus de dégâts avec un seul charbon"
 
 msgid "Viel mehr Schaden, langsamer schießen"
 msgstr "Beaucoup plus de dégâts, tirs plus lents"
@@ -3773,6 +3899,36 @@ msgstr "Deux cœurs de plus, mais plus lent"
 
 msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
 msgstr "Deux cœurs, deux cœurs bleus, dégâts en hausse"
+
+msgid "Zwei Kohlestücke mehr"
+msgstr "Deux charbons de plus"
+
+msgid "Zwei Kohlestücke mehr und Dornen"
+msgstr "Deux charbons de plus et des épines"
+
+msgid "Zwei Kohlestücke mehr und langsam heilen"
+msgstr "Deux charbons de plus et soin lent"
+
+msgid "Zwei Kohlestücke mehr, aber langsamer"
+msgstr "Deux charbons de plus, mais plus lent"
+
+msgid "Zwei Kohlestücke, zwei Schlammschichten, Schaden hoch"
+msgstr "Deux charbons, deux couches de boue, dégâts en hausse"
+
+msgid "Zwei Schlammschichten"
+msgstr "Deux couches de boue"
+
+msgid "Zwei Schlammschichten und Dornen"
+msgstr "Deux couches de boue et des épines"
+
+msgid "Zwei Schlammschichten, Schaden hoch"
+msgstr "Deux couches de boue, dégâts en hausse"
+
+msgid "Zwei Schlammschichten, länger sicher nach Treffern"
+msgstr "Deux couches de boue, à l'abri plus longtemps après un coup"
+
+msgid "Zwei Schlammschichten; platzt eine ab, trifft es alle Gegner"
+msgstr "Deux couches de boue ; si l'une se détache, elle frappe tous les ennemis"
 
 msgid "Zwei Schüsse mehr, etwas schwächer"
 msgstr "Deux tirs de plus, un peu plus faibles"

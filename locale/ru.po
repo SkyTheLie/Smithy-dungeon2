@@ -9,6 +9,9 @@ msgstr "%d золота"
 msgid "%d Herzen"
 msgstr "%d сердец"
 
+msgid "%d Kohlestücke"
+msgstr "Угольков: %d"
+
 msgid "%d Skillpunkte"
 msgstr "%d очков навыков"
 
@@ -71,6 +74,9 @@ msgstr "Все характеристики немного выше"
 
 msgid "Alle paar Besiegten heilst du ein halbes Herz"
 msgstr "Каждые несколько побед лечат полсердца"
+
+msgid "Alle paar Besiegten heilst du ein halbes Kohlestück"
+msgstr "Каждые несколько побед лечат пол-уголька"
 
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "Всё в лавке за полцены"
@@ -275,6 +281,9 @@ msgstr "Горит и медлит: больше урона"
 
 msgid "Brennende, explodierende Schüsse"
 msgstr "Горящие взрывные выстрелы"
+
+msgid "Brennende, langsame Gegner und zwei Schlammschichten"
+msgstr "Горящие, замедленные враги и два слоя грязи"
 
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "Горящие, медленные враги и два синих сердца"
@@ -564,6 +573,12 @@ msgstr "Драконий плащ"
 msgid "Drei Funken folgen dir und schießen"
 msgstr "Три искры следуют за тобой и стреляют"
 
+msgid "Drei Schlammschichten"
+msgstr "Три слоя грязи"
+
+msgid "Drei Schlammschichten und manchmal ausweichen"
+msgstr "Три слоя грязи и иногда уклонение"
+
 msgid "Drei Schlüssel, Rabatt im Laden"
 msgstr "Три ключа, скидка в лавке"
 
@@ -599,6 +614,9 @@ msgstr "Ты летаешь и стреляешь быстрее"
 
 msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
 msgstr "Ты летаешь над ловушками и пропастями, урон +1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei Schlammschichten"
+msgstr "Ты летаешь над ловушками и пропастями, два слоя грязи"
 
 msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
 msgstr "Ты летаешь над ловушками и пропастями, два синих сердца"
@@ -638,6 +656,9 @@ msgstr "Ты метаешь сюрикены, подбитые враги кро
 
 msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
 msgstr "Ты растёшь: больше сердец и урона, в тебя легче попасть"
+
+msgid "Du wirst größer: mehr Kohlestücke und Schaden, leichter zu treffen"
+msgstr "Ты растёшь: больше угольков и урона, но в тебя легче попасть"
 
 msgid "Du wirst kleiner und schneller"
 msgstr "Ты становишься меньше и быстрее"
@@ -810,6 +831,36 @@ msgstr "Сердце, два синих сердца, урон выше"
 msgid "Ein Händler! Geh hin und sprich ihn an."
 msgstr "Торговец! Подойди и поговори с ним."
 
+msgid "Ein Kohlestück mehr"
+msgstr "Ещё один уголёк"
+
+msgid "Ein Kohlestück mehr, Glück hoch"
+msgstr "Ещё один уголёк, удача выше"
+
+msgid "Ein Kohlestück mehr, Schaden hoch"
+msgstr "Ещё один уголёк, урон выше"
+
+msgid "Ein Kohlestück mehr, heilt dich ganz"
+msgstr "Ещё один уголёк, полностью лечит"
+
+msgid "Ein Kohlestück mehr."
+msgstr "Ещё один уголёк."
+
+msgid "Ein Kohlestück und eine Schlammschicht"
+msgstr "Один уголёк и один слой грязи"
+
+msgid "Ein Kohlestück, Dornen, Explosionen tun dir nichts"
+msgstr "Уголёк, шипы, взрывы тебе не вредят"
+
+msgid "Ein Kohlestück, eine Bombe und ein Schlüssel"
+msgstr "Уголёк, бомба и ключ"
+
+msgid "Ein Kohlestück, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "Уголёк, монета, бомба и ключ"
+
+msgid "Ein Kohlestück, zwei Schlammschichten, Schaden hoch"
+msgstr "Уголёк, два слоя грязи, урон выше"
+
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "Трава в форме сердца. Эгон заваривает из неё чай."
 
@@ -915,6 +966,21 @@ msgstr "Вторая жизнь!"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "На столе Эгона на одну вещь больше."
 
+msgid "Eine Schlammschicht mehr zu Beginn jedes Runs."
+msgstr "Ещё один слой грязи в начале каждого забега."
+
+msgid "Eine Schlammschicht und Dornen"
+msgstr "Слой грязи и шипы"
+
+msgid "Eine Schlammschicht, Schaden hoch"
+msgstr "Один слой грязи, урон выше"
+
+msgid "Eine Schlammschicht, länger sicher nach Treffern"
+msgstr "Слой грязи, дольше неуязвим после ударов"
+
+msgid "Eine Schlammschicht, schneller laufen"
+msgstr "Один слой грязи, бег быстрее"
+
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "Сумка на 2×2 клетки. Пристегни к инвентарю у Эгона."
 
@@ -926,6 +992,9 @@ msgstr "Луг высотой с гнома. В траве что-то шурш�
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "Целая пекарня разом"
+
+msgid "Eine halbe Eisenkohle mehr zu Beginn jedes Runs."
+msgstr "Ещё пол-железного уголька в начале каждого забега."
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "Короткий клинок. Для воинов."
@@ -977,6 +1046,9 @@ msgstr "Железная руда"
 
 msgid "Eisenhaut"
 msgstr "Железная кожа"
+
+msgid "Eisenkohle"
+msgstr "Железный уголь"
 
 msgid "Eisenschlüssel"
 msgstr "Железный ключ"
@@ -1608,8 +1680,14 @@ msgstr "Хороший выбор! Коллекционная вещь. Чест
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "Имей %d сердец-контейнеров одновременно"
 
+msgid "Habe %d Kohlestücke gleichzeitig"
+msgstr "Имей %d угольков одновременно"
+
 msgid "Habe %d Münzen gleichzeitig"
 msgstr "Имей %d монет одновременно"
+
+msgid "Habe %d Schlammschichten gleichzeitig"
+msgstr "Имей %d слоёв грязи одновременно"
 
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Имей %d синих сердец одновременно"
@@ -1638,14 +1716,23 @@ msgstr "Травы целителя"
 msgid "Heilt %s Herzen"
 msgstr "Лечит сердец: %s"
 
+msgid "Heilt %s Kohlestücke"
+msgstr "Лечит угольков: %s"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "Полностью лечит, бег быстрее"
 
 msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
 msgstr "Лечит три сердца. Вдвое больше вишни, вдвое меньше носка."
 
+msgid "Heilt drei Kohlestücke. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "Лечит три уголька. Вдвое больше вишни, вдвое меньше носка."
+
 msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
 msgstr "Лечит два сердца. На вкус как вишня. И немного как носок."
+
+msgid "Heilt zwei Kohlestücke. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "Лечит два уголька. На вкус как вишня. И немного как носок."
 
 msgid "Heiltrank"
 msgstr "Лечебное зелье"
@@ -1722,6 +1809,12 @@ msgstr "Не больше полсердца за удар, но медленн�
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "Не больше полсердца за удар, дольше защита"
 
+msgid "Höchstens ein halbes Kohlestück pro Treffer, aber langsamer"
+msgstr "Не больше пол-уголька за удар, но медленнее"
+
+msgid "Höchstens ein halbes Kohlestück pro Treffer, länger sicher"
+msgstr "Не больше пол-уголька за удар, дольше неуязвим"
+
 msgid "Höhere Stufen kommen mit deiner Spielerstufe."
 msgstr "Высокие ступени открываются с уровнем игрока."
 
@@ -1760,6 +1853,9 @@ msgstr "Я подожду здесь. Береженого бог бережёт
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "В подземелье жмёшь %s. Буль-буль — и два сердца снова на месте."
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Kohlestücke glühen wieder."
+msgstr "В подземелье жмёшь %s. Буль-буль, и два уголька снова тлеют."
 
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "В подземелье: %s — выпить"
@@ -1875,6 +1971,9 @@ msgstr "Зелья нет с собой"
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "Ни один удар не отнимает больше полсердца"
 
+msgid "Kein Treffer nimmt mehr als ein halbes Kohlestück"
+msgstr "Ни один удар не отнимает больше пол-уголька"
+
 msgid "Keine Quest"
 msgstr "Нет задания"
 
@@ -1928,6 +2027,12 @@ msgstr "Уголь"
 
 msgid "Kohlenschrot"
 msgstr "Угольная дробь"
+
+msgid "Kohlestücke"
+msgstr "Угольки"
+
+msgid "Kohlestücke heilen doppelt"
+msgstr "Угольки лечат вдвое больше"
 
 msgid "Kometenschweif"
 msgstr "Хвост кометы"
@@ -2051,6 +2156,9 @@ msgstr "Долгий полёт, мощный удар"
 
 msgid "Langsam heilen und ein blaues Herz"
 msgstr "Медленное лечение и синее сердце"
+
+msgid "Langsam heilen und eine Schlammschicht"
+msgstr "Медленное лечение и слой грязи"
 
 msgid "Langsam heilst du dich"
 msgstr "Ты медленно лечишься"
@@ -2286,6 +2394,9 @@ msgstr "Монета"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "Монеты и сердца летят к тебе"
 
+msgid "Münzen und Kohlestücke fliegen zu dir"
+msgstr "Монеты и угольки летят к тебе"
+
 msgid "Münzsack"
 msgstr "Мешочек монет"
 
@@ -2387,6 +2498,9 @@ msgstr "Ритуальный нож"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "Камень жертвы: сердце за дар"
+
+msgid "Opferstein: ein Kohlestück für eine Gabe"
+msgstr "Жертвенный камень: уголёк за дар"
 
 msgid "Ork"
 msgstr "Орк"
@@ -2789,6 +2903,9 @@ msgstr "Щитоносец"
 
 msgid "Schlachtkeil"
 msgstr "Боевой клин"
+
+msgid "Schlammschicht"
+msgstr "Слой грязи"
 
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "Змеиный огонь: снаряды извиваются, урон чуть выше"
@@ -3261,6 +3378,9 @@ msgstr "Самонаводящиеся выстрелы и все характе
 msgid "Suchende Schüsse und ein blaues Herz"
 msgstr "Самонаводящиеся выстрелы и синее сердце"
 
+msgid "Suchende Schüsse und eine Schlammschicht"
+msgstr "Самонаводящиеся выстрелы и слой грязи"
+
 msgid "Suchende Schüsse, Glück hoch"
 msgstr "Самонаводящиеся выстрелы, удача выше"
 
@@ -3432,6 +3552,9 @@ msgstr "А слева — это ты. Не шевелись, я тебя оде
 msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
 msgstr "А раз уж я такой щедрый: Болотное сердце! Реликвия. Надень её на фигуру, и у тебя будет на одно сердце больше."
 
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Kohlestück mehr."
+msgstr "А раз уж я такой щедрый: Болотное сердце! Реликвия. Надень её на фигуру, и у тебя будет на один уголёк больше."
+
 msgid "Ungewöhnlich"
 msgstr "Необычный"
 
@@ -3479,6 +3602,9 @@ msgstr "Намного больше урона"
 
 msgid "Viel mehr Schaden mit nur einem Herz"
 msgstr "Намного больше урона при одном сердце"
+
+msgid "Viel mehr Schaden mit nur einem Kohlestück"
+msgstr "Гораздо больше урона всего с одним угольком"
 
 msgid "Viel mehr Schaden, langsamer schießen"
 msgstr "Намного больше урона, стрельба медленнее"
@@ -3773,6 +3899,36 @@ msgstr "Ещё два сердца, но медленнее"
 
 msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
 msgstr "Два сердца, два синих сердца, урон выше"
+
+msgid "Zwei Kohlestücke mehr"
+msgstr "Ещё два уголька"
+
+msgid "Zwei Kohlestücke mehr und Dornen"
+msgstr "Ещё два уголька и шипы"
+
+msgid "Zwei Kohlestücke mehr und langsam heilen"
+msgstr "Ещё два уголька и медленное лечение"
+
+msgid "Zwei Kohlestücke mehr, aber langsamer"
+msgstr "Ещё два уголька, но медленнее"
+
+msgid "Zwei Kohlestücke, zwei Schlammschichten, Schaden hoch"
+msgstr "Два уголька, два слоя грязи, урон выше"
+
+msgid "Zwei Schlammschichten"
+msgstr "Два слоя грязи"
+
+msgid "Zwei Schlammschichten und Dornen"
+msgstr "Два слоя грязи и шипы"
+
+msgid "Zwei Schlammschichten, Schaden hoch"
+msgstr "Два слоя грязи, урон выше"
+
+msgid "Zwei Schlammschichten, länger sicher nach Treffern"
+msgstr "Два слоя грязи, дольше неуязвим после ударов"
+
+msgid "Zwei Schlammschichten; platzt eine ab, trifft es alle Gegner"
+msgstr "Два слоя грязи; когда один отваливается, он бьёт всех врагов"
 
 msgid "Zwei Schüsse mehr, etwas schwächer"
 msgstr "Ещё два выстрела, чуть слабее"

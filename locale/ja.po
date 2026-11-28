@@ -9,6 +9,9 @@ msgstr "%dゴールド"
 msgid "%d Herzen"
 msgstr "ハート%d個"
 
+msgid "%d Kohlestücke"
+msgstr "石炭%d個"
+
 msgid "%d Skillpunkte"
 msgstr "スキルポイント %d"
 
@@ -71,6 +74,9 @@ msgstr "全ステータスが少し上昇"
 
 msgid "Alle paar Besiegten heilst du ein halbes Herz"
 msgstr "数体倒すごとにハート半分回復"
+
+msgid "Alle paar Besiegten heilst du ein halbes Kohlestück"
+msgstr "数体倒すごとに石炭半分回復"
 
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "店の品が半額"
@@ -275,6 +281,9 @@ msgstr "燃えて遅い：ダメージ増加"
 
 msgid "Brennende, explodierende Schüsse"
 msgstr "燃えて爆発する弾"
+
+msgid "Brennende, langsame Gegner und zwei Schlammschichten"
+msgstr "燃えて鈍る敵と泥の層2つ"
 
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "敵が燃えて遅くなり、青いハート2つ"
@@ -564,6 +573,12 @@ msgstr "竜のマント"
 msgid "Drei Funken folgen dir und schießen"
 msgstr "火花3つがついてきて撃つ"
 
+msgid "Drei Schlammschichten"
+msgstr "泥の層3つ"
+
+msgid "Drei Schlammschichten und manchmal ausweichen"
+msgstr "泥の層3つ、時々回避"
+
 msgid "Drei Schlüssel, Rabatt im Laden"
 msgstr "鍵3本、店で割引"
 
@@ -599,6 +614,9 @@ msgstr "飛べて、連射が速くなる"
 
 msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
 msgstr "罠や奈落の上を飛ぶ、ダメージ+1"
+
+msgid "Du fliegst über Fallen und Abgründe, zwei Schlammschichten"
+msgstr "罠と奈落の上を飛ぶ、泥の層2つ"
 
 msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
 msgstr "罠や奈落の上を飛ぶ、青いハート2つ"
@@ -638,6 +656,9 @@ msgstr "手裏剣を投げ、当たった敵は出血"
 
 msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
 msgstr "大きくなる：ハートとダメージ上昇、当たりやすい"
+
+msgid "Du wirst größer: mehr Kohlestücke und Schaden, leichter zu treffen"
+msgstr "体が大きくなる：石炭とダメージが増えるが、当たりやすくなる"
 
 msgid "Du wirst kleiner und schneller"
 msgstr "小さく速くなる"
@@ -810,6 +831,36 @@ msgstr "ハート1つ、青いハート2つ、ダメージ上昇"
 msgid "Ein Händler! Geh hin und sprich ihn an."
 msgstr "商人だ！近づいて話しかけよう。"
 
+msgid "Ein Kohlestück mehr"
+msgstr "石炭が1つ増える"
+
+msgid "Ein Kohlestück mehr, Glück hoch"
+msgstr "石炭が1つ増える、運上昇"
+
+msgid "Ein Kohlestück mehr, Schaden hoch"
+msgstr "石炭が1つ増える、ダメージ上昇"
+
+msgid "Ein Kohlestück mehr, heilt dich ganz"
+msgstr "石炭が1つ増え、全回復する"
+
+msgid "Ein Kohlestück mehr."
+msgstr "石炭が1つ増える。"
+
+msgid "Ein Kohlestück und eine Schlammschicht"
+msgstr "石炭1つと泥の層1つ"
+
+msgid "Ein Kohlestück, Dornen, Explosionen tun dir nichts"
+msgstr "石炭1つ、トゲ、爆発が効かない"
+
+msgid "Ein Kohlestück, eine Bombe und ein Schlüssel"
+msgstr "石炭、爆弾、鍵を1つずつ"
+
+msgid "Ein Kohlestück, eine Münze, eine Bombe und ein Schlüssel"
+msgstr "石炭、コイン、爆弾、鍵を1つずつ"
+
+msgid "Ein Kohlestück, zwei Schlammschichten, Schaden hoch"
+msgstr "石炭1つ、泥の層2つ、ダメージ上昇"
+
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "ハート形の薬草。エゴンはお茶にする。"
 
@@ -915,6 +966,21 @@ msgstr "2つ目の命！"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "エゴンのテーブルの品物が1つ増える。"
 
+msgid "Eine Schlammschicht mehr zu Beginn jedes Runs."
+msgstr "毎回のラン開始時に泥の層が1つ増える。"
+
+msgid "Eine Schlammschicht und Dornen"
+msgstr "泥の層1つとトゲ"
+
+msgid "Eine Schlammschicht, Schaden hoch"
+msgstr "泥の層1つ、ダメージ上昇"
+
+msgid "Eine Schlammschicht, länger sicher nach Treffern"
+msgstr "泥の層1つ、被弾後の無敵が長い"
+
+msgid "Eine Schlammschicht, schneller laufen"
+msgstr "泥の層1つ、移動が速くなる"
+
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "2×2マスのポーチ。エゴンの店で持ち物に取り付けよう。"
 
@@ -926,6 +992,9 @@ msgstr "ドワーフほどの高さの草原。草がざわめき、狩人が罠
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "パン屋まるごと一斉発射"
+
+msgid "Eine halbe Eisenkohle mehr zu Beginn jedes Runs."
+msgstr "毎回のラン開始時に鉄石炭が半分増える。"
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "短い刃。戦士用。"
@@ -977,6 +1046,9 @@ msgstr "鉄鉱石"
 
 msgid "Eisenhaut"
 msgstr "鉄の肌"
+
+msgid "Eisenkohle"
+msgstr "鉄石炭"
 
 msgid "Eisenschlüssel"
 msgstr "鉄の鍵"
@@ -1608,8 +1680,14 @@ msgstr "いい選択だ！コレクターズアイテムだぜ。正直に！"
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "ハートの器を同時に%d個持つ"
 
+msgid "Habe %d Kohlestücke gleichzeitig"
+msgstr "石炭を同時に%d個持つ"
+
 msgid "Habe %d Münzen gleichzeitig"
 msgstr "コインを同時に%d枚持つ"
+
+msgid "Habe %d Schlammschichten gleichzeitig"
+msgstr "泥の層を同時に%d個持つ"
 
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "青いハートを同時に%d個持つ"
@@ -1638,14 +1716,23 @@ msgstr "治癒の薬草"
 msgid "Heilt %s Herzen"
 msgstr "ハートを%s回復"
 
+msgid "Heilt %s Kohlestücke"
+msgstr "石炭%s個分回復"
+
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "全回復、移動が速くなる"
 
 msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
 msgstr "ハートを3つ回復。さくらんぼ2倍、靴下半分。"
 
+msgid "Heilt drei Kohlestücke. Doppelt so viel Kirsche, halb so viel Socke."
+msgstr "石炭3つ分回復。さくらんぼ2倍、靴下半分。"
+
 msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
 msgstr "ハートを2つ回復。さくらんぼ味。ちょっと靴下味。"
+
+msgid "Heilt zwei Kohlestücke. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
+msgstr "石炭2つ分回復。さくらんぼの味。それと少し靴下の味。"
 
 msgid "Heiltrank"
 msgstr "回復薬"
@@ -1722,6 +1809,12 @@ msgstr "被弾は最大ハート半分、ただし遅くなる"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "被弾は最大ハート半分、無敵が長い"
 
+msgid "Höchstens ein halbes Kohlestück pro Treffer, aber langsamer"
+msgstr "被弾は最大でも石炭半分、ただし遅くなる"
+
+msgid "Höchstens ein halbes Kohlestück pro Treffer, länger sicher"
+msgstr "被弾は最大でも石炭半分、無敵が長い"
+
 msgid "Höhere Stufen kommen mit deiner Spielerstufe."
 msgstr "高い段階はプレイヤーLvで解放される。"
 
@@ -1760,6 +1853,9 @@ msgstr "俺はここで待ってる。用心に越したことはない。"
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "ダンジョンで %s を押す。ゴクゴク、ハートが2つ戻る。"
+
+msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Kohlestücke glühen wieder."
+msgstr "ダンジョンで%sを押す。ゴクゴク、石炭が2つまた赤く光る。"
 
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "ダンジョンで：%s で飲む"
@@ -1875,6 +1971,9 @@ msgstr "薬を持っていない"
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "被弾は最大でもハート半分"
 
+msgid "Kein Treffer nimmt mehr als ein halbes Kohlestück"
+msgstr "被弾は最大でも石炭半分"
+
 msgid "Keine Quest"
 msgstr "クエストなし"
 
@@ -1928,6 +2027,12 @@ msgstr "石炭"
 
 msgid "Kohlenschrot"
 msgstr "石炭の散弾"
+
+msgid "Kohlestücke"
+msgstr "石炭"
+
+msgid "Kohlestücke heilen doppelt"
+msgstr "石炭の回復量が2倍"
 
 msgid "Kometenschweif"
 msgstr "彗星の尾"
@@ -2051,6 +2156,9 @@ msgstr "長い弾道、強烈な一撃"
 
 msgid "Langsam heilen und ein blaues Herz"
 msgstr "徐々に回復、青いハート1つ"
+
+msgid "Langsam heilen und eine Schlammschicht"
+msgstr "ゆっくり回復と泥の層1つ"
 
 msgid "Langsam heilst du dich"
 msgstr "徐々に回復する"
@@ -2286,6 +2394,9 @@ msgstr "コイン"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "コインとハートが飛んでくる"
 
+msgid "Münzen und Kohlestücke fliegen zu dir"
+msgstr "コインと石炭が飛んでくる"
+
 msgid "Münzsack"
 msgstr "コイン袋"
 
@@ -2387,6 +2498,9 @@ msgstr "儀式の短刀"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "生贄の石：ハート1つで贈り物"
+
+msgid "Opferstein: ein Kohlestück für eine Gabe"
+msgstr "生贄の石：石炭1つで贈り物"
 
 msgid "Ork"
 msgstr "オーク"
@@ -2789,6 +2903,9 @@ msgstr "盾の衛兵"
 
 msgid "Schlachtkeil"
 msgstr "戦の楔"
+
+msgid "Schlammschicht"
+msgstr "泥の層"
 
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "蛇炎: 弾がくねくね進み、少し強い"
@@ -3261,6 +3378,9 @@ msgstr "追尾弾と全ステータス上昇"
 msgid "Suchende Schüsse und ein blaues Herz"
 msgstr "追尾弾と青いハート1つ"
 
+msgid "Suchende Schüsse und eine Schlammschicht"
+msgstr "追尾弾と泥の層1つ"
+
 msgid "Suchende Schüsse, Glück hoch"
 msgstr "追尾弾、運上昇"
 
@@ -3432,6 +3552,9 @@ msgstr "で、左がお前だ。じっとしてな、着せてやる…"
 msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
 msgstr "俺は気前がいいからな：沼の心臓だ！遺物だぞ。人形に付ければハートが1つ増える。"
 
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Kohlestück mehr."
+msgstr "俺は気前がいいからな：沼の心臓だ！遺物だぞ。人形に付ければ石炭が1つ増える。"
+
 msgid "Ungewöhnlich"
 msgstr "アンコモン"
 
@@ -3479,6 +3602,9 @@ msgstr "ダメージ大幅上昇"
 
 msgid "Viel mehr Schaden mit nur einem Herz"
 msgstr "ハート1つ以下でダメージ大幅上昇"
+
+msgid "Viel mehr Schaden mit nur einem Kohlestück"
+msgstr "石炭が1つだけのときダメージ大幅上昇"
 
 msgid "Viel mehr Schaden, langsamer schießen"
 msgstr "ダメージ大幅上昇、連射が遅くなる"
@@ -3773,6 +3899,36 @@ msgstr "ハートが2つ増えるが、遅くなる"
 
 msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
 msgstr "ハート2つ、青いハート2つ、ダメージ上昇"
+
+msgid "Zwei Kohlestücke mehr"
+msgstr "石炭が2つ増える"
+
+msgid "Zwei Kohlestücke mehr und Dornen"
+msgstr "石炭が2つ増える、トゲ"
+
+msgid "Zwei Kohlestücke mehr und langsam heilen"
+msgstr "石炭が2つ増える、ゆっくり回復"
+
+msgid "Zwei Kohlestücke mehr, aber langsamer"
+msgstr "石炭が2つ増えるが、遅くなる"
+
+msgid "Zwei Kohlestücke, zwei Schlammschichten, Schaden hoch"
+msgstr "石炭2つ、泥の層2つ、ダメージ上昇"
+
+msgid "Zwei Schlammschichten"
+msgstr "泥の層2つ"
+
+msgid "Zwei Schlammschichten und Dornen"
+msgstr "泥の層2つとトゲ"
+
+msgid "Zwei Schlammschichten, Schaden hoch"
+msgstr "泥の層2つ、ダメージ上昇"
+
+msgid "Zwei Schlammschichten, länger sicher nach Treffern"
+msgstr "泥の層2つ、被弾後の無敵が長い"
+
+msgid "Zwei Schlammschichten; platzt eine ab, trifft es alle Gegner"
+msgstr "泥の層2つ。1つ剥がれると全ての敵に当たる"
 
 msgid "Zwei Schüsse mehr, etwas schwächer"
 msgstr "弾が2発増え、少し弱くなる"
