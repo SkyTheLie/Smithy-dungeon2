@@ -236,6 +236,8 @@ func _loot_icon(thing: Variant) -> Texture2D:
 		return (thing as Pickup).map_icon()
 	if thing is Pedestal:
 		return (thing as Pedestal).map_icon()
+	if thing is Chest:
+		return (thing as Chest).map_icon()
 	return null
 
 

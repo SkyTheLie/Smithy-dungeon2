@@ -383,7 +383,7 @@ Heute: unter 50 % schneller und mehr Schüsse. Neu als feste Regel mit Phasen in
 
 ## Kisten, Stein-Kammern, Egons Umzug (Nachricht vom 2026-11-28)
 
-### Kisten (Truhen-System, siehe Backlog „Truhen“ in `docs/ITEM_IDEEN.md`)
+### Kisten (Truhen-System, siehe Backlog „Truhen“ in `docs/ITEM_IDEEN.md`) – ✅ gebaut (`feature/kisten`; Kisten-Beute zählt nicht zum Raum-Budget)
 
 Drei Arten, Werte und Beute in den Daten (z. B. `data/chests.json`: Art, Bild, Beute-Tabelle, `bomb_opens`, `key`):
 
@@ -398,7 +398,7 @@ Drei Arten, Werte und Beute in den Daten (z. B. `data/chests.json`: Art, Bild, B
 - Zählt zum Raum-Budget der Beute (`loot.json` `room_budget`) wie zerbrechliche Deko; Kisten geben ihre eigene Beute obendrauf nur, wenn der Raum das erlaubt (Wert in den Daten).
 - Eisenschlüssel (bleibt über Runs) und zerbrechliche Schlüssel öffnen beide; auch Tresorkisten (entschieden 2026-11-28: „Schlüssel ist Schlüssel“).
 
-### Stein-Kammer (Raum-Art)
+### Stein-Kammer (Raum-Art) – ✅ gebaut (`feature/kisten`; Ringe 2,2 m/3,4 m, damit eine Bombe am Ring die Kiste nicht trifft; Hinweis-Text beim ersten Mal noch offen)
 
 - Eine Kiste in der Mitte (oder in einer Ecke), **ringsum von Steinen eingemauert**. Man kommt nur heran, wenn man die Steine **wegbombt** (Bombe zerstört Steine im Umkreis, gibt es schon: `Dungeon.explode`).
 - Varianten: einfacher Ring (1 Bombe reicht), doppelter Ring (2 Bomben), Steine mit Tresorkiste drin (Bombe für die Steine **und** Schlüssel für die Kiste).
