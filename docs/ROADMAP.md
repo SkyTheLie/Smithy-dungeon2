@@ -134,3 +134,9 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Wand-Schriften früherer Abenteurer (`story.json` `walls`, `floors.json` `writings`, `feature/wand-schriften`).
 - ✅ Zerbrechliche Deko: Kisten, Fässer, Säcke, Kristalle gehen durch Schuss, Schwert und Bombe kaputt, manchmal Münzen (`floors.json` `props.break`, `feature/kaputte-deko`).
 - Offen: Boden-Decals, Vignette/Farbstimmung, Head-Bob; im Laden Seltenheitsrahmen, lebender Hintergrund, R3-Moment, Abblenden.
+
+### Gegner, Bosse, Fallen, Kisten (Nachrichten vom 2026-11-28, Listen in `docs/IDEEN.md`)
+
+Reihenfolge (klein zuerst): Schuss-Farben → Untote stehen auf → Geister unsichtbar → Kisten und Stein-Kammer → Pfeil-Wände → Stachelsteine → Monster-Falle → Boss-Phasen → Wand-Geist → Wurm-Boss → Vogel-Boss → Egons Umzug mit Gimmicks → UI-Komfort im Laden und Tab.
+
+- ✅ Schuss-Farben nach Schaden (`enemies.json` `shot_colors`, `feature/schuss-farben`).
