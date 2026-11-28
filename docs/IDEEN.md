@@ -365,7 +365,7 @@ Jeder Gegner-Schuss bekommt seine Farbe **aus dem Schaden** (eine Tabelle in den
   - **Ruf:** kleine Vögel als Helfer.
 - Ab 50 % mehr Meteoriten auf einmal, ab 25 % Meteoriten in Mustern (Ring um den Spieler, Linie quer durch den Raum).
 
-### Boss-Phasen (für alle Bosse) – ✅ gebaut (`feature/boss-phasen`; Musik-Steigerung und Raum-Veränderung beim Wechsel noch offen)
+### Boss-Phasen (für alle Bosse) – ✅ gebaut (`feature/boss-phasen`, Musik-Steigerung `feature/boss-musik`; Raum-Veränderung beim Wechsel noch offen)
 
 Heute: unter 50 % schneller und mehr Schüsse. Neu als feste Regel mit Phasen in den Daten (`phases` [{at: 0.5, …}, {at: 0.25, …}]):
 

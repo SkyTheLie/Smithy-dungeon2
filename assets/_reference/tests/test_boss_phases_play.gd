@@ -45,6 +45,7 @@ func run() -> void:
 	check((boss.get("_base_color") as Color) != colour_before, "new colour")
 	check((brain.get("_attacks") as Array).size() > attacks_before, "a new attack joins")
 	check(float(brain.call("_pause_factor")) < 1.0, "shorter pauses")
+	check(float(root.get_node("AudioManager").call("get_music_intensity")) > 1.0, "the music gets faster")
 	check(await wait_until(func() -> bool: return not brain.call("in_transition"), 3.0), "the roar ends")
 	boss.call("take_damage", float(boss.get("hp")) - full * 0.2, Vector3.ZERO, false)
 	await physics_frame
