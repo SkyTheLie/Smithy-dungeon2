@@ -31,6 +31,12 @@ var pieces: Array = []
 var grid := Vector2i(5, 4)
 var cell_px: float = 24.0
 var show_price: bool = false
+## Egon's table: the gold the player has (-1 = no check); dearer pieces are darker, price red.
+var gold_limit: int = -1
+## Pieces better than what the hero wears: a small green arrow.
+var better: Array[int] = []
+const TOO_DEAR_COLOR := Color(1.0, 0.35, 0.3)
+const BETTER_COLOR := Color(0.35, 1.0, 0.4)
 ## Pieces can be dragged away; the drag data says {"from": drag_from, "index": i, …}.
 var draggable: bool = true
 var drag_from: String = "stash"
@@ -128,6 +134,13 @@ func _draw() -> void:
 		BagBoard.draw_icon(self, _icons[i] if i < _icons.size() else null, rect.grow(-1.0), bool(piece.get("rot", false)))
 		if faint < 1.0:
 			draw_rect(rect, Color(0, 0, 0, 0.5))
+		var too_dear: bool = show_price and gold_limit >= 0 and int(piece.get("price", 0)) > gold_limit
+		if too_dear:
+			draw_rect(rect, Color(0, 0, 0, 0.4))
+		if better.has(i):
+			var tip := Vector2(rect.end.x - 5, rect.position.y + 2)
+			draw_colored_polygon(PackedVector2Array([tip, tip + Vector2(3, 4), tip + Vector2(-3, 4)]), BETTER_COLOR)
+			draw_rect(Rect2(tip + Vector2(-1, 4), Vector2(2, 3)), BETTER_COLOR)
 		var text: String = ""
 		if show_price:
 			text = str(int(piece.get("price", 0)))
@@ -136,7 +149,10 @@ func _draw() -> void:
 		if not text.is_empty() and font:
 			var at := Vector2(rect.end.x - 2 - font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, 8).x, rect.end.y - 2)
 			draw_string_outline(font, at, text, HORIZONTAL_ALIGNMENT_LEFT, -1, 8, 3, Color.BLACK)
-			draw_string(font, at, text, HORIZONTAL_ALIGNMENT_LEFT, -1, 8, PRICE_COLOR if show_price else Color.WHITE)
+			var color_now: Color = Color.WHITE
+			if show_price:
+				color_now = TOO_DEAR_COLOR if gold_limit >= 0 and int(piece.get("price", 0)) > gold_limit else PRICE_COLOR
+			draw_string(font, at, text, HORIZONTAL_ALIGNMENT_LEFT, -1, 8, color_now)
 		if bool(piece.get("locked", false)):
 			_draw_lock(rect.position + Vector2(2, 2))
 		if glowing.has(i):

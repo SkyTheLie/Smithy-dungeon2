@@ -503,6 +503,31 @@ static func piece_stats(piece: Dictionary) -> Dictionary:
 	return stats(String(piece.get("id", "")), int(piece.get("rarity", 1)), String(piece.get("type", "")))
 
 
+## A rough worth of gear for comparing two pieces of the same slot: its values added up
+## (factors like "speed_mult" count with what they add or take).
+static func gear_score(piece: Dictionary) -> float:
+	var total: float = 0.0
+	var values: Dictionary = piece_stats(piece)
+	for key: String in values:
+		total += (float(values[key]) - 1.0) if key.ends_with("_mult") else float(values[key])
+	return total
+
+
+## true if `piece` (gear) is better than what is worn in its slot (or the slot is empty) and the
+## hero can use it (weapons of another class: no).
+static func better_than_worn(piece: Dictionary, worn: Dictionary, character: String) -> bool:
+	var id: String = String(piece.get("id", ""))
+	if not is_gear(id):
+		return false
+	var wanted: String = String(Content.gear_item(id).get("class", ""))
+	if not wanted.is_empty() and wanted != character:
+		return false
+	var slot: String = String(Content.gear_item(id).get("slot", ""))
+	if not worn.has(slot):
+		return true
+	return gear_score(piece) > gear_score(worn[slot]) + 0.001
+
+
 static func is_gear(id: String) -> bool:
 	return Content.gear().has(id)
 

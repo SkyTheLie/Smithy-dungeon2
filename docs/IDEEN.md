@@ -290,7 +290,7 @@ Ergänzt Punkt 8 „Komfort“ oben (Shift+Klick, „Alle Beute verkaufen“, Ve
 
 ### Laden (Egon)
 
-Gebaut (`feature/laden-komfort`): 1 Auto-Sortieren, 2 Sperren, 4 Wert im Tooltip (ohne Alt-Gesamtwert), 6 Hebel-Kosten (standen schon da; Rückfrage noch offen), 7 Bereit-Check. Offen: 3 Rückkauf, 5 „Kann ich mir leisten“/grüner Pfeil, 8 Ausrüstungs-Sets.
+Gebaut (`feature/laden-komfort`): 1 Auto-Sortieren, 2 Sperren, 4 Wert im Tooltip (ohne Alt-Gesamtwert), 6 Hebel-Kosten (standen schon da; Rückfrage noch offen), 7 Bereit-Check. 5 „Kann ich mir leisten“/grüner Pfeil: gebaut (`feature/laden-leisten`). Offen: 3 Rückkauf, 8 Ausrüstungs-Sets.
 
 1. **Auto-Sortieren:** Knopf (oder Taste **T**) packt Lager und Inventar dicht; sortiert nach Art, Seltenheit oder Wert (Auswahl merkt sich das Spiel). Gesperrte Teile bleiben liegen.
 2. **Sperren:** **Strg+Klick** setzt ein Schloss auf ein Teil. Gesperrtes wird nie verkauft (auch nicht bei „Alle Beute verkaufen“), nicht weggeworfen und nicht vom Sortieren bewegt.
