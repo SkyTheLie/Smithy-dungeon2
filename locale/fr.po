@@ -1401,6 +1401,9 @@ msgstr "Cape de braise"
 msgid "Glutmond"
 msgstr "Lune de braise"
 
+msgid "Glutreste"
+msgstr "Braises"
+
 msgid "Glutrubin"
 msgstr "Rubis de braise"
 
@@ -3227,6 +3230,9 @@ msgstr "Niveau %d/%d"
 
 msgid "Stufe zu niedrig"
 msgstr "Niveau trop bas"
+
+msgid "Sturmadler"
+msgstr "Aigle des tempêtes"
 
 msgid "Sturmessenz"
 msgstr "Essence de tempête"

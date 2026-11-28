@@ -1401,6 +1401,9 @@ msgstr "Ember Cloak"
 msgid "Glutmond"
 msgstr "Ember Moon"
 
+msgid "Glutreste"
+msgstr "Embers"
+
 msgid "Glutrubin"
 msgstr "Ember Ruby"
 
@@ -3227,6 +3230,9 @@ msgstr "Level %d/%d"
 
 msgid "Stufe zu niedrig"
 msgstr "Level too low"
+
+msgid "Sturmadler"
+msgstr "Storm Eagle"
 
 msgid "Sturmessenz"
 msgstr "Storm Essence"

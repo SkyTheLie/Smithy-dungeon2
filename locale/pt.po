@@ -1401,6 +1401,9 @@ msgstr "Manto de brasas"
 msgid "Glutmond"
 msgstr "Lua de brasa"
 
+msgid "Glutreste"
+msgstr "Brasas"
+
 msgid "Glutrubin"
 msgstr "Rubi de brasa"
 
@@ -3227,6 +3230,9 @@ msgstr "Nível %d/%d"
 
 msgid "Stufe zu niedrig"
 msgstr "Nível baixo demais"
+
+msgid "Sturmadler"
+msgstr "Águia da tempestade"
 
 msgid "Sturmessenz"
 msgstr "Essência da tempestade"

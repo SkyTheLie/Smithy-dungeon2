@@ -1401,6 +1401,9 @@ msgstr "残り火のマント"
 msgid "Glutmond"
 msgstr "残り火の月"
 
+msgid "Glutreste"
+msgstr "残り火"
+
 msgid "Glutrubin"
 msgstr "残り火のルビー"
 
@@ -3227,6 +3230,9 @@ msgstr "レベル %d/%d"
 
 msgid "Stufe zu niedrig"
 msgstr "レベルが足りない"
+
+msgid "Sturmadler"
+msgstr "嵐の大鷲"
 
 msgid "Sturmessenz"
 msgstr "嵐の精髄"

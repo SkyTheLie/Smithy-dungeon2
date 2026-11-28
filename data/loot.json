@@ -130,6 +130,7 @@
 		"frost_golem": [{"id": "sapphire", "chance": 1.0, "amount": [1, 2]}, {"id": "frost_lichen", "chance": 0.6, "amount": [1, 2]}],
 		"frost_mane": [{"id": "frost_pelt", "chance": 1.0, "amount": [1, 1]}, {"id": "seal_fur", "chance": 0.5, "amount": [1, 1]}],
 		"griffin": [{"id": "griffin_fur", "chance": 1.0, "amount": [1, 2]}, {"id": "storm_essence", "chance": 0.5, "amount": [1, 1]}],
+		"storm_eagle": [{"id": "griffin_fur", "chance": 1.0, "amount": [1, 2]}, {"id": "storm_essence", "chance": 0.5, "amount": [1, 1]}],
 		"harpy_matriarch": [{"id": "storm_essence", "chance": 1.0, "amount": [1, 1]}, {"id": "harpy_feather", "chance": 0.8, "amount": [1, 2]}],
 		"ember_imp": [{"id": "ash", "chance": 0.35, "amount": [1, 1]}],
 		"magma_slime": [{"id": "ash", "chance": 0.4, "amount": [1, 1]}],
