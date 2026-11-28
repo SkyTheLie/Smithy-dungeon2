@@ -57,6 +57,7 @@ Eigenes Repository, Remote `origin` = https://github.com/SkyTheLie/Smithy-dungeo
 9. Neue Texte: `py assets/_reference/i18n/build_po.py` muss „0 problems“ melden.
 10. Regeln gegen bekannte Fehler: `docs/FEHLERKLASSEN.md`.
 11. **Dialoge:** Jeder Text einer Figur wird aus ihrer Charakter-Datei in `docs/figuren/` gebaut (Egon Ehrlich: `docs/figuren/EGON_EHRLICH.md`). Neue Fakten über eine Figur dort eintragen.
+12. **Ton für jede Aktion:** Jeder Angriff, jede Vorwarnung, jede Falle und jede Spieler-Aktion bekommt einen passenden Ton (3D aus der Richtung der Quelle) und eine sichtbare Vorwarnung; Angriffe sind hörbar, bevor sie treffen. Ohne Ton ist ein neuer Gegner/Angriff/Falle nicht fertig (Details: `docs/IDEEN.md`, „Regel: Jede Aktion hat einen Ton“).
 
 ## 6. Umfang
 
