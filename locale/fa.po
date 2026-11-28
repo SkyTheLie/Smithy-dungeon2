@@ -3549,6 +3549,9 @@ msgstr "جاسلاحی"
 msgid "Wanderbündel"
 msgstr "بقچه مسافر"
 
+msgid "Wandgeist"
+msgstr "شبح دیوار"
+
 msgid "Wandspinne"
 msgstr "عنکبوت دیوار"
 

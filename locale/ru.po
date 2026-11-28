@@ -3549,6 +3549,9 @@ msgstr "Оружейная стойка"
 msgid "Wanderbündel"
 msgstr "Узелок странника"
 
+msgid "Wandgeist"
+msgstr "Стенной призрак"
+
 msgid "Wandspinne"
 msgstr "Стенной паук"
 

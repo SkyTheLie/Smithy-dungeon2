@@ -71,7 +71,7 @@ func run() -> void:
 		_check_sheet(id, enemies[id], walk_path)
 		check(float(enemies[id].get("hp", 0)) > 0.0, "enemy %s has life" % id)
 		check(not (enemies[id].get("voice", {}) as Dictionary).is_empty(), "enemy %s has its own voice" % id)
-		check(String(enemies[id].get("ai", "")) in ["lurk", "chase", "fly", "hop", "shooter", "guard", "boss", "charger", "turret", "wall", "bouncer", "spawner", "shell"], "enemy %s: known ai" % id)
+		check(String(enemies[id].get("ai", "")) in ["lurk", "chase", "fly", "hop", "shooter", "guard", "boss", "charger", "turret", "wall", "bouncer", "spawner", "shell", "wall_ghost"], "enemy %s: known ai" % id)
 		_check_enemy_tricks(id, enemies)
 		if bool(enemies[id].get("front_guard", false)):
 			check(enemies[id].get("ai", "") == "guard", "enemy %s: shield bearers use ai guard (so they can be beaten)" % id)

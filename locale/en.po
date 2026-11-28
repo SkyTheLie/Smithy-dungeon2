@@ -3549,6 +3549,9 @@ msgstr "Weapon rack"
 msgid "Wanderbündel"
 msgstr "Wanderer's Bundle"
 
+msgid "Wandgeist"
+msgstr "Wall Wraith"
+
 msgid "Wandspinne"
 msgstr "Wall Spider"
 

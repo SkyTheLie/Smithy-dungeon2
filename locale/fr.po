@@ -3549,6 +3549,9 @@ msgstr "Râtelier d'armes"
 msgid "Wanderbündel"
 msgstr "Baluchon du voyageur"
 
+msgid "Wandgeist"
+msgstr "Spectre du mur"
+
 msgid "Wandspinne"
 msgstr "Araignée des Murs"
 

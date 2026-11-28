@@ -3549,6 +3549,9 @@ msgstr "武器架"
 msgid "Wanderbündel"
 msgstr "旅人包裹"
 
+msgid "Wandgeist"
+msgstr "墙中幽灵"
+
 msgid "Wandspinne"
 msgstr "壁蛛"
 
