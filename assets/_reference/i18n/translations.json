@@ -1285,5 +1285,6 @@
 	"Größeres Lager": {"en": "Bigger storage", "es": "Almacén más grande", "fr": "Réserve plus grande", "pt": "Depósito maior", "ru": "Большой склад", "ja": "大きな倉庫", "zh": "更大的仓库", "fa": "انبار بزرگ‌تر"},
 	"Das Lager bekommt %d Spalten mehr. Für immer.": {"en": "The storage gets %d more columns. Forever.", "es": "El almacén gana %d columnas más. Para siempre.", "fr": "La réserve gagne %d colonnes de plus. Pour toujours.", "pt": "O depósito ganha mais %d colunas. Para sempre.", "ru": "На складе станет на %d столбцов больше. Навсегда.", "ja": "倉庫の列が%d増える。ずっと。", "zh": "仓库多出%d列。永久有效。", "fa": "انبار %d ستون بیشتر می‌گیرد. برای همیشه."},
 	"Nur einmal.": {"en": "Only once.", "es": "Solo una vez.", "fr": "Une seule fois.", "pt": "Só uma vez.", "ru": "Только один раз.", "ja": "一度だけ。", "zh": "仅限一次。", "fa": "فقط یک بار."},
-	"Schon getauscht": {"en": "Already traded", "es": "Ya cambiado", "fr": "Déjà échangé", "pt": "Já trocado", "ru": "Уже обменяно", "ja": "交換済み", "zh": "已交换", "fa": "قبلاً معاوضه شده"}
+	"Schon getauscht": {"en": "Already traded", "es": "Ya cambiado", "fr": "Déjà échangé", "pt": "Já trocado", "ru": "Уже обменяно", "ja": "交換済み", "zh": "已交换", "fa": "قبلاً معاوضه شده"},
+	"Eine Falle!": {"en": "A trap!", "es": "¡Una trampa!", "fr": "Un piège !", "pt": "Uma armadilha!", "ru": "Ловушка!", "ja": "罠だ！", "zh": "陷阱！", "fa": "یک تله!"}
 }

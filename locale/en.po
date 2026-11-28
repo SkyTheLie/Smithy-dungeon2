@@ -912,6 +912,9 @@ msgstr "A second life and a spark"
 msgid "Ein zweites Leben!"
 msgstr "A second life!"
 
+msgid "Eine Falle!"
+msgstr "A trap!"
+
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "One more item on Egon's table."
 

@@ -912,6 +912,9 @@ msgstr "زندگی دوم و یک جرقه"
 msgid "Ein zweites Leben!"
 msgstr "زندگی دوم!"
 
+msgid "Eine Falle!"
+msgstr "یک تله!"
+
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "یک کالای بیشتر روی میز اگون."
 

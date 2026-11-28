@@ -140,6 +140,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 Reihenfolge (klein zuerst): Schuss-Farben → Untote stehen auf → Geister unsichtbar → Kisten und Stein-Kammer → Pfeil-Wände → Stachelsteine → Monster-Falle → Boss-Phasen → Wand-Geist → Wurm-Boss → Vogel-Boss → Egons Umzug mit Gimmicks → UI-Komfort im Laden und Tab.
 
 - ✅ Schuss-Farben nach Schaden (`enemies.json` `shot_colors`, `feature/schuss-farben`).
+- ✅ Monster-Falle: versteckte Platte, Gegner fallen von der Decke (`floors.json` `ceiling_traps`, `feature/monster-falle`).
 - ✅ Stachelsteine auf festen Bahnen (`floors.json` `spike_stones`, `feature/stachelsteine`).
 - ✅ Pfeil-Wände (Takt, Reihe, Druckplatte; Vorwarnung + Klick; treffen auch Gegner; `floors.json` `arrow_traps`, `feature/pfeil-waende`).
 - ✅ Kisten (Holz, Schloss, Tresor) und Stein-Kammer (`data/chests.json`, `feature/kisten`).

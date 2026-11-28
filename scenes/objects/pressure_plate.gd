@@ -7,6 +7,11 @@ extends Node3D
 
 var size: float = 0.9
 var cooldown: float = 2.0
+## Monster trap (floors.json "ceiling_traps"): hidden until stepped on, then enemies fall from
+## the ceiling; works only once (`spent`), and only the player sets it off.
+var hidden: bool = false
+var ambush: bool = false
+var spent: bool = false
 
 var _wait: float = 0.0
 var _stone: MeshInstance3D
@@ -25,6 +30,7 @@ func _ready() -> void:
 	_stone.mesh = box
 	_stone.material_override = RoomBuilder.color_material(COLOR)
 	_stone.position.y = UP_Y
+	_stone.visible = not hidden
 	add_child(_stone)
 
 
@@ -44,6 +50,10 @@ func press(delta: float, someone_on_it: bool) -> bool:
 	if _wait > 0.0:
 		return false
 	_wait = cooldown
+	if ambush:
+		spent = true
+		_wait = INF
+	_stone.visible = true
 	_stone.position.y = DOWN_Y
 	AudioManager.play_stream_at(SoundSynth.make(CLICK, "cry"), global_position, get_parent() as Node3D, 1.0, 0.0)
 	return true

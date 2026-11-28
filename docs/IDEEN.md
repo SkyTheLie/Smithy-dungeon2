@@ -255,7 +255,7 @@ Gehören zu `floors.json` `hazard_types` (wie Stacheln/Lava), Takt und Schaden i
    - Muster in den Daten (`path`: Punkte, `speed`, `loop`/`pingpong`), damit man sie lernen kann.
    - Rumpeln/Schleifen als 3D-Ton, lauter je näher; Funken an der Wand beim Umdrehen.
    - Feuerbälle halten sie nicht auf (nicht zerstörbar), Bomben vielleicht kurz.
-3. **Monster-Falle (Decke):** Eine versteckte Platte; tritt man darauf, **fallen Gegner von oben** in den Raum.
+3. ✅ (`feature/monster-falle`) **Monster-Falle (Decke):** Eine versteckte Platte; tritt man darauf, **fallen Gegner von oben** in den Raum.
    - Vorwarnung: Klick unter dem Fuß, Staub rieselt von der Decke, Schatten am Boden, wo sie landen; dann Aufprall-Ton und Staubwolke.
    - Passt zum geplanten „Hinterhalt“-Raum (Abschnitt „Besondere Räume“).
    - Nach dem Auslösen ist die Platte sichtbar (kein zweites Mal).
