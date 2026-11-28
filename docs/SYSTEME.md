@@ -408,6 +408,12 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - **Knöpfe** (`scripts/core/ui_juice.gd`, von `Game` an jeden neuen Knopf gehängt): wachsen unter der Maus, federn beim Drücken.
 - **End-Bildschirm:** EXP-Balken füllt sich animiert; jede neue Stufe: „Stufe X!“ springt auf, Konfetti, Ton.
 
+## Deko in den Räumen – 2026-11-28 (`feature/deko`)
+
+- `RoomProps.add_props` (`scenes/run/room_props.gd`), aufgerufen von `Dungeon` direkt nach `RoomBuilder.build_shell`: legt im Raum einen Knoten `Props` an und stellt 2–5 aufrechte Bilder (Billboard, dreht sich nur um die Hochachse, schattiert wie Steine) an die Wände. Nur Aussehen: keine Kollision, nicht auf der Karte, nicht aufhebbar.
+- Daten: Thema `props` in `data/floors.json` = [[Bild, Gewicht, Höhe in Metern], …]; oben `props` = `count` [min, max], `min_gap` (Abstand untereinander), `inset` [min, max] (Abstand zur Wand). Türöffnungen bleiben ±1,9 m frei.
+- Eigener Zufall je Raum (`hash([Ebene, Zelle, "props"])`), damit Gegner, Steine und Beute denselben Zufall behalten wie vorher. Test: `test_room_props_play`.
+
 ## Stimmung im Dungeon – 2026-11-28 (`feature/stimmung`)
 
 - **Treffer-Blitz:** Gegner-Bilder haben ein eigenes Material (`scenes/actors/enemy_sprite.gdshader`: wie ein Sprite3D, Billboard um Y, Alpha-Schnitt, plus `flash`). Ein Treffer macht den Gegner `Enemy.HIT_WHITE` (0,05 s) ganz weiß, danach die rote Tönung wie vorher (`_flash`). Das Bild setzt `Enemy._set_sheet` auch im Material (`sprite_texture`), sonst bleibt es leer.
