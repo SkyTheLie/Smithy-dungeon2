@@ -373,7 +373,7 @@ Heute: unter 50 % schneller und mehr Schüsse. Neu als feste Regel mit Phasen in
 - Optional je Boss: beim Phasenwechsel Helfer rufen, Raum verändern (Lava steigt, Säulen fallen), Schwachstelle wird sichtbar.
 - Lebensbalken zeigt die Phasen-Grenzen als Striche bei 50 % und 25 %.
 
-### Geist aus der Wand (zieht den Spieler an)
+### Geist aus der Wand (zieht den Spieler an) – ✅ gebaut als „Wandgeist“ (`feature/wand-geist`, in der Totengruft)
 
 - Taucht **aus einer Wand** auf (Wand bekommt Risse und leuchtet vorher, Stöhnen/Heulen aus der Richtung).
 - **Saugt den Spieler an:** zieht ihn langsam zur Wand (sichtbar als Luft-Strudel/Linien zum Geist, Saug-Ton wird lauter). Man kann dagegen anlaufen, kommt aber langsamer voran; Dash/Sprint hilft.

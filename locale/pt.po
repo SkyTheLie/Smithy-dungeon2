@@ -3549,6 +3549,9 @@ msgstr "Suporte de armas"
 msgid "Wanderbündel"
 msgstr "Trouxa do viajante"
 
+msgid "Wandgeist"
+msgstr "Espectro da parede"
+
 msgid "Wandspinne"
 msgstr "Aranha de Parede"
 

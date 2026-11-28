@@ -257,6 +257,10 @@
 				[
 					"skeleton_knight",
 					1
+				],
+				[
+					"wall_wraith",
+					1
 				]
 			],
 			"bosses": [

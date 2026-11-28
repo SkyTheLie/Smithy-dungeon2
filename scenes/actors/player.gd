@@ -39,6 +39,8 @@ var _slow_left: float = 0.0
 var _shake_left: float = 0.0
 ## A snare holds the player: no walking and no dash while > 0 (looking and shooting still work).
 var _hold_left: float = 0.0
+## Wall ghost: pull of this frame (pull_towards).
+var _pull: Vector3 = Vector3.ZERO
 ## Dash (Shift with "dash"): direction and time left; cooldown of dash and blink.
 var _dash_left: float = 0.0
 var _dash_dir: Vector3 = Vector3.ZERO
@@ -108,7 +110,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		_still_time += delta
 	velocity.y = 0.0
+	var pulled: Vector3 = _pull if _hold_left <= 0.0 else Vector3.ZERO
+	_pull = Vector3.ZERO
+	velocity += pulled
 	move_and_slide()
+	velocity -= pulled
 	global_position.y = 0.0
 	# Head bob while walking.
 	if input.length() > 0.1:
@@ -209,6 +215,12 @@ func take_hit(halves: int) -> void:
 		AudioManager.play_sound("player_hurt")
 		AudioManager.play_stream(SoundSynth.make(Content.player().get("voice", {}), "hit"), randf_range(0.95, 1.05))
 		hurt.emit()
+
+
+## Pulled this frame (a wall ghost sucks the player in): added to the walk, the player can walk
+## against it but comes on slower. Reset after every frame.
+func pull_towards(velocity_add: Vector3) -> void:
+	_pull += Vector3(velocity_add.x, 0.0, velocity_add.z)
 
 
 ## Pushed away (spiked stones, blasts): the push fades out through the normal braking.

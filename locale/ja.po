@@ -3549,6 +3549,9 @@ msgstr "武器立て"
 msgid "Wanderbündel"
 msgstr "旅人の包み"
 
+msgid "Wandgeist"
+msgstr "壁の亡霊"
+
 msgid "Wandspinne"
 msgstr "壁グモ"
 

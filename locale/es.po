@@ -3549,6 +3549,9 @@ msgstr "Armero"
 msgid "Wanderbündel"
 msgstr "Hatillo del viajero"
 
+msgid "Wandgeist"
+msgstr "Espectro del muro"
+
 msgid "Wandspinne"
 msgstr "Araña de Pared"
 
