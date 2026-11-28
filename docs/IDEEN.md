@@ -182,7 +182,7 @@ Reihenfolge zum Bauen (✅ = gebaut):
 Reihenfolge zum Bauen (zuerst, was schnell geht oder viel bringt; ✅ = gebaut auf `feature/stimmung`):
 
 **Dungeon**
-1. **Deko in den Räumen:** Kisten, Fässer, Knochen, Pilze, Steine als Billboards (wie die Fackeln) zufällig an den Wänden, je Thema eigene; Daten in `floors.json` (`"props": [...]`). Bringt am meisten.
+1. ✅ (`feature/deko`, `scenes/run/room_props.gd`) **Deko in den Räumen:** Kisten, Fässer, Knochen, Pilze, Steine als Billboards (wie die Fackeln) zufällig an den Wänden, je Thema eigene; Daten in `floors.json` (`"props": [...]`). Bringt am meisten.
 2. ✅ (als Lichthof `Fx.halo`, Glow wirkt in GL Compatibility kaum) **Glow im WorldEnvironment** (`run.tscn`, geht mit GL Compatibility seit 4.3): Feuerbälle, Fackeln, Türrahmen, Kristalle leuchten. Schnell auszuprobieren.
 3. ✅ **Treffer-Blitz:** Gegner 0,05 s weiß beim Treffer (Teil von „Treffer-Gefühl“, Punkt 5 oben).
 4. ✅ **Fackeln flackern:** Lichtstärke leicht und zufällig schwanken lassen.

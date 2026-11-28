@@ -279,6 +279,12 @@ func _build_room(cell: Vector2i) -> void:
 			String(style.get("floor_texture", floor_data.get("floor_texture", ""))),
 			String(style.get("wall_texture", floor_data.get("wall_texture", ""))),
 			neighbours, Color(float(light[0]), float(light[1]), float(light[2])))
+	# Decoration along the walls (floors.json theme "props"), own random numbers per room.
+	var door_dirs: Array[Vector2i] = []
+	for dir: Vector2i in neighbours:
+		door_dirs.append(dir)
+	RoomProps.add_props(room, floor_data.get("props", []), Content.floors_extra("props"),
+			door_dirs, hash([floor_index, cell, "props"]))
 	# Tall grass (floors.json "grass"): hides low enemies and traps.
 	var grass: Dictionary = floor_data.get("grass", {})
 	if not grass.is_empty() and room.type != FloorLayout.START_ROOM:

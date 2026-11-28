@@ -1,5 +1,5 @@
 {
-	"_info": "Ebenen der Reihe nach; jede nennt ein theme (Aussehen, Musik, Gegner, Bosse) und hat eigene Zahlen: rooms = Anzahl normaler Räume (dazu Start, Item-Raum, Shop, Boss), enemy_count [min, max] je Raum, hp_mult = Leben aller Gegner mal diesem Wert, first_room_enemies = feste Gegner neben dem Start, key_doors = Raumarten mit Schlüssel-Tür, item_room: false = diese Ebene hat keinen Item-Raum (wird ein normaler Raum), shop_room: false = kein Shop (und kein Raum dafür), secret_room / special_room: false = kein Geheimraum / kein Sonderraum hinter dem Boss, sacrifice_chance = Chance auf den Opferraum (sonst sacrifice.room_chance). Erste Ebene: rooms 2 + Item-Raum als normaler Raum = 3 normale Räume, mit Start, Boss und sicherem Opferraum 6 Räume. Felder der Ebene überschreiben das Thema. themes: name, Texturen (32x32 Boden, 32x48 Wand), music (Id aus audio.json), light, enemies [Id, Gewicht], bosses (einer wird zufällig gewählt). Die letzte Ebene endet mit dem Sieg. rock_patterns: [Muster, Gewicht] (scatter, walls, pillars, ring, corners, columns, checker), rock_texture. floors = die Ebenen des ersten Dungeons; floors_<dungeon> = die Ebenen weiterer Dungeons (dungeons.json floors). hazards = Fallen in normalen Räumen ([Art, [min, max]], Arten in hazard_types). shop.floor_step = Run-Shop je Ebene so viel teurer (mal dungeons.json shop_mult); talk_distance = so nah muss man an den Händler, um ihn mit F anzusprechen (erst dann kauft er Beute); relic_chance = Chance, dass er ein Relikt anbietet (ein schon gefundenes Item, relics.json), relic_price_mult = dessen Preis mal diesem Wert (Gold aus der Tasche; gekauft liegt es danach zu Hause im Inventar). grass = hohes Gras auf dem Boden (Höhe in Metern, per_m2 Büschel je Quadratmeter, color, spread = wie unterschiedlich), verdeckt kleine Gegner und Fallen (scenes/run/meadow.gd).",
+	"_info": "Ebenen der Reihe nach; jede nennt ein theme (Aussehen, Musik, Gegner, Bosse) und hat eigene Zahlen: rooms = Anzahl normaler Räume (dazu Start, Item-Raum, Shop, Boss), enemy_count [min, max] je Raum, hp_mult = Leben aller Gegner mal diesem Wert, first_room_enemies = feste Gegner neben dem Start, key_doors = Raumarten mit Schlüssel-Tür, item_room: false = diese Ebene hat keinen Item-Raum (wird ein normaler Raum), shop_room: false = kein Shop (und kein Raum dafür), secret_room / special_room: false = kein Geheimraum / kein Sonderraum hinter dem Boss, sacrifice_chance = Chance auf den Opferraum (sonst sacrifice.room_chance). Erste Ebene: rooms 2 + Item-Raum als normaler Raum = 3 normale Räume, mit Start, Boss und sicherem Opferraum 6 Räume. Felder der Ebene überschreiben das Thema. themes: name, Texturen (32x32 Boden, 32x48 Wand), music (Id aus audio.json), light, enemies [Id, Gewicht], bosses (einer wird zufällig gewählt). Die letzte Ebene endet mit dem Sieg. props = Deko an den Wänden [Bild, Gewicht, Höhe in Metern] (Menge: props oben). rock_patterns: [Muster, Gewicht] (scatter, walls, pillars, ring, corners, columns, checker), rock_texture. floors = die Ebenen des ersten Dungeons; floors_<dungeon> = die Ebenen weiterer Dungeons (dungeons.json floors). hazards = Fallen in normalen Räumen ([Art, [min, max]], Arten in hazard_types). shop.floor_step = Run-Shop je Ebene so viel teurer (mal dungeons.json shop_mult); talk_distance = so nah muss man an den Händler, um ihn mit F anzusprechen (erst dann kauft er Beute); relic_chance = Chance, dass er ein Relikt anbietet (ein schon gefundenes Item, relics.json), relic_price_mult = dessen Preis mal diesem Wert (Gold aus der Tasche; gekauft liegt es danach zu Hause im Inventar). grass = hohes Gras auf dem Boden (Höhe in Metern, per_m2 Büschel je Quadratmeter, color, spread = wie unterschiedlich), verdeckt kleine Gegner und Fallen (scenes/run/meadow.gd).",
 	"themes": {
 		"rattenkeller": {
 			"name": "Rattenkeller",
@@ -38,7 +38,44 @@
 				"mine_rat_boss",
 				"giant_spider"
 			],
-			"rock_texture": "res://assets/sprites/rocks/coal_rock.png"
+			"rock_texture": "res://assets/sprites/rocks/coal_rock.png",
+			"props": [
+				[
+					"res://assets/sprites/props/barrel.png",
+					3,
+					0.9
+				],
+				[
+					"res://assets/sprites/props/sacks.png",
+					3,
+					0.6
+				],
+				[
+					"res://assets/sprites/props/crates.png",
+					2,
+					0.9
+				],
+				[
+					"res://assets/sprites/props/stones_a.png",
+					2,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/rubble_a.png",
+					2,
+					0.45
+				],
+				[
+					"res://assets/sprites/plants/mushrooms.png",
+					2,
+					0.4
+				],
+				[
+					"res://assets/sprites/underworld/p_under_0.png",
+					1,
+					0.3
+				]
+			]
 		},
 		"goblinstollen": {
 			"name": "Goblinstollen",
@@ -89,7 +126,44 @@
 				"troll",
 				"minotaur"
 			],
-			"rock_texture": "res://assets/sprites/rocks/iron_rock.png"
+			"rock_texture": "res://assets/sprites/rocks/iron_rock.png",
+			"props": [
+				[
+					"res://assets/sprites/props/goblin_crates.png",
+					3,
+					0.6
+				],
+				[
+					"res://assets/sprites/props/goblin_ore_pile.png",
+					3,
+					0.45
+				],
+				[
+					"res://assets/sprites/props/goblin_slag.png",
+					2,
+					0.45
+				],
+				[
+					"res://assets/sprites/props/minecart_coal.png",
+					1,
+					1.0
+				],
+				[
+					"res://assets/sprites/props/timber_stack.png",
+					2,
+					1.0
+				],
+				[
+					"res://assets/sprites/props/coal_heap_small.png",
+					2,
+					0.6
+				],
+				[
+					"res://assets/sprites/props/barrel.png",
+					1,
+					0.9
+				]
+			]
 		},
 		"totengruft": {
 			"name": "Totengruft",
@@ -137,7 +211,44 @@
 				"vampire",
 				"lich"
 			],
-			"rock_texture": "res://assets/sprites/rocks/silver_rock.png"
+			"rock_texture": "res://assets/sprites/rocks/silver_rock.png",
+			"props": [
+				[
+					"res://assets/sprites/underworld/p_under_0.png",
+					2,
+					0.3
+				],
+				[
+					"res://assets/sprites/underworld/p_under_1.png",
+					1,
+					0.45
+				],
+				[
+					"res://assets/sprites/underworld/p_under_2.png",
+					2,
+					0.4
+				],
+				[
+					"res://assets/sprites/underworld/p_under_3.png",
+					1,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/rubble_a.png",
+					2,
+					0.45
+				],
+				[
+					"res://assets/sprites/props/rubble_b.png",
+					2,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/stones_b.png",
+					1,
+					0.45
+				]
+			]
 		},
 		"sumpfufer": {
 			"name": "Sumpfufer",
@@ -187,6 +298,38 @@
 						0,
 						2
 					]
+				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/plants/reeds.png",
+					4,
+					0.9
+				],
+				[
+					"res://assets/sprites/plants/fern.png",
+					2,
+					0.6
+				],
+				[
+					"res://assets/sprites/plants/mushrooms.png",
+					2,
+					0.4
+				],
+				[
+					"res://assets/sprites/plants/lily_a.png",
+					1,
+					0.4
+				],
+				[
+					"res://assets/sprites/props/stump.png",
+					2,
+					0.6
+				],
+				[
+					"res://assets/sprites/swamp/p_0.png",
+					1,
+					1.2
 				]
 			]
 		},
@@ -240,6 +383,43 @@
 						2
 					]
 				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/props/barrel.png",
+					3,
+					0.9
+				],
+				[
+					"res://assets/sprites/props/barrels_sack.png",
+					2,
+					1.0
+				],
+				[
+					"res://assets/sprites/props/crates.png",
+					2,
+					0.9
+				],
+				[
+					"res://assets/sprites/props/sacks.png",
+					2,
+					0.6
+				],
+				[
+					"res://assets/sprites/props/timber_stack.png",
+					1,
+					1.0
+				],
+				[
+					"res://assets/sprites/props/chest.png",
+					1,
+					0.6
+				],
+				[
+					"res://assets/sprites/swamp/p_4.png",
+					1,
+					0.7
+				]
 			]
 		},
 		"tiefes_moor": {
@@ -290,6 +470,38 @@
 						1,
 						3
 					]
+				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/plants/reeds.png",
+					3,
+					0.9
+				],
+				[
+					"res://assets/sprites/plants/mushrooms.png",
+					3,
+					0.4
+				],
+				[
+					"res://assets/sprites/plants/fern.png",
+					2,
+					0.6
+				],
+				[
+					"res://assets/sprites/swamp/p_1.png",
+					1,
+					1.2
+				],
+				[
+					"res://assets/sprites/swamp/cauldron.png",
+					1,
+					1.4
+				],
+				[
+					"res://assets/sprites/underworld/p_under_0.png",
+					1,
+					0.3
 				]
 			]
 		},
@@ -342,6 +554,43 @@
 						2
 					]
 				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/props/stump.png",
+					3,
+					0.6
+				],
+				[
+					"res://assets/sprites/plants/fern.png",
+					3,
+					0.6
+				],
+				[
+					"res://assets/sprites/plants/bush_a.png",
+					2,
+					0.8
+				],
+				[
+					"res://assets/sprites/plants/bush_b.png",
+					2,
+					0.75
+				],
+				[
+					"res://assets/sprites/props/stones_a.png",
+					2,
+					0.5
+				],
+				[
+					"res://assets/sprites/plants/mushrooms.png",
+					2,
+					0.4
+				],
+				[
+					"res://assets/sprites/underworld/p_under_2.png",
+					1,
+					0.4
+				]
 			]
 		},
 		"eishoehle": {
@@ -388,6 +637,33 @@
 						1,
 						3
 					]
+				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/ice_wall/ice_pillar_1.png",
+					1,
+					2.0
+				],
+				[
+					"res://assets/sprites/ice_wall/ice_pillar_3.png",
+					2,
+					1.6
+				],
+				[
+					"res://assets/sprites/props/stones_c.png",
+					3,
+					0.45
+				],
+				[
+					"res://assets/sprites/props/rubble_b.png",
+					2,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/stones_b.png",
+					2,
+					0.45
 				]
 			]
 		},
@@ -440,6 +716,38 @@
 						2
 					]
 				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/props/stones_a.png",
+					3,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/stones_b.png",
+					3,
+					0.45
+				],
+				[
+					"res://assets/sprites/props/stones_c.png",
+					3,
+					0.45
+				],
+				[
+					"res://assets/sprites/props/rubble_a.png",
+					2,
+					0.45
+				],
+				[
+					"res://assets/sprites/props/rockfall_small.png",
+					1,
+					1.0
+				],
+				[
+					"res://assets/sprites/ice_wall/ice_pillar_2.png",
+					1,
+					1.9
+				]
 			]
 		},
 		"glutstollen": {
@@ -486,6 +794,38 @@
 						1,
 						2
 					]
+				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/props/volcano_rocks.png",
+					3,
+					0.6
+				],
+				[
+					"res://assets/sprites/props/volcano_vent.png",
+					2,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/coal_heap_small.png",
+					2,
+					0.6
+				],
+				[
+					"res://assets/sprites/props/ruby_shard_a.png",
+					2,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/ruby_shard_b.png",
+					2,
+					0.45
+				],
+				[
+					"res://assets/sprites/props/minecart_coal.png",
+					1,
+					1.0
 				]
 			]
 		},
@@ -537,6 +877,33 @@
 						2,
 						3
 					]
+				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/props/volcano_boulder_glow.png",
+					3,
+					0.8
+				],
+				[
+					"res://assets/sprites/props/volcano_columns_a.png",
+					2,
+					1.4
+				],
+				[
+					"res://assets/sprites/props/volcano_vent.png",
+					2,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/volcano_dead_tree.png",
+					1,
+					1.0
+				],
+				[
+					"res://assets/sprites/props/volcano_rocks.png",
+					2,
+					0.6
 				]
 			]
 		},
@@ -591,6 +958,43 @@
 						1,
 						2
 					]
+				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/underworld/p_under_0.png",
+					2,
+					0.3
+				],
+				[
+					"res://assets/sprites/underworld/p_under_1.png",
+					1,
+					0.45
+				],
+				[
+					"res://assets/sprites/underworld/p_under_2.png",
+					2,
+					0.4
+				],
+				[
+					"res://assets/sprites/underworld/p_under_3.png",
+					1,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/volcano_columns_a.png",
+					2,
+					1.4
+				],
+				[
+					"res://assets/sprites/props/volcano_dead_tree.png",
+					2,
+					1.0
+				],
+				[
+					"res://assets/sprites/props/volcano_boulder_glow.png",
+					1,
+					0.8
 				]
 			]
 		},
@@ -656,6 +1060,33 @@
 						1
 					]
 				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/plants/flowers_blue.png",
+					2,
+					0.5
+				],
+				[
+					"res://assets/sprites/plants/flowers_yellow.png",
+					2,
+					0.5
+				],
+				[
+					"res://assets/sprites/plants/bush_a.png",
+					2,
+					0.8
+				],
+				[
+					"res://assets/sprites/props/stump.png",
+					2,
+					0.6
+				],
+				[
+					"res://assets/sprites/plants/fern.png",
+					1,
+					0.6
+				]
 			]
 		},
 		"kristallwiese": {
@@ -712,6 +1143,33 @@
 						1,
 						2
 					]
+				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/props/ruby_shard_a.png",
+					3,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/ruby_shard_b.png",
+					2,
+					0.45
+				],
+				[
+					"res://assets/sprites/ice_wall/ice_pillar_3.png",
+					1,
+					1.4
+				],
+				[
+					"res://assets/sprites/plants/flowers_blue.png",
+					2,
+					0.5
+				],
+				[
+					"res://assets/sprites/props/stones_c.png",
+					2,
+					0.45
 				]
 			]
 		},
@@ -773,6 +1231,33 @@
 						1,
 						3
 					]
+				]
+			],
+			"props": [
+				[
+					"res://assets/sprites/swamp/p_0.png",
+					2,
+					1.2
+				],
+				[
+					"res://assets/sprites/props/stump.png",
+					3,
+					0.6
+				],
+				[
+					"res://assets/sprites/plants/bush_b.png",
+					2,
+					0.75
+				],
+				[
+					"res://assets/sprites/props/timber_stack.png",
+					1,
+					1.0
+				],
+				[
+					"res://assets/sprites/underworld/p_under_2.png",
+					1,
+					0.4
 				]
 			]
 		}
@@ -1023,6 +1508,18 @@
 			6
 		],
 		"texture": "res://assets/sprites/rocks/coal_rock.png"
+	},
+	"props": {
+		"_info": "Deko an den Wänden jedes Raums (nur Aussehen, kein Hindernis): count [min, max] Stück je Raum, min_gap = Mindestabstand in Metern, inset [min, max] = Abstand zur Wand. Welche Bilder: props im Thema [Bild, Gewicht, Höhe in Metern] (scenes/run/room_props.gd).",
+		"count": [
+			2,
+			5
+		],
+		"min_gap": 1.2,
+		"inset": [
+			0.25,
+			0.7
+		]
 	},
 	"sacrifice": {
 		"_info": "Opferstein: jedes Mal kostet ein ganzes Herz. rewards[n] gilt für das n-te Opfer auf dieser Ebene (danach das letzte): [was, Chance]. was: bomb, key, heart, blue_heart, item oder eine Beute-Id aus loot.json (fällt als Beute heraus). Gold gibt es im Dungeon nur beim Händler.",
