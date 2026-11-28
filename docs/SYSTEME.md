@@ -105,6 +105,7 @@ Jedes System: Zweck, Dateien, wie es funktioniert. Neue Systeme hier anhängen.
 - Obergrenzen: Laufen `move_speed_min/max`, Schussrate `fire_delay_min` (`player.json limits`).
 - HUD links: Tempo, Schaden, Schüsse/s, Reichweite, Schusstempo, Glück, Sonderraum-Chance.
 - Neue Freischalt-Arten: `best` (hearts, coins, blue, clean_floors, pacts, floor) und `fast_win` (Minuten).
+- **Freischaltungen wie in Isaac (2026-11-28):** etwa die Hälfte der Relikt-Items ist gesperrt (`docs/FREISCHALTUNGEN.md`). Arten `kill` (Gegner so oft besiegen, `Progress.add_enemy_kill`), `count` (Zähler über alle Runs: `Progress.add_count`, im Run über `RunState.count`, nicht im Testraum), `best` mit `kills_run` und `loot:<id>` (`RunState.note_loot` beim Aufheben). Todesart: `Player.take_hit(halves, cause)` merkt `RunState.last_hit_cause` („trap“ für Fallen, Pfeile, Stachelsteine, Abgrund; „bomb“ für eigene Bomben); `Run._on_died` zählt deaths/deaths_trap/deaths_bomb. Egons Hebel, Kaufen (ab R3 selten) und Tausch zählen in `MetaState`. Was außerhalb des Runs aufgeht (Tod, Laden), merkt sich `Progress` (`take_fresh`) und der Laden zeigt oben „Freigeschaltet: …“; im Run zeigt das HUD das Banner (`RunState.announce` nimmt es aus der Liste).
 
 ## Bosse (BossBrain)
 

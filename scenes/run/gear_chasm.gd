@@ -440,6 +440,8 @@ func _fall() -> void:
 		return
 	falling = false
 	var run: RunState = dungeon.run
+	# The abyss counts as a trap (unlocks: "Stirb durch eine Falle").
+	run.last_hit_cause = "trap"
 	if run.take_damage(int(settings.get("fall_damage", 1))):
 		AudioManager.play_sound("player_hurt")
 		player.hurt.emit()

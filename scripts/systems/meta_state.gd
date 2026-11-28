@@ -28,6 +28,8 @@ extends RefCounted
 const SLOTS: PackedStringArray = ["a", "b", "c"]
 const SECTION: String = "meta"
 const SETTINGS_SECTION: String = "save"
+## From this rarity on a purchase at Egon's counts as rare (unlock "rare_buys").
+const RARE_BUY: int = 3
 
 static var _config: ConfigFile
 ## The slot in use ("" = not read from the settings yet).
@@ -474,6 +476,7 @@ static func pull_lever(rng: RandomNumberGenerator) -> bool:
 	_write("table", ShopGoods.roll(rng, pulls_today()))
 	_write("pulls_today", pulls_today() + 1)
 	_save()
+	Progress.add_count("rerolls")
 	return true
 
 
@@ -501,6 +504,11 @@ static func buy(index: int, free: bool = false, cell: Vector2i = Vector2i(-1, -1
 	_write_stash(own)
 	_write("box", box() - price)
 	_save()
+	if not free:
+		Progress.add_count("egon_buys")
+		var rarity: int = ShopGoods.relic_rarity(String(piece["id"])) if ShopGoods.is_relic(piece) else int(piece.get("rarity", 1))
+		if rarity >= RARE_BUY:
+			Progress.add_count("rare_buys")
 	return true
 
 
@@ -1013,6 +1021,7 @@ static func trade(id: String) -> bool:
 	_write_stash(own)
 	_save_bag(bag)
 	_save()
+	Progress.add_count("trades")
 	return true
 
 

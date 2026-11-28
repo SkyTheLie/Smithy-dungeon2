@@ -86,6 +86,8 @@ var mantle_ready: bool = true
 var guided: bool = false
 ## false after the test room was used: then nothing of this run counts for the Lexikon/unlocks.
 var record_progress: bool = true
+## What hit the player last ("trap", "bomb", "fall", "" = an enemy): Run counts deaths by it.
+var last_hit_cause: String = ""
 ## Seconds played in this run (pause not counted).
 var time: float = 0.0
 ## Hits taken on this floor (fury) and whether red hearts were lost (special room chance).
@@ -233,6 +235,7 @@ func next_floor() -> void:
 	lost_red_this_floor = false
 	floor_index += 1
 	note_best("floor", floor_index + 1)
+	count("floors")
 	compute_stats()
 
 
@@ -261,6 +264,7 @@ func take_pact(id: String, hearts: int) -> bool:
 		return false
 	pacts += 1
 	note_best("pacts", pacts)
+	count("pacts")
 	add_item(id)
 	return true
 
@@ -290,6 +294,7 @@ func drink_potion() -> bool:
 	var potion: Dictionary = potions.pop_front()
 	heal(maxi(1, int(Content.potion(String(potion["id"])).get("heal", 4))))
 	MetaState.use_potion(String(potion["slot"]))
+	count("potions")
 	changed.emit()
 	return true
 
@@ -414,6 +419,7 @@ func spend(price: int) -> bool:
 		return false
 	if price > 0:
 		bag.remove(Bag.GOLD, price)
+		count("shop_buys")
 	return true
 
 
@@ -426,7 +432,10 @@ func use_key() -> bool:
 
 
 func use_bomb() -> bool:
-	return bag.remove(Bag.BOMB, 1)
+	if not bag.remove(Bag.BOMB, 1):
+		return false
+	count("bombs_used")
+	return true
 
 
 ## Takes an item: its values count at once; new synergies are announced.
@@ -510,8 +519,20 @@ func add_blue_hearts(amount: int) -> void:
 
 ## Sends `unlocked` for items Progress just opened.
 func announce(ids: Array[String]) -> void:
+	Progress.shown(ids)
 	for id: String in ids:
 		unlocked.emit(id)
+
+
+## Something for "count" unlocks happened (Progress.COUNT_KEYS); not in the test room.
+func count(key: String, amount: int = 1) -> void:
+	if record_progress:
+		announce(Progress.add_count(key, amount))
+
+
+## A loot was picked up: how many of it are in the bag now (best "loot:<id>").
+func note_loot(id: String) -> void:
+	note_best("loot:" + id, bag.count_of(id))
 
 
 ## Items with "per_coin" (Goldglut) depend on the coins, so the shot is worked out again.

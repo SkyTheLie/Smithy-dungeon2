@@ -204,8 +204,20 @@ msgstr "琥珀"
 msgid "Beschläge aus Kupfer, Platz für einen Rubin."
 msgstr "銅の金具付き。ルビーが入る。"
 
+msgid "Besiege %d Bosse"
+msgstr "ボスを%d体倒す"
+
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "敵を%d体倒す（%d / %d）"
+
+msgid "Besiege %d Gegner in einem Run"
+msgstr "1回の冒険で敵を%d体倒す"
+
+msgid "Besiege %s %d-mal"
+msgstr "%sを%d回倒す"
+
+msgid "Besiege einen Boss"
+msgstr "ボスを倒す"
 
 msgid "Besiege: %s"
 msgstr "倒す：%s"
@@ -1044,6 +1056,12 @@ msgstr "大地の杖"
 msgid "Erfolg: %s"
 msgstr "実績: %s"
 
+msgid "Erledige %d liegende Untote"
+msgstr "倒れたアンデッドを%d体とどめを刺す"
+
+msgid "Erledige einen liegenden Untoten"
+msgstr "倒れたアンデッドにとどめを刺す"
+
 msgid "Erledigt"
 msgstr "完了"
 
@@ -1130,6 +1148,12 @@ msgstr "花火"
 
 msgid "Feuerwolf"
 msgstr "炎の狼"
+
+msgid "Finde %d geheime Räume"
+msgstr "隠し部屋を%d個見つける"
+
+msgid "Finde einen geheimen Raum"
+msgstr "隠し部屋を見つける"
 
 msgid "Flechtenleder"
 msgstr "地衣の革"
@@ -1647,6 +1671,9 @@ msgstr "コインを同時に%d枚持つ"
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "青いハートを同時に%d個持つ"
 
+msgid "Habe %d × %s gleichzeitig dabei"
+msgstr "%d個の%sを同時に持つ"
+
 msgid "Halb Fell, halb Feder."
 msgstr "半分毛皮、半分羽根。"
 
@@ -1904,6 +1931,24 @@ msgstr "隊商の背嚢"
 
 msgid "Karte"
 msgstr "マップ"
+
+msgid "Kaufe %d Dinge bei Egon"
+msgstr "エゴンから%d個買う"
+
+msgid "Kaufe %d Dinge im Dungeon"
+msgstr "ダンジョンで%d個買う"
+
+msgid "Kaufe %d seltene Dinge bei Egon"
+msgstr "エゴンからレアな物を%d個買う"
+
+msgid "Kaufe etwas Seltenes bei Egon"
+msgstr "エゴンからレアな物を買う"
+
+msgid "Kaufe etwas bei Egon"
+msgstr "エゴンから何か買う"
+
+msgid "Kaufe etwas im Dungeon"
+msgstr "ダンジョンで何か買う"
 
 msgid "Kaufen: %d Gold"
 msgstr "購入: %d ゴールド"
@@ -2385,8 +2430,14 @@ msgstr "戦闘中は不可"
 msgid "Nichts geschieht"
 msgstr "何も起こらない"
 
+msgid "Nimm %d Glutpakte"
+msgstr "残り火の契約を%d回結ぶ"
+
 msgid "Nimm %d Glutpakte in einem Run"
 msgstr "1回の挑戦で残り火の契約を%d回結ぶ"
+
+msgid "Nimm einen Glutpakt"
+msgstr "残り火の契約を結ぶ"
 
 msgid "Noch ein Glutmond kreist um dich"
 msgstr "残り火の月がもう1つ回る"
@@ -2438,6 +2489,12 @@ msgstr "オパールの宝石"
 
 msgid "Opferdolch"
 msgstr "儀式の短刀"
+
+msgid "Opfere %d Herzen am Opferstein"
+msgstr "生贄の石でハートを%d個捧げる"
+
+msgid "Opfere ein Herz am Opferstein"
+msgstr "生贄の石でハートを捧げる"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "生贄の石：ハート1つで贈り物"
@@ -3225,6 +3282,12 @@ msgstr "似合ってるぜ！俺ほどじゃないがな。明日からは何で
 msgid "Steht stramm, auch wenn keiner hinsieht."
 msgstr "誰も見ていなくても直立不動。"
 
+msgid "Steige %d Ebenen hinab"
+msgstr "%d階層降りる"
+
+msgid "Steige eine Ebene hinab"
+msgstr "1階層降りる"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "岩を踏み砕き、戦利品が増える"
 
@@ -3257,6 +3320,24 @@ msgstr "スタイル"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "立ち止まると無敵になる"
+
+msgid "Stirb %d-mal"
+msgstr "%d回死ぬ"
+
+msgid "Stirb %d-mal an eigenen Bomben"
+msgstr "自分の爆弾で%d回死ぬ"
+
+msgid "Stirb %d-mal durch Fallen"
+msgstr "罠で%d回死ぬ"
+
+msgid "Stirb an einer eigenen Bombe"
+msgstr "自分の爆弾で死ぬ"
+
+msgid "Stirb durch eine Falle"
+msgstr "罠で死ぬ"
+
+msgid "Stirb einmal"
+msgstr "一度死ぬ"
 
 msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
 msgstr "死ぬとお金はなくなる。家の缶に持ち帰ろう。"
@@ -3429,6 +3510,12 @@ msgstr "交換"
 msgid "Tausch: Beute gegen Besonderes"
 msgstr "交換：戦利品を特別な品に"
 
+msgid "Tausche %d-mal bei Egon"
+msgstr "エゴンと%d回交換する"
+
+msgid "Tausche bei Egon"
+msgstr "エゴンと交換する"
+
 msgid "Tauschen"
 msgstr "交換する"
 
@@ -3485,6 +3572,12 @@ msgstr "命中で弾け、岩を貫通する"
 
 msgid "Treue Funken"
 msgstr "忠実な火花"
+
+msgid "Trinke %d Tränke"
+msgstr "薬を%d本飲む"
+
+msgid "Trinke einen Trank"
+msgstr "薬を飲む"
 
 msgid "Trollblut"
 msgstr "トロールの血"
@@ -3819,11 +3912,23 @@ msgstr "コイン10枚、運上昇"
 msgid "Zerbrechlicher Schlüssel"
 msgstr "壊れやすい鍵"
 
+msgid "Zerstöre %d Steine"
+msgstr "岩を%d個壊す"
+
+msgid "Zerstöre einen Stein"
+msgstr "岩を壊す"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "ネズミの毛皮を金色の安全な場所へドラッグしよう。そこにある物は死んでも失わない。"
 
 msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
 msgstr "リュックを持ち物にドラッグしよう。辺で接している必要がある。"
+
+msgid "Ziehe %d-mal Egons Hebel"
+msgstr "エゴンのレバーを%d回引く"
+
+msgid "Ziehe Egons Hebel"
+msgstr "エゴンのレバーを引く"
 
 msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
 msgstr "ドラッグ：取り付け · ドラッグ中にR / 右クリック：回転 · リストへ：取り外し"
@@ -3921,6 +4026,12 @@ msgstr "丈夫で暖かい。"
 msgid "Zähigkeit"
 msgstr "タフネス"
 
+msgid "Zünde %d Bomben"
+msgstr "爆弾を%d個使う"
+
+msgid "Zünde eine Bombe"
+msgstr "爆弾を使う"
+
 msgid "dein Inventar ist fast voll"
 msgstr "インベントリがほぼ満杯だ"
 
@@ -3942,8 +4053,14 @@ msgstr "最大"
 msgid "oder Leertaste"
 msgstr "またはスペースキー"
 
+msgid "Öffne %d Kisten"
+msgstr "宝箱を%d個開ける"
+
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Tabで持ち物を開こう。"
+
+msgid "Öffne eine Kiste"
+msgstr "宝箱を開ける"
 
 msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
 msgstr "ダンジョンの扉を開ける。壊れず、家に持ち帰ってまた持ち込める。"

@@ -195,8 +195,9 @@ func is_hit_by(point: Vector3, ball_radius: float) -> bool:
 	return offset.length() < hit_radius() + ball_radius and point.y < top + ball_radius and point.y > -ball_radius
 
 
-## Takes `halves` half hearts unless just hit.
-func take_hit(halves: int) -> void:
+## Takes `halves` half hearts unless just hit. `cause`: "trap", "bomb" … ("" = an enemy), for
+## unlocks that count deaths by it (RunState.last_hit_cause).
+func take_hit(halves: int, cause: String = "") -> void:
 	if invulnerable > 0.0 or run == null or run.is_dead() or is_guarded():
 		return
 	if run.stats.roll("dodge"):
@@ -210,6 +211,7 @@ func take_hit(halves: int) -> void:
 		if dungeon:
 			Fx.puff(dungeon.effects, global_position + Vector3(0, 1.0, 0), "fire", 1.6)
 		return
+	run.last_hit_cause = cause
 	if run.take_damage(halves):
 		invulnerable = INVULNERABLE_TIME + run.stats.guard_time
 		AudioManager.play_sound("player_hurt")

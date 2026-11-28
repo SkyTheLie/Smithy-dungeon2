@@ -23,6 +23,8 @@ var size: float = 1.0
 var lifetime: float = LIFETIME
 ## Looks like an arrow (a boss with a bow) instead of an orb.
 var arrow: bool = false
+## For Player.take_hit: "trap" for arrows of arrow walls, "" = an enemy.
+var cause: String = ""
 ## > 0: it also hurts enemies it flies through (arrow traps in the walls), then ends.
 var enemy_damage: float = 0.0
 var dungeon: Dungeon = null
@@ -151,7 +153,7 @@ func _physics_process(delta: float) -> void:
 		pop()
 		return
 	if player and player.is_hit_by(global_position, radius()):
-		player.take_hit(damage)
+		player.take_hit(damage, cause)
 		if slows:
 			player.slow_down(2.0)
 		pop()

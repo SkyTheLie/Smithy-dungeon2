@@ -204,8 +204,20 @@ msgstr "琥珀"
 msgid "Beschläge aus Kupfer, Platz für einen Rubin."
 msgstr "铜扣件，放得下一颗红宝石。"
 
+msgid "Besiege %d Bosse"
+msgstr "击败%d个首领"
+
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "击败%d个敌人（%d / %d）"
+
+msgid "Besiege %d Gegner in einem Run"
+msgstr "在一次冒险中击败%d个敌人"
+
+msgid "Besiege %s %d-mal"
+msgstr "击败%s %d次"
+
+msgid "Besiege einen Boss"
+msgstr "击败一个首领"
 
 msgid "Besiege: %s"
 msgstr "击败：%s"
@@ -1044,6 +1056,12 @@ msgstr "大地之杖"
 msgid "Erfolg: %s"
 msgstr "成就：%s"
 
+msgid "Erledige %d liegende Untote"
+msgstr "补刀%d个倒地的亡灵"
+
+msgid "Erledige einen liegenden Untoten"
+msgstr "补刀一个倒地的亡灵"
+
 msgid "Erledigt"
 msgstr "已完成"
 
@@ -1130,6 +1148,12 @@ msgstr "烟花"
 
 msgid "Feuerwolf"
 msgstr "火狼"
+
+msgid "Finde %d geheime Räume"
+msgstr "找到%d个密室"
+
+msgid "Finde einen geheimen Raum"
+msgstr "找到一个密室"
 
 msgid "Flechtenleder"
 msgstr "地衣皮革"
@@ -1647,6 +1671,9 @@ msgstr "同时拥有%d枚硬币"
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "同时拥有%d颗蓝心"
 
+msgid "Habe %d × %s gleichzeitig dabei"
+msgstr "同时携带%d个%s"
+
 msgid "Halb Fell, halb Feder."
 msgstr "一半毛皮，一半羽毛。"
 
@@ -1904,6 +1931,24 @@ msgstr "商队背包"
 
 msgid "Karte"
 msgstr "地图"
+
+msgid "Kaufe %d Dinge bei Egon"
+msgstr "从埃贡那里买%d件东西"
+
+msgid "Kaufe %d Dinge im Dungeon"
+msgstr "在地牢里买%d件东西"
+
+msgid "Kaufe %d seltene Dinge bei Egon"
+msgstr "从埃贡那里买%d件稀有物品"
+
+msgid "Kaufe etwas Seltenes bei Egon"
+msgstr "从埃贡那里买一件稀有物品"
+
+msgid "Kaufe etwas bei Egon"
+msgstr "从埃贡那里买点东西"
+
+msgid "Kaufe etwas im Dungeon"
+msgstr "在地牢里买点东西"
 
 msgid "Kaufen: %d Gold"
 msgstr "购买：%d 金币"
@@ -2385,8 +2430,14 @@ msgstr "战斗中不可用"
 msgid "Nichts geschieht"
 msgstr "什么也没发生"
 
+msgid "Nimm %d Glutpakte"
+msgstr "缔结%d个余烬契约"
+
 msgid "Nimm %d Glutpakte in einem Run"
 msgstr "一局内缔结%d次余烬契约"
+
+msgid "Nimm einen Glutpakt"
+msgstr "缔结一个余烬契约"
 
 msgid "Noch ein Glutmond kreist um dich"
 msgstr "又一颗余烬之月环绕着你"
@@ -2438,6 +2489,12 @@ msgstr "蛋白石宝石"
 
 msgid "Opferdolch"
 msgstr "祭祀匕首"
+
+msgid "Opfere %d Herzen am Opferstein"
+msgstr "在献祭石上献出%d颗心"
+
+msgid "Opfere ein Herz am Opferstein"
+msgstr "在献祭石上献出一颗心"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "献祭石：一颗心换一份馈赠"
@@ -3225,6 +3282,12 @@ msgstr "挺合身！差不多跟我一样帅。从明天起，一切都要收点
 msgid "Steht stramm, auch wenn keiner hinsieht."
 msgstr "没人看也站得笔直。"
 
+msgid "Steige %d Ebenen hinab"
+msgstr "下行%d层"
+
+msgid "Steige eine Ebene hinab"
+msgstr "下行一层"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "踩碎岩石，战利品更多"
 
@@ -3257,6 +3320,24 @@ msgstr "样式"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "静止不动时无敌"
+
+msgid "Stirb %d-mal"
+msgstr "死亡%d次"
+
+msgid "Stirb %d-mal an eigenen Bomben"
+msgstr "被自己的炸弹炸死%d次"
+
+msgid "Stirb %d-mal durch Fallen"
+msgstr "死于陷阱%d次"
+
+msgid "Stirb an einer eigenen Bombe"
+msgstr "被自己的炸弹炸死"
+
+msgid "Stirb durch eine Falle"
+msgstr "死于陷阱"
+
+msgid "Stirb einmal"
+msgstr "死亡一次"
 
 msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
 msgstr "死了钱就没了。把它带回家放进你的钱罐。"
@@ -3429,6 +3510,12 @@ msgstr "交换"
 msgid "Tausch: Beute gegen Besonderes"
 msgstr "交换：用战利品换特别物品"
 
+msgid "Tausche %d-mal bei Egon"
+msgstr "与埃贡交换%d次"
+
+msgid "Tausche bei Egon"
+msgstr "与埃贡交换"
+
 msgid "Tauschen"
 msgstr "交换"
 
@@ -3485,6 +3572,12 @@ msgstr "命中后爆裂，射击穿过岩石"
 
 msgid "Treue Funken"
 msgstr "忠诚火花"
+
+msgid "Trinke %d Tränke"
+msgstr "喝下%d瓶药水"
+
+msgid "Trinke einen Trank"
+msgstr "喝下一瓶药水"
 
 msgid "Trollblut"
 msgstr "巨魔之血"
@@ -3819,11 +3912,23 @@ msgstr "十枚硬币，幸运提升"
 msgid "Zerbrechlicher Schlüssel"
 msgstr "易碎钥匙"
 
+msgid "Zerstöre %d Steine"
+msgstr "摧毁%d块石头"
+
+msgid "Zerstöre einen Stein"
+msgstr "摧毁一块石头"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "把鼠皮拖进金色的安全格。放在那里的东西死后也会保留。"
 
 msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
 msgstr "把背包拖到背包栏旁边。它必须有一条边相接。"
+
+msgid "Ziehe %d-mal Egons Hebel"
+msgstr "拉埃贡的拉杆%d次"
+
+msgid "Ziehe Egons Hebel"
+msgstr "拉埃贡的拉杆"
 
 msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
 msgstr "拖动：装上 · 拖动时按 R / 右键：旋转 · 拖到列表：卸下"
@@ -3921,6 +4026,12 @@ msgstr "结实又保暖。"
 msgid "Zähigkeit"
 msgstr "坚韧"
 
+msgid "Zünde %d Bomben"
+msgstr "点燃%d颗炸弹"
+
+msgid "Zünde eine Bombe"
+msgstr "点燃一颗炸弹"
+
 msgid "dein Inventar ist fast voll"
 msgstr "你的背包快满了"
 
@@ -3942,8 +4053,14 @@ msgstr "满级"
 msgid "oder Leertaste"
 msgstr "或按空格键"
 
+msgid "Öffne %d Kisten"
+msgstr "打开%d个箱子"
+
 msgid "Öffne dein Inventar mit Tab."
 msgstr "按 Tab 打开背包。"
+
+msgid "Öffne eine Kiste"
+msgstr "打开一个箱子"
 
 msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
 msgstr "打开地牢里的一扇门。永不损坏，能带回家再带进去。"

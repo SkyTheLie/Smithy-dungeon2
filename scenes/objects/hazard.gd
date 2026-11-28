@@ -189,7 +189,7 @@ func spring(player: Player) -> void:
 	if not holds() or _sprung or _spent:
 		return
 	_sprung = true
-	player.take_hit(damage)
+	player.take_hit(damage, "trap")
 	player.hold(float(data.get("hold", 1.0)))
 	AudioManager.play_sound("blocked", 0.6)
 	if _teeth:

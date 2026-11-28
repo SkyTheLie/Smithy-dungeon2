@@ -204,8 +204,20 @@ msgstr "Ambre"
 msgid "Beschläge aus Kupfer, Platz für einen Rubin."
 msgstr "Ferrures en cuivre, de la place pour un rubis."
 
+msgid "Besiege %d Bosse"
+msgstr "Bats %d boss"
+
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "Vaincs %d ennemis (%d / %d)"
+
+msgid "Besiege %d Gegner in einem Run"
+msgstr "Bats %d ennemis en une partie"
+
+msgid "Besiege %s %d-mal"
+msgstr "Bats %s %d fois"
+
+msgid "Besiege einen Boss"
+msgstr "Bats un boss"
 
 msgid "Besiege: %s"
 msgstr "Vaincs : %s"
@@ -1044,6 +1056,12 @@ msgstr "Bâton de terre"
 msgid "Erfolg: %s"
 msgstr "Succès : %s"
 
+msgid "Erledige %d liegende Untote"
+msgstr "Achève %d morts-vivants à terre"
+
+msgid "Erledige einen liegenden Untoten"
+msgstr "Achève un mort-vivant à terre"
+
 msgid "Erledigt"
 msgstr "Terminé"
 
@@ -1130,6 +1148,12 @@ msgstr "Feu d'artifice"
 
 msgid "Feuerwolf"
 msgstr "Loup de feu"
+
+msgid "Finde %d geheime Räume"
+msgstr "Trouve %d salles secrètes"
+
+msgid "Finde einen geheimen Raum"
+msgstr "Trouve une salle secrète"
 
 msgid "Flechtenleder"
 msgstr "Cuir de lichen"
@@ -1647,6 +1671,9 @@ msgstr "Aie %d pièces à la fois"
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Aie %d cœurs bleus à la fois"
 
+msgid "Habe %d × %s gleichzeitig dabei"
+msgstr "Porte %d × %s en même temps"
+
 msgid "Halb Fell, halb Feder."
 msgstr "Moitié fourrure, moitié plume."
 
@@ -1904,6 +1931,24 @@ msgstr "Sac de caravane"
 
 msgid "Karte"
 msgstr "Carte"
+
+msgid "Kaufe %d Dinge bei Egon"
+msgstr "Achète %d objets chez Egon"
+
+msgid "Kaufe %d Dinge im Dungeon"
+msgstr "Achète %d objets dans le donjon"
+
+msgid "Kaufe %d seltene Dinge bei Egon"
+msgstr "Achète %d objets rares chez Egon"
+
+msgid "Kaufe etwas Seltenes bei Egon"
+msgstr "Achète un objet rare chez Egon"
+
+msgid "Kaufe etwas bei Egon"
+msgstr "Achète quelque chose chez Egon"
+
+msgid "Kaufe etwas im Dungeon"
+msgstr "Achète quelque chose dans le donjon"
 
 msgid "Kaufen: %d Gold"
 msgstr "Acheter : %d or"
@@ -2385,8 +2430,14 @@ msgstr "Pas pendant un combat"
 msgid "Nichts geschieht"
 msgstr "Rien ne se passe"
 
+msgid "Nimm %d Glutpakte"
+msgstr "Accepte %d pactes de braise"
+
 msgid "Nimm %d Glutpakte in einem Run"
 msgstr "Prends %d pactes de braise en une partie"
+
+msgid "Nimm einen Glutpakt"
+msgstr "Accepte un pacte de braise"
 
 msgid "Noch ein Glutmond kreist um dich"
 msgstr "Une autre lune de braise tourne autour de toi"
@@ -2438,6 +2489,12 @@ msgstr "Joyau d'opale"
 
 msgid "Opferdolch"
 msgstr "Couteau rituel"
+
+msgid "Opfere %d Herzen am Opferstein"
+msgstr "Sacrifie %d cœurs sur la pierre sacrificielle"
+
+msgid "Opfere ein Herz am Opferstein"
+msgstr "Sacrifie un cœur sur la pierre sacrificielle"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "Pierre sacrificielle : un cœur pour un don"
@@ -3225,6 +3282,12 @@ msgstr "Ça te va bien ! Presque aussi bien qu'à moi. À partir de demain, tout
 msgid "Steht stramm, auch wenn keiner hinsieht."
 msgstr "Au garde-à-vous, même quand personne ne regarde."
 
+msgid "Steige %d Ebenen hinab"
+msgstr "Descends %d étages"
+
+msgid "Steige eine Ebene hinab"
+msgstr "Descends d'un étage"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "Écrase les rochers et plus de butin"
 
@@ -3257,6 +3320,24 @@ msgstr "Style"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Rester immobile te rend invulnérable"
+
+msgid "Stirb %d-mal"
+msgstr "Meurs %d fois"
+
+msgid "Stirb %d-mal an eigenen Bomben"
+msgstr "Meurs %d fois à cause de tes propres bombes"
+
+msgid "Stirb %d-mal durch Fallen"
+msgstr "Meurs %d fois dans des pièges"
+
+msgid "Stirb an einer eigenen Bombe"
+msgstr "Meurs à cause de ta propre bombe"
+
+msgid "Stirb durch eine Falle"
+msgstr "Meurs dans un piège"
+
+msgid "Stirb einmal"
+msgstr "Meurs une fois"
 
 msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
 msgstr "Si tu meurs, l'argent est perdu. Ramène-le dans ta boîte à la maison."
@@ -3429,6 +3510,12 @@ msgstr "Troc"
 msgid "Tausch: Beute gegen Besonderes"
 msgstr "Troc : butin contre du spécial"
 
+msgid "Tausche %d-mal bei Egon"
+msgstr "Échange %d fois avec Egon"
+
+msgid "Tausche bei Egon"
+msgstr "Échange avec Egon"
+
 msgid "Tauschen"
 msgstr "Échanger"
 
@@ -3485,6 +3572,12 @@ msgstr "Les impacts éclatent, les tirs traversent les rochers"
 
 msgid "Treue Funken"
 msgstr "Étincelles fidèles"
+
+msgid "Trinke %d Tränke"
+msgstr "Bois %d potions"
+
+msgid "Trinke einen Trank"
+msgstr "Bois une potion"
 
 msgid "Trollblut"
 msgstr "Sang de troll"
@@ -3819,11 +3912,23 @@ msgstr "Dix pièces, chance en hausse"
 msgid "Zerbrechlicher Schlüssel"
 msgstr "Clé fragile"
 
+msgid "Zerstöre %d Steine"
+msgstr "Détruis %d rochers"
+
+msgid "Zerstöre einen Stein"
+msgstr "Détruis un rocher"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "Glisse la fourrure de rat dans l'emplacement sûr doré. Ce qui s'y trouve reste à toi si tu meurs."
 
 msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
 msgstr "Glisse un sac contre ton inventaire. Il doit le toucher par un bord."
+
+msgid "Ziehe %d-mal Egons Hebel"
+msgstr "Tire %d fois le levier d'Egon"
+
+msgid "Ziehe Egons Hebel"
+msgstr "Tire le levier d'Egon"
 
 msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
 msgstr "Glisser : attacher · R / clic droit en glissant : tourner · Sur la liste : détacher"
@@ -3921,6 +4026,12 @@ msgstr "Résistant et chaud."
 msgid "Zähigkeit"
 msgstr "Ténacité"
 
+msgid "Zünde %d Bomben"
+msgstr "Allume %d bombes"
+
+msgid "Zünde eine Bombe"
+msgstr "Allume une bombe"
+
 msgid "dein Inventar ist fast voll"
 msgstr "ton inventaire est presque plein"
 
@@ -3942,8 +4053,14 @@ msgstr "max."
 msgid "oder Leertaste"
 msgstr "ou appuyez sur Espace"
 
+msgid "Öffne %d Kisten"
+msgstr "Ouvre %d coffres"
+
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Ouvre ton inventaire avec Tab."
+
+msgid "Öffne eine Kiste"
+msgstr "Ouvre un coffre"
 
 msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
 msgstr "Ouvre une porte du donjon. Dure pour toujours, rentre avec toi et y retourne."
