@@ -2598,6 +2598,16 @@
 		"row": {"spots": [-5.5, -3.5, 3.5, 5.5], "gap": 0.35, "cycle": 4.0},
 		"plate": {"lanes": [-3.5, 3.5], "size": 0.9, "cooldown": 2.0}
 	},
+	"spike_stones": {
+		"_info": "Stachelsteine (scenes/objects/spike_stone.gd): bewegen sich auf festen Bahnen durch normale Räume (nicht in Stein-Kammern, nicht direkt am Start, ab Ebene from_floor). chance je Raum (Ebene: spike_stone_chance), count = [min, max] Steine, paths [[Bahn, Gewicht]]: line_x (hin und her quer), line_z (hin und her längs), square (Rechteck-Runde), circle (Kreis um die Mitte). damage in halben Kohlen, push = Rückstoß, speed in m/s. Fliegende Spieler sind sicher; Schüsse fliegen hindurch.",
+		"chance": 0.12,
+		"from_floor": 1,
+		"count": [1, 2],
+		"paths": [["line_x", 3], ["line_z", 3], ["square", 1], ["circle", 1]],
+		"damage": 1,
+		"push": 4.0,
+		"speed": 2.2
+	},
 	"hazard_types": {
 		"_info": "Fallen auf dem Boden der normalen Räume (Gebiet/Ebene \"hazards\": [Art, [min, max] je Raum]). Drüberlaufen kostet damage halbe Herzen (dann kurz unverwundbar wie bei jedem Treffer). size [min, max] = Seitenlänge in Metern. cycle [unten, oben] = Stacheln fahren aus und ein, Schaden nur wenn oben (fehlt = immer gefährlich). color = Farbe (RGB), glow = Leuchten. hold = Sekunden, die eine Falle (Fangeisen) den Spieler festhält; sie schnappt einmal zu und ist dann weg. hidden: true = kaum zu sehen (im hohen Gras fast unsichtbar). snare_thrown = das Fangeisen, das ein Boss wirft (enemies.json snare). decor = etwas, das auf einer sichtbaren Falle sitzt (sprite = Bildstreifen, frames, fps, height in m, count, return = Sekunden, bis es nach dem Aufscheuchen wiederkommt); die Tauben fliegen auf, wenn man hineintritt. owner = player: eine eigene Falle des Spielers (von Items/Relikten traps [{kind, chance}]: der Schuss legt sie, wo er endet); sie trifft nur Gegner (nicht fliegende): damage_mult x Schuss-Schaden, höchstens alle every Sekunden je Gegner, mit hold schnappt sie einmal zu und betäubt; life = Sekunden, bis sie weg ist.",
 		"lava": {

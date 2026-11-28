@@ -211,6 +211,11 @@ func take_hit(halves: int) -> void:
 		hurt.emit()
 
 
+## Pushed away (spiked stones, blasts): the push fades out through the normal braking.
+func knock(push: Vector3) -> void:
+	velocity = Vector3(push.x, 0.0, push.z)
+
+
 ## A snare: cannot walk or dash for `time` seconds.
 func hold(time: float) -> void:
 	_hold_left = maxf(_hold_left, time)

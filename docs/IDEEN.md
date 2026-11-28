@@ -251,7 +251,7 @@ Gehören zu `floors.json` `hazard_types` (wie Stacheln/Lava), Takt und Schaden i
    - Arten: im festen Takt; per **Druckplatte** ausgelöst; in Reihen nacheinander (Lauf-Muster).
    - Vorwarnung: Loch glimmt/rüttelt kurz, Klick-Ton (Mechanik spannt), dann Zisch beim Schuss.
    - Pfeile treffen auch Gegner (wer Gegner auf die Platte lockt, lässt sie sich selbst abschießen).
-2. **Wandernde Stachelsteine:** Steine mit Spitzen bewegen sich in **festen Mustern** durch den Raum (hin und her, im Kreis, an der Wand entlang, auf Schienen). Berührung = ½ Kohle Schaden und kurzer Rückstoß.
+2. ✅ (`feature/stachelsteine`; Bahnen fest im Code: line_x, line_z, square, circle) **Wandernde Stachelsteine:** Steine mit Spitzen bewegen sich in **festen Mustern** durch den Raum (hin und her, im Kreis, an der Wand entlang, auf Schienen). Berührung = ½ Kohle Schaden und kurzer Rückstoß.
    - Muster in den Daten (`path`: Punkte, `speed`, `loop`/`pingpong`), damit man sie lernen kann.
    - Rumpeln/Schleifen als 3D-Ton, lauter je näher; Funken an der Wand beim Umdrehen.
    - Feuerbälle halten sie nicht auf (nicht zerstörbar), Bomben vielleicht kurz.
