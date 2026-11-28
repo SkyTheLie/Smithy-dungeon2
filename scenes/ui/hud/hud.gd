@@ -396,7 +396,30 @@ func _on_boss_appeared(boss: Enemy) -> void:
 	_boss_bar.value = 0.0
 	_boss_fill_left = BossAltar.WAKE_TIME
 	create_tween().tween_property(_boss_bar, "value", 100.0, BossAltar.WAKE_TIME)
+	_show_phase_marks(true)
 	_boss_box.show()
+
+
+## Thin marks on the boss bar where its phases begin (enemies.json boss_phases "at"); not for
+## leaders.
+func _show_phase_marks(shown: bool) -> void:
+	for mark: Node in _boss_bar.get_children():
+		if mark.has_meta("phase_mark"):
+			mark.queue_free()
+	if not shown:
+		return
+	for at: Variant in BossBrain.phase_rules().get("at", []):
+		var mark := ColorRect.new()
+		mark.set_meta("phase_mark", true)
+		mark.color = Color(1, 1, 1, 0.8)
+		mark.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		mark.anchor_left = float(at)
+		mark.anchor_right = float(at)
+		mark.anchor_top = 0.0
+		mark.anchor_bottom = 1.0
+		mark.offset_left = 0.0
+		mark.offset_right = 1.0
+		_boss_bar.add_child(mark)
 
 
 ## The leader (mini boss) of the floor: the same bar as the boss, golden, filling up quickly.
@@ -404,6 +427,7 @@ func _on_leader_appeared(leader: Enemy) -> void:
 	_boss = leader
 	_boss_name.text = Language.translate("Anführer: %s") % Language.translate(String(leader.data.get("name", "")))
 	_boss_bar.modulate = LEADER_BAR_COLOR
+	_show_phase_marks(false)
 	_boss_bar.value = 0.0
 	_boss_fill_left = LEADER_FILL_TIME
 	create_tween().tween_property(_boss_bar, "value", 100.0, LEADER_FILL_TIME)
