@@ -91,3 +91,15 @@ Frühere Abenteurer kratzen Sätze an die Wände (`data/story.json` `walls`, `wa
 
 **Nach einem Sieg:**
 > „Du bist zurück! Mit Beute! Ich wusste es. Ich hab nie an dir gezweifelt. Fast nie.“
+
+## Umzug und Orte (Ideen vom 2026-11-28)
+
+Egon zieht mit jedem neuen Dungeon um und steht dann vor dessen Eingang. Jeder Ort hat ein Gimmick und ein paar dumme, aber passende Sprüche (Stand: Vorschläge, noch nicht im Spiel):
+
+- **Umzug allgemein:** „Puh… Partner, so ein Tisch wiegt mehr als dein Gewissen. Also meins nicht, ich hab keins. Ehrlich!“
+- **Moor (Gummistiefel, Mücken):** „Die Mücken hier stechen nur Ehrliche. Siehst du? Mich lassen sie in Ru… *klatsch* …Ruhe.“ · „Feuchtes Klima, feuchte Ware. Das ist kein Schimmel, das ist Patina!“
+- **Wiese (Strohhut, Heuschnupfen):** „Hatschi! Das ist keine Allergie, das ist… Hatschi! …Vorfreude auf dein Gold.“ · „Die Blumen? Dekoration. Kosten aber extra, wenn du hinsiehst.“
+- **Frostgipfel (friert):** „F-f-freundschaftspreis! W-weil mir k-kalt ist, nicht weil ich nett bin.“ · „Wer hier kauft, kriegt einen Eiszapfen gratis. Der von meiner Nase. Ehrlich!“
+- **Glutschlund (schwitzt):** „Heiß hier, Partner. Die Preise schmelzen… nach oben.“ · „Ich schwitze nicht, ich… glänze geschäftlich.“
+- **Wüste (später, Sonnenhut):** „Wasser? Klar hab ich Wasser. Fast gar kein Sand drin. Ehrlich!“ · „Der Hut? Schützt vor Sonne und vor Fragen nach den Preisen.“
+- Gimmick-Regel: Das Aussehen ändert sich je Ort (Hut, Schal, Stiefel), Charakter und Running Gags bleiben gleich. Ein Spruch beim Ankommen, danach zufällig ab und zu einer beim Hebel-Zug.

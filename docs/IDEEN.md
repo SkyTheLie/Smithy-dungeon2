@@ -380,3 +380,40 @@ Heute: unter 50 % schneller und mehr Schüsse. Neu als feste Regel mit Phasen in
 - Ist der Spieler **zu nah**, holt der Geist mit seiner **Kralle** aus (kurzes Ausholen mit Kratz-Ton als Vorwarnung, dann Treffer).
 - Nach einigen Sekunden oder nach einem Treffer verschwindet er wieder in der Wand und kommt woanders heraus. Verwundbar nur, solange er draußen ist.
 - Gut kombinierbar mit Fallen/Pfützen vor der Wand.
+
+## Kisten, Stein-Kammern, Egons Umzug (Nachricht vom 2026-11-28)
+
+### Kisten (Truhen-System, siehe Backlog „Truhen“ in `docs/ITEM_IDEEN.md`)
+
+Drei Arten, Werte und Beute in den Daten (z. B. `data/chests.json`: Art, Bild, Beute-Tabelle, `bomb_opens`, `key`):
+
+| Art | Öffnen | Bomben | Beute |
+|---|---|---|---|
+| **Holzkiste** | einfach anfassen (F oder drüberlaufen) | gehen kaputt, Inhalt fällt heraus | normal |
+| **Schlosskiste** (Eisenbeschläge, Vorhängeschloss) | mit **Schlüssel** | **aufsprengen** geht auch; dann ist ein Teil der Beute kaputt (z. B. ein Ding weniger oder schlechtere Stufe) | besser |
+| **Tresorkiste** (dunkles Eisen, Runen) | **nur mit Schlüssel** | **kein Effekt**: Bombe prallt ab, „Klong“-Ton, Funken, Runen leuchten kurz | am besten |
+
+- Jede Art sieht man sofort an (Farbe/Beschläge); Tooltip bzw. kurzer Text beim Anschauen: „Verschlossen“ / „Nur mit Schlüssel“.
+- Ton je Aktion: Holz knarzt, Schloss klickt, Tresor-Runen summen, Aufsprengen splittert.
+- Zählt zum Raum-Budget der Beute (`loot.json` `room_budget`) wie zerbrechliche Deko; Kisten geben ihre eigene Beute obendrauf nur, wenn der Raum das erlaubt (Wert in den Daten).
+- Eisenschlüssel (bleibt über Runs) und zerbrechliche Schlüssel öffnen beide; Tresorkisten vielleicht nur mit Eisenschlüssel (offen).
+
+### Stein-Kammer (Raum-Art)
+
+- Eine Kiste in der Mitte (oder in einer Ecke), **ringsum von Steinen eingemauert**. Man kommt nur heran, wenn man die Steine **wegbombt** (Bombe zerstört Steine im Umkreis, gibt es schon: `Dungeon.explode`).
+- Varianten: einfacher Ring (1 Bombe reicht), doppelter Ring (2 Bomben), Steine mit Tresorkiste drin (Bombe für die Steine **und** Schlüssel für die Kiste).
+- Achtung: Bombt man zu nah an einer Holzkiste, geht sie mit kaputt (Inhalt bleibt aber liegen); bei der Schlosskiste wird sie dabei aufgesprengt (Teil der Beute weg). So lohnt es sich zu zielen.
+- Hinweis, damit man es versteht: auf der Karte ein Kisten-Symbol, beim ersten Mal ein kurzer Satz (Tutorial-Hinweis oder Wand-Schrift: „Wer keine Bombe hat, hat keine Kiste.“).
+
+### Egons Umzug zu jedem neuen Dungeon
+
+Heute zieht Egon nach einer Quest schon um (`quests.json` `locations`: anderer Hintergrund, Ortsname). Neu dazu:
+
+- **Umzugs-Moment:** Nach dem Freischalten Abblende, dann steht der Spieler mit Egon **vor dem Eingang des neuen Dungeons** (Hintergrund des Ladens = der neue Eingang). Egon schiebt seinen Tisch auf Rädern ins Bild, keucht.
+- **Ein Gimmick je Ort** (Aussehen + Sprüche, in den Daten je `location`: Bild-Variante von Egon, Sprüche-Liste, evtl. Ton):
+  - **Moor:** Gummistiefel, Mücken umschwirren ihn, er klatscht ab und zu.
+  - **Wiese:** Strohhut, niest ständig (Heuschnupfen), Blumen am Tisch „zur Dekoration, Preis auf Anfrage“.
+  - **Frostgipfel:** **friert**, zittert, Schal bis zur Nase, Eiszapfen an der Nase, Zähneklappern als Ton, Atemwolken.
+  - **Glutschlund:** schwitzt, fächelt sich Luft zu, Tisch qualmt leicht.
+  - **Wüste (später):** **Sonnenhut** und Sonnenbrille, Sand im Tisch, verkauft „Wasser“.
+- Die Sprüche (Beispiele, Texte nach `docs/figuren/EGON_EHRLICH.md`) stehen dort im Abschnitt „Umzug und Orte“.
