@@ -2529,6 +2529,9 @@ msgstr "任务"
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "拖动时按 R / 右键：旋转"
 
+msgid "R: drehen · Shift+Klick: ins Inventar · Strg+Klick: sperren · T: sortieren"
+msgstr "R：旋转 · Shift+点击：放入背包 · Ctrl+点击：锁定 · T：整理"
+
 msgid "Rahmenlos"
 msgstr "无边框"
 
@@ -3030,6 +3033,9 @@ msgstr "套装 %d 已保存。"
 msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
 msgstr "套装 %d 是空的。右键保存当前装备。"
 
+msgid "Shift+Klick: sicherer Platz"
+msgstr "Shift+点击：安全格"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift：瞬移到你瞄准的位置"
 
@@ -3401,6 +3407,9 @@ msgstr "第三天。老鼠拿走了我的面包。还有我的靴子。"
 
 msgid "Taste …"
 msgstr "按键…"
+
+msgid "Tastenhilfe anzeigen"
+msgstr "显示按键提示"
 
 msgid "Taumelkraut"
 msgstr "蹒跚草"

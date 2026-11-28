@@ -2529,6 +2529,9 @@ msgstr "Quêtes"
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "R / clic droit en glissant : tourner"
 
+msgid "R: drehen · Shift+Klick: ins Inventar · Strg+Klick: sperren · T: sortieren"
+msgstr "R : tourner · Maj+clic : vers l'inventaire · Ctrl+clic : verrouiller · T : trier"
+
 msgid "Rahmenlos"
 msgstr "Sans bordure"
 
@@ -3030,6 +3033,9 @@ msgstr "Tenue %d enregistrée."
 msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
 msgstr "La tenue %d est vide. Clic droit enregistre ce que tu portes."
 
+msgid "Shift+Klick: sicherer Platz"
+msgstr "Maj+clic : place sûre"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Maj : tu sautes là où tu vises"
 
@@ -3401,6 +3407,9 @@ msgstr "Jour trois. Les rats ont mon pain. Et mes bottes."
 
 msgid "Taste …"
 msgstr "Touche …"
+
+msgid "Tastenhilfe anzeigen"
+msgstr "Afficher l'aide des touches"
 
 msgid "Taumelkraut"
 msgstr "Herbe titubante"

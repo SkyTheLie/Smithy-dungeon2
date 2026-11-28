@@ -2529,6 +2529,9 @@ msgstr "Quests"
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "R / right click while dragging: rotate"
 
+msgid "R: drehen · Shift+Klick: ins Inventar · Strg+Klick: sperren · T: sortieren"
+msgstr "R: turn · Shift+click: to inventory · Ctrl+click: lock · T: sort"
+
 msgid "Rahmenlos"
 msgstr "Borderless"
 
@@ -3030,6 +3033,9 @@ msgstr "Set %d saved."
 msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
 msgstr "Set %d is empty. Right click saves what you wear."
 
+msgid "Shift+Klick: sicherer Platz"
+msgstr "Shift+click: safe place"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: you jump to where you aim"
 
@@ -3401,6 +3407,9 @@ msgstr "Day three. The rats have my bread. And my boots."
 
 msgid "Taste …"
 msgstr "Key …"
+
+msgid "Tastenhilfe anzeigen"
+msgstr "Show key help"
 
 msgid "Taumelkraut"
 msgstr "Stagger Weed"

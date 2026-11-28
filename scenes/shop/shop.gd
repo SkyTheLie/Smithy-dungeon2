@@ -123,6 +123,8 @@ var _rng := RandomNumberGenerator.new()
 var _sort_button: Button
 ## Buying back: one place per remembered sale (MetaState.sold_today).
 var _buy_back_slots: Array[ShopSlot] = []
+## One line of keys at the bottom (can be switched off in the settings).
+var _key_help: Label
 ## The set buttons under the hero (shown with the hero).
 var _gear_sets: HBoxContainer
 ## Readiness check before a run: warned once for this visit (the second click goes).
@@ -293,6 +295,17 @@ func _build() -> void:
 	_quests_button = _button(Language.translate("Quests"), Vector2(0, BUTTON_Y))
 	_quests_button.name = "QuestsButton"
 	_quests_button.pressed.connect(_open_quests)
+	# Key help along the bottom (settings: "Tastenhilfe anzeigen").
+	_key_help = _label(Language.translate("R: drehen · Shift+Klick: ins Inventar · Strg+Klick: sperren · T: sortieren"), 8, Color(0.75, 0.7, 0.65))
+	_key_help.name = "KeyHelp"
+	_key_help.add_theme_constant_override("outline_size", 0)
+	_key_help.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	# Between the menu button and the buttons on the right, under the stash.
+	_key_help.position = Vector2(70, BUTTON_Y + 6)
+	_key_help.size = Vector2(420, 10)
+	_key_help.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_key_help.visible = BagWindow.key_help_on()
+	_frame.add_child(_key_help)
 
 	var windows := CanvasLayer.new()
 	add_child(windows)
@@ -504,11 +517,11 @@ func _build_stash() -> void:
 		if click and click.pressed and click.button_index == MOUSE_BUTTON_RIGHT:
 			MetaState.next_sort_mode()
 			_refresh_sort_button())
-	column.add_child(_sort_button)
 	_refresh_sort_button()
 	var side := VBoxContainer.new()
 	side.add_theme_constant_override("separation", 2)
 	row.add_child(side)
+	side.add_child(_sort_button)
 	var none := _label(Language.translate("Kein Platz"), 9, Color(1.0, 0.55, 0.45))
 	none.add_theme_constant_override("outline_size", 0)
 	none.tooltip_text = Language.translate("Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es.")
@@ -1322,6 +1335,15 @@ func _on_table_clicked(index: int) -> void:
 func _on_inventory_clicked(index: int) -> void:
 	var own: Array[Dictionary] = MetaState.stash()
 	if _locked or index < 0 or index >= own.size():
+		return
+	# Shift+click: straight into the inventory (the bag of the next run), like in the dungeon.
+	if Input.is_key_pressed(KEY_SHIFT):
+		if MetaState.stash_to_bag_anywhere(index):
+			AudioManager.play_sound("pickup", 1.1)
+		else:
+			AudioManager.play_sound("denied")
+			_bark("no_room")
+		_refresh()
 		return
 	# A container: open it (again: close it).
 	if ShopGoods.is_container(own[index]):

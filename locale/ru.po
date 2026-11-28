@@ -2529,6 +2529,9 @@ msgstr "Задания"
 msgid "R / Rechtsklick beim Ziehen: drehen"
 msgstr "R / ПКМ при перетаскивании: повернуть"
 
+msgid "R: drehen · Shift+Klick: ins Inventar · Strg+Klick: sperren · T: sortieren"
+msgstr "R: повернуть · Shift+клик: в инвентарь · Ctrl+клик: закрепить · T: сортировать"
+
 msgid "Rahmenlos"
 msgstr "Без рамки"
 
@@ -3030,6 +3033,9 @@ msgstr "Набор %d сохранён."
 msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
 msgstr "Набор %d пуст. Правый клик сохранит надетое."
 
+msgid "Shift+Klick: sicherer Platz"
+msgstr "Shift+клик: надёжное место"
+
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: прыжок туда, куда целишься"
 
@@ -3401,6 +3407,9 @@ msgstr "День третий. Крысы забрали мой хлеб. И м�
 
 msgid "Taste …"
 msgstr "Клавиша …"
+
+msgid "Tastenhilfe anzeigen"
+msgstr "Показывать подсказки клавиш"
 
 msgid "Taumelkraut"
 msgstr "Шатун-трава"

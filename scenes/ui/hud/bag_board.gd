@@ -10,6 +10,8 @@ extends Control
 
 signal hovered(index: int)
 signal right_clicked(index: int)
+## Shift + left click on a piece (moves it between the bag and the safe place).
+signal shift_clicked(index: int)
 signal dropped
 
 const CELL_COLOR := Color(0.2, 0.15, 0.13)
@@ -202,6 +204,13 @@ func _gui_input(event: InputEvent) -> void:
 			_hover_index = index
 			hovered.emit(index)
 			queue_redraw()
+	elif event is InputEventMouseButton and (event as InputEventMouseButton).pressed \
+			and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT \
+			and (event as InputEventMouseButton).shift_pressed:
+		var shifted: int = _index_at(event.position)
+		if shifted >= 0:
+			accept_event()
+			shift_clicked.emit(shifted)
 	elif event is InputEventMouseButton and (event as InputEventMouseButton).pressed \
 			and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_RIGHT \
 			and not get_viewport().gui_is_dragging():

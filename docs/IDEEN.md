@@ -308,7 +308,7 @@ Gebaut (`feature/laden-komfort`): 1 Auto-Sortieren, 2 Sperren, 4 Wert im Tooltip
 3. **Schnell-Wegwerfen:** Teil mit der Maus berühren und **X** halten (kurzer Balken) → fällt auf den Boden, ohne Ziehen. Gesperrte Teile nicht.
 4. **Beute-Wert der Tasche:** unten im Fenster „Wert der Tasche: 230 Gold“ (was Egon dafür zahlt), damit man sieht, ob sich Umkehren lohnt.
 
-### Für Laden und Tab gleich
+### Für Laden und Tab gleich – ✅ gebaut (`feature/steuerung-tastenhilfe`; Sperren und Sortieren nur im Lager, X-Wegwerfen nur im Dungeon, weil es zu Hause keinen Boden gibt)
 
 - **Gleiche Steuerung überall:** Ziehen, **R** drehen, **Shift+Klick** schieben, **Rechtsklick**, **Strg+Klick** sperren, **X** wegwerfen machen im Laden und im Dungeon dasselbe.
 - **Ton und Bild für jede Aktion:** Aufheben, Ablegen, Drehen, „Kein Platz“, Sperren, Verkaufen, Sortieren bekommen je einen kurzen Ton und einen kleinen Effekt (Ploppen, Wackeln, Rot-Blinken). Gilt nach der Regel „Jede Aktion hat einen Ton“ oben.
