@@ -150,6 +150,8 @@ var _brain: BossBrain = null
 var _moves: EnemyMoves = null
 ## The colour of the picture ("tint"), white without.
 var _base_color: Color = Color.WHITE
+## Its own "tint" (or white); boss phases colour it on top.
+var _own_tint: Color = Color.WHITE
 ## "revive": seconds before standing up when it twitches and groans; colour of the glow under it.
 const RISE_WARNING: float = 0.8
 ## "invisible": seconds before showing again when it shimmers (the warning).
@@ -230,6 +232,7 @@ func setup(enemy_id: String, the_dungeon: Dungeon, the_player: Player, rng_seed:
 	var tint: Array = data.get("tint", [])
 	if tint.size() >= 3:
 		_base_color = Color(float(tint[0]), float(tint[1]), float(tint[2]))
+	_own_tint = _base_color
 	if _ai == "lurk":
 		var wake: Array = data.get("wake", [1.0, 3.0])
 		_wake_left = _rng.randf_range(float(wake[0]), float(wake[1]))
@@ -252,6 +255,7 @@ func make_leader(rules: Dictionary) -> void:
 	var tint: Array = rules.get("tint", [])
 	if tint.size() >= 3:
 		_base_color = Color(float(tint[0]), float(tint[1]), float(tint[2]))
+	_own_tint = _base_color
 
 
 func _ready() -> void:
@@ -326,6 +330,10 @@ func aim_point() -> Vector3:
 ## `push` = knockback (bosses barely move). `confuse` (bread): runs away for a while.
 func take_damage(amount: float, push: Vector3, confuse: bool) -> void:
 	if not alive or amount <= 0.0 or hidden_phase:
+		return
+	# Roaring between two phases: hits do nothing (sparks, a clank).
+	if _brain and _brain.in_transition() and amount < FORCED_DAMAGE:
+		sound("blocked", randf_range(0.7, 0.8))
 		return
 	# The boss died: its helpers go too, without their death tricks.
 	_forced = amount >= FORCED_DAMAGE
@@ -720,6 +728,27 @@ func _next_vanish(cfg: Dictionary) -> float:
 	return randf_range(float(every[0]), float(every[1]))
 
 
+## Boss phases: the colour of the new phase (multiplied onto its own tint).
+func set_phase_tint(color: Color) -> void:
+	_base_color = _own_tint * color
+
+
+## Boss phases: roars, shakes for `time` seconds, the player's view shakes too.
+func roar(time: float) -> void:
+	wobble(time)
+	_voice("die", 0.5)
+	sound("boss_burrow", 0.55)
+	if player:
+		player.shake(minf(0.8, time))
+	if dungeon:
+		Fx.puff(dungeon.effects, aim_point(), "spark", 1.6)
+
+
+## The boss's phase (1 for every other enemy).
+func boss_phase() -> int:
+	return _brain.phase if _brain else 1
+
+
 func _die() -> void:
 	alive = false
 	invisible = false
@@ -906,7 +935,7 @@ func shoot_from(at: Vector3, direction: Vector3, options: Dictionary) -> void:
 	if invisible:
 		return
 	var shot := EnemyShot.new()
-	shot.velocity = direction * float(data.get("shot_speed", 4.0)) * float(options.get("speed", 1.0))
+	shot.velocity = direction * float(data.get("shot_speed", 4.0)) * float(options.get("speed", 1.0)) * (_brain.shot_factor() if _brain else 1.0)
 	shot.player = player
 	shot.slows = bool(options.get("slows", false))
 	shot.burst = int(options.get("burst", 0))

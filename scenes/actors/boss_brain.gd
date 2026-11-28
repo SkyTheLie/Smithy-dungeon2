@@ -30,6 +30,9 @@ extends RefCounted
 ## evade (jumps aside when a shot of the player flies at it; not while drawing its bow).
 ## "keep_distance": metres it keeps away from the player between attacks (circling them, an
 ## archer); "stationary": true = does not walk at all.
+## Phases (enemies.json "boss_phases", for every boss): from half life phase 2 (a new attack
+## joins, shorter pauses), from a quarter phase 3 (rage: even shorter pauses, faster shots). Each
+## change starts with a pause in which it roars, shakes and changes colour and cannot be hurt.
 
 const PAUSE: float = 2.0
 const MARK_TIME: float = 0.9
@@ -70,6 +73,9 @@ var _quick: bool = false
 var _was_held: bool = false
 ## The player just got caught: the quick shot is still to come.
 var _punish: bool = false
+## 1, 2 or 3 (boss_phases); seconds left of the roar between two phases.
+var phase: int = 1
+var _transition_left: float = 0.0
 
 
 func _init(the_boss: Enemy) -> void:
@@ -78,11 +84,78 @@ func _init(the_boss: Enemy) -> void:
 
 
 func angry() -> bool:
-	return boss.hp < boss.max_hp * 0.5
+	return phase >= 2
+
+
+## enemies.json "boss_phases".
+static func phase_rules() -> Dictionary:
+	return Content.get_file("enemies").get("boss_phases", {})
+
+
+## The phase that belongs to the boss's life right now (1–3).
+func _phase_for_life() -> int:
+	var at: Array = BossBrain.phase_rules().get("at", [0.5, 0.25])
+	var share: float = boss.hp / maxf(1.0, boss.max_hp)
+	var result: int = 1
+	for i in at.size():
+		if share < float(at[i]):
+			result = i + 2
+	return result
+
+
+## true while it roars between two phases (cannot be hurt then).
+func in_transition() -> bool:
+	return _transition_left > 0.0
+
+
+func _pause_factor() -> float:
+	var list: Array = BossBrain.phase_rules().get("pause", [1.0, 0.55, 0.55])
+	return float(list[clampi(phase - 1, 0, list.size() - 1)])
+
+
+## Factor on the speed of its shots in this phase.
+func shot_factor() -> float:
+	var list: Array = BossBrain.phase_rules().get("shot_speed", [1.0])
+	return float(list[clampi(phase - 1, 0, list.size() - 1)])
+
+
+## A new phase: stop the attack, roar, shake, new colour; phase 2/3 may bring a new attack.
+func _enter_phase(new_phase: int) -> void:
+	if not _attack.is_empty():
+		_finish()
+	phase = new_phase
+	var rules: Dictionary = BossBrain.phase_rules()
+	_transition_left = float(rules.get("transition", 1.4))
+	var tints: Array = rules.get("tint", [])
+	if phase - 1 < tints.size():
+		var tint: Array = tints[phase - 1]
+		boss.set_phase_tint(Color(float(tint[0]), float(tint[1]), float(tint[2])))
+	var own: Array = boss.data.get("phase_attacks", [])
+	var extra: String = ""
+	if phase - 2 < own.size():
+		extra = String(own[phase - 2])
+	elif phase == 2:
+		for candidate: Variant in rules.get("extra_attacks", []):
+			if not _attacks.has(String(candidate)):
+				extra = String(candidate)
+				break
+	if not extra.is_empty():
+		_attacks = _attacks.duplicate()
+		_attacks.insert(_index % maxi(1, _attacks.size()), extra)
+	boss.roar(_transition_left)
 
 
 ## Movement of this frame.
 func update(delta: float, toward: Vector3, distance: float) -> Vector3:
+	if _transition_left > 0.0:
+		_transition_left -= delta
+		if _transition_left <= 0.0:
+			_wait = minf(_wait, 0.6)
+		return Vector3.ZERO
+	var due: int = _phase_for_life()
+	if due > phase:
+		_enter_phase(due)
+		return Vector3.ZERO
 	_traits(delta)
 	_evade_wait = maxf(0.0, _evade_wait - delta)
 	if _evade_left > 0.0:
@@ -164,7 +237,7 @@ func _finish() -> void:
 	boss.stun_left = 0.0 if _attack != "charge" else boss.stun_left
 	_quick = false
 	_attack = ""
-	_wait = PAUSE * (0.55 if angry() else 1.0)
+	_wait = PAUSE * _pause_factor()
 
 
 func _start(toward: Vector3) -> void:
