@@ -6,7 +6,7 @@
 	"hint": "res://assets/sprites/ui/slot/potion.png",
 	"tour_potion": "heal_potion",
 	"potions": {
-		"heal_potion": {"name": "Heiltrank", "desc": "Heilt zwei Kohlestücke. Schmeckt nach Kirsche. Und ein bisschen nach Socke.", "icon": "res://assets/sprites/items/attribute_point_potion.png", "price": 25, "heal": 4, "rarity": 1},
-		"big_heal_potion": {"name": "Großer Heiltrank", "desc": "Heilt drei Kohlestücke. Doppelt so viel Kirsche, halb so viel Socke.", "icon": "res://assets/sprites/items/skill_point_potion.png", "price": 70, "heal": 6, "rarity": 2, "unlock": {"dungeon": "glut"}}
+		"heal_potion": {"name": "Heiltrank", "desc": "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke.", "icon": "res://assets/sprites/items/attribute_point_potion.png", "price": 25, "heal": 4, "rarity": 1},
+		"big_heal_potion": {"name": "Großer Heiltrank", "desc": "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke.", "icon": "res://assets/sprites/items/skill_point_potion.png", "price": 70, "heal": 6, "rarity": 2, "unlock": {"dungeon": "glut"}}
 	}
 }

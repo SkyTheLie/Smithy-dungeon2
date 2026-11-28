@@ -1166,7 +1166,7 @@ func _build_sacrifice_room(room: DungeonRoom) -> void:
 		spike.position = Vector3(-0.3 + (i % 2) * 0.6, 0.4, -0.3 + floori(i / 2.0) * 0.6)
 		stone.add_child(spike)
 	var label := Label3D.new()
-	label.text = Language.translate("Opferstein: ein Kohlestück für eine Gabe")
+	label.text = Language.translate("Opferstein: ein Herz für eine Gabe")
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	label.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 	label.pixel_size = 0.01

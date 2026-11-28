@@ -9,9 +9,6 @@ msgstr "%d طلا"
 msgid "%d Herzen"
 msgstr "%d قلب"
 
-msgid "%d Kohlestücke"
-msgstr "%d زغال"
-
 msgid "%d Skillpunkte"
 msgstr "%d امتیاز مهارت"
 
@@ -74,9 +71,6 @@ msgstr "همه ویژگی‌ها کمی بالاتر"
 
 msgid "Alle paar Besiegten heilst du ein halbes Herz"
 msgstr "هر چند دشمن که شکست دهی نیم قلب شفا می‌گیری"
-
-msgid "Alle paar Besiegten heilst du ein halbes Kohlestück"
-msgstr "هر چند شکست، نیم زغال درمان می‌شوی"
 
 msgid "Alles im Laden kostet die Hälfte"
 msgstr "همه چیز در مغازه نصف قیمت است"
@@ -281,9 +275,6 @@ msgstr "سوزان و کند: آسیب بیشتر"
 
 msgid "Brennende, explodierende Schüsse"
 msgstr "تیرهای سوزان و منفجرشونده"
-
-msgid "Brennende, langsame Gegner und zwei Schlammschichten"
-msgstr "دشمنان سوزان و کند و دو لایهٔ گل"
 
 msgid "Brennende, langsame Gegner und zwei blaue Herzen"
 msgstr "دشمنان سوزان و کند، و دو قلب آبی"
@@ -573,12 +564,6 @@ msgstr "ردای اژدها"
 msgid "Drei Funken folgen dir und schießen"
 msgstr "سه جرقه دنبالت می‌آیند و شلیک می‌کنند"
 
-msgid "Drei Schlammschichten"
-msgstr "سه لایهٔ گل"
-
-msgid "Drei Schlammschichten und manchmal ausweichen"
-msgstr "سه لایهٔ گل و گاهی جاخالی"
-
 msgid "Drei Schlüssel, Rabatt im Laden"
 msgstr "سه کلید، تخفیف در مغازه"
 
@@ -614,9 +599,6 @@ msgstr "پرواز می‌کنی و سریع‌تر شلیک می‌کنی"
 
 msgid "Du fliegst über Fallen und Abgründe, Schaden +1"
 msgstr "از روی تله‌ها و پرتگاه‌ها پرواز می‌کنی، آسیب +۱"
-
-msgid "Du fliegst über Fallen und Abgründe, zwei Schlammschichten"
-msgstr "از روی تله‌ها و پرتگاه‌ها پرواز می‌کنی، دو لایهٔ گل"
 
 msgid "Du fliegst über Fallen und Abgründe, zwei blaue Herzen"
 msgstr "از روی تله‌ها و پرتگاه‌ها پرواز می‌کنی، دو قلب آبی"
@@ -656,9 +638,6 @@ msgstr "ستاره پرتابی می‌اندازی، دشمنان آسیب‌د
 
 msgid "Du wirst größer: mehr Herzen und Schaden, leichter zu treffen"
 msgstr "بزرگ‌تر می‌شوی: قلب و آسیب بیشتر، راحت‌تر مورد اصابت"
-
-msgid "Du wirst größer: mehr Kohlestücke und Schaden, leichter zu treffen"
-msgstr "بزرگ‌تر می‌شوی: زغال و آسیب بیشتر، اما راحت‌تر ضربه می‌خوری"
 
 msgid "Du wirst kleiner und schneller"
 msgstr "کوچک‌تر و سریع‌تر می‌شوی"
@@ -831,36 +810,6 @@ msgstr "یک قلب، دو قلب آبی، آسیب بالاتر"
 msgid "Ein Händler! Geh hin und sprich ihn an."
 msgstr "یک فروشنده! برو پیشش و با او حرف بزن."
 
-msgid "Ein Kohlestück mehr"
-msgstr "یک زغال بیشتر"
-
-msgid "Ein Kohlestück mehr, Glück hoch"
-msgstr "یک زغال بیشتر، شانس بالاتر"
-
-msgid "Ein Kohlestück mehr, Schaden hoch"
-msgstr "یک زغال بیشتر، آسیب بالاتر"
-
-msgid "Ein Kohlestück mehr, heilt dich ganz"
-msgstr "یک زغال بیشتر، کاملاً درمانت می‌کند"
-
-msgid "Ein Kohlestück mehr."
-msgstr "یک زغال بیشتر."
-
-msgid "Ein Kohlestück und eine Schlammschicht"
-msgstr "یک زغال و یک لایهٔ گل"
-
-msgid "Ein Kohlestück, Dornen, Explosionen tun dir nichts"
-msgstr "یک زغال، خار، انفجارها به تو آسیب نمی‌زنند"
-
-msgid "Ein Kohlestück, eine Bombe und ein Schlüssel"
-msgstr "یک زغال، یک بمب و یک کلید"
-
-msgid "Ein Kohlestück, eine Münze, eine Bombe und ein Schlüssel"
-msgstr "یک زغال، یک سکه، یک بمب و یک کلید"
-
-msgid "Ein Kohlestück, zwei Schlammschichten, Schaden hoch"
-msgstr "یک زغال، دو لایهٔ گل، آسیب بالاتر"
-
 msgid "Ein Kraut in Herzform. Egon kocht Tee daraus."
 msgstr "گیاهی قلبی‌شکل. اگون از آن چای درست می‌کند."
 
@@ -966,21 +915,6 @@ msgstr "زندگی دوم!"
 msgid "Eine Sache mehr auf Egons Tisch."
 msgstr "یک کالای بیشتر روی میز اگون."
 
-msgid "Eine Schlammschicht mehr zu Beginn jedes Runs."
-msgstr "در آغاز هر دور، یک لایهٔ گل بیشتر."
-
-msgid "Eine Schlammschicht und Dornen"
-msgstr "یک لایهٔ گل و خار"
-
-msgid "Eine Schlammschicht, Schaden hoch"
-msgstr "یک لایهٔ گل، آسیب بالاتر"
-
-msgid "Eine Schlammschicht, länger sicher nach Treffern"
-msgstr "یک لایهٔ گل، پس از ضربه مدت بیشتری در امانی"
-
-msgid "Eine Schlammschicht, schneller laufen"
-msgstr "یک لایهٔ گل، حرکت سریع‌تر"
-
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "کیفی با ۲×۲ خانه. پیش اگون به کیفت وصلش کن."
 
@@ -992,9 +926,6 @@ msgstr "چمنزاری به بلندی یک کوتوله. در علف‌ها خ�
 
 msgid "Eine ganze Bäckerei auf einmal"
 msgstr "یک نانوایی کامل یک‌جا"
-
-msgid "Eine halbe Eisenkohle mehr zu Beginn jedes Runs."
-msgstr "در آغاز هر دور، نیم زغال آهنی بیشتر."
 
 msgid "Eine kurze Klinge. Für Krieger."
 msgstr "یک تیغه کوتاه. برای جنگجویان."
@@ -1046,9 +977,6 @@ msgstr "سنگ آهن"
 
 msgid "Eisenhaut"
 msgstr "پوست آهنین"
-
-msgid "Eisenkohle"
-msgstr "زغال آهنی"
 
 msgid "Eisenschlüssel"
 msgstr "کلید آهنی"
@@ -1680,14 +1608,8 @@ msgstr "انتخاب خوبی بود! یه تیکه‌ی کلکسیونی. صا�
 msgid "Habe %d Herz-Container gleichzeitig"
 msgstr "همزمان %d ظرف قلب داشته باش"
 
-msgid "Habe %d Kohlestücke gleichzeitig"
-msgstr "همزمان %d زغال داشته باش"
-
 msgid "Habe %d Münzen gleichzeitig"
 msgstr "همزمان %d سکه داشته باش"
-
-msgid "Habe %d Schlammschichten gleichzeitig"
-msgstr "همزمان %d لایهٔ گل داشته باش"
 
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "همزمان %d قلب آبی داشته باش"
@@ -1716,23 +1638,14 @@ msgstr "گیاهان شفا"
 msgid "Heilt %s Herzen"
 msgstr "%s قلب را شفا می‌دهد"
 
-msgid "Heilt %s Kohlestücke"
-msgstr "%s زغال درمان می‌کند"
-
 msgid "Heilt dich ganz, schneller laufen"
 msgstr "تو را کامل درمان می‌کند، سریع‌تر راه می‌روی"
 
 msgid "Heilt drei Herzen. Doppelt so viel Kirsche, halb so viel Socke."
 msgstr "سه قلب را شفا می‌دهد. دو برابر گیلاس، نصف جوراب."
 
-msgid "Heilt drei Kohlestücke. Doppelt so viel Kirsche, halb so viel Socke."
-msgstr "سه زغال درمان می‌کند. دو برابر گیلاس، نصف جوراب."
-
 msgid "Heilt zwei Herzen. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
 msgstr "دو قلب را شفا می‌دهد. طعم گیلاس می‌دهد. و کمی طعم جوراب."
-
-msgid "Heilt zwei Kohlestücke. Schmeckt nach Kirsche. Und ein bisschen nach Socke."
-msgstr "دو زغال درمان می‌کند. طعم گیلاس می‌دهد. و کمی طعم جوراب."
 
 msgid "Heiltrank"
 msgstr "معجون شفا"
@@ -1809,12 +1722,6 @@ msgstr "حداکثر نیم قلب در هر ضربه، اما کندتر"
 msgid "Höchstens ein halbes Herz pro Treffer, länger sicher"
 msgstr "حداکثر نیم قلب در هر ضربه، مدت امن بیشتر"
 
-msgid "Höchstens ein halbes Kohlestück pro Treffer, aber langsamer"
-msgstr "حداکثر نیم زغال در هر ضربه، اما کندتر"
-
-msgid "Höchstens ein halbes Kohlestück pro Treffer, länger sicher"
-msgstr "حداکثر نیم زغال در هر ضربه، مدت بیشتری در امان"
-
 msgid "Höhere Stufen kommen mit deiner Spielerstufe."
 msgstr "سطوح بالاتر با سطح بازیکن می‌آیند."
 
@@ -1853,9 +1760,6 @@ msgstr "من همین‌جا منتظر می‌مانم. احتیاط شرط ع�
 
 msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Herzen sind wieder da."
 msgstr "در سیاه‌چال %s را فشار می‌دهی. قلپ، قلپ، و دو قلب برمی‌گردد."
-
-msgid "Im Dungeon drückst du %s. Gluck, gluck, und zwei Kohlestücke glühen wieder."
-msgstr "در سیاه‌چال %s را فشار می‌دهی. قلپ، قلپ، و دو زغال دوباره می‌درخشند."
 
 msgid "Im Dungeon: %s trinkt ihn"
 msgstr "در سیاه‌چال: %s برای نوشیدن"
@@ -1971,9 +1875,6 @@ msgstr "معجونی همراهت نیست"
 msgid "Kein Treffer nimmt mehr als ein halbes Herz"
 msgstr "هیچ ضربه‌ای بیش از نیم قلب نمی‌گیرد"
 
-msgid "Kein Treffer nimmt mehr als ein halbes Kohlestück"
-msgstr "هیچ ضربه‌ای بیش از نیم زغال نمی‌گیرد"
-
 msgid "Keine Quest"
 msgstr "بدون مأموریت"
 
@@ -2027,12 +1928,6 @@ msgstr "زغال"
 
 msgid "Kohlenschrot"
 msgstr "ساچمه‌ی زغالی"
-
-msgid "Kohlestücke"
-msgstr "زغال‌ها"
-
-msgid "Kohlestücke heilen doppelt"
-msgstr "زغال‌ها دو برابر درمان می‌کنند"
 
 msgid "Kometenschweif"
 msgstr "دنباله ستاره دنباله‌دار"
@@ -2156,9 +2051,6 @@ msgstr "پرواز طولانی، برخورد سهمگین"
 
 msgid "Langsam heilen und ein blaues Herz"
 msgstr "شفای آرام و یک قلب آبی"
-
-msgid "Langsam heilen und eine Schlammschicht"
-msgstr "درمان آهسته و یک لایهٔ گل"
 
 msgid "Langsam heilst du dich"
 msgstr "به آرامی شفا می‌گیری"
@@ -2394,9 +2286,6 @@ msgstr "سکه"
 msgid "Münzen und Herzen fliegen zu dir"
 msgstr "سکه‌ها و قلب‌ها به سمتت پرواز می‌کنند"
 
-msgid "Münzen und Kohlestücke fliegen zu dir"
-msgstr "سکه‌ها و زغال‌ها به سمتت پرواز می‌کنند"
-
 msgid "Münzsack"
 msgstr "کیسه‌ی سکه"
 
@@ -2498,9 +2387,6 @@ msgstr "خنجر قربانی"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "سنگ قربانی: یک قلب برای یک هدیه"
-
-msgid "Opferstein: ein Kohlestück für eine Gabe"
-msgstr "سنگ قربانی: یک زغال برای یک هدیه"
 
 msgid "Ork"
 msgstr "اورک"
@@ -2903,9 +2789,6 @@ msgstr "نگهبان سپردار"
 
 msgid "Schlachtkeil"
 msgstr "گوه نبرد"
-
-msgid "Schlammschicht"
-msgstr "لایهٔ گل"
 
 msgid "Schlangenfeuer: Schüsse schlängeln sich, etwas mehr Schaden"
 msgstr "آتش ماری: گلوله‌ها مارپیچ می‌روند، کمی آسیب بیشتر"
@@ -3378,9 +3261,6 @@ msgstr "تیرهای ردیاب و همه ویژگی‌ها بالاتر"
 msgid "Suchende Schüsse und ein blaues Herz"
 msgstr "تیرهای ردیاب و یک قلب آبی"
 
-msgid "Suchende Schüsse und eine Schlammschicht"
-msgstr "شلیک‌های ردیاب و یک لایهٔ گل"
-
 msgid "Suchende Schüsse, Glück hoch"
 msgstr "تیرهای ردیاب، شانس بالاتر"
 
@@ -3552,9 +3432,6 @@ msgstr "و سمت چپ خودتی. تکون نخور، لباس تنت می‌ک
 msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
 msgstr "و چون من خیلی دست‌ودل‌بازم: یک قلب مرداب! یک یادگار. روی پیکره بگذارش تا یک قلب بیشتر داشته باشی."
 
-msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Kohlestück mehr."
-msgstr "و چون من خیلی دست‌ودل‌بازم: یک قلب مرداب! یک یادگار. روی پیکره بگذارش تا یک زغال بیشتر داشته باشی."
-
 msgid "Ungewöhnlich"
 msgstr "غیرمعمول"
 
@@ -3602,9 +3479,6 @@ msgstr "آسیب خیلی بیشتر"
 
 msgid "Viel mehr Schaden mit nur einem Herz"
 msgstr "با فقط یک قلب آسیب خیلی بیشتر"
-
-msgid "Viel mehr Schaden mit nur einem Kohlestück"
-msgstr "آسیب بسیار بیشتر با فقط یک زغال"
 
 msgid "Viel mehr Schaden, langsamer schießen"
 msgstr "آسیب خیلی بیشتر، شلیک کندتر"
@@ -3899,36 +3773,6 @@ msgstr "دو قلب بیشتر، اما کندتر"
 
 msgid "Zwei Herzen, zwei blaue Herzen, Schaden hoch"
 msgstr "دو قلب، دو قلب آبی، آسیب بالاتر"
-
-msgid "Zwei Kohlestücke mehr"
-msgstr "دو زغال بیشتر"
-
-msgid "Zwei Kohlestücke mehr und Dornen"
-msgstr "دو زغال بیشتر و خار"
-
-msgid "Zwei Kohlestücke mehr und langsam heilen"
-msgstr "دو زغال بیشتر و درمان آهسته"
-
-msgid "Zwei Kohlestücke mehr, aber langsamer"
-msgstr "دو زغال بیشتر، اما کندتر"
-
-msgid "Zwei Kohlestücke, zwei Schlammschichten, Schaden hoch"
-msgstr "دو زغال، دو لایهٔ گل، آسیب بالاتر"
-
-msgid "Zwei Schlammschichten"
-msgstr "دو لایهٔ گل"
-
-msgid "Zwei Schlammschichten und Dornen"
-msgstr "دو لایهٔ گل و خار"
-
-msgid "Zwei Schlammschichten, Schaden hoch"
-msgstr "دو لایهٔ گل، آسیب بالاتر"
-
-msgid "Zwei Schlammschichten, länger sicher nach Treffern"
-msgstr "دو لایهٔ گل، پس از ضربه مدت بیشتری در امان"
-
-msgid "Zwei Schlammschichten; platzt eine ab, trifft es alle Gegner"
-msgstr "دو لایهٔ گل؛ اگر یکی کنده شود، به همهٔ دشمنان ضربه می‌زند"
 
 msgid "Zwei Schüsse mehr, etwas schwächer"
 msgstr "دو تیر بیشتر، کمی ضعیف‌تر"

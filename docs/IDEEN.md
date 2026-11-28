@@ -241,13 +241,6 @@ Reihenfolge zum Bauen (zuerst, was schnell geht oder viel bringt; ✅ = gebaut a
 - ✅ (`feature/raum-ton`) **Ton je Raum:** Tropfen, Wind, Ketten, leise und zufällig.
 - ✅ (`feature/mini-boss`, „Anführer“) **Mini-Boss** in der Mitte jeder Ebene mit eigenem Lebensbalken.
 
-## Kohle statt Herzen (Nachricht vom 2026-11-28) – ✅ gebaut (`feature/kohle-leben`)
-
-- Leben = glühende Kohlestücke, Gegner lassen Kohle fallen. Blaue Herzen = Schlammschicht, weiße Schild-Herzen = Eisenkohle.
-- Wasserpfützen statt Stacheln (Banditenlager, Wolfswald): Wasser wäscht die Glut ab, man verliert Leben. Höllentor behält Stacheln.
-- **Später: verschiedene Schicht-Arten mit eigenen Effekten**, z. B. Schlamm mit Glasstücken: Wirst du getroffen, verlierst du die Schicht (vielleicht golden), aber der Schuss wird zurückgeworfen. Weitere Arten mit anderen Effekten sammeln.
-- Später vielleicht: Pfützen nicht eckig, sondern als runde Pfütze mit Wellen (Shader).
-
 ## Raum-Fallen, Vorwarnungen, Ton für alles (Nachricht vom 2026-11-28)
 
 ### Neue Raum-Fallen (Gefahren im Raum, treffen den Spieler)

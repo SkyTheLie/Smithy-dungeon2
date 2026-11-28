@@ -73,7 +73,7 @@ func _ready() -> void:
 		_label = _make_label("%d" % price, Color(1, 0.86, 0.4))
 		_label.position.y = 1.85
 	elif heart_price > 0:
-		_label = _make_label(Language.translate("%d Kohlestücke") % heart_price, Color(1, 0.35, 0.3))
+		_label = _make_label(Language.translate("%d Herzen") % heart_price, Color(1, 0.35, 0.3))
 		_label.position.y = 1.85
 	var glow := OmniLight3D.new()
 	glow.light_color = Color(1, 0.35, 0.25) if _is_button() else Color(1, 0.85, 0.5)
@@ -217,5 +217,5 @@ func set_heart_price(hearts: int) -> void:
 	heart_price = maxi(0, hearts)
 	if _label:
 		_label.queue_free()
-	_label = _make_label(Language.translate("%d Kohlestücke") % heart_price, Color(1, 0.35, 0.3))
+	_label = _make_label(Language.translate("%d Herzen") % heart_price, Color(1, 0.35, 0.3))
 	_label.position.y = 1.85
