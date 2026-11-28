@@ -1510,7 +1510,7 @@
 		"texture": "res://assets/sprites/rocks/coal_rock.png"
 	},
 	"props": {
-		"_info": "Deko an den Wänden jedes Raums (nur Aussehen, kein Hindernis): count [min, max] Stück je Raum, min_gap = Mindestabstand in Metern, inset [min, max] = Abstand zur Wand. Welche Bilder: props im Thema [Bild, Gewicht, Höhe in Metern] (scenes/run/room_props.gd).",
+		"_info": "Deko an den Wänden jedes Raums: count [min, max] Stück je Raum, min_gap = Mindestabstand in Metern, inset [min, max] = Abstand zur Wand. Welche Bilder: props im Thema [Bild, Gewicht, Höhe in Metern] (scenes/run/room_props.gd). Meist nur Aussehen; break = was zerbricht (Feuerball, Schwert, Bombe; scenes/objects/breakable_prop.gd): textures = Bild -> Ton (audio.json), coin_chance = Chance auf Münzen (Glück hilft), coins [min, max]. Münzen zählen zum Raum-Budget (loot.json room_budget).",
 		"count": [
 			2,
 			5
@@ -1519,7 +1519,25 @@
 		"inset": [
 			0.25,
 			0.7
-		]
+		],
+		"break": {
+			"coin_chance": 0.35,
+			"coins": [
+				1,
+				3
+			],
+			"textures": {
+				"res://assets/sprites/props/barrel.png": "prop_wood",
+				"res://assets/sprites/props/barrels_sack.png": "prop_wood",
+				"res://assets/sprites/props/crates.png": "prop_wood",
+				"res://assets/sprites/props/goblin_crates.png": "prop_wood",
+				"res://assets/sprites/props/chest.png": "prop_wood",
+				"res://assets/sprites/props/timber_stack.png": "prop_wood",
+				"res://assets/sprites/props/sacks.png": "prop_soft",
+				"res://assets/sprites/props/ruby_shard_a.png": "prop_crystal",
+				"res://assets/sprites/props/ruby_shard_b.png": "prop_crystal"
+			}
+		}
 	},
 	"sacrifice": {
 		"_info": "Opferstein: jedes Mal kostet ein ganzes Herz. rewards[n] gilt für das n-te Opfer auf dieser Ebene (danach das letzte): [was, Chance]. was: bomb, key, heart, blue_heart, item oder eine Beute-Id aus loot.json (fällt als Beute heraus). Gold gibt es im Dungeon nur beim Händler.",

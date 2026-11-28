@@ -1,7 +1,8 @@
 class_name RoomProps
 extends RefCounted
 ## Decoration of a room: a few standing pictures (crates, barrels, bones, mushrooms, stones …) along
-## the walls, like the torches. Pure looks: no collision, nothing to pick up.
+## the walls, like the torches. Mostly looks: no collision, nothing to pick up. Pictures listed in
+## props "break" (crates, barrels, sacks …) become a BreakableProp that shots and bombs smash.
 ## Which pictures: the theme's `props` list in floors.json ([texture, weight, height in metres]);
 ## how many and how far apart: the top-level `props` settings in floors.json.
 ## Uses its own random numbers (seeded per room), so the dungeon's random order stays the same.
@@ -22,6 +23,7 @@ static func add_props(room: Node3D, table: Array, settings: Dictionary, doors: A
 	var count: int = rng.randi_range(int(count_range[0]), int(count_range[1]))
 	var min_gap: float = float(settings.get("min_gap", 1.2))
 	var inset: Array = settings.get("inset", [0.25, 0.7])
+	var breakable: Dictionary = (settings.get("break", {}) as Dictionary).get("textures", {})
 	var spots: Array[Vector3] = []
 	var holder := Node3D.new()
 	holder.name = "Props"
@@ -38,9 +40,20 @@ static func add_props(room: Node3D, table: Array, settings: Dictionary, doors: A
 		var sprite := _make(entry, rng)
 		if sprite == null:
 			continue
-		sprite.position = spot
-		holder.add_child(sprite)
 		placed.append(sprite)
+		# Crates, barrels, sacks … (props "break" textures) get a body and can be smashed.
+		var sound: String = String(breakable.get(String(entry[0]), ""))
+		if sound.is_empty():
+			sprite.position = spot
+			holder.add_child(sprite)
+			continue
+		var body := BreakableProp.new()
+		body.name = "Breakable"
+		body.position = spot
+		body.setup(sprite, sprite.pixel_size * float(sprite.texture.get_height()), sound)
+		holder.add_child(body)
+		if room is DungeonRoom:
+			(room as DungeonRoom).breakables.append(body)
 	return placed
 
 

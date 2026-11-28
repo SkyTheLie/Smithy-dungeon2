@@ -224,6 +224,12 @@ func _move(motion: Vector3) -> bool:
 	if hit.is_empty():
 		global_position = from + motion
 		return false
+	# A crate or barrel breaks, the shot ends there like at a rock.
+	if hit.get("collider") is BreakableProp:
+		dungeon.break_prop(hit["collider"] as BreakableProp)
+		global_position = Vector3(hit["position"])
+		_end(true)
+		return true
 	var normal: Vector3 = hit["normal"]
 	# The floor is world too: landing there ends the shot.
 	if normal.y > 0.7:

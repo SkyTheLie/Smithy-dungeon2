@@ -114,12 +114,18 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 
-## true if the middle of the band would run into a wall (or a rock) this frame.
+## true if the middle of the band would run into a wall (or a rock) this frame; crates and
+## barrels on the way break.
 func _blocked(step: float) -> bool:
 	var from: Vector3 = global_position + Vector3(0, MIDDLE_Y, 0) + _forward * (RADIUS - 0.1)
 	var mask: int = RoomBuilder.LAYER_WORLD if _flags.has("spectral") else RoomBuilder.LAYER_WORLD | RoomBuilder.LAYER_ROCKS
 	var query := PhysicsRayQueryParameters3D.create(from, from + _forward * (step + 0.1), mask)
-	return not get_world_3d().direct_space_state.intersect_ray(query).is_empty()
+	var hit: Dictionary = get_world_3d().direct_space_state.intersect_ray(query)
+	# The swing smashes a crate or barrel and goes on.
+	if hit.get("collider") is BreakableProp:
+		dungeon.break_prop(hit["collider"] as BreakableProp)
+		return false
+	return not hit.is_empty()
 
 
 ## true if a body at `at` with `body_radius` is inside the band right now.

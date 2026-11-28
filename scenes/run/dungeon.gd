@@ -1566,6 +1566,9 @@ func explode(at: Vector3, radius: float, damage: float, hurts_player: bool) -> v
 		for rock: Rock in room.rocks.duplicate():
 			if Vector2(rock.global_position.x - at.x, rock.global_position.z - at.z).length() < radius + 0.3:
 				_break_rock(room, rock)
+		for prop: BreakableProp in room.breakables.duplicate():
+			if Vector2(prop.global_position.x - at.x, prop.global_position.z - at.z).length() < radius + 0.3:
+				break_prop(prop)
 	if hurts_player and run.stats.has("blast_heal"):
 		var near: Vector3 = player.global_position - at
 		near.y = 0.0
@@ -1582,3 +1585,28 @@ func _break_rock(room: DungeonRoom, rock: Rock) -> void:
 	room.remove_rock(rock)
 	Fx.puff(effects, rock.global_position + Vector3(0, 0.5, 0), "spark", 1.0)
 	rock.queue_free()
+
+
+## A crate, barrel … breaks (shot, sword swing or bomb): pieces fly apart, and with the chance in
+## floors.json props "break" coins fall out. Coins count against the room's drop budget
+## (loot.json room_budget), so crates never give more than the room allows.
+func break_prop(prop: BreakableProp) -> void:
+	if not is_instance_valid(prop) or prop.is_queued_for_deletion():
+		return
+	var at: Vector3 = prop.global_position
+	var room: DungeonRoom = rooms.get(RoomBuilder.cell_at(at))
+	if room:
+		room.breakables.erase(prop)
+	Fx.shards(effects, at, prop.sprite.texture, prop.sprite.pixel_size * float(prop.sprite.texture.get_height()))
+	AudioManager.play_sound_at(prop.sound, at, effects, randf_range(0.9, 1.1))
+	prop.queue_free()
+	if room == null or run.is_dead() or room_drops_left(room) <= 0:
+		return
+	var rules: Dictionary = (Content.floors_extra("props") as Dictionary).get("break", {})
+	var luck_bonus: float = float(Content.get_file("loot").get("luck_bonus", 0.03)) * run.stats.luck
+	if _rng.randf() >= float(rules.get("coin_chance", 0.0)) + luck_bonus:
+		return
+	var range_of: Array = rules.get("coins", [1, 1])
+	var spot: Vector3 = at.move_toward(room.global_position, 0.6)
+	if _drop_loot(room, spot, Bag.GOLD, _rng.randi_range(int(range_of[0]), int(range_of[-1])), false) != null:
+		room.drops_left -= 1
