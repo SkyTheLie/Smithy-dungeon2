@@ -669,6 +669,9 @@ msgstr "Te conviertes en fantasma: atraviesas rocas flotando, y tus disparos tam
 msgid "Dungeon der Glut"
 msgstr "Mazmorra de las Brasas"
 
+msgid "Dungeon noch nicht offen"
+msgstr "La mazmorra aún no está abierta"
+
 msgid "Dungeon-Brett"
 msgstr "Tablón de mazmorras"
 
@@ -1052,6 +1055,9 @@ msgstr "Aprende antes la habilidad anterior"
 
 msgid "Erst die Stufe davor lernen"
 msgstr "Aprende antes el nivel anterior"
+
+msgid "Erst wenn offen: %s"
+msgstr "Solo cuando esté abierto: %s"
 
 msgid "Erstglut"
 msgstr "Brasa primera"
@@ -3434,6 +3440,9 @@ msgstr "Velocidad"
 
 msgid "Tempo +0,2."
 msgstr "Velocidad +0,2."
+
+msgid "Tempo +0,25."
+msgstr "Velocidad +0,25."
 
 msgid "Tempo: %s"
 msgstr "Velocidad: %s"

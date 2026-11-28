@@ -669,6 +669,9 @@ msgstr "You become a ghost: you float through rocks, and so do your shots"
 msgid "Dungeon der Glut"
 msgstr "Dungeon of Embers"
 
+msgid "Dungeon noch nicht offen"
+msgstr "Dungeon not open yet"
+
 msgid "Dungeon-Brett"
 msgstr "Dungeon Board"
 
@@ -1052,6 +1055,9 @@ msgstr "Learn the skill before it first"
 
 msgid "Erst die Stufe davor lernen"
 msgstr "Learn the level above first"
+
+msgid "Erst wenn offen: %s"
+msgstr "Only once open: %s"
 
 msgid "Erstglut"
 msgstr "First Ember"
@@ -3434,6 +3440,9 @@ msgstr "Speed"
 
 msgid "Tempo +0,2."
 msgstr "Speed +0.2."
+
+msgid "Tempo +0,25."
+msgstr "Speed +0.25."
 
 msgid "Tempo: %s"
 msgstr "Speed: %s"

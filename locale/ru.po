@@ -669,6 +669,9 @@ msgstr "Ты становишься призраком: проплываешь �
 msgid "Dungeon der Glut"
 msgstr "Подземелье углей"
 
+msgid "Dungeon noch nicht offen"
+msgstr "Подземелье ещё закрыто"
+
 msgid "Dungeon-Brett"
 msgstr "Доска подземелий"
 
@@ -1052,6 +1055,9 @@ msgstr "Сначала изучи предыдущий навык"
 
 msgid "Erst die Stufe davor lernen"
 msgstr "Сначала изучи предыдущий уровень"
+
+msgid "Erst wenn offen: %s"
+msgstr "Только когда открыт: %s"
 
 msgid "Erstglut"
 msgstr "Первый жар"
@@ -3434,6 +3440,9 @@ msgstr "Скорость"
 
 msgid "Tempo +0,2."
 msgstr "Скорость +0,2."
+
+msgid "Tempo +0,25."
+msgstr "Скорость +0,25."
 
 msgid "Tempo: %s"
 msgstr "Скорость: %s"

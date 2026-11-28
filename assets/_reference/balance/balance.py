@@ -56,12 +56,19 @@ def loot_pieces(enemy_id):
     return total
 
 
+def exp_to_next(level):
+    """Like Skills.exp_to_next: exp_table first, then base_exp x growth^level."""
+    if level >= levels.get("max_level", 30) or level < 0:
+        return 0
+    table = levels.get("exp_table", [30])
+    if level < len(table):
+        return int(table[level])
+    return max(int(table[-1]), round(levels.get("base_exp", 30) * levels.get("growth", 1.25) ** level))
+
+
 def exp_total(level):
     """EXP from level 0 to `level`."""
-    total = 0
-    for lvl in range(level):
-        total += round(levels["first_level_exp"] * levels["growth"] ** lvl)
-    return total
+    return sum(exp_to_next(lvl) for lvl in range(level))
 
 
 def level_after(exp):
@@ -153,10 +160,62 @@ def main():
     for gid, g in gear["gear"].items():
         p = g.get("price", 0)
         out.write("%-24s %4d / %4d / %4d   %s %s\n" % (gid, p, round(p * factors[1]), round(p * factors[2]), g.get("stats"), g.get("unlock", g.get("min_level", ""))))
-    out.write("\n== Skills (Gold je Stufe, ab Spielerstufe)\n")
-    for sid, s in skills.items():
-        out.write("%-24s %s  ab %s\n" % (sid, s.get("gold"), s.get("min_level")))
+    skill_report(out)
     out.write("\nHebel: %s\n" % shop.get("roll_prices"))
+
+
+# Where the player is when a dungeon opens (player level after the dungeons before, see
+# BALANCE.md) and the damage he has then (PLAYER_MODEL), to judge what a skill level is worth.
+DUNGEON_STAGE = {"": (1, 1.3), "glut": (1, 1.3), "moor": (14, 2.75), "wiese": (20, 3.9), "frost": (20, 3.9), "vulkan": (23, 5.2)}
+POINTS_BY_END = 26
+
+
+def _at(lst, level):
+    if not isinstance(lst, list) or not lst:
+        return lst if not isinstance(lst, list) else 0
+    return lst[min(level - 1, len(lst) - 1)]
+
+
+def skill_report(out):
+    """Every skill level: price, when it opens (player level, dungeon) and what it is worth then:
+    damage as % more damage, fire rate as % more shots, life as hearts; points vs the points a
+    player has at the end (about level 27)."""
+    out.write("\n== Skills: Preis, Freischaltung, Wert\n")
+    out.write("Skill/Stufe              Gold Pkt  ab   Dungeon  Wert\n")
+    total_points = 0
+    for sid, s in skills.items():
+        effect = s.get("effect", {})
+        for level in range(1, int(s.get("max_level", 1)) + 1):
+            gold = _at(s.get("gold", [0]), level)
+            points = _at(s.get("points", [0]), level)
+            min_level = _at(s.get("min_level", [1]), level)
+            dungeon = _at(s.get("dungeon", [""]), level) or ""
+            total_points += points
+            stage_level, damage = DUNGEON_STAGE.get(dungeon, (1, 1.3))
+            # The damage the player has at that point: the stage of the dungeon or of the level.
+            for key, (lvl, dmg) in DUNGEON_STAGE.items():
+                if min_level >= lvl:
+                    damage = max(damage, dmg)
+            worth = []
+            stats = effect.get("stats", {})
+            if "damage" in stats:
+                worth.append("+%.0f%% Schaden" % (100.0 * stats["damage"] / damage))
+            if "fire_delay_mult" in stats:
+                worth.append("+%.0f%% Schüsse" % (100.0 * (1.0 / stats["fire_delay_mult"] - 1.0)))
+            if "move_speed" in stats:
+                worth.append("+%.0f%% Tempo" % (100.0 * stats["move_speed"] / 5.0))
+            if "luck" in stats:
+                worth.append("+%.2f Beute je Raum" % (0.5 * stats["luck"]))
+            if "reach" in stats:
+                worth.append("+%.0f%% Reichweite" % (100.0 * stats["reach"] / 2.5))
+            for key in ("hearts", "blue_hearts"):
+                if key in effect:
+                    worth.append("+%s %s" % (effect[key], key))
+            for key in ("backpack", "backpack_slots", "safe_slots", "relic_slots", "relic_runs", "relic_keep_tier", "sell_bonus", "goods_extra", "box_limit", "rarity"):
+                if key in effect:
+                    worth.append("%s %s" % (key, effect[key]))
+            out.write("%-22s %d %5d %3d %4d   %-8s %s\n" % (sid, level, gold, points, min_level, dungeon or "-", ", ".join(worth)))
+    out.write("Skillpunkte: alle Skills zusammen %d, bis zum Ende (Stufe ~27) gibt es etwa %d: man muss wählen.\n" % (total_points, POINTS_BY_END))
 
 
 if __name__ == "__main__":
