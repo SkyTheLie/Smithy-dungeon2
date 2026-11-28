@@ -378,6 +378,9 @@ msgstr "L'herbe bruisse. L'herbe bruisse toujours. Jusqu'à ce qu'elle morde."
 msgid "Das Herz des Drachen"
 msgstr "Le cœur du dragon"
 
+msgid "Das Lager bekommt %d Spalten mehr. Für immer."
+msgstr "La réserve gagne %d colonnes de plus. Pour toujours."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Ça ne se porte pas, partenaire. Crois-moi, j'ai essayé."
 
@@ -1587,6 +1590,9 @@ msgstr "Boules de feu plus grosses, plus de dégâts"
 msgid "Größerer Rucksack"
 msgstr "Sac plus grand"
 
+msgid "Größeres Lager"
+msgstr "Réserve plus grande"
+
 msgid "Grün"
 msgstr "Vert"
 
@@ -2346,6 +2352,9 @@ msgstr "Pas encore découvert"
 msgid "Nur Punkt"
 msgstr "Point seul"
 
+msgid "Nur einmal."
+msgstr "Une seule fois."
+
 msgid "Nur für: %s"
 msgstr "Seulement pour : %s"
 
@@ -2843,6 +2852,9 @@ msgstr "Des tirs plus rapides traversent les ennemis"
 
 msgid "Schon einmal geschafft!"
 msgstr "Déjà terminé !"
+
+msgid "Schon getauscht"
+msgstr "Déjà échangé"
 
 msgid "Schreckensbrief"
 msgstr "Lettre d'effroi"

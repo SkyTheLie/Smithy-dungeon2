@@ -404,6 +404,8 @@ func _on_trade_requested(id: String) -> void:
 	AudioManager.play_sound("unlock", 1.1)
 	_bark("traded")
 	_refresh()
+	if Trades.piece_of(Trades.find(id)).is_empty():
+		return
 	var index: int = MetaState.stash().size() - 1
 	_stash_board.set_glow(index, true)
 	get_tree().create_timer(1.2, false).timeout.connect(func() -> void:

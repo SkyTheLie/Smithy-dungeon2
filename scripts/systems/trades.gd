@@ -26,9 +26,31 @@ static func is_open(offer: Dictionary) -> bool:
 	return MetaState.meets(offer.get("unlock", {}))
 
 
-## Why an offer is still closed (translated), "" when it is open.
+## true for an offer that can be traded only once per save ("once": true).
+static func is_once(offer: Dictionary) -> bool:
+	return bool(offer.get("once", false))
+
+
+## true when a once-only offer was already traded.
+static func is_used_up(offer: Dictionary) -> bool:
+	return is_once(offer) and MetaState.trade_done(String(offer.get("id", "")))
+
+
+## How many columns the stash gains from this offer (get.stash_columns, 0 = none).
+static func stash_columns(offer: Dictionary) -> int:
+	return maxi(0, int((offer.get("get", {}) as Dictionary).get("stash_columns", 0)))
+
+
+## true when the offer gives something real: a piece for the stash or a bigger stash.
+static func gives_something(offer: Dictionary) -> bool:
+	return stash_columns(offer) > 0 or not piece_of(offer).is_empty()
+
+
+## Why an offer cannot be traded now apart from its cost (translated), "" when it can.
 static func lock_reason(offer: Dictionary) -> String:
 	var unlock: Dictionary = offer.get("unlock", {})
+	if is_used_up(offer):
+		return Language.translate("Schon getauscht")
 	if is_open(offer):
 		return ""
 	if unlock.has("quest") and not MetaState.quest_done(String(unlock["quest"])):
@@ -38,7 +60,8 @@ static func lock_reason(offer: Dictionary) -> String:
 	return Language.translate("Ab Stufe %d") % int(unlock.get("level", 0))
 
 
-## What the offer gives, as a piece for the stash ({} if the data is wrong).
+## What the offer gives, as a piece for the stash ({} if the data is wrong or it gives no piece,
+## e.g. a bigger stash).
 static func piece_of(offer: Dictionary) -> Dictionary:
 	var gets: Dictionary = offer.get("get", {})
 	if gets.has("container") and not ShopGoods.container_data(String(gets["container"])).is_empty():

@@ -378,6 +378,9 @@ msgstr "La hierba cruje. La hierba siempre cruje. Hasta que muerde."
 msgid "Das Herz des Drachen"
 msgstr "El corazón del dragón"
 
+msgid "Das Lager bekommt %d Spalten mehr. Für immer."
+msgstr "El almacén gana %d columnas más. Para siempre."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Eso no se puede poner, socio. Créeme, lo he intentado."
 
@@ -1587,6 +1590,9 @@ msgstr "Bolas de fuego más grandes, más daño"
 msgid "Größerer Rucksack"
 msgstr "Mochila más grande"
 
+msgid "Größeres Lager"
+msgstr "Almacén más grande"
+
 msgid "Grün"
 msgstr "Verde"
 
@@ -2346,6 +2352,9 @@ msgstr "Aún no descubierto"
 msgid "Nur Punkt"
 msgstr "Solo punto"
 
+msgid "Nur einmal."
+msgstr "Solo una vez."
+
 msgid "Nur für: %s"
 msgstr "Solo para: %s"
 
@@ -2843,6 +2852,9 @@ msgstr "Disparos más rápidos atraviesan enemigos"
 
 msgid "Schon einmal geschafft!"
 msgstr "¡Ya superado!"
+
+msgid "Schon getauscht"
+msgstr "Ya cambiado"
 
 msgid "Schreckensbrief"
 msgstr "Carta del terror"

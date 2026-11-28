@@ -32,7 +32,7 @@ func _data() -> void:
 		check(int(data.get("slots", 0)) >= 3, "%s: at least 3 places" % id)
 	var trades: Script = script("res://scripts/systems/trades.gd")
 	for offer: Dictionary in trades.call("all"):
-		check(not (trades.call("piece_of", offer) as Dictionary).is_empty(), "trade %s gives something real" % offer.get("id"))
+		check(trades.call("gives_something", offer), "trade %s gives something real" % offer.get("id"))
 		for cost: Array in trades.call("costs", offer):
 			check(not (content.call("material", String(cost[0])) as Dictionary).is_empty(), "trade %s costs real loot %s" % [offer.get("id"), cost[0]])
 
@@ -157,6 +157,44 @@ func _trades() -> void:
 	check(not meta.call("can_trade", "heiltrank"), "the potion trade waits for the quest")
 	meta.call("admin_finish_quest", "glutrubin")
 	check(meta.call("can_trade", "heiltrank"), "after the quest it is open")
+	_bigger_stash()
+
+
+## Ruby + amber: the stash gets twice as wide, only once per save; pieces without room move in.
+func _bigger_stash() -> void:
+	meta.call("admin_clear_stash")
+	var before: Vector2i = meta.call("stash_grid")
+	check(not meta.call("can_trade", "lager_gross"), "no gems: no bigger stash")
+	meta.call("admin_give_loot", "ruby")
+	meta.call("admin_give_loot", "amber")
+	# Fill the stash so one more piece has no room.
+	while not (script("res://scripts/systems/item_grid.gd").call("free_spot", _stash(), before, {"id": "rat_fur", "count": 1}) as Dictionary).is_empty():
+		meta.call("admin_give_loot", "rat_fur")
+	meta.call("admin_give_loot", "rat_fur")
+	var outside: int = 0
+	for piece: Variant in _stash():
+		if not (piece as Dictionary).has("x"):
+			outside += 1
+	check(outside >= 1, "one fur lies under Kein Platz")
+	check(meta.call("can_trade", "lager_gross"), "ruby and amber: the trade is possible")
+	var count: int = _stash().size()
+	check(meta.call("trade", "lager_gross"), "traded")
+	check_eq(meta.call("stash_grid"), Vector2i(before.x * 2, before.y), "the stash is twice as wide")
+	check_eq(_stash().size(), count - 2, "ruby and amber gone, no new piece")
+	for piece: Variant in _stash():
+		check((piece as Dictionary).has("x"), "every piece has room now")
+	meta.call("admin_give_loot", "ruby")
+	meta.call("admin_give_loot", "amber")
+	check(not meta.call("can_trade", "lager_gross"), "only once")
+	check(not meta.call("trade", "lager_gross"), "a second trade does nothing")
+	check_eq(meta.call("stash_grid"), Vector2i(before.x * 2, before.y), "still twice, not more")
+	meta.call("start_new")
+	meta.call("finish_tutorial")
+	check_eq(meta.call("stash_grid"), before, "a new game has the small stash")
+	# Back to what the Tausch tab test expects: the quest done, three herbs at home.
+	meta.call("admin_finish_quest", "glutrubin")
+	for i in 3:
+		meta.call("admin_give_loot", "heartleaf")
 
 
 func _trade_tab() -> void:

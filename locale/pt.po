@@ -378,6 +378,9 @@ msgstr "A grama farfalha. A grama sempre farfalha. Até morder."
 msgid "Das Herz des Drachen"
 msgstr "O coração do dragão"
 
+msgid "Das Lager bekommt %d Spalten mehr. Für immer."
+msgstr "O depósito ganha mais %d colunas. Para sempre."
+
 msgid "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht."
 msgstr "Isso não dá pra vestir, parceiro. Acredite, eu já tentei."
 
@@ -1587,6 +1590,9 @@ msgstr "Bolas de fogo maiores, mais dano"
 msgid "Größerer Rucksack"
 msgstr "Mochila maior"
 
+msgid "Größeres Lager"
+msgstr "Depósito maior"
+
 msgid "Grün"
 msgstr "Verde"
 
@@ -2346,6 +2352,9 @@ msgstr "Ainda não descoberto"
 msgid "Nur Punkt"
 msgstr "Só ponto"
 
+msgid "Nur einmal."
+msgstr "Só uma vez."
+
 msgid "Nur für: %s"
 msgstr "Só para: %s"
 
@@ -2843,6 +2852,9 @@ msgstr "Tiros mais rápidos atravessam inimigos"
 
 msgid "Schon einmal geschafft!"
 msgstr "Já vencido!"
+
+msgid "Schon getauscht"
+msgstr "Já trocado"
 
 msgid "Schreckensbrief"
 msgstr "Carta do pavor"

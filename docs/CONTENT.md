@@ -157,7 +157,7 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 ## Behälter und Tausch (`data/containers.json`, `data/trades.json`)
 
 - Behälter: `name`, `desc`, `icon`, `kind` (`relic`, `gear`, `weapon`, `loot`), `slots`, `stack` (nur Beute), `size` im Lager, `price` und `unlock` (Egons Tisch, `shop.json` `container_chance`).
-- Tausch: Liste `trades`, je `id`, `give` {Beute-Id: Anzahl}, `get` = eins von `container`, `backpack`, `potion`, `relic` (+ `runs`), optional `unlock` (`level`, `dungeon`, `quest`).
+- Tausch: Liste `trades`, je `id`, `give` {Beute-Id: Anzahl}, `get` = eins von `container`, `backpack`, `potion`, `relic` (+ `runs`), `loot` oder `stash_columns` (Lager bekommt n Spalten mehr), optional `once: true` (nur einmal je Spielstand) und `unlock` (`level`, `dungeon`, `quest`).
 - Neue Namen und Beschreibungen danach durch `py assets/_reference/i18n/build_po.py` (liest beide Dateien).
 
 ## Räderkluft (`data/gear_chasm.json`)
