@@ -3312,6 +3312,12 @@ msgstr "Synergy: %s!"
 msgid "Synergien: %s"
 msgstr "Synergies: %s"
 
+msgid "Säurepfütze"
+msgstr "Acid puddle"
+
+msgid "Säurewurm"
+msgstr "Acid Worm"
+
 msgid "T-Form (oben offen)"
 msgstr "T shape (open on top)"
 

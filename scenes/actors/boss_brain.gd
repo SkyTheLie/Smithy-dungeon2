@@ -26,6 +26,13 @@ extends RefCounted
 ##   laser     a beam at the player (warning line first; 3 beams when angry)
 ##   laser_sweep  a beam that starts beside the player and sweeps across (behind the boss is safe)
 ##   cross     shots in a + pattern, a moment later in an x pattern
+##   worm_dive digs under the floor towards the player (dust mound, rumble), a red mark where the
+##             player stood, then it jumps out in a high arc onto that spot (shock on landing)
+##   acid_spit comes up, sways, then spits "spit" blobs of acid in arcs at the player and around
+##             (marks where they land); each leaves an acid puddle ("acid" in floors.json
+##             hazard_types) for "acid_life" seconds; flying players are safe
+## Trait "underground": between attacks it stays under the floor (cannot be hurt, a dust mound
+## shows where it is), so it can only be hit while it is out (jumping, spitting).
 ## Traits ("traits"): regen (heals when not hit for a while), lifesteal (heals when it hits you),
 ## evade (jumps aside when a shot of the player flies at it; not while drawing its bow).
 ## "keep_distance": metres it keeps away from the player between attacks (circling them, an
@@ -76,6 +83,11 @@ var _punish: bool = false
 ## 1, 2 or 3 (boss_phases); seconds left of the roar between two phases.
 var phase: int = 1
 var _transition_left: float = 0.0
+## worm_dive: where the jump starts; dust mound timer.
+var _from: Vector3 = Vector3.ZERO
+var _dust_wait: float = 0.0
+const DIVE_JUMP: float = 0.6
+const DIVE_HEIGHT: float = 2.4
 
 
 func _init(the_boss: Enemy) -> void:
@@ -142,6 +154,7 @@ func _enter_phase(new_phase: int) -> void:
 	if not extra.is_empty():
 		_attacks = _attacks.duplicate()
 		_attacks.insert(_index % maxi(1, _attacks.size()), extra)
+	boss.hidden_phase = false
 	boss.roar(_transition_left)
 
 
@@ -177,6 +190,7 @@ func update(delta: float, toward: Vector3, distance: float) -> Vector3:
 		_cued = false
 		_start(toward)
 	if _attack.is_empty():
+		_underground(delta)
 		_wait -= delta
 		# The attack cry (data "cries" "attack") comes a moment before the attack.
 		if not _cued and _wait <= CUE_LEAD:
@@ -230,9 +244,58 @@ func _try_evade() -> bool:
 	return true
 
 
+## worm_dive: under the floor towards the player, the mark, a short rumble, then the jump.
+func _worm_dive(delta: float, toward: Vector3) -> Vector3:
+	if _left > DIVE_JUMP + MARK_TIME:
+		_dust(delta)
+		return toward * boss.speed() * 1.6
+	if not _done_once:
+		_done_once = true
+		_target = boss.player.global_position
+		_from = boss.global_position
+		boss.mark(_target, 1.7, MARK_TIME)
+		boss.cry("attack")
+		boss.sound("boss_burrow", 0.8)
+		return Vector3.ZERO
+	if _left > DIVE_JUMP:
+		_dust(delta)
+		return Vector3.ZERO
+	# In the air: visible and hittable, a high arc onto the marked spot.
+	var t: float = clampf(1.0 - _left / DIVE_JUMP, 0.0, 1.0)
+	if boss.hidden_phase:
+		boss.hidden_phase = false
+		Fx.puff(boss.dungeon.effects, _from + Vector3(0, 0.3, 0), "dust", 1.8)
+		boss.sound("boss_burrow", 1.4)
+	boss.move_to(_from.lerp(_target, t))
+	boss.set_jump(sin(PI * t) * DIVE_HEIGHT)
+	if t >= 0.97 and _step == 0.0:
+		_step = 1.0
+		boss.set_jump(0.0)
+		boss.shake(0.5)
+		Fx.puff(boss.dungeon.effects, _target + Vector3(0, 0.3, 0), "dust", 2.2)
+		boss.hurt_player_near(1.6)
+	return Vector3.ZERO
+
+
+## Trait "underground": hidden under the floor between attacks, a dust mound shows where.
+func _underground(delta: float) -> void:
+	if not (boss.data.get("traits", []) as Array).has("underground"):
+		return
+	boss.hidden_phase = true
+	_dust(delta)
+
+
+func _dust(delta: float) -> void:
+	_dust_wait -= delta
+	if _dust_wait <= 0.0:
+		_dust_wait = 0.18
+		Fx.puff(boss.dungeon.effects, boss.global_position + Vector3(boss.rng.randf_range(-0.4, 0.4), 0.15, boss.rng.randf_range(-0.4, 0.4)), "dust", 0.7)
+
+
 func _finish() -> void:
 	boss.end_attack()
 	boss.hidden_phase = false
+	boss.set_jump(0.0)
 	boss.reflecting = false
 	boss.stun_left = 0.0 if _attack != "charge" else boss.stun_left
 	_quick = false
@@ -277,6 +340,17 @@ func _start(toward: Vector3) -> void:
 			_left = 1.3
 			_target = boss.player.global_position
 			boss.mark(_target, 1.6, 1.0)
+		"worm_dive":
+			_left = 2.6
+			boss.hidden_phase = true
+			boss.sound("boss_burrow")
+		"acid_spit":
+			_left = 2.0
+			if boss.hidden_phase:
+				Fx.puff(boss.dungeon.effects, boss.global_position + Vector3(0, 0.4, 0), "dust", 1.6)
+			boss.hidden_phase = false
+			boss.wobble(0.6)
+			boss.sound("boss_burrow", 1.3)
 		"teleport":
 			_left = 1.4
 			boss.hidden_phase = true
@@ -339,6 +413,18 @@ func _start(toward: Vector3) -> void:
 
 func _run(delta: float, toward: Vector3, distance: float) -> Vector3:
 	match _attack:
+		"worm_dive":
+			return _worm_dive(delta, toward)
+		"acid_spit":
+			if _left <= 1.4 and not _done_once:
+				_done_once = true
+				var count: int = int(boss.data.get("spit", 4)) + (2 if angry() else 0)
+				for i in count:
+					var spot: Vector3 = boss.player.global_position
+					if i > 0:
+						spot += Vector3.FORWARD.rotated(Vector3.UP, boss.rng.randf() * TAU) * boss.rng.randf_range(1.2, 2.6)
+					boss.lob_acid(spot, 0.8 + 0.08 * i)
+			return Vector3.ZERO
 		"dash":
 			if _left > 0.6:
 				boss.flash(0.05)
