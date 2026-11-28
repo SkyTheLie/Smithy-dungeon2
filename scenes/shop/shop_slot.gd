@@ -162,6 +162,9 @@ static func icon_of_piece(piece: Dictionary) -> Texture2D:
 	if ShopGoods.is_backpack(piece):
 		var backpack_path: String = String(BagLayout.backpack(String(piece.get("id", ""))).get("icon", ""))
 		return load(backpack_path) as Texture2D if ResourceLoader.exists(backpack_path) else null
+	if ShopGoods.is_container(piece):
+		var container_path: String = String(ShopGoods.container_data(String(piece.get("id", ""))).get("icon", ""))
+		return load(container_path) as Texture2D if ResourceLoader.exists(container_path) else null
 	return icon_of(String(piece.get("id", "")))
 
 
@@ -178,7 +181,7 @@ static func rarity_of(piece: Dictionary) -> int:
 		return ShopGoods.relic_rarity(id)
 	if ShopGoods.is_potion(piece):
 		return int(Content.potion(id).get("rarity", 1))
-	if ShopGoods.is_backpack(piece):
+	if ShopGoods.is_backpack(piece) or ShopGoods.is_container(piece):
 		return 2
 	if ShopGoods.is_gear(id):
 		return int(piece.get("rarity", 1))
@@ -195,6 +198,8 @@ static func describe(piece: Dictionary, with_price: bool) -> String:
 		return _describe_potion(piece, with_price)
 	if ShopGoods.is_backpack(piece):
 		return _describe_backpack(piece, with_price)
+	if ShopGoods.is_container(piece):
+		return _describe_container(piece, with_price)
 	var gear: bool = ShopGoods.is_gear(id)
 	var data: Dictionary = Content.gear_item(id) if gear else Content.material(id)
 	var title: String = Language.translate(String(data.get("name", id)))
@@ -255,6 +260,21 @@ static func _describe_backpack(piece: Dictionary, with_price: bool) -> String:
 	lines.append(Language.translate(String(data.get("desc", ""))))
 	lines.append(Language.translate("Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"))
 	return "\n".join(lines)
+
+
+## Container: name, for what and how full, price, description, how to open it.
+static func _describe_container(piece: Dictionary, with_price: bool) -> String:
+	var id: String = String(piece.get("id", ""))
+	var data: Dictionary = ShopGoods.container_data(id)
+	var kind: String = String((Content.get_file("containers").get("kinds", {}) as Dictionary).get(String(data.get("kind", "")), ""))
+	var lines: Array[String] = [Language.translate(String(data.get("name", id))), Language.translate("Behälter für %s") % Language.translate(kind)]
+	lines.append(Language.translate("Belegt: %d/%d") % [(piece.get("items", []) as Array).size(), ShopGoods.container_slots(id)])
+	if with_price:
+		lines.append(Language.translate("Preis: %d Gold") % int(piece.get("price", 0)))
+	lines.append(Language.translate(String(data.get("desc", ""))))
+	lines.append(Language.translate("Klick: öffnen. Teile darauf ziehen: hineinlegen."))
+	return "
+".join(lines)
 
 
 ## The name of a value from player.json stats (written out for the translation script).

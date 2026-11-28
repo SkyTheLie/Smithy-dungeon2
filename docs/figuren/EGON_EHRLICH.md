@@ -43,6 +43,8 @@
 8. **Die Quest-Steine:** Jeder Endboss hütet einen seltenen Stein (Glutrubin, Irrlicht-Opal, Wiesenkristall, Frost-Aquamarin, Drachenherz). Egon will sie unbedingt, kauft sie aber nie: „Das will ich geschenkt! Äh … als Quest.“ Für jeden Stein zieht er mit seinem Laden einen Dungeon weiter und findet jeden neuen Ort sofort großartig, mit einem kleinen Haken („Da gibt's Kundschaft. Und Mücken.“).
 9. **Die Schlüssel:** Schlüssel aus dem Dungeon zerbrechen, sobald man ihn verlässt. Egon weiß nicht, warum („So ein Magie-Ding. Keine Ahnung, ich bin ein Gau… äh, ein Verkäufer!“) und erzählt es beim ersten Besuch vor dem Dungeon.
 
+10. **Das Dankeschön:** Für den Rubin vom ersten Boss schenkt Egon ein Moorherz-Relikt (ein Herz mehr, hält vier Runs) und betont, dass es „diesmal wirklich“ gratis ist.
+
 ## Was Egon nie tut
 
 - Er sagt nie direkt „Ich habe dich betrogen.“

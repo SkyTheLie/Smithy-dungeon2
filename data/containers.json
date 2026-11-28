@@ -1,0 +1,19 @@
+{
+	"_info": "Behälter für das Lager zu Hause (bei Egon). Ein Behälter liegt im Lager wie jedes andere Teil (size = [Breite, Höhe] in Feldern), Klick öffnet ihn: ein kleines Fenster mit slots Plätzen. Hinein passt nur, was zu kind passt (kinds: relic = Relikte, gear = Rüstung ohne Waffen, weapon = Waffen, loot = Beute aus loot.json ohne Münzen und Quest-Steine). Jedes Teil braucht einen Platz, egal wie groß es ist; gleiche Beute stapelt bis stack auf einem Platz (fehlt = 1). Behälter kommen nicht mit in den Dungeon und lassen sich nur leer verkaufen. Man bekommt sie auf Egons Tisch (price, ab unlock wie in backpacks.json; shop.json container_chance) oder im Tausch (trades.json). name, desc (Deutsch = Übersetzungs-Schlüssel), icon.",
+	"kinds": {
+		"relic": "Relikte",
+		"gear": "Rüstung",
+		"weapon": "Waffen",
+		"loot": "Materialien"
+	},
+	"containers": {
+		"reliktdose": {"name": "Reliktdose", "desc": "Klein, golden, klappert ein bisschen.", "icon": "res://assets/sprites/items/gold_compass_case.png", "kind": "relic", "slots": 3, "size": [1, 1], "price": 160, "unlock": {"level": 2}},
+		"reliktruhe": {"name": "Reliktruhe", "desc": "Eine Truhe mit Schloss. Den Schlüssel hat Egon. Sagt er.", "icon": "res://assets/sprites/furniture/guild_chest.png", "kind": "relic", "slots": 8, "size": [2, 1], "price": 900, "unlock": {"level": 10}},
+		"ruestungsstaender": {"name": "Rüstungsständer", "desc": "Steht stramm, auch wenn keiner hinsieht.", "icon": "res://assets/sprites/furniture/guild_armor_stand.png", "kind": "gear", "slots": 4, "size": [1, 2], "price": 200, "unlock": {"level": 3}},
+		"ruestungskiste": {"name": "Rüstungskiste", "desc": "Hier passt eine ganze Ritterkompanie rein. Fast.", "icon": "res://assets/sprites/props/crates.png", "kind": "gear", "slots": 8, "size": [2, 2], "price": 1000, "unlock": {"level": 10}},
+		"waffenstaender": {"name": "Waffenständer", "desc": "Für Stäbe, Bögen und alles mit spitzem Ende.", "icon": "res://assets/sprites/furniture/guild_weapon_rack.png", "kind": "weapon", "slots": 3, "size": [2, 1], "price": 180, "unlock": {"level": 3}},
+		"waffenschrank": {"name": "Waffenschrank", "desc": "Abschließbar. Theoretisch.", "icon": "res://assets/sprites/furniture/guild_trophy_cabinet.png", "kind": "weapon", "slots": 6, "size": [1, 2], "price": 900, "unlock": {"level": 10}},
+		"materialbeutel": {"name": "Materialbeutel", "desc": "Riecht nach Fell, Erz und Abenteuer.", "icon": "res://assets/sprites/props/sacks.png", "kind": "loot", "slots": 4, "stack": 10, "size": [1, 1], "price": 120, "unlock": {"level": 1}},
+		"materialfass": {"name": "Materialfass", "desc": "Ein Fass ohne Boden. Fast ohne.", "icon": "res://assets/sprites/props/barrel.png", "kind": "loot", "slots": 8, "stack": 25, "size": [2, 2], "price": 800, "unlock": {"level": 8}}
+	}
+}

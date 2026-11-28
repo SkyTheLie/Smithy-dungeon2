@@ -162,3 +162,17 @@ Beantwortet am 2026-11-26: Dungeon bleibt 1 : 1 wie Dungeon Smithy (3D), ein Tag
 ## Eigene Fallen (Nachricht vom 2026-11-27) – Logik fertig, Inhalt offen
 
 - Fallen, die der Spieler selbst legt und die Gegner treffen: aus **Relikten** oder einem **Projektil**, das beim Aufprall eine Falle hinterlässt. Arten bisher: Krähenfüße, Glutfleck, eigenes Fangeisen (`hazard_types` `owner: player`). Offen: Items/Relikte mit `traps`, eigene Bilder, ggf. Fallen werfen (Taste).
+
+## Spielgefühl, Komfort, Behälter, Tausch (Nachricht vom 2026-11-28)
+
+Reihenfolge zum Bauen (✅ = gebaut):
+
+1. ✅ **Weniger Beute im Dungeon** (`feature/weniger-beute`): ein Raum gibt höchstens 1 Ding her (Beute, Münzen, Herz oder Bombe; `loot.json` `room_budget`), Münzen seltener.
+2. ✅ **Relikt nach dem ersten Boss** (`feature/weniger-beute`): Egon nimmt den Rubin und schenkt ein Moorherz-Relikt (+1 Herz, 4 Runs).
+3. ✅ **Behälter im Lager** (`feature/behaelter-tausch`): Taschen/Kisten, die man kauft oder geschenkt bekommt und öffnet. Je eine Art für Relikte, Rüstungen, Materialien, Waffen; zu Beginn 3–4 Plätze, später größere.
+4. ✅ **Tausch-Reiter bei Egon** (`feature/behaelter-tausch`): Sachen eintauschen, z. B. 3 Rubine → Relikt-Behälter, 3 Rubine → Rucksack 3×3.
+5. **Treffer-Gefühl:** kurzer Stillstand (~0,05 s) bei starkem Treffer/Kill; leichtes Bildschirmwackeln (Explosion, Boss-Aufprall, eigener Treffer), in den Einstellungen abschaltbar; Gegner blinken weiß und werden zurückgestoßen; Beute fliegt zum Spieler, „Pling“ wird bei mehreren Münzen hintereinander höher.
+6. **Weniger Frust:** Tod-Zusammenfassung (was hat getötet, wie weit, was im sicheren Platz gerettet, Rekord); Egon kommentiert die Todesursache („Schon wieder die Fangeisen? Ich verkauf dir Stiefel… teure.“); bei 1 Herz Musik dumpfer, Herzschlag-Rand stärker, Trank-Taste Q leuchtet; ein Satz zum Boss vor dem Kampf, der sein Muster verrät.
+7. **Laden als Zuhause:** Heimkehr-Moment (Egon sieht die Beute, schaut gierig, „Heute verdient: 340 Gold“); großer Auftritt bei R3+ am Hebel (Licht, eigener Ton, Egon staunt).
+8. **Komfort:** Shift+Klick schiebt direkt ins Lager/Inventar; „Alle Beute verkaufen“ mit Rückfrage; Vergleich beim Darüberfahren (grüne/rote Pfeile gegen das Getragene); Text- und Fadenkreuz-Größe einstellbar; Farbenblind-Modus (Seltenheit auch als Symbol).
+9. **Gründe für morgen:** Tagesangebot (ein besonderes Teil nur heute); kleine Ziele im Lexikon („10 Wandspinnen besiegt → Egon zahlt 10 % mehr für Spinnenseide“).

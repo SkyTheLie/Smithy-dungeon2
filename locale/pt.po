@@ -30,6 +30,9 @@ msgstr "5 % a mais de chance de R2 com o Egon."
 msgid "Ab Spielerstufe %d"
 msgstr "A partir do nível %d"
 
+msgid "Ab Stufe %d"
+msgstr "A partir do nível %d"
+
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "De agora em diante sempre haverá poções na minha mesa. A preço de amigo, claro."
 
@@ -41,6 +44,9 @@ msgstr "Mas assim não, sem equipamento nenhum. Vem, dá uma olhada na minha loj
 
 msgid "Abgeben"
 msgstr "Entregar"
+
+msgid "Abschließbar. Theoretisch."
+msgstr "Trancável. Em teoria."
 
 msgid "Abstand"
 msgstr "Espaço"
@@ -165,11 +171,17 @@ msgstr "Acampamento bandido"
 msgid "Beenden"
 msgstr "Sair"
 
+msgid "Behälter für %s"
+msgstr "Recipiente para %s"
+
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "Ao acertar, o tiro explode em quatro faíscas"
 
 msgid "Beine"
 msgstr "Pernas"
+
+msgid "Belegt: %d/%d"
+msgstr "Ocupado: %d/%d"
 
 msgid "Belohnung: der nächste Dungeon und %d Gold"
 msgstr "Recompensa: a próxima masmorra e %d de ouro"
@@ -684,6 +696,9 @@ msgstr "Uma montanha de gelo, com uma tempestade no topo. No caminho: lobos, har
 msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
 msgstr "Um âmbar, três bombas, três chaves"
 
+msgid "Ein Fass ohne Boden. Fast ohne."
+msgstr "Um barril sem fundo. Quase."
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "Uma bola de fogo gira ao seu redor e bloqueia tiros"
 
@@ -845,6 +860,9 @@ msgstr "Um item a mais na mesa do Egon."
 
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "Uma bolsa de 2×2 casas. Prenda no inventário com o Egon."
+
+msgid "Eine Truhe mit Schloss. Den Schlüssel hat Egon. Sagt er."
+msgstr "Um baú com fechadura. Egon tem a chave. Diz ele."
 
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "Uma campina da altura de um anão. Algo farfalha no capim, e um caçador arma armadilhas. Egon vende foices. Infelizmente, esgotadas."
@@ -1125,6 +1143,9 @@ msgstr "Quinze moedas"
 msgid "Für Schritte, die man lieber nicht hört."
 msgstr "Para passos que é melhor não ouvir."
 
+msgid "Für Stäbe, Bögen und alles mit spitzem Ende."
+msgstr "Para cajados, arcos e tudo que tem ponta."
+
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "Pra você: uma varinha de cobre, um elmo e um peitoral. A primeira compra é por conta da casa!"
 
@@ -1212,6 +1233,9 @@ msgstr "Bloqueado: primeiro conclua a missão de Egon “%s”."
 msgid "Gesprengte Fessel"
 msgstr "Grilhão partido"
 
+msgid "Getauscht ist getauscht! Kein Umtausch. Äh … kein Rücktausch."
+msgstr "Troca é troca! Sem trocas. Hã… sem destrocas."
+
 msgid "Getroffene Gegner brennen weiter"
 msgstr "Inimigos atingidos continuam queimando"
 
@@ -1247,6 +1271,9 @@ msgstr "Vença em menos de %d minutos"
 
 msgid "Gewöhnlich"
 msgstr "Comum"
+
+msgid "Gezählt wird alles zu Hause: Lager, Inventar und Behälter."
+msgstr "Conta tudo em casa: depósito, inventário e recipientes."
 
 msgid "Ghul"
 msgstr "Carniçal"
@@ -1572,6 +1599,9 @@ msgstr "Clique aqui"
 msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
 msgstr "Aqui fica o que não cabe no depósito. Abra espaço ou venda."
 
+msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
+msgstr "Cabe uma companhia inteira de cavaleiros aqui. Quase."
+
 msgid "Hinausgeklettert!"
 msgstr "Escalou para fora!"
 
@@ -1598,6 +1628,9 @@ msgstr "Dura para sempre"
 
 msgid "Hält noch %d Dungeons"
 msgstr "Dura mais %d masmorras"
+
+msgid "Hält vier Runs, dann ist es hin. Wie alles Gute. Gratis! Diesmal wirklich."
+msgstr "Dura quatro expedições, depois acaba. Como tudo que é bom. Grátis! Desta vez é sério."
 
 msgid "Hände"
 msgstr "Mãos"
@@ -1770,6 +1803,9 @@ msgstr "Sapatos de criança"
 msgid "Klappern bei jedem Schritt."
 msgstr "Chacoalham a cada passo."
 
+msgid "Klein, golden, klappert ein bisschen."
+msgstr "Pequena, dourada, chacoalha um pouco."
+
 msgid "Klein, riecht nach Kräutern."
 msgstr "Pequena, cheira a ervas."
 
@@ -1784,6 +1820,9 @@ msgstr "Clique em algo do inventário para vestir. Clique na sua figura para tir
 
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "Clique ou arraste para a aba Inventário: prender no inventário"
+
+msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
+msgstr "Clique: abrir. Arraste peças para cima: guardar."
 
 msgid "Klicken, um weiterzumachen"
 msgstr "Clique para continuar"
@@ -2064,6 +2103,15 @@ msgstr "Às vezes você esquiva golpes"
 msgid "Material: %s"
 msgstr "Material: %s"
 
+msgid "Materialbeutel"
+msgstr "Bolsa de materiais"
+
+msgid "Materialfass"
+msgstr "Barril de materiais"
+
+msgid "Materialien"
+msgstr "Materiais"
+
 msgid "Maus"
 msgstr "Mouse"
 
@@ -2159,6 +2207,12 @@ msgstr "Saco de moedas"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "E aí, parceiro? Novo por aqui? Dá pra ver na hora."
+
+msgid "Nach dem Sieg in: %s"
+msgstr "Após vencer em: %s"
+
+msgid "Nach der Quest: %s"
+msgstr "Após a missão: %s"
 
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "Dois itens para escolher após cada chefe"
@@ -2403,6 +2457,9 @@ msgstr "Relíquia"
 msgid "Relikt-Platz"
 msgstr "Espaço de relíquia"
 
+msgid "Reliktdose"
+msgstr "Estojo de relíquias"
+
 msgid "Relikte"
 msgstr "Relíquias"
 
@@ -2418,8 +2475,14 @@ msgstr "Relíquias: %d %% por alavanca, níveis %s"
 msgid "Reliktpflege"
 msgstr "Cuidado de relíquias"
 
+msgid "Reliktruhe"
+msgstr "Baú de relíquias"
+
 msgid "Reliktschutz"
 msgstr "Proteção de relíquias"
+
+msgid "Riecht nach Fell, Erz und Abenteuer."
+msgstr "Cheira a pele, minério e aventura."
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "Cheira a pântano. Para sempre."
@@ -2504,6 +2567,15 @@ msgstr "Repulsão"
 
 msgid "Rückwärts"
 msgstr "Para trás"
+
+msgid "Rüstung"
+msgstr "Armadura"
+
+msgid "Rüstungskiste"
+msgstr "Caixa de armaduras"
+
+msgid "Rüstungsständer"
+msgstr "Suporte de armaduras"
 
 msgid "Salamanderkönigin"
 msgstr "Rainha salamandra"
@@ -2970,6 +3042,9 @@ msgstr "Ficou bem em você! Quase tão bem quanto em mim."
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "Ficou bem em você! Quase tão bem quanto em mim. A partir de amanhã tudo custa uma pequena gorjeta, claro."
 
+msgid "Steht stramm, auch wenn keiner hinsieht."
+msgstr "Fica em sentido, mesmo quando ninguém olha."
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "Esmaga pedras e mais saque"
 
@@ -3144,6 +3219,15 @@ msgstr "Tecla …"
 msgid "Taumelkraut"
 msgstr "Erva cambaleante"
 
+msgid "Tausch"
+msgstr "Troca"
+
+msgid "Tausch: Beute gegen Besonderes"
+msgstr "Troca: espólio por algo especial"
+
+msgid "Tauschen"
+msgstr "Trocar"
+
 msgid "Tausendklinge"
 msgstr "Lâmina dos mil"
 
@@ -3233,6 +3317,9 @@ msgstr "E agora, para a masmorra! Cá entre nós, parceiro: tenho um pequeno ser
 
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "E à esquerda é você. Fica parado, que eu te visto…"
+
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
+msgstr "E como sou tão generoso: um Coração do pântano! Uma relíquia. Coloque na figura e terá um coração a mais."
 
 msgid "Ungewöhnlich"
 msgstr "Incomum"
@@ -3332,6 +3419,15 @@ msgstr "WASD: andar · Mouse: mirar · Clique esquerdo: atirar"
 
 msgid "Waffe"
 msgstr "Arma"
+
+msgid "Waffen"
+msgstr "Armas"
+
+msgid "Waffenschrank"
+msgstr "Armário de armas"
+
+msgid "Waffenständer"
+msgstr "Suporte de armas"
 
 msgid "Wanderbündel"
 msgstr "Trouxa do viajante"

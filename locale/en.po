@@ -30,6 +30,9 @@ msgstr "5 % more chance of R2 at Egon's."
 msgid "Ab Spielerstufe %d"
 msgstr "From player level %d"
 
+msgid "Ab Stufe %d"
+msgstr "From level %d"
+
 msgid "Ab jetzt liegen öfter Tränke auf meinem Tisch. Zum Freundschaftspreis, versteht sich."
 msgstr "From now on there'll often be potions on my table. At a friendship price, of course."
 
@@ -41,6 +44,9 @@ msgstr "But not like that, without any equipment. Come, have a look at my shop f
 
 msgid "Abgeben"
 msgstr "Hand in"
+
+msgid "Abschließbar. Theoretisch."
+msgstr "Lockable. In theory."
 
 msgid "Abstand"
 msgstr "Gap"
@@ -165,11 +171,17 @@ msgstr "Bandit Camp"
 msgid "Beenden"
 msgstr "Quit"
 
+msgid "Behälter für %s"
+msgstr "Container for %s"
+
 msgid "Beim Treffer zerplatzt der Schuss in vier Funken"
 msgstr "On a hit the shot bursts into four sparks"
 
 msgid "Beine"
 msgstr "Legs"
+
+msgid "Belegt: %d/%d"
+msgstr "Filled: %d/%d"
 
 msgid "Belohnung: der nächste Dungeon und %d Gold"
 msgstr "Reward: the next dungeon and %d gold"
@@ -684,6 +696,9 @@ msgstr "A mountain of ice with a storm raging at the top. On the way: wolves, ha
 msgid "Ein Bernstein, drei Bomben, drei Schlüssel"
 msgstr "An amber, three bombs, three keys"
 
+msgid "Ein Fass ohne Boden. Fast ohne."
+msgstr "A bottomless barrel. Almost."
+
 msgid "Ein Feuerball kreist um dich und blockt Schüsse"
 msgstr "A fireball circles you and blocks shots"
 
@@ -845,6 +860,9 @@ msgstr "One more item on Egon's table."
 
 msgid "Eine Tasche mit 2×2 Feldern. Bei Egon an dein Inventar anbauen."
 msgstr "A pouch with 2×2 cells. Attach it to your inventory at Egon's."
+
+msgid "Eine Truhe mit Schloss. Den Schlüssel hat Egon. Sagt er."
+msgstr "A chest with a lock. Egon has the key. Says he."
 
 msgid "Eine Wiese, so hoch wie ein Zwerg. Im Gras raschelt es, und ein Jäger stellt Fallen. Egon verkauft Sensen. Leider keine."
 msgstr "A meadow as tall as a dwarf. Something rustles in the grass, and a hunter sets traps. Egon sells scythes. Sadly, none in stock."
@@ -1125,6 +1143,9 @@ msgstr "Fifteen coins"
 msgid "Für Schritte, die man lieber nicht hört."
 msgstr "For steps you'd rather not hear."
 
+msgid "Für Stäbe, Bögen und alles mit spitzem Ende."
+msgstr "For staffs, bows and anything with a pointy end."
+
 msgid "Für dich: ein Kupfer-Zauberstab, ein Helm und eine Brustplatte. Der erste Einkauf geht aufs Haus!"
 msgstr "For you: a copper wand, a helmet and a breastplate. Your first purchase is on the house!"
 
@@ -1212,6 +1233,9 @@ msgstr "Locked: first finish Egon's quest “%s”."
 msgid "Gesprengte Fessel"
 msgstr "Broken Shackle"
 
+msgid "Getauscht ist getauscht! Kein Umtausch. Äh … kein Rücktausch."
+msgstr "A trade is a trade! No exchanges. Er… no take-backs."
+
 msgid "Getroffene Gegner brennen weiter"
 msgstr "Hit enemies keep burning"
 
@@ -1247,6 +1271,9 @@ msgstr "Win in under %d minutes"
 
 msgid "Gewöhnlich"
 msgstr "Common"
+
+msgid "Gezählt wird alles zu Hause: Lager, Inventar und Behälter."
+msgstr "Everything at home counts: stash, inventory and containers."
 
 msgid "Ghul"
 msgstr "Ghoul"
@@ -1572,6 +1599,9 @@ msgstr "Click here"
 msgid "Hier liegt, was nicht ins Lager passt. Mach Platz oder verkauf es."
 msgstr "What doesn't fit into the stash lies here. Make room or sell it."
 
+msgid "Hier passt eine ganze Ritterkompanie rein. Fast."
+msgstr "A whole company of knights fits in here. Almost."
+
 msgid "Hinausgeklettert!"
 msgstr "Climbed out!"
 
@@ -1598,6 +1628,9 @@ msgstr "Lasts forever"
 
 msgid "Hält noch %d Dungeons"
 msgstr "Lasts %d more dungeons"
+
+msgid "Hält vier Runs, dann ist es hin. Wie alles Gute. Gratis! Diesmal wirklich."
+msgstr "Lasts four runs, then it's gone. Like all good things. Free! Really, this time."
 
 msgid "Hände"
 msgstr "Hands"
@@ -1770,6 +1803,9 @@ msgstr "Child's Shoes"
 msgid "Klappern bei jedem Schritt."
 msgstr "Rattle with every step."
 
+msgid "Klein, golden, klappert ein bisschen."
+msgstr "Small, golden, rattles a little."
+
 msgid "Klein, riecht nach Kräutern."
 msgstr "Small, smells of herbs."
 
@@ -1784,6 +1820,9 @@ msgstr "Click something in the inventory to put it on. Click your figure to take
 
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "Click or drag onto the Inventory tab: attach to your inventory"
+
+msgid "Klick: öffnen. Teile darauf ziehen: hineinlegen."
+msgstr "Click: open. Drag pieces onto it: put them in."
 
 msgid "Klicken, um weiterzumachen"
 msgstr "Click to continue"
@@ -2064,6 +2103,15 @@ msgstr "You sometimes dodge hits"
 msgid "Material: %s"
 msgstr "Material: %s"
 
+msgid "Materialbeutel"
+msgstr "Material pouch"
+
+msgid "Materialfass"
+msgstr "Material barrel"
+
+msgid "Materialien"
+msgstr "Materials"
+
 msgid "Maus"
 msgstr "Mouse"
 
@@ -2159,6 +2207,12 @@ msgstr "Coin bag"
 
 msgid "Na, Partner? Neu hier? Sieht man sofort."
 msgstr "Well, partner? New here? Anyone can tell."
+
+msgid "Nach dem Sieg in: %s"
+msgstr "After winning: %s"
+
+msgid "Nach der Quest: %s"
+msgstr "After the quest: %s"
 
 msgid "Nach jedem Boss zwei Items zur Wahl"
 msgstr "Two items to choose from after every boss"
@@ -2403,6 +2457,9 @@ msgstr "Relic"
 msgid "Relikt-Platz"
 msgstr "Relic slot"
 
+msgid "Reliktdose"
+msgstr "Relic case"
+
 msgid "Relikte"
 msgstr "Relics"
 
@@ -2418,8 +2475,14 @@ msgstr "Relics: %d %% per pull, tiers %s"
 msgid "Reliktpflege"
 msgstr "Relic care"
 
+msgid "Reliktruhe"
+msgstr "Relic chest"
+
 msgid "Reliktschutz"
 msgstr "Relic Guard"
+
+msgid "Riecht nach Fell, Erz und Abenteuer."
+msgstr "Smells of fur, ore and adventure."
 
 msgid "Riecht nach Moor. Für immer."
 msgstr "Smells of bog. Forever."
@@ -2504,6 +2567,15 @@ msgstr "Knockback"
 
 msgid "Rückwärts"
 msgstr "Backward"
+
+msgid "Rüstung"
+msgstr "Armor"
+
+msgid "Rüstungskiste"
+msgstr "Armor crate"
+
+msgid "Rüstungsständer"
+msgstr "Armor stand"
 
 msgid "Salamanderkönigin"
 msgstr "Salamander Queen"
@@ -2970,6 +3042,9 @@ msgstr "Suits you! Almost as well as me."
 msgid "Steht dir! Fast so gut wie mir. Ab morgen kostet alles einen kleinen Obolus, versteht sich."
 msgstr "Suits you! Almost as well as me. From tomorrow on, everything costs a small fee, of course."
 
+msgid "Steht stramm, auch wenn keiner hinsieht."
+msgstr "Stands at attention, even when no one is looking."
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "Crush rocks and more loot"
 
@@ -3144,6 +3219,15 @@ msgstr "Key …"
 msgid "Taumelkraut"
 msgstr "Stagger Weed"
 
+msgid "Tausch"
+msgstr "Trade"
+
+msgid "Tausch: Beute gegen Besonderes"
+msgstr "Trade: loot for something special"
+
+msgid "Tauschen"
+msgstr "Trade"
+
 msgid "Tausendklinge"
 msgstr "Thousand Blade"
 
@@ -3233,6 +3317,9 @@ msgstr "And now off to the dungeon! Between us, partner: I have a little job for
 
 msgid "Und links bist du. Halt still, ich zieh dich an…"
 msgstr "And on the left, that's you. Hold still, I'll dress you…"
+
+msgid "Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr."
+msgstr "And because I'm so generous: a Bog Heart! A relic. Put it on your figure and you get one more heart."
 
 msgid "Ungewöhnlich"
 msgstr "Uncommon"
@@ -3332,6 +3419,15 @@ msgstr "WASD: walk · Mouse: aim · Left click: shoot"
 
 msgid "Waffe"
 msgstr "Weapon"
+
+msgid "Waffen"
+msgstr "Weapons"
+
+msgid "Waffenschrank"
+msgstr "Weapon cabinet"
+
+msgid "Waffenständer"
+msgstr "Weapon rack"
 
 msgid "Wanderbündel"
 msgstr "Wanderer's Bundle"

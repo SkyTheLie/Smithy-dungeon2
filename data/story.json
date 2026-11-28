@@ -1,5 +1,5 @@
 {
-	"_info": "Texte der Figuren (deutsch = Übersetzungs-Schlüssel), jeder Eintrag eine Sprechblase (höchstens zwei Sätze). Egon wird aus docs/figuren/EGON_EHRLICH.md gebaut. intro_call: ruft dich vor dem Dungeon zu sich; intro: Vorstellung, wenn du bei ihm bist; tutorial_*: erster Besuch im Laden, der Reihe nach; was Egon erklärt, leuchtet (welcome Tisch, lever Hebel, goods Ware, chances Chancen-Balken, reroll Hebel-Preis, gifts Geschenke, bag Inventar, dress Figur, equip Anziehen, money Münzsack, box Dose, sell Ankauf, skills Skill-Knopf, dungeon Dungeons-Knopf); potion_*: Egons Trank-Vorführung nach dem zweiten Tod im Dungeon (worried besorgt, lever Hebel, gift Geschenk, slot Trank-Platz, drink Trinken, %s = die Trank-Taste); ruby_found / ruby_taken: Egon entdeckt den Rubin im Inventar und nimmt ihn (Auftrag aus tutorial_dungeon, nach dem Seil vom ersten Boss), ruby_missing: hinausgeklettert, aber ohne Rubin; barks: kurze Sätze im Laden.",
+	"_info": "Texte der Figuren (deutsch = Übersetzungs-Schlüssel), jeder Eintrag eine Sprechblase (höchstens zwei Sätze). Egon wird aus docs/figuren/EGON_EHRLICH.md gebaut. intro_call: ruft dich vor dem Dungeon zu sich; intro: Vorstellung, wenn du bei ihm bist; tutorial_*: erster Besuch im Laden, der Reihe nach; was Egon erklärt, leuchtet (welcome Tisch, lever Hebel, goods Ware, chances Chancen-Balken, reroll Hebel-Preis, gifts Geschenke, bag Inventar, dress Figur, equip Anziehen, money Münzsack, box Dose, sell Ankauf, skills Skill-Knopf, dungeon Dungeons-Knopf); potion_*: Egons Trank-Vorführung nach dem zweiten Tod im Dungeon (worried besorgt, lever Hebel, gift Geschenk, slot Trank-Platz, drink Trinken, %s = die Trank-Taste); ruby_found / ruby_taken / ruby_reward: Egon entdeckt den Rubin im Inventar, nimmt ihn und schenkt dafür ein Relikt (Auftrag aus tutorial_dungeon, nach dem Seil vom ersten Boss), ruby_missing: hinausgeklettert, aber ohne Rubin; barks: kurze Sätze im Laden.",
 	"speaker": "Egon Ehrlich",
 	"portrait": "res://assets/sprites/npcs/black_market_dealer.png",
 	"intro_call": ["Psst! Hey, du! Ja, du mit den Augen! Komm mal her!"],
@@ -63,6 +63,10 @@
 		"Gib her, gib her! Bei mir ist er sicher. Sicherer als dein Gold in der Dose. Ehrlich!",
 		"Wofür ich den brauche? Ach… Sammlerstück! Mehr sag ich nicht. Noch nicht."
 	],
+	"ruby_reward": [
+		"Und weil ich so großzügig bin: ein Moorherz! Ein Relikt. Leg es an die Figur, dann hast du ein Herz mehr.",
+		"Hält vier Runs, dann ist es hin. Wie alles Gute. Gratis! Diesmal wirklich."
+	],
 	"ruby_missing": [
 		"Am Seil rausgeklettert, wie ein Held! Aber… wo ist mein Rubin?",
 		"Der Boss hatte einen, ich weiß es! Bring ihn mir, wenn du einen findest. Ich warte. Ungeduldig."
@@ -82,7 +86,7 @@
 		"bought": "Gute Wahl! Ein Sammlerstück. Ehrlich!",
 		"rolled": "Hereinspaziert! Frische Ware!",
 		"no_slot": "Das kann man nicht anziehen, Partner. Glaub mir, ich hab's versucht.",
-		"no_room": "Da passt das nicht hin, Partner. Mach erst Platz.", "not_for_sale": "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest.", "sold": "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!",
+		"no_room": "Da passt das nicht hin, Partner. Mach erst Platz.", "not_for_sale": "Das? Das kauf ich nicht. Das will ich geschenkt! Äh … als Quest.", "sold": "Ein Schnäppchen! Für mich. Äh… für dich! Ehrlich!", "traded": "Getauscht ist getauscht! Kein Umtausch. Äh … kein Rücktausch.",
 		"relic_broken": "Dein Relikt hat den Geist aufgegeben. Passiert. Ich hätte da zufällig ein neues… Freundschaftspreis!"
 	}
 }

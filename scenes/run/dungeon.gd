@@ -746,8 +746,11 @@ func _on_enemy_died(enemy: Enemy) -> void:
 		run.announce(Progress.meet_enemy(enemy.id))
 		if enemy.is_boss:
 			run.announce(Progress.beat_boss(enemy.id))
-	_drop_enemy_loot(enemy)
-	_drop_coins(enemy)
+	if enemy.is_boss:
+		_drop_enemy_loot(enemy)
+		_drop_coins(enemy)
+	else:
+		_drop_from_normal(enemy)
 	if enemy == boss:
 		boss = null
 		_boss_beaten = not in_boss_altar()
@@ -767,8 +770,29 @@ func _on_enemy_died(enemy: Enemy) -> void:
 		return
 	if _rng.randf() < key_drop_chance():
 		_drop(rooms[current_cell], enemy.global_position, "key")
-	elif _rng.randf() < float(enemy.data.get("drop_chance", 0.0)) + run.stats.luck * _luck_drop() * 0.5:
-		_drop(rooms[current_cell], enemy.global_position, _roll_drop())
+
+
+## A normal enemy: at most one thing, and only while the room has drops left (room_drops_left):
+## first its loot, else coins, else a heart or bomb (enemies.json drop_chance).
+func _drop_from_normal(enemy: Enemy) -> void:
+	var room: DungeonRoom = rooms[current_cell]
+	if room_drops_left(room) <= 0:
+		return
+	var dropped: bool = _drop_enemy_loot(enemy, true) or _drop_coins(enemy)
+	if not dropped and _rng.randf() < float(enemy.data.get("drop_chance", 0.0)) + run.stats.luck * _luck_drop() * 0.5:
+		_drop(room, enemy.global_position, _roll_drop())
+		dropped = true
+	if dropped:
+		room.drops_left -= 1
+
+
+## How many drops `room` still gives (data/loot.json room_budget drops; luck adds luck_extra
+## per point, rounded down). Boss kills do not count.
+func room_drops_left(room: DungeonRoom) -> int:
+	if room.drops_left < 0:
+		var rules: Dictionary = Content.get_file("loot").get("room_budget", {})
+		room.drops_left = maxi(0, int(rules.get("drops", 1)) + int(floorf(run.stats.luck * float(rules.get("luck_extra", 0.0)))))
+	return room.drops_left
 
 
 ## Enemy.take_damage: a number pops up over it (big and golden for a strong hit), the HUD hears it.
@@ -802,8 +826,9 @@ func _clear_room(room: DungeonRoom) -> void:
 			_drop_rope(room)
 		return
 	var drops: Dictionary = Content.floors_extra("room_drops")
-	if _rng.randf() < float(drops.get("chance", 0.4)) + run.stats.luck * _luck_drop():
+	if room_drops_left(room) > 0 and _rng.randf() < float(drops.get("chance", 0.4)) + run.stats.luck * _luck_drop():
 		_drop(room, room.position, _roll_drop())
+		room.drops_left -= 1
 
 
 ## Extra drop chance per point of luck (data/player.json effects).
@@ -868,30 +893,39 @@ func _drop(room: DungeonRoom, at: Vector3, kind: String) -> void:
 
 
 ## Loot for the bag (data/loot.json "enemies"): every entry is rolled on its own; luck helps.
-func _drop_enemy_loot(enemy: Enemy) -> void:
+## `one`: stop after the first piece (normal enemies). true if something dropped.
+func _drop_enemy_loot(enemy: Enemy, one: bool = false) -> bool:
 	var luck_bonus: float = float(Content.get_file("loot").get("luck_bonus", 0.03)) * run.stats.luck
+	var dropped: bool = false
 	for entry: Dictionary in Content.enemy_loot(enemy.id):
 		if _rng.randf() >= float(entry.get("chance", 0.0)) + luck_bonus:
 			continue
 		var range_of: Array = entry.get("amount", [1, 1])
 		var count: int = _rng.randi_range(int(range_of[0]), int(range_of[-1]))
+		if one:
+			count = 1
 		var spot: Vector3 = enemy.global_position + Vector3(_rng.randf_range(-0.5, 0.5), 0, _rng.randf_range(-0.5, 0.5))
-		_drop_loot(rooms[current_cell], spot, String(entry.get("id", "")), count, false)
+		if _drop_loot(rooms[current_cell], spot, String(entry.get("id", "")), count, false) != null:
+			dropped = true
+			if one:
+				return true
+	return dropped
 
 
 ## Coins (data/loot.json "coins"): normal enemies by chance (luck helps), bosses always; deeper
 ## floors give a few more. They lie as one pile of gold (Bag.GOLD, stacks to 999 in the bag).
-func _drop_coins(enemy: Enemy) -> void:
+## true if coins dropped.
+func _drop_coins(enemy: Enemy) -> bool:
 	var rules: Dictionary = Content.get_file("loot").get("coins", {})
 	if rules.is_empty():
-		return
+		return false
 	var luck_bonus: float = float(Content.get_file("loot").get("luck_bonus", 0.03)) * run.stats.luck
 	if not enemy.is_boss and _rng.randf() >= float(rules.get("chance", 0.0)) + luck_bonus:
-		return
+		return false
 	var range_of: Array = rules.get("boss_amount" if enemy.is_boss else "amount", [1, 1])
 	var count: int = _rng.randi_range(int(range_of[0]), int(range_of[-1])) + int(rules.get("per_floor", 0)) * floor_index
 	var spot: Vector3 = enemy.global_position + Vector3(_rng.randf_range(-0.4, 0.4), 0, _rng.randf_range(-0.4, 0.4))
-	_drop_loot(rooms[current_cell], spot, Bag.GOLD, count, false)
+	return _drop_loot(rooms[current_cell], spot, Bag.GOLD, count, false) != null
 
 
 func _drop_loot(room: DungeonRoom, at: Vector3, id: String, count: int, dropped: bool) -> Pickup:

@@ -65,6 +65,7 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 - `materials`: `"id": {"name", "desc", "icon", "rarity": 1-8, "value"}`. `rarity` = Rahmenfarbe (R1 grau … R8 rosa), `value` = Gold beim Händler.
 - `enemies`: `"gegner_id": [{"id": "material", "chance": 0.3, "amount": [1, 2]}, …]`. Jede Zeile wird einzeln gewürfelt. **Jeder Gegner braucht eine Zeile** (der Test prüft das).
 - `luck_bonus`: zusätzliche Chance je Glückspunkt.
+- `room_budget`: `drops` = so viele Dinge gibt ein Raum höchstens her (normale Gegner + Raum-Belohnung; Beute, Münzen, Herz, Bombe), `luck_extra` = mehr je Glückspunkt. Bosse zählen nicht.
 - `key_chance`: Chance (0–1), dass ein normaler Gegner einen Schlüssel fallen lässt – ein Wert für alle Gegner (Bosse nie). Zufällige Raum-Belohnungen (`floors.json` `room_drops`) geben keine Schlüssel.
 - Neue Texte (`name`, `desc`) danach übersetzen (`build_po.py` findet sie selbst).
 
@@ -150,3 +151,10 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 
 - **Boss-Halle** (`data/boss_hall.json`): `size` (in Räumen), `wall_height`, Texturen, `gate`/`gate_open`/`altar` (Bilder), `ambient_dark`/`ambient_lit`, `wake_distance`, `pillars` [quer, längs] (Abstand der Säulen), `elements` (9 Kristalle, Bilder `holy_<element>_crystal.png`, `pillar_<element>.png`, `beam_<element>.png`, `crown_<element>.png`), `colors`, `music_altar`, `music_fight`, `silence`, `boss_drop`.
 - **Musik austauschen:** in `data/audio.json` `music` z. B. `"boss_rock"` auf eine andere Datei zeigen lassen (ogg/wav/mp3).
+
+## Behälter und Tausch (`data/containers.json`, `data/trades.json`)
+
+- Behälter: `name`, `desc`, `icon`, `kind` (`relic`, `gear`, `weapon`, `loot`), `slots`, `stack` (nur Beute), `size` im Lager, `price` und `unlock` (Egons Tisch, `shop.json` `container_chance`).
+- Tausch: Liste `trades`, je `id`, `give` {Beute-Id: Anzahl}, `get` = eins von `container`, `backpack`, `potion`, `relic` (+ `runs`), optional `unlock` (`level`, `dungeon`, `quest`).
+- Neue Namen und Beschreibungen danach durch `py assets/_reference/i18n/build_po.py` (liest beide Dateien).
+
