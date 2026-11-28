@@ -408,6 +408,12 @@ Zahlen und Ziele: `docs/BALANCE.md`, Rechner `py assets/_reference/balance/balan
 - **Knöpfe** (`scripts/core/ui_juice.gd`, von `Game` an jeden neuen Knopf gehängt): wachsen unter der Maus, federn beim Drücken.
 - **End-Bildschirm:** EXP-Balken füllt sich animiert; jede neue Stufe: „Stufe X!“ springt auf, Konfetti, Ton.
 
+## In der Luft – 2026-11-28 (`feature/luft`)
+
+- `RoomAir.add_air` (`scenes/run/room_air.gd`), aufgerufen von `Dungeon` nach der Deko: ein `CPUParticles3D` „Air“ je Raum, Kasten über den ganzen Raum bis zur Wandhöhe, mit `preprocess` schon gefüllt, jedes Teilchen blendet ein und aus (`color_ramp`).
+- Daten: Thema `air` = Id aus `air_types` in `data/floors.json` (`color` mit Deckkraft, `amount`, `size`, `glow`, `gravity`, `speed`, `damping`, `lifetime`). `glow` = weicher Punkt (`Fx.soft_dot`), additiv, ohne Nebel; sonst ein kleines Quadrat.
+- Fester Seed je Raum, ändert den Zufall des Dungeons nicht. Test: `test_room_air_play`.
+
 ## Deko in den Räumen – 2026-11-28 (`feature/deko`)
 
 - `RoomProps.add_props` (`scenes/run/room_props.gd`), aufgerufen von `Dungeon` direkt nach `RoomBuilder.build_shell`: legt im Raum einen Knoten `Props` an und stellt 2–5 aufrechte Bilder (Billboard, dreht sich nur um die Hochachse, schattiert wie Steine) an die Wände. Nur Aussehen: keine Kollision, nicht auf der Karte, nicht aufhebbar.

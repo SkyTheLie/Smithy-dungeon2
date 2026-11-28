@@ -127,7 +127,7 @@ Liste `floors` der Reihe nach: `name`, `floor_texture` (32×32), `wall_texture` 
 ## Dungeons, Fallen, Materialien (2026-11-27)
 
 - **Neuer Dungeon:** in `dungeons.json` eintragen (`name`, `region`, `desc`, `level`, `floors` = Name einer Liste in `floors.json`, `unlock` `{"dungeon": "<id davor>"}`, `hp_mult`, `exp_mult`, `shop_mult`), in `floors.json` die Liste `floors_<id>` mit 6 Ebenen anlegen, Gebiete unter `themes`. Der Test `test_dungeons.gd` prüft Texturen, Musik, Gegner, Bosse und Fallen.
-- **Gebiet (`themes`):** wie bisher, dazu `hazards` [[Art, [min, max]], …] = Fallen je normalem Raum, `props` [[Bild, Gewicht, Höhe in Metern], …] = Deko an den Wänden (Menge im Abschnitt `props` oben in `floors.json`).
+- **Gebiet (`themes`):** wie bisher, dazu `hazards` [[Art, [min, max]], …] = Fallen je normalem Raum, `props` [[Bild, Gewicht, Höhe in Metern], …] = Deko an den Wänden (Menge im Abschnitt `props` oben in `floors.json`), `air` = was in der Luft schwebt (Id aus `air_types`: dust, grave_dust, spores, snow, blizzard, embers, ash_embers, fireflies; neue Art = neuer Eintrag dort).
 - **Fallen-Arten (`floors.json` `hazard_types`):** `damage` (halbe Herzen), `size` [min, max] m, `cycle` [unten, oben] Sekunden (nur Stacheln), `color` RGB, `glow`.
 - **Material (`shop.json` `materials`):** `name`, `weight`, `lever_mult`, `unlock` (`level`, `dungeon`). Für jedes Material braucht `gear.json` alle Teile aus `pool` als `<material>_<teil>` (Test prüft das).
 - **Balance nachrechnen:** `py assets/_reference/balance/balance.py`, Erklärung in `docs/BALANCE.md`.

@@ -66,6 +66,11 @@ static func halo(color: Color, size: float) -> MeshInstance3D:
 	return mesh_instance
 
 
+## The white soft dot of the halo (32 x 32), e.g. for glowing particles.
+static func soft_dot() -> Texture2D:
+	return _halo_texture()
+
+
 static func _halo_material(color: Color) -> StandardMaterial3D:
 	var key: String = "halo|%s" % color
 	if _halo_materials.has(key):
