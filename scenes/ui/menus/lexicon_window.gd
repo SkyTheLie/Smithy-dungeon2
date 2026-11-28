@@ -303,6 +303,48 @@ static func enemy_home_text(id: String) -> String:
 	return Language.translate("Fundort: %s") % ", ".join(homes) if not homes.is_empty() else ""
 
 
+## Text of a "count" unlock (Progress.COUNT_KEYS), translated: once (`many` false) or with %d.
+static func count_text(key: String, many: bool) -> String:
+	match key:
+		"deaths":
+			return Language.translate("Stirb %d-mal") if many else Language.translate("Stirb einmal")
+		"deaths_trap":
+			return Language.translate("Stirb %d-mal durch Fallen") if many else Language.translate("Stirb durch eine Falle")
+		"deaths_bomb":
+			return Language.translate("Stirb %d-mal an eigenen Bomben") if many else Language.translate("Stirb an einer eigenen Bombe")
+		"secret_rooms":
+			return Language.translate("Finde %d geheime Räume") if many else Language.translate("Finde einen geheimen Raum")
+		"sacrifices":
+			return Language.translate("Opfere %d Herzen am Opferstein") if many else Language.translate("Opfere ein Herz am Opferstein")
+		"bombs_used":
+			return Language.translate("Zünde %d Bomben") if many else Language.translate("Zünde eine Bombe")
+		"chests":
+			return Language.translate("Öffne %d Kisten") if many else Language.translate("Öffne eine Kiste")
+		"potions":
+			return Language.translate("Trinke %d Tränke") if many else Language.translate("Trinke einen Trank")
+		"rerolls":
+			return Language.translate("Ziehe %d-mal Egons Hebel") if many else Language.translate("Ziehe Egons Hebel")
+		"egon_buys":
+			return Language.translate("Kaufe %d Dinge bei Egon") if many else Language.translate("Kaufe etwas bei Egon")
+		"rare_buys":
+			return Language.translate("Kaufe %d seltene Dinge bei Egon") if many else Language.translate("Kaufe etwas Seltenes bei Egon")
+		"trades":
+			return Language.translate("Tausche %d-mal bei Egon") if many else Language.translate("Tausche bei Egon")
+		"undead":
+			return Language.translate("Erledige %d liegende Untote") if many else Language.translate("Erledige einen liegenden Untoten")
+		"pacts":
+			return Language.translate("Nimm %d Glutpakte") if many else Language.translate("Nimm einen Glutpakt")
+		"floors":
+			return Language.translate("Steige %d Ebenen hinab") if many else Language.translate("Steige eine Ebene hinab")
+		"boss_kills":
+			return Language.translate("Besiege %d Bosse") if many else Language.translate("Besiege einen Boss")
+		"shop_buys":
+			return Language.translate("Kaufe %d Dinge im Dungeon") if many else Language.translate("Kaufe etwas im Dungeon")
+		"rocks":
+			return Language.translate("Zerstöre %d Steine") if many else Language.translate("Zerstöre einen Stein")
+	return ""
+
+
 ## What unlocks an item, with the progress so far (translated).
 static func unlock_text(unlock: Dictionary) -> String:
 	var count: int = int(unlock.get("count", 1))
@@ -320,9 +362,25 @@ static func unlock_text(unlock: Dictionary) -> String:
 			return Language.translate("Entdecke %d Items (%d / %d)") % [count, mini(Progress.discovered().size(), count), count]
 		"fast_win":
 			return Language.translate("Gewinne in unter %d Minuten") % count
+		"kill":
+			var enemy: String = Language.translate(String(Content.enemy(String(unlock.get("id", ""))).get("name", "")))
+			if count == 1:
+				return Language.translate("Besiege: %s") % enemy
+			var done: int = mini(Progress.enemy_kills(String(unlock.get("id", ""))), count)
+			return Language.translate("Besiege %s %d-mal") % [enemy, count] + "  (%d / %d)" % [done, count]
+		"count":
+			var what: String = String(unlock.get("key", ""))
+			if count_text(what, false).is_empty():
+				return ""
+			if count == 1:
+				return count_text(what, false)
+			return count_text(what, true) % count + "  (%d / %d)" % [mini(Progress.count(what), count), count]
 		"best":
 			var key: String = String(unlock.get("key", ""))
 			var text: String = ""
+			if key.begins_with("loot:"):
+				var loot: String = Language.translate(String(Content.material(key.substr(5)).get("name", "")))
+				return Language.translate("Habe %d × %s gleichzeitig dabei") % [count, loot] + "  (%d / %d)" % [mini(Progress.best(key), count), count]
 			match key:
 				"hearts":
 					text = Language.translate("Habe %d Herz-Container gleichzeitig")
@@ -336,6 +394,8 @@ static func unlock_text(unlock: Dictionary) -> String:
 					text = Language.translate("Nimm %d Glutpakte in einem Run")
 				"floor":
 					text = Language.translate("Erreiche Ebene %d")
+				"kills_run":
+					text = Language.translate("Besiege %d Gegner in einem Run")
 				_:
 					return ""
 			return text % count + "  (%d / %d)" % [mini(Progress.best(key), count), count]

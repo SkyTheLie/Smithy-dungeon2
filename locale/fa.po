@@ -204,8 +204,20 @@ msgstr "کهربا"
 msgid "Beschläge aus Kupfer, Platz für einen Rubin."
 msgstr "یراق مسی، جا برای یک یاقوت."
 
+msgid "Besiege %d Bosse"
+msgstr "%d غول مرحله را شکست بده"
+
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "%d دشمن را شکست بده (%d / %d)"
+
+msgid "Besiege %d Gegner in einem Run"
+msgstr "در یک دور %d دشمن را شکست بده"
+
+msgid "Besiege %s %d-mal"
+msgstr "%s را %d بار شکست بده"
+
+msgid "Besiege einen Boss"
+msgstr "یک غول مرحله را شکست بده"
 
 msgid "Besiege: %s"
 msgstr "شکست بده: %s"
@@ -1044,6 +1056,12 @@ msgstr "عصای زمین"
 msgid "Erfolg: %s"
 msgstr "دستاورد: %s"
 
+msgid "Erledige %d liegende Untote"
+msgstr "%d مرده‌ی متحرکِ افتاده را تمام کن"
+
+msgid "Erledige einen liegenden Untoten"
+msgstr "یک مرده‌ی متحرکِ افتاده را تمام کن"
+
 msgid "Erledigt"
 msgstr "انجام شد"
 
@@ -1130,6 +1148,12 @@ msgstr "آتش‌بازی"
 
 msgid "Feuerwolf"
 msgstr "گرگ آتشین"
+
+msgid "Finde %d geheime Räume"
+msgstr "%d اتاق مخفی پیدا کن"
+
+msgid "Finde einen geheimen Raum"
+msgstr "یک اتاق مخفی پیدا کن"
 
 msgid "Flechtenleder"
 msgstr "چرم گلسنگ"
@@ -1647,6 +1671,9 @@ msgstr "همزمان %d سکه داشته باش"
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "همزمان %d قلب آبی داشته باش"
 
+msgid "Habe %d × %s gleichzeitig dabei"
+msgstr "%d عدد %s را هم‌زمان همراه داشته باش"
+
 msgid "Halb Fell, halb Feder."
 msgstr "نیمی پوست، نیمی پر."
 
@@ -1904,6 +1931,24 @@ msgstr "کوله کاروان"
 
 msgid "Karte"
 msgstr "نقشه"
+
+msgid "Kaufe %d Dinge bei Egon"
+msgstr "از اگون %d چیز بخر"
+
+msgid "Kaufe %d Dinge im Dungeon"
+msgstr "در سیاه‌چال %d چیز بخر"
+
+msgid "Kaufe %d seltene Dinge bei Egon"
+msgstr "از اگون %d چیز کمیاب بخر"
+
+msgid "Kaufe etwas Seltenes bei Egon"
+msgstr "از اگون یک چیز کمیاب بخر"
+
+msgid "Kaufe etwas bei Egon"
+msgstr "از اگون چیزی بخر"
+
+msgid "Kaufe etwas im Dungeon"
+msgstr "در سیاه‌چال چیزی بخر"
 
 msgid "Kaufen: %d Gold"
 msgstr "خرید: %d طلا"
@@ -2385,8 +2430,14 @@ msgstr "نه در حین نبرد"
 msgid "Nichts geschieht"
 msgstr "اتفاقی نمی‌افتد"
 
+msgid "Nimm %d Glutpakte"
+msgstr "%d پیمان اخگر ببند"
+
 msgid "Nimm %d Glutpakte in einem Run"
 msgstr "در یک دور %d پیمان اخگر ببند"
+
+msgid "Nimm einen Glutpakt"
+msgstr "یک پیمان اخگر ببند"
 
 msgid "Noch ein Glutmond kreist um dich"
 msgstr "یک ماه اخگر دیگر دورت می‌چرخد"
@@ -2438,6 +2489,12 @@ msgstr "جواهر عقیق"
 
 msgid "Opferdolch"
 msgstr "خنجر قربانی"
+
+msgid "Opfere %d Herzen am Opferstein"
+msgstr "%d قلب را روی سنگ قربانی فدا کن"
+
+msgid "Opfere ein Herz am Opferstein"
+msgstr "یک قلب را روی سنگ قربانی فدا کن"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "سنگ قربانی: یک قلب برای یک هدیه"
@@ -3225,6 +3282,12 @@ msgstr "بهت میاد! تقریباً به خوبیِ من. از فردا هم
 msgid "Steht stramm, auch wenn keiner hinsieht."
 msgstr "خبردار می‌ایستد، حتی وقتی کسی نگاه نمی‌کند."
 
+msgid "Steige %d Ebenen hinab"
+msgstr "%d طبقه پایین برو"
+
+msgid "Steige eine Ebene hinab"
+msgstr "یک طبقه پایین برو"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "سنگ‌ها را خرد کن و غنیمت بیشتر"
 
@@ -3257,6 +3320,24 @@ msgstr "سبک"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "بی‌حرکت ایستادن تو را آسیب‌ناپذیر می‌کند"
+
+msgid "Stirb %d-mal"
+msgstr "%d بار بمیر"
+
+msgid "Stirb %d-mal an eigenen Bomben"
+msgstr "%d بار با بمب خودت بمیر"
+
+msgid "Stirb %d-mal durch Fallen"
+msgstr "%d بار در تله بمیر"
+
+msgid "Stirb an einer eigenen Bombe"
+msgstr "با بمب خودت بمیر"
+
+msgid "Stirb durch eine Falle"
+msgstr "در یک تله بمیر"
+
+msgid "Stirb einmal"
+msgstr "یک بار بمیر"
 
 msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
 msgstr "اگر بمیری پول از دست می‌رود. آن را به قوطی‌ات در خانه ببر."
@@ -3429,6 +3510,12 @@ msgstr "معاوضه"
 msgid "Tausch: Beute gegen Besonderes"
 msgstr "معاوضه: غنیمت در برابر چیزی ویژه"
 
+msgid "Tausche %d-mal bei Egon"
+msgstr "%d بار با اگون معامله پایاپای کن"
+
+msgid "Tausche bei Egon"
+msgstr "با اگون معامله پایاپای کن"
+
 msgid "Tauschen"
 msgstr "معاوضه کن"
 
@@ -3485,6 +3572,12 @@ msgstr "برخوردها می‌ترکند، تیرها از سنگ‌ها عب�
 
 msgid "Treue Funken"
 msgstr "جرقه‌های وفادار"
+
+msgid "Trinke %d Tränke"
+msgstr "%d معجون بنوش"
+
+msgid "Trinke einen Trank"
+msgstr "یک معجون بنوش"
 
 msgid "Trollblut"
 msgstr "خون ترول"
@@ -3819,11 +3912,23 @@ msgstr "ده سکه، شانس بالاتر"
 msgid "Zerbrechlicher Schlüssel"
 msgstr "کلید شکننده"
 
+msgid "Zerstöre %d Steine"
+msgstr "%d سنگ را نابود کن"
+
+msgid "Zerstöre einen Stein"
+msgstr "یک سنگ را نابود کن"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "پوست موش را به جای امن طلایی بکش. هرچه آنجا باشد، وقتی بمیری برایت می‌ماند."
 
 msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
 msgstr "یک کوله را کنار کیفت بکش. باید از یک لبه به آن بچسبد."
+
+msgid "Ziehe %d-mal Egons Hebel"
+msgstr "%d بار اهرم اگون را بکش"
+
+msgid "Ziehe Egons Hebel"
+msgstr "اهرم اگون را بکش"
 
 msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
 msgstr "کشیدن: وصل کردن · R / کلیک راست هنگام کشیدن: چرخاندن · روی فهرست: جدا کردن"
@@ -3921,6 +4026,12 @@ msgstr "محکم و گرم."
 msgid "Zähigkeit"
 msgstr "سرسختی"
 
+msgid "Zünde %d Bomben"
+msgstr "%d بمب روشن کن"
+
+msgid "Zünde eine Bombe"
+msgstr "یک بمب روشن کن"
+
 msgid "dein Inventar ist fast voll"
 msgstr "کوله‌ات تقریباً پر است"
 
@@ -3942,8 +4053,14 @@ msgstr "حداکثر"
 msgid "oder Leertaste"
 msgstr "یا کلید فاصله"
 
+msgid "Öffne %d Kisten"
+msgstr "%d صندوق باز کن"
+
 msgid "Öffne dein Inventar mit Tab."
 msgstr "با Tab کیفت را باز کن."
+
+msgid "Öffne eine Kiste"
+msgstr "یک صندوق باز کن"
 
 msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
 msgstr "دری را در سیاه‌چال باز می‌کند. همیشه می‌ماند، با تو به خانه می‌آید و دوباره به داخل می‌رود."

@@ -419,3 +419,9 @@ Heute zieht Egon nach einer Quest schon um (`quests.json` `locations`: anderer H
   - **Glutschlund:** schwitzt, fächelt sich Luft zu, Tisch qualmt leicht.
   - **Wüste (später):** **Sonnenhut** und Sonnenbrille, Sand im Tisch, verkauft „Wasser“.
 - Die Sprüche (Beispiele, Texte nach `docs/figuren/EGON_EHRLICH.md`) stehen dort im Abschnitt „Umzug und Orte“.
+
+## Item-Freischaltungen wie in Isaac (Nachricht vom 2026-11-28) ✅
+
+- ✅ Etwa die Hälfte der 156 freien Relikt-Items wird gesperrt; erst freigeschaltet tauchen sie im Dungeon (und danach bei Egon) auf. Liste: `docs/FREISCHALTUNGEN.md`.
+- ✅ Bedingungen passend zum Item: bestimmte Gegner so oft besiegen, geheime Räume finden, 20 Bomben oder 3 Rubine gleichzeitig dabei, durch eine Falle sterben, 20 und 50 Herzen am Opferstein, die ersten 20 Items entdecken, x-mal sterben, Egons Hebel (5./20. Zug), seltene Käufe bei Egon, Tausch, Kisten, Steine, Tränke.
+- Später denkbar: Freischaltungen für Egons Tisch (Ausrüstung, Behälter), Freischaltungen je Held (mit dem Bogenschützen gewinnen), ein Bildschirm „Fortschritt“ mit allen offenen Bedingungen.

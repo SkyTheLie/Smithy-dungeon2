@@ -204,8 +204,20 @@ msgstr "Amber"
 msgid "Beschläge aus Kupfer, Platz für einen Rubin."
 msgstr "Copper fittings, room for a ruby."
 
+msgid "Besiege %d Bosse"
+msgstr "Defeat %d bosses"
+
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "Defeat %d enemies (%d / %d)"
+
+msgid "Besiege %d Gegner in einem Run"
+msgstr "Defeat %d enemies in one run"
+
+msgid "Besiege %s %d-mal"
+msgstr "Defeat %s %d times"
+
+msgid "Besiege einen Boss"
+msgstr "Defeat a boss"
 
 msgid "Besiege: %s"
 msgstr "Defeat: %s"
@@ -1044,6 +1056,12 @@ msgstr "Earth Staff"
 msgid "Erfolg: %s"
 msgstr "Achievement: %s"
 
+msgid "Erledige %d liegende Untote"
+msgstr "Finish off %d fallen undead"
+
+msgid "Erledige einen liegenden Untoten"
+msgstr "Finish off a fallen undead"
+
 msgid "Erledigt"
 msgstr "Done"
 
@@ -1130,6 +1148,12 @@ msgstr "Fireworks"
 
 msgid "Feuerwolf"
 msgstr "Fire Wolf"
+
+msgid "Finde %d geheime Räume"
+msgstr "Find %d secret rooms"
+
+msgid "Finde einen geheimen Raum"
+msgstr "Find a secret room"
 
 msgid "Flechtenleder"
 msgstr "Lichen Leather"
@@ -1647,6 +1671,9 @@ msgstr "Have %d coins at once"
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Have %d blue hearts at once"
 
+msgid "Habe %d × %s gleichzeitig dabei"
+msgstr "Carry %d × %s at once"
+
 msgid "Halb Fell, halb Feder."
 msgstr "Half fur, half feather."
 
@@ -1904,6 +1931,24 @@ msgstr "Caravan Pack"
 
 msgid "Karte"
 msgstr "Map"
+
+msgid "Kaufe %d Dinge bei Egon"
+msgstr "Buy %d things from Egon"
+
+msgid "Kaufe %d Dinge im Dungeon"
+msgstr "Buy %d things in the dungeon"
+
+msgid "Kaufe %d seltene Dinge bei Egon"
+msgstr "Buy %d rare things from Egon"
+
+msgid "Kaufe etwas Seltenes bei Egon"
+msgstr "Buy something rare from Egon"
+
+msgid "Kaufe etwas bei Egon"
+msgstr "Buy something from Egon"
+
+msgid "Kaufe etwas im Dungeon"
+msgstr "Buy something in the dungeon"
 
 msgid "Kaufen: %d Gold"
 msgstr "Buy: %d gold"
@@ -2385,8 +2430,14 @@ msgstr "Not during a fight"
 msgid "Nichts geschieht"
 msgstr "Nothing happens"
 
+msgid "Nimm %d Glutpakte"
+msgstr "Take %d ember pacts"
+
 msgid "Nimm %d Glutpakte in einem Run"
 msgstr "Take %d ember pacts in one run"
+
+msgid "Nimm einen Glutpakt"
+msgstr "Take an ember pact"
 
 msgid "Noch ein Glutmond kreist um dich"
 msgstr "Another Ember Moon circles you"
@@ -2438,6 +2489,12 @@ msgstr "Opal Jewel"
 
 msgid "Opferdolch"
 msgstr "Sacrificial Knife"
+
+msgid "Opfere %d Herzen am Opferstein"
+msgstr "Sacrifice %d hearts at the altar stone"
+
+msgid "Opfere ein Herz am Opferstein"
+msgstr "Sacrifice a heart at the altar stone"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "Sacrifice stone: a heart for a gift"
@@ -3225,6 +3282,12 @@ msgstr "Suits you! Almost as well as me. From tomorrow on, everything costs a sm
 msgid "Steht stramm, auch wenn keiner hinsieht."
 msgstr "Stands at attention, even when no one is looking."
 
+msgid "Steige %d Ebenen hinab"
+msgstr "Descend %d floors"
+
+msgid "Steige eine Ebene hinab"
+msgstr "Descend a floor"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "Crush rocks and more loot"
 
@@ -3257,6 +3320,24 @@ msgstr "Style"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Standing still makes you invulnerable"
+
+msgid "Stirb %d-mal"
+msgstr "Die %d times"
+
+msgid "Stirb %d-mal an eigenen Bomben"
+msgstr "Die %d times to your own bombs"
+
+msgid "Stirb %d-mal durch Fallen"
+msgstr "Die %d times to traps"
+
+msgid "Stirb an einer eigenen Bombe"
+msgstr "Die to your own bomb"
+
+msgid "Stirb durch eine Falle"
+msgstr "Die to a trap"
+
+msgid "Stirb einmal"
+msgstr "Die once"
 
 msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
 msgstr "If you die, the money is gone. Bring it home to your money box."
@@ -3429,6 +3510,12 @@ msgstr "Trade"
 msgid "Tausch: Beute gegen Besonderes"
 msgstr "Trade: loot for something special"
 
+msgid "Tausche %d-mal bei Egon"
+msgstr "Trade with Egon %d times"
+
+msgid "Tausche bei Egon"
+msgstr "Trade with Egon"
+
 msgid "Tauschen"
 msgstr "Trade"
 
@@ -3485,6 +3572,12 @@ msgstr "Hits burst, shots fly through rocks"
 
 msgid "Treue Funken"
 msgstr "Loyal Sparks"
+
+msgid "Trinke %d Tränke"
+msgstr "Drink %d potions"
+
+msgid "Trinke einen Trank"
+msgstr "Drink a potion"
 
 msgid "Trollblut"
 msgstr "Troll Blood"
@@ -3819,11 +3912,23 @@ msgstr "Ten coins, luck up"
 msgid "Zerbrechlicher Schlüssel"
 msgstr "Fragile key"
 
+msgid "Zerstöre %d Steine"
+msgstr "Destroy %d rocks"
+
+msgid "Zerstöre einen Stein"
+msgstr "Destroy a rock"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "Drag the rat fur into the golden safe spot. What lies there stays with you when you die."
 
 msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
 msgstr "Drag a backpack to your inventory. It must touch it along an edge."
+
+msgid "Ziehe %d-mal Egons Hebel"
+msgstr "Pull Egon's lever %d times"
+
+msgid "Ziehe Egons Hebel"
+msgstr "Pull Egon's lever"
 
 msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
 msgstr "Drag: attach · R / right click while dragging: rotate · Drag onto the list: detach"
@@ -3921,6 +4026,12 @@ msgstr "Tough and warm."
 msgid "Zähigkeit"
 msgstr "Toughness"
 
+msgid "Zünde %d Bomben"
+msgstr "Light %d bombs"
+
+msgid "Zünde eine Bombe"
+msgstr "Light a bomb"
+
 msgid "dein Inventar ist fast voll"
 msgstr "your inventory is almost full"
 
@@ -3942,8 +4053,14 @@ msgstr "max."
 msgid "oder Leertaste"
 msgstr "or press Space"
 
+msgid "Öffne %d Kisten"
+msgstr "Open %d chests"
+
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Open your inventory with Tab."
+
+msgid "Öffne eine Kiste"
+msgstr "Open a chest"
 
 msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
 msgstr "Opens a door in the dungeon. Lasts forever, comes home with you and back in again."

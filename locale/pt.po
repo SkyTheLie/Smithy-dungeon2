@@ -204,8 +204,20 @@ msgstr "Âmbar"
 msgid "Beschläge aus Kupfer, Platz für einen Rubin."
 msgstr "Ferragens de cobre, cabe um rubi."
 
+msgid "Besiege %d Bosse"
+msgstr "Derrote %d chefes"
+
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "Derrote %d inimigos (%d / %d)"
+
+msgid "Besiege %d Gegner in einem Run"
+msgstr "Derrote %d inimigos em uma partida"
+
+msgid "Besiege %s %d-mal"
+msgstr "Derrote %s %d vezes"
+
+msgid "Besiege einen Boss"
+msgstr "Derrote um chefe"
 
 msgid "Besiege: %s"
 msgstr "Derrote: %s"
@@ -1044,6 +1056,12 @@ msgstr "Cajado de terra"
 msgid "Erfolg: %s"
 msgstr "Conquista: %s"
 
+msgid "Erledige %d liegende Untote"
+msgstr "Acabe com %d mortos-vivos caídos"
+
+msgid "Erledige einen liegenden Untoten"
+msgstr "Acabe com um morto-vivo caído"
+
 msgid "Erledigt"
 msgstr "Concluído"
 
@@ -1130,6 +1148,12 @@ msgstr "Fogos de artifício"
 
 msgid "Feuerwolf"
 msgstr "Lobo de fogo"
+
+msgid "Finde %d geheime Räume"
+msgstr "Encontre %d salas secretas"
+
+msgid "Finde einen geheimen Raum"
+msgstr "Encontre uma sala secreta"
 
 msgid "Flechtenleder"
 msgstr "Couro de líquen"
@@ -1647,6 +1671,9 @@ msgstr "Tenha %d moedas ao mesmo tempo"
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Tenha %d corações azuis ao mesmo tempo"
 
+msgid "Habe %d × %s gleichzeitig dabei"
+msgstr "Carregue %d × %s ao mesmo tempo"
+
 msgid "Halb Fell, halb Feder."
 msgstr "Metade pelo, metade pena."
 
@@ -1904,6 +1931,24 @@ msgstr "Mochila de caravana"
 
 msgid "Karte"
 msgstr "Mapa"
+
+msgid "Kaufe %d Dinge bei Egon"
+msgstr "Compre %d coisas do Egon"
+
+msgid "Kaufe %d Dinge im Dungeon"
+msgstr "Compre %d coisas na masmorra"
+
+msgid "Kaufe %d seltene Dinge bei Egon"
+msgstr "Compre %d coisas raras do Egon"
+
+msgid "Kaufe etwas Seltenes bei Egon"
+msgstr "Compre algo raro do Egon"
+
+msgid "Kaufe etwas bei Egon"
+msgstr "Compre algo do Egon"
+
+msgid "Kaufe etwas im Dungeon"
+msgstr "Compre algo na masmorra"
 
 msgid "Kaufen: %d Gold"
 msgstr "Comprar: %d de ouro"
@@ -2385,8 +2430,14 @@ msgstr "Não durante um combate"
 msgid "Nichts geschieht"
 msgstr "Nada acontece"
 
+msgid "Nimm %d Glutpakte"
+msgstr "Aceite %d pactos de brasa"
+
 msgid "Nimm %d Glutpakte in einem Run"
 msgstr "Aceite %d pactos de brasa em uma partida"
+
+msgid "Nimm einen Glutpakt"
+msgstr "Aceite um pacto de brasa"
 
 msgid "Noch ein Glutmond kreist um dich"
 msgstr "Mais uma lua de brasa gira ao seu redor"
@@ -2438,6 +2489,12 @@ msgstr "Joia de opala"
 
 msgid "Opferdolch"
 msgstr "Faca ritual"
+
+msgid "Opfere %d Herzen am Opferstein"
+msgstr "Sacrifique %d corações na pedra de sacrifício"
+
+msgid "Opfere ein Herz am Opferstein"
+msgstr "Sacrifique um coração na pedra de sacrifício"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "Pedra do sacrifício: um coração por um presente"
@@ -3225,6 +3282,12 @@ msgstr "Ficou bem em você! Quase tão bem quanto em mim. A partir de amanhã tu
 msgid "Steht stramm, auch wenn keiner hinsieht."
 msgstr "Fica em sentido, mesmo quando ninguém olha."
 
+msgid "Steige %d Ebenen hinab"
+msgstr "Desça %d andares"
+
+msgid "Steige eine Ebene hinab"
+msgstr "Desça um andar"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "Esmaga pedras e mais saque"
 
@@ -3257,6 +3320,24 @@ msgstr "Estilo"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Ficar parado te deixa invulnerável"
+
+msgid "Stirb %d-mal"
+msgstr "Morra %d vezes"
+
+msgid "Stirb %d-mal an eigenen Bomben"
+msgstr "Morra %d vezes pelas próprias bombas"
+
+msgid "Stirb %d-mal durch Fallen"
+msgstr "Morra %d vezes em armadilhas"
+
+msgid "Stirb an einer eigenen Bombe"
+msgstr "Morra pela própria bomba"
+
+msgid "Stirb durch eine Falle"
+msgstr "Morra em uma armadilha"
+
+msgid "Stirb einmal"
+msgstr "Morra uma vez"
 
 msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
 msgstr "Se você morrer, o dinheiro some. Leve-o para casa, na sua latinha."
@@ -3429,6 +3510,12 @@ msgstr "Troca"
 msgid "Tausch: Beute gegen Besonderes"
 msgstr "Troca: espólio por algo especial"
 
+msgid "Tausche %d-mal bei Egon"
+msgstr "Troque com o Egon %d vezes"
+
+msgid "Tausche bei Egon"
+msgstr "Troque com o Egon"
+
 msgid "Tauschen"
 msgstr "Trocar"
 
@@ -3485,6 +3572,12 @@ msgstr "Acertos explodem, tiros atravessam pedras"
 
 msgid "Treue Funken"
 msgstr "Faíscas leais"
+
+msgid "Trinke %d Tränke"
+msgstr "Beba %d poções"
+
+msgid "Trinke einen Trank"
+msgstr "Beba uma poção"
 
 msgid "Trollblut"
 msgstr "Sangue de troll"
@@ -3819,11 +3912,23 @@ msgstr "Dez moedas, mais sorte"
 msgid "Zerbrechlicher Schlüssel"
 msgstr "Chave frágil"
 
+msgid "Zerstöre %d Steine"
+msgstr "Destrua %d pedras"
+
+msgid "Zerstöre einen Stein"
+msgstr "Destrua uma pedra"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "Arraste a pele de rato para o lugar seguro dourado. O que estiver lá fica com você se morrer."
 
 msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
 msgstr "Arraste uma mochila até o inventário. Ela precisa encostar por uma borda."
+
+msgid "Ziehe %d-mal Egons Hebel"
+msgstr "Puxe a alavanca do Egon %d vezes"
+
+msgid "Ziehe Egons Hebel"
+msgstr "Puxe a alavanca do Egon"
 
 msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
 msgstr "Arrastar: prender · R / clique direito ao arrastar: girar · Para a lista: soltar"
@@ -3921,6 +4026,12 @@ msgstr "Resistente e quente."
 msgid "Zähigkeit"
 msgstr "Resistência"
 
+msgid "Zünde %d Bomben"
+msgstr "Acenda %d bombas"
+
+msgid "Zünde eine Bombe"
+msgstr "Acenda uma bomba"
+
 msgid "dein Inventar ist fast voll"
 msgstr "seu inventário está quase cheio"
 
@@ -3942,8 +4053,14 @@ msgstr "máx."
 msgid "oder Leertaste"
 msgstr "ou aperte Espaço"
 
+msgid "Öffne %d Kisten"
+msgstr "Abra %d baús"
+
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Abra o inventário com Tab."
+
+msgid "Öffne eine Kiste"
+msgstr "Abra um baú"
 
 msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
 msgstr "Abre uma porta na masmorra. Dura para sempre, volta para casa com você e entra de novo."

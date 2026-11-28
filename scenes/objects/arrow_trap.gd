@@ -87,6 +87,7 @@ func _shoot() -> void:
 	shot.player = player
 	shot.arrow = true
 	shot.damage = int(settings.get("damage", 2))
+	shot.cause = "trap"
 	shot.enemy_damage = float(settings.get("enemy_damage", 4.0))
 	shot.dungeon = dungeon
 	shot.lifetime = 4.0

@@ -650,7 +650,7 @@ func _check_hazards() -> void:
 				hazard.spring(player)
 				message.emit("Festgehalten!")
 			else:
-				player.take_hit(hazard.damage)
+				player.take_hit(hazard.damage, "trap")
 			return
 
 
@@ -862,11 +862,16 @@ func _on_enemy_died(enemy: Enemy) -> void:
 	var leader_rules: Dictionary = Content.floors_extra("mini_boss")
 	run.add_kill_exp(enemy.is_boss or enemy.is_leader, float(floor_data.get("exp_mult", 1.0)) * (float(leader_rules.get("exp_share", 0.5)) if enemy.is_leader else 1.0))
 	run.on_kill()
+	run.note_best("kills_run", run.kills)
 	if run.record_progress:
-		run.announce(Progress.add_kills(1))
+		run.announce(Progress.add_enemy_kill(enemy.id))
 		run.announce(Progress.meet_enemy(enemy.id))
 		if enemy.is_boss:
 			run.announce(Progress.beat_boss(enemy.id))
+	if enemy.is_boss:
+		run.count("boss_kills")
+	if enemy.finished_on_ground:
+		run.count("undead")
 	if enemy.is_boss:
 		_drop_enemy_loot(enemy)
 		_drop_coins(enemy)
@@ -1519,6 +1524,7 @@ func open_chest(room: DungeonRoom, chest: Chest, how: String) -> void:
 		loss = int(data.get("bomb_loss", 0))
 	else:
 		chest.show_open(how == "key")
+	run.count("chests")
 	var range_of: Array = data.get("drops", [1, 1])
 	var count: int = maxi(0, _rng.randi_range(int(range_of[0]), int(range_of[-1])) - loss)
 	var base: Vector3 = chest.global_position
@@ -1600,6 +1606,7 @@ func _check_sacrifice() -> void:
 		message.emit("Du hast nicht genug Leben")
 		return
 	run.take_damage(2)
+	run.count("sacrifices")
 	player.invulnerable = Player.INVULNERABLE_TIME
 	AudioManager.play_sound("player_hurt")
 	var rewards: Array = (Content.floors_extra("sacrifice") as Dictionary).get("rewards", [])
@@ -2037,7 +2044,7 @@ func spawn_projectile(at: Vector3, direction: Vector3, stats: ShotStats, charge:
 
 ## Hurts enemies (and the player if `hurts_player`, not with the Schmiedeschürze) within
 ## `radius`, breaks rocks.
-func explode(at: Vector3, radius: float, damage: float, hurts_player: bool) -> void:
+func explode(at: Vector3, radius: float, damage: float, hurts_player: bool, cause: String = "bomb") -> void:
 	Fx.explosion(effects, at, radius)
 	AudioManager.play_sound("explosion", randf_range(0.85, 1.05))
 	for enemy: Enemy in enemies.duplicate():
@@ -2050,6 +2057,7 @@ func explode(at: Vector3, radius: float, damage: float, hurts_player: bool) -> v
 		if door.hidden and layout.get_type(door.cells[0]) != FloorLayout.SPECIAL and layout.get_type(door.cells[1]) != FloorLayout.SPECIAL:
 			if Vector2(door.global_position.x - at.x, door.global_position.z - at.z).length() < radius + SECRET_BLAST_REACH:
 				door.reveal()
+				run.count("secret_rooms")
 				message.emit("Ein geheimer Raum!")
 	var room: DungeonRoom = rooms.get(RoomBuilder.cell_at(at))
 	if room:
@@ -2075,11 +2083,12 @@ func explode(at: Vector3, radius: float, damage: float, hurts_player: bool) -> v
 		var to_player: Vector3 = player.global_position - at
 		to_player.y = 0.0
 		if to_player.length() < radius * 0.8:
-			player.take_hit(2)
+			player.take_hit(2, cause)
 
 
 func _break_rock(room: DungeonRoom, rock: Rock) -> void:
 	room.remove_rock(rock)
+	run.count("rocks")
 	Fx.puff(effects, rock.global_position + Vector3(0, 0.5, 0), "spark", 1.0)
 	rock.queue_free()
 

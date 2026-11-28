@@ -96,5 +96,5 @@ func _hurt_player() -> void:
 	offset.y = 0.0
 	if offset.length() < RADIUS + player.hit_radius():
 		var away: Vector3 = offset.normalized() if offset.length() > 0.01 else Vector3.BACK
-		player.take_hit(damage)
+		player.take_hit(damage, "trap")
 		player.knock(away * push)

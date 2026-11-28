@@ -140,6 +140,7 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 Reihenfolge (klein zuerst): Schuss-Farben → Untote stehen auf → Geister unsichtbar → Kisten und Stein-Kammer → Pfeil-Wände → Stachelsteine → Monster-Falle → Boss-Phasen → Wand-Geist → Wurm-Boss → Vogel-Boss → Egons Umzug mit Gimmicks → UI-Komfort im Laden und Tab.
 
 - ✅ Schuss-Farben nach Schaden (`enemies.json` `shot_colors`, `feature/schuss-farben`).
+- ✅ Item-Freischaltungen wie in Isaac: 78 weitere Relikt-Items gesperrt (Gegner besiegen, Tode, Fallen-Tod, Geheimräume, Opferstein, Bomben/Rubine dabei, Egons Hebel, seltene Käufe …), Fortschritt im Lexikon, „Freigeschaltet“ im Laden (`docs/FREISCHALTUNGEN.md`, `feature/item-freischaltungen`). Im Spiel testen: neues Spiel → Lexikon: gesperrte Items mit Bedingung und Zähler → durch eine Falle sterben → Laden: „Freigeschaltet: Eisenhaut“ → Hebel 5-mal → „Glücksflachs“.
 - ✅ Gleiche Steuerung (Shift+Klick in Laden und Tab) und abschaltbare Tastenhilfe (`feature/steuerung-tastenhilfe`).
 - ✅ Ausrüstungs-Sets (3 Sets, Rechtsklick speichert, Klick legt an; `feature/ausruestungs-sets`).
 - ✅ Rückkauf der letzten 3 Verkäufe des Tages (`feature/rueckkauf`).

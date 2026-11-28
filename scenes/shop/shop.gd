@@ -116,6 +116,11 @@ var _box_label: Label
 var _box_warning: Label
 var _skill_window: SkillTreeWindow
 var _black: ColorRect
+## "Freigeschaltet: …" at the top for unlocks the run did not show (Progress.take_fresh), one
+## after another.
+var _unlock_toast: PanelContainer
+var _unlock_text: Label
+var _unlock_queue: Array[String] = []
 ## true while Egon does something by himself (tutorial, lever): clicks are ignored.
 var _locked: bool = false
 var _rng := RandomNumberGenerator.new()
@@ -798,6 +803,39 @@ func _refresh() -> void:
 		_trade_panel.refresh()
 	_hero.refresh()
 	_chance_bar.refresh()
+	_show_unlocks()
+
+
+## Shows the items (and heroes) unlocked since the last look: by dying, Egon's lever, buying …
+func _show_unlocks() -> void:
+	var busy: bool = not _unlock_queue.is_empty()
+	_unlock_queue.append_array(Progress.take_fresh())
+	if busy or _unlock_queue.is_empty():
+		return
+	if _unlock_toast == null:
+		_unlock_toast = _panel(Vector2.ZERO)
+		_unlock_toast.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_unlock_toast.z_index = 20
+		_unlock_text = _label("", 11, Color(1.0, 0.86, 0.4))
+		_unlock_toast.add_child(_unlock_text)
+	while not _unlock_queue.is_empty():
+		var id: String = _unlock_queue[0]
+		var data: Dictionary = Content.item(id) if not Content.item(id).is_empty() else Content.character(id)
+		_unlock_text.text = Language.translate("Freigeschaltet: %s") % Language.translate(String(data.get("name", id)))
+		_unlock_toast.reset_size()
+		_unlock_toast.position = Vector2((640.0 - _unlock_toast.size.x) / 2.0, 34.0)
+		_unlock_toast.modulate.a = 0.0
+		_unlock_toast.visible = true
+		AudioManager.play_sound("achievement")
+		var fade := create_tween()
+		fade.tween_property(_unlock_toast, "modulate:a", 1.0, 0.25)
+		fade.tween_interval(2.2)
+		fade.tween_property(_unlock_toast, "modulate:a", 0.0, 0.4)
+		await fade.finished
+		if not is_inside_tree():
+			return
+		_unlock_queue.remove_at(0)
+	_unlock_toast.visible = false
 
 
 ## Width × height of the table grid (shop.json table_grid).

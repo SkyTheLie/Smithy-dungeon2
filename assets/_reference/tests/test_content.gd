@@ -29,9 +29,18 @@ func run() -> void:
 			check(String(kind) in ["heart", "bomb", "key"], "item %s: known spawn %s (no coins in the dungeon)" % [id, kind])
 		if item.has("unlock"):
 			var unlock: Dictionary = item["unlock"]
-			check(String(unlock.get("type", "")) in ["boss", "wins", "kills", "discovered", "best", "fast_win"], "item %s: known unlock" % id)
+			check(String(unlock.get("type", "")) in ["boss", "wins", "kills", "discovered", "best", "fast_win", "kill", "count"], "item %s: known unlock" % id)
 			if unlock.get("type", "") == "best":
-				check(String(unlock.get("key", "")) in ["hearts", "coins", "blue", "clean_floors", "pacts", "floor"], "item %s: known best key" % id)
+				var best_key: String = String(unlock.get("key", ""))
+				if best_key.begins_with("loot:"):
+					check(not content.call("material", best_key.substr(5)).is_empty(), "item %s: known loot %s" % [id, best_key])
+				else:
+					check(best_key in ["hearts", "coins", "blue", "clean_floors", "pacts", "floor", "kills_run"], "item %s: known best key" % id)
+			if unlock.get("type", "") in ["kill", "boss"]:
+				check(not content.call("enemy", String(unlock.get("id", ""))).is_empty(), "item %s: known enemy" % id)
+			if unlock.get("type", "") == "count":
+				check((script("res://scripts/systems/progress.gd").get("COUNT_KEYS") as Array).has(String(unlock.get("key", ""))), "item %s: known count key" % id)
+			check(not script("res://scenes/ui/menus/lexicon_window.gd").call("unlock_text", unlock).is_empty(), "item %s: the lexicon can say what unlocks it" % id)
 			if unlock.get("type", "") == "boss":
 				check(bool(enemies_data.get(String(unlock.get("id", "")), {}).get("ai", "") == "boss"), "item %s: unlock boss exists" % id)
 			else:

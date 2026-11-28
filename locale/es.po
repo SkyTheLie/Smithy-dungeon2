@@ -204,8 +204,20 @@ msgstr "Ámbar"
 msgid "Beschläge aus Kupfer, Platz für einen Rubin."
 msgstr "Herrajes de cobre, cabe un rubí."
 
+msgid "Besiege %d Bosse"
+msgstr "Derrota a %d jefes"
+
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "Derrota a %d enemigos (%d / %d)"
+
+msgid "Besiege %d Gegner in einem Run"
+msgstr "Derrota a %d enemigos en una partida"
+
+msgid "Besiege %s %d-mal"
+msgstr "Derrota a %s %d veces"
+
+msgid "Besiege einen Boss"
+msgstr "Derrota a un jefe"
 
 msgid "Besiege: %s"
 msgstr "Derrota a: %s"
@@ -1044,6 +1056,12 @@ msgstr "Bastón de tierra"
 msgid "Erfolg: %s"
 msgstr "Logro: %s"
 
+msgid "Erledige %d liegende Untote"
+msgstr "Remata a %d no muertos caídos"
+
+msgid "Erledige einen liegenden Untoten"
+msgstr "Remata a un no muerto caído"
+
 msgid "Erledigt"
 msgstr "Hecho"
 
@@ -1130,6 +1148,12 @@ msgstr "Fuegos artificiales"
 
 msgid "Feuerwolf"
 msgstr "Lobo de fuego"
+
+msgid "Finde %d geheime Räume"
+msgstr "Encuentra %d salas secretas"
+
+msgid "Finde einen geheimen Raum"
+msgstr "Encuentra una sala secreta"
 
 msgid "Flechtenleder"
 msgstr "Cuero de liquen"
@@ -1647,6 +1671,9 @@ msgstr "Ten %d monedas a la vez"
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Ten %d corazones azules a la vez"
 
+msgid "Habe %d × %s gleichzeitig dabei"
+msgstr "Lleva %d × %s a la vez"
+
 msgid "Halb Fell, halb Feder."
 msgstr "Mitad piel, mitad pluma."
 
@@ -1904,6 +1931,24 @@ msgstr "Mochila de caravana"
 
 msgid "Karte"
 msgstr "Mapa"
+
+msgid "Kaufe %d Dinge bei Egon"
+msgstr "Compra %d cosas a Egon"
+
+msgid "Kaufe %d Dinge im Dungeon"
+msgstr "Compra %d cosas en la mazmorra"
+
+msgid "Kaufe %d seltene Dinge bei Egon"
+msgstr "Compra %d cosas raras a Egon"
+
+msgid "Kaufe etwas Seltenes bei Egon"
+msgstr "Compra algo raro a Egon"
+
+msgid "Kaufe etwas bei Egon"
+msgstr "Compra algo a Egon"
+
+msgid "Kaufe etwas im Dungeon"
+msgstr "Compra algo en la mazmorra"
 
 msgid "Kaufen: %d Gold"
 msgstr "Comprar: %d de oro"
@@ -2385,8 +2430,14 @@ msgstr "No durante un combate"
 msgid "Nichts geschieht"
 msgstr "No pasa nada"
 
+msgid "Nimm %d Glutpakte"
+msgstr "Acepta %d pactos de brasa"
+
 msgid "Nimm %d Glutpakte in einem Run"
 msgstr "Acepta %d pactos de brasa en una partida"
+
+msgid "Nimm einen Glutpakt"
+msgstr "Acepta un pacto de brasa"
 
 msgid "Noch ein Glutmond kreist um dich"
 msgstr "Otra luna de brasa gira a tu alrededor"
@@ -2438,6 +2489,12 @@ msgstr "Joya de ópalo"
 
 msgid "Opferdolch"
 msgstr "Cuchillo ritual"
+
+msgid "Opfere %d Herzen am Opferstein"
+msgstr "Sacrifica %d corazones en la piedra de sacrificio"
+
+msgid "Opfere ein Herz am Opferstein"
+msgstr "Sacrifica un corazón en la piedra de sacrificio"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "Piedra del sacrificio: un corazón por un don"
@@ -3225,6 +3282,12 @@ msgstr "¡Te queda bien! Casi tan bien como a mí. Desde mañana todo cuesta una
 msgid "Steht stramm, auch wenn keiner hinsieht."
 msgstr "Firme, aunque nadie mire."
 
+msgid "Steige %d Ebenen hinab"
+msgstr "Desciende %d pisos"
+
+msgid "Steige eine Ebene hinab"
+msgstr "Desciende un piso"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "Aplasta rocas y más botín"
 
@@ -3257,6 +3320,24 @@ msgstr "Estilo"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Quedarte quieto te hace invulnerable"
+
+msgid "Stirb %d-mal"
+msgstr "Muere %d veces"
+
+msgid "Stirb %d-mal an eigenen Bomben"
+msgstr "Muere %d veces por tus propias bombas"
+
+msgid "Stirb %d-mal durch Fallen"
+msgstr "Muere %d veces por trampas"
+
+msgid "Stirb an einer eigenen Bombe"
+msgstr "Muere por tu propia bomba"
+
+msgid "Stirb durch eine Falle"
+msgstr "Muere en una trampa"
+
+msgid "Stirb einmal"
+msgstr "Muere una vez"
 
 msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
 msgstr "Si mueres, el dinero se pierde. Llévalo a casa, a tu lata."
@@ -3429,6 +3510,12 @@ msgstr "Trueque"
 msgid "Tausch: Beute gegen Besonderes"
 msgstr "Trueque: botín por algo especial"
 
+msgid "Tausche %d-mal bei Egon"
+msgstr "Intercambia con Egon %d veces"
+
+msgid "Tausche bei Egon"
+msgstr "Intercambia con Egon"
+
 msgid "Tauschen"
 msgstr "Cambiar"
 
@@ -3485,6 +3572,12 @@ msgstr "Los impactos estallan, los disparos atraviesan rocas"
 
 msgid "Treue Funken"
 msgstr "Chispas leales"
+
+msgid "Trinke %d Tränke"
+msgstr "Bebe %d pociones"
+
+msgid "Trinke einen Trank"
+msgstr "Bebe una poción"
 
 msgid "Trollblut"
 msgstr "Sangre de trol"
@@ -3819,11 +3912,23 @@ msgstr "Diez monedas, más suerte"
 msgid "Zerbrechlicher Schlüssel"
 msgstr "Llave frágil"
 
+msgid "Zerstöre %d Steine"
+msgstr "Destruye %d rocas"
+
+msgid "Zerstöre einen Stein"
+msgstr "Destruye una roca"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "Arrastra la piel de rata al lugar seguro dorado. Lo que esté ahí lo conservas al morir."
 
 msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
 msgstr "Arrastra una mochila a tu inventario. Debe tocarlo por un borde."
+
+msgid "Ziehe %d-mal Egons Hebel"
+msgstr "Tira de la palanca de Egon %d veces"
+
+msgid "Ziehe Egons Hebel"
+msgstr "Tira de la palanca de Egon"
 
 msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
 msgstr "Arrastrar: acoplar · R / clic derecho al arrastrar: girar · A la lista: quitar"
@@ -3921,6 +4026,12 @@ msgstr "Resistente y cálido."
 msgid "Zähigkeit"
 msgstr "Dureza"
 
+msgid "Zünde %d Bomben"
+msgstr "Enciende %d bombas"
+
+msgid "Zünde eine Bombe"
+msgstr "Enciende una bomba"
+
 msgid "dein Inventar ist fast voll"
 msgstr "tu inventario está casi lleno"
 
@@ -3942,8 +4053,14 @@ msgstr "máx."
 msgid "oder Leertaste"
 msgstr "o pulsa Espacio"
 
+msgid "Öffne %d Kisten"
+msgstr "Abre %d cofres"
+
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Abre tu inventario con Tab."
+
+msgid "Öffne eine Kiste"
+msgstr "Abre un cofre"
 
 msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
 msgstr "Abre una puerta de la mazmorra. Dura para siempre, vuelve contigo a casa y entra otra vez."

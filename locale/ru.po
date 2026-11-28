@@ -204,8 +204,20 @@ msgstr "Янтарь"
 msgid "Beschläge aus Kupfer, Platz für einen Rubin."
 msgstr "Медные заклёпки, место для рубина."
 
+msgid "Besiege %d Bosse"
+msgstr "Победи %d боссов"
+
 msgid "Besiege %d Gegner (%d / %d)"
 msgstr "Победи %d врагов (%d / %d)"
+
+msgid "Besiege %d Gegner in einem Run"
+msgstr "Победи %d врагов за один забег"
+
+msgid "Besiege %s %d-mal"
+msgstr "Победи %s %d раз"
+
+msgid "Besiege einen Boss"
+msgstr "Победи босса"
 
 msgid "Besiege: %s"
 msgstr "Победи: %s"
@@ -1044,6 +1056,12 @@ msgstr "Посох земли"
 msgid "Erfolg: %s"
 msgstr "Достижение: %s"
 
+msgid "Erledige %d liegende Untote"
+msgstr "Добей %d лежащих нежитей"
+
+msgid "Erledige einen liegenden Untoten"
+msgstr "Добей лежащую нежить"
+
 msgid "Erledigt"
 msgstr "Выполнено"
 
@@ -1130,6 +1148,12 @@ msgstr "Фейерверк"
 
 msgid "Feuerwolf"
 msgstr "Огненный волк"
+
+msgid "Finde %d geheime Räume"
+msgstr "Найди %d тайных комнат"
+
+msgid "Finde einen geheimen Raum"
+msgstr "Найди тайную комнату"
 
 msgid "Flechtenleder"
 msgstr "Лишайниковая кожа"
@@ -1647,6 +1671,9 @@ msgstr "Имей %d монет одновременно"
 msgid "Habe %d blaue Herzen gleichzeitig"
 msgstr "Имей %d синих сердец одновременно"
 
+msgid "Habe %d × %s gleichzeitig dabei"
+msgstr "Носи с собой %d × %s одновременно"
+
 msgid "Halb Fell, halb Feder."
 msgstr "Наполовину мех, наполовину перья."
 
@@ -1904,6 +1931,24 @@ msgstr "Караванный рюкзак"
 
 msgid "Karte"
 msgstr "Карта"
+
+msgid "Kaufe %d Dinge bei Egon"
+msgstr "Купи у Эгона %d вещей"
+
+msgid "Kaufe %d Dinge im Dungeon"
+msgstr "Купи %d вещей в подземелье"
+
+msgid "Kaufe %d seltene Dinge bei Egon"
+msgstr "Купи у Эгона %d редких вещей"
+
+msgid "Kaufe etwas Seltenes bei Egon"
+msgstr "Купи у Эгона что-нибудь редкое"
+
+msgid "Kaufe etwas bei Egon"
+msgstr "Купи что-нибудь у Эгона"
+
+msgid "Kaufe etwas im Dungeon"
+msgstr "Купи что-нибудь в подземелье"
 
 msgid "Kaufen: %d Gold"
 msgstr "Купить: %d золота"
@@ -2385,8 +2430,14 @@ msgstr "Не во время боя"
 msgid "Nichts geschieht"
 msgstr "Ничего не происходит"
 
+msgid "Nimm %d Glutpakte"
+msgstr "Заключи %d пактов углей"
+
 msgid "Nimm %d Glutpakte in einem Run"
 msgstr "Заключи %d пактов жара за один забег"
+
+msgid "Nimm einen Glutpakt"
+msgstr "Заключи пакт углей"
 
 msgid "Noch ein Glutmond kreist um dich"
 msgstr "Ещё одна угольная луна кружит вокруг"
@@ -2438,6 +2489,12 @@ msgstr "Опаловый самоцвет"
 
 msgid "Opferdolch"
 msgstr "Ритуальный нож"
+
+msgid "Opfere %d Herzen am Opferstein"
+msgstr "Пожертвуй %d сердец на жертвенном камне"
+
+msgid "Opfere ein Herz am Opferstein"
+msgstr "Пожертвуй сердце на жертвенном камне"
 
 msgid "Opferstein: ein Herz für eine Gabe"
 msgstr "Камень жертвы: сердце за дар"
@@ -3225,6 +3282,12 @@ msgstr "Тебе идёт! Почти как мне. С завтрашнего �
 msgid "Steht stramm, auch wenn keiner hinsieht."
 msgstr "Стоит навытяжку, даже когда никто не смотрит."
 
+msgid "Steige %d Ebenen hinab"
+msgstr "Спустись на %d уровней"
+
+msgid "Steige eine Ebene hinab"
+msgstr "Спустись на уровень"
+
 msgid "Steine zertreten und mehr Beute"
 msgstr "Дави камни и больше добычи"
 
@@ -3257,6 +3320,24 @@ msgstr "Стиль"
 
 msgid "Stillstehen macht dich unverwundbar"
 msgstr "Стоя на месте, ты неуязвим"
+
+msgid "Stirb %d-mal"
+msgstr "Умри %d раз"
+
+msgid "Stirb %d-mal an eigenen Bomben"
+msgstr "Умри %d раз от своих бомб"
+
+msgid "Stirb %d-mal durch Fallen"
+msgstr "Умри %d раз в ловушках"
+
+msgid "Stirb an einer eigenen Bombe"
+msgstr "Умри от своей бомбы"
+
+msgid "Stirb durch eine Falle"
+msgstr "Умри в ловушке"
+
+msgid "Stirb einmal"
+msgstr "Умри один раз"
 
 msgid "Stirbst du, ist das Geld weg. Bring es nach Hause in deine Dose."
 msgstr "Умрёшь — деньги пропадут. Отнеси их домой в свою коробку."
@@ -3429,6 +3510,12 @@ msgstr "Обмен"
 msgid "Tausch: Beute gegen Besonderes"
 msgstr "Обмен: добыча на особые вещи"
 
+msgid "Tausche %d-mal bei Egon"
+msgstr "Обменяйся с Эгоном %d раз"
+
+msgid "Tausche bei Egon"
+msgstr "Обменяйся с Эгоном"
+
 msgid "Tauschen"
 msgstr "Обменять"
 
@@ -3485,6 +3572,12 @@ msgstr "Попадания разлетаются, выстрелы летят �
 
 msgid "Treue Funken"
 msgstr "Верные искры"
+
+msgid "Trinke %d Tränke"
+msgstr "Выпей %d зелий"
+
+msgid "Trinke einen Trank"
+msgstr "Выпей зелье"
 
 msgid "Trollblut"
 msgstr "Кровь тролля"
@@ -3819,11 +3912,23 @@ msgstr "Десять монет, удача выше"
 msgid "Zerbrechlicher Schlüssel"
 msgstr "Хрупкий ключ"
 
+msgid "Zerstöre %d Steine"
+msgstr "Разрушь %d камней"
+
+msgid "Zerstöre einen Stein"
+msgstr "Разрушь камень"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "Перетащи крысиную шкурку в золотое надёжное место. Что там лежит, останется при смерти."
 
 msgid "Zieh einen Rucksack an dein Inventar. Er muss es an einer Kante berühren."
 msgstr "Перетащи рюкзак к инвентарю. Он должен касаться его краем."
+
+msgid "Ziehe %d-mal Egons Hebel"
+msgstr "Дёрни рычаг Эгона %d раз"
+
+msgid "Ziehe Egons Hebel"
+msgstr "Дёрни рычаг Эгона"
 
 msgid "Ziehen: anbauen · R / Rechtsklick beim Ziehen: drehen · Auf die Liste ziehen: abnehmen"
 msgstr "Тянуть: пристегнуть · R / ПКМ при перетаскивании: повернуть · На список: снять"
@@ -3921,6 +4026,12 @@ msgstr "Прочная и тёплая."
 msgid "Zähigkeit"
 msgstr "Стойкость"
 
+msgid "Zünde %d Bomben"
+msgstr "Подожги %d бомб"
+
+msgid "Zünde eine Bombe"
+msgstr "Подожги бомбу"
+
 msgid "dein Inventar ist fast voll"
 msgstr "инвентарь почти полон"
 
@@ -3942,8 +4053,14 @@ msgstr "макс."
 msgid "oder Leertaste"
 msgstr "или пробел"
 
+msgid "Öffne %d Kisten"
+msgstr "Открой %d сундуков"
+
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Открой инвентарь клавишей Tab."
+
+msgid "Öffne eine Kiste"
+msgstr "Открой сундук"
 
 msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
 msgstr "Открывает дверь в подземелье. Вечный: вернётся с тобой домой и снова пойдёт внутрь."

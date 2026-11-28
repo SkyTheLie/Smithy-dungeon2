@@ -110,6 +110,11 @@ func _on_died() -> void:
 	Game.run.levels_gained = MetaState.add_exp(Game.run.exp_earned)
 	# Counted: after the second death Egon shows the potions (data/potions.json unlock_deaths).
 	MetaState.add_death()
+	# Unlocks by dying (not shown here: the shop shows them, Progress.take_fresh).
+	if Game.run.record_progress:
+		Progress.add_count("deaths")
+		if Game.run.last_hit_cause in ["trap", "bomb"]:
+			Progress.add_count("deaths_" + Game.run.last_hit_cause)
 	MetaState.end_run(0, Game.run.bag.lose_unsafe(), rng)
 	await get_tree().create_timer(DEATH_DELAY, false).timeout
 	end_screen.open(Game.run, false)

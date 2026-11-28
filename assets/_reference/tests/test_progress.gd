@@ -7,7 +7,7 @@ func run() -> void:
 	var progress: Script = script("res://scripts/systems/progress.gd")
 	check(not progress.call("is_discovered", "glutkern"), "nothing discovered at first")
 	check(not progress.call("is_unlocked", "gesprengte_fessel"), "Gesprengte Fessel locked at first")
-	check(progress.call("is_unlocked", "glutkern"), "items without unlock are open")
+	check(progress.call("is_unlocked", "blasebalg"), "items without unlock are open")
 
 	var run_state: Object = script("res://scripts/systems/run_state.gd").new(1)
 	# The Magier's Glutstab (start weapon) counts as discovered as well.

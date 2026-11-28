@@ -26,7 +26,8 @@ Alles in `data/`. Nach jeder Änderung: `bash assets/_reference/run_tests.sh tes
 - `secret: true`: nur im Geheimraum (dann keine `pools`). Weitere `pools`: `pact` (Glutpakt) und `shrine` (Schrein).
 - Neue `stats`: `bomb_size`, `luck`, `guard_time` (Sekunden), `helpers` (Funken).
 - Neue `flags` und alle Zahlen dazu: `data/items.json` „_info“ und `data/player.json` „effects“.
-- `unlock` auch `{"type": "best", "key": "coins", "count": 55}` (hearts, coins, blue, clean_floors, pacts, floor) und `{"type": "fast_win", "count": 30}`.
+- `unlock` auch `{"type": "best", "key": "coins", "count": 55}` (hearts, coins, blue, clean_floors, pacts, floor, kills_run = Gegner in einem Run, `loot:<id>` = so viel dieser Beute gleichzeitig in der Tasche, z. B. `loot:ruby`, `loot:bomb`) und `{"type": "fast_win", "count": 30}`.
+- `unlock` `{"type": "kill", "id": "rat", "count": 150}` (diesen Gegner so oft besiegen) und `{"type": "count", "key": "deaths", "count": 10}` (so oft getan, alle Runs zusammen; Schlüssel: `Progress.COUNT_KEYS`: deaths, deaths_trap, deaths_bomb, secret_rooms, sacrifices (Herzen am Opferstein), bombs_used, chests, potions, rerolls (Egons Hebel), egon_buys, rare_buys (ab R3), trades, undead (liegende Untote erledigt), pacts, floors, boss_kills, shop_buys (im Dungeon gekauft), rocks). Neuer Schlüssel: in `COUNT_KEYS`, an der passenden Stelle zählen, Text in `LexiconWindow.count_text`. Übersicht aller Freischaltungen: `docs/FREISCHALTUNGEN.md`.
 
 - `category`: offensiv, defensiv oder utility (Pflicht). `docs/ITEMLISTE.md` wird daraus erzeugt.
 - Neue Werte/Flags: `body` (Größe, mit `body_mult`), `bleed`, `shuriken`, `dash`, `blink`, `mode: melee`.

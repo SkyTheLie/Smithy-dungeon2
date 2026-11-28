@@ -162,6 +162,8 @@ var _wobble_left: float = 0.0
 var _swell_left: float = 0.0
 ## "revive": lying on the floor (seconds left), how often it went down already.
 var _downed_left: float = 0.0
+## true if it died lying on the ground (an undead finished off), for Dungeon.
+var finished_on_ground: bool = false
 var _downs: int = 0
 ## "revive": the glow under the body that grows until it stands up; the groan before it did.
 var _rise_glow: MeshInstance3D
@@ -628,6 +630,8 @@ func _out_of_life() -> void:
 		sound("enemy_die", 0.7)
 		_show_rise_glow()
 		return
+	# Hit again while lying: finished for good (unlocks count it).
+	finished_on_ground = _downed_left > 0.0
 	_die()
 
 
@@ -1135,7 +1139,7 @@ func _death_tricks() -> void:
 		shoot_pattern(String(data["death_shots"]), {})
 	var blast: Dictionary = data.get("death_blast", {})
 	if not blast.is_empty():
-		dungeon.explode(global_position, float(blast.get("radius", 1.8)), float(blast.get("damage", 4.0)), true)
+		dungeon.explode(global_position, float(blast.get("radius", 1.8)), float(blast.get("damage", 4.0)), true, "")
 	var spawn: Array = data.get("death_spawn", [])
 	if spawn.size() >= 2:
 		for i in int(spawn[1]):
