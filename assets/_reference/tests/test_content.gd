@@ -151,7 +151,8 @@ func _check_enemy_tricks(id: String, enemies: Dictionary) -> void:
 		check((data["tint"] as Array).size() == 3, "enemy %s: tint [r, g, b]" % id)
 	var revive: Dictionary = data.get("revive", {})
 	if not revive.is_empty():
-		check(float(revive.get("time", 0.0)) > 0.5 and int(revive.get("times", 0)) >= 1, "enemy %s: revive time and times" % id)
+		check(float(revive.get("time", 0.0)) > 0.5 and int(revive.get("times", -1)) >= 0, "enemy %s: revive time and times (0 = every time)" % id)
+		check(float(revive.get("stand_life", 0.5)) > 0.0 and float(revive.get("stand_life", 0.5)) <= 1.0, "enemy %s: revive stand_life is a share of the life" % id)
 
 
 ## data/loot.json: every material has a picture, a name, a rarity 1-8 and a value; every enemy

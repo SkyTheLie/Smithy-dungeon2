@@ -17,8 +17,10 @@ extends CharacterBody3D
 ## "tint": [r, g, b] colours the picture (one picture, several enemies).
 ## "death_shots": a pattern it shoots when it dies; "death_spawn": [id, count] = it bursts into
 ##    these; "death_blast": {"radius", "damage"} = it explodes (hurts the player and enemies near).
-## "revive": {"time", "times", "down_life"}: when its life is gone it collapses first; hit it again
-##    while it lies there (it has a little life left), else it stands up again after "time" seconds.
+## "revive": {"time", "times", "down_life", "stand_life"}: when its life is gone it collapses first;
+##    hit the body again while it lies there (it has "down_life" of its life left), else it stands
+##    up again after "time" seconds with "stand_life" (default 0.5) of its full life. "times" = how
+##    often (0 = every time: undead only stay down when their body is destroyed).
 ## "burrow" "shots": a pattern it shoots when it comes up.
 ## "leap": {"every", "range", "height"}: crouches, then jumps high at the player and lands on them.
 ## "burrow": {"every", "time"}: digs into the floor (cannot be hit), a red mark shows where it
@@ -138,12 +140,18 @@ var _brain: BossBrain = null
 var _moves: EnemyMoves = null
 ## The colour of the picture ("tint"), white without.
 var _base_color: Color = Color.WHITE
+## "revive": seconds before standing up when it twitches and groans; colour of the glow under it.
+const RISE_WARNING: float = 0.8
+const RISE_COLOR := Color(0.45, 1.0, 0.55, 0.45)
 ## Warnings before an attack: shaking, swelling up (seconds left).
 var _wobble_left: float = 0.0
 var _swell_left: float = 0.0
 ## "revive": lying on the floor (seconds left), how often it went down already.
 var _downed_left: float = 0.0
 var _downs: int = 0
+## "revive": the glow under the body that grows until it stands up; the groan before it did.
+var _rise_glow: MeshInstance3D
+var _groaned: bool = false
 ## "alternate" pattern: cross or diagonal next.
 var _pattern_flip: bool = false
 ## Killed by the boss's death (no death effects then).
@@ -589,11 +597,14 @@ func _update_cries(delta: float, distance: float) -> void:
 ## Life gone: "revive" enemies collapse first (hit them again!), the others die.
 func _out_of_life() -> void:
 	var revive: Dictionary = data.get("revive", {})
-	if not revive.is_empty() and not _forced and _downed_left <= 0.0 and _downs < int(revive.get("times", 2)):
+	var times: int = int(revive.get("times", 2))
+	if not revive.is_empty() and not _forced and _downed_left <= 0.0 and (times <= 0 or _downs < times):
 		_downs += 1
 		_downed_left = float(revive.get("time", 3.0))
+		_groaned = false
 		hp = max_hp * float(revive.get("down_life", 0.3))
 		sound("enemy_die", 0.7)
+		_show_rise_glow()
 		return
 	_die()
 
@@ -602,16 +613,45 @@ func is_downed() -> bool:
 	return _downed_left > 0.0
 
 
-## Lying on the floor ("revive"): stands up with half its life when the time is over.
+## How long it still lies on the floor ("revive"), 0 when standing.
+func downed_left() -> float:
+	return _downed_left
+
+
+## Lying on the floor ("revive"): the glow under it grows, shortly before standing up it twitches
+## and groans (the warning), then it stands up with "stand_life" of its full life.
 func _update_downed(delta: float) -> void:
 	_downed_left -= delta
-	if _downed_left <= 0.6 and _wobble_left <= 0.0:
-		wobble(0.6)
+	var revive: Dictionary = data.get("revive", {})
+	var total: float = maxf(0.1, float(revive.get("time", 3.0)))
+	if _rise_glow:
+		var grown: float = clampf(1.0 - _downed_left / total, 0.0, 1.0)
+		_rise_glow.scale = Vector3.ONE * (0.4 + 0.8 * grown)
+	if _downed_left <= RISE_WARNING and not _groaned:
+		_groaned = true
+		wobble(RISE_WARNING)
+		_voice("die", 0.55)
+		cry("wake")
 	if _downed_left <= 0.0:
 		_downed_left = 0.0
-		hp = max_hp * 0.5
-		cry("wake")
+		hp = max_hp * float(revive.get("stand_life", 0.5))
+		_hide_rise_glow()
+		_voice("hit", 0.6)
 		Fx.puff(dungeon.effects, aim_point(), "spark", 0.8)
+
+
+## A pale green light on the floor under the body: it is not over yet.
+func _show_rise_glow() -> void:
+	_hide_rise_glow()
+	_rise_glow = Fx.halo(RISE_COLOR, radius * 3.0)
+	_rise_glow.position = Vector3(0, 0.15, 0)
+	add_child(_rise_glow)
+
+
+func _hide_rise_glow() -> void:
+	if _rise_glow and is_instance_valid(_rise_glow):
+		_rise_glow.queue_free()
+	_rise_glow = null
 
 
 func _die() -> void:
@@ -619,6 +659,7 @@ func _die() -> void:
 	collision_layer = 0
 	collision_mask = 0
 	_downed_left = 0.0
+	_hide_rise_glow()
 	if not _forced:
 		_death_tricks()
 	died.emit(self)
