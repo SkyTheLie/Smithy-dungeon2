@@ -177,6 +177,8 @@ func _check_loot(content: Script, enemies: Dictionary) -> void:
 			check(amount.size() == 2 and int(amount[0]) >= 1 and int(amount[1]) >= int(amount[0]), "enemy %s: amount [min, max]" % enemy_id)
 	for enemy_id: String in enemies:
 		check(tables.has(enemy_id), "enemy %s drops something (loot.json)" % enemy_id)
+	var exit_chance: float = float((content.call("floors_extra", "exit") as Dictionary).get("chance", -1.0))
+	check(exit_chance >= 0.0 and exit_chance <= 1.0, "floors.json exit.chance (the ladder out) is 0-1")
 	var bag: Dictionary = content.call("meta", "bag")
 	check(int(bag.get("columns", 0)) > 0 and int(bag.get("rows", 0)) > 0 and (bag.get("safe", []) as Array).size() == 2 and int(bag.get("stack", 0)) >= 1, "bag sizes in meta.json")
 	check((bag.get("board", []) as Array).size() == 4, "the backpack board in meta.json")

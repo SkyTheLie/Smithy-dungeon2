@@ -6,6 +6,8 @@ extends RefCounted
 ## BagLayout.loot_size cells (a rat fur 2×2, a staff 4×1, a ruby 3×3) and can be turned by 90
 ## degrees. Besides the bag lies the safe place (its own little grid, meta.json bag.safe; the
 ## skill Geheimtasche makes it wider): what lies there stays when the player dies (lose_unsafe).
+## Otherwise it is a part of the bag like any other: what lies there counts, is used (bombs,
+## keys, gold), stacks and takes new loot once the bag is full.
 ## The gold of the run is in here too (material "gold", GOLD, only from selling loot in the
 ## dungeon shop): it stacks (loot.json "stack"), RunState.coins only counts it.
 ##
@@ -182,6 +184,24 @@ func free_spot_for(piece: Dictionary, section: String = MAIN) -> Dictionary:
 	return {}
 
 
+## The first free spot for `piece`: in the bag, else in the safe place ({} = nowhere).
+func _first_free(piece: Dictionary) -> Dictionary:
+	var spot: Dictionary = free_spot_for(piece, MAIN)
+	return spot if not spot.is_empty() else free_spot_for(piece, SAFE)
+
+
+## Indices of the places: those in the bag first, then those in the safe place.
+func _bag_first() -> Array[int]:
+	var order: Array[int] = []
+	for i in places.size():
+		if not is_safe(i):
+			order.append(i)
+	for i in places.size():
+		if is_safe(i):
+			order.append(i)
+	return order
+
+
 # --- Places -----------------------------------------------------------------------
 
 func size() -> int:
@@ -220,13 +240,7 @@ func remove(id: String, amount: int) -> bool:
 	if amount <= 0 or count_of(id) < amount:
 		return false
 	var left: int = amount
-	var order: Array[int] = []
-	for i in places.size():
-		if not is_safe(i):
-			order.append(i)
-	for i in places.size():
-		if is_safe(i):
-			order.append(i)
+	var order: Array[int] = _bag_first()
 	var emptied: Array[int] = []
 	for i: int in order:
 		if left <= 0:
@@ -252,33 +266,35 @@ func room_for(id: String) -> int:
 		return 0
 	var room: int = 0
 	for i in places.size():
-		if not is_safe(i) and String(places[i]["id"]) == id:
+		if String(places[i]["id"]) == id:
 			room += stack_of(id) - int(places[i]["count"])
 	# Fill a copy with full stacks until nothing fits any more.
 	var saved: Array[Dictionary] = places.duplicate(true)
-	var spot: Dictionary = free_spot(id)
+	var spot: Dictionary = _first_free({"id": id})
 	while not spot.is_empty():
 		places.append({"id": id, "count": stack_of(id), "x": spot["x"], "y": spot["y"], "rot": spot["rot"]})
 		room += stack_of(id)
-		spot = free_spot(id)
+		spot = _first_free({"id": id})
 	places = saved
 	return room
 
 
 ## Puts `amount` of `id` into the bag (onto stacks of the same thing first, then into the first
-## free spots; never into the safe place). Returns how many did not fit (0 = all in). Unknown ids
+## free spots). The safe place is a part of the bag like any other: its stacks fill up too, and
+## once the bag is full new things go there (the bag first, so the safe place stays free for
+## what the player puts there by hand). Returns how many did not fit (0 = all in). Unknown ids
 ## and amounts <= 0 are refused.
 func add(id: String, amount: int) -> int:
 	if amount <= 0 or Content.material(id).is_empty():
 		return maxi(amount, 0)
 	var left: int = amount
-	for i in places.size():
-		if left > 0 and not is_safe(i) and String(places[i]["id"]) == id:
+	for i: int in _bag_first():
+		if left > 0 and String(places[i]["id"]) == id:
 			var put: int = mini(left, stack_of(id) - int(places[i]["count"]))
 			places[i]["count"] = int(places[i]["count"]) + put
 			left -= put
 	while left > 0:
-		var spot: Dictionary = free_spot(id)
+		var spot: Dictionary = _first_free({"id": id})
 		if spot.is_empty():
 			break
 		var put: int = mini(left, stack_of(id))
@@ -315,11 +331,12 @@ func put_place(place: Dictionary) -> bool:
 	return true
 
 
-## A piece into the first free spot of the bag (never the safe place). false = no room / unknown.
+## A piece into the first free spot of the bag (the safe place when the bag is full).
+## false = no room / unknown.
 func add_piece(piece: Dictionary) -> bool:
 	if not is_piece(piece) or not is_known(piece):
 		return false
-	var spot: Dictionary = free_spot_for(piece)
+	var spot: Dictionary = _first_free(piece)
 	if spot.is_empty():
 		return false
 	var placed: Dictionary = piece.duplicate()

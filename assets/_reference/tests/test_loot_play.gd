@@ -176,6 +176,10 @@ func _full_bag() -> void:
 func _death() -> void:
 	var meta: Script = script("res://scripts/systems/meta_state.gd")
 	var day: int = meta.call("day")
+	# The full bag spilled coal into the safe place too (it takes loot once the bag is full).
+	for i: int in range(int(bag.call("size")) - 1, -1, -1):
+		if bag.call("is_safe", i):
+			bag.call("take", i)
 	var saved_id: String = String((bag.call("get_place", 0) as Dictionary).get("id", ""))
 	check(bag.call("move_to", 0, bag.get("SAFE_ORIGIN"), false), "into the safe place")
 	player.set("invulnerable", 0.0)
