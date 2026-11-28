@@ -70,6 +70,28 @@ func run() -> void:
 	for i in keys:
 		check(wallet.call("use_key"), "use key %d" % i)
 	check(not wallet.call("use_key"), "no key left")
+	# Bombs and keys are loot in the bag: bombs stack to 5 on a cell, keys one per cell.
+	var pouch: Object = wallet.get("bag")
+	var bombs: int = wallet.get("bombs")
+	wallet.call("add_bombs", 5 - bombs)
+	check_eq(pouch.call("count_of", "bomb"), 5, "5 bombs in the bag")
+	var places: int = pouch.call("size")
+	wallet.call("add_bombs", 1)
+	check_eq(pouch.call("size"), places + 1, "the 6th bomb needs a new cell")
+	check(wallet.call("use_bomb"), "throwing takes a bomb out")
+	check_eq(wallet.get("bombs"), 5, "5 left")
+	wallet.call("add_keys", 2)
+	pouch.call("add", "iron_key", 1)
+	check_eq(wallet.get("keys"), 3, "two fragile keys and an iron key")
+	check_eq(wallet.call("fragile_keys"), 2, "two of them fragile")
+	var cells: int = 0
+	for i in pouch.call("size"):
+		if String((pouch.call("get_place", i) as Dictionary).get("id", "")) == "key":
+			cells += 1
+	check_eq(cells, 2, "keys do not stack: one cell each")
+	check(wallet.call("use_key"), "a door opens")
+	check_eq(wallet.call("fragile_keys"), 1, "a fragile key goes first")
+	check_eq(pouch.call("count_of", "iron_key"), 1, "the iron key stays")
 
 	# Item picks never repeat.
 	var picker: Object = run_script.new(5)

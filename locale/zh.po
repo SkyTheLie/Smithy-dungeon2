@@ -921,6 +921,9 @@ msgstr "铁矿石"
 msgid "Eisenhaut"
 msgstr "铁肤"
 
+msgid "Eisenschlüssel"
+msgstr "铁钥匙"
+
 msgid "Eisenschuh"
 msgstr "铁靴"
 
@@ -2150,6 +2153,9 @@ msgstr "用技能点"
 
 msgid "Mit dem Händler handeln"
 msgstr "与商人交易"
+
+msgid "Mit der Bomben-Taste werfen. Bis zu 5 auf einem Feld."
+msgstr "用炸弹键投掷。每格最多5个。"
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "带回家:%d 金币,%d 件战利品"
@@ -3573,6 +3579,9 @@ msgstr "十枚炸弹"
 msgid "Zehn Münzen, Glück hoch"
 msgstr "十枚硬币，幸运提升"
 
+msgid "Zerbrechlicher Schlüssel"
+msgstr "易碎钥匙"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "把鼠皮拖进金色的安全格。放在那里的东西死后也会保留。"
 
@@ -3680,6 +3689,12 @@ msgstr "或按空格键"
 
 msgid "Öffne dein Inventar mit Tab."
 msgstr "按 Tab 打开背包。"
+
+msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
+msgstr "打开地牢里的一扇门。永不损坏，能带回家再带进去。"
+
+msgid "Öffnet eine Tür im Dungeon. Zerbricht, sobald du den Dungeon verlässt."
+msgstr "打开地牢里的一扇门。一离开地牢就会碎掉。"
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "超过上限：埃贡正盯着你的罐子！"

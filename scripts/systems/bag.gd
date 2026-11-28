@@ -20,6 +20,9 @@ signal changed
 
 ## The material id of the run's gold (data/loot.json).
 const GOLD: String = "gold"
+## Bombs and the fragile keys of the dungeon are loot in the bag too (data/loot.json).
+const BOMB: String = "bomb"
+const KEY: String = "key"
 const MAIN: String = "main"
 const SAFE: String = "safe"
 ## The safe place's top left cell (far away from every backpack, see BagLayout.board_rect).

@@ -921,6 +921,9 @@ msgstr "Minério de ferro"
 msgid "Eisenhaut"
 msgstr "Pele de ferro"
 
+msgid "Eisenschlüssel"
+msgstr "Chave de ferro"
+
 msgid "Eisenschuh"
 msgstr "Sapato de ferro"
 
@@ -2150,6 +2153,9 @@ msgstr "Com pontos de habilidade"
 
 msgid "Mit dem Händler handeln"
 msgstr "Negociar com o mercador"
+
+msgid "Mit der Bomben-Taste werfen. Bis zu 5 auf einem Feld."
+msgstr "Jogue com a tecla de bomba. Até 5 em uma casa."
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "Levado para casa: %d de ouro, %d saque"
@@ -3573,6 +3579,9 @@ msgstr "Dez bombas"
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Dez moedas, mais sorte"
 
+msgid "Zerbrechlicher Schlüssel"
+msgstr "Chave frágil"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "Arraste a pele de rato para o lugar seguro dourado. O que estiver lá fica com você se morrer."
 
@@ -3680,6 +3689,12 @@ msgstr "ou aperte Espaço"
 
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Abra o inventário com Tab."
+
+msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
+msgstr "Abre uma porta na masmorra. Dura para sempre, volta para casa com você e entra de novo."
+
+msgid "Öffnet eine Tür im Dungeon. Zerbricht, sobald du den Dungeon verlässt."
+msgstr "Abre uma porta na masmorra. Quebra assim que você sai da masmorra."
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Acima do limite: o Egon está de olho na sua lata!"

@@ -921,6 +921,9 @@ msgstr "鉄鉱石"
 msgid "Eisenhaut"
 msgstr "鉄の肌"
 
+msgid "Eisenschlüssel"
+msgstr "鉄の鍵"
+
 msgid "Eisenschuh"
 msgstr "鉄靴"
 
@@ -2150,6 +2153,9 @@ msgstr "スキルポイントで"
 
 msgid "Mit dem Händler handeln"
 msgstr "商人と取引する"
+
+msgid "Mit der Bomben-Taste werfen. Bis zu 5 auf einem Feld."
+msgstr "爆弾キーで投げる。1マスに5個まで。"
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "持ち帰り:%d ゴールド、戦利品 %d"
@@ -3573,6 +3579,9 @@ msgstr "爆弾10個"
 msgid "Zehn Münzen, Glück hoch"
 msgstr "コイン10枚、運上昇"
 
+msgid "Zerbrechlicher Schlüssel"
+msgstr "壊れやすい鍵"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "ネズミの毛皮を金色の安全な場所へドラッグしよう。そこにある物は死んでも失わない。"
 
@@ -3680,6 +3689,12 @@ msgstr "またはスペースキー"
 
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Tabで持ち物を開こう。"
+
+msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
+msgstr "ダンジョンの扉を開ける。壊れず、家に持ち帰ってまた持ち込める。"
+
+msgid "Öffnet eine Tür im Dungeon. Zerbricht, sobald du den Dungeon verlässt."
+msgstr "ダンジョンの扉を開ける。ダンジョンを出ると壊れる。"
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "上限超え：エゴンがカンを狙ってる！"

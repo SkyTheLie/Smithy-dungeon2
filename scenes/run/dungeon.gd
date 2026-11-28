@@ -906,6 +906,10 @@ func _boss_rewards(room: DungeonRoom, base: Vector3, way_down: bool) -> void:
 
 
 func _drop(room: DungeonRoom, at: Vector3, kind: String) -> void:
+	# Bombs and keys are loot for the bag (loot.json bomb / key).
+	if kind == "bomb" or kind == "key":
+		_drop_loot(room, at, Bag.BOMB if kind == "bomb" else Bag.KEY, 1, false)
+		return
 	var pickup := Pickup.new()
 	pickup.setup(kind, run, player)
 	room.add_child(pickup)

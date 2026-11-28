@@ -797,7 +797,8 @@ static func trade(id: String) -> bool:
 				if int(stored["count"]) <= 0:
 					items.remove_at(i)
 			piece["items"] = items
-	own.append(_owned(Trades.piece_of(offer)))
+	var gained: Dictionary = Trades.piece_of(offer)
+	own.append(gained if _is_loot(gained) else _owned(gained))
 	_write_stash(own)
 	_save_bag(bag)
 	_save()
@@ -1152,6 +1153,9 @@ static func end_run(coins: int, kept: Array[Dictionary], rng: RandomNumberGenera
 		var id: String = String(entry.get("id", ""))
 		var count: int = int(entry.get("count", 0))
 		if id.is_empty() or count <= 0:
+			continue
+		# Fragile keys break when the dungeon is left (loot.json "fragile").
+		if RunState.is_fragile(id):
 			continue
 		# Gear, relics and potions carried along: back onto their cells, else into the stash.
 		if Bag.is_piece(entry):

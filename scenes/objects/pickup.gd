@@ -1,6 +1,6 @@
 class_name Pickup
 extends Node3D
-## Something lying on the floor: a heart, a bomb, a key or loot for the bag ("loot":
+## Something lying on the floor: a heart or loot for the bag ("loot": bombs and keys are loot too,
 ## data/loot.json materials, setup_loot; also gold the player dropped from the bag). There are no
 ## coins in the dungeon. Walking over it picks it up (a heart only if the player is hurt, loot
 ## only if there is room in the bag). Pops out of the floor when it appears.
@@ -102,10 +102,6 @@ func _take() -> bool:
 		"heart":
 			if not run.heal(run.heart_value()):
 				return false
-		"bomb":
-			run.add_bombs(1)
-		"key":
-			run.add_keys(1)
 		LOOT:
 			var left: int = run.add_coins(amount) if material_id == Bag.GOLD else run.bag.add(material_id, amount)
 			if left < amount:

@@ -164,8 +164,8 @@ func _check_loot(content: Script, enemies: Dictionary) -> void:
 		check(ResourceLoader.exists(String(entry.get("icon", ""))), "loot %s picture" % id)
 		check(not String(entry.get("name", "")).is_empty() and not String(entry.get("desc", "")).is_empty(), "loot %s name and text" % id)
 		check(int(entry.get("rarity", 0)) >= 1 and int(entry.get("rarity", 0)) <= 8, "loot %s rarity 1-8" % id)
-		# Quest stones (quests.json) are worth nothing at the merchant; all other loot is.
-		check(int(entry.get("value", 0)) > 0 or bool(entry.get("quest", false)), "loot %s has a value" % id)
+		# Quest stones (quests.json) and fragile keys are worth nothing at the merchant; all other loot is.
+		check(int(entry.get("value", 0)) > 0 or bool(entry.get("quest", false)) or bool(entry.get("fragile", false)), "loot %s has a value" % id)
 	var tables: Dictionary = (content.call("get_file", "loot") as Dictionary).get("enemies", {})
 	for enemy_id: String in tables:
 		check(enemies.has(enemy_id), "loot for enemy %s: enemy exists" % enemy_id)
@@ -197,6 +197,13 @@ func _check_loot(content: Script, enemies: Dictionary) -> void:
 		if effect.has("backpack"):
 			check(backpacks.has(String(effect["backpack"])), "skill %s gives a known backpack" % skill_id)
 	check(int((content.call("material", "gold") as Dictionary).get("stack", 0)) > 1, "gold stacks (loot.json)")
+	# Bombs and keys are loot: bombs up to 5 on a cell, keys one each; key = fragile, iron_key lasts.
+	check_eq(int((content.call("material", "bomb") as Dictionary).get("stack", 0)), 5, "bombs stack to 5")
+	for key_id: String in ["key", "iron_key"]:
+		check(bool((content.call("material", key_id) as Dictionary).get("key", false)), "%s opens doors" % key_id)
+		check_eq(int((content.call("material", key_id) as Dictionary).get("stack", 0)), 1, "%s does not stack" % key_id)
+	check(bool((content.call("material", "key") as Dictionary).get("fragile", false)), "the dungeon key is fragile")
+	check(not bool((content.call("material", "iron_key") as Dictionary).get("fragile", false)), "the iron key lasts")
 	# Keys are rare: one chance for every enemy (loot.json key_chance), none from room rewards.
 	var key_chance: float = float((content.call("get_file", "loot") as Dictionary).get("key_chance", -1.0))
 	check(key_chance >= 0.0 and key_chance <= 0.05, "key_chance 0-5 %% (%s)" % key_chance)

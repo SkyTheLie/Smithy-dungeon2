@@ -921,6 +921,9 @@ msgstr "Minerai de fer"
 msgid "Eisenhaut"
 msgstr "Peau de fer"
 
+msgid "Eisenschlüssel"
+msgstr "Clé de fer"
+
 msgid "Eisenschuh"
 msgstr "Soulier de fer"
 
@@ -2150,6 +2153,9 @@ msgstr "Avec des points de compétence"
 
 msgid "Mit dem Händler handeln"
 msgstr "Commercer avec le marchand"
+
+msgid "Mit der Bomben-Taste werfen. Bis zu 5 auf einem Feld."
+msgstr "Lance-la avec la touche bombe. Jusqu'à 5 par case."
 
 msgid "Mit nach Hause: %d Gold, %d Beute"
 msgstr "Rapporté à la maison : %d or, %d butin"
@@ -3573,6 +3579,9 @@ msgstr "Dix bombes"
 msgid "Zehn Münzen, Glück hoch"
 msgstr "Dix pièces, chance en hausse"
 
+msgid "Zerbrechlicher Schlüssel"
+msgstr "Clé fragile"
+
 msgid "Zieh das Rattenfell in den goldenen sicheren Platz. Was dort liegt, behältst du, wenn du stirbst."
 msgstr "Glisse la fourrure de rat dans l'emplacement sûr doré. Ce qui s'y trouve reste à toi si tu meurs."
 
@@ -3680,6 +3689,12 @@ msgstr "ou appuyez sur Espace"
 
 msgid "Öffne dein Inventar mit Tab."
 msgstr "Ouvre ton inventaire avec Tab."
+
+msgid "Öffnet eine Tür im Dungeon. Hält ewig, kommt mit nach Hause und wieder mit hinein."
+msgstr "Ouvre une porte du donjon. Dure pour toujours, rentre avec toi et y retourne."
+
+msgid "Öffnet eine Tür im Dungeon. Zerbricht, sobald du den Dungeon verlässt."
+msgstr "Ouvre une porte du donjon. Se brise dès que tu quittes le donjon."
 
 msgid "Über dem Limit: Egon schielt auf deine Dose!"
 msgstr "Au-dessus de la limite : Egon lorgne ta boîte !"

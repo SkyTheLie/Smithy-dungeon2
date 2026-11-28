@@ -1,9 +1,10 @@
 {
-	"_info": "Egons Tausch (Reiter Tausch im Laden): Beute gegen etwas Besonderes, ohne Gold. Jedes Angebot: give = {Beute-Id aus loot.json: Anzahl} (gezählt wird alles zu Hause: Lager, Kein Platz, Inventar und Behälter; genommen wird zuerst aus Kein Platz, dann Lager, Inventar, Behälter), get = genau eins von {container: Id aus containers.json}, {backpack: Id aus backpacks.json}, {potion: Id aus potions.json}, {relic: Item-Id, runs: so viele Runs hält es}, kommt ins Lager. unlock wie in dungeons.json (level, dungeon, quest); fehlt = immer da. Angebote, deren unlock nicht erfüllt ist, stehen grau mit dem Grund da.",
+	"_info": "Egons Tausch (Reiter Tausch im Laden): Beute gegen etwas Besonderes, ohne Gold. Jedes Angebot: give = {Beute-Id aus loot.json: Anzahl} (gezählt wird alles zu Hause: Lager, Kein Platz, Inventar und Behälter; genommen wird zuerst aus Kein Platz, dann Lager, Inventar, Behälter), get = genau eins von {container: Id aus containers.json}, {backpack: Id aus backpacks.json}, {potion: Id aus potions.json}, {loot: Beute-Id aus loot.json} (1 Stück, z. B. der Eisenschlüssel), {relic: Item-Id, runs: so viele Runs hält es}, kommt ins Lager. unlock wie in dungeons.json (level, dungeon, quest); fehlt = immer da. Angebote, deren unlock nicht erfüllt ist, stehen grau mit dem Grund da.",
 	"trades": [
 		{"id": "materialbeutel", "give": {"rat_fur": 3, "bat_skin": 2}, "get": {"container": "materialbeutel"}},
 		{"id": "reliktdose", "give": {"ruby": 3}, "get": {"container": "reliktdose"}},
 		{"id": "kupferrucksack", "give": {"ruby": 3}, "get": {"backpack": "kupferrucksack"}},
+		{"id": "eisenschluessel", "give": {"copper_ore": 3, "iron_ore": 2}, "get": {"loot": "iron_key"}},
 		{"id": "waffenstaender", "give": {"copper_ore": 5, "rotten_staff": 1}, "get": {"container": "waffenstaender"}},
 		{"id": "ruestungsstaender", "give": {"iron_ore": 4, "wolf_fur": 2}, "get": {"container": "ruestungsstaender"}},
 		{"id": "heiltrank", "give": {"heartleaf": 3}, "get": {"potion": "heal_potion"}, "unlock": {"quest": "glutrubin"}},

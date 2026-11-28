@@ -171,8 +171,8 @@ func open(run: RunState, won: bool, fled: bool = false, climbed: bool = false) -
 	else:
 		lines.append(Language.translate("Gerettet (sicherer Platz): %d Gold, %d Beute") % [_gold(run.bag.safe_contents()), _count(run.bag.safe_contents())])
 	# Keys stay in the dungeon: they break at the way out (Egon tells it in the tutorial).
-	if run.keys > 0:
-		lines.append(Language.translate("Schlüssel zerbrochen: %d") % run.keys)
+	if run.fragile_keys() > 0:
+		lines.append(Language.translate("Schlüssel zerbrochen: %d") % run.fragile_keys())
 	if climbed:
 		var achievement: Dictionary = Content.achievement(String(Content.meta("ruby_quest").get("achievement", "")))
 		if not achievement.is_empty():
