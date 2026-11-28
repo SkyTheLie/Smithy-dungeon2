@@ -285,6 +285,9 @@ func _build_room(cell: Vector2i) -> void:
 		door_dirs.append(dir)
 	RoomProps.add_props(room, floor_data.get("props", []), Content.floors_extra("props"),
 			door_dirs, hash([floor_index, cell, "props"]))
+	# Dust, embers, snow or fireflies in the air (floors.json theme "air" -> "air_types").
+	var air_types: Dictionary = Content.floors_extra("air_types")
+	RoomAir.add_air(room, air_types.get(String(floor_data.get("air", "")), {}), hash([floor_index, cell, "air"]))
 	# Tall grass (floors.json "grass"): hides low enemies and traps.
 	var grass: Dictionary = floor_data.get("grass", {})
 	if not grass.is_empty() and room.type != FloorLayout.START_ROOM:

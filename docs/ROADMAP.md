@@ -128,4 +128,5 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 
 - ✅ Treffer-Blitz (Gegner kurz weiß), Fackeln flackern, Lichthof um Feuerbälle und Fackeln statt Glow (`feature/stimmung`).
 - ✅ Deko in den Räumen: 2–5 Bilder je Raum an den Wänden, je Thema eigene (`floors.json` `props`, `feature/deko`).
-- Offen: Partikel je Thema, Boden-Decals, Vignette/Farbstimmung, Head-Bob; im Laden Seltenheitsrahmen, lebender Hintergrund, R3-Moment, Abblenden.
+- ✅ In der Luft je Thema: Staub, Grabstaub, Sporen, Schnee, Schneesturm, Glut, Asche-Glut, Glühwürmchen (`floors.json` `air`/`air_types`, `feature/luft`).
+- Offen: Boden-Decals, Vignette/Farbstimmung, Head-Bob; im Laden Seltenheitsrahmen, lebender Hintergrund, R3-Moment, Abblenden.

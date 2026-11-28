@@ -186,7 +186,7 @@ Reihenfolge zum Bauen (zuerst, was schnell geht oder viel bringt; ✅ = gebaut a
 2. ✅ (als Lichthof `Fx.halo`, Glow wirkt in GL Compatibility kaum) **Glow im WorldEnvironment** (`run.tscn`, geht mit GL Compatibility seit 4.3): Feuerbälle, Fackeln, Türrahmen, Kristalle leuchten. Schnell auszuprobieren.
 3. ✅ **Treffer-Blitz:** Gegner 0,05 s weiß beim Treffer (Teil von „Treffer-Gefühl“, Punkt 5 oben).
 4. ✅ **Fackeln flackern:** Lichtstärke leicht und zufällig schwanken lassen.
-5. **Staub und Glut in der Luft:** wenige CPUParticles3D je Raum, je Thema: Staub, Glutfunken (Glutschlund), Schnee (Frostgipfel), Glühwürmchen (Wiese, `effects/fireflies.png` gibt es).
+5. ✅ (`feature/luft`, `scenes/run/room_air.gd`) **Staub und Glut in der Luft:** wenige CPUParticles3D je Raum, je Thema: Staub, Glutfunken (Glutschlund), Schnee (Frostgipfel), Glühwürmchen (Wiese, `effects/fireflies.png` gibt es).
 6. **Boden-Decals:** Blutflecken, Risse, Moos, damit nicht jeder Raum gleich aussieht.
 7. **Vignette und Farbstimmung je Dungeon:** kleiner Bildschirm-Shader auf dem SubViewport (dunkle Ränder, Tönung: Glut warm, Frost kalt), optional Dithering.
 8. **Head-Bob beim Laufen** und leichte Neigung der Waffe beim Drehen.
@@ -196,3 +196,47 @@ Reihenfolge zum Bauen (zuerst, was schnell geht oder viel bringt; ✅ = gebaut a
 10. **Lebender Hintergrund bei Egon:** Kerzen flackern, Staub schwebt, beim Hebel-Zug ploppen die Waren nacheinander auf.
 11. **Großer Moment bei R3+ am Hebel:** Licht, kurzes Wackeln, Egon staunt (siehe Punkt 7 oben).
 12. **Weiche Übergänge** zwischen Laden und Dungeon (Abblenden) statt harter Schnitte.
+
+## Besondere Räume und eigene Dungeons (Nachricht vom 2026-11-28)
+
+### Mysterium-Raum (als Nächstes)
+
+- Auf jeder Ebene gibt es mit **30 %** Chance **einen** Mysterium-Raum (höchstens einen je Ebene). Auf der Karte hat er ein **?**, an der Tür einen eigenen Rahmen. Erst beim Betreten zeigt sich, welche Art er ist.
+- Die Art wird **zufällig** aus dieser Liste gezogen (Gewichte in den Daten, z. B. `data/mystery_rooms.json`: `"chance": 0.3`, `"types": [...]` mit `weight`, Belohnung, Werten wie Wellen-Anzahl oder Sekunden):
+  1. **Wellen-Raum:** 3 Wellen Gegner hintereinander. Danach steht eine Truhe in der Mitte (bessere Belohnung).
+  2. **Zeit-Raum:** Die Belohnung steht schon sichtbar im Raum. Leben die Gegner nach 20 Sekunden noch, verschwindet sie.
+  3. **Verfluchter Raum:** Am Eingang ein Schild mit einem Fluch für diesen Raum (z. B. „Kein Heilen“, „Gegner doppelt so schnell“). Dafür gibt es seltene Beute.
+  4. **Dunkler Raum:** keine Fackeln, nur der Feuerball (Lichthof `Fx.halo`) macht Licht.
+  5. **Rätselraum:** 3 Hebel oder Druckplatten in der richtigen Reihenfolge. Ein falscher Versuch weckt eine Ratte. Ist es gelöst, geht ein Fach mit der Belohnung auf.
+  6. **Altar der Wahl:** 2 Items stehen auf Sockeln. Nimmt man eins, versinkt das andere.
+  7. **Spiegelraum:** Kampf gegen einen Schatten des Spielers, der mit dessen eigenen Items schießt.
+- Regeln: nicht auf der ersten Ebene des ersten Dungeons (Tutorial), nicht als Start- oder Boss-Raum, zählt zum Raum-Budget der Beute (`loot.json` `room_budget`) mit eigener Belohnung obendrauf.
+- Reihenfolge zum Bauen: zuerst das Gerüst (30 %, ?, zufällige Art) mit **Dunkler Raum** und **Wellen-Raum** (brauchen fast keine neue Grafik), dann Zeit-Raum, Verfluchter Raum, Altar der Wahl, Rätselraum, zuletzt Spiegelraum (am meisten Arbeit).
+
+### Weitere besondere Räume (später, selten)
+
+- **Hinterhalt:** Der Raum wirkt leer. Fällt die Tür zu, kommen Gegner aus Decke oder Boden. (Könnte auch eine 8. Mysterium-Art werden.)
+- **Egons Lieferung:** Kiste mit Egons Stempel. Bringt man sie heil nach Hause, zahlt Egon. Belegt Inventar-Platz, beim Tod weg.
+- **Gefangener:** eingesperrter Abenteurer. Befreit gibt er einen Hinweis oder Schlüssel oder taucht später bei Egon auf.
+- **Schatzkammer hinter einer Bombenwand:** ein Riss in der Wand verrät sie.
+
+### Raum-Formen
+
+- Säulen in der Mitte (Deckung), Gruben, schmaler Steg über Lava oder Gift.
+- L-förmige oder große 2×1-Räume.
+- Kleine bewegliche Teile (wie die Räderkluft, nur klein): rollender Stein, Stacheln, die der Reihe nach hochkommen.
+
+### Eine Regel je Dungeon
+
+- **Glut:** Lava-Risse gehen auf und zu; in manchen Räumen wird es heißer, je länger man bleibt.
+- **Moor:** Irrlichter locken zu falschen Türen oder versteckten Schätzen.
+- **Frostgipfel:** Eisboden, auf dem man rutscht; Feuerbälle schmelzen Eiswände (neue Wege).
+- **Glutschlund:** Der Boden bebt ab und zu, Steine fallen von der Decke (Schatten zeigt, wo).
+- **Wiese:** Tag und Nacht wechseln im Run; nachts andere Gegner und Glühwürmchen.
+
+### Kleine Dinge
+
+- **Zerstörbare Deko:** Kisten und Fässer aus `room_props.gd` gehen durch Feuerbälle kaputt, manchmal mit Münze (braucht Kollision).
+- **Wand-Schriften:** kurze Sätze früherer Abenteurer (Story, z. B. über Egon; Texte nach `docs/figuren/`).
+- **Ton je Raum:** Tropfen, Wind, Ketten, leise und zufällig.
+- **Mini-Boss** in der Mitte jeder Ebene mit eigenem Lebensbalken.

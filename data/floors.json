@@ -1,5 +1,5 @@
 {
-	"_info": "Ebenen der Reihe nach; jede nennt ein theme (Aussehen, Musik, Gegner, Bosse) und hat eigene Zahlen: rooms = Anzahl normaler Räume (dazu Start, Item-Raum, Shop, Boss), enemy_count [min, max] je Raum, hp_mult = Leben aller Gegner mal diesem Wert, first_room_enemies = feste Gegner neben dem Start, key_doors = Raumarten mit Schlüssel-Tür, item_room: false = diese Ebene hat keinen Item-Raum (wird ein normaler Raum), shop_room: false = kein Shop (und kein Raum dafür), secret_room / special_room: false = kein Geheimraum / kein Sonderraum hinter dem Boss, sacrifice_chance = Chance auf den Opferraum (sonst sacrifice.room_chance). Erste Ebene: rooms 2 + Item-Raum als normaler Raum = 3 normale Räume, mit Start, Boss und sicherem Opferraum 6 Räume. Felder der Ebene überschreiben das Thema. themes: name, Texturen (32x32 Boden, 32x48 Wand), music (Id aus audio.json), light, enemies [Id, Gewicht], bosses (einer wird zufällig gewählt). Die letzte Ebene endet mit dem Sieg. props = Deko an den Wänden [Bild, Gewicht, Höhe in Metern] (Menge: props oben). rock_patterns: [Muster, Gewicht] (scatter, walls, pillars, ring, corners, columns, checker), rock_texture. floors = die Ebenen des ersten Dungeons; floors_<dungeon> = die Ebenen weiterer Dungeons (dungeons.json floors). hazards = Fallen in normalen Räumen ([Art, [min, max]], Arten in hazard_types). shop.floor_step = Run-Shop je Ebene so viel teurer (mal dungeons.json shop_mult); talk_distance = so nah muss man an den Händler, um ihn mit F anzusprechen (erst dann kauft er Beute); relic_chance = Chance, dass er ein Relikt anbietet (ein schon gefundenes Item, relics.json), relic_price_mult = dessen Preis mal diesem Wert (Gold aus der Tasche; gekauft liegt es danach zu Hause im Inventar). grass = hohes Gras auf dem Boden (Höhe in Metern, per_m2 Büschel je Quadratmeter, color, spread = wie unterschiedlich), verdeckt kleine Gegner und Fallen (scenes/run/meadow.gd).",
+	"_info": "Ebenen der Reihe nach; jede nennt ein theme (Aussehen, Musik, Gegner, Bosse) und hat eigene Zahlen: rooms = Anzahl normaler Räume (dazu Start, Item-Raum, Shop, Boss), enemy_count [min, max] je Raum, hp_mult = Leben aller Gegner mal diesem Wert, first_room_enemies = feste Gegner neben dem Start, key_doors = Raumarten mit Schlüssel-Tür, item_room: false = diese Ebene hat keinen Item-Raum (wird ein normaler Raum), shop_room: false = kein Shop (und kein Raum dafür), secret_room / special_room: false = kein Geheimraum / kein Sonderraum hinter dem Boss, sacrifice_chance = Chance auf den Opferraum (sonst sacrifice.room_chance). Erste Ebene: rooms 2 + Item-Raum als normaler Raum = 3 normale Räume, mit Start, Boss und sicherem Opferraum 6 Räume. Felder der Ebene überschreiben das Thema. themes: name, Texturen (32x32 Boden, 32x48 Wand), music (Id aus audio.json), light, enemies [Id, Gewicht], bosses (einer wird zufällig gewählt). Die letzte Ebene endet mit dem Sieg. props = Deko an den Wänden [Bild, Gewicht, Höhe in Metern] (Menge: props oben). air = was in der Luft schwebt (Id aus air_types). rock_patterns: [Muster, Gewicht] (scatter, walls, pillars, ring, corners, columns, checker), rock_texture. floors = die Ebenen des ersten Dungeons; floors_<dungeon> = die Ebenen weiterer Dungeons (dungeons.json floors). hazards = Fallen in normalen Räumen ([Art, [min, max]], Arten in hazard_types). shop.floor_step = Run-Shop je Ebene so viel teurer (mal dungeons.json shop_mult); talk_distance = so nah muss man an den Händler, um ihn mit F anzusprechen (erst dann kauft er Beute); relic_chance = Chance, dass er ein Relikt anbietet (ein schon gefundenes Item, relics.json), relic_price_mult = dessen Preis mal diesem Wert (Gold aus der Tasche; gekauft liegt es danach zu Hause im Inventar). grass = hohes Gras auf dem Boden (Höhe in Metern, per_m2 Büschel je Quadratmeter, color, spread = wie unterschiedlich), verdeckt kleine Gegner und Fallen (scenes/run/meadow.gd).",
 	"themes": {
 		"rattenkeller": {
 			"name": "Rattenkeller",
@@ -75,7 +75,8 @@
 					1,
 					0.3
 				]
-			]
+			],
+			"air": "dust"
 		},
 		"goblinstollen": {
 			"name": "Goblinstollen",
@@ -163,7 +164,8 @@
 					1,
 					0.9
 				]
-			]
+			],
+			"air": "dust"
 		},
 		"totengruft": {
 			"name": "Totengruft",
@@ -248,7 +250,8 @@
 					1,
 					0.45
 				]
-			]
+			],
+			"air": "grave_dust"
 		},
 		"sumpfufer": {
 			"name": "Sumpfufer",
@@ -331,7 +334,8 @@
 					1,
 					1.2
 				]
-			]
+			],
+			"air": "spores"
 		},
 		"banditenlager": {
 			"name": "Banditenlager",
@@ -420,7 +424,8 @@
 					1,
 					0.7
 				]
-			]
+			],
+			"air": "dust"
 		},
 		"tiefes_moor": {
 			"name": "Tiefes Moor",
@@ -503,7 +508,8 @@
 					1,
 					0.3
 				]
-			]
+			],
+			"air": "spores"
 		},
 		"wolfswald": {
 			"name": "Wolfswald",
@@ -591,7 +597,8 @@
 					1,
 					0.4
 				]
-			]
+			],
+			"air": "dust"
 		},
 		"eishoehle": {
 			"name": "Eishöhle",
@@ -665,7 +672,8 @@
 					2,
 					0.45
 				]
-			]
+			],
+			"air": "snow"
 		},
 		"sturmgipfel": {
 			"name": "Sturmgipfel",
@@ -748,7 +756,8 @@
 					1,
 					1.9
 				]
-			]
+			],
+			"air": "blizzard"
 		},
 		"glutstollen": {
 			"name": "Glutstollen",
@@ -827,7 +836,8 @@
 					1,
 					1.0
 				]
-			]
+			],
+			"air": "embers"
 		},
 		"magmakammer": {
 			"name": "Magmakammer",
@@ -905,7 +915,8 @@
 					2,
 					0.6
 				]
-			]
+			],
+			"air": "embers"
 		},
 		"hoellentor": {
 			"name": "Höllentor",
@@ -996,7 +1007,8 @@
 					1,
 					0.8
 				]
-			]
+			],
+			"air": "ash_embers"
 		},
 		"hohes_gras": {
 			"name": "Hohes Gras",
@@ -1087,7 +1099,8 @@
 					1,
 					0.6
 				]
-			]
+			],
+			"air": "fireflies"
 		},
 		"kristallwiese": {
 			"name": "Kristallwiese",
@@ -1171,7 +1184,8 @@
 					2,
 					0.45
 				]
-			]
+			],
+			"air": "fireflies"
 		},
 		"jagdgrund": {
 			"name": "Jagdgrund",
@@ -1259,7 +1273,8 @@
 					1,
 					0.4
 				]
-			]
+			],
+			"air": "fireflies"
 		}
 	},
 	"floors": [
@@ -1520,6 +1535,185 @@
 			0.25,
 			0.7
 		]
+	},
+	"air_types": {
+		"_info": "Was in der Luft schwebt (scenes/run/room_air.gd), gewählt mit air im Thema: color [r, g, b, Deckkraft], amount = Teilchen je Raum, size in Metern, glow = leuchtet (addiert sich, ohne Nebel), gravity [x, y, z] (y > 0 steigt, < 0 fällt), speed [min, max] Startgeschwindigkeit in alle Richtungen, damping = Bremsen, lifetime in Sekunden (jedes Teilchen blendet ein und aus).",
+		"dust": {
+			"color": [
+				0.85,
+				0.78,
+				0.65,
+				0.35
+			],
+			"amount": 26,
+			"size": 0.04,
+			"glow": false,
+			"gravity": [
+				0.0,
+				-0.01,
+				0.0
+			],
+			"speed": [
+				0.03,
+				0.12
+			],
+			"damping": 0.0,
+			"lifetime": 9.0
+		},
+		"grave_dust": {
+			"color": [
+				0.7,
+				0.75,
+				0.85,
+				0.35
+			],
+			"amount": 30,
+			"size": 0.045,
+			"glow": false,
+			"gravity": [
+				0.0,
+				-0.01,
+				0.0
+			],
+			"speed": [
+				0.02,
+				0.1
+			],
+			"damping": 0.0,
+			"lifetime": 10.0
+		},
+		"spores": {
+			"color": [
+				0.55,
+				0.85,
+				0.45,
+				0.55
+			],
+			"amount": 20,
+			"size": 0.06,
+			"glow": true,
+			"gravity": [
+				0.0,
+				0.03,
+				0.0
+			],
+			"speed": [
+				0.03,
+				0.1
+			],
+			"damping": 0.0,
+			"lifetime": 8.0
+		},
+		"snow": {
+			"color": [
+				0.95,
+				0.97,
+				1.0,
+				0.8
+			],
+			"amount": 50,
+			"size": 0.05,
+			"glow": false,
+			"gravity": [
+				0.0,
+				-0.25,
+				0.0
+			],
+			"speed": [
+				0.02,
+				0.1
+			],
+			"damping": 0.3,
+			"lifetime": 8.0
+		},
+		"blizzard": {
+			"color": [
+				0.95,
+				0.97,
+				1.0,
+				0.85
+			],
+			"amount": 110,
+			"size": 0.05,
+			"glow": false,
+			"gravity": [
+				0.6,
+				-0.5,
+				0.1
+			],
+			"speed": [
+				0.1,
+				0.3
+			],
+			"damping": 0.3,
+			"lifetime": 5.0
+		},
+		"embers": {
+			"color": [
+				1.0,
+				0.55,
+				0.2,
+				0.9
+			],
+			"amount": 22,
+			"size": 0.07,
+			"glow": true,
+			"gravity": [
+				0.0,
+				0.18,
+				0.0
+			],
+			"speed": [
+				0.05,
+				0.25
+			],
+			"damping": 0.1,
+			"lifetime": 5.0
+		},
+		"ash_embers": {
+			"color": [
+				1.0,
+				0.35,
+				0.15,
+				0.9
+			],
+			"amount": 34,
+			"size": 0.07,
+			"glow": true,
+			"gravity": [
+				0.05,
+				0.22,
+				0.0
+			],
+			"speed": [
+				0.05,
+				0.3
+			],
+			"damping": 0.1,
+			"lifetime": 5.0
+		},
+		"fireflies": {
+			"color": [
+				0.85,
+				1.0,
+				0.4,
+				0.9
+			],
+			"amount": 14,
+			"size": 0.12,
+			"glow": true,
+			"gravity": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"speed": [
+				0.1,
+				0.35
+			],
+			"damping": 0.0,
+			"lifetime": 6.0
+		}
 	},
 	"sacrifice": {
 		"_info": "Opferstein: jedes Mal kostet ein ganzes Herz. rewards[n] gilt für das n-te Opfer auf dieser Ebene (danach das letzte): [was, Chance]. was: bomb, key, heart, blue_heart, item oder eine Beute-Id aus loot.json (fällt als Beute heraus). Gold gibt es im Dungeon nur beim Händler.",
