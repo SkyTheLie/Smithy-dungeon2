@@ -11,6 +11,8 @@ var cleared: bool = false
 ## Enemy ids that appear when the player enters (rolled when the floor is built).
 var spawn_list: Array[String] = []
 var rocks: Array[Rock] = []
+## Crates, barrels … that break (RoomProps, Dungeon.break_prop).
+var breakables: Array[BreakableProp] = []
 ## Pedestals and pickups in the room (for the map).
 var loot: Array[Node3D] = []
 ## Traps on the floor (lava, poison, spikes; Dungeon checks them).

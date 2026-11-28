@@ -1525,7 +1525,7 @@
 		"texture": "res://assets/sprites/rocks/coal_rock.png"
 	},
 	"props": {
-		"_info": "Deko an den Wänden jedes Raums (nur Aussehen, kein Hindernis): count [min, max] Stück je Raum, min_gap = Mindestabstand in Metern, inset [min, max] = Abstand zur Wand. Welche Bilder: props im Thema [Bild, Gewicht, Höhe in Metern] (scenes/run/room_props.gd).",
+		"_info": "Deko an den Wänden jedes Raums: count [min, max] Stück je Raum, min_gap = Mindestabstand in Metern, inset [min, max] = Abstand zur Wand. Welche Bilder: props im Thema [Bild, Gewicht, Höhe in Metern] (scenes/run/room_props.gd). Meist nur Aussehen; break = was zerbricht (Feuerball, Schwert, Bombe; scenes/objects/breakable_prop.gd): textures = Bild -> Ton (audio.json), coin_chance = Chance auf Münzen (Glück hilft), coins [min, max]. Münzen zählen zum Raum-Budget (loot.json room_budget).",
 		"count": [
 			2,
 			5
@@ -1534,7 +1534,25 @@
 		"inset": [
 			0.25,
 			0.7
-		]
+		],
+		"break": {
+			"coin_chance": 0.35,
+			"coins": [
+				1,
+				3
+			],
+			"textures": {
+				"res://assets/sprites/props/barrel.png": "prop_wood",
+				"res://assets/sprites/props/barrels_sack.png": "prop_wood",
+				"res://assets/sprites/props/crates.png": "prop_wood",
+				"res://assets/sprites/props/goblin_crates.png": "prop_wood",
+				"res://assets/sprites/props/chest.png": "prop_wood",
+				"res://assets/sprites/props/timber_stack.png": "prop_wood",
+				"res://assets/sprites/props/sacks.png": "prop_soft",
+				"res://assets/sprites/props/ruby_shard_a.png": "prop_crystal",
+				"res://assets/sprites/props/ruby_shard_b.png": "prop_crystal"
+			}
+		}
 	},
 	"air_types": {
 		"_info": "Was in der Luft schwebt (scenes/run/room_air.gd), gewählt mit air im Thema: color [r, g, b, Deckkraft], amount = Teilchen je Raum, size in Metern, glow = leuchtet (addiert sich, ohne Nebel), gravity [x, y, z] (y > 0 steigt, < 0 fällt), speed [min, max] Startgeschwindigkeit in alle Richtungen, damping = Bremsen, lifetime in Sekunden (jedes Teilchen blendet ein und aus).",

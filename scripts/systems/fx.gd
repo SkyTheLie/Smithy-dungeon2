@@ -149,6 +149,32 @@ static func puff(parent: Node3D, at: Vector3, kind: String, size: float) -> void
 	tween.tween_callback(sprite.queue_free)
 
 
+## Pieces of a broken crate, barrel …: the picture cut into 2×2 parts that fly apart and fall.
+## `height`: the picture's height in metres (its feet stand at `at`).
+static func shards(parent: Node3D, at: Vector3, texture: Texture2D, height: float) -> void:
+	if texture == null:
+		return
+	var half := Vector2(texture.get_width(), texture.get_height()) / 2.0
+	for i in 4:
+		var column: int = i % 2
+		var row: int = 1 if i >= 2 else 0
+		var piece := AtlasTexture.new()
+		piece.atlas = texture
+		piece.region = Rect2(Vector2(column, row) * half, half)
+		var sprite := billboard(piece, height / 2.0)
+		sprite.shaded = true
+		parent.add_child(sprite)
+		var start: Vector3 = at + Vector3((column - 0.5) * height * 0.4, height * (0.75 - 0.5 * row), 0.0)
+		sprite.global_position = start
+		var away := Vector3(randf_range(-0.7, 0.7), 0.0, randf_range(-0.7, 0.7))
+		var tween := sprite.create_tween()
+		tween.tween_property(sprite, "global_position", start + away + Vector3(0, 0.35, 0), 0.18).set_ease(Tween.EASE_OUT)
+		tween.tween_property(sprite, "global_position", Vector3(start.x, 0.05, start.z) + away * 1.3, 0.3).set_ease(Tween.EASE_IN)
+		tween.tween_property(sprite, "modulate:a", 0.0, 0.25)
+		tween.tween_callback(sprite.queue_free)
+	puff(parent, at + Vector3(0, height * 0.4, 0), "spark", height)
+
+
 ## Colours of the confetti when an enemy dies (and of the level-up burst).
 const CONFETTI_COLORS: Array[Color] = [Color(1.0, 0.35, 0.3), Color(1.0, 0.8, 0.25), Color(0.4, 0.95, 0.45), Color(0.35, 0.75, 1.0), Color(0.85, 0.45, 1.0)]
 

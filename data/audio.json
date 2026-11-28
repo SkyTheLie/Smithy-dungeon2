@@ -48,6 +48,13 @@
 			"res://assets/audio/sfx/kenney/doorOpen_1.ogg",
 			"res://assets/audio/sfx/kenney/doorOpen_2.ogg"
 		],
+		"prop_wood": [
+			"res://assets/audio/sfx/kenney/impactWood_heavy_000.ogg",
+			"res://assets/audio/sfx/kenney/impactWood_heavy_001.ogg",
+			"res://assets/audio/sfx/kenney/impactWood_heavy_002.ogg"
+		],
+		"prop_soft": "res://assets/audio/sfx/kenney/chop.ogg",
+		"prop_crystal": "res://assets/audio/sfx/rock_break.wav",
 		"unlock": "res://assets/audio/sfx/unlock.wav",
 		"explosion": "res://assets/audio/sfx/rock_break.wav",
 		"boss_die": "res://assets/audio/sfx/level_up.wav",
@@ -94,6 +101,9 @@
 		"enemy_shoot": -14,
 		"coin": -4,
 		"door": -6,
+		"prop_wood": -6,
+		"prop_soft": -6,
+		"prop_crystal": -8,
 		"denied": -8
 	}
 }
