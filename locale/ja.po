@@ -1941,6 +1941,9 @@ msgstr "インベントリの物をクリックで装備。キャラをクリッ
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "クリックか持ち物タブへドラッグ：持ち物に取り付け"
 
+msgid "Klick: dieses Set anlegen · Rechtsklick: Getragenes als Set speichern"
+msgstr "クリック：このセットを装備・右クリック：今の装備を保存"
+
 msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
 msgstr "クリック：整理（T）・右クリック：並び順変更・Ctrl+クリック：ロック"
 
@@ -3017,6 +3020,15 @@ msgstr "レアな品"
 
 msgid "Seltenheit"
 msgstr "レア度"
+
+msgid "Set %d"
+msgstr "セット%d"
+
+msgid "Set %d gespeichert."
+msgstr "セット%dを保存した。"
+
+msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
+msgstr "セット%dは空だ。右クリックで今の装備を保存できる。"
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift：狙った場所へ瞬間移動"

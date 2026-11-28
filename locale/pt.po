@@ -1941,6 +1941,9 @@ msgstr "Clique em algo do inventário para vestir. Clique na sua figura para tir
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "Clique ou arraste para a aba Inventário: prender no inventário"
 
+msgid "Klick: dieses Set anlegen · Rechtsklick: Getragenes als Set speichern"
+msgstr "Clique: vestir este conjunto · Clique direito: salvar o que você veste"
+
 msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
 msgstr "Clique: organizar (T) · Clique direito: mudar ordem · Ctrl+clique numa peça: travar"
 
@@ -3017,6 +3020,15 @@ msgstr "Mercadoria rara"
 
 msgid "Seltenheit"
 msgstr "Raridade"
+
+msgid "Set %d"
+msgstr "Conjunto %d"
+
+msgid "Set %d gespeichert."
+msgstr "Conjunto %d salvo."
+
+msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
+msgstr "O conjunto %d está vazio. Clique direito salva o que você veste."
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: você salta para onde mira"

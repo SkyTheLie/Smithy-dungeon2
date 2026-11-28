@@ -1941,6 +1941,9 @@ msgstr "Кликни по вещи в инвентаре — наденешь. �
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "Клик или перетащить на вкладку Инвентарь: пристегнуть"
 
+msgid "Klick: dieses Set anlegen · Rechtsklick: Getragenes als Set speichern"
+msgstr "Клик: надеть набор · Правый клик: сохранить надетое"
+
 msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
 msgstr "Клик: сортировать (T) · Правый клик: другой порядок · Ctrl+клик по предмету: закрепить"
 
@@ -3017,6 +3020,15 @@ msgstr "Редкий товар"
 
 msgid "Seltenheit"
 msgstr "Редкость"
+
+msgid "Set %d"
+msgstr "Набор %d"
+
+msgid "Set %d gespeichert."
+msgstr "Набор %d сохранён."
+
+msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
+msgstr "Набор %d пуст. Правый клик сохранит надетое."
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: прыжок туда, куда целишься"

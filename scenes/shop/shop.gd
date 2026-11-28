@@ -123,6 +123,8 @@ var _rng := RandomNumberGenerator.new()
 var _sort_button: Button
 ## Buying back: one place per remembered sale (MetaState.sold_today).
 var _buy_back_slots: Array[ShopSlot] = []
+## The set buttons under the hero (shown with the hero).
+var _gear_sets: HBoxContainer
 ## Readiness check before a run: warned once for this visit (the second click goes).
 var _ready_warned: bool = false
 ## Egon at his place (quests.json locations "egon"): where his picture stands, his gimmick
@@ -225,6 +227,7 @@ func _build() -> void:
 	_hero.judge_for = _hero_judge
 	_hero.drop_for = _hero_drop
 	_frame.add_child(_hero)
+	_build_gear_sets()
 	_build_tabs()
 
 	_table_panel = _panel(Vector2(MIDDLE_X, 10))
@@ -397,6 +400,8 @@ func _tab_button(text: String, tab: String) -> Button:
 ## "equipment" (the hero), "inventory" (the bag of the next run) or "trade" (Egon's exchange).
 func _show_tab(tab: String) -> void:
 	_hero.visible = tab == "equipment"
+	if _gear_sets:
+		_gear_sets.visible = _hero.visible
 	_inventory_tab.visible = tab == "inventory"
 	_trade_panel.visible = tab == "trade"
 	_equipment_tab.set_pressed_no_signal(tab == "equipment")
@@ -628,6 +633,52 @@ func _input(event: InputEvent) -> void:
 	if key and key.pressed and not key.echo and key.physical_keycode == SORT_KEY and not get_viewport().gui_is_dragging() and not _board.visible:
 		get_viewport().set_input_as_handled()
 		sort_stash()
+
+
+# --- Equipment sets (under the hero: click = put on, right click = save) -----------------
+
+func _build_gear_sets() -> void:
+	var row := HBoxContainer.new()
+	row.name = "GearSets"
+	row.add_theme_constant_override("separation", 2)
+	_frame.add_child(row)
+	_gear_sets = row
+	# Right under the hero, once the hero panel has its size.
+	(func() -> void: row.position = _hero.position + Vector2(0, _hero.size.y + 3)).call_deferred()
+	for number in range(1, MetaState.GEAR_SETS + 1):
+		var button := Button.new()
+		button.name = "Set%d" % number
+		button.text = Language.translate("Set %d") % number
+		button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		button.focus_mode = Control.FOCUS_NONE
+		button.add_theme_font_size_override("font_size", 8)
+		button.tooltip_text = Language.translate("Klick: dieses Set anlegen · Rechtsklick: Getragenes als Set speichern")
+		button.pressed.connect(wear_gear_set.bind(number))
+		button.gui_input.connect(func(event: InputEvent) -> void:
+			var click := event as InputEventMouseButton
+			if click and click.pressed and click.button_index == MOUSE_BUTTON_RIGHT:
+				save_gear_set(number))
+		row.add_child(button)
+
+
+func wear_gear_set(number: int) -> void:
+	if _locked:
+		return
+	if MetaState.gear_set(number).is_empty():
+		AudioManager.play_sound("denied")
+		_dialog.bark(Language.translate("Set %d ist leer. Rechtsklick speichert, was du trägst.") % number)
+		return
+	var changed: int = MetaState.wear_gear_set(number)
+	AudioManager.play_sound("item" if changed > 0 else "denied")
+	_refresh()
+
+
+func save_gear_set(number: int) -> void:
+	if _locked:
+		return
+	MetaState.save_gear_set(number)
+	AudioManager.play_sound("unlock", 1.2)
+	_dialog.bark(Language.translate("Set %d gespeichert.") % number)
 
 
 # --- Stash comfort: sort (T), lock (Strg+Klick) ----------------------------------------

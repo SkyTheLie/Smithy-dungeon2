@@ -1941,6 +1941,9 @@ msgstr "روی چیزی در کوله کلیک کن تا بپوشی. روی قه
 msgid "Klick oder in den Reiter Inventar ziehen: an das Inventar anbauen"
 msgstr "کلیک یا کشیدن روی زبانهٔ کیف: وصل کردن به کیف"
 
+msgid "Klick: dieses Set anlegen · Rechtsklick: Getragenes als Set speichern"
+msgstr "کلیک: پوشیدن این دست · کلیک راست: ذخیرهٔ آنچه پوشیده‌ای"
+
 msgid "Klick: sortieren (T) · Rechtsklick: Sortierung wechseln · Strg+Klick auf ein Teil: sperren"
 msgstr "کلیک: مرتب‌سازی (T) · کلیک راست: تغییر ترتیب · Ctrl+کلیک روی یک تکه: قفل"
 
@@ -3017,6 +3020,15 @@ msgstr "کالای کمیاب"
 
 msgid "Seltenheit"
 msgstr "کمیابی"
+
+msgid "Set %d"
+msgstr "دست %d"
+
+msgid "Set %d gespeichert."
+msgstr "دست %d ذخیره شد."
+
+msgid "Set %d ist leer. Rechtsklick speichert, was du trägst."
+msgstr "دست %d خالی است. کلیک راست آنچه پوشیده‌ای را ذخیره می‌کند."
 
 msgid "Shift: du springst dorthin, wo du hinzielst"
 msgstr "Shift: به جایی که نشانه می‌گیری می‌پری"
