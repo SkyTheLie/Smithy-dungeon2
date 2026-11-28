@@ -3336,6 +3336,9 @@ msgstr "沼泽岸边"
 msgid "Synergie: %s!"
 msgstr "协同：%s！"
 
+msgid "Synergien"
+msgstr "协同效果"
+
 msgid "Synergien: %s"
 msgstr "协同：%s"
 
@@ -3603,6 +3606,9 @@ msgstr "放在这里的东西死后也不会丢。"
 msgid "Wasserstab"
 msgstr "水之杖"
 
+msgid "Wegwerfen …"
+msgstr "丢弃中…"
+
 msgid "Weitblick"
 msgstr "远见"
 
@@ -3638,6 +3644,9 @@ msgstr "在这儿买东西送冰柱一根。我鼻子上那根。真的！"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "击杀后射击带着剩余伤害继续飞行"
+
+msgid "Wert der Tasche: %d Gold"
+msgstr "背包价值：%d 金币"
 
 msgid "Wert: %d Gold"
 msgstr "价值:%d 金币"
@@ -3731,6 +3740,9 @@ msgstr "田鼠"
 
 msgid "Wüstenkompass"
 msgstr "沙漠罗盘"
+
+msgid "X halten: wegwerfen"
+msgstr "按住 X：丢弃"
 
 msgid "Zauberbuch"
 msgstr "法术书"

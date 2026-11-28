@@ -3336,6 +3336,9 @@ msgstr "Orilla del pantano"
 msgid "Synergie: %s!"
 msgstr "¡Sinergia: %s!"
 
+msgid "Synergien"
+msgstr "Sinergias"
+
 msgid "Synergien: %s"
 msgstr "Sinergias: %s"
 
@@ -3603,6 +3606,9 @@ msgstr "Lo que está aquí no se pierde al morir."
 msgid "Wasserstab"
 msgstr "Bastón de agua"
 
+msgid "Wegwerfen …"
+msgstr "Tirando …"
+
 msgid "Weitblick"
 msgstr "Vista lejana"
 
@@ -3638,6 +3644,9 @@ msgstr "Quien compra aquí se lleva un carámbano gratis. El de mi nariz. ¡De v
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "El disparo que mata sigue con lo que queda"
+
+msgid "Wert der Tasche: %d Gold"
+msgstr "Valor de la bolsa: %d de oro"
 
 msgid "Wert: %d Gold"
 msgstr "Valor: %d de oro"
@@ -3731,6 +3740,9 @@ msgstr "Topillo"
 
 msgid "Wüstenkompass"
 msgstr "Brújula del desierto"
+
+msgid "X halten: wegwerfen"
+msgstr "Mantén X: tirar"
 
 msgid "Zauberbuch"
 msgstr "Libro de hechizos"

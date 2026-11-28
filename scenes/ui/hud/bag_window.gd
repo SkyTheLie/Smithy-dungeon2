@@ -14,7 +14,10 @@ extends CanvasLayer
 ##   - left, small: the hero's equipment from home (HeroPanel, only shown) and the values of the
 ##     run; right the whole floor (Minimap.always_big); below the items of the run;
 ##   - the guide of the first run (DungeonGuide) can show a line at the top and let the safe place
-##     pulse (set_guide).
+##     pulse (set_guide);
+##   - under the safe place: what the bag is worth (what Egon pays for the loot, Bag.total_value);
+##   - holding X over a piece of loot for DROP_HOLD seconds throws it on the floor (no dragging);
+##   - the values of the run end with the number of active synergies (their names as tooltip).
 ## Only shows and forwards; the rules are in Bag and Dungeon. Built in code (no .tscn).
 
 signal closed
@@ -28,7 +31,10 @@ const BOARD_ROOM := Vector2(250, 130)
 const PANEL_SIZE := Vector2(300, 292)
 ## The description of the piece under the mouse: this wide, at most this many lines (fixed room).
 const INFO_WIDTH: float = 200.0
-const INFO_LINES: int = 7
+const INFO_LINES: int = 6
+## Holding X this long over loot throws it on the floor.
+const DROP_HOLD: float = 0.45
+const DROP_KEY: Key = KEY_X
 const STATS_COLOR := Color(1, 0.9, 0.75)
 const SAFE_COLOR := Color(1.0, 0.78, 0.3)
 const GUIDE_COLOR := Color(0.55, 1.0, 0.6)
@@ -52,6 +58,10 @@ var safe_board: BagBoard
 var _info_name: Label
 var _info_text: Label
 var _hint: Label
+var _worth: Label
+## Quick drop: the piece under the mouse and how long X is held.
+var _hovered: int = -1
+var _drop_held: float = 0.0
 var _guide: Label
 ## The merchant's relic offer (only shown in the trade window).
 var _offer: HBoxContainer
@@ -82,6 +92,7 @@ func open(trade: bool = false) -> void:
 	safe_board.refresh()
 	_refresh_run()
 	_show_info(-1)
+	_refresh_worth()
 	show()
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -192,6 +203,7 @@ func _build() -> void:
 		board.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		board.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 		board.hovered.connect(_show_info)
+		board.dropped.connect(_refresh_worth)
 		board.right_clicked.connect(_on_right_click)
 		board.dropped.connect(func() -> void: _show_info(-1))
 	column.add_child(main_board)
@@ -209,6 +221,9 @@ func _build() -> void:
 	safe_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	safe_text.custom_minimum_size = Vector2(110, 0)
 	info.add_child(safe_text)
+	_worth = _small_label("", 8)
+	_worth.add_theme_color_override("font_color", Color(1.0, 0.85, 0.35))
+	info.add_child(_worth)
 	_info_name = _small_label("", 8)
 	_info_name.custom_minimum_size = Vector2(INFO_WIDTH, 0)
 	_info_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
@@ -260,8 +275,41 @@ func _in_shop() -> bool:
 	return dungeon != null and dungeon.trading
 
 
+## What the bag is worth: what Egon pays for all the loot in it.
+func _refresh_worth() -> void:
+	_worth.text = Language.translate("Wert der Tasche: %d Gold") % run.bag.total_value()
+
+
+## Quick drop: X held over a piece of loot fills a bar, then it falls on the floor.
+func _process(delta: float) -> void:
+	if not visible:
+		return
+	if not Input.is_physical_key_pressed(DROP_KEY) or _hovered < 0 or not _can_drop_index(_hovered):
+		if _drop_held > 0.0:
+			_drop_held = 0.0
+			_show_info(_hovered)
+		return
+	_drop_held += delta
+	var filled: int = clampi(int(_drop_held / DROP_HOLD * 5.0), 0, 5)
+	_info_text.text = Language.translate("Wegwerfen …") + " " + "■".repeat(filled) + "□".repeat(5 - filled)
+	if _drop_held >= DROP_HOLD:
+		_drop_held = 0.0
+		if dungeon and dungeon.drop_from_bag(_hovered):
+			AudioManager.play_sound("pickup", 0.6)
+			main_board.refresh()
+			safe_board.refresh()
+			_refresh_worth()
+		_hovered = -1
+		_show_info(-1)
+
+
+func _can_drop_index(index: int) -> bool:
+	var place: Dictionary = run.bag.get_place(index)
+	return not place.is_empty() and not Bag.is_piece(place)
+
+
 func _hint_text() -> String:
-	var turn: String = Language.translate("R / Rechtsklick beim Ziehen: drehen")
+	var turn: String = Language.translate("R / Rechtsklick beim Ziehen: drehen") + " · " + Language.translate("X halten: wegwerfen")
 	if _in_shop():
 		return Language.translate("Rechtsklick: an den Händler verkaufen · Ziehen: sortieren · Tab: schließen") + "\n" + turn
 	if dungeon != null and dungeon.in_shop():
@@ -378,6 +426,13 @@ func _refresh_run() -> void:
 			Language.translate("Angriffstempo"), PauseMenu.format_number(1.0 / s.fire_delay),
 			Language.translate("Tempo"), PauseMenu.format_number(s.move_speed),
 			Language.translate("Glück"), PauseMenu.format_number(s.luck)]
+	# Active synergies: how many, their names as tooltip.
+	var names: PackedStringArray = []
+	for id: String in run.synergies:
+		names.append(Language.translate(String((Content.synergies().get(id, {}) as Dictionary).get("name", id))))
+	_stats.text += "\n%s: %d" % [Language.translate("Synergien"), names.size()]
+	_stats.tooltip_text = "\n".join(names)
+	_stats.mouse_filter = Control.MOUSE_FILTER_STOP
 	for child: Node in _items.get_children():
 		child.queue_free()
 	var counts: Dictionary[String, int] = {}
@@ -418,12 +473,14 @@ func sell(index: int) -> int:
 	var gold: int = dungeon.sell_from_bag(index)
 	if gold > 0:
 		_refresh_offer()
+		_refresh_worth()
 		_info_name.text = ""
 		_info_text.text = Language.translate("Verkauft für %d Gold") % gold
 	return gold
 
 
 func _show_info(index: int) -> void:
+	_hovered = index
 	var place: Dictionary = run.bag.get_place(index) if index >= 0 else {}
 	if place.is_empty():
 		_info_name.text = ""
@@ -459,3 +516,4 @@ func _drop_on_floor(_at: Vector2, data: Variant) -> void:
 	if dungeon and dungeon.drop_from_bag(int((data as Dictionary)["bag_index"])):
 		AudioManager.play_sound("pickup", 0.6)
 		_show_info(-1)
+		_refresh_worth()

@@ -3336,6 +3336,9 @@ msgstr "کرانه مرداب"
 msgid "Synergie: %s!"
 msgstr "هم‌افزایی: %s!"
 
+msgid "Synergien"
+msgstr "هم‌افزایی‌ها"
+
 msgid "Synergien: %s"
 msgstr "هم‌افزایی‌ها: %s"
 
@@ -3603,6 +3606,9 @@ msgstr "آنچه اینجاست با مرگت از دست نمی‌رود."
 msgid "Wasserstab"
 msgstr "عصای آب"
 
+msgid "Wegwerfen …"
+msgstr "دور انداختن …"
+
 msgid "Weitblick"
 msgstr "دوربینی"
 
@@ -3638,6 +3644,9 @@ msgstr "هر کی اینجا بخره یه قندیل یخ مجانی می‌گ�
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "تیری که بکشد با باقیمانده ادامه می‌دهد"
+
+msgid "Wert der Tasche: %d Gold"
+msgstr "ارزش کیسه: %d طلا"
 
 msgid "Wert: %d Gold"
 msgstr "ارزش: %d طلا"
@@ -3731,6 +3740,9 @@ msgstr "موش صحرایی"
 
 msgid "Wüstenkompass"
 msgstr "قطب‌نمای صحرا"
+
+msgid "X halten: wegwerfen"
+msgstr "نگه داشتن X: دور انداختن"
 
 msgid "Zauberbuch"
 msgstr "کتاب جادو"

@@ -3336,6 +3336,9 @@ msgstr "Swamp Shore"
 msgid "Synergie: %s!"
 msgstr "Synergy: %s!"
 
+msgid "Synergien"
+msgstr "Synergies"
+
 msgid "Synergien: %s"
 msgstr "Synergies: %s"
 
@@ -3603,6 +3606,9 @@ msgstr "What lies here is not lost when you die."
 msgid "Wasserstab"
 msgstr "Water Staff"
 
+msgid "Wegwerfen …"
+msgstr "Dropping …"
+
 msgid "Weitblick"
 msgstr "Far sight"
 
@@ -3638,6 +3644,9 @@ msgstr "Buy here and get a free icicle. The one off my nose. Honest!"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "A killing shot flies on with what is left"
+
+msgid "Wert der Tasche: %d Gold"
+msgstr "Bag worth: %d gold"
 
 msgid "Wert: %d Gold"
 msgstr "Value: %d gold"
@@ -3731,6 +3740,9 @@ msgstr "Vole"
 
 msgid "Wüstenkompass"
 msgstr "Desert Compass"
+
+msgid "X halten: wegwerfen"
+msgstr "Hold X: drop"
 
 msgid "Zauberbuch"
 msgstr "Spellbook"

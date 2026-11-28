@@ -3336,6 +3336,9 @@ msgstr "Rive du marais"
 msgid "Synergie: %s!"
 msgstr "Synergie : %s !"
 
+msgid "Synergien"
+msgstr "Synergies"
+
 msgid "Synergien: %s"
 msgstr "Synergies : %s"
 
@@ -3603,6 +3606,9 @@ msgstr "Ce qui est ici n'est pas perdu si tu meurs."
 msgid "Wasserstab"
 msgstr "Bâton d'eau"
 
+msgid "Wegwerfen …"
+msgstr "Jeter …"
+
 msgid "Weitblick"
 msgstr "Vue perçante"
 
@@ -3638,6 +3644,9 @@ msgstr "Qui achète ici reçoit un glaçon gratuit. Celui de mon nez. Promis !"
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "Un tir qui tue continue avec le reste"
+
+msgid "Wert der Tasche: %d Gold"
+msgstr "Valeur du sac : %d or"
 
 msgid "Wert: %d Gold"
 msgstr "Valeur : %d or"
@@ -3731,6 +3740,9 @@ msgstr "Campagnol"
 
 msgid "Wüstenkompass"
 msgstr "Boussole du désert"
+
+msgid "X halten: wegwerfen"
+msgstr "Maintenir X : jeter"
 
 msgid "Zauberbuch"
 msgstr "Grimoire"

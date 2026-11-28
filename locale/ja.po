@@ -3336,6 +3336,9 @@ msgstr "沼のほとり"
 msgid "Synergie: %s!"
 msgstr "シナジー: %s！"
 
+msgid "Synergien"
+msgstr "シナジー"
+
 msgid "Synergien: %s"
 msgstr "シナジー: %s"
 
@@ -3603,6 +3606,9 @@ msgstr "ここに置いた物は死んでも失わない。"
 msgid "Wasserstab"
 msgstr "水の杖"
 
+msgid "Wegwerfen …"
+msgstr "捨てる…"
+
 msgid "Weitblick"
 msgstr "遠見"
 
@@ -3638,6 +3644,9 @@ msgstr "ここで買えばつららを一本おまけだ。俺の鼻のやつな
 
 msgid "Wer tötet, fliegt mit dem Rest weiter"
 msgstr "倒した弾は残りの威力で飛び続ける"
+
+msgid "Wert der Tasche: %d Gold"
+msgstr "カバンの価値：%d ゴールド"
 
 msgid "Wert: %d Gold"
 msgstr "価値:%d ゴールド"
@@ -3731,6 +3740,9 @@ msgstr "ハタネズミ"
 
 msgid "Wüstenkompass"
 msgstr "砂漠の羅針盤"
+
+msgid "X halten: wegwerfen"
+msgstr "X長押し：捨てる"
 
 msgid "Zauberbuch"
 msgstr "魔導書"
