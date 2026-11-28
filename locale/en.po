@@ -1701,6 +1701,9 @@ msgstr "Hearts"
 msgid "Herzen heilen doppelt"
 msgstr "Hearts heal twice as much"
 
+msgid "Heute Verkauftes zum gleichen Preis zurückkaufen"
+msgstr "Buy back today's sales for the same price"
+
 msgid "Hexenkessel"
 msgstr "Witch's Cauldron"
 
@@ -3818,6 +3821,12 @@ msgstr "To the Shop"
 
 msgid "Zunderbüchse"
 msgstr "Tinderbox"
+
+msgid "Zurück? Na gut. Kein Aufschlag. Diesmal. Ehrlich!"
+msgstr "Back? Fine. No mark-up. This time. Honest!"
+
+msgid "Zurückkaufen"
+msgstr "Buy back"
 
 msgid "Zwanzig Münzen"
 msgstr "Twenty coins"

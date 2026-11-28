@@ -1701,6 +1701,9 @@ msgstr "Cœurs"
 msgid "Herzen heilen doppelt"
 msgstr "Les cœurs soignent deux fois plus"
 
+msgid "Heute Verkauftes zum gleichen Preis zurückkaufen"
+msgstr "Racheter les ventes du jour au même prix"
+
 msgid "Hexenkessel"
 msgstr "Chaudron de sorcière"
 
@@ -3818,6 +3821,12 @@ msgstr "À la boutique"
 
 msgid "Zunderbüchse"
 msgstr "Boîte à amadou"
+
+msgid "Zurück? Na gut. Kein Aufschlag. Diesmal. Ehrlich!"
+msgstr "Tu le reprends ? Bon. Sans supplément. Cette fois. Promis !"
+
+msgid "Zurückkaufen"
+msgstr "Racheter"
 
 msgid "Zwanzig Münzen"
 msgstr "Vingt pièces"

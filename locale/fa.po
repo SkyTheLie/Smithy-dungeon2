@@ -1701,6 +1701,9 @@ msgstr "قلب‌ها"
 msgid "Herzen heilen doppelt"
 msgstr "قلب‌ها دو برابر شفا می‌دهند"
 
+msgid "Heute Verkauftes zum gleichen Preis zurückkaufen"
+msgstr "بازخرید فروش‌های امروز به همان قیمت"
+
 msgid "Hexenkessel"
 msgstr "دیگ جادوگر"
 
@@ -3818,6 +3821,12 @@ msgstr "به مغازه"
 
 msgid "Zunderbüchse"
 msgstr "جعبه آتش‌زنه"
+
+msgid "Zurück? Na gut. Kein Aufschlag. Diesmal. Ehrlich!"
+msgstr "پسش می‌خواهی؟ باشه. بدون اضافه. این بار. راست می‌گم!"
+
+msgid "Zurückkaufen"
+msgstr "بازخرید"
 
 msgid "Zwanzig Münzen"
 msgstr "بیست سکه"

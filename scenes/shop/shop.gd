@@ -121,6 +121,8 @@ var _locked: bool = false
 var _rng := RandomNumberGenerator.new()
 ## Under the stash: sorts it (T), right click changes how.
 var _sort_button: Button
+## Buying back: one place per remembered sale (MetaState.sold_today).
+var _buy_back_slots: Array[ShopSlot] = []
 ## Readiness check before a run: warned once for this visit (the second click goes).
 var _ready_warned: bool = false
 ## Egon at his place (quests.json locations "egon"): where his picture stands, his gimmick
@@ -715,6 +717,7 @@ func _refresh() -> void:
 	_skills_button.reset_size()
 	_skills_button.position.x = _dungeons_button.position.x - 6 - _skills_button.get_combined_minimum_size().x
 	_refresh_quest_place()
+	_refresh_buy_back()
 	_quests_button.reset_size()
 	_quests_button.position.x = _skills_button.position.x - 6 - _quests_button.get_combined_minimum_size().x
 	_gold.text = str(MetaState.box())
@@ -897,6 +900,52 @@ func _build_quest_place() -> void:
 	_quest_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_quest_label.custom_minimum_size = Vector2(110, 0)
 	column.add_child(_quest_label)
+	# Buying back: the last sales of today, for the same price.
+	var back_title := _label(Language.translate("Zurückkaufen"), 9, GOLD_COLOR)
+	back_title.add_theme_constant_override("outline_size", 0)
+	back_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	back_title.tooltip_text = Language.translate("Heute Verkauftes zum gleichen Preis zurückkaufen")
+	back_title.mouse_filter = Control.MOUSE_FILTER_STOP
+	column.add_child(back_title)
+	var back_row := HBoxContainer.new()
+	back_row.add_theme_constant_override("separation", 2)
+	back_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	column.add_child(back_row)
+	for i in MetaState.BUY_BACK_PLACES:
+		var slot := ShopSlot.new()
+		slot.name = "BuyBack%d" % i
+		slot.show_price = true
+		slot.clicked.connect(buy_back.bind(i))
+		back_row.add_child(slot)
+		_buy_back_slots.append(slot)
+
+
+## Buys back the sale on place `index` (MetaState.buy_back): Egon is a little sorry.
+func buy_back(index: int) -> void:
+	if _locked:
+		return
+	if MetaState.buy_back(index):
+		AudioManager.play_sound("buy")
+		_dialog.bark(String((Content.story("barks") as Dictionary).get("bought_back", "")))
+	else:
+		AudioManager.play_sound("denied")
+		if index < MetaState.sold_today().size():
+			_bark("too_poor")
+	_refresh()
+
+
+func _refresh_buy_back() -> void:
+	var sold: Array[Dictionary] = MetaState.sold_today()
+	for i in _buy_back_slots.size():
+		var slot: ShopSlot = _buy_back_slots[i]
+		if i < sold.size():
+			var piece: Dictionary = (sold[i]["piece"] as Dictionary).duplicate()
+			piece["price"] = int(sold[i].get("gold", 0))
+			slot.show_entry(piece)
+			slot.tooltip_text = ShopSlot.describe(piece, true)
+		else:
+			slot.show_entry({})
+			slot.tooltip_text = ""
 
 
 func _refresh_quest_place() -> void:

@@ -1701,6 +1701,9 @@ msgstr "Corações"
 msgid "Herzen heilen doppelt"
 msgstr "Corações curam o dobro"
 
+msgid "Heute Verkauftes zum gleichen Preis zurückkaufen"
+msgstr "Recompre o que vendeu hoje pelo mesmo preço"
+
 msgid "Hexenkessel"
 msgstr "Caldeirão de bruxa"
 
@@ -3818,6 +3821,12 @@ msgstr "Para a loja"
 
 msgid "Zunderbüchse"
 msgstr "Caixa de isca"
+
+msgid "Zurück? Na gut. Kein Aufschlag. Diesmal. Ehrlich!"
+msgstr "De volta? Tá bom. Sem acréscimo. Desta vez. Sério!"
+
+msgid "Zurückkaufen"
+msgstr "Recomprar"
 
 msgid "Zwanzig Münzen"
 msgstr "Vinte moedas"
