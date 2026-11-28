@@ -2584,7 +2584,20 @@
 				"item"
 			]
 		}
-	],
+	],
+	"arrow_traps": {
+		"_info": "Pfeil-Löcher in den Wänden normaler Räume (scenes/objects/arrow_trap.gd, Dungeon._maybe_add_arrow_traps). chance je Raum (eine Ebene kann arrow_trap_chance setzen), ab Ebene from_floor (0 = erste), nicht direkt am Start. warn = Sekunden Vorwarnung (Loch glüht rot, Klicken), damage = Schaden am Spieler in halben Kohlen, enemy_damage = Schaden an Gegnern, speed = m/s. kinds [[Art, Gewicht]]: timed (1–2 Löcher, schießen alle cycle Sekunden), row (Löcher entlang der Nord- oder Südwand an spots, nacheinander mit gap Sekunden, alle cycle Sekunden), plate (Löcher in lanes, Druckplatte in einer Bahn: wer drauftritt, löst aus; Gegner auch; Fliegende nicht).",
+		"chance": 0.15,
+		"from_floor": 1,
+		"warn": 0.6,
+		"damage": 2,
+		"enemy_damage": 4.0,
+		"speed": 7.0,
+		"kinds": [["timed", 3], ["row", 2], ["plate", 2]],
+		"timed": {"count": [1, 2], "cycle": [2.5, 3.5], "lanes": [-3.5, -2.5, 2.5, 3.5]},
+		"row": {"spots": [-5.5, -3.5, 3.5, 5.5], "gap": 0.35, "cycle": 4.0},
+		"plate": {"lanes": [-3.5, 3.5], "size": 0.9, "cooldown": 2.0}
+	},
 	"hazard_types": {
 		"_info": "Fallen auf dem Boden der normalen Räume (Gebiet/Ebene \"hazards\": [Art, [min, max] je Raum]). Drüberlaufen kostet damage halbe Herzen (dann kurz unverwundbar wie bei jedem Treffer). size [min, max] = Seitenlänge in Metern. cycle [unten, oben] = Stacheln fahren aus und ein, Schaden nur wenn oben (fehlt = immer gefährlich). color = Farbe (RGB), glow = Leuchten. hold = Sekunden, die eine Falle (Fangeisen) den Spieler festhält; sie schnappt einmal zu und ist dann weg. hidden: true = kaum zu sehen (im hohen Gras fast unsichtbar). snare_thrown = das Fangeisen, das ein Boss wirft (enemies.json snare). decor = etwas, das auf einer sichtbaren Falle sitzt (sprite = Bildstreifen, frames, fps, height in m, count, return = Sekunden, bis es nach dem Aufscheuchen wiederkommt); die Tauben fliegen auf, wenn man hineintritt. owner = player: eine eigene Falle des Spielers (von Items/Relikten traps [{kind, chance}]: der Schuss legt sie, wo er endet); sie trifft nur Gegner (nicht fliegende): damage_mult x Schuss-Schaden, höchstens alle every Sekunden je Gegner, mit hold schnappt sie einmal zu und betäubt; life = Sekunden, bis sie weg ist.",
 		"lava": {

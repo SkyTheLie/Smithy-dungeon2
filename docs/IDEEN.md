@@ -247,7 +247,7 @@ Reihenfolge zum Bauen (zuerst, was schnell geht oder viel bringt; ✅ = gebaut a
 
 Gehören zu `floors.json` `hazard_types` (wie Stacheln/Lava), Takt und Schaden in den Daten. Jede Falle **warnt vorher** (Bild + Ton), damit man reagieren kann.
 
-1. **Pfeil-Wände:** Löcher in der Wand schießen Pfeile quer durch den Raum (`EnemyShot.arrow` gibt es schon).
+1. ✅ (`feature/pfeil-waende`) **Pfeil-Wände:** Löcher in der Wand schießen Pfeile quer durch den Raum (`EnemyShot.arrow` gibt es schon).
    - Arten: im festen Takt; per **Druckplatte** ausgelöst; in Reihen nacheinander (Lauf-Muster).
    - Vorwarnung: Loch glimmt/rüttelt kurz, Klick-Ton (Mechanik spannt), dann Zisch beim Schuss.
    - Pfeile treffen auch Gegner (wer Gegner auf die Platte lockt, lässt sie sich selbst abschießen).

@@ -23,6 +23,9 @@ var size: float = 1.0
 var lifetime: float = LIFETIME
 ## Looks like an arrow (a boss with a bow) instead of an orb.
 var arrow: bool = false
+## > 0: it also hurts enemies it flies through (arrow traps in the walls), then ends.
+var enemy_damage: float = 0.0
+var dungeon: Dungeon = null
 
 var _age: float = 0.0
 var _returning: bool = false
@@ -144,6 +147,9 @@ func _physics_process(delta: float) -> void:
 		pop()
 		return
 	global_position = to
+	if enemy_damage > 0.0 and dungeon and _hit_enemy():
+		pop()
+		return
 	if player and player.is_hit_by(global_position, radius()):
 		player.take_hit(damage)
 		if slows:
@@ -171,6 +177,19 @@ func _shimmer(delta: float) -> void:
 		kind = "shot_smoke"
 		Fx.colored_ball(kind, SMOKE_CORE, SMOKE_COLOR)
 	Fx.puff(get_parent() as Node3D, global_position, kind, 0.22 * size)
+
+
+## Arrow traps: the first enemy it touches takes enemy_damage. true if one was hit.
+func _hit_enemy() -> bool:
+	for enemy: Enemy in dungeon.get_enemies():
+		if not enemy.alive or enemy.hidden_phase:
+			continue
+		var offset: Vector3 = enemy.global_position - global_position
+		offset.y = 0.0
+		if offset.length() < enemy.radius + radius():
+			enemy.take_damage(enemy_damage, velocity.normalized() * 2.0, false)
+			return true
+	return false
 
 
 func _steer(delta: float) -> void:

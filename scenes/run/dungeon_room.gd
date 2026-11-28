@@ -17,6 +17,9 @@ var rocks: Array[Rock] = []
 var breakables: Array[BreakableProp] = []
 ## Pedestals and pickups in the room (for the map).
 var loot: Array[Node3D] = []
+## Arrow holes in the walls and their pressure plates (floors.json "arrow_traps").
+var arrow_traps: Array[ArrowTrap] = []
+var plates: Array[PressurePlate] = []
 ## Chests (data/chests.json; Dungeon opens them).
 var chests: Array[Chest] = []
 ## Stone chamber: radius of its outer ring of rocks around the middle (0 = none), kept free of
