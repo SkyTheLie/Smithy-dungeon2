@@ -18,7 +18,7 @@ extends DungeonRoom
 ## The rails are rectangles: every platform is right next to the one inside it while both are in
 ## the middle of the same side. Both rings take `period` seconds for a whole lap, so every
 ## period/4 seconds a way from every door to the center lines up (door, outer, inner, center).
-## A platform carries the player standing on it. Walking from one platform to another works
+## A platform carries the player standing on it; a flying player (Player.flying) never falls. Walking from one platform to another works
 ## wherever they touch (the gap between neighbours is `gap`, the player may stand `reach` over an
 ## edge). Dungeon builds the hall the first time (enter_gear_chasm), calls tick() every physics
 ## frame while the player is in it, and on_leave() when they are taken out.
@@ -370,6 +370,10 @@ func tick(delta: float) -> void:
 	if falling:
 		return
 	if under == null:
+		# Flying (fly, ghost items): over the chasm without falling.
+		if player.flying():
+			_standing = null
+			return
 		_fall()
 		return
 	_standing = under

@@ -2,7 +2,7 @@
 
 Erzeugt aus `data/items.json` (Feld `category`). Jedes Item außer den geheimen kann im Item-Raum liegen; „Wo“ nennt die weiteren Orte.
 
-## Offensiv (Schaden, Schüsse, Waffen) – 112 Items
+## Offensiv (Schaden, Schüsse, Waffen) – 115 Items
 
 | Item | Wirkung | Wo |
 |---|---|---|
@@ -15,6 +15,7 @@ Erzeugt aus `data/items.json` (Feld `category`). Jedes Item außer den geheimen 
 | Bumerang-Haken | Schüsse fliegen zu dir zurück | Item-Raum |
 | Drachenhaut | Jeder Treffer macht dich auf dieser Ebene stärker | Item-Raum |
 | Dreizack-Rune | Dreifachschuss | Item-Raum |
+| Dunkle Flügel | Du fliegst über Fallen und Abgründe, Schaden +1 | Laden |
 | Dunkler Zauberstab | Zwei Schüsse mehr, etwas schwächer | Glutpakt |
 | Eisspiegel | Schüsse prallen von Wänden ab | Laden |
 | Eisstab | Gegner werden langsamer, Reichweite hoch | Item-Raum |
@@ -22,6 +23,7 @@ Erzeugt aus `data/items.json` (Feld `category`). Jedes Item außer den geheimen 
 | Erstglut | Riesige Schüsse, die im Flug schrumpfen | Item-Raum |
 | Feuerlanze | Feuerstrahl statt Feuerbällen: Maustaste halten | Item-Raum |
 | Feuerstab | Gegner brennen, Schaden hoch | Item-Raum |
+| Fledermausschwingen | Du fliegst und schießt schneller | Item-Raum |
 | Frostflechte | Getroffene Gegner werden langsamer | Laden |
 | Frostkristall | Getroffene Gegner frieren kurz ein | Item-Raum |
 | Frostmähne | Manchmal frieren Gegner ein | Item-Raum |
@@ -104,6 +106,7 @@ Erzeugt aus `data/items.json` (Feld `category`). Jedes Item außer den geheimen 
 | Sternenstaub | Alle Werte ein bisschen hoch | Boss, Laden |
 | Streitkolben | Größere Feuerbälle, mehr Schaden | Boss |
 | Sturmessenz | Schneller schießen, Schüsse zerplatzen am Ende | Item-Raum |
+| Sturmring | Du fliegst, Schüsse fliegen schneller und weiter | Laden |
 | Sturmsiegel | Schüsse zerplatzen am Ende und fliegen durch Steine | Geheimraum |
 | Sturmstab | Schnellere Schüsse fliegen durch Gegner | Item-Raum |
 | Suchender Funke | Deine Schüsse verfolgen Gegner | Laden |
@@ -119,7 +122,7 @@ Erzeugt aus `data/items.json` (Feld `category`). Jedes Item außer den geheimen 
 | Zunderbüchse | Du schießt schneller | Boss, Laden |
 | Zwillingshandschuhe | Jeder zweite Schuss ist viel stärker | Item-Raum |
 
-## Defensiv (Herzen, Schutz, Heilung) – 55 Items
+## Defensiv (Herzen, Schutz, Heilung) – 58 Items
 
 | Item | Wirkung | Wo |
 |---|---|---|
@@ -167,6 +170,7 @@ Erzeugt aus `data/items.json` (Feld `category`). Jedes Item außer den geheimen 
 | Schattenmantel | Manchmal weichst du Treffern aus | Laden, Schrein |
 | Schmiedeschürze | Fünf Bomben, und Explosionen tun dir nichts mehr | Laden |
 | Schwarzer Kristall | Zwei blaue Herzen; geht eins verloren, trifft es alle Gegner | Glutpakt |
+| Schwebestiefel | Du fliegst und bist nach Treffern länger geschützt | Item-Raum |
 | Seelenstab | Ein zweites Leben und ein Funke | freischaltbar |
 | Silberamulett | Zwei blaue Herzen | Boss, Schrein |
 | Silberdolch | Heilen durch Besiegte, Schaden hoch | freischaltbar |
@@ -175,18 +179,22 @@ Erzeugt aus `data/items.json` (Feld `category`). Jedes Item außer den geheimen 
 | Sumpfhaut | Zwei Herzen mehr, aber langsamer | Boss |
 | Sumpfleder | Ein Herz mehr, heilt dich ganz | Boss |
 | Sumpfmantel | Ein blaues Herz und Dornen | Item-Raum |
+| Sumpfnebel | Du wirst zu Nebel: du fliegst und weichst manchmal aus | freischaltbar |
 | Trollblut | Du wirst viel größer und stärker, aber langsamer | Glutpakt |
 | Trollpanzer | Zwei Herzen mehr und Dornen | freischaltbar |
+| Weiße Flügel | Du fliegst über Fallen und Abgründe, zwei blaue Herzen | Schrein |
 | Wolfsmantel | Manchmal ausweichen, schneller laufen | Item-Raum |
 
-## Utility (Bewegung, Geld, Glück, Vorräte) – 36 Items
+## Utility (Bewegung, Geld, Glück, Vorräte) – 40 Items
 
 | Item | Wirkung | Wo |
 |---|---|---|
+| Aufwind | Wind von unten trägt dich: du fliegst, Tempo +1 | Laden |
 | Bombengürtel | Zehn Bomben | Laden |
 | Dietrich | Vier Schlüssel | Laden |
 | Elfenbrief | Ein Funke und mehr Glück | Item-Raum |
 | Feuerkranz | Bomben schießen beim Explodieren Feuerbälle | Laden |
+| Geistgestalt | Du wirst zum Geist: du schwebst durch Steine, deine Schüsse auch | Glutpakt |
 | Glücksflachs | Glück hoch | Boss, Laden |
 | Glühender Schlüssel | Dreißig Münzen und zehn Schlüssel | Geheimraum |
 | Goblinkrone | Schaden mal 1,3 und zehn Münzen | freischaltbar, Boss |
@@ -207,6 +215,7 @@ Erzeugt aus `data/items.json` (Feld `category`). Jedes Item außer den geheimen 
 | Schlüsselform | Drei Schlüssel, Rabatt im Laden | Item-Raum |
 | Schmiedeschlüssel | Fünf Schlüssel | Laden |
 | Schrumpftrank | Du wirst kleiner: schwerer zu treffen, schneller | Boss, Laden |
+| Seelenvogel | Ein Geistervogel trägt dich: du fliegst, Glück +1 | Item-Raum |
 | Seherbräu | Suchende Schüsse, Glück hoch | Laden |
 | Silberader | Zehn Münzen, Glück hoch | Item-Raum |
 | Silberring | Glück und Schaden hoch | Boss |
@@ -219,3 +228,4 @@ Erzeugt aus `data/items.json` (Feld `category`). Jedes Item außer den geheimen 
 | Wanderbündel | Fünf Münzen, drei Bomben, drei Schlüssel | Laden |
 | Wettkampfstiefel | Viel schneller laufen | Boss |
 | Windläufer-Stiefel | Shift: ein schneller Sprint, kurz unverwundbar | Laden |
+| Wirbelwind | Du fliegst, Tempo hoch, Schüsse stoßen Gegner weg | Item-Raum |

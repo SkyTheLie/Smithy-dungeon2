@@ -6,7 +6,7 @@ const KNOWN_FLAGS: Array[String] = ["homing", "pierce", "bounce", "boomerang", "
 		"poison", "freeze", "fear", "daze", "spectral", "back", "cross", "shrink", "burst", "overkill", "alternate",
 		"bomb_ring", "blast_heal", "damage_cap", "dodge", "thorns", "still_guard", "regen", "kill_heal", "double_heal",
 		"desperate", "fury", "small", "stomp", "extra_life", "blue_burst", "discount", "magnet", "choice",
-		"bleed", "shuriken", "arrow", "dash", "blink", "fire_slash"]
+		"bleed", "shuriken", "arrow", "dash", "blink", "fire_slash", "fly", "ghost"]
 const KNOWN_STATS: Array[String] = ["damage", "fire_delay", "reach", "shot_speed", "size", "spread", "move_speed", "knockback", "shots", "orbitals", "hearts", "blue_hearts",
 		"bomb_size", "luck", "guard_time", "helpers", "body"]
 
@@ -14,7 +14,7 @@ const KNOWN_STATS: Array[String] = ["damage", "fire_delay", "reach", "shot_speed
 func run() -> void:
 	var content: Script = script("res://scripts/core/content.gd")
 	var items: Dictionary = content.call("items")
-	check_eq(items.size(), 203, "203 items (200 + the three start weapons)")
+	check_eq(items.size(), 213, "213 items (210 + the three start weapons)")
 	var enemies_data: Dictionary = content.call("enemies")
 	for id: String in items:
 		var item: Dictionary = items[id]

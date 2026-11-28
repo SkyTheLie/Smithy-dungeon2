@@ -111,6 +111,11 @@ Ideen dazu: `docs/IDEEN.md`. Woher die Logik kommt: `docs/SMITHY_LOGIK.md`.
 - ✅ Endboss-Halle des Moors (`dungeons.json` `end_room`): Portal nach der letzten Ebene → Räderkluft, die Sumpfhydra steht fest auf dem Podest, ihre Schleime bleiben auf den Plattformen; danach goldenes Licht auf der Mitte.
 - Offen: eigener Boss mit Mustern für die Halle; Bomben über dem Abgrund.
 
+### Flug-Items (2026-11-28, `feature/flug-items`)
+
+- ✅ 10 Items mit `fly` (über Fallen und Abgründe, Sicht höher) bzw. `ghost` (Geistgestalt: auch durch Steine).
+- Offen: Synergie Dunkle + Weiße Flügel; Gegner, die Flieger besonders treffen.
+
 ### Spielgefühl, Behälter, Tausch (Nachricht vom 2026-11-28, Liste in `docs/IDEEN.md`)
 
 - ✅ Weniger Beute: höchstens 1 Ding je Raum (`loot.json` `room_budget`), Münzen seltener.
